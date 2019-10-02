@@ -1,0 +1,72 @@
+site_name: Grist Help Center
+site_dir: static/help
+site_favicon: ../favicon.png
+docs_dir: './help'
+# windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
+theme: windmill
+pages:
+  - Home: index.md
+  - How-Tos:
+    - Analyze and visualize: investment-research.md
+  - Grist intro:
+    - What is Grist: intro.md
+    - Grist concepts: concepts.md
+    - Release notes: releases.md
+  - Entering and viewing data:
+    - Entering data in a grid: enter-grid.md
+    - Adding and deleting records: add-records.md
+    - Adding and deleting columns: add-columns.md
+    - Working in record view: enter-detail.md
+  - Using formulas:
+    - Getting started with formulas: formulas.md
+    - Lookup formulas: lookup-formulas.md
+    - Working with dates: dates.md
+    - Function reference: functions.md
+  - Working with columns or fields:
+    - Naming columns: col-naming.md
+    - Column types: col-types.md
+    - Reference columns: col-refs.md
+    - Changing column types: col-change-type.md
+    - Column transformations: col-transforms.md
+  - Working with tables:
+    - Adding tables: table-add.md
+    - Renaming and deleting tables: table-mod.md
+  - Summarizing data:
+    - Creating summary views: summary-create.md
+    - Changing group-by fields: summary-change.md
+    - Summary formulas: summary-formulas.md
+  - Configuring views:
+    - Types of views: view-types.md
+    - Creating view layouts: view-layouts.md
+    - Linking views: view-linking.md
+  - Importing and exporting:
+    - Importing new tables: imports.md
+    - Exporting views: exports.md
+    - Publishing and embedding data: publish.md
+  - Integrations and APIs:
+    - REST API to Grist instance: rest-api.md
+    - Document file format: file-format.md
+  - Contact us: contact-us.md
+
+extra:
+  logo: 'images/logo.png'
+  palette:
+    primary: 'blue grey'
+    accent: 'orange'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  homepage: '/help'
+  version: '0.13.0-dev'
+  article_nav_bottom: false
+  history_buttons: true
+extra_css:
+  - css/grist.css
+extra_javascript:
+  - js/grist.js
+
+markdown_extensions:
+  - toc:
+      permalink: '#'
+  - admonition
+  - footnotes
