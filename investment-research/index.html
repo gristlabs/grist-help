@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Analyze and visualize - Grist Help Center</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to analyze and visualize data", url: "#_top", children: [
+              {title: "Exploring the example", url: "#exploring-the-example" },
+              {title: "How can I make this?", url: "#how-can-i-make-this" },
+              {title: "Get the data", url: "#get-the-data" },
+              {title: "Make it relational", url: "#make-it-relational" },
+              {title: "Summarize", url: "#summarize" },
+              {title: "Chart, graph, plot", url: "#chart-graph-plot" },
+              {title: "Dynamic charts", url: "#dynamic-charts" },
+              {title: "Next steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/grist.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../intro/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../intro/" class="btn btn-xs btn-link">
+        What is Grist
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href=".." class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href=".." class="btn btn-xs btn-link">
+        Home
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="how-to-analyze-and-visualize-data">How to analyze and visualize data<a class="headerlink" href="#how-to-analyze-and-visualize-data" title="Permanent link">#</a></h1>
+<p>Grist offers several powerful ways to analyze and visualize data. In this tutorial, you’ll learn how to:</p>
+<ul>
+<li>Create summary tables</li>
+<li>Create and configure charts</li>
+<li>Link charts dynamically</li>
+</ul>
+<p>To explain these features, we’ll use the sample document “Investment Research”<sup id="fnref:doc_desc"><a class="footnote-ref" href="#fn:doc_desc">1</a></sup>. The dataset comes
+from <a href="https://www.kaggle.com/mauriciocap/crunchbase2013">Kaggle</a>, and includes companies and
+investments in them up to 2013. Let’s take a look at the
+sample document and then we’ll talk about how to build it so that you can apply these tools to
+your own data.</p>
+<h2 id="exploring-the-example">Exploring the example<a class="headerlink" href="#exploring-the-example" title="Permanent link">#</a></h2>
+<p>Open the document “Investment Research”, found in Examples &amp; Templates in your Grist home page.
+The first thing you’ll see is “Overview”. This page contains two charts next to two tables.</p>
+<p><img alt="1-overview-page" src="../images/investment-research/1-overview-page.png" /></p>
+<ul>
+<li>The top left has a pie chart showing the distribution of investments by category. The table next
+  to it has the same data in tabular form.</li>
+<li>Below the pie chart is a bar graph showing the total investments raised by year. It is also
+  accompanied by the same data in the table next to it in tabular form.</li>
+</ul>
+<p>All these charts and tables are examples of “summary tables”, which we’ll describe below.</p>
+<p>The next page, “Breakdowns”, also contains two tables and two charts, but these are linked
+dynamically and offer much more detailed insight into the data.</p>
+<p><img alt="2-breakdowns-page" src="../images/investment-research/2-breakdowns-page.png" /></p>
+<ul>
+<li>
+<p>On the top left is a table showing the total funding by year (the same table as we saw on the
+previous page). This table serves as a driver for the chart next to it. When you click on a year
+in the table, the pie chart updates to show the distribution of investments in that year.</p>
+</li>
+<li>
+<p>Similarly, the bottom table shows investments by category. When you click on any category, the
+line chart next to it updates to show the history of funding in that category over the years.</p>
+</li>
+</ul>
+<p>Note how powerful this is, and how much insight you can gain from it. For instance, you can see
+that the Software category had a major dip in investments around the recession of 2008, and that
+Biotech has consistently beaten it since then.</p>
+<p>On the next page, “Company Details”, we get to see the granular data of this dataset.</p>
+<p><img alt="3-company-details" src="../images/investment-research/3-company-details.png" /></p>
+<p>Here, we see a list of companies and the categories they fall into. Each company shown has a link
+pointing to its listing on the Crunchbase website. Selecting a company shows a card with its
+details, as well as a list of all the investments it has received.</p>
+<p>This is where we begin to see the power of Grist. The original dataset is a flat spreadsheet of
+companies, and an even bigger spreadsheet of investments. By displaying the data graphically, the
+data comes alive, making it powerful and useful.</p>
+<h2 id="how-can-i-make-this">How can I make this?<a class="headerlink" href="#how-can-i-make-this" title="Permanent link">#</a></h2>
+<p>With Grist, presenting your own data in graphic form is a few easy steps away. Let’s begin with
+the first step.</p>
+<h2 id="get-the-data">Get the data<a class="headerlink" href="#get-the-data" title="Permanent link">#</a></h2>
+<p>Let’s import the raw data. We’ll import two CSV files, where each will become its own table. To
+follow along, save the files from
+<a href="https://raw.githubusercontent.com/dsagal/crunchbase-october-2013/master/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a>
+and
+<a href="https://raw.githubusercontent.com/dsagal/crunchbase-october-2013/master/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>
+to
+your computer first. Then, create a Grist document by importing the first file from the home page.</p>
+<p><img alt="4-first-import" src="../images/investment-research/4-first-import.png" /></p>
+<p>Next, import the second table using the “Add New” button and the “Import from file” option.</p>
+<p><img alt="5-second-import" src="../images/investment-research/5-second-import.png" /></p>
+<p>In the import dialog box, finish by clicking “Import” on the bottom left.</p>
+<p>The tables you’ve imported will be named “crunchbase_companies_ny” and
+“crunchbase_investments_ny”. Use the page menu (click on the three dots beside the file name) to
+rename them “Companies” and “Investments”.</p>
+<p><img alt="6-rename-page" src="../images/investment-research/6-rename-page.png" /></p>
+<h2 id="make-it-relational">Make it relational<a class="headerlink" href="#make-it-relational" title="Permanent link">#</a></h2>
+<p>The power of Grist comes from giving structure to the data.</p>
+<p>Take a look at the “Investments” table. Sort by the first column and you’ll notice how much
+repetition there is: each row contains the complete company info, which both duplicates the data
+in the “Companies” table, and is repeated multiple times when multiple investments apply to the
+same company.<sup id="fnref:denormalized"><a class="footnote-ref" href="#fn:denormalized">2</a></sup></p>
+<p>The reality is that each investment applies to a single company. Each investment row only needs to
+contain a reference to a company, and the data specific to that investment.</p>
+<p>To make it so, find a column that identifies a company uniquely. In this dataset, the first
+column, “company_permalink”, does it best<sup id="fnref:unique_id"><a class="footnote-ref" href="#fn:unique_id">3</a></sup>. Click on the arrow in the column header and click
+“Column Options”. Click on the arrow beside “Text” under the “Column Type” in the dialogue box at
+the right of the screen and select “Reference” from the list.</p>
+<p><img alt="7-set-reference" src="../images/investment-research/7-set-reference.png" /></p>
+<p>Grist will automatically suggest to make it a “Reference” to the “Companies” table, and to show
+the referenced company’s “permalink”. Click “Apply” to save this conversion.</p>
+<p><img alt="8-preview-reference" src="../images/investment-research/8-preview-reference.png" /></p>
+<p>Let’s also rename this column to “Company”.</p>
+<p>In Grist, duplicated data is not needed and we recommend removing it. Using the <code>Option-Minus</code> (Mac)
+or <code>Alt-Minus</code> (Windows) shortcut is a quick way to remove columns. After removing the columns from
+“company_name” to “company_city”, here’s what’s left:</p>
+<p><img alt="9-remove-columns" src="../images/investment-research/9-remove-columns.png" /></p>
+<p>The data you’ve deleted isn’t lost since it was duplicated – it’s still available in the
+“Companies” table and can be used in an Investment record’s formula as, e.g.
+<code>$Company.company_xxx</code>.</p>
+<p>In fact, there’s a handy way to create this kind of formula. Let’s create one that we’ll need
+later. Click the header of the “Company” column. In the right panel’s Column tab, you’ll see a
+section ‘Add Referenced Columns’. Click ‘Add Column’ to add the “category_code” column.</p>
+<p><img alt="10-add-referenced1" src="../images/investment-research/10-add-referenced1.png" /></p>
+<p>A new column will be added to the table with the formula <code>$Company.category_code</code>. For each
+investment, it shows the “category_code” of the company linked to its investment record.</p>
+<p><img alt="11-add-referenced2" src="../images/investment-research/11-add-referenced2.png" /></p>
+<h2 id="summarize">Summarize<a class="headerlink" href="#summarize" title="Permanent link">#</a></h2>
+<p>The powerful feature you’ve been waiting for is the one that summarizes the data. To utilize this,
+let’s add a table showing companies grouped by “category_code”.</p>
+<p>In the “Add New” menu, select “Add Page”. In the dialog box, select “Table” and “Companies”, and
+then use the summation symbol (∑) to select the “Group By” columns -- i.e. the columns by which to
+summarize.</p>
+<p><img alt="12-start-summary" src="../images/investment-research/12-start-summary.png" /></p>
+<p>If you don’t select any columns, you’ll just get a single row of totals. If you summarize by
+“category_code”, you’ll get a row for each distinct value of “category_code”. Let’s do that and
+then click “Add to page”.</p>
+<p><img alt="13-summary-added" src="../images/investment-research/13-summary-added.png" /></p>
+<p>This is similar to Excel’s pivot tables. Each row represents the group of records from the source
+table (“Companies”) that have a particular value of “category_code”. There is a reminder of that
+in the table’s title (“COMPANIES [by category_code]”).</p>
+<p>Such summary tables can (and should!) use formulas. The columns you choose when creating the table
+are the identifiers of the groups. All other columns are formula columns -- they are calculated.
+In formulas, the group of source records summarized by one row is available as the value “$group”.</p>
+<p>For example, you’ll see a column created automatically called “count”. If you hit</p>
+<p>“Enter”, you’ll see the formula in it -- <code>len($group)</code> -- that’s just the number of records in
+that group of records, i.e. the number of companies in that category.</p>
+<p><img alt="14-summary-count-formula" src="../images/investment-research/14-summary-count-formula.png" /></p>
+<p>For numeric columns in the source table, summary tables automatically get a same-named numeric
+column containing a sum, with a formula such as <code>SUM($group.funding_total_usd)</code>.</p>
+<p><img alt="15-summary-sum-formula" src="../images/investment-research/15-summary-sum-formula.png" /></p>
+<div class="admonition tip">
+<p><strong>Side note for Python fans.</strong>
+<code>$group</code> is a special Python object. It’s an iterable collection of records. Using an
+attribute like <code>$group.A</code> is a shorthand for the list of values in the <code>A</code> column of all the
+records in the group, i.e. it’s roughly equivalent to <code>[r.A for r in $group]</code>.</p>
+</div>
+<p>Sometimes, adding the values doesn’t make sense. E.g. the sum of “founded_year” is meaningless.
+It’s best to delete that column, as well as anything else we don’t need. We’ll just leave the
+“funding_total_usd” column.</p>
+<p><img alt="16-summary-remove-columns" src="../images/investment-research/16-summary-remove-columns.png" /></p>
+<p>Let’s add a second summary table. Select “Add New” again to “Add Widget to Page”. To get a summary
+by year, select the “Investments” table under “Select Data”, and again use its sum symbol (∑) to
+select the column by which to summarize: “funded_year” and then click “Add to page”.</p>
+<p><img alt="17-add-summary2" src="../images/investment-research/17-add-summary2.png" /></p>
+<p>This produces a second summary table that shows a record for each year, with each representing a
+group of “Investments” rows for that year. The most useful column is “raised_amount_usd”, adding
+all investments made in that year. Let’s delete the unneeded columns.</p>
+<p>You’ll notice pink values in “raised_amount_usd”. That’s because Grist guesses the column type to
+be an integer.The pink sums are instances where the numbers exceed Javascript’s ability to handle
+large integers. To correct for this, the type of the column should be switched to “Numeric” (which
+trades off precision for the ability to represent very large and very small numbers). Change the
+type to “Numeric“ under “Column options”.</p>
+<p><img alt="18-change-int-to-numeric" src="../images/investment-research/18-change-int-to-numeric.png" /></p>
+<h2 id="chart-graph-plot">Chart, graph, plot<a class="headerlink" href="#chart-graph-plot" title="Permanent link">#</a></h2>
+<p>You can make a chart of any data. To this page, we want to add a graphic version of each summary
+table. Select the “Add New” button again, pick “Add Widget to Page”, select “Chart” as the widget,
+and the same table (Companies) and summary column (category_code) as before.</p>
+<p><img alt="19-add-chart1" src="../images/investment-research/19-add-chart1.png" /></p>
+<p>For a chart, you’ll always follow up by customizing it.</p>
+<p>Open the right panel, and select “Chart” tab / “Widget” subtab. The “Visible Series” section in
+the subtab determines which columns of data will be used as the series in the chart. Their exact
+meaning depends on the chart type.</p>
+<p>For this first chart, under “Chart type, select “Pie Chart”. To construct this chart, two Visible
+Series are required: the first one will be used as labels, and the second as values.  Since we
+want the chart to show “category_code” as labels, and “funding_total_usd” as values, those should
+be the two items in the “Visible Series” list in the configuration panel. As you move your mouse
+over the items in that list, use the checkboxes or the “eye” icon that shows up to remove the
+other series from the list.</p>
+<p><img alt="20-chart-vis-fields" src="../images/investment-research/20-chart-vis-fields.png" /></p>
+<p>Now add a chart showing a trend by year. Add another “Widget to page”, select “Chart” under
+“Widget”, select “Investments” under “Select Data”, click summation (∑) to group by “funded_year”,
+and click “Add to page”.</p>
+<p>To customize this chart, stick with the chart type “Bar Chart”. The list of “Visible Series” in
+the “Chart” tab should now be adjusted: the first series will be the values for the X (horizontal)
+axis, and second (and possible additional) series will be the values for the Y (vertical) axis. So
+hide the unwanted columns (“count”), and leave the “funded_year” first (to serve as the X-values),
+and “raised_amount_usd” second (to serve as the Y-values).</p>
+<p><img alt="21-add-chart2" src="../images/investment-research/21-add-chart2.png" /></p>
+<p>Drag and drop the sections into a configuration you’d like to see for a dashboard, and then rename
+the page “Overview”.</p>
+<p><img alt="22-rearrange-widgets" src="../images/investment-research/22-rearrange-widgets.png" /></p>
+<h2 id="dynamic-charts">Dynamic charts<a class="headerlink" href="#dynamic-charts" title="Permanent link">#</a></h2>
+<p>If you’ve read our other tutorials on linking data, this will come naturally. Charts are simply a
+different way to show data, and they can be linked in the same way as tables.</p>
+<p>For our example, we’ll add a new page with a summary table: widget “Table”, data “Investments”,
+group by “funded_year”.</p>
+<p><img alt="23-dynamic-start" src="../images/investment-research/23-dynamic-start.png" /></p>
+<p>Let’s rename this new page “Breakdowns”.</p>
+<p>Next, add a widget to this page, selecting widget “Chart”, data “Investments”. For “Group By”,  we
+pick two columns: “funded_year” and “Company_category_code”.</p>
+<div class="admonition tip">
+<p><strong>Note:</strong> This is why we added the “Company_category_code” column earlier. We can only group investment
+records by the category code if we have this code for each investment.</p>
+</div>
+<p>The “Select By” dropdown at the bottom of the dialog box lists widgets already on the screen that
+can control the selection of data in the chart we are adding. In “Select By”, choose “INVESTMENTS
+[by funded_year]”, and click “Add to Page”.</p>
+<p><img alt="24-dynamic-chart-start" src="../images/investment-research/24-dynamic-chart-start.png" /></p>
+<div class="admonition tip">
+<p><strong>Note:</strong> If you need to make changes to a widget you already added, such as change its type,
+“Group By”, or “Select By” settings, you can always do so from the “Data” subtab in the widget
+settings, using the “Edit Data Selection” button.</p>
+</div>
+<p>We want to be able to select a year, and then show a pie chart for that year that displays the
+total for each category code. The “Select By” option we chose ensures that only the selected
+year’s data is used. All that’s left is to change the chart type to “Pie Chart”, and set “Visible
+Series” to only “category_code” and “raised_amount_usd”.</p>
+<p><img alt="25-dynamic-vis-fields" src="../images/investment-research/25-dynamic-vis-fields.png" /></p>
+<p>Note: Graphs need more screenspace, so our small screenshots will look better if we close the
+side-panes.</p>
+<p>Let’s  also sort the table by “funded_year”.</p>
+<p><img alt="26-dynamic-table-sort" src="../images/investment-research/26-dynamic-table-sort.png" /></p>
+<p>As far as sorting, the highlighted button above the table reminds you that sort settings aren’t
+saved automatically. Click the button and select “Save” to do that.</p>
+<p><img alt="27-dynamic-table-sort-save" src="../images/investment-research/27-dynamic-table-sort-save.png" /></p>
+<p>What’s the result? We can click through the years (or use arrow keys), and see the distribution by
+category change.</p>
+<p>The last two steps are similar. Here, we’ll want to select a category in a table, and show a chart
+of historical investments in that category. Since all that data comes from the “Investments”
+table, we’ll show the categories as a “Table” widget by summarizing the “Investments” data.</p>
+<p><img alt="28-dynamic-table2" src="../images/investment-research/28-dynamic-table2.png" /></p>
+<p>The “funded_year” column in the resulting table is meaningless, and should be deleted.</p>
+<p>For the last step, we add another chart. We need to remember to group by both “funded_year” and
+“Company_category_code”, and to set a suitable “Select By” widget for it. Since there are two
+tables on this page, you have a choice of which one will drive the data in this chart. In this
+case, pick the widget that we just added: “INVESTMENTS [by Company_category_code]”.</p>
+<p><img alt="29-dynamic-chart2" src="../images/investment-research/29-dynamic-chart2.png" /></p>
+<p>As in the previous section, we configure the chart by selecting “Chart Type” as “Bar Chart”, and
+in the “Visible Series” list, leaving the series “funded_year” (the x-axis) and
+“raised_amount_usd” (the y-axis).</p>
+<p><img alt="30-breakdowns-page-done" src="../images/investment-research/30-breakdowns-page-done.png" /></p>
+<p>We can now click through the categories, and see the history of investment into each one.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
+<p>If you’re unfamiliar with how we created the “Company Details” page that’s present in the example,
+visit one of these earlier tutorials to learn how: ‘How to build a Lightweight CRM’, or ‘Managing
+your Business in Grist’.</p>
+<p>That’s it! Now go analyze some data!</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:doc_desc">
+<p>The sample document includes only the “companies” and “investments” data, and includes only
+New York companies to keep it smaller and faster.&#160;<a class="footnote-backref" href="#fnref:doc_desc" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:denormalized">
+<p>Such duplication is commonly seen in spreadsheets. Data in this form is called
+  “denormalized”.&#160;<a class="footnote-backref" href="#fnref:denormalized" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:unique_id">
+<p>If you don’t have a single identifying column, you can construct one with a formula.&#160;<a class="footnote-backref" href="#fnref:unique_id" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

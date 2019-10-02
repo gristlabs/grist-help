@@ -1,0 +1,140 @@
+.wm-page-top-frame {
+  height: 48px;
+  min-height: 48px;
+  border-bottom: none;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.wm-top-tool, .wm-top-brand {
+  height: 48px;
+}
+
+.wm-content-pane {
+  padding-top: 48px;
+}
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 14px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  background-color: white;
+  color: var(--color-dark);
+
+  --color-link: #16B378;
+  --color-dark: #262633;
+  --color-light: #FFFFFF;
+  --color-slate: #929299;
+  --color-light-green: #16B378;
+  --color-dark-green: #009058;
+
+  --icon-Expand: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTgsOS4xNzQ2MzA1MiBMMTAuOTIxODI3Myw2LjE4OTAyMzIgQzExLjE2ODQ3NDIsNS45MzY5OTIyNyAxMS41NjgzNjc5LDUuOTM2OTkyMjcgMTEuODE1MDE0OCw2LjE4OTAyMzIgQzEyLjA2MTY2MTcsNi40NDEwNTQxMyAxMi4wNjE2NjE3LDYuODQ5Njc3MDEgMTEuODE1MDE0OCw3LjEwMTcwNzk0IEw4LDExIEw0LjE4NDk4NTE5LDcuMTAxNzA3OTQgQzMuOTM4MzM4MjcsNi44NDk2NzcwMSAzLjkzODMzODI3LDYuNDQxMDU0MTMgNC4xODQ5ODUxOSw2LjE4OTAyMzIgQzQuNDMxNjMyMTEsNS45MzY5OTIyNyA0LjgzMTUyNTc4LDUuOTM2OTkyMjcgNS4wNzgxNzI3LDYuMTg5MDIzMiBMOCw5LjE3NDYzMDUyIFoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0ibm9uemVybyIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDggOC41KSIvPjwvc3ZnPg==');
+}
+
+.wm-top-version {
+  display: none;
+}
+
+.container-fluid {
+  padding-left: 0px;
+}
+
+/**
+ * Make good-looking lists to help step-by-step instructions stand out.
+ */
+.wm-page-content ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  counter-reset: step-counter;
+}
+
+.wm-page-content ol > li {
+  position: relative;
+
+  counter-increment: step-counter;
+
+  margin-left: 48px;
+  margin-bottom: 14px;
+}
+
+.wm-page-content ol > li::before {
+  position: absolute;
+  left: -40px;
+
+  content: counter(step-counter);
+
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+
+  background-color: var(--color-link);
+  color: #fff;
+  font-weight: 400;
+
+  text-align: center;
+  line-height: 2;
+}
+
+/**
+ * Add formating for tips.
+ */
+.grist-tip {
+  padding: 4px 8px;
+  margin-right: 8px;
+  background-color: var(--color-link);
+  color: #fff;
+  font-weight: 600;
+}
+
+/*
+ * Adjust properties of collapsible per-function documentation and contained code samples.
+ */
+.wm-page-content details {
+  margin: 4px 8px;
+  padding: 2px 8px;
+}
+
+.wm-page-content details[open] {
+  background-color: #fff;
+}
+
+.wm-page-content summary {
+  margin: .5rem 0 .5rem -2rem;
+  cursor: pointer;
+  outline: none;
+}
+
+/*
+ * We want headers for the sake of searching, but don't want to see the huge padding and
+ * surrounding empty paragraphs.
+ */
+.wm-page-content summary h4,
+.wm-page-content summary p {
+  display: none;
+}
+
+/*
+ * This makes code samples look more like 'readthedocs' theme.
+ */
+.wm-page-content details pre {
+  padding: 5px;
+  margin: 1.5rem 0 0 0;
+  background-color: #eeffcc;
+  color: #333333;
+  line-height: 120%;
+  border: 1px solid #ac9;
+  border-radius: 3px;
+  font-family: monospace, sans-serif;
+}
+
+.wm-page-content details code {
+  background: transparent;
+}
+
+.wm-page-content .unimplemented {
+  opacity: 0.5;
+}

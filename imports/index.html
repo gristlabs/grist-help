@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Importing new tables - Grist Help Center</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Importing and exporting data", url: "#_top", children: [
+              {title: "Importing", url: "#importing" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/grist.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../exports/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../exports/" class="btn btn-xs btn-link">
+        Exporting views
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../view-linking/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../view-linking/" class="btn btn-xs btn-link">
+        Linking views
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="importing-and-exporting-data">Importing and exporting data<a class="headerlink" href="#importing-and-exporting-data" title="Permanent link">#</a></h1>
+<h2 id="importing">Importing<a class="headerlink" href="#importing" title="Permanent link">#</a></h2>
+<p>You can import a file to <a href="../intro/#creating-a-new-document">start a new Grist document</a>, or to add
+tables to an existing document. Imports of Excel, CSV, and tab-separated files are supported, while
+other formats (such as HTML, PDF, and plain text) may or may not work depending on their structure.</p>
+<p>In all cases, when you import a file, Grist makes guesses about the structure of the file.</p>
+<h3 id="tables-to-import">Tables to import<a class="headerlink" href="#tables-to-import" title="Permanent link">#</a></h3>
+<p>For Excel files, Grist imports each sheet as a new table, using the sheet name to name the tables.
+For CSV and other delimited formats, one file becomes one table, and the filename determines the
+table name.</p>
+<h3 id="column-names">Column names<a class="headerlink" href="#column-names" title="Permanent link">#</a></h3>
+<p>For both Excel and delimited files, Grist tries to guess whether or not headers are included and
+which line they occur in. If Grist guesses there are no headers, it will name columns as "A", "B",
+"C", etc.</p>
+<p>You can always rename columns after an import, using the Field side pane.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, if Grist thinks your first line of data is headers, you both need to rename columns
+to something sensible, and you lose the first row of data. At the moment, you can only recover
+it by inserting a new row and populating it manually; or by adding headers to the original
+data and re-importing.</p>
+</div>
+<h3 id="column-types">Column types<a class="headerlink" href="#column-types" title="Permanent link">#</a></h3>
+<p>Grist guesses the <a href="datatypes">data types</a> for columns based on the data in the column. It
+automatically tries to parse numbers, dates, and boolean fields to detect the most suitable type
+to set the column to. Grist tries to be lossless: e.g. if it marks a column as numeric, any text
+values in it (such as "N/A") will remain in the imported table, but shown highlighted because of
+the type mismatch.</p>
+<p>If Grist guesses a type wrong, you can convert it, as well as do arbitrary transformations to the
+imported values, by changing the type in the Field side pane.</p>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

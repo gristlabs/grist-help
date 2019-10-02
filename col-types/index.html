@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Column types - Grist Help Center</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Columns and data types", url: "#_top", children: [
+              {title: "Overview", url: "#overview" },
+              {title: "Specifying a type", url: "#specifying-a-type" },
+              {title: "Supported types", url: "#supported-types" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/grist.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../col-refs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../col-refs/" class="btn btn-xs btn-link">
+        Reference columns
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../col-naming/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../col-naming/" class="btn btn-xs btn-link">
+        Naming columns
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="columns-and-data-types">Columns and data types<a class="headerlink" href="#columns-and-data-types" title="Permanent link">#</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>Grist columns have types, similar to other spreadsheets or databases, but with a few differences:</p>
+<ol>
+<li>Columns allow you to enter <strong>any value</strong>, regardless of their type.
+   If a value entered is incompatible with the defined type, the cell will be highlighted with an
+   error and columns referencing the invalid value will also display an error:
+   <br/> <br/> <img alt="Invalid value" src="../images/cell-invalid-type-value.png" /></li>
+</ol>
+<h2 id="specifying-a-type">Specifying a type<a class="headerlink" href="#specifying-a-type" title="Permanent link">#</a></h2>
+<p>The default type for value columns is <code>Text</code>. You can change the column type in <strong>Field Options</strong>
+in the Sidepane:</p>
+<p>In the column menu drop-down, select <code>Field options</code>:</p>
+<p><img alt="Column menu &gt; Field options" src="../images/column-menu-field-options.png" /></p>
+<p>Then, in the sidebar menu, use the type drop-down to select the appropriate type:</p>
+<p><img alt="Sidebar &gt; Field options &gt; Type" src="../images/sidebar-field-type.png" /></p>
+<h2 id="supported-types">Supported types<a class="headerlink" href="#supported-types" title="Permanent link">#</a></h2>
+<p>Grist supports the following types:</p>
+<div class='grist-mod__table'></div>
+
+<!-- For css styling via css/extra.css -->
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text</td>
+<td>(<strong>Default</strong>) Any string of text.</td>
+</tr>
+<tr>
+<td>Numeric</td>
+<td>Floating point numbers.</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>Integers (whole numbers).</td>
+</tr>
+<tr>
+<td>Toggle</td>
+<td>Boolean (True / False)</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Valid date (without a time component).</td>
+</tr>
+<tr>
+<td>Datetime</td>
+<td>Valid date + time.</td>
+</tr>
+<tr>
+<td>Choice</td>
+<td>List of pre-defined valid values.</td>
+</tr>
+<tr>
+<td>Reference</td>
+<td>A reference column to another table.</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>Exactly what it sounds like.</td>
+</tr>
+</tbody>
+</table>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

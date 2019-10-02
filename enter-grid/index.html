@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Entering data in a grid - Grist Help Center</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Entering data", url: "#_top", children: [
+          ]},
+          {title: "Cut and pasting", url: "#cut-and-pasting", children: [
+          ]},
+          {title: "Importing data", url: "#importing-data", children: [
+              {title: "Upload as a new document", url: "#upload-as-a-new-document" },
+              {title: "Import into existing document", url: "#import-into-existing-document" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/grist.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../add-records/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../add-records/" class="btn btn-xs btn-link">
+        Adding and deleting records
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../releases/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../releases/" class="btn btn-xs btn-link">
+        Release notes
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h2 id="entering-data">Entering data<a class="headerlink" href="#entering-data" title="Permanent link">#</a></h2>
+<p>Grist behaves much like other spreadsheet software. You can type into any selected cell. While in
+type mode you can take several actions:</p>
+<ul>
+<li><code>Escape</code> key cancels the operation and restores the previous values of the cell.</li>
+<li><code>Tab</code> key saves your entry and moves your cursor to the next cell in the current row.</li>
+<li><code>Enter</code> key saves your entry and moves your cursor to the next cell in the current column.</li>
+</ul>
+<h2 id="cut-and-pasting">Cut and pasting<a class="headerlink" href="#cut-and-pasting" title="Permanent link">#</a></h2>
+<p>You can cut and paste data into and out of Grist similar to other spreadsheet programs. If the
+pasted range is longer than the available records, additional records will be created.</p>
+<div class="admonition note">
+<p class="admonition-title">Available in future release</p>
+<p>If more columns are pasted than available, a prompt will confirm whether you'd like to create
+additional columns or to limit paste to the current ones.</p>
+</div>
+<h2 id="importing-data">Importing data<a class="headerlink" href="#importing-data" title="Permanent link">#</a></h2>
+<p>There are several ways to import data into Grist.</p>
+<h3 id="upload-as-a-new-document">Upload as a new document<a class="headerlink" href="#upload-as-a-new-document" title="Permanent link">#</a></h3>
+<p>From the Document List, click <code>Upload Doc</code> and select a file. You can import tab-delimited or
+comma-delimited files, as well as <code>xls(x)</code> files. If you're importing a spreadsheet with multiple
+tabs, each tab will be imported as a separate table in Grist.</p>
+<h3 id="import-into-existing-document">Import into existing document<a class="headerlink" href="#import-into-existing-document" title="Permanent link">#</a></h3>
+<p>From the Tables dropdown menu, select <code>Upload Table</code> and select a file.</p>
+<p><img alt="Upload Table" src="../images/basic-upload-table.png" /></p>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

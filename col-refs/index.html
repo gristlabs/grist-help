@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Reference columns - Grist Help Center</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Reference columns", url: "#_top", children: [
+              {title: "Overview", url: "#overview" },
+              {title: "Creating a new reference column", url: "#creating-a-new-reference-column" },
+              {title: "Adding values to a reference column", url: "#adding-values-to-a-reference-column" },
+              {title: "Converting text column to reference", url: "#converting-text-column-to-reference" },
+              {title: "Including multiple fields from a reference", url: "#including-multiple-fields-from-a-reference" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/grist.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../col-change-type/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../col-change-type/" class="btn btn-xs btn-link">
+        Changing column types
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../col-types/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../col-types/" class="btn btn-xs btn-link">
+        Column types
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="reference-columns">Reference columns<a class="headerlink" href="#reference-columns" title="Permanent link">#</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>Reference columns in Grist allow one table to create an explicit reference to another. In the
+database world this is similar to a foreign key. In the spreadsheet world this is similar to a
+<code>VLOOKUP</code>, but much more powerful and easier to use.</p>
+<p>In this guide we'll use the term <strong>underlying table</strong> for the table that lists all available values,
+and <strong>referencing table</strong> for the table that uses those values.</p>
+<h2 id="creating-a-new-reference-column">Creating a new reference column<a class="headerlink" href="#creating-a-new-reference-column" title="Permanent link">#</a></h2>
+<p>To create a reference column, simply select it as an option in <code>Field options &gt; Type</code> and specify
+the table and column that the column references.</p>
+<p><img alt="Select reference type" src="../images/column-ref-select-type.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Understanding the reference</p>
+<p>The column value always references the entire <strong>record</strong> in the underlying table. The displayed
+value can be any column from that record, as selected in <code>Show column</code>. You can also include
+additional columns to display as explained later.</p>
+</div>
+<p>Once the column type is set, you can start typing into it or double-click it to see a dropdown list
+of all available values. For example, if you have a list of clients defined in one table and you're
+tracking projects for each client, it makes sense for the <code>Client</code> column in the referencing table
+<code>Projects</code> to be a reference to the underlying table <code>Clients</code>, and set it to display the client's
+<code>Name</code>:</p>
+<p><img alt="Select underlying values" src="../images/column-ref-select-underlying.png" /></p>
+<p>Then, in your <code>Projects</code> table you can select available clients using a dropdown:</p>
+<p><img alt="Select dropdown values" src="../images/column-ref-select-dropdown.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Spotting reference columns</p>
+<p>You can tell that the values in a column represent a reference by the link icon that appears
+next to the values.</p>
+</div>
+<p>If you accidentally type in a value that is not present in the <code>Clients</code> table, its value will be
+highlighted as invalid:</p>
+<p><img alt="Invalid reference value" src="../images/column-ref-invalid.png" /></p>
+<h2 id="adding-values-to-a-reference-column">Adding values to a reference column<a class="headerlink" href="#adding-values-to-a-reference-column" title="Permanent link">#</a></h2>
+<p>Sometimes it's useful to add a new value to the dropdown list without having to switch to the
+underlying table. Reference columns make it easy! Just type in the value you want add and select the
+<code>+</code> value in the dropdown list. Grist will automatically add a new record containing this value to
+the underlying table and insert the proper reference:</p>
+<p><img alt="Add reference value" src="../images/column-ref-add-value.png" /></p>
+<h2 id="converting-text-column-to-reference">Converting text column to reference<a class="headerlink" href="#converting-text-column-to-reference" title="Permanent link">#</a></h2>
+<p>When working with existing data, it's common to have existing text values that should really be
+reference values. Don't worry, conversion is simple! Just change the column type to <code>Reference</code> and
+Grist will automatically find and substitute matching values for references. If some values are not
+found, they'll be shown as invalid. You can then either add them to the underlying table or select
+the proper values for them.</p>
+<p>In this example, the first three values match perfectly, but <code>Forest Labs</code> is invalid because it
+doesn't exist in the <code>Clients</code> table:</p>
+<p><span style="white-space: nowrap;">
+<img alt="Convert values before" src="../images/column-ref-convert-before.png" />
+<img alt="Convert values apply" src="../images/column-ref-convert-apply.png" />
+<img alt="Convert values after" src="../images/column-ref-convert-after.png" />
+</span></p>
+<h2 id="including-multiple-fields-from-a-reference">Including multiple fields from a reference<a class="headerlink" href="#including-multiple-fields-from-a-reference" title="Permanent link">#</a></h2>
+<p>A big benefit of reference columns is that they allow you to easily bring in multiple columns from
+the underlying table. In our example, if you wanted to bring in <code>$Client.Contact</code> to the <code>Projects</code>
+table, you can just select the <code>Contact</code> column from <code>Additional Columns</code> section and it will be
+automatically added to the <code>Projects</code> table:</p>
+<p><span style="white-space: nowrap;">
+<img alt="Adding more columns" src="../images/column-ref-add-other.png" />
+<img alt="Additional columns inserted" src="../images/column-ref-other-columns.png" />
+</span></p>
+<p>If you're comfortable using formulas, you can see that the added column is just the formula
+<code>=$Client.Contact</code>. If you were so inclined, you could achieve the same result by manually adding
+the formula column. You can also use any other fields from <code>Clients</code> table by referencing <code>$Client</code>
+in formulas in the <code>Projects</code> table.</p>
+<p><img alt="Additional columns as formulas" src="../images/column-ref-other-formula.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Using references in formulas</p>
+<p>You may have noticed that the underlying table is <code>Clients</code> (plural) but the formula is
+<code>$Client.Contact</code> (singular). That's because the formula refers to the referencing column,
+<strong>not</strong> the underlying table. In our example, the referencing column is <code>Client</code>.</p>
+</div>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
