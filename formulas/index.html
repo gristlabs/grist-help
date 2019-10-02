@@ -89,30 +89,30 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="formulas-and-scripting">Formulas and scripting<a class="headerlink" href="#formulas-and-scripting" title="Permanent link">#</a></h1>
 <h2 id="entering-a-formula">Entering a formula<a class="headerlink" href="#entering-a-formula" title="Permanent link">#</a></h2>
 <p>Unlike typical spreadsheets, Grist formulas are column-wide. This means that a single formulas
-applies to the whole column—you don't have to worry about filling it in for all rows.</p>
+applies to the whole column—you don&rsquo;t have to worry about filling it in for all rows.</p>
 <p>To enter a formula into a cell, enter the equal sign <code>=</code> followed by a python expression.</p>
 <p>For example, here we entered an expression <code>=2**$foo</code> which raises 2 to the power specified in
 column <code>foo</code>:</p>
 <p><img alt="Enter a formula" src="../images/formulas-simple-1.png" /></p>
 <h2 id="multi-line-formulas">Multi-line formulas<a class="headerlink" href="#multi-line-formulas" title="Permanent link">#</a></h2>
-<p>Python is a wonderful and powerful language, and it's a shame to constrict it to a single line in a
-cell. So Grist doesn't! You can use multiline complex Python expressions for any formulas column.</p>
+<p>Python is a wonderful and powerful language, and it&rsquo;s a shame to constrict it to a single line in a
+cell. So Grist doesn&rsquo;t! You can use multiline complex Python expressions for any formulas column.</p>
 <p><strong>In a cell</strong> you can use <code>Shift+Enter</code> to move the cursor to the next line:</p>
 <p><img alt="Enter a multi-line formula" src="../images/formulas-multi-cell.png" /></p>
 <p>You can also enter your formula <strong>in the sidebar</strong>, where <code>Enter</code> gives you a new line
 automatically:</p>
 <p><img alt="Enter a multi-line formula" src="../images/formulas-multi-sidebar.png" /></p>
 <h2 id="paste-as-values">Paste as values<a class="headerlink" href="#paste-as-values" title="Permanent link">#</a></h2>
-<p>If you'd like to save the output of your formula as plain values, you can simply turn off the
+<p>If you&rsquo;d like to save the output of your formula as plain values, you can simply turn off the
 formula by clicking on the formula icon in the sidebar: <img alt="Formula
 icon on" src="../images/formulas-sidebar-icon-on.png" /> ➔ <img alt="Formula icon
 off" src="../images/formulas-sidebar-icon-off.png" />:</p>
 <p><img alt="Enter a multi-line formula" src="../images/formulas-sidebar-off.png" /></p>
-<p>You'll also notice that the column is no longer a formula by the absense of the leading <code>=</code> sign
+<p>You&rsquo;ll also notice that the column is no longer a formula by the absense of the leading <code>=</code> sign
 next to each value.</p>
 <div class="admonition tip">
 <p class="admonition-title">Use the values, keep your formula</p>
-<p>Note that you don't lose your formula by turning it off. The formula itself remains and you can
+<p>Note that you don&rsquo;t lose your formula by turning it off. The formula itself remains and you can
 turn it back on. If you modified the values in the column, however, they will be recalculated by
 the formula. You can always undo to revert back to the previous state.</p>
 </div>

@@ -93,7 +93,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Reference columns in Grist allow one table to create an explicit reference to another. In the
 database world this is similar to a foreign key. In the spreadsheet world this is similar to a
 <code>VLOOKUP</code>, but much more powerful and easier to use.</p>
-<p>In this guide we'll use the term <strong>underlying table</strong> for the table that lists all available values,
+<p>In this guide we&rsquo;ll use the term <strong>underlying table</strong> for the table that lists all available values,
 and <strong>referencing table</strong> for the table that uses those values.</p>
 <h2 id="creating-a-new-reference-column">Creating a new reference column<a class="headerlink" href="#creating-a-new-reference-column" title="Permanent link">#</a></h2>
 <p>To create a reference column, simply select it as an option in <code>Field options &gt; Type</code> and specify
@@ -106,9 +106,9 @@ value can be any column from that record, as selected in <code>Show column</code
 additional columns to display as explained later.</p>
 </div>
 <p>Once the column type is set, you can start typing into it or double-click it to see a dropdown list
-of all available values. For example, if you have a list of clients defined in one table and you're
+of all available values. For example, if you have a list of clients defined in one table and you&rsquo;re
 tracking projects for each client, it makes sense for the <code>Client</code> column in the referencing table
-<code>Projects</code> to be a reference to the underlying table <code>Clients</code>, and set it to display the client's
+<code>Projects</code> to be a reference to the underlying table <code>Clients</code>, and set it to display the client&rsquo;s
 <code>Name</code>:</p>
 <p><img alt="Select underlying values" src="../images/column-ref-select-underlying.png" /></p>
 <p>Then, in your <code>Projects</code> table you can select available clients using a dropdown:</p>
@@ -122,19 +122,19 @@ next to the values.</p>
 highlighted as invalid:</p>
 <p><img alt="Invalid reference value" src="../images/column-ref-invalid.png" /></p>
 <h2 id="adding-values-to-a-reference-column">Adding values to a reference column<a class="headerlink" href="#adding-values-to-a-reference-column" title="Permanent link">#</a></h2>
-<p>Sometimes it's useful to add a new value to the dropdown list without having to switch to the
+<p>Sometimes it&rsquo;s useful to add a new value to the dropdown list without having to switch to the
 underlying table. Reference columns make it easy! Just type in the value you want add and select the
 <code>+</code> value in the dropdown list. Grist will automatically add a new record containing this value to
 the underlying table and insert the proper reference:</p>
 <p><img alt="Add reference value" src="../images/column-ref-add-value.png" /></p>
 <h2 id="converting-text-column-to-reference">Converting text column to reference<a class="headerlink" href="#converting-text-column-to-reference" title="Permanent link">#</a></h2>
-<p>When working with existing data, it's common to have existing text values that should really be
-reference values. Don't worry, conversion is simple! Just change the column type to <code>Reference</code> and
+<p>When working with existing data, it&rsquo;s common to have existing text values that should really be
+reference values. Don&rsquo;t worry, conversion is simple! Just change the column type to <code>Reference</code> and
 Grist will automatically find and substitute matching values for references. If some values are not
-found, they'll be shown as invalid. You can then either add them to the underlying table or select
+found, they&rsquo;ll be shown as invalid. You can then either add them to the underlying table or select
 the proper values for them.</p>
 <p>In this example, the first three values match perfectly, but <code>Forest Labs</code> is invalid because it
-doesn't exist in the <code>Clients</code> table:</p>
+doesn&rsquo;t exist in the <code>Clients</code> table:</p>
 <p><span style="white-space: nowrap;">
 <img alt="Convert values before" src="../images/column-ref-convert-before.png" />
 <img alt="Convert values apply" src="../images/column-ref-convert-apply.png" />
@@ -149,7 +149,7 @@ automatically added to the <code>Projects</code> table:</p>
 <img alt="Adding more columns" src="../images/column-ref-add-other.png" />
 <img alt="Additional columns inserted" src="../images/column-ref-other-columns.png" />
 </span></p>
-<p>If you're comfortable using formulas, you can see that the added column is just the formula
+<p>If you&rsquo;re comfortable using formulas, you can see that the added column is just the formula
 <code>=$Client.Contact</code>. If you were so inclined, you could achieve the same result by manually adding
 the formula column. You can also use any other fields from <code>Clients</code> table by referencing <code>$Client</code>
 in formulas in the <code>Projects</code> table.</p>
@@ -157,7 +157,7 @@ in formulas in the <code>Projects</code> table.</p>
 <div class="admonition note">
 <p class="admonition-title">Using references in formulas</p>
 <p>You may have noticed that the underlying table is <code>Clients</code> (plural) but the formula is
-<code>$Client.Contact</code> (singular). That's because the formula refers to the referencing column,
+<code>$Client.Contact</code> (singular). That&rsquo;s because the formula refers to the referencing column,
 <strong>not</strong> the underlying table. In our example, the referencing column is <code>Client</code>.</p>
 </div>
 

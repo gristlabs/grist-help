@@ -99,41 +99,41 @@ DateTime can also specify the timezone. When a column is set to be a Date or a D
 datepicker widget allows you to select the date with a UI.</p>
 <p>When working with dates in formulas, the dates are Python <a href="https://docs.python.org/2/library/datetime.html">datetime
 objects</a>. That allows you to do some powerful
-things, but can be unexpected if you're not familiar with them.</p>
+things, but can be unexpected if you&rsquo;re not familiar with them.</p>
 <h2 id="parsing-dates-from-strings-and-back">Parsing dates from strings and back<a class="headerlink" href="#parsing-dates-from-strings-and-back" title="Permanent link">#</a></h2>
 <p>The <a href="functions/#datevalue">DATEVALUE</a> function converts a string that represents a date into a <code>datetime</code>
-object. It's simple to use and it will auto-detect different date formats:</p>
+object. It&rsquo;s simple to use and it will auto-detect different date formats:</p>
 <p><img alt="Parse date from string datevalue" src="../images/dates-parse-datevalue.png" /></p>
-<p>You can also use Python's <code>datetime</code> library, which provides two helpful functions:
+<p>You can also use Python&rsquo;s <code>datetime</code> library, which provides two helpful functions:
 <a href="https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior">strptime() and strftime()</a>.</p>
-<p>For example, let's say you have a table of United States Presidents and their inauguration dates (as
-strings). You'd like to parse out the actual date to be able to sort the table properly. Here's how
+<p>For example, let&rsquo;s say you have a table of United States Presidents and their inauguration dates (as
+strings). You&rsquo;d like to parse out the actual date to be able to sort the table properly. Here&rsquo;s how
 you would do that:</p>
 <p><img alt="Parse date from string formula" src="../images/dates-parse-string-formula.png" /></p>
 <ol>
 <li>First line imports the datetime library</li>
 <li>The second line splits the string into two parts and returns the second part (Python arrays are
    zero-based).</li>
-<li>The third line uses Python's <a href="https://docs.python.org/2/library/datetime.html#datetime.datetime.strptime">strptime
+<li>The third line uses Python&rsquo;s <a href="https://docs.python.org/2/library/datetime.html#datetime.datetime.strptime">strptime
    function</a> to parse
-   the date (e.g. "March 4, 1861") into a datetime object. The first parameter to the function is
+   the date (e.g. &ldquo;March 4, 1861&rdquo;) into a datetime object. The first parameter to the function is
    the string to parse, the second parameter is the date format that the string is in. Take a look
    at the <a href="https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior">format
    options</a> to see if
-   the example format string <code>%B %d, %Y</code> makes sense. (Note: You could've also used <code>DATEVALUE(d)</code> to
+   the example format string <code>%B %d, %Y</code> makes sense. (Note: You could&rsquo;ve also used <code>DATEVALUE(d)</code> to
    achieve the same result.)</li>
 </ol>
 <p>The result looks to have proper date formats and can now be properly sorted, with George Washington
 at the top:</p>
 <p><img alt="Parse date from string result" src="../images/dates-parse-string-sorted.png" /></p>
-<p>And, because the column type is selected as a date, you can use the "Date Format" in "Field Options"
+<p>And, because the column type is selected as a date, you can use the &ldquo;Date Format&rdquo; in &ldquo;Field Options&rdquo;
 to select the format in which to display the date.</p>
 <p><span style="white-space: nowrap;">
 <img alt="Formatted parsed date" src="../images/dates-parse-string-formatted.png" />
 <img alt="Formatted parsed date" src="../images/dates-parse-string-options.png" />
 </span></p>
 <h2 id="date-arithmetic">Date arithmetic<a class="headerlink" href="#date-arithmetic" title="Permanent link">#</a></h2>
-<p>Once you have a proper date column, often you'll want to do date arithmetic such as calculating the
+<p>Once you have a proper date column, often you&rsquo;ll want to do date arithmetic such as calculating the
 difference between two dates. The simplest way to do this is to use the <a href="formulas/#datedif">DATEDIF</a>
 function which takes two dates and the unit of information to return (Days, Months, or Years).</p>
 <p>You could also use the minus sign to subtract two dates, but you might be surprised at the result:</p>
@@ -143,8 +143,8 @@ function which takes two dates and the unit of information to return (Days, Mont
 </span></p>
 <p>This happens because subtracting two dateime objects as we did in the example above, results in a
 <a href="https://docs.python.org/2/library/datetime.html#datetime.timedelta">datetime.timedelta</a> object
-which represents, "A duration expressing the difference between two date, time, or datetime
-instances to microsecond resolution."</p>
+which represents, &ldquo;A duration expressing the difference between two date, time, or datetime
+instances to microsecond resolution.&rdquo;</p>
 <p>In Grist (and Python) you have to be more specific above how you want to display the date
 difference. For example, to get the number of days from the returned timedelta object, use its
 <code>.days</code> property:</p>
@@ -165,7 +165,7 @@ in spreadsheet apps that returns the difference between two dates:
 <code>DATEADD</code>, <code>DATEDIF</code>, <code>DATEVALUE</code>, <code>MONTH</code>, <code>HOUR</code>, and <a href="functions/#date">many more</a>.</p>
 </div>
 <h2 id="getting-a-part-of-the-date">Getting a part of the date<a class="headerlink" href="#getting-a-part-of-the-date" title="Permanent link">#</a></h2>
-<p>You've seen how to parse the date, display it in different formats, and do date arithmetic. But what
+<p>You&rsquo;ve seen how to parse the date, display it in different formats, and do date arithmetic. But what
 if you want to get more information about a specific date, such as getting its day of the week?</p>
 <h3 id="option-a">Option A<a class="headerlink" href="#option-a" title="Permanent link">#</a></h3>
 <p>The best option is to use the <a href="functions/#weekday">WEEKDAY</a> function, which behaves as it does in
@@ -178,7 +178,7 @@ Excel:</p>
 started his term on Thursday, John Adams on Saturday, and Thomas Jefferson on Wednesday.</p>
 <h3 id="option-b">Option B<a class="headerlink" href="#option-b" title="Permanent link">#</a></h3>
 <p>Another option is to simply reformat the date using Date Format in Field options. First, set the
-"Day of week" column to be equal to "First day" column:</p>
+&ldquo;Day of week&rdquo; column to be equal to &ldquo;First day&rdquo; column:</p>
 <p><img alt="Weekday format copy" src="../images/dates-weekday-format-copy.png" /></p>
 <p>Then set a custom Date Format in Field options. Consulting the <a href="https://momentjs.com/docs/#/displaying/format/">date formatting
 reference</a> we can see <code>dddd</code> returns the long form
@@ -192,7 +192,7 @@ of the weekday (i.e. Monday, Tuesday, …):</p>
 <p>These two options are not equivalent, even though they produce a seemingly similar result. In
 Option A, the column value is the weekday. In Option B, however, the column value is the actual
 date (e.g. April 30th, 1789) and the weekday displayed is only the formatting. If you wanted to
-summarize by the "Day of week" column to find the most popular day to begin a presidency, only
+summarize by the &ldquo;Day of week&rdquo; column to find the most popular day to begin a presidency, only
 Option A would work.</p>
 </div>
 <h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">#</a></h2>

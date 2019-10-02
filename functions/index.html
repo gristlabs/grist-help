@@ -93,7 +93,7 @@ document. This protects you when using Grist documents authored by someone else.
 <p>Note that Python is case-sensitive, which applies to all functions, as well as Grist
 table and column names.</p>
 <p>The table below lists Grist-specific functions for accessing your document data, as well as a
-suite of Excel-like functions provided by Grist. Don't forget also that the entire <a href="https://docs.python.org/2/library/">Python's
+suite of Excel-like functions provided by Grist. Don&rsquo;t forget also that the entire <a href="https://docs.python.org/2/library/">Python&rsquo;s
 standard library</a> is available.</p>
 <!-- BEGIN mkpydocs table -->
 
@@ -173,7 +173,7 @@ def Name_Length(rec, table):
 <a class="headerlink" href="#_field" title="Permanent link">#</a></p>
 <h4 id="field">$Field<a class="headerlink" href="#field" title="Permanent link">#</a></h4>
 <p></summary>
-Access the field named "Field" of the current record. E.g. <code>$First_Name</code> or <code>rec.First_Name</code>.
+Access the field named &ldquo;Field&rdquo; of the current record. E.g. <code>$First_Name</code> or <code>rec.First_Name</code>.
 </details>
 <details id="_group"><summary >
 <strong><code>$group</code></strong>
@@ -335,14 +335,14 @@ datetime.date(2025, 3, 26)
 Calculates the number of days, months, or years between two dates.
 Unit indicates the type of information that you want returned:</p>
 <ul>
-<li>"Y": The number of complete years in the period.</li>
-<li>"M": The number of complete months in the period.</li>
-<li>"D": The number of days in the period.</li>
-<li>"MD": The difference between the days in start_date and end_date. The months and years of the
+<li>&ldquo;Y&rdquo;: The number of complete years in the period.</li>
+<li>&ldquo;M&rdquo;: The number of complete months in the period.</li>
+<li>&ldquo;D&rdquo;: The number of days in the period.</li>
+<li>&ldquo;MD&rdquo;: The difference between the days in start_date and end_date. The months and years of the
     dates are ignored.</li>
-<li>"YM": The difference between the months in start_date and end_date. The days and years of the
+<li>&ldquo;YM&rdquo;: The difference between the months in start_date and end_date. The days and years of the
     dates are ignored.</li>
-<li>"YD": The difference between the days of start_date and end_date. The years of the dates are
+<li>&ldquo;YD&rdquo;: The difference between the days of start_date and end_date. The years of the dates are
     ignored.</li>
 </ul>
 <p>Two complete years in the period (2)</p>
@@ -462,7 +462,7 @@ Returns the value converted to a python <code>datetime</code> object. The value 
 <code>string</code>, <code>date</code> (interpreted as midnight on that day), <code>time</code> (interpreted as a
 time-of-day today), or an existing <code>datetime</code>.</p>
 <p>The returned <code>datetime</code> will have its timezone set to the <code>tz</code> argument, or the
-document's default timezone when <code>tz</code> is omitted or None. If the input is itself a
+document&rsquo;s default timezone when <code>tz</code> is omitted or None. If the input is itself a
 <code>datetime</code> with the timezone set, it is returned unchanged (no changes to its timezone).</p>
 <pre><code class="python">&gt;&gt;&gt; DTIME(datetime.date(2017, 1, 1))
 datetime.datetime(2017, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
@@ -743,9 +743,9 @@ Converts a provided Excel serial number representing a date into a <code>datetim
 Value is interpreted as the number of days since December 30, 1899.</p>
 <p>(This corresponds to Google Sheets interpretation. Excel starts with Dec. 31, 1899 but wrongly
 considers 1900 to be a leap year. Excel for Mac should be configured to use 1900 date system,
-i.e. uncheck "Use the 1904 date system" option.)</p>
+i.e. uncheck &ldquo;Use the 1904 date system&rdquo; option.)</p>
 <p>The returned <code>datetime</code> will have its timezone set to the <code>tz</code> argument, or the
-document's default timezone when <code>tz</code> is omitted or None.</p>
+document&rsquo;s default timezone when <code>tz</code> is omitted or None.</p>
 <pre><code class="python">&gt;&gt;&gt; XL_TO_DATE(41100.1875)
 datetime.datetime(2012, 7, 10, 4, 30, tzinfo=moment.tzinfo('America/New_York'))
 </code></pre>
@@ -796,7 +796,7 @@ using the NASD standard calendar. For use in non-financial settings, option 1 (a
 likely the correct choice.</p>
 <p>See https://en.wikipedia.org/wiki/360-day_calendar for explanation of
 the US 30/360 and European 30/360 methods. See http://www.dwheeler.com/yearfrac/ for analysis of
-Excel's particular implementation.</p>
+Excel&rsquo;s particular implementation.</p>
 <p>Fraction of the year between 1/1/2012 and 7/30/12, omitting the Basis argument.</p>
 <pre><code class="python">&gt;&gt;&gt; &quot;%.8f&quot; % YEARFRAC(DATE(2012, 1, 1), DATE(2012, 7, 30))
 '0.58055556'
@@ -829,7 +829,7 @@ Returns the requested information about the specified cell. This is not implemen
 <a class="headerlink" href="#isblank" title="Permanent link">#</a></p>
 <h4 id="isblank">ISBLANK<a class="headerlink" href="#isblank" title="Permanent link">#</a></h4>
 <p></summary>
-Returns whether a value refers to an empty cell. It isn't implemented in Grist. To check for an
+Returns whether a value refers to an empty cell. It isn&rsquo;t implemented in Grist. To check for an
 empty string, use <code>value == ""</code>.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
@@ -864,7 +864,7 @@ False
 <a class="headerlink" href="#iserr" title="Permanent link">#</a></p>
 <h4 id="iserr">ISERR<a class="headerlink" href="#iserr" title="Permanent link">#</a></h4>
 <p></summary>
-Checks whether a value is an error other than an invalid value. It isn't implemented in Grist.
+Checks whether a value is an error other than an invalid value. It isn&rsquo;t implemented in Grist.
 To check if a cell had an error, use</p>
 <pre><code>try:
   ... value ...
@@ -1075,7 +1075,7 @@ False
 <h4 id="isurl">ISURL<a class="headerlink" href="#isurl" title="Permanent link">#</a></h4>
 <p></summary>
 Checks whether a value is a valid URL. It does not need to be fully qualified, or to include
-"http://" and "www". It does not follow a standard, but attempts to work similarly to ISURL in
+&ldquo;http://&rdquo; and &ldquo;www&rdquo;. It does not follow a standard, but attempts to work similarly to ISURL in
 Google Sheets, and to return True for text that is likely a URL.</p>
 <p>Valid protocols include ftp, http, https, gopher, mailto, news, telnet, and aim.</p>
 <pre><code class="python">&gt;&gt;&gt; ISURL(&quot;http://www.getgrist.com&quot;)
@@ -1132,7 +1132,7 @@ Excel-style serial number of the date. Anything else is converted to 0.</p>
 <a class="headerlink" href="#na" title="Permanent link">#</a></p>
 <h4 id="na">NA<a class="headerlink" href="#na" title="Permanent link">#</a></h4>
 <p></summary>
-Returns the "value not available" error, <code>#N/A</code>.</p>
+Returns the &ldquo;value not available&rdquo; error, <code>#N/A</code>.</p>
 <pre><code class="python">&gt;&gt;&gt; math.isnan(NA())
 True
 </code></pre>
@@ -1715,7 +1715,7 @@ Rounds a number up to the nearest even integer, rounding away from zero.</p>
 <a class="headerlink" href="#exp" title="Permanent link">#</a></p>
 <h4 id="exp">EXP<a class="headerlink" href="#exp" title="Permanent link">#</a></h4>
 <p></summary>
-Returns Euler's number, e (~2.718) raised to a power.</p>
+Returns Euler&rsquo;s number, e (~2.718) raised to a power.</p>
 <pre><code class="python">&gt;&gt;&gt; round(EXP(1), 8)
 2.71828183
 </code></pre>
@@ -1759,7 +1759,7 @@ ValueError: factorial() not defined for negative values
 <a class="headerlink" href="#factdouble" title="Permanent link">#</a></p>
 <h4 id="factdouble">FACTDOUBLE<a class="headerlink" href="#factdouble" title="Permanent link">#</a></h4>
 <p></summary>
-Returns the "double factorial" of a number.</p>
+Returns the &ldquo;double factorial&rdquo; of a number.</p>
 <pre><code class="python">&gt;&gt;&gt; FACTDOUBLE(6)
 48
 </code></pre>
@@ -1900,7 +1900,7 @@ Returns the least common multiple of one or more integers.</p>
 <a class="headerlink" href="#ln" title="Permanent link">#</a></p>
 <h4 id="ln">LN<a class="headerlink" href="#ln" title="Permanent link">#</a></h4>
 <p></summary>
-Returns the the logarithm of a number, base e (Euler's number).</p>
+Returns the the logarithm of a number, base e (Euler&rsquo;s number).</p>
 <pre><code class="python">&gt;&gt;&gt; round(LN(86), 7)
 4.4543473
 </code></pre>
@@ -2009,7 +2009,7 @@ ValueError: factor argument invalid
 <a class="headerlink" href="#multinomial" title="Permanent link">#</a></p>
 <h4 id="multinomial">MULTINOMIAL<a class="headerlink" href="#multinomial" title="Permanent link">#</a></h4>
 <p></summary>
-Returns the factorial of the sum of values divided by the product of the values' factorials.</p>
+Returns the factorial of the sum of values divided by the product of the values&rsquo; factorials.</p>
 <pre><code class="python">&gt;&gt;&gt; MULTINOMIAL(2, 3, 4)
 1260
 </code></pre>
@@ -2274,7 +2274,7 @@ Rounds a number to a certain number of decimal places, always rounding up away f
 <h4 id="seriessum">SERIESSUM<a class="headerlink" href="#seriessum" title="Permanent link">#</a></h4>
 <p></summary>
 Given parameters x, n, m, and a, returns the power series sum a_1<em>x^n + a_2</em>x^(n+m)
-+ ... + a_i*x^(n+(i-1)m), where i is the number of entries in range <code>a</code>.</p>
++ &hellip; + a_i*x^(n+(i-1)m), where i is the number of entries in range <code>a</code>.</p>
 <pre><code class="python">&gt;&gt;&gt; SERIESSUM(1,0,1,1)
 1
 </code></pre>
@@ -2524,7 +2524,7 @@ digits.</p>
 Returns the list of <code>datetime</code> objects generated according to the <code>schedule</code> string. Starts at
 <code>start</code>, which defaults to NOW(). Generates at most <code>count</code> results (10 by default). If <code>end</code> is
 given, stops there.</p>
-<p>The schedule has the format "INTERVAL: SLOTS, ...". For example:</p>
+<p>The schedule has the format &ldquo;INTERVAL: SLOTS, &hellip;&rdquo;. For example:</p>
 <pre><code>annual: Jan-15, Apr-15, Jul-15  -- Three times a year on given dates at midnight.
 annual: 1/15, 4/15, 7/15        -- Same as above.
 monthly: /1 2pm, /15 2pm        -- The 1st and the 15th of each month, at 2pm.
@@ -2554,7 +2554,7 @@ hourly: :15, :45                -- 15 minutes before and after each hour.
 on Sunday. E.g. <code>weekly: +1d, +4d</code> is the same as <code>weekly: Mon, Thu</code>, and generates times on
 Mondays and Thursdays regardless of <code>start</code>.</p>
 <p>The first generated time is determined by the <em>unit</em> of the INTERVAL without regard to the
-multiple. E.g. both "2-week: Mon" and "3-week: Mon" start on the first Monday after <code>start</code>, and
+multiple. E.g. both &ldquo;2-week: Mon&rdquo; and &ldquo;3-week: Mon&rdquo; start on the first Monday after <code>start</code>, and
 then generate either every second or every third Monday after that. Similarly, <code>24-hour: :00</code>
 starts with the first top-of-the-hour after <code>start</code> (not with midnight), and then repeats every
 24 hours. To start with the midnight after <code>start</code>, use <code>daily: 0:00</code>.</p>
@@ -2616,7 +2616,7 @@ starts with the first top-of-the-hour after <code>start</code> (not with midnigh
 <a class="headerlink" href="#avedev" title="Permanent link">#</a></p>
 <h4 id="avedev">AVEDEV<a class="headerlink" href="#avedev" title="Permanent link">#</a></h4>
 <p></summary>
-Calculates the average of the magnitudes of deviations of data from a dataset's mean.</p>
+Calculates the average of the magnitudes of deviations of data from a dataset&rsquo;s mean.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 <details id="average"><summary >
@@ -2823,7 +2823,7 @@ Returns the value of the exponential distribution function with a specified lamb
 <h4 id="fdist">FDIST<a class="headerlink" href="#fdist" title="Permanent link">#</a></h4>
 <p></summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
-with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F
+with given input x. Alternately called Fisher-Snedecor distribution or Snedecor&rsquo;s F
 distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
@@ -2857,7 +2857,7 @@ Calculates the expected y-value for a specified x based on a linear regression o
 <h4 id="f_dist">F_DIST<a class="headerlink" href="#f_dist" title="Permanent link">#</a></h4>
 <p></summary>
 Calculates the left-tailed F probability distribution (degree of diversity) for two data sets
-with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F
+with given input x. Alternately called Fisher-Snedecor distribution or Snedecor&rsquo;s F
 distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
@@ -2867,7 +2867,7 @@ distribution.</p>
 <h4 id="f_dist_rt">F_DIST_RT<a class="headerlink" href="#f_dist_rt" title="Permanent link">#</a></h4>
 <p></summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
-with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F
+with given input x. Alternately called Fisher-Snedecor distribution or Snedecor&rsquo;s F
 distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
@@ -2908,7 +2908,7 @@ Calculates the y-value at which the line resulting from linear regression of a d
 <a class="headerlink" href="#kurt" title="Permanent link">#</a></p>
 <h4 id="kurt">KURT<a class="headerlink" href="#kurt" title="Permanent link">#</a></h4>
 <p></summary>
-Calculates the kurtosis of a dataset, which describes the shape, and in particular the "peakedness" of that dataset.</p>
+Calculates the kurtosis of a dataset, which describes the shape, and in particular the &ldquo;peakedness&rdquo; of that dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 <details id="large"><summary class="unimplemented">
@@ -3401,7 +3401,7 @@ Calculates the standard error of the predicted y-value for each x in the regress
 <a class="headerlink" href="#tdist" title="Permanent link">#</a></p>
 <h4 id="tdist">TDIST<a class="headerlink" href="#tdist" title="Permanent link">#</a></h4>
 <p></summary>
-Calculates the probability for Student's t-distribution with a given input (x).</p>
+Calculates the probability for Student&rsquo;s t-distribution with a given input (x).</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 <details id="tinv"><summary class="unimplemented">
@@ -3517,7 +3517,7 @@ u'!'
 <p></summary>
 Returns the text with the non-printable characters removed.</p>
 <p>This removes both characters with values 0 through 31, and other Unicode characters in the
-"control characters" category.</p>
+&ldquo;control characters&rdquo; category.</p>
 <pre><code class="python">&gt;&gt;&gt; CLEAN(CHAR(9) + &quot;Monthly report&quot; + CHAR(10))
 u'Monthly report'
 </code></pre>
