@@ -70,3 +70,5 @@ markdown_extensions:
       permalink: '#'
   - admonition
   - footnotes
+  - attr_list
+  - smarty

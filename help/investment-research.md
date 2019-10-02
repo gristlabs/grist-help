@@ -1,4 +1,4 @@
-# How to analyze and visualize data
+# How to analyze and visualize data {: data-toc-label='' }
 
 Grist offers several powerful ways to analyze and visualize data. In this tutorial, you’ll learn how to:
 
@@ -41,9 +41,10 @@ in the table, the pie chart updates to show the distribution of investments in t
 - Similarly, the bottom table shows investments by category. When you click on any category, the
 line chart next to it updates to show the history of funding in that category over the years.
 
-Note how powerful this is, and how much insight you can gain from it. For instance, you can see
-that the Software category had a major dip in investments around the recession of 2008, and that
-Biotech has consistently beaten it since then.
+Note how powerful this is, and how much insight you can gain from it. For
+instance, you can see that Advertising category has been getting a lot of
+investment in NY since 2007, but was overtaken by E-commerce in 2012-2013,
+while the Fashion category had a major spike in 2011.
 
 On the next page, “Company Details”, we get to see the granular data of this dataset.
 
@@ -57,7 +58,7 @@ This is where we begin to see the power of Grist. The original dataset is a flat
 companies, and an even bigger spreadsheet of investments. By displaying the data graphically, the
 data comes alive, making it powerful and useful.
 
-## How can I make this?
+## How can I make this? {: data-toc-label='' }
 
 With Grist, presenting your own data in graphic form is a few easy steps away. Let’s begin with
 the first step.
@@ -148,7 +149,7 @@ investment, it shows the “category_code” of the company linked to its invest
 The powerful feature you’ve been waiting for is the one that summarizes the data. To utilize this,
 let’s add a table showing companies grouped by “category_code”.
 
-In the “Add New” menu, select “Add Page”. In the dialog box, select “Table” and “Companies”, and
+In the “Add New” menu at the top left, select “Add Page”. In the dialog box, select “Table” and “Companies”, and
 then use the summation symbol (∑) to select the “Group By” columns -- i.e. the columns by which to
 summarize.
 
@@ -157,7 +158,7 @@ summarize.
 
 If you don’t select any columns, you’ll just get a single row of totals. If you summarize by
 “category_code”, you’ll get a row for each distinct value of “category_code”. Let’s do that and
-then click “Add to page”.
+then click “Add Page”.
 
 ![13-summary-added](images/investment-research/13-summary-added.png)
 
@@ -191,8 +192,8 @@ column containing a sum, with a formula such as `SUM($group.funding_total_usd)`.
     records in the group, i.e. it’s roughly equivalent to `[r.A for r in $group]`.
 
 Sometimes, adding the values doesn’t make sense. E.g. the sum of “founded_year” is meaningless.
-It’s best to delete that column, as well as anything else we don’t need. We’ll just leave the
-“funding_total_usd” column.
+It’s best to delete this and any other column we don’t need, which leaves us
+with the "funding_total_usd" column.
 
 ![16-summary-remove-columns](images/investment-research/16-summary-remove-columns.png)
 
@@ -221,7 +222,7 @@ type to “Numeric“ under “Column options”.
 
 You can make a chart of any data. To this page, we want to add a graphic version of each summary
 table. Select the “Add New” button again, pick “Add Widget to Page”, select “Chart” as the widget,
-and the same table (Companies) and summary column (category_code) as before.
+and the same table (Companies) and summary column (category_code) as before. Then click "Add to Page".
 
 ![19-add-chart1](images/investment-research/19-add-chart1.png)
 
@@ -232,19 +233,20 @@ Open the right panel, and select “Chart” tab / “Widget” subtab. The “V
 the subtab determines which columns of data will be used as the series in the chart. Their exact
 meaning depends on the chart type.
 
-For this first chart, under “Chart type, select “Pie Chart”. To construct this chart, two Visible
-Series are required: the first one will be used as labels, and the second as values.  Since we
+For this first chart, under “Chart type, select “Pie Chart”. To construct this chart, two “Visible
+Series” are required: the first one will be used as labels, and the second as values.  Since we
 want the chart to show “category_code” as labels, and “funding_total_usd” as values, those should
 be the two items in the “Visible Series” list in the configuration panel. As you move your mouse
-over the items in that list, use the checkboxes or the “eye” icon that shows up to remove the
-other series from the list.
+over the items in that list, use the “eye” icon that shows up to remove the
+other series from the list. Alternatively, you can select the unneeded
+columns using checkboxes, and click “Hide Series”.
 
 ![20-chart-vis-fields](images/investment-research/20-chart-vis-fields.png)
 
 
 Now add a chart showing a trend by year. Add another “Widget to page”, select “Chart” under
 “Widget”, select “Investments” under “Select Data”, click summation (∑) to group by “funded_year”,
-and click “Add to page”.
+and click “Add to Page”.
 
 To customize this chart, stick with the chart type “Bar Chart”. The list of “Visible Series” in
 the “Chart” tab should now be adjusted: the first series will be the values for the X (horizontal)
@@ -258,6 +260,12 @@ and “raised_amount_usd” second (to serve as the Y-values).
 Drag and drop the sections into a configuration you’d like to see for a dashboard, and then rename
 the page “Overview”.
 
+You can rearrange the sections on the screen into a configuration you'd like to
+see for a dashboard. Move your mouse to the top left of each section until you
+see a "drag handle" icon. Use that icon to drag each section into the desired
+spot relative to other sections. Once you’re finished,  rename the page
+“Overview”.
+
 ![22-rearrange-widgets](images/investment-research/22-rearrange-widgets.png)
 
 
@@ -266,8 +274,8 @@ the page “Overview”.
 If you’ve read our other tutorials on linking data, this will come naturally. Charts are simply a
 different way to show data, and they can be linked in the same way as tables.
 
-For our example, we’ll add a new page with a summary table: widget “Table”, data “Investments”,
-group by “funded_year”.
+For our example, we’ll add a new page with a summary table: select widget “Table”, data “Investments”,
+group by “funded_year”, click "Add to Page".
 
 ![23-dynamic-start](images/investment-research/23-dynamic-start.png)
 
@@ -275,13 +283,13 @@ group by “funded_year”.
 Let’s rename this new page “Breakdowns”.
 
 Next, add a widget to this page, selecting widget “Chart”, data “Investments”. For “Group By”,  we
-pick two columns: “funded_year” and “Company_category_code”.
+pick *two* columns: “Company_category_code” and “funded_year”.
 
 !!! tip ""
     **Note:** This is why we added the “Company_category_code” column earlier. We can only group investment
     records by the category code if we have this code for each investment.
 
-The “Select By” dropdown at the bottom of the dialog box lists widgets already on the screen that
+The “Select By” dropdown at the bottom left of the dialog box lists widgets already on the screen that
 can control the selection of data in the chart we are adding. In “Select By”, choose “INVESTMENTS
 [by funded_year]”, and click “Add to Page”.
 
@@ -295,21 +303,22 @@ can control the selection of data in the chart we are adding. In “Select By”
 We want to be able to select a year, and then show a pie chart for that year that displays the
 total for each category code. The “Select By” option we chose ensures that only the selected
 year’s data is used. All that’s left is to change the chart type to “Pie Chart”, and set “Visible
-Series” to only “category_code” and “raised_amount_usd”.
+Series” to only “category_code” and “raised_amount_usd” and hide the other data series.
 
 ![25-dynamic-vis-fields](images/investment-research/25-dynamic-vis-fields.png)
 
 
 Note: Graphs need more screenspace, so our small screenshots will look better if we close the
-side-panes.
+side-panes by clicking on the opener icons (<span class="grist-icon" style="mask-image: var(--icon-PanelLeft)"></span>,
+<span class="grist-icon" style="mask-image: var(--icon-PanelRight)"></span>).
 
-Let’s  also sort the table by “funded_year”.
+Let’s also sort the table by “funded_year”.
 
 ![26-dynamic-table-sort](images/investment-research/26-dynamic-table-sort.png)
 
 
 As far as sorting, the highlighted button above the table reminds you that sort settings aren’t
-saved automatically. Click the button and select “Save” to do that.
+saved automatically. Click the green button and select “Save” to do that.
 
 ![27-dynamic-table-sort-save](images/investment-research/27-dynamic-table-sort-save.png)
 
@@ -317,17 +326,25 @@ saved automatically. Click the button and select “Save” to do that.
 What’s the result? We can click through the years (or use arrow keys), and see the distribution by
 category change.
 
-The last two steps are similar. Here, we’ll want to select a category in a table, and show a chart
-of historical investments in that category. Since all that data comes from the “Investments”
-table, we’ll show the categories as a “Table” widget by summarizing the “Investments” data.
+!!! tip ""
+    **Note:** If clicking through the years does not affect the chart, the chart must not be
+    linked. You can check and correct it by using the "three dots" menu on top right of the chart,
+    clicking "Data selection", and ensuring that "Select By" dropdown is showing "INVESTMENTS [by
+    funded_year]".
+
+To complete the example, we will add two more sections to this "Breakdowns"
+page. One will be a table listing company categories, and linked to it will be
+a chart showing amount of investment into that category over the years.
+
+To add the table of categories, use "Add Widget to Page", and select "Table" widget, "Investments" data,
+grouped by "Company_category_code".
 
 ![28-dynamic-table2](images/investment-research/28-dynamic-table2.png)
 
-
 The “funded_year” column in the resulting table is meaningless, and should be deleted.
 
-For the last step, we add another chart. We need to remember to group by both “funded_year” and
-“Company_category_code”, and to set a suitable “Select By” widget for it. Since there are two
+For the last step, we add another chart. We need to remember to group by both “Company_category_code”
+“funded_year”, and to set a suitable “Select By” widget for it. Since there are two
 tables on this page, you have a choice of which one will drive the data in this chart. In this
 case, pick the widget that we just added: “INVESTMENTS [by Company_category_code]”.
 
@@ -336,10 +353,9 @@ case, pick the widget that we just added: “INVESTMENTS [by Company_category_co
 
 As in the previous section, we configure the chart by selecting “Chart Type” as “Bar Chart”, and
 in the “Visible Series” list, leaving the series “funded_year” (the x-axis) and
-“raised_amount_usd” (the y-axis).
+“raised_amount_usd” (the y-axis), and hiding the rest.
 
 ![30-breakdowns-page-done](images/investment-research/30-breakdowns-page-done.png)
-
 
 We can now click through the categories, and see the history of investment into each one.
 
