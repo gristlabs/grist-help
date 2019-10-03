@@ -1,26 +1,89 @@
-What is Grist?
---------------
-Grist is a software product to organize, analyze, and share data. It is built with structured data
-in mind.
+# Welcome to Grist! {: data-toc-label='' }
 
-The name Grist is a portmanteau combining `grid` (as of spreadsheet cells) and `list` (as of
-database records). It is also an English word describing the useful part of grain, or more
-generally, something useful or turned to advantage, as in "grist for one's mill." We see that
-definition as aptly fitting, as Grist helps users extract meaning from their data.
+Grist is a software product to organize, analyze, and share data.
 
-Who is Grist for?
------------------
-Grist is designed as a general purpose tool for structured data. That said, we think it's particular
-useful to individuals or teams trying to solve the following problems:
+Grist combines the best of spreadsheets and databases. Our name reflects this mission:
+"Grist" is made of "grid" (as of spreadsheet cells) and "list" (as of database
+records). Beyond simple grids and lists, Grist is at its best when data gets
+more complex, as it always does for real-world problems.
 
-* Manage confusing spreadsheets that hold relational data
-* Perform side-by-side reconciliation of disparate datasets
-* Clean up and maintain clean data using validation rules
-* Write Python against data you can see and manipulate
-* Creating multiple views on top of the same underlying data
+To learn Grist, we recommend starting with our "How-To" tutorials, or our "Getting Started" videos.
 
-Who makes Grist?
-----------------
-Grist is proudly made by Grist Labs, a team of software engineers in New York City.
+<div class="column-set" markdown="1">
 
-If you'd like to get in touch with us for any reason, please e-mail us at <info@getgrist.com>.
+<div class="column-one" markdown="1">
+
+### Tutorials
+
+[Coming soon] [High-productivity layouts](investment-research.md). Using the "Lightweight CRM" example,
+learn to create pages, configure layouts, and link data.
+{: .coming-soon }
+
+[Analyze and visualize data](investment-research.md). Using the "Investment
+Research" example, learn to create summary tables, create charts, and link charts dynamically.
+
+[Coming soon] [Managing business data](investment-research.md). Using the "Training Center" example,
+learn to model business data, use formulas, and manage complexity.
+{: .coming-soon }
+
+[Coming soon] [Managing scientific data](investment-research.md). Using the "Biochem Research" example,
+learn to organize, maintain, and analyze scientific data.
+{: .coming-soon }
+
+</div>
+
+<div class="column-one column-images" markdown="1">
+
+### Videos
+
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Creating a doc
+[coming soon]*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Adding pages
+[coming soon]*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Column types
+[coming soon]*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Sorting & filtering
+[coming soon]*
+{: .img-caption .coming-soon }
+
+</div>
+
+</div>
+
+## Popular shortcuts
+
+- [Function reference](functions.md)
+- [Column type reference](col-types.md)
+
+
+<!--
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Reference columns*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Linking widgets*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Writing formulas*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Summarizing data*
+{: .img-caption .coming-soon }
+
+-->
+## Contact us
+
+Email: <support@getgrist.com>
+
+If you have questions not answered here, problem reports, or other feedback,
+please contact us! While using Grist, you can use the "Contact us" link in the
+notifications (<span class="grist-icon" style="mask-image:
+var(--icon-Notification)"></span>) dropdown on the top right. Or email us at
+<support@getgrist.com>.

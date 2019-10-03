@@ -5,7 +5,7 @@ docs_dir: './help'
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
 theme: windmill
 pages:
-  - Home: index.md
+  - Welcome to Grist: index.md
   - How-Tos:
     - Analyze and visualize: investment-research.md
   - Grist intro:
@@ -46,7 +46,6 @@ pages:
   - Integrations and APIs:
     - REST API to Grist instance: rest-api.md
     - Document file format: file-format.md
-  - Contact us: contact-us.md
 
 extra:
   logo: 'images/logo.png'
@@ -69,6 +68,5 @@ markdown_extensions:
   - toc:
       permalink: '#'
   - admonition
-  - footnotes
-  - attr_list
   - smarty
+  - extra
