@@ -334,7 +334,7 @@ category change.
 
 To complete the example, we will add two more sections to this "Breakdowns"
 page. One will be a table listing company categories, and linked to it will be
-a chart showing amount of investment into that category over the years.
+a chart showing the amount of investment in that category over the years.
 
 To add the table of categories, use "Add Widget to Page", and select "Table" widget, "Investments" data,
 grouped by "Company_category_code".
