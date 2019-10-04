@@ -15,9 +15,8 @@ To learn Grist, we recommend starting with our "How-To" tutorials, or our "Getti
 
 ### Tutorials
 
-[Coming soon] [High-productivity layouts](investment-research.md). Using the "Lightweight CRM" example,
-learn to create pages, configure layouts, and link data.
-{: .coming-soon }
+[Create a custom CRM](lightweight-crm.md). Using the "Lightweight CRM" example,
+learn to create high-productivity layouts, and link data.
 
 [Analyze and visualize data](investment-research.md). Using the "Investment
 Research" example, learn to create summary tables, create charts, and link charts dynamically.

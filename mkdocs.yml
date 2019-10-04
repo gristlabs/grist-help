@@ -7,6 +7,7 @@ theme: windmill
 pages:
   - Welcome to Grist: index.md
   - How-Tos:
+    - Create your own CRM: lightweight-crm.md
     - Analyze and visualize: investment-research.md
   - Grist intro:
     - What is Grist: intro.md
