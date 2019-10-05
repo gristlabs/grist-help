@@ -1,10 +1,10 @@
 site_name: Grist Help Center
-site_dir: static/help
-site_favicon: ../favicon.png
+site_dir: site
+site_favicon: images/favicon.png
 docs_dir: './help'
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
 theme: windmill
-pages:
+nav:
   - Welcome to Grist: index.md
   - How-Tos:
     - Create your own CRM: lightweight-crm.md
