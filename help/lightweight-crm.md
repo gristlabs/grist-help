@@ -1,4 +1,4 @@
-# How to create a custom CRM {: data-toc-label='' }
+# How to create a custom CRM {: data-toc-label='Intro' }
 
 Grist is as easy to use as a spreadsheet, but gives you new powers when data doesn't fit in a
 simple grid.
@@ -24,6 +24,90 @@ Open the document “Lightweight CRM”, found in Examples & Templates in your G
 - Click on any contact to select it. The two sections on the right show the details and the
   history of interactions with the selected contact.
 
+How does this compare to a spreadsheet? These screenshots show the Lightweight CRM example on the
+left, and a regular spreadsheet with the same data on the right.
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="carousel-grist" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-grist" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-grist" data-slide-to="1"></li>
+          <li data-target="#carousel-grist" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="../images/lightweight-crm/grist-crm1.png" alt="Grist Screenshot1">
+          </div>
+          <div class="item">
+            <img src="../images/lightweight-crm/grist-crm2.png" alt="Grist Screenshot2">
+          </div>
+          <div class="item">
+            <img src="../images/lightweight-crm/grist-crm3.png" alt="Grist Screenshot3">
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-grist" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-grist" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="carousel-spreadsheet" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-spreadsheet" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-spreadsheet" data-slide-to="1"></li>
+          <li data-target="#carousel-spreadsheet" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="../images/lightweight-crm/spreadsheet1.png" alt="Spreadsheet Screenshot1">
+          </div>
+          <div class="item">
+            <img src="../images/lightweight-crm/spreadsheet2.png" alt="Spreadsheet Screenshot2">
+          </div>
+          <div class="item">
+            <img src="../images/lightweight-crm/spreadsheet3.png" alt="Spreadsheet Screenshot3">
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-spreadsheet" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-spreadsheet" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+&nbsp;
+
+The difficulty is in the history of notes for a contact. In a two-dimensional grid, you have few
+options for where to include multiple notes. If you include them as multiple columns, it quickly
+makes the spreadsheet unwieldy and difficult to navigate.
+
+Grist feels more like an application, but it's still as versatile as a spreadsheet.
+
+Here are a few more points on using this Grist document as a CRM:
+
 - To add a new contact, click the blank row at the bottom of the contacts list, then fill in the
   blank "CONTACTS Card" section that shows on the right.
 
@@ -31,36 +115,14 @@ Open the document “Lightweight CRM”, found in Examples & Templates in your G
   Interactions table. You can enter today's date using the `Command+;` shortcut, select the type
   of interaction using auto-complete, and type in your notes.
 
-How does this compare to a spreadsheet? These screenshots show the Lightweight CRM example on the
-left, and a regular spreadsheet with the same data on the right.
-
-![carousel](images/lightweight-crm/grist-crm1.png)
-![carousel](images/lightweight-crm/grist-crm2.png)
-![carousel](images/lightweight-crm/grist-crm3.png)
-
-
-![carousel](images/lightweight-crm/spreadsheet1.png)
-![carousel](images/lightweight-crm/spreadsheet2.png)
-![carousel](images/lightweight-crm/spreadsheet3.png)
-
-
-
-The difficulty is in the history of notes for a contact. In a two-dimensional grid, you have few
-options for where to include multiple notes. If you include them as multiple columns, it quickly
-makes the spreadsheet unwieldy and difficult to navigate.
-
-Grist feels more like an application, but it loses none of the versatility of a spreadsheet. In
-fact, the rest of the tutorial shows how to create it from scratch. A couple of other features of
-our example are custom-built using formulas:
-
 - You can add To-Do items for a contact: in the Interactions list, select "To-Do" in the "Type"
-  column as a special type of interaction. Think of the associated date is the due date for this
+  column as a special type of interaction. Think of the associated date as the due date for this
   task.
 
 - The Contacts table shows the list of coming up To-Do items, sorted by their due date.
 
 - If you use Gmail, the handy "Gmail search" link in the "CONTACTS Card" section will open a
-  browser window with the Gmail search results for your contacts email address.
+  browser window with the Gmail search results for this contact's email address.
 
 You can use this example as a template for your own contacts. With "Lightweight CRM" example open,
 click "Make your own copy" in the top bar, and select "Copy as template". You'll get an empty

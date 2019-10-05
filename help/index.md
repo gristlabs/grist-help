@@ -9,9 +9,9 @@ more complex, as it always does for real-world problems.
 
 To learn Grist, we recommend starting with our "How-To" tutorials, or our "Getting Started" videos.
 
-<div class="column-set" markdown="1">
+<div class="row" markdown="1">
 
-<div class="column-one" markdown="1">
+<div class="col-md-6" markdown="1">
 
 ### Tutorials
 
@@ -31,7 +31,7 @@ learn to organize, maintain, and analyze scientific data.
 
 </div>
 
-<div class="column-one column-images" markdown="1">
+<div class="col-md-6 column-images" markdown="1">
 
 ### Videos
 
