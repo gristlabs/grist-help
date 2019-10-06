@@ -2,12 +2,13 @@
 
 Grist is a software product to organize, analyze, and share data.
 
-Grist combines the best of spreadsheets and databases. Our name reflects this mission:
+Grist combines the best of spreadsheets and databases. Even our name reflects this:
 "Grist" is made of "grid" (as of spreadsheet cells) and "list" (as of database
-records). Beyond simple grids and lists, Grist is at its best when data gets
-more complex, as it always does for real-world problems.
+records). Of course, real-world problems go beyond simple grids and lists, and
+Grist is at its best when data gets more complex.
 
-To learn Grist, we recommend starting with our "How-To" tutorials, or our "Getting Started" videos.
+To learn Grist, we recommend starting with our "How-To" tutorials, or our
+"Getting Started" videos.
 
 <div class="row" markdown="1">
 
@@ -16,7 +17,7 @@ To learn Grist, we recommend starting with our "How-To" tutorials, or our "Getti
 ### Tutorials
 
 [Create a custom CRM](lightweight-crm.md). Using the "Lightweight CRM" example,
-learn to create high-productivity layouts, and link data.
+learn to link data, and create high-productivity layouts.
 
 [Analyze and visualize data](investment-research.md). Using the "Investment
 Research" example, learn to create summary tables, create charts, and link charts dynamically.
