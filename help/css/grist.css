@@ -41,6 +41,22 @@
   pointer-events: none;
 }
 
+.keys {
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin: 0px 2px;
+  border: 1px solid var(--color-slate);
+  color: var(--color-slate);
+  font-family: inherit;
+  font-style: normal;
+  white-space: nowrap;
+}
+.keys > em, .keys > strong {
+  font-style: normal;
+  font-family: inherit;
+  color: var(--color-dark-green);
+}
+
 .carousel-indicators li {
   border: 1px solid var(--color-light-green);
 }

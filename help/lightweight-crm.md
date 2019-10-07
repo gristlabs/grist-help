@@ -15,7 +15,7 @@ your own contacts, and then show how to build it from scratch. You'll learn how 
 - Set column types
 - Create custom layouts
 
-## Exploring the template
+## Exploring the example
 
 Open the document “Lightweight CRM”, found in Examples & Templates in your Grist home page.
 
@@ -30,7 +30,7 @@ left, and a regular spreadsheet with the same data on the right.
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-      <div id="carousel-grist" class="carousel slide">
+      <div id="carousel-grist" class="carousel slide" data-interval="false">
         <!-- Indicators -->
         <ol class="carousel-indicators">
           <li data-target="#carousel-grist" data-slide-to="0" class="active"></li>
@@ -63,7 +63,7 @@ left, and a regular spreadsheet with the same data on the right.
       </div>
     </div>
     <div class="col-md-6">
-      <div id="carousel-spreadsheet" class="carousel slide">
+      <div id="carousel-spreadsheet" class="carousel slide" data-interval="false">
         <!-- Indicators -->
         <ol class="carousel-indicators">
           <li data-target="#carousel-spreadsheet" data-slide-to="0" class="active"></li>
@@ -106,14 +106,18 @@ makes the spreadsheet unwieldy and difficult to navigate.
 
 Grist feels more like an application, but it's still as versatile as a spreadsheet.
 
-Here are a few more points on using this Grist document as a CRM:
+The "Lightweight CRM" example is read-only, but you can make your own editable
+copy, either copying in full (with the sample data), or as a template (just the
+structure without the data). Here are a few more points on using your copy as a CRM:
 
 - To add a new contact, click the blank row at the bottom of the contacts list, then fill in the
   blank "CONTACTS Card" section that shows on the right.
 
 - To add a new conversation, select a contact, then click the blank line at the end of the
-  Interactions table. You can enter today's date using the `Command+;` shortcut, select the type
-  of interaction using auto-complete, and type in your notes.
+  Interactions table. You can enter today's date using the shortcut
+  <code class="keys">*⌘* + **;** (semicolon)</code> (Mac) or <code class="keys">*Ctrl* + **;**
+  (semicolon)</code> (Windows). Then select the type of interaction using
+  auto-complete, and type in your notes.
 
 - You can add To-Do items for a contact: in the Interactions list, select "To-Do" in the "Type"
   column as a special type of interaction. Think of the associated date as the due date for this
@@ -170,7 +174,7 @@ clicking its default name ("Table1") on top of the screen, as before.
 
 It's a good idea to give meaningful names to columns. In this case, for each interaction, we need
 to know which Contact it refers to, the date, type, and conversation notes. To rename a column, click
-its header to select it, and click it again to edit its name. You can hit the Tab key to continue
+its header to select the column, and click the header again to edit its name. You can hit the Tab key to continue
 to renaming the next column.
 
 ![col-rename](images/lightweight-crm/col-rename.png)
@@ -206,7 +210,8 @@ so under "Show column", select "Company". You'll see this in action shortly.
 
 In Grist, every columns has a types. Often the default of Text or Numeric is correct. For our
 "Date" column, a better type is Date. Click any cell in the "Date" column, and in the right panel,
-click into the "Column Type" dropdown and select "Date".
+click into the "Column Type" dropdown and select "Date". If you'd like, you can
+also choose a different date format right below the type.
 
 ![set-date](images/lightweight-crm/set-date.png)
 
@@ -230,8 +235,8 @@ choices you set, or start typing and use auto-complete.
 ## Linking tables visually
 
 The next step is to link the two tables visually. Open the "Contacts" page, click "Add Widget to
-Page", and select data "Interactions". In the "Select By" dropdown at the bottom of the dialog, select
-"CONTACTS".
+Page", select widget "Table" and data "Interactions". In the "Select By"
+dropdown at the bottom of the dialog, select "CONTACTS".
 
 ![add-widget1](images/lightweight-crm/add-widget1.png)
 
@@ -241,7 +246,9 @@ contact. Click "Add to Page" to finish.
 ![two-tables](images/lightweight-crm/two-tables.png)
 
 Next, let's select a contact (let's use "Douglas LLC" in the fourth row) and add some notes. Type
-in a date (hint: `Command + ;` inserts today's date), select a type, and enter a note. As soon as
+in a date (hint: the shortcut <code class="keys">*⌘* + **;** (semicolon)</code>
+on Mac or <code class="keys">*Ctrl* + **;** (semicolon)</code> on Windows
+inserts today's date), select a type, and enter a note. As soon as
 that row is created, the "Contact" column is automatically filled with "Douglas LLC", thanks to
 the sections being linked.
 
@@ -357,7 +364,7 @@ items = Interactions.lookupRecords(Contact=$id, Type="To-Do")
 return min(items.Date) if items else None
 ```
 
-Paste it in, or type in. Use `Shift+Enter` to add new lines when entering multi-line formulas, and
+Paste it in, or type in. When typing in multi-line formulas, use `Shift+Enter` to add new lines, and
 `Enter` to save.
 
 It's also a good time to change the type of this column to "Date". Open Column Options, and select
