@@ -82,6 +82,5 @@ Email: <support@getgrist.com>
 
 If you have questions not answered here, problem reports, or other feedback,
 please contact us! While using Grist, you can use the "Contact us" link in the
-notifications (<span class="grist-icon" style="mask-image:
-var(--icon-Notification)"></span>) dropdown on the top right. Or email us at
-<support@getgrist.com>.
+notifications (<span class="grist-icon" style="--icon: var(--icon-Notification)"></span>)
+dropdown on the top right. Or email us at <support@getgrist.com>.

@@ -309,8 +309,8 @@ Series” to only “category_code” and “raised_amount_usd” and hide the o
 
 
 Note: Graphs need more screenspace, so our small screenshots will look better if we close the
-side-panes by clicking on the opener icons (<span class="grist-icon" style="mask-image: var(--icon-PanelLeft)"></span>,
-<span class="grist-icon" style="mask-image: var(--icon-PanelRight)"></span>).
+side panels by clicking on the opener icons (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>,
+<span class="grist-icon" style="--icon: var(--icon-PanelRight)"></span>).
 
 Let’s also sort the table by “funded_year”.
 
