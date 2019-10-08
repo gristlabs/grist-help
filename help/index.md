@@ -7,14 +7,14 @@ Grist combines the best of spreadsheets and databases. Even our name reflects th
 records). Of course, real-world problems go beyond simple grids and lists, and
 Grist is at its best when data gets more complex.
 
-To learn Grist, we recommend starting with our "How-To" tutorials, or our
-"Getting Started" videos.
+To learn Grist, we recommend starting with our How-To tutorials, or our
+Intro videos.
 
 <div class="row" markdown="1">
 
 <div class="col-md-6" markdown="1">
 
-### Tutorials
+### How-To Tutorials
 
 [Create a custom CRM](lightweight-crm.md). Using the "Lightweight CRM" example,
 learn to link data, and create high-productivity layouts.
@@ -34,7 +34,7 @@ learn to organize, maintain, and analyze scientific data.
 
 <div class="col-md-6 column-images" markdown="1">
 
-### Videos
+### Intro Videos
 
 [![Creating a doc](https://img.youtube.com/vi/K3gpM03RjGE/1.jpg) *Creating a doc*](video-creating-doc.md)
 {: .img-caption }
