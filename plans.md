@@ -3,7 +3,7 @@
   - [ok] Sharing a document (doc menu, home menu, roles, link to team-sharing)
   - Workspaces [team] (moving / sharing /create in ws)
   - Team sharing [team] (owners / members, inherit, remove members)
-  - Importing into existing docs (types of files ; import sources, guessing col types, matching columns, link to APi)
+  - [ok] Importing into existing docs (types of files ; import sources, guessing col types, matching columns, link to APi)
   - Exporting and backing up (export page widget, export raw data, backup copy / restoring)
   - API reference and key create/reset
 

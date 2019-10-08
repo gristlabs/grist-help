@@ -1,42 +1,52 @@
-Importing and exporting data
-============================
+# Importing more data
 
-Importing
----------
+You can import a file to [start a new Grist document](creating-doc.md), or to
+add data to an existing document. Grist supports imports of Excel, CSV, JSON, and
+tab-separated files.
 
-You can import a file to [start a new Grist document](intro.md#creating-a-new-document), or to add
-tables to an existing document. Imports of Excel, CSV, and tab-separated files are supported, while
-other formats (such as HTML, PDF, and plain text) may or may not work depending on their structure.
+You can also import any of these formats from a URL, using the "Import from URL" option.
+
+## The Import dialog
+
+When you import data into an existing document, Grist opens an import dialog to
+show you what will be imported. This dialog offers available import options,
+lets you choose whether to create a new table or add to an existing one, and
+shows a preview of the data.
+
+![import-dialog](images/import-dialog.png)
+
+The "Import options" link on the top right is sometimes useful when importing
+delimited files. Grist guesses the settings to parse the data (such as the
+field delimiter), but if it guesses incorrectly, you can adjust the settings.
+
+## Guessing data structure
 
 In all cases, when you import a file, Grist makes guesses about the structure of the file.
 
-### Tables to import
+For Excel files, Grist treats each sheet as a separated table. For CSV and
+other delimited formats, one file becomes one table. For both Excel and
+delimited files, Grist tries to detect whether the headers are included and
+which line they occur in. If Grist detects there are no headers, it will name
+columns as "A", "B", "C", etc.
 
-For Excel files, Grist imports each sheet as a new table, using the sheet name to name the tables.
-For CSV and other delimited formats, one file becomes one table, and the filename determines the
-table name.
+Grist automatically tries to parse numbers, dates, and boolean fields to detect
+the most suitable type for each column. It tries to be lossless: e.g. if it
+marks a column as numeric, any text values in it (such as "N/A") will remain in
+the imported table, but shown highlighted because of the type mismatch.
 
-### Column names
+You can always rename tables and columns after an import, as well as convert types.
 
-For both Excel and delimited files, Grist tries to guess whether or not headers are included and
-which line they occur in. If Grist guesses there are no headers, it will name columns as "A", "B",
-"C", etc.
+## Import to an existing table
 
-You can always rename columns after an import, using the Field side pane.
+By default, Grist imports new data as new tables, but the Import dialog allows
+you to change the destination and import data into an existing table.
 
-!!! note
-    Currently, if Grist thinks your first line of data is headers, you both need to rename columns
-    to something sensible, and you lose the first row of data. At the moment, you can only recover
-    it by inserting a new row and populating it manually; or by adding headers to the original
-    data and re-importing.
+To import cleanly into an existing table, the new data must have column names
+exactly matching the columns in the destination table.
 
-### Column types
+This is best suited for importing multiple datasets in the same format. For
+instance, you could import a bank statement as a new table, then import more
+statements from other months into the same table.
 
-Grist guesses the [data types](datatypes) for columns based on the data in the column. It
-automatically tries to parse numbers, dates, and boolean fields to detect the most suitable type
-to set the column to. Grist tries to be lossless: e.g. if it marks a column as numeric, any text
-values in it (such as "N/A") will remain in the imported table, but shown highlighted because of
-the type mismatch.
-
-If Grist guesses a type wrong, you can convert it, as well as do arbitrary transformations to the
-imported values, by changing the type in the Field side pane.
+For developers, the [Grist API](api.md) offers a more powerful way to add data
+to a Grist document.
