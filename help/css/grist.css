@@ -61,7 +61,7 @@
 
 /* a way to size images to half if intrinsic size; see https://stackoverflow.com/a/25026615/328565 */
 .screenshot-half { display: inline-block; }
-.screenshot-half > img { width: 50% }
+.screenshot-half > img { width: 50%; margin: 0; }
 
 .carousel-indicators li {
   border: 1px solid var(--color-light-green);

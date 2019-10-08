@@ -28,6 +28,8 @@ You may choose a role for any invited user, and click Confirm to save the change
 
 ![sharing-roles](images/sharing/sharing-roles.png)
 
+## Roles
+
 There are three primary roles supported by Grist:
 
 - **Viewer**: allows a user to view the document, but not make any changes to

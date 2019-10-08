@@ -6,14 +6,17 @@ docs_dir: './help'
 theme: windmill
 nav:
   - Welcome to Grist: index.md
-  - Intro videos:
-    - Creating a document: video-creating-doc.md
   - How-To Tutorials:
     - Create your own CRM: lightweight-crm.md
     - Analyze and visualize: investment-research.md
   - Managing documents:
     - Creating a document: creating-doc.md
     - Sharing a document: sharing.md
+    - Workspaces [team]: workspaces.md
+    - Team sharing [team]: team-sharing.md
+    - Importing more data: imports.md
+    - Exports &amp; backups: exports.md
+    - API reference: api.md
   - Grist intro:
     - What is Grist: intro.md
     - Grist concepts: concepts.md
