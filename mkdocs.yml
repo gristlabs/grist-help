@@ -17,12 +17,13 @@ nav:
     - Importing more data: imports.md
     - Exports &amp; backups: exports.md
     - API reference: api.md
+  - Pages and Tables:
+    - Entering data: enter-grid.md
   - Grist intro:
     - What is Grist: intro.md
     - Grist concepts: concepts.md
     - Release notes: releases.md
   - Entering and viewing data:
-    - Entering data in a grid: enter-grid.md
     - Adding and deleting records: add-records.md
     - Adding and deleting columns: add-columns.md
     - Working in record view: enter-detail.md
@@ -49,7 +50,6 @@ nav:
     - Creating view layouts: view-layouts.md
     - Linking views: view-linking.md
   - Importing and exporting:
-    - Importing new tables: imports.md
     - Exporting views: exports.md
     - Publishing and embedding data: publish.md
   - Integrations and APIs:

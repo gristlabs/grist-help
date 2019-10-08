@@ -9,7 +9,7 @@ collection of *related* data.
 You can start from scratch or import existing data. Click the Add New button on
 the home screen and choose either "Create empty document" or "Import document".
 
-![add-new-menu](images/add-new-menu.png)
+*![add-new-menu](images/add-new-menu.png)*
 {: .screenshot-half }
 
 You can import spreadsheets in Excel format, as well as comma-separated value
@@ -40,7 +40,7 @@ the sample data. Simply Click "Make own copy" and select "Copy as template".
 Once you've created a document, you can import more data into it by opening the
 document and selecting "Add New" and then one of the Import options.
 
-![add-new-menu-doc](images/add-new-menu-doc.png){: .screenshot4}
+*![add-new-menu-doc](images/add-new-menu-doc.png){: .screenshot4}*
 {: .screenshot-half }
 
 You can read more about imports data at [Importing more data](imports.md).

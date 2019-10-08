@@ -1,33 +1,52 @@
-Entering data
--------------
-Grist behaves much like other spreadsheet software. You can type into any selected cell. While in
-type mode you can take several actions:
+# Entering data
 
- * ``Escape`` key cancels the operation and restores the previous values of the cell.
- * ``Tab`` key saves your entry and moves your cursor to the next cell in the current row.
- * ``Enter`` key saves your entry and moves your cursor to the next cell in the current column.
+A spreadsheet-like grid is a great way to see data. In Grist, this is the view
+offered by the default page widget, called "Table".
 
-Cut and pasting
----------------
-You can cut and paste data into and out of Grist similar to other spreadsheet programs. If the
-pasted range is longer than the available records, additional records will be created.
+As in a spreadsheet, you can use the mouse or arrow keys to move around the
+cells of a table. To start entering data into a selecte cell, either start
+typing, hit <code class="keys">*Enter*</code>, or double-click the cell.
 
-!!! note "Available in future release"
-    If more columns are pasted than available, a prompt will confirm whether you'd like to create
-    additional columns or to limit paste to the current ones.
+## Editing cells
 
-Importing data
---------------
-There are several ways to import data into Grist.
+While editing a cell, several keys are special:
 
-### Upload as a new document
+ * <code class="keys">*Escape*</code> cancels the operation and restores the previous value in the cell.
+ * <code class="keys">*Tab*</code>, <code class="keys">*Shift* + *Tab*</code>
+   saves your entry and moves your cursor to the next or previous cell.
+ * <code class="keys">*Enter*</code> saves your entry and moves your cursor to the next row.
+ * <code class="keys">*Shift* + *Enter*</code> adds a newline inside your cell.
 
-From the Document List, click ``Upload Doc`` and select a file. You can import tab-delimited or
-comma-delimited files, as well as ``xls(x)`` files. If you're importing a spreadsheet with multiple
-tabs, each tab will be imported as a separate table in Grist.
+## Copying and pasting
 
-### Import into existing document
+You can copy data out of Grist or paste data into it. If the pasted range is
+longer than the available records, new records will be added.
 
-From the Tables dropdown menu, select ``Upload Table`` and select a file.
+Note that Grist does not create new columns automatically. If the pasted data
+has more columns than the grid displays, extra columns will be omitted.
 
-![Upload Table](images/basic-upload-table.png)
+## Data entry widgets
+
+In Grist, columns have types. In addition to typing in values, many column
+types offer specialized widgets for entering data more coneniently.
+
+Here are some of the most useful ones:
+
+- **Toggle**. A column of type "Toggle" shows True/False values, and can show
+  them as a "Checkbox" or as a "Switch" widget, which you can select in the
+  column options. You can toggle a value in such a cell by clicking the check
+  mark or the switch, or by hitting <code class="keys">*Space*</code>.
+
+  *![toggle-edit](images/toggle-edit.png)*
+  {: .screenshot-half }
+
+- **Date** and **DateTime**. Hitting <code class="keys">*Enter*</code> on such
+  a cell will open a date picker.
+
+  *![date-edit](images/date-edit.png)*
+  {: .screenshot-half }
+
+- **Choice** and **Reference**. Starting to type into a cell of one of these types will show an auto-complete dropdown.
+
+  *![choice-edit](images/choice-edit.png)*
+  {: .screenshot-half }
