@@ -11,6 +11,9 @@ nav:
   - How-To Tutorials:
     - Create your own CRM: lightweight-crm.md
     - Analyze and visualize: investment-research.md
+  - Managing documents:
+    - Creating a document: creating-doc.md
+    - Sharing a document: sharing.md
   - Grist intro:
     - What is Grist: intro.md
     - Grist concepts: concepts.md
