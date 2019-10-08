@@ -36,10 +36,8 @@ learn to organize, maintain, and analyze scientific data.
 
 ### Videos
 
-
-![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Creating a doc
-[coming soon]*
-{: .img-caption .coming-soon }
+[![Creating a doc](https://img.youtube.com/vi/K3gpM03RjGE/1.jpg) *Creating a doc*](video-creating-doc.md)
+{: .img-caption }
 
 ![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Adding pages
 [coming soon]*

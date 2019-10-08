@@ -6,6 +6,8 @@ docs_dir: './help'
 theme: windmill
 nav:
   - Welcome to Grist: index.md
+  - Getting started:
+    - Creating a document: video-creating-doc.md
   - How-Tos:
     - Create your own CRM: lightweight-crm.md
     - Analyze and visualize: investment-research.md
