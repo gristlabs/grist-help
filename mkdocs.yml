@@ -18,7 +18,8 @@ nav:
     - Exports &amp; backups: exports.md
     - API reference: api.md
   - Pages and Tables:
-    - Entering data: enter-grid.md
+    - Entering data: enter-data.md
+    - Page widgets: page-wigets.md
   - Grist intro:
     - What is Grist: intro.md
     - Grist concepts: concepts.md
@@ -46,7 +47,6 @@ nav:
     - Changing group-by fields: summary-change.md
     - Summary formulas: summary-formulas.md
   - Configuring views:
-    - Types of views: view-types.md
     - Creating view layouts: view-layouts.md
     - Linking views: view-linking.md
   - Importing and exporting:

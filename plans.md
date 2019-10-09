@@ -9,7 +9,7 @@
 
 - Pages and Tables
   - Raw data vs views
-  - Entering and viewing data
+  - [ok] Entering and viewing data
   - Page widgets - creating / types /changing
   - Page widget: Table (col resize, reorder, hide)
   - Page widget: Card/Card List (edit layout, theme)
