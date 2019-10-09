@@ -12,8 +12,8 @@ nav:
   - Managing documents:
     - Creating a document: creating-doc.md
     - Sharing a document: sharing.md
-    - Workspaces [team]: workspaces.md
     - Team sharing [team]: team-sharing.md
+    - Workspaces [team]: workspaces.md
     - Importing more data: imports.md
     - Exports &amp; backups: exports.md
     - API reference: api.md
