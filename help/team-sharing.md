@@ -7,7 +7,7 @@ with others.
 Team sites are a paid feature.  To tell whether you have a team site, look at the
 top left of the screen.  If you see a name starting with the "@" symbol, this
 is a personal site, not a team site.
-To use the features in this section, [purchase a team site](http://docs.getgrist.com/billing).
+To use the features in this section, upgrad to a [team plan](https://www.getgrist.com/pricing).
 
 ![team-sharing-personal-name](images/team-sharing/team-sharing-personal-name.png)
 *a personal site*
@@ -62,16 +62,16 @@ There are three primary roles supported by Grist for team sites:
 
 - **Viewer**: allows a user to view the site, but not make any changes to it.
   A viewer will be allowed to view all workspaces and documents within the site
-  unless otherwise specified.  Billing information for the site is not accessible.
+  unless otherwise specified.
 
 - **Editor**: allows a user to view or make changes to the site and all its workspaces
   and documents (unless otherwise specified).  However, the sharing settings for the
   site, its workspaces, and its documents cannot be changed by an editor.
-  Billing information for the site is not accessible.
 
 - **Owner**: gives a user complete permissions to the site's workspaces and documents,
-  including their sharing settings.  Billing information for the site is not accessible.
+  including their sharing settings.
 
-In addition, there is a separate role called **Billing Manager** that gives a user access
-to view and edit a site's billing information.
-
+None of these roles give access to billing information or management.
+Billing managers can be added via the "Billing Account" option. 
+Click on the circle with your profile picture or initial
+on the top right of the screen, and select "Billing Account".
