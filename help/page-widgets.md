@@ -1,40 +1,74 @@
-Configuring views
-=================
+# Page widgets {: data-toc-label='' }
 
-A feature that separates Grist from traditional spreadsheets is that you can create multiple views
-of the same data, and you can display multiple data sets on one screen. This allows you to create
-complex dashboards and custom applications tailored to your needs.
+Unlike traditional spreadsheets, in Grist you can create multiple views of the same data, and
+display multiple data sets on one page. This allows you to create useful dashboards and custom
+applications tailored to your needs.
 
-Types of views
---------------
-Similar to spreadsheet software, Grist lets you see your data in a grid of rows and columns. But you
-can also choose to view your data as a **list** of records or as **detailed** records, one at a
-time. Additional view types are listed below.
+## Pages
 
-Consider your e-mail, for example. Your inbox lets you view your e-mails as a list, and opening an
-e-mail displays its full details. It's a much nicer interface than having all your e-mails in a grid
-in a spreadsheets, isn't it? Grist lets you do the same thing with your other data as well.
+You organize your views of data into "pages". These are listed in the left panel, with collapsible
+groups. You may rearrange and group pages in the left panel by dragging to suit your needs.
 
-<div class='grist-mod__table'></div> <!-- For css styling via css/extra.css -->
+*![drag_pages](images/drag_pages.png)*
+{: .screenshot-half }
 
-Type    | Description
-------- | -----------
-Grid    | (**Default**) Standard grid or spreadsheet view type.
-List    | List of records. Layout of each record is fully customizable.
-Detail  | Full-page detail record, with next / previous navigation. Layout of each record is fully customizable.
-Summary | A summary (aka pivot) table of an existing table.
-Chart   | A chart view type that can be configured to display line charts, bar charts, and many more.
+You can rename pages using the three-dots menu next to the page name in the list, or by clicking
+the page name on top of the screen.
 
-Creating a new view
--------------------
-To create a new view for an existing table, click ``Add section``. In the added blank section you
-can select the table and the view type.
+*![rename_pages1](images/rename_pages1.png)*
+{: .screenshot-half }
 
-![Add view section](images/views-add-section.png)
+*![rename_pages2](images/rename_pages2.png)*
+{: .screenshot-half }
 
-Organizing view sections
-------------------------
-To rearrange view sections on the screen you can simply grab a section by its top-left corner and
-drag it to the desired location. Drop zones are signified by a dotted blue line.
+Using the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>)
+near the top of the left panel, you can collapse the panel to leave only the initials of each page
+and give more screen space to the data.
 
-![Drag view section](images/views-drag-section.png)
+To add a new page, use the "Add New" button, and click "Add Page". At that point, you'll get to
+choose the page widget to include in the new page.
+
+## Page widgets
+
+A page contains sections, such as tables or charts, which we call "page widgets". Each page widget
+shows data from one table. A page may contain more than one page widget, and you can arrange and
+link them to create useful layouts.
+
+Here are the supported kinds of page widgets. The salient features of each one are described
+further down.
+
+- **Table**: similar to the spreadsheet grid, and a good way to see many records at once.
+- **Card**: shows a single record in a form-like layout, which you can customize.
+- **Card List**: using the same layout as a card, displays a scrollable list of records.
+- **Chart**: plots data on a chart, with support for a few different chart types.
+- **Custom**: an experimental widget enabling developers to create their own data views.
+
+
+## Widget picker
+
+The menu opened by the "Add New" button has options "Add Page" and "Add Widget to Page". In either
+case, you'll see the "page widget picker" where you will select the widget to add:
+
+*![page_widget_picker](images/page_widget_picker.png)*
+
+You get to select the type of widget, the table of data to show (or "New Table" to create a new
+table). The "summary" icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>)
+allows you to [summarize data](summary-tables.md).
+
+When adding a widget to an _existing_ page, you'll also see a "Select By" option, which allows
+linking this widget to another one already on the page. This is described in [Linking
+widgets](linking-widgets.md).
+
+Once you have widgets, they can be moved around and resized, as described in [Custom
+Layouts](custom-layouts.md).
+
+## Changing widget or its data
+
+If you'd like to change the widget or the data shown in it after it's added, you may do so. Click
+the three-dots button on the top left of your widget, and select "Widget options". This opens the
+right-side panel. Click "Change Widget" there:
+
+*![change_widget](images/change_widget.png)*
+{: .screenshot-half }
+
+You can then use the same widget picker to change the widget or the data it shows.
