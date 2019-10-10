@@ -33,6 +33,7 @@ need push access to this repo to publish for preview.
 
 ``` sh
 git remote add preview https://github.com/grist-jenkins/grist-help.git
+git pull --all
 ```
 
 After you've made changes, publish them to <https://support-preview.getgrist.com>:
