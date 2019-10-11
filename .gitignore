@@ -62,3 +62,8 @@ typings/
 
 # next.js build output
 .next
+
+# api build
+package.json
+package-lock.json
+help/api-docs.html

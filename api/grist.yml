@@ -1,0 +1,408 @@
+info:
+  description: "An API for manipulating Grist sites, workspaces, and documents."
+  version: "1.0.0"
+  title: "Grist API"
+openapi: 3.0.0
+security:
+  - API Key: []   
+servers:
+  - url: https://docs.getgrist.com/api
+paths:
+  /orgs:
+    get:
+      tags:
+        - orgs
+      summary: "List the orgs you have access to"
+      description: "This enumerates all the team sites or personal areas available."
+      responses:
+        200:
+          description: An array of organizations
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Orgs"
+  /orgs/{orgId}:
+    get:
+      tags:
+        - orgs
+      summary: "Describe an org"
+      parameters:
+        - in: path
+          name: orgId
+          schema:
+            $ref: "#/components/schemas/OrgKey"
+          required: true
+      responses:
+        200:
+          description: An organization
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Org"
+  /orgs/{orgId}/workspaces:
+    get:
+      tags:
+        - orgs
+      summary: "List workspaces and documents within an org"
+      parameters:
+        - in: path
+          name: orgId
+          schema:
+            $ref: "#/components/schemas/OrgKey"
+          required: true
+      responses:
+        200:
+          description: An org's workspaces and documents
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/OrgWithWorkspaces"
+  /workspaces/{workspaceId}:
+    get:
+      tags:
+        - workspaces
+      summary: "Describe a workspace"
+      parameters:
+        - in: path
+          name: workspaceId
+          schema:
+            $ref: "#/components/schemas/WorkspaceKey"
+          required: true
+      responses:
+        200:
+          description: A workspace
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/WorkspaceWithOrg"
+  /docs/{docId}:
+    get:
+      tags:
+        - docs
+      summary: "Describe a document"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      responses:
+        200:
+          description: A document's metadata
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/DocWithWorkspace"
+  /docs/{docId}/download:
+    get:
+      tags:
+        - docs
+      summary: "Content of document, as an Sqlite file"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      responses:
+        200:
+          description: A document's content in Sqlite form
+          content:
+            application/x-sqlite3:
+              schema:
+                type: string
+                format: binary
+  /docs/{docId}/tables/{tableId}/data:
+    get:
+      tags:
+        - docs
+      summary: "Fetch data from a table"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: tableId
+          schema:
+            type: string
+            description: name of a table (normalized)
+          required: true
+        - in: query
+          name: filter
+          schema:
+            type: string
+            description: JSON-encoded object mapping columns to arrays of allowed values
+            example: "{\"pet\": [\"cat\", \"dog\"]}"
+          required: false
+      responses:
+        200:
+          description: Cells from the table
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Data"
+    post:
+      tags:
+        - docs
+      summary: "Add rows to a table"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: tableId
+          schema:
+            type: string
+            description: name of a table (normalized)
+          required: true
+      requestBody:
+        description: "the data to add"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataWithoutId"
+        required: true
+      responses:
+        200:
+          description: IDs of rows added
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RowIds"
+    patch:
+      tags:
+        - docs
+      summary: "Modify rows of a table"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: tableId
+          schema:
+            type: string
+            description: name of a table (normalized)
+          required: true
+      requestBody:
+        description: "the data to add, with ids"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Data"
+        required: true
+      responses:
+        200:
+          description: IDs of rows modified
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RowIds"
+
+
+tags:
+  - name: orgs
+    description: "Team sites and personal spaces are called 'orgs' in the API."
+components:
+  securitySchemes:
+    API Key:
+      type: http
+      scheme: bearer
+      bearerFormat: "Authorization: Bearer XXXXXXXXXXX"
+      description: "Access to the Grist API is controlled by an Authorization header, which should contain the word 'Bearer', followed by a space, followed by your API key."
+  schemas:
+    OrgKey:
+      oneof:
+        - integer
+        - string
+      description: This can be an integer id, or a string subdomain (e.g. `gristlabs`), or `current` if the org is implied by the domain in the url
+    WorkspaceKey:
+      type: integer
+      description: An integer id
+    DocKey:
+      type: string
+      description: A string id (UUID)
+    Org:
+      type: object
+      required:
+        - id
+        - name
+        - domain
+        - owner
+        - createdAt
+        - updatedAt
+        - access
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 42
+        name:
+          type: string
+          example: "Grist Labs"
+        domain:
+          type: string
+          nullable: true
+          example: "gristlabs"
+        owner:
+          type: object
+          $ref: "#/components/schemas/User"
+          nullable: true
+        access:
+          type: string
+          $ref: "#/components/schemas/Access"
+        createdAt:
+          type: string
+          example: "2019-09-13T15:42:35.000Z"
+        updatedAt:
+          type: string
+          example: "2019-09-13T15:42:35.000Z"
+    Orgs:
+      type: array
+      items:
+        $ref: "#/components/schemas/Org"
+    Workspace:
+      type: object
+      required:
+        - id
+        - name
+        - access
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 97
+        name:
+          type: string
+          example: Secret Plans
+        access:
+          type: string
+          $ref: "#/components/schemas/Access"
+    Doc:
+      type: object
+      required:
+        - id
+        - name
+        - isPinned
+        - urlId
+        - access
+      properties:
+        id:
+          type: string
+          example: 145
+        name:
+          type: string
+          example: Project Lollipop
+        access:
+          type: string
+          $ref: "#/components/schemas/Access"
+        isPinned:
+          type: boolean
+          example: true
+        urlId:
+          type: string
+          nullable: true
+          example: null
+    Workspaces:
+      type: array
+      items:
+        $ref: "#/components/schemas/Workspace"
+    WorkspaceWithDocs:
+      allOf:
+        - $ref: "#/components/schemas/Workspace"
+        - type: object
+          required:
+          - docs
+          properties:
+            docs:
+              type: array
+              items:
+                $ref: "#/components/schemas/Doc"
+    WorkspaceWithOrg:
+      allOf:
+        - $ref: "#/components/schemas/Workspace"
+        - type: object
+          required:
+          - org
+          properties:
+            org:
+              $ref: "#/components/schemas/Org"
+    OrgWithWorkspaces:
+      allOf:
+        - $ref: "#/components/schemas/Org"
+        - type: object
+          required:
+          - workspaces
+          properties:
+            workspaces:
+              type: array
+              items:
+                $ref: "#/components/schemas/WorkspaceWithDocs"
+    DocWithWorkspace:
+      allOf:
+        - $ref: "#/components/schemas/Doc"
+        - type: object
+          required:
+          - workspace
+          properties:
+            workspace:
+              $ref: "#/components/schemas/WorkspaceWithOrg"
+    User:
+      type: object
+      required:
+        - id
+        - name
+        - picture
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 101
+        name:
+          type: string
+          example: "Helga Hufflepuff"
+        picture:
+          type: string
+          nullable: true
+          example: null
+    Access:
+      type: string
+      enum:
+        - owners
+        - editors
+        - viewers
+    Data:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: array
+          items:
+            type: integer
+      additionalProperties:
+        type: array
+        items: {}
+      example:
+        id: [1, 2]
+        pet: ["cat", "dog"]
+        popularity: [67, 95]
+    DataWithoutId:
+      type: object
+      additionalProperties:
+        type: array
+        items: {}
+      example:
+        id: [1, 2]
+        pet: ["cat", "dog"]
+        popularity: [67, 95]
+    RowIds:
+      type: array
+      example: [101, 102, 103]
+      items:
+        type: integer

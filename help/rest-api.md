@@ -32,3 +32,5 @@ curl -H "Authorization: Bearer API-KEY-GOES-HERE" https://docs.getgrist.com/api/
 
 You should get a list of organizations (this is what the API calls team sites
 and personal areas).
+
+For details of the api available, see our [API docs](api-docs.html).

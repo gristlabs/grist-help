@@ -17,6 +17,7 @@ Both are served using GitHub Pages. The public version is hosted at
 ``` sh
 python3 -m venv env
 ./env/bin/pip install mkdocs-windmill
+./api/build.sh
 ./env/bin/mkdocs serve
 ```
 
