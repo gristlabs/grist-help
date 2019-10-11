@@ -16,7 +16,7 @@ nav:
     - Workspaces [team]: workspaces.md
     - Importing more data: imports.md
     - Exports &amp; backups: exports.md
-    - API reference: api.md
+    - API reference: rest-api.md
   - Pages and Tables:
     - Entering data: enter-data.md
     - Page widgets: page-widgets.md
