@@ -118,6 +118,36 @@ paths:
             application/json:    
               schema:
                 $ref: "#/components/schemas/OrgWithWorkspaces"
+    post:
+      tags:
+        - workspaces
+        - orgs
+      summary: "Create an empty workspace"
+      parameters:
+        - in: path
+          name: orgId
+          schema:
+            $ref: "#/components/schemas/OrgKey"
+          required: true
+      requestBody:
+        description: "settings for the workspace"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkspaceParameters"
+        required: true
+      responses:
+        200:
+          description: The workspace id
+          content:
+            application/json:
+              schema:
+                type: integer
+                description: an identifier for the workspace
+                example: 155
+
+
+
   /workspaces/{workspaceId}:
     get:
       tags:
@@ -163,6 +193,82 @@ paths:
                 type: string
                 description: a unique identifier for the document
                 example: "8b97c8db-b4df-4b34-b72c-17459e70140a"
+    patch:
+      tags:
+        - workspaces
+      summary: "Modify a workspace"
+      parameters:
+        - in: path
+          name: workspaceId
+          schema:
+            $ref: "#/components/schemas/WorkspaceKey"
+          required: true
+      requestBody:
+        description: "the changes to make"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkspaceParameters"
+        required: true
+      responses:
+        200:
+          description: Success
+    delete:
+      tags:
+        - workspaces
+      summary: "Delete a workspace"
+      parameters:
+        - in: path
+          name: workspaceId
+          schema:
+            $ref: "#/components/schemas/WorkspaceKey"
+          required: true
+      responses:
+        200:
+          description: Success
+
+  /workspace/{workspaceId}/access:
+    get:
+      tags:
+        - workspaces
+      summary: "List users with access to workspace"
+      parameters:
+        - in: path
+          name: workspaceId
+          schema:
+            $ref: "#/components/schemas/WorkspaceKey"
+          required: true
+      responses:
+        200:
+          description: "Users with access to workspace"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkspaceAccessRead"
+    patch:
+      tags:
+        - workspaces
+      summary: "Change who has access to workspace"
+      parameters:
+        - in: path
+          name: workspaceId
+          schema:
+            $ref: "#/components/schemas/WorkspaceKey"
+          required: true
+      requestBody:
+        description: "the changes to make"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - delta
+              properties:
+                delta:
+                  $ref: "#/components/schemas/WorkspaceAccessWrite"
+        required: true
+
+
 
   /docs/{docId}:
     get:
@@ -503,6 +609,12 @@ components:
         name:
           type: string
           example: "Competitive Analysis"
+    WorkspaceParameters:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Retreat Docs"
     OrgParameters:
       type: object
       properties:
@@ -538,6 +650,53 @@ components:
       required:
         - users
       properties:
+        users:
+          type: object
+          additionalProperties:
+            type: string
+            enum:
+              - owners
+              - editors
+              - viewers
+              - members
+              - null
+          example:
+            "foo@getgrist.com": "owners"
+            "bar@getgrist.com": null
+    WorkspaceAccessRead:
+      type: object
+      required:
+        - maxInheritedRole
+        - users
+      properties:
+        maxInheritedRole:
+          $ref: "#/components/schemas/Access"
+        users:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - name
+            properties:
+              id:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "Andrea"
+              email:
+                type: string
+                example: "andrea@getgrist.com"
+              access:
+                $ref: "#/components/schemas/Access"
+              parentAccess:
+                $ref: "#/components/schemas/Access"
+    WorkspaceAccessWrite:
+      type: object
+      properties:
+        maxInheritedRole:
+          $ref: "#/components/schemas/Access"
         users:
           type: object
           additionalProperties:
