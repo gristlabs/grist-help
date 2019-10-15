@@ -288,6 +288,106 @@ paths:
             application/json:    
               schema:
                 $ref: "#/components/schemas/DocWithWorkspace"
+    patch:
+      tags:
+        - docs
+      summary: "Modify document metadata (but not its contents)"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      requestBody:
+        description: "the changes to make"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocParameters"
+        required: true
+      responses:
+        200:
+          description: Success
+    delete:
+      tags:
+        - docs
+      summary: "Delete a document"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      responses:
+        200:
+          description: Success
+  /docs/{docId}/move:
+    patch:
+      tags:
+        - docs
+      summary: "Move document to another workspace in the same org."
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      requestBody:
+        description: "the target workspace"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - workspace
+              properties:
+                workspace:
+                  type: integer
+                  example: 597
+      responses:
+        200:
+          description: "Success"
+
+  /docs/{docId}/access:
+    get:
+      tags:
+        - docs
+      summary: "List users with access to document"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      responses:
+        200:
+          description: "Users with access to document"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocAccessRead"
+    patch:
+      tags:
+        - docs
+      summary: "Change who has access to document"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      requestBody:
+        description: "the changes to make"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - delta
+              properties:
+                delta:
+                  $ref: "#/components/schemas/DocAccessWrite"
+        required: true
   /docs/{docId}/download:
     get:
       tags:
@@ -403,6 +503,10 @@ paths:
 tags:
   - name: orgs
     description: "Team sites and personal spaces are called 'orgs' in the API."
+  - name: workspaces
+    description: "Sites can be organized into groups of documents called workspaces."
+  - name: docs
+    description: "Workspaces contain collections of Grist documents."
 components:
   securitySchemes:
     API Key:
@@ -603,12 +707,13 @@ components:
         type: integer
     DocParameters:
       type: object
-      required:
-        - name
       properties:
         name:
           type: string
           example: "Competitive Analysis"
+        isPinned:
+          type: boolean
+          example: false
     WorkspaceParameters:
       type: object
       properties:
@@ -710,3 +815,7 @@ components:
           example:
             "foo@getgrist.com": "owners"
             "bar@getgrist.com": null
+    DocAccessWrite:
+      $ref: "#/components/schemas/WorkspaceAccessWrite"
+    DocAccessRead:
+      $ref: "#/components/schemas/WorkspaceAccessRead"
