@@ -26,7 +26,7 @@ You'll then have the option to create a new one if you wish.
 
 To test your api key, try this from the command-line (substituting
 your api key):
-```
+```sh
 curl -H "Authorization: Bearer API-KEY-GOES-HERE" https://docs.getgrist.com/api/orgs
 ```
 
@@ -34,3 +34,8 @@ You should get a list of organizations (this is what the API calls team sites
 and personal areas).
 
 For details of the api available, see our [API docs](api-docs.html).
+
+There are also client libraries available:
+
+ * [Javascript/Typescript client library](https://www.npmjs.com/package/grist-api)
+ * [Python client library](https://pypi.org/project/grist-api/)

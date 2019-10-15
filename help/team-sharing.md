@@ -41,10 +41,10 @@ For a team site you own,
 you can [create documents](creating-doc.md), [create workspaces](workspaces.md),
 or immediately start sharing the site with others.
 To share the site, click on the circle with your profile picture or initial
-on the top right of the screen.  Then select the "Organization Settings"
+on the top right of the screen.  Then select the "Manage Users"
 option.
 
-![team-sharing-organization-settings](images/team-sharing/team-sharing-organization-settings.png)
+![team-sharing-manage-users](images/team-sharing/team-sharing-manage-users.png)
 
 You can now invite people just as you did for individual documents in
 [Sharing](sharing.md).
