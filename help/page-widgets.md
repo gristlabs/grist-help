@@ -35,13 +35,15 @@ shows data from one table. A page may contain more than one page widget, and you
 link them to create useful layouts.
 
 Here are the supported kinds of page widgets. The salient features of each one are described
-further down.
+on separate pages.
 
-- **Table**: similar to the spreadsheet grid, and a good way to see many records at once.
-- **Card**: shows a single record in a form-like layout, which you can customize.
-- **Card List**: using the same layout as a card, displays a scrollable list of records.
-- **Chart**: plots data on a chart, with support for a few different chart types.
-- **Custom**: an experimental widget enabling developers to create their own data views.
+- [Table](widget-table.md): similar to the spreadsheet grid, and a good way to see many records at once.
+- [Card](widget-card.md): shows a single record in a form-like layout, which you can customize.
+- [Card List](widget-card.md): using the same layout options as a card, displays a scrollable list of records.
+- [Chart](widget-chart.md): plots data on a chart, with support for several different chart types.
+
+![page_widget_types](images/page_widget_types.png)
+
 
 
 ## Widget picker
@@ -72,3 +74,69 @@ right-side panel. Click "Change Widget" there:
 {: .screenshot-half }
 
 You can then use the same widget picker to change the widget or the data it shows.
+
+
+
+## Configuring field lists
+
+Although different kinds of page widgets look very different, they all represent a list of
+records. Any of the widgets types can be used to show the same underlying data.
+
+In a **Table**, each record is represented by a row, and columns represent the same kind of value
+for each record.
+
+A table is also a helpful representation of the underlying data to keep in mind even
+when configuring other widget types.
+
+In a **Card List**, each row of the underlying data is shown as a card. Each column in the data
+corresponds to a *field* in this card. When talking about a Card widget, we'll use the term
+*"field"*, which conceptually is the same as a *"column"* in a Table wigdget.
+
+A **Card** is just like a Card List, but shows only one row of data at a time.
+
+In a **Chart**, each row of the underlying data table becomes a graphical element, such as a point
+on a line chart, a bar in a bar chart, or a sector of a pie chart. In this context, the columns of
+our data table are better known as data *"series"*.
+
+Use the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelRight)"></span>) to
+open the right panel. Depending on the currently-selected widget, you might see a tab for
+configuring a Column, Field, or Series. These are not different in substance, but different terms
+make more sense for different widgets.
+
+*![panel_header_table](images/panel_header_table.png)*
+{: .screenshot-half }
+
+*![panel_header_card](images/panel_header_card.png)*
+{: .screenshot-half }
+
+*![panel_header_cardlist](images/panel_header_cardlist.png)*
+{: .screenshot-half }
+
+*![panel_header_chart](images/panel_header_chart.png)*
+{: .screenshot-half }
+
+Clicking on the widget tab (highlighted in green in the images above), you'll see subtabs for
+"Widget", "Sort & Filter", and "Data". We'll focus on the first one, "Widget". You'll see options
+specific to the type of the selected widget, and below that two lists: "Visible Columns" and
+"Hidden Columns".
+
+*![widget_tab](images/widget_tab.png)*
+{: .screenshot-half }
+
+The "Hidden Columns" are the columns available in the data, but not shown in this widget. In a
+Card, these lists would show up as "Visible Fields" / "Hidden Fields". In a chart, they show up as
+"Visible Series" / "Hidden Series".
+
+These lists allow you to include, exclude, or rearrange fields in a widget. As you move your mouse
+over the items in the list, use the "eye" icons that show up to show or hide them. Alternatively,
+you can select several items using checkboxes, and hide or show them together.
+
+*![widget_tab_hide_hover](images/widget_tab_hide_hover.png)*
+{: .screenshot-half }
+
+*![widget_tab_hide_checkboxes](images/widget_tab_hide_checkboxes.png)*
+{: .screenshot-half }
+
+This ordered list of fields can be used to customize any of the page widget types. It has a
+particular importance in the [Chart widget](widget-chart.md), where different chart types and options ask you to
+place series in a certain order in the "Visible Series" list.
