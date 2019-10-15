@@ -43,4 +43,4 @@ document and selecting "Add New" and then one of the Import options.
 *![add-new-menu-doc](images/add-new-menu-doc.png){: .screenshot4}*
 {: .screenshot-half }
 
-You can read more about imports data at [Importing more data](imports.md).
+You can read more about importing data at [Importing more data](imports.md).

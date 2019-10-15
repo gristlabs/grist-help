@@ -30,10 +30,17 @@ your api key):
 curl -H "Authorization: Bearer API-KEY-GOES-HERE" https://docs.getgrist.com/api/orgs
 ```
 
-You should get a list of organizations (this is what the API calls team sites
-and personal areas).
+You should get a list of organizations (this is what the API calls team and personal sites).
 
-For details of the api available, see our [API docs](api-docs.html).
+Then you could, for example, change the name of your organization / site:
+
+```sh
+curl -H "Authorization: Bearer API-KEY-GOES-HERE" \
+     -H "Content-Type: application/json" \
+     localhost:8080/api/orgs/ORG-ID-GOES-HERE -X PATCH -d '{"name": "Omega Devices"}'
+```
+
+For details of the endpoints available, see our [API docs](api-docs.html).
 
 There are also client libraries available:
 

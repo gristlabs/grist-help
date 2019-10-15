@@ -39,6 +39,67 @@ paths:
             application/json:    
               schema:
                 $ref: "#/components/schemas/Org"
+    patch:
+      tags:
+        - orgs
+      summary: "Modify an org"
+      parameters:
+        - in: path
+          name: orgId
+          schema:
+            $ref: "#/components/schemas/OrgKey"
+          required: true
+      requestBody:
+        description: "the changes to make"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrgParameters"
+        required: true
+      responses:
+        200:
+          description: Success
+
+  /orgs/{orgId}/access:
+    get:
+      tags:
+        - orgs
+      summary: "List users with access to org"
+      parameters:
+        - in: path
+          name: orgId
+          schema:
+            $ref: "#/components/schemas/OrgKey"
+          required: true
+      responses:
+        200:
+          description: "Users with access to org"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrgAccessRead"
+    patch:
+      tags:
+        - orgs
+      summary: "Change who has access to org"
+      parameters:
+        - in: path
+          name: orgId
+          schema:
+            $ref: "#/components/schemas/OrgKey"
+          required: true
+      requestBody:
+        description: "the changes to make"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - delta
+              properties:
+                delta:
+                  $ref: "#/components/schemas/OrgAccessWrite"
+        required: true
   /orgs/{orgId}/workspaces:
     get:
       tags:
@@ -442,3 +503,51 @@ components:
         name:
           type: string
           example: "Competitive Analysis"
+    OrgParameters:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "ACME Unlimited"
+    OrgAccessRead:
+      type: object
+      required:
+        - users
+      properties:
+        users:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - name
+            properties:
+              id:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "Andrea"
+              email:
+                type: string
+                example: "andrea@getgrist.com"
+              access:
+                $ref: "#/components/schemas/Access"
+    OrgAccessWrite:
+      type: object
+      required:
+        - users
+      properties:
+        users:
+          type: object
+          additionalProperties:
+            type: string
+            enum:
+              - owners
+              - editors
+              - viewers
+              - members
+              - null
+          example:
+            "foo@getgrist.com": "owners"
+            "bar@getgrist.com": null
