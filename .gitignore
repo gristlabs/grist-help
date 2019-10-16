@@ -66,4 +66,3 @@ typings/
 # api build
 package.json
 package-lock.json
-help/api-docs.html

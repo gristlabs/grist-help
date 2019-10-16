@@ -17,7 +17,6 @@ Both are served using GitHub Pages. The public version is hosted at
 ``` sh
 python3 -m venv env
 ./env/bin/pip install mkdocs-windmill
-./api/build.sh
 ./env/bin/mkdocs serve
 ```
 
@@ -51,3 +50,20 @@ following command will publish changes to <https://support.getgrist.com>:
 ``` sh
 ./env/bin/mkdocs gh-deploy
 ```
+
+## Editing the API
+
+The API is documented in `api/grist.yml`.  When editing this file, you
+can watch changes at `http://localhost:9090` by running:
+
+``` sh
+./api/preview.sh
+```
+
+Once you're done, add the results to the main documentation with:
+
+``` sh
+./api/build.sh
+```
+
+
