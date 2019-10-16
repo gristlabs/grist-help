@@ -1,5 +1,39 @@
-Formulas and scripting
-======================
+Formulas
+=========
+
+Grist has a powerful data engine to help you fill in the cells of your
+tables, using formulas.  If you've used spreadsheets before, or
+database expressions, you'll be on familiar territory - but there are
+some wrinkles you'll want to know about, so hang around.
+
+Let's start with a classic use of spreadsheets.  Suppose you have
+a list of products you've ordered, their quantity you ordered of
+each, and the unit cost of each.  You've made a column to show
+the quantity times the unit price, but want the computer to do
+that part for you.
+
+![x](images/formulas/formulas-price.png)
+
+Just select a cell in the column you want to fill, and hit "=" to
+tell Grist you want to enter a formula, rather than a value.
+
+![x](images/formulas/formulas-price-equal.png)
+
+Did you notice, when you did that, the labels of the columns changed
+a little?  "Product" became "$Product", and "Unit Price"
+became "$Unit\_Price".  This is Grist telling you how to
+refer to those columns in your formula.  Just type "$Product * $Unit\_Price".
+You'll find an auto-complete feature ready to help you.
+Or if you don't like typing, click on the Product column, type the
+multiplication symbol, and then click on the Unit Price column.
+Your formula should look like this:
+
+![x](images/formulas/formulas-price-multiply.png)
+
+Now press enter, and your formula is applied to all cells in the
+column.
+
+![x](images/formulas/formulas-price-final.png)
 
 Entering a formula
 ------------------
