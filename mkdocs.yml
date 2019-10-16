@@ -20,6 +20,9 @@ nav:
   - Pages and Tables:
     - Entering data: enter-data.md
     - Page widgets: page-widgets.md
+    - Table widget: widget-table.md
+    - Card &amp; Card List: widget-card.md
+    - Chart: widget-chart.md
   - Grist intro:
     - What is Grist: intro.md
     - Grist concepts: concepts.md
@@ -76,6 +79,7 @@ extra_javascript:
 markdown_extensions:
   - toc:
       permalink: '#'
+      toc_depth: 3
   - admonition
   - smarty
   - extra
