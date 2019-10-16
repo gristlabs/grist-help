@@ -16,48 +16,21 @@ nav:
     - Workspaces [team]: workspaces.md
     - Importing more data: imports.md
     - Exports &amp; backups: exports.md
-    - API reference: rest-api.md
+    - API usage: rest-api.md
+    - API reference: api-docs.md
   - Pages and Tables:
     - Entering data: enter-data.md
     - Page widgets: page-widgets.md
     - Table widget: widget-table.md
     - Card &amp; Card List: widget-card.md
     - Chart: widget-chart.md
-  - Grist intro:
-    - What is Grist: intro.md
-    - Grist concepts: concepts.md
-    - Release notes: releases.md
-  - Entering and viewing data:
-    - Adding and deleting records: add-records.md
-    - Adding and deleting columns: add-columns.md
-    - Working in record view: enter-detail.md
   - Using formulas:
     - Getting started with formulas: formulas.md
-    - Lookup formulas: lookup-formulas.md
     - Working with dates: dates.md
     - Function reference: functions.md
   - Working with columns or fields:
-    - Naming columns: col-naming.md
     - Column types: col-types.md
     - Reference columns: col-refs.md
-    - Changing column types: col-change-type.md
-    - Column transformations: col-transforms.md
-  - Working with tables:
-    - Adding tables: table-add.md
-    - Renaming and deleting tables: table-mod.md
-  - Summarizing data:
-    - Creating summary views: summary-create.md
-    - Changing group-by fields: summary-change.md
-    - Summary formulas: summary-formulas.md
-  - Configuring views:
-    - Creating view layouts: view-layouts.md
-    - Linking views: view-linking.md
-  - Importing and exporting:
-    - Exporting views: exports.md
-    - Publishing and embedding data: publish.md
-  - Integrations and APIs:
-    - REST API to Grist instance: rest-api.md
-    - Document file format: file-format.md
 
 extra:
   logo: 'images/logo.png'
