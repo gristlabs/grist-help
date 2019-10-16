@@ -7,7 +7,7 @@ with others.
 Team sites are a paid feature.  To tell whether you have a team site, look at the
 top left of the screen.  If you see a name starting with the "@" symbol, this
 is a personal site, not a team site.
-To use the features in this section, upgrad to a [team plan](https://www.getgrist.com/pricing).
+To use the features in this section, upgrade to a [team plan](https://www.getgrist.com/pricing).
 
 ![team-sharing-personal-name](images/team-sharing/team-sharing-personal-name.png)
 *a personal site*

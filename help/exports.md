@@ -16,8 +16,8 @@ your columns, followed by all the rows of data in the table in text format.
 
 ## Backing up an entire document
 
-Grist documents can also be downloaded in whole as an Sqlite database file.
-Sqlite is a popular database format.  The downloaded file will contain
+Grist documents can also be downloaded in whole as an SQLite database file.
+SQLite is a popular database format.  The downloaded file will contain
 all your tabular data, any attached files within those tables, metadata about your
 tables, pages, and widgets, and a history of recent modifications
 of the document.  It will not contain information about who the document
@@ -29,7 +29,7 @@ on the top right of the screen, and select "Download".
 
 ![exports-download](images/exports/exports-download.png)
 
-This Sqlite file can be uploaded again to give an exact copy of the
+This SQLite file can be uploaded again to give an exact copy of the
 original.  To upload the file, open the team or personal site where
 you want to place it, and optionally select also a workspace.
 Then click on "Add New" in the top left, and select "Import document".

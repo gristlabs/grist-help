@@ -44,5 +44,5 @@ For details of the endpoints available, see our [API docs](api-docs.html).
 
 There are also client libraries available:
 
- * [Javascript/Typescript client library](https://www.npmjs.com/package/grist-api)
+ * [JavaScript/TypeScript client library](https://www.npmjs.com/package/grist-api)
  * [Python client library](https://pypi.org/project/grist-api/)
