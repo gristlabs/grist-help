@@ -11,8 +11,9 @@ options. Select "Export CSV".
 
 ![exports-export-csv](images/exports/exports-export-csv.png)
 
-Your browser will then download a CSV file containing a header row naming
-your columns, followed by all the rows of data in the table in text format.
+Your browser will then download a CSV file containing a header row
+naming your columns, excluding any hidden columns, followed by all the
+rows of data in the table in text format.
 
 ## Backing up an entire document
 
@@ -29,7 +30,9 @@ on the top right of the screen, and select "Download".
 
 ![exports-download](images/exports/exports-download.png)
 
-This SQLite file can be uploaded again to give an exact copy of the
+## Restoring from backup
+
+A donwloaded Grist file in SQLite format can be uploaded again to give an exact copy of the
 original.  To upload the file, open the team or personal site where
 you want to place it, and optionally select also a workspace.
 Then click on "Add New" in the top left, and select "Import document".
