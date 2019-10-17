@@ -24,6 +24,7 @@ nav:
     - Table widget: widget-table.md
     - Card &amp; Card List: widget-card.md
     - Chart: widget-chart.md
+    - Linking widgets: linking-widgets.md
   - Using formulas:
     - Getting started with formulas: formulas.md
     - Working with dates: dates.md
@@ -52,7 +53,6 @@ extra_javascript:
 markdown_extensions:
   - toc:
       permalink: '#'
-      toc_depth: 3
   - admonition
   - smarty
   - extra
