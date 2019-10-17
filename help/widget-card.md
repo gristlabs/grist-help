@@ -74,8 +74,10 @@ table that are not currently shown in the card.
   {: .screenshot-half }
 
 When you click the field, it will be added at the bottom of the layout. You can then move it or
-resize it as described above. Any new fields you create will only be added to the data when you
-save the layout.
+resize it as described above.
+
+Any new fields you create will only be added to the data when you
+save the layout. You can rename these in the "Field" tab in the side panel.
 
 You can also add an existing field by making it visible using the "Hidden Fields" list in the side
 panel, as described in [Configuring field list](page-widgets.md#configuring-field-lists). This is

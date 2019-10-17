@@ -15,6 +15,9 @@ Your browser will then download a CSV file containing a header row
 naming your columns, excluding any hidden columns, followed by all the
 rows of data in the table in text format.
 
+When on a page with multiple page widgets, "Export CSV" will export only the data in the
+currently-selected widget.
+
 ## Backing up an entire document
 
 Grist documents can also be downloaded in whole as an SQLite database
