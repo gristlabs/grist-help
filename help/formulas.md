@@ -160,45 +160,6 @@ Notice that the sum is limited to rows that have the product name set -
 otherwise the calculation would include itself in the sum and blow up
 (Grist would warn you about a "cyclic dependency").
 
-Recursion
-----------
-
-Lookups are handy for recursive formulas.  Suppose we have a table counting how many
-events we have per day, and want to add a cumulative sum of those event counts.
-One way to do that is with a formula like this:
-
-```py
-yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
-$events + (yesterday.cumulative or 0)
-```
-
-
-![formulas-recursion](images/formulas/formulas-recursion.png)
-
-
-For clarity, we've split this formula into two lines.  The first line
-makes a variable pointing to the row of the day before.  The second
-line computes the value we want in the cell.  Python note: the value
-of the last line is automatically returned (you could prefix it with
-`return` if you like).
-
-Notice the `yesterday.cumulative or 0` - for the earliest row in the
-table, there will be no yesterday.  In this case, `lookupOne` returns
-a special empty record, for which `yesterday.cumulative` will be
-`None`.
-
-If you'd like to simplify this formula, or find yourself using the
-same lookup in multiple formulas, it would be worth making
-`yesterday` a [reference column](col-refs.md).  Simply add
-a reference column, and give a formula for it that matches how
-we defined `yesterday` here.
-
-To actually enter this formula in a cell, you'd use ``Shift+Enter``
-to divide the lines.  For longer formulas, you may prefer to use
-the side-bar, where a simple ``Enter`` gives you a new line.
-Click on the column header, select "Column Options" and edit the
-Formula field.
-
 Code viewer
 -------------
 
@@ -253,3 +214,43 @@ recalculated by the formula. You can always undo to revert back to the previous 
 The side-bar has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
 just as much to formula columns as to regular columns.
+
+Recursion
+----------
+
+Lookups are handy for recursive formulas.  Suppose we have a table counting how many
+events we have per day, and want to add a cumulative sum of those event counts.
+One way to do that is with a formula like this:
+
+```py
+yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
+$events + (yesterday.cumulative or 0)
+```
+
+
+![formulas-recursion](images/formulas/formulas-recursion.png)
+
+
+For clarity, we've split this formula into two lines.  The first line
+makes a variable pointing to the row of the day before.  The second
+line computes the value we want in the cell.  Python note: the value
+of the last line is automatically returned (you could prefix it with
+`return` if you like).
+
+Notice the `yesterday.cumulative or 0` - for the earliest row in the
+table, there will be no yesterday.  In this case, `lookupOne` returns
+a special empty record, for which `yesterday.cumulative` will be
+`None`.
+
+If you'd like to simplify this formula, or find yourself using the
+same lookup in multiple formulas, it would be worth making
+`yesterday` a [reference column](col-refs.md).  Simply add
+a reference column, and give a formula for it that matches how
+we defined `yesterday` here.
+
+To actually enter this formula in a cell, you'd use ``Shift+Enter``
+to divide the lines.  For longer formulas, you may prefer to use
+the side-bar, where a simple ``Enter`` gives you a new line.
+Click on the column header, select "Column Options" and edit the
+Formula field.
+
