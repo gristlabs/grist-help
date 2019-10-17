@@ -46,8 +46,8 @@ The entirety of [Python's  standard library](https://docs.python.org/2/library/)
 to you.  For those with a spreadsheet background, we've also added a suite of Excel-like
 functions.  Here's the [full list of functions](functions.md).
 
-Accessing other tables
--------------------------
+Referring to tables and rows
+--------------------------------
 
 Every table in your document is available by its name in formulas.
 
@@ -86,31 +86,48 @@ If your table has a space in its name, or other characters that are awkward in P
 replace those characters with an underscore.  Auto-complete may help you if you're not
 sure.
 
-Entering a formula
-------------------
-Unlike typical spreadsheets, Grist formulas are column-wide. This means that a single formulas
-applies to the whole column—you don't have to worry about filling it in for all rows.
+Lookups are handy for recursive formulas.  Suppose we have a table counting how many
+events we have per day, and want to add a cumulative sum of those event counts.
+One way to do that is with a formula like this:
 
-To enter a formula into a cell, enter the equal sign ``=`` followed by a python expression.
+```py
+yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
+$events + (yesterday.cumulative or 0)
+```
 
-For example, here we entered an expression ``=2**$foo`` which raises 2 to the power specified in
-column ``foo``:
 
-![Enter a formula](images/formulas-simple-1.png)
+![formulas-recursion](images/formulas/formulas-recursion.png)
 
-Multi-line formulas
--------------------
-Python is a wonderful and powerful language, and it's a shame to restrict it to a single line in a
-cell. So Grist doesn't! You can use multiline complex Python expressions for any formulas column.
 
-**In a cell** you can use ``Shift+Enter`` to move the cursor to the next line:
+For clarity, we've split this formula into two lines.  The first line
+makes a variable pointing to the row of the day before.  The second
+line computes the value we want in the cell.  Python note: the value
+of the last line is automatically returned (you could prefix it with
+`return` if you like).
 
-![Enter a multi-line formula](images/formulas-multi-cell.png)
+Notice the `yesterday.cumulative or 0` - for the earliest row in the
+table, there will be no yesterday.  In this case, `lookupOne` returns
+a special empty record, for which `yesterday.cumulative` will be
+`None`.
 
-You can also enter your formula **in the sidebar**, where ``Enter`` gives you a new line
-automatically:
+If you'd like to simplify this formula, or find yourself using the
+same lookup in multiple formulas, it would be worth making
+`yesterday` a [reference column](col-refs.md).  Simply add
+a reference column, and give a formula for it that matches how
+we defined `yesterday` here.
 
-![Enter a multi-line formula](images/formulas-multi-sidebar.png)
+To actually enter this formula in a cell, you'd use ``Shift+Enter``
+to divide the lines.  For longer formulas, you may prefer to use
+the sidebar, where a simple ``Enter`` gives you a new line.
+Click on the column header, select "Column Options" and edit the
+Formula field.
+
+Once you have a lot of formulas, or if you have been invited to a document
+and want to get an overview of its formulas, there is a code viewer
+available with a pure Python summary of the document.
+
+![formulas-code-view](images/formulas/formulas-code-view.png)
+
 
 Paste as values
 ---------------
