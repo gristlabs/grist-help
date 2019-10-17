@@ -49,7 +49,7 @@ Here are some useful features to know.
 ### Row operations
 
 - **Add rows**: Type into the last row in a table, which is highlighted to indicate that it's a
-  placeholder for adding new records. Right click a row header to insert a blank row next to an
+  placeholder for adding new records. Right click a row number to insert a blank row next to an
   existing row, or use the keyboard shortcuts
   <code class="keys">*⌘* + **+**</code> (Mac) or <code class="keys">*Ctrl* + **+**</code> (Windows)
   to insert before, and
@@ -59,7 +59,7 @@ Here are some useful features to know.
   *![row_menu](images/row_menu.png)*
   {: .screenshot-half }
 
-- **Delete rows**: Right click a row header and select "Delete" option to delete a row, or use the
+- **Delete rows**: Right click a row number and select "Delete" option to delete a row, or use the
   <code class="keys">*⌘* + *Minus*</code> (Mac) or <code class="keys">*Ctrl* + *Minus*</code> (Windows)
   shortcut. If you select a range of cells first, either of these delete actions will delete all
   rows included in the range.
@@ -75,9 +75,13 @@ Here are some useful features to know.
 
     <code class="keys">*⌘* + *Down*</code> (Mac) or <code class="keys">*Ctrl* + *Down*</code> (Windows)  Move down to the last row.
 
-    <code class="keys">*Home*</code>, <code class="keys">*End*</code>   Move to the beginning or end of a row.
+    <code class="keys">*Home*</code> or <code class="keys">*Fn* + **←**</code> (Mac)  Move to the beginning of a row.
 
-    <code class="keys">*PageDown*</code>, <code class="keys">*PageUp*</code>  Move downward or upward one page of rows.
+    <code class="keys">*End*</code> or <code class="keys">*Fn* + **→**</code> (Mac)  Move to the end of a row.
+
+    <code class="keys">*PageDown*</code> or <code class="keys">*Fn* + **↓**</code> (Mac)  Move downward one page of rows.
+
+    <code class="keys">*PageUp*</code> or <code class="keys">*Fn* + **↑**</code> (Mac)  Move upward one page of rows.
 
     <code class="keys">*Alt* + *Down*</code>, <code class="keys">*Alt* + *Up*</code>  Move downward or upward five rows.
 
