@@ -31,8 +31,8 @@ menu.
   *![card_edit_menu](images/card_edit_menu.png)*
   {: .screenshot-half }
 
-While the layout editor is active, you'll see a single record with boxes overlaid on top of each
-field, and a set of buttons on top of the widget.
+While the layout editor is active, you'll see a single record with draggable fields,
+and a set of buttons on top of the widget.
 
   *![card_layout_editor](images/card_layout_editor.png)*
   {: .screenshot-half }
