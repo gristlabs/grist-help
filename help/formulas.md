@@ -35,56 +35,135 @@ column.
 
 ![formulas-price-final](images/formulas/formulas-price-final.png)
 
+Grist formulas are written in Python, the most popular language for data science.
+The entirety of [Python's  standard library](https://docs.python.org/2/library/) is available
+to you.  For those with a spreadsheet background, we've also added a suite of Excel-like
+functions.  Here's the [full list of functions](functions.md).
+
 If you've worked with spreadsheets before, you may be surprised
 that you don't need to specify row numbers, like `B1 * C1`.
 In Grist, a single formula applies to a whole column.
 You don't have to worry about filling it in for all rows,
 and can refer to values in the same row without fuss.
 
-Grist formulas are written in Python, the most popular language for data science.
-The entirety of [Python's  standard library](https://docs.python.org/2/library/) is available
-to you.  For those with a spreadsheet background, we've also added a suite of Excel-like
-functions.  Here's the [full list of functions](functions.md).
+Formulas that operate over many rows
+-----------------------------------------
 
-Referring to tables and rows
---------------------------------
+If you are a spreadsheet user, you may find yourself wanting to have
+some special rows at the end of your table that have formulas
+different to the rest.  In Grist, we'd like you to consider adding a
+widget to your page instead.  For common use cases, [Summary
+tables](summary-table.md) may be exactly what you need.  Or if you
+want to set things up yourself, you can add an extra table widget like
+this (see [Page widgets](page-widgets.md) for details):
 
-Every table in your document is available by its name in formulas.
+![formulas-widgets](images/formulas/formulas-widgets.png)
 
-For example, we could make a second table, and refer to `Materials` from
-the [earlier example](formulas.md) as follows.
-
-Here's a formula to count how many rows there are in the Materials table,
-using the [all](functions.md#all) method.
+This is just another table, giving us a place to put formulas outside
+of the structure of the Materials table.  For example, if we wanted
+to count how many products there are in that table, we could use this
+formula:
 
 ```py
 len(Materials.all)
 ```
 
-Here's a formula to compute the average price, mixing the Excel-like function
-[AVERAGE](functions.md#average) with a Python [list comprehension](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions):
+Every table in your document is available by its name in formulas,
+as a [UserTable](functions.md#usertable).  This formula uses
+the [all](functions.md#all) method to access the tables rows, but
+doesn't do anything with them but count them.
+
+Here's a formula to compute the average price, using the Excel-like function
+[AVERAGE](functions.md#average):
+
+```py
+AVERAGE(Materials.all.Price)
+```
+
+The [all](functions.md#all) method returns a [RecordSet](functions.md#recordset),
+which supports iterating over individual columns this way.  Equivalently,
+we could use a Python [list comprehension](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions):
 
 ```py
 AVERAGE(material.Price for material in Materials.all)
 ```
 
-Here's a formula to list the names of products with a quantity greater than 80:
+If you are not familiar with Python, it is worth following
+a tutorial.  There are thousands online, including this
+[official one](https://docs.python.org/2/tutorial/index.html).
+Python will be useful to you for all sorts of data work, not just Grist.
+
+List comprehension is useful once we're doing anything nuanced.  For example,
+here's a formula to list the names of products with a quantity greater than 80:
 
 ```py
 [m.Product for m in Materials.all if m.Quantity > 80]
 ```
 
-For exact matches, there is a shortcut called [lookupRecords](functions.md#lookuprecords),
-or [lookupOne](functions.md#lookupone) for a single match.  Here is a formula to look up the
-product name of a material with a quantity of 52:
+This is a list comprehension, but now with a conditional.  The result is a list,
+which is rendered as text in a cell.
+
+Python can help in other ways in your search for rows.  For example, here's a formula
+to find the name of the product with the highest quantity:
+
+```py
+max(Materials.all, key=lambda m: m.Quantity).Product
+```
+
+Formulas are case-sensitive, with Excel-like functions being all-caps (`MAX`), and
+regular Python generally all lowercase (`max`).
+
+For exact matches, there is a shortcut to avoid iteration called
+[lookupRecords](functions.md#lookuprecords), or
+[lookupOne](functions.md#lookupone) for single matches.
+Just pass the methods the values of columns you require to be matched.
+For example, here is a formula to look up the product name of a material
+with a quantity of 52:
 
 ```py
 Materials.lookupOne(Quantity=52).Product
 ```
 
-If your table has a space in its name, or other characters that are awkward in Python,
-replace those characters with an underscore.  Auto-complete may help you if you're not
-sure.
+For very large tables, it is wise to use lookups as much as you can, rather
+than iterating through rows.
+
+Returning to our example document, you can now see how we calculated the
+`Total Spent`, `Average Quantity`, and `Most Ordered Product` columns:
+
+Column | Formula
+--- | ---
+Total Spent | `SUM(Materials.all.Price)`
+Average Quantity | `AVERAGE(Materials.all.Quantity)`
+Most Ordered Product | `max(Materials.all, key=lambda m: m.Quantity).Product`
+
+Separating out calculations like this from the body of your data
+can take some getting used to, but working this way can help
+keep your document more organized.  And it brings other advantages.
+For example we could switch the formatting of the summary widget:
+
+![formulas-widgets-card](images/formulas/formulas-widgets-card.png)
+
+If we're doing any calculations across multiple groups of rows,
+that really fits in
+
+If you really want to have a column change its behavior on different rows,
+you can just use a conditional.  For example, here is a replacement for
+the `Materials.Price` formula that shows a total on a row where the
+product name is not set:
+
+```
+if $Product:
+  return $Quantity * $Unit_Price
+else:
+  return SUM(m.Price for m in Materials.all if m.Product)
+```
+
+Notice that the sum is limited to rows that have the product name set -
+otherwise the calculation would include itself in the sum and blow up
+(Grist would warn you about a "cyclic dependency").
+
+Recursion
+----------
 
 Lookups are handy for recursive formulas.  Suppose we have a table counting how many
 events we have per day, and want to add a cumulative sum of those event counts.
@@ -122,61 +201,14 @@ the side-bar, where a simple ``Enter`` gives you a new line.
 Click on the column header, select "Column Options" and edit the
 Formula field.
 
+Code viewer
+-------------
+
 Once you have a lot of formulas, or if you have been invited to a document
 and want to get an overview of its formulas, there is a code viewer
 available with a pure Python summary of the document.
 
 ![formulas-code-view](images/formulas/formulas-code-view.png)
-
-Where to put sums and averages and whatnot
-------------------------------------------------
-
-Often you'll want to produce summary information from a table.  Grist
-can do a lot of that for you with [Summary tables](summary-table.md).
-But you may well have something custom in mind, and that's why you are
-reading up on formulas.  If you are a spreadsheet user, you may find
-yourself wanting to have some special rows at the end of your table
-that have formulas different to the rest.  In Grist, we'd like you to
-consider adding a widget to your page instead.
-
-For example, suppose we want to compute our total spend, average
-order quantity, and other bits and pieces.  We can add an extra table
-widget like this (see [Page widgets](page-widgets.md) for details):
-
-![formulas-widgets](images/formulas/formulas-widgets.png)
-
-Here are the formulas used.  Just as an example, we use some Excel-like
-functions (`SUM`, `AVERAGE`) and a Python function (`max`).  Formulas
-are case-sensitive, with Excel-like functions being all-caps (`MAX`), and
-regular Python generally all lowercase (`max`).
-
-Column | Formula
---- | ---
-Total Spent | `SUM(m.Price for m in Materials.all)`
-Average Quantity | `AVERAGE(m.Quantity for m in Materials.all)`
-Most Ordered Product | `max(Materials.all, key=lambda m: m.Quantity).Product`
-
-Working this way helps keep your document more organized.  You can
-also have fun with formatting, for example we could switch the extra
-table widget to be formatted as a card:
-
-![formulas-widgets-card](images/formulas/formulas-widgets-card.png)
-
-If you really want to have a column change its behavior on different rows,
-you can just use a conditional.  For example, here is a replacement for
-the `Materials.Price` formula that shows a total on a row where the
-product name is not set:
-
-```
-if $Product:
-  return $Quantity * $Unit_Price
-else:
-  return SUM(m.Price for m in Materials.all if m.Product)
-```
-
-Notice that the sum is across rows that have the product name set -
-otherwise the calculation would blow up and Grist would quirk an
-eyebrow at you.
 
 Special values available in formulas
 --------------------------------
@@ -184,13 +216,18 @@ Special values available in formulas
 For those familiar with Python, here are the extra values available to
 you in Grist:
 
- * `rec` is the current row.  The `$col` syntax is shorthand for
-   `rec.col`.  The `rec` variable is of type [Record](functions.md#record).
+ * `rec` is the current row.  The `$column` syntax is shorthand for
+   `rec.column`.  The `rec` variable is of type [Record](functions.md#record).
  * `table` is the current table, and is of type [UserTable](functions.md#usertable).
  * Tables in your document are available by their name, and are also of
    type [UserTable](functions.md#usertable).
  * Many extra spreadsheet functions are available, see the full
    [function list](functions.md).
+
+If your table or column has a space in its name, or other characters
+that are awkward in Python, those characters are replaced with an
+underscore.  Auto-complete may help you if you're not sure.  You
+can also control the "ids" of columns and tables in the right side-bar.
 
 Freeze a formula column
 --------------------------
