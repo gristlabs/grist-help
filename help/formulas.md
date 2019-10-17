@@ -178,19 +178,43 @@ Notice that the sum is across rows that have the product name set -
 otherwise the calculation would blow up and Grist would quirk an
 eyebrow at you.
 
-Paste as values
----------------
+Special values available in formulas
+--------------------------------
+
+For those familiar with Python, here are the extra values available to
+you in Grist:
+
+ * `rec` is the current row.  The `$col` syntax is shorthand for
+   `rec.col`.  The `rec` variable is of type [Record](functions.md#record).
+ * `table` is the current table, and is of type [UserTable](functions.md#usertable).
+ * Tables in your document are available by their name, and are also of
+   type [UserTable](functions.md#usertable).
+ * Many extra spreadsheet functions are available, see the full
+   [function list](functions.md).
+
+Freeze a formula column
+--------------------------
+
 If you'd like to save the output of your formula as plain values, you can simply turn off the
-formula by clicking on the formula icon in the side-bar: ![Formula
+formula.  First open the column options in the side-bar:
+
+![formulas-column-options](images/formulas/formulas-column-options.png)
+![formulas-sidebar](images/formulas/formulas-side-bar.png)
+
+Now click on the orange formula icon in the side-bar to turn it off: ![Formula
 icon on](images/formulas-sidebar-icon-on.png) ➔ ![Formula icon
 off](images/formulas-sidebar-icon-off.png):
 
-![Enter a multi-line formula](images/formulas-sidebar-off.png)
+![formulas-turn-off-formula](images/formulas/formulas-turn-off-formula.png)
 
-You'll also notice that the column is no longer a formula by the absence of the leading ``=`` sign
-next to each value.
+Notice that there is no ``=`` sign in the column cells any more, showing that it
+is no longer a formula.  The cells will no longer change if other cells they used
+to depend on change.
 
-!!! tip "Use the values, keep your formula"
-    Note that you don't lose your formula by turning it off. The formula itself remains and you can
-    turn it back on. If you modified the values in the column, however, they will be recalculated by
-    the formula. You can always undo to revert back to the previous state.
+You don't lose your formula by turning it off. The formula itself remains and you can
+turn it back on. If you modified the values in the column, however, they will be
+recalculated by the formula. You can always undo to revert back to the previous state.
+
+The side-bar has lots of other handy settings, such as cell formatting
+(number of digits after decimal point, color, etc).  The options apply
+just as much to formula columns as to regular columns.
