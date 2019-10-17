@@ -118,7 +118,7 @@ we defined `yesterday` here.
 
 To actually enter this formula in a cell, you'd use ``Shift+Enter``
 to divide the lines.  For longer formulas, you may prefer to use
-the sidebar, where a simple ``Enter`` gives you a new line.
+the side-bar, where a simple ``Enter`` gives you a new line.
 Click on the column header, select "Column Options" and edit the
 Formula field.
 
@@ -128,17 +128,66 @@ available with a pure Python summary of the document.
 
 ![formulas-code-view](images/formulas/formulas-code-view.png)
 
+Where to put sums and averages and whatnot
+------------------------------------------------
+
+Often you'll want to produce summary information from a table.  Grist
+can do a lot of that for you with [Summary tables](summary-table.md).
+But you may well have something custom in mind, and that's why you are
+reading up on formulas.  If you are a spreadsheet user, you may find
+yourself wanting to have some special rows at the end of your table
+that have formulas different to the rest.  In Grist, we'd like you to
+consider adding a widget to your page instead.
+
+For example, suppose we want to compute our total spend, average
+order quantity, and other bits and pieces.  We can add an extra table
+widget like this (see [Page widgets](page-widgets.md) for details):
+
+![formulas-widgets](images/formulas/formulas-widgets.png)
+
+Here are the formulas used.  Just as an example, we use some Excel-like
+functions (`SUM`, `AVERAGE`) and a Python function (`max`).  Formulas
+are case-sensitive, with Excel-like functions being all-caps (`MAX`), and
+regular Python generally all lowercase (`max`).
+
+Column | Formula
+--- | ---
+Total Spent | `SUM(m.Price for m in Materials.all)`
+Average Quantity | `AVERAGE(m.Quantity for m in Materials.all)`
+Most Ordered Product | `max(Materials.all, key=lambda m: m.Quantity).Product`
+
+Working this way helps keep your document more organized.  You can
+also have fun with formatting, for example we could switch the extra
+table widget to be formatted as a card:
+
+![formulas-widgets-card](images/formulas/formulas-widgets-card.png)
+
+If you really want to have a column change its behavior on different rows,
+you can just use a conditional.  For example, here is a replacement for
+the `Materials.Price` formula that shows a total on a row where the
+product name is not set:
+
+```
+if $Product:
+  return $Quantity * $Unit_Price
+else:
+  return SUM(m.Price for m in Materials.all if m.Product)
+```
+
+Notice that the sum is across rows that have the product name set -
+otherwise the calculation would blow up and Grist would quirk an
+eyebrow at you.
 
 Paste as values
 ---------------
 If you'd like to save the output of your formula as plain values, you can simply turn off the
-formula by clicking on the formula icon in the sidebar: ![Formula
+formula by clicking on the formula icon in the side-bar: ![Formula
 icon on](images/formulas-sidebar-icon-on.png) ➔ ![Formula icon
 off](images/formulas-sidebar-icon-off.png):
 
 ![Enter a multi-line formula](images/formulas-sidebar-off.png)
 
-You'll also notice that the column is no longer a formula by the absense of the leading ``=`` sign
+You'll also notice that the column is no longer a formula by the absence of the leading ``=`` sign
 next to each value.
 
 !!! tip "Use the values, keep your formula"
