@@ -70,7 +70,7 @@ len(Materials.all)
 
 Every table in your document is available by its name in formulas,
 as a [UserTable](functions.md#usertable).  This formula uses
-the [all](functions.md#all) method to access the tables rows, but
+the [all](functions.md#all) method to access the rows of the table, but
 doesn't do anything with them but count them.
 
 Here's a formula to compute the average price, using the Excel-like function
@@ -116,7 +116,7 @@ regular Python generally all lowercase (`max`).
 For exact matches, there is a shortcut to avoid iteration called
 [lookupRecords](functions.md#lookuprecords), or
 [lookupOne](functions.md#lookupone) for single matches.
-Just pass the methods the values of columns you require to be matched.
+Just pass the the values of columns you require to be matched.
 For example, here is a formula to look up the product name of a material
 with a quantity of 52:
 
@@ -139,12 +139,10 @@ Most Ordered Product | `max(Materials.all, key=lambda m: m.Quantity).Product`
 Separating out calculations like this from the body of your data
 can take some getting used to, but working this way can help
 keep your document more organized.  And it brings other advantages.
-For example we could switch the formatting of the summary widget:
+For example we could switch the formatting of the summary widget
+via the side-bar:
 
 ![formulas-widgets-card](images/formulas/formulas-widgets-card.png)
-
-If we're doing any calculations across multiple groups of rows,
-that really fits in
 
 If you really want to have a column change its behavior on different rows,
 you can just use a conditional.  For example, here is a replacement for
