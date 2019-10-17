@@ -48,5 +48,5 @@ This is best suited for importing multiple datasets in the same format. For
 instance, you could import a bank statement as a new table, then import more
 statements from other months into the same table.
 
-For developers, the [Grist API](api.md) offers a more powerful way to add data
+For developers, the [Grist API](rest-api.md) offers a more powerful way to add data
 to a Grist document.

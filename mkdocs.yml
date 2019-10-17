@@ -17,7 +17,7 @@ nav:
     - Importing more data: imports.md
     - Exports &amp; backups: exports.md
     - API usage: rest-api.md
-    - API reference: api-docs.md
+    - API reference: api-docs.html
   - Pages and Tables:
     - Entering data: enter-data.md
     - Page widgets: page-widgets.md

@@ -7,17 +7,17 @@ database expressions, you'll be on familiar territory - but there are
 some wrinkles you'll want to know about, so hang around.
 
 Let's start with a classic use of spreadsheets.  Suppose you have
-a list of products you've ordered, their quantity you ordered of
-each, and the unit cost of each.  You've made a column to show
+a list of products you've ordered, the quantity you ordered,
+and the unit price of each.  You've made a column to show
 the quantity times the unit price, but want the computer to do
 that part for you.
 
-![x](images/formulas/formulas-price.png)
+![formulas-price](images/formulas/formulas-price.png)
 
 Just select a cell in the column you want to fill, and hit "=" to
 tell Grist you want to enter a formula, rather than a value.
 
-![x](images/formulas/formulas-price-equal.png)
+![formulas-price-equal](images/formulas/formulas-price-equal.png)
 
 Did you notice, when you did that, the labels of the columns changed
 a little?  "Product" became "$Product", and "Unit Price"
@@ -28,12 +28,63 @@ Or if you don't like typing, click on the Product column, type the
 multiplication symbol, and then click on the Unit Price column.
 Your formula should look like this:
 
-![x](images/formulas/formulas-price-multiply.png)
+![formulas-price-multiply](images/formulas/formulas-price-multiply.png)
 
 Now press enter, and your formula is applied to all cells in the
 column.
 
-![x](images/formulas/formulas-price-final.png)
+![formulas-price-final](images/formulas/formulas-price-final.png)
+
+If you've worked with spreadsheets before, you may be surprised
+that you don't need to specify row numbers, like `B1 * C1`.
+In Grist, a single formula applies to a whole column.
+You don't have to worry about filling it in for all rows,
+and can refer to values in the same row without fuss.
+
+Grist formulas are written in Python, the most popular language for data science.
+The entirety of [Python's  standard library](https://docs.python.org/2/library/) is available
+to you.  For those with a spreadsheet background, we've also added a suite of Excel-like
+functions.  Here's the [full list of functions](functions.md).
+
+Accessing other tables
+-------------------------
+
+Every table in your document is available by its name in formulas.
+
+For example, we could make a second table, and refer to `Materials` from
+the [earlier example](formulas.md) as follows.
+
+Here's a formula to count how many rows there are in the Materials table,
+using the [all](functions.md#all) method.
+
+```py
+len(Materials.all)
+```
+
+Here's a formula to compute the average price, mixing the Excel-like function
+[AVERAGE](functions.md#average) with a Python [list comprehension](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions):
+
+```py
+AVERAGE(material.Price for material in Materials.all)
+```
+
+Here's a formula to list the names of products with a quantity greater than 80:
+
+```py
+[m.Product for m in Materials.all if m.Quantity > 80]
+```
+
+For exact matches, there is a shortcut called [lookupRecords](functions.md#lookuprecords),
+or [lookupOne](functions.md#lookupone) for a single match.  Here is a formula to look up the
+product name of a material with a quantity of 52:
+
+```py
+Materials.lookupOne(Quantity=52).Product
+```
+
+If your table has a space in its name, or other characters that are awkward in Python,
+replace those characters with an underscore.  Auto-complete may help you if you're not
+sure.
 
 Entering a formula
 ------------------
@@ -49,7 +100,7 @@ column ``foo``:
 
 Multi-line formulas
 -------------------
-Python is a wonderful and powerful language, and it's a shame to constrict it to a single line in a
+Python is a wonderful and powerful language, and it's a shame to restrict it to a single line in a
 cell. So Grist doesn't! You can use multiline complex Python expressions for any formulas column.
 
 **In a cell** you can use ``Shift+Enter`` to move the cursor to the next line:
