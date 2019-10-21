@@ -25,6 +25,7 @@ nav:
     - Card &amp; Card List: widget-card.md
     - Chart: widget-chart.md
     - Linking widgets: linking-widgets.md
+    - Custom layouts: custom-layouts.md
   - Using formulas:
     - Getting started with formulas: formulas.md
     - Working with dates: dates.md
