@@ -1,24 +1,69 @@
 Overview
 --------
-Grist supports both Date and DateTime column types. Both support different formatting options, and
-DateTime can also specify the timezone. When a column is set to be a Date or a DateTime, a
-datepicker widget allows you to select the date with a UI.
+
+Grist supports expressing dates and times in two ways.  The first is the
+`Date` column type, which represents a calendar date, with no time of day, and
+not associated with any particular timezone.  The second is the `DateTime`
+column type, which represents a calendar date with a time of day.
+The `Date` and `DateTime` column types support different formatting
+options, and `DateTime` can also specify the timezone. When a column
+is set to be a `Date` or a `DateTime`, a date-picker widget allows you
+to select the date with a UI.
 
 When working with dates in formulas, the dates are Python [datetime
-objects](https://docs.python.org/2/library/datetime.html). That allows you to do some powerful
-things, but can be unexpected if you're not familiar with them.
+objects](https://docs.python.org/2/library/datetime.html). That allows
+you to do some powerful things, but can be unexpected if you're not
+familiar with them.
+
+Making a date/time column
+-----------------------
+
+Hover on the header of a column, find the drop-down, and select "Column Options".
+
+![formulas-date-column-options](images/formulas/formulas-date-column-options.png)
+
+Then in the sidebar that opens on the right, pick "DateTime" from the
+"Column Type" drop-down.  Or if you just want dates without times, pick
+"Date".  For a description of other types, see [Columns and data types](col-types.md).
+
+![formulas-date-column-type](images/formulas/formulas-date-column-type.png)
+
+Then you can choose your preferred date/time format, and display timezone.
+Click "Apply" when you're ready.  You can come back and change settings at
+any time.
+
+*![formulas-date-column-apply](images/formulas/formulas-date-column-apply.png)*
+{: .screenshot-half }
+
+Now when you edit a cell in this column, you will have help for selecting dates
+and times.
+
+*![formulas-date-widget](images/formulas/formulas-date-widget.png)*
+{: .screenshot-half }
+
+Inserting the current date
+-----------------------------
+
+You can insert the current date in a cell using
+<code class="keys">*⌘* + *;*</code> (Mac) or <code class="keys">*Ctrl* + *;*</code> (Windows).
+
+You can insert the current date and time in a cell using 
+<code class="keys">*⌘* + *:*</code> (Mac) or <code class="keys">*Ctrl* + *:*</code> (Windows).
+
+When editing a date cell, the date entry widget has a "today" button for today's date.
 
 Parsing dates from strings and back
 -----------------------------------
 The [DATEVALUE](functions/#datevalue) function converts a string that represents a date into a `datetime`
 object. It's simple to use and it will auto-detect different date formats:
 
-![Parse date from string datevalue](images/dates-parse-datevalue.png)
+*![Parse date from string datevalue](images/dates-parse-datevalue.png)*
+{: .screenshot-half }
 
 You can also use Python's `datetime` library, which provides two helpful functions:
 [strptime() and strftime()](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
 
-For example, let's say you have a table of United States Presidents and their inauguration dates (as
+For example, let's say you have a table of movie sequels and their release dates (as
 strings). You'd like to parse out the actual date to be able to sort the table properly. Here's how
 you would do that:
 
@@ -29,7 +74,7 @@ you would do that:
    zero-based).
 3. The third line uses Python's [strptime
    function](https://docs.python.org/2/library/datetime.html#datetime.datetime.strptime) to parse
-   the date (e.g. "March 4, 1861") into a datetime object. The first parameter to the function is
+   the date (e.g. "May 19, 1999") into a datetime object. The first parameter to the function is
    the string to parse, the second parameter is the date format that the string is in. Take a look
    at the [format
    options](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior) to see if
@@ -37,18 +82,17 @@ you would do that:
    achieve the same result.)
 
 
-The result looks to have proper date formats and can now be properly sorted, with George Washington
-at the top:
+The result looks to have proper date formats and can now be properly sorted, with
+"A New Hope" at the top.  For historical reasons, the first Star Wars movie is considered
+to be Episode 4.
 
-![Parse date from string result](images/dates-parse-string-sorted.png)
+*![Parse date from string result](images/dates-parse-string-sorted.png)*
+{: .screenshot-half }
 
-And, because the column type is selected as a date, you can use the "Date Format" in "Field Options"
+And, because the column type is selected as a date, you can use the "Date Format" in "Column Options"
 to select the format in which to display the date.
 
-<span style="white-space: nowrap;">
 ![Formatted parsed date](images/dates-parse-string-formatted.png)
-![Formatted parsed date](images/dates-parse-string-options.png)
-</span>
 
 Date arithmetic
 ---------------
@@ -58,12 +102,9 @@ function which takes two dates and the unit of information to return (Days, Mont
 
 You could also use the minus sign to subtract two dates, but you might be surprised at the result:
 
-<span style="white-space: nowrap;">
 ![Subtract a date](images/dates-subtract-formula.png)
-![Date subtraction surprise](images/dates-subtract-surprise.png)
-</span>
 
-This happens because subtracting two dateime objects as we did in the example above, results in a
+This happens because subtracting two `datetime` objects as we did in the example above, results in a
 [datetime.timedelta](https://docs.python.org/2/library/datetime.html#datetime.timedelta) object
 which represents, "A duration expressing the difference between two date, time, or datetime
 instances to microsecond resolution."
@@ -72,19 +113,16 @@ In Grist (and Python) you have to be more specific above how you want to display
 difference. For example, to get the number of days from the returned timedelta object, use its
 `.days` property:
 
-<span style="white-space: nowrap;">
 ![Timedelta formula days](images/dates-timedelta-formula.png)
-![Timedelta formula results](images/dates-timedelta-results.png)
-</span>
 
 If you want weeks or years, just divide by 7 or by 365. If you want hours, multiply by 24.
 
 You can also use specific functions to get what you want. For example, `DAYS` is a common function
 in spreadsheet apps that returns the difference between two dates:
-<span style="white-space: nowrap;">
-![Days formula](images/dates-formula-days.png)
-![Timedelta formula results](images/dates-timedelta-results.png)
-</span>
+
+```py
+DAYS($Last_day, $First_day)
+```
 
 !!! note "Excel/Sheets formulas"
     Grist supports many other common functions from other spreadsheet apps, including
@@ -95,43 +133,53 @@ Getting a part of the date
 You've seen how to parse the date, display it in different formats, and do date arithmetic. But what
 if you want to get more information about a specific date, such as getting its day of the week?
 
-### Option A
-
-The best option is to use the [WEEKDAY](functions/#weekday) function, which behaves as it does in
+One option is to use the [WEEKDAY](functions/#weekday) function, which behaves as it does in
 Excel:
 
-<span style="white-space: nowrap;">
 ![Weekday formula](images/dates-weekday-formula.png)
-![Weekday results](images/dates-weekday-results.png)
-</span>
 
-Because [WEEKDAY](functions/#weekday) function returns 1–7 for Sunday–Saturday, George Washington
-started his term on Thursday, John Adams on Saturday, and Thomas Jefferson on Wednesday.
+The [WEEKDAY](functions/#weekday) function returns 1–7 for Sunday–Saturday.
 
-### Option B
+Alternatively, we can use the `strftime` function:
 
-Another option is to simply reformat the date using Date Format in Field options. First, set the
-"Day of week" column to be equal to "First day" column:
+![Weekday format](images/dates-weekday-format-strftime.png)
 
-![Weekday format copy](images/dates-weekday-format-copy.png)
+Yet another option would be to reformat the date using Date Format in Column Options
+(see the [date formatting reference](https://momentjs.com/docs/#/displaying/format/)).
+    
+For some situations, you may wish to use the [dateutil](https://github.com/dateutil/dateutil)
+python library.  For example, if you live in an area where dates typically start with the day
+and then the month, you could use this formula:
 
-Then set a custom Date Format in Field options. Consulting the [date formatting
-reference](https://momentjs.com/docs/#/displaying/format/) we can see `dddd` returns the long form
-of the weekday (i.e. Monday, Tuesday, …):
+```py
+import dateutil
+dateutil.parser.parse($date_text, dayfirst=True)
+```
 
-<span style="white-space: nowrap;">
-![Weekday format options](images/dates-weekday-format-options.png)
-![Weekday format results](images/dates-weekday-format-results.png)
-</span>
 
-!!! warning "Value versus display"
-    These two options are not equivalent, even though they produce a seemingly similar result. In
-    Option A, the column value is the weekday. In Option B, however, the column value is the actual
-    date (e.g. April 30th, 1789) and the weekday displayed is only the formatting. If you wanted to
-    summarize by the "Day of week" column to find the most popular day to begin a presidency, only
-    Option A would work.
+Time zones
+-----------
+
+Timestamps are stored within the document as milliseconds since January 1, 1970 UTC.
+A Grist document has a global timezone setting that you can see or change by
+clicking on your profile picture or icon, and selecting "Document Settings".
+When you create a new column of type `DateTime`, it will use the document timezone
+by default (although you can easily override that in column settings).
+
+If you insert the current date and time using 
+<code class="keys">*⌘* + *:*</code> (Mac) or <code class="keys">*Ctrl* + *:*</code> (Windows)
+into a `DateTime` column, it will be inserted as a true timezone-aware timestamp.
+If you do the same in a `Text` column, the date/time will be inserted as the text
+appropriate for your timezone.  So two collaborators on opposite sides of the world
+who simultaneously insert the current time into cells in a `DateTime` column will see the same
+result showing in both cells; in a `Text` column what the inserted text will differ by many
+hours.
+
+
+
 
 Additional resources
 --------------------
 * [Python cheatsheet for strftime](http://strftime.org)
 * [Date formatting cheatsheet](https://momentjs.com/docs/#/displaying/format/)
+* [The dateutil library](https://github.com/dateutil/dateutil)
