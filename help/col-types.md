@@ -1,6 +1,9 @@
 Columns and data types
 ======================
 
+Adding and removing columns
+-------------------------------
+
 Every Grist table, when first created, has three columns called A, B, and C.
 To rename a column, hover on the column header, click on the drop-down, then
 select "Rename column" (you can also just click on the column header twice).
@@ -86,3 +89,98 @@ DateTime  | Valid date + time.
 Choice    | List of pre-defined valid values.
 Reference | A reference column to another table.
 Attachment| Cells where you can place files or images.
+
+Text columns
+--------------
+
+You can put any text you like in this type of column.  For formatting,
+you can control alignment and word-wrap, text color and background color.
+If the column is used for storing web links, you can turn on "HyperLink"
+formatting to make that prettier.
+
+*![Format text](images/columns/columns-format-text.png)*
+{: .screenshot-half }
+
+Numeric columns
+-----------------
+
+This type is for floating point numbers, and can also be used with
+whole numbers.  As for text, you can control alignment and color.
+You can also choose whether to show arrows for increasing/decreasing
+the number (this is the "Spinner" option).  And you can set a
+minimum and maximum number of decimal points to show.
+
+*![Format numeric](images/columns/columns-format-numeric.png)*
+{: .screenshot-half }
+
+Integer columns
+-----------------
+
+This is strictly for whole numbers.  It has the same options as
+the numeric type, except no "Max Decimals".
+
+Toggle columns
+----------------
+
+This type is for storing true/false values.  The values can be shown
+as text, checkboxes, or switches.
+
+*![Format toggle](images/columns/columns-format-toggle.png)*
+{: .screenshot-half }
+
+See also example in [Specifying a type](col-types.md#specifying-a-type).
+
+Date columns
+----
+
+This type is for storing calendar dates (without a time of day component).
+More details in [Working with dates](dates.md).  You can choose the
+format for dates, see the [date formatting reference](https://momentjs.com/docs/#/displaying/format/).
+
+*![Format date](images/columns/columns-format-date.png)*
+{: .screenshot-half }
+
+
+DateTime columns
+---------
+
+This type is for storing calendar dates plus time of day.
+More details in [Working with dates](dates.md).  You can choose the
+format for dates, see the [date and time formatting reference](https://momentjs.com/docs/#/displaying/format/).  You can also specify the timezone to display for.
+
+*![Format date](images/columns/columns-format-datetime.png)*
+{: .screenshot-half }
+
+Choice columns
+-------
+
+This type is for storing one of a set of valid values, where you get to
+specify the available values.
+
+*![Format date](images/columns/columns-format-choice.png)*
+{: .screenshot-half }
+
+There's an example of using this type of column in
+the [Lightweight CRM example](lightweight-crm.md#setting-other-types).
+
+Reference columns
+----------
+
+This sets up a cross-reference to another table.  You can specify the
+table to reference, and a column within that table to show.
+There's a lot you can do with this kind of column, see [Reference columns](col-refs.md) for
+details.
+
+*![Format date](images/columns/columns-format-reference.png)*
+{: .screenshot-half }
+
+
+Attachment columns
+-----------
+
+This column type lets you insert entire files and images in cells.
+When images are added in cells, a preview thumbnail is shown in the
+cell.  The "Size" bar gives control of the scale of this thumbnail.
+
+*![Format date](images/columns/columns-format-attachment.png)*
+{: .screenshot-half }
