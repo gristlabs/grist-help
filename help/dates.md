@@ -1,14 +1,15 @@
 Overview
 --------
 
-Grist supports expressing dates and times in two ways.  The first is the
+Grist expresses dates and times in two ways.  The first is the
 `Date` column type, which represents a calendar date, with no time of day, and
 not associated with any particular timezone.  The second is the `DateTime`
-column type, which represents a calendar date with a time of day.
+column type, which represents a calendar date with a time of day which
+can be linked with a timezone.
 The `Date` and `DateTime` column types support different formatting
-options, and `DateTime` can also specify the timezone. When a column
-is set to be a `Date` or a `DateTime`, a date-picker widget allows you
-to select the date with a UI.
+options. When a column
+is set to be a `Date` or a `DateTime`, a date-picker widget will let
+you select the date on a calendar when editing a cell.
 
 When working with dates in formulas, the dates are Python [datetime
 objects](https://docs.python.org/2/library/datetime.html). That allows
@@ -18,17 +19,20 @@ familiar with them.
 Making a date/time column
 -----------------------
 
-Hover on the header of a column, find the drop-down, and select "Column Options".
+For a general introduction to setting the type of columns,
+see [Columns and data types](col-types.md).
+To tell Grist, that you intend to enter only date/times in a column,
+over on the header for the column, find the drop-down, and select "Column Options".
 
 ![formulas-date-column-options](images/formulas/formulas-date-column-options.png)
 
 Then in the sidebar that opens on the right, pick "DateTime" from the
 "Column Type" drop-down.  Or if you just want dates without times, pick
-"Date".  For a description of other types, see [Columns and data types](col-types.md).
+"Date".
 
 ![formulas-date-column-type](images/formulas/formulas-date-column-type.png)
 
-Then you can choose your preferred date/time format, and display timezone.
+Then you can choose your preferred date/time format, and the display timezone.
 Click "Apply" when you're ready.  You can come back and change settings at
 any time.
 
@@ -82,7 +86,7 @@ you would do that:
    achieve the same result.)
 
 
-The result looks to have proper date formats and can now be properly sorted, with
+The result has a true date column and can now be properly sorted chronologically, with
 "A New Hope" at the top.  For historical reasons, the first Star Wars movie is considered
 to be Episode 4.
 
@@ -134,15 +138,13 @@ You've seen how to parse the date, display it in different formats, and do date 
 if you want to get more information about a specific date, such as getting its day of the week?
 
 One option is to use the [WEEKDAY](functions/#weekday) function, which behaves as it does in
-Excel:
+Excel, returning  1-7 for Sunday-Saturday.
 
 ![Weekday formula](images/dates-weekday-formula.png)
 
-The [WEEKDAY](functions/#weekday) function returns 1–7 for Sunday–Saturday.
+Alternatively, we can use the [strftime](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior) function:
 
-Alternatively, we can use the `strftime` function:
-
-![Weekday format](images/dates-weekday-format-strftime.png)
+![Weekday format](images/dates-weekday-strftime.png)
 
 Yet another option would be to reformat the date using Date Format in Column Options
 (see the [date formatting reference](https://momentjs.com/docs/#/displaying/format/)).
