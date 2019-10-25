@@ -171,7 +171,7 @@ table to reference, and a column within that table to show.
 There's a lot you can do with this kind of column, see [Reference columns](col-refs.md) for
 details.
 
-*![Format date](images/columns/columns-format-reference.png)*
+*![Format reference](images/columns/columns-format-reference.png)*
 {: .screenshot-half }
 
 
@@ -182,5 +182,25 @@ This column type lets you insert entire files and images in cells.
 When images are added in cells, a preview thumbnail is shown in the
 cell.  The "Size" bar gives control of the scale of this thumbnail.
 
-*![Format date](images/columns/columns-format-attachment.png)*
+*![Format attachment](images/columns/columns-format-attachment.png)*
 {: .screenshot-half }
+
+When you create an attachment column, cells of that column will
+have a paperclip icon:
+
+![Attachment paperclip](images/columns/columns-attachment-column.png)
+
+When you click on a paperclip icon, you can select a file to attach.
+If it is an image, you'll see a thumbnail of it in the cell.
+
+![Image attachment](images/columns/columns-attach-image.png)
+
+<!-- Source: https://en.wikipedia.org/wiki/File:Red_eyed_tree_frog_edit2.jpg -->
+
+If you hover over the image, you'll see a paperclip icon again,
+which you can use to add more files to the same cell.  You'll
+also see an "open-eye" icon, which when clicked brings up a
+larger view of all of the cell's attachments, and gives you
+a way to rename them, download them, or remove them.
+
+![Image browser](images/columns/columns-view-image.png)
