@@ -32,6 +32,7 @@ nav:
     - Function reference: functions.md
   - Working with columns or fields:
     - Getting started with columns: col-types.md
+    - Column transformations: col-transform.md
     - Reference columns: col-refs.md
 
 extra:
