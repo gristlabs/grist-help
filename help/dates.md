@@ -26,7 +26,7 @@ over on the header for the column, find the drop-down, and select "Column Option
 
 ![formulas-date-column-options](images/formulas/formulas-date-column-options.png)
 
-Then in the sidebar that opens on the right, pick "DateTime" from the
+Then in the side panel that opens on the right, pick "DateTime" from the
 "Column Type" drop-down.  Or if you just want dates without times, pick
 "Date".
 

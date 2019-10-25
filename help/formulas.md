@@ -140,7 +140,7 @@ Separating out calculations like this from the body of your data
 can take some getting used to, but working this way can help
 keep your document more organized.  And it brings other advantages.
 For example we could switch the formatting of the summary widget
-via the side-bar:
+via the side panel:
 
 ![formulas-widgets-card](images/formulas/formulas-widgets-card.png)
 
@@ -186,18 +186,18 @@ you in Grist:
 If your table or column has a space in its name, or other characters
 that are awkward in Python, those characters are replaced with an
 underscore.  Auto-complete may help you if you're not sure.  You
-can also control the "ids" of columns and tables in the right side-bar.
+can also control the "ids" of columns and tables in the right side panel.
 
 Freeze a formula column
 --------------------------
 
 If you'd like to save the output of your formula as plain values, you can simply turn off the
-formula.  First open the column options in the side-bar:
+formula.  First open the column options in the side panel:
 
 ![formulas-column-options](images/formulas/formulas-column-options.png)
 ![formulas-sidebar](images/formulas/formulas-side-bar.png)
 
-Now click on the orange formula icon in the side-bar to turn it off: ![Formula
+Now click on the orange formula icon in the side panel to turn it off: ![Formula
 icon on](images/formulas-sidebar-icon-on.png) ➔ ![Formula icon
 off](images/formulas-sidebar-icon-off.png):
 
@@ -211,7 +211,7 @@ You don't lose your formula by turning it off. The formula itself remains and yo
 turn it back on. If you modified the values in the column, however, they will be
 recalculated by the formula. You can always undo to revert back to the previous state.
 
-The side-bar has lots of other handy settings, such as cell formatting
+The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
 just as much to formula columns as to regular columns.
 
@@ -250,7 +250,7 @@ we defined `yesterday` here.
 
 To actually enter this formula in a cell, you'd use ``Shift+Enter``
 to divide the lines.  For longer formulas, you may prefer to use
-the side-bar, where a simple ``Enter`` gives you a new line.
+the side panel, where a simple ``Enter`` gives you a new line.
 Click on the column header, select "Column Options" and edit the
 Formula field.
 
