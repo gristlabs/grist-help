@@ -150,7 +150,8 @@ The powerful feature you’ve been waiting for is the one that summarizes the da
 let’s add a table showing companies grouped by “category_code”.
 
 In the “Add New” menu at the top left, select “Add Page”. In the dialog box, select “Table” and “Companies”, and
-then use the summation symbol (∑) to select the “Group By” columns -- i.e. the columns by which to
+then use the summation icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>)
+to select the “Group By” columns -- i.e. the columns by which to
 summarize.
 
 ![12-start-summary](images/investment-research/12-start-summary.png)
@@ -172,7 +173,6 @@ are the identifiers of the groups. All other columns are formula columns -- they
 In formulas, the group of source records summarized by one row is available as the value “$group”.
 
 For example, you’ll see a column created automatically called “count”. If you hit
-
 “Enter”, you’ll see the formula in it -- `len($group)` -- that’s just the number of records in
 that group of records, i.e. the number of companies in that category.
 
@@ -245,7 +245,8 @@ columns using checkboxes, and click “Hide Series”.
 
 
 Now add a chart showing a trend by year. Add another “Widget to page”, select “Chart” under
-“Widget”, select “Investments” under “Select Data”, click summation (∑) to group by “funded_year”,
+“Widget”, select “Investments” under “Select Data”, click summation
+(<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) to group by “funded_year”,
 and click “Add to Page”.
 
 To customize this chart, stick with the chart type “Bar Chart”. The list of “Visible Series” in

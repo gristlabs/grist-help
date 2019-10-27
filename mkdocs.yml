@@ -26,6 +26,7 @@ nav:
     - Chart: widget-chart.md
     - Linking widgets: linking-widgets.md
     - Custom layouts: custom-layouts.md
+    - Summary tables: summary-tables.md
   - Using formulas:
     - Getting started with formulas: formulas.md
     - Working with dates: dates.md
@@ -45,7 +46,7 @@ extra:
     text: 'Roboto'
     code: 'Roboto Mono'
   homepage: '/help'
-  version: '0.13.0-dev'
+  version: '1.0.2-dev'
   article_nav_bottom: false
   history_buttons: true
 extra_css:

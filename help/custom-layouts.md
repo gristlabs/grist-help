@@ -63,7 +63,8 @@ Now uncheck the few fields you want to keep, and click "Hide columns" to hide th
 
 Sometimes a wide spreadsheet with many columns is convenient. If you'd like to see more info
 associated with the rows of this spreadsheet, you can add widgets below it. These could be details
-linked to the spreadsheet, or summary tables that show totals or other global info.
+linked to the spreadsheet, or [summary tables](summary-tables.md) that show totals or other global
+info.
 
 For instance, here is a possible layout based on the Lightweight CRM example. It shows contacts as
 a wide spreadsheet, and below that includes sections with an overall summary, and interactions for
@@ -76,7 +77,8 @@ the selected contact.
 Sometimes it's useful to divide up a large dataset into subsets. For instance, you might have
 credit card transactions, and want a way to view them one month at a time. To do it, you'll use a
 "Month" column, creating one [with a formula](dates.md) if needed. Then create a summary table
-grouped by "Month", and link a full table of transactions to it.
+grouped by "Month" (see [Summary tables](summary-tables.md), and link the table of transactions to
+it.
 
 ![layout-summary-details](images/layout-summary-details.png)
 
