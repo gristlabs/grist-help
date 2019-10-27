@@ -22,7 +22,7 @@ The widget options panel allows choosing the theme, or style, for the card:
 
 ## Editing card layout
 To configure the layout of a card, click the green "Edit Card Layout" button below the theme
-selector, or click the three dots on top right of the widget and select "Edit Card Layout" in the
+selector, or click the three dots on the top right of the widget and select "Edit Card Layout" in the
 menu.
 
   *![card_edit_button](images/card_edit_button.png)*
@@ -38,9 +38,9 @@ and a set of buttons on top of the widget.
   {: .screenshot-half }
 
 #### Resizing a field
-To resize a field, move the mouse to a vertical border separating two fields, and drag
-the border. Only the width of fields may be changed, while the height changes dynamically to fit
-the field contents.
+To resize a field, move the mouse to a vertical border separating two fields and drag
+the border to your desired size. Only the width of fields may be changed, while the height changes
+dynamically to fit the field contents.
 
   *![card_layout_resize](images/card_layout_resize.png)*
   {: .screenshot-half }
@@ -56,7 +56,8 @@ location.
 
 #### Deleting a field
 To delete a field, move the mouse over it. An "x" icon will appear. Click this icon to remove the
-field. This is similar to hiding a column: this operation does not delete the underlying data.
+field. This is similar to hiding a column as removing a field from a widget does not delete the
+underlying data.
 
   *![card_layout_delete](images/card_layout_delete.png)*
   {: .screenshot-half }
@@ -73,7 +74,7 @@ table that are not currently shown in the card.
   *![card_layout_add_menu](images/card_layout_add_menu.png)*
   {: .screenshot-half }
 
-When you click the field, it will be added at the bottom of the layout. You can then move it or
+When you click on the field, it will be added at the bottom of the layout. You can then move it or
 resize it as described above.
 
 Any new fields you create will only be added to the data when you

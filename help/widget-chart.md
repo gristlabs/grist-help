@@ -1,6 +1,6 @@
 # Page widget: Chart
 
-Grist supports several chart types to you visualize your data easily. Charts may be used to plot a
+Grist supports several chart types to help you visualize your data easily. Charts may be used to plot a
 regular table of data, a linked widget (as described in [Linking widgets](linking-widgets.md)), or
 a summary table (as described in [Summary tables](summary-tables.md)).
 
@@ -17,15 +17,15 @@ used, as described below.
 
 #### Bar Chart
 
-Needs two or more series: the first for bar labels, the second for bar heights. Additional series
-create additional bars at each data point and specify their heights.
+Needs two or more series: the first for bar labels (x-axis), the second for bar heights (y-axis).
+Additional series create additional bars at each data point and specify their heights.
 
   <span class="screenshot-large">*![widget_chart_bar](images/widget_chart_bar.png)*</span>
   {: .screenshot-half }
 
 #### Line Chart
 
-Needs two or more series: the first the X values, the second for Y values for a line.
+Needs two or more series: the first series is for the X values, the second is for Y values to create the line.
 Additional series specify Y values for additional lines.
 
   <span class="screenshot-large">*![widget_chart_line](images/widget_chart_line.png)*</span>
@@ -33,7 +33,7 @@ Additional series specify Y values for additional lines.
 
 #### Pie Chart
 
-Needs two series: the first for the pie sector labels, the second for the pie sector sizes.
+Needs two series: the first for the pie slice labels, the second for the pie slice sizes.
 
   <span class="screenshot-large">*![widget_chart_pie](images/widget_chart_pie.png)*</span>
   {: .screenshot-half }
@@ -41,7 +41,7 @@ Needs two series: the first for the pie sector labels, the second for the pie se
 #### Area Chart
 
 Similar to a line chart, needs two or more series: the first for the X values, the second for
-Y values for a line enclosing an area below it. Additional series specify Y values for additional
+the Y values to create the line. Additional series specify Y values for additional
 lines.
 
   <span class="screenshot-large">*![widget_chart_area](images/widget_chart_area.png)*</span>
@@ -49,7 +49,9 @@ lines.
 
 #### Scatter Plot
 
-Needs three or more series: the first for the point labels, the second and third for the X and Y values of each point, respectively. Additional series specify Y values for additional sets of points.
+Needs three or more series: the first for the point labels, and the second and third for the X and
+Y values for each point, respectively. Additional series specify Y values for additional sets of
+points.
 
   <span class="screenshot-large">*![widget_chart_scatter](images/widget_chart_scatter.png)*</span>
   {: .screenshot-half }
@@ -58,7 +60,7 @@ Needs three or more series: the first for the point labels, the second and third
 
 The [Kaplan-Meier Plot](https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator) is useful
 for certain studies, and needs two series: the first for the label of the line to which a point
-belongs, the second giving a survival time or time-to-failure of this point. The plot shows the
+belongs, the second giving a survival time or time-to-failure of that point. The plot shows the
 survival times on the X axis, and the number of points that survive at that time on the Y axis.
 
   <span class="screenshot-large">*![widget_chart_km](images/widget_chart_km.png)*</span>

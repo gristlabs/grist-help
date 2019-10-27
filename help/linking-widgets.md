@@ -6,7 +6,7 @@ data related to the selected record. 
 
 For example, let’s say you have a table of `Departments` in a company, and a table of
 `Employees`, with each employee tied to some department. You can have one Table widget listing
-departments, and serving as a selector for a second Table widget listing employees:
+departments and serving as a selector for a second Table widget listing employees:
 
 <div id="carousel-ex1" class="carousel slide" data-interval="false">
   <!-- Indicators -->
@@ -43,7 +43,7 @@ departments, and serving as a selector for a second Table widget listing employe
 &nbsp;
 
 To create this, first create a page with a Table widget for `Departments` data, as described in
-[Page widgets](page-widgets.md/#widget-picker). Then in the "Add New" menu, select "Add Widget to
+[Page widgets](page-widgets.md/#widget-picker). Then in the "Add New" menu, select the "Add Widget to
 Page" option to add another Table widget for `Employees` data. In the widget picker, use the "Select
 By" dropdown and choose the "DEPARTMENTS" widget added in the first step.
 
@@ -62,8 +62,8 @@ data. There are several kinds of relationships supported.
 
 ## Same-record linking
 
-Most directly you can link two widgets which show data from the same underlying table -- usually
-linking a Table to a Card. This allows selecting a record in the Table widget and seeing more
+Most directly you can link two widgets which show data from the same underlying table, usually
+linking a Table to a Card. This allows you to select a record in the Table widget and see more
 details of that record in the linked Card widget.
 
 For example, you can add a Card of `Employees` data and link it to an existing Table widget
@@ -77,7 +77,7 @@ selected record.
 
 ![linking-same-record-result](images/linking-same-record-result.png)
 
-For another example of such linking, see the "Lightweight CRM" document in "Examples &amp; Templates",
+For another example of such linking, see the "Lightweight CRM" document in "Examples &amp; Templates"
 and the associated tutorial [Create your own CRM](lightweight-crm.md#customizing-layout).
 
 ## Filter linking
@@ -95,8 +95,8 @@ The "Lightweight CRM" document in "Examples &amp; Templates" provides another ex
 selecting a contact shows only the conversations with that contact. It's also described in the
 [tutorial](lightweight-crm.md#linking-tables-visually).
 
-When the target of linking is a Chart widget, you get dynamic charts, which reflect data associated
-with the selected record. For example, you could link a pie chart to a department,
+When the target of linking is a Chart widget, you get dynamic charts that reflect data associated
+with the selected record. For example, you could link a pie chart to a department
 to show the sum of salaries for each job position in the selected department.
 
 <div id="carousel-ex2" class="carousel slide" data-interval="false">
@@ -159,7 +159,7 @@ which one to use for linking.
 
 For instance, a `Flight` record might have fields 'DepartureAirport' and 'ArrivalAirport', each of
 which is a Reference to the table `Airports`. When you select an airport in a table, you can have
-a choice whether to show all flights departing from this airport, or all flights arriving to it.
+a choice whether to show all flights departing from this airport or all flights arriving to it.
 The "Select By" widget will show both options to choose from:
 
 *![linking-multiple-refs](images/linking-multiple-refs.png)*
@@ -193,7 +193,7 @@ visualize](investment-research.md#dynamic-charts) tutorial.
 ## Changing link settings
 
 After a widget is added, you can view and change its link settings from the right panel. One way
-to get to it is to click the three-dots icon on top right of the widget, and click "Data
+to get to it is to click on the three-dots icon on the top right of the widget, and click on the "Data
 selection" menu option:
 
 *![linking-menu-option](images/linking-menu-option.png)*
@@ -205,5 +205,5 @@ any, serves as its selector.
 *![linking-side-panel](images/linking-side-panel.png)*
 {: .screenshot-half }
 
-You can change the "Select By" setting here, or click the green "Edit Data Selection" dialog, and change
+You can change the "Select By" setting here, or click the green "Edit Data Selection" button, and change
 it in the widget picker dialog.
