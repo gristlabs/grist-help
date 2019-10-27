@@ -10,7 +10,7 @@ option.
 *![api-profile-settings](images/api/api-profile-settings.png)*
 {: .screenshot-half}
 
-The page this shows includes an "Api key" section.
+This shows a dialog with an "API key" section.
 
 ![api-user-profile](images/api/api-user-profile.png)
 

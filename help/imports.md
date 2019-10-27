@@ -32,7 +32,7 @@ columns as "A", "B", "C", etc.
 Grist automatically tries to parse numbers, dates, and boolean fields to detect
 the most suitable type for each column. It tries to be lossless: e.g. if it
 marks a column as numeric, any text values in it (such as "N/A") will remain in
-the imported table, but shown highlighted because of the type mismatch.
+the imported table, but will be highlighted due to the type mismatch.
 
 You can always rename tables and columns after an import, as well as convert types.
 
@@ -42,7 +42,7 @@ By default, Grist imports new data as new tables, but the Import dialog allows
 you to change the destination and import data into an existing table.
 
 To import cleanly into an existing table, the new data must have column names
-exactly matching the columns in the destination table.
+that exactly match the column names in the destination table.
 
 This is best suited for importing multiple datasets in the same format. For
 instance, you could import a bank statement as a new table, then import more

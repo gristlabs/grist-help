@@ -6,7 +6,7 @@ To get started with Grist you'll first need to create a document.
 Each document can store different kinds of data, so think of it as a
 collection of *related* data.
 
-You can start from scratch or import existing data. Click the Add New button on
+You can start from scratch or import existing data. Click the "Add New" button on
 the home screen and choose either "Create empty document" or "Import document".
 
 *![add-new-menu](images/add-new-menu.png)*
@@ -24,8 +24,8 @@ accessible via a link on the bottom left of the home page.
 
 ![examples-link](images/examples-link.png)
 
-For each example, there is a corresponding How-To Tutorial in this
-documentation, which describes how to use it or how to build such a document
+For each example, there is a corresponding How-To Tutorial in the Grist Help Center,
+which describes how to use it or how to build such a document
 from scratch.
 
 You can open any of the examples in view-only mode, or click "Make own copy"
