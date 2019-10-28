@@ -12,27 +12,35 @@ and **referencing table** for the table that uses those values.
 
 Creating a new reference column
 -------------------------------
-To create a reference column, simply select it as an option in `Field options > Type` and specify
-the table and column that the column references.
 
-![Select reference type](images/column-ref-select-type.png)
+Suppose we have a document with two tables, Clients and Projects.  The Clients table lists
+our clients - names, contacts, signing dates - and the Projects table lists projects we do for
+clients.
+
+![Reference motivation](images/columns/columns-reference-clients-projects.png)
+
+There are all sorts of things Grist can do for us if we let it know that the Client column
+in the Projects table is referring to clients listed in the Clients table.  We can do this
+by converting the Client column to a "reference column".  Open the Column Options side
+panel (see [Specifying a type](col-types#specifying-a-type)) and set the "Column Type"
+to "Reference".  Adjust the "Data from Table" option to be the correct table you want
+to cross-reference, and the "Show Column" option to match which column of that table
+you'd like to show.  Then hit "Apply" when you're happy with the result.
+
+![Reference set-up](images/columns/columns-reference-link-client.png)
 
 !!! note "Understanding the reference"
     The column value always references the entire **record** in the underlying table. The displayed
-    value can be any column from that record, as selected in `Show column`. You can also include
+    value can be any column from that record, as selected in `Show Column`. You can also include
     additional columns to display as explained later.
 
-Once the column type is set, you can start typing into it or double-click it to see a dropdown list
-of all available values. For example, if you have a list of clients defined in one table and you're
-tracking projects for each client, it makes sense for the `Client` column in the referencing table
-`Projects` to be a reference to the underlying table `Clients`, and set it to display the client's
-`Name`:
+In our example, you can see little link icons appearing in the Client
+column cells, showing that they have been successfully cross-referenced with the Clients table.
+Once the column type is set, you can start typing into it or double-click it to see a dropdown
+list of all available values. 
 
-![Select underlying values](images/column-ref-select-underlying.png)
-
-Then, in your `Projects` table you can select available clients using a dropdown:
-
-![Select dropdown values](images/column-ref-select-dropdown.png)
+*![Select dropdown values](images/column-ref-select-dropdown.png)*
+{: .screenshot-half }
 
 !!! note "Spotting reference columns"
     You can tell that the values in a column represent a reference by the link icon that appears
@@ -41,7 +49,8 @@ Then, in your `Projects` table you can select available clients using a dropdown
 If you accidentally type in a value that is not present in the `Clients` table, its value will be
 highlighted as invalid:
 
-![Invalid reference value](images/column-ref-invalid.png)
+*![Invalid reference value](images/column-ref-invalid.png)*
+{: .screenshot-half }
 
 Adding values to a reference column
 -----------------------------------
@@ -50,7 +59,8 @@ underlying table. Reference columns make it easy! Just type in the value you wan
 `+` value in the dropdown list. Grist will automatically add a new record containing this value to
 the underlying table and insert the proper reference:
 
-![Add reference value](images/column-ref-add-value.png)
+*![Add reference value](images/column-ref-add-value.png)*
+{: .screenshot-half }
 
 Converting text column to reference
 -----------------------------------
@@ -63,30 +73,24 @@ the proper values for them.
 In this example, the first three values match perfectly, but `Forest Labs` is invalid because it
 doesn't exist in the `Clients` table:
 
-<span style="white-space: nowrap;">
-![Convert values before](images/column-ref-convert-before.png)
-![Convert values apply](images/column-ref-convert-apply.png)
 ![Convert values after](images/column-ref-convert-after.png)
-</span>
 
 Including multiple fields from a reference
 ------------------------------------------
 A big benefit of reference columns is that they allow you to easily bring in multiple columns from
 the underlying table. In our example, if you wanted to bring in `$Client.Contact` to the `Projects`
-table, you can just select the `Contact` column from `Additional Columns` section and it will be
+table, you can just select the `Contact` column from the `Add Reference Columns` section and it will be
 automatically added to the `Projects` table:
 
-<span style="white-space: nowrap;">
-![Adding more columns](images/column-ref-add-other.png)
 ![Additional columns inserted](images/column-ref-other-columns.png)
-</span>
 
 If you're comfortable using formulas, you can see that the added column is just the formula
 `=$Client.Contact`. If you were so inclined, you could achieve the same result by manually adding
 the formula column. You can also use any other fields from `Clients` table by referencing `$Client`
 in formulas in the `Projects` table.
 
-![Additional columns as formulas](images/column-ref-other-formula.png)
+*![Additional columns as formulas](images/column-ref-other-formula.png)*
+{: .screenshot-half }
 
 !!! note "Using references in formulas"
     You may have noticed that the underlying table is `Clients` (plural) but the formula is
