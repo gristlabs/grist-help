@@ -33,6 +33,7 @@ nav:
   - Working with columns or fields:
     - Getting started with columns: col-types.md
     - Column transformations: col-transform.md
+    - Type conversions: col-type-conversion.md
     - Reference columns: col-refs.md
 
 extra:

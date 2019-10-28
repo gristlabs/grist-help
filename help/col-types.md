@@ -163,6 +163,10 @@ specify the available values.
 There's an example of using this type of column in
 the [Lightweight CRM example](lightweight-crm.md#setting-other-types).
 
+If you start off with a populated text column, Grist will take all unique
+values from that column as the valid choices.  You can add or remove choices
+as you wish.
+
 Reference columns
 ----------
 
