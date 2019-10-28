@@ -157,7 +157,7 @@ gender among the employees in that position.
 Note that such linking requires the new widget to include both "Position" *and* "Gender" in its
 group-by columns.
 
-For more about linking, see [Linking widgets](linking-widgts.md).
+For more about linking, see [Linking widgets](linking-widgets.md).
 
 
 ## Charting summarized data
