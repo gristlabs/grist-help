@@ -30,6 +30,8 @@ Your formula should look like this:
 
 ![formulas-price-multiply](images/formulas/formulas-price-multiply.png)
 
+To control the identifier used for columns in formulas, see
+[Renaming columns](col-types.md#renaming-columns).
 Now press enter, and your formula is applied to all cells in the
 column.
 

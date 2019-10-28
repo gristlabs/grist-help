@@ -36,6 +36,23 @@ reorder them.  You can also hide columns here.
 *![Visible columns](images/columns/columns-visible-columns.png)*
 {: .screenshot-half }
 
+Renaming columns
+------------------
+
+You can rename columns in several ways.  One way is to
+click on the column header when the column is already selected.
+Another is to hover on the column
+header, click on the drop-down, then select "Rename Column".
+Another is by selecting "Column Options" in the same drop-down, and editing the "Field"
+name shown at the top.  A bonus with this method is that you can also control
+the identifier given to the column
+in formulas.  By default this is based on the field name, with any
+characters Python doesn't like replaced with "_", and a number added if needed
+to keep the name unique within your table.  If you don't like this identifier, you
+can change it, though it will still need to be Python-friendly.  To change
+the name, deselect "Use Name as ID" if it is selected, and edit the "ID" entry now
+shown.
+
 Specifying a type
 -----------------
 

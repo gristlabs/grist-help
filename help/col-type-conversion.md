@@ -1,3 +1,6 @@
+Type conversions
+==================
+
 When converting between different column types, Grist has sensible default behavior,
 but makes that behavior easy to revise. For example, suppose you have a column of integers.
 To convert that column to text, open the column options as described in
