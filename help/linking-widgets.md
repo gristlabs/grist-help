@@ -53,7 +53,7 @@ By" dropdown and choose the "DEPARTMENTS" widget added in the first step.
 That’s all it takes: now selecting a department in the first table will cause the second table to
 show only the employees in that department. Note that this relies on the `Emploeees` table having a
 column of type `Reference` with the target table of `Departments`. See [Reference
-columns](ref-type.md).
+columns](col-refs.md).
 
 ## Types of linking {: data-toc-label='' }
 
