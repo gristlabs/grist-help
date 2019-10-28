@@ -55,7 +55,7 @@ If you are a spreadsheet user, you may find yourself wanting to have
 some special rows at the end of your table that have formulas
 different to the rest.  In Grist, we'd like you to consider adding a
 widget to your page instead.  For common use cases, [Summary
-tables](summary-table.md) may be exactly what you need.  Or if you
+tables](summary-tables.md) may be exactly what you need.  Or if you
 want to set things up yourself, you can add an extra table widget like
 this (see [Page widgets](page-widgets.md) for details):
 
