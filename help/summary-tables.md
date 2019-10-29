@@ -27,7 +27,7 @@ be grouped. These are called the "Group by" fields. The summary table will conta
 each group-by value. For instance, if "Position" is selected as a group-by field, the summary
 table will contain one row for each job position.
 
-Grist's powerful formulas then allow artibrary calculations on the matching subsets of the
+Grist's powerful formulas then allow arbitrary calculations on the matching subsets of the
 underlying data.
 
 Keep in mind that the group-by fields determine *which* groups should exist in the summary table.
