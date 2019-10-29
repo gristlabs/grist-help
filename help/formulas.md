@@ -247,6 +247,10 @@ you see in a table.  To get that order, `sort_by='manualSort`.  This is an
 internal column that is updated with the manually established sort order
 of rows.
 
+If you find yourself doing a lot of look-ups, please consider
+whether [Summary tables](summary-tables.md) and
+[Summary formulas](summary-tables.md#summary-formulas) might be
+what you are looking for.
 
 Recursion
 ----------
