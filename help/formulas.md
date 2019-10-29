@@ -217,6 +217,37 @@ The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
 just as much to formula columns as to regular columns.
 
+Lookups
+--------
+
+Grist functions [lookupOne](functions.md#lookupone) and
+[lookupRecords](functions.md#lookuprecords) are useful for enumerating
+subsets of your data.  For example, suppose we added a `Category`
+column to our `Materials` table, and wished to list all products belonging
+to a specific catagory.  We can do this with `lookupRecords`, by calling
+it on the table of interest, and supplying it with the column values
+to match.  Here's an example:
+
+![formulas-column-options](images/formulas/formulas-lookup-unsorted.png)
+
+If you are following on, see [Adding a field](widget-card.md#adding-a-field)
+for details of how to add a new field to a card.  If you care about the order
+of results, `lookupRecords` takes an optional `sort_by` parameter.  For example,
+we could use this formula to sort by the product name itself:
+
+```py
+list(Materials.lookupRecords(Category='Ship', sort_by='Product').Product)
+```
+
+If you want to sort by multiple columns, remember that you can create a hidden
+formula column that combines data in any way you like, and then sort by that.
+
+The order of records returned by `lookupRecords` may not match the order of rows
+you see in a table.  To get that order, `sort_by='manualSort`.  This is an
+internal column that is updated with the manually established sort order
+of rows.
+
+
 Recursion
 ----------
 
