@@ -66,14 +66,13 @@ header.
 {: .screenshot-half }
 
 Create a formula by typing in a value into any cell in the new column, starting with the equal
-sign (“=”). Enter the formula as `=$First_Name + ", " + $Last_Name`. You may use Excel-like syntax
-to the same effect: `CONCAT($First_Name, ", ", $Last_Name)`.
+sign (“=”). Enter the formula as `$First_Name + ", " + $Last_Name`{: .formula }. You may use Excel-like syntax
+to the same effect: `CONCAT($First_Name, ", ", $Last_Name)`{: .formula }.
 
 <span class="screenshot-large">*![fullname-formula](images/afterschool-program/fullname-formula.png)*</span>
 {: .screenshot-half }
 
   - In Grist, a formula always applies to every record in the table.
-  - You can refer to other fields of the current record using the `$` prefix, e.g. `$First_Name`.
   - Grist supports Python in formulas, and most Excel functions, which have uppercase names.
 
 Because formulas apply to every row, you should see the *Full Name* column automatically filled.
@@ -258,7 +257,7 @@ Options for the *Class* column, and click "+ Add Column" in the side panel.
 {: .screenshot-half }
 
 Any of the fields associated with a class are available. If you examine the columns you add this
-way, you'll see that they are simply formulas of the form `=$Class.Times`.
+way, you'll see that they are simply formulas of the form `$Class.Times`{: .formula }.
 
 ![enrollments-view3](images/afterschool-program/enrollments-view3.png)
 
@@ -325,12 +324,12 @@ easy to add an enrollment record for a new class, or to change a record (e.g. ma
 
 The “Afterschool Program” example includes everything described above and a bit more.
 
-In particular, it adds a *Count* field to Classes to calculate the number of enrolled students, and a *Spots Left* field to show the number of spots remaining, by comparing *Count* to class *Capacity*:
+In particular, it adds a *Count* field to Classes to calculate the number of enrolled students, and a *Spots Left* field to show the number of spots remaining, by comparing *Count* to *Max_Students*:
 
-  - The formula for *Count* is `=len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))`.
-  - The formula for *Spots Left* is `=max($Capacity - $Count, 0) or "Full"`.
+  - The formula for *Count* is `len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))`{: .formula }.
+  - The formula for *Spots Left* is `max($Max_Students - $Count, 0) or "Full"`{: .formula}.
 
-<span class="screenshot-large">*![spots-left](images/afterschool-program/spots-left.png)*</span>
+<span class="screenshot-full">*![spots-left](images/afterschool-program/spots-left.png)*</span>
 {: .screenshot-half }
 
 These make for a more useful Class View page, where it's now easy to see at a glance which classes
