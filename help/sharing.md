@@ -1,4 +1,6 @@
-# Sharing
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WCF9FpQeEjk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Sharing
 
 To collaborate in Grist, you can invite other users to access a document. For team plans,
 you can also add users to your team site, or to a workspace (see
