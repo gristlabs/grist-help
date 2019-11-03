@@ -96,7 +96,7 @@ In the right-side panel, set the column type to “Reference” (in database ter
 Click the "Apply" button to complete this change of the column's type (if the column is empty,
 there is no confirmation step).
 
-Now you can now assign an instructor to any class. Click on a cell in the *Instructor* column. You
+You can now assign an instructor to any class. Click on a cell in the *Instructor* column. You
 can hit <code class="keys">*Enter*</code> and choose from among the available
 instructors in the `Staff` table, or start typing to use auto-complete.
 
