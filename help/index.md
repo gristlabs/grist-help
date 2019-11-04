@@ -20,14 +20,13 @@ Intro videos.
 learn to link data, and create high-productivity layouts.
 
 [Analyze and visualize data](investment-research.md). Using the "Investment
-Research" example, learn to create summary tables, create charts, and link charts dynamically.
+Research" example, learn to create summary tables and charts, and link charts dynamically.
 
-[Coming soon] [Managing business data](investment-research.md). Using the "Training Center" example,
+[Managing business data](afterschool-program.md). Using the "Afterschool Program" example,
 learn to model business data, use formulas, and manage complexity.
-{: .coming-soon }
 
 [Coming soon] [Managing scientific data](investment-research.md). Using the "Biochem Research" example,
-learn to organize, maintain, and analyze scientific data.
+learn to organize and analyze scientific data.
 {: .coming-soon }
 
 </div>
