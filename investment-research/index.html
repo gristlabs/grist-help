@@ -9,7 +9,7 @@
     
     
     
-    <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Analyze and visualize - Grist Help Center</title>
@@ -74,20 +74,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../intro/" class="btn btn-xs btn-default pull-right">
+      <a href="../afterschool-program/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../intro/" class="btn btn-xs btn-link">
-        What is Grist
+      <a href="../afterschool-program/" class="btn btn-xs btn-link">
+        Manage business data
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href=".." class="btn btn-xs btn-default pull-left">
+      <a href="../lightweight-crm/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href=".." class="btn btn-xs btn-link">
-        Home
+        Previous</a><a href="../lightweight-crm/" class="btn btn-xs btn-link">
+        Create your own CRM
       </a>
     </div>
     
@@ -198,7 +198,8 @@ investment, it shows the “category_code” of the company linked to its invest
 <p>The powerful feature you’ve been waiting for is the one that summarizes the data. To utilize this,
 let’s add a table showing companies grouped by “category_code”.</p>
 <p>In the “Add New” menu at the top left, select “Add Page”. In the dialog box, select “Table” and “Companies”, and
-then use the summation symbol (∑) to select the “Group By” columns &ndash; i.e. the columns by which to
+then use the summation icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>)
+to select the “Group By” columns &ndash; i.e. the columns by which to
 summarize.</p>
 <p><img alt="12-start-summary" src="../images/investment-research/12-start-summary.png" /></p>
 <p>If you don’t select any columns, you’ll just get a single row of totals. If you summarize by
@@ -211,8 +212,8 @@ in the table’s title (“COMPANIES [by category_code]”).</p>
 <p>Such summary tables can (and should!) use formulas. The columns you choose when creating the table
 are the identifiers of the groups. All other columns are formula columns &ndash; they are calculated.
 In formulas, the group of source records summarized by one row is available as the value “$group”.</p>
-<p>For example, you’ll see a column created automatically called “count”. If you hit</p>
-<p>“Enter”, you’ll see the formula in it &ndash; <code>len($group)</code> &ndash; that’s just the number of records in
+<p>For example, you’ll see a column created automatically called “count”. If you hit
+“Enter”, you’ll see the formula in it &ndash; <code>len($group)</code> &ndash; that’s just the number of records in
 that group of records, i.e. the number of companies in that category.</p>
 <p><img alt="14-summary-count-formula" src="../images/investment-research/14-summary-count-formula.png" /></p>
 <p>For numeric columns in the source table, summary tables automatically get a same-named numeric
@@ -259,7 +260,8 @@ other series from the list. Alternatively, you can select the unneeded
 columns using checkboxes, and click “Hide Series”.</p>
 <p><img alt="20-chart-vis-fields" src="../images/investment-research/20-chart-vis-fields.png" /></p>
 <p>Now add a chart showing a trend by year. Add another “Widget to page”, select “Chart” under
-“Widget”, select “Investments” under “Select Data”, click summation (∑) to group by “funded_year”,
+“Widget”, select “Investments” under “Select Data”, click summation
+(<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) to group by “funded_year”,
 and click “Add to Page”.</p>
 <p>To customize this chart, stick with the chart type “Bar Chart”. The list of “Visible Series” in
 the “Chart” tab should now be adjusted: the first series will be the values for the X (horizontal)
@@ -303,8 +305,8 @@ year’s data is used. All that’s left is to change the chart type to “Pie C
 Series” to only “category_code” and “raised_amount_usd” and hide the other data series.</p>
 <p><img alt="25-dynamic-vis-fields" src="../images/investment-research/25-dynamic-vis-fields.png" /></p>
 <p>Note: Graphs need more screenspace, so our small screenshots will look better if we close the
-side-panes by clicking on the opener icons (<span class="grist-icon" style="mask-image: var(--icon-PanelLeft)"></span>,
-<span class="grist-icon" style="mask-image: var(--icon-PanelRight)"></span>).</p>
+side panels by clicking on the opener icons (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>,
+<span class="grist-icon" style="--icon: var(--icon-PanelRight)"></span>).</p>
 <p>Let’s also sort the table by “funded_year”.</p>
 <p><img alt="26-dynamic-table-sort" src="../images/investment-research/26-dynamic-table-sort.png" /></p>
 <p>As far as sorting, the highlighted button above the table reminds you that sort settings aren’t

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../images/favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Table widget - Grist Help Center</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Page widget: Table", url: "#_top", children: [
+              {title: "Column operations", url: "#column-operations" },
+              {title: "Row operations", url: "#row-operations" },
+              {title: "Navigation and selection", url: "#navigation-and-selection" },
+              {title: "Customization", url: "#customization" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/grist.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../widget-card/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../widget-card/" class="btn btn-xs btn-link">
+        Card & Card List
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../page-widgets/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../page-widgets/" class="btn btn-xs btn-link">
+        Page widgets
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="page-widget-table">Page widget: Table<a class="headerlink" href="#page-widget-table" title="Permanent link">#</a></h1>
+<p>The <strong>Table</strong> widget is a versatile spreadsheet-like grid.</p>
+<p><img alt="widget_table_basic" src="../images/widget_table_basic.png" /></p>
+<p>Here are some useful features to know.</p>
+<h3 id="column-operations">Column operations<a class="headerlink" href="#column-operations" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>Resize columns</strong>: Click on the line between column headers, and drag it to resize columns.</p>
+</li>
+<li>
+<p><strong>Reorder columns</strong>: With a column selected, drag its header to move it to a different place
+  relative to other columns. (You can also do this by reordering fields in the widget
+  options panel.)</p>
+</li>
+<li>
+<p><strong>Rename columns</strong>: With a column selected, click its header to rename it. Hit <code class="keys"><em>Enter</em></code> to
+  save the new name.</p>
+</li>
+<li>
+<p><strong>Add columns</strong>: Click the &ldquo;+&rdquo; icon on the right of all the column headers to add a new column,
+  or show any of the hidden columns. The column menu also allows inserting a new column next to an
+  existing column, as do the keyboard shortcuts <code class="keys"><em>Alt</em> + <strong>+</strong></code>
+  (insert before) and <code class="keys"><em>Alt</em> + <strong>=</strong></code> (insert after).</p>
+<p class="screenshot-half"><em><img alt="column_add" src="../images/column_add.png" /></em></p>
+<p>After adding a column, the column name (set by default to &ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;, etc.) is immediately
+selected and highlighted to let you quickly rename it. Just type in the new name and hit <code
+class="keys"><em>Enter</em></code>, or hit <code class="keys"><em>Escape</em></code> to keep the default name.</p>
+</li>
+<li>
+<p><strong>Hide columns</strong>: Move the mouse over the column header and click the triangle to open the
+  column menu. Click &ldquo;Hide column&rdquo; to hide the column. The column remains in the underlying data, and can be
+  shown again using the &ldquo;+&rdquo; icon on the right of the column headers, or the field list in the widget
+  options panel.</p>
+</li>
+</ul>
+<p class="screenshot-half"><em><img alt="column_menu_hide" src="../images/column_menu_hide.png" /></em></p>
+<ul>
+<li>
+<p><strong>Delete columns</strong>: Delete the actual column of data using the column menu option, or the
+  <code class="keys"><em>Alt</em> + <em>Minus</em></code> keyboard shortcut. The table is the only widget that
+  allows deleting a column.</p>
+<p><strong>Note:</strong> <em>deleting</em> and <em>hiding</em> are different. Hiding a columns removes it
+only from the current page widget, but leaves it in the data and available to formulas.
+Deleting a column removes it from everywhere. (Of course, undo still works for either
+operation!)</p>
+</li>
+</ul>
+<h3 id="row-operations">Row operations<a class="headerlink" href="#row-operations" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Add rows</strong>: Type into the last row in a table, which is highlighted to indicate that it&rsquo;s a
+  placeholder for adding new records. Right click a row number to insert a blank row next to an
+  existing row, or use the keyboard shortcuts
+  <code class="keys"><em>⌘</em> + <strong>+</strong></code> (Mac) or <code class="keys"><em>Ctrl</em> + <strong>+</strong></code> (Windows)
+  to insert before, and
+  <code class="keys"><em>⌘</em> + <strong>=</strong></code> (Mac) or <code class="keys"><em>Ctrl</em> + <strong>=</strong></code> (Windows)
+  to insert after.</li>
+</ul>
+<p class="screenshot-half"><em><img alt="row_menu" src="../images/row_menu.png" /></em></p>
+<ul>
+<li><strong>Delete rows</strong>: Right click a row number and select the &ldquo;Delete&rdquo; option to delete a row, or use the
+  <code class="keys"><em>⌘</em> + <em>Minus</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Minus</em></code> (Windows)
+  shortcut. If you select a range of cells first, either of these delete actions will delete all
+  rows included in the range.</li>
+</ul>
+<h3 id="navigation-and-selection">Navigation and selection<a class="headerlink" href="#navigation-and-selection" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>Navigate using shortcuts</strong>: Use keyboard shortcuts to navigate the grid:</p>
+<p><code class="keys"><em>Tab</em></code>, <code class="keys"><em>Shift</em> + <em>Tab</em></code>
+Move to the next or previous column, saving changes if editing a cell.</p>
+<p><code class="keys"><em>⌘</em> + <em>Up</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Up</em></code> (Windows)  Move up to the first row.</p>
+<p><code class="keys"><em>⌘</em> + <em>Down</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Down</em></code> (Windows)  Move down to the last row.</p>
+<p><code class="keys"><em>Home</em></code> or <code class="keys"><em>Fn</em> + <strong>←</strong></code> (Mac)  Move to the beginning of a row.</p>
+<p><code class="keys"><em>End</em></code> or <code class="keys"><em>Fn</em> + <strong>→</strong></code> (Mac)  Move to the end of a row.</p>
+<p><code class="keys"><em>PageDown</em></code> or <code class="keys"><em>Fn</em> + <strong>↓</strong></code> (Mac)  Move down one page of rows.</p>
+<p><code class="keys"><em>PageUp</em></code> or <code class="keys"><em>Fn</em> + <strong>↑</strong></code> (Mac)  Move up one page of rows.</p>
+<p><code class="keys"><em>Alt</em> + <em>Down</em></code>, <code class="keys"><em>Alt</em> + <em>Up</em></code>  Move down or up five rows.</p>
+</li>
+<li>
+<p><strong>Select ranges</strong>: Click and drag a mouse across the grid to select a range of cells to copy
+  (copy and paste using the usual
+  keyboard shortcuts for your computer). Another way to select a range is to
+  click one cell, and then hold <code class="keys"><em>Shift</em></code> while clicking another cell, or
+  while navigating with the arrow keys.</p>
+</li>
+<li>
+<p><strong>Fill down data</strong>: Select a range of cells, and hit
+  <code class="keys"><em>⌘</em> + <em>D</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>D</em></code> (Windows)
+  to fill the whole selected range with the values of the cells in the top row of the range.</p>
+</li>
+</ul>
+<h3 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Customize table looks</strong>: In the widget options panel, you can turn off horizontal or vertical
+  grid lines, or turn on zebra striping.</li>
+</ul>
+<p class="screenshot-half"><em><img alt="widget_tab_table_options" src="../images/widget_tab_table_options.png" /></em></p>
+<p>For example, this lets you change the look of your grid to a list like this:
+  <img alt="widget_table_zebra" src="../images/widget_table_zebra.png" /></p>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

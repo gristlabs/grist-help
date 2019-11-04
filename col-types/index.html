@@ -9,10 +9,10 @@
     
     
     
-    <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Column types - Grist Help Center</title>
+    <title>Getting started with columns - Grist Help Center</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -35,9 +35,19 @@
         
         var pageToc = [
           {title: "Columns and data types", url: "#_top", children: [
-              {title: "Overview", url: "#overview" },
+              {title: "Adding and removing columns", url: "#adding-and-removing-columns" },
+              {title: "Renaming columns", url: "#renaming-columns" },
               {title: "Specifying a type", url: "#specifying-a-type" },
               {title: "Supported types", url: "#supported-types" },
+              {title: "Text columns", url: "#text-columns" },
+              {title: "Numeric columns", url: "#numeric-columns" },
+              {title: "Integer columns", url: "#integer-columns" },
+              {title: "Toggle columns", url: "#toggle-columns" },
+              {title: "Date columns", url: "#date-columns" },
+              {title: "DateTime columns", url: "#datetime-columns" },
+              {title: "Choice columns", url: "#choice-columns" },
+              {title: "Reference columns", url: "#reference-columns" },
+              {title: "Attachment columns", url: "#attachment-columns" },
           ]},
         ];
 
@@ -65,20 +75,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../col-refs/" class="btn btn-xs btn-default pull-right">
+      <a href="../col-transform/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../col-refs/" class="btn btn-xs btn-link">
-        Reference columns
+      <a href="../col-transform/" class="btn btn-xs btn-link">
+        Column transformations
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../col-naming/" class="btn btn-xs btn-default pull-left">
+      <a href="../functions/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../col-naming/" class="btn btn-xs btn-link">
-        Naming columns
+        Previous</a><a href="../functions/" class="btn btn-xs btn-link">
+        Function reference
       </a>
     </div>
     
@@ -87,21 +97,63 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="columns-and-data-types">Columns and data types<a class="headerlink" href="#columns-and-data-types" title="Permanent link">#</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Grist columns have types, similar to other spreadsheets or databases, but with a few differences:</p>
-<ol>
-<li>Columns allow you to enter <strong>any value</strong>, regardless of their type.
-   If a value entered is incompatible with the defined type, the cell will be highlighted with an
-   error and columns referencing the invalid value will also display an error:
-   <br/> <br/> <img alt="Invalid value" src="../images/cell-invalid-type-value.png" /></li>
-</ol>
+<h2 id="adding-and-removing-columns">Adding and removing columns<a class="headerlink" href="#adding-and-removing-columns" title="Permanent link">#</a></h2>
+<p>Every Grist table, when first created, has three columns called A, B, and C.
+To rename a column, hover on the column header, click on the drop-down, then
+select &ldquo;Rename column&rdquo; (you can also just click on the column header twice).</p>
+<p><img alt="Column rename" src="../images/columns/columns-rename-column.png" /></p>
+<p>To delete a column, hover on the column header, click on the drop-down, then
+select &ldquo;Delete column&rdquo;.</p>
+<p><img alt="Delete column" src="../images/columns/columns-delete-column.png" /></p>
+<p>To add a column, click on the &ldquo;+&rdquo; symbol in the header row, then type in
+the column name.</p>
+<p class="screenshot-half"><em><img alt="Add column" src="../images/columns/columns-add-column.png" /></em></p>
+<p>To reorder a column, first select the column if it isn&rsquo;t already selected,
+by clicking on the column header.  Next, click and hold on the column header.
+After a second or two, you&rsquo;ll be able to drag the entire column to its new
+location.</p>
+<p>Another way to reorder columns is via the widget options:</p>
+<p><img alt="Widget options" src="../images/columns/columns-widget-options.png" /></p>
+<p>In the visible columns section, the columns can be dragged around freely to
+reorder them.  You can also hide columns here.</p>
+<p class="screenshot-half"><em><img alt="Visible columns" src="../images/columns/columns-visible-columns.png" /></em></p>
+<h2 id="renaming-columns">Renaming columns<a class="headerlink" href="#renaming-columns" title="Permanent link">#</a></h2>
+<p>You can rename columns in several ways.  One way is to
+click on the column header when the column is already selected.
+Another is to hover on the column
+header, click on the drop-down, then select &ldquo;Rename Column&rdquo;.
+Another is by selecting &ldquo;Column Options&rdquo; in the same drop-down, and editing the &ldquo;Field&rdquo;
+name shown at the top.  A bonus with this method is that you can also control
+the identifier given to the column
+in formulas.  By default this is based on the field name, with any
+characters Python doesn&rsquo;t like replaced with &ldquo;_&rdquo;, and a number added if needed
+to keep the name unique within your table.  If you don&rsquo;t like this identifier, you
+can change it, though it will still need to be Python-friendly.  To change
+the name, deselect &ldquo;Use Name as ID&rdquo; if it is selected, and edit the &ldquo;ID&rdquo; entry now
+shown.</p>
 <h2 id="specifying-a-type">Specifying a type<a class="headerlink" href="#specifying-a-type" title="Permanent link">#</a></h2>
-<p>The default type for value columns is <code>Text</code>. You can change the column type in <strong>Field Options</strong>
-in the Sidepane:</p>
-<p>In the column menu drop-down, select <code>Field options</code>:</p>
-<p><img alt="Column menu &gt; Field options" src="../images/column-menu-field-options.png" /></p>
-<p>Then, in the sidebar menu, use the type drop-down to select the appropriate type:</p>
-<p><img alt="Sidebar &gt; Field options &gt; Type" src="../images/sidebar-field-type.png" /></p>
+<p>Grist columns have types, similar to other spreadsheets or databases.  The type of a column
+controls its appearance and the help Grist will offer you when editing cells.</p>
+<p>When you create a new column, it initially has the <code>Any</code> type.  When you enter the column&rsquo;s
+first cell, Grist tries to narrow this type.  If you enter a number, the column will
+be changed to <code>Numeric</code> type, which is right-aligned by default.  If you enter something
+that doesn&rsquo;t look like text, the column will be changed to <code>Text</code> type, which is left-aligned
+by default.</p>
+<p>To inspect the type of a column, hover over the column header, then click on the drop-down,
+then select &ldquo;Column Options&rdquo;.  The &ldquo;Column Type&rdquo; section is what you are looking for.</p>
+<p><img alt="Sidebar &gt; Column options &gt; Type" src="../images/columns/columns-column-options.png" /></p>
+<p>You will often want to control the column type manually.  You can change it in the &ldquo;Column Type&rdquo;
+section.  For example, here we set a column full of &ldquo;yes&rdquo; and &ldquo;no&rdquo; responses to be of type
+<code>Toggle</code>:</p>
+<p><img alt="Sidebar &gt; Column options &gt; Toggle" src="../images/columns/columns-toggle.png" /></p>
+<p>One advantage of doing so is that Grist can now offer you ways to visualize the column that
+are specialized to on/off style values.  Each column type has different options in the
+&ldquo;Cell Format&rdquo; section of the side panel:</p>
+<p><img alt="Sidebar &gt; Column options &gt; Toggle appearance" src="../images/columns/columns-toggle-appearance.png" /></p>
+<p>Regardless of the column type, you can enter <strong>any value</strong> in cells. If a value entered is
+incompatible with the defined type, the cell will be highlighted with an error (and columns
+referencing the invalid value will also display an error):</p>
+<p><img alt="Toggle out-of-vocabulary" src="../images/columns/columns-toggle-oov.png" /></p>
 <h2 id="supported-types">Supported types<a class="headerlink" href="#supported-types" title="Permanent link">#</a></h2>
 <p>Grist supports the following types:</p>
 <div class='grist-mod__table'></div>
@@ -137,7 +189,7 @@ in the Sidepane:</p>
 <td>Valid date (without a time component).</td>
 </tr>
 <tr>
-<td>Datetime</td>
+<td>DateTime</td>
 <td>Valid date + time.</td>
 </tr>
 <tr>
@@ -149,11 +201,76 @@ in the Sidepane:</p>
 <td>A reference column to another table.</td>
 </tr>
 <tr>
-<td>Image</td>
-<td>Exactly what it sounds like.</td>
+<td>Attachment</td>
+<td>Cells where you can place files or images.</td>
 </tr>
 </tbody>
 </table>
+<h2 id="text-columns">Text columns<a class="headerlink" href="#text-columns" title="Permanent link">#</a></h2>
+<p>You can put any text you like in this type of column.  For formatting,
+you can control alignment and word-wrap, text color and background color.
+If the column is used for storing web links, you can turn on &ldquo;HyperLink&rdquo;
+formatting to make that prettier.</p>
+<p class="screenshot-half"><em><img alt="Format text" src="../images/columns/columns-format-text.png" /></em></p>
+<h2 id="numeric-columns">Numeric columns<a class="headerlink" href="#numeric-columns" title="Permanent link">#</a></h2>
+<p>This type is for floating point numbers, and can also be used with
+whole numbers.  As for text, you can control alignment and color.
+You can also choose whether to show arrows for increasing/decreasing
+the number (this is the &ldquo;Spinner&rdquo; option).  And you can set a
+minimum and maximum number of decimal points to show.</p>
+<p class="screenshot-half"><em><img alt="Format numeric" src="../images/columns/columns-format-numeric.png" /></em></p>
+<h2 id="integer-columns">Integer columns<a class="headerlink" href="#integer-columns" title="Permanent link">#</a></h2>
+<p>This is strictly for whole numbers.  It has the same options as
+the numeric type, except no &ldquo;Max Decimals&rdquo;.</p>
+<h2 id="toggle-columns">Toggle columns<a class="headerlink" href="#toggle-columns" title="Permanent link">#</a></h2>
+<p>This type is for storing true/false values.  The values can be shown
+as text, checkboxes, or switches.</p>
+<p class="screenshot-half"><em><img alt="Format toggle" src="../images/columns/columns-format-toggle.png" /></em></p>
+<p>See also example in <a href="./#specifying-a-type">Specifying a type</a>.</p>
+<h2 id="date-columns">Date columns<a class="headerlink" href="#date-columns" title="Permanent link">#</a></h2>
+<p>This type is for storing calendar dates (without a time of day component).
+More details in <a href="../dates/">Working with dates</a>.  You can choose the
+format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format/">date formatting reference</a>.</p>
+<p class="screenshot-half"><em><img alt="Format date" src="../images/columns/columns-format-date.png" /></em></p>
+<h2 id="datetime-columns">DateTime columns<a class="headerlink" href="#datetime-columns" title="Permanent link">#</a></h2>
+<p>This type is for storing calendar dates plus time of day.
+More details in <a href="../dates/">Working with dates</a>.  You can choose the
+format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format/">date and time formatting reference</a>.  You can also specify the timezone to display for.</p>
+<p class="screenshot-half"><em><img alt="Format date" src="../images/columns/columns-format-datetime.png" /></em></p>
+<h2 id="choice-columns">Choice columns<a class="headerlink" href="#choice-columns" title="Permanent link">#</a></h2>
+<p>This type is for storing one of a set of valid values, where you get to
+specify the available values.</p>
+<p class="screenshot-half"><em><img alt="Format date" src="../images/columns/columns-format-choice.png" /></em></p>
+<p>There&rsquo;s an example of using this type of column in
+the <a href="../lightweight-crm/#setting-other-types">Lightweight CRM example</a>.</p>
+<p>If you start off with a populated text column, Grist will take all unique
+values from that column as the valid choices.  You can add or remove choices
+as you wish.</p>
+<h2 id="reference-columns">Reference columns<a class="headerlink" href="#reference-columns" title="Permanent link">#</a></h2>
+<p>This sets up a cross-reference to another table.  You can specify the
+table to reference, and a column within that table to show.
+There&rsquo;s a lot you can do with this kind of column, see <a href="../col-refs/">Reference columns</a> for
+details.</p>
+<p class="screenshot-half"><em><img alt="Format reference" src="../images/columns/columns-format-reference.png" /></em></p>
+<h2 id="attachment-columns">Attachment columns<a class="headerlink" href="#attachment-columns" title="Permanent link">#</a></h2>
+<p>This column type lets you insert entire files and images in cells.
+When images are added in cells, a preview thumbnail is shown in the
+cell.  The &ldquo;Size&rdquo; bar gives control of the scale of this thumbnail.</p>
+<p class="screenshot-half"><em><img alt="Format attachment" src="../images/columns/columns-format-attachment.png" /></em></p>
+<p>When you create an attachment column, cells of that column will
+have a paperclip icon:</p>
+<p><img alt="Attachment paperclip" src="../images/columns/columns-attachment-column.png" /></p>
+<p>When you click on a paperclip icon, you can select a file to attach.
+If it is an image, you&rsquo;ll see a thumbnail of it in the cell.</p>
+<p><img alt="Image attachment" src="../images/columns/columns-attach-image.png" /></p>
+<!-- Source: https://en.wikipedia.org/wiki/File:Red_eyed_tree_frog_edit2.jpg -->
+
+<p>If you hover over the image, you&rsquo;ll see a paperclip icon again,
+which you can use to add more files to the same cell.  You&rsquo;ll
+also see an &ldquo;open-eye&rdquo; icon, which when clicked brings up a
+larger view of all of the cell&rsquo;s attachments, and gives you
+a way to rename them, download them, or remove them.</p>
+<p><img alt="Image browser" src="../images/columns/columns-view-image.png" /></p>
 
   <br>
 </div>

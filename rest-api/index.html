@@ -9,10 +9,10 @@
     
     
     
-    <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>REST API to Grist instance - Grist Help Center</title>
+    <title>API usage - Grist Help Center</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -34,6 +34,8 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "Grist API", url: "#_top", children: [
+          ]},
         ];
 
     </script>
@@ -60,20 +62,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../file-format/" class="btn btn-xs btn-default pull-right">
+      <a href="../api-docs.html" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../file-format/" class="btn btn-xs btn-link">
-        Document file format
+      <a href="../api-docs.html" class="btn btn-xs btn-link">
+        API reference
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../publish/" class="btn btn-xs btn-default pull-left">
+      <a href="../exports/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../publish/" class="btn btn-xs btn-link">
-        Publishing and embedding data
+        Previous</a><a href="../exports/" class="btn btn-xs btn-link">
+        Exports & backups
       </a>
     </div>
     
@@ -81,7 +83,41 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>Documentation to be written.</p>
+    <h1 id="grist-api">Grist API<a class="headerlink" href="#grist-api" title="Permanent link">#</a></h1>
+<p>Grist has an API for manipulating documents, workspaces, and team sites.
+To access this API, you&rsquo;ll need an API key.  An API key is owned by a single
+user, and has the same permissions as that user.  To enable API access for
+yourself, click on the circle with your profile picture or initial
+on the top right of the screen.  Then select the &ldquo;Profile Settings&rdquo;
+option.</p>
+<p class="screenshot-half"><em><img alt="api-profile-settings" src="../images/api/api-profile-settings.png" /></em></p>
+<p>This shows a dialog with an &ldquo;API key&rdquo; section.</p>
+<p><img alt="api-user-profile" src="../images/api/api-user-profile.png" /></p>
+<p>Click on the &ldquo;Create&rdquo; button to create an api key.</p>
+<p><img alt="api-create-api-key" src="../images/api/api-create-api-key.png" /></p>
+<p>You can now copy this key for use when making API calls.  To be
+clear, copy the key you get when clicking &ldquo;Create&rdquo;, not the key
+in the above screenshot, which isn&rsquo;t a real one.  You can
+revoke your API key by clicking &ldquo;Remove&rdquo; from Profile Settings at any time.
+You&rsquo;ll then have the option to create a new one if you wish.</p>
+<p>To test your api key, try this from the command-line (substituting
+your api key):</p>
+<pre><code class="sh">curl -H &quot;Authorization: Bearer API-KEY-GOES-HERE&quot; https://docs.getgrist.com/api/orgs
+</code></pre>
+
+<p>You should get a list of organizations (this is what the API calls team and personal sites).</p>
+<p>Then you could, for example, change the name of your organization / site:</p>
+<pre><code class="sh">curl -H &quot;Authorization: Bearer API-KEY-GOES-HERE&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     localhost:8080/api/orgs/ORG-ID-GOES-HERE -X PATCH -d '{&quot;name&quot;: &quot;Omega Devices&quot;}'
+</code></pre>
+
+<p>For details of the endpoints available, see our <a href="../api-docs.html">API docs</a>.</p>
+<p>There are also client libraries available:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/grist-api">JavaScript/TypeScript client library</a></li>
+<li><a href="https://pypi.org/project/grist-api/">Python client library</a></li>
+</ul>
 
   <br>
 </div>

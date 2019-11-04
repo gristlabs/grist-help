@@ -9,7 +9,7 @@
     <meta name="description" content="None">
     
     
-    <link rel="shortcut icon" href="./../favicon.png">
+    <link rel="shortcut icon" href="./images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Grist Help Center</title>
@@ -36,11 +36,13 @@
       var is_top_frame = (window === window.parent);
         
         var pageToc = [
-          {title: "What is Grist?", url: "#_top", children: [
+          {title: "How-To Tutorials", url: "#_top", children: [
           ]},
-          {title: "Who is Grist for?", url: "#who-is-grist-for", children: [
+          {title: "Intro Videos", url: "#intro-videos", children: [
           ]},
-          {title: "Who makes Grist?", url: "#who-makes-grist", children: [
+          {title: "Popular shortcuts", url: "#popular-shortcuts", children: [
+          ]},
+          {title: "Contact us", url: "#contact-us", children: [
           ]},
         ];
 
@@ -98,7 +100,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       <div class="wm-top-title">
         Grist Help Center<br>
         
-          <span class="wm-top-version">0.13.0-dev</span>
+          <span class="wm-top-version">1.0.2-dev</span>
         
       </div>
     </a>
@@ -110,41 +112,63 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <nav class="wm-toc-pane">
   
   <ul class="wm-toctree">
-        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Home</a>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Welcome to Grist</a>
 </li>
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-Tos</span>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-To Tutorials</span>
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
 </li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Grist intro</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="intro/" class="wm-article-link wm-toc-text">What is Grist</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="concepts/" class="wm-article-link wm-toc-text">Grist concepts</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="releases/" class="wm-article-link wm-toc-text">Release notes</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
 </li>
   </ul>
 </li>
 
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Entering and viewing data</span>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="enter-grid/" class="wm-article-link wm-toc-text">Entering data in a grid</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="add-records/" class="wm-article-link wm-toc-text">Adding and deleting records</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="add-columns/" class="wm-article-link wm-toc-text">Adding and deleting columns</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="team-sharing/" class="wm-article-link wm-toc-text">Team sharing [team]</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="enter-detail/" class="wm-article-link wm-toc-text">Working in record view</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="workspaces/" class="wm-article-link wm-toc-text">Workspaces [team]</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="rest-api/" class="wm-article-link wm-toc-text">API usage</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="api-docs.html" class="wm-article-link wm-toc-text">API reference</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and Tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="page-widgets/" class="wm-article-link wm-toc-text">Page widgets</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="widget-card/" class="wm-article-link wm-toc-text">Card & Card List</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
 </li>
   </ul>
 </li>
@@ -154,8 +178,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="formulas/" class="wm-article-link wm-toc-text">Getting started with formulas</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="lookup-formulas/" class="wm-article-link wm-toc-text">Lookup formulas</a>
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="dates/" class="wm-article-link wm-toc-text">Working with dates</a>
 </li>
@@ -168,82 +190,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="col-naming/" class="wm-article-link wm-toc-text">Naming columns</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="col-types/" class="wm-article-link wm-toc-text">Getting started with columns</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="col-types/" class="wm-article-link wm-toc-text">Column types</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="col-transform/" class="wm-article-link wm-toc-text">Column transformations</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="col-type-conversion/" class="wm-article-link wm-toc-text">Type conversions</a>
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="col-change-type/" class="wm-article-link wm-toc-text">Changing column types</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="col-transforms/" class="wm-article-link wm-toc-text">Column transformations</a>
-</li>
   </ul>
 </li>
 
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Working with tables</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="table-add/" class="wm-article-link wm-toc-text">Adding tables</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="table-mod/" class="wm-article-link wm-toc-text">Renaming and deleting tables</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Summarizing data</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="summary-create/" class="wm-article-link wm-toc-text">Creating summary views</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="summary-change/" class="wm-article-link wm-toc-text">Changing group-by fields</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="summary-formulas/" class="wm-article-link wm-toc-text">Summary formulas</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Configuring views</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="view-types/" class="wm-article-link wm-toc-text">Types of views</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="view-layouts/" class="wm-article-link wm-toc-text">Creating view layouts</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="view-linking/" class="wm-article-link wm-toc-text">Linking views</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Importing and exporting</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="imports/" class="wm-article-link wm-toc-text">Importing new tables</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="exports/" class="wm-article-link wm-toc-text">Exporting views</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="publish/" class="wm-article-link wm-toc-text">Publishing and embedding data</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Integrations and APIs</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="rest-api/" class="wm-article-link wm-toc-text">REST API to Grist instance</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="file-format/" class="wm-article-link wm-toc-text">Document file format</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 "><a href="contact-us/" class="wm-article-link wm-toc-text">Contact us</a>
-</li>
   </ul>
 </nav>
 
@@ -264,12 +221,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="investment-research/" class="btn btn-xs btn-default pull-right">
+      <a href="lightweight-crm/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="investment-research/" class="btn btn-xs btn-link">
-        Analyze and visualize
+      <a href="lightweight-crm/" class="btn btn-xs btn-link">
+        Create your own CRM
       </a>
     </div>
     
@@ -277,26 +234,65 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h2 id="what-is-grist">What is Grist?<a class="headerlink" href="#what-is-grist" title="Permanent link">#</a></h2>
-<p>Grist is a software product to organize, analyze, and share data. It is built with structured data
-in mind.</p>
-<p>The name Grist is a portmanteau combining <code>grid</code> (as of spreadsheet cells) and <code>list</code> (as of
-database records). It is also an English word describing the useful part of grain, or more
-generally, something useful or turned to advantage, as in &ldquo;grist for one&rsquo;s mill.&rdquo; We see that
-definition as aptly fitting, as Grist helps users extract meaning from their data.</p>
-<h2 id="who-is-grist-for">Who is Grist for?<a class="headerlink" href="#who-is-grist-for" title="Permanent link">#</a></h2>
-<p>Grist is designed as a general purpose tool for structured data. That said, we think it&rsquo;s particular
-useful to individuals or teams trying to solve the following problems:</p>
+    <h1 id="welcome-to-grist">Welcome to Grist!<a class="headerlink" href="#welcome-to-grist" title="Permanent link">#</a></h1>
+<p>Grist is a software product to organize, analyze, and share data.</p>
+<p>Grist combines the best of spreadsheets and databases. Even our name reflects this:
+&ldquo;Grist&rdquo; is made of &ldquo;grid&rdquo; (as of spreadsheet cells) and &ldquo;list&rdquo; (as of database
+records). Of course, real-world problems go beyond simple grids and lists, and
+Grist is at its best when data gets more complex.</p>
+<p>To learn Grist, we recommend starting with our How-To tutorials, or our
+Intro videos.</p>
+<div class="row">
+<div class="col-md-6">
+<h3 id="how-to-tutorials">How-To Tutorials<a class="headerlink" href="#how-to-tutorials" title="Permanent link">#</a></h3>
+<p><a href="lightweight-crm/">Create a custom CRM</a>. Using the &ldquo;Lightweight CRM&rdquo; example,
+learn to link data, and create high-productivity layouts.</p>
+<p><a href="investment-research/">Analyze and visualize data</a>. Using the &ldquo;Investment
+Research&rdquo; example, learn to create summary tables, create charts, and link charts dynamically.</p>
+<p class="coming-soon">[Coming soon] <a href="investment-research/">Managing business data</a>. Using the &ldquo;Training Center&rdquo; example,
+learn to model business data, use formulas, and manage complexity.</p>
+<p class="coming-soon">[Coming soon] <a href="investment-research/">Managing scientific data</a>. Using the &ldquo;Biochem Research&rdquo; example,
+learn to organize, maintain, and analyze scientific data.</p>
+</div>
+<div class="col-md-6 column-images">
+<h3 id="intro-videos">Intro Videos<a class="headerlink" href="#intro-videos" title="Permanent link">#</a></h3>
+<p class="img-caption"><a href="creating-doc/"><img alt="Creating a doc" src="https://img.youtube.com/vi/m8Bt6QBHTu4/0.jpg" /> <em>Creating a doc</em></a></p>
+<p class="img-caption"><a href="sharing/"><img alt="Sharing a doc" src="https://img.youtube.com/vi/WCF9FpQeEjk/0.jpg" /> <em>Sharing a doc</em></a></p>
+<p class="img-caption coming-soon"><img alt="Creating a doc" src="https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg" /> <em>Adding pages
+[coming soon]</em></p>
+<p class="img-caption coming-soon"><img alt="Creating a doc" src="https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg" /> <em>Column types
+[coming soon]</em></p>
+<p class="img-caption coming-soon"><img alt="Creating a doc" src="https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg" /> <em>Sorting &amp; filtering
+[coming soon]</em></p>
+</div>
+</div>
+<h2 id="popular-shortcuts">Popular shortcuts<a class="headerlink" href="#popular-shortcuts" title="Permanent link">#</a></h2>
 <ul>
-<li>Manage confusing spreadsheets that hold relational data</li>
-<li>Perform side-by-side reconciliation of disparate datasets</li>
-<li>Clean up and maintain clean data using validation rules</li>
-<li>Write Python against data you can see and manipulate</li>
-<li>Creating multiple views on top of the same underlying data</li>
+<li><a href="functions/">Function reference</a></li>
+<li><a href="col-types/">Column type reference</a></li>
 </ul>
-<h2 id="who-makes-grist">Who makes Grist?<a class="headerlink" href="#who-makes-grist" title="Permanent link">#</a></h2>
-<p>Grist is proudly made by Grist Labs, a team of software engineers in New York City.</p>
-<p>If you&rsquo;d like to get in touch with us for any reason, please e-mail us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<!--
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Reference columns*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Linking widgets*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Writing formulas*
+{: .img-caption .coming-soon }
+
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Summarizing data*
+{: .img-caption .coming-soon }
+
+-->
+
+<h2 id="contact-us">Contact us<a class="headerlink" href="#contact-us" title="Permanent link">#</a></h2>
+<p>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a></p>
+<p>If you have questions not answered here, problem reports, or other feedback,
+please contact us! While using Grist, you can use the &ldquo;Contact us&rdquo; link in the
+notifications (<span class="grist-icon" style="--icon: var(--icon-Notification)"></span>)
+dropdown on the top right. Or email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 
   <br>
 </div>
@@ -309,5 +305,5 @@ useful to individuals or teams trying to solve the following problems:</p>
 </html>
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-10-03 00:59:53
+Build Date UTC : 2019-11-04 21:12:18
 -->

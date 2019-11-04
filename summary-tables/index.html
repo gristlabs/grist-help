@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../images/favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Summary tables - Grist Help Center</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Summary Tables", url: "#_top", children: [
+              {title: "Adding summaries", url: "#adding-summaries" },
+              {title: "Summary formulas", url: "#summary-formulas" },
+              {title: "Changing summary columns", url: "#changing-summary-columns" },
+              {title: "Linking summary tables", url: "#linking-summary-tables" },
+              {title: "Charting summarized data", url: "#charting-summarized-data" },
+              {title: "Detaching summary tables", url: "#detaching-summary-tables" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/grist.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../formulas/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../formulas/" class="btn btn-xs btn-link">
+        Getting started with formulas
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../custom-layouts/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../custom-layouts/" class="btn btn-xs btn-link">
+        Custom layouts
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="summary-tables">Summary Tables<a class="headerlink" href="#summary-tables" title="Permanent link">#</a></h1>
+<p>Summary tables are the workhorse of data analysis in Grist. They are similar to &ldquo;pivot tables&rdquo; in
+spreadsheets, and to <code>GROUP BY</code> clauses in databases. They let you get table-wide totals or any
+subtotals.</p>
+<p>Summary tables have many uses:</p>
+<ul>
+<li>Group projects by status, or by priority.</li>
+<li>Summarize bank transactions by year, or quarter, or by category.</li>
+<li>Group employees by position, or gender, or department.</li>
+<li>Summarize by any combination, such as position <em>and</em> gender <em>and</em> department.</li>
+<li>Group all records to calculate table-wide totals and statistics.</li>
+</ul>
+<h2 id="adding-summaries">Adding summaries<a class="headerlink" href="#adding-summaries" title="Permanent link">#</a></h2>
+<p>Click &ldquo;Add New&rdquo; button and select &ldquo;Add Page&rdquo; or &ldquo;Add Widget to Page&rdquo;. In
+the widget picker, click the summation icon
+(<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) next to the table you&rsquo;d like
+to summarize.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-picker" src="../images/summary-picker.png" /></em></span></p>
+<p>When creating a summary table, you choose a field or a combination of fields by which data should
+be grouped. These are called the &ldquo;Group by&rdquo; fields. The summary table will contain one row for
+each group-by value. For instance, if &ldquo;Position&rdquo; is selected as a group-by field, the summary
+table will contain one row for each job position.</p>
+<p>Grist&rsquo;s powerful formulas then allow arbitrary calculations on the matching subsets of the
+underlying data.</p>
+<p>Keep in mind that the group-by fields determine <em>which</em> groups should exist in the summary table.
+Do not select values you&rsquo;d like to calculate (e.g. for average salary) as group-by fields; these will
+be created using formulas in the next step.</p>
+<div class="admonition tip">
+<p><strong>Tip:</strong> You can think of rows in a summary table as buckets into which your records will be
+placed. Group-by fields determine the labels for these buckets. For instance, a summary of
+projects grouped by status (e.g. &ldquo;Active&rdquo;, &ldquo;Completed&rdquo;, &ldquo;NotStarted&rdquo;) will have three such
+buckets, one for each status. Every project goes into one of these three buckets. You can then
+easily calculate info for each folder, such as a count of projects or the total of their costs.</p>
+</div>
+<h2 id="summary-formulas">Summary formulas<a class="headerlink" href="#summary-formulas" title="Permanent link">#</a></h2>
+<p>When you add a summary table, each of the selected group-by fields becomes a column in the new
+table. <em>Everything</em> else in the summary table is calculated using formula columns. Some of these
+columns are created automatically, as a convenience.</p>
+<p>Specifically, a column <code>count</code> will be added to show the number of records in the group
+represented by the current summary row. And for any numerical column in the original data, the
+summary table will contain a same-named column with the total. For instance, the summary of
+Employees grouped by Position would look like this:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-result1" src="../images/summary-result1.png" /></em></span></p>
+<div class="admonition tip">
+<p><strong>Tip:</strong> A summary widget will have a header like &ldquo;EMPLOYEES [by Position]&rdquo;, to
+indicate that it&rsquo;s showing summary data for the <code>Employees</code> table, grouped by &ldquo;Position&rdquo;. You
+can click the title to rename it.</p>
+</div>
+<p>If you select a cell in a column like <code>count</code> or <code>AnnualPay</code> and hit <code
+class="keys"><em>Enter</em></code>, you&rsquo;ll see the formulas that calculate them:</p>
+<ul>
+<li><code>count</code> is <code>len($group)</code></li>
+<li><code>AnnualPay</code> is <code>SUM($group.AnnualPay)</code></li>
+</ul>
+<p>The mysterious <code>$group</code> is simply another column, hidden by default (but you may unhide it). It contains for each cell the group of records represented by this summary row.</p>
+<div class="admonition tip">
+<p><strong>Side note for Python fans.</strong>
+<code>$group</code> is a special Python object. It’s an iterable collection of records. Using an
+attribute like <code>$group.A</code> is a shorthand for the list of values in the <code>A</code> column of all the
+records in the group, similar to <code>[r.A for r in $group]</code>.</p>
+</div>
+<p>Sometimes the automatically created columns don&rsquo;t make sense. For instance, the sum of <code>PayRate</code>
+isn&rsquo;t very meaningful. Simply delete such columns, either using the column menu or
+using the <code class="keys"><em>Alt</em> + <em>Minus</em></code> keyboard shortcut.</p>
+<p>You are free to change formulas for the automatically created columns, or to add new formula
+columns. Note that summary tables do not allow adding <em>non</em>-formula columns.</p>
+<p>For instance, you might want to change the formula for <code>PayRate</code> from <code>SUM($group.PayRate)</code> to
+<code>AVERAGE($group.PayRate)</code>, which would be a more interesting value.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-formula" src="../images/summary-formula.png" /></em></span></p>
+<p>Here are some useful recipies of formulas in summary tables:</p>
+<ul>
+<li><strong>Average</strong>:<br />
+<code>AVERAGE($group.PayRate)</code> or <code>SUM($group.PayRate) / $count</code></li>
+<li><strong>Standard deviation</strong>:<br />
+<code>STDEV($group.PayRate)</code></li>
+<li><strong>Maximum or minimum</strong>:<br />
+<code>MAX($group.PayRate)</code>, <code>MIN($group.PayRate)</code></li>
+<li><strong>Sum over a subset of records</strong>:<br />
+<code>SUM(r.AnnualPay for r in $group if r.EmploymentStatus == "Active")</code></li>
+<li><strong>Weighted average</strong>:<br />
+<code>AVERAGE_WEIGHTED(zip($group.Life_Expectancy, $group.Population))</code></li>
+</ul>
+<p>In fact, you may use the full power of Python to calculate what you&rsquo;d like. As for any table, your
+formula may refer to any of the columns in the summary table, not only <code>$group</code>.</p>
+<h2 id="changing-summary-columns">Changing summary columns<a class="headerlink" href="#changing-summary-columns" title="Permanent link">#</a></h2>
+<p>The group-by columns in a summary table are created when you add the widget. It&rsquo;s not possible to
+modify the values in them, or to modify their settings, such as type. The settings and values of
+the group-by columns reflect those in the underlying table. When new values appear in the
+underlying table for the group-by columns, the summary tables will also get new rows
+automatically.</p>
+<p>What you may change is which columns the table is grouped by. Click the three dots on the top
+right of the summary table, and click &ldquo;Data selection&rdquo;:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-widget-menu" src="../images/summary-widget-menu.png" /></em></span></p>
+<p>The settings in the side pane tell you which data is shown and how it&rsquo;s grouped:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-settings" src="../images/summary-settings.png" /></em></span></p>
+<p>You can click &ldquo;Edit Data Selection&rdquo; button to open the same widget picker that you used to add the
+summary table. You can now deselect some &ldquo;Group by&rdquo; fields and select others, and click &ldquo;Save&rdquo; to
+update the summary table.</p>
+<h2 id="linking-summary-tables">Linking summary tables<a class="headerlink" href="#linking-summary-tables" title="Permanent link">#</a></h2>
+<p>You can link summary tables to other widgets. If you have a summary table on a
+page, it can be used as a selector for a table of underlying data, or for a more detailed summary.</p>
+<p>For example, if you have a summary of <code>Employees</code> by &ldquo;Position&rdquo;, it will be available as a &ldquo;SELECT
+BY&rdquo; option when adding an unsummarized table of <code>Employees</code>:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link1" src="../images/summary-link1.png" /></em></span></p>
+<p>The result is that you can select a position in the summary table, and see all employees in that
+position.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link1-res" src="../images/summary-link1-res.png" /></em></span></p>
+<p>You could similarly link a summary of <code>Employees</code> grouped by &ldquo;Position&rdquo; and &ldquo;Gender&rdquo; to the first widget:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link2" src="../images/summary-link2.png" /></em></span></p>
+<p>You can then select a position in the &ldquo;Employees [by Position]&rdquo; widget, and see a breakdown by
+gender among the employees in that position.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link2-res" src="../images/summary-link2-res.png" /></em></span></p>
+<p>Note that such linking requires the new widget to include both &ldquo;Position&rdquo; <em>and</em> &ldquo;Gender&rdquo; in its
+group-by columns.</p>
+<p>For more about linking, see <a href="../linking-widgets/">Linking widgets</a>.</p>
+<h2 id="charting-summarized-data">Charting summarized data<a class="headerlink" href="#charting-summarized-data" title="Permanent link">#</a></h2>
+<p>Summary tables are a great source of data for charts, including dynamic charts. In the example
+above, we could add another widget showing <code>Employees</code> grouped by &ldquo;Position&rdquo; and &ldquo;Gender&rdquo;, but
+this time in a Chart widget.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-add-chart" src="../images/summary-add-chart.png" /></em></span></p>
+<p>Select &ldquo;Bar Chart&rdquo; for the chart type, and select &ldquo;Gender&rdquo; and &ldquo;AnnualPay&rdquo; as Visible Series. You
+can now click on a position, and see visually the gender difference in average salary for this
+position.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-chart-res" src="../images/summary-chart-res.png" /></em></span></p>
+<p>The <a href="../investment-research/#dynamic-charts">Analyze and visualize</a> tutorial shows other examples
+of charts based on summary tables.</p>
+<h2 id="detaching-summary-tables">Detaching summary tables<a class="headerlink" href="#detaching-summary-tables" title="Permanent link">#</a></h2>
+<p>Summary tables are computed from underlying data. Sometimes, however, its useful to <em>&ldquo;detach&rdquo;</em> a
+summary table and turn it into an independent data table.</p>
+<p>For example, we&rsquo;ve seen how to summarize a table of <code>Employees</code>, grouping it by the column
+&ldquo;Position&rdquo;. Let&rsquo;s say you want to associate some data with each position, such as a job
+description, or a workers compensation insurance code. Such data belongs in its own table,
+with one row for each position, and a few columns.</p>
+<p>Summary tables provide an easy way to create such a table. Add a page with a summary of
+<code>Employees</code> grouped by &ldquo;Position&rdquo;.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-detach1" src="../images/summary-detach1.png" /></em></span></p>
+<p>Now, in the right panel&rsquo;s &ldquo;Data&rdquo; tab, click the &ldquo;Detach&rdquo; button.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-detach2" src="../images/summary-detach2.png" /></em></span></p>
+<p>Your summary table just got turned into a brand new table with the same rows and an auto-generated
+name, like &ldquo;Table1&rdquo;. You can rename it to &ldquo;Positions&rdquo;, and add the columns you need:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-detach3" src="../images/summary-detach3.png" /></em></span></p>
+<p>The calculated columns remain. In fact, anything you could calculate about each position in the
+&ldquo;Employees [by Position]&rdquo; summary table, you may still calculate in the new &ldquo;Positions&rdquo; table.</p>
+<p>One difference is that new values will not get added to the detached table automatically. In other
+words, if a never-before-seen position (perhaps &ldquo;Chief Troublemaker&rdquo;) appears in the underlying
+data, a summary table would update automatically to include it, but a detached table will not.</p>
+
+  <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

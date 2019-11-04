@@ -9,10 +9,10 @@
     
     
     
-    <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Importing new tables - Grist Help Center</title>
+    <title>Importing more data - Grist Help Center</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -34,8 +34,10 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Importing and exporting data", url: "#_top", children: [
-              {title: "Importing", url: "#importing" },
+          {title: "Importing more data", url: "#_top", children: [
+              {title: "The Import dialog", url: "#the-import-dialog" },
+              {title: "Guessing data structure", url: "#guessing-data-structure" },
+              {title: "Import to an existing table", url: "#import-to-an-existing-table" },
           ]},
         ];
 
@@ -68,15 +70,15 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
       <a href="../exports/" class="btn btn-xs btn-link">
-        Exporting views
+        Exports & backups
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../view-linking/" class="btn btn-xs btn-default pull-left">
+      <a href="../workspaces/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../view-linking/" class="btn btn-xs btn-link">
-        Linking views
+        Previous</a><a href="../workspaces/" class="btn btn-xs btn-link">
+        Workspaces [team]
       </a>
     </div>
     
@@ -84,36 +86,42 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="importing-and-exporting-data">Importing and exporting data<a class="headerlink" href="#importing-and-exporting-data" title="Permanent link">#</a></h1>
-<h2 id="importing">Importing<a class="headerlink" href="#importing" title="Permanent link">#</a></h2>
-<p>You can import a file to <a href="../intro/#creating-a-new-document">start a new Grist document</a>, or to add
-tables to an existing document. Imports of Excel, CSV, and tab-separated files are supported, while
-other formats (such as HTML, PDF, and plain text) may or may not work depending on their structure.</p>
+    <h1 id="importing-more-data">Importing more data<a class="headerlink" href="#importing-more-data" title="Permanent link">#</a></h1>
+<p>You can import a file to <a href="../creating-doc/">start a new Grist document</a>, or to
+add data to an existing document. Grist supports imports of Excel, CSV, JSON, and
+tab-separated files.</p>
+<p>You can also import any of these formats from a URL, using the &ldquo;Import from URL&rdquo; option.</p>
+<h2 id="the-import-dialog">The Import dialog<a class="headerlink" href="#the-import-dialog" title="Permanent link">#</a></h2>
+<p>When you import data into an existing document, Grist opens an import dialog to
+show you what will be imported. This dialog offers available import options,
+lets you choose whether to create a new table or add to an existing one, and
+shows a preview of the data.</p>
+<p><img alt="import-dialog" src="../images/import-dialog.png" /></p>
+<p>The &ldquo;Import options&rdquo; link on the top right is sometimes useful when importing
+delimited files. Grist guesses the settings to parse the data (such as the
+field delimiter), but if it guesses incorrectly, you can adjust the settings.</p>
+<h2 id="guessing-data-structure">Guessing data structure<a class="headerlink" href="#guessing-data-structure" title="Permanent link">#</a></h2>
 <p>In all cases, when you import a file, Grist makes guesses about the structure of the file.</p>
-<h3 id="tables-to-import">Tables to import<a class="headerlink" href="#tables-to-import" title="Permanent link">#</a></h3>
-<p>For Excel files, Grist imports each sheet as a new table, using the sheet name to name the tables.
-For CSV and other delimited formats, one file becomes one table, and the filename determines the
-table name.</p>
-<h3 id="column-names">Column names<a class="headerlink" href="#column-names" title="Permanent link">#</a></h3>
-<p>For both Excel and delimited files, Grist tries to guess whether or not headers are included and
-which line they occur in. If Grist guesses there are no headers, it will name columns as &ldquo;A&rdquo;, &ldquo;B&rdquo;,
-&ldquo;C&rdquo;, etc.</p>
-<p>You can always rename columns after an import, using the Field side pane.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently, if Grist thinks your first line of data is headers, you both need to rename columns
-to something sensible, and you lose the first row of data. At the moment, you can only recover
-it by inserting a new row and populating it manually; or by adding headers to the original
-data and re-importing.</p>
-</div>
-<h3 id="column-types">Column types<a class="headerlink" href="#column-types" title="Permanent link">#</a></h3>
-<p>Grist guesses the <a href="datatypes">data types</a> for columns based on the data in the column. It
-automatically tries to parse numbers, dates, and boolean fields to detect the most suitable type
-to set the column to. Grist tries to be lossless: e.g. if it marks a column as numeric, any text
-values in it (such as &ldquo;N/A&rdquo;) will remain in the imported table, but shown highlighted because of
-the type mismatch.</p>
-<p>If Grist guesses a type wrong, you can convert it, as well as do arbitrary transformations to the
-imported values, by changing the type in the Field side pane.</p>
+<p>For Excel files, Grist treats each sheet as a separated table. For CSV and
+other delimited formats, one file becomes one table. For both Excel and
+delimited files, Grist tries to detect whether the headers are included and
+which line they occur in. If Grist detects there are no headers, it will name
+columns as &ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;, etc.</p>
+<p>Grist automatically tries to parse numbers, dates, and boolean fields to detect
+the most suitable type for each column. It tries to be lossless: e.g. if it
+marks a column as numeric, any text values in it (such as &ldquo;N/A&rdquo;) will remain in
+the imported table, but will be highlighted due to the type mismatch.</p>
+<p>You can always rename tables and columns after an import, as well as convert types.</p>
+<h2 id="import-to-an-existing-table">Import to an existing table<a class="headerlink" href="#import-to-an-existing-table" title="Permanent link">#</a></h2>
+<p>By default, Grist imports new data as new tables, but the Import dialog allows
+you to change the destination and import data into an existing table.</p>
+<p>To import cleanly into an existing table, the new data must have column names
+that exactly match the column names in the destination table.</p>
+<p>This is best suited for importing multiple datasets in the same format. For
+instance, you could import a bank statement as a new table, then import more
+statements from other months into the same table.</p>
+<p>For developers, the <a href="../rest-api/">Grist API</a> offers a more powerful way to add data
+to a Grist document.</p>
 
   <br>
 </div>

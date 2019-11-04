@@ -9,7 +9,7 @@
     
     
     
-    <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Getting started with formulas - Grist Help Center</title>
@@ -34,10 +34,13 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Formulas and scripting", url: "#_top", children: [
-              {title: "Entering a formula", url: "#entering-a-formula" },
-              {title: "Multi-line formulas", url: "#multi-line-formulas" },
-              {title: "Paste as values", url: "#paste-as-values" },
+          {title: "Formulas", url: "#_top", children: [
+              {title: "Formulas that operate over many rows", url: "#formulas-that-operate-over-many-rows" },
+              {title: "Code viewer", url: "#code-viewer" },
+              {title: "Special values available in formulas", url: "#special-values-available-in-formulas" },
+              {title: "Freeze a formula column", url: "#freeze-a-formula-column" },
+              {title: "Lookups", url: "#lookups" },
+              {title: "Recursion", url: "#recursion" },
           ]},
         ];
 
@@ -65,20 +68,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../lookup-formulas/" class="btn btn-xs btn-default pull-right">
+      <a href="../dates/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../lookup-formulas/" class="btn btn-xs btn-link">
-        Lookup formulas
+      <a href="../dates/" class="btn btn-xs btn-link">
+        Working with dates
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../enter-detail/" class="btn btn-xs btn-default pull-left">
+      <a href="../summary-tables/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../enter-detail/" class="btn btn-xs btn-link">
-        Working in record view
+        Previous</a><a href="../summary-tables/" class="btn btn-xs btn-link">
+        Summary tables
       </a>
     </div>
     
@@ -86,36 +89,239 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="formulas-and-scripting">Formulas and scripting<a class="headerlink" href="#formulas-and-scripting" title="Permanent link">#</a></h1>
-<h2 id="entering-a-formula">Entering a formula<a class="headerlink" href="#entering-a-formula" title="Permanent link">#</a></h2>
-<p>Unlike typical spreadsheets, Grist formulas are column-wide. This means that a single formulas
-applies to the whole column—you don&rsquo;t have to worry about filling it in for all rows.</p>
-<p>To enter a formula into a cell, enter the equal sign <code>=</code> followed by a python expression.</p>
-<p>For example, here we entered an expression <code>=2**$foo</code> which raises 2 to the power specified in
-column <code>foo</code>:</p>
-<p><img alt="Enter a formula" src="../images/formulas-simple-1.png" /></p>
-<h2 id="multi-line-formulas">Multi-line formulas<a class="headerlink" href="#multi-line-formulas" title="Permanent link">#</a></h2>
-<p>Python is a wonderful and powerful language, and it&rsquo;s a shame to constrict it to a single line in a
-cell. So Grist doesn&rsquo;t! You can use multiline complex Python expressions for any formulas column.</p>
-<p><strong>In a cell</strong> you can use <code>Shift+Enter</code> to move the cursor to the next line:</p>
-<p><img alt="Enter a multi-line formula" src="../images/formulas-multi-cell.png" /></p>
-<p>You can also enter your formula <strong>in the sidebar</strong>, where <code>Enter</code> gives you a new line
-automatically:</p>
-<p><img alt="Enter a multi-line formula" src="../images/formulas-multi-sidebar.png" /></p>
-<h2 id="paste-as-values">Paste as values<a class="headerlink" href="#paste-as-values" title="Permanent link">#</a></h2>
+    <h1 id="formulas">Formulas<a class="headerlink" href="#formulas" title="Permanent link">#</a></h1>
+<p>Grist has a powerful data engine to help you fill in the cells of your
+tables, using formulas.  If you&rsquo;ve used spreadsheets before, or
+database expressions, you&rsquo;ll be on familiar territory - but there are
+some wrinkles you&rsquo;ll want to know about, so hang around.</p>
+<p>Let&rsquo;s start with a classic use of spreadsheets.  Suppose you have
+a list of products you&rsquo;ve ordered, the quantity you ordered,
+and the unit price of each.  You&rsquo;ve made a column to show
+the quantity times the unit price, but want the computer to do
+that part for you.</p>
+<p><img alt="formulas-price" src="../images/formulas/formulas-price.png" /></p>
+<p>Just select a cell in the column you want to fill, and hit &ldquo;=&rdquo; to
+tell Grist you want to enter a formula, rather than a value.</p>
+<p><img alt="formulas-price-equal" src="../images/formulas/formulas-price-equal.png" /></p>
+<p>Did you notice, when you did that, the labels of the columns changed
+a little?  &ldquo;Product&rdquo; became &ldquo;$Product&rdquo;, and &ldquo;Unit Price&rdquo;
+became &ldquo;$Unit_Price&rdquo;.  This is Grist telling you how to
+refer to those columns in your formula.  Just type &ldquo;$Product * $Unit_Price&rdquo;.
+You&rsquo;ll find an auto-complete feature ready to help you.
+Or if you don&rsquo;t like typing, click on the Product column, type the
+multiplication symbol, and then click on the Unit Price column.
+Your formula should look like this:</p>
+<p><img alt="formulas-price-multiply" src="../images/formulas/formulas-price-multiply.png" /></p>
+<p>To control the identifier used for columns in formulas, see
+<a href="../col-types/#renaming-columns">Renaming columns</a>.
+Now press enter, and your formula is applied to all cells in the
+column.</p>
+<p><img alt="formulas-price-final" src="../images/formulas/formulas-price-final.png" /></p>
+<p>Grist formulas are written in Python, the most popular language for data science.
+The entirety of <a href="https://docs.python.org/2/library/">Python&rsquo;s  standard library</a> is available
+to you.  For those with a spreadsheet background, we&rsquo;ve also added a suite of Excel-like
+functions.  Here&rsquo;s the <a href="../functions/">full list of functions</a>.</p>
+<p>If you&rsquo;ve worked with spreadsheets before, you may be surprised
+that you don&rsquo;t need to specify row numbers, like <code>B1 * C1</code>.
+In Grist, a single formula applies to a whole column.
+You don&rsquo;t have to worry about filling it in for all rows,
+and can refer to values in the same row without fuss.</p>
+<h2 id="formulas-that-operate-over-many-rows">Formulas that operate over many rows<a class="headerlink" href="#formulas-that-operate-over-many-rows" title="Permanent link">#</a></h2>
+<p>If you are a spreadsheet user, you may find yourself wanting to have
+some special rows at the end of your table that have formulas
+different to the rest.  In Grist, we&rsquo;d like you to consider adding a
+widget to your page instead.  For common use cases, <a href="../summary-tables/">Summary
+tables</a> may be exactly what you need.  Or if you
+want to set things up yourself, you can add an extra table widget like
+this (see <a href="../page-widgets/">Page widgets</a> for details):</p>
+<p><img alt="formulas-widgets" src="../images/formulas/formulas-widgets.png" /></p>
+<p>This is just another table, giving us a place to put formulas outside
+of the structure of the Materials table.  For example, if we wanted
+to count how many products there are in that table, we could use this
+formula:</p>
+<pre><code class="py">len(Materials.all)
+</code></pre>
+
+<p>Every table in your document is available by its name in formulas,
+as a <a href="../functions/#usertable">UserTable</a>.  This formula uses
+the <a href="../functions/#all">all</a> method to access the rows of the table, but
+doesn&rsquo;t do anything with them but count them.</p>
+<p>Here&rsquo;s a formula to compute the average price, using the Excel-like function
+<a href="../functions/#average">AVERAGE</a>:</p>
+<pre><code class="py">AVERAGE(Materials.all.Price)
+</code></pre>
+
+<p>The <a href="../functions/#all">all</a> method returns a <a href="../functions/#recordset">RecordSet</a>,
+which supports iterating over individual columns this way.  Equivalently,
+we could use a Python <a href="https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions">list comprehension</a>:</p>
+<pre><code class="py">AVERAGE(material.Price for material in Materials.all)
+</code></pre>
+
+<p>If you are not familiar with Python, it is worth following
+a tutorial.  There are thousands online, including this
+<a href="https://docs.python.org/2/tutorial/index.html">official one</a>.
+Python will be useful to you for all sorts of data work, not just Grist.</p>
+<p>List comprehension is useful once we&rsquo;re doing anything nuanced.  For example,
+here&rsquo;s a formula to list the names of products with a quantity greater than 80:</p>
+<pre><code class="py">[m.Product for m in Materials.all if m.Quantity &gt; 80]
+</code></pre>
+
+<p>This is a list comprehension, but now with a conditional.  The result is a list,
+which is rendered as text in a cell.</p>
+<p>Python can help in other ways in your search for rows.  For example, here&rsquo;s a formula
+to find the name of the product with the highest quantity:</p>
+<pre><code class="py">max(Materials.all, key=lambda m: m.Quantity).Product
+</code></pre>
+
+<p>Formulas are case-sensitive, with Excel-like functions being all-caps (<code>MAX</code>), and
+regular Python generally all lowercase (<code>max</code>).</p>
+<p>For exact matches, there is a shortcut to avoid iteration called
+<a href="../functions/#lookuprecords">lookupRecords</a>, or
+<a href="../functions/#lookupone">lookupOne</a> for single matches.
+Just pass the the values of columns you require to be matched.
+For example, here is a formula to look up the product name of a material
+with a quantity of 52:</p>
+<pre><code class="py">Materials.lookupOne(Quantity=52).Product
+</code></pre>
+
+<p>For very large tables, it is wise to use lookups as much as you can, rather
+than iterating through rows.</p>
+<p>Returning to our example document, you can now see how we calculated the
+<code>Total Spent</code>, <code>Average Quantity</code>, and <code>Most Ordered Product</code> columns:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Spent</td>
+<td><code>SUM(Materials.all.Price)</code></td>
+</tr>
+<tr>
+<td>Average Quantity</td>
+<td><code>AVERAGE(Materials.all.Quantity)</code></td>
+</tr>
+<tr>
+<td>Most Ordered Product</td>
+<td><code>max(Materials.all, key=lambda m: m.Quantity).Product</code></td>
+</tr>
+</tbody>
+</table>
+<p>Separating out calculations like this from the body of your data
+can take some getting used to, but working this way can help
+keep your document more organized.  And it brings other advantages.
+For example we could switch the formatting of the summary widget
+via the side panel:</p>
+<p><img alt="formulas-widgets-card" src="../images/formulas/formulas-widgets-card.png" /></p>
+<p>If you really want to have a column change its behavior on different rows,
+you can just use a conditional.  For example, here is a replacement for
+the <code>Materials.Price</code> formula that shows a total on a row where the
+product name is not set:</p>
+<pre><code>if $Product:
+  return $Quantity * $Unit_Price
+else:
+  return SUM(m.Price for m in Materials.all if m.Product)
+</code></pre>
+
+<p>Notice that the sum is limited to rows that have the product name set -
+otherwise the calculation would include itself in the sum and blow up
+(Grist would warn you about a &ldquo;cyclic dependency&rdquo;).</p>
+<h2 id="code-viewer">Code viewer<a class="headerlink" href="#code-viewer" title="Permanent link">#</a></h2>
+<p>Once you have a lot of formulas, or if you have been invited to a document
+and want to get an overview of its formulas, there is a code viewer
+available with a pure Python summary of the document.</p>
+<p><img alt="formulas-code-view" src="../images/formulas/formulas-code-view.png" /></p>
+<h2 id="special-values-available-in-formulas">Special values available in formulas<a class="headerlink" href="#special-values-available-in-formulas" title="Permanent link">#</a></h2>
+<p>For those familiar with Python, here are the extra values available to
+you in Grist:</p>
+<ul>
+<li><code>rec</code> is the current row.  The <code>$column</code> syntax is shorthand for
+   <code>rec.column</code>.  The <code>rec</code> variable is of type <a href="../functions/#record">Record</a>.</li>
+<li><code>table</code> is the current table, and is of type <a href="../functions/#usertable">UserTable</a>.</li>
+<li>Tables in your document are available by their name, and are also of
+   type <a href="../functions/#usertable">UserTable</a>.</li>
+<li>Many extra spreadsheet functions are available, see the full
+   <a href="../functions/">function list</a>.</li>
+</ul>
+<p>If your table or column has a space in its name, or other characters
+that are awkward in Python, those characters are replaced with an
+underscore.  Auto-complete may help you if you&rsquo;re not sure.  You
+can also control the &ldquo;ids&rdquo; of columns and tables in the right side panel.</p>
+<h2 id="freeze-a-formula-column">Freeze a formula column<a class="headerlink" href="#freeze-a-formula-column" title="Permanent link">#</a></h2>
 <p>If you&rsquo;d like to save the output of your formula as plain values, you can simply turn off the
-formula by clicking on the formula icon in the sidebar: <img alt="Formula
+formula.  First open the column options in the side panel:</p>
+<p><img alt="formulas-column-options" src="../images/formulas/formulas-column-options.png" />
+<img alt="formulas-sidebar" src="../images/formulas/formulas-side-bar.png" /></p>
+<p>Now click on the orange formula icon in the side panel to turn it off: <img alt="Formula
 icon on" src="../images/formulas-sidebar-icon-on.png" /> ➔ <img alt="Formula icon
 off" src="../images/formulas-sidebar-icon-off.png" />:</p>
-<p><img alt="Enter a multi-line formula" src="../images/formulas-sidebar-off.png" /></p>
-<p>You&rsquo;ll also notice that the column is no longer a formula by the absense of the leading <code>=</code> sign
-next to each value.</p>
-<div class="admonition tip">
-<p class="admonition-title">Use the values, keep your formula</p>
-<p>Note that you don&rsquo;t lose your formula by turning it off. The formula itself remains and you can
-turn it back on. If you modified the values in the column, however, they will be recalculated by
-the formula. You can always undo to revert back to the previous state.</p>
-</div>
+<p><img alt="formulas-turn-off-formula" src="../images/formulas/formulas-turn-off-formula.png" /></p>
+<p>Notice that there is no <code>=</code> sign in the column cells any more, showing that it
+is no longer a formula.  The cells will no longer change if other cells they used
+to depend on change.</p>
+<p>You don&rsquo;t lose your formula by turning it off. The formula itself remains and you can
+turn it back on. If you modified the values in the column, however, they will be
+recalculated by the formula. You can always undo to revert back to the previous state.</p>
+<p>The side panel has lots of other handy settings, such as cell formatting
+(number of digits after decimal point, color, etc).  The options apply
+just as much to formula columns as to regular columns.</p>
+<h2 id="lookups">Lookups<a class="headerlink" href="#lookups" title="Permanent link">#</a></h2>
+<p>Grist functions <a href="../functions/#lookupone">lookupOne</a> and
+<a href="../functions/#lookuprecords">lookupRecords</a> are useful for enumerating
+subsets of your data.  For example, suppose we added a <code>Category</code>
+column to our <code>Materials</code> table, and wished to list all products belonging
+to a specific catagory.  We can do this with <code>lookupRecords</code>, by calling
+it on the table of interest, and supplying it with the column values
+to match.  Here&rsquo;s an example:</p>
+<p><img alt="formulas-column-options" src="../images/formulas/formulas-lookup-unsorted.png" /></p>
+<p>If you are following on, see <a href="../widget-card/#adding-a-field">Adding a field</a>
+for details of how to add a new field to a card.  If you care about the order
+of results, <code>lookupRecords</code> takes an optional <code>sort_by</code> parameter.  For example,
+we could use this formula to sort by the product name itself:</p>
+<pre><code class="py">list(Materials.lookupRecords(Category='Ship', sort_by='Product').Product)
+</code></pre>
+
+<p>If you want to sort by multiple columns, remember that you can create a hidden
+formula column that combines data in any way you like, and then sort by that.</p>
+<p>The order of records returned by <code>lookupRecords</code> may not match the order of rows
+you see in a table.  To get that order, <code>sort_by='manualSort</code>.  This is an
+internal column that is updated with the manually established sort order
+of rows.</p>
+<p>If you find yourself doing a lot of look-ups, please consider
+whether <a href="../summary-tables/">Summary tables</a> and
+<a href="../summary-tables/#summary-formulas">Summary formulas</a> might be
+what you are looking for.</p>
+<h2 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">#</a></h2>
+<p>Lookups are handy for recursive formulas.  Suppose we have a table counting how many
+events we have per day, and want to add a cumulative sum of those event counts.
+One way to do that is with a formula like this:</p>
+<pre><code class="py">yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
+$events + (yesterday.cumulative or 0)
+</code></pre>
+
+<p><img alt="formulas-recursion" src="../images/formulas/formulas-recursion.png" /></p>
+<p>For clarity, we&rsquo;ve split this formula into two lines.  The first line
+makes a variable pointing to the row of the day before.  The second
+line computes the value we want in the cell.  Python note: the value
+of the last line is automatically returned (you could prefix it with
+<code>return</code> if you like).</p>
+<p>Notice the <code>yesterday.cumulative or 0</code> - for the earliest row in the
+table, there will be no yesterday.  In this case, <code>lookupOne</code> returns
+a special empty record, for which <code>yesterday.cumulative</code> will be
+<code>None</code>.</p>
+<p>If you&rsquo;d like to simplify this formula, or find yourself using the
+same lookup in multiple formulas, it would be worth making
+<code>yesterday</code> a <a href="../col-refs/">reference column</a>.  Simply add
+a reference column, and give a formula for it that matches how
+we defined <code>yesterday</code> here.</p>
+<p>To actually enter this formula in a cell, you&rsquo;d use <code>Shift+Enter</code>
+to divide the lines.  For longer formulas, you may prefer to use
+the side panel, where a simple <code>Enter</code> gives you a new line.
+Click on the column header, select &ldquo;Column Options&rdquo; and edit the
+Formula field.</p>
 
   <br>
 </div>
