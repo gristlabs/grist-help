@@ -421,3 +421,11 @@ h4 {
 footer {
   display: none;
 }
+
+.table-hover > tbody > tr:hover {
+  background-color: unset;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+  background-color: unset;
+}
