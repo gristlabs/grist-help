@@ -21,7 +21,7 @@ nav:
     - API reference: api-docs.html
   - Pages and Tables:
     - Entering data: enter-data.md
-    - Page widgets: page-widgets.md
+    - Pages & widgets: page-widgets.md
     - Table widget: widget-table.md
     - Card & Card List: widget-card.md
     - Chart: widget-chart.md

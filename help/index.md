@@ -41,9 +41,8 @@ learn to organize and analyze scientific data.
 [![Sharing a doc](https://img.youtube.com/vi/WCF9FpQeEjk/0.jpg) *Sharing a doc*](sharing.md)
 {: .img-caption }
 
-![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Adding pages
-[coming soon]*
-{: .img-caption .coming-soon }
+[![Creating a doc](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages & widgets*](page-widgets.md)
+{: .img-caption }
 
 ![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Column types
 [coming soon]*

@@ -1,4 +1,6 @@
-# Page widgets {: data-toc-label='' }
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vTfOUEFR73Y?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Pages & widgets {: data-toc-label='' }
 
 Unlike traditional spreadsheets, in Grist you can create multiple views of the same data, and
 display multiple data sets on one page. This allows you to create useful dashboards and custom
@@ -7,7 +9,7 @@ applications tailored to your needs.
 ## Pages
 
 In Grist, you organize your document into "pages". These are listed in the left panel, with collapsible
-groups. You may rearrange and group pages in the left panel by dragging to suit your needs.
+groups. You may rearrange and group pages in the left panel by dragging them to suit your needs.
 
 *![drag_pages](images/drag_pages.png)*
 {: .screenshot-half }
