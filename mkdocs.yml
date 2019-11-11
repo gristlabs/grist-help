@@ -29,7 +29,7 @@ nav:
     - Custom layouts: custom-layouts.md
     - Summary tables: summary-tables.md
   - Using formulas:
-    - Getting started with formulas: formulas.md
+    - Intro to formulas: formulas.md
     - Working with dates: dates.md
     - Function reference: functions.md
   - Working with columns or fields:
