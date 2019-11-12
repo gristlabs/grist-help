@@ -1,0 +1,10 @@
+{
+  "undef": true,
+  "unused": "vars",
+  "globalstrict": true,
+  "node": true,
+  "esversion": 9,
+  "globals": {
+    "Promise": true
+  }
+}

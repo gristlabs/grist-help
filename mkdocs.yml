@@ -37,6 +37,8 @@ nav:
     - Column transformations: col-transform.md
     - Type conversions: col-type-conversion.md
     - Reference columns: col-refs.md
+  - Miscellaneous:
+    - Shortcuts: keyboard-shortcuts.md
 
 extra:
   logo: 'images/logo.png'
