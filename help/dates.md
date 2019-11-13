@@ -53,7 +53,7 @@ You can insert the current date in a cell using
 <code class="keys">*⌘* + **;** (semicolon)</code> (Mac) or <code class="keys">*Ctrl* + **;**</code> (Windows).
 
 You can insert the current date and time using
-<code class="keys">*⌘* + **:** (colon)</code> (Mac) or <code class="keys">*Ctrl* + **:**</code> (Windows).
+<code class="keys">*⌘* + *Shift* + **;**</code> (Mac) or <code class="keys">*Ctrl* + *Shift* + **;**</code> (Windows).
 
 When editing a date cell, the date entry widget has a "today" button for today's date.
 
@@ -180,7 +180,7 @@ you first create a document. You can see or change it by
 clicking on your profile picture or icon, and selecting "Document Settings".
 
 If you insert the current date and time using
-<code class="keys">*⌘* + **:**</code> (Mac) or <code class="keys">*Ctrl* + **:**</code> (Windows)
+<code class="keys">*⌘* + *Shift* + **;**</code> (Mac) or <code class="keys">*Ctrl* + *Shift* + **;**</code> (Windows)
 into a `DateTime` column, it will be inserted as a true timezone-aware timestamp.
 If you do the same in a `Text` column, the date/time will be inserted as the text
 appropriate for your local timezone.  So two collaborators on opposite sides of the world
