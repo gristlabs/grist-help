@@ -66,4 +66,13 @@ Once you're done, add the results to the main documentation with:
 ./api/build.sh
 ```
 
+## Updating function reference
 
+To update `help/functions.md` from the documentation comments in Grist, run:
+
+```
+./build-functions.sh <path-to-grist-checkout>
+```
+
+It replaces content between `BEGIN mkpydocs`/`END mkpydocs` markers in `help/functions.md`. You
+can edit text outside of those markers directly.
