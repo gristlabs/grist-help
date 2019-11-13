@@ -1,12 +1,10 @@
-Function List
-=============
+# Function List {: data-toc-label='' }
 
-Full power of Python
-------------------
+## Full power of Python
+
 Grist uses Python (version 2.7) for formulas. You can use nearly all features of Python and its
-standard library. See [Python documentation](https://docs.python.org/2/). Grist code runs
-in a secure sandbox, so Python code cannot access anything on your computer other than your
-document. This protects you when using Grist documents authored by someone else.
+standard library. See [Python documentation](https://docs.python.org/2/). Grist code runs in a
+secure sandbox, so Python code cannot access anything other than your document.
 
 Note that Python is case-sensitive, which applies to all functions, as well as Grist
 table and column names.
