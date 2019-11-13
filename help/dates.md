@@ -21,20 +21,21 @@ Making a date/time column
 
 For a general introduction to setting the type of columns,
 see [Columns and data types](col-types.md).
-To tell Grist, that you intend to enter only date/times in a column,
+To tell Grist that you intend to enter only date/times in a column,
 over on the header for the column, find the drop-down, and select "Column Options".
 
 ![formulas-date-column-options](images/formulas/formulas-date-column-options.png)
 
-Then in the side panel that opens on the right, pick "DateTime" from the
-"Column Type" drop-down.  Or if you just want dates without times, pick
-"Date".
+Then in the side panel that opens on the right, pick "Date" from the
+"Column Type" drop-down.  Or, if you want dates with times, pick
+"DateTime".
 
 ![formulas-date-column-type](images/formulas/formulas-date-column-type.png)
 
-Then you can choose your preferred date/time format, and the display timezone.
-Click "Apply" when you're ready.  You can come back and change settings at
-any time.
+Then you can choose your preferred date/time format. For the "DateTime" type, you can also choose
+the timezone. When you convert a column from another type, such as "Text", you'll see a preview of
+the conversion results, and will need to click "Apply" to complete conversion. You can come back and
+change settings at any time.
 
 *![formulas-date-column-apply](images/formulas/formulas-date-column-apply.png)*
 {: .screenshot-half }
@@ -49,16 +50,16 @@ Inserting the current date
 -----------------------------
 
 You can insert the current date in a cell using
-<code class="keys">*⌘* + *;*</code> (Mac) or <code class="keys">*Ctrl* + *;*</code> (Windows).
+<code class="keys">*⌘* + **;** (semicolon)</code> (Mac) or <code class="keys">*Ctrl* + **;**</code> (Windows).
 
-You can insert the current date and time in a cell using 
-<code class="keys">*⌘* + *:*</code> (Mac) or <code class="keys">*Ctrl* + *:*</code> (Windows).
+You can insert the current date and time using
+<code class="keys">*⌘* + **:** (colon)</code> (Mac) or <code class="keys">*Ctrl* + **:**</code> (Windows).
 
 When editing a date cell, the date entry widget has a "today" button for today's date.
 
-Parsing dates from strings and back
------------------------------------
-The [DATEVALUE](functions/#datevalue) function converts a string that represents a date into a `datetime`
+Parsing dates from strings
+--------------------------
+The [DATEVALUE](functions.md#datevalue) function converts a string that represents a date into a `datetime`
 object. It's simple to use and it will auto-detect different date formats:
 
 *![Parse date from string datevalue](images/dates-parse-datevalue.png)*
@@ -85,6 +86,7 @@ you would do that:
    the example format string `%B %d, %Y` makes sense. (Note: You could've also used `DATEVALUE(d)` to
    achieve the same result.)
 
+<!-- TODO @paul, could you change screenshot above to also use '%B %d, %Y' (uppercase %B)? -->
 
 The result has a true date column and can now be properly sorted chronologically, with
 "A New Hope" at the top.  For historical reasons, the first Star Wars movie is considered
@@ -98,10 +100,21 @@ to select the format in which to display the date.
 
 ![Formatted parsed date](images/dates-parse-string-formatted.png)
 
+For some situations, you may wish to use the
+[dateutil](https://dateutil.readthedocs.io/en/latest/parser.html#dateutil.parser.parse)
+python library.  For example, if you live in an area where dates typically start with the day
+and then the month, you could use this formula:
+
+```py
+import dateutil
+dateutil.parser.parse($date_text, dayfirst=True)
+```
+
+
 Date arithmetic
 ---------------
 Once you have a proper date column, often you'll want to do date arithmetic such as calculating the
-difference between two dates. The simplest way to do this is to use the [DATEDIF](formulas/#datedif)
+difference between two dates. The simplest way to do this is to use the [DATEDIF](functions.md#datedif)
 function which takes two dates and the unit of information to return (Days, Months, or Years).
 
 You could also use the minus sign to subtract two dates, but you might be surprised at the result:
@@ -119,7 +132,8 @@ difference. For example, to get the number of days from the returned timedelta o
 
 ![Timedelta formula days](images/dates-timedelta-formula.png)
 
-If you want weeks or years, just divide by 7 or by 365. If you want hours, multiply by 24.
+If you want weeks or years, just divide by 7 or by 365. (Divide by 7.0 or 365.0 to include a
+fractional part in the result.) If you want hours, multiply by 24.
 
 You can also use specific functions to get what you want. For example, `DAYS` is a common function
 in spreadsheet apps that returns the difference between two dates:
@@ -130,7 +144,9 @@ DAYS($Last_day, $First_day)
 
 !!! note "Excel/Sheets formulas"
     Grist supports many other common functions from other spreadsheet apps, including
-    `DATEADD`, `DATEDIF`, `DATEVALUE`, `MONTH`, `HOUR`, and [many more](functions/#date).
+    [`DATEADD`](functions.md#dateadd), [`DATEDIF`](functions.md#datedif), [`DATEVALUE`](functions.md#datevalue),
+    [`MONTH`](functions.md#month), [`HOUR`](functions.md#hour),
+    and [many more](functions.md#date).
 
 Getting a part of the date
 --------------------------
@@ -148,40 +164,41 @@ Alternatively, we can use the [strftime](https://docs.python.org/2/library/datet
 
 Yet another option would be to reformat the date using Date Format in Column Options
 (see the [date formatting reference](https://momentjs.com/docs/#/displaying/format/)).
-    
-For some situations, you may wish to use the [dateutil](https://github.com/dateutil/dateutil)
-python library.  For example, if you live in an area where dates typically start with the day
-and then the month, you could use this formula:
-
-```py
-import dateutil
-dateutil.parser.parse($date_text, dayfirst=True)
-```
 
 
 Time zones
 -----------
 
-Timestamps are stored within the document as milliseconds since January 1, 1970 UTC.
-A Grist document has a global timezone setting that you can see or change by
-clicking on your profile picture or icon, and selecting "Document Settings".
-When you create a new column of type `DateTime`, it will use the document timezone
-by default (although you can easily override that in column settings).
+Values in `DateTime` columns represent moments in time. The same moment will look different in
+different timezones. In Grist, the timezone is set on each `DateTime` column. For instance, if the
+timezone is set to "America/New\_York", it will show the values in New York timezone to
+collaborators anywhere in the world.
 
-If you insert the current date and time using 
-<code class="keys">*⌘* + *:*</code> (Mac) or <code class="keys">*Ctrl* + *:*</code> (Windows)
+A Grist document has a global timezone setting, which serves as the default timezone for when you
+create a new column of type `DateTime`. This global timezone is set to your local timezone when
+you first create a document. You can see or change it by
+clicking on your profile picture or icon, and selecting "Document Settings".
+
+If you insert the current date and time using
+<code class="keys">*⌘* + **:**</code> (Mac) or <code class="keys">*Ctrl* + **:**</code> (Windows)
 into a `DateTime` column, it will be inserted as a true timezone-aware timestamp.
 If you do the same in a `Text` column, the date/time will be inserted as the text
-appropriate for your timezone.  So two collaborators on opposite sides of the world
+appropriate for your local timezone.  So two collaborators on opposite sides of the world
 who simultaneously insert the current time into cells in a `DateTime` column will see the same
-result showing in both cells; in a `Text` column what the inserted text will differ by many
-hours.
+result showing in both cells (in the timezone of the column); in a `Text` column the inserted text
+will differ by many hours.
 
-
+<!-- TODO @paul, the last behavior seems poor, since collaborators in different timezones can't tell
+what to make of values inserted with Ctrl+:. it would be easy to tweak the behavior to either use
+the TZ of the document for text columns, or to insert the timestamp with a timezone designation,
+like '2019-11-11 14:57:43 -05:00'. Should we tweak it? -->
 
 
 Additional resources
 --------------------
-* [Python cheatsheet for strftime](http://strftime.org)
-* [Date formatting cheatsheet](https://momentjs.com/docs/#/displaying/format/)
-* [The dateutil library](https://github.com/dateutil/dateutil)
+* [Python cheatsheet for strftime](http://strftime.org), for using with `strftime()` and
+  `strptime()` in formulas.
+* [Date formatting cheatsheet](https://momentjs.com/docs/#/displaying/format/), for specifying the
+  date/time format in column settings.
+* [dateutil library](https://dateutil.readthedocs.io/en/latest/index.html), extensions to the
+  Python standard `datetime` module.
