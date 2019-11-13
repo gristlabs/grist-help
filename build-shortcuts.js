@@ -56,7 +56,7 @@ function dumpKeys(groups) {
     // Build the table content
     let tableContent =  '';
     group.commands.forEach((cmd) => {
-      if (!cmd.keys || !cmd.keys.length) { return; }
+      if (!cmd.keys || !cmd.keys.length || !cmd.desc) { return; }
       const macHumanKeys = cmd.keys.map((key) => `<code class="keys">${getHumanKey(key, true)}</code>`).join(',');
       const winHumanKeys = cmd.keys.map((key) => `<code class="keys">${getHumanKey(key, false)}</code>`).join(',');
       tableContent += `| ${macHumanKeys} | ${winHumanKeys} | ${cmd.desc} |\n`;
