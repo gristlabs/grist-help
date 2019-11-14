@@ -86,8 +86,6 @@ you would do that:
    the example format string `%B %d, %Y` makes sense. (Note: You could've also used `DATEVALUE(d)` to
    achieve the same result.)
 
-<!-- TODO @paul, could you change screenshot above to also use '%B %d, %Y' (uppercase %B)? -->
-
 The result has a true date column and can now be properly sorted chronologically, with
 "A New Hope" at the top.  For historical reasons, the first Star Wars movie is considered
 to be Episode 4.
@@ -181,17 +179,11 @@ clicking on your profile picture or icon, and selecting "Document Settings".
 
 If you insert the current date and time using
 <code class="keys">*⌘* + *Shift* + **;**</code> (Mac) or <code class="keys">*Ctrl* + *Shift* + **;**</code> (Windows)
-into a `DateTime` column, it will be inserted as a true timezone-aware timestamp.
-If you do the same in a `Text` column, the date/time will be inserted as the text
-appropriate for your local timezone.  So two collaborators on opposite sides of the world
-who simultaneously insert the current time into cells in a `DateTime` column will see the same
-result showing in both cells (in the timezone of the column); in a `Text` column the inserted text
-will differ by many hours.
-
-<!-- TODO @paul, the last behavior seems poor, since collaborators in different timezones can't tell
-what to make of values inserted with Ctrl+:. it would be easy to tweak the behavior to either use
-the TZ of the document for text columns, or to insert the timestamp with a timezone designation,
-like '2019-11-11 14:57:43 -05:00'. Should we tweak it? -->
+into a `DateTime` column, it will be inserted as a true timezone-aware timestamp, and shown with
+the timezone set for that column.
+If you do the same in a `Text` column, the date/time will be inserted as the text appropriate for
+the document's global timezone setting. Similarly, inserting the current date into a `Date` column
+will produce the current date according to the document's timezone.
 
 
 Additional resources
