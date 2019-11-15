@@ -1,8 +1,8 @@
 Formulas
 =========
 
-Grist has a powerful data engine to help you fill in the cells of your
-tables, using formulas.  If you've used spreadsheets before, or
+Grist has a powerful data engine to calculate the cells of your
+tables using formulas.  If you've used spreadsheets before, or
 database expressions, you'll be on familiar territory - but there are
 some wrinkles you'll want to know about, so hang around.
 
@@ -12,35 +12,39 @@ and the unit price of each.  You've made a column to show
 the quantity times the unit price, but want the computer to do
 that part for you.
 
-![formulas-price](images/formulas/formulas-price.png)
+<span class="screenshot-large">*![formulas-price](images/formulas/formulas-price.png)*</span>
+{: .screenshot-half }
 
-Just select a cell in the column you want to fill, and hit "=" to
+Just select a cell in the column you want to fill, and hit <code class="keys">**=**</code> key to
 tell Grist you want to enter a formula, rather than a value.
 
-![formulas-price-equal](images/formulas/formulas-price-equal.png)
+<span class="screenshot-large">*![formulas-price-equal](images/formulas/formulas-price-equal.png)*</span>
+{: .screenshot-half }
 
 Did you notice, when you did that, the labels of the columns changed
 a little?  "Product" became "$Product", and "Unit Price"
 became "$Unit\_Price".  This is Grist telling you how to
-refer to those columns in your formula.  Just type "$Product * $Unit\_Price".
+refer to those columns in your formula.  Just type `$Quantity * $Unit_Price`{: .formula }.
 You'll find an auto-complete feature ready to help you.
-Or if you don't like typing, click on the Product column, type the
+Or if you don't like typing, click on the Quantity column, type the
 multiplication symbol, and then click on the Unit Price column.
 Your formula should look like this:
 
-![formulas-price-multiply](images/formulas/formulas-price-multiply.png)
+<span class="screenshot-large">*![formulas-price-multiply](images/formulas/formulas-price-multiply.png)*</span>
+{: .screenshot-half }
 
-To control the identifier used for columns in formulas, see
+To control the column ID, like "$Unit\_Price", that's used in formulas, see
 [Renaming columns](col-types.md#renaming-columns).
-Now press enter, and your formula is applied to all cells in the
-column.
 
-![formulas-price-final](images/formulas/formulas-price-final.png)
+Press <code class="keys">*Enter*</code>, and your formula is applied to all cells in the column.
+
+<span class="screenshot-large">*![formulas-price-final](images/formulas/formulas-price-final.png)*</span>
+{: .screenshot-half }
 
 Grist formulas are written in Python, the most popular language for data science.
 The entirety of [Python's  standard library](https://docs.python.org/2/library/) is available
 to you.  For those with a spreadsheet background, we've also added a suite of Excel-like
-functions.  Here's the [full list of functions](functions.md).
+functions, with all-uppercase names.  Here's the [full list of functions](functions.md).
 
 If you've worked with spreadsheets before, you may be surprised
 that you don't need to specify row numbers, like `B1 * C1`.
@@ -146,21 +150,21 @@ via the side panel:
 
 ![formulas-widgets-card](images/formulas/formulas-widgets-card.png)
 
-If you really want to have a column change its behavior on different rows,
-you can just use a conditional.  For example, here is a replacement for
-the `Materials.Price` formula that shows a total on a row where the
-product name is not set:
+## Varying formula by row
+
+Having a formula apply to all rows is convenient and reduces the changes of mistakes.
+
+If you need to have a column change its behavior on different rows, it is possible using a
+conditional in the formula. For example, here is a replacement for
+the `Materials.Price` formula that ignores the price and shows zero for products whose name ends
+in "(Sample)":
 
 ```
-if $Product:
-  return $Quantity * $Unit_Price
+if $Product.endswith("(Sample)"):
+  return 0
 else:
-  return SUM(m.Price for m in Materials.all if m.Product)
+  return $Quantity * $Unit_Price
 ```
-
-Notice that the sum is limited to rows that have the product name set -
-otherwise the calculation would include itself in the sum and blow up
-(Grist would warn you about a "cyclic dependency").
 
 Code viewer
 -------------
@@ -209,10 +213,6 @@ Notice that there is no ``=`` sign in the column cells any more, showing that it
 is no longer a formula.  The cells will no longer change if other cells they used
 to depend on change.
 
-You don't lose your formula by turning it off. The formula itself remains and you can
-turn it back on. If you modified the values in the column, however, they will be
-recalculated by the formula. You can always undo to revert back to the previous state.
-
 The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
 just as much to formula columns as to regular columns.
@@ -243,7 +243,7 @@ If you want to sort by multiple columns, remember that you can create a hidden
 formula column that combines data in any way you like, and then sort by that.
 
 The order of records returned by `lookupRecords` may not match the order of rows
-you see in a table.  To get that order, `sort_by='manualSort`.  This is an
+you see in a table.  To get that order, use `sort_by='manualSort'`.  This is an
 internal column that is updated with the manually established sort order
 of rows.
 
@@ -274,7 +274,7 @@ line computes the value we want in the cell.  Python note: the value
 of the last line is automatically returned (you could prefix it with
 `return` if you like).
 
-Notice the `yesterday.cumulative or 0` - for the earliest row in the
+Notice the `yesterday.cumulative or 0`. For the earliest row in the
 table, there will be no yesterday.  In this case, `lookupOne` returns
 a special empty record, for which `yesterday.cumulative` will be
 `None`.
@@ -285,9 +285,9 @@ same lookup in multiple formulas, it would be worth making
 a reference column, and give a formula for it that matches how
 we defined `yesterday` here.
 
-To actually enter this formula in a cell, you'd use ``Shift+Enter``
+To actually enter this formula in a cell, you'd use <code class="keys">*Shift* + *Enter*</code>
 to divide the lines.  For longer formulas, you may prefer to use
-the side panel, where a simple ``Enter`` gives you a new line.
+the side panel, where a simple <code class="keys">*Enter*</code> gives you a new line.
 Click on the column header, select "Column Options" and edit the
 Formula field.
 

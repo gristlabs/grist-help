@@ -43,7 +43,7 @@ departments and serving as a selector for a second Table widget listing employee
 &nbsp;
 
 To create this, first create a page with a Table widget for `Departments` data, as described in
-[Page widgets](page-widgets.md/#widget-picker). Then in the "Add New" menu, select the "Add Widget to
+[Page widgets](page-widgets.md#widget-picker). Then in the "Add New" menu, select the "Add Widget to
 Page" option to add another Table widget for `Employees` data. In the widget picker, use the "Select
 By" dropdown and choose the "DEPARTMENTS" widget added in the first step.
 
