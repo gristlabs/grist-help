@@ -1,4 +1,6 @@
-# Linking Page Widgets
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F5m_je0QKvs?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Linking Page Widgets
 
 One big reason for placing more than one widget on a page is that widgets can be linked. When
 linked, selecting a record in one widget will cause another widget to update and show only the

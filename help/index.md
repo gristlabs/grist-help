@@ -38,19 +38,22 @@ learn to organize and analyze scientific data.
 [![Creating a doc](https://img.youtube.com/vi/m8Bt6QBHTu4/0.jpg) *Creating a doc*](creating-doc.md)
 {: .img-caption }
 
+[![Pages & widgets](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages & widgets*](page-widgets.md)
+{: .img-caption }
+
+![Columns & types](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Columns & types
+[coming soon]*
+{: .img-caption .coming-soon }
+
+![Reference columns](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Reference columns
+[coming soon]*
+{: .img-caption .coming-soon }
+
+[![Linking widgets](https://img.youtube.com/vi/F5m_je0QKvs/0.jpg) *Linking widgets*](linking-widgets.md)
+{: .img-caption }
+
 [![Sharing a doc](https://img.youtube.com/vi/WCF9FpQeEjk/0.jpg) *Sharing a doc*](sharing.md)
 {: .img-caption }
-
-[![Creating a doc](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages & widgets*](page-widgets.md)
-{: .img-caption }
-
-![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Column types
-[coming soon]*
-{: .img-caption .coming-soon }
-
-![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Sorting & filtering
-[coming soon]*
-{: .img-caption .coming-soon }
 
 </div>
 
@@ -64,10 +67,8 @@ learn to organize and analyze scientific data.
 
 <!--
 
-![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Reference columns*
-{: .img-caption .coming-soon }
-
-![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Linking widgets*
+![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Sorting & filtering
+[coming soon]*
 {: .img-caption .coming-soon }
 
 ![Creating a doc](https://img.youtube.com/vi/uP9HMf2ozBQ/2.jpg) *Writing formulas*
