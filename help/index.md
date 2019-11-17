@@ -52,7 +52,7 @@ learn to organize and analyze scientific data.
 [![Linking widgets](https://img.youtube.com/vi/F5m_je0QKvs/0.jpg) *Linking widgets*](linking-widgets.md)
 {: .img-caption }
 
-[![Sharing a doc](https://img.youtube.com/vi/WCF9FpQeEjk/0.jpg) *Sharing a doc*](sharing.md)
+[![Sharing a doc](https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg) *Sharing a doc*](sharing.md)
 {: .img-caption }
 
 </div>
