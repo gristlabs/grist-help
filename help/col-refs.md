@@ -1,3 +1,5 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Reference columns
 =================
 
@@ -37,7 +39,7 @@ you'd like to show.  Then hit "Apply" when you're happy with the result.
 In our example, you can see little link icons appearing in the Client
 column cells, showing that they have been successfully cross-referenced with the Clients table.
 Once the column type is set, you can start typing into it or double-click it to see a dropdown
-list of all available values. 
+list of all available values.
 
 *![Select dropdown values](images/column-ref-select-dropdown.png)*
 {: .screenshot-half }
