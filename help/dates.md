@@ -151,7 +151,7 @@ Getting a part of the date
 You've seen how to parse the date, display it in different formats, and do date arithmetic. But what
 if you want to get more information about a specific date, such as getting its day of the week?
 
-One option is to use the [WEEKDAY](functions/#weekday) function, which behaves as it does in
+One option is to use the [WEEKDAY](functions.md#weekday) function, which behaves as it does in
 Excel, returning  1-7 for Sunday-Saturday.
 
 ![Weekday formula](images/dates-weekday-formula.png)

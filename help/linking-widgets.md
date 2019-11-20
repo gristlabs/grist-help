@@ -80,7 +80,8 @@ selected record.
 ![linking-same-record-result](images/linking-same-record-result.png)
 
 For another example of such linking, see the "Lightweight CRM" document in "Examples &amp; Templates"
-and the associated tutorial [Create your own CRM](lightweight-crm.md#customizing-layout).
+and the [Customizing Layout](lightweight-crm.md#customizing-layout) section in the associated
+tutorial.
 
 ## Filter linking
 

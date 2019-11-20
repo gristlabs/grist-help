@@ -74,6 +74,9 @@ The mysterious `$group` is simply another column, hidden by default (but you may
     attribute like `$group.A` is a shorthand for the list of values in the `A` column of all the
     records in the group, similar to `[r.A for r in $group]`.
 
+    If you unhide this column, it will show as a python list of numeric row IDs which identify the
+    records in the group.
+
 Sometimes the automatically created columns don't make sense. For instance, the sum of `PayRate`
 isn't very meaningful. Simply delete such columns, either using the column menu or
 using the <code class="keys">*Alt* + *Minus*</code> keyboard shortcut.
