@@ -35,7 +35,7 @@ learn to organize and analyze scientific data.
 
 ### Intro Videos
 
-[![Creating a doc](https://img.youtube.com/vi/m8Bt6QBHTu4/0.jpg) *Creating a doc*](creating-doc.md)
+[![Creating a doc](https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg) *Creating a doc*](creating-doc.md)
 {: .img-caption }
 
 [![Pages & widgets](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages & widgets*](page-widgets.md)
