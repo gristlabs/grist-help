@@ -89,6 +89,7 @@
   position: relative;
   display: inline-block;
   margin-right: 4px;
+  top: -1px;
   width: 12px;
   height: 12px;
   border-radius: 2px;
@@ -218,6 +219,25 @@ body {
   margin: .5rem 0 .5rem -2rem;
   cursor: pointer;
   outline: none;
+}
+
+.wm-page-content summary::before {
+  content: "";
+  -webkit-mask-image: var(--icon-Expand);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  display: inline-block;
+  background-color: var(--color-slate);
+  position: relative;
+  font-size: initial;
+  width: 16px;
+  height: 16px;
+  top: 3px;
+}
+
+.wm-page-content details[open] summary::before {
+  transform: rotate(90deg);
 }
 
 /*
@@ -420,4 +440,12 @@ h4 {
 
 footer {
   display: none;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: unset;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+  background-color: unset;
 }

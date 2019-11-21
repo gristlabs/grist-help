@@ -68,12 +68,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../formulas/" class="btn btn-xs btn-default pull-right">
+      <a href="../col-types/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../formulas/" class="btn btn-xs btn-link">
-        Getting started with formulas
+      <a href="../col-types/" class="btn btn-xs btn-link">
+        Columns & types
       </a>
     </div>
     
@@ -149,6 +149,8 @@ class="keys"><em>Enter</em></code>, you&rsquo;ll see the formulas that calculate
 <code>$group</code> is a special Python object. It’s an iterable collection of records. Using an
 attribute like <code>$group.A</code> is a shorthand for the list of values in the <code>A</code> column of all the
 records in the group, similar to <code>[r.A for r in $group]</code>.</p>
+<p>If you unhide this column, it will show as a python list of numeric row IDs which identify the
+records in the group.</p>
 </div>
 <p>Sometimes the automatically created columns don&rsquo;t make sense. For instance, the sum of <code>PayRate</code>
 isn&rsquo;t very meaningful. Simply delete such columns, either using the column menu or

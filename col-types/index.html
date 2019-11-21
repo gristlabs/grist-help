@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Getting started with columns - Grist Help Center</title>
+    <title>Columns & types - Grist Help Center</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -75,20 +75,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../col-transform/" class="btn btn-xs btn-default pull-right">
+      <a href="../col-refs/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../col-transform/" class="btn btn-xs btn-link">
-        Column transformations
+      <a href="../col-refs/" class="btn btn-xs btn-link">
+        Reference columns
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../functions/" class="btn btn-xs btn-default pull-left">
+      <a href="../summary-tables/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../functions/" class="btn btn-xs btn-link">
-        Function reference
+        Previous</a><a href="../summary-tables/" class="btn btn-xs btn-link">
+        Summary tables
       </a>
     </div>
     
@@ -96,7 +96,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="columns-and-data-types">Columns and data types<a class="headerlink" href="#columns-and-data-types" title="Permanent link">#</a></h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kEKYcW3h4V8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h1 id="columns-and-data-types">Columns and data types<a class="headerlink" href="#columns-and-data-types" title="Permanent link">#</a></h1>
 <h2 id="adding-and-removing-columns">Adding and removing columns<a class="headerlink" href="#adding-and-removing-columns" title="Permanent link">#</a></h2>
 <p>Every Grist table, when first created, has three columns called A, B, and C.
 To rename a column, hover on the column header, click on the drop-down, then
@@ -126,7 +128,7 @@ Another is by selecting &ldquo;Column Options&rdquo; in the same drop-down, and 
 name shown at the top.  A bonus with this method is that you can also control
 the identifier given to the column
 in formulas.  By default this is based on the field name, with any
-characters Python doesn&rsquo;t like replaced with &ldquo;_&rdquo;, and a number added if needed
+characters Python doesn&rsquo;t like replaced with &ldquo;_&ldquo;, and a number added if needed
 to keep the name unique within your table.  If you don&rsquo;t like this identifier, you
 can change it, though it will still need to be Python-friendly.  To change
 the name, deselect &ldquo;Use Name as ID&rdquo; if it is selected, and edit the &ldquo;ID&rdquo; entry now
@@ -137,7 +139,7 @@ controls its appearance and the help Grist will offer you when editing cells.</p
 <p>When you create a new column, it initially has the <code>Any</code> type.  When you enter the column&rsquo;s
 first cell, Grist tries to narrow this type.  If you enter a number, the column will
 be changed to <code>Numeric</code> type, which is right-aligned by default.  If you enter something
-that doesn&rsquo;t look like text, the column will be changed to <code>Text</code> type, which is left-aligned
+that doesn&rsquo;t look like a number, the column will be changed to <code>Text</code> type, which is left-aligned
 by default.</p>
 <p>To inspect the type of a column, hover over the column header, then click on the drop-down,
 then select &ldquo;Column Options&rdquo;.  The &ldquo;Column Type&rdquo; section is what you are looking for.</p>
@@ -221,7 +223,7 @@ minimum and maximum number of decimal points to show.</p>
 <p class="screenshot-half"><em><img alt="Format numeric" src="../images/columns/columns-format-numeric.png" /></em></p>
 <h2 id="integer-columns">Integer columns<a class="headerlink" href="#integer-columns" title="Permanent link">#</a></h2>
 <p>This is strictly for whole numbers.  It has the same options as
-the numeric type, except no &ldquo;Max Decimals&rdquo;.</p>
+the numeric type.</p>
 <h2 id="toggle-columns">Toggle columns<a class="headerlink" href="#toggle-columns" title="Permanent link">#</a></h2>
 <p>This type is for storing true/false values.  The values can be shown
 as text, checkboxes, or switches.</p>
@@ -240,6 +242,8 @@ format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format
 <h2 id="choice-columns">Choice columns<a class="headerlink" href="#choice-columns" title="Permanent link">#</a></h2>
 <p>This type is for storing one of a set of valid values, where you get to
 specify the available values.</p>
+<!-- TODO screenshot needs to be updated -->
+
 <p class="screenshot-half"><em><img alt="Format date" src="../images/columns/columns-format-choice.png" /></em></p>
 <p>There&rsquo;s an example of using this type of column in
 the <a href="../lightweight-crm/#setting-other-types">Lightweight CRM example</a>.</p>

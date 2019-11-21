@@ -40,7 +40,7 @@
           ]},
           {title: "Inserting the current date", url: "#inserting-the-current-date", children: [
           ]},
-          {title: "Parsing dates from strings and back", url: "#parsing-dates-from-strings-and-back", children: [
+          {title: "Parsing dates from strings", url: "#parsing-dates-from-strings", children: [
           ]},
           {title: "Date arithmetic", url: "#date-arithmetic", children: [
           ]},
@@ -89,7 +89,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       <a href="../formulas/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
         Previous</a><a href="../formulas/" class="btn btn-xs btn-link">
-        Getting started with formulas
+        Intro to formulas
       </a>
     </div>
     
@@ -114,28 +114,29 @@ familiar with them.</p>
 <h2 id="making-a-datetime-column">Making a date/time column<a class="headerlink" href="#making-a-datetime-column" title="Permanent link">#</a></h2>
 <p>For a general introduction to setting the type of columns,
 see <a href="../col-types/">Columns and data types</a>.
-To tell Grist, that you intend to enter only date/times in a column,
+To tell Grist that you intend to enter only date/times in a column,
 over on the header for the column, find the drop-down, and select &ldquo;Column Options&rdquo;.</p>
 <p><img alt="formulas-date-column-options" src="../images/formulas/formulas-date-column-options.png" /></p>
-<p>Then in the side panel that opens on the right, pick &ldquo;DateTime&rdquo; from the
-&ldquo;Column Type&rdquo; drop-down.  Or if you just want dates without times, pick
-&ldquo;Date&rdquo;.</p>
+<p>Then in the side panel that opens on the right, pick &ldquo;Date&rdquo; from the
+&ldquo;Column Type&rdquo; drop-down.  Or, if you want dates with times, pick
+&ldquo;DateTime&rdquo;.</p>
 <p><img alt="formulas-date-column-type" src="../images/formulas/formulas-date-column-type.png" /></p>
-<p>Then you can choose your preferred date/time format, and the display timezone.
-Click &ldquo;Apply&rdquo; when you&rsquo;re ready.  You can come back and change settings at
-any time.</p>
+<p>Then you can choose your preferred date/time format. For the &ldquo;DateTime&rdquo; type, you can also choose
+the timezone. When you convert a column from another type, such as &ldquo;Text&rdquo;, you&rsquo;ll see a preview of
+the conversion results, and will need to click &ldquo;Apply&rdquo; to complete conversion. You can come back and
+change settings at any time.</p>
 <p class="screenshot-half"><em><img alt="formulas-date-column-apply" src="../images/formulas/formulas-date-column-apply.png" /></em></p>
 <p>Now when you edit a cell in this column, you will have help for selecting dates
 and times.</p>
 <p class="screenshot-half"><em><img alt="formulas-date-widget" src="../images/formulas/formulas-date-widget.png" /></em></p>
 <h2 id="inserting-the-current-date">Inserting the current date<a class="headerlink" href="#inserting-the-current-date" title="Permanent link">#</a></h2>
 <p>You can insert the current date in a cell using
-<code class="keys"><em>⌘</em> + <em>;</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>;</em></code> (Windows).</p>
-<p>You can insert the current date and time in a cell using 
-<code class="keys"><em>⌘</em> + <em>:</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>:</em></code> (Windows).</p>
+<code class="keys"><em>⌘</em> + <strong>;</strong> (semicolon)</code> (Mac) or <code class="keys"><em>Ctrl</em> + <strong>;</strong></code> (Windows).</p>
+<p>You can insert the current date and time using
+<code class="keys"><em>⌘</em> + <em>Shift</em> + <strong>;</strong></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>;</strong></code> (Windows).</p>
 <p>When editing a date cell, the date entry widget has a &ldquo;today&rdquo; button for today&rsquo;s date.</p>
-<h2 id="parsing-dates-from-strings-and-back">Parsing dates from strings and back<a class="headerlink" href="#parsing-dates-from-strings-and-back" title="Permanent link">#</a></h2>
-<p>The <a href="functions/#datevalue">DATEVALUE</a> function converts a string that represents a date into a <code>datetime</code>
+<h2 id="parsing-dates-from-strings">Parsing dates from strings<a class="headerlink" href="#parsing-dates-from-strings" title="Permanent link">#</a></h2>
+<p>The <a href="../functions/#datevalue">DATEVALUE</a> function converts a string that represents a date into a <code>datetime</code>
 object. It&rsquo;s simple to use and it will auto-detect different date formats:</p>
 <p class="screenshot-half"><em><img alt="Parse date from string datevalue" src="../images/dates-parse-datevalue.png" /></em></p>
 <p>You can also use Python&rsquo;s <code>datetime</code> library, which provides two helpful functions:
@@ -164,9 +165,17 @@ to be Episode 4.</p>
 <p>And, because the column type is selected as a date, you can use the &ldquo;Date Format&rdquo; in &ldquo;Column Options&rdquo;
 to select the format in which to display the date.</p>
 <p><img alt="Formatted parsed date" src="../images/dates-parse-string-formatted.png" /></p>
+<p>For some situations, you may wish to use the
+<a href="https://dateutil.readthedocs.io/en/latest/parser.html#dateutil.parser.parse">dateutil</a>
+python library.  For example, if you live in an area where dates typically start with the day
+and then the month, you could use this formula:</p>
+<pre><code class="py">import dateutil
+dateutil.parser.parse($date_text, dayfirst=True)
+</code></pre>
+
 <h2 id="date-arithmetic">Date arithmetic<a class="headerlink" href="#date-arithmetic" title="Permanent link">#</a></h2>
 <p>Once you have a proper date column, often you&rsquo;ll want to do date arithmetic such as calculating the
-difference between two dates. The simplest way to do this is to use the <a href="formulas/#datedif">DATEDIF</a>
+difference between two dates. The simplest way to do this is to use the <a href="../functions/#datedif">DATEDIF</a>
 function which takes two dates and the unit of information to return (Days, Months, or Years).</p>
 <p>You could also use the minus sign to subtract two dates, but you might be surprised at the result:</p>
 <p><img alt="Subtract a date" src="../images/dates-subtract-formula.png" /></p>
@@ -178,7 +187,8 @@ instances to microsecond resolution.&rdquo;</p>
 difference. For example, to get the number of days from the returned timedelta object, use its
 <code>.days</code> property:</p>
 <p><img alt="Timedelta formula days" src="../images/dates-timedelta-formula.png" /></p>
-<p>If you want weeks or years, just divide by 7 or by 365. If you want hours, multiply by 24.</p>
+<p>If you want weeks or years, just divide by 7 or by 365. (Divide by 7.0 or 365.0 to include a
+fractional part in the result.) If you want hours, multiply by 24.</p>
 <p>You can also use specific functions to get what you want. For example, <code>DAYS</code> is a common function
 in spreadsheet apps that returns the difference between two dates:</p>
 <pre><code class="py">DAYS($Last_day, $First_day)
@@ -187,44 +197,44 @@ in spreadsheet apps that returns the difference between two dates:</p>
 <div class="admonition note">
 <p class="admonition-title">Excel/Sheets formulas</p>
 <p>Grist supports many other common functions from other spreadsheet apps, including
-<code>DATEADD</code>, <code>DATEDIF</code>, <code>DATEVALUE</code>, <code>MONTH</code>, <code>HOUR</code>, and <a href="functions/#date">many more</a>.</p>
+<a href="../functions/#dateadd"><code>DATEADD</code></a>, <a href="../functions/#datedif"><code>DATEDIF</code></a>, <a href="../functions/#datevalue"><code>DATEVALUE</code></a>,
+<a href="../functions/#month"><code>MONTH</code></a>, <a href="../functions/#hour"><code>HOUR</code></a>,
+and <a href="../functions/#date">many more</a>.</p>
 </div>
 <h2 id="getting-a-part-of-the-date">Getting a part of the date<a class="headerlink" href="#getting-a-part-of-the-date" title="Permanent link">#</a></h2>
 <p>You&rsquo;ve seen how to parse the date, display it in different formats, and do date arithmetic. But what
 if you want to get more information about a specific date, such as getting its day of the week?</p>
-<p>One option is to use the <a href="functions/#weekday">WEEKDAY</a> function, which behaves as it does in
+<p>One option is to use the <a href="../functions/#weekday">WEEKDAY</a> function, which behaves as it does in
 Excel, returning  1-7 for Sunday-Saturday.</p>
 <p><img alt="Weekday formula" src="../images/dates-weekday-formula.png" /></p>
 <p>Alternatively, we can use the <a href="https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior">strftime</a> function:</p>
 <p><img alt="Weekday format" src="../images/dates-weekday-strftime.png" /></p>
 <p>Yet another option would be to reformat the date using Date Format in Column Options
 (see the <a href="https://momentjs.com/docs/#/displaying/format/">date formatting reference</a>).</p>
-<p>For some situations, you may wish to use the <a href="https://github.com/dateutil/dateutil">dateutil</a>
-python library.  For example, if you live in an area where dates typically start with the day
-and then the month, you could use this formula:</p>
-<pre><code class="py">import dateutil
-dateutil.parser.parse($date_text, dayfirst=True)
-</code></pre>
-
 <h2 id="time-zones">Time zones<a class="headerlink" href="#time-zones" title="Permanent link">#</a></h2>
-<p>Timestamps are stored within the document as milliseconds since January 1, 1970 UTC.
-A Grist document has a global timezone setting that you can see or change by
-clicking on your profile picture or icon, and selecting &ldquo;Document Settings&rdquo;.
-When you create a new column of type <code>DateTime</code>, it will use the document timezone
-by default (although you can easily override that in column settings).</p>
-<p>If you insert the current date and time using 
-<code class="keys"><em>⌘</em> + <em>:</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>:</em></code> (Windows)
-into a <code>DateTime</code> column, it will be inserted as a true timezone-aware timestamp.
-If you do the same in a <code>Text</code> column, the date/time will be inserted as the text
-appropriate for your timezone.  So two collaborators on opposite sides of the world
-who simultaneously insert the current time into cells in a <code>DateTime</code> column will see the same
-result showing in both cells; in a <code>Text</code> column what the inserted text will differ by many
-hours.</p>
+<p>Values in <code>DateTime</code> columns represent moments in time. The same moment will look different in
+different timezones. In Grist, the timezone is set on each <code>DateTime</code> column. For instance, if the
+timezone is set to &ldquo;America/New_York&rdquo;, it will show the values in New York timezone to
+collaborators anywhere in the world.</p>
+<p>A Grist document has a global timezone setting, which serves as the default timezone for when you
+create a new column of type <code>DateTime</code>. This global timezone is set to your local timezone when
+you first create a document. You can see or change it by
+clicking on your profile picture or icon, and selecting &ldquo;Document Settings&rdquo;.</p>
+<p>If you insert the current date and time using
+<code class="keys"><em>⌘</em> + <em>Shift</em> + <strong>;</strong></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>;</strong></code> (Windows)
+into a <code>DateTime</code> column, it will be inserted as a true timezone-aware timestamp, and shown with
+the timezone set for that column.
+If you do the same in a <code>Text</code> column, the date/time will be inserted as the text appropriate for
+the document&rsquo;s global timezone setting. Similarly, inserting the current date into a <code>Date</code> column
+will produce the current date according to the document&rsquo;s timezone.</p>
 <h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="http://strftime.org">Python cheatsheet for strftime</a></li>
-<li><a href="https://momentjs.com/docs/#/displaying/format/">Date formatting cheatsheet</a></li>
-<li><a href="https://github.com/dateutil/dateutil">The dateutil library</a></li>
+<li><a href="http://strftime.org">Python cheatsheet for strftime</a>, for using with <code>strftime()</code> and
+  <code>strptime()</code> in formulas.</li>
+<li><a href="https://momentjs.com/docs/#/displaying/format/">Date formatting cheatsheet</a>, for specifying the
+  date/time format in column settings.</li>
+<li><a href="https://dateutil.readthedocs.io/en/latest/index.html">dateutil library</a>, extensions to the
+  Python standard <code>datetime</code> module.</li>
 </ul>
 
   <br>

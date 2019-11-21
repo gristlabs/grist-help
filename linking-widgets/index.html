@@ -35,12 +35,18 @@
         
         var pageToc = [
           {title: "Linking Page Widgets", url: "#_top", children: [
-              {title: "Same-record linking", url: "#same-record-linking" },
-              {title: "Filter linking", url: "#filter-linking" },
-              {title: "Indirect linking", url: "#indirect-linking" },
-              {title: "Multiple reference columns", url: "#multiple-reference-columns" },
-              {title: "Linking summary tables", url: "#linking-summary-tables" },
-              {title: "Changing link settings", url: "#changing-link-settings" },
+          ]},
+          {title: "Same-record linking", url: "#same-record-linking", children: [
+          ]},
+          {title: "Filter linking", url: "#filter-linking", children: [
+          ]},
+          {title: "Indirect linking", url: "#indirect-linking", children: [
+          ]},
+          {title: "Multiple reference columns", url: "#multiple-reference-columns", children: [
+          ]},
+          {title: "Linking summary tables", url: "#linking-summary-tables", children: [
+          ]},
+          {title: "Changing link settings", url: "#changing-link-settings", children: [
           ]},
         ];
 
@@ -89,7 +95,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="linking-page-widgets">Linking Page Widgets<a class="headerlink" href="#linking-page-widgets" title="Permanent link">#</a></h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/F5m_je0QKvs?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="linking-page-widgets">Linking Page Widgets<a class="headerlink" href="#linking-page-widgets" title="Permanent link">#</a></h2>
 <p>One big reason for placing more than one widget on a page is that widgets can be linked. When
 linked, selecting a record in one widget will cause another widget to update and show only the
 data related to the selected record. </p>
@@ -130,7 +138,7 @@ departments and serving as a selector for a second Table widget listing employee
 
 <p>&nbsp;</p>
 <p>To create this, first create a page with a Table widget for <code>Departments</code> data, as described in
-<a href="page-widgets.md/#widget-picker">Page widgets</a>. Then in the &ldquo;Add New&rdquo; menu, select the &ldquo;Add Widget to
+<a href="../page-widgets/#widget-picker">Page widgets</a>. Then in the &ldquo;Add New&rdquo; menu, select the &ldquo;Add Widget to
 Page&rdquo; option to add another Table widget for <code>Employees</code> data. In the widget picker, use the &ldquo;Select
 By&rdquo; dropdown and choose the &ldquo;DEPARTMENTS&rdquo; widget added in the first step.</p>
 <p class="screenshot-half"><em><img alt="linking-add-widget" src="../images/linking-add-widget.png" /></em></p>
@@ -152,7 +160,8 @@ details of that record in the linked Card widget.</p>
 selected record.</p>
 <p><img alt="linking-same-record-result" src="../images/linking-same-record-result.png" /></p>
 <p>For another example of such linking, see the &ldquo;Lightweight CRM&rdquo; document in &ldquo;Examples &amp; Templates&rdquo;
-and the associated tutorial <a href="../lightweight-crm/#customizing-layout">Create your own CRM</a>.</p>
+and the <a href="../lightweight-crm/#customizing-layout">Customizing Layout</a> section in the associated
+tutorial.</p>
 <h2 id="filter-linking">Filter linking<a class="headerlink" href="#filter-linking" title="Permanent link">#</a></h2>
 <p>As in the Employee-Department example, when one table has a reference to another (i.e. a column of
 type &ldquo;Reference&rdquo;), the second table can serve as a selector for the first. Essentially, selecting

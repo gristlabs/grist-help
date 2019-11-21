@@ -66,11 +66,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
+    <div class="wm-article-nav pull-right">
+      <a href="../col-transform/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../col-transform/" class="btn btn-xs btn-link">
+        Transformations
+      </a>
+    </div>
+    
     <div class="wm-article-nav">
-      <a href="../col-type-conversion/" class="btn btn-xs btn-default pull-left">
+      <a href="../col-types/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../col-type-conversion/" class="btn btn-xs btn-link">
-        Type conversions
+        Previous</a><a href="../col-types/" class="btn btn-xs btn-link">
+        Columns & types
       </a>
     </div>
     
@@ -78,7 +88,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="reference-columns">Reference columns<a class="headerlink" href="#reference-columns" title="Permanent link">#</a></h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h1 id="reference-columns">Reference columns<a class="headerlink" href="#reference-columns" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>Reference columns in Grist allow one table to create an explicit reference to another. In the
 database world this is similar to a foreign key. In the spreadsheet world this is similar to a
@@ -107,7 +119,7 @@ additional columns to display as explained later.</p>
 <p>In our example, you can see little link icons appearing in the Client
 column cells, showing that they have been successfully cross-referenced with the Clients table.
 Once the column type is set, you can start typing into it or double-click it to see a dropdown
-list of all available values. </p>
+list of all available values.</p>
 <p class="screenshot-half"><em><img alt="Select dropdown values" src="../images/column-ref-select-dropdown.png" /></em></p>
 <div class="admonition note">
 <p class="admonition-title">Spotting reference columns</p>

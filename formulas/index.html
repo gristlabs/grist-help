@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Getting started with formulas - Grist Help Center</title>
+    <title>Intro to formulas - Grist Help Center</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -36,6 +36,7 @@
         var pageToc = [
           {title: "Formulas", url: "#_top", children: [
               {title: "Formulas that operate over many rows", url: "#formulas-that-operate-over-many-rows" },
+              {title: "Varying formula by row", url: "#varying-formula-by-row" },
               {title: "Code viewer", url: "#code-viewer" },
               {title: "Special values available in formulas", url: "#special-values-available-in-formulas" },
               {title: "Freeze a formula column", url: "#freeze-a-formula-column" },
@@ -78,10 +79,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../summary-tables/" class="btn btn-xs btn-default pull-left">
+      <a href="../col-transform/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../summary-tables/" class="btn btn-xs btn-link">
-        Summary tables
+        Previous</a><a href="../col-transform/" class="btn btn-xs btn-link">
+        Transformations
       </a>
     </div>
     
@@ -90,8 +91,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="formulas">Formulas<a class="headerlink" href="#formulas" title="Permanent link">#</a></h1>
-<p>Grist has a powerful data engine to help you fill in the cells of your
-tables, using formulas.  If you&rsquo;ve used spreadsheets before, or
+<p>Grist has a powerful data engine to calculate the cells of your
+tables using formulas.  If you&rsquo;ve used spreadsheets before, or
 database expressions, you&rsquo;ll be on familiar territory - but there are
 some wrinkles you&rsquo;ll want to know about, so hang around.</p>
 <p>Let&rsquo;s start with a classic use of spreadsheets.  Suppose you have
@@ -99,28 +100,27 @@ a list of products you&rsquo;ve ordered, the quantity you ordered,
 and the unit price of each.  You&rsquo;ve made a column to show
 the quantity times the unit price, but want the computer to do
 that part for you.</p>
-<p><img alt="formulas-price" src="../images/formulas/formulas-price.png" /></p>
-<p>Just select a cell in the column you want to fill, and hit &ldquo;=&rdquo; to
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price" src="../images/formulas/formulas-price.png" /></em></span></p>
+<p>Just select a cell in the column you want to fill, and hit <code class="keys"><strong>=</strong></code> key to
 tell Grist you want to enter a formula, rather than a value.</p>
-<p><img alt="formulas-price-equal" src="../images/formulas/formulas-price-equal.png" /></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-equal" src="../images/formulas/formulas-price-equal.png" /></em></span></p>
 <p>Did you notice, when you did that, the labels of the columns changed
 a little?  &ldquo;Product&rdquo; became &ldquo;$Product&rdquo;, and &ldquo;Unit Price&rdquo;
 became &ldquo;$Unit_Price&rdquo;.  This is Grist telling you how to
-refer to those columns in your formula.  Just type &ldquo;$Product * $Unit_Price&rdquo;.
+refer to those columns in your formula.  Just type <code class="formula">$Quantity * $Unit_Price</code>.
 You&rsquo;ll find an auto-complete feature ready to help you.
-Or if you don&rsquo;t like typing, click on the Product column, type the
+Or if you don&rsquo;t like typing, click on the Quantity column, type the
 multiplication symbol, and then click on the Unit Price column.
 Your formula should look like this:</p>
-<p><img alt="formulas-price-multiply" src="../images/formulas/formulas-price-multiply.png" /></p>
-<p>To control the identifier used for columns in formulas, see
-<a href="../col-types/#renaming-columns">Renaming columns</a>.
-Now press enter, and your formula is applied to all cells in the
-column.</p>
-<p><img alt="formulas-price-final" src="../images/formulas/formulas-price-final.png" /></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-multiply" src="../images/formulas/formulas-price-multiply.png" /></em></span></p>
+<p>To control the column ID, like &ldquo;$Unit_Price&rdquo;, that&rsquo;s used in formulas, see
+<a href="../col-types/#renaming-columns">Renaming columns</a>.</p>
+<p>Press <code class="keys"><em>Enter</em></code>, and your formula is applied to all cells in the column.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-final" src="../images/formulas/formulas-price-final.png" /></em></span></p>
 <p>Grist formulas are written in Python, the most popular language for data science.
 The entirety of <a href="https://docs.python.org/2/library/">Python&rsquo;s  standard library</a> is available
 to you.  For those with a spreadsheet background, we&rsquo;ve also added a suite of Excel-like
-functions.  Here&rsquo;s the <a href="../functions/">full list of functions</a>.</p>
+functions, with all-uppercase names.  Here&rsquo;s the <a href="../functions/">full list of functions</a>.</p>
 <p>If you&rsquo;ve worked with spreadsheets before, you may be surprised
 that you don&rsquo;t need to specify row numbers, like <code>B1 * C1</code>.
 In Grist, a single formula applies to a whole column.
@@ -216,19 +216,18 @@ keep your document more organized.  And it brings other advantages.
 For example we could switch the formatting of the summary widget
 via the side panel:</p>
 <p><img alt="formulas-widgets-card" src="../images/formulas/formulas-widgets-card.png" /></p>
-<p>If you really want to have a column change its behavior on different rows,
-you can just use a conditional.  For example, here is a replacement for
-the <code>Materials.Price</code> formula that shows a total on a row where the
-product name is not set:</p>
-<pre><code>if $Product:
-  return $Quantity * $Unit_Price
+<h2 id="varying-formula-by-row">Varying formula by row<a class="headerlink" href="#varying-formula-by-row" title="Permanent link">#</a></h2>
+<p>Having a formula apply to all rows is convenient and reduces the changes of mistakes.</p>
+<p>If you need to have a column change its behavior on different rows, it is possible using a
+conditional in the formula. For example, here is a replacement for
+the <code>Materials.Price</code> formula that ignores the price and shows zero for products whose name ends
+in &ldquo;(Sample)&rdquo;:</p>
+<pre><code>if $Product.endswith(&quot;(Sample)&quot;):
+  return 0
 else:
-  return SUM(m.Price for m in Materials.all if m.Product)
+  return $Quantity * $Unit_Price
 </code></pre>
 
-<p>Notice that the sum is limited to rows that have the product name set -
-otherwise the calculation would include itself in the sum and blow up
-(Grist would warn you about a &ldquo;cyclic dependency&rdquo;).</p>
 <h2 id="code-viewer">Code viewer<a class="headerlink" href="#code-viewer" title="Permanent link">#</a></h2>
 <p>Once you have a lot of formulas, or if you have been invited to a document
 and want to get an overview of its formulas, there is a code viewer
@@ -262,9 +261,6 @@ off" src="../images/formulas-sidebar-icon-off.png" />:</p>
 <p>Notice that there is no <code>=</code> sign in the column cells any more, showing that it
 is no longer a formula.  The cells will no longer change if other cells they used
 to depend on change.</p>
-<p>You don&rsquo;t lose your formula by turning it off. The formula itself remains and you can
-turn it back on. If you modified the values in the column, however, they will be
-recalculated by the formula. You can always undo to revert back to the previous state.</p>
 <p>The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
 just as much to formula columns as to regular columns.</p>
@@ -287,7 +283,7 @@ we could use this formula to sort by the product name itself:</p>
 <p>If you want to sort by multiple columns, remember that you can create a hidden
 formula column that combines data in any way you like, and then sort by that.</p>
 <p>The order of records returned by <code>lookupRecords</code> may not match the order of rows
-you see in a table.  To get that order, <code>sort_by='manualSort</code>.  This is an
+you see in a table.  To get that order, use <code>sort_by='manualSort'</code>.  This is an
 internal column that is updated with the manually established sort order
 of rows.</p>
 <p>If you find yourself doing a lot of look-ups, please consider
@@ -308,7 +304,7 @@ makes a variable pointing to the row of the day before.  The second
 line computes the value we want in the cell.  Python note: the value
 of the last line is automatically returned (you could prefix it with
 <code>return</code> if you like).</p>
-<p>Notice the <code>yesterday.cumulative or 0</code> - for the earliest row in the
+<p>Notice the <code>yesterday.cumulative or 0</code>. For the earliest row in the
 table, there will be no yesterday.  In this case, <code>lookupOne</code> returns
 a special empty record, for which <code>yesterday.cumulative</code> will be
 <code>None</code>.</p>
@@ -317,9 +313,9 @@ same lookup in multiple formulas, it would be worth making
 <code>yesterday</code> a <a href="../col-refs/">reference column</a>.  Simply add
 a reference column, and give a formula for it that matches how
 we defined <code>yesterday</code> here.</p>
-<p>To actually enter this formula in a cell, you&rsquo;d use <code>Shift+Enter</code>
+<p>To actually enter this formula in a cell, you&rsquo;d use <code class="keys"><em>Shift</em> + <em>Enter</em></code>
 to divide the lines.  For longer formulas, you may prefer to use
-the side panel, where a simple <code>Enter</code> gives you a new line.
+the side panel, where a simple <code class="keys"><em>Enter</em></code> gives you a new line.
 Click on the column header, select &ldquo;Column Options&rdquo; and edit the
 Formula field.</p>
 
