@@ -1,2 +1,3 @@
-User-agent: *
-Disallow: /
+# Nothing to disallow on the documentation site.
+# User-agent: *
+# Disallow:
