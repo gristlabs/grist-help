@@ -9,5 +9,5 @@ Disallow: /
 EOF
 
 ./env/bin/mkdocs gh-deploy -r preview
-git checkout -- help/CNAME
+git checkout -- help/CNAME help/robots.txt
 echo "Published to https://$(git show preview/gh-pages:CNAME)"
