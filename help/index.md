@@ -60,7 +60,7 @@ learn to organize and analyze scientific data.
 ## Popular shortcuts
 
 - [Function reference](functions.md)
-- [Column type reference](col-types.md)
+- [Keyboard shortcuts](keyboard-shortcuts.md)
 
 
 <!--
