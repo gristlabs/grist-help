@@ -44,7 +44,8 @@ function getHumanKey(key, isMac) {
     if (k.length === 1) { return k.toUpperCase(); }
     return k;
   });
-  return keys.join( isMac ? '' : ' + ');
+  keys = keys.map(k => `*${k}*`);
+  return keys.join(isMac ? ' ' : ' + ');
 }
 
 function dumpKeys(groups) {
@@ -96,7 +97,7 @@ function main() {
   }
 
   // loads commands from grist app source tree.
-  const {groups} = require(path.join(gristAppRoot, 'client/components/commandList'));
+  const {groups} = require(path.join(gristAppRoot, 'app/client/components/commandList'));
 
   let content = '';
   content += dumpKeys(groups);
