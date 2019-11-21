@@ -176,6 +176,7 @@ Choice columns
 This type is for storing one of a set of valid values, where you get to
 specify the available values.
 
+<!-- TODO screenshot needs to be updated -->
 *![Format date](images/columns/columns-format-choice.png)*
 {: .screenshot-half }
 
