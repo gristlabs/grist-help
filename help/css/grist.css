@@ -121,6 +121,11 @@
 .btn-group.wm-vcentered { display: inline-flex; }
 .btn-group.wm-vcentered > .btn.btn-sm { float: none; }
 
+.home-link {
+  font-size: 18px;
+  margin-right: 3rem;
+}
+
 body {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 15px;

@@ -53,6 +53,9 @@ extra:
   version: '1.0.2-dev'
   article_nav_bottom: false
   history_buttons: false
+  home_link:
+    href: https://www.getgrist.com
+    text: 'Grist Home'
 extra_css:
   - css/grist.css
 extra_javascript:

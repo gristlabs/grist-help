@@ -1,11 +1,13 @@
 # Welcome to Grist! {: data-toc-label='' }
 
-Grist is a software product to organize, analyze, and share data.
+[Grist](https://www.getgrist.com) is a software product to organize, analyze, and share data.
 
 Grist combines the best of spreadsheets and databases. Even our name reflects this:
 "Grist" is made of "grid" (as of spreadsheet cells) and "list" (as of database
 records). Of course, real-world problems go beyond simple grids and lists, and
 Grist is at its best when data gets more complex.
+
+To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
 
 To learn Grist, we recommend starting with our How-To tutorials, or our
 Intro videos.

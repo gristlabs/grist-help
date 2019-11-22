@@ -35,6 +35,15 @@
     </div>
     {% endif %}
 
+    {# CHANGED: Add link to product homepage, if extra.home_link.{href,text} property is present #}
+    {% if config.extra.home_link %}
+    <a href="{{ config.extra.home_link.href }}" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+      <div class="wm-top-title">
+        {{ config.extra.home_link.text }}
+      </div>
+    </a>
+    {% endif %}
+
     {# Logo and title #}
     <a href="{{ name }}" class="wm-top-brand wm-top-link wm-vcenter">
       {% if config.extra.logo %}
