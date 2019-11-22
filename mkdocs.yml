@@ -3,7 +3,9 @@ site_dir: site
 site_favicon: images/favicon.png
 docs_dir: './help'
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
-theme: windmill
+theme:
+  name: windmill
+  custom_dir: overrides
 nav:
   - Welcome to Grist: index.md
   - How-To Tutorials:
@@ -50,7 +52,7 @@ extra:
   homepage: '/help'
   version: '1.0.2-dev'
   article_nav_bottom: false
-  history_buttons: true
+  history_buttons: false
 extra_css:
   - css/grist.css
 extra_javascript:
