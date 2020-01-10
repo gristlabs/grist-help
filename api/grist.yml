@@ -428,7 +428,7 @@ paths:
           name: filter
           schema:
             type: string
-            description: JSON-encoded object mapping columns to arrays of allowed values
+            description: "This is a JSON object mapping column names to arrays of allowed values.  For example, to filter column `pet` for values `cat` and `dog`, the filter would be `{\"pet\": [\"cat\", \"dog\"]}`. JSON contains characters that are not safe to place in a URL, so it is important to url-encode them.  For this example, the url-encoding is `%7B%22pet%22%3A%20%5B%22cat%22%2C%20%22dog%22%5D%7D`. See https://rosettacode.org/wiki/URL_encoding for how to url-encode a string, or https://www.urlencoder.org/ to try some examples. Multiple columns can be filtered. For example the filter for `pet` being either `cat` or `dog`, AND `size` being either `tiny` or `outrageously small`, would be `{\"pet\": [\"cat\", \"dog\"], \"size\": [\"tiny\", \"outrageously small\"]}`."
             example: "{\"pet\": [\"cat\", \"dog\"]}"
           required: false
       responses:
