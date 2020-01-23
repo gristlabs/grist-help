@@ -795,19 +795,25 @@ Same as `date.year`.
 Calculates the fraction of the year represented by the number of whole days between two dates.
 
 Basis is the type of day count basis to use.
-  0 (default) - US (NASD) 30/360
-  1   - Actual/actual
-  2   - Actual/360
-  3   - Actual/365
-  4   - European 30/360
+
+  * `0` (default) - US (NASD) 30/360
+  * `1`   - Actual/actual
+  * `2`   - Actual/360
+  * `3`   - Actual/365
+  * `4`   - European 30/360
+  * `-1`  - Actual/actual (Google Sheets variation)
 
 This function is useful for financial calculations. For compatibility with Excel, it defaults to
-using the NASD standard calendar. For use in non-financial settings, option 1 (actual/actual) is
-likely the correct choice.
+using the NASD standard calendar. For use in non-financial settings, option `-1` is
+likely the best choice.
 
-See https://en.wikipedia.org/wiki/360-day_calendar for explanation of
-the US 30/360 and European 30/360 methods. See http://www.dwheeler.com/yearfrac/ for analysis of
+See <https://en.wikipedia.org/wiki/360-day_calendar> for explanation of
+the US 30/360 and European 30/360 methods. See <http://www.dwheeler.com/yearfrac/> for analysis of
 Excel's particular implementation.
+
+Basis `-1` is similar to `1`, but differs from Excel when dates span both leap and non-leap years.
+It matches the calculation in Google Sheets, counting the days in each year as a fraction of
+that year's length.
 
 Fraction of the year between 1/1/2012 and 7/30/12, omitting the Basis argument.
 
@@ -1297,7 +1303,11 @@ False
 </summary>
 Returns one value if a logical expression is `True` and another if it is `False`.
 
-The equivalent Python expression is `value_if_true if logical_expression else value_if_false`.
+The equivalent Python expression is:
+```
+value_if_true if logical_expression else value_if_false
+```
+
 Since Grist supports multi-line formulas, you may also use Python blocks such as:
 ```
 if logical_expression:
@@ -1305,6 +1315,10 @@ if logical_expression:
 else:
   return value_if_false
 ```
+
+NOTE: Grist follows Excel model by only evaluating one of the value expressions, by
+automatically wrapping the expressions to use lazy evaluation. This allows `IF(False, 1/0, 1)`
+to evaluate to `1` rather than raise an exception.
 
 
 ```python
@@ -1326,7 +1340,6 @@ else:
 >>> IF(False, 0.85, 0.0)
 0.0
 ```
-
 </details>
 <details id="iferror"><summary >
 <code>__IFERROR__(value, value_if_error="")</code>
