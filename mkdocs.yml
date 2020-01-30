@@ -25,6 +25,7 @@ nav:
     - Table widget: widget-table.md
     - Card & Card List: widget-card.md
     - Chart: widget-chart.md
+    - Custom: widget-custom.md
     - Linking widgets: linking-widgets.md
     - Custom layouts: custom-layouts.md
     - Summary tables: summary-tables.md
