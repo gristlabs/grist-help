@@ -1,5 +1,10 @@
 # Page widget: Custom
 
+!!! warning "Custom widgets are an experimental feature"
+    The design of custom widgets is likely to change.  For example,
+    configuration options may be added or removed, and the API for
+    communicating with the document may be replaced entirely.
+
 The **Custom** widget allows an advanced user to insert almost
 anything in their document.  To use it currently requires knowledge of
 web development, and access to a public web server (for example,
@@ -24,15 +29,14 @@ including the following:
 <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
 ```
 
-This makes a `grist` javascript object available.  To initialize it,
-and get access to the Grist document, call:
+This makes a global `grist` javascript object available.  To
+initialize it, and get access to the Grist document, call:
 
 ```
 grist.ready();
-var api = grist.rpc.getStub("GristDocAPI@grist", grist.checkers.GristDocAPI);
 ```
 
-The `api` object supports the following methods:
+You can now call the following methods on `grist.docApi`:
 
  * `listTables`: returns a promise for a list of strings, containing the
    ids of every table in the document.
