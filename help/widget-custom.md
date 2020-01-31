@@ -38,8 +38,7 @@ grist.ready();
 
 You can now call the following methods on `grist.docApi`:
 
- * `listTables`: returns a promise for a list of strings, containing the
+ * `grist.docApi.listTables()`: returns a promise for a list of strings, containing the
    ids of every table in the document.
- * `fetchTable(tableId)`: returns a promise for the contents of the specified
+ * `grist.docApi.fetchTable(tableId)`: returns a promise for the contents of the specified
    table, in the same format as the [REST API](https://support.getgrist.com/#api-docs.html#tag/docs/paths/~1docs~1{docId}~1tables~1{tableId}~1data/get).
-
