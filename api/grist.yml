@@ -522,7 +522,31 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RowIds"
-
+  /docs/{docId}/attach:
+    post:
+      tags:
+        - docs
+      summary: "Upload attachments to a doc"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      requestBody:
+        description: "the files to add to the doc"
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/AttachmentUpload"
+        required: true
+      responses:
+        200:
+          description: IDs of attachments added, one per file.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RowIds"
 
 tags:
   - name: orgs
@@ -843,3 +867,10 @@ components:
       $ref: "#/components/schemas/WorkspaceAccessWrite"
     DocAccessRead:
       $ref: "#/components/schemas/WorkspaceAccessRead"
+    AttachmentUpload:
+      type: object
+      properties:
+        upload:
+          type: array
+          items:
+            type: File
