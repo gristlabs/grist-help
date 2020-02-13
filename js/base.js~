@@ -1,6 +1,5 @@
 /* global window, document, $, hljs, elasticlunr, base_url, is_top_frame */
 /* exported getParam, onIframeLoad */
-/* COPY OF js/base.js FROM mkdocs_windmill; changes marked with "CHANGED" comments */
 "use strict";
 
 // The full page consists of a main window with navigation and table of contents, and an inner
@@ -342,7 +341,6 @@ if (!mainWindow) {
     window.location.href = topUrl;
   }
 } else {
-  /* CHANGED - removed initial adjustment of links */
   // Adjust links on click.
   $(document).on('click', 'a:not([data-wm-adjusted])', function(e) { adjustLink(this); });
 }
