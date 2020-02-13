@@ -18,7 +18,7 @@ standard library](https://docs.python.org/2/library/) is available.
 | --- | --- |
 | Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
 | Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
-| Info | <a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a class="unimplemented" href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a class="unimplemented" href="#type">TYPE</a> |
+| Info | <a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a class="unimplemented" href="#type">TYPE</a> |
 | Logical | <a  href="#and">AND</a>, <a  href="#false">FALSE</a>, <a  href="#if">IF</a>, <a  href="#iferror">IFERROR</a>, <a  href="#not">NOT</a>, <a  href="#or">OR</a>, <a  href="#true">TRUE</a> |
 | Lookup | <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#vlookup">VLOOKUP</a> |
 | Math | <a  href="#abs">ABS</a>, <a  href="#acos">ACOS</a>, <a  href="#acosh">ACOSH</a>, <a  href="#arabic">ARABIC</a>, <a  href="#asin">ASIN</a>, <a  href="#asinh">ASINH</a>, <a  href="#atan">ATAN</a>, <a  href="#atan2">ATAN2</a>, <a  href="#atanh">ATANH</a>, <a  href="#ceiling">CEILING</a>, <a  href="#combin">COMBIN</a>, <a  href="#cos">COS</a>, <a  href="#cosh">COSH</a>, <a  href="#degrees">DEGREES</a>, <a  href="#even">EVEN</a>, <a  href="#exp">EXP</a>, <a  href="#fact">FACT</a>, <a  href="#factdouble">FACTDOUBLE</a>, <a  href="#floor">FLOOR</a>, <a  href="#gcd">GCD</a>, <a  href="#int">INT</a>, <a  href="#lcm">LCM</a>, <a  href="#ln">LN</a>, <a  href="#log">LOG</a>, <a  href="#log10">LOG10</a>, <a  href="#mod">MOD</a>, <a  href="#mround">MROUND</a>, <a  href="#multinomial">MULTINOMIAL</a>, <a  href="#odd">ODD</a>, <a  href="#pi">PI</a>, <a  href="#power">POWER</a>, <a  href="#product">PRODUCT</a>, <a  href="#quotient">QUOTIENT</a>, <a  href="#radians">RADIANS</a>, <a  href="#rand">RAND</a>, <a  href="#randbetween">RANDBETWEEN</a>, <a  href="#roman">ROMAN</a>, <a  href="#round">ROUND</a>, <a  href="#rounddown">ROUNDDOWN</a>, <a  href="#roundup">ROUNDUP</a>, <a  href="#seriessum">SERIESSUM</a>, <a  href="#sign">SIGN</a>, <a  href="#sin">SIN</a>, <a  href="#sinh">SINH</a>, <a  href="#sqrt">SQRT</a>, <a  href="#sqrtpi">SQRTPI</a>, <a class="unimplemented" href="#subtotal">SUBTOTAL</a>, <a  href="#sum">SUM</a>, <a class="unimplemented" href="#sumif">SUMIF</a>, <a class="unimplemented" href="#sumifs">SUMIFS</a>, <a  href="#sumproduct">SUMPRODUCT</a>, <a class="unimplemented" href="#sumsq">SUMSQ</a>, <a  href="#tan">TAN</a>, <a  href="#tanh">TANH</a>, <a  href="#trunc">TRUNC</a> |
@@ -795,19 +795,25 @@ Same as `date.year`.
 Calculates the fraction of the year represented by the number of whole days between two dates.
 
 Basis is the type of day count basis to use.
-  0 (default) - US (NASD) 30/360
-  1   - Actual/actual
-  2   - Actual/360
-  3   - Actual/365
-  4   - European 30/360
+
+  * `0` (default) - US (NASD) 30/360
+  * `1`   - Actual/actual
+  * `2`   - Actual/360
+  * `3`   - Actual/365
+  * `4`   - European 30/360
+  * `-1`  - Actual/actual (Google Sheets variation)
 
 This function is useful for financial calculations. For compatibility with Excel, it defaults to
-using the NASD standard calendar. For use in non-financial settings, option 1 (actual/actual) is
-likely the correct choice.
+using the NASD standard calendar. For use in non-financial settings, option `-1` is
+likely the best choice.
 
-See https://en.wikipedia.org/wiki/360-day_calendar for explanation of
-the US 30/360 and European 30/360 methods. See http://www.dwheeler.com/yearfrac/ for analysis of
+See <https://en.wikipedia.org/wiki/360-day_calendar> for explanation of
+the US 30/360 and European 30/360 methods. See <http://www.dwheeler.com/yearfrac/> for analysis of
 Excel's particular implementation.
+
+Basis `-1` is similar to `1`, but differs from Excel when dates span both leap and non-leap years.
+It matches the calculation in Google Sheets, counting the days in each year as a fraction of
+that year's length.
 
 Fraction of the year between 1/1/2012 and 7/30/12, omitting the Basis argument.
 
@@ -883,13 +889,17 @@ False
 False
 ```
 </details>
-<details id="iserr"><summary class="unimplemented">
+<details id="iserr"><summary >
 <code>__ISERR__(value)</code>
 <a class="headerlink" href="#iserr" title="Permanent link">#</a>
 #### ISERR
 </summary>
-Checks whether a value is an error other than an invalid value. It isn't implemented in Grist.
-To check if a cell had an error, use
+Checks whether a value is an error. In other words, it returns true
+if using `value` directly would raise an exception.
+
+NOTE: Grist implements this by automatically wrapping the argument to use lazy evaluation.
+
+A more Pythonic approach to checking for errors is:
 ```
 try:
   ... value ...
@@ -897,21 +907,28 @@ except Exception, err:
   ... do something about the error ...
 ```
 
-<span class="grist-tip">Note</span>This function is not currently implemented in Grist.
+For example:
+
+
+```python
+>>> ISERR("Hello")
+False
+```
 </details>
 <details id="iserror"><summary >
 <code>__ISERROR__(value)</code>
 <a class="headerlink" href="#iserror" title="Permanent link">#</a>
 #### ISERROR
 </summary>
-Checks whether a value is an error or an invalid value. It currently only returns True for
-invalid values, False for valid ones. Errors that cause an exception have to be dealt with using
-`try...except` (see also `ISERR`).
+Checks whether a value is an error or an invalid value. It is similar to `ISERR`, but also
+returns true for an invalid value such as NaN or a text value in a Numeric column.
+
+NOTE: Grist implements this by automatically wrapping the argument to use lazy evaluation.
 
 
 ```python
->>> ISERROR(AltText(""))
-True
+>>> ISERROR("Hello")
+False
 ```
 
 ```python
@@ -923,12 +940,6 @@ True
 >>> ISERROR(float('nan'))
 True
 ```
-
-```python
->>> [ISERROR(v) for v in [0, None, "", "Test", 17.0]]
-[False, False, False, False, False]
-```
-
 </details>
 <details id="islogical"><summary >
 <code>__ISLOGICAL__(value)</code>
@@ -1297,7 +1308,11 @@ False
 </summary>
 Returns one value if a logical expression is `True` and another if it is `False`.
 
-The equivalent Python expression is `value_if_true if logical_expression else value_if_false`.
+The equivalent Python expression is:
+```
+value_if_true if logical_expression else value_if_false
+```
+
 Since Grist supports multi-line formulas, you may also use Python blocks such as:
 ```
 if logical_expression:
@@ -1305,6 +1320,10 @@ if logical_expression:
 else:
   return value_if_false
 ```
+
+NOTE: Grist follows Excel model by only evaluating one of the value expressions, by
+automatically wrapping the expressions to use lazy evaluation. This allows `IF(False, 1/0, 1)`
+to evaluate to `1` rather than raise an exception.
 
 
 ```python
@@ -1326,7 +1345,6 @@ else:
 >>> IF(False, 0.85, 0.0)
 0.0
 ```
-
 </details>
 <details id="iferror"><summary >
 <code>__IFERROR__(value, value_if_error="")</code>
@@ -1335,6 +1353,8 @@ else:
 </summary>
 Returns the first argument if it is not an error value, otherwise returns the second argument if
 present, or a blank if the second argument is absent.
+
+NOTE: Grist handles values that raise an exception by wrapping them to use lazy evaluation.
 
 
 ```python
@@ -1356,7 +1376,6 @@ present, or a blank if the second argument is absent.
 >>> IFERROR(AltText("hello"))
 ''
 ```
-
 </details>
 <details id="not"><summary >
 <code>__NOT__(logical_expression)</code>
