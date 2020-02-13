@@ -121,7 +121,6 @@ paths:
     post:
       tags:
         - workspaces
-        - orgs
       summary: "Create an empty workspace"
       parameters:
         - in: path
@@ -168,7 +167,6 @@ paths:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
     post:
       tags:
-        - workspaces
         - docs
       summary: "Create an empty document"
       parameters:
@@ -410,7 +408,7 @@ paths:
   /docs/{docId}/tables/{tableId}/data:
     get:
       tags:
-        - docs
+        - Data Tables
       summary: "Fetch data from a table"
       parameters:
         - in: path
@@ -464,7 +462,7 @@ paths:
                 $ref: "#/components/schemas/Data"
     post:
       tags:
-        - docs
+        - Data Tables
       summary: "Add rows to a table"
       parameters:
         - in: path
@@ -494,7 +492,7 @@ paths:
                 $ref: "#/components/schemas/RowIds"
     patch:
       tags:
-        - docs
+        - Data Tables
       summary: "Modify rows of a table"
       parameters:
         - in: path
@@ -522,10 +520,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RowIds"
-  /docs/{docId}/attach:
+  /docs/{docId}/attachments:
     post:
       tags:
-        - docs
+        - Attachments
       summary: "Upload attachments to a doc"
       parameters:
         - in: path
@@ -547,6 +545,48 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RowIds"
+  /docs/{docId}/attachments/{attachmentId}:
+    get:
+      tags:
+        - Attachments
+      summary: "Get the metadata for an attachment"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: attachmentId
+          schema:
+            $ref: '#/components/schemas/AttachmentId'
+          required: true
+      responses:
+        200:
+          description: Attachment metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AttachmentMetadata"
+  /docs/{docId}/attachments/{attachmentId}/download:
+    get:
+      tags:
+        - Attachments
+      summary: "Download the contents of an attachment"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: attachmentId
+          schema:
+            $ref: '#/components/schemas/AttachmentId'
+          required: true
+      responses:
+        200:
+          description: Attachment contents, with suitable Content-Type.
 
 tags:
   - name: orgs
@@ -555,6 +595,10 @@ tags:
     description: "Sites can be organized into groups of documents called workspaces."
   - name: docs
     description: "Workspaces contain collections of Grist documents."
+  - name: Data Tables
+    description: "Documents contains tables with records of data."
+  - name: Attachments
+    description: "Documents may include attached files. Data records can refer to these using a column of type `Attachments`."
 components:
   securitySchemes:
     API Key:
@@ -874,3 +918,18 @@ components:
           type: array
           items:
             type: File
+    AttachmentId:
+      type: number
+      description: An integer ID
+    AttachmentMetadata:
+      type: object
+      properties:
+        fileName:
+          type: string
+          example: "logo.png"
+        fileSize:
+          type: number
+          example: 12345
+        timeUploaded:
+          type: string
+          example: "2020-02-13T12:17:19.000Z"
