@@ -122,7 +122,7 @@ standard library</a> is available.</p>
 </tr>
 <tr>
 <td>Info</td>
-<td><a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a class="unimplemented" href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a class="unimplemented" href="#type">TYPE</a></td>
+<td><a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a class="unimplemented" href="#type">TYPE</a></td>
 </tr>
 <tr>
 <td>Logical</td>
@@ -792,18 +792,24 @@ Same as <code>date.year</code>.</p>
 <h4 id="yearfrac">YEARFRAC<a class="headerlink" href="#yearfrac" title="Permanent link">#</a></h4>
 <p></summary>
 Calculates the fraction of the year represented by the number of whole days between two dates.</p>
-<p>Basis is the type of day count basis to use.
-  0 (default) - US (NASD) 30/360
-  1   - Actual/actual
-  2   - Actual/360
-  3   - Actual/365
-  4   - European 30/360</p>
+<p>Basis is the type of day count basis to use.</p>
+<ul>
+<li><code>0</code> (default) - US (NASD) 30/360</li>
+<li><code>1</code>   - Actual/actual</li>
+<li><code>2</code>   - Actual/360</li>
+<li><code>3</code>   - Actual/365</li>
+<li><code>4</code>   - European 30/360</li>
+<li><code>-1</code>  - Actual/actual (Google Sheets variation)</li>
+</ul>
 <p>This function is useful for financial calculations. For compatibility with Excel, it defaults to
-using the NASD standard calendar. For use in non-financial settings, option 1 (actual/actual) is
-likely the correct choice.</p>
-<p>See https://en.wikipedia.org/wiki/360-day_calendar for explanation of
-the US 30/360 and European 30/360 methods. See http://www.dwheeler.com/yearfrac/ for analysis of
+using the NASD standard calendar. For use in non-financial settings, option <code>-1</code> is
+likely the best choice.</p>
+<p>See <a href="https://en.wikipedia.org/wiki/360-day_calendar">https://en.wikipedia.org/wiki/360-day_calendar</a> for explanation of
+the US 30/360 and European 30/360 methods. See <a href="http://www.dwheeler.com/yearfrac/">http://www.dwheeler.com/yearfrac/</a> for analysis of
 Excel&rsquo;s particular implementation.</p>
+<p>Basis <code>-1</code> is similar to <code>1</code>, but differs from Excel when dates span both leap and non-leap years.
+It matches the calculation in Google Sheets, counting the days in each year as a fraction of
+that year&rsquo;s length.</p>
 <p>Fraction of the year between 1/1/2012 and 7/30/12, omitting the Basis argument.</p>
 <pre><code class="python">&gt;&gt;&gt; &quot;%.8f&quot; % YEARFRAC(DATE(2012, 1, 1), DATE(2012, 7, 30))
 '0.58055556'
@@ -866,31 +872,37 @@ False
 </code></pre>
 
 <p></details>
-<details id="iserr"><summary class="unimplemented">
+<details id="iserr"><summary >
 <code><strong>ISERR</strong>(value)</code>
 <a class="headerlink" href="#iserr" title="Permanent link">#</a></p>
 <h4 id="iserr">ISERR<a class="headerlink" href="#iserr" title="Permanent link">#</a></h4>
 <p></summary>
-Checks whether a value is an error other than an invalid value. It isn&rsquo;t implemented in Grist.
-To check if a cell had an error, use</p>
+Checks whether a value is an error. In other words, it returns true
+if using <code>value</code> directly would raise an exception.</p>
+<p>NOTE: Grist implements this by automatically wrapping the argument to use lazy evaluation.</p>
+<p>A more Pythonic approach to checking for errors is:</p>
 <pre><code>try:
   ... value ...
 except Exception, err:
   ... do something about the error ...
 </code></pre>
 
-<p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
-</details>
+<p>For example:</p>
+<pre><code class="python">&gt;&gt;&gt; ISERR(&quot;Hello&quot;)
+False
+</code></pre>
+
+<p></details>
 <details id="iserror"><summary >
 <code><strong>ISERROR</strong>(value)</code>
 <a class="headerlink" href="#iserror" title="Permanent link">#</a></p>
 <h4 id="iserror">ISERROR<a class="headerlink" href="#iserror" title="Permanent link">#</a></h4>
 <p></summary>
-Checks whether a value is an error or an invalid value. It currently only returns True for
-invalid values, False for valid ones. Errors that cause an exception have to be dealt with using
-<code>try...except</code> (see also <code>ISERR</code>).</p>
-<pre><code class="python">&gt;&gt;&gt; ISERROR(AltText(&quot;&quot;))
-True
+Checks whether a value is an error or an invalid value. It is similar to <code>ISERR</code>, but also
+returns true for an invalid value such as NaN or a text value in a Numeric column.</p>
+<p>NOTE: Grist implements this by automatically wrapping the argument to use lazy evaluation.</p>
+<pre><code class="python">&gt;&gt;&gt; ISERROR(&quot;Hello&quot;)
+False
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; ISERROR(AltText(&quot;fail&quot;))
@@ -899,10 +911,6 @@ True
 
 <pre><code class="python">&gt;&gt;&gt; ISERROR(float('nan'))
 True
-</code></pre>
-
-<pre><code class="python">&gt;&gt;&gt; [ISERROR(v) for v in [0, None, &quot;&quot;, &quot;Test&quot;, 17.0]]
-[False, False, False, False, False]
 </code></pre>
 
 <p></details>
@@ -1201,14 +1209,20 @@ False
 <h4 id="if">IF<a class="headerlink" href="#if" title="Permanent link">#</a></h4>
 <p></summary>
 Returns one value if a logical expression is <code>True</code> and another if it is <code>False</code>.</p>
-<p>The equivalent Python expression is <code>value_if_true if logical_expression else value_if_false</code>.
-Since Grist supports multi-line formulas, you may also use Python blocks such as:</p>
+<p>The equivalent Python expression is:</p>
+<pre><code>value_if_true if logical_expression else value_if_false
+</code></pre>
+
+<p>Since Grist supports multi-line formulas, you may also use Python blocks such as:</p>
 <pre><code>if logical_expression:
   return value_if_true
 else:
   return value_if_false
 </code></pre>
 
+<p>NOTE: Grist follows Excel model by only evaluating one of the value expressions, by
+automatically wrapping the expressions to use lazy evaluation. This allows <code>IF(False, 1/0, 1)</code>
+to evaluate to <code>1</code> rather than raise an exception.</p>
 <pre><code class="python">&gt;&gt;&gt; IF(12, &quot;Yes&quot;, &quot;No&quot;)
 'Yes'
 </code></pre>
@@ -1233,6 +1247,7 @@ else:
 <p></summary>
 Returns the first argument if it is not an error value, otherwise returns the second argument if
 present, or a blank if the second argument is absent.</p>
+<p>NOTE: Grist handles values that raise an exception by wrapping them to use lazy evaluation.</p>
 <pre><code class="python">&gt;&gt;&gt; IFERROR(float('nan'), &quot;**NAN**&quot;)
 '**NAN**'
 </code></pre>

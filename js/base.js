@@ -270,8 +270,10 @@ function onIframeBeforeLoad(url) {
 }
 
 function getTocLi(url) {
-  var relPath = getAbsUrl('#', getRelPath('/', cleanUrlPath(url)));
-  var selector = '.wm-article-link[href="' + relPath + '"]';
+  var relPath = getRelPath('/', cleanUrlPath(url));
+  var absUrl = getAbsUrl('#', relPath);
+  /* CHANGED - match both original and adjusted link */
+  var selector = '.wm-article-link[href="' + absUrl + '"],.wm-article-link[href="' + relPath + '"]';
   return $(selector).closest('.wm-toc-li');
 }
 
