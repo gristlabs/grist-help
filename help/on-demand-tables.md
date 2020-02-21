@@ -75,9 +75,9 @@ setting yourself up for sadness.  Remember, like any edit of an
 On-Demand table, when you add or change a formula column you'll
 generally need to reload to see cell values updated.
 
-Converting a column to be a reference makes use of formulas
-in its implementation, so it is simpler if you get this set up
-before converting to On-Demand.
+Some type conversions, such as converting a column to be a reference,
+are not effective for On-Demand tables.  So it is important to perform
+such conversions before making a table On-Demand.
 
-From formulas in regular tables, you can't currently access the
-content of on-demand tables.
+From formulas in regular tables, you cannot access the content of
+on-demand tables.
