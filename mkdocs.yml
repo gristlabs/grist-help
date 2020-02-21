@@ -29,6 +29,7 @@ nav:
     - Linking widgets: linking-widgets.md
     - Custom layouts: custom-layouts.md
     - Summary tables: summary-tables.md
+    - On-Demand tables: on-demand-tables.md
   - Columns and data types:
     - Columns & types: col-types.md
     - Reference columns: col-refs.md
