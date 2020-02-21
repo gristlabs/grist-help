@@ -41,6 +41,7 @@ nav:
     - API usage: rest-api.md
     - API reference: api-docs.html
   - Shortcuts: keyboard-shortcuts.md
+  - Limits: limits.md
 
 extra:
   logo: 'images/logo.png'
