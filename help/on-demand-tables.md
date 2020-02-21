@@ -14,14 +14,39 @@ large and regular tables become slow.
 
 When a table is marked "On-Demand":
 
-  - The table remains available for viewing and editing.
-  - Data in the table will not be available for use in formulas.
-  
+  - Data in the table will not generally be available for use in formulas.
+  - The table remains available for viewing and editing, but with
+    caveats.
+
+Here's what you need to know about viewing data:
+
+  - Viewing is limited to 10000 rows at a time.
+  - Subsets of the table's rows can be selected by
+    [linking widgets](linking-widgets.md), as for regular tables.
+  - You can expect good performance of linked widgets when the
+    subset of the table's rows is less than 10000 rows, even if the
+    full table is much larger.
+
+Here's what you need to know about editing data:
+
+  - You can edit data as normal in an On-Demand table.
+  - Automatic updates of anything that depends on that data simply
+    won't happen.
+  - After edits, you need to reload the webpage to see everything
+    updated.
+
+Here are some reasons you might make a table On-Demand:
+
+  - You want to make summaries and charts of slices of a large
+    dataset using [linked widgets](linking-widgets.md).
+  - You are storing a lot of data in the table, and all you need to
+    do with it is read parts of it back out via the API.
+
 ## Make an On-Demand Table
 
-To make a table as "On Demand", open the right panel, pick the "Table" panel,
-and the "Data" section.  Click on "Advanced Settings" and you should see a
-"Make On-Demand" button.
+To convert a table to be an "On Demand" table, open the right panel,
+pick the "Table" panel, and the "Data" section.  Click on "Advanced
+Settings" and you should see a "Make On-Demand" button.
 
 ![on-demand-button](images/on-demand/on-demand-button.png)
 
@@ -43,10 +68,16 @@ if you're careful you can use the following very simple formulas:
  * `$reference.column` - where `reference` is a [reference column](col-refs.md),
    and `column` is not itself a formula.
 
-Watch out: the content of cells in a formula column is not live for
-on-demand tables - you need to reload the document to update it.
+This formula support is enough to unlock Grist's [linking
+widgets](linking-widgets.md) feature, which is why it is present.  In
+general, if you try using formulas and On-Demand tables, you are
+setting yourself up for sadness.  Remember, like any edit of an
+On-Demand table, when you add or change a formula column you'll
+generally need to reload to see cell values updated.
 
-This formula support is enough to allow [linking widgets](linking-widgets.md).
+Converting a column to be a reference makes use of formulas
+in its implementation, so it is simpler if you get this set up
+before converting to On-Demand.
 
 From formulas in regular tables, you can't currently access the
 content of on-demand tables.
