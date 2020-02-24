@@ -91,7 +91,7 @@ If you have many charts, you can just lay them out in a grid to create a top-lev
 ![widget_chart_examples](images/widget_chart_examples.png)
 
 For dynamic charts in which data is selected by another table, a layout like
-[List-and-detail](#list-and-detail) above would work well. One tip is to include both a Table
+[List-and-detail](#layout-list-and-detail) above would work well. One tip is to include both a Table
 widget and a Chart widget, configured and linked the same way, and differing only in the widget
 type:
 
