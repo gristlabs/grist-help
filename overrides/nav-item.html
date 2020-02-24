@@ -1,0 +1,42 @@
+<li class="wm-toc-li wm-toc-lev{{ navlevel }} {% if nav_item.children %}wm-toc-opener{% endif %}
+      {%- if nav_item.url == page.url %} wm-current wm-page-toc-opener wm-page-toc-open{% endif -%}">
+  {%- if nav_item.url or nav_item.is_page or nav_item.is_link or nav_item.url -%}
+    <a href="{{ nav_item.url }}" class="wm-article-link wm-toc-text">{{ nav_item.title }}</a>
+
+    {% if page and nav_item.url == page.url %}
+    {# Render the table-of-contents of sections inside the current page #}
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        {% for item in page.toc %}
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="{{ page.url }}{{ '#_top' if loop.first else item.url }}">
+              {{ item.title }}
+            </a>
+          </li>
+          {%- for item in item.children %}
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="{{ page.url }}{{ item.url }}">
+                {{ item.title }}
+              </a>
+            </li>
+          {%- endfor %}
+        {% endfor %}
+      </ul>
+    </li>
+    {% endif %}
+  {%- else -%}
+    <span class="wm-toc-text">{{ nav_item.title }}</span>
+  {%- endif %}
+</li>
+
+{%- if nav_item.children %}
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+    {%- set navlevel = navlevel + 1%}
+    {%- for nav_item in nav_item.children %}
+      {% include 'nav-item.html' %}
+    {%- endfor %}
+    {%- set navlevel = navlevel - 1%}
+  </ul>
+</li>
+{% endif %}
