@@ -6,7 +6,8 @@ mind, here is a list of limitations that apply to its operation.
 ## Number of documents
 
 The number of documents is limited to 10 in free plans.
-Paid plans do not limit the number of documents.
+Paid plans allow up to 1000 documents per user, which may
+be increased via a support request.
 
 ## Number of collaborators
 
@@ -35,7 +36,7 @@ some seconds.  Please bear this in mind when using Grist's API.
 
 Separately, if 10 authorized API requests are currently being
 processed for a particular document, any other API requests will be
-rejected with a 429 until at least one of the original requests
+rejected (with HTTP status code 429) until at least one of the original requests
 completes.  A client that waits for one request to complete
 before sending the next would not hit this limit (assuming it is
 the sole client accessing the document).
