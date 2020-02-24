@@ -40,7 +40,12 @@ nav:
     - Function reference: functions.md
   - API:
     - API usage: rest-api.md
-    - API reference: api-docs.html
+    - Authentication: api/#section/Authentication
+    - Orgs: api/#tag/orgs
+    - Workspaces: api/#tag/workspaces
+    - Docs: api/#tag/docs
+    - Data Tables: api/#tag/Data-Tables
+    - Attachments: api/#tag/Attachments
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
 
