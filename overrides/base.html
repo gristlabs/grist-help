@@ -3,7 +3,6 @@
 <head>
   {% set is_top = (page and page.is_homepage) and not force_plain_page %}
   {% set base_url = base_url or "." %}
-  <base href="{{ base_url }}">
 
   {%- block site_meta %}
     <meta charset="utf-8">
