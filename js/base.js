@@ -1,19 +1,8 @@
 /* global window, document, $, hljs, elasticlunr, base_url, is_top_frame */
-/* exported getParam, onIframeLoad */
+/* exported getParam */
 /* COPY OF js/base.js FROM mkdocs_windmill; changes marked with "CHANGED" comments */
 "use strict";
 
-// The full page consists of a main window with navigation and table of contents, and an inner
-// iframe containing the current article. Which article is shown is determined by the main
-// window's #hash portion of the URL. In fact, we use the simple rule: main window's URL of
-// "rootUrl#relPath" corresponds to iframe's URL of "rootUrl/relPath".
-//
-// The main frame and the contents of the index page actually live in a single generated html
-// file: the outer frame hides one half, and the inner hides the other. TODO: this should be
-// possible to greatly simplify after mkdocs-1.0 release.
-
-var mainWindow = is_top_frame ? window : (window.parent !== window ? window.parent : null);
-var iframeWindow = null;
 var rootUrl = qualifyUrl(base_url);
 var searchIndex = null;
 var showPageToc = true;
@@ -54,49 +43,6 @@ function getRelPath(separator, absUrl) {
 }
 
 /**
- * Turns a relative path to absolute, adding a prefix of rootUrl + separator.
- */
-function getAbsUrl(separator, relPath) {
-  var sep = endsWith(rootUrl, separator) ? '' : separator;
-  return relPath === null ? null : rootUrl + sep + relPath;
-}
-
-/**
- * Redirects the iframe to reflect the path represented by the main window's current URL.
- * (In our design, nothing should change iframe's src except via updateIframe(), or back/forward
- * history is likely to get messed up.)
- */
-function updateIframe(enableForwardNav) {
-  // Grey out the "forward" button if we don't expect 'forward' to work.
-  $('#hist-fwd').toggleClass('greybtn', !enableForwardNav);
-
-  var targetRelPath = getRelPath('#', mainWindow.location.href) || '';
-  var targetIframeUrl = getAbsUrl('/', targetRelPath);
-  var loc = iframeWindow.location;
-  var currentIframeUrl = _safeGetLocationHref(loc);
-
-  console.log("updateIframe: %s -> %s (%s)", currentIframeUrl, targetIframeUrl,
-    currentIframeUrl === targetIframeUrl ? "same" : "replacing");
-
-  if (currentIframeUrl !== targetIframeUrl) {
-    loc.replace(targetIframeUrl);
-    onIframeBeforeLoad(targetIframeUrl);
-  }
-  document.body.scrollTop = 0;
-}
-
-/**
- * Returns location.href, catching exception that's triggered if the iframe is on a different domain.
- */
-function _safeGetLocationHref(location) {
-  try {
-    return location.href;
-  } catch (e) {
-    return null;
-  }
-}
-
-/**
  * Returns the value of the given parameter in the URL's query portion.
  */
 function getParam(key) {
@@ -124,66 +70,12 @@ function updateTocButtonState() {
 }
 
 /**
- * Update the height of the iframe container. On small screens, we adjust it to fit the iframe
- * contents, so that the page scrolls as a whole rather than inside the iframe.
- */
-function updateContentHeight() {
-  if (isSmallScreen()) {
-    $('.wm-content-pane').height(iframeWindow.document.body.offsetHeight + 20);
-    $('.wm-article').attr('scrolling', 'no');
-  } else {
-    $('.wm-content-pane').height('');
-    $('.wm-article').attr('scrolling', 'auto');
-  }
-}
-
-/**
  * When TOC is a dropdown (on small screens), close it.
  */
 function closeTempItems() {
   $('.wm-toc-dropdown').removeClass('wm-toc-dropdown');
   $('#mkdocs-search-query').closest('.wm-top-tool').removeClass('wm-top-tool-expanded');
   updateTocButtonState();
-}
-
-/**
- * Visit the given URL. This changes the hash of the top page to reflect the new URL's relative
- * path, and points the iframe to the new URL.
- */
-function visitUrl(url, event) {
-  var relPath = getRelPath('/', url);
-  if (relPath !== null) {
-    event.preventDefault();
-    var newUrl = getAbsUrl('#', relPath);
-    if (newUrl !== mainWindow.location.href) {
-      mainWindow.history.pushState(null, '', newUrl);
-      updateIframe(false);
-    }
-    closeTempItems();
-    iframeWindow.focus();
-  }
-}
-
-/**
- * Adjusts link to point to a top page, converting URL from "base/path" to "base#path". It also
- * sets a data-adjusted attribute on the link, to skip adjustments on future clicks.
- */
-function adjustLink(linkEl) {
-  if (!linkEl.hasAttribute('data-wm-adjusted')) {
-    linkEl.setAttribute('data-wm-adjusted', 'done');
-    var relPath = getRelPath('/', linkEl.href);
-    if (relPath !== null) {
-      var newUrl = getAbsUrl('#', relPath);
-      linkEl.href = newUrl;
-    }
-  }
-}
-
-/**
- * Given a URL, strips query and fragment, returning just the path.
- */
-function cleanUrlPath(relUrl) {
-  return relUrl.replace(/[#?].*/, '');
 }
 
 /**
@@ -207,7 +99,6 @@ function initMainWindow() {
   updateTocButtonState();
   $(window).on('resize', function() {
     updateTocButtonState();
-    updateContentHeight();
   });
 
   // Connect up the Back and Forward buttons (if present).
@@ -228,148 +119,22 @@ function initMainWindow() {
     showPageToc = !showPageToc;
     $(this).toggleClass('wm-page-toc-open', showPageToc);
     $(this).next('.wm-page-toc').collapse(showPageToc ? 'show' : 'hide');
+    return false;
   });
-
-  // Once the article loads in the side-pane, close the dropdown.
-  $('.wm-article').on('load', function() {
-    document.title = iframeWindow.document.title;
-    updateContentHeight();
-
-    // We want to update content height whenever the height of the iframe's content changes.
-    // Using MutationObserver seems to be the best way to do that.
-    var observer = new MutationObserver(updateContentHeight);
-    observer.observe(iframeWindow.document.body, {
-      attributes: true,
-      childList: true,
-      characterData: true,
-      subtree: true
-    });
-
-    iframeWindow.focus();
-  });
+  $('.wm-page-toc').on('click', closeTempItems);
 
   // Initialize search functionality.
   initSearch();
-
-  // Load the iframe now, and whenever we navigate the top frame.
-  setTimeout(function() { updateIframe(false); }, 0);
-  // For our usage, 'popstate' or 'hashchange' would work, but only 'hashchange' work on IE.
-  $(window).on('hashchange', function() { updateIframe(true); });
 }
 
-function onIframeBeforeLoad(url) {
-  $('.wm-current').removeClass('wm-current');
-  closeTempItems();
+// Other initialization of iframe contents.
+hljs.initHighlightingOnLoad();
 
-  var tocLi = getTocLi(url);
-  tocLi.addClass('wm-current');
-  tocLi.parents('.wm-toc-li-nested')
-    // It's better to open parent items immediately without a transition.
-    .removeClass('collapsing').addClass('collapse in').height('')
-    .prev('.wm-toc-opener').addClass('wm-toc-open');
-}
-
-function getTocLi(url) {
-  var relPath = getRelPath('/', cleanUrlPath(url));
-  var absUrl = getAbsUrl('#', relPath);
-  /* CHANGED - match both original and adjusted link */
-  var selector = '.wm-article-link[href="' + absUrl + '"],.wm-article-link[href="' + relPath + '"]';
-  return $(selector).closest('.wm-toc-li');
-}
-
-var _deferIframeLoad = false;
-
-// Sometimes iframe is loaded before main window's ready callback. In this case, we defer
-// onIframeLoad call until the main window has initialized.
-function ensureIframeLoaded() {
-  if (_deferIframeLoad) {
-    onIframeLoad();
-  }
-}
-
-function onIframeLoad() {
-  if (!iframeWindow) { _deferIframeLoad = true; return; }
-  var url = iframeWindow.location.href;
-  onIframeBeforeLoad(url);
-
-  if (iframeWindow.pageToc) {
-    var relPath = getAbsUrl('#', getRelPath('/', cleanUrlPath(url)));
-    renderPageToc(getTocLi(url), relPath, iframeWindow.pageToc);
-  }
-  iframeWindow.focus();
-}
-
-/**
- * Hides a bootstrap collapsible element, and removes it from DOM once hidden.
- */
-function collapseAndRemove(collapsibleElem) {
-  if (!collapsibleElem.hasClass('in')) {
-    // If the element is already hidden, just remove it immediately.
-    collapsibleElem.remove();
-  } else {
-    collapsibleElem.on('hidden.bs.collapse', function() {
-      collapsibleElem.remove();
-    })
-    .collapse('hide');
-  }
-}
-
-function renderPageToc(parentElem, pageUrl, pageToc) {
-  var ul = $('<ul class="wm-toctree">');
-  function addItem(tocItem) {
-    ul.append($('<li class="wm-toc-li">')
-      .append($('<a class="wm-article-link wm-page-toc-text">')
-        .attr('href', pageUrl + tocItem.url)
-        .attr('data-wm-adjusted', 'done')
-        .text(tocItem.title)));
-    if (tocItem.children) {
-      tocItem.children.forEach(addItem);
-    }
-  }
-  pageToc.forEach(addItem);
-
-  $('.wm-page-toc-opener').removeClass('wm-page-toc-opener wm-page-toc-open');
-  collapseAndRemove($('.wm-page-toc'));
-
-  parentElem.addClass('wm-page-toc-opener').toggleClass('wm-page-toc-open', showPageToc);
-  $('<li class="wm-page-toc wm-toc-li-nested collapse">').append(ul).insertAfter(parentElem)
-    .collapse(showPageToc ? 'show' : 'hide');
-}
-
-
-if (!mainWindow) {
-  // This is a page that ought to be in an iframe. Redirect to load the top page instead.
-  var topUrl = getAbsUrl('#', getRelPath('/', window.location.href));
-  if (topUrl) {
-    window.location.href = topUrl;
-  }
-} else {
-  /* CHANGED - removed initial adjustment of links */
-  // Adjust links on click.
-  $(document).on('click', 'a:not([data-wm-adjusted])', function(e) { adjustLink(this); });
-}
-
-if (is_top_frame) {
-  // Main window.
-  $(document).ready(function() {
-    iframeWindow = $('.wm-article')[0].contentWindow;
-    initMainWindow();
-    ensureIframeLoaded();
-  });
-
-} else {
-  // Article contents.
-  iframeWindow = window;
-  if (mainWindow) {
-    mainWindow.onIframeLoad();
-  }
-
-  // Other initialization of iframe contents.
-  hljs.initHighlightingOnLoad();
-  $(document).ready(function() {
-    $('table').addClass('table table-striped table-hover table-bordered table-condensed');
-  });
-}
+// Main window.
+$(document).ready(function() {
+  initMainWindow();
+  $('table').addClass('table table-striped table-hover table-bordered table-condensed');
+});
 
 
 var searchIndexReady = false;
@@ -453,13 +218,6 @@ function initSearch() {
     e.stopPropagation();
     e.preventDefault();
     $('#wm-search-form').trigger('submit');
-  });
-
-  // Redirect to the search page on Enter or button-click (form submit).
-  $('#wm-search-form').on('submit', function(e) {
-    var url = this.action + '?' + $(this).serialize();
-    visitUrl(url, e);
-    searchResults.parent().removeClass('open');
   });
 
   $('#wm-search-show,#wm-search-go').on('click', function(e) {
@@ -547,7 +305,6 @@ function doSearch(options) {
           .append($('<div class="search-text">').html(snippet)))
       );
     }
-    resultsElem.find('a').each(function() { adjustLink(this); });
     if (limit) {
       resultsElem.append($('<li role="separator" class="divider"></li>'));
       resultsElem.append($(

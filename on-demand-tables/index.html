@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Sharing a document - Grist Help Center</title>
+    <title>On-Demand tables - Grist Help Center</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -137,27 +137,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Sharing
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#roles">
-              Roles
-            </a>
-          </li>
-        
-      </ul>
-    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../team-sharing/" class="wm-article-link wm-toc-text">Team sharing [team]</a>
@@ -219,8 +200,31 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../on-demand-tables/" class="wm-article-link wm-toc-text">On-Demand tables</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="../on-demand-tables/" class="wm-article-link wm-toc-text">On-Demand tables</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              On-Demand Tables
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#make-an-on-demand-table">
+                Make an On-Demand Table
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#formulas-references-and-on-demand-tables">
+                Formulas, References and On-Demand Tables
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
   </ul>
@@ -311,20 +315,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../team-sharing/" class="btn btn-xs btn-default pull-right">
+      <a href="../col-types/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../team-sharing/" class="btn btn-xs btn-link">
-        Team sharing [team]
+      <a href="../col-types/" class="btn btn-xs btn-link">
+        Columns & types
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../creating-doc/" class="btn btn-xs btn-default pull-left">
+      <a href="../summary-tables/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../creating-doc/" class="btn btn-xs btn-link">
-        Creating a document
+        Previous</a><a href="../summary-tables/" class="btn btn-xs btn-link">
+        Summary tables
       </a>
     </div>
     
@@ -332,48 +336,79 @@
 
     
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/vJpcC3-FHF8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h2 id="sharing">Sharing<a class="headerlink" href="#sharing" title="Permanent link">#</a></h2>
-<p>To collaborate in Grist, you can invite other users to access a document. For team plans,
-you can also add users to your team site, or to a workspace (see
-<a href="../team-sharing/">Team Sharing</a>).</p>
-<p>When the document is open, click on the sharing icon
-(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen. It opens a menu with sharing and export
-options. Select &ldquo;Manage Users&rdquo;.</p>
-<p><img alt="sharing-doc-menu" src="../images/sharing/sharing-doc-menu.png" /></p>
-<p>This option is also available in the Grist home page, when you click the three-dots icon to the right of a document&rsquo;s name.</p>
-<p><img alt="sharing-doclist-menu" src="../images/sharing/sharing-doclist-menu.png" /></p>
-<p>If the &ldquo;Manage Users&rdquo; item is grayed out, it means you don&rsquo;t have permission to
-view or manage the sharing settings for this document.</p>
-<p>The sharing dialog that opens lists the users that have access to the
-document. To add a user, enter that user&rsquo;s email address and hit &ldquo;Enter&rdquo; or click
-&ldquo;Invite new member&rdquo; in the dropdown.</p>
-<p><img alt="sharing-add-user" src="../images/sharing/sharing-add-user.png" /></p>
-<p>You may select a role for any invited user, and click &ldquo;Confirm&rdquo; to save the changes and send any invitations.</p>
-<p><img alt="sharing-roles" src="../images/sharing/sharing-roles.png" /></p>
-<h2 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">#</a></h2>
-<p>There are three primary roles supported by Grist:</p>
+    <h1 id="on-demand-tables">On-Demand Tables<a class="headerlink" href="#on-demand-tables" title="Permanent link">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">On-demand tables are an experimental feature</p>
+<p>The design of on-demand tables may change.  For example,
+configuration options may be added, or aspects of the behavior of
+on-demand tables may be changed entirely.</p>
+</div>
+<p>A defining feature of spreadsheets is the ability to update cells instantly as
+data they depend on changes.  But sometimes a table is just a store of data,
+without any fancy calculations needed.  In that case, you can choose to mark
+the table as &ldquo;On-Demand&rdquo; in Grist.  Grist can then serve data from that table
+faster, and make certain optimizations that may be helpful as the table gets
+large and regular tables become slow.</p>
+<p>When a table is marked &ldquo;On-Demand&rdquo;:</p>
 <ul>
-<li>
-<p><strong>Viewer</strong>: allows a user to view the document but not make any changes to
-  it. Some operations like sorting and filtering will work without affecting
-  other users of the document. This is the default role when you type in an email address.</p>
-</li>
-<li>
-<p><strong>Editor</strong>: allows a user to view or make changes to the document data, structure, or formulas,
-  but not to its sharing settings.</p>
-</li>
-<li>
-<p><strong>Owner</strong>: gives a user complete permissions to the document, including to view and change its
-  sharing settings. A document may have one or more owners. If you are able to open the
-  &ldquo;Manage Users&rdquo; dialog, you have the &ldquo;owner&rdquo; role. You may not change your own
-  access, but your access may be reduced or removed by another owner.</p>
-</li>
+<li>Data in the table will not generally be available for use in formulas.</li>
+<li>The table remains available for viewing and editing, but with
+    caveats.</li>
 </ul>
-<p>The option to inherit access does not affect individual plans, and is explained
-in the <a href="../team-sharing/">Team Sharing</a> article.</p>
+<p>Here&rsquo;s what you need to know about viewing data:</p>
+<ul>
+<li>Viewing is limited to 10000 rows at a time.</li>
+<li>Subsets of the table&rsquo;s rows can be selected by
+    <a href="../linking-widgets/">linking widgets</a>, as for regular tables.</li>
+<li>You can expect good performance of linked widgets when the
+    subset of the table&rsquo;s rows is less than 10000 rows, even if the
+    full table is much larger.</li>
+</ul>
+<p>Here&rsquo;s what you need to know about editing data:</p>
+<ul>
+<li>You can edit data as normal in an On-Demand table.</li>
+<li>Automatic updates of anything that depends on that data simply
+    won&rsquo;t happen.</li>
+<li>After edits, you need to reload the webpage to see everything
+    updated.</li>
+</ul>
+<p>Here are some reasons you might make a table On-Demand:</p>
+<ul>
+<li>You want to make summaries and charts of slices of a large
+    dataset using <a href="../linking-widgets/">linked widgets</a>.</li>
+<li>You are storing a lot of data in the table, and all you need to
+    do with it is read parts of it back out via the API.</li>
+</ul>
+<h2 id="make-an-on-demand-table">Make an On-Demand Table<a class="headerlink" href="#make-an-on-demand-table" title="Permanent link">#</a></h2>
+<p>To convert a table to be an &ldquo;On Demand&rdquo; table, open the right panel,
+pick the &ldquo;Table&rdquo; panel, and the &ldquo;Data&rdquo; section.  Click on &ldquo;Advanced
+Settings&rdquo; and you should see a &ldquo;Make On-Demand&rdquo; button.</p>
+<p><img alt="on-demand-button" src="../images/on-demand/on-demand-button.png" /></p>
+<p>If you change your mind, and don&rsquo;t want the table to be &ldquo;On-Demand&rdquo; anymore,
+you can find a button to undo this setting in the same place:</p>
+<p><img alt="on-demand-undo" src="../images/on-demand/on-demand-undo.png" /></p>
+<p>Changing a table to become &ldquo;On-Demand&rdquo; or to stop being &ldquo;On-Demand&rdquo; will
+force the document to reload for all users viewing it at that moment.</p>
+<h2 id="formulas-references-and-on-demand-tables">Formulas, References and On-Demand Tables<a class="headerlink" href="#formulas-references-and-on-demand-tables" title="Permanent link">#</a></h2>
+<p>In general, formulas and on-demand tables don&rsquo;t go together.  That said,
+if you&rsquo;re careful you can use the following very simple formulas:</p>
+<ul>
+<li><code>$column</code> - where the <code>column</code> mentioned is not itself a formula.
+   This copies data from another column verbatim.</li>
+<li><code>$reference.column</code> - where <code>reference</code> is a <a href="../col-refs/">reference column</a>,
+   and <code>column</code> is not itself a formula.</li>
+</ul>
+<p>This formula support is enough to unlock Grist&rsquo;s <a href="../linking-widgets/">linking
+widgets</a> feature, which is why it is present.  In
+general, if you try using formulas and On-Demand tables, you are
+setting yourself up for sadness.  Remember, like any edit of an
+On-Demand table, when you add or change a formula column you&rsquo;ll
+generally need to reload to see cell values updated.</p>
+<p>Some type conversions, such as converting a column to be a reference,
+are not effective for On-Demand tables.  So it is important to perform
+such conversions before making a table On-Demand.</p>
+<p>From formulas in regular tables, you cannot access the content of
+on-demand tables.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">

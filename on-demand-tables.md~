@@ -1,0 +1,11 @@
+# On-Demand Tables
+
+A defining feature of spreadsheets is that as you make changes, ...
+
+Tables may be marked as "on-demand" to avoid loading them into the data engine.
+What does that mean?
+
+If you make table On-Demand, its data will no longer be loaded into
+the calculation engine and will not be available for use in
+formulas. It will remain available for viewing and editing.  Changing
+this setting will reload the document for all users.

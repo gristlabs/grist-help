@@ -27,24 +27,258 @@
     <script src="//js/jquery-3.2.1.min.js"></script>
     <script src="//js/bootstrap-3.3.7.min.js"></script>
     <script src="//js/highlight.pack.js"></script>
-    
-    <base target="_top">
+    <script src="//js/elasticlunr.min.js"></script>
     <script>
       var base_url = '/';
       var is_top_frame = false;
-        var page_toc = null;
-
     </script>
     <script src="//js/base.js"></script>
-      <script src="/js/grist.js"></script> 
+      <script src="/js/grist.js"></script>
+    
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5FDHKQ9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GTM-5FDHKQ9');
+  </script> 
 </head>
 
 <body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
 
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="//search.html" method="GET">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
 
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
+    
+
+    
+    
+    <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+      <div class="wm-top-title">
+        Grist Home
+      </div>
+    </a>
+    
+
+    
+    <a href="/." class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="//images/logo.png"/>
+      
+      <div class="wm-top-title">
+        Grist Help Center<br>
+        
+          <span class="wm-top-version">1.0.2-dev</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+  
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="//" class="wm-article-link wm-toc-text">Welcome to Grist</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-To Tutorials</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//team-sharing/" class="wm-article-link wm-toc-text">Team sharing [team]</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//workspaces/" class="wm-article-link wm-toc-text">Workspaces [team]</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and Tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//widget-card/" class="wm-article-link wm-toc-text">Card & Card List</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//widget-custom/" class="wm-article-link wm-toc-text">Custom</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//on-demand-tables/" class="wm-article-link wm-toc-text">On-Demand tables</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Columns and data types</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//col-types/" class="wm-article-link wm-toc-text">Columns & types</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Using formulas</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//formulas/" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//dates/" class="wm-article-link wm-toc-text">Working with dates</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//rest-api/" class="wm-article-link wm-toc-text">API usage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="//api/" class="wm-article-link wm-toc-text">API reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 "><a href="//keyboard-shortcuts/" class="wm-article-link wm-toc-text">Shortcuts</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="//limits/" class="wm-article-link wm-toc-text">Limits</a>
+
+    
+</li>
+  </ul>
+</nav>
+
+  <script>
+    // Immediately expand parent items to show the selected page.
+    $('.wm-current')
+      .parents('.wm-toc-li-nested').addClass('collapse in')
+      .prev('.wm-toc-opener').addClass('wm-toc-open');
+  </script>
+  <div class="wm-content-pane">
+    <div class="wm-article">
 
 <div class="container-fluid wm-page-content">
   <a name="_top"></a>
@@ -57,11 +291,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 
   <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
+</div><footer class="col-md-12 wm-page-content">
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
+
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
