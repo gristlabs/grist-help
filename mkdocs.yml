@@ -70,3 +70,5 @@ markdown_extensions:
   - admonition
   - smarty
   - extra
+
+google_analytics: ['GTM-5FDHKQ9', 'auto']
