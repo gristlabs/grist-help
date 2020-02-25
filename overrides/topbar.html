@@ -45,7 +45,7 @@
     {% endif %}
 
     {# Logo and title #}
-    <a href="{{ name }}" class="wm-top-brand wm-top-link wm-vcenter">
+    <a href="{{ nav.homepage.url|url }}" class="wm-top-brand wm-top-link wm-vcenter">
       {% if config.extra.logo %}
         <img class="wm-top-logo" src="{{ base_url }}/{{ config.extra.logo }}"/>
       {% endif %}
