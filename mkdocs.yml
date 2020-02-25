@@ -1,6 +1,8 @@
 site_name: Grist Help Center
 site_dir: site
 site_favicon: images/favicon.png
+site_description: "Tutorials and resources for Grist, to help you organize your data, your way."
+
 docs_dir: './help'
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
 theme:
