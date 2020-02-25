@@ -7,9 +7,9 @@
     {# Render the table-of-contents of sections inside the current page #}
     <li class="wm-page-toc wm-toc-li-nested collapse in">
       <ul class="wm-toctree">
-        {% for item in page.toc %}
+        {% for item in page.meta.toc|default(page.toc) %}
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="{{ '#_top' if loop.first else item.url }}">
+            <a class="wm-article-link wm-page-toc-text" href="{{ item.forceUrl|default('#_top') if loop.first else item.url }}">
               {{ item.title }}
             </a>
           </li>

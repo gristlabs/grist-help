@@ -40,7 +40,7 @@ nav:
     - Function reference: functions.md
   - API:
     - API usage: rest-api.md
-    - API reference: api-docs.html
+    - API reference: api.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
 

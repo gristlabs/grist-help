@@ -40,7 +40,7 @@ curl -H "Authorization: Bearer API-KEY-GOES-HERE" \
      localhost:8080/api/orgs/ORG-ID-GOES-HERE -X PATCH -d '{"name": "Omega Devices"}'
 ```
 
-For details of the endpoints available, see our [API docs](api-docs.html).
+For details of the endpoints available, see our [API docs](api.md).
 
 There are also client libraries available:
 

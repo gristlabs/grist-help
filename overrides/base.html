@@ -47,22 +47,10 @@
     <script>
       var base_url = '{{ base_url }}';
       var is_top_frame = {% if is_top %}(window === window.parent){% else %}false{% endif %};
-      {%- if page %}
-        {# Include the first two levels of TOC data as a JS object, to be rendered in top frame #}
-        var pageToc = [
-        {%- for item in page.toc %}
-          {title: {{ item.title|tojson }}, url: {{ ('#_top' if loop.first else item.url)|tojson }}, children: [
-            {%- for item in item.children %}
-              {title: {{ item.title|tojson }}, url: {{ item.url|tojson }} },
-            {%- endfor %}
-          ]},
-        {%- endfor %}
-        ];
-      {%- else %}
-        var page_toc = null;
-      {%- endif %}
-
     </script>
+    {%- if page and page.meta and page.meta.is_api %}
+      {% include 'api-head.html' %}
+    {%- endif %}
     <script src="{{ base_url }}/js/base.js"></script>
     {%- for path in extra_javascript %}
       <script src="{{ path }}"></script>
@@ -92,6 +80,9 @@
 
 {# Code for the main template for all content pages. #}
 
+  {%- if page and page.meta and page.meta.is_api -%}
+    {{ page.content }}
+  {%- else -%}
 <div class="container-fluid wm-page-content">
   <a name="_top"></a>
   {%- if config.extra.article_nav_top != False %}
@@ -116,6 +107,9 @@
     <br>
   {%- endif %}
 </div>
+
+  {%- endif -%}
+
 
 <footer class="col-md-12 wm-page-content">
 {%- block footer %}
