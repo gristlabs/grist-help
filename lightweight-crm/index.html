@@ -43,7 +43,40 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'GTM-5FDHKQ9');
-  </script> 
+  </script>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    window.Beacon('config', {display: { style: 'icon' }});
+    window.Beacon('init', '2efd68d8-0479-42c1-a94c-87b342af7bc4');
+    fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
+      .then(function(resp) { return resp.json(); })
+      .then(function(status) {
+        // If there's exactly two orgs, will use the team name for the non-merged personal
+        // org as the company name.  Otherwise don't worry about setting company name.
+        var org = undefined;
+        if (status.orgs.length === 2) {
+          org = status.orgs[0].owner ? status.orgs[1] : status.orgs[0];
+        }
+        // If there's one user account available, fill it in silently; otherwise use
+        // the first one and prefill fields but let user see them so they can override
+        // them.  If testing this, be aware that if 'identify' was called previously,
+        // it will be cached in local storage and used even if it is not set this time
+        // around.
+        var user = status.users[0];
+        var identifyOrPrefill = status.users.length === 1 ? 'identify' : 'prefill';
+        if (user && !user.anonymous) {
+          var userObj = {};
+          if (user.email) { userObj.email = user.email; }
+          if (user.name) { userObj.name = user.name; }
+          if (user.picture) { userObj.avatar = user.picture; }
+          if (user.helpScoutSignature) { userObj.signature = user.helpScoutSignature; }
+          if (org && org.name) { userObj.company = org.name; }
+          window.Beacon(identifyOrPrefill, userObj);
+        }
+      });
+  });
+</script> 
 </head>
 
 <body>
@@ -480,9 +513,8 @@ left, and a regular spreadsheet with the same data on the right.</p>
 options for where to include multiple notes. If you include them as multiple columns, it quickly
 makes the spreadsheet unwieldy and difficult to navigate.</p>
 <p>Grist feels more like an application, but it&rsquo;s still as versatile as a spreadsheet.</p>
-<p>The &ldquo;Lightweight CRM&rdquo; example is read-only, but you can make your own editable
-copy, either copying in full (with the sample data), or as a template (just the
-structure without the data). Here are a few more points on using your copy as a CRM:</p>
+<p>The &ldquo;Lightweight CRM&rdquo; example can be used immediately as-is (with the sample data),
+or as a template (just the structure without the data). Here are a few more points on using it as a CRM:</p>
 <ul>
 <li>
 <p>To add a new contact, click the blank row at the bottom of the contacts list, then fill in the
@@ -508,9 +540,10 @@ structure without the data). Here are a few more points on using your copy as a 
   browser window with the Gmail search results for this contact&rsquo;s email address.</p>
 </li>
 </ul>
-<p>You can use this example as a template for your own contacts. With &ldquo;Lightweight CRM&rdquo; example open,
-click &ldquo;Make your own copy&rdquo; in the top bar, and select &ldquo;Copy as template&rdquo;. You&rsquo;ll get an empty
-document with the same laoyut, and can start filling it in with your own data.</p>
+<p>You can use this example as a template for your own contacts. With the &ldquo;Lightweight CRM&rdquo; example open,
+click the drop-down arrow beside the &ldquo;Save Copy&rdquo; button in in the top bar, and select &ldquo;Copy as Template&rdquo;.
+You&rsquo;ll get an empty document with the same layout, and can start filling it in with your own data.
+If you aren&rsquo;t signed in, you will need to sign in to make a copy of the example.</p>
 <h2 id="creating-your-own">Creating your own<a class="headerlink" href="#creating-your-own" title="Permanent link">#</a></h2>
 <p>The rest of this tutorial will show you how to create such a document on your own. It&rsquo;s a great
 exercise that will teach you some of the key features of Grist.</p>
