@@ -106,9 +106,8 @@ makes the spreadsheet unwieldy and difficult to navigate.
 
 Grist feels more like an application, but it's still as versatile as a spreadsheet.
 
-The "Lightweight CRM" example is read-only, but you can make your own editable
-copy, either copying in full (with the sample data), or as a template (just the
-structure without the data). Here are a few more points on using your copy as a CRM:
+The "Lightweight CRM" example can be used immediately as-is (with the sample data),
+or as a template (just the structure without the data). Here are a few more points on using it as a CRM:
 
 - To add a new contact, click the blank row at the bottom of the contacts list, then fill in the
   blank "CONTACTS Card" section that shows on the right.
@@ -128,9 +127,10 @@ structure without the data). Here are a few more points on using your copy as a 
 - If you use Gmail, the handy "Gmail search" link in the "CONTACTS Card" section will open a
   browser window with the Gmail search results for this contact's email address.
 
-You can use this example as a template for your own contacts. With "Lightweight CRM" example open,
-click "Make your own copy" in the top bar, and select "Copy as template". You'll get an empty
-document with the same laoyut, and can start filling it in with your own data.
+You can use this example as a template for your own contacts. With the "Lightweight CRM" example open,
+click the drop-down arrow beside the "Save Copy" button in in the top bar, and select "Copy as Template".
+You'll get an empty document with the same layout, and can start filling it in with your own data.
+If you aren't signed in, you will need to sign in to make a copy of the example.
 
 ## Creating your own
 
