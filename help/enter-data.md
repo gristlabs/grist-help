@@ -51,3 +51,11 @@ Here are some of the most useful ones:
 
   *![choice-edit](images/choice-edit.png)*
   {: .screenshot-half }
+
+## Linking to cells
+
+You can make a sharable link to a cell by pressing <code class="keys">*⌘* *⇧* *A*</code> (Mac)
+or <code class="keys">*Ctrl* + *Shift* + *A*</code> (Windows) while the cell is selected.
+This option is also available via the [row menu](widget-table.md#row-operations) as "Copy anchor link."
+The link will be placed in your clipboard, ready to paste into an email or an instant messaging
+app. The link will open only for people with access to the document.

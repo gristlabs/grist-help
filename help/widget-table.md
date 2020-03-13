@@ -51,9 +51,9 @@ Here are some useful features to know.
 - **Add rows**: Type into the last row in a table, which is highlighted to indicate that it's a
   placeholder for adding new records. Right click a row number to insert a blank row next to an
   existing row, or use the keyboard shortcuts
-  <code class="keys">*⌘* + **+**</code> (Mac) or <code class="keys">*Ctrl* + **+**</code> (Windows)
+  <code class="keys">*⌘* *⇧* *=*</code> (Mac) or <code class="keys">*Ctrl* + *Shift* + **=**</code> (Windows)
   to insert before, and
-  <code class="keys">*⌘* + **=**</code> (Mac) or <code class="keys">*Ctrl* + **=**</code> (Windows)
+  <code class="keys">*⌘* **=**</code> (Mac) or <code class="keys">*Ctrl* + **=**</code> (Windows)
   to insert after.
 
   *![row_menu](images/row_menu.png)*
@@ -63,6 +63,14 @@ Here are some useful features to know.
   <code class="keys">*⌘* + *Minus*</code> (Mac) or <code class="keys">*Ctrl* + *Minus*</code> (Windows)
   shortcut. If you select a range of cells first, either of these delete actions will delete all
   rows included in the range.
+
+- **Link to rows**: Right click a row number and select "Copy anchor link" to copy a link to the
+  selected cell of that row. The link will be placed in your clipboard, ready to paste into an
+  email or an instant messaging app. The link will open only for people with access to the
+  document.
+
+  *![copy anchor link](images/row_menu_link.png)*
+  {: .screenshot-half }
 
 ### Navigation and selection
 

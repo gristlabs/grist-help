@@ -39,6 +39,7 @@
 | <code class="keys">*⇧* *→*</code> | <code class="keys">*Shift* + *→*</code> | Adds the element to the right of the cursor to the selected range |
 | <code class="keys">*⇧* *←*</code> | <code class="keys">*Shift* + *←*</code> | Adds the element to the left of the cursor to the selected range |
 | <code class="keys">*⌘* *A*</code> | <code class="keys">*Ctrl* + *A*</code> | Selects all currently displayed cells |
+| <code class="keys">*⌘* *⇧* *A*</code> | <code class="keys">*Ctrl* + *Shift* + *A*</code> | Copy anchor link |
 
 ###Editing
 | Key (Mac) | Key (Windows) | Description | 

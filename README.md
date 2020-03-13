@@ -25,6 +25,25 @@ as well as static files, are under `/help` subdirectory. While `mkdocs serve`
 is running, you may make changes there, and the open page will refresh to show
 the changes.
 
+While `mkdocs serve` is running, you can run `./check_links.sh` to check
+for broken links in the site.  It will print out a lot of chatter, then
+if there are broken links, conclude with a section like this:
+
+```
+...
+Found 5 broken links.
+
+http://localhost:8000/col-refs/col-types
+http://localhost:8000/afterschool-program/page-widgets.md/
+http://localhost:8000/api/'+e+'
+http://localhost:8000/api/%3C/textarea%3E%3Cimg%20src=x%20abc=1//
+http://localhost:8000/api/'+u(e)+'
+
+FINISHED --2020-03-13 10:38:07--
+Total wall clock time: 1.3s
+Downloaded: 36 files, 2.0M in 0.009s (226 MB/s)
+```
+
 ## Publishing for preview
 
 Add the preview repo as a remote. Ask for access to

@@ -216,7 +216,7 @@ Here is what we now have in Class View page:
 ![classlist-page2](images/afterschool-program/classlist-page2.png)
 
 It's a good time to clean up this page by hiding columns and fields that are duplicated or
-distracting. Check out [Configuring field lists](page-widgets.md/#configuring-field-lists) for an
+distracting. Check out [Configuring field lists](page-widgets.md#configuring-field-lists) for an
 efficient way to select which fields to show, and [Custom Layouts](custom-layouts.md) for
 rearranging widgets on the page.
 
