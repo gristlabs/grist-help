@@ -24,7 +24,7 @@ clients.
 There are all sorts of things Grist can do for us if we let it know that the Client column
 in the Projects table is referring to clients listed in the Clients table.  We can do this
 by converting the Client column to a "reference column".  Open the Column Options side
-panel (see [Specifying a type](col-types#specifying-a-type)) and set the "Column Type"
+panel (see [Specifying a type](col-types.md#specifying-a-type)) and set the "Column Type"
 to "Reference".  Adjust the "Data from Table" option to be the correct table you want
 to cross-reference, and the "Show Column" option to match which column of that table
 you'd like to show.  Then hit "Apply" when you're happy with the result.
