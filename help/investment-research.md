@@ -67,9 +67,9 @@ the first step.
 
 Let’s import the raw data. We’ll import two CSV files, where each will become its own table. To
 follow along, save the files from
-[crunchbase_companies_ny.csv](https://raw.githubusercontent.com/dsagal/crunchbase-october-2013/master/crunchbase-companies-ny.csv)
+[crunchbase_companies_ny.csv](/investment-research/crunchbase-companies-ny.csv)
 and
-[crunchbase_investments_ny.csv](https://raw.githubusercontent.com/dsagal/crunchbase-october-2013/master/crunchbase-investments-ny.csv)
+[crunchbase_investments_ny.csv](/investment-research/crunchbase-investments-ny.csv)
 to
 your computer first. Then, create a Grist document by importing the first file from the home page.
 
