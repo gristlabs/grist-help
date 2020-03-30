@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Transformations - Grist Help Center</title>
+    <title>Glossary - Grist Help Center</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -252,27 +252,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Type conversions
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#formula-based-transforms">
-              Formula-based transforms
-            </a>
-          </li>
-        
-      </ul>
-    </li>
     
 </li>
   </ul>
@@ -320,8 +301,41 @@
 
     
 </li>
-        <li class="wm-toc-li wm-toc-lev1 "><a href="../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
+        <li class="wm-toc-li wm-toc-lev1  wm-current wm-page-toc-opener wm-page-toc-open"><a href="../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Glossary
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#document">
+                Document
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#page">
+                Page
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#widget">
+                Widget
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#table">
+                Table
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
   </ul>
@@ -347,21 +361,11 @@
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
-    <div class="wm-article-nav pull-right">
-      <a href="../formulas/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../formulas/" class="btn btn-xs btn-link">
-        Intro to formulas
-      </a>
-    </div>
-    
     <div class="wm-article-nav">
-      <a href="../col-refs/" class="btn btn-xs btn-default pull-left">
+      <a href="../limits/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../col-refs/" class="btn btn-xs btn-link">
-        Reference columns
+        Previous</a><a href="../limits/" class="btn btn-xs btn-link">
+        Limits
       </a>
     </div>
     
@@ -369,52 +373,37 @@
 
     
 
-    <h1 id="column-transformations">Column Transformations<a class="headerlink" href="#column-transformations" title="Permanent link">#</a></h1>
-<p>Grist offers two ways to transform all values in a column. One is to change the type of the
-column, and the other is to apply a formula-based transformation.</p>
-<h2 id="type-conversions">Type conversions<a class="headerlink" href="#type-conversions" title="Permanent link">#</a></h2>
-<p>When converting between different column types, Grist has sensible default behavior,
-but makes that behavior easy to revise. For example, suppose you have a column of integers.
-To convert that column to text, open the column options as described in
-<a href="../col-types/#specifying-a-type">Specifying a type</a>, and find the column type section.
-Change the column type to text in the dropdown.  You&rsquo;ll notice that a
-&ldquo;cancel/revise/apply&rdquo; dialog opens beside the dropdown.</p>
-<p class="screenshot-half"><em><img alt="Tally to text" src="../images/columns/columns-tally-convert.png" /></em></p>
-<p>To change how the conversion is done, click <code>Revise</code>.  You&rsquo;ll see
-a formula box with the default conversion method,
-<code>grist.Text.typeConvert($tally)</code>.  This means &ldquo;do default conversion
-to text for the <code>tally</code> column&rdquo;.  you can replace this with any formula you
-like.  For example:</p>
-<p class="screenshot-half"><em><img alt="Tally to lines" src="../images/columns/columns-tally-convert-lines.png" /></em></p>
-<p>Code for converting to unicode tally lines is left as an exercise to
-the reader.  To preview the results of the conversion, click &ldquo;preview&rdquo;.
-When you are satisfied with the conversion, click &ldquo;apply&rdquo;.  To abandon
-the conversion, click &ldquo;cancel&rdquo;.</p>
-<h2 id="formula-based-transforms">Formula-based transforms<a class="headerlink" href="#formula-based-transforms" title="Permanent link">#</a></h2>
-<p>Spreadsheets are convenient tools for cleaning up data using <a href="../formulas/">formulas</a>.
-For example, imagine you had zip codes that have lost leading zeros - you can easily
-reformat them with a quick formula:</p>
-<p><img alt="Motivating transformations" src="../images/columns/columns-zip-columns.png" /></p>
-<p>We could now <a href="../formulas/#freeze-a-formula-column">freeze the results</a> and delete the
-original data if we don&rsquo;t need it anymore.</p>
-<p>If you know you&rsquo;re going to throw away the original data like this,
-Grist offers column transformations as a faster way to systematically
-modify all cells of a column. Find the &ldquo;Transform&rdquo; section
-at the bottom of the column options side panel (see <a href="../col-types/">Columns</a> for
-how to open this panel).</p>
-<p><img alt="Column transformations" src="../images/columns/columns-transformer.png" /></p>
-<p>When you click the orange &ldquo;lightning&rdquo; button, Grist prompts you with a formula,
-<code>return $zip</code> in this case.  You can edit this formula to make some change to
-the selected column.  For example <code>return $zip + 1</code> would add one to the zip code.
-You can preview the effect your formula would have, and when you are happy, hit
-&ldquo;Apply&rdquo;.  In our case, where we want to add leading zeros, we&rsquo;ll need to first
-change our column type to be <code>Text</code> (assuming it is currently <code>Integer</code> - if it
-<code>Numeric</code> convert to <code>Integer</code> first and then to <code>Text</code> to avoid decimal points).
-Once done, we can use our formula for adding leading zeros:</p>
-<p><img alt="Column transformation preview" src="../images/columns/columns-transformer-preview.png" /></p>
-<p>When happy, press &ldquo;Apply&rdquo; to replace the cell values with their new versions.
-Likewise, the <code>response</code> column could be transformed with the formula into true/false
-values with <code>$response[0] == 'y'</code>, and then set as a <a href="../col-types/#toggle-columns">toggle column</a>.</p>
+    <h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">#</a></h1>
+<h2 id="document">Document<a class="headerlink" href="#document" title="Permanent link">#</a></h2>
+<p>A Grist document is a collection of related data. If you work with
+databases, think of it as a single database. If you work with
+spreadsheets, think of it as a single spreadsheet.</p>
+<p>Like databases and spreadsheets, the data in a Grist document is
+organized as a set of tables.  How this data is viewed and edited is
+unusually flexible.  Grist documents are organized visually into
+pages. Pages contain widgets that offer different ways to view and
+edit tables.</p>
+<p>To work with Grist, the first step is typically to <a href="../creating-doc/">create a document</a>.</p>
+<h2 id="page">Page<a class="headerlink" href="#page" title="Permanent link">#</a></h2>
+<p>Grist documents are organized visually into pages.  Each page allows
+you to view or edit one or more tables.  The nature of these viewers
+and editors (called &ldquo;page widgets&rdquo;) is flexible, as is their layout.</p>
+<p>A single table can be viewed (or edited) from multiple widgets in
+one or many pages.  And a single page can contain widgets for viewing (or editing)
+many tables.</p>
+<p>Pages are listed in the document (<a href="../page-widgets/#pages">in the panel on the
+left</a>).  In this list, they may be rearranged
+and grouped, with several &ldquo;subpages&rdquo; nested within a single page.</p>
+<h2 id="widget">Widget<a class="headerlink" href="#widget" title="Permanent link">#</a></h2>
+<p>A page contains sections, such as table grids or charts, which we call
+&ldquo;page widgets&rdquo;.  They are used for <a href="../page-widgets/">viewing or editing
+data</a> in tables.
+Types of page widgets include <a href="../page-widgets/#page-widget">cards and charts</a>
+as well as the classic <a href="../widget-table/">spreadsheet-style table grid</a>.</p>
+<h2 id="table">Table<a class="headerlink" href="#table" title="Permanent link">#</a></h2>
+<p>Data is stored in tables.  Tables have named <a href="../col-types/">columns</a>, and a sequence of rows
+containing values for those columns.  Every row has a numeric id (available
+as <code>$id</code> in formulas) that is unique within that table.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
