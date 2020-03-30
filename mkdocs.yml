@@ -45,6 +45,7 @@ nav:
     - API reference: api.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
+  - Glossary: glossary.md
 
 extra:
   logo: 'images/logo.png'
