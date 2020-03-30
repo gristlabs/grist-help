@@ -24,8 +24,9 @@ A single table can be viewed (or edited) from multiple widgets in
 one or many pages.  And a single page can contain widgets for viewing (or editing)
 many tables.
 
-Pages can be [grouped](page-widgets.md#pages), with several "subpages"
-nested within a single page.
+Pages are listed in the document ([in the panel on the
+left](page-widgets.md#pages)).  In this list, they may be rearranged
+and grouped, with several "subpages" nested within a single page.
 
 ## Widget
 
