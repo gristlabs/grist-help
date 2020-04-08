@@ -225,7 +225,7 @@ paths:
         200:
           description: Success
 
-  /workspace/{workspaceId}/access:
+  /workspaces/{workspaceId}/access:
     get:
       tags:
         - workspaces
