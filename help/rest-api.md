@@ -37,7 +37,7 @@ Then you could, for example, change the name of your organization / site:
 ```sh
 curl -H "Authorization: Bearer API-KEY-GOES-HERE" \
      -H "Content-Type: application/json" \
-     localhost:8080/api/orgs/ORG-ID-GOES-HERE -X PATCH -d '{"name": "Omega Devices"}'
+     https://docs.getgrist.com/api/orgs/ORG-ID-GOES-HERE -X PATCH -d '{"name": "Omega Devices"}'
 ```
 
 For details of the endpoints available, see our [API docs](api.md).
