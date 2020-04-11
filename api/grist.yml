@@ -165,32 +165,6 @@ paths:
             application/json:    
               schema:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
-    post:
-      tags:
-        - docs
-      summary: "Create an empty document"
-      parameters:
-        - in: path
-          name: workspaceId
-          schema:
-            $ref: "#/components/schemas/WorkspaceKey"
-          required: true
-      requestBody:
-        description: "settings for the document"
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/DocParameters"
-        required: true
-      responses:
-        200:
-          description: The document id
-          content:
-            application/json:
-              schema:
-                type: string
-                description: a unique identifier for the document
-                example: "8b97c8db-b4df-4b34-b72c-17459e70140a"
     patch:
       tags:
         - workspaces
@@ -224,6 +198,33 @@ paths:
       responses:
         200:
           description: Success
+  /workspaces/{workspaceId}/docs:
+    post:
+      tags:
+        - docs
+      summary: "Create an empty document"
+      parameters:
+        - in: path
+          name: workspaceId
+          schema:
+            $ref: "#/components/schemas/WorkspaceKey"
+          required: true
+      requestBody:
+        description: "settings for the document"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocParameters"
+        required: true
+      responses:
+        200:
+          description: The document id
+          content:
+            application/json:
+              schema:
+                type: string
+                description: a unique identifier for the document
+                example: "8b97c8db-b4df-4b34-b72c-17459e70140a"
 
   /workspaces/{workspaceId}/access:
     get:
