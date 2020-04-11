@@ -7,6 +7,7 @@ security:
   - API Key: []   
 servers:
   - url: https://docs.getgrist.com/api
+  - url: https://<TEAM>.getgrist.com/api
 paths:
   /orgs:
     get:

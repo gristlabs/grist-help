@@ -27,17 +27,23 @@ You'll then have the option to create a new one if you wish.
 To test your api key, try this from the command-line (substituting
 your api key):
 ```sh
-curl -H "Authorization: Bearer API-KEY-GOES-HERE" https://docs.getgrist.com/api/orgs
+curl -H "Authorization: Bearer <API-KEY-GOES HERE>" https://docs.getgrist.com/api/orgs
 ```
 
-You should get a list of organizations (this is what the API calls team and personal sites).
+This should return a list of organizations, which is what the API calls
+[team sites](team-sharing.md) and your personal site.  Your personal site
+is accessible at `docs.getgrist.com`.  Team sites are accessible at `<TEAM>.getgrist.com`.
 
-Then you could, for example, change the name of your organization / site:
+To access documents on your personal site via the API, simply continue
+using the `docs.getgrist.com` domain.  To access documents and
+workspaces on a team site, use `<TEAM>.getgrist.com`.
+
+For example, to list all the workspaces and documents you have access
+to on a site, do:
 
 ```sh
-curl -H "Authorization: Bearer API-KEY-GOES-HERE" \
-     -H "Content-Type: application/json" \
-     https://docs.getgrist.com/api/orgs/ORG-ID-GOES-HERE -X PATCH -d '{"name": "Omega Devices"}'
+curl -H "Authorization: Bearer <API-KEY-GOES-HERE>" \
+  https://<docs|TEAM>.getgrist.com/api/orgs/current/workspaces
 ```
 
 For details of the endpoints available, see our [API docs](api.md).
