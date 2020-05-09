@@ -4,7 +4,13 @@ You can import a file to [start a new Grist document](creating-doc.md), or to
 add data to an existing document. Grist supports imports of Excel, CSV, JSON, and
 tab-separated files.
 
-You can also import any of these formats from a URL, using the "Import from URL" option.
+To start a new Grist document, click the "Add New" button on the home screen
+and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
+
+To add to an existing document, open that document, click the "Add New" button
+and then "Import from file".
+
+You can also import any of the same formats from a URL, using the "Import from URL" option.
 
 ## The Import dialog
 
