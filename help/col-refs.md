@@ -44,6 +44,9 @@ list of all available values.
 *![Select dropdown values](images/column-ref-select-dropdown.png)*
 {: .screenshot-half }
 
+Note that the table `Clients` and the column `Client` are related by the column type rather than
+by name. They can be named anything.
+
 !!! note "Spotting reference columns"
     You can tell that the values in a column represent a reference by the link icon that appears
     next to the values.
@@ -90,6 +93,10 @@ If you're comfortable using formulas, you can see that the added column is just 
 `=$Client.Contact`. If you were so inclined, you could achieve the same result by manually adding
 the formula column. You can also use any other fields from `Clients` table by referencing `$Client`
 in formulas in the `Projects` table.
+
+Note that we use the name of the reference *column* (`$Client`) to refer to a linked record in
+formulas, not the name of the table (which is `Clients` here). Don't let the similarity of the
+names in this example confuse you.
 
 *![Additional columns as formulas](images/column-ref-other-formula.png)*
 {: .screenshot-half }
