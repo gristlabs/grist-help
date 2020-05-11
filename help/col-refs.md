@@ -94,9 +94,9 @@ If you're comfortable using formulas, you can see that the added column is just 
 the formula column. You can also use any other fields from `Clients` table by referencing `$Client`
 in formulas in the `Projects` table.
 
-Note that we use the name of the reference *column* (`$Client`) to refer to a linked record in
-formulas, not the name of the table (which is `Clients` here). Don't let the similarity of the
-names in this example confuse you.
+Note that in formulas, we use the name of the reference *column* (`$Client`) to refer to a linked
+record, not the name of the table (which is `Clients` here). Don't let the similarity of the names
+in this example confuse you.
 
 *![Additional columns as formulas](images/column-ref-other-formula.png)*
 {: .screenshot-half }
