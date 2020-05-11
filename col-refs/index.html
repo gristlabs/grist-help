@@ -421,6 +421,8 @@ column cells, showing that they have been successfully cross-referenced with the
 Once the column type is set, you can start typing into it or double-click it to see a dropdown
 list of all available values.</p>
 <p class="screenshot-half"><em><img alt="Select dropdown values" src="../images/column-ref-select-dropdown.png" /></em></p>
+<p>Note that the table <code>Clients</code> and the column <code>Client</code> are related by the column type rather than
+by name. They can be named anything.</p>
 <div class="admonition note">
 <p class="admonition-title">Spotting reference columns</p>
 <p>You can tell that the values in a column represent a reference by the link icon that appears
@@ -454,6 +456,9 @@ automatically added to the <code>Projects</code> table:</p>
 <code>=$Client.Contact</code>. If you were so inclined, you could achieve the same result by manually adding
 the formula column. You can also use any other fields from <code>Clients</code> table by referencing <code>$Client</code>
 in formulas in the <code>Projects</code> table.</p>
+<p>Note that in formulas, we use the name of the reference <em>column</em> (<code>$Client</code>) to refer to a linked
+record, not the name of the table (which is <code>Clients</code> here). Don&rsquo;t let the similarity of the names
+in this example confuse you.</p>
 <p class="screenshot-half"><em><img alt="Additional columns as formulas" src="../images/column-ref-other-formula.png" /></em></p>
 <div class="admonition note">
 <p class="admonition-title">Using references in formulas</p>
