@@ -7,8 +7,11 @@ tab-separated files.
 To start a new Grist document, click the "Add New" button on the home screen
 and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
 
-To add to an existing document, open that document, click the "Add New" button
-and then "Import from file".
+To add to an existing document, open that document, click the "Add
+New" button and then "Import from file".  By default, each imported
+table is added as a new Grist table, but when examining the preview
+dialog for an import, you have an option to change the destination to
+an existing Grist table.
 
 You can also import any of the same formats from a URL, using the "Import from URL" option.
 

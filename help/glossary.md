@@ -7,16 +7,18 @@ values in a column are shown as the heights of a series of rectangles.
 
 ## Column
 
-A vertical series of cells in a table.  Columns in Grist have names.
-Each cell in a column is in a different row.
-Typically columns have data about a single aspect of many entities,
-whereas rows have data about many aspects of a single entity.
+A column is a vertical series of cells in a table.  Columns in Grist
+have names.  Each cell in a column is in a different row.  When data
+from a column is present within a card, we call it a field.  When a
+table of data is represented as a chart, we refer to each column as a
+series.  From a data modeling perspective, columns typically have data
+about a single aspect of many real world entities, whereas rows have
+data about many aspects of a single entity.
 
 ## Column Options
 
-Every column's appearance and behavior can be customized.  When there are intuitive
-ways to make such customizations, we implement them, but they can always be done
-systematically by clicking on the column header, clicking on the drop-down, and
+Every column's appearance and behavior can be customized by
+clicking on the column header, clicking on the drop-down, and
 selecting "Column Options".
 
 ## Column Type
@@ -26,8 +28,7 @@ method used to edit them.  You can [change the column type](col-types.md#specify
 at will. The [Text Column Type](col-types.md#text-columns) is suited to strings of any
 length; the [Date Column Type](col-types.md#date-columns) is specialized for storing and
 editing calendar dates; the [Reference Column Type](col-types.md#reference-columns)
-is for storing and editing links to other tables; the
-[Integer Column Type](col-types.md#integer-columns) is strictly for whole numbers;
+is for storing and editing links to other tables;
 the [Numeric Column Type](col-types.md#numeric-columns) is for any kind of number; etc.
 
 ## Dashboard
@@ -54,22 +55,21 @@ To work with Grist, the first step is typically to [create a document](creating-
 
 This is an icon to facilitate reorganizing views or lists visually.
 On a desktop computer, when hovering over a drag handle, the mouse
-cursor becomes a hand with fingers spread out as if to grip something.
-The drag handle for a widget is just to the left of the widget's title.
+cursor changes.  The drag handle for a widget is just to the left of the widget's title.
 There is an example of using this drag handle in the [investment research demo](investment-research.md#chart-graph-plot).
 
 ## Field
 
-A field is a column shown in a Card View.  The terms column, field,
+A field is a column shown in a Card Widget.  The terms column, field,
 and series are not different in substance, but are different terms
-that make more sense for different widgets.  In a Table View, we talk
-about columns.  In a Chart View, we talk about series.  And in a Card
-View, we talk about fields.  A field has layout properties that are
+that make more sense for different widgets.  In a Table Widget, we talk
+about columns.  In a Chart Widget, we talk about series.  And in a Card
+Widget, we talk about fields.  A field has layout properties that are
 meaningful within a Card, but would not be meaningful in other contexts.
 
 ## Import
 
-To import to Grist means to take data from other sources (on your
+To import into Grist means to take data from other sources (on your
 computer or on the internet) and place that data in a Grist document.
 Examples of importing include:
 
@@ -105,7 +105,8 @@ sliced up according to values in a column.
 
 A record is the data in one row of a table, comprising the data in the
 individual cells of that row.  It has a unique identifier, usually hidden but
-available in formulas as `id`.
+available in formulas as `id`.  In a Card Widget or a Card List Widget, a record
+is represented by a single card.
 
 ## Row
 
@@ -114,9 +115,15 @@ a different column.  The data stored in a row is also called a record.
 Typically rows have data about different aspects a single entity, whereas
 columns have data about a single aspect of many entities.
 
+## Series
+
+Data from a single column shown in a Chart Widget is called a series.
+The same data in a Card Widget is called a field, and in a Table Widget is
+called a column.
+
 ## Sort
 
-The order in which rows of a table is shown is called the sort order.
+The order in which rows of a table are shown is called the sort order.
 An example of changing the sort order of a table is given in the
 [CRM tutorial](lightweight-crm.md#to-do-tasks-for-contacts).
 
@@ -136,16 +143,15 @@ as well as the classic spreadsheet-style table grid (called a [Table Widget](wid
 
 ## Widget Options
 
-Every widget can have its appearance and behavior customized.  How this is done varies
+Every page widget can have its appearance and behavior customized.  How this is done varies
 between widget, but can always be done systematically by clicking on the
 three-dot menu on the top right of a widget and selecting "Widget options".
 
 ## Wrap Text
 
-What happens to the content in a column cell when it is very long depends on
-the "Wrap Text" setting.  If the setting is not enabled, the cell size is not
-affected by the content, and only the part of the content that fits within the
-cell will be shown.  If the setting *is* enabled, the height of the cell is
-increased so that all the content is visible (by wrapping).  An example of
+Normally, content that doesn't fit in the width of a cell is
+truncated, with "..." indicating that part of the data is hidden. When
+"Wrap Text" setting is enabled, long lines will wrap, and the cell
+will get taller to include all content.  An example of
 wrapping is given in the [CRM tutorial](lightweight-crm.md#linking-tables-visually).
 
