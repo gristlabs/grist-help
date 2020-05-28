@@ -43,6 +43,9 @@ nav:
   - API:
     - API usage: rest-api.md
     - API reference: api.md
+  - News & updates:
+    - Newsletters: newsletters.md
+    #- Grist examples: grist-examples.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
   - Glossary: glossary.md
