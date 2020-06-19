@@ -206,12 +206,11 @@ body {
   height: 28px;
   border-radius: 14px;
 
-  background-color: var(--color-link);
-  color: #fff;
+  border: 1px solid var(--color-link);
+  color: var(--color-link);
   font-weight: 400;
 
   text-align: center;
-  line-height: 2;
 }
 
 /**
