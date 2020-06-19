@@ -15,5 +15,21 @@ function expandSelected() {
   }
 }
 
-window.onload = expandSelected;
+// Function to get and auto play YouTube video from data tag.
+// From https://stackoverflow.com/a/23629470/328565
+function autoPlayYouTubeModal(){
+  $('body').on('click', '[data-toggle="modal"]', function() {
+    var theModal = $(this).data("target");
+    var videoSRC = $(this).attr("data-theVideo");
+    $(theModal).find('iframe').attr('src', videoSRC + "?rel=0&autoplay=1");
+    $(theModal).on('hidden.bs.modal', function(e) {
+      $(theModal).find('iframe').attr('src', '');
+    });
+  });
+}
+
+window.onload = function() {
+  expandSelected();
+  autoPlayYouTubeModal();
+};
 window.addEventListener('popstate', expandSelected);

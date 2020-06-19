@@ -2,12 +2,19 @@
 
 [Grist](https://www.getgrist.com) is a software product to organize, analyze, and share data.
 
+<div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">
+  <a href="#" data-toggle="modal" data-target="#video-modal"
+    data-theVideo="https://www.youtube.com/embed/XYZ_ZGSxU00">
+  <img alt="Grist Overview Demo" src="https://img.youtube.com/vi/XYZ_ZGSxU00/0.jpg">
+  <em>Grist Overview Demo</em>
+  </a>
+</div>
 Grist combines the best of spreadsheets and databases. Even our name reflects this:
 "Grist" is made of "grid" (as of spreadsheet cells) and "list" (as of database
 records). Of course, real-world problems go beyond simple grids and lists, and
 Grist is at its best when data gets more complex.
-
-To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
+<br><br>To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
+{: .clearfix }
 
 To learn Grist, we recommend starting with our How-To tutorials, or our
 Intro videos.
