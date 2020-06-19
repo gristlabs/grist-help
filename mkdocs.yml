@@ -45,7 +45,9 @@ nav:
     - API reference: api.md
   - News & updates:
     - Newsletters: newsletters.md
-    #- Grist examples: grist-examples.md
+  - More examples:
+      - More Examples: examples.md
+      - Credit card expenses: examples/2020-06-credit-card.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
   - Glossary: glossary.md
