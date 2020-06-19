@@ -9,15 +9,14 @@
   <em>Grist Overview Demo</em>
   </a>
 </div>
-Grist combines the best of spreadsheets and databases. Even our name reflects this:
-"Grist" is made of "grid" (as of spreadsheet cells) and "list" (as of database
-records). Of course, real-world problems go beyond simple grids and lists, and
-Grist is at its best when data gets more complex.
-<br><br>To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
-{: .clearfix }
+Grist combines the best of spreadsheets and databases. Grist lets you work with simple grids and
+lists, and is at its best when data gets more complex.
+
+To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
 
 To learn Grist, we recommend starting with our How-To tutorials, or our
 Intro videos.
+{: .clearfix }
 
 <div class="row" markdown="1">
 
