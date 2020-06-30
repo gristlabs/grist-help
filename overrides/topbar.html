@@ -3,7 +3,7 @@
   <div class="container-fluid wm-top-container">
     {# Search input and button #}
     <div class="wm-top-tool pull-right wm-vcenter">
-      <form class="dropdown wm-vcentered" id="wm-search-form" action="{{ base_url }}/search.html" method="GET">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="{{ '/search.html'|url }}" method="GET">
         {# Button to show search-box on small screens #}
         <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
           ><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -47,7 +47,7 @@
     {# Logo and title #}
     <a href="{{ nav.homepage.url|url }}" class="wm-top-brand wm-top-link wm-vcenter">
       {% if config.extra.logo %}
-        <img class="wm-top-logo" src="{{ base_url }}/{{ config.extra.logo }}"/>
+        <img class="wm-top-logo" src="{{ config.extra.logo|url }}"/>
       {% endif %}
       <div class="wm-top-title">
         {{ config.site_name }}<br>

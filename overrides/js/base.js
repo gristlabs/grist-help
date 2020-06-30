@@ -42,6 +42,10 @@ function getRelPath(separator, absUrl) {
   return startsWith(absUrl, prefix) ? absUrl.slice(prefix.length) : null;
 }
 
+function getUrl(relPath) {
+  return new URL(relPath, rootUrl).href;
+}
+
 /**
  * Returns the value of the given parameter in the URL's query portion.
  */
@@ -154,7 +158,7 @@ function initSearch() {
   var searchResults = $('#mkdocs-search-results');
 
   // Fetch the prebuilt index data, and add to the index.
-  $.getJSON(base_url + '/search/search_index.json')
+  $.getJSON(getUrl('/search/search_index.json'))
   .done(function(data) {
     data.docs.forEach(function(doc) {
       searchIndex.addDoc(doc);
@@ -300,7 +304,7 @@ function doSearch(options) {
       var doc = searchIndex.documentStore.getDoc(results[i].ref);
       var snippet = snippetBuilder.getSnippet(doc.text, snippetLen);
       resultsElem.append(
-        $('<li>').append($('<a class="search-link">').attr('href', pathJoin(base_url, doc.location))
+        $('<li>').append($('<a class="search-link">').attr('href', getUrl(doc.location))
           .append($('<div class="search-title">').text(doc.title))
           .append($('<div class="search-text">').html(snippet)))
       );
@@ -308,16 +312,10 @@ function doSearch(options) {
     if (limit) {
       resultsElem.append($('<li role="separator" class="divider"></li>'));
       resultsElem.append($(
-        '<li><a class="search-link search-all" href="' + base_url + '/search.html">' +
+        '<li><a class="search-link search-all" href="' + getUrl('/search.html') + '">' +
         '<div class="search-title">SEE ALL RESULTS</div></a></li>'));
     }
   } else {
     resultsElem.append($('<li class="disabled"><a class="search-link">NO RESULTS FOUND</a></li>'));
   }
-}
-
-function pathJoin(prefix, suffix) {
-  var nPrefix = endsWith(prefix, "/") ? prefix.slice(0, -1) : prefix;
-  var nSuffix = startsWith(suffix, "/") ? suffix.slice(1) : suffix;
-  return nPrefix + "/" + nSuffix;
 }
