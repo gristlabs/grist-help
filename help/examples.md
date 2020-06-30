@@ -4,7 +4,7 @@ Here we will post useful examples of what you can do with Grist, sometimes with
 ready-to-use templates.
 
 - [Slicing and Dicing Credit Card Expenses](examples/2020-06-credit-card.md):
-  Grist offers handy way to explore your credit card transactions quickly. American
+  Grist offers a handy way to explore your credit card transactions quickly. American
   Express card members can use the ready-made template in the example.
 
 - [Book Lists with Library and Store Look-ups](examples/2020-06-book-club.md):
