@@ -47,6 +47,8 @@ let's add a few more books too:
 
 ![Start](/examples/images/2020-06-book-club-all-isbn.png)
 
+## Library and store lookups
+
 Once we have the ISBN, adding a link to buy the book is easy.  Here's a formula
 for the [indiebound.org](https://indiebound.org) site, which in the U.S. is likely
 to have an independent book store near you as a member:
@@ -99,6 +101,8 @@ keywords = ($Title or "") + " " + ($Author.Name or "")
 Once we have all these links, it makes sense to add a [Card View](../linking-widgets.md#same-record-linking) so we can lay them out:
 
 ![Start](/examples/images/2020-06-book-club-card.png)
+
+## Ready-made template
 
 Here is an
 [example book list](https://docs.getgrist.com/2s1QBQyExxj2/Book-Club/m/fork){:target="\_blank"}
