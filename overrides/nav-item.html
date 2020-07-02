@@ -1,7 +1,7 @@
 <li class="wm-toc-li wm-toc-lev{{ navlevel }} {% if nav_item.children %}wm-toc-opener{% endif %}
       {%- if page and nav_item.url == page.url %} wm-current wm-page-toc-opener wm-page-toc-open{% endif -%}">
   {%- if nav_item.url or nav_item.is_page or nav_item.is_link or nav_item.url -%}
-    <a href="{{ base_url }}/{{ nav_item.url }}" class="wm-article-link wm-toc-text">{{ nav_item.title }}</a>
+    <a href="{{ nav_item.url|url }}" class="wm-article-link wm-toc-text">{{ nav_item.title }}</a>
 
     {% if page and nav_item.url == page.url %}
     {# Render the table-of-contents of sections inside the current page #}
