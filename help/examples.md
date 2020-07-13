@@ -12,6 +12,10 @@ ready-to-use templates.
   adding automatic links to libraries, stores, review sites, and other references.
   The same ideas could work with Ikea furniture, food orders, whatever you like.
 
+- [Prepare Emails using Formulas](examples/2020-07-email-compose.md):
+  Turn cells into links that open an email program to compose a new message, and prefill its
+  recipients, subject, and more.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may

@@ -49,6 +49,7 @@ nav:
       - More Examples: examples.md
       - Credit card expenses: examples/2020-06-credit-card.md
       - Book club links: examples/2020-06-book-club.md
+      - Prefill Emails: examples/2020-07-email-compose.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
   - Glossary: glossary.md
