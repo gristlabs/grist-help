@@ -17,7 +17,8 @@ your own contacts, and then show how to build it from scratch. You'll learn how 
 
 ## Exploring the example
 
-Open the document “Lightweight CRM”, found in Examples & Templates in your Grist home page.
+Open the document [Lightweight CRM](https://docs.getgrist.com/doc/lightweight-crm), found in
+Examples & Templates in your [Grist home page](https://docs.getgrist.com/).
 
 - You'll see the "Contacts" page, listing contacts on the left of the screen.
 

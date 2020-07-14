@@ -114,11 +114,27 @@ Text columns
 
 You can put any text you like in this type of column.  For formatting,
 you can control alignment and word-wrap, text color and background color.
+
 If the column is used for storing web links, you can turn on "HyperLink"
-formatting to make that prettier.
+formatting to make links prettier and to include a clickable link icon.
 
 *![Format text](images/columns/columns-format-text.png)*
 {: .screenshot-half }
+
+### Hyperlinks
+
+When a Text column uses "HyperLink" formatting, values get formatted like so:
+
+- `https://getgrist.com` will show <https://getgrist.com>.
+- `Grist Labs https://getgrist.com` will show [Grist Labs](https://getgrist.com) (linking to
+  "https://getgrist.com" with “Grist Labs” as the text).
+- `Email Help mailto:support@getgrist.com` will show <a href="mailto:support@getgrist.com">Email
+  Help</a>, a link which would open an email program to compose an email to support@getgrist.com.
+
+In general, the value until the last space is used as the link text, while the last word is used as the link destination.
+
+Link formatting is particularly useful when links are generated using a formula such as:  
+`$Company + " " + $Website`{: .formula}
 
 Numeric columns
 -----------------
