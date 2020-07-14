@@ -116,7 +116,7 @@ You can put any text you like in this type of column.  For formatting,
 you can control alignment and word-wrap, text color and background color.
 
 If the column is used for storing web links, you can turn on "HyperLink"
-formatting to make links convenient and clickable.
+formatting to make links prettier and to include a clickable link icon.
 
 *![Format text](images/columns/columns-format-text.png)*
 {: .screenshot-half }
