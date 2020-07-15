@@ -572,10 +572,22 @@ referencing the invalid value will also display an error):</p>
 </table>
 <h2 id="text-columns">Text columns<a class="headerlink" href="#text-columns" title="Permanent link">#</a></h2>
 <p>You can put any text you like in this type of column.  For formatting,
-you can control alignment and word-wrap, text color and background color.
-If the column is used for storing web links, you can turn on &ldquo;HyperLink&rdquo;
-formatting to make that prettier.</p>
+you can control alignment and word-wrap, text color and background color.</p>
+<p>If the column is used for storing web links, you can turn on &ldquo;HyperLink&rdquo;
+formatting to make links prettier and to include a clickable link icon.</p>
 <p class="screenshot-half"><em><img alt="Format text" src="../images/columns/columns-format-text.png" /></em></p>
+<h3 id="hyperlinks">Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permanent link">#</a></h3>
+<p>When a Text column uses &ldquo;HyperLink&rdquo; formatting, values get formatted like so:</p>
+<ul>
+<li><code>https://getgrist.com</code> will show <a href="https://getgrist.com">https://getgrist.com</a>.</li>
+<li><code>Grist Labs https://getgrist.com</code> will show <a href="https://getgrist.com">Grist Labs</a> (linking to
+  &ldquo;https://getgrist.com&rdquo; with “Grist Labs” as the text).</li>
+<li><code>Email Help mailto:support@getgrist.com</code> will show <a href="mailto:support@getgrist.com">Email
+  Help</a>, a link which would open an email program to compose an email to support@getgrist.com.</li>
+</ul>
+<p>In general, the value until the last space is used as the link text, while the last word is used as the link destination.</p>
+<p>Link formatting is particularly useful when links are generated using a formula such as:<br />
+<code class="formula">$Company + " " + $Website</code></p>
 <h2 id="numeric-columns">Numeric columns<a class="headerlink" href="#numeric-columns" title="Permanent link">#</a></h2>
 <p>This type is for floating point numbers, and can also be used with
 whole numbers.  As for text, you can control alignment and color.
