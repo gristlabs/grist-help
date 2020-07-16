@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Credit card expenses - Grist Help Center</title>
+    <title>Prefill Emails - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -312,7 +312,15 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Credit card expenses</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06-credit-card/" class="wm-article-link wm-toc-text">Credit card expenses</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Prefill Emails</a>
 
     
     
@@ -321,20 +329,32 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Slicing and Dicing Expenses
+              Prepare Emails using Formulas
             </a>
           </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#simple-mailto-links">
+                Simple Mailto Links
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#cc-bcc-subject-body">
+                Cc, Bcc, Subject, Body
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#emailing-multiple-people">
+                Emailing Multiple People
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#configuring-email-program">
+                Configuring Email Program
+              </a>
+            </li>
         
       </ul>
     </li>
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill Emails</a>
-
     
 </li>
   </ul>
@@ -376,20 +396,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../2020-06-book-club/" class="btn btn-xs btn-default pull-right">
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../2020-06-book-club/" class="btn btn-xs btn-link">
-        Book club links
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-link">
+        Shortcuts
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../" class="btn btn-xs btn-default pull-left">
+      <a href="../2020-06-book-club/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../" class="btn btn-xs btn-link">
-        More Examples
+        Previous</a><a href="../2020-06-book-club/" class="btn btn-xs btn-link">
+        Book club links
       </a>
     </div>
     
@@ -397,51 +417,73 @@
 
     
 
-    <h1 id="slicing-and-dicing-expenses">Slicing and Dicing Expenses<a class="headerlink" href="#slicing-and-dicing-expenses" title="Permanent link">#</a></h1>
-<p>Grist offers a handy way to explore your credit card transactions quickly, for example if you want to see transactions by:</p>
+    <h1 id="prepare-emails-using-formulas">Prepare Emails using Formulas<a class="headerlink" href="#prepare-emails-using-formulas" title="Permanent link">#</a></h1>
+<p>You may already know that you can add <a href="../../col-types/#hyperlinks">hyperlink fields</a> in Grist. You
+may also know about &ldquo;mailto&rdquo; links that open a mail program to create a new email message.</p>
+<p>Less well-known is that &ldquo;mailto&rdquo; links allow pre-filling many parts of the email message. If you
+use Grist to store contacts, you can essentially create email templates using Grist formulas.</p>
+<h2 id="simple-mailto-links">Simple Mailto Links<a class="headerlink" href="#simple-mailto-links" title="Permanent link">#</a></h2>
+<p>The simplest &ldquo;mailto&rdquo; link in Grist looks like <code>mailto:someone@example.com</code>. When the column is
+set to Text, and its format is set to Hyperlink, it shows as <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>.</p>
+<p>If you have a table with columns <code>Full_Name</code> and <code>Email</code>, add another column with
+this formula:
+<code class="formula">"Compose Email mailto:%s" % ($Email)</code>.
+Set its type to Text, and its cell format to Hyperlink:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="HyperLink Format" src="/examples/images/2020-07-hyperlink-format.png" /></em></span></p>
+<p>You&rsquo;ll get a link in each person&rsquo;s row, which you can click to start composing an email to that
+person:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Mailto Cells" src="/examples/images/2020-07-hyperlink-cells.png" /></em></span></p>
+<p>See an example of this in action here:
+<a href="https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/m/fork" target="_blank">Simple Compose</a>.</p>
+<h2 id="cc-bcc-subject-body">Cc, Bcc, Subject, Body<a class="headerlink" href="#cc-bcc-subject-body" title="Permanent link">#</a></h2>
+<p>In addition to opening your email program and filling in the &ldquo;TO&rdquo; field, a &ldquo;mailto&rdquo; link can
+fill in other parts of the email, using this format:</p>
+<pre><code class="html">mailto:&lt;to&gt;?cc=&lt;cc&gt;&amp;bcc=&lt;bcc&gt;&amp;reply-to=&lt;email&gt;&amp;subject=&lt;subject&gt;&amp;body=&lt;body&gt;
+</code></pre>
+
+<p>All fields are optional. You can specify multiple email addresses for To/Cc/Bcc lists by
+separating them with commas.</p>
+<p>Values of each field should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">percent-encoded</a>,
+which in Python can be done using
+<a href="https://docs.python.org/2/library/urllib.html#urllib.quote">urllib.quote</a>.</p>
+<p>To put this together, this formula will produce a hyperlink to create a pre-filled email:</p>
+<pre><code class="python">from urllib import quote, urlencode
+return &quot;Compose mailto:%s?cc=sales@example.com&amp;subject=%s&amp;body=%s&quot; % (
+  quote($Email), quote(&quot;Welcome!&quot;), quote($Body))
+</code></pre>
+
+<p>A live example of this is here:
+<a href="https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/p/2/m/fork" target="_blank">Advanced Compose</a>.</p>
+<h2 id="emailing-multiple-people">Emailing Multiple People<a class="headerlink" href="#emailing-multiple-people" title="Permanent link">#</a></h2>
+<p>Email links are very handy when emailing a group of people, such as students in a class,
+or people on a certain project.</p>
+<p>For instance, if you have a <a href="../../col-refs/">Reference column</a> &ldquo;Project&rdquo; that ties a person to a
+project, then in the table of projects, you can look up all associated people using
+<a href="../../functions/#lookuprecords">lookupRecords</a>. You can then build a link to email them as a
+group:</p>
+<pre><code class="python">from urllib import quote
+people = People.lookupRecords(Project=$id)
+return &quot;Email Group mailto:%s&quot; % quote(&quot;, &quot;.join(people.Email))
+</code></pre>
+
+<p>You can see this formula at work in
+<a href="https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/p/3/m/fork" target="_blank">Group Compose</a>.</p>
+<p>Don&rsquo;t use this to replace an email marketing platform: since emails use your regular
+email program, you shouldn&rsquo;t use it for emailing thousands of people. But for small groups, this
+can be very convenient.</p>
+<h2 id="configuring-email-program">Configuring Email Program<a class="headerlink" href="#configuring-email-program" title="Permanent link">#</a></h2>
+<p>If your &ldquo;mailto&rdquo; links don&rsquo;t work, or don&rsquo;t open your preferred email program, here is an article
+to help you configure it:</p>
 <ul>
-<li>Category</li>
-<li>Card Member</li>
-<li>Month</li>
-<li>Combination of any of the above</li>
+<li><a href="https://www.makeuseof.com/tag/how-to-change-the-default-email-program-for-mailto-links/">Changing the default email program</a>.</li>
 </ul>
-<p>Here is an example using data from American Express (redacted for privacy, of course). See below for using it as a template for your own data.</p>
-<p>This first page is a dashboard: it shows a few summary charts — your expenses by month, and two pie
-charts to let you quickly see which card member or which category has the most expenses.</p>
-<p><img alt="Dashboard" src="/examples/images/2020-06-credit-card-dashboard.png" /></p>
-<p>The next three pages show breakdowns by Category, Card Member, and by Month. In addition to the
-totals by Category, you can click on any Category to see all transactions in it, and then click on
-any transaction to see its complete details.</p>
-<p><img alt="By Category" src="/examples/images/2020-06-credit-card-by-category.png" /></p>
-<p>Here is the
-<a href="https://docs.getgrist.com/kmmB7wgUnfXx/AmEx-Activity-Example/m/fork" target="_blank">example with sample data</a>
- that you can play with.</p>
-<p>To use it for your own data, start by downloading your transactions. For American Express
-credit cards:</p>
-<ol>
-<li>Log in at <a href="https://americanexpress.com" target="_blank">https://americanexpress.com</a></li>
-<li>Go to “Statements &amp; Activity” tab, then select “View By Year” or “Custom Date Range”.</li>
-<li>Click “Download your Transactions” icon.</li>
-<li>When asked to choose the download format, select “CSV” and select the checkbox that
-   says “Include all additional transaction details”.</li>
-</ol>
-<p>To import this data into Grist:</p>
-<ol>
-<li>Open the <a href="https://docs.getgrist.com/k1msFNNJKzqh/AmEx-Activity-Template/m/fork" target="_blank">template here</a>.</li>
-<li>Click &ldquo;Add New&rdquo; button and choose &ldquo;Import from file&rdquo;.</li>
-<li>In the dialog that shows, change “To” table from “New Table” to “Activity”, like so:</li>
-</ol>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Import destination" src="../images/2020-06-credit-card-import-destination.png" /></em></span></p>
-<p>Click &ldquo;Import&rdquo;, and you are done. Your data is ready to explore.</p>
-<div class="admonition tip">
-<p class="admonition-title">Note</p>
-<p>When you start with a template link, your copy of the document is initially unsaved. To keep
-this data for later, click “Save Copy”, and give the document a name. You’ll see the document
-later on your Grist home page at <a href="https://docs.getgrist.com">https://docs.getgrist.com</a>.</p>
-</div>
-<p>A template like this doesn’t take long to prepare. It uses a combination of
-<a href="../../summary-tables/">summary tables</a> and <a href="../../linking-widgets/">widget linking</a>.</p>
-<p>Have feedback or improvements to contribute? Please share with us by emailing <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<p>If you need more details, here are some more links:</p>
+<ul>
+<li>To open a desktop program (such as Mail, Thunderbird, etc.) on a Mac: <a href="https://support.apple.com/en-us/HT201607">Instructions</a>.</li>
+<li>To open a desktop program (such as Outlook, etc. ) on Windows: <a href="https://kb.wisc.edu/helpdesk/page.php?id=170">Instructions</a>.</li>
+<li>To open Gmail in Chrome and other browsers: <a href="https://blog.hubspot.com/marketing/set-gmail-as-browser-default-email-client-ht">Instructions</a>.</li>
+<li>To open webmail (such as Gmail or Yahoo! Mail) or a desktop program in Firefox: <a href="https://support.mozilla.org/en-US/kb/change-program-used-open-email-links">Instructions</a>.</li>
+</ul>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
