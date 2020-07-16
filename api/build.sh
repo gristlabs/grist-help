@@ -4,6 +4,8 @@ set -e
 
 cli="node_modules/.bin/redoc-cli"
 
+# Yarn offers an easy way to verify that correct node_modules are installed (even though
+# we use npm and package-lock otherwise). See https://stackoverflow.com/a/56223167/328565
 if ! yarn check --verify-tree; then
   npm ci
 fi
