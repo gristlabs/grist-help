@@ -2,14 +2,10 @@
 
 set -e
 
-if [ ! -e package.json ]; then
-  npm init -y
-fi
-
 cli="node_modules/.bin/redoc-cli"
 
-if [ ! -e $cli ]; then
-  npm install redoc-cli --save
+if ! yarn check --verify-tree; then
+  npm ci
 fi
 
 options="--options.theme.spacing.sectionVertical=2 \
