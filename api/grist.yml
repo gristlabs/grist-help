@@ -522,6 +522,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RowIds"
+  /docs/{docId}/tables/{tableId}/data/delete:
+    post:
+      tags:
+        - Data Tables
+      summary: "Delete rows of a table"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: tableId
+          schema:
+            type: string
+            description: name of a table (normalized)
+          required: true
+      requestBody:
+        description: "the IDs of rows to remove"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RowIds"
+        required: true
+      responses:
+        200:
+          description: Nothing returned
+          content:
+            application/json:
+              schema:
+                type: null
   /docs/{docId}/attachments:
     post:
       tags:
