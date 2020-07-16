@@ -522,7 +522,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RowIds"
-  /docs/{docId}/tables/{tableId}/data/remove:
+  /docs/{docId}/tables/{tableId}/data/delete:
     post:
       tags:
         - Data Tables
@@ -548,7 +548,7 @@ paths:
         required: true
       responses:
         200:
-          description: IDs of rows modified
+          description: Nothing returned
           content:
             application/json:
               schema:
