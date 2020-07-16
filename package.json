@@ -1,0 +1,23 @@
+{
+  "name": "grist-help",
+  "version": "1.0.0",
+  "description": "Repository for Grist documentation and tutorials.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsagal/grist-help.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsagal/grist-help/issues"
+  },
+  "homepage": "https://github.com/dsagal/grist-help#readme",
+  "dependencies": {
+    "redoc-cli": "^0.9.8"
+  }
+}
