@@ -28,12 +28,14 @@ For each example, there is a corresponding How-To Tutorial in the Grist Help Cen
 which describes how to use it or how to build such a document
 from scratch.
 
-You can open any of the examples in view-only mode, or click "Make own copy"
-and select "Copy full document" to get an editable copy.
+When you open an example, you can make changes to it. You are editing a copy, and your changes are
+private to you. You can save your changes by clicking the "Save Copy" button on the top of the
+page.
 
 You can also use any of the examples as a template for a new document, whch
 will include the structure, layout, and formulas of the example, but none of
-the sample data. Simply Click "Make own copy" and select "Copy as template".
+the sample data. Simply use the "Save Copy" button and check the "As Template" checkbox in the
+dialog that opens.
 
 ## Importing more data
 

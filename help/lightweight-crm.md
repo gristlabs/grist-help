@@ -129,7 +129,7 @@ or as a template (just the structure without the data). Here are a few more poin
   browser window with the Gmail search results for this contact's email address.
 
 You can use this example as a template for your own contacts. With the "Lightweight CRM" example open,
-click the drop-down arrow beside the "Save Copy" button in in the top bar, and select "Copy as Template".
+click the "Save Copy" button in in the top bar, then mark the "As Template" checkbox.
 You'll get an empty document with the same layout, and can start filling it in with your own data.
 If you aren't signed in, you will need to sign in to make a copy of the example.
 
