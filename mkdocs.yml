@@ -17,10 +17,12 @@ nav:
   - Managing documents:
     - Creating a document: creating-doc.md
     - Sharing a document: sharing.md
+    - Copying documents: copying-docs.md
     - Team sharing [team]: team-sharing.md
     - Workspaces [team]: workspaces.md
     - Importing more data: imports.md
     - Exports & backups: exports.md
+    - Automatic Backups: automatic-backups.md
   - Pages and Tables:
     - Entering data: enter-data.md
     - Pages & widgets: page-widgets.md
