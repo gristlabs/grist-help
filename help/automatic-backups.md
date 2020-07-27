@@ -1,9 +1,9 @@
 # Automatic Backups
 
 Grist automatically saves backups of your documents as you work on them. These backups -- or
-snapshots -- of the document, can be examined at any time.
+snapshots -- of the document can be examined at any time.
 
-Grist retains more frequent snapshots of recent changes, and less frequest ones as you go back in
+Grist retains more frequent snapshots of recent changes, and less frequent ones as you go back in
 time. For example, hourly snapshots are retained for about a day, but monthly snapshots are
 retained for more than a year.
 

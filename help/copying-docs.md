@@ -24,8 +24,7 @@ You can experiment on this copy, making changes big or small, one or many.
 For those familiar with software development, this option is
 similar to a [branch](https://en.wikipedia.org/wiki/Branching_%28version_control%29){:target="\_blank"} or a
 [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo){:target="\_blank"}
-as used in version control systems like [Git](https://git-scm.com/){:target="\_blank"} or
-[SVN](http://subversion.apache.org/){:target="\_blank"}.
+as used in version control systems like [Git](https://git-scm.com/){:target="\_blank"}.
 
 When working on a copy, the Share menu has some new options:
 
@@ -45,8 +44,11 @@ You can also save your copy under a new name using the "Save Copy" option.
 
 ### Access to Unsaved Copies
 
-When you create an experimental copy as described above, everyone with access to the original is
-allowed to view your copy, but you are the only user allowed to edit it.
+When you create an experimental copy as described above, it gets a unique link. The copy isn't
+listed anywhere, so others will not find it unless you share this link.
+
+Anyone with a link to your copy and with access to the original document is allowed to view the
+copy, but you are the only user allowed to edit it.
 
 This means that you can share a link to your copy with others, who can review your changes.
 
@@ -64,7 +66,7 @@ menu. Clicking it opens a dialog:
 {: .screenshot-half }
 
 Type in the new name. If you have access to one or more team accounts, you may have a choice of a
-destination organization and a destination workspace where to save the copy. Note that on a team
+destination team and a destination workspace where to save the copy. Note that on a team
 plan, you would not be able to save the document outside of the team account unless you have
 owner-level access to the document.
 
