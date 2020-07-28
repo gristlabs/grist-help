@@ -20,7 +20,11 @@ currently-selected widget.
 
 ## Backing up an entire document
 
-Grist documents can also be downloaded in their entirety as an SQLite database
+Grist makes regular backups of documents automatically, as described in [Automatic
+Backups](automatic-backups.md). You can also make manual backups by [saving
+copies](copying-docs.md#copying-for-backup-purposes) of documents in your Grist account.
+
+In addition, Grist documents can be downloaded in their entirety as an SQLite database
 file with a `.grist` extension.  SQLite is a popular database format.
 The downloaded file will contain all your tabular data, any attached
 files within those tables, metadata about your tables, pages, and
