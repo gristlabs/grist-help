@@ -26,6 +26,7 @@ nav:
   - Pages and Tables:
     - Entering data: enter-data.md
     - Pages & widgets: page-widgets.md
+    - Search, sort & filter: search-sort-filter.md
     - Table widget: widget-table.md
     - Card & Card List: widget-card.md
     - Chart: widget-chart.md
