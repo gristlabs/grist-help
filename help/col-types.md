@@ -139,14 +139,27 @@ Link formatting is particularly useful when links are generated using a formula 
 Numeric columns
 -----------------
 
-This type is for floating point numbers, and can also be used with
-whole numbers.  As for text, you can control alignment and color.
-You can also choose whether to show arrows for increasing/decreasing
-the number (this is the "Spinner" option).  And you can set a
-minimum and maximum number of decimal points to show.
+This type is for numbers, including floating-point numbers. In addition to controlling alignment
+and color, you can choose the number format, and the minimum and maximum number of digits to
+show after the decimal point.
 
 *![Format numeric](images/columns/columns-format-numeric.png)*
 {: .screenshot-half }
+
+Choosing the "Spinner" option for CELL FORMAT will show arrows in each cell for
+increasing/decreasing the number.
+
+The options under NUMBER FORMAT include:
+
+- `$`: Format for dollar amounts, with a "$" prefix, thousands separators, and defaulting to 2
+  digits after the decimal point.
+- `,`: Turn on the display of thousands separators.
+- `%`: Show numbers as percentages. E.g. "0.5" would show as "50%".
+- `Exp`: Show numbers in exponential (or scientific) notation. E.g. "1234" would be shown as
+  "1.234E3".
+- `(-)`: Show negative numbers in parentheses, without a leading minus sign. This is commonly used
+  in accounting, and usually combined with `$` or `,` formats.
+
 
 Integer columns
 -----------------
