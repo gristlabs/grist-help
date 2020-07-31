@@ -174,6 +174,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../team-sharing/" class="wm-article-link wm-toc-text">Team sharing [team]</a>
 
     
@@ -190,6 +194,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../automatic-backups/" class="wm-article-link wm-toc-text">Automatic Backups</a>
+
+    
+</li>
   </ul>
 </li>
 
@@ -202,6 +210,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
 
     
 </li>
@@ -593,12 +605,23 @@ formatting to make links prettier and to include a clickable link icon.</p>
 <p>Link formatting is particularly useful when links are generated using a formula such as:<br />
 <code class="formula">$Company + " " + $Website</code></p>
 <h2 id="numeric-columns">Numeric columns<a class="headerlink" href="#numeric-columns" title="Permanent link">#</a></h2>
-<p>This type is for floating point numbers, and can also be used with
-whole numbers.  As for text, you can control alignment and color.
-You can also choose whether to show arrows for increasing/decreasing
-the number (this is the &ldquo;Spinner&rdquo; option).  And you can set a
-minimum and maximum number of decimal points to show.</p>
+<p>This type is for numbers, including floating-point numbers. In addition to controlling alignment
+and color, you can choose the number format, and the minimum and maximum number of digits to
+show after the decimal point.</p>
 <p class="screenshot-half"><em><img alt="Format numeric" src="../images/columns/columns-format-numeric.png" /></em></p>
+<p>Choosing the &ldquo;Spinner&rdquo; option for CELL FORMAT will show arrows in each cell for
+increasing/decreasing the number.</p>
+<p>The options under NUMBER FORMAT include:</p>
+<ul>
+<li><code>$</code>: Format for dollar amounts, with a &ldquo;$&rdquo; prefix, thousands separators, and defaulting to 2
+  digits after the decimal point.</li>
+<li><code>,</code>: Turn on the display of thousands separators.</li>
+<li><code>%</code>: Show numbers as percentages. E.g. &ldquo;0.5&rdquo; would show as &ldquo;50%&rdquo;.</li>
+<li><code>Exp</code>: Show numbers in exponential (or scientific) notation. E.g. &ldquo;1234&rdquo; would be shown as
+  &ldquo;1.234E3&rdquo;.</li>
+<li><code>(-)</code>: Show negative numbers in parentheses, without a leading minus sign. This is commonly used
+  in accounting, and usually combined with <code>$</code> or <code>,</code> formats.</li>
+</ul>
 <h2 id="integer-columns">Integer columns<a class="headerlink" href="#integer-columns" title="Permanent link">#</a></h2>
 <p>This is strictly for whole numbers.  It has the same options as
 the numeric type.</p>
