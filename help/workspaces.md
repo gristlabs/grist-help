@@ -45,6 +45,13 @@ view rights, or "View & Edit" to limit inheritance to view and edit rights
 
 ![workspaces-inherit-access](images/workspaces/workspaces-inherit-access.png)
 
+It is possible to be an editor/owner of a workspace and not be able to
+open all documents within that workspace.  This can happen if an owner
+of a document limits inheritance to "None."  You will still see the
+document listed, so that if you ever decide to delete the workspace
+you'll know what you're deleting.  Viewers of a workspace will only
+see documents they have access to listed.
+
 To move a document from one workspace to another, hover over the document,
 click on the three-dots icon to the right of the document's name, and
 select "Move".
