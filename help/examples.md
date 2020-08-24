@@ -16,6 +16,9 @@ ready-to-use templates.
   Turn cells into links that open an email program to compose a new message, and prefill its
   recipients, subject, and more.
 
+- [Preparing Invoices](examples/2020-08-invoices.md):
+  Preview printable invoices side by side with your client data.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
