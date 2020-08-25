@@ -7,7 +7,7 @@ shows you how to set up a document like this:
 ![Invoice](/examples/images/2020-08-invoices/final-invoice.png)
 
 
-You can find a finished template at [https://public.getgrist.com/fGBhgyJbcFbr/Billing](https://public.getgrist.com/fGBhgyJbcFbr/Billing).
+You can find a finished template at [https://public.getgrist.com/fGBhgyJbcFbr/Billing/m/fork](https://public.getgrist.com/fGBhgyJbcFbr/Billing/m/fork).
 If you'd like to add invoices to an existing document, making them work the
 way you want, understanding this tutorial should get you there.
 
@@ -99,7 +99,7 @@ To let the widget see the new column, open `Widget options` again and move
 
 ![Invoice](/examples/images/2020-08-invoices/add-total-visible.png)
 
-Great, the invoice updated.  Now let's set who the invoicer is from, by
+Great, the invoice updated.  Now let's set who the invoice is from, by
 adding an `Invoicer` column (remember to make it visible to the widget
 via `Widget options`).
 
@@ -152,13 +152,13 @@ anything in the references changes".  Remember to make the
 `References` column visible to the widget via `Widget options`, so
 that the widget will get updated as we add and change referenced material.
 
-Nothing much changes yet, except if you hide the `Due` and `Issued`
-columns from the widget so that the help box is shown again,
+Nothing much changes yet, except if you set the `Due` column to be
+empty so that the help box is shown again,
 you'll see that a suggestion to add a `References` column is now gone.
 
 ![Invoice](/examples/images/2020-08-invoices/add-references.png)
 
-First let's place client information in a separate table.  Add a new table
+Next let's place client information in a separate table.  Add a new table
 to the page for entering business information by clicking
 on `Add New`, `Add Widget to Page`, then `Select Widget > Table` and
 `Select Data > New Table`:
@@ -188,7 +188,7 @@ section.
 
 We could do the same thing for the `Invoicer` column as we did for the `Client`
 column, and make it a reference to the `Businesses` table or a separate table.
-However, you will always be using the same name and address for
+However, if you will always be using the same name and address for
 your business, you could skip setting up a reference by setting the
 Column Type for `Invoicer` to `Any` and entering a formula like this:
 
