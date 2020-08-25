@@ -49,11 +49,15 @@ nav:
     - API reference: api.md
   - News & updates:
     - Newsletters: newsletters.md
+    - 2020/07: newsletters/2020-07.md
+    - 2020/06: newsletters/2020-06.md
+    - 2020/05: newsletters/2020-05.md
   - More examples:
-      - More Examples: examples.md
+      - More examples: examples.md
       - Credit card expenses: examples/2020-06-credit-card.md
       - Book club links: examples/2020-06-book-club.md
-      - Prefill Emails: examples/2020-07-email-compose.md
+      - Prefill emails: examples/2020-07-email-compose.md
+      - Prepare Invoices: examples/2020-08-invoices.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
   - Glossary: glossary.md
