@@ -33,10 +33,6 @@ Research" example, learn to create summary tables and charts, and link charts dy
 [Managing business data](afterschool-program.md). Using the "Afterschool Program" example,
 learn to model business data, use formulas, and manage complexity.
 
-[Coming soon] [Managing scientific data](investment-research.md). Using the "Biochem Research" example,
-learn to organize and analyze scientific data.
-{: .coming-soon }
-
 </div>
 
 <div class="col-md-6 column-images" markdown="1">
