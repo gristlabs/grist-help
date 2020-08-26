@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/newsletters/2020-06/">
+    <link rel="canonical" href="https://support.getgrist.com/newsletters/2020-08/">
     <link rel="shortcut icon" href="../../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>2020/06 - Grist Help Center</title>
+    <title>2020/08 - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -313,15 +313,7 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">2020/06</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">2020/08</a>
 
     
     
@@ -330,7 +322,7 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              June 2020 Newsletter
+              August 2020 Newsletter
             </a>
           </li>
             <li class="wm-toc-li">
@@ -349,11 +341,6 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#grist-overview-demo">
-                Grist Overview Demo
-              </a>
-            </li>
-            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#learning-grist">
                 Learning Grist
               </a>
@@ -361,6 +348,14 @@
         
       </ul>
     </li>
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
@@ -433,20 +428,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../2020-05/" class="btn btn-xs btn-default pull-right">
+      <a href="../2020-07/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../2020-05/" class="btn btn-xs btn-link">
-        2020/05
+      <a href="../2020-07/" class="btn btn-xs btn-link">
+        2020/07
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../2020-07/" class="btn btn-xs btn-default pull-left">
+      <a href="../" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../2020-07/" class="btn btn-xs btn-link">
-        2020/07
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        Newsletters
       </a>
     </div>
     
@@ -454,7 +449,7 @@
 
     
 
-    <h1 id="june-2020-newsletter">June 2020 Newsletter<a class="headerlink" href="#june-2020-newsletter" title="Permanent link">#</a></h1>
+    <h1 id="august-2020-newsletter">August 2020 Newsletter<a class="headerlink" href="#august-2020-newsletter" title="Permanent link">#</a></h1>
 <style>
   /* restore some poorly overridden defaults */
   .newsletter-header .table {
@@ -522,7 +517,7 @@
       </td>
       <td class="header-top-text">
         <div class="header-title">Grist for the Mill</div>
-        <div class="header-month">June 2020
+        <div class="header-month">August 2020
           &#8226; <a href="https://www.getgrist.com/">getgrist.com</a></div>
       </td>
     </tr></table>
@@ -536,63 +531,54 @@
 <h2 id="quick-tips">Quick Tips<a class="headerlink" href="#quick-tips" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p><strong>Get the Calendar Quarter.</strong> If you have a column of type Date, you
-  can extract parts of it with Excel-like functions for
-  <a href="../../functions/#year">year</a>,
-  <a href="../../functions/#month">month</a>, and
-  <a href="../../dates/">more</a>.
-  But how to get the quarter? This formula will produce values like “2020 Q2”:</p>
-<p><code class="formula">"%s Q%s" % ($MyDate.year, CEILING($MyDate.month, 3) / 3)</code></p>
+<p><strong>Date Offsets.</strong> It is easy to get into muddles calculating
+  dates. <a href="../../functions/#dateadd">DATEADD</a> is an easy and reliable
+  way to add years, months, weeks, and days to a date.  For example,
+  to calculate three months on from a specific date, do
+  <code>DATEADD($date, months=3)</code>. For a week and a day before that, do
+  <code>DATEADD($date, months=3, weeks=-1, day=-1)</code>. Simple!</p>
 </li>
 <li>
-<p><strong>Make Hyperlinks.</strong> To create a column of links in Grist, set the column
-  type to Text, and click the “HyperLink” button under CELL FORMAT:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlink" src="../../images/newsletters/2020-06/hyperlink.png" /></em></span></p>
-<p>Now, a value like <code>Grist Labs https://getgrist.com</code> will
-show a link to <a href="https://getgrist.com">https://getgrist.com</a>
-with “Grist Labs” as the text.
-See below for a Book Club example that uses formulas extensively to generate useful links.</p>
+<p><strong>Column Names.</strong> Sometimes, there is a tension between choosing a
+  column name as a verbose label to explain what it is about,
+  and choosing something short and snappy that is comfortable in
+  formulas.  You can have both! Just open the column options and
+  uncheck &ldquo;<a href="../../col-types/#renaming-columns">Use Name as ID?</a>&rdquo;.
+  Then you can set the name used as a label and the name used in
+  formulas separately.  And as always with Grist, if you change your
+  mind later you can change or relink the names and all your formulas will
+  update automatically.</p>
 </li>
 </ul>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="naming columns" src="../../images/newsletters/2020-08/choose-formula-name-separately.png" /></em></span></p>
 <h2 id="whats-new">What’s New<a class="headerlink" href="#whats-new" title="Permanent link">#</a></h2>
-<p><b>Safely work on complex changes.</b> As your document or spreadsheet
-grows in importance, the ease of making changes may get
-overshadowed by the fear of breaking something.</p>
-<p>Grist now has a tool to help. Click “Duplicate Document”<sup id="fnref:duplicate-doc"><a class="footnote-ref" href="#fn:duplicate-doc">1</a></sup> in the Share menu:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="duplicate-doc" src="../../images/newsletters/2020-06/duplicate-doc.png" /></em></span></p>
-<p>You&rsquo;ll get an unsaved copy of your document. You can experiment on it
-without fear of affecting the original.
-Make changes big or small, one or many. Once satisfied,
-open the dropdown next to “Save Copy” and click “Replace Original”:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="replace-original" src="../../images/newsletters/2020-06/replace-original.png" /></em></span></p>
-<p>Grist will warn you if the replacement risks overwriting any recent changes in the original.</p>
-<p><b>Examine and restore backups.</b> Grist automatically saves backups of
-your documents as you work on them. You can now view them easily. Click
-“Document History” in the left panel, then click the “Snapshots” tab in the
-panel on the right:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="doc-history" src="../../images/newsletters/2020-06/doc-history.png" /></em></span></p>
-<p>You can open any of the listed snapshots. You can revert to an old version
-using the “Replace Original” option<sup id="fnref:snapshots"><a class="footnote-ref" href="#fn:snapshots">2</a></sup>, or save an old version as a new
-document.</p>
+<p><strong>Sort your documents by modification date.</strong> You can now choose
+to order your documents so that the most recently changed ones show up first,
+using the new <code>By Name</code> / <code>By Date Modified</code> option at the top right of document lists.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlink" src="../../images/newsletters/2020-08/order-by-date-modified.png" /></em></span></p>
+<p><strong>List documents as icons.</strong> You may now also control whether documents show as
+a grid of icons or as a list of names,
+using the new grid and stack icons at the top right of document lists.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlink" src="../../images/newsletters/2020-08/show-as-icon.png" /></em></span></p>
+<p><strong>Reactive custom widgets.</strong> We have made it simple for web developers to create
+<a href="../../widget-custom/">Custom Widgets</a> that offer new reactive views of your data
+that update automatically. A developer need only call <code>grist.onRecord(s)</code> to subscribe
+to a record or a set of records linked to the widget; after that, presentation is a
+matter of preparing HTML/CSS/JS assets (no Grist-specific knowledge needed).
+The user of the widget controls data selection using regular
+<a href="../../linking-widgets/">Widget Linking</a>.
+We invite web developers to have a go at building new widgets or visualizations,
+and we&rsquo;d be excited to hear about the results (shoot us a mail at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>).</p>
 <h2 id="new-examples">New Examples<a class="headerlink" href="#new-examples" title="Permanent link">#</a></h2>
-<p>Here are some examples of what you can do with Grist:</p>
+<p>Here is an example of what you can do with Grist:</p>
 <ul>
-<li>
-<p><a href="../../examples/2020-06-credit-card/">Slice and Dice Credit Card Expenses</a>:
-  Grist offers handy way to explore your credit card transactions quickly. American Express card
-  members can use the ready-made template in the example.</p>
-</li>
-<li>
-<p><a href="../../examples/2020-06-book-club/">Book Lists with Library and Store Look-ups</a>:
-  Grist’s link handling and formulas can help you with your book club, by adding automatic links
-  to libraries, stores, review sites, and other references. The same ideas could work with Ikea
-  furniture, food orders, whatever you like.</p>
-</li>
+<li><a href="../../examples/2020-08-invoices/">Preparing Invoices</a>: Preview printable invoices side
+  by side with your client and order data.  Enter billable items quickly, making use of formulas,
+  and see the invoice update immediately just like any other part of a spreadsheet.
+  This is also an example of the kind of new visualization that can be built with
+  <a href="../../widget-custom/">Custom Widgets</a>.</li>
 </ul>
-<h2 id="grist-overview-demo">Grist Overview Demo<a class="headerlink" href="#grist-overview-demo" title="Permanent link">#</a></h2>
-<p>Interested in seeing an overview of Grist features on a realistic example?
-Check out our new demo video:
-<a href="https://www.youtube.com/watch?v=XYZ_ZGSxU00">https://www.youtube.com/watch?v=XYZ_ZGSxU00</a>.</p>
+<p><img alt="invoice example" src="/examples/images/2020-08-invoices/final-invoice.png" /></p>
 <h2 id="learning-grist">Learning Grist<a class="headerlink" href="#learning-grist" title="Permanent link">#</a></h2>
 <ul>
 <li>
@@ -617,18 +603,6 @@ Check out our new demo video:
   <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 </li>
 </ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:duplicate-doc">
-<p>After the July 2020 update, use the &ldquo;Work on a Copy&rdquo; option for this functionality.
-See <a href="../../copying-docs/#trying-out-changes">Copying Documents</a>.&#160;<a class="footnote-backref" href="#fnref:duplicate-doc" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:snapshots">
-<p>This menu was updated in July 2020, see <a href="../../automatic-backups/">Automatic Backups</a>.&#160;<a class="footnote-backref" href="#fnref:snapshots" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
