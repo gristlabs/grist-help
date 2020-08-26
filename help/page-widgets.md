@@ -70,7 +70,7 @@ Layouts](custom-layouts.md).
 ## Changing widget or its data
 
 If you'd like to change a widget or the data it displays after it's added, you may do so. Click
-the three-dots button on the top left of your widget, and select "Widget options". This opens the
+the three-dots button on the top right of your widget, and select "Widget options". This opens the
 right-side panel. Click on "Change Widget".
 
 *![change_widget](images/change_widget.png)*
