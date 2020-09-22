@@ -504,7 +504,7 @@ the default <code>A</code>, <code>B</code>, and <code>C</code> columns in the In
 <p>Looking at the start of the invoice we see a space for an invoice number,
 <code>INVOICE NUMBER: #Number</code>.  So let&rsquo;s rename the <code>A</code> column to <code>Number</code>,
 we could leave the value as 1, but then it looks like we haven&rsquo;t done much
-business yet.  I&rsquo;m going to choose the set the invoice number to be <code>= $id + 51371</code>,
+business yet.  I&rsquo;m going to choose the set the invoice number to be <code class="formula">$id + 51371</code>,
 where <code>$id</code> is an auto-incrementing numeric identifier assigned to each row.
 But you could set it manually or with a different formula.  As soon as it is
 set, the invoice updates:</p>
@@ -558,7 +558,7 @@ column.  Remember to make it visible to the widget via <code>Widget options</cod
 <p>Before doing so, we need to let Grist know that the content of the invoice
 will depend on these other tables, so that it can update it when something
 changes, and make sure the invoice gets access to everything it needs.
-Make a <code>References</code> column and give it this formula:</p>
+Make a column named <code>References</code> and give it this formula:</p>
 <pre><code>= RECORD(rec, expand_refs=1)
 </code></pre>
 
@@ -568,16 +568,16 @@ also implies &ldquo;update everything that depends on this column if
 anything in the references changes&rdquo;.  Remember to make the
 <code>References</code> column visible to the widget via <code>Widget options</code>, so
 that the widget will get updated as we add and change referenced material.</p>
-<p>Nothing much changes yet, except if you set the <code>Due</code> column to be
-empty so that the help box is shown again,
-you&rsquo;ll see that a suggestion to add a <code>References</code> column is now gone.</p>
+<p>When the invoice widget sees a column named &ldquo;References&rdquo;, it fills out the invoice using the
+&ldquo;packaged&rdquo; values in that column, rather than the individual invoice fields. The benefit will be
+seen in the next step, since these packaged values can include data from related records.</p>
 <p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-references.png" /></p>
 <p>Next let&rsquo;s place client information in a separate table.  Add a new table
 to the page for entering business information by clicking
 on <code>Add New</code>, <code>Add Widget to Page</code>, then <code>Select Widget &gt; Table</code> and
 <code>Select Data &gt; New Table</code>:</p>
 <p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-businesses.png" /></p>
-<p>Then rename the table to <code>Businesses</code> and empty the <code>Client</code> column
+<p>Then rename the table to <code>Businesses</code>. Let&rsquo;s also empty the <code>Client</code> column
 so we can see help about what the widget expects there:</p>
 <p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-businesses-rename.png" /></p>
 <p>The widget suggests <code>Name</code>, <code>Street1</code>, <code>Street2</code>, <code>City</code>, <code>State</code>
@@ -594,8 +594,21 @@ section.</p>
 <p>We could do the same thing for the <code>Invoicer</code> column as we did for the <code>Client</code>
 column, and make it a reference to the <code>Businesses</code> table or a separate table.
 However, if you will always be using the same name and address for
-your business, you could skip setting up a reference by setting the
-Column Type for <code>Invoicer</code> to <code>Any</code> and entering a formula like this:</p>
+your business, you could skip setting up a reference by entering a formula like this into the
+<code>Invoicer</code> column (start typing with <code class="keys"><strong>=</strong></code> to make it a formula):</p>
+<pre><code class="python">{
+  &quot;Name&quot;: &quot;Thunderous Applause&quot;,
+  &quot;Street1&quot;: &quot;6502 Automated Rd&quot;,
+  &quot;City&quot;: &quot;New York&quot;,
+  &quot;State&quot;: &quot;NY&quot;,
+  &quot;Zip&quot;: &quot;10003&quot;,
+  &quot;Email&quot;: &quot;applause@thunder.com&quot;,
+  &quot;Phone&quot;: &quot;+1-800-YAY-YAYS&quot;,
+  &quot;Website&quot;: &quot;applause.com&quot;
+}
+</code></pre>
+
+<p>Then set the Column Type for <code>Invoicer</code> to <code>Any</code> in the right-side panel.</p>
 <p><img alt="Invoice" src="/examples/images/2020-08-invoices/link-invoice.png" /></p>
 <p>Notice how emails, phone numbers, and links are specially formatted by the
 widget.</p>
@@ -605,12 +618,13 @@ that is at the heart of an invoice.  Clear the <code>Items</code> column to
 see what we can put there.  It will show that <code>Items</code> can be a list,
 where each item has a <code>Description</code>, <code>Price</code>, <code>Quantity</code>, and <code>Total</code>.
 So we go ahead and add an <code>Items</code> table like we added <code>Businesses</code>,
-and give it those four columns.  We can set <code>Total</code> to be a simple formula:</p>
+and give it those four columns.  We can set <code>Total</code> to be this simple formula:</p>
+<p><code class="formula">$Price * $Quantity</code></p>
 <p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-items-table.png" /></p>
 <p>Now we need to pull these items into the <code>Invoices</code> table so that
-the Custom Widget gets access to them.  Reset the column type of
-the <code>Items</code> column to be <code>Any</code>, and then set it to the formula
-<code>= Items.lookupRecords()</code>.  This formula needs a little more work,
+the Custom Widget gets access to them. Set the <code>Items</code> column to
+the formula <code class="formula">Items.lookupRecords()</code>, and then reset
+its column type to be <code>Any</code>. This formula needs a little more work,
 which we&rsquo;ll do soon, but let&rsquo;s just start with that.</p>
 <p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-items-lookup.png" /></p>
 <p>Great, our invoice is updating nicely!  Remove the <code>Total</code> column
@@ -657,9 +671,11 @@ For example, I would choose to add new clients on a separate page (<code>B</code
 the left panel) since that is relatively infrequent; you could choose
 to keep that on the same page.  I don&rsquo;t need deductions or taxes, if you do
 you could add columns and/or formulas for those.  The invoice custom widget works
-for me as is, but if I needed to tweak anything I could copy the github repository
+for me as is, but if I needed to tweak anything I could copy the GitHub repository
 it is in and change it a bit (or hire a web developer to do that for me - they
 don&rsquo;t need to be Grist experts).</p>
+<p>For interested developers, the GitHub code is here:
+<a href="https://github.com/gristlabs/grist-widget/tree/master/invoices">https://github.com/gristlabs/grist-widget/tree/master/invoices</a>.</p>
 <p><img alt="Invoice" src="/examples/images/2020-08-invoices/final-invoice.png" /></p>
 <p>Enjoy, and good luck getting paid!</p>
 
