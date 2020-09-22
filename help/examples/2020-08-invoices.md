@@ -66,7 +66,7 @@ the default `A`, `B`, and `C` columns in the Invoices table.
 Looking at the start of the invoice we see a space for an invoice number,
 `INVOICE NUMBER: #Number`.  So let's rename the `A` column to `Number`,
 we could leave the value as 1, but then it looks like we haven't done much
-business yet.  I'm going to choose the set the invoice number to be `= $id + 51371`,
+business yet.  I'm going to choose the set the invoice number to be `$id + 51371`{: .formula},
 where `$id` is an auto-incrementing numeric identifier assigned to each row.
 But you could set it manually or with a different formula.  As soon as it is
 set, the invoice updates:
@@ -139,7 +139,7 @@ Now, let's make two useful changes to the invoice set-up:
 Before doing so, we need to let Grist know that the content of the invoice
 will depend on these other tables, so that it can update it when something
 changes, and make sure the invoice gets access to everything it needs.
-Make a `References` column and give it this formula:
+Make a column named `References` and give it this formula:
 
 ```
 = RECORD(rec, expand_refs=1)
@@ -152,9 +152,9 @@ anything in the references changes".  Remember to make the
 `References` column visible to the widget via `Widget options`, so
 that the widget will get updated as we add and change referenced material.
 
-Nothing much changes yet, except if you set the `Due` column to be
-empty so that the help box is shown again,
-you'll see that a suggestion to add a `References` column is now gone.
+When the invoice widget sees a column named "References", it fills out the invoice using the
+"packaged" values in that column, rather than the individual invoice fields. The benefit will be
+seen in the next step, since these packaged values can include data from related records.
 
 ![Invoice](/examples/images/2020-08-invoices/add-references.png)
 
@@ -165,7 +165,7 @@ on `Add New`, `Add Widget to Page`, then `Select Widget > Table` and
 
 ![Invoice](/examples/images/2020-08-invoices/add-businesses.png)
 
-Then rename the table to `Businesses` and empty the `Client` column
+Then rename the table to `Businesses`. Let's also empty the `Client` column
 so we can see help about what the widget expects there:
 
 ![Invoice](/examples/images/2020-08-invoices/add-businesses-rename.png)
@@ -189,8 +189,23 @@ section.
 We could do the same thing for the `Invoicer` column as we did for the `Client`
 column, and make it a reference to the `Businesses` table or a separate table.
 However, if you will always be using the same name and address for
-your business, you could skip setting up a reference by setting the
-Column Type for `Invoicer` to `Any` and entering a formula like this:
+your business, you could skip setting up a reference by entering a formula like this into the
+`Invoicer` column (start typing with <code class="keys">**=**</code> to make it a formula):
+
+```python
+{
+  "Name": "Thunderous Applause",
+  "Street1": "6502 Automated Rd",
+  "City": "New York",
+  "State": "NY",
+  "Zip": "10003",
+  "Email": "applause@thunder.com",
+  "Phone": "+1-800-YAY-YAYS",
+  "Website": "applause.com"
+}
+```
+
+Then set the Column Type for `Invoicer` to `Any` in the right-side panel.
 
 ![Invoice](/examples/images/2020-08-invoices/link-invoice.png)
 
@@ -204,14 +219,16 @@ that is at the heart of an invoice.  Clear the `Items` column to
 see what we can put there.  It will show that `Items` can be a list,
 where each item has a `Description`, `Price`, `Quantity`, and `Total`.
 So we go ahead and add an `Items` table like we added `Businesses`,
-and give it those four columns.  We can set `Total` to be a simple formula:
+and give it those four columns.  We can set `Total` to be this simple formula:
+
+`$Price * $Quantity`{: .formula}
 
 ![Invoice](/examples/images/2020-08-invoices/add-items-table.png)
 
 Now we need to pull these items into the `Invoices` table so that
-the Custom Widget gets access to them.  Reset the column type of
-the `Items` column to be `Any`, and then set it to the formula
-`= Items.lookupRecords()`.  This formula needs a little more work,
+the Custom Widget gets access to them. Set the `Items` column to
+the formula `Items.lookupRecords()`{: .formula}, and then reset
+its column type to be `Any`. This formula needs a little more work,
 which we'll do soon, but let's just start with that.
 
 ![Invoice](/examples/images/2020-08-invoices/add-items-lookup.png)
@@ -274,9 +291,12 @@ For example, I would choose to add new clients on a separate page (`B` or `Busin
 the left panel) since that is relatively infrequent; you could choose
 to keep that on the same page.  I don't need deductions or taxes, if you do
 you could add columns and/or formulas for those.  The invoice custom widget works
-for me as is, but if I needed to tweak anything I could copy the github repository
+for me as is, but if I needed to tweak anything I could copy the GitHub repository
 it is in and change it a bit (or hire a web developer to do that for me - they
 don't need to be Grist experts).
+
+For interested developers, the GitHub code is here:
+<https://github.com/gristlabs/grist-widget/tree/master/invoices>.
 
 ![Invoice](/examples/images/2020-08-invoices/final-invoice.png)
 
