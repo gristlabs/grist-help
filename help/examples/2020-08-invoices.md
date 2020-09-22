@@ -291,9 +291,12 @@ For example, I would choose to add new clients on a separate page (`B` or `Busin
 the left panel) since that is relatively infrequent; you could choose
 to keep that on the same page.  I don't need deductions or taxes, if you do
 you could add columns and/or formulas for those.  The invoice custom widget works
-for me as is, but if I needed to tweak anything I could copy the github repository
+for me as is, but if I needed to tweak anything I could copy the GitHub repository
 it is in and change it a bit (or hire a web developer to do that for me - they
 don't need to be Grist experts).
+
+For interested developers, the GitHub code is here:
+<https://github.com/gristlabs/grist-widget/tree/master/invoices>.
 
 ![Invoice](/examples/images/2020-08-invoices/final-invoice.png)
 
