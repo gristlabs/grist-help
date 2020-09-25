@@ -19,6 +19,10 @@ ready-to-use templates.
 - [Preparing Invoices](examples/2020-08-invoices.md):
   Preview printable invoices side by side with your client data.
 
+- [Tracking Payroll](examples/2020-09-payroll.md):
+  Keep track of employee rates, roles, and hours conveniently, with up-to-date reliable payroll
+  summaries, and detailed history.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
