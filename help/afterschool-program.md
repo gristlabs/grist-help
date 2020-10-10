@@ -66,8 +66,8 @@ header.
 {: .screenshot-half }
 
 Create a formula by typing in a value into any cell in the new column, starting with the equal
-sign (“=”). Enter the formula as `$First_Name + ", " + $Last_Name`{: .formula }. You may use Excel-like syntax
-to the same effect: `CONCAT($First_Name, ", ", $Last_Name)`{: .formula }.
+sign (“=”). Enter the formula as `$Last_Name + ", " + $First_Name`{: .formula }. You may use Excel-like syntax
+to the same effect: `CONCAT($Last_Name, ", ", $First_Name)`{: .formula }.
 
 <span class="screenshot-large">*![fullname-formula](images/afterschool-program/fullname-formula.png)*</span>
 {: .screenshot-half }
