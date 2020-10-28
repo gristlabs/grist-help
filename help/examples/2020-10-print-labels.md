@@ -114,7 +114,7 @@ Open the menu above the widget and select "Widget Options":
 In the right-side panel that opens, in the "Custom" section, enter the URL of the widget that
 implements the mailing labels functionality:
 
-`http://localhost:7070/printlabels`
+`https://gristlabs.github.io/grist-widget/printlabels/`
 
 Then change the "Access" dropdown from `none` to `read table`.
 
@@ -134,7 +134,7 @@ The labels widget remembers the last labal size you picked. If you'd like it ins
 fixed size every time, you can add the preferred size in the widget URL (in the right-side panel),
 e.g.:
 
-`http://localhost:7070/printlabels#labels10`
+`https://gristlabs.github.io/grist-widget/printlabels/#labels10`
 
 The available sizes are `labels8`, `labels10`, `labels20`, `labels30`, `labels60`, and `labels80`,
 each of which corresponds to a standard type of label paper (all based on US Letter paper size).
