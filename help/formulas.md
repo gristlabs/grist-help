@@ -224,9 +224,9 @@ Grist functions [lookupOne](functions.md#lookupone) and
 [lookupRecords](functions.md#lookuprecords) are useful for enumerating
 subsets of your data.  For example, suppose we added a `Category`
 column to our `Materials` table, and wished to list all products belonging
-to a specific catagory.  We can do this with `lookupRecords`, by calling
-it on the table of interest, and supplying it with the column values
-to match.  Here's an example:
+to a specific category.  We can do this using `TABLE.lookupRecords`, where `TABLE` is the table of
+interest, and supplying it with the column values
+to match.  For example, `Materials.lookupRecords(Category='Ship')`{: .formula}, as here:
 
 ![formulas-column-options](images/formulas/formulas-lookup-unsorted.png)
 
