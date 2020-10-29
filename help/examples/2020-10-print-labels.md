@@ -16,7 +16,7 @@ at the click of a button.
 ## Ready-made Template
 
 Let me first share a template. Later I'll describe how to add the same functionality to an
-existing document, e.g. to add mailing labels alongside [CRM](lightweight-crm.md) or
+existing document, e.g. to add mailing labels alongside [CRM](../lightweight-crm.md) or
 [Payroll](2020-09-payroll.md) data.
 
 The template is at: <https://public.getgrist.com/bk5LT8s722gE/Print-Labels/m/fork>{:target="\_blank"}.
@@ -147,6 +147,12 @@ The widget uses the browser for printing. To match the exact sizes of the label 
 double-check that you don't have any settings that would change the scaling, and check Print
 Preview before printing. If there is a scale set, it should be "100%", and options such as "Ignore
 Scaling and Shrink to Fit Page Width" should be off.
+
+## Further Customization
+
+This feature is built using [Custom Widgets](../widget-custom.md). It allows you, or a third-party
+developer, to customize it further using HTML, CSS, and Javascript. For interested developers, the
+code for this widget is available at <https://github.com/gristlabs/grist-widget/tree/master/printlabels>.
 
 <span class="screenshot-large">*![Enjoy Label](/examples/images/2020-10-print-labels/enjoy-label.png)*</span>
 {: .screenshot-half }
