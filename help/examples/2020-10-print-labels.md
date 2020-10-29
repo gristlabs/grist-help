@@ -58,7 +58,7 @@ zero for the addresses you don't want to include.
 ### A filtered list of labels
 
 To print out only a few labels out of a larger table, use a
-`Label Count` column with a formula. This formula can produce 1 for a label that should be
+`LabelCount` column with a formula. This formula can produce 1 for a label that should be
 included, or 0 for a label that should not. The page "Filtered" shows an example, with the simple
 formula that includes only California addresses: `IF($State == "NY", 1, 0)`{: .formula}:
 
