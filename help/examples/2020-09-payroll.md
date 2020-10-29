@@ -10,7 +10,7 @@ especially if you have part-time employees.
 
 ## The Payroll Template
 
-The finished template is here: <https://public.getgrist.com/eXEBnC3hPfYA/Payroll>.
+The finished template is here: <https://public.getgrist.com/eXEBnC3hPfYA/Payroll/m/fork>.
 Feel free to open it in a separate window, and try things yourself as you go along.
 
 The template addresses a few needs:

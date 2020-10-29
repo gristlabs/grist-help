@@ -8,7 +8,7 @@ type of label.
 <img src="/examples/images/2020-10-print-labels/labels-intro.png" alt="Mailing Labels" width=329 height=276>
 </center>
 
-If you maintain addresses in Grist -- or use them for name tags, storage containers, child
+If you maintain addresses in Grist -- or use labels for name tags, storage containers, child
 belongings, or [other creative uses](https://www.shutterfly.com/designs/7-creative-uses-for-address-labels)
 -- you can add a custom widget to have your printable labels available
 at the click of a button.
