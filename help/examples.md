@@ -23,6 +23,10 @@ ready-to-use templates.
   Keep track of employee rates, roles, and hours conveniently, with up-to-date reliable payroll
   summaries, and detailed history.
 
+- [Print Mailing Labels](examples/2020-10-print-labels.md):
+  Print mailing labels easily. A custom widget supporting popular label sizes makes it quick to
+  generate labels and print from Grist.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may

@@ -61,6 +61,7 @@ nav:
       - Prefill emails: examples/2020-07-email-compose.md
       - Prepare Invoices: examples/2020-08-invoices.md
       - Track Payroll: examples/2020-09-payroll.md
+      - Print mailing labels: examples/2020-10-print-labels.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
   - Glossary: glossary.md
