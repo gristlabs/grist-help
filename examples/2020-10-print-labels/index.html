@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/examples/2020-07-email-compose/">
+    <link rel="canonical" href="https://support.getgrist.com/examples/2020-10-print-labels/">
     <link rel="shortcut icon" href="../../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Prefill emails - Grist Help Center</title>
+    <title>Print mailing labels - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -356,41 +356,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Prefill emails</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill emails</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Prepare Emails using Formulas
-            </a>
-          </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#simple-mailto-links">
-                Simple Mailto Links
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#cc-bcc-subject-body">
-                Cc, Bcc, Subject, Body
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#emailing-multiple-people">
-                Emailing Multiple People
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#configuring-email-program">
-                Configuring Email Program
-              </a>
-            </li>
-        
-      </ul>
-    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-08-invoices/" class="wm-article-link wm-toc-text">Prepare Invoices</a>
@@ -401,8 +368,41 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Print mailing labels</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Printing Mailing Labels
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#ready-made-template">
+                Ready-made Template
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#adding-labels-to-your-document">
+                Adding Labels to Your Document
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#printing-notes">
+                Printing Notes
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#further-customization">
+                Further Customization
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
   </ul>
@@ -444,20 +444,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../2020-08-invoices/" class="btn btn-xs btn-default pull-right">
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../2020-08-invoices/" class="btn btn-xs btn-link">
-        Prepare Invoices
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-link">
+        Shortcuts
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../2020-06-book-club/" class="btn btn-xs btn-default pull-left">
+      <a href="../2020-09-payroll/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../2020-06-book-club/" class="btn btn-xs btn-link">
-        Book club links
+        Previous</a><a href="../2020-09-payroll/" class="btn btn-xs btn-link">
+        Track Payroll
       </a>
     </div>
     
@@ -465,73 +465,105 @@
 
     
 
-    <h1 id="prepare-emails-using-formulas">Prepare Emails using Formulas<a class="headerlink" href="#prepare-emails-using-formulas" title="Permanent link">#</a></h1>
-<p>You may already know that you can add <a href="../../col-types/#hyperlinks">hyperlink fields</a> in Grist. You
-may also know about &ldquo;mailto&rdquo; links that open a mail program to create a new email message.</p>
-<p>Less well-known is that &ldquo;mailto&rdquo; links allow pre-filling many parts of the email message. If you
-use Grist to store contacts, you can essentially create email templates using Grist formulas.</p>
-<h2 id="simple-mailto-links">Simple Mailto Links<a class="headerlink" href="#simple-mailto-links" title="Permanent link">#</a></h2>
-<p>The simplest &ldquo;mailto&rdquo; link in Grist looks like <code>mailto:someone@example.com</code>. When the column is
-set to Text, and its format is set to Hyperlink, it shows as <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>.</p>
-<p>If you have a table with columns <code>Full_Name</code> and <code>Email</code>, add another column with
-this formula:
-<code class="formula">"Compose Email mailto:%s" % ($Email)</code>.
-Set its type to Text, and its cell format to Hyperlink:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="HyperLink Format" src="/examples/images/2020-07-hyperlink-format.png" /></em></span></p>
-<p>You&rsquo;ll get a link in each person&rsquo;s row, which you can click to start composing an email to that
-person:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Mailto Cells" src="/examples/images/2020-07-hyperlink-cells.png" /></em></span></p>
-<p>See an example of this in action here:
-<a href="https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/m/fork" target="_blank">Simple Compose</a>.</p>
-<h2 id="cc-bcc-subject-body">Cc, Bcc, Subject, Body<a class="headerlink" href="#cc-bcc-subject-body" title="Permanent link">#</a></h2>
-<p>In addition to opening your email program and filling in the &ldquo;TO&rdquo; field, a &ldquo;mailto&rdquo; link can
-fill in other parts of the email, using this format:</p>
-<pre><code class="html">mailto:&lt;to&gt;?cc=&lt;cc&gt;&amp;bcc=&lt;bcc&gt;&amp;reply-to=&lt;email&gt;&amp;subject=&lt;subject&gt;&amp;body=&lt;body&gt;
+    <h1 id="printing-mailing-labels">Printing Mailing Labels<a class="headerlink" href="#printing-mailing-labels" title="Permanent link">#</a></h1>
+<p>Do you ever print mailing labels? Typically, it involves a few steps, first exporting
+addresses, then importing them into Word or other software that can lay them out for a particular
+type of label.</p>
+<p><center>
+<img src="/examples/images/2020-10-print-labels/labels-intro.png" alt="Mailing Labels" width=329 height=276>
+</center></p>
+<p>If you maintain addresses in Grist &ndash; or use labels for name tags, storage containers, child
+belongings, or <a href="https://www.shutterfly.com/designs/7-creative-uses-for-address-labels">other creative uses</a>
+&ndash; you can add a custom widget to have your printable labels available
+at the click of a button.</p>
+<h2 id="ready-made-template">Ready-made Template<a class="headerlink" href="#ready-made-template" title="Permanent link">#</a></h2>
+<p>Let me first share a template. Later I&rsquo;ll describe how to add the same functionality to an
+existing document, e.g. to add mailing labels alongside <a href="../../lightweight-crm/">CRM</a> or
+<a href="../2020-09-payroll/">Payroll</a> data.</p>
+<p>The template is at: <a href="https://public.getgrist.com/bk5LT8s722gE/Print-Labels/m/fork" target="_blank">https://public.getgrist.com/bk5LT8s722gE/Print-Labels/m/fork</a>.</p>
+<p>You can use it right way. Simply type in your own addresses.</p>
+<p>The template shows a few variations of what you can do.</p>
+<h3 id="labels-for-a-table-of-addresses">Labels for a table of addresses<a class="headerlink" href="#labels-for-a-table-of-addresses" title="Permanent link">#</a></h3>
+<p>That&rsquo;s what you see in the first page:</p>
+<p><img alt="Address Labels Page" src="/examples/images/2020-10-print-labels/address-labels-page.png" /></p>
+<p>You can use the dropdown on top of the labels widget to select the size of the labels, depending
+on what actual label paper you are planning to print on.</p>
+<p>What&rsquo;s actually printed is a hidden column named <code>LabelText</code>. If you show this column, or find it
+in the &ldquo;Addresses&rdquo; page (where it&rsquo;s visible), you&rsquo;ll see that it&rsquo;s a formula that stitches
+together all the parts of an address. (We get into the
+<a href="#add-the-labeltext-formula">details of this formula</a> below.)</p>
+<p>To print the labels, select &ldquo;Print widget&rdquo; from the menu above the labels widget (see also
+<a href="#printing-notes">Printing Notes</a> below):</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Print Menu" src="/examples/images/2020-10-print-labels/print-menu.png" /></em></span></p>
+<h3 id="a-sheet-of-labels-for-the-same-address">A sheet of labels for the same address<a class="headerlink" href="#a-sheet-of-labels-for-the-same-address" title="Permanent link">#</a></h3>
+<p>If you need many identical labels, e.g. for a return address, add another column named
+<code>LabelCount</code>. This is illustrated in the page &ldquo;Label Sheets&rdquo;.</p>
+<p><img alt="Label Sheets Page" src="/examples/images/2020-10-print-labels/label-sheets-page.png" /></p>
+<p>If you have multiple addresses in the table, and want to print just one, simply set the count to
+zero for the addresses you don&rsquo;t want to include.</p>
+<h3 id="a-filtered-list-of-labels">A filtered list of labels<a class="headerlink" href="#a-filtered-list-of-labels" title="Permanent link">#</a></h3>
+<p>To print out only a few labels out of a larger table, use a
+<code>LabelCount</code> column with a formula. This formula can produce 1 for a label that should be
+included, or 0 for a label that should not. The page &ldquo;Filtered&rdquo; shows an example, with the simple
+formula that includes only California addresses: <code class="formula">IF($State == "NY", 1, 0)</code>:</p>
+<p><img alt="Filtered Page" src="/examples/images/2020-10-print-labels/filtered-page.png" /></p>
+<h2 id="adding-labels-to-your-document">Adding Labels to Your Document<a class="headerlink" href="#adding-labels-to-your-document" title="Permanent link">#</a></h2>
+<p>If you have a document with addresses, you can add a page with mailing labels, and the
+labels will be there &ndash; up-to-date and waiting for you &ndash; any time you open it.</p>
+<p>I&rsquo;ll assume that you already have a page that shows a table with addresses. Perhaps it&rsquo;s called
+&ldquo;People&rdquo;, &ldquo;Clients&rdquo;, or &ldquo;Employees&rdquo;. Open the menu next to the page name in the left
+panel, and click &ldquo;Duplicate&rdquo;:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Duplicate Page" src="/examples/images/2020-10-print-labels/duplicate-page.png" /></em></span></p>
+<p>This gives you a new page. We&rsquo;ll add the labels here, to avoid taking up screen space in the page
+you used for other purposes.</p>
+<h3 id="add-the-labeltext-formula">Add the LabelText formula<a class="headerlink" href="#add-the-labeltext-formula" title="Permanent link">#</a></h3>
+<p>Next, add a column to the table with addresses, and name it <code>LabelText</code>. Type a formula into
+it that produces an address formatted into multiple lines. Here is an example, but you may need to
+rename, add, or remove fields depending on the names of your columns:</p>
+<pre><code class="python">&quot;%s\n%s %s\n%s, %s %s&quot; % ($Name, $Street1, $Street2, $City, $State, $Zip)
 </code></pre>
 
-<p>All fields are optional. You can specify multiple email addresses for To/Cc/Bcc lists by
-separating them with commas.</p>
-<p>Values of each field should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">percent-encoded</a>,
-which in Python can be done using
-<a href="https://docs.python.org/2/library/urllib.html#urllib.quote">urllib.quote</a>.</p>
-<p>To put this together, this formula will produce a hyperlink to create a pre-filled email:</p>
-<pre><code class="python">from urllib import quote, urlencode
-return &quot;Compose mailto:%s?cc=sales@example.com&amp;subject=%s&amp;body=%s&quot; % (
-  quote($Email), quote(&quot;Welcome!&quot;), quote($Body))
-</code></pre>
-
-<p>A live example of this is here:
-<a href="https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/p/2/m/fork" target="_blank">Advanced Compose</a>.</p>
-<h2 id="emailing-multiple-people">Emailing Multiple People<a class="headerlink" href="#emailing-multiple-people" title="Permanent link">#</a></h2>
-<p>Email links are very handy when emailing a group of people, such as students in a class,
-or people on a certain project.</p>
-<p>For instance, if you have a <a href="../../col-refs/">Reference column</a> &ldquo;Project&rdquo; that ties a person to a
-project, then in the table of projects, you can look up all associated people using
-<a href="../../functions/#lookuprecords">lookupRecords</a>. You can then build a link to email them as a
-group:</p>
-<pre><code class="python">from urllib import quote
-people = People.lookupRecords(Project=$id)
-return &quot;Email Group mailto:%s&quot; % quote(&quot;, &quot;.join(people.Email))
-</code></pre>
-
-<p>You can see this formula at work in
-<a href="https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/p/3/m/fork" target="_blank">Group Compose</a>.</p>
-<p>Don&rsquo;t use this to replace an email marketing platform: since emails use your regular
-email program, you shouldn&rsquo;t use it for emailing thousands of people. But for small groups, this
-can be very convenient.</p>
-<h2 id="configuring-email-program">Configuring Email Program<a class="headerlink" href="#configuring-email-program" title="Permanent link">#</a></h2>
-<p>If your &ldquo;mailto&rdquo; links don&rsquo;t work, or don&rsquo;t open your preferred email program, here is an article
-to help you configure it:</p>
+<p>Note that this is Python syntax for formatting strings. Here is a brief guide to decode this:</p>
 <ul>
-<li><a href="https://www.makeuseof.com/tag/how-to-change-the-default-email-program-for-mailto-links/">Changing the default email program</a>.</li>
+<li>Each <code>%s</code> gets replaced with the next value from the parenthesized list after <code>%</code>.</li>
+<li><code>\n</code> inserts a newline.</li>
+<li><code>$Name</code> etc. are Grist variables corresponding to fields of the current record.</li>
 </ul>
-<p>If you need more details, here are some more links:</p>
-<ul>
-<li>To open a desktop program (such as Mail, Thunderbird, etc.) on a Mac: <a href="https://support.apple.com/en-us/HT201607">Instructions</a>.</li>
-<li>To open a desktop program (such as Outlook, etc. ) on Windows: <a href="https://kb.wisc.edu/helpdesk/page.php?id=170">Instructions</a>.</li>
-<li>To open Gmail in Chrome and other browsers: <a href="https://blog.hubspot.com/marketing/set-gmail-as-browser-default-email-client-ht">Instructions</a>.</li>
-<li>To open webmail (such as Gmail or Yahoo! Mail) or a desktop program in Firefox: <a href="https://support.mozilla.org/en-US/kb/change-program-used-open-email-links">Instructions</a>.</li>
-</ul>
+<h3 id="add-the-custom-widget">Add the Custom Widget<a class="headerlink" href="#add-the-custom-widget" title="Permanent link">#</a></h3>
+<p>Click <code>Add New</code> button and select <code>Add Widget to Page</code>. In the dialog that appears select widget <code>Custom</code>
+and the table that contains the addresses:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Add Page" src="/examples/images/2020-10-print-labels/add-page.png" /></em></span></p>
+<p>Click <code>Add to Page</code>.</p>
+<p>Open the menu above the widget and select &ldquo;Widget Options&rdquo;:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Widget Options" src="/examples/images/2020-10-print-labels/widget-options.png" /></em></span></p>
+<p>In the right-side panel that opens, in the &ldquo;Custom&rdquo; section, enter the URL of the widget that
+implements the mailing labels functionality:</p>
+<p><code>https://gristlabs.github.io/grist-widget/printlabels/</code></p>
+<p>Then change the &ldquo;Access&rdquo; dropdown from <code>none</code> to <code>read table</code>.</p>
+<p>You should now see your labels! If not, check that <code>LabelText</code> is listed below under &ldquo;Visible
+Columns&rdquo;. (If it&rsquo;s under &ldquo;Hidden Columns&rdquo;, click the &ldquo;eye&rdquo; icon to make it visible to the widget.)</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Visible Columns" src="/examples/images/2020-10-print-labels/visible-columns.png" /></em></span></p>
+<p>You can add another column named <code>LabelCount</code> for printing multiple labels or omitting some
+labels. If you do, just be sure to add it to &ldquo;Visible Columns&rdquo; of the Custom Widget, as those are
+the only columns available to it.</p>
+<h3 id="set-preferred-label-size">Set Preferred Label Size<a class="headerlink" href="#set-preferred-label-size" title="Permanent link">#</a></h3>
+<p>The labels widget remembers the last labal size you picked. If you&rsquo;d like it instead to open to a
+fixed size every time, you can add the preferred size in the widget URL (in the right-side panel),
+e.g.:</p>
+<p><code>https://gristlabs.github.io/grist-widget/printlabels/#labels10</code></p>
+<p>The available sizes are <code>labels8</code>, <code>labels10</code>, <code>labels20</code>, <code>labels30</code>, <code>labels60</code>, and <code>labels80</code>,
+each of which corresponds to a standard type of label paper (all based on US Letter paper size).</p>
+<p>In the example document, this is illustrated in the widget on the &ldquo;Filtered&rdquo; page.</p>
+<h2 id="printing-notes">Printing Notes<a class="headerlink" href="#printing-notes" title="Permanent link">#</a></h2>
+<p>The widget uses the browser for printing. To match the exact sizes of the label paper,
+double-check that you don&rsquo;t have any settings that would change the scaling, and check Print
+Preview before printing. If there is a scale set, it should be &ldquo;100%&rdquo;, and options such as &ldquo;Ignore
+Scaling and Shrink to Fit Page Width&rdquo; should be off.</p>
+<h2 id="further-customization">Further Customization<a class="headerlink" href="#further-customization" title="Permanent link">#</a></h2>
+<p>This feature is built using <a href="../../widget-custom/">Custom Widgets</a>. It allows you, or a third-party
+developer, to customize it further using HTML, CSS, and Javascript. For interested developers, the
+code for this widget is available at <a href="https://github.com/gristlabs/grist-widget/tree/master/printlabels">https://github.com/gristlabs/grist-widget/tree/master/printlabels</a>.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Enjoy Label" src="/examples/images/2020-10-print-labels/enjoy-label.png" /></em></span></p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">

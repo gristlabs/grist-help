@@ -361,6 +361,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
 
     
@@ -409,6 +413,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-09-payroll/" class="wm-article-link wm-toc-text">Track Payroll</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
 
     
 </li>
@@ -651,9 +659,9 @@ just as much to formula columns as to regular columns.</p>
 <a href="../functions/#lookuprecords">lookupRecords</a> are useful for enumerating
 subsets of your data.  For example, suppose we added a <code>Category</code>
 column to our <code>Materials</code> table, and wished to list all products belonging
-to a specific catagory.  We can do this with <code>lookupRecords</code>, by calling
-it on the table of interest, and supplying it with the column values
-to match.  Here&rsquo;s an example:</p>
+to a specific category.  We can do this using <code>TABLE.lookupRecords</code>, where <code>TABLE</code> is the table of
+interest, and supplying it with the column values
+to match.  For example, <code class="formula">Materials.lookupRecords(Category='Ship')</code>, as here:</p>
 <p><img alt="formulas-column-options" src="../images/formulas/formulas-lookup-unsorted.png" /></p>
 <p>If you are following on, see <a href="../widget-card/#adding-a-field">Adding a field</a>
 for details of how to add a new field to a card.  If you care about the order
