@@ -8,3 +8,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [July 2020 Newsletter](newsletters/2020-07.md): Number Format Options, Prepare Emails with Formulas.
 - [August 2020 Newsletter](newsletters/2020-08.md): Invoices, Custom Widgets, Document Lists.
 - [September 2020 Newsletter](newsletters/2020-09.md): Public Access, Payroll Tracking.
+- [October 2020 Newsletter](newsletters/2020-10.md): Printing Support, Mailing Labels, Open Source Beta.
