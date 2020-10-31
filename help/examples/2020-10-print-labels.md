@@ -21,7 +21,7 @@ existing document, e.g. to add mailing labels alongside [CRM](../lightweight-crm
 
 The template is at: <https://public.getgrist.com/bk5LT8s722gE/Print-Labels/m/fork>{:target="\_blank"}.
 
-You can use it right way. Simply type in your own addresses.
+You can use it right away. Simply type in your own addresses.
 
 The template shows a few variations of what you can do.
 
