@@ -505,7 +505,7 @@ zero for the addresses you don&rsquo;t want to include.</p>
 <p>To print out only a few labels out of a larger table, use a
 <code>LabelCount</code> column with a formula. This formula can produce 1 for a label that should be
 included, or 0 for a label that should not. The page &ldquo;Filtered&rdquo; shows an example, with the simple
-formula that includes only California addresses: <code class="formula">IF($State == "NY", 1, 0)</code>:</p>
+formula that includes only California addresses: <code class="formula">IF($State == "CA", 1, 0)</code>:</p>
 <p><img alt="Filtered Page" src="/examples/images/2020-10-print-labels/filtered-page.png" /></p>
 <h2 id="adding-labels-to-your-document">Adding Labels to Your Document<a class="headerlink" href="#adding-labels-to-your-document" title="Permanent link">#</a></h2>
 <p>If you have a document with addresses, you can add a page with mailing labels, and the
@@ -547,7 +547,7 @@ Columns&rdquo;. (If it&rsquo;s under &ldquo;Hidden Columns&rdquo;, click the &ld
 labels. If you do, just be sure to add it to &ldquo;Visible Columns&rdquo; of the Custom Widget, as those are
 the only columns available to it.</p>
 <h3 id="set-preferred-label-size">Set Preferred Label Size<a class="headerlink" href="#set-preferred-label-size" title="Permanent link">#</a></h3>
-<p>The labels widget remembers the last labal size you picked. If you&rsquo;d like it instead to open to a
+<p>The labels widget remembers the last label size you picked. If you&rsquo;d like it instead to open to a
 fixed size every time, you can add the preferred size in the widget URL (in the right-side panel),
 e.g.:</p>
 <p><code>https://gristlabs.github.io/grist-widget/printlabels/#labels10</code></p>
