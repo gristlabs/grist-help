@@ -60,7 +60,7 @@ zero for the addresses you don't want to include.
 To print out only a few labels out of a larger table, use a
 `LabelCount` column with a formula. This formula can produce 1 for a label that should be
 included, or 0 for a label that should not. The page "Filtered" shows an example, with the simple
-formula that includes only California addresses: `IF($State == "NY", 1, 0)`{: .formula}:
+formula that includes only California addresses: `IF($State == "CA", 1, 0)`{: .formula}:
 
 ![Filtered Page](/examples/images/2020-10-print-labels/filtered-page.png)
 
@@ -130,7 +130,7 @@ the only columns available to it.
 
 ### Set Preferred Label Size
 
-The labels widget remembers the last labal size you picked. If you'd like it instead to open to a
+The labels widget remembers the last label size you picked. If you'd like it instead to open to a
 fixed size every time, you can add the preferred size in the widget URL (in the right-side panel),
 e.g.:
 
