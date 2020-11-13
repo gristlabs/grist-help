@@ -477,3 +477,30 @@ footer {
 .table-striped > tbody > tr:nth-of-type(2n+1) {
   background-color: unset;
 }
+
+.side-bar-small-left, .side-bar-small-right {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+@media (min-width: 1000px) {
+  .side-bar-small-left, img.side-bar-small-left {
+    float: left;
+    margin-right: 10px;
+  }
+  .side-bar-small-right, img.side-bar-small-right {
+    float: right;
+    margin-left: 10px;
+  }
+  .side-bar-small-left, .side-bar-small-right {
+    margin-top: 0px;
+    width: 200px;
+  }
+  a.side-bar-small-left img, a.side-bar-small-right img, img.side-bar-small-left, img.side-bar-small-right {
+    margin-top: 0px;
+  }
+  p {
+    clear: both;
+  }
+}
