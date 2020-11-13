@@ -32,8 +32,8 @@ using standard HTML/JS/CSS. For example, live-updating
 <div class="text-with-side-image text-with-side-image-left" markdown="span">
 <div class="side-image" markdown="span">![datasette](images/datasette.png)</div>
 <div markdown="span">
-Grist is a self-contained format, based on Sqlite. Grist tables
-are literally Sqlite tables, which opens up all sorts of possibilities.
+Grist is a self-contained format, based on SQLite. Grist tables
+are literally SQLite tables, which opens up all sorts of possibilities.
 For example, I can take a Grist 
 [example investment spreadsheet](https://docs.getgrist.com/doc/investment-research)
 and publish it using Simon Willison’s [datasette](https://github.com/simonw/datasette) 
