@@ -95,5 +95,6 @@ markdown_extensions:
   - admonition
   - smarty
   - extra
+  - md_in_html
 
 google_analytics: ['GTM-5FDHKQ9', 'auto']
