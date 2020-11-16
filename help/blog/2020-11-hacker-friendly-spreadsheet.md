@@ -6,7 +6,7 @@
 Spreadsheets attract people with a hacker mindset, since they reward a
 little technical curiosity with a big jump in capability. Despite
 that, while there are some open source spreadsheet projects, most of
-the action is closed source (Excel, Airtable, etc). Grist is a solid,
+the action is closed source (Excel, Airtable, Honeycode, etc). Grist is a solid,
 modern, powerful spreadsheet that fits well into the open-source
 ecology, and is as friendly to hacker-developers as it is to
 hacker-users. Here are some reasons why.
@@ -62,7 +62,7 @@ you can use real-time collaborative editing -
 or you may sometimes prefer to
 ["fork" your spreadsheet](https://support.getgrist.com/copying-docs/#trying-out-changes),
 make a set of changes, 
-[compare them with the original](https://docs-s.getgrist.com/wbGWK7M9TgwJ/bridges?compare=wbGWK7M9TgwJr56ez1YWer~rUBfcL68a2W6v8V9NGApou~3)
+[compare them with the original](https://docs.getgrist.com/syx4YUwXdDyP/NYC-Bridges?compare=syx4YUwXdDyPELJUEqShA9~o4CKdSVuVQfGbyHCXctpqV~4)
 and then land them back.  We're excited to flesh this workflow
 out, and I think any programmer can see where we're going with it.
 </div>
@@ -114,10 +114,28 @@ We think a quality, open code base is a big help for realizing those features, a
 peace of mind in relying on them. We're here to help you create what you need as a
 spreadsheet [user](https://getgrist.com) or a [developer](https://github.com/gristlabs/grist-core). Come play with us!
 
+<div class="text-with-side-image text-with-side-image-right" markdown="span">
+<div class="side-image" markdown="span">[![Plimpton 322 tablet](images/Plimpton322.jpg)](https://en.wikipedia.org/wiki/Plimpton_322)</div>
+<div markdown="span">
+
+And if Grist doesn't fit what you need yet, there are other open-source spreadsheet projects.
+[Gnumeric](http://www.gnumeric.org/) and [Calc](https://en.m.wikipedia.org/wiki/LibreOffice_Calc) are venerable standalone
+Excel replacements. [Ethercalc](https://github.com/audreyt/ethercalc/) is a node.js-based spreadsheet developed by
+Audrey Tang, now Taiwan's Digital Minister, extending work they did with Dan Bricklin on SocialCalc.
+[LuckySheet](https://github.com/mengshukeji/Luckysheet) is a spreadsheet widget with lots of bells and whistles.
+[Baserow](https://baserow.io/) is a Django-based project that has been posting on Hacker News and looks promising for large tables.
+And Babylonian mathematicians in 1800 BC were using the open "clay tablet" platform to
+[distribute tabular information](https://en.wikipedia.org/wiki/Plimpton_322), so there's always that to fall back on!
+
+</div>
+</div>
+
+
 <hr />
 
  * VisiCalc screenshot from [history-computer.com](https://history-computer.com/ModernComputer/Software/Visicalc.html).
  * VisiCalc emulator from [pcjs.org](https://www.pcjs.org/software/pcx86/app/other/visicalc/1981/).
+ * Plimpton 322 tablet image from [wikipedia.org](https://en.wikipedia.org/wiki/Plimpton_322).
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
