@@ -20,7 +20,7 @@ Grist borrows visually from classic spreadsheets and modern
 dashboards, with every view backed by relational data, filtered and
 linked with other views as needed. Grist takes care of the data, and keeping
 it live, so custom views are easy to add if you need something new,
-using standard HTML/JS/CSS. For example, live-updating
+using [standard HTML/JS/CSS](../widget-custom.md#minimal-example). For example, live-updating
 [invoices](../examples/2020-08-invoices.md),
 [mailing labels](../examples/2020-10-print-labels.md),
 [goat pedigrees](https://docs.getgrist.com/iqhzhQM66qg7/Pedigree-Example/m/fork/p/2#a1.s3.r11.c2),
@@ -32,7 +32,7 @@ using standard HTML/JS/CSS. For example, live-updating
 <div class="text-with-side-image text-with-side-image-left" markdown="span">
 <div class="side-image" markdown="span">![datasette](images/datasette.png)</div>
 <div markdown="span">
-Grist is a self-contained format, based on SQLite. Grist tables
+Grist is a [self-contained format](../exports.md#backing-up-an-entire-document), based on SQLite. Grist tables
 are literally SQLite tables, which opens up all sorts of possibilities.
 For example, I can take a Grist 
 [example investment spreadsheet](https://docs.getgrist.com/doc/investment-research)
@@ -45,7 +45,7 @@ without any conversion steps needed. This is a step up from exporting CSV.
 <div class="text-with-side-image text-with-side-image-right" markdown="span">
 <div class="side-image" markdown="span">![python formulas](images/spots-left.png)</div>
 <div markdown="span">
-Grist uses python as its formula language. Python has a good standard
+Grist uses [python as its formula language](../functions.md). Python has a good standard
 library, nice syntax for working with lists, and is a favorite of data
 scientists. Grist itself is written in typescript, with formula
 evaluation isolated in a sandbox.
@@ -118,14 +118,17 @@ spreadsheet [user](https://getgrist.com) or a [developer](https://github.com/gri
 <div class="side-image" markdown="span">[![Plimpton 322 tablet](images/Plimpton322.jpg)](https://en.wikipedia.org/wiki/Plimpton_322)</div>
 <div markdown="span">
 
-And if Grist doesn't fit what you need yet, there are other open-source spreadsheet projects.
-[Gnumeric](http://www.gnumeric.org/) and [Calc](https://en.m.wikipedia.org/wiki/LibreOffice_Calc) are venerable standalone
-Excel replacements. [Ethercalc](https://github.com/audreyt/ethercalc/) is a node.js-based spreadsheet developed by
+Spreadsheets have evolved a lot since [Babylonian times](https://en.wikipedia.org/wiki/Plimpton_322).
+In open-source, [Gnumeric](http://www.gnumeric.org/) and [Calc](https://en.m.wikipedia.org/wiki/LibreOffice_Calc) are venerable standalone
+Excel replacements.
+[LuckySheet](https://github.com/mengshukeji/Luckysheet) is a shot at a clone of that standalone experience in the browser.
+[Ethercalc](https://github.com/audreyt/ethercalc/) is a real-time collaborative spreadsheet, developed by
 Audrey Tang, now Taiwan's Digital Minister, extending work they did with Dan Bricklin on SocialCalc.
-[LuckySheet](https://github.com/mengshukeji/Luckysheet) is a spreadsheet widget with lots of bells and whistles.
-[Baserow](https://baserow.io/) is a Django-based project that has been posting on Hacker News and looks promising for large tables.
-And Babylonian mathematicians in 1800 BC were using the open "clay tablet" platform to
-[distribute tabular information](https://en.wikipedia.org/wiki/Plimpton_322), so there's always that to fall back on!
+There's so much Excel-inspired work that we've been really pleased to see closed-source hosts like Airtable
+proving the value of hybrid spreadsheet/database models
+(like Grist's own). Just as Babylonian clay tablets were, we hope that Grist will prove a
+sturdy data storage and presentation infrastructure that
+can survive for years (and centuries?) to come.
 
 </div>
 </div>
