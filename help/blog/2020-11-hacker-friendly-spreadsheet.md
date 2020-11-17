@@ -79,7 +79,7 @@ out, and I think any programmer can see where we're going with it.
 Grist code is available at [github.com/gristlabs/grist-core](https://github.com/gristlabs/grist-core)
 under a standard free and open source licence (Apache 2.0).
 Grist software is developed by Grist Labs, which offers [free and paid
-hosting plans](https://getgrist.com). Whether you choose us to host your spreadsheets,
+hosting plans](https://www.getgrist.com/pricing). Whether you choose us to host your spreadsheets,
 or to run Grist yourself, you have the comfort of knowing the developers have revenue
 (so they won’t one day vanish in the morning sun like an elusive gleam of dew on a flower),
 and you have the code and your data (ditto).
@@ -103,7 +103,8 @@ Grist supports [attachments](../col-types.md#attachment-columns), and those atta
 single Grist file format.
 Grist has solid undo/redo support.
 Hosted Grist makes [automatic backups](../automatic-backups.md) at hourly, daily, monthly, and yearly intervals.
-Grist has [an API](../rest-api.md). Grist supports real time collaboration.
+Grist has [an API](../rest-api.md) and a [Zapier integration](https://zapier.com/apps/grist/integrations).
+Grist supports real time collaboration.
 Grist supports many [Excel functions](../functions.md).
 We publish a Grist docker image (see the [README](https://github.com/gristlabs/grist-core#grist)),
 and have an unreleased standalone app for Windows/Mac/Linux that we'll be bringing
