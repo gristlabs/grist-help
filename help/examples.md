@@ -27,6 +27,10 @@ ready-to-use templates.
   Print mailing labels easily. A custom widget supporting popular label sizes makes it quick to
   generate labels and print from Grist.
 
+- [Treasure Hunt](examples/2020-11-treasure-hunt.md):
+  Plan a treasure hunt without losing track. Brainstorm clues, then assemble them into a
+  consistent trail.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
