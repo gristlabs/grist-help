@@ -464,9 +464,8 @@ revoke your API key by clicking &ldquo;Remove&rdquo; from Profile Settings at an
 You&rsquo;ll then have the option to create a new one if you wish.</p>
 <p>To test your api key, try this from the command-line (substituting
 your api key):</p>
-<pre><code class="sh">curl -H &quot;Authorization: Bearer &lt;API-KEY-GOES HERE&gt;&quot; https://docs.getgrist.com/api/orgs
+<pre><code class="language-sh">curl -H &quot;Authorization: Bearer &lt;API-KEY-GOES HERE&gt;&quot; https://docs.getgrist.com/api/orgs
 </code></pre>
-
 <p>This should return a list of organizations, which is what the API calls
 <a href="../team-sharing/">team sites</a> and your personal site.  Your personal site
 is accessible at <code>docs.getgrist.com</code>.  Team sites are accessible at <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
@@ -475,10 +474,9 @@ using the <code>docs.getgrist.com</code> domain.  To access documents and
 workspaces on a team site, use <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
 <p>For example, to list all the workspaces and documents you have access
 to on a site, do:</p>
-<pre><code class="sh">curl -H &quot;Authorization: Bearer &lt;API-KEY-GOES-HERE&gt;&quot; \
+<pre><code class="language-sh">curl -H &quot;Authorization: Bearer &lt;API-KEY-GOES-HERE&gt;&quot; \
   https://&lt;docs|TEAM&gt;.getgrist.com/api/orgs/current/workspaces
 </code></pre>
-
 <p>For details of the endpoints available, see our <a href="../api/">API docs</a>.</p>
 <p>There are also client libraries available:</p>
 <ul>
