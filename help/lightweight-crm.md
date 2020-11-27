@@ -235,8 +235,9 @@ choices you set, or start typing and use auto-complete.
 
 ## Linking tables visually
 
-The next step is to link the two tables visually. Open the "Contacts" page, click "Add Widget to
-Page", select widget "Table" and data "Interactions". In the "Select By"
+The next step is to link the two tables visually. Open the "Contacts" page, click the "Add New"
+button on top of the left panel, then "Add Widget to Page".
+Select widget "Table" and data "Interactions". In the "Select By"
 dropdown at the bottom of the dialog, select "CONTACTS".
 
 ![add-widget1](images/lightweight-crm/add-widget1.png)
