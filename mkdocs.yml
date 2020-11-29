@@ -64,6 +64,7 @@ nav:
       - Prepare Invoices: examples/2020-08-invoices.md
       - Track Payroll: examples/2020-09-payroll.md
       - Print mailing labels: examples/2020-10-print-labels.md
+      - Treasure Hunt: examples/2020-11-treasure-hunt.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
   - Glossary: glossary.md
