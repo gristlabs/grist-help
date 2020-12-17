@@ -26,7 +26,7 @@ person:
 {: .screenshot-half }
 
 See an example of this in action here:
-[Simple Compose](https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/m/fork){:target="\_blank"}.
+[Simple Compose](https://public.getgrist.com/eZPYkB1W2Jcu/Email-Links/m/fork){:target="\_blank"}.
 
 ## Cc, Bcc, Subject, Body
 
@@ -53,7 +53,7 @@ return "Compose mailto:%s?cc=sales@example.com&subject=%s&body=%s" % (
 ```
 
 A live example of this is here:
-[Advanced Compose](https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/p/2/m/fork){:target="\_blank"}.
+[Advanced Compose](https://public.getgrist.com/eZPYkB1W2Jcu/Email-Links/p/2/m/fork){:target="\_blank"}.
 
 ## Emailing Multiple People
 
@@ -72,7 +72,7 @@ return "Email Group mailto:%s" % quote(", ".join(people.Email))
 ```
 
 You can see this formula at work in
-[Group Compose](https://docs.getgrist.com/8zmCtN4oXc6g/Email-Links/p/3/m/fork){:target="\_blank"}.
+[Group Compose](https://public.getgrist.com/eZPYkB1W2Jcu/Email-Links/p/3/m/fork){:target="\_blank"}.
 
 Don't use this to replace an email marketing platform: since emails use your regular
 email program, you shouldn't use it for emailing thousands of people. But for small groups, this
