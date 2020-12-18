@@ -21,7 +21,7 @@ any transaction to see its complete details.
 ![By Category](/examples/images/2020-06-credit-card-by-category.png)
 
 Here is the
-[example with sample data](https://docs.getgrist.com/kmmB7wgUnfXx/AmEx-Activity-Example/m/fork){:target="\_blank"}
+[example with sample data](https://public.getgrist.com/1npTYpf2Cgyk/AmEx-Activity-Example/m/fork){:target="\_blank"}
  that you can play with.
 
 To use it for your own data, start by downloading your transactions. For American Express
@@ -35,7 +35,7 @@ credit cards:
 
 To import this data into Grist:
 
-1. Open the [template here](https://docs.getgrist.com/k1msFNNJKzqh/AmEx-Activity-Template/m/fork){:target="\_blank"}.
+1. Open the [template here](https://public.getgrist.com/mMbk6UEHoHYf/AmEx-Activity-Template/m/fork){:target="\_blank"}.
 2. Click "Add New" button and choose "Import from file".
 3. In the dialog that shows, change “To” table from “New Table” to “Activity”, like so:
 

@@ -16,7 +16,7 @@ Here's an example hunt:
 
 You can play with the example yourself here:
 
-> <https://docs.getgrist.com/au8zHA1QiBPU/Treasure-Hunt/m/fork>
+> <https://public.getgrist.com/2CdspaixULZa/Treasure-Hunt/m/fork>
 
 Once ready to start your own completely fresh hunt just do "Save Copy"
 and select "As Template".
