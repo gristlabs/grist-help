@@ -553,7 +553,7 @@ any cell in the <code>Per Hour</code> column, and hit <code class="keys"><em>Ent
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="Rate Lookup Formula" src="/examples/images/2020-09-payroll/rate-lookup-formula.png" /></em></span></p>
 <p>The formula you see is an involved Python function, but it is intentionally broken up into bits,
 with comments explaining what each line does:</p>
-<pre><code class="python"># Get all the rates for the Person and Role in this row.
+<pre><code class="language-python"># Get all the rates for the Person and Role in this row.
 rates = Rates.lookupRecords(Person=$Person, Role=$Role)
 
 # Pick out only those rates whose Rate_Start is on or before this row's Date.
@@ -565,7 +565,6 @@ current_rate = max(past_rates, key=lambda r: r.Rate_Start)
 # Return the Hourly_Rate from the relevant Rates record.
 return current_rate.Hourly_Rate
 </code></pre>
-
 <p>(If this seems too complicated, good luck trying to achieve the same in a traditional
 spreadsheet!)</p>
 <p>Read the comments in that code to understand the steps. For those who know Python, it may already

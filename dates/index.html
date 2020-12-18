@@ -567,10 +567,9 @@ to select the format in which to display the date.</p>
 <a href="https://dateutil.readthedocs.io/en/latest/parser.html#dateutil.parser.parse">dateutil</a>
 python library.  For example, if you live in an area where dates typically start with the day
 and then the month, you could use this formula:</p>
-<pre><code class="py">import dateutil
+<pre><code class="language-py">import dateutil
 dateutil.parser.parse($date_text, dayfirst=True)
 </code></pre>
-
 <h2 id="date-arithmetic">Date arithmetic<a class="headerlink" href="#date-arithmetic" title="Permanent link">#</a></h2>
 <p>Once you have a proper date column, often you&rsquo;ll want to do date arithmetic such as calculating the
 difference between two dates. The simplest way to do this is to use the <a href="../functions/#datedif">DATEDIF</a>
@@ -589,9 +588,8 @@ difference. For example, to get the number of days from the returned timedelta o
 fractional part in the result.) If you want hours, multiply by 24.</p>
 <p>You can also use specific functions to get what you want. For example, <code>DAYS</code> is a common function
 in spreadsheet apps that returns the difference between two dates:</p>
-<pre><code class="py">DAYS($Last_day, $First_day)
+<pre><code class="language-py">DAYS($Last_day, $First_day)
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Excel/Sheets formulas</p>
 <p>Grist supports many other common functions from other spreadsheet apps, including
