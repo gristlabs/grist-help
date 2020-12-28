@@ -94,7 +94,7 @@ in JSON:
 And here's one to show the selected row only (make sure "Select By" is set
 for the custom widget):
 
-> <https://gristlabs.github.io/grist-widget/inspect/onRecords.html>
+> <https://gristlabs.github.io/grist-widget/inspect/onRecord.html>
 
 The widget will then show the webpage you've requested.  Now you have the option
 to grant that webpage access to data in your document.  The following access levels
