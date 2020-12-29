@@ -31,6 +31,9 @@ ready-to-use templates.
   Plan a treasure hunt without losing track. Brainstorm clues, then assemble them into a
   consistent trail.
 
+- [Map](examples/2020-12-map.md):
+  Show locations listed in a table on a map.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
