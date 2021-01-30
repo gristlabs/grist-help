@@ -34,6 +34,10 @@ ready-to-use templates.
 - [Map](examples/2020-12-map.md):
   Show locations listed in a table on a map.
 
+- [Task Management for Teams](examples/2021-01-tasks.md):
+  This glorified To-Do list -- similar to the one we use internally at Grist labs -- works well to
+  manage a team's tasks.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
