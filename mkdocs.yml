@@ -49,6 +49,7 @@ nav:
     - API reference: api.md
   - News & updates:
     - Newsletters: newsletters.md
+    - 2021/01: newsletters/2021-01.md
     - 2020/12: newsletters/2020-12.md
     - 2020/11: newsletters/2020-11.md
     - 2020/10: newsletters/2020-10.md
@@ -67,6 +68,7 @@ nav:
       - Print mailing labels: examples/2020-10-print-labels.md
       - Treasure Hunt: examples/2020-11-treasure-hunt.md
       - Map: examples/2020-12-map.md
+      - Task Management: examples/2021-01-tasks.md
   - Shortcuts: keyboard-shortcuts.md
   - Limits: limits.md
   - Glossary: glossary.md
