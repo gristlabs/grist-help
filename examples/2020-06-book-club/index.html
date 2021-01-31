@@ -313,6 +313,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
 
     
@@ -411,6 +415,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-01-tasks/" class="wm-article-link wm-toc-text">Task Management</a>
+
+    
+</li>
   </ul>
 </li>
 
@@ -492,10 +500,11 @@ by its title and author. To do this, add a new column, and then set it to be a
 <p>What we&rsquo;re going to do is fill this column using a formula that takes the
 book title and the author&rsquo;s name, and uses them as a keyword to search on
 the <a href="https://isbnsearch.org">isbnsearch.org</a> site.  Here&rsquo;s the formula:</p>
-<pre><code class="language-py">import urllib
+<pre><code class="py">import urllib
 keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author or &quot;&quot;)
 &quot;[isbn] https://isbnsearch.org/search?s=&quot; + urllib.quote(keywords)
 </code></pre>
+
 <p>URLs with spaces or apostrophes or other odd letters you might find in
 names need special encoding, so we&rsquo;ve used the python <code>urllib</code> module to make sure
 everything gets encoded correctly.  Now we&rsquo;ve got a handy <code>[isbn]</code> link beside each book:</p>
@@ -510,14 +519,16 @@ let&rsquo;s add a few more books too:</p>
 <p>Once we have the ISBN, adding a link to buy the book is easy.  Here&rsquo;s a formula
 for the <a href="https://indiebound.org">indiebound.org</a> site, which in the U.S. is likely
 to have an independent book store near you as a member:</p>
-<pre><code class="language-py">&quot;[buy] https://indiebound.org/book/&quot; + $ISBN
+<pre><code class="py">&quot;[buy] https://indiebound.org/book/&quot; + $ISBN
 </code></pre>
+
 <p>If you don&rsquo;t have a local bookstore, there&rsquo;s Amazon, or pretty much any site
 you like (just find a search page on their site, and match the pattern).</p>
 <pre><code>import urllib
 keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author or &quot;&quot;) + &quot; &quot; + ($ISBN or &quot;&quot;)
 &quot;[amazon] https://www.amazon.com/s?i=stripbooks&amp;k=&quot; + urllib.quote($keywords)
 </code></pre>
+
 <p>The new links look like this:</p>
 <p><img alt="Start" src="/examples/images/2020-06-book-club-buy.png" /></p>
 <p>Clicking on the <code>[buy]</code> link near a book now brings us to that book on
@@ -525,18 +536,21 @@ keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author or &quot;&quot;) 
 <p><img alt="Start" src="/examples/images/2020-06-book-club-indie.png" /></p>
 <p>For your local library, the same idea is very likely to work.  For example, in
 northern New Jersey, in the US, here&rsquo;s what you want:</p>
-<pre><code class="language-py">import urllib
+<pre><code class="py">import urllib
 prefix = &quot;[borrow] https://catalog.bccls.org/polaris/search/searchresults.aspx?ctx=placeholder&amp;type=Keyword&amp;by=ISBN&amp;term=&quot;
 prefix + urllib.quote($ISBN)
 </code></pre>
+
 <p>And here&rsquo;s how to look up Goodreads to see what people think of a book:</p>
-<pre><code class="language-py">&quot;[opinion] https://www.goodreads.com/search?q=&quot; + $ISBN
+<pre><code class="py">&quot;[opinion] https://www.goodreads.com/search?q=&quot; + $ISBN
 </code></pre>
+
 <p>And Wikipedia to start a deep dive:</p>
-<pre><code class="language-py">import urllib
+<pre><code class="py">import urllib
 keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author.Name or &quot;&quot;)
 &quot;[wikipedia] https://en.wikipedia.org/wiki/Special:Search/&quot; + urllib.quote(keywords)
 </code></pre>
+
 <p>Once we have all these links, it makes sense to add a <a href="../../linking-widgets/#same-record-linking">Card View</a> so we can lay them out:</p>
 <p><img alt="Start" src="/examples/images/2020-06-book-club-card.png" /></p>
 <h2 id="ready-made-template">Ready-made template<a class="headerlink" href="#ready-made-template" title="Permanent link">#</a></h2>

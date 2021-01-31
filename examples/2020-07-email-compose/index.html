@@ -313,6 +313,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
 
     
@@ -421,6 +425,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-01-tasks/" class="wm-article-link wm-toc-text">Task Management</a>
+
+    
+</li>
   </ul>
 </li>
 
@@ -502,18 +510,20 @@ person:</p>
 <h2 id="cc-bcc-subject-body">Cc, Bcc, Subject, Body<a class="headerlink" href="#cc-bcc-subject-body" title="Permanent link">#</a></h2>
 <p>In addition to opening your email program and filling in the &ldquo;TO&rdquo; field, a &ldquo;mailto&rdquo; link can
 fill in other parts of the email, using this format:</p>
-<pre><code class="language-html">mailto:&lt;to&gt;?cc=&lt;cc&gt;&amp;bcc=&lt;bcc&gt;&amp;reply-to=&lt;email&gt;&amp;subject=&lt;subject&gt;&amp;body=&lt;body&gt;
+<pre><code class="html">mailto:&lt;to&gt;?cc=&lt;cc&gt;&amp;bcc=&lt;bcc&gt;&amp;reply-to=&lt;email&gt;&amp;subject=&lt;subject&gt;&amp;body=&lt;body&gt;
 </code></pre>
+
 <p>All fields are optional. You can specify multiple email addresses for To/Cc/Bcc lists by
 separating them with commas.</p>
 <p>Values of each field should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">percent-encoded</a>,
 which in Python can be done using
 <a href="https://docs.python.org/2/library/urllib.html#urllib.quote">urllib.quote</a>.</p>
 <p>To put this together, this formula will produce a hyperlink to create a pre-filled email:</p>
-<pre><code class="language-python">from urllib import quote, urlencode
+<pre><code class="python">from urllib import quote, urlencode
 return &quot;Compose mailto:%s?cc=sales@example.com&amp;subject=%s&amp;body=%s&quot; % (
   quote($Email), quote(&quot;Welcome!&quot;), quote($Body))
 </code></pre>
+
 <p>A live example of this is here:
 <a href="https://public.getgrist.com/eZPYkB1W2Jcu/Email-Links/p/2/m/fork" target="_blank">Advanced Compose</a>.</p>
 <h2 id="emailing-multiple-people">Emailing Multiple People<a class="headerlink" href="#emailing-multiple-people" title="Permanent link">#</a></h2>
@@ -523,10 +533,11 @@ or people on a certain project.</p>
 project, then in the table of projects, you can look up all associated people using
 <a href="../../functions/#lookuprecords">lookupRecords</a>. You can then build a link to email them as a
 group:</p>
-<pre><code class="language-python">from urllib import quote
+<pre><code class="python">from urllib import quote
 people = People.lookupRecords(Project=$id)
 return &quot;Email Group mailto:%s&quot; % quote(&quot;, &quot;.join(people.Email))
 </code></pre>
+
 <p>You can see this formula at work in
 <a href="https://public.getgrist.com/eZPYkB1W2Jcu/Email-Links/p/3/m/fork" target="_blank">Group Compose</a>.</p>
 <p>Don&rsquo;t use this to replace an email marketing platform: since emails use your regular

@@ -313,6 +313,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
 
     
@@ -418,6 +422,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-12-map/" class="wm-article-link wm-toc-text">Map</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-01-tasks/" class="wm-article-link wm-toc-text">Task Management</a>
 
     
 </li>
@@ -536,8 +544,9 @@ you used for other purposes.</p>
 <p>Next, add a column to the table with addresses, and name it <code>LabelText</code>. Type a formula into
 it that produces an address formatted into multiple lines. Here is an example, but you may need to
 rename, add, or remove fields depending on the names of your columns:</p>
-<pre><code class="language-python">&quot;%s\n%s %s\n%s, %s %s&quot; % ($Name, $Street1, $Street2, $City, $State, $Zip)
+<pre><code class="python">&quot;%s\n%s %s\n%s, %s %s&quot; % ($Name, $Street1, $Street2, $City, $State, $Zip)
 </code></pre>
+
 <p>Note that this is Python syntax for formatting strings. Here is a brief guide to decode this:</p>
 <ul>
 <li>Each <code>%s</code> gets replaced with the next value from the parenthesized list after <code>%</code>.</li>
