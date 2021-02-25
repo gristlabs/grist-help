@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/imports/">
+    <link rel="canonical" href="https://support.getgrist.com/browser-support/">
     <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Importing more data - Grist Help Center</title>
+    <title>Browser Support - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -186,36 +186,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Importing more data</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../imports/" class="wm-article-link wm-toc-text">Importing more data</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Importing more data
-            </a>
-          </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#the-import-dialog">
-                The Import dialog
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#guessing-data-structure">
-                Guessing data structure
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#import-to-an-existing-table">
-                Import to an existing table
-              </a>
-            </li>
-        
-      </ul>
-    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
@@ -439,8 +411,26 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../browser-support/" class="wm-article-link wm-toc-text">Browser Support</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Browser Support</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Browser Support
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#mobile-support">
+                Mobile Support
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
@@ -474,20 +464,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../exports/" class="btn btn-xs btn-default pull-right">
+      <a href="../glossary/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../exports/" class="btn btn-xs btn-link">
-        Exports & backups
+      <a href="../glossary/" class="btn btn-xs btn-link">
+        Glossary
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../workspaces/" class="btn btn-xs btn-default pull-left">
+      <a href="../limits/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../workspaces/" class="btn btn-xs btn-link">
-        Workspaces [team]
+        Previous</a><a href="../limits/" class="btn btn-xs btn-link">
+        Limits
       </a>
     </div>
     
@@ -495,49 +485,24 @@
 
     
 
-    <h1 id="importing-more-data">Importing more data<a class="headerlink" href="#importing-more-data" title="Permanent link">#</a></h1>
-<p>You can import a file to <a href="../creating-doc/">start a new Grist document</a>, or to
-add data to an existing document. Grist supports imports of Excel, CSV, JSON, and
-tab-separated files.</p>
-<p>To start a new Grist document, click the &ldquo;Add New&rdquo; button on the home screen
-and choose &ldquo;Import document&rdquo;, as described in <a href="../creating-doc/">starting a new Grist document</a>.</p>
-<p>To add to an existing document, open that document, click the &ldquo;Add
-New&rdquo; button and then &ldquo;Import from file&rdquo;.  By default, each imported
-table is added as a new Grist table, but when examining the preview
-dialog for an import, you have an option to change the destination to
-an existing Grist table.</p>
-<p>You can also import any of the same formats from a URL, using the &ldquo;Import from URL&rdquo; option.</p>
-<h2 id="the-import-dialog">The Import dialog<a class="headerlink" href="#the-import-dialog" title="Permanent link">#</a></h2>
-<p>When you import data into an existing document, Grist opens an import dialog to
-show you what will be imported. This dialog offers available import options,
-lets you choose whether to create a new table or add to an existing one, and
-shows a preview of the data.</p>
-<p><img alt="import-dialog" src="../images/import-dialog.png" /></p>
-<p>The &ldquo;Import options&rdquo; link on the top right is sometimes useful when importing
-delimited files. Grist guesses the settings to parse the data (such as the
-field delimiter), but if it guesses incorrectly, you can adjust the settings.</p>
-<h2 id="guessing-data-structure">Guessing data structure<a class="headerlink" href="#guessing-data-structure" title="Permanent link">#</a></h2>
-<p>In all cases, when you import a file, Grist makes guesses about the structure of the file.</p>
-<p>For Excel files, Grist treats each sheet as a separated table. For CSV and
-other delimited formats, one file becomes one table. For both Excel and
-delimited files, Grist tries to detect whether the headers are included and
-which line they occur in. If Grist detects there are no headers, it will name
-columns as &ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;, etc.</p>
-<p>Grist automatically tries to parse numbers, dates, and boolean fields to detect
-the most suitable type for each column. It tries to be lossless: e.g. if it
-marks a column as numeric, any text values in it (such as &ldquo;N/A&rdquo;) will remain in
-the imported table, but will be highlighted due to the type mismatch.</p>
-<p>You can always rename tables and columns after an import, as well as convert types.</p>
-<h2 id="import-to-an-existing-table">Import to an existing table<a class="headerlink" href="#import-to-an-existing-table" title="Permanent link">#</a></h2>
-<p>By default, Grist imports new data as new tables, but the Import dialog allows
-you to change the destination and import data into an existing table.</p>
-<p>To import cleanly into an existing table, the new data must have column names
-that exactly match the column names in the destination table.</p>
-<p>This is best suited for importing multiple datasets in the same format. For
-instance, you could import a bank statement as a new table, then import more
-statements from other months into the same table.</p>
-<p>For developers, the <a href="../rest-api/">Grist API</a> offers a more powerful way to add data
-to a Grist document.</p>
+    <h1 id="browser-support">Browser Support<a class="headerlink" href="#browser-support" title="Permanent link">#</a></h1>
+<p>Grist is officially supported and regularly tested on modern Firefox and Google Chrome browsers on
+all desktop platforms. These are available here:</p>
+<ul>
+<li><a href="https://www.mozilla.org/en-US/firefox/new/">Get Firefox</a></li>
+<li><a href="https://www.google.com/chrome/">Get Chrome</a></li>
+</ul>
+<p>Other modern browsers will work to the degree they are standards compliant. In particular, Grist
+is reported to work on modern Safari and Microsoft Edge. If you encounter errors or unexpected
+behavior on these browsers, we encourage you to report them to us (at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a> or
+using <span class="app-menu-item"><span class="grist-icon" style="--icon:
+var(--icon-Feedback)"></span> Give feedback</span> link in the app).</p>
+<h2 id="mobile-support">Mobile Support<a class="headerlink" href="#mobile-support" title="Permanent link">#</a></h2>
+<p>Grist mobile support is improving, but is not yet complete. You can expect Grist to work on mobile
+Safari, Google Chrome, and Firefox. If you encounter errors, please report them.</p>
+<p>On a mobile device, you may switch between mobile and desktop version of the app by opening the
+account menu, and selecting &ldquo;Toggle Mobile Mode&rdquo; option:</p>
+<p class="screenshot-half"><em><img alt="toggle-mobile-mode" src="../images/toggle-mobile-mode.png" /></em></p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
