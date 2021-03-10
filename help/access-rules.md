@@ -22,11 +22,12 @@ parts of a document.  Access rules give us that power.
 
 Only the owners of a document can edit its access rules. Once
 `?aclUI=1` is in the document URL, and the document is reloaded, owners should see
-a tool called <span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span>
-`Access Rules` in the left side bar.  Click on that to view and edit
+a tool called 
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
+in the left side bar.  Click on that to view and edit
 access rules.  The rules are also accessible via the `Manage Users` option
-of the sharing menu <span class="grist-icon" style="--icon: var(--icon-Share)"></span> -
-see the `Open Access Rules`button (available only to document Owners).
+of the sharing menu <span class="grist-icon" style="--icon: var(--icon-Share)"></span>
+with the `Open Access Rules` button (available only to document Owners).
 
 Suppose we run a small business sourcing and delivering unusual objects,
 organized using a document with two tables, `Orders` and `Financials`.
@@ -38,8 +39,9 @@ limiting their access to just what they need.
 ## Default rules
 
 To see the access rules for a document, visit its access rules page by
-clicking <span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span>
-`Access Rules` in the left sidebar. When no custom rules have been created yet,
+clicking
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
+in the left sidebar. When no custom rules have been created yet,
 the access rules page contains the `Default Rules` for our document:
 
 ![Access rules](images/access-rules/access-rules-page.png)
@@ -266,7 +268,7 @@ The `user` variable contains the following members:
 
  * `user.Access`: one of `owners`, `editors`, or `viewers`, giving how the
    document was shared with the user (see [Sharing a document](sharing.md)).
- * `user.Email`: the email address of the user (or `anon@getgrist.com` if unavailable).
+ * `user.Email`: the email address of the user (or `anon@getgrist.com` for users who are not logged in).
  * `user.UserID`: a numeric ID that is associated with the user.
  * `user.Name`: the user's name (or `Anonymous` if unavailable).
  * `user.Link`: an object with any access control URL parameters.  Access control URL
