@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://support.getgrist.com/access-rules/">
+    <link rel="shortcut icon" href="../images/favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Intro to access rules - Grist Help Center</title>
+    <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap-3.3.7.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/elasticlunr.min.js"></script>
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+    </script>
+    <script src="/js/base.js"></script>
+      <script src="../js/grist.js"></script>
+    
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5FDHKQ9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GTM-5FDHKQ9');
+  </script>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    window.Beacon('config', {display: { style: 'icon' }});
+    window.Beacon('init', '2efd68d8-0479-42c1-a94c-87b342af7bc4');
+    fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
+      .then(function(resp) { return resp.json(); })
+      .then(function(status) {
+        // If there's exactly two orgs, will use the team name for the non-merged personal
+        // org as the company name.  Otherwise don't worry about setting company name.
+        var org = undefined;
+        if (status.orgs.length === 2) {
+          org = status.orgs[0].owner ? status.orgs[1] : status.orgs[0];
+        }
+        // If there's one user account available, fill it in silently; otherwise use
+        // the first one and prefill fields but let user see them so they can override
+        // them.  If testing this, be aware that if 'identify' was called previously,
+        // it will be cached in local storage and used even if it is not set this time
+        // around.
+        var user = status.users[0];
+        var identifyOrPrefill = status.users.length === 1 ? 'identify' : 'prefill';
+        if (user && !user.anonymous) {
+          var userObj = {};
+          if (user.email) { userObj.email = user.email; }
+          if (user.name) { userObj.name = user.name; }
+          if (user.picture) { userObj.avatar = user.picture; }
+          if (user.helpScoutSignature) { userObj.signature = user.helpScoutSignature; }
+          if (org && org.name) { userObj.company = org.name; }
+          window.Beacon(identifyOrPrefill, userObj);
+        }
+      });
+  });
+</script> 
+</head>
+
+<body>
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="/search.html" method="GET">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
+    
+
+    
+    
+    <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+      <div class="wm-top-title">
+        Grist Home
+      </div>
+    </a>
+    
+
+    
+    <a href=".." class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="../images/logo.png"/>
+      
+      <div class="wm-top-title">
+        Grist Help Center<br>
+        
+          <span class="wm-top-version">1.0.2-dev</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+  
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href=".." class="wm-article-link wm-toc-text">Welcome to Grist</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-To Tutorials</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../team-sharing/" class="wm-article-link wm-toc-text">Team sharing [team]</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../workspaces/" class="wm-article-link wm-toc-text">Workspaces [team]</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../automatic-backups/" class="wm-article-link wm-toc-text">Automatic Backups</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and Tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-card/" class="wm-article-link wm-toc-text">Card & Card List</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-custom/" class="wm-article-link wm-toc-text">Custom</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../on-demand-tables/" class="wm-article-link wm-toc-text">On-Demand tables</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Columns and data types</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-types/" class="wm-article-link wm-toc-text">Columns & types</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Using formulas</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formulas/" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Access rules</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Intro to access rules</a>
+
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Access rules
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#default-rules">
+                Default rules
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#lock-down-structure">
+                Lock down structure
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#make-a-private-table">
+                Make a private table
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#restrict-access-to-columns">
+                Restrict access to columns
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#view-as-another-user">
+                View as another user
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#user-attribute-tables">
+                User attribute tables
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#row-level-access-control">
+                Row-level access control
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#checking-new-values">
+                Checking new values
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#access-rule-conditions">
+                Access rule conditions
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#access-rule-permissions">
+                Access rule permissions
+              </a>
+            </li>
+        
+      </ul>
+    </li>
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../rest-api/" class="wm-article-link wm-toc-text">API usage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../api/" class="wm-article-link wm-toc-text">API reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">News & updates</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">More examples</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/" class="wm-article-link wm-toc-text">More examples</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-credit-card/" class="wm-article-link wm-toc-text">Credit card expenses</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill emails</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-08-invoices/" class="wm-article-link wm-toc-text">Prepare Invoices</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-09-payroll/" class="wm-article-link wm-toc-text">Track Payroll</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-11-treasure-hunt/" class="wm-article-link wm-toc-text">Treasure Hunt</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-12-map/" class="wm-article-link wm-toc-text">Map</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-01-tasks/" class="wm-article-link wm-toc-text">Task Management</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Reference</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../keyboard-shortcuts/" class="wm-article-link wm-toc-text">Shortcuts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../limits/" class="wm-article-link wm-toc-text">Limits</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../browser-support/" class="wm-article-link wm-toc-text">Browser Support</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</nav>
+
+  <script>
+    // Immediately expand parent items to show the selected page.
+    $('.wm-current')
+      .parents('.wm-toc-li-nested').addClass('collapse in')
+      .prev('.wm-toc-opener').addClass('wm-toc-open');
+  </script>
+  <div class="wm-content-pane">
+    <div class="wm-article">
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../rest-api/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../rest-api/" class="btn btn-xs btn-link">
+        API usage
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../functions/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../functions/" class="btn btn-xs btn-link">
+        Function reference
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="access-rules">Access rules<a class="headerlink" href="#access-rules" title="Permanent link">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Access rules are an experimental feature</p>
+<p>The design of access rules is likely to evolve, and sometimes
+that will require updates to documents that use them.  We won&rsquo;t
+make such changes lightly.</p>
+</div>
+<p>Every Grist document can be <a href="../sharing/">shared with others</a> 
+using the <code>Manage Users</code> option in the sharing
+menu (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
+Users can be invited as Viewers, Editors, or Owners (see 
+ <a href="../sharing/">Sharing a document</a> for a refresher on those roles).
+Sometimes, you need more nuance about who can see or edit individual
+parts of a document.  Access rules give us that power.</p>
+<div class="admonition note">
+<p class="admonition-title">Access rules are currently an opt-in feature</p>
+<p>You can find them by visiting a document,
+then adding <code>?aclUI=1</code> at the end of its URL, and
+reloading the page.</p>
+</div>
+<p>Only the owners of a document can edit its access rules. Once
+<code>?aclUI=1</code> is in the document URL, and the document is reloaded, owners should see
+a tool called 
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
+in the left side bar.  Click on that to view and edit
+access rules.  The rules are also accessible via the <code>Manage Users</code> option
+of the sharing menu <span class="grist-icon" style="--icon: var(--icon-Share)"></span>
+with the <code>Open Access Rules</code> button (available only to document Owners).</p>
+<p>Suppose we run a small business sourcing and delivering unusual objects,
+organized using a document with two tables, <code>Orders</code> and <code>Financials</code>.
+Now we are taking on more employees, and want to share the document with them while
+limiting their access to just what they need.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-example.png" /></p>
+<h2 id="default-rules">Default rules<a class="headerlink" href="#default-rules" title="Permanent link">#</a></h2>
+<p>To see the access rules for a document, visit its access rules page by
+clicking
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
+in the left sidebar. When no custom rules have been created yet,
+the access rules page contains the <code>Default Rules</code> for our document:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-page.png" /></p>
+<p>These rules say, in summary, that Owners and Editors can do anything within
+the document, that Viewers can only read the document, and everyone
+else is forbidden all access.  These rules cannot be modified, but they
+can be overridden.  To understand whether a group of rules allows a
+certain permission (<a href="./#access-rule-permissions">Read, Update, Create, Delete, or Structure</a>), read
+the rules from top to bottom, and find the first applicable rule
+that allows (green) or denies (red) that permission.
+We&rsquo;ll see plenty of examples as we go.</p>
+<h2 id="lock-down-structure">Lock down structure<a class="headerlink" href="#lock-down-structure" title="Permanent link">#</a></h2>
+<p>Suppose we want only the original Owners of the document to be allowed to change
+its structure, as we plan to invite other specialized collaborators as Editors.
+To do this, we add a default rule specifying that any user who is not an
+owner (<code>user.Access != 'owners'</code>) should be denied structure permissions
+(<code>S</code>).  Click the little <code>+</code> sign in the <code>CONDITION</code> of the <code>Default Rules</code>
+and fill in the condition and permissions as follows:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure.png" /></p>
+<p>For more information about possible formulas, read <a href="./#access-rule-conditions">Access rule conditions</a>.
+Once we&rsquo;ve made changes, the <code>SAVE</code> button becomes an inviting green
+(if is grayed out, and you&rsquo;ve just composed a condition formula, press
+enter or click elsewhere to let Grist know you are finished).  We
+click <code>SAVE</code> for the rule to take effect.  If Grist finds errors,
+you&rsquo;ll be alerted and the changes will not save.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure-saved.png" /></p>
+<h2 id="make-a-private-table">Make a private table<a class="headerlink" href="#make-a-private-table" title="Permanent link">#</a></h2>
+<p>To ensure that only Owners can access a table, such as the <code>Financials</code> table in our example,
+we click <code>Add Table Rules</code> and select the table name, <code>Financials</code>.  This creates a new empty
+group of rules called <code>Rules for table Financials</code>.
+Then we add a condition for any user who is not an Owner (<code>user.Access != 'owners'</code>), with all
+permissions denied.  Selecting <code>Deny All</code> from the drop-down beside <code>R</code> <code>U</code> <code>C</code> <code>D</code> is a fast
+way to set all permissions to denied, or you can click each permission individually to turn
+them red.  <code>R</code> is Read, <code>U</code> is Update, <code>C</code> is Create, and <code>D</code> is Delete
+(see <a href="./#access-rule-permissions">Access rule permissions</a>).
+Structure (<code>S</code>) permissions are not available at the table level.
+Once you are done, click <code>SAVE</code>.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-private-table.png" /></p>
+<p>Now we could go ahead and share the document with a team member
+specialized in deliveries, for example.  We <a href="../sharing/">share the
+document</a> with them as an Editor so that the restrictions
+we&rsquo;ve set up apply to them.  They won&rsquo;t see the <code>Financials</code> table in the
+left side bar, and attempts to open it will be denied:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-private-table-is-hidden.png" /></p>
+<h2 id="restrict-access-to-columns">Restrict access to columns<a class="headerlink" href="#restrict-access-to-columns" title="Permanent link">#</a></h2>
+<p>We can restrict a collaborator&rsquo;s access to columns.  In our eample, we might
+wish to give a delivery specialist more limited access to
+the <code>Orders</code> table.  Perhaps they don&rsquo;t need to see an <code>Email</code> column,
+or a <code>Piece</code> column with details of what is in the parcel.</p>
+<p>Click <code>Add Table Rules</code> and select <code>Orders</code> to create a rule group for the <code>Orders</code> table.
+Now, in the <code>Rules for table Orders</code> group, click the three-dot icon (&hellip;), and
+select <code>Add Column Rule</code>:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-limit-columns-rules.png" /></p>
+<p>In the <code>Columns</code> area we have a new <code>[Add Column]</code> dropdown to add all the columns
+to which we want the rule to apply (in our case <code>Email</code> and <code>Piece</code>).
+For the condition, we culd use <code>user.Email == 'kiwi@getgrist.com'</code>.  This checks
+for the email address of Kimberly, our fictional delivery specialist; we
+could also check by name or a numeric ID.  We turn all available permissions off for
+this user on these columns:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-limit-columns-full-rules.png" /></p>
+<p>Now that the rules are ready, click <code>Save</code>.</p>
+<p>If we have another employee who specializes in sourcing objects, and who needs to
+see a different set of columns, we can do that.  For example here we add a
+rule to withhold <code>Address</code> and <code>Phone</code> columns from user <code>Charon</code>:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-sourcing-single.png" /></p>
+<h2 id="view-as-another-user">View as another user<a class="headerlink" href="#view-as-another-user" title="Permanent link">#</a></h2>
+<p>A convenient way to check if access rules work as expected is with the <code>View
+As</code> feature, available in the <code>Users</code> dropdown.  This allows an Owner
+to open the document as if they were one of the people it is shared
+with, to see what their colleague would see.  The Owner does not
+&ldquo;become&rdquo; that colleague - any changes they make will be recorded as
+coming from themselves and not the colleague - but they do see the
+document from the colleague&rsquo;s perspective.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-view-as.png" /></p>
+<p>In our example, we could click <code>View As</code> on the Kiwi row, and the
+document reopens, with a little red tag warning that we are viewing it
+as <code>kiwi@getgrist.com</code>.  The <code>Piece</code> and <code>Email</code> columns are missing,
+and the <code>Financials</code> table is surpressed:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-view-as-kiwi.png" /></p>
+<p>When satisfied that everything looks as expected, we click the <code>x</code> in
+the red tag to close this preview, and the document will reload.</p>
+<h2 id="user-attribute-tables">User attribute tables<a class="headerlink" href="#user-attribute-tables" title="Permanent link">#</a></h2>
+<p>If we are successful and hire many sourcing and delivery people,
+then adding them one by one to rules would be tedious.  One solution
+is to use &ldquo;user attribute tables.&rdquo;  You can add a table to your document
+that classifies users as you like, and then use those classes in your
+access rules.  For example, we can make a table called <code>Team</code>, and give it two
+columns, <code>Email</code> and <code>Role</code>, where <code>Role</code> is a choice between
+<code>Sourcing</code> and <code>Delivery</code>.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-team-table.png" /></p>
+<p>Now we can tell Grist to make information from this table available
+for access rules, by clicking on <code>Add User Attributes</code>.
+Give the attribute any name you like (this will be how we refer to it
+in formulas), such as <code>Team</code>.  Pick the table to read (<code>Team</code> also in
+this case).  Give a user property to match against
+rows in this table - in our case we&rsquo;ll use <code>user.Email</code>.  And the
+column to match against, <code>Email</code>.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-team-attribute.png" /></p>
+<p>Save that. Now we can update our rules to be more general.  We find with
+autocomplete that we have a new <code>user.Team</code> variable available in
+condtions.  It makes columns from the <code>Team</code> available, such as <code>user.Team.Role</code>.
+Now we can check if the user has a particular role, and apply the permissions
+that go with that:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-team-rules.png" /></p>
+<p>Great!  Doing a spot check, Charon sees the expected columns for someone in
+Sourcing.  And if we recruit someone else to work with them, we can just add
+them in the <code>Team</code> table, no rule changes needed.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-view-as-charon.png" /></p>
+<h2 id="row-level-access-control">Row-level access control<a class="headerlink" href="#row-level-access-control" title="Permanent link">#</a></h2>
+<p>In our example, as orders are processed, they move from sourcing to delivery phases.
+So there&rsquo;s really no need for the two groups to see all the orders at once.  Let&rsquo;s add a
+column called <code>Stage</code> that can be set to <code>Sourcing</code> or <code>Delivery</code>, so that we
+can update access rules to show only the relevant orders.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-stage-column.png" /></p>
+<p>In the <code>Rules for table Orders</code> group, click the three-dot icon (&hellip;), and
+select <code>Add Default Rule</code> to add a rule that isn&rsquo;t limited to specific columns.
+Let&rsquo;s deny access to all rows for non-Owners as a starting point, then add back in the 
+ones we want. We can do that with the condition <code>user.Access != "owners"</code> with
+<code>Deny All</code> permissions.  Then, we add another default rule by clicking <code>+</code>, and 
+add the condition <code>user.Team.Role == rec.Stage</code>.  The <code>rec</code> variable allows
+us to express rules that depend on the content within a particular record.
+Here, we check if the <code>Stage</code> column of a record matches the user&rsquo;s role.
+If it is, we allow <code>R</code> Read access:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-stage-rules.png" /></p>
+<p>Here&rsquo;s how the table looks now as Kimberly (doing deliveries):</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-stage-kiwi.png" /></p>
+<p>And here&rsquo;s how the table looks as Charon (doing sourcing):</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-stage-charon.png" /></p>
+<p>Kimberly and Charon now have read-only access to the table.  Owners still have full
+write access to all rows and columns.</p>
+<h2 id="checking-new-values">Checking new values<a class="headerlink" href="#checking-new-values" title="Permanent link">#</a></h2>
+<p>Access rules can be used to permit only certain changes to the document.
+Suppose we want <code>Delivery</code> people
+to be able to change <code>Stage</code> from <code>Delivery</code> to <code>Done</code>, without giving them the
+arbitrary rights to edit that column.  We can grant them that exceptional right
+as follows.
+In the <code>Rules for table Orders</code> group, click the three-dot icon (&hellip;), and
+select <code>Add Column Rule</code>.  Set <code>[Add Column]</code> to <code>Stage</code>, and mark the U/Update
+permission to be granted. For the condition, use this:</p>
+<pre><code>(user.Team.Role == 'Delivery' and
+  rec.Stage == 'Delivery' and
+  newRec.Stage == 'Done')
+</code></pre>
+<p>This checks if the user has the Delivery role, and the record is in the Delivery stage,
+and that the user is trying to change the Stage to <code>Done</code>. The <code>newRec</code> variable is a
+variant of <code>rec</code> available when the user is proposing to change a record, with <code>rec</code>
+containing its state before the change, and <code>newRec</code> its state after the proposed change.</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-delivery-done-rule.png" /></p>
+<p>Now, if we view the table as Kiwi, and try to change a <code>Stage</code> to <code>Sourcing</code>, we are
+denied:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-delivery-done-forbid.png" /></p>
+<p>If we change a <code>Stage</code> to <code>Done</code>, it works, and the record disappears from view since
+it is no longer in the <code>Delivery</code> stage:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-delivery-done-allow.png" /></p>
+<h2 id="access-rule-conditions">Access rule conditions<a class="headerlink" href="#access-rule-conditions" title="Permanent link">#</a></h2>
+<p>Accress rule conditions contain a formula expressing when the rule
+should apply.  A blank condition will always apply.  When a condition
+applies for an action, the permissions associated with the condition are
+set to allowed or denied for that action if no earlier rule in the same
+group has yet set them.  When a condition does not apply, no
+permissions are set by that rule, but other rules could set them.</p>
+<p>Formulas are written in a restricted subset of Python.
+Variables that may be available in access rules are <code>user</code>, <code>rec</code>, and <code>newRec</code>.</p>
+<p>The <code>user</code> variable contains the following members:</p>
+<ul>
+<li><code>user.Access</code>: one of <code>owners</code>, <code>editors</code>, or <code>viewers</code>, giving how the
+   document was shared with the user (see <a href="../sharing/">Sharing a document</a>).</li>
+<li><code>user.Email</code>: the email address of the user (or <code>anon@getgrist.com</code> for users who are not logged in).</li>
+<li><code>user.UserID</code>: a numeric ID that is associated with the user.</li>
+<li><code>user.Name</code>: the user&rsquo;s name (or <code>Anonymous</code> if unavailable).</li>
+<li><code>user.Link</code>: an object with any access control URL parameters.  Access control URL
+   parameters end in an underscore (which is then stripped).  Only available in the
+   web client, not the API.</li>
+<li><code>user.Origin</code>: The content of the Origin request header.  Only available in the API,
+   not the web client.</li>
+</ul>
+<p>For an example of using the <code>user</code> variable, read <a href="./#default-rules">Default rules</a>.</p>
+<p>The <code>rec</code> variable contains the state of an individual record/row, for
+conditions that need to take that into account.  When it is used, that
+rule becomes row-specific.  That allows, for example, to make certain
+rows visible only to certain users, or to prohibit modification of
+certain rows by certain users.
+For an example of using the <code>rec</code> variable, read <a href="./#row-level-access-control">Row-level access control</a>.</p>
+<p>The <code>newRec</code> variable is available for record/row creation and
+updating, and contains the state of a row after a proposed change,
+allowing you to selectively allow or deny certain changes.
+For an example of using the <code>newRec</code> variable, read <a href="./#checking-new-values">Checking new values</a>.</p>
+<p>Supported operations in condition formalas are currently: <code>and</code>, <code>or</code>,
+<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>is</code>, <code>is
+not</code>, <code>in</code>, <code>not in</code>.  Supported variables are: <code>user</code>, <code>rec</code>,
+<code>newRec</code> with their members accessed with <code>.</code>.  Strings, numbers, and
+lists are also supported.</p>
+<p>Comments are allowed, using <code>#</code> or <code>"""</code>.  If there is a comment in a
+rule, then the first comment in a rule that results in a denial of an
+action will be reported to the user as a tip for why the action was not
+permitted.</p>
+<h2 id="access-rule-permissions">Access rule permissions<a class="headerlink" href="#access-rule-permissions" title="Permanent link">#</a></h2>
+<p>A permission controls whether a user can perform a particalar kind of action.
+Grist access rules currently deal with 5 kinds of action, which are given
+single letter acronyms for convenience:</p>
+<ul>
+<li><code>R</code> - permission to read cells.</li>
+<li><code>U</code> - permission to update cells.</li>
+<li><code>C</code> - permission to create rows.</li>
+<li><code>D</code> - permission to delete rows.</li>
+<li><code>S</code> - permission to change table structure.</li>
+</ul>
+<p>The <code>S</code> structure permission is available in the default access rule
+group.  Column rules lack the <code>C</code> create and <code>D</code> delete permissions,
+which should be handled in default table rules.</p>
+
+  <br>
+</div><footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div style="position:relative; padding-bottom:56.25%; margin-top: 32px;">
+          <iframe src="" allowfullscreen style="position:absolute; left:0; top:0; width:100%; height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
