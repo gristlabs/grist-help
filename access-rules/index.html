@@ -725,6 +725,7 @@ permission to be granted. For the condition, use this:</p>
   rec.Stage == 'Delivery' and
   newRec.Stage == 'Done')
 </code></pre>
+
 <p>This checks if the user has the Delivery role, and the record is in the Delivery stage,
 and that the user is trying to change the Stage to <code>Done</code>. The <code>newRec</code> variable is a
 variant of <code>rec</code> available when the user is proposing to change a record, with <code>rec</code>
