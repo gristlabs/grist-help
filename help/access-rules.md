@@ -327,7 +327,7 @@ rule, it can be helpful to give specific details that will help them understand
 the problem.  You can do this by adding a comment in the condition formula.
 The first comment in a condition will be passed on to the user in the
 event of the condition leading to a denial of access (either by
-activating, or failing to activate).  Comments are python-style,
+matching, or failing to match).  Comments are python-style,
 starting with a `#`.  They can come after the formula like this:
 
 ```py
