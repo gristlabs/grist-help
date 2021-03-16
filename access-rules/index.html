@@ -356,6 +356,11 @@
                 Access rule permissions
               </a>
             </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#access-rule-memos">
+                Access rule memos
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -774,11 +779,13 @@ For an example of using the <code>newRec</code> variable, read <a href="./#check
 <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>is</code>, <code>is
 not</code>, <code>in</code>, <code>not in</code>.  Supported variables are: <code>user</code>, <code>rec</code>,
 <code>newRec</code> with their members accessed with <code>.</code>.  Strings, numbers, and
-lists are also supported.</p>
+lists are also supported.  If an operation you need is not available,
+consider whether you can do part of the work in a formula in the table
+itself (see <a href="./#access-rule-memos">Access rule memos</a> for an example).</p>
 <p>Comments are allowed, using <code>#</code> or <code>"""</code>.  If there is a comment in a
 rule, then the first comment in a rule that results in a denial of an
 action will be reported to the user as a tip for why the action was not
-permitted.</p>
+permitted. See <a href="./#access-rule-memos">Access rule memos</a> for an example.</p>
 <h2 id="access-rule-permissions">Access rule permissions<a class="headerlink" href="#access-rule-permissions" title="Permanent link">#</a></h2>
 <p>A permission controls whether a user can perform a particalar kind of action.
 Grist access rules currently deal with 5 kinds of action, which are given
@@ -793,6 +800,41 @@ single letter acronyms for convenience:</p>
 <p>The <code>S</code> structure permission is available in the default access rule
 group.  Column rules lack the <code>C</code> create and <code>D</code> delete permissions,
 which should be handled in default table rules.</p>
+<h2 id="access-rule-memos">Access rule memos<a class="headerlink" href="#access-rule-memos" title="Permanent link">#</a></h2>
+<p>When a user receives an error message denying them access because of a
+rule, it can be helpful to give specific details that will help them understand
+the problem.  You can do this by adding a comment in the condition formula.
+The first comment in a condition will be passed on to the user in the
+event of the condition leading to a denial of access (either by
+matching, or failing to match).  Comments are python-style,
+starting with a <code>#</code>.  They can come after the formula like this:</p>
+<pre><code class="py">newRec.Count &gt; 1  # No duplicates allowed
+</code></pre>
+
+<p>Or before it, like this:</p>
+<pre><code class="py"># Talk to Arjun to get full access
+user.Access == 'owners'
+</code></pre>
+
+<p>As a full example, suppose we have a table listing airports, and we want to
+forbid entry of a new record with the same airport code as an existing
+one.  In the table, we can add a formula <code>Count</code> that counts how many
+records have the same code as each other:</p>
+<p><img alt="Airport table" src="../images/access-rules/access-rules-dupe-setup.png" /></p>
+<p>Now, we can add an access rule to forbid any record update or creation that would
+result in a <code>Count</code> above one.  We can also include a memo to explain the problem:</p>
+<p><img alt="Duplicate rule" src="../images/access-rules/access-rules-dupe-rule.png" /></p>
+<p>Now if we try to add a new row with an existing code, we get a helpful error:</p>
+<p><img alt="Duplicate error" src="../images/access-rules/access-rules-dupe-forbidden.png" /></p>
+<p>This example also shows that sometimes the condition for an access rule needs
+to be expressed in two parts: a user-independent formula in the table itself
+(which has access to full spreadsheet functionality but does not have
+access to the user&rsquo;s identity or attributes), and a user-dependent formula
+in the access rule page (which has access to the user&rsquo;s identity and attributes,
+but has limits to its structure).
+See <a href="./#access-rule-conditions">Access rule conditions</a> for details
+on the restrictions on condition formulas, and
+<a href="../formulas/">Formulas</a> for details on regular full-powered formulas.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
