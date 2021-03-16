@@ -295,12 +295,14 @@ Supported operations in condition formalas are currently: `and`, `or`,
 `+`, `-`, `*`, `/`, `%`, `==`, `!=`, `<`, `<=`, `>`, `>=`, `is`, `is
 not`, `in`, `not in`.  Supported variables are: `user`, `rec`,
 `newRec` with their members accessed with `.`.  Strings, numbers, and
-lists are also supported.
+lists are also supported.  If an operation you need is not available,
+consider whether you can do part of the work in a formula in the table
+itself (see [Access rule memos](access-rules.md#access-rule-memos) for an example).
 
 Comments are allowed, using `#` or `"""`.  If there is a comment in a
 rule, then the first comment in a rule that results in a denial of an
 action will be reported to the user as a tip for why the action was not
-permitted.
+permitted. See [Access rule memos](access-rules.md#access-rule-memos) for an example.
 
 ## Access rule permissions
 
@@ -317,3 +319,51 @@ single letter acronyms for convenience:
 The `S` structure permission is available in the default access rule
 group.  Column rules lack the `C` create and `D` delete permissions,
 which should be handled in default table rules.
+
+## Access rule memos
+
+When a user receives an error message denying them access because of a
+rule, it can be helpful to give specific details that will help them understand
+the problem.  You can do this by adding a comment in the condition formula.
+The first comment in a condition will be passed on to the user in the
+event of the condition leading to a denial of access (either by
+matching, or failing to match).  Comments are python-style,
+starting with a `#`.  They can come after the formula like this:
+
+```py
+newRec.Count > 1  # No duplicates allowed
+```
+
+Or before it, like this:
+
+```py
+# Talk to Arjun to get full access
+user.Access == 'owners'
+```
+
+As a full example, suppose we have a table listing airports, and we want to
+forbid entry of a new record with the same airport code as an existing
+one.  In the table, we can add a formula `Count` that counts how many
+records have the same code as each other:
+
+![Airport table](images/access-rules/access-rules-dupe-setup.png)
+
+Now, we can add an access rule to forbid any record update or creation that would
+result in a `Count` above one.  We can also include a memo to explain the problem:
+
+![Duplicate rule](images/access-rules/access-rules-dupe-rule.png)
+
+Now if we try to add a new row with an existing code, we get a helpful error:
+
+![Duplicate error](images/access-rules/access-rules-dupe-forbidden.png)
+
+This example also shows that sometimes the condition for an access rule needs
+to be expressed in two parts: a user-independent formula in the table itself
+(which has access to full spreadsheet functionality but does not have
+access to the user's identity or attributes), and a user-dependent formula
+in the access rule page (which has access to the user's identity and attributes,
+but has limits to its structure).
+See [Access rule conditions](access-rules.md#access-rule-conditions) for details
+on the restrictions on condition formulas, and
+[Formulas](formulas.md) for details on regular full-powered formulas.
+
