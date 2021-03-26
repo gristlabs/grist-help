@@ -250,7 +250,7 @@ it is no longer in the `Delivery` stage:
 
 Sometimes it is useful to give access to a specific small
 slice of the document, for example a single row of a table.  Grist offers
-a feature called link keys that can help with that.  Any parameters in
+a feature called "link keys" that can help with that.  Any parameters in
 a Grist document URL that end in an underscore are made available to
 access rules in a `user.LinkKey` variable.  So for example if a document
 URL ends in `....?Token_=xx-xx-xx-xx&Flavor_=vanilla`, then `user.LinkKey.Token`
