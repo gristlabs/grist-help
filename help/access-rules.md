@@ -15,14 +15,8 @@ Users can be invited as Viewers, Editors, or Owners (see
 Sometimes, you need more nuance about who can see or edit individual
 parts of a document.  Access rules give us that power.
 
-!!! note "Access rules are currently an opt-in feature"
-    You can find them by visiting a document,
-    then adding `?aclUI=1` at the end of its URL, and
-    reloading the page.
-
-Only the owners of a document can edit its access rules. Once
-`?aclUI=1` is in the document URL, and the document is reloaded, owners should see
-a tool called 
+Only the owners of a document can edit its access rules.
+When a document is loaded, owners see a tool called 
 <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
 in the left side bar.  Click on that to view and edit
 access rules.  The rules are also accessible via the `Manage Users` option
@@ -60,7 +54,7 @@ We'll see plenty of examples as we go.
 Suppose we want only the original Owners of the document to be allowed to change
 its structure, as we plan to invite other specialized collaborators as Editors.
 To do this, we add a default rule specifying that any user who is not an
-owner (`user.Access != 'owners'`) should be denied structure permissions
+owner (`user.Access != OWNER`) should be denied structure permissions
 (`S`).  Click the little `+` sign in the `CONDITION` of the `Default Rules`
 and fill in the condition and permissions as follows:
 
@@ -80,7 +74,7 @@ you'll be alerted and the changes will not save.
 To ensure that only Owners can access a table, such as the `Financials` table in our example,
 we click `Add Table Rules` and select the table name, `Financials`.  This creates a new empty
 group of rules called `Rules for table Financials`.
-Then we add a condition for any user who is not an Owner (`user.Access != 'owners'`), with all
+Then we add a condition for any user who is not an Owner (`user.Access != OWNER`), with all
 permissions denied.  Selecting `Deny All` from the drop-down beside `R` `U` `C` `D` is a fast
 way to set all permissions to denied, or you can click each permission individually to turn
 them red.  `R` is Read, `U` is Update, `C` is Create, and `D` is Delete
@@ -252,6 +246,72 @@ it is no longer in the `Delivery` stage:
 
 ![Access rules](images/access-rules/access-rules-delivery-done-allow.png)
 
+## Link keys
+
+Sometimes it is useful to give access to a specific small
+slice of the document, for example a single row of a table.  Grist offers
+a feature called "link keys" that can help with that.  Any parameters in
+a Grist document URL that end in an underscore are made available to
+access rules in a `user.LinkKey` variable.  So for example if a document
+URL ends in `....?Token_=xx-xx-xx-xx&Flavor_=vanilla`, then `user.LinkKey.Token`
+will be set to `xx-xx-xx-xx` and `user.LinkKey.Flavor` to `vanilla`.
+Let's work through an example to see how that can be helpful.
+
+Suppose we have a table of `Orders` and we'd like to occasionally
+share information about a single order with someone.  To do that with
+link keys, we need some kind of hard-to-guess code for each order,
+which can be used to access it.  Grist has a [`UUID()`](functions.md#uuid) function that
+gives a unique, random, and hard-to-guess identifier, so let's add a `UUID` column with
+formula `=UUID()`:
+
+![Access rules](images/access-rules/access-rules-linkkey-uuid-formula.png)
+
+In fact we want `UUID()` to be called just once per order, when we create
+it, and never recomputed (because then it would change).  So in the right sidebar
+we convert the formula column to a data column, freezing its values:
+
+![Access rules](images/access-rules/access-rules-linkkey-uuid-convert.png)
+
+And then we set the default formula for new records to `UUID()`:
+
+![Access rules](images/access-rules/access-rules-linkkey-uuid-data.png)
+
+At this point we have a solid hard-to-guess code for each order in the
+`UUID` column, that will be created as we add new orders.  It can
+be handy at this point to construct links to the document with that
+code embedded in them.  Grist has a helper for this called
+[`SELF_HYPERLINK`](functions.md#self_hyperlink).  To add a
+link key called `<NAME>`, just use this function with a
+`LinkKey_<NAME>` argument.  In our case, we pass `LinkKey_UUID=$UUID` to
+embed the value of the `UUID` column into the URL.  We also set `label=$Ref`
+to control the text label of the link in the spreadsheet.  To show the link,
+we set the column type to `Text` and set the `HyperLink` option:
+
+![Access rules](images/access-rules/access-rules-linkkey-link.png)
+
+Once we have these links, we can tidy up a little by hiding the
+`UUID` and `Ref` columns (see [Column operations](widget-table.md#column-operations) for a refresher on how
+to do this):
+
+![Access rules](images/access-rules/access-rules-linkkey-prune.png)
+
+The links don't do anything special yet, but we have everything we
+need to make that happen now.  Here is an example of access rules to
+allow anyone with a UUID in their URL to read any order with a
+matching UUID (otherwise only owners can read orders in this case):
+
+![Access rules](images/access-rules/access-rules-linkkey-rule.png)
+
+And here is what a non-owner now sees, with the UUID of the first order in their
+URL:
+
+![Access rules](images/access-rules/access-rules-linkkey-use.png)
+
+This is just the beginning of the possibilities.  Link keys can give access to
+multiple rows across many tables.  They can be used in
+[User attribute tables](#user-attribute-tables).  And the data they give access to
+can be within tables, cards, card lists, charts, and custom widgets.
+
 ## Access rule conditions
 
 Accress rule conditions contain a formula expressing when the rule
@@ -338,7 +398,7 @@ Or before it, like this:
 
 ```py
 # Talk to Arjun to get full access
-user.Access == 'owners'
+user.Access == OWNER
 ```
 
 As a full example, suppose we have a table listing airports, and we want to
