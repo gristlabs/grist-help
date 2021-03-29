@@ -73,6 +73,7 @@ nav:
       - Treasure Hunt: examples/2020-11-treasure-hunt.md
       - Map: examples/2020-12-map.md
       - Task Management: examples/2021-01-tasks.md
+      - Lead List: examples/2021-03-leads.md
   - Reference:
     - Shortcuts: keyboard-shortcuts.md
     - Limits: limits.md

@@ -38,6 +38,10 @@ ready-to-use templates.
   This glorified To-Do list -- similar to the one we use internally at Grist labs -- works well to
   manage a team's tasks.
 
+- [Lead List](examples/2021-03-leads.md):
+  A very simple list of leads, assigned to individuals to follow up, with control
+  of assignments reserved for document owners.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
