@@ -347,6 +347,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#link-keys">
+                Link keys
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#access-rule-conditions">
                 Access rule conditions
               </a>
@@ -564,15 +569,8 @@ Users can be invited as Viewers, Editors, or Owners (see
  <a href="../sharing/">Sharing a document</a> for a refresher on those roles).
 Sometimes, you need more nuance about who can see or edit individual
 parts of a document.  Access rules give us that power.</p>
-<div class="admonition note">
-<p class="admonition-title">Access rules are currently an opt-in feature</p>
-<p>You can find them by visiting a document,
-then adding <code>?aclUI=1</code> at the end of its URL, and
-reloading the page.</p>
-</div>
-<p>Only the owners of a document can edit its access rules. Once
-<code>?aclUI=1</code> is in the document URL, and the document is reloaded, owners should see
-a tool called 
+<p>Only the owners of a document can edit its access rules.
+When a document is loaded, owners see a tool called 
 <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
 in the left side bar.  Click on that to view and edit
 access rules.  The rules are also accessible via the <code>Manage Users</code> option
@@ -602,7 +600,7 @@ We&rsquo;ll see plenty of examples as we go.</p>
 <p>Suppose we want only the original Owners of the document to be allowed to change
 its structure, as we plan to invite other specialized collaborators as Editors.
 To do this, we add a default rule specifying that any user who is not an
-owner (<code>user.Access != 'owners'</code>) should be denied structure permissions
+owner (<code>user.Access != OWNER</code>) should be denied structure permissions
 (<code>S</code>).  Click the little <code>+</code> sign in the <code>CONDITION</code> of the <code>Default Rules</code>
 and fill in the condition and permissions as follows:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure.png" /></p>
@@ -617,7 +615,7 @@ you&rsquo;ll be alerted and the changes will not save.</p>
 <p>To ensure that only Owners can access a table, such as the <code>Financials</code> table in our example,
 we click <code>Add Table Rules</code> and select the table name, <code>Financials</code>.  This creates a new empty
 group of rules called <code>Rules for table Financials</code>.
-Then we add a condition for any user who is not an Owner (<code>user.Access != 'owners'</code>), with all
+Then we add a condition for any user who is not an Owner (<code>user.Access != OWNER</code>), with all
 permissions denied.  Selecting <code>Deny All</code> from the drop-down beside <code>R</code> <code>U</code> <code>C</code> <code>D</code> is a fast
 way to set all permissions to denied, or you can click each permission individually to turn
 them red.  <code>R</code> is Read, <code>U</code> is Update, <code>C</code> is Create, and <code>D</code> is Delete
@@ -742,6 +740,55 @@ denied:</p>
 <p>If we change a <code>Stage</code> to <code>Done</code>, it works, and the record disappears from view since
 it is no longer in the <code>Delivery</code> stage:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-delivery-done-allow.png" /></p>
+<h2 id="link-keys">Link keys<a class="headerlink" href="#link-keys" title="Permanent link">#</a></h2>
+<p>Sometimes it is useful to give access to a specific small
+slice of the document, for example a single row of a table.  Grist offers
+a feature called &ldquo;link keys&rdquo; that can help with that.  Any parameters in
+a Grist document URL that end in an underscore are made available to
+access rules in a <code>user.LinkKey</code> variable.  So for example if a document
+URL ends in <code>....?Token_=xx-xx-xx-xx&amp;Flavor_=vanilla</code>, then <code>user.LinkKey.Token</code>
+will be set to <code>xx-xx-xx-xx</code> and <code>user.LinkKey.Flavor</code> to <code>vanilla</code>.
+Let&rsquo;s work through an example to see how that can be helpful.</p>
+<p>Suppose we have a table of <code>Orders</code> and we&rsquo;d like to occasionally
+share information about a single order with someone.  To do that with
+link keys, we need some kind of hard-to-guess code for each order,
+which can be used to access it.  Grist has a <a href="../functions/#uuid"><code>UUID()</code></a> function that
+gives a unique, random, and hard-to-guess identifier, so let&rsquo;s add a <code>UUID</code> column with
+formula <code>=UUID()</code>:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-uuid-formula.png" /></p>
+<p>In fact we want <code>UUID()</code> to be called just once per order, when we create
+it, and never recomputed (because then it would change).  So in the right sidebar
+we convert the formula column to a data column, freezing its values:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-uuid-convert.png" /></p>
+<p>And then we set the default formula for new records to <code>UUID()</code>:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-uuid-data.png" /></p>
+<p>At this point we have a solid hard-to-guess code for each order in the
+<code>UUID</code> column, that will be created as we add new orders.  It can
+be handy at this point to construct links to the document with that
+code embedded in them.  Grist has a helper for this called
+<a href="../functions/#self_hyperlink"><code>SELF_HYPERLINK</code></a>.  To add a
+link key called <code>&lt;NAME&gt;</code>, just use this function with a
+<code>LinkKey_&lt;NAME&gt;</code> argument.  In our case, we pass <code>LinkKey_UUID=$UUID</code> to
+embed the value of the <code>UUID</code> column into the URL.  We also set <code>label=$Ref</code>
+to control the text label of the link in the spreadsheet.  To show the link,
+we set the column type to <code>Text</code> and set the <code>HyperLink</code> option:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-link.png" /></p>
+<p>Once we have these links, we can tidy up a little by hiding the
+<code>UUID</code> and <code>Ref</code> columns (see <a href="../widget-table/#column-operations">Column operations</a> for a refresher on how
+to do this):</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-prune.png" /></p>
+<p>The links don&rsquo;t do anything special yet, but we have everything we
+need to make that happen now.  Here is an example of access rules to
+allow anyone with a UUID in their URL to read any order with a
+matching UUID (otherwise only owners can read orders in this case):</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-rule.png" /></p>
+<p>And here is what a non-owner now sees, with the UUID of the first order in their
+URL:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-use.png" /></p>
+<p>This is just the beginning of the possibilities.  Link keys can give access to
+multiple rows across many tables.  They can be used in
+<a href="#user-attribute-tables">User attribute tables</a>.  And the data they give access to
+can be within tables, cards, card lists, charts, and custom widgets.</p>
 <h2 id="access-rule-conditions">Access rule conditions<a class="headerlink" href="#access-rule-conditions" title="Permanent link">#</a></h2>
 <p>Accress rule conditions contain a formula expressing when the rule
 should apply.  A blank condition will always apply.  When a condition
@@ -813,7 +860,7 @@ starting with a <code>#</code>.  They can come after the formula like this:</p>
 
 <p>Or before it, like this:</p>
 <pre><code class="py"># Talk to Arjun to get full access
-user.Access == 'owners'
+user.Access == OWNER
 </code></pre>
 
 <p>As a full example, suppose we have a table listing airports, and we want to
