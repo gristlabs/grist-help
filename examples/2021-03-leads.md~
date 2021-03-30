@@ -1,0 +1,29 @@
+# Assignments and Access Rules
+
+Access rules let you control how a shared document is used, and maintain
+a separation of roles and responsibilities.  For example, suppose an entrepeneur
+is using Grist as an ad-hoc lead tracker for sales and potential advisors.
+Then they hire some freelancers to delegate sales leads to, while keeping the
+potential advisors private.  They want to be able to assign someone to follow-up
+a lead, just by writing their initials in an "Assignment" column, and not
+allow anyone else to change that assignment.  Here's what they might come up with:
+
+  https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork
+
+With the rules shown here:
+
+  https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork/p/acl
+
+Here's what the rules do:
+
+  * Restricts all access to the Advisors table to the owner.
+  * Allows only the owner to update anything in the Name or Assignment column in the Leads table.
+  * Forbids anyone other than the owner from deleting a row of the Leads table.
+  * Forbids anyone other than the owner from modifying the document's structure.
+
+There are also two special rules, that would typically be turned off:
+  * Allow everyone to view Access Rules - normally this would be forbidden if the rules 
+    might contain private information, but it is useful to allow this for examples.
+  * Allow everyone to download or copy the full document - normally this would be forbidden
+    if it would allow working around restrictions, but again it is useful to allow this for
+    examples.
