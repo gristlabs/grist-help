@@ -427,3 +427,11 @@ See [Access rule conditions](access-rules.md#access-rule-conditions) for details
 on the restrictions on condition formulas, and
 [Formulas](formulas.md) for details on regular full-powered formulas.
 
+## Access rule examples
+
+Along with the extended example of using access rules in this section, we will
+collect complete examples of access rule use here.
+
+ - [Lead lists](examples/2021-03-leads.md):
+  A very simple list of leads, assigned to individuals to follow up, with control
+  of assignments reserved for document owners.
