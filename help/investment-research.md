@@ -195,6 +195,10 @@ Sometimes, adding the values doesn’t make sense. E.g. the sum of “founded_ye
 It’s best to delete this and any other column we don’t need, which leaves us
 with the "funding_total_usd" column.
 
+Since this column contains large numbers, it's a good time to
+look at the "Number Format" section of its configuration, and click `,` (or perhaps `$`) to format
+numbers to be more readable.
+
 ![16-summary-remove-columns](images/investment-research/16-summary-remove-columns.png)
 
 
@@ -214,6 +218,9 @@ be an integer.The pink sums are instances where the numbers exceed Javascript’
 large integers. To correct for this, the type of the column should be switched to “Numeric” (which
 trades off precision for the ability to represent very large and very small numbers). Change the
 type to “Numeric“ under “Column options”.
+
+This is again a good time to pick a friendlier number format for the column, and to make it wider to
+fit the longer numbers.
 
 ![18-change-int-to-numeric](images/investment-research/18-change-int-to-numeric.png)
 
@@ -257,10 +264,6 @@ and “raised_amount_usd” second (to serve as the Y-values).
 
 ![21-add-chart2](images/investment-research/21-add-chart2.png)
 
-
-Drag and drop the sections into a configuration you’d like to see for a dashboard, and then rename
-the page “Overview”.
-
 You can rearrange the sections on the screen into a configuration you'd like to
 see for a dashboard. Move your mouse to the top left of each section until you
 see a "drag handle" icon. Use that icon to drag each section into the desired
@@ -276,7 +279,7 @@ If you’ve read our other tutorials on linking data, this will come naturally. 
 different way to show data, and they can be linked in the same way as tables.
 
 For our example, we’ll add a new page with a summary table: select widget “Table”, data “Investments”,
-group by “funded_year”, click "Add to Page".
+group by “funded_year”, click "Add Page".
 
 ![23-dynamic-start](images/investment-research/23-dynamic-start.png)
 
