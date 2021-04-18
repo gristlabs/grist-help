@@ -247,7 +247,7 @@ contact. Click "Add to Page" to finish.
 
 ![two-tables](images/lightweight-crm/two-tables.png)
 
-Next, let's select a contact (let's use "Douglas LLC" in the fourth row) and add some notes. Type
+Next, let's select a contact in the table on the left (let's use "Douglas LLC" in the fourth row) and add some notes for it. Type
 in a date (hint: the shortcut <code class="keys">*⌘* + **;** (semicolon)</code>
 on Mac or <code class="keys">*Ctrl* + **;** (semicolon)</code> on Windows
 inserts today's date), select a type, and enter a note. As soon as
