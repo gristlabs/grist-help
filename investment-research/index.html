@@ -676,6 +676,9 @@ records in the group, i.e. it’s roughly equivalent to <code>[r.A for r in $gro
 <p>Sometimes, adding the values doesn’t make sense. E.g. the sum of “founded_year” is meaningless.
 It’s best to delete this and any other column we don’t need, which leaves us
 with the &ldquo;funding_total_usd&rdquo; column.</p>
+<p>Since this column contains large numbers, it&rsquo;s a good time to
+look at the &ldquo;Number Format&rdquo; section of its configuration, and click <code>,</code> (or perhaps <code>$</code>) to format
+numbers to be more readable.</p>
 <p><img alt="16-summary-remove-columns" src="../images/investment-research/16-summary-remove-columns.png" /></p>
 <p>Let’s add a second summary table. Select “Add New” again to “Add Widget to Page”. To get a summary
 by year, select the “Investments” table under “Select Data”, and again use its sum symbol (∑) to
@@ -689,6 +692,8 @@ be an integer.The pink sums are instances where the numbers exceed Javascript’
 large integers. To correct for this, the type of the column should be switched to “Numeric” (which
 trades off precision for the ability to represent very large and very small numbers). Change the
 type to “Numeric“ under “Column options”.</p>
+<p>This is again a good time to pick a friendlier number format for the column, and to make it wider to
+fit the longer numbers.</p>
 <p><img alt="18-change-int-to-numeric" src="../images/investment-research/18-change-int-to-numeric.png" /></p>
 <h2 id="chart-graph-plot">Chart, graph, plot<a class="headerlink" href="#chart-graph-plot" title="Permanent link">#</a></h2>
 <p>You can make a chart of any data. To this page, we want to add a graphic version of each summary
@@ -717,8 +722,6 @@ axis, and second (and possible additional) series will be the values for the Y (
 hide the unwanted columns (“count”), and leave the “funded_year” first (to serve as the X-values),
 and “raised_amount_usd” second (to serve as the Y-values).</p>
 <p><img alt="21-add-chart2" src="../images/investment-research/21-add-chart2.png" /></p>
-<p>Drag and drop the sections into a configuration you’d like to see for a dashboard, and then rename
-the page “Overview”.</p>
 <p>You can rearrange the sections on the screen into a configuration you&rsquo;d like to
 see for a dashboard. Move your mouse to the top left of each section until you
 see a &ldquo;drag handle&rdquo; icon. Use that icon to drag each section into the desired
@@ -729,7 +732,7 @@ spot relative to other sections. Once you’re finished,  rename the page
 <p>If you’ve read our other tutorials on linking data, this will come naturally. Charts are simply a
 different way to show data, and they can be linked in the same way as tables.</p>
 <p>For our example, we’ll add a new page with a summary table: select widget “Table”, data “Investments”,
-group by “funded_year”, click &ldquo;Add to Page&rdquo;.</p>
+group by “funded_year”, click &ldquo;Add Page&rdquo;.</p>
 <p><img alt="23-dynamic-start" src="../images/investment-research/23-dynamic-start.png" /></p>
 <p>Let’s rename this new page “Breakdowns”.</p>
 <p>Next, add a widget to this page, selecting widget “Chart”, data “Investments”. For “Group By”,  we
