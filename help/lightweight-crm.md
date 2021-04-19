@@ -311,7 +311,7 @@ select a different Theme, e.g. "Compact".
 
 ![theme-compact](images/lightweight-crm/theme-compact.png)
 
-The rearrange fields, click "Edit Layout" in the right panel. You can now drag-and-drop fields in
+To rearrange fields, click "Edit Layout" in the right panel. You can now drag-and-drop fields in
 the card, resize them, or remove them. Click "Save" once you are done.
 
 ![edit-layout](images/lightweight-crm/edit-layout.png)
