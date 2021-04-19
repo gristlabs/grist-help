@@ -247,7 +247,7 @@ contact. Click "Add to Page" to finish.
 
 ![two-tables](images/lightweight-crm/two-tables.png)
 
-Next, let's select a contact (let's use "Douglas LLC" in the fourth row) and add some notes. Type
+Next, let's select a contact in the table on the left (let's use "Douglas LLC" in the fourth row) and add some notes for it. Type
 in a date (hint: the shortcut <code class="keys">*⌘* + **;** (semicolon)</code>
 on Mac or <code class="keys">*Ctrl* + **;** (semicolon)</code> on Windows
 inserts today's date), select a type, and enter a note. As soon as
@@ -311,7 +311,7 @@ select a different Theme, e.g. "Compact".
 
 ![theme-compact](images/lightweight-crm/theme-compact.png)
 
-The rearrange fields, click "Edit Layout" in the right panel. You can now drag-and-drop fields in
+To rearrange fields, click "Edit Layout" in the right panel. You can now drag-and-drop fields in
 the card, resize them, or remove them. Click "Save" once you are done.
 
 ![edit-layout](images/lightweight-crm/edit-layout.png)
