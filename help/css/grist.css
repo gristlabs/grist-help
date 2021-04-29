@@ -27,6 +27,13 @@
   text-align: center;
 }
 
+.wide-img-caption {
+  text-align: center;
+}
+.wide-img-caption img {
+  margin-bottom: 0;
+}
+
 .column-images h3 {
   width: 100%;
   height: 32px;

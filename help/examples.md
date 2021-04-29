@@ -42,6 +42,9 @@ ready-to-use templates.
   A very simple list of leads, assigned to individuals to follow up, with control
   of assignments reserved for document owners.
 
+- [Understanding Link Keys](examples/2021-04-link-keys.md):
+  Learn how to create unique links that share limited views of your Grist document.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
