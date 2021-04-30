@@ -27,6 +27,25 @@
   text-align: center;
 }
 
+.wide-img-caption {
+  text-align: center;
+}
+.wide-img-caption img {
+  margin-bottom: 0;
+}
+
+.grist-button {
+  display: flex;
+  justify-content: center;
+  margin: 32px;
+}
+.grist-button a {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--color-light-green);
+  color: white !important;
+}
+
 .column-images h3 {
   width: 100%;
   height: 32px;

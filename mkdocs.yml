@@ -51,6 +51,7 @@ nav:
     - API reference: api.md
   - News & updates:
     - Newsletters: newsletters.md
+    - 2021/04: newsletters/2021-04.md
     - 2021/03: newsletters/2021-03.md
     - 2021/02: newsletters/2021-02.md
     - 2021/01: newsletters/2021-01.md
@@ -74,6 +75,7 @@ nav:
       - Map: examples/2020-12-map.md
       - Task Management: examples/2021-01-tasks.md
       - Lead List: examples/2021-03-leads.md
+      - Link Keys Guide: examples/2021-04-link-keys.md
   - Reference:
     - Shortcuts: keyboard-shortcuts.md
     - Limits: limits.md
