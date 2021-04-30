@@ -331,7 +331,7 @@ The `user` variable contains the following members:
  * `user.Email`: the email address of the user (or `anon@getgrist.com` for users who are not logged in).
  * `user.UserID`: a numeric ID that is associated with the user.
  * `user.Name`: the user's name (or `Anonymous` if unavailable).
- * `user.Link`: an object with any access control URL parameters.  Access control URL
+ * `user.LinkKey`: an object with any access control URL parameters.  Access control URL
    parameters end in an underscore (which is then stripped).  Only available in the
    web client, not the API.
  * `user.Origin`: The content of the Origin request header.  Only available in the API,

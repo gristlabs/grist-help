@@ -1,6 +1,4 @@
-# Learn: Link Keys
-
-## Creating Unique Link Keys in 4 Steps
+# Creating Unique Link Keys in 4 Steps
 
 In Grist, “link keys” are URL parameters that when combined with the `user.LinkKey` variable in
 access rules will determine which data a link recipient is permitted to view.
@@ -20,7 +18,7 @@ Let's do that now.
 *The private tutor can see all data, but a parent can only see their family's data.*
 {: .wide-img-caption}
 
-### Step 1: Create a unique identifier
+## Step 1: Create a unique identifier
 
 In the family’s table, create a new column in which you will use Grist’s
 [`UUID()`](../functions.md#uuid) function to generate and assign a unique key to
@@ -30,7 +28,7 @@ identifier.
 
 ![Create a UUID for each family](images/2021-04-link-keys/private-tutor-uuid.png)
 
-### Step 2: Match UUID to records in other tables
+## Step 2: Connect UUID to records in other tables
 
 In the Students, Sessions, and Payments tables, add a column that ties each record to the
 referenced family's UUID. Not sure how this works? Brush up on Grist's powerful [reference
@@ -41,7 +39,7 @@ columns](../col-refs.md#top).
 that is referenced in the Family column.
 {: .wide-img-caption}
 
-### Step 3: Create unique links
+## Step 3: Create unique links
 
 In the Families table, create a new column in which you will use Grist’s
 [`SELF_HYPERLINK()`](../functions.md#self_hyperlink) function to generate hyperlinks.  Use the
@@ -55,7 +53,7 @@ Convert the column type to Text > Hyperlink.
 `.../Private-Tutor-recUUID/p/9?UUID=6752c258-443d-4a2c-800d-1491da265b72`. The “link key” is the
 part of the URL that reads `?UUID_=6752c258-443d-4a2c-800d-1491da265b72`.
 
-### Step 4: Create access rules
+## Step 4: Create access rules
 
 Use the variable `user.LinkKey` to set a rule for each table that matches the user's URL "link key" to the UUID data within a record.
 
