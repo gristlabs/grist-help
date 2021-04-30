@@ -22,11 +22,17 @@ Let's do that now.
 
 In the family’s table, create a new column in which you will use Grist’s
 [`UUID()`](../functions.md#uuid) function to generate and assign a unique key to
-each family. Convert the column to the data column to freeze its values, and set the default
+each family.
+
+![Create a UUID for each family](images/2021-04-link-keys/private-tutor-uuid.png)
+
+Convert the column to the data column to freeze its values, and set the default
 formula for new records to `UUID()`. This will ensure that new rows will also be assigned a unique
 identifier.
 
-![Create a UUID for each family](images/2021-04-link-keys/private-tutor-uuid.png)
+<span class="screenshot-large">*![Convert to Data Column](../examples/images/2021-04-link-keys/convert-to-data-column.png)*</span>
+{: .screenshot-half }
+
 
 ## Step 2: Connect UUID to records in other tables
 
@@ -62,7 +68,7 @@ clients. Let’s think about who should access each table, and which parts of it
 accessible.
 
  1. You, the owner of the document should have full access to Read (R), Update (U), Create (C) and
-    Delete (D) records in each table. Add the rule `user.Access in [OWNER]` to _each table_[^each_table]
+    Delete (D) records in each table. Add the rule `user.Access in [OWNER]` to _each table_
     to grant owners full access. Why `user.Access`?
     Review [access rule conditions](../access-rules.md#access-rule-conditions) to learn more.
 
@@ -71,13 +77,13 @@ accessible.
     connected relevant records in all tables to a UUID, and generated URLs with link keys that
     include those UUIDs. Now we must create access rules that match UUIDs and URL link keys.
 
-    To do so, add the rule `user.LinkKey.UUID == rec.UUID` to _each table_[^each_table].
+    To do so, add the rule `user.LinkKey.UUID == rec.UUID` to _each table_.
     This tells Grist to look at the URL’s link key (named UUID) and match it to records that include
     that same UUID. Set access to Read-Only by clicking on the drop-down menu next to "permissions".
 
  3. Make sure Public Access is turned on in the "Manage Users" panel (see [Sharing](../sharing.md)).
 
-[^each_table]: **Tip:** Do not edit the default rules. Row-level access is granted in the relevant tables.
+**Tip:** Do not edit the default rules. Row-level access is granted in the relevant tables.
 
 ![Creating unique links](images/2021-04-link-keys/private-tutor-UUID-acl.png)
 
