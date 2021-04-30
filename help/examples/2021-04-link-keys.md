@@ -1,4 +1,4 @@
-# Creating Unique Link Keys in 4 Steps
+# Create Unique Links in 4 Steps
 
 In Grist, “link keys” are URL parameters that when combined with the `user.LinkKey` variable in
 access rules will determine which data a link recipient is permitted to view.
@@ -55,7 +55,27 @@ part of the URL that reads `?UUID_=6752c258-443d-4a2c-800d-1491da265b72`.
 
 ## Step 4: Create access rules
 
-Use the variable `user.LinkKey` to set a rule for each table that matches the user's URL "link key" to the UUID data within a record.
+Open the Access Rules page from the left panel, and create rules to give limited access to your
+clients. Let’s think about who should access each table, and which parts of it should be
+accessible.
+
+ 1. You, the owner of the document should have full access to Read (R), Update (U), Create (C) and
+    Delete (D) records in each table. Add the rule `user.Access in [OWNER]` to _each table_[^each_table]
+    to grant owners full access. Why `user.Access`?
+    Review [access rule conditions](../access-rules.md#access-rule-conditions) to learn more.
+
+ 2. Parents viewing the document should have Read-Only access just to those records related to
+    their family. In previous steps, we created a unique identifier (UUID) for each family,
+    connected relevant records in all tables to a UUID, and generated URLs with link keys that
+    include those UUIDs. Now we must create access rules that match UUIDs and URL link keys.
+
+    To do so, add the rule `user.LinkKey.UUID == rec.UUID` to _each table_[^each_table].
+    This tells Grist to look at the URL’s link key (named UUID) and match it to records that include
+    that same UUID. Set access to Read-Only by clicking on the drop-down menu next to "permissions".
+
+ 3. Make sure Public Access is turned on in the "Manage Users" panel (see [Sharing](../sharing.md)).
+
+[^each_table]: **Tip:** Do not edit the default rules. Row-level access is granted in the relevant tables.
 
 ![Creating unique links](images/2021-04-link-keys/private-tutor-UUID-acl.png)
 
@@ -64,4 +84,9 @@ You did it! This is just the beginning. There's a lot more you can do with link 
 understanding of link keys even more.
 
 
-**Still need help?** Contact us at <support@getgrist.com>.
+**Still need help?** View the [tutorial solution
+here](https://public.getgrist.com/9ZQvegsao3zT/Private-Tutor-LinkKey-Tutorial-Solution?UUID_=039170d0-c4d6-4a43-a357-3cb0fd10822f).
+Make a copy to see all data:
+
+<span class="screenshot-large">*![make-a-copy](images/2021-04-link-keys/make-a-copy.png)*</span>
+{: .screenshot-half }
