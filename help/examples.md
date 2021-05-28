@@ -45,6 +45,10 @@ ready-to-use templates.
 - [Understanding Link Keys](examples/2021-04-link-keys.md):
   Learn how to create unique links that share limited views of your Grist document.
 
+- [Reference Columns Guide](examples/2021-05-reference-columns.md):
+  Mastering Reference Columns in 3 Steps
+
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may

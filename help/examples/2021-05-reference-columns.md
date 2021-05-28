@@ -48,7 +48,7 @@ display in the reference column.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1ORnI5CxDGs?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-> You can easily identify reference columns by the chain link icons in the column’s cells.
+**Tip:** You can easily identify reference columns by the chain link icons in the column’s cells.
 
 ### Creating Reference Columns
 
@@ -79,8 +79,9 @@ which company this is. Let’s use the `Role` reference column to easily look up
 the "Head of Digital Design" record in the `Job Applications` table. To do so we create a column
 called `Company` and we use the formula `$Role.Company`{: .formula}.
 
-The formula structure is `$[Reference Column ID in Referencing Table].[Column ID in Underlying
-Table]`{: .formula}. Grist will also auto-complete parts of the formula as you type it.
+The formula structure is
+`$[Reference Column ID in Referencing Table].[Column ID in Underlying Table]`{: .formula}.
+Grist will also auto-complete parts of the formula as you type it.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1ViT0MbUA9g?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

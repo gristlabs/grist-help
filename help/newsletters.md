@@ -15,3 +15,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [February 2021 Newsletter](newsletters/2021-02.md): Improved Mobile Support, Totals.
 - [March 2021 Newsletter](newsletters/2021-03.md): Access Rules.
 - [April 2021 Newsletter](newsletters/2021-04.md): A 4-Step Guide to Link Keys.
+- [May 2021 Newsletter](newsletters/2021-05.md): Choice Lists, 3-step Tutorial on Reference Columns.
