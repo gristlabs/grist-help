@@ -76,6 +76,7 @@ nav:
       - Task Management: examples/2021-01-tasks.md
       - Lead List: examples/2021-03-leads.md
       - Link Keys Guide: examples/2021-04-link-keys.md
+      - Reference Columns Guide: examples/2021-05-reference-columns.md
   - Reference:
     - Shortcuts: keyboard-shortcuts.md
     - Limits: limits.md
