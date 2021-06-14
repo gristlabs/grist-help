@@ -8,6 +8,13 @@ User-agent: *
 Disallow: /
 EOF
 
+PLATFORM="unknown"
+case "$OSTYPE" in
+  linux*)         PLATFORM="linux" ;;
+  darwin*)        PLATFORM="mac" ;;
+  win* | msys*)   PLATFORM="win" ;;
+esac
+
 ENV_BIN=env/bin
 if [[ "$PLATFORM" == "win" ]]; then
   ENV_BIN=env/Scripts
