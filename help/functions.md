@@ -1664,27 +1664,27 @@ we might want to create links with `SELF_HYPERLINK(LinkKey_Code=$Code)`.
 
 ```python
 >>> SELF_HYPERLINK()
-'https://docs.getgrist.com/sbaltsirg/Example'
+u'https://docs.getgrist.com/sbaltsirg/Example'
 ```
 
 ```python
 >>> SELF_HYPERLINK(label='doc')
-'doc https://docs.getgrist.com/sbaltsirg/Example'
+u'doc https://docs.getgrist.com/sbaltsirg/Example'
 ```
 
 ```python
 >>> SELF_HYPERLINK(page=2)
-'https://docs.getgrist.com/sbaltsirg/Example/p/2'
+u'https://docs.getgrist.com/sbaltsirg/Example/p/2'
 ```
 
 ```python
 >>> SELF_HYPERLINK(LinkKey_Code='X1234')
-'https://docs.getgrist.com/sbaltsirg/Example?Code_=X1234'
+u'https://docs.getgrist.com/sbaltsirg/Example?Code_=X1234'
 ```
 
 ```python
 >>> SELF_HYPERLINK(label='order', page=3, LinkKey_Code='X1234', LinkKey_Name='Bi Ngo')
-'order https://docs.getgrist.com/sbaltsirg/Example/p/3?Code_=X1234&Name_=Bi+Ngo'
+u'order https://docs.getgrist.com/sbaltsirg/Example/p/3?Code_=X1234&Name_=Bi+Ngo'
 ```
 
 ```python
@@ -3693,7 +3693,7 @@ values in the dataset, returns the average of the two numbers in the middle.
 ```
 
 ```python
->>> MEDIAN(xrange(10))
+>>> MEDIAN(range(10))
 4.5
 ```
 
@@ -4346,8 +4346,8 @@ u'0abc'
 ```
 
 ```python
->>> CONCAT(2, " crème ", "brûlée".decode('utf8')) == "2 crème brûlée".decode('utf8')
-True
+>>> assert CONCAT(2, u" crème ", u"brûlée") == u'2 crème brûlée'
+
 ```
 
 </details>
@@ -4381,8 +4381,18 @@ u'0abc'
 ```
 
 ```python
->>> CONCATENATE(2, " crème ", "brûlée".decode('utf8')) == "2 crème brûlée".decode('utf8')
-True
+>>> assert CONCATENATE(2, u" crème ", u"brûlée") == u'2 crème brûlée'
+
+```
+
+```python
+>>> assert CONCATENATE(2,  " crème ", u"brûlée") == u'2 crème brûlée'
+
+```
+
+```python
+>>> assert CONCATENATE(2,  " crème ",  "brûlée") == u'2 crème brûlée'
+
 ```
 
 </details>
@@ -4966,17 +4976,17 @@ Same as `text.replace(old_text, new_text)` when instance_num is omitted.
 
 ```python
 >>> SUBSTITUTE("Sales Data", "Sales", "Cost")
-'Cost Data'
+u'Cost Data'
 ```
 
 ```python
 >>> SUBSTITUTE("Quarter 1, 2008", "1", "2", 1)
-'Quarter 2, 2008'
+u'Quarter 2, 2008'
 ```
 
 ```python
 >>> SUBSTITUTE("Quarter 1, 2011", "1", "2", 3)
-'Quarter 1, 2012'
+u'Quarter 1, 2012'
 ```
 </details>
 <details id="t"><summary >
@@ -4989,37 +4999,37 @@ Returns value if value is text, or the empty string when value is not text.
 
 ```python
 >>> T('Text')
-'Text'
+u'Text'
 ```
 
 ```python
 >>> T(826)
-''
+u''
 ```
 
 ```python
 >>> T('826')
-'826'
+u'826'
 ```
 
 ```python
 >>> T(False)
-''
+u''
 ```
 
 ```python
 >>> T('100 points')
-'100 points'
+u'100 points'
 ```
 
 ```python
 >>> T(AltText('Text'))
-'Text'
+u'Text'
 ```
 
 ```python
 >>> T(float('nan'))
-''
+u''
 ```
 
 </details>
@@ -5086,8 +5096,8 @@ Converts a string in accepted date, time or number formats into a number or date
 ```
 
 ```python
->>> VALUE("16:48:00") - VALUE("12:00:00")
-datetime.timedelta(0, 17280)
+>>> assert VALUE("16:48:00") - VALUE("12:00:00") == datetime.timedelta(0, 17280)
+
 ```
 
 ```python
