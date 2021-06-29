@@ -48,6 +48,9 @@ ready-to-use templates.
 - [Reference Columns Guide](examples/2021-05-reference-columns.md):
   Mastering Reference Columns in 3 Steps
 
+- [Summary Tables Guide](examples/2021-06-timesheets.md):
+  Master Summary Tables with 2 Concepts, using the example of a timesheet tracker, with
+  detailed account tracking.
 
 ## Have something to share?
 
