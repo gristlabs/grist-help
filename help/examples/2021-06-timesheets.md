@@ -36,7 +36,7 @@ goal in this tutorial is to build those summary pages.
 
 Let's start by creating a summary table that groups records in the time sheet table by month.
 Grist makes it easy to create summary tables. Simply click on `Add New` > `Add Page` >
-`Time Sheets` > <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> > `Months`.
+`Time Sheet Entries` > <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> > `Months`.
 
 Doing so will generate a summary table with some columns. In this case we have the following three columns.
 
