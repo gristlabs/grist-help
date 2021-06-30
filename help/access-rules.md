@@ -51,6 +51,9 @@ We'll see plenty of examples as we go.
 
 ## Lock down structure
 
+By default Owners and Editors are equally powerful within a document, with the ability to create
+or delete tables or columns, write formulas, reorganize pages, and so on.
+
 Suppose we want only the original Owners of the document to be allowed to change
 its structure, as we plan to invite other specialized collaborators as Editors.
 To do this, we add a default rule specifying that any user who is not an
@@ -61,6 +64,7 @@ and fill in the condition and permissions as follows:
 ![Access rules](images/access-rules/access-rules-lock-structure.png)
 
 For more information about possible formulas, read [Access rule conditions](access-rules.md#access-rule-conditions).
+
 Once we've made changes, the `SAVE` button becomes an inviting green
 (if is grayed out, and you've just composed a condition formula, press
 enter or click elsewhere to let Grist know you are finished).  We
@@ -68,6 +72,12 @@ click `SAVE` for the rule to take effect.  If Grist finds errors,
 you'll be alerted and the changes will not save.
 
 ![Access rules](images/access-rules/access-rules-lock-structure-saved.png)
+
+**Important.** This is an important first step for any document where you intend to block any access to Editors.
+Without denying them the structure permission (`S`), anyone with edit access will be able to
+create or change formulas. Since formula calculations are not limited by access control rules,
+a determined user could use them to retrieve any data from a document. To protect against
+that, deny structure permission to users whose access should be limited.
 
 ## Make a private table
 
@@ -379,6 +389,15 @@ single letter acronyms for convenience:
 The `S` structure permission is available in the default access rule
 group.  Column rules lack the `C` create and `D` delete permissions,
 which should be handled in default table rules.
+
+**Note:** The `S` permission is very powerful. It allows writing formulas, which can access
+any data in the document regardless of rules. Since the `S` permission is on by default for
+Editors and Owners, any such user would be able to edit a formula and so retrieve any data.
+
+In other words, having the `S` permission makes it possible to circumvent other rules that prevent
+access to data. For this reason, turning it off -- as described above in [Locking down
+structure](#lock-down-structure) -- is an important first step in limiting data access.
+
 
 ## Access rule memos
 
