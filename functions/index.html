@@ -342,6 +342,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
 
     
@@ -450,6 +454,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference Columns Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary Tables Guide</a>
 
     
 </li>
@@ -1697,7 +1705,7 @@ to evaluate to <code>1</code> rather than raise an exception.</p>
 
 <p></details>
 <details id="iferror"><summary >
-<code><strong>IFERROR</strong>(value, value_if_error=&rdquo;&ldquo;)</code>
+<code><strong>IFERROR</strong>(value, value_if_error=&rsquo;&lsquo;)</code>
 <a class="headerlink" href="#iferror" title="Permanent link">#</a></p>
 <h4 id="iferror">IFERROR<a class="headerlink" href="#iferror" title="Permanent link">#</a></h4>
 <p></summary>
@@ -1941,23 +1949,23 @@ and examine its URL for a <code>/p/NN</code> part.</p>
 if a rule allows users to view rows when <code>user.LinkKey.Code == rec.Code</code>,
 we might want to create links with <code>SELF_HYPERLINK(LinkKey_Code=$Code)</code>.</p>
 <pre><code class="python">&gt;&gt;&gt; SELF_HYPERLINK()
-'https://docs.getgrist.com/sbaltsirg/Example'
+u'https://docs.getgrist.com/sbaltsirg/Example'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; SELF_HYPERLINK(label='doc')
-'doc https://docs.getgrist.com/sbaltsirg/Example'
+u'doc https://docs.getgrist.com/sbaltsirg/Example'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; SELF_HYPERLINK(page=2)
-'https://docs.getgrist.com/sbaltsirg/Example/p/2'
+u'https://docs.getgrist.com/sbaltsirg/Example/p/2'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; SELF_HYPERLINK(LinkKey_Code='X1234')
-'https://docs.getgrist.com/sbaltsirg/Example?Code_=X1234'
+u'https://docs.getgrist.com/sbaltsirg/Example?Code_=X1234'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; SELF_HYPERLINK(label='order', page=3, LinkKey_Code='X1234', LinkKey_Name='Bi Ngo')
-'order https://docs.getgrist.com/sbaltsirg/Example/p/3?Code_=X1234&amp;Name_=Bi+Ngo'
+u'order https://docs.getgrist.com/sbaltsirg/Example/p/3?Code_=X1234&amp;Name_=Bi+Ngo'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; SELF_HYPERLINK(Linky_Link='Link')
@@ -3580,7 +3588,7 @@ values in the dataset, returns the average of the two numbers in the middle.</p>
 3
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; MEDIAN(xrange(10))
+<pre><code class="python">&gt;&gt;&gt; MEDIAN(range(10))
 4.5
 </code></pre>
 
@@ -4131,8 +4139,8 @@ u'abc'
 u'0abc'
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; CONCAT(2, &quot; crème &quot;, &quot;brûlée&quot;.decode('utf8')) == &quot;2 crème brûlée&quot;.decode('utf8')
-True
+<pre><code class="python">&gt;&gt;&gt; assert CONCAT(2, u&quot; crème &quot;, u&quot;brûlée&quot;) == u'2 crème brûlée'
+
 </code></pre>
 
 <p></details>
@@ -4159,8 +4167,16 @@ u'abc'
 u'0abc'
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; CONCATENATE(2, &quot; crème &quot;, &quot;brûlée&quot;.decode('utf8')) == &quot;2 crème brûlée&quot;.decode('utf8')
-True
+<pre><code class="python">&gt;&gt;&gt; assert CONCATENATE(2, u&quot; crème &quot;, u&quot;brûlée&quot;) == u'2 crème brûlée'
+
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; assert CONCATENATE(2,  &quot; crème &quot;, u&quot;brûlée&quot;) == u'2 crème brûlée'
+
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; assert CONCATENATE(2,  &quot; crème &quot;,  &quot;brûlée&quot;) == u'2 crème brûlée'
+
 </code></pre>
 
 <p></details>
@@ -4626,15 +4642,15 @@ text to replace. Use REPLACE when you know the position of text to replace.</p>
 occurrences are replaced.</p>
 <p>Same as <code>text.replace(old_text, new_text)</code> when instance_num is omitted.</p>
 <pre><code class="python">&gt;&gt;&gt; SUBSTITUTE(&quot;Sales Data&quot;, &quot;Sales&quot;, &quot;Cost&quot;)
-'Cost Data'
+u'Cost Data'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; SUBSTITUTE(&quot;Quarter 1, 2008&quot;, &quot;1&quot;, &quot;2&quot;, 1)
-'Quarter 2, 2008'
+u'Quarter 2, 2008'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; SUBSTITUTE(&quot;Quarter 1, 2011&quot;, &quot;1&quot;, &quot;2&quot;, 3)
-'Quarter 1, 2012'
+u'Quarter 1, 2012'
 </code></pre>
 
 <p></details>
@@ -4645,31 +4661,31 @@ occurrences are replaced.</p>
 <p></summary>
 Returns value if value is text, or the empty string when value is not text.</p>
 <pre><code class="python">&gt;&gt;&gt; T('Text')
-'Text'
+u'Text'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; T(826)
-''
+u''
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; T('826')
-'826'
+u'826'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; T(False)
-''
+u''
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; T('100 points')
-'100 points'
+u'100 points'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; T(AltText('Text'))
-'Text'
+u'Text'
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; T(float('nan'))
-''
+u''
 </code></pre>
 
 <p></details>
@@ -4723,8 +4739,8 @@ Converts a string in accepted date, time or number formats into a number or date
 1000
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; VALUE(&quot;16:48:00&quot;) - VALUE(&quot;12:00:00&quot;)
-datetime.timedelta(0, 17280)
+<pre><code class="python">&gt;&gt;&gt; assert VALUE(&quot;16:48:00&quot;) - VALUE(&quot;12:00:00&quot;) == datetime.timedelta(0, 17280)
+
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; VALUE(&quot;01/01/2012&quot;)

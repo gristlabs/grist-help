@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/examples/2021-04-link-keys/">
+    <link rel="canonical" href="https://support.getgrist.com/examples/2021-06-timesheets/">
     <link rel="shortcut icon" href="../../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Link Keys Guide - Grist Help Center</title>
+    <title>Summary Tables Guide - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -431,7 +431,15 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Link Keys Guide</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-04-link-keys/" class="wm-article-link wm-toc-text">Link Keys Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference Columns Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Summary Tables Guide</a>
 
     
     
@@ -440,40 +448,32 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Create Unique Links in 4 Steps
+              Summary Tables Guide
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#step-1-create-a-unique-identifier">
-                Step 1: Create a unique identifier
+              <a class="wm-article-link wm-page-toc-text" href="#mastering-summary-tables-with-2-concepts">
+                Mastering Summary Tables with 2 Concepts
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#step-2-connect-uuid-to-records-in-other-tables">
-                Step 2: Connect UUID to records in other tables
+              <a class="wm-article-link wm-page-toc-text" href="#using-summary-tables-to-analyze-data">
+                Using Summary Tables to Analyze Data
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#step-3-create-unique-links">
-                Step 3: Create unique links
+              <a class="wm-article-link wm-page-toc-text" href="#creating-summary-tables">
+                Creating Summary Tables
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#step-4-create-access-rules">
-                Step 4: Create access rules
+              <a class="wm-article-link wm-page-toc-text" href="#calculating-totals-using-summary-formulas">
+                Calculating Totals Using Summary Formulas
               </a>
             </li>
         
       </ul>
     </li>
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference Columns Guide</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary Tables Guide</a>
-
     
 </li>
   </ul>
@@ -526,20 +526,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../2021-05-reference-columns/" class="btn btn-xs btn-default pull-right">
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../2021-05-reference-columns/" class="btn btn-xs btn-link">
-        Reference Columns Guide
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-link">
+        Shortcuts
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../2021-03-leads/" class="btn btn-xs btn-default pull-left">
+      <a href="../2021-05-reference-columns/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../2021-03-leads/" class="btn btn-xs btn-link">
-        Lead List
+        Previous</a><a href="../2021-05-reference-columns/" class="btn btn-xs btn-link">
+        Reference Columns Guide
       </a>
     </div>
     
@@ -547,80 +547,112 @@
 
     
 
-    <h1 id="create-unique-links-in-4-steps">Create Unique Links in 4 Steps<a class="headerlink" href="#create-unique-links-in-4-steps" title="Permanent link">#</a></h1>
-<p>In Grist, “link keys” are URL parameters that when combined with the <code>user.LinkKey</code> variable in
-access rules will determine which data a link recipient is permitted to view.</p>
-<p>You can learn to do this in four easy steps.
-<a href="https://public.getgrist.com/cBRGq2QKzTSC/Private-Tutor-LinkKey-Tutorial">We’ve created a simple template</a>
-you can copy and edit as you follow along with this guide.</p>
-<p>In our example, you are a private tutor who uses Grist to track hours, payments, and client data.
-You would like to share session and payment history with parents via a link that only shows their
-family&rsquo;s data. A simple way to do that would be to set access rules that limit a link recipient’s
-view to just those records tied to their family.</p>
-<p>Let&rsquo;s do that now.</p>
-<p class="wide-img-caption"><img alt="Tutor and family's views" src="../images/2021-04-link-keys/full-v-limited-access-animated.gif" />
-<em>The private tutor can see all data, but a parent can only see their family&rsquo;s data.</em></p>
-<h2 id="step-1-create-a-unique-identifier">Step 1: Create a unique identifier<a class="headerlink" href="#step-1-create-a-unique-identifier" title="Permanent link">#</a></h2>
-<p>In the family’s table, create a new column in which you will use Grist’s
-<a href="../../functions/#uuid"><code>UUID()</code></a> function to generate and assign a unique key to
-each family.</p>
-<p><img alt="Create a UUID for each family" src="../images/2021-04-link-keys/private-tutor-uuid.png" /></p>
-<p>Convert the column to the data column to freeze its values, and set the default
-formula for new records to <code>UUID()</code>. This will ensure that new rows will also be assigned a unique
-identifier.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Convert to Data Column" src="../images/2021-04-link-keys/convert-to-data-column.png" /></em></span></p>
-<h2 id="step-2-connect-uuid-to-records-in-other-tables">Step 2: Connect UUID to records in other tables<a class="headerlink" href="#step-2-connect-uuid-to-records-in-other-tables" title="Permanent link">#</a></h2>
-<p>In the Students, Sessions, and Payments tables, add a column that ties each record to the
-referenced family&rsquo;s UUID. Name these columns &ldquo;UUID&rdquo;,
-with the simple formula <code class="formula">$Family.UUID</code>.
-Not sure how this works? Brush up on Grist&rsquo;s powerful <a href="../../col-refs/#top">reference
-columns</a>.</p>
-<p><img alt="Use reference columns to fetch UUID" src="../images/2021-04-link-keys/private-tutor-reference-UUID.png" /></p>
-<p><strong>Tip:</strong> The formula <code class="formula">$Family.UUID</code> gets the UUID from the record
-that is referenced in the Family column.</p>
-<h2 id="step-3-create-unique-links">Step 3: Create unique links<a class="headerlink" href="#step-3-create-unique-links" title="Permanent link">#</a></h2>
-<p>In the Families table, create a new column in which you will use Grist’s
-<a href="../../functions/#self_hyperlink"><code>SELF_HYPERLINK()</code></a> function to generate hyperlinks.  Use the
-formula <code class="formula">SELF_HYPERLINK(LinkKey_UUID=$UUID)</code>
-to create a link key called &ldquo;UUID&rdquo; that sets the URL parameter to a specific <code>$UUID</code> within a record.
-Convert the column type to Text &gt; Hyperlink.</p>
-<p><img alt="Creating unique links" src="../images/2021-04-link-keys/private-tutor-UUID-links.png" /></p>
-<p><strong>How does this work?</strong> The link generated for &ldquo;Raddon, Fin&rdquo; is
-<code>.../Private-Tutor-recUUID/p/9?UUID=6752c258-443d-4a2c-800d-1491da265b72</code>. The “link key” is the
-part of the URL that reads <code>?UUID_=6752c258-443d-4a2c-800d-1491da265b72</code>.</p>
-<h2 id="step-4-create-access-rules">Step 4: Create access rules<a class="headerlink" href="#step-4-create-access-rules" title="Permanent link">#</a></h2>
-<p>Open the Access Rules page from the left panel, and create rules to give limited access to your
-clients. Let’s think about who should access each table, and which parts of it should be
-accessible.</p>
+    <h1 id="summary-tables-guide">Summary Tables Guide<a class="headerlink" href="#summary-tables-guide" title="Permanent link">#</a></h1>
+<h2 id="mastering-summary-tables-with-2-concepts">Mastering Summary Tables with 2 Concepts<a class="headerlink" href="#mastering-summary-tables-with-2-concepts" title="Permanent link">#</a></h2>
+<p>In Grist, summary tables are the workhorse of data analysis. They are similar to pivot tables in
+spreadsheets, and group-by functions in databases. They make it possible to summarize tables by
+grouping records into specific categories. For example, if you have a table of Olympic champions,
+it may be useful to group champion records by country or by sport — or by a combination of country
+<em>and</em> sport.</p>
+<p>Once records are sorted into useful categories, you may then want to compute sums using those
+record groups. Grist makes use of a nifty special field, available in formulas as <code>$group</code>.</p>
+<p>Summary tables make it easy to build pages in which you can quickly capture useful data insights.
+You can learn to do this by learning two concepts: creating summary tables, and using <code>$group</code> in
+formulas. We’ve created a simple template
+(<a href="https://public.getgrist.com/x527ESJATWNS/Time-Sheets-Tutorial">https://public.getgrist.com/x527ESJATWNS/Time-Sheets-Tutorial</a>) that you can copy and edit as
+you follow along with this guide.</p>
+<h2 id="using-summary-tables-to-analyze-data">Using Summary Tables to Analyze Data<a class="headerlink" href="#using-summary-tables-to-analyze-data" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wSyip0KQRbI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>In our example, you work for the HR department of a candy factory that hires contractors that work
+for various departments. In the template, your team has created an advanced time sheet tracker.
+There is a page where contractors can easily add time sheets for select months. It would be useful
+to have additional pages that summarize expenses by month, by department, and by contractor. Your
+goal in this tutorial is to build those summary pages.</p>
+<h2 id="creating-summary-tables">Creating Summary Tables<a class="headerlink" href="#creating-summary-tables" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n11mamU78GY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3 id="step-1-create-a-summary-table">Step 1: Create a summary table<a class="headerlink" href="#step-1-create-a-summary-table" title="Permanent link">#</a></h3>
+<p>Let&rsquo;s start by creating a summary table that groups records in the time sheet table by month.
+Grist makes it easy to create summary tables. Simply click on <code>Add New</code> &gt; <code>Add Page</code> &gt;
+<code>Time Sheet Entries</code> &gt; <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> &gt; <code>Months</code>.</p>
+<p>Doing so will generate a summary table with some columns. In this case we have the following three columns.</p>
 <ol>
-<li>
-<p>You, the owner of the document should have full access to Read (R), Update (U), Create (C) and
-    Delete (D) records in each table. Add the rule <code>user.Access in [OWNER]</code> to <em>each table</em>
-    to grant owners full access. Why <code>user.Access</code>?
-    Review <a href="../../access-rules/#access-rule-conditions">access rule conditions</a> to learn more.</p>
-</li>
-<li>
-<p>Parents viewing the document should have Read-Only access just to those records related to
-    their family. In previous steps, we created a unique identifier (UUID) for each family,
-    connected relevant records in all tables to a UUID, and generated URLs with link keys that
-    include those UUIDs. Now we must create access rules that match UUIDs and URL link keys.</p>
-<p>To do so, add the rule <code>user.LinkKey.UUID == rec.UUID</code> to <em>each table</em>.
-This tells Grist to look at the URL’s link key (named UUID) and match it to records that include
-that same UUID. Set access to Read-Only by clicking on the drop-down menu next to &ldquo;permissions&rdquo;.</p>
-</li>
-<li>
-<p>Make sure Public Access is turned on in the &ldquo;Manage Users&rdquo; panel (see <a href="../../sharing/">Sharing</a>).</p>
-</li>
+<li>First Column: List of month groups, January through June of 2021.</li>
+<li>Second Column: A count of the total number of records in each month, e.g. in January there are 12 time sheet records.</li>
+<li>Third Column: A sum of hours worked in each month, e.g. in January the total hours worked in
+   those 12 time sheet records is 81 hours.</li>
 </ol>
-<p><strong>Tip:</strong> Do not edit the default rules. Row-level access is granted in the relevant tables.</p>
-<p><img alt="Creating unique links" src="../images/2021-04-link-keys/private-tutor-UUID-acl.png" /></p>
-<p>You did it! This is just the beginning. There&rsquo;s a lot more you can do with link keys. Check out
-<a href="../../access-rules/#link-keys">another example</a> to deepen your
-understanding of link keys even more.</p>
-<p><strong>Still need help?</strong> View the <a href="https://public.getgrist.com/9ZQvegsao3zT/Private-Tutor-LinkKey-Tutorial-Solution?UUID_=039170d0-c4d6-4a43-a357-3cb0fd10822f">tutorial solution
-here</a>.
-Make a copy to see all data:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="make-a-copy" src="../images/2021-04-link-keys/make-a-copy.png" /></em></span></p>
+<p>Note: Grist will automatically take any numerical columns and add them up, saving you some time.</p>
+<h3 id="step-2-create-summary-tables-with-multiple-categories">Step 2: Create summary tables with multiple categories<a class="headerlink" href="#step-2-create-summary-tables-with-multiple-categories" title="Permanent link">#</a></h3>
+<p>It may be useful to also group timesheets by a combination of categories. For example, we may want
+to know how much time and money was spent on a particular account in a particular month, or on a
+specific employee in an specific account and month.</p>
+<p>When creating a summary table, you can select multiple columns by which to group data. Let’s add
+two new summary tables. When adding these widgets, be sure to <code>Select By</code> the first widget we
+created on this page. This will link the tables so that selecting a month in the first widget will
+dynamically update records in the new widgets. Not sure why? Brush up on <a href="../../linking-widgets/">linking
+widgets</a>.</p>
+<ol>
+<li><code>Add New</code> &gt; <code>Add Widget to Page</code> &gt; <code>Time Sheet Entries</code> &gt;
+   <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> &gt;
+   <code>Months</code> and <code>Account</code></li>
+<li><code>Add New</code> &gt; <code>Add Widget to Page</code> &gt; <code>Time Sheet Entries</code> &gt;
+   <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> &gt;
+   <code>Months</code> and <code>Account</code> and <code>Employee</code></li>
+</ol>
+<p>To more easily view this data, drag and drop the new tables so that they tile vertically. You may
+also want to hide the count columns.</p>
+<p>Great! But now we want to add the total dollar spend in each of these categories. That&rsquo;s simple to
+do with summary formulas.</p>
+<h2 id="calculating-totals-using-summary-formulas">Calculating Totals Using Summary Formulas<a class="headerlink" href="#calculating-totals-using-summary-formulas" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4-ihoU1m3rc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p><em>Following along with the video? Visit the <a href="https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution">tutorial
+solution</a> if you get
+stuck. Note that there are access rules in place for the tutorial solution which will prevent you
+from seeing certain pages and most data. Make a copy to become the document owner and see all data
+and pages.</em></p>
+<h3 id="step-1-understanding-group-field-in-formulas">Step 1: Understanding $group field in formulas<a class="headerlink" href="#step-1-understanding-group-field-in-formulas" title="Permanent link">#</a></h3>
+<p>In Grist, <code>$group</code> is a special Python object that represents a collection of records that are
+summarized by the current summary line.</p>
+<p>If you look at the formula in the <code>Hours Worked</code> column, you will see <code>SUM($group.Hours_Worked)</code>.
+That is taking the <strong>sum</strong> of <strong>Hours Worked</strong> in a <strong>group</strong>. In this example, in row 1, the
+group is January 2021. Thus, in that row, the formula is adding hours worked in the January 2021
+group. In row 2, the group is February 2021 and the formula sums hours worked in February.</p>
+<p>If you take a peek at the <code>count</code> column, which we hid previously, you’ll find the formula
+<code>len($group)</code>. The function <code>len</code> (which stands for length) counts all the records that belong to
+the group being summarized in a particular row.</p>
+<p>Another way to express a set of records is by scanning through the list of records in a group
+using a variable. You can name the variable as you wish; we will use <code>r</code> (for &ldquo;record&rdquo;). We can
+rewrite the formula in <code>Hours Worked</code> as <code>sum(r.Hours_Worked for r in $group)</code>.</p>
+<h3 id="step-2-using-group-in-formulas">Step 2: Using $group in formulas<a class="headerlink" href="#step-2-using-group-in-formulas" title="Permanent link">#</a></h3>
+<p>Let’s calculate the total dollar spend on hours worked in each month.</p>
+<p>The formula is <code>sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group)</code>.</p>
+<p>Since each record <code>r</code> in the group is a record in the underlying table (<code>Time Sheet Entries</code>),
+<code>r.Hours_Worked</code> refers to the field in that table.</p>
+<p>In the <code>Time Sheet Entries</code> table, the column <code>TimeSheet</code> is a reference column that is
+referencing an entire record in the <code>Time Sheets</code> table. Thus, we have to further specify which
+field from the referenced record should be included in the formula&rsquo;s calculation, which in this
+case is <code>Hourly_Rate</code>. To learn more about reference columns, visit our
+<a href="../2021-05-reference-columns/">Reference column guide</a>.</p>
+<p>We can apply the same formula to the other two summary tables on this page. In the second table,
+the <code>$group</code> function is grouping things in the same month AND account. In the third table, the
+<code>$group</code> function is grouping expenses in the same month AND account AND by the same employee.</p>
+<p>And that&rsquo;s it! You did it. You rebuilt the month summary page. See if you can apply these concepts
+to rebuild the contractor summary page.</p>
+<div class="admonition tip">
+<p class="admonition-title">Did you know?</p>
+<p>If needed, you can also add conditions to this formula. For example,
+<code>sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group if Hours_Worked &gt; 0)</code>
+will only add up records in which there is a positive value in the field <code>Hours Worked</code>.</p>
+<p>Visit our <a href="../../functions/#_group">function reference</a> to learn more.</p>
+</div>
+<p><em>Need more help?</em> Visit the <a href="https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution">tutorial solution</a> or contact
+us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<p>Note that there are access rules in place for the tutorial solution which will prevent you from
+seeing certain pages and most data. Make a copy to become the document owner and see all data and
+pages.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">

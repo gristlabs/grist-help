@@ -402,6 +402,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
 
     
@@ -510,6 +514,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference Columns Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary Tables Guide</a>
 
     
 </li>
@@ -626,6 +634,8 @@ the rules from top to bottom, and find the first applicable rule
 that allows (green) or denies (red) that permission.
 We&rsquo;ll see plenty of examples as we go.</p>
 <h2 id="lock-down-structure">Lock down structure<a class="headerlink" href="#lock-down-structure" title="Permanent link">#</a></h2>
+<p>By default Owners and Editors are equally powerful within a document, with the ability to create
+or delete tables or columns, write formulas, reorganize pages, and so on.</p>
 <p>Suppose we want only the original Owners of the document to be allowed to change
 its structure, as we plan to invite other specialized collaborators as Editors.
 To do this, we add a default rule specifying that any user who is not an
@@ -633,13 +643,18 @@ owner (<code>user.Access != OWNER</code>) should be denied structure permissions
 (<code>S</code>).  Click the little <code>+</code> sign in the <code>CONDITION</code> of the <code>Default Rules</code>
 and fill in the condition and permissions as follows:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure.png" /></p>
-<p>For more information about possible formulas, read <a href="./#access-rule-conditions">Access rule conditions</a>.
-Once we&rsquo;ve made changes, the <code>SAVE</code> button becomes an inviting green
+<p>For more information about possible formulas, read <a href="./#access-rule-conditions">Access rule conditions</a>.</p>
+<p>Once we&rsquo;ve made changes, the <code>SAVE</code> button becomes an inviting green
 (if is grayed out, and you&rsquo;ve just composed a condition formula, press
 enter or click elsewhere to let Grist know you are finished).  We
 click <code>SAVE</code> for the rule to take effect.  If Grist finds errors,
 you&rsquo;ll be alerted and the changes will not save.</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure-saved.png" /></p>
+<p><strong>Important.</strong> This is an important first step for any document where you intend to block any access to Editors.
+Without denying them the structure permission (<code>S</code>), anyone with edit access will be able to
+create or change formulas. Since formula calculations are not limited by access control rules,
+a determined user could use them to retrieve any data from a document. To protect against
+that, deny structure permission to users whose access should be limited.</p>
 <h2 id="make-a-private-table">Make a private table<a class="headerlink" href="#make-a-private-table" title="Permanent link">#</a></h2>
 <p>To ensure that only Owners can access a table, such as the <code>Financials</code> table in our example,
 we click <code>Add Table Rules</code> and select the table name, <code>Financials</code>.  This creates a new empty
@@ -876,6 +891,12 @@ single letter acronyms for convenience:</p>
 <p>The <code>S</code> structure permission is available in the default access rule
 group.  Column rules lack the <code>C</code> create and <code>D</code> delete permissions,
 which should be handled in default table rules.</p>
+<p><strong>Note:</strong> The <code>S</code> permission is very powerful. It allows writing formulas, which can access
+any data in the document regardless of rules. Since the <code>S</code> permission is on by default for
+Editors and Owners, any such user would be able to edit a formula and so retrieve any data.</p>
+<p>In other words, having the <code>S</code> permission makes it possible to circumvent other rules that prevent
+access to data. For this reason, turning it off &ndash; as described above in <a href="#lock-down-structure">Locking down
+structure</a> &ndash; is an important first step in limiting data access.</p>
 <h2 id="access-rule-memos">Access rule memos<a class="headerlink" href="#access-rule-memos" title="Permanent link">#</a></h2>
 <p>When a user receives an error message denying them access because of a
 rule, it can be helpful to give specific details that will help them understand

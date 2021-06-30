@@ -11,6 +11,20 @@
   height: 16px;
 }
 
+.grist-icon-lg {
+  mask-image: var(--icon);
+  -webkit-mask-image: var(--icon);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  background-color: var(--color-light-green);
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
 .img-caption {
   display: inline-block;
   width: 128px;
