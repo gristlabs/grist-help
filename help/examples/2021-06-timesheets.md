@@ -115,7 +115,7 @@ In the `Time Sheet Entries` table, the column `TimeSheet` is a reference column 
 referencing an entire record in the `Time Sheets` table. Thus, we have to further specify which
 field from the referenced record should be included in the formula's calculation, which in this
 case is `Hourly_Rate`. To learn more about reference columns, visit our
-[Reference column guide](../2021-05-reference-columns.md).
+[Reference column guide](2021-05-reference-columns.md).
 
 We can apply the same formula to the other two summary tables on this page. In the second table,
 the `$group` function is grouping things in the same month AND account. In the third table, the
