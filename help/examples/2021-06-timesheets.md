@@ -19,7 +19,7 @@ you follow along with this guide.
 
 ## Using Summary Tables to Analyze Data
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TODO?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wSyip0KQRbI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In our example, you work for the HR department of a candy factory that hires contractors that work
 for various departments. In the template, your team has created an advanced time sheet tracker.
@@ -30,7 +30,7 @@ goal in this tutorial is to build those summary pages.
 
 ## Creating Summary Tables
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TODO?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n11mamU78GY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Step 1: Create a summary table
 
@@ -75,7 +75,7 @@ do with summary formulas.
 
 ## Calculating Totals Using Summary Formulas
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TODO?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4-ihoU1m3rc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 _Following along with the video? Visit the [tutorial
 solution](https://public.getgrist.com/mSEXKmZYpJwV/Time-Sheets-Tutorial-Solution/p/10) if you get
