@@ -1376,7 +1376,7 @@ to evaluate to `1` rather than raise an exception.
 ```
 </details>
 <details id="iferror"><summary >
-<code>__IFERROR__(value, value_if_error="")</code>
+<code>__IFERROR__(value, value_if_error='')</code>
 <a class="headerlink" href="#iferror" title="Permanent link">#</a>
 #### IFERROR
 </summary>
