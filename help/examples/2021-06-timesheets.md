@@ -59,10 +59,10 @@ created on this page. This will link the tables so that selecting a month in the
 dynamically update records in the new widgets. Not sure why? Brush up on [linking
 widgets](../linking-widgets.md).
 
-1. `Add New` > `Add Widget to Page` > `Time Sheets` >
+1. `Add New` > `Add Widget to Page` > `Time Sheet Entries` >
    <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> >
    `Months` and `Account`
-2. `Add New` > `Add Widget to Page` > `Time Sheets` >
+2. `Add New` > `Add Widget to Page` > `Time Sheet Entries` >
    <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> >
    `Months` and `Account` and `Employee`
 
@@ -78,7 +78,7 @@ do with summary formulas.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4-ihoU1m3rc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 _Following along with the video? Visit the [tutorial
-solution](https://public.getgrist.com/mSEXKmZYpJwV/Time-Sheets-Tutorial-Solution/p/10) if you get
+solution](https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution) if you get
 stuck. Note that there are access rules in place for the tutorial solution which will prevent you
 from seeing certain pages and most data. Make a copy to become the document owner and see all data
 and pages._
@@ -106,10 +106,16 @@ rewrite the formula in `Hours Worked` as `sum(r.Hours_Worked for r in $group)`.
 
 Let’s calculate the total dollar spend on hours worked in each month.
 
-The formula is `sum(r.Hours_Worked * r.Rate for r in $group)`.
+The formula is `sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group)`.
 
-Note that the column ids in the formula refer to columns in the underlying table (the table being
-summarized) which in this case is the time sheets table.
+Since each record `r` in the group is a record in the underlying table (`Time Sheet Entries`),
+`r.Hours_Worked` refers to the field in that table.
+
+In the `Time Sheet Entries` table, the column `TimeSheet` is a reference column that is
+referencing an entire record in the `Time Sheets` table. Thus, we have to further specify which
+field from the referenced record should be included in the formula's calculation, which in this
+case is `Hourly_Rate`. To learn more about reference columns, visit our
+[Reference column guide](../2021-05-reference-columns.md).
 
 We can apply the same formula to the other two summary tables on this page. In the second table,
 the `$group` function is grouping things in the same month AND account. In the third table, the
@@ -121,17 +127,13 @@ to rebuild the contractor summary page.
 
 !!!tip "Did you know?"
 
-    If needed, you can also add conditions to this formula. Here are two examples:
-
-    `sum(r.Hours_Worked * r.Rate.Hourly_Rate for r in $group if Hours_Worked)` will only add up
-    records in which there is a value in the field `Hours Worked`.
-
-    `sum(r.Hours_Worked * r.Rate.Hourly_Rate for r in $group if Hours_Worked > 0)` will only add
-    up records in which there is a positive value in the field `Hours Worked`.
+    If needed, you can also add conditions to this formula. For example,
+    `sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group if Hours_Worked > 0)`
+    will only add up records in which there is a positive value in the field `Hours Worked`.
 
     Visit our [function reference](../functions.md#_group) to learn more.
 
-*Need more help?* Visit the [tutorial solution](https://public.getgrist.com/mSEXKmZYpJwV/Time-Sheets-Tutorial-Solution/p/10) or contact
+*Need more help?* Visit the [tutorial solution](https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution) or contact
 us at <support@getgrist.com>.
 
 Note that there are access rules in place for the tutorial solution which will prevent you from
