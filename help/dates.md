@@ -189,7 +189,7 @@ Storing when records were created or updated
 --------------------------------------------------
 
 Sometimes it is useful to have a column that stores when individual records were created.
-As a first step, add a column called (for example) `Created At` and enter `= NOW()` as
+As a first step, add a column called (for example) `Created At` and enter `NOW()`{: .formula} as
 its formula.
 Set the column type to `DateTime` (see [Making a date/time column](dates.md#making-a-datetime-column)) and choose how you'd like the time and date to be shown.
 
@@ -202,7 +202,7 @@ once set, click on the `Actions` drop-down, and choose `Convert to data column`:
 ![a Created-At column](images/formulas/formulas-created-at-convert.png)
 
 Now, to calculate values when a record is created, select `Apply to new records`.
-And we're done! All new records will have `Created At` set with `NOW()` at the
+And we're done! All new records will have `Created At` set with `NOW()`{: .formula} at the
 moment of their creation.
 
 ![a Created-At column](images/formulas/formulas-created-at-final.png)
@@ -220,7 +220,7 @@ pick and choose which columns to "count" as updates and which to ignore.
 Here is an example of the new columns at work. One new record was added, for
 `Unorthodox Delivery Methods`, and a created and updated time were set for it
 automatically.   Then the description of `Cotton Candy vs Candy Flass` was updated,
-aind the updated time for that record was set automatically.
+and the updated time for that record was set automatically.
 
 ![Created-At and Updated-At columns in use](images/formulas/formulas-update-and-create.png)
 

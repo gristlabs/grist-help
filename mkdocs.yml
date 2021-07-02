@@ -39,6 +39,7 @@ nav:
   - Columns and data types:
     - Columns & types: col-types.md
     - Reference columns: col-refs.md
+    - Timestamp columns: timestamps.md
     - Transformations: col-transform.md
   - Using formulas:
     - Intro to formulas: formulas.md
