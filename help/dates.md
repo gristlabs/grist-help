@@ -185,7 +185,6 @@ If you do the same in a `Text` column, the date/time will be inserted as the tex
 the document's global timezone setting. Similarly, inserting the current date into a `Date` column
 will produce the current date according to the document's timezone.
 
-
 Additional resources
 --------------------
 * [Python cheatsheet for strftime](http://strftime.org), for using with `strftime()` and
