@@ -1,9 +1,8 @@
 # Importing more data
 
 You can import a file to [start a new Grist document](creating-doc.md), or to
-add data to an existing document. Grist supports imports of Excel, CSV, JSON, and
-tab-separated files. It can also [import](imports.md#import-from-a-google-drive)) 
-your spreadsheet from the Google Drive.
+add data to an existing document. Grist supports imports of Excel, CSV, JSON,
+tab-separated files and from [Google Drive](imports.md#import-from-a-google-drive).
 
 To start a new Grist document, click the "Add New" button on the home screen
 and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
@@ -46,24 +45,24 @@ the imported table, but will be highlighted due to the type mismatch.
 
 You can always rename tables and columns after an import, as well as convert types.
 
-## Import from a Google Drive
+## Import from Google Drive
 
 Importing from a Google Drive is as easy as importing from an Excel file or a 
-CSV file. To start, click the "Add New" button on and choose "Import from Google 
-Drive" menu option.
+CSV file. To start, click the "Add New" button and choose "Import from Google 
+Drive".
 
 ![import-dialog](images/import-google-drive-sign-in.png)
 
-For the first import you need to sign in to your Google Account, just press 
-the "Sign in" button and follow up with the sign-in process. We will ask you 
-for a permission to read the file you will choose in a Google Picker. We won't 
-read any other files on your drive - just the single file you whish to import.
+To import, sign in to your Google Account by clicking the "Sign in" button and
+following the sign-in process. Grist will ask for a permission to read the file
+you will import from Google Drive. We won't read any other files on your
+drive — just the single file you choose to import.
 
 ![import-dialog](images/import-google-drive-picker.png)
 
 Once the file has been chosen, the rest of the process is the same as importing 
-from an Excel file, you will see the [import dialog](imports.md#the-import-dialog) 
-where you can configure what and how gets imported into your existing Grist document.
+from an Excel file. In the [import dialog](imports.md#the-import-dialog) 
+you may configure what data to import, and which destination table to add it to.
 
 ## Import to an existing table
 
