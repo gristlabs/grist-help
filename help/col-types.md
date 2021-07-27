@@ -225,11 +225,11 @@ click the `Cancel` button or press `Escape`.
 
 Clicking the color dropdown to the left of a choice will open a color picker
 for customizing the fill and text color of a choice. Changes to colors are
-reflected inside cells and throughout the rest of Grist once you save your
-changes.
+reflected inside cells and throughout the rest of your document once you save
+your changes.
 
-Choices can be re-arranged by clicking and dragging them, which affects the
-order that they are suggested when typing into a cell.
+Choices can be re-arranged by clicking and dragging them, which determines the
+order in which they appear when typing into a cell.
 
 The configuration editor supports many convenient keyboard shortcuts. You can
 press the `Up Arrow` and `Down Arrow` keys to navigate between selected choices;
