@@ -41,7 +41,7 @@ the procedure is similar to that for [a "Created By" column](authorship.md#a-cre
 but instead of `Apply to new records`,
 select `Apply on record changes`.  Then select `Any field` (assuming you want any
 change in a record to count as an update) and press `OK`.  You can alternatively
-pick and choose which columns to "count" as updates and which to ignore.
+pick and choose which columns, when updated, will trigger the formula.
 
 ![an Updated-By column](images/formulas/formulas-updated-by-setup.png)
 
