@@ -97,17 +97,18 @@ Grist supports the following types:
 
 <div class='grist-mod__table'></div> <!-- For css styling via css/extra.css -->
 
-Type      | Description
---------- | -----------
-Text      | (**Default**) Any string of text.
-Numeric   | Floating point numbers.
-Integer   | Integers (whole numbers).
-Toggle    | Boolean (True / False)
-Date      | Valid date (without a time component).
-DateTime  | Valid date + time.
-Choice    | List of pre-defined valid values.
-Reference | A reference column to another table.
-Attachment| Cells where you can place files or images.
+Type        | Description
+----------- | -----------
+Text        | (**Default**) Any string of text.
+Numeric     | Floating point numbers.
+Integer     | Integers (whole numbers).
+Toggle      | Boolean (True / False)
+Date        | Valid date (without a time component).
+DateTime    | Valid date + time.
+Choice      | Single value from a list of pre-defined valid values.
+Choice List | Multiple values from a list of pre-defined valid values.
+Reference   | A reference column to another table.
+Attachment  | Cells where you can place files or images.
 
 Text columns
 --------------
@@ -205,16 +206,86 @@ Choice columns
 This type is for storing one of a set of valid values, where you get to
 specify the available values.
 
-<!-- TODO screenshot needs to be updated -->
-*![Format date](images/columns/columns-format-choice.png)*
+*![Format choice](images/columns/columns-format-choice.png)*
 {: .screenshot-half }
 
 There's an example of using this type of column in
 the [Lightweight CRM example](lightweight-crm.md#setting-other-types).
 
 If you start off with a populated text column, Grist will take all unique
-values from that column as the valid choices.  You can add or remove choices
-as you wish.
+values from that column as the valid choices.
+
+You can add or remove choices by either clicking `Edit` or on the Choices box.
+To add a choice, type its value in the text field below the other
+choices and press `Enter`. To remove a choice, click the delete icon to the
+right of the choice or select the choice by clicking on it, and then press
+`Backspace`/`Delete`. To apply/save your changes, you can either click the
+`Save` button or press `Enter`. To discard your changes, you can either
+click the `Cancel` button or press `Escape`.
+
+Clicking the color dropdown to the left of a choice will open a color picker
+for customizing the fill and text color of a choice. Changes to colors are
+reflected inside cells and throughout the rest of your document once you save
+your changes.
+
+Choices can be re-arranged by clicking and dragging them, which determines the
+order in which they appear when typing into a cell.
+
+The configuration editor supports many convenient keyboard shortcuts. You can
+press the `Up Arrow` and `Down Arrow` keys to navigate between selected choices;
+hold the `Shift` key to bulk select adjacent choices while clicking or using the
+arrow keys; and hold the `Command`/`Control` key to multi-select choices while
+clicking. To select all choices, you can press `Command`/`Control` + `A`.
+
+Undo and redo are also supported in the configuration editor. While your cursor
+has focus on the editor text field, you can press `Command`/`Control` + `Z` to
+undo your last change, and `Command`/`Control` + `Shift` + `Z` to redo it.
+
+The configuration editor also supports copy and paste. To copy, select
+the choices you want copied and press `Command`/`Control` + `C`. To paste,
+focus on the text field and press `Command`/`Control` + `V`. Choices are pasted
+in bulk if the clipboard contains multiple lines of text. Choices can also be
+copied from one column's configuration editor and pasted into another, which
+will copy over both the values and their configured colors.
+
+When typing into a Choice column cell, your configured choices will be shown
+in an autocomplete menu. You can either click on a choice, or use the arrow keys
+and `Enter` to add a choice to a cell. If your input is not one of the
+valid choices, Grist will display a menu option for conveniently adding it as a
+valid choice and into the cell in one step.
+
+*![Format choice](images/columns/columns-cell-choice.png)*
+{: .screenshot-half }
+
+Choice List columns
+------------
+
+This type is for storing multiple values from a set of valid values, where you
+get to specify the available values.
+
+*![Format choice](images/columns/columns-format-choice-list.png)*
+{: .screenshot-half }
+
+If you start off with a populated text column, Grist will take all unique
+values from that column as the valid choices.
+
+Choice List columns are configured the same way [Choice](#choice-columns) columns are, and
+support the same level of customization and keyboard shortcuts. They differ in
+the number of choices they allow to be entered in each cell. While Choice
+columns only allow at most one value in a cell, Choice List columns allow
+many.
+
+Like with Choice columns, when typing into a Choice List column cell, the
+valid choices will be shown in an autocomplete menu. Once you've selected
+a value, you can continue adding choices to the same cell.
+
+*![Format choice](images/columns/columns-cell-choice-list.png)*
+{: .screenshot-half }
+
+Choices can be re-arranged inside their cells by clicking and dragging them
+while the cell is being edited. You can also use the arrow keys and the
+`Delete` key to navigate and delete choices, or simply click the delete icon
+when hovering your cursor over a choice.
 
 Reference columns
 ----------
