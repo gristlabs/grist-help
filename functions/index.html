@@ -268,6 +268,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../authorship/" class="wm-article-link wm-toc-text">Authorship columns</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
 
     
@@ -574,7 +578,7 @@ standard library</a> is available.</p>
 </tr>
 <tr>
 <td>Lookup</td>
-<td><a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a></td>
+<td><a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a></td>
 </tr>
 <tr>
 <td>Math</td>
@@ -1856,6 +1860,24 @@ Returns the column number of a specified cell, with <code>A=1</code>.</p>
 <p></summary>
 Returns the number of columns in a specified array or range.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
+</details>
+<details id="contains"><summary >
+<code><strong>CONTAINS</strong>(value)</code>
+<a class="headerlink" href="#contains" title="Permanent link">#</a></p>
+<h4 id="contains">CONTAINS<a class="headerlink" href="#contains" title="Permanent link">#</a></h4>
+<p></summary>
+Use this marker with <code>Table.lookupRecords</code> to find records
+where a column contains the given value, e.g:</p>
+<pre><code>MoviesTable.lookupRecords(genre=CONTAINS("Drama"))
+</code></pre>
+<p>will return records in <code>MoviesTable</code> where the column <code>genre</code>
+is a list or other container such as <code>["Comedy", "Drama"]</code>,
+i.e. <code>"Drama" in $genre</code>.</p>
+<p>Note that the column being looked up (e.g. <code>genre</code>)
+must have values of a container type such as list, tuple, or set.
+In particular the values mustn&rsquo;t be strings, e.g. <code>"Comedy-Drama"</code> won&rsquo;t match
+even though <code>"Drama" in "Comedy-Drama"</code> is <code>True</code> in Python.
+It also won&rsquo;t match substrings within container elements, e.g. <code>["Comedy-Drama"]</code>.
 </details>
 <details id="getpivotdata"><summary class="unimplemented">
 <code><strong>GETPIVOTDATA</strong>(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code>

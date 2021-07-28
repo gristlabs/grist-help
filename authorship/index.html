@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/page-widgets/">
+    <link rel="canonical" href="https://support.getgrist.com/authorship/">
     <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Pages & widgets - Grist Help Center</title>
+    <title>Authorship columns - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -209,51 +209,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Pages & widgets</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#pages">
-              Pages
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#page-widgets">
-              Page widgets
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#widget-picker">
-              Widget picker
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#changing-widget-or-its-data">
-              Changing widget or its data
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#configuring-field-lists">
-              Configuring field lists
-            </a>
-          </li>
-        
-      </ul>
-    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
@@ -311,8 +268,31 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../authorship/" class="wm-article-link wm-toc-text">Authorship columns</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Authorship columns</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Authorship columns
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#a-created-by-column">
+                A "Created By" column
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#an-updated-by-column">
+                An "Updated By" column
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
@@ -544,20 +524,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../search-sort-filter/" class="btn btn-xs btn-default pull-right">
+      <a href="../col-transform/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../search-sort-filter/" class="btn btn-xs btn-link">
-        Search, sort & filter
+      <a href="../col-transform/" class="btn btn-xs btn-link">
+        Transformations
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../enter-data/" class="btn btn-xs btn-default pull-left">
+      <a href="../timestamps/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../enter-data/" class="btn btn-xs btn-link">
-        Entering data
+        Previous</a><a href="../timestamps/" class="btn btn-xs btn-link">
+        Timestamp columns
       </a>
     </div>
     
@@ -565,96 +545,43 @@
 
     
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/vTfOUEFR73Y?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h2 id="pages-widgets">Pages &amp; widgets<a class="headerlink" href="#pages-widgets" title="Permanent link">#</a></h2>
-<p>Unlike traditional spreadsheets, in Grist you can create multiple views of the same data, and
-display multiple data sets on one page. This allows you to create useful dashboards and custom
-applications tailored to your needs.</p>
-<h2 id="pages">Pages<a class="headerlink" href="#pages" title="Permanent link">#</a></h2>
-<p>In Grist, you organize your document into &ldquo;pages&rdquo;. These are listed in the left panel, with collapsible
-groups. You may rearrange and group pages in the left panel by dragging them to suit your needs.</p>
-<p class="screenshot-half"><em><img alt="drag_pages" src="../images/drag_pages.png" /></em></p>
-<p>You can rename pages using the three-dots menu next to the page name in the list, or by clicking
-the page name on top of the screen.</p>
-<p class="screenshot-half"><em><img alt="rename_pages1" src="../images/rename_pages1.png" /></em></p>
-<p class="screenshot-half"><em><img alt="rename_pages2" src="../images/rename_pages2.png" /></em></p>
-<p>Using the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>)
-near the top of the left panel, you can collapse the panel to show only the initials of each page,
-leaving more screen space to view your data.</p>
-<p>To add a new page, use the &ldquo;Add New&rdquo; button, and click &ldquo;Add Page&rdquo;. At that point, you&rsquo;ll get to
-choose the page widget to include in the new page.</p>
-<h2 id="page-widgets">Page widgets<a class="headerlink" href="#page-widgets" title="Permanent link">#</a></h2>
-<p>A page contains sections, such as tables or charts, which we call &ldquo;page widgets&rdquo;. Each page widget
-shows data from one table. A page may contain more than one page widget, and you can arrange and
-link them to create useful layouts.</p>
-<p>Here are the supported kinds of page widgets. The salient features of each one are described
-on separate pages.</p>
-<ul>
-<li><a href="../widget-table/">Table</a>: similar to the spreadsheet grid and a good way to see many records at once.</li>
-<li><a href="../widget-card/">Card</a>: shows a single record in a form-like layout which you can customize.</li>
-<li><a href="../widget-card/">Card List</a>: uses the same layout options as a card, displays a scrollable list of records.</li>
-<li><a href="../widget-chart/">Chart</a>: plots data on a chart with support for several different chart types.</li>
-<li><a href="../widget-custom/">Custom</a>: inserts a custom webpage, optionally granting it access to the document&rsquo;s data.</li>
-</ul>
-<p><img alt="page_widget_types" src="../images/page_widget_types.png" /></p>
-<h2 id="widget-picker">Widget picker<a class="headerlink" href="#widget-picker" title="Permanent link">#</a></h2>
-<p>The menu opened by the &ldquo;Add New&rdquo; button has options &ldquo;Add Page&rdquo; and &ldquo;Add Widget to Page&rdquo;. In either
-case, you&rsquo;ll see the &ldquo;page widget picker&rdquo; where you can choose your desired widget:</p>
-<p><em><img alt="page_widget_picker" src="../images/page_widget_picker.png" /></em></p>
-<p>You can select the type of widget and the table of data to show (or &ldquo;New Table&rdquo; to create a new
-table). The &ldquo;summary&rdquo; icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>)
-allows you to <a href="../summary-tables/">summarize data</a>.</p>
-<p>When adding a widget to an <em>existing</em> page, you&rsquo;ll also see a &ldquo;Select By&rdquo; option, which allows
-linking this widget to another one already on the page. This process is described in greater
-detail in <a href="../linking-widgets/">Linking widgets</a>.</p>
-<p>Once you&rsquo;ve added widgets, they can be moved around and resized, as described in <a href="../custom-layouts/">Custom
-Layouts</a>.</p>
-<h2 id="changing-widget-or-its-data">Changing widget or its data<a class="headerlink" href="#changing-widget-or-its-data" title="Permanent link">#</a></h2>
-<p>If you&rsquo;d like to change a widget or the data it displays after it&rsquo;s added, you may do so. Click
-the three-dots button on the top right of your widget, and select &ldquo;Widget options&rdquo;. This opens the
-right-side panel. Click on &ldquo;Change Widget&rdquo;.</p>
-<p class="screenshot-half"><em><img alt="change_widget" src="../images/change_widget.png" /></em></p>
-<p>You can then use the widget picker to change the widget or the data it displays.</p>
-<h2 id="configuring-field-lists">Configuring field lists<a class="headerlink" href="#configuring-field-lists" title="Permanent link">#</a></h2>
-<p>Although different kinds of page widgets look very different, they all represent a list of
-records. Any of the widget types can be used to show the same underlying data.</p>
-<p>In a <strong>Table</strong>, each record is represented by a row, and columns represent the same kind of value
-for each record.</p>
-<p>A table is also a helpful representation of the underlying data to keep in mind
-when configuring other widget types.</p>
-<p>In a <strong>Card List</strong>, each row of the underlying data is shown as a card. Each column in the data
-corresponds to a <em>field</em> in this card. When talking about a Card widget, we&rsquo;ll use the term
-<em>&ldquo;field&rdquo;</em>, which conceptually is the same as a <em>&ldquo;column&rdquo;</em> in a Table widget.</p>
-<p>A <strong>Card</strong> is just like a Card List, but shows only one row of data at a time.</p>
-<p>In a <strong>Chart</strong>, each row of the underlying data table becomes a graphical element, such as a point
-on a line chart, a bar in a bar chart, or a slice of a pie chart. In this context, the columns of
-our data table are better known as data <em>&ldquo;series&rdquo;</em>.</p>
-<p>Click on the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelRight)"></span>) to
-open the right panel. Depending on the currently-selected widget, you might see a tab for
-configuring a Column, Field, or Series. These are not different in substance, but different terms
-make more sense for different widgets.</p>
-<p class="screenshot-half"><em><img alt="panel_header_table" src="../images/panel_header_table.png" /></em></p>
-<p class="screenshot-half"><em><img alt="panel_header_card" src="../images/panel_header_card.png" /></em></p>
-<p class="screenshot-half"><em><img alt="panel_header_cardlist" src="../images/panel_header_cardlist.png" /></em></p>
-<p class="screenshot-half"><em><img alt="panel_header_chart" src="../images/panel_header_chart.png" /></em></p>
-<p>Clicking on the widget tab (highlighted in green in the images above), you&rsquo;ll see subtabs for
-&ldquo;Widget&rdquo;, &ldquo;Sort &amp; Filter&rdquo;, and &ldquo;Data&rdquo;. We&rsquo;ll focus on the first one: &ldquo;Widget&rdquo;. You&rsquo;ll see options
-specific to the type of the selected widget, and below that two lists: &ldquo;Visible Columns&rdquo; and
-&ldquo;Hidden Columns&rdquo;.</p>
-<p class="screenshot-half"><em><img alt="widget_tab" src="../images/widget_tab.png" /></em></p>
-<p>The &ldquo;Hidden Columns&rdquo; are the columns available in the data, but not shown in this widget. In a
-Card, these lists would show up as &ldquo;Visible Fields&rdquo; / &ldquo;Hidden Fields&rdquo;. In a chart, they show up as
-&ldquo;Visible Series&rdquo; / &ldquo;Hidden Series&rdquo;.</p>
-<p>These lists allow you to include, exclude, or rearrange fields in a widget. As you move your mouse
-over the items in the list, use the &ldquo;eye&rdquo; icons that pop up to show or hide them. Alternatively,
-you can select several items using the checkboxes, and hide or show them together.</p>
-<p class="screenshot-half"><em><img alt="widget_tab_hide_hover" src="../images/widget_tab_hide_hover.png" /></em></p>
-<p class="screenshot-half"><em><img alt="widget_tab_hide_checkboxes" src="../images/widget_tab_hide_checkboxes.png" /></em></p>
-<p>This ordered list of fields can be used to customize any of the page widget types. It has a
-particular importance in the <a href="../widget-chart/">Chart widget</a>, where different chart types and options require you to
-place series in a certain order in the &ldquo;Visible Series&rdquo; list to ensure your data is plotted
-correctly.</p>
+    <h1 id="authorship-columns">Authorship columns<a class="headerlink" href="#authorship-columns" title="Permanent link">#</a></h1>
+<p>Sometimes it is useful to have columns that record who created individual records, and
+who last updated them.  Grist lets you create such columns easily.  It also automatically
+tracks document changes in the Activity tab of Document History, but nevertheless it is
+convenient to have that information in tabular form available to formulas and filters,
+and authorship columns let you do that.</p>
+<h2 id="a-created-by-column">A &ldquo;Created By&rdquo; column<a class="headerlink" href="#a-created-by-column" title="Permanent link">#</a></h2>
+<p>Suppose we want to fill a column automatically with the name of the creator
+of each record as they are added.  As a first step, add a column called 
+(for example) <code>Created By</code>.  In the column options in the side panel
+(see <a href="../col-types/">Columns</a> for a refresher), click on the <code>Actions</code>
+drop-down, and choose <code>Make into data column</code>.</p>
+<p><img alt="starting a Created-By column" src="../images/formulas/formulas-created-by-convert.png" /></p>
+<p>Set <code class="formula">user.Name</code> as the column&rsquo;s formula.  There are other possibilities,
+such as  <code class="formula">user.Email</code>, a unique <code class="formula">user.UserID</code>, and so on.  The
+user information available is the same as that in <a href="../access-rules/#access-rule-conditions">Access rule conditions</a>.
+Time information is available as well (see <a href="../timestamps/">Timestamp columns</a>).
+But let&rsquo;s stick with <code class="formula">user.Name</code> for now.</p>
+<p><img alt="a Created-By column" src="../images/formulas/formulas-created-by-final.png" /></p>
+<p>Now, to set the column whenever a record is created, select <code>Apply to new records</code>.
+And that&rsquo;s it!  Now whenever a record is created, the <code>Created At</code> column will be
+set to the name of the user creating it:</p>
+<p><img alt="a Created-By example" src="../images/formulas/formulas-created-by-autofill.png" /></p>
+<h2 id="an-updated-by-column">An &ldquo;Updated By&rdquo; column<a class="headerlink" href="#an-updated-by-column" title="Permanent link">#</a></h2>
+<p>If we want a column that stores who last edited a record (as opposed to its creator),
+the procedure is similar to that for <a href="./#a-created-by-column">a &ldquo;Created By&rdquo; column</a>,
+but instead of <code>Apply to new records</code>,
+select <code>Apply on record changes</code>.  Then select <code>Any field</code> (assuming you want any
+change in a record to count as an update) and press <code>OK</code>.  You can alternatively
+pick and choose which columns, when updated, will trigger the formula.</p>
+<p><img alt="an Updated-By column" src="../images/formulas/formulas-updated-by-setup.png" /></p>
+<p>Here is an example the the new column at work - when <code>Cotton Candy v Candy Floss</code>
+is updated,a user name appears for that record:</p>
+<p><img alt="an Updated-By column" src="../images/formulas/formulas-updated-by-autofill.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">It is still possible for a user to manually edit cells in the <code>Created By</code> and <code>Updated By</code> columns. If you don&rsquo;t want that to be allowed, use <a href="../access-rules/">access rules</a> to forbid it.</p>
+</div>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
