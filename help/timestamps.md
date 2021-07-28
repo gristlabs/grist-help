@@ -44,8 +44,10 @@ pick and choose which columns to "count" as updates and which to ignore.
 
 Here is an example of the new columns at work. One new record was added, for
 `Unorthodox Delivery Methods`, and a created and updated time were set for it
-automatically.   Then the description of `Cotton Candy vs Candy Flass` was updated,
+automatically.   Then the description of `Cotton Candy vs Candy Floss` was updated,
 and the updated time for that record was set automatically.
+It would also be straightforward to add [Created By](authorship.md#a-created-by-column)
+and [Updated By](authorship.md#a-created-by-column) columns.
 
 ![Created-At and Updated-At columns in use](images/formulas/formulas-update-and-create.png)
 
