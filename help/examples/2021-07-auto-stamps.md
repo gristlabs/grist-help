@@ -10,13 +10,13 @@ opportunities. It may be useful to know the last time a sales person took action
 opportunity, and further determine for how long that opportunity has been pending.
 
 We’ve created a tutorial based on our
-[Grant Application Tracker](https://public.getgrist.com/bdeqzmwwfgi3/Grant-Application-Tracker)
+[Grant Application Tracker](https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker){:target="\_blank"}
 template. To follow along with this guide, start with this
-[incomplete version of the template](https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8)
+[incomplete version of the template](https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8){:target="\_blank"}
 that is missing time and user stamp columns. We will recreate those together in this tutorial.
 Create a copy and edit the template as you follow along with this guide.
 
-[Open Tutorial Template](https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8)
+[Open Tutorial Template](https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8){:target="\_blank"}
 {: .grist-button}
 
 ## Template Overview: Grant Application Tracker
@@ -101,5 +101,5 @@ to the `Applications` table.
       all the date format options available in Python](https://strftime.org/).
 3. Select `Apply to new records` so that the formula only triggers when a new record is created.
 
-**Need more help?** Visit the [final template](https://public.getgrist.com/bdeqzmwwfgi3/Grant-Application-Tracker/p/8) or contact
-us at <support@getgrist.com>.
+**Need more help?** Visit the [final template](https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker){:target="\_blank"}
+or contact us at <support@getgrist.com>.
