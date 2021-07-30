@@ -52,6 +52,10 @@ ready-to-use templates.
   Master Summary Tables with 2 Concepts, using the example of a timesheet tracker, with
   detailed account tracking.
 
+- [Auto Time and User Stamps](examples/2021-07-auto-stamps.md):
+  Learn to create columns that stamp the time or a user's name to a record when it is created or
+  updated.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may

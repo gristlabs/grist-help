@@ -17,3 +17,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [April 2021 Newsletter](newsletters/2021-04.md): A 4-Step Guide to Link Keys.
 - [May 2021 Newsletter](newsletters/2021-05.md): Choice Lists, 3-step Tutorial on Reference Columns.
 - [June 2021 Newsletter](newsletters/2021-06.md): Introducing Freeze Columns and a timesheet-tracking template.
+- [July 2021 Newsletter](newsletters/2021-07.md): Colors, Time and Authorship Stamps, and Google Sheets Integration.
