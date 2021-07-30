@@ -82,6 +82,7 @@ nav:
       - Link Keys Guide: examples/2021-04-link-keys.md
       - Reference Columns Guide: examples/2021-05-reference-columns.md
       - Summary Tables Guide: examples/2021-06-timesheets.md
+      - Time and User Stamps: examples/2021-07-auto-stamps.md
   - Reference:
     - Shortcuts: keyboard-shortcuts.md
     - Limits: limits.md
