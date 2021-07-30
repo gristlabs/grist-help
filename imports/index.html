@@ -209,6 +209,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#import-from-google-drive">
+                Import from Google Drive
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#import-to-an-existing-table">
                 Import to an existing table
               </a>
@@ -360,6 +365,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
 
     
@@ -479,6 +488,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-07-auto-stamps/" class="wm-article-link wm-toc-text">Time and User Stamps</a>
+
+    
+</li>
   </ul>
 </li>
 
@@ -552,8 +565,8 @@
 
     <h1 id="importing-more-data">Importing more data<a class="headerlink" href="#importing-more-data" title="Permanent link">#</a></h1>
 <p>You can import a file to <a href="../creating-doc/">start a new Grist document</a>, or to
-add data to an existing document. Grist supports imports of Excel, CSV, JSON, and
-tab-separated files.</p>
+add data to an existing document. Grist supports imports of Excel, CSV, JSON,
+tab-separated files and from <a href="./#import-from-a-google-drive">Google Drive</a>.</p>
 <p>To start a new Grist document, click the &ldquo;Add New&rdquo; button on the home screen
 and choose &ldquo;Import document&rdquo;, as described in <a href="../creating-doc/">starting a new Grist document</a>.</p>
 <p>To add to an existing document, open that document, click the &ldquo;Add
@@ -583,6 +596,19 @@ the most suitable type for each column. It tries to be lossless: e.g. if it
 marks a column as numeric, any text values in it (such as &ldquo;N/A&rdquo;) will remain in
 the imported table, but will be highlighted due to the type mismatch.</p>
 <p>You can always rename tables and columns after an import, as well as convert types.</p>
+<h2 id="import-from-google-drive">Import from Google Drive<a class="headerlink" href="#import-from-google-drive" title="Permanent link">#</a></h2>
+<p>Importing from a Google Drive is as easy as importing from an Excel file or a 
+CSV file. To start, click the &ldquo;Add New&rdquo; button and choose &ldquo;Import from Google 
+Drive&rdquo;.</p>
+<p><img alt="import-dialog" src="../images/import-google-drive-sign-in.png" /></p>
+<p>To import, sign in to your Google Account by clicking the &ldquo;Sign in&rdquo; button and
+following the sign-in process. Grist will ask for a permission to read the file
+you will import from Google Drive. We won&rsquo;t read any other files on your
+drive — just the single file you choose to import.</p>
+<p><img alt="import-dialog" src="../images/import-google-drive-picker.png" /></p>
+<p>Once the file has been chosen, the rest of the process is the same as importing 
+from an Excel file. In the <a href="./#the-import-dialog">import dialog</a> 
+you may configure what data to import, and which destination table to add it to.</p>
 <h2 id="import-to-an-existing-table">Import to an existing table<a class="headerlink" href="#import-to-an-existing-table" title="Permanent link">#</a></h2>
 <p>By default, Grist imports new data as new tables, but the Import dialog allows
 you to change the destination and import data into an existing table.</p>

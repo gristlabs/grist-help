@@ -324,6 +324,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#choice-list-columns">
+                Choice List columns
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#reference-columns">
                 Reference columns
               </a>
@@ -407,6 +412,10 @@
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
 
     
 </li>
@@ -526,6 +535,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary Tables Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-07-auto-stamps/" class="wm-article-link wm-toc-text">Time and User Stamps</a>
 
     
 </li>
@@ -700,7 +713,11 @@ referencing the invalid value will also display an error):</p>
 </tr>
 <tr>
 <td>Choice</td>
-<td>List of pre-defined valid values.</td>
+<td>Single value from a list of pre-defined valid values.</td>
+</tr>
+<tr>
+<td>Choice List</td>
+<td>Multiple values from a list of pre-defined valid values.</td>
 </tr>
 <tr>
 <td>Reference</td>
@@ -769,14 +786,63 @@ format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format
 <h2 id="choice-columns">Choice columns<a class="headerlink" href="#choice-columns" title="Permanent link">#</a></h2>
 <p>This type is for storing one of a set of valid values, where you get to
 specify the available values.</p>
-<!-- TODO screenshot needs to be updated -->
-
-<p class="screenshot-half"><em><img alt="Format date" src="../images/columns/columns-format-choice.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Format choice" src="../images/columns/columns-format-choice.png" /></em></p>
 <p>There&rsquo;s an example of using this type of column in
 the <a href="../lightweight-crm/#setting-other-types">Lightweight CRM example</a>.</p>
 <p>If you start off with a populated text column, Grist will take all unique
-values from that column as the valid choices.  You can add or remove choices
-as you wish.</p>
+values from that column as the valid choices.</p>
+<p>You can add or remove choices by either clicking <code>Edit</code> or on the Choices box.
+To add a choice, type its value in the text field below the other
+choices and press <code>Enter</code>. To remove a choice, click the delete icon to the
+right of the choice or select the choice by clicking on it, and then press
+<code>Backspace</code>/<code>Delete</code>. To apply/save your changes, you can either click the
+<code>Save</code> button or press <code>Enter</code>. To discard your changes, you can either
+click the <code>Cancel</code> button or press <code>Escape</code>.</p>
+<p>Clicking the color dropdown to the left of a choice will open a color picker
+for customizing the fill and text color of a choice. Changes to colors are
+reflected inside cells and throughout the rest of your document once you save
+your changes.</p>
+<p>Choices can be re-arranged by clicking and dragging them, which determines the
+order in which they appear when typing into a cell.</p>
+<p>The configuration editor supports many convenient keyboard shortcuts. You can
+press the <code>Up Arrow</code> and <code>Down Arrow</code> keys to navigate between selected choices;
+hold the <code>Shift</code> key to bulk select adjacent choices while clicking or using the
+arrow keys; and hold the <code>Command</code>/<code>Control</code> key to multi-select choices while
+clicking. To select all choices, you can press <code>Command</code>/<code>Control</code> + <code>A</code>.</p>
+<p>Undo and redo are also supported in the configuration editor. While your cursor
+has focus on the editor text field, you can press <code>Command</code>/<code>Control</code> + <code>Z</code> to
+undo your last change, and <code>Command</code>/<code>Control</code> + <code>Shift</code> + <code>Z</code> to redo it.</p>
+<p>The configuration editor also supports copy and paste. To copy, select
+the choices you want copied and press <code>Command</code>/<code>Control</code> + <code>C</code>. To paste,
+focus on the text field and press <code>Command</code>/<code>Control</code> + <code>V</code>. Choices are pasted
+in bulk if the clipboard contains multiple lines of text. Choices can also be
+copied from one column&rsquo;s configuration editor and pasted into another, which
+will copy over both the values and their configured colors.</p>
+<p>When typing into a Choice column cell, your configured choices will be shown
+in an autocomplete menu. You can either click on a choice, or use the arrow keys
+and <code>Enter</code> to add a choice to a cell. If your input is not one of the
+valid choices, Grist will display a menu option for conveniently adding it as a
+valid choice and into the cell in one step.</p>
+<p class="screenshot-half"><em><img alt="Format choice" src="../images/columns/columns-cell-choice.png" /></em></p>
+<h2 id="choice-list-columns">Choice List columns<a class="headerlink" href="#choice-list-columns" title="Permanent link">#</a></h2>
+<p>This type is for storing multiple values from a set of valid values, where you
+get to specify the available values.</p>
+<p class="screenshot-half"><em><img alt="Format choice" src="../images/columns/columns-format-choice-list.png" /></em></p>
+<p>If you start off with a populated text column, Grist will take all unique
+values from that column as the valid choices.</p>
+<p>Choice List columns are configured the same way <a href="#choice-columns">Choice</a> columns are, and
+support the same level of customization and keyboard shortcuts. They differ in
+the number of choices they allow to be entered in each cell. While Choice
+columns only allow at most one value in a cell, Choice List columns allow
+many.</p>
+<p>Like with Choice columns, when typing into a Choice List column cell, the
+valid choices will be shown in an autocomplete menu. Once you&rsquo;ve selected
+a value, you can continue adding choices to the same cell.</p>
+<p class="screenshot-half"><em><img alt="Format choice" src="../images/columns/columns-cell-choice-list.png" /></em></p>
+<p>Choices can be re-arranged inside their cells by clicking and dragging them
+while the cell is being edited. You can also use the arrow keys and the
+<code>Delete</code> key to navigate and delete choices, or simply click the delete icon
+when hovering your cursor over a choice.</p>
 <h2 id="reference-columns">Reference columns<a class="headerlink" href="#reference-columns" title="Permanent link">#</a></h2>
 <p>This sets up a cross-reference to another table.  You can specify the
 table to reference, and a column within that table to show.

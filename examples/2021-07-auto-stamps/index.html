@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://support.getgrist.com/examples/2021-07-auto-stamps/">
+    <link rel="shortcut icon" href="../../images/favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Time and User Stamps - Grist Help Center</title>
+    <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link href="../../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap-3.3.7.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/elasticlunr.min.js"></script>
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+    </script>
+    <script src="/js/base.js"></script>
+      <script src="../../js/grist.js"></script>
+    
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5FDHKQ9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GTM-5FDHKQ9');
+  </script>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    window.Beacon('config', {display: { style: 'icon' }});
+    window.Beacon('init', '2efd68d8-0479-42c1-a94c-87b342af7bc4');
+    fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
+      .then(function(resp) { return resp.json(); })
+      .then(function(status) {
+        // If there's exactly two orgs, will use the team name for the non-merged personal
+        // org as the company name.  Otherwise don't worry about setting company name.
+        var org = undefined;
+        if (status.orgs.length === 2) {
+          org = status.orgs[0].owner ? status.orgs[1] : status.orgs[0];
+        }
+        // If there's one user account available, fill it in silently; otherwise use
+        // the first one and prefill fields but let user see them so they can override
+        // them.  If testing this, be aware that if 'identify' was called previously,
+        // it will be cached in local storage and used even if it is not set this time
+        // around.
+        var user = status.users[0];
+        var identifyOrPrefill = status.users.length === 1 ? 'identify' : 'prefill';
+        if (user && !user.anonymous) {
+          var userObj = {};
+          if (user.email) { userObj.email = user.email; }
+          if (user.name) { userObj.name = user.name; }
+          if (user.picture) { userObj.avatar = user.picture; }
+          if (user.helpScoutSignature) { userObj.signature = user.helpScoutSignature; }
+          if (org && org.name) { userObj.company = org.name; }
+          window.Beacon(identifyOrPrefill, userObj);
+        }
+      });
+  });
+</script> 
+</head>
+
+<body>
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="/search.html" method="GET">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
+    
+
+    
+    
+    <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+      <div class="wm-top-title">
+        Grist Home
+      </div>
+    </a>
+    
+
+    
+    <a href="../.." class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="../../images/logo.png"/>
+      
+      <div class="wm-top-title">
+        Grist Help Center<br>
+        
+          <span class="wm-top-version">1.0.2-dev</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+  
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="../.." class="wm-article-link wm-toc-text">Welcome to Grist</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-To Tutorials</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../team-sharing/" class="wm-article-link wm-toc-text">Team sharing [team]</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../workspaces/" class="wm-article-link wm-toc-text">Workspaces [team]</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../automatic-backups/" class="wm-article-link wm-toc-text">Automatic Backups</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and Tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-card/" class="wm-article-link wm-toc-text">Card & Card List</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-custom/" class="wm-article-link wm-toc-text">Custom</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../on-demand-tables/" class="wm-article-link wm-toc-text">On-Demand tables</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Columns and data types</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../col-types/" class="wm-article-link wm-toc-text">Columns & types</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../timestamps/" class="wm-article-link wm-toc-text">Timestamp columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../authorship/" class="wm-article-link wm-toc-text">Authorship columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Using formulas</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../formulas/" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Access rules</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../access-rules/" class="wm-article-link wm-toc-text">Intro to access rules</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../rest-api/" class="wm-article-link wm-toc-text">API usage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../api/" class="wm-article-link wm-toc-text">API reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">News & updates</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-04/" class="wm-article-link wm-toc-text">2021/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-03/" class="wm-article-link wm-toc-text">2021/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">More examples</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../" class="wm-article-link wm-toc-text">More examples</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06-credit-card/" class="wm-article-link wm-toc-text">Credit card expenses</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill emails</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-08-invoices/" class="wm-article-link wm-toc-text">Prepare Invoices</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-09-payroll/" class="wm-article-link wm-toc-text">Track Payroll</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-11-treasure-hunt/" class="wm-article-link wm-toc-text">Treasure Hunt</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-12-map/" class="wm-article-link wm-toc-text">Map</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-01-tasks/" class="wm-article-link wm-toc-text">Task Management</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-03-leads/" class="wm-article-link wm-toc-text">Lead List</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-04-link-keys/" class="wm-article-link wm-toc-text">Link Keys Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference Columns Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary Tables Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Time and User Stamps</a>
+
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Automatic Time and User Stamps Guide
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#template-overview-grant-application-tracker">
+                Template Overview: Grant Application Tracker
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#creating-time-stamp-columns">
+                Creating Time Stamp Columns
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#creating-user-stamp-columns">
+                Creating User Stamp Columns
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#dig-deeper-combining-time-and-user-stamps-using-formulas">
+                Dig Deeper: Combining time and user stamps using formulas
+              </a>
+            </li>
+        
+      </ul>
+    </li>
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Reference</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../keyboard-shortcuts/" class="wm-article-link wm-toc-text">Shortcuts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../limits/" class="wm-article-link wm-toc-text">Limits</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../browser-support/" class="wm-article-link wm-toc-text">Browser Support</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</nav>
+
+  <script>
+    // Immediately expand parent items to show the selected page.
+    $('.wm-current')
+      .parents('.wm-toc-li-nested').addClass('collapse in')
+      .prev('.wm-toc-opener').addClass('wm-toc-open');
+  </script>
+  <div class="wm-content-pane">
+    <div class="wm-article">
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../keyboard-shortcuts/" class="btn btn-xs btn-link">
+        Shortcuts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../2021-06-timesheets/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../2021-06-timesheets/" class="btn btn-xs btn-link">
+        Summary Tables Guide
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="automatic-time-and-user-stamps-guide">Automatic Time and User Stamps Guide<a class="headerlink" href="#automatic-time-and-user-stamps-guide" title="Permanent link">#</a></h1>
+<p>It is sometimes useful to know when a record was last updated or created, and by whom. Grist makes
+it simple to create columns that stamp the time or a user’s name to a record when it is updated or
+created. This makes it possible to sort records by age, determine how long a record has
+existed, or quickly track the most recent edit to its author.</p>
+<p>This is especially useful when working in a team. Suppose you have a document tracking sales
+opportunities. It may be useful to know the last time a sales person took action on a particular
+opportunity, and further determine for how long that opportunity has been pending.</p>
+<p>We’ve created a tutorial based on our
+<a href="https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker" target="_blank">Grant Application Tracker</a>
+template. To follow along with this guide, start with this
+<a href="https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8" target="_blank">incomplete version of the template</a>
+that is missing time and user stamp columns. We will recreate those together in this tutorial.
+Create a copy and edit the template as you follow along with this guide.</p>
+<p class="grist-button"><a href="https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8" target="_blank">Open Tutorial Template</a></p>
+<h2 id="template-overview-grant-application-tracker">Template Overview: Grant Application Tracker<a class="headerlink" href="#template-overview-grant-application-tracker" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8ujW4H7FGlE?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>In this template, an NGO focused on ocean conservation projects tracks their grant applications
+submitted to marine-focused foundations. Here’s a breakdown of the document structure.</p>
+<ul>
+<li>The <code>Applications Dashboard</code> shows all applications, application details, foundation details, and
+  related tasks in one helpful view.</li>
+<li><code>Tasks by Staff</code> lists the NGO’s personnel, the applications they’re overseeing, and tasks
+  assigned to each team member.</li>
+<li><code>Our Programs</code> lists the programs the NGO is seeking to fund.</li>
+<li><code>Our Funding Overview</code> provides an overview of funding with two charts: (i) breakdown of funds
+  in the fundraising pipeline, and (ii) breakdown of total funding awarded to specific NGO
+  programs.</li>
+<li><code>Foundations We Work With</code> lists the foundations to which the NGO has applied for funding. This
+  page also lists related applications and tasks.</li>
+</ul>
+<h2 id="creating-time-stamp-columns">Creating Time Stamp Columns<a class="headerlink" href="#creating-time-stamp-columns" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZrH9BK4iDGg?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>Columns can stamp the time when a record was created or updated by using the <code class="formula">NOW()</code>
+formula. Let’s add a column to the <code>Tasks</code> table to track when a task was last updated. This can
+be accomplished in three steps.</p>
+<ol>
+<li>In the <code>Tasks</code> table, create a column labeled ‘Last Updated’  and in column types, select
+   <strong>DateTime</strong> to select your desired <a href="../../col-types/#datetime-columns">format for date and time</a>.</li>
+<li>Convert the column to a data column by clicking the <code>ACTIONS</code> dropdown in the creator panel.
+   This prevents the formula from triggering whenever the document loads. Once converted to a data
+   column, enter the <code class="formula">NOW()</code> formula. You will see two checkbox options below the formula.<ul>
+<li><code>Apply to new records</code> triggers the formula only when a record is created.</li>
+<li><code>Apply on record changes</code> triggers the formula when a record is updated.</li>
+</ul>
+</li>
+<li>Select <code>Apply on record changes</code> to open a submenu where you may select which fields, when
+   updated, will trigger the formula. In this case, we&rsquo;ll select <code>Any Field</code> which means that
+   updating any field in this record will trigger the time stamp formula to update.</li>
+</ol>
+<p>Great! You are now tracking when a task was last updated. Next, you may want to know who created a
+task because that person may have the most information about the task’s goals and parameters.
+That’s just as simple to create in Grist as time stamps.</p>
+<h2 id="creating-user-stamp-columns">Creating User Stamp Columns<a class="headerlink" href="#creating-user-stamp-columns" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OKjtvx9nGpc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>User stamps are created using the exact same steps as time stamps, expect for one detail — the
+formula is <code class="formula">user.Name</code>. Let’s add a column to the <code>Tasks</code> table to track who created a
+task.</p>
+<ol>
+<li>In the <code>Tasks</code> table, create a column labeled ‘Created By’ and in column types, select <strong>Text</strong>
+   and <a href="../../col-types/#text-columns">modify the format</a> if you wish.</li>
+<li>Convert formula column to a data column and enter the <code class="formula">user.Name</code> formula.</li>
+<li>Select <code>Apply to new records</code> so that the formula only triggers when a new record is created.</li>
+</ol>
+<p>There are other possibilities available in addition to <code>user.Name</code> such as <code>user.Email</code> or a
+unique <code>user.UserID</code>. The user information available is the same as that in <a href="../../access-rules/#access-rule-conditions">access rule
+conditions</a>.</p>
+<p><strong>Note.</strong> It is still possible for a user to manually edit cells with time stamp or user stamp
+formulas. If you don&rsquo;t want that to be allowed, use
+<a href="../../access-rules/">access rules</a> to forbid it.</p>
+<p>And that’s it! You’ve created columns that capture user and time stamp information based on
+specific triggers, such as when a record is updated or created. Great job!</p>
+<h2 id="dig-deeper-combining-time-and-user-stamps-using-formulas">Dig Deeper: Combining time and user stamps using formulas<a class="headerlink" href="#dig-deeper-combining-time-and-user-stamps-using-formulas" title="Permanent link">#</a></h2>
+<p>Typically it is best practice to keep time and user stamp information in separate columns so that
+you may later sort and filter by those columns. However, there may be times when it would be
+useful to capture both time and user stamp information in the same column. Let’s add such a column
+to the <code>Applications</code> table.</p>
+<ol>
+<li>In the <code>Applications</code> table, create a column labeled ‘Created At’ and convert to a data column.
+   In column types, select Text.</li>
+<li>Enter the formula <code class="formula">"{:%b %d, %Y} by {}".format(NOW(), user.Name)</code>.<ul>
+<li>The part in quotes is a format string. Each set of curly brackets <code>{}</code> in it gets replaced
+  with the next value in parentheses after <code>.format</code>.</li>
+<li>Note that the format of the date is set within the corresponding <code>{}</code>. The format is set
+  with a colon <code>:</code> followed by the specific Python codes <code>%b</code>, <code>%d</code>, <code>%Y</code>. <a href="https://strftime.org/">Here is a table summarizing
+  all the date format options available in Python</a>.</li>
+</ul>
+</li>
+<li>Select <code>Apply to new records</code> so that the formula only triggers when a new record is created.</li>
+</ol>
+<p><strong>Need more help?</strong> Visit the <a href="https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker" target="_blank">final template</a>
+or contact us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+
+  <br>
+</div><footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div style="position:relative; padding-bottom:56.25%; margin-top: 32px;">
+          <iframe src="" allowfullscreen style="position:absolute; left:0; top:0; width:100%; height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
