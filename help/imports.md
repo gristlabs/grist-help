@@ -1,8 +1,8 @@
 # Importing more data
 
 You can import a file to [start a new Grist document](creating-doc.md), or to
-add data to an existing document. Grist supports imports of Excel, CSV, JSON, and
-tab-separated files.
+add data to an existing document. Grist supports imports of Excel, CSV, JSON,
+tab-separated files and from [Google Drive](imports.md#import-from-a-google-drive).
 
 To start a new Grist document, click the "Add New" button on the home screen
 and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
@@ -44,6 +44,25 @@ marks a column as numeric, any text values in it (such as "N/A") will remain in
 the imported table, but will be highlighted due to the type mismatch.
 
 You can always rename tables and columns after an import, as well as convert types.
+
+## Import from Google Drive
+
+Importing from a Google Drive is as easy as importing from an Excel file or a 
+CSV file. To start, click the "Add New" button and choose "Import from Google 
+Drive".
+
+![import-dialog](images/import-google-drive-sign-in.png)
+
+To import, sign in to your Google Account by clicking the "Sign in" button and
+following the sign-in process. Grist will ask for a permission to read the file
+you will import from Google Drive. We won't read any other files on your
+drive — just the single file you choose to import.
+
+![import-dialog](images/import-google-drive-picker.png)
+
+Once the file has been chosen, the rest of the process is the same as importing 
+from an Excel file. In the [import dialog](imports.md#the-import-dialog) 
+you may configure what data to import, and which destination table to add it to.
 
 ## Import to an existing table
 
