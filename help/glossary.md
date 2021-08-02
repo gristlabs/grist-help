@@ -65,12 +65,12 @@ ones from the [Examples & Templates page](https://docs.getgrist.com/p/templates)
 will open in. A document opened in fiddle mode will have a "fiddle" label
 next to the document title in the top bar.
 
-In fiddle mode, any edit to a document will cause a new, unsaved copy of that
-document to be created; the original document will remain unaffected. The copy
+In fiddle mode, any edit to a document will cause a new, unsaved copy (a.k.a "fork")
+of that document to be created; the original document will remain unaffected. The copy
 can be saved via the "Save Copy" button or menu option.
 
-Appending "m/fork" to the end of a document URL will cause that document to
-open in fiddle mode (e.g. https://templates.getgrist.com/doc/lightweight-crm/m/fork).
+You can add `/m/fork` to the end of any document's URL to make that document
+open in fiddle mode (e.g. https://public.getgrist.com/1npTYpf2Cgyk/AmEx-Activity-Example/m/fork).
 
 ## Field
 
