@@ -212,9 +212,10 @@ to depend on change.
 
 ![formulas-turn-off-formula](images/formulas/formulas-turn-off-formula.png)
 
-There is a small nuance here. What we created now is called 
-[Optional formula](formulas.md#optional-formula-trigger), you can read more about it in the
-following section.
+The original formula is saved but stays inactive. It may come useful
+again if you wish to convert the column back to a formula column, or
+use it as a 
+[Trigger Formula](formulas.md#trigger-formula).
 
 The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
@@ -294,71 +295,86 @@ the side panel, where a simple <code class="keys">*Enter*</code> gives you a new
 Click on the column header, select "Column Options" and edit the
 Formula field.
 
-Optional formula (triggers)
+Trigger Formula
 --------
 
-Each data column has an associated formula that remains inactive. It is up to you
-to decide when and how the formula will be evaluated. It is a very powerful feature
-that allows you to create a [Timestamp](timestamps.md) or [Authorship](authorship.md)
-column, recalculate your data based on a [set of conditions](examples/2021-07-auto-stamps.md)
-that you decide or provide sensible default values for every column in your table.
+Formula columns are great, but they have two drawbacks - they are
+recalculated every time when a record is updated and the column is
+readonly. It may be useful to have more control on when and how they
+are evaluated. This is exactly what Trigger Formulas offer. It is a
+very powerful feature that allows you to create a 
+[Timestamp](timestamps.md) or [Authorship](authorship.md) column,
+recalculate your data based on 
+a [set of conditions](examples/2021-07-auto-stamps.md) that you decide
+, clean data when a new value is entered, or provide sensible default
+values for every column in your table.
 
-The optional formula is available on each existing column you may already have.
-You can find it in the creator panel, under the `DATA COLUMN` section. When you
-have an empty column, you first need to convert it a data column by clicking
-`Make into data column` option under the `ACTIONS` menu. For a formula
-column, you need first to convert it to `Data column` by clicking the 
-`Convert to data column` option under the same `ACTIONS` menu:
+Each data column may have an `Optional formula` that gets triggered
+on certain conditions. This formula is available in the creator panel,
+under the `DATA COLUMN` section.
+
+![Optional formula](images/formulas/formulas-created-by-autofill.png)
+
+When you have an empty column, you first need to convert it a data column 
+by clicking `Make into data column` option under the `ACTIONS` menu. For a 
+formula column, you need first to convert it to a `Data column` by 
+clicking the `Convert to data column` option under the same `ACTIONS` menu:
 
 ![Convert to data column](images/formulas/formulas-convert.png)
 
-To control, when the formula is evaluated, use the two checkbox options below:
+To control when the formula is evaluated, use the two checkbox options 
+below:
 
 ![a Created-At column](images/formulas/formulas-created-at-final.png)
 
 You can choose between two options:
 
-- `Apply to new records` triggers the formula only when a new record is created (a default cell value).
+- `Apply to new records` triggers the formula only when a new record is 
+created (a default cell value).
 - `Apply on record changes` triggers the formula when a record is updated.
 
 Applying to new records is self-explanatory, the formula will be evaluated
-only once when you add a new record. It is a perfect solution to provide default
-values to the empty cells. Second option allows you to fine grain the conditions
-and specify which columns, when updated, will trigger the evaluation:
+only once when you add a new record. It is a perfect solution to provide 
+default values to the empty cells. Second option allows you to fine grain 
+the conditions and specify which columns, when updated, will trigger the 
+evaluation:
 
 ![an Updated-At column](images/formulas/formulas-updated-at.png)
 
 You probably noticed the first option `Current field`. At first glance, you
-probably wonder: "Why would I want to trigger the column on its own change?".
-This option allows you to react to a value that is being entered into the column,
-just right before it is saved!
+probably wonder: "Why would I want to trigger the column on its own 
+change?". This option allows you to react to a value that is being entered 
+into the column, just before it is saved!
 
-In the formula editor, you have access to two variables that are not available
-to regular formulas:
+In the formula editor, you have access to two variables that are not 
+available to regular formulas:
 
 - `value` which is the value that a user wants to enter,
-- `user` which represents a user object that is making the change (you will also see this in the 
-[Access rules](access-rules.md) section).
+- `user` which represents a user object that is making the change (you will also
+see this in the [Access rules](access-rules.md) section).
 
 This allows you to make your application even smarter, track when a record
 [was updated](timestamps.md), or see who made the last [change to a row](authorship.md).
 Simple examples:
 
-Ensure that the value in a column is always written in capital letters:
+1. Ensure that the value in a column is always written in capital letters:
+![data cleanup - uppercase](images/formulas/formulas-data-clean-uppercase.png) 
+With the trigger formula of `value.upper()`{: .formula}, the value typed into
+this column will be converted to upper case automatically.  
 
-![data cleanup - uppercase](images/formulas/formulas-data-clean-uppercase.png)
-
-Format a value that the user enters to sanitize the data before saving:
-
+2. Format a value that the user enters to sanitize the data before saving:
 ![data cleanup - format](images/formulas/formulas-data-clean-format.png)
+With the formula like `value if value.startsWith("SK") else "SK" + value`{: .formula},
+the value typed into this column will always be prefixed with "SK".
 
-Validate the value before storing it into a column:
-
-![data cleanup - validation](images/formulas/formulas-data-clean-validation.png)
+3. Overwrite a default value from a referenced table:
+![data cleanup - reference](images/formulas/formulas-data-clean-reference.png)
+You can use a formula like `value or $Client.Phone`{: .formula}, to provide a default
+value from a referenced table, but still allow the user to type a new one.
 
 In each of these examples, when the user tries to modify a cell, Grist (before
 updating the record) will evaluate the formula and store its result in the column
 instead of the value provided by the user. 
 
-For a detailed, real-life example read our [guide](examples/2021-07-auto-stamps.md) on how
-to create time and user stamps.
+For a detailed, real-life example read our [guide](examples/2021-07-auto-stamps.md)
+on how to create time and user stamps.
