@@ -58,6 +58,20 @@ On a desktop computer, when hovering over a drag handle, the mouse
 cursor changes.  The drag handle for a widget is just to the left of the widget's title.
 There is an example of using this drag handle in the [investment research demo](investment-research.md#chart-graph-plot).
 
+## Fiddle mode
+
+Fiddle mode is a special mode that some Grist documents, such as the
+ones from the [Examples & Templates page](https://docs.getgrist.com/p/templates),
+will open in. A document opened in fiddle mode will have a "fiddle" label
+next to the document title in the top bar.
+
+In fiddle mode, any edit to a document will cause a new, unsaved copy (a.k.a "fork")
+of that document to be created; the original document will remain unaffected. The copy
+can be saved via the "Save Copy" button or menu option.
+
+You can add `/m/fork` to the end of any document's URL to make that document
+open in fiddle mode (e.g. https://public.getgrist.com/1npTYpf2Cgyk/AmEx-Activity-Example/m/fork).
+
 ## Field
 
 A field is a column shown in a Card Widget.  The terms column, field,

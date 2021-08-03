@@ -88,9 +88,15 @@ Backups](automatic-backups.md).
 
 ## Copying Public Examples
 
-When you open a public example, it is similar to working on a copy, as described above in [Trying Out
-Changes](#trying-out-changes). You may make changes, but they remain private to you. You can save
-a copy of the example under a new name using the "Save Copy" button or menu option.
+When you open a public example from the [Examples & Templates page](https://docs.getgrist.com/p/templates),
+it will open the example in [fiddle mode](glossary.md#fiddle-mode).
+
+<span class="screenshot-large">*![Fiddle Mode](images/copying-docs/fiddle-mode.png)*</span>
+{: .screenshot-half }
+
+Fiddle mode is similar to working on a copy, as described above in [Trying Out Changes](#trying-out-changes).
+You may make changes, but they remain private to you. You can save a copy of the example under
+a new name using the "Save Copy" button or menu option.
 
 You can use the "As Template" checkbox to discard the data of the example, keeping only its
 structure. This makes it easy to start using it for your own data.
