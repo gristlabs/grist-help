@@ -215,7 +215,7 @@ to depend on change.
 The original formula is saved but stays inactive. It may come useful
 again if you wish to convert the column back to a formula column, or
 use it as a 
-[Trigger Formula](formulas.md#trigger-formula).
+[Trigger Formula](formulas.md#trigger-formulas).
 
 The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
@@ -295,19 +295,19 @@ the side panel, where a simple <code class="keys">*Enter*</code> gives you a new
 Click on the column header, select "Column Options" and edit the
 Formula field.
 
-Trigger Formula
+Trigger Formulas
 --------
 
-Formula columns are great, but they have two drawbacks - they are
-recalculated every time when a record is updated and the column is
-readonly. It may be useful to have more control on when and how they
-are evaluated. This is exactly what Trigger Formulas offer. It is a
-very powerful feature that allows you to create a 
+Formula columns are great for calculated values -- those determined by
+other data in the document. It may also be useful to store independent 
+data in a column, but still use a formula to calculate it in some
+situations. This is exactly what Trigger Formulas offer. It is a
+very powerful feature that allows you to create a
 [Timestamp](timestamps.md) or [Authorship](authorship.md) column,
-recalculate your data based on 
+recalculate your data based on
 a [set of conditions](examples/2021-07-auto-stamps.md) that you decide
 , clean data when a new value is entered, or provide sensible default
-values for every column in your table.
+value for a column.
 
 Each data column may have an `Optional formula` that gets triggered
 on certain conditions. This formula is available in the creator panel,
@@ -326,8 +326,6 @@ To control when the formula is evaluated, use the two checkbox options
 below:
 
 ![a Created-At column](images/formulas/formulas-created-at-final.png)
-
-You can choose between two options:
 
 - `Apply to new records` triggers the formula only when a new record is 
 created (a default cell value).
@@ -364,7 +362,7 @@ this column will be converted to upper case automatically.
 
 2. Format a value that the user enters to sanitize the data before saving:
 ![data cleanup - format](images/formulas/formulas-data-clean-format.png)
-With the formula like `value if value.startsWith("SK") else "SK" + value`{: .formula},
+With the formula like `value if value.startswith("SK") else "SK" + value`{: .formula},
 the value typed into this column will always be prefixed with "SK".
 
 3. Overwrite a default value from a referenced table:
