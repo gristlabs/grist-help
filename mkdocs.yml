@@ -104,7 +104,7 @@ extra:
   history_buttons: false
   home_link:
     href: https://www.getgrist.com
-    text: 'Grist Home'
+    text: 'Back to Grist'
 extra_css:
   - css/grist.css
 extra_javascript:
