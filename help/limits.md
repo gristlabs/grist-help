@@ -18,11 +18,11 @@ not counting the creator.  The set of collaborators can be different
 for each document.
 
 In paid plans, documents can be shared with everyone on your team, which are paid seats. Team
-members are added to your team organization and may inherit access to workspaces or documents
+members are added to your team site and may inherit access to workspaces or documents
 within that organization. Learn more about [team
-sharing](https://support-preview.getgrist.com/team-sharing/#team-sharing).
+sharing](team-sharing.md#team-sharing).
 
-Included in the paid plan: You may share each document to an additional 2 non-team users without
+Included in the paid plan: You may share each document with 2 additional non-team users without
 incurring extra costs.
 
 ## Number of tables per document
