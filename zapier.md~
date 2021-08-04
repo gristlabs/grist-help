@@ -1,0 +1,21 @@
+# Integrations via Zapier
+
+Grist can be connected to thousands of other services via
+[Zapier](https://zapier.com/apps/grist/integrations).  For example,
+Grist can trigger an integration workflow whenever there is a new or
+updated record in a table.  Conversely, integration workflows can
+find, add, or update records in Grist tables.
+
+## Google Forms
+
+Suppose you have a Google form...
+
+
+
+## Jotform
+
+
+Document connecting to forms via Zapier (Google Forms, Jotform?)
+
+## Google Sheets
+
