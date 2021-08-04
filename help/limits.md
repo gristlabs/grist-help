@@ -6,8 +6,10 @@ mind, here is a list of limitations that apply to its operation.
 ## Number of documents
 
 The number of documents is limited to 10 in free plans.
-Paid plans allow up to 1000 documents per user, which may
-be increased via a support request.
+
+Paid plans allow unlimited documents. To prevent accidental abuse of the system by automation
+tools, team sites may be limited to 1000 documents. If you encounter such a limit for legitimate
+use, please contact support to increase it.
 
 ## Number of collaborators
 
@@ -15,10 +17,13 @@ In free plans, each document may be shared with 2 other users,
 not counting the creator.  The set of collaborators can be different
 for each document.
 
-In paid plans, documents can be shared with 2 other users without
-extra cost just as in the free plans.  Paid plans also allow you to
-add users to a "team" with paid seats, granting rights to users
-systematically on sets of documents.
+In paid plans, documents can be shared with everyone on your team, which are paid seats. Team
+members are added to your team organization and may inherit access to workspaces or documents
+within that organization. Learn more about [team
+sharing](https://support-preview.getgrist.com/team-sharing/#team-sharing).
+
+Included in the paid plan: You may share each document to an additional 2 non-team users without
+incurring extra costs.
 
 ## Number of tables per document
 
