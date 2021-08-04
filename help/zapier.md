@@ -66,9 +66,10 @@ Then we pick the Grist document to send form responses to:
 
 ![which document](images/zapier/google-forms/which-document.png)
 
-And then we pick the table to use within that document (easy if there is just one).
-For Zapier's benefit in a later step, we make sure there is at least one sample response
-already in the table.
+And then we pick the table to use within that document. It should have columns
+to store whatever parts of the form we want to keep. It is important to make
+this table if it doesn't exist already; it won't be created automatically.
+It isn't important to match column names with questions.
 
 ![which table](images/zapier/google-forms/which-table.png)
 
