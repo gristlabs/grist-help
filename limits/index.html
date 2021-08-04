@@ -502,6 +502,16 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#size-of-documents">
+                Size of documents
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#upload-limits">
+                Upload limits
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#document-availability">
                 Document availability
               </a>
@@ -587,23 +597,36 @@
 <p>To help you assess whether Grist will work for a use-case you have in
 mind, here is a list of limitations that apply to its operation.</p>
 <h2 id="number-of-documents">Number of documents<a class="headerlink" href="#number-of-documents" title="Permanent link">#</a></h2>
-<p>The number of documents is limited to 10 in free plans.
-Paid plans allow up to 1000 documents per user, which may
-be increased via a support request.</p>
+<p>The number of documents is limited to 10 in free plans.</p>
+<p>Paid plans allow unlimited documents. To prevent accidental abuse of the system by automation
+tools, team sites may be limited to 1000 documents. If you encounter such a limit for legitimate
+use, please contact support to increase it.</p>
 <h2 id="number-of-collaborators">Number of collaborators<a class="headerlink" href="#number-of-collaborators" title="Permanent link">#</a></h2>
 <p>In free plans, each document may be shared with 2 other users,
 not counting the creator.  The set of collaborators can be different
 for each document.</p>
-<p>In paid plans, documents can be shared with 2 other users without
-extra cost just as in the free plans.  Paid plans also allow you to
-add users to a &ldquo;team&rdquo; with paid seats, granting rights to users
-systematically on sets of documents.</p>
+<p>In paid plans, documents can be shared with everyone on your team, which are paid seats. Team
+members are added to your team site and may inherit access to workspaces or documents
+within that organization. Learn more about <a href="../team-sharing/#team-sharing">team
+sharing</a>.</p>
+<p>Included in the paid plan: You may share each document with 2 additional non-team users without
+incurring extra costs.</p>
 <h2 id="number-of-tables-per-document">Number of tables per document<a class="headerlink" href="#number-of-tables-per-document" title="Permanent link">#</a></h2>
 <p>There is a limit of 500 on the number of tables allowed per document.
 This is a soft limit.  If you find yourself with a large number of
 tables, consider merging ones that have the same structure.  For
 example, if you have a table for each product type, consider using a single
 table with the product type as an extra column.</p>
+<h2 id="size-of-documents">Size of documents<a class="headerlink" href="#size-of-documents" title="Permanent link">#</a></h2>
+<p>As a rule of thumb, Grist works best for documents under 100,000 rows. The actual limit depends
+also on the number of tables, columns, and the average size of data in each cell. One way to
+estimate it is to measure the size of the data when it is in CSV format: the limit is around 20MB
+in this format. For example, a document with 200,000 rows and 12 numeric columns would reach that.</p>
+<p>Attachments are counted separately. Attachments plus data in a single document are limited to 1GB.</p>
+<h2 id="upload-limits">Upload limits<a class="headerlink" href="#upload-limits" title="Permanent link">#</a></h2>
+<p>Uploads are limited to 50MB, both for attachments and to import data. Note that an import within
+this limit may result in a document that exceeds the document size limit, in which case the upload
+is still likely to fail.</p>
 <h2 id="document-availability">Document availability<a class="headerlink" href="#document-availability" title="Permanent link">#</a></h2>
 <p>From time to time, during upgrades and operational transitions,
 individual Grist documents may become inaccessible for a period of
