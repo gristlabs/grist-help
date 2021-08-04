@@ -28,6 +28,21 @@ tables, consider merging ones that have the same structure.  For
 example, if you have a table for each product type, consider using a single
 table with the product type as an extra column.
 
+## Size of documents
+
+As a rule of thumb, Grist works best for documents under 100,000 rows. The actual limit depends
+also on the number of tables, columns, and the average size of data in each cell. One way to
+estimate it is to measure the size of the data when it is in CSV format: the limit is around 20MB
+in this format. For example, a document with 200,000 rows and 12 numeric columns would reach that.
+
+Attachments are counted separately. Attachments plus data in a single document are limited to 1GB.
+
+## Upload limits
+
+Uploads are limited to 50MB, both for attachments and to import data. Note that an import within
+this limit may result in a document that exceeds the document size limit, in which case the upload
+is still likely to fail.
+
 ## Document availability
 
 From time to time, during upgrades and operational transitions,
