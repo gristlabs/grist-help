@@ -114,7 +114,7 @@
     
     <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
       <div class="wm-top-title">
-        Grist Home
+        Back to Grist
       </div>
     </a>
     
@@ -526,6 +526,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#fiddle-mode">
+                Fiddle mode
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#field">
                 Field
               </a>
@@ -594,6 +599,22 @@
 </li>
 
   </ul>
+
+  <div class="wm-toc-quick-links">
+    <div class="wm-toc-quick-links-header"><span class="wm-toc-text">Quick Links</span></div>
+    <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://community.getgrist.com/" class="wm-quick-link wm-toc-text">Community</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://docs.getgrist.com/p/templates" class="wm-quick-link wm-toc-text">Templates</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
+      </li>
+    </ul>
+  </div>
+
 </nav>
 
   <script>
@@ -671,6 +692,16 @@ edit tables.</p>
 On a desktop computer, when hovering over a drag handle, the mouse
 cursor changes.  The drag handle for a widget is just to the left of the widget&rsquo;s title.
 There is an example of using this drag handle in the <a href="../investment-research/#chart-graph-plot">investment research demo</a>.</p>
+<h2 id="fiddle-mode">Fiddle mode<a class="headerlink" href="#fiddle-mode" title="Permanent link">#</a></h2>
+<p>Fiddle mode is a special mode that some Grist documents, such as the
+ones from the <a href="https://docs.getgrist.com/p/templates">Examples &amp; Templates page</a>,
+will open in. A document opened in fiddle mode will have a &ldquo;fiddle&rdquo; label
+next to the document title in the top bar.</p>
+<p>In fiddle mode, any edit to a document will cause a new, unsaved copy (a.k.a &ldquo;fork&rdquo;)
+of that document to be created; the original document will remain unaffected. The copy
+can be saved via the &ldquo;Save Copy&rdquo; button or menu option.</p>
+<p>You can add <code>/m/fork</code> to the end of any document&rsquo;s URL to make that document
+open in fiddle mode (e.g. https://public.getgrist.com/1npTYpf2Cgyk/AmEx-Activity-Example/m/fork).</p>
 <h2 id="field">Field<a class="headerlink" href="#field" title="Permanent link">#</a></h2>
 <p>A field is a column shown in a Card Widget.  The terms column, field,
 and series are not different in substance, but are different terms

@@ -114,7 +114,7 @@
     
     <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
       <div class="wm-top-title">
-        Grist Home
+        Back to Grist
       </div>
     </a>
     
@@ -330,6 +330,11 @@
                 Recursion
               </a>
             </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#trigger-formulas">
+                Trigger Formulas
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -534,6 +539,22 @@
 </li>
 
   </ul>
+
+  <div class="wm-toc-quick-links">
+    <div class="wm-toc-quick-links-header"><span class="wm-toc-text">Quick Links</span></div>
+    <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://community.getgrist.com/" class="wm-quick-link wm-toc-text">Community</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://docs.getgrist.com/p/templates" class="wm-quick-link wm-toc-text">Templates</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
+      </li>
+    </ul>
+  </div>
+
 </nav>
 
   <script>
@@ -739,16 +760,18 @@ underscore.  Auto-complete may help you if you&rsquo;re not sure.  You
 can also control the &ldquo;ids&rdquo; of columns and tables in the right side panel.</p>
 <h2 id="freeze-a-formula-column">Freeze a formula column<a class="headerlink" href="#freeze-a-formula-column" title="Permanent link">#</a></h2>
 <p>If you&rsquo;d like to save the output of your formula as plain values, you can simply turn off the
-formula.  First open the column options in the side panel:</p>
-<p><img alt="formulas-column-options" src="../images/formulas/formulas-column-options.png" />
-<img alt="formulas-sidebar" src="../images/formulas/formulas-side-bar.png" /></p>
-<p>Now click on the orange formula icon in the side panel to turn it off: <img alt="Formula
-icon on" src="../images/formulas-sidebar-icon-on.png" /> ➔ <img alt="Formula icon
-off" src="../images/formulas-sidebar-icon-off.png" />:</p>
-<p><img alt="formulas-turn-off-formula" src="../images/formulas/formulas-turn-off-formula.png" /></p>
+formula. First open the column options in the side panel:</p>
+<p><img alt="formulas-column-options" src="../images/formulas/formulas-column-options.png" /></p>
+<p>Now click on the <code>ACTIONS</code> menu and select <code>Convert to data column</code> option to turn it off:</p>
+<p><img alt="formulas-action-menu" src="../images/formulas/formulas-action-menu.png" /></p>
 <p>Notice that there is no <code>=</code> sign in the column cells any more, showing that it
 is no longer a formula.  The cells will no longer change if other cells they used
 to depend on change.</p>
+<p><img alt="formulas-turn-off-formula" src="../images/formulas/formulas-turn-off-formula.png" /></p>
+<p>The original formula is saved but stays inactive. It may come useful
+again if you wish to convert the column back to a formula column, or
+use it as a 
+<a href="./#trigger-formulas">Trigger Formula</a>.</p>
 <p>The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
 just as much to formula columns as to regular columns.</p>
@@ -806,6 +829,79 @@ to divide the lines.  For longer formulas, you may prefer to use
 the side panel, where a simple <code class="keys"><em>Enter</em></code> gives you a new line.
 Click on the column header, select &ldquo;Column Options&rdquo; and edit the
 Formula field.</p>
+<h2 id="trigger-formulas">Trigger Formulas<a class="headerlink" href="#trigger-formulas" title="Permanent link">#</a></h2>
+<p>Formula columns are great for calculated values &ndash; those determined by
+other data in the document. It may also be useful to store independent 
+data in a column, but still use a formula to calculate it in some
+situations. This is exactly what Trigger Formulas offer. It is a
+very powerful feature that allows you to create a
+<a href="../timestamps/">Timestamp</a> or <a href="../authorship/">Authorship</a> column,
+recalculate your data based on
+a <a href="../examples/2021-07-auto-stamps/">set of conditions</a> that you decide
+, clean data when a new value is entered, or provide sensible default
+value for a column.</p>
+<p>Each data column may have an <code>Optional formula</code> that gets triggered
+on certain conditions. This formula is available in the creator panel,
+under the <code>DATA COLUMN</code> section.</p>
+<p><img alt="Optional formula" src="../images/formulas/formulas-created-by-autofill.png" /></p>
+<p>When you have an empty column, you first need to convert it a data column 
+by clicking <code>Make into data column</code> option under the <code>ACTIONS</code> menu. For a 
+formula column, you need first to convert it to a <code>Data column</code> by 
+clicking the <code>Convert to data column</code> option under the same <code>ACTIONS</code> menu:</p>
+<p><img alt="Convert to data column" src="../images/formulas/formulas-convert.png" /></p>
+<p>To control when the formula is evaluated, use the two checkbox options 
+below:</p>
+<p><img alt="a Created-At column" src="../images/formulas/formulas-created-at-final.png" /></p>
+<ul>
+<li><code>Apply to new records</code> triggers the formula only when a new record is 
+created (a default cell value).</li>
+<li><code>Apply on record changes</code> triggers the formula when a record is updated.</li>
+</ul>
+<p>Applying to new records is self-explanatory, the formula will be evaluated
+only once when you add a new record. It is a perfect solution to provide 
+default values to the empty cells. Second option allows you to fine grain 
+the conditions and specify which columns, when updated, will trigger the 
+evaluation:</p>
+<p><img alt="an Updated-At column" src="../images/formulas/formulas-updated-at.png" /></p>
+<p>You probably noticed the first option <code>Current field</code>. At first glance, you
+probably wonder: &ldquo;Why would I want to trigger the column on its own 
+change?&rdquo;. This option allows you to react to a value that is being entered 
+into the column, just before it is saved!</p>
+<p>In the formula editor, you have access to two variables that are not 
+available to regular formulas:</p>
+<ul>
+<li><code>value</code> which is the value that a user wants to enter,</li>
+<li><code>user</code> which represents a user object that is making the change (you will also
+see this in the <a href="../access-rules/">Access rules</a> section).</li>
+</ul>
+<p>This allows you to make your application even smarter, track when a record
+<a href="../timestamps/">was updated</a>, or see who made the last <a href="../authorship/">change to a row</a>.
+Simple examples:</p>
+<ol>
+<li>
+<p>Ensure that the value in a column is always written in capital letters:
+<img alt="data cleanup - uppercase" src="../images/formulas/formulas-data-clean-uppercase.png" /> 
+With the trigger formula of <code class="formula">value.upper()</code>, the value typed into
+this column will be converted to upper case automatically.  </p>
+</li>
+<li>
+<p>Format a value that the user enters to sanitize the data before saving:
+<img alt="data cleanup - format" src="../images/formulas/formulas-data-clean-format.png" />
+With the formula like <code class="formula">value if value.startswith("SK") else "SK" + value</code>,
+the value typed into this column will always be prefixed with &ldquo;SK&rdquo;.</p>
+</li>
+<li>
+<p>Overwrite a default value from a referenced table:
+<img alt="data cleanup - reference" src="../images/formulas/formulas-data-clean-reference.png" />
+You can use a formula like <code class="formula">value or $Client.Phone</code>, to provide a default
+value from a referenced table, but still allow the user to type a new one.</p>
+</li>
+</ol>
+<p>In each of these examples, when the user tries to modify a cell, Grist (before
+updating the record) will evaluate the formula and store its result in the column
+instead of the value provided by the user. </p>
+<p>For a detailed, real-life example read our <a href="../examples/2021-07-auto-stamps/">guide</a>
+on how to create time and user stamps.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">

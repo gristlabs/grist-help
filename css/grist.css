@@ -370,13 +370,21 @@ body {
 }
 
 .wm-toc-pane {
-   width: 250px;
-   background-color: #f7f7f7;
-   padding-left: 0;
-   padding-right: 0;
-   padding-bottom: 0;
-   min-width: initial;
-   max-width: initial;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: #f7f7f7;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  min-width: initial;
+  max-width: initial;
+}
+
+@media (max-width: 600px) {
+  .wm-toc-pane {
+    display: none;
+  }
 }
 
 /* some padding at bottom of .wm-toc-pane; padding-bottom isn't enough there */
@@ -511,4 +519,15 @@ footer {
 
 .table-striped > tbody > tr:nth-of-type(2n+1) {
   background-color: unset;
+}
+
+.wm-toc-quick-links {
+  flex: none;
+  margin-top: auto;
+  padding-top: 40px;
+  padding-bottom: 32px;
+}
+
+.wm-toc-quick-links-header {
+  padding-left: 36px;
 }
