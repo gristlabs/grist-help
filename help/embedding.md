@@ -1,40 +1,15 @@
-
-## Public access
-
-If you want to share your document with a wider audience, you can make it publicly accessible.
-In the "Share" menu (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top,
-select "Manage Users". Then toggle the dropdown next to "Public Access" to "On":
-
-<span class="screenshot-large">*![keyboard shortcuts](./images/newsletters/2020-09/public-access-toggle.png)*</span>
-
-Once you confirm the change, anyone with the link to your document
-will be able to view it. They don't even need to have a Grist login.
-
-The "Copy Link" button is handy to copy the link to the clipboard for
-pasting into an email, tweet, or anywhere else.
-
-You can also allow anyone with the link to your document to edit it:
-simply switch the role in the Public Access row to Editor.
-
-<span class="screenshot-large">*![keyboard shortcuts](./images/newsletters/2020-09/public-access-editor.png)*
-</span>
-
-Note that this allows **anyone** with the link to change **absolutely anything**
-in your document, including deleting all the data. The snapshots in
-[Document History](../automatic-backups.md#examining-backups) should help
-if anything goes wrong.
-
 ## Embedding Grist
 
 !!! warning "This is an experimental feature"
     The design of this feature is likely to evolve. Keep an eye on our
     [Roadmap](https://github.com/gristlabs/grist-core/projects/1) for updates. 
 
-With public access in place, you may wish to embed your Grist document on your own site.
-Let's say you have some financial data you want to share with your stockholders,
-share the inventory with retailers or build a dashboard for your own product.
+Let's say you have some financial data you want to share with your stockholders, a list
+of products with their prices and quantities in stock that you want to make visible to
+your clients or a pie chart of live voting results for a new fantastic feature for your own
+product. This all can be easily achieved by embedding a Grist document on your own site.
 
-To embed a document you first need to make it [public](sharing.md#public-access) and have
+To do that, you first need to make it [public](sharing.md#public-access) and have
 access to your web server in order to place some HTML code in the desired location
 (some minimal knowledge of HTML is required).
 
@@ -44,7 +19,7 @@ from inside the admin panel or use a third party [plugin](https://wordpress.org/
 to access the HTML editor features. If you have any problems editing your site,
 feel free to ask us or post a question on our [Community Forum](https://community.getgrist.com/).
 
-Once you are decided where to embed your document past this code snippet in your HTML file:
+Once you are decided where to embed your document, paste this code snippet in your HTML file:
 
 ```html
 <iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true" 
