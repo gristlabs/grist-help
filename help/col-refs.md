@@ -1,13 +1,13 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Reference columns
-=================
+Reference & Reference List columns
+==================================
 
 Overview
 --------
-Reference columns in Grist allow one table to create an explicit reference to another. In the
-database world this is similar to a foreign key. In the spreadsheet world this is similar to a
-`VLOOKUP`, but much more powerful and easier to use.
+Reference and Reference List columns in Grist allow one table to create an explicit reference
+to another. In the database world this is similar to a foreign key. In the spreadsheet world
+this is similar to a `VLOOKUP`, but much more powerful and easier to use.
 
 In this guide we'll use the term **underlying table** for the table that lists all available values,
 and **referencing table** for the table that uses those values.
@@ -105,3 +105,41 @@ in this example confuse you.
     You may have noticed that the underlying table is `Clients` (plural) but the formula is
     `$Client.Contact` (singular). That's because the formula refers to the referencing column,
     **not** the underlying table. In our example, the referencing column is `Client`.
+
+Creating a new reference list column
+------------------------------------
+
+So far our example has only dealt with `Projects` that reference a single `Client`. Suppose that
+we also have `Projects` with multiple `Clients`, and we'd like to maintain references to
+them all from the `Client` column of `Projects`.
+
+We can let Grist know that the Client column contains multiple references by converting the
+Client column to a "reference list" column. Open the Column Options side
+panel (see [Specifying a type](col-types.md#specifying-a-type)) and set the "Column Type"
+of Client to "Reference List". Grist will automatically convert any of your existing
+references to reference lists. Once you're happy with the result, just hit "Apply" and
+the Client column will be ready to accept as many clients as your Projects need.
+
+![Reference List set-up](images/columns/columns-reference-list-transform.png)
+
+Adding values to a reference list column
+-----------------------------------
+To make changes to a reference list cell, simply double-click the cell or press the
+`Enter` key after you have selected the cell you want to edit. You can also start
+typing after selecting a cell if you'd like to write over any existing contents.
+Doing so will open an editor like the one in the example below.
+
+*![Reference List editor](images/columns/columns-reference-list-editor.png)*
+{: .screenshot-half }
+
+Like with reference columns, the autocomplete menu will populate with suggestions
+as you type, and you'll be able to add new values as well by clicking the `+` item.
+
+To delete existing reference, simply move your cursor over them and click the `X`
+icon, or select them with the arrow keys or mouse, and press the `Delete/Backspace` key.
+
+You can also re-arranged references in the editor by clicking and dragging your mouse.
+
+Once you are happy with your changes in the editor, you can either press `Enter` or
+click outside the editor to close it and save your changes. If you'd like to discard
+any edits you've made since opening the editor, you can press `Escape`.
