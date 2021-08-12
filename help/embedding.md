@@ -48,11 +48,11 @@ and any page with multiple sections.
 Here are two more examples with a chart and a card list view:
 
 <iframe src="https://public.getgrist.com/42dAvZXMFewH/Funding-Pipeline/p/13?embed=true" 
-        height="300px" width="100%" frameborder="0" />
+        height="300px" width="100%" frameborder="0">
 </iframe>
 
 <iframe src="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/3?embed=true" 
-        height="300px" width="100%" frameborder="0" />
+        height="300px" width="100%" frameborder="0">
 </iframe>
 
 Embedding editable documents is not yet supported, but we are working on it
