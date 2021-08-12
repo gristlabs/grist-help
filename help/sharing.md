@@ -53,26 +53,36 @@ in the [Team Sharing](team-sharing.md) article.
 ## Public access
 
 If you want to share your document with a wider audience, you can make it publicly accessible.
-In the "Share" menu (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top,
-select "Manage Users". Then toggle the dropdown next to "Public Access" to "On":
+Open the share menu by clicking on the share icon 
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top right of the
+screen and selecting "Manage Users". Toggle the dropdown next to "Public Access" and select "On":
 
 <span class="screenshot-large">*![public access toggle](./images/newsletters/2020-09/public-access-toggle.png)*</span>
 
-Once you confirm the change, anyone with the link to your document
-will be able to view it. They don't even need to have a Grist login.
+Once you click "confirm", anyone with the link to your document
+will be able to view it. They will not be required to have a Grist login.
 
 The "Copy Link" button is handy to copy the link to the clipboard for
 pasting into an email, tweet, or anywhere else.
 
-You can also allow anyone with the link to your document to edit it:
-simply switch the role in the Public Access row to Editor.
+You can also allow anyone with the link to edit your document. Simply 
+switch the role for Public Access to Editor.
 
 <span class="screenshot-large">*![public access editor](./images/newsletters/2020-09/public-access-editor.png)*
 </span>
 
-Note that [access rules](access-rules.md) can not be combined with a public editor
-role, as this allows **anyone** with the link to change **absolutely anything**
-in your document, including deleting all the data. The snapshots in
-[Document History](./automatic-backups.md#examining-backups) should help
-if anything goes wrong.
+Note that this allows **anyone** with the link to change
+**absolutely anything** in your document, including deleting all the 
+data. Should anything go wrong, you may recover previous versions of your 
+document in the snapshots section of
+[Document History.](./automatic-backups.md#examining-backups)
 
+[Access rules](access-rules.md) may be combined with view-only link sharing, 
+i.e. when the Public Access role is set to "Viewer." Read more about 
+[Link Keys](../access-rules.md/#link-keys) to learn how to set rules that
+limit which parts of your data users may see when accessing your document
+via a particular link.
+
+Access Rules do not support restricted link sharing when Public Access
+is set to "Editor." Supporting access rules in this case, and others,
+is on our [roadmap.](https://github.com/gristlabs/grist-core/issues/36)
