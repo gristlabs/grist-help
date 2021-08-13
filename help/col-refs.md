@@ -114,11 +114,13 @@ we also have projects with multiple clients, and we'd like to maintain reference
 them all from the `Client` column of the `Projects` table.
 
 We can let Grist know that the `Client` column contains multiple references by changing its
-type to "Reference List". Open the Column Options side panel (see
-[Specifying a type](col-types.md#specifying-a-type)) and set the "Column Type"
-of `Client` to "Reference List". Grist will automatically convert any of your existing
-references to reference lists. Once you're happy with the result, just hit "Apply" and
-the `Client` column will be ready to accept as many clients as your projects need.
+type to "Reference List". This column type can reference multiple records, and can also be
+thought of as a multi-select.
+
+Open the Column Options side panel (see [Specifying a type](col-types.md#specifying-a-type))
+and set the "Column Type" of `Client` to "Reference List". Grist will automatically convert
+any of your existing references to reference lists. Once you're happy with the result, just
+hit "Apply" and the `Client` column will be ready to accept as many clients as your projects need.
 
 ![Reference List set-up](images/columns/columns-reference-list-transform.png)
 
