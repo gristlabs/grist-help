@@ -52,6 +52,7 @@ nav:
     - API usage: rest-api.md
     - API reference: api.md
     - Zapier: zapier.md
+    - Embedding: embedding.md
   - News & updates:
     - Newsletters: newsletters.md
     - 2021/07: newsletters/2021-07.md
