@@ -1,18 +1,18 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Reference columns
-=================
+Reference and Reference Lists
+==================================
 
 Overview
 --------
-Reference columns in Grist allow one table to create an explicit reference to another. In the
-database world this is similar to a foreign key. In the spreadsheet world this is similar to a
-`VLOOKUP`, but much more powerful and easier to use.
+Reference and Reference List columns in Grist allow one table to create an explicit reference
+to another. In the database world this is similar to a foreign key. In the spreadsheet world
+this is similar to a `VLOOKUP`, but much more powerful and easier to use.
 
 In this guide we'll use the term **underlying table** for the table that lists all available values,
 and **referencing table** for the table that uses those values.
 
-Creating a new reference column
+Creating a new Reference column
 -------------------------------
 
 Suppose we have a document with two tables, Clients and Projects.  The Clients table lists
@@ -57,7 +57,7 @@ highlighted as invalid:
 *![Invalid reference value](images/column-ref-invalid.png)*
 {: .screenshot-half }
 
-Adding values to a reference column
+Adding values to a Reference column
 -----------------------------------
 Sometimes it's useful to add a new value to the dropdown list without having to switch to the
 underlying table. Reference columns make it easy! Just type in the value you want add and select the
@@ -67,7 +67,7 @@ the underlying table and insert the proper reference:
 *![Add reference value](images/column-ref-add-value.png)*
 {: .screenshot-half }
 
-Converting text column to reference
+Converting Text column to Reference
 -----------------------------------
 When working with existing data, it's common to have existing text values that should really be
 reference values. Don't worry, conversion is simple! Just change the column type to `Reference` and
@@ -105,3 +105,45 @@ in this example confuse you.
     You may have noticed that the underlying table is `Clients` (plural) but the formula is
     `$Client.Contact` (singular). That's because the formula refers to the referencing column,
     **not** the underlying table. In our example, the referencing column is `Client`.
+
+Creating a new Reference List column
+------------------------------------
+
+So far our example has only dealt with projects that have a single client. Suppose that
+we also have projects with multiple clients, and we'd like to maintain references to
+them all from the `Client` column of the `Projects` table.
+
+We can let Grist know that the `Client` column contains multiple references by changing its
+type to "Reference List". This column type can reference multiple records, and can also be
+thought of as a multi-select.
+
+Open the Column Options side panel (see [Specifying a type](col-types.md#specifying-a-type))
+and set the "Column Type" of `Client` to "Reference List". Grist will automatically convert
+any of your existing references to reference lists. Once you're happy with the result, just
+hit "Apply" and the `Client` column will be ready to accept as many clients as your projects need.
+
+![Reference List set-up](images/columns/columns-reference-list-transform.png)
+
+Editing values in a Reference List column
+-----------------------------------
+To make changes to a Reference List cell, simply double-click the cell or press the
+<code class="keys">*Enter*</code> key after you have selected the cell you want to
+edit. You can also start typing after selecting a cell if you'd like to write over
+any existing contents. Doing so will open an editor like the one in the example below.
+
+*![Reference List editor](images/columns/columns-reference-list-editor.png)*
+{: .screenshot-half }
+
+Like with Reference columns, the autocomplete menu will populate with suggestions
+as you type. If you type in a value that's not present in the referenced table, you
+can select the `+` value to add a new row to the referenced table with your value.
+
+To delete existing references, simply press the <code class="keys">*Backspace*</code>
+key, or move your cursor over a reference and click the `X` icon.
+
+You can also rearrange references in the editor by dragging them with your mouse.
+
+To save your changes and close the editor, either press <code class="keys">*Enter*</code>
+or <code class="keys">*Tab*</code> , or click anywhere outside the editor.
+To close the editor and discard any changes you've made, press
+<code class="keys">*Escape*</code>.

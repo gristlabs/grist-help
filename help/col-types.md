@@ -97,18 +97,19 @@ Grist supports the following types:
 
 <div class='grist-mod__table'></div> <!-- For css styling via css/extra.css -->
 
-Type        | Description
------------ | -----------
-Text        | (**Default**) Any string of text.
-Numeric     | Floating point numbers.
-Integer     | Integers (whole numbers).
-Toggle      | Boolean (True / False)
-Date        | Valid date (without a time component).
-DateTime    | Valid date + time.
-Choice      | Single value from a list of pre-defined valid values.
-Choice List | Multiple values from a list of pre-defined valid values.
-Reference   | A reference column to another table.
-Attachment  | Cells where you can place files or images.
+Type           | Description
+-------------- | -----------
+Text           | (**Default**) Any string of text.
+Numeric        | Floating point numbers.
+Integer        | Integers (whole numbers).
+Toggle         | Boolean (True / False)
+Date           | Valid date (without a time component).
+DateTime       | Valid date + time.
+Choice         | Single value from a list of pre-defined valid values.
+Choice List    | Multiple values from a list of pre-defined valid values.
+Reference      | A reference column to another table.
+Reference List | A list of references to another table.
+Attachment     | Cells where you can place files or images.
 
 Text columns
 --------------
@@ -296,6 +297,18 @@ There's a lot you can do with this kind of column, see [Reference columns](col-r
 details.
 
 *![Format reference](images/columns/columns-format-reference.png)*
+{: .screenshot-half }
+
+
+Reference List columns
+----------
+
+Like [Reference columns](#reference-columns), but can store multiple
+references in a single cell.
+There's a lot you can do with this kind of column, see
+[Reference columns](col-refs.md#creating-a-new-reference-list-column) for details.
+
+*![Format reference](images/columns/columns-format-reference-list.png)*
 {: .screenshot-half }
 
 
