@@ -108,7 +108,7 @@ DateTime       | Valid date + time.
 Choice         | Single value from a list of pre-defined valid values.
 Choice List    | Multiple values from a list of pre-defined valid values.
 Reference      | A reference column to another table.
-Reference List | A list of reference to another table.
+Reference List | A list of references to another table.
 Attachment     | Cells where you can place files or images.
 
 Text columns
@@ -305,8 +305,8 @@ Reference List columns
 
 Like [Reference columns](#reference-columns), but can store multiple
 references in a single cell.
-There's a lot you can do with this kind of column, see [Reference columns](col-refs.md) for
-details.
+There's a lot you can do with this kind of column, see
+[Reference columns](col-refs.md#creating-a-new-reference-list-column) for details.
 
 *![Format reference](images/columns/columns-format-reference-list.png)*
 {: .screenshot-half }

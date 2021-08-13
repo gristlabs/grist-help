@@ -12,7 +12,7 @@ this is similar to a `VLOOKUP`, but much more powerful and easier to use.
 In this guide we'll use the term **underlying table** for the table that lists all available values,
 and **referencing table** for the table that uses those values.
 
-Creating a new reference column
+Creating a new Reference column
 -------------------------------
 
 Suppose we have a document with two tables, Clients and Projects.  The Clients table lists
@@ -57,7 +57,7 @@ highlighted as invalid:
 *![Invalid reference value](images/column-ref-invalid.png)*
 {: .screenshot-half }
 
-Adding values to a reference column
+Adding values to a Reference column
 -----------------------------------
 Sometimes it's useful to add a new value to the dropdown list without having to switch to the
 underlying table. Reference columns make it easy! Just type in the value you want add and select the
@@ -67,7 +67,7 @@ the underlying table and insert the proper reference:
 *![Add reference value](images/column-ref-add-value.png)*
 {: .screenshot-half }
 
-Converting text column to reference
+Converting Text column to Reference
 -----------------------------------
 When working with existing data, it's common to have existing text values that should really be
 reference values. Don't worry, conversion is simple! Just change the column type to `Reference` and
@@ -106,40 +106,42 @@ in this example confuse you.
     `$Client.Contact` (singular). That's because the formula refers to the referencing column,
     **not** the underlying table. In our example, the referencing column is `Client`.
 
-Creating a new reference list column
+Creating a new Reference List column
 ------------------------------------
 
-So far our example has only dealt with `Projects` that reference a single `Client`. Suppose that
-we also have `Projects` with multiple `Clients`, and we'd like to maintain references to
-them all from the `Client` column of `Projects`.
+So far our example has only dealt with projects that have a single client. Suppose that
+we also have projects with multiple clients, and we'd like to maintain references to
+them all from the `Client` column of the `Projects` table.
 
-We can let Grist know that the Client column contains multiple references by converting the
-Client column to a "reference list" column. Open the Column Options side
-panel (see [Specifying a type](col-types.md#specifying-a-type)) and set the "Column Type"
-of Client to "Reference List". Grist will automatically convert any of your existing
+We can let Grist know that the `Client` column contains multiple references by changing its
+type to "Reference List". Open the Column Options side panel (see
+[Specifying a type](col-types.md#specifying-a-type)) and set the "Column Type"
+of `Client` to "Reference List". Grist will automatically convert any of your existing
 references to reference lists. Once you're happy with the result, just hit "Apply" and
-the Client column will be ready to accept as many clients as your Projects need.
+the `Client` column will be ready to accept as many clients as your projects need.
 
 ![Reference List set-up](images/columns/columns-reference-list-transform.png)
 
-Adding values to a reference list column
+Editing values in a Reference List column
 -----------------------------------
-To make changes to a reference list cell, simply double-click the cell or press the
-`Enter` key after you have selected the cell you want to edit. You can also start
-typing after selecting a cell if you'd like to write over any existing contents.
-Doing so will open an editor like the one in the example below.
+To make changes to a Reference List cell, simply double-click the cell or press the
+<code class="keys">*Enter*</code> key after you have selected the cell you want to
+edit. You can also start typing after selecting a cell if you'd like to write over
+any existing contents. Doing so will open an editor like the one in the example below.
 
 *![Reference List editor](images/columns/columns-reference-list-editor.png)*
 {: .screenshot-half }
 
-Like with reference columns, the autocomplete menu will populate with suggestions
-as you type, and you'll be able to add new values as well by clicking the `+` item.
+Like with Reference columns, the autocomplete menu will populate with suggestions
+as you type. If you type in a value that's not present in the referenced table, you
+can select the `+` value to add a new row to the referenced table with your value.
 
-To delete existing reference, simply move your cursor over them and click the `X`
-icon, or select them with the arrow keys or mouse, and press the `Delete/Backspace` key.
+To delete existing references, simply press the <code class="keys">*Backspace*</code>
+key, or move your cursor over a reference and click the `X` icon.
 
-You can also re-arranged references in the editor by clicking and dragging your mouse.
+You can also rearrange references in the editor by dragging them with your mouse.
 
-Once you are happy with your changes in the editor, you can either press `Enter` or
-click outside the editor to close it and save your changes. If you'd like to discard
-any edits you've made since opening the editor, you can press `Escape`.
+To save your changes and close the editor, either press <code class="keys">*Enter*</code>
+or <code class="keys">*Tab*</code> , or click anywhere outside the editor.
+To close the editor and discard any changes you've made, press
+<code class="keys">*Escape*</code>.
