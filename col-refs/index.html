@@ -269,7 +269,7 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Reference columns
+              Reference and Reference Lists
             </a>
           </li>
             <li class="wm-toc-li">
@@ -279,22 +279,32 @@
             </li>
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#creating-a-new-reference-column">
-                Creating a new reference column
+                Creating a new Reference column
               </a>
             </li>
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#adding-values-to-a-reference-column">
-                Adding values to a reference column
+                Adding values to a Reference column
               </a>
             </li>
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#converting-text-column-to-reference">
-                Converting text column to reference
+                Converting Text column to Reference
               </a>
             </li>
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#including-multiple-fields-from-a-reference">
                 Including multiple fields from a reference
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#creating-a-new-reference-list-column">
+                Creating a new Reference List column
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#editing-values-in-a-reference-list-column">
+                Editing values in a Reference List column
               </a>
             </li>
         
@@ -360,6 +370,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../zapier/" class="wm-article-link wm-toc-text">Zapier</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../embedding/" class="wm-article-link wm-toc-text">Embedding</a>
 
     
 </li>
@@ -590,14 +604,14 @@
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h1 id="reference-columns">Reference columns<a class="headerlink" href="#reference-columns" title="Permanent link">#</a></h1>
+<h1 id="reference-and-reference-lists">Reference and Reference Lists<a class="headerlink" href="#reference-and-reference-lists" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Reference columns in Grist allow one table to create an explicit reference to another. In the
-database world this is similar to a foreign key. In the spreadsheet world this is similar to a
-<code>VLOOKUP</code>, but much more powerful and easier to use.</p>
+<p>Reference and Reference List columns in Grist allow one table to create an explicit reference
+to another. In the database world this is similar to a foreign key. In the spreadsheet world
+this is similar to a <code>VLOOKUP</code>, but much more powerful and easier to use.</p>
 <p>In this guide we&rsquo;ll use the term <strong>underlying table</strong> for the table that lists all available values,
 and <strong>referencing table</strong> for the table that uses those values.</p>
-<h2 id="creating-a-new-reference-column">Creating a new reference column<a class="headerlink" href="#creating-a-new-reference-column" title="Permanent link">#</a></h2>
+<h2 id="creating-a-new-reference-column">Creating a new Reference column<a class="headerlink" href="#creating-a-new-reference-column" title="Permanent link">#</a></h2>
 <p>Suppose we have a document with two tables, Clients and Projects.  The Clients table lists
 our clients - names, contacts, signing dates - and the Projects table lists projects we do for
 clients.</p>
@@ -631,13 +645,13 @@ next to the values.</p>
 <p>If you accidentally type in a value that is not present in the <code>Clients</code> table, its value will be
 highlighted as invalid:</p>
 <p class="screenshot-half"><em><img alt="Invalid reference value" src="../images/column-ref-invalid.png" /></em></p>
-<h2 id="adding-values-to-a-reference-column">Adding values to a reference column<a class="headerlink" href="#adding-values-to-a-reference-column" title="Permanent link">#</a></h2>
+<h2 id="adding-values-to-a-reference-column">Adding values to a Reference column<a class="headerlink" href="#adding-values-to-a-reference-column" title="Permanent link">#</a></h2>
 <p>Sometimes it&rsquo;s useful to add a new value to the dropdown list without having to switch to the
 underlying table. Reference columns make it easy! Just type in the value you want add and select the
 <code>+</code> value in the dropdown list. Grist will automatically add a new record containing this value to
 the underlying table and insert the proper reference:</p>
 <p class="screenshot-half"><em><img alt="Add reference value" src="../images/column-ref-add-value.png" /></em></p>
-<h2 id="converting-text-column-to-reference">Converting text column to reference<a class="headerlink" href="#converting-text-column-to-reference" title="Permanent link">#</a></h2>
+<h2 id="converting-text-column-to-reference">Converting Text column to Reference<a class="headerlink" href="#converting-text-column-to-reference" title="Permanent link">#</a></h2>
 <p>When working with existing data, it&rsquo;s common to have existing text values that should really be
 reference values. Don&rsquo;t worry, conversion is simple! Just change the column type to <code>Reference</code> and
 Grist will automatically find and substitute matching values for references. If some values are not
@@ -666,6 +680,34 @@ in this example confuse you.</p>
 <code>$Client.Contact</code> (singular). That&rsquo;s because the formula refers to the referencing column,
 <strong>not</strong> the underlying table. In our example, the referencing column is <code>Client</code>.</p>
 </div>
+<h2 id="creating-a-new-reference-list-column">Creating a new Reference List column<a class="headerlink" href="#creating-a-new-reference-list-column" title="Permanent link">#</a></h2>
+<p>So far our example has only dealt with projects that have a single client. Suppose that
+we also have projects with multiple clients, and we&rsquo;d like to maintain references to
+them all from the <code>Client</code> column of the <code>Projects</code> table.</p>
+<p>We can let Grist know that the <code>Client</code> column contains multiple references by changing its
+type to &ldquo;Reference List&rdquo;. This column type can reference multiple records, and can also be
+thought of as a multi-select.</p>
+<p>Open the Column Options side panel (see <a href="../col-types/#specifying-a-type">Specifying a type</a>)
+and set the &ldquo;Column Type&rdquo; of <code>Client</code> to &ldquo;Reference List&rdquo;. Grist will automatically convert
+any of your existing references to reference lists. Once you&rsquo;re happy with the result, just
+hit &ldquo;Apply&rdquo; and the <code>Client</code> column will be ready to accept as many clients as your projects need.</p>
+<p><img alt="Reference List set-up" src="../images/columns/columns-reference-list-transform.png" /></p>
+<h2 id="editing-values-in-a-reference-list-column">Editing values in a Reference List column<a class="headerlink" href="#editing-values-in-a-reference-list-column" title="Permanent link">#</a></h2>
+<p>To make changes to a Reference List cell, simply double-click the cell or press the
+<code class="keys"><em>Enter</em></code> key after you have selected the cell you want to
+edit. You can also start typing after selecting a cell if you&rsquo;d like to write over
+any existing contents. Doing so will open an editor like the one in the example below.</p>
+<p class="screenshot-half"><em><img alt="Reference List editor" src="../images/columns/columns-reference-list-editor.png" /></em></p>
+<p>Like with Reference columns, the autocomplete menu will populate with suggestions
+as you type. If you type in a value that&rsquo;s not present in the referenced table, you
+can select the <code>+</code> value to add a new row to the referenced table with your value.</p>
+<p>To delete existing references, simply press the <code class="keys"><em>Backspace</em></code>
+key, or move your cursor over a reference and click the <code>X</code> icon.</p>
+<p>You can also rearrange references in the editor by dragging them with your mouse.</p>
+<p>To save your changes and close the editor, either press <code class="keys"><em>Enter</em></code>
+or <code class="keys"><em>Tab</em></code> , or click anywhere outside the editor.
+To close the editor and discard any changes you&rsquo;ve made, press
+<code class="keys"><em>Escape</em></code>.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">

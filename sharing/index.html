@@ -189,6 +189,12 @@
             </a>
           </li>
         
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#public-access">
+              Public access
+            </a>
+          </li>
+        
       </ul>
     </li>
     
@@ -341,6 +347,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../zapier/" class="wm-article-link wm-toc-text">Zapier</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../embedding/" class="wm-article-link wm-toc-text">Embedding</a>
 
     
 </li>
@@ -611,6 +621,33 @@ document. To add a user, enter that user&rsquo;s email address and hit &ldquo;En
 </ul>
 <p>The option to inherit access does not affect individual plans, and is explained
 in the <a href="../team-sharing/">Team Sharing</a> article.</p>
+<h2 id="public-access">Public access<a class="headerlink" href="#public-access" title="Permanent link">#</a></h2>
+<p>If you want to share your document with a wider audience, you can make it publicly accessible.
+Open the share menu by clicking on the share icon 
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top right of the
+screen and selecting &ldquo;Manage Users&rdquo;. Toggle the dropdown next to &ldquo;Public Access&rdquo; and select &ldquo;On&rdquo;:</p>
+<p><span class="screenshot-large"><em><img alt="public access toggle" src="../images/newsletters/2020-09/public-access-toggle.png" /></em></span></p>
+<p>Once you click &ldquo;confirm&rdquo;, anyone with the link to your document
+will be able to view it. They will not be required to have a Grist login.</p>
+<p>The &ldquo;Copy Link&rdquo; button is handy to copy the link to the clipboard for
+pasting into an email, tweet, or anywhere else.</p>
+<p>You can also allow anyone with the link to edit your document. Simply 
+switch the role for Public Access to Editor.</p>
+<p><span class="screenshot-large"><em><img alt="public access editor" src="../images/newsletters/2020-09/public-access-editor.png" /></em>
+</span></p>
+<p>Note that this allows <strong>anyone</strong> with the link to change
+<strong>absolutely anything</strong> in your document, including deleting all the 
+data. Should anything go wrong, you may recover previous versions of your 
+document in the snapshots section of
+<a href="../automatic-backups/#examining-backups">Document History.</a></p>
+<p><a href="../access-rules/">Access rules</a> may be combined with view-only link sharing, 
+i.e. when the Public Access role is set to &ldquo;Viewer.&rdquo; Read more about 
+<a href="../access-rules.md/#link-keys">Link Keys</a> to learn how to set rules that
+limit which parts of your data users may see when accessing your document
+via a particular link.</p>
+<p>Access Rules do not support restricted link sharing when Public Access
+is set to &ldquo;Editor.&rdquo; Supporting access rules in this case, and others,
+is on our <a href="https://github.com/gristlabs/grist-core/issues/36">roadmap.</a></p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
