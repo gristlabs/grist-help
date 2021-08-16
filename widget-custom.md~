@@ -1,0 +1,24 @@
+# Page widget: Custom
+
+The **Custom** widget allows an advanced user to insert almost
+anything in their document.  To use it currently requires knowledge of
+web development, and access to a public web server (for example,
+GitHub Pages).
+
+There is a small amount of configuration possible within Grist:
+
+ * Choose a URL for the page to show within the widget.
+   This should be a page owned and controlled by you.
+
+ * Choose an access level for the page.
+   - None: the page is shown, but has no access to the document containing it.
+   - Full: the page is shown, and has full access to read and modify the document
+     containing it.
+
+The bulk of the configuration happens outside Grist, when preparing
+the custom widget page.
+
+ * getDocName
+ * listTables
+ * fetchTable(tableId)
+ * applyUserActions(actions)
