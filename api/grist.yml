@@ -12,7 +12,7 @@ paths:
   /orgs:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "List the orgs you have access to"
       description: "This enumerates all the team sites or personal areas available."
       responses:
@@ -25,7 +25,7 @@ paths:
   /orgs/{orgId}:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "Describe an org"
       parameters:
         - in: path
@@ -42,7 +42,7 @@ paths:
                 $ref: "#/components/schemas/Org"
     patch:
       tags:
-        - orgs
+        - /orgs
       summary: "Modify an org"
       parameters:
         - in: path
@@ -64,7 +64,7 @@ paths:
   /orgs/{orgId}/access:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "List users with access to org"
       parameters:
         - in: path
@@ -81,7 +81,7 @@ paths:
                 $ref: "#/components/schemas/OrgAccessRead"
     patch:
       tags:
-        - orgs
+        - /orgs
       summary: "Change who has access to org"
       parameters:
         - in: path
@@ -104,7 +104,7 @@ paths:
   /orgs/{orgId}/workspaces:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "List workspaces and documents within an org"
       parameters:
         - in: path
@@ -121,7 +121,7 @@ paths:
                 $ref: "#/components/schemas/OrgWithWorkspaces"
     post:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Create an empty workspace"
       parameters:
         - in: path
@@ -151,7 +151,7 @@ paths:
   /workspaces/{workspaceId}:
     get:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Describe a workspace"
       parameters:
         - in: path
@@ -168,7 +168,7 @@ paths:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
     patch:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Modify a workspace"
       parameters:
         - in: path
@@ -188,7 +188,7 @@ paths:
           description: Success
     delete:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Delete a workspace"
       parameters:
         - in: path
@@ -202,7 +202,7 @@ paths:
   /workspaces/{workspaceId}/docs:
     post:
       tags:
-        - docs
+        - /docs
       summary: "Create an empty document"
       parameters:
         - in: path
@@ -230,7 +230,7 @@ paths:
   /workspaces/{workspaceId}/access:
     get:
       tags:
-        - workspaces
+        - /workspaces
       summary: "List users with access to workspace"
       parameters:
         - in: path
@@ -247,7 +247,7 @@ paths:
                 $ref: "#/components/schemas/WorkspaceAccessRead"
     patch:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Change who has access to workspace"
       parameters:
         - in: path
@@ -273,7 +273,7 @@ paths:
   /docs/{docId}:
     get:
       tags:
-        - docs
+        - /docs
       summary: "Describe a document"
       parameters:
         - in: path
@@ -290,7 +290,7 @@ paths:
                 $ref: "#/components/schemas/DocWithWorkspace"
     patch:
       tags:
-        - docs
+        - /docs
       summary: "Modify document metadata (but not its contents)"
       parameters:
         - in: path
@@ -310,7 +310,7 @@ paths:
           description: Success
     delete:
       tags:
-        - docs
+        - /docs
       summary: "Delete a document"
       parameters:
         - in: path
@@ -324,7 +324,7 @@ paths:
   /docs/{docId}/move:
     patch:
       tags:
-        - docs
+        - /docs
       summary: "Move document to another workspace in the same org."
       parameters:
         - in: path
@@ -351,7 +351,7 @@ paths:
   /docs/{docId}/access:
     get:
       tags:
-        - docs
+        - /docs
       summary: "List users with access to document"
       parameters:
         - in: path
@@ -368,7 +368,7 @@ paths:
                 $ref: "#/components/schemas/DocAccessRead"
     patch:
       tags:
-        - docs
+        - /docs
       summary: "Change who has access to document"
       parameters:
         - in: path
@@ -391,7 +391,7 @@ paths:
   /docs/{docId}/download:
     get:
       tags:
-        - docs
+        - /docs
       summary: "Content of document, as an Sqlite file"
       parameters:
         - in: path
@@ -410,8 +410,10 @@ paths:
   /docs/{docId}/tables/{tableId}/data:
     get:
       tags:
-        - Columnar Data
+        - /data
       summary: "Fetch data from a table"
+      deprecated: true
+      description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
@@ -429,8 +431,10 @@ paths:
                 $ref: "#/components/schemas/Data"
     post:
       tags:
-        - Columnar Data
+        - /data
       summary: "Add rows to a table"
+      deprecated: true
+      description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
@@ -450,8 +454,10 @@ paths:
                 $ref: "#/components/schemas/RowIds"
     patch:
       tags:
-        - Columnar Data
+        - /data
       summary: "Modify rows of a table"
+      deprecated: true
+      description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
@@ -472,7 +478,7 @@ paths:
   /docs/{docId}/tables/{tableId}/data/delete:
     post:
       tags:
-        - Columnar Data
+        - /data
       summary: "Delete rows of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -494,7 +500,7 @@ paths:
   /docs/{docId}/attachments:
     post:
       tags:
-        - Attachments
+        - /attachments
       summary: "Upload attachments to a doc"
       parameters:
         - in: path
@@ -519,7 +525,7 @@ paths:
   /docs/{docId}/attachments/{attachmentId}:
     get:
       tags:
-        - Attachments
+        - /attachments
       summary: "Get the metadata for an attachment"
       parameters:
         - in: path
@@ -542,7 +548,7 @@ paths:
   /docs/{docId}/attachments/{attachmentId}/download:
     get:
       tags:
-        - Attachments
+        - /attachments
       summary: "Download the contents of an attachment"
       parameters:
         - in: path
@@ -562,7 +568,7 @@ paths:
   /docs/{docId}/tables/{tableId}/records:
     get:
       tags:
-        - records
+        - /records
       summary: "Fetch records from a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -581,7 +587,7 @@ paths:
                 $ref: "#/components/schemas/Records"
     post:
       tags:
-        - records
+        - /records
       summary: "Add records to a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -602,7 +608,7 @@ paths:
                 $ref: "#/components/schemas/RecordsWithoutFields"
     patch:
       tags:
-        - records
+        - /records
       summary: "Modify records of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -616,16 +622,12 @@ paths:
         required: true
       responses:
         200:
-          description: IDs of records modified
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/RecordsWithoutFields"
+          description: Success
 
   /docs/{docId}/tables/{tableId}/columns:
     get:
       tags:
-        - columns
+        - /columns
       summary: "List columns in a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -639,19 +641,19 @@ paths:
                 $ref: "#/components/schemas/Columns"
 
 tags:
-  - name: orgs
+  - name: /orgs
     description: "Team sites and personal spaces are called 'orgs' in the API."
-  - name: workspaces
+  - name: /workspaces
     description: "Sites can be organized into groups of documents called workspaces."
-  - name: docs
+  - name: /docs
     description: "Workspaces contain collections of Grist documents."
-  - name: records
+  - name: /records
     description: "Tables contain collections of records (also called rows)."
-  - name: columns
-    description: "Tables contain collections of columns."
-  - name: Columnar Data
-    description: "Work with table data with a focus on columns rather than records."
-  - name: Attachments
+  - name: /columns
+    description: "Tables are structured as a collection of columns."
+  - name: /data
+    description: "Work with table data, using a (now deprecated) columnar format. We now recommend the `records` endpoints."
+  - name: /attachments
     description: "Documents may include attached files. Data records can refer to these using a column of type `Attachments`."
 components:
   securitySchemes:
