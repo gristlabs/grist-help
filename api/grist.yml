@@ -12,7 +12,7 @@ paths:
   /orgs:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "List the orgs you have access to"
       description: "This enumerates all the team sites or personal areas available."
       responses:
@@ -25,7 +25,7 @@ paths:
   /orgs/{orgId}:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "Describe an org"
       parameters:
         - in: path
@@ -42,7 +42,7 @@ paths:
                 $ref: "#/components/schemas/Org"
     patch:
       tags:
-        - orgs
+        - /orgs
       summary: "Modify an org"
       parameters:
         - in: path
@@ -64,7 +64,7 @@ paths:
   /orgs/{orgId}/access:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "List users with access to org"
       parameters:
         - in: path
@@ -81,7 +81,7 @@ paths:
                 $ref: "#/components/schemas/OrgAccessRead"
     patch:
       tags:
-        - orgs
+        - /orgs
       summary: "Change who has access to org"
       parameters:
         - in: path
@@ -104,7 +104,7 @@ paths:
   /orgs/{orgId}/workspaces:
     get:
       tags:
-        - orgs
+        - /orgs
       summary: "List workspaces and documents within an org"
       parameters:
         - in: path
@@ -121,7 +121,7 @@ paths:
                 $ref: "#/components/schemas/OrgWithWorkspaces"
     post:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Create an empty workspace"
       parameters:
         - in: path
@@ -151,7 +151,7 @@ paths:
   /workspaces/{workspaceId}:
     get:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Describe a workspace"
       parameters:
         - in: path
@@ -168,7 +168,7 @@ paths:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
     patch:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Modify a workspace"
       parameters:
         - in: path
@@ -188,7 +188,7 @@ paths:
           description: Success
     delete:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Delete a workspace"
       parameters:
         - in: path
@@ -202,7 +202,7 @@ paths:
   /workspaces/{workspaceId}/docs:
     post:
       tags:
-        - docs
+        - /docs
       summary: "Create an empty document"
       parameters:
         - in: path
@@ -230,7 +230,7 @@ paths:
   /workspaces/{workspaceId}/access:
     get:
       tags:
-        - workspaces
+        - /workspaces
       summary: "List users with access to workspace"
       parameters:
         - in: path
@@ -247,7 +247,7 @@ paths:
                 $ref: "#/components/schemas/WorkspaceAccessRead"
     patch:
       tags:
-        - workspaces
+        - /workspaces
       summary: "Change who has access to workspace"
       parameters:
         - in: path
@@ -273,7 +273,7 @@ paths:
   /docs/{docId}:
     get:
       tags:
-        - docs
+        - /docs
       summary: "Describe a document"
       parameters:
         - in: path
@@ -290,7 +290,7 @@ paths:
                 $ref: "#/components/schemas/DocWithWorkspace"
     patch:
       tags:
-        - docs
+        - /docs
       summary: "Modify document metadata (but not its contents)"
       parameters:
         - in: path
@@ -310,7 +310,7 @@ paths:
           description: Success
     delete:
       tags:
-        - docs
+        - /docs
       summary: "Delete a document"
       parameters:
         - in: path
@@ -324,7 +324,7 @@ paths:
   /docs/{docId}/move:
     patch:
       tags:
-        - docs
+        - /docs
       summary: "Move document to another workspace in the same org."
       parameters:
         - in: path
@@ -351,7 +351,7 @@ paths:
   /docs/{docId}/access:
     get:
       tags:
-        - docs
+        - /docs
       summary: "List users with access to document"
       parameters:
         - in: path
@@ -368,7 +368,7 @@ paths:
                 $ref: "#/components/schemas/DocAccessRead"
     patch:
       tags:
-        - docs
+        - /docs
       summary: "Change who has access to document"
       parameters:
         - in: path
@@ -391,7 +391,7 @@ paths:
   /docs/{docId}/download:
     get:
       tags:
-        - docs
+        - /docs
       summary: "Content of document, as an Sqlite file"
       parameters:
         - in: path
@@ -410,51 +410,18 @@ paths:
   /docs/{docId}/tables/{tableId}/data:
     get:
       tags:
-        - Data Tables
+        - /data
       summary: "Fetch data from a table"
+      deprecated: true
+      description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
-        - in: path
-          name: tableId
-          schema:
-            type: string
-            description: name of a table (normalized)
-          required: true
-        - in: query
-          name: filter
-          schema:
-            type: string
-            description: "This is a JSON object mapping column names to arrays of allowed values.  For example, to filter column `pet` for values `cat` and `dog`, the filter would be `{\"pet\": [\"cat\", \"dog\"]}`. JSON contains characters that are not safe to place in a URL, so it is important to url-encode them.  For this example, the url-encoding is `%7B%22pet%22%3A%20%5B%22cat%22%2C%20%22dog%22%5D%7D`. See https://rosettacode.org/wiki/URL_encoding for how to url-encode a string, or https://www.urlencoder.org/ to try some examples. Multiple columns can be filtered. For example the filter for `pet` being either `cat` or `dog`, AND `size` being either `tiny` or `outrageously small`, would be `{\"pet\": [\"cat\", \"dog\"], \"size\": [\"tiny\", \"outrageously small\"]}`."
-            example: "{\"pet\": [\"cat\", \"dog\"]}"
-          required: false
-        - in: query
-          name: sort
-          schema:
-            type: string
-            description: "Order in which to return results. If a single column name is given (e.g. `pet`), results are placed in ascending order of values in that column. Multiple columns can be specified, separated by commas (e.g. `pet,age`). For descending order, prefix a column name with a `-` character (e.g. `pet,-age`)."
-            example: "pet,-age"
-        - in: query
-          name: limit
-          schema:
-            type: number
-            description: "Return at most this number of rows.  A value of 0 is equivalent to having no limit."
-            example: "5"
-        - in: header
-          name: X-Sort
-          schema:
-            type: string
-            description: "Same as `sort` query parameter."
-            example: "pet,-age"
-        - in: header
-          name: X-Limit
-          schema:
-            type: number
-            description: "Same as `limit` query parameter."
-            example: "5"
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/sortQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/sortHeaderParam'
+        - $ref: '#/components/parameters/limitHeaderParam'
       responses:
         200:
           description: Cells from the table
@@ -464,20 +431,13 @@ paths:
                 $ref: "#/components/schemas/Data"
     post:
       tags:
-        - Data Tables
+        - /data
       summary: "Add rows to a table"
+      deprecated: true
+      description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
-        - in: path
-          name: tableId
-          schema:
-            type: string
-            description: name of a table (normalized)
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
       requestBody:
         description: "the data to add"
         content:
@@ -494,22 +454,15 @@ paths:
                 $ref: "#/components/schemas/RowIds"
     patch:
       tags:
-        - Data Tables
+        - /data
       summary: "Modify rows of a table"
+      deprecated: true
+      description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
-        - in: path
-          name: tableId
-          schema:
-            type: string
-            description: name of a table (normalized)
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
       requestBody:
-        description: "the data to add, with ids"
+        description: "the data to change, with ids"
         content:
           application/json:
             schema:
@@ -525,20 +478,11 @@ paths:
   /docs/{docId}/tables/{tableId}/data/delete:
     post:
       tags:
-        - Data Tables
+        - /data
       summary: "Delete rows of a table"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
-        - in: path
-          name: tableId
-          schema:
-            type: string
-            description: name of a table (normalized)
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
       requestBody:
         description: "the IDs of rows to remove"
         content:
@@ -556,7 +500,7 @@ paths:
   /docs/{docId}/attachments:
     post:
       tags:
-        - Attachments
+        - /attachments
       summary: "Upload attachments to a doc"
       parameters:
         - in: path
@@ -581,7 +525,7 @@ paths:
   /docs/{docId}/attachments/{attachmentId}:
     get:
       tags:
-        - Attachments
+        - /attachments
       summary: "Get the metadata for an attachment"
       parameters:
         - in: path
@@ -604,7 +548,7 @@ paths:
   /docs/{docId}/attachments/{attachmentId}/download:
     get:
       tags:
-        - Attachments
+        - /attachments
       summary: "Download the contents of an attachment"
       parameters:
         - in: path
@@ -621,16 +565,95 @@ paths:
         200:
           description: Attachment contents, with suitable Content-Type.
 
+  /docs/{docId}/tables/{tableId}/records:
+    get:
+      tags:
+        - /records
+      summary: "Fetch records from a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/sortQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/sortHeaderParam'
+        - $ref: '#/components/parameters/limitHeaderParam'
+      responses:
+        200:
+          description: Records from the table
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Records"
+    post:
+      tags:
+        - /records
+      summary: "Add records to a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+      requestBody:
+        description: "the records to add"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecordsWithoutId"
+        required: true
+      responses:
+        200:
+          description: IDs of records added
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecordsWithoutFields"
+    patch:
+      tags:
+        - /records
+      summary: "Modify records of a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+      requestBody:
+        description: "the records to change, with ids"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Records"
+        required: true
+      responses:
+        200:
+          description: Success
+
+  /docs/{docId}/tables/{tableId}/columns:
+    get:
+      tags:
+        - /columns
+      summary: "List columns in a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+      responses:
+        200:
+          description: The columns in a table
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Columns"
+
 tags:
-  - name: orgs
+  - name: /orgs
     description: "Team sites and personal spaces are called 'orgs' in the API."
-  - name: workspaces
+  - name: /workspaces
     description: "Sites can be organized into groups of documents called workspaces."
-  - name: docs
+  - name: /docs
     description: "Workspaces contain collections of Grist documents."
-  - name: Data Tables
-    description: "Documents contains tables with records of data."
-  - name: Attachments
+  - name: /records
+    description: "Tables contain collections of records (also called rows)."
+  - name: /columns
+    description: "Tables are structured as a collection of columns."
+  - name: /data
+    description: "Work with table data, using a (now deprecated) columnar format. We now recommend the `records` endpoints."
+  - name: /attachments
     description: "Documents may include attached files. Data records can refer to these using a column of type `Attachments`."
 components:
   securitySchemes:
@@ -822,9 +845,111 @@ components:
         type: array
         items: {}
       example:
-        id: [1, 2]
         pet: ["cat", "dog"]
         popularity: [67, 95]
+    Records:
+      type: object
+      required:
+        - records
+      properties:
+        records:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - fields
+            properties:
+              id:
+                type: number
+                example: 1
+              fields:
+                type: object
+      example:
+        records:
+          -
+            id: 1
+            fields:
+              pet: cat
+              popularity: 67
+          -
+            id: 2
+            fields:
+              pet: dog
+              popularity: 95
+    RecordsWithoutId:
+      type: object
+      required:
+        - records
+      properties:
+        records:
+          type: array
+          items:
+            type: object
+            required:
+              - fields
+            properties:
+              fields:
+                type: object
+      example:
+        records:
+          -
+            fields:
+              pet: cat
+              popularity: 67
+          -
+            fields:
+              pet: dog
+              popularity: 95
+    RecordsWithoutFields:
+      type: object
+      required:
+        - records
+      properties:
+        records:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: number
+                example: 1
+      example:
+        records:
+          -
+            id: 1
+          -
+            id: 2
+    Columns:
+      type: object
+      required:
+        - columns
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - fields
+            properties:
+              id:
+                type: string
+                example: ColumnName
+              fields:
+                type: object
+      example:
+        columns:
+          -
+            id: pet
+            fields:
+              label: "Pet"
+          -
+            id: popularity
+            fields:
+              label: "Popularity ❤"
     RowIds:
       type: array
       example: [101, 102, 103]
@@ -966,3 +1091,57 @@ components:
         timeUploaded:
           type: string
           example: "2020-02-13T12:17:19.000Z"
+  parameters:
+    filterQueryParam:
+      in: query
+      name: filter
+      schema:
+        type: string
+        description: "This is a JSON object mapping column names to arrays of allowed values.  For example, to filter column `pet` for values `cat` and `dog`, the filter would be `{\"pet\": [\"cat\", \"dog\"]}`. JSON contains characters that are not safe to place in a URL, so it is important to url-encode them.  For this example, the url-encoding is `%7B%22pet%22%3A%20%5B%22cat%22%2C%20%22dog%22%5D%7D`. See https://rosettacode.org/wiki/URL_encoding for how to url-encode a string, or https://www.urlencoder.org/ to try some examples. Multiple columns can be filtered. For example the filter for `pet` being either `cat` or `dog`, AND `size` being either `tiny` or `outrageously small`, would be `{\"pet\": [\"cat\", \"dog\"], \"size\": [\"tiny\", \"outrageously small\"]}`."
+        example: "{\"pet\": [\"cat\", \"dog\"]}"
+      required: false
+    sortQueryParam:
+      in: query
+      name: sort
+      schema:
+        type: string
+        description: "Order in which to return results. If a single column name is given (e.g. `pet`), results are placed in ascending order of values in that column. Multiple columns can be specified, separated by commas (e.g. `pet,age`). For descending order, prefix a column name with a `-` character (e.g. `pet,-age`)."
+        example: "pet,-age"
+      required: false
+    limitQueryParam:
+      in: query
+      name: limit
+      schema:
+        type: number
+        description: "Return at most this number of rows.  A value of 0 is equivalent to having no limit."
+        example: "5"
+      required: false
+    sortHeaderParam:
+      in: header
+      name: X-Sort
+      schema:
+        type: string
+        description: "Same as `sort` query parameter."
+        example: "pet,-age"
+      required: false
+    limitHeaderParam:
+      in: header
+      name: X-Limit
+      schema:
+        type: number
+        description: "Same as `limit` query parameter."
+        example: "5"
+      required: false
+    tableIdPathParam:
+      in: path
+      name: tableId
+      schema:
+        type: string
+        description: name of a table (normalized)
+      required: true
+    docIdPathParam:
+      in: path
+      name: docId
+      schema:
+        $ref: "#/components/schemas/DocKey"
+      required: true

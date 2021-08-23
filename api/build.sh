@@ -13,7 +13,8 @@ fi
 options="--options.theme.spacing.sectionVertical=2 \
        --options.hideDownloadButton --disableGoogleFont --options.pathInMiddlePanel \
        --options.theme.breakpoints.medium=50rem --options.theme.breakpoints.large=50rem \
-       --options.theme.menu.width=0px"
+       --options.theme.menu.width=0px \
+       --options.jsonSampleExpandLevel=all"
 
 if [[ "$1" = "" ]]; then
   set -x
