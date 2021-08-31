@@ -59,6 +59,9 @@
   background-color: var(--color-light-green);
   color: white !important;
 }
+.grist-button-tight {
+  margin: -15px 0 32px 0 !important;
+}
 
 .column-images h3 {
   width: 100%;
