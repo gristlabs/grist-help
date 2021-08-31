@@ -1,9 +1,0 @@
-Authorship columns
-===================
-
-Sometimes it is useful to have columns that store who created individual records, and
-who last updated them.  Grist lets you create such columns easily.
-
-A "Created By" column
-------------------------
-
