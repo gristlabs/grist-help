@@ -31,6 +31,10 @@ editing calendar dates; the [Reference Column Type](col-types.md#reference-colum
 is for storing and editing links to other tables;
 the [Numeric Column Type](col-types.md#numeric-columns) is for any kind of number; etc.
 
+## Creator Panel
+
+The creator panel is the right-side menu of configuration options for widgets and columns.
+
 ## Dashboard
 
 A dashboard is just another name for a page, typically organized to give a
