@@ -159,6 +159,7 @@ The options under NUMBER FORMAT include:
   {: .screenshot-half }
   
   Tip: You can set a document's default timezone, locale, and currency in Document Settings.
+  
 - `,`: Turn on the display of thousands separators.
 - `%`: Show numbers as percentages. E.g. "0.5" would show as "50%".
 - `Exp`: Show numbers in exponential (or scientific) notation. E.g. "1234" would be shown as
