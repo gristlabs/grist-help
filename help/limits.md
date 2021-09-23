@@ -50,8 +50,8 @@ is still likely to fail.
 
 ## API limits
 
-Free plans may be limited to 10 API requests per minute when systems are under load. The
-team plan does not impose such a rate limit.
+Free plans may be limited to 5 API requests per second per document. The team plan does not impose
+such a rate limit.
 
 Separately, there is a concurrency limit of 10 for all plans: if 10 authorized API requests are
 currently being processed for a particular document, any other API requests will be rejected (with
