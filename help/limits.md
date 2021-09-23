@@ -48,15 +48,20 @@ Uploads are limited to 50MB, both for attachments and to import data. Note that 
 this limit may result in a document that exceeds the document size limit, in which case the upload
 is still likely to fail.
 
+## API limits
+
+Free plans may be limited to 5 API requests per second per document. The team plan does not impose
+such a rate limit.
+
+Separately, there is a concurrency limit of 10 for all plans: if 10 authorized API requests are
+currently being processed for a particular document, any other API requests will be rejected (with
+HTTP status code 429) until at least one of the original requests completes.  A client that waits
+for one request to complete before sending the next would not hit this limit (assuming it is the
+sole client accessing the document).
+
 ## Document availability
 
 From time to time, during upgrades and operational transitions,
 individual Grist documents may become inaccessible for a period of
 some seconds.  Please bear this in mind when using Grist's API.
 
-Separately, if 10 authorized API requests are currently being
-processed for a particular document, any other API requests will be
-rejected (with HTTP status code 429) until at least one of the original requests
-completes.  A client that waits for one request to complete
-before sending the next would not hit this limit (assuming it is
-the sole client accessing the document).
