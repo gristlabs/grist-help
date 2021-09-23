@@ -78,3 +78,28 @@ statements from other months into the same table.
 
 For developers, the [Grist API](rest-api.md) offers a more powerful way to add data
 to a Grist document.
+
+## Updating existing records
+
+Suppose the table we are importing to already contains some of the data in our
+file. We'd like Grist to update these existing records rather than duplicate
+them.
+
+We can tell Grist to update these records by checking the "Update existing records"
+option, and specifying which fields to use for matching incoming data against
+existing records.
+
+![import-dialog-update-records](images/import-dialog-update-records.png)
+
+An imported row and an existing record that have the same values for all of the
+selected merge fields are considered the same record. In this case, importing
+will update the fields of the record with the imported data. Blank values
+from the imported data will be skipped, leaving the corresponding fields in
+the original record unchanged.
+
+!!! tip ""
+    **Note:** If there are multiple imported rows that have the same values for the
+              selected merge fields, the last row will be used for matching and updating.
+              If there are multiple existing records that have the same values for
+              the selected merge fields, all of the records will be updated if a
+              matching imported row is found.
