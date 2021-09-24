@@ -112,11 +112,17 @@
 
     
     
-    <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
-      <div class="wm-top-title">
-        Back to Grist
-      </div>
-    </a>
+      <a href="https://community.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+        <div class="wm-top-title">
+          Community
+        </div>
+      </a>
+    
+      <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+        <div class="wm-top-title">
+          Back to Grist
+        </div>
+      </a>
     
 
     
@@ -216,6 +222,11 @@
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#import-to-an-existing-table">
                 Import to an existing table
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#updating-existing-records">
+                Updating existing records
               </a>
             </li>
         
@@ -515,6 +526,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="/functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../limits/" class="wm-article-link wm-toc-text">Limits</a>
 
     
@@ -647,6 +662,26 @@ instance, you could import a bank statement as a new table, then import more
 statements from other months into the same table.</p>
 <p>For developers, the <a href="../rest-api/">Grist API</a> offers a more powerful way to add data
 to a Grist document.</p>
+<h2 id="updating-existing-records">Updating existing records<a class="headerlink" href="#updating-existing-records" title="Permanent link">#</a></h2>
+<p>Suppose the table we are importing to already contains some of the data in our
+file. We&rsquo;d like Grist to update these existing records rather than duplicate
+them.</p>
+<p>We can tell Grist to update these records by checking the &ldquo;Update existing records&rdquo;
+option, and specifying which fields to use for matching incoming data against
+existing records.</p>
+<p><img alt="import-dialog-update-records" src="../images/import-dialog-update-records.png" /></p>
+<p>An imported row and an existing record that have the same values for all of the
+selected merge fields are considered the same record. In this case, importing
+will update the fields of the record with the imported data. Blank values
+from the imported data will be skipped, leaving the corresponding fields in
+the original record unchanged.</p>
+<div class="admonition tip">
+<p><strong>Note:</strong> If there are multiple imported rows that have the same values for the
+          selected merge fields, the last row will be used for matching and updating.
+          If there are multiple existing records that have the same values for
+          the selected merge fields, all of the records will be updated if a
+          matching imported row is found.</p>
+</div>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
