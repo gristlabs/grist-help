@@ -89,6 +89,9 @@ nav:
       - Time and User Stamps: examples/2021-07-auto-stamps.md
   - Reference:
     - Shortcuts: keyboard-shortcuts.md
+    # The function reference (functions.md) is listed above; here is an intentionally non-standard
+    # link, so that only the above page item gets highlighted when the function reference is open.
+    - Function reference: /functions/
     - Limits: limits.md
     - Browser Support: browser-support.md
     - Glossary: glossary.md
@@ -105,9 +108,11 @@ extra:
   version: '1.0.2-dev'
   article_nav_bottom: false
   history_buttons: false
-  home_link:
-    href: https://www.getgrist.com
-    text: 'Back to Grist'
+  home_links:
+    - href: https://community.getgrist.com
+      text: 'Community'
+    - href: https://www.getgrist.com
+      text: 'Back to Grist'
 extra_css:
   - css/grist.css
 extra_javascript:
