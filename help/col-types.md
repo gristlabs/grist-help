@@ -153,7 +153,7 @@ increasing/decreasing the number.
 
 The options under NUMBER FORMAT include:
 
-- `$`: Format for currency amounts. Selecting the `$` will add a currency prefix, thousands separators, and default to 2 digits after the decimal point. It will also open a currency selector for international currencies.
+- `$`: Format for currency amounts, such as dollars or euro. Selecting the `$` will add a currency prefix, thousands separators, and default to 2 digits after the decimal point. It will also open a currency selector for international currencies.
 
   *![Format numeric](images/columns/columns-format-currency.png)*
   {: .screenshot-half }
