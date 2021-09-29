@@ -153,8 +153,13 @@ increasing/decreasing the number.
 
 The options under NUMBER FORMAT include:
 
-- `$`: Format for dollar amounts, with a "$" prefix, thousands separators, and defaulting to 2
-  digits after the decimal point.
+- `$`: Format for currency amounts, such as dollars or euro. Selecting the `$` will add a currency prefix, thousands separators, and default to 2 digits after the decimal point. It will also open a currency selector for international currencies.
+
+  *![Format numeric](images/columns/columns-format-currency.png)*
+  {: .screenshot-half }
+  
+  Tip: You can set a document's default timezone, locale, and currency in Document Settings.
+  
 - `,`: Turn on the display of thousands separators.
 - `%`: Show numbers as percentages. E.g. "0.5" would show as "50%".
 - `Exp`: Show numbers in exponential (or scientific) notation. E.g. "1234" would be shown as
