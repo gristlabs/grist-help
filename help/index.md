@@ -63,6 +63,7 @@ learn to model business data, use formulas, and manage complexity.
 
 ## Popular shortcuts
 
+- [Frequently Asked Questions](FAQ.md)
 - [Function reference](functions.md)
 - [Keyboard shortcuts](keyboard-shortcuts.md)
 

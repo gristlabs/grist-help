@@ -128,7 +128,7 @@ to rebuild the contractor summary page.
 !!!tip "Did you know?"
 
     If needed, you can also add conditions to this formula. For example,
-    `sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group if Hours_Worked > 0)`
+    `sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group if r.Hours_Worked > 0)`
     will only add up records in which there is a positive value in the field `Hours Worked`.
 
     Visit our [function reference](../functions.md#_group) to learn more.
