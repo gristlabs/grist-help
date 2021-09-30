@@ -1,4 +1,5 @@
-# Workspaces
+Workspaces
+-------------------------------
 
 A [team site](team-sharing.md) can be divided into collections of documents
 called "workspaces" which can be shared as a single unit with other users.

@@ -1,12 +1,13 @@
 Team Sharing
--------------------------------
+=========
 
 We saw how to share individual documents with other users in the
 [Sharing](sharing.md) article.  Team sites give your further control,
-allowing you to share collections of documents in whole or in part
-with others.
+allowing you to share a team site's collections of documents in whole or in part
+with others. You may further group documents into [workspaces](workspaces.md) and edit permissions at the workspace-level as well.
+
 To share a team site, open the user menu by clicking on the circle with your profile picture or initials
-on the top right of the screen.  Then select the "Manage Users"
+on the top right of the screen. Then select the "Manage Users"
 option.
 
 ![team-sharing-manage-users](images/team-sharing/team-sharing-manage-users.png)
@@ -17,11 +18,14 @@ You can now invite people just as you did for individual documents in
 ![team-sharing-invite-people](images/team-sharing/team-sharing-invite-people.png)
 
 Just as for documents, you can invite people as viewers, editors, or owners of the
-team site.  All documents within the site will be accessible to those people,
+team site.  
+
+All documents within the site will be accessible to those people,
 unless you turn off the "Inherit access" sharing option for individual [workspaces](workspaces.md)
 or [documents](sharing.md).
 
-## Roles
+Roles
+-------------------------------
 
 There are three primary roles supported by Grist for team sites:
 
@@ -36,8 +40,10 @@ There are three primary roles supported by Grist for team sites:
 - **Owner**: gives a user complete permissions to the site's workspaces and documents,
   including their sharing settings.
 
-## Billing Permissions
+Billing Permissions
+-------------------------------
 None of these roles give access to billing information or management.
-Billing managers can be added via the "Billing Account" option. 
-Click on the circle with your profile picture or initial
-on the top right of the screen, and select "Billing Account".
+Billing plan managers can be added via the "Billing Account" option. 
+Open the user menu under your user icon, and select "Billing Account".
+
+![Add billing managers](images/billing-page.png)
