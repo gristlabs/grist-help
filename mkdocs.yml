@@ -15,11 +15,14 @@ nav:
     - Create your own CRM: lightweight-crm.md
     - Analyze and visualize: investment-research.md
     - Manage business data: afterschool-program.md
+  - Team Sites: 
+    - Creating Team Sites: teams.md
+    - Sharing Team Sites: teams-sharing.md
+    - Workspaces: workspaces.md
   - Managing documents:
     - Creating a document: creating-doc.md
     - Sharing a document: sharing.md
     - Copying documents: copying-docs.md
-    - Team sharing [team]: team-sharing.md
     - Workspaces [team]: workspaces.md
     - Importing more data: imports.md
     - Exports & backups: exports.md
