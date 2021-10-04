@@ -1,0 +1,28 @@
+<div class="wm-content-pane">
+  <div class="wm-article">
+
+  {# Code for the main template for all content pages. #}
+
+  {%- if page and page.meta and page.meta.is_api -%}
+    {{ page.content }}
+  {%- else -%}
+    <div class="container-fluid wm-page-content">
+      <a name="_top"></a>
+      {%- block content %}
+        {% if page and page.meta.source %}
+          <div class="source-links">
+          {% for filename in page.meta.source %}
+              <span class="label label-primary">{{ filename }}</span>
+          {% endfor %}
+          </div>
+        {% endif %}
+
+        {{ page.content }}
+      {%- endblock %}
+
+    </div>
+
+  {%- endif -%}
+
+  </div>
+</div>
