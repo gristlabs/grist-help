@@ -1,13 +1,26 @@
-# Integrations via Zapier
+# Integrator Services
 
-Grist can be connected to thousands of other services via
+Grist can be connected to thousands of other services via integrators with Grist support. These
+include:
+
+- [Zapier](https://zapier.com/apps/grist/integrations)
+- [Integrately](https://integrately.com/integrations/grist)
+- [Pabbly](https://www.pabbly.com/connect/integrations/grist/)
+- [KonnectzIT](https://plan.konnectzit.com/feedback/grist-integration)
+- [n8n](https://n8n.io/integrations/n8n-nodes-base.grist)
+
+## Integrations via Zapier
+
+Each services provides its own way to configure the connection between Grist and other services.
+As an example, here is a walkthrough of how an integration with Grist can be configured using
 [Zapier](https://zapier.com/apps/grist/integrations).
+
 Grist can trigger a workflow whenever there is a new or updated record
 in a table, leading to action in another service.  Conversely,
 workflows triggered by other services can consult, add, or update
 records in Grist tables.
 
-## Example: storing form submissions
+### Example: storing form submissions
 
 Suppose we have a form for collecting votes on the color of a proposed new bike
 shed:
@@ -95,7 +108,7 @@ cases.  But eventually, you should see the votes pouring in!
 ![see incoming submissions](images/zapier/google-forms/see-incoming-submissions.png)
 
 
-## Example: Sending email alerts
+### Example: Sending email alerts
 
 We've seen an example of an outside service sending data to Grist.  Now let's
 look at an example of Grist sending data to an outside service.  Continuing

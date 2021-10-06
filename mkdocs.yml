@@ -51,7 +51,7 @@ nav:
   - Integrations:
     - API usage: rest-api.md
     - API reference: api.md
-    - Zapier: zapier.md
+    - Integrator Services: integrators.md
     - Embedding: embedding.md
   - News & updates:
     - Newsletters: newsletters.md
