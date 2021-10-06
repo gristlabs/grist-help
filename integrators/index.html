@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/zapier/">
+    <link rel="canonical" href="https://support.getgrist.com/integrators/">
     <link rel="shortcut icon" href="../images/favicon.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Zapier - Grist Help Center</title>
+    <title>Integrator Services - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -327,7 +327,7 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Zapier</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Integrator Services</a>
 
     
     
@@ -336,17 +336,12 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Integrations via Zapier
+              Integrator Services
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-storing-form-submissions">
-                Example: storing form submissions
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-sending-email-alerts">
-                Example: Sending email alerts
+              <a class="wm-article-link wm-page-toc-text" href="#integrations-via-zapier">
+                Integrations via Zapier
               </a>
             </li>
         
@@ -595,14 +590,25 @@
 
     
 
-    <h1 id="integrations-via-zapier">Integrations via Zapier<a class="headerlink" href="#integrations-via-zapier" title="Permanent link">#</a></h1>
-<p>Grist can be connected to thousands of other services via
-<a href="https://zapier.com/apps/grist/integrations">Zapier</a>.
-Grist can trigger a workflow whenever there is a new or updated record
+    <h1 id="integrator-services">Integrator Services<a class="headerlink" href="#integrator-services" title="Permanent link">#</a></h1>
+<p>Grist can be connected to thousands of other services via integrators with Grist support. These
+include:</p>
+<ul>
+<li><a href="https://zapier.com/apps/grist/integrations">Zapier</a></li>
+<li><a href="https://integrately.com/integrations/grist">Integrately</a></li>
+<li><a href="https://www.pabbly.com/connect/integrations/grist/">Pabbly</a></li>
+<li><a href="https://plan.konnectzit.com/feedback/grist-integration">KonnectzIT</a></li>
+<li><a href="https://n8n.io/integrations/n8n-nodes-base.grist">n8n</a></li>
+</ul>
+<h2 id="integrations-via-zapier">Integrations via Zapier<a class="headerlink" href="#integrations-via-zapier" title="Permanent link">#</a></h2>
+<p>Each services provides its own way to configure the connection between Grist and other services.
+As an example, here is a walkthrough of how an integration with Grist can be configured using
+<a href="https://zapier.com/apps/grist/integrations">Zapier</a>.</p>
+<p>Grist can trigger a workflow whenever there is a new or updated record
 in a table, leading to action in another service.  Conversely,
 workflows triggered by other services can consult, add, or update
 records in Grist tables.</p>
-<h2 id="example-storing-form-submissions">Example: storing form submissions<a class="headerlink" href="#example-storing-form-submissions" title="Permanent link">#</a></h2>
+<h3 id="example-storing-form-submissions">Example: storing form submissions<a class="headerlink" href="#example-storing-form-submissions" title="Permanent link">#</a></h3>
 <p>Suppose we have a form for collecting votes on the color of a proposed new bike
 shed:</p>
 <p><img alt="fill out form" src="../images/zapier/google-forms/fill-out-form.png" /></p>
@@ -657,7 +663,7 @@ a one-to-one mapping works fine:</p>
 may run periodically to check for new submissions, so don&rsquo;t expect immediate results in all
 cases.  But eventually, you should see the votes pouring in!</p>
 <p><img alt="see incoming submissions" src="../images/zapier/google-forms/see-incoming-submissions.png" /></p>
-<h2 id="example-sending-email-alerts">Example: Sending email alerts<a class="headerlink" href="#example-sending-email-alerts" title="Permanent link">#</a></h2>
+<h3 id="example-sending-email-alerts">Example: Sending email alerts<a class="headerlink" href="#example-sending-email-alerts" title="Permanent link">#</a></h3>
 <p>We&rsquo;ve seen an example of an outside service sending data to Grist.  Now let&rsquo;s
 look at an example of Grist sending data to an outside service.  Continuing
 our form example, where a Grist document is accumulating votes for a preferred
