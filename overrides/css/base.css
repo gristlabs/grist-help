@@ -25,13 +25,17 @@ body {
 .wm-top-brand {
   display: inline-block;
   float: left;
-  overflow: visible;
   width: 0px;
   height: 50px;
   color: #fff;
   font-size: 18px;
   white-space: nowrap;
   text-decoration: none;
+  margin-right: auto;
+  flex: 0 1 auto;
+  min-width: 48px;
+  overflow: hidden;
+  text-overflow: "";
 }
 
 .wm-top-link, .wm-top-link:hover, .wm-top-link:active, .wm-top-link:visited, .wm-top-link:focus {
@@ -50,6 +54,11 @@ body {
 .wm-vcentered {
   display: inline-block;
   vertical-align: middle;
+}
+
+.wm-top-container {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .wm-top-title {
@@ -196,14 +205,12 @@ body {
     width: 100%;
     padding: 0px;
   }
+  .wm-top-toc-button {
+    order: 1;
+  }
 
   body {
     overflow: visible;
-  }
-  .wm-top-container {
-    /* This prevents horizontal overflow, but cuts off search results on bigger
-     * screens, so included in small-screen section */
-    overflow-x: hidden;
   }
   .wm-toc-pane {
     display: none;
