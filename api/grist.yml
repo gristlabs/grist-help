@@ -407,6 +407,49 @@ paths:
               schema:
                 type: string
                 format: binary
+  /docs/{docId}/download/xlsx:
+    get:
+      tags:
+        - /docs
+      summary: "Content of document, as an Excel file"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      responses:
+        200:
+          description: A documents's content in Excel form
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+  /docs/{docId}/download/csv:
+    get:
+      tags:
+        - /docs
+      summary: "Content of table, as a CSV file"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: query
+          name: tableId
+          schema:
+            type: string
+            description: "Name of a table (normalized)."
+          required: true
+      responses:
+        200:
+          description: A table's content in CSV form
+          content:
+            text/csv:
+              schema:
+                type: string
   /docs/{docId}/tables/{tableId}/data:
     get:
       tags:
