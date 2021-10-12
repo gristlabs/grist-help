@@ -1,123 +1,62 @@
-#All questions
+# All Questions
 
-1. [I bought a team site. Why do I have multiple sites?](FAQ.md#why-do-i-have-multiple-sites)
-
-2. [What does Team (+2 Per Doc) mean? What are outside collaborators?](FAQ.md#what-does-team-2-per-doc-mean)
-
-3. [Can I only share Grist documents with my team members?](FAQ.md#can-i-only-share-grist-documents-with-my-team)
-
-4. [Can I move documents from one site to another?](FAQ.md#can-i-move-documents-between-sites)
-
-5. [Can I add multiple teams to the same Grist account?](FAQ.md#can-i-add-multiple-teams-to-the-same-grist-account)
-
-6. [Can I add multiple login accounts to Grist?](FAQ.md#can-i-add-multiple-login-accounts-to-grist)
-
-7. [How can I add a second owner or transfer ownership of my team site?](FAQ.md#how-to-manage-ownership-of-my-team-site)
-
-8. [How can I change the email address I use for Grist?](FAQ.md#how-can-i-change-the-email-address-i-use-for-grist)
-
-9. [How can I edit my team’s subdomain and site name?](FAQ.md#can-i-edit-my-teams-name-and-subdomain)
-
-10. [How many rows can I have?](FAQ.md#how-many-rows-can-i-have)
-
-11. [Can I embed Grist into my website?](FAQ.md#can-i-embed-grist-into-my-website)
-
-12. [Can I use Grist as the backend of my website or app?](FAQ.md#can-i-use-grist-as-the-backend-of-my-web-app)
-
-13. [Can I create apps using Grist, then sell those apps to customers?](FAQ.md#can-i-create-and-sell-apps-based-on-grist)
-
-14. [Does Grist accept non-English characters?](FAQ.md#does-grist-accept-non-english-characters)
+[TOC]
 
 <br>
 <br>
 ---
 <br>
 <br>
-## Why do I have multiple sites?
 
-All Grist accounts have access to a free personal account. The site name of the personal account begins with @ and is always located at [docs.getgrist.com](https://docs.getgrist.com/). This account may have up to 10 documents. Each one of those documents may be shared with up to two collaborators for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
+## Accounts
 
-Documents shared with you will be saved in your personal site and do not count against the 10 document limit.
-
-You may navigate between your personal site and [team sites](teams.md) by clicking in the top-left corner to open a drop-down menu of sites to which you have access.
-
-<center>*![Navigating between sites](images/faq/personal-and-team-site.png)*</center>
-
----
-
-## What does Team (+2 Per Doc) mean? 
-
-Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as your-company.getgrist.com. The team plan costs $8/month/team member. Team site owners may open the [Billing Account](teams.md#billing-account) page to management payment and edit plan managers.
-
-By default, documents within a team site may be accessed by all team members. This default can be modified to only share certain [documents](team-sharing.md) or certain [workspaces](workspaces.md) with specific team members. 
-
-At the document level, you may choose to [share a document](sharing.md) with up to 2 outside collaborators (non-team members) at no additional cost.
-
-For example, say Wiley Co. has a team site with 5 team members. They pay $40 per month to collaborate in Grist on an unlimited number of documents.
-
-Wiley Co. sometimes works with a contractor on a project, a company called Roadrunner. Wiley Co. shares one of their documents with 2 Roadrunner employees at no additional cost. Those two document-level shares are considered outside collaborators, or guests.
-
-Wiley Co. sometimes works with a second contractor, a company called ACME. Wiley Co. shares one of their documents with 2 ACME employees at no additional cost. Wiley Co. has four outside collaborators, or guests, but since there are at most 2 per document, there is no additional cost.
-
----
-
-## Can I only share Grist documents with my team?
-
-There are many ways to share Grist data with non-team members. 
-
-1. **Outside collaborators.** Each document may be shared with 2 outside collaborators (non-team members) at no additional cost.
-2. **Link Sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
-
-<center>*![Public access](images/faq/link-sharing.png)*</center>
-
-3. **Restricted View-only link sharing.** With view-only link sharing, there is a way to further restrict what people can see by using Grist's access rules to set specific URL parameters called [link keys](access-rules.md#link-keys) that determine which tables, columns, or rows are shown when a specific link is shared. 
-
-4. **View-only Embed.** Grist [pages](page-widgets.md#pages) can be embedded into websites in an iframe. [Learn how.](embedding.md)
-
----
-
-## Can I move documents between sites?
-
-Yes! Follow these steps to move documents between sites.
-
-1. Click on the share icon, then duplicate document. 
-
-2. Select the site (organization) to which you want to transfer the document.
-
-This will create a copy, so you'll still have the original document in your originals site. You can always delete it.
-
-Learn more about [copying documents](copying-docs.md).
-
----
-
-## Can I add multiple teams to the same Grist account? 
+### Can I add multiple teams to the same Grist account? 
 
 Yes!
 
-1. **New team site.** If you’re looking to create a new team site that does not exist, open the user menu by clicking on the profile icon in the top-right of Grist. Click on “Upgrade Plan.”
+1. **New team site.** If you’re looking to create a new team site that does not exist, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist. Click on “Upgrade Plan.”
+
 2. **Adding account to team site.** You may own or be a member of multiple teams. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manager Users. 
 
 **Did you know?** 
 
-You can add multiple accounts to Grist. Open the user menu and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu.
+You can add multiple accounts to Grist. Open the [user menu](glossary.md#User-Menu) and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu.
 
----
+### Can I add multiple login accounts to Grist?
 
-## Can I add multiple login accounts to Grist?
+Yes! To add multiple account to Grist, open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
 
-Yes! To add multiple account to Grist, open the user menu by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
+You can now easily switch between all your accounts, and all your teams, from the user menu.
+
+### How can I change the email address I use for Grist?
+
+It is not possible to change your Grist email. 
+
+It is possible to manage multiple accounts in Grist. To add another account, open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
 ---
 
-## How to manage ownership of my team site?
+## Plans
+
+### Why do I have multiple sites?
+
+All Grist users have access to a free personal account. The site name of the personal account begins with @ and is always located at [docs.getgrist.com](https://docs.getgrist.com/). This account may have up to 10 documents. Each one of those documents may be shared with up to two collaborators for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
+
+Documents shared with you will be shown in your personal site and do not count against the 10 document limit.
+
+You may navigate between your [personal site](teams.md#Understanding-Personal-Sites) and [team sites](teams.md) by clicking in the top-left corner to open a drop-down menu of sites to which you have access.
+
+<center>*![Navigating between sites](images/faq/personal-and-team-site.png)*</center>
+
+### How to manage ownership of my team site?
 
 **Add a second owner**
 
 1. Open the team site to which you want add a second owner.
 
-2. Click "Manage Users" under the user menu by clicking on the profile icon in the top-right of Grist. 
+2. Click "Manage Users" under the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist. 
 
 3. Add the new account as Owner, and click Confirm. 
 
@@ -141,27 +80,29 @@ It is not possible to add a second owner to, or transfer ownership of, a [person
 
 If you’re transferring team site ownership between two Grist accounts that you own, you can more easily transfer ownership by adding multiple accounts to Grist. To add multiple accounts, open the user menu and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu. Follow the steps above to transfer ownership from one account to the other.
 
----
+### Can I edit my team’s name and subdomain?
 
-## How can I change the email address I use for Grist?
-
-It is not possible to change your Grist email. 
-
-It is possible to manage multiple accounts in Grist. To add another account, open the user menu by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
-
-You can now easily switch between all your accounts, and all your teams, from the user menu.
-
----
-
-## Can I edit my team’s name and subdomain?
-
-You may edit your site name and subdomain from the billing page. Open the user menu by clicking on the profile icon in the top-right of Grist, then click on [“Billing Account.”](teams.md#billing-account)
+You may edit your site name and subdomain from the billing page. Open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on [“Billing Account.”](teams.md#billing-account)
 
 <center>*![Public access](images/faq/edit-subdomain.png)*</center>
 
 ---
 
-## How many rows can I have?
+## Documents and data
+
+### Can I move documents between sites?
+
+Yes! Follow these steps to move documents between sites.
+
+1. Click on the share icon, then duplicate document. 
+
+2. Select the site (organization) to which you want to transfer the document.
+
+This will create a copy, so you'll still have the original document in your original site. You can always delete it.
+
+Learn more about [copying documents](copying-docs.md).
+
+### How many rows can I have?
 
 As a rule of thumb, Grist works best for documents under 100,000 rows. The actual limit depends also on the number of tables, columns, and the average size of data in each cell. One way to estimate it is to measure the size of the data when it is in CSV format: the limit is around 20MB in this format. For example, a document with 200,000 rows and 12 numeric columns would reach that.
 
@@ -169,9 +110,64 @@ Attachments are counted separately. Attachments plus data in a single document a
 
 [Learn more about limits](limits.md).
 
+### Does Grist accept non-English characters?
+
+Non-English characters are supported in column labels, but not column ids, which are the column’s Python name used in formulas. When importing a file into Grist, non-English characters do import as values in cells, but do not import into column labels (aka headers). The column labels are approximated with English characters. You may rename the column labels to include non-English characters after import.
+
+To [edit column labels and ids](col-types.md#renaming-columns) separately, open the creator panel and select the column menu. Click the link icon that joins label to id to enable column id editing. While non-English characters are not supported, it is possible to edit the ids into something more clear and friendly to use in formulas. 
+
+<center>*![Editing column labels and id](images/faq/editing-col-label-id.png)*</center>
+
+### How do I sum the total of a column?
+
+To summarize multiple records, you need [summary tables](summary-tables.md).
+
+The major difference between Grist and spreadsheets like Excel or Google Sheets is that Grist is a database, so each row in a grid represents a record (e.g. a person, a bank transaction, etc.) Since a sum across multiple records isn't the same kind of record, Grist offers summarizing data as a separate widget, which can be modified to calculate even more powerful summary data.
+
+For example, suppose you have a table of webstore orders. With just a few clicks you can summarize orders *by month* to calculate the number of orders and total sales revenue in each month for which you have data. 
+
+Take it a step further and suppose you have multiple webstores. With Grist, you can record all sales orders across all stores and months in the same table. Then, you can summarize by month *and* webstore. 
+
+When you add more months (or stores!) to the orders table, the summary table will automatically update, which is another key difference with spreadsheets. In Excel, you would need to expand your formula's range, or add more sheets and modify formulas everytime you added more sales orders, months, or stores. In Grist, you create the summary table once, and let Grist do the future work for you.
+
+In addition to our [summary tables](summary-tables.md) article, we have a [video tutorial and follow-along guide](examples/2021-06-timesheets.md) that provides an example in building a dashboard with summary tables.
+
 ---
 
-## Can I embed Grist into my website?
+## Sharing 
+
+### What does Team (+2 Per Doc) mean? 
+
+Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as your-company.getgrist.com. The team plan costs $8/month/team member. Team site owners may open the [Billing Account](teams.md#billing-account) page to manage payment and edit plan managers.
+
+By default, documents within a team site may be accessed by all team members. This default can be modified to only share certain [documents](team-sharing.md) or certain [workspaces](workspaces.md) with specific team members. 
+
+At the document level, you may choose to [share a document](sharing.md) with up to 2 outside collaborators (non-team members) at no additional cost.
+
+For example, say Wiley Co. has a team site with 5 team members. They pay $40 per month to collaborate in Grist on an unlimited number of documents.
+
+Wiley Co. sometimes works with a contractor on a project, a company called Roadrunner. Wiley Co. shares one of their documents with 2 Roadrunner employees at no additional cost. Those two document-level shares are considered outside collaborators, or guests.
+
+Wiley Co. sometimes works with a second contractor, a company called ACME. Wiley Co. shares one of their documents with 2 ACME employees at no additional cost. Wiley Co. has four outside collaborators, or guests, but since there are at most 2 per document, there is no additional cost.
+
+### Can I only share Grist documents with my team?
+
+There are many ways to share Grist data with non-team members. 
+
+1. **Outside collaborators.** Each document may be shared with 2 outside collaborators (non-team members) at no additional cost.
+2. **Link Sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
+
+<center>*![Public access](images/faq/link-sharing.png)*</center>
+
+3. **Restricted View-only link sharing.** With view-only link sharing, there is a way to further restrict what people can see by using Grist's access rules to set specific URL parameters called [link keys](access-rules.md#link-keys) that determine which tables, columns, or rows are shown when a specific link is shared. 
+
+4. **View-only Embed.** Grist [pages](page-widgets.md#pages) can be embedded into websites in an iframe. [Learn how.](embedding.md)
+
+---
+
+## Grist and your website/app
+
+### Can I embed Grist into my website?
 
 Yes, it is possible to embed Grist [pages](page-widgets.md#pages) as view-only data in a website in an iframe. 
 
@@ -181,25 +177,10 @@ Replace the url written in the code above with the URL of the Grist page you wis
 
 Learn more about [embedding Grist](embedding.md).
 
----
-
-## Can I use Grist as the backend of my web app?
+### Can I use Grist as the backend of my web app?
 
 Using Grist as a backend solution directly to a website or web app is not yet supported. We don't yet have an authentication method for this use case. The API key method isn't generally appropriate for web use, because the key would end up accessible to any viewer of the webpage, which is usually undesirable. We are interested in supporting this in the future and welcome ideas and feedback in our [community forum](https://community.getgrist.com/).
 
----
-
-
-## Can I create and sell apps based on Grist?
+### Can I create and sell apps based on Grist?
 
 White labeling is not yet supported in Grist. We are interested in supporting white labeling, and welcome ideas and feedback in our [community forum](https://community.getgrist.com/).
-
----
-
-## Does Grist accept non-English characters?
-
-Non-English characters are supported in column labels, but not column ids, which are the column’s Python name used in formulas. When importing a file into Grist, non-English characters do import as values in cells, but do not import into column labels (aka headers). The column labels are approximated with English characters. You may rename the column labels to include non-English characters after import.
-
-To [edit column labels and ids](col-types.md#renaming-columns) separately, open the creator panel and select the column menu. Click the link icon that joins label to id to enable column id editing. While non-English characters are not supported, it is possible to edit the ids into something more clear and friendly to use in formulas. 
-
-<center>*![Editing column labels and id](images/faq/editing-col-label-id.png)*</center>

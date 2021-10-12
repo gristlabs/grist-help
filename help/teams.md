@@ -1,7 +1,7 @@
 Teams
 =========
 
-Team sites are a paid feature. In a team site, team members can collaborate on an unlimited number of documents, which can be further organized with [workspaces](workspaces.md) Team sites also have custom names and subdomains, such as your-business-name.getgrist.com. To use the features in this section, upgrade to a [team plan](https://www.getgrist.com/pricing).
+Team sites are a paid feature. In a team site, team members can collaborate on an unlimited number of documents, which can be further organized with [workspaces](workspaces.md). Team sites also have custom names and subdomains, such as your-business-name.getgrist.com. To use the features in this section, upgrade to a [team plan](https://www.getgrist.com/pricing).
 
 If you have a team site but aren't seeing it, click in the top-left corner to open a drop-down menu of sites to which you have access.
 
