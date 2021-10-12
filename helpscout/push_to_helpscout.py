@@ -6,9 +6,9 @@
 # With HELPSCOUT_DOCS_API_KEY in .helpscout, run:
 #   env $(cat .helpscout) ./env/bin/python helpscout/push_to_helpscout.py
 
+import mimetypes
 import os
-import pprint
-from urllib.parse import urljoin, urlparse
+from urllib.parse import unquote, urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
 
@@ -28,7 +28,7 @@ def process_response(r, *args, **kwargs): # pylint:disable=unused-argument
     except Exception:
       print("Request failed", e.response.text)
     print("Request url", e.response.request.url)
-    print("Request body", e.response.request.body)
+    #print("Request body", e.response.request.body[:1000])
     raise e
 
 class DocsPusher:
@@ -61,13 +61,15 @@ class DocsPusher:
     with open(img_path, 'rb') as f:
       if self._dryrun:
         return f"DRYRUN/{img_path}"
+      print(f"Uploading {img_path} to {article_id}")
+      ctype, _ = mimetypes.guess_type(img_path)
       resp = self._sess.post(f"{DOCS_BASE_URL}/assets/article",
           data={
             "key": DOCS_API_KEY,
             "articleId": article_id,
             "assetType": "image",
           },
-          files={"file": f}
+          files={"file": (os.path.basename(img_path), f, ctype)},
       ).json()
       return resp["filelink"]
 
@@ -106,6 +108,9 @@ class DocsPusher:
     # Upload all images
     for img in parsed.find_all('img'):
       src = img['src']
+      if src.startswith("https://") or src.startswith("http://"):
+        continue
+      src = unquote(src)
       if src.startswith("/"):
         img_path = os.path.normpath(os.path.join(ROOT, src.lstrip("/")))
       else:
@@ -146,7 +151,12 @@ class DocsPusher:
           "urlMapping": from_path,
           "redirect": to_url,
         })
+    return name
 
+  def deleteArticle(self, article_id):
+    print(f"Deleting {article_id}")
+    if not self._dryrun:
+      self._sess.delete(f"{DOCS_BASE_URL}/articles/{article_id}")
 
   def getArticle(self, article_id):
     if self._dryrun:
@@ -172,10 +182,16 @@ class DocsPusher:
     for a in articles.values():
       print(a["id"], a["publicUrl"], a["name"])
 
+    wanted = set()
     for (dirpath, dirnames, filenames) in os.walk(ROOT):
       name = os.path.basename(dirpath)
       for f in filenames:
-        if f == "index.html" and "widget" in name:
-          self.uploadArticle(articles, f"{dirpath}/{f}", name)
+        if f == "index.html":
+          name = self.uploadArticle(articles, f"{dirpath}/{f}", name)
+          wanted.add(name)
+
+    for name, article in articles.items():
+      if name not in wanted:
+        self.deleteArticle(article["id"])
 
 DocsPusher().run()
