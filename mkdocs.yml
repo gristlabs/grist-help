@@ -11,8 +11,7 @@ theme:
   custom_dir: overrides
 nav:
   - Welcome to Grist: index.md
-  - FAQ: 
-    - FAQ: FAQ.md
+  - FAQ: FAQ.md
   - How-To Tutorials:
     - Create your own CRM: lightweight-crm.md
     - Analyze and visualize: investment-research.md

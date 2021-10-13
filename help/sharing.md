@@ -48,7 +48,7 @@ There are three primary roles supported by Grist:
 
 
 The option to inherit access does not affect individual plans, and is explained
-in the [Team Sharing](teams#sharing.md) article.
+in the [Team Sharing](team-sharing.md) article.
 
 ## Public access
 

@@ -155,7 +155,7 @@ as `$id` in formulas) that is unique within that table.
 
 The user menu is the menu that opens by clicking your profile icon in the top-right of Grist. From there you can manage your profile, add additional Grist accounts that you own, and see a list of team sites to which you have access.
 
-Depending on where you are, the user menu will contain additional options. For example, from a [personal site](teams.md#Understanding-Personal-Sites)you'll see the option to upgrade your plan to a [team site](teams.md). From a team site, depending on your role and permissions, you may be able to [manage billing](teams.md#billing-account) or [edit team members](team-sharing.md). From a document, you'll find an option to edit document settings.
+Depending on where you are, the user menu will contain additional options. For example, from a [personal site](teams.md#Understanding-Personal-Sites) you'll see the option to upgrade your plan to a [team site](teams.md). From a team site, depending on your role and permissions, you may be able to [manage billing](teams.md#billing-account) or [edit team members](team-sharing.md). From a document, you'll find an option to edit document settings.
 
 *![document-settings](images/document-settings.png){: .screenshot4}*
 {: .screenshot-half }

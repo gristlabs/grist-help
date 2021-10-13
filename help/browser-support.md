@@ -29,3 +29,4 @@ To edit a cell, simply double-tap it.
 Mobile support is still a work in progress. To get back to the desktop version on a mobile device, open your account menu, and select “Toggle Mobile Mode” option:
 
 *![Toggle mobile mode](images/toggle-mobile-mode.png)*
+{: .screenshot-half }

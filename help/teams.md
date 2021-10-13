@@ -5,8 +5,9 @@ Team sites are a paid feature. In a team site, team members can collaborate on a
 
 If you have a team site but aren't seeing it, click in the top-left corner to open a drop-down menu of sites to which you have access.
 
+<center>
 *![List of Sites](images/faq/personal-and-team-site.png)*
-{: .screenshot-half }
+</center>
 
 Opening the user menu under your profile icon will also list all sites to which you have access.
 
@@ -30,7 +31,7 @@ or immediately start [sharing](team-sharing.md) the site with others.
 
 Understanding Personal Sites
 -------------------------------
-Sites that begin with the "@" symbol are personal sites, free to use for up to 10 docs. All Grist accounts have a personal site. Documents shared with you will go to your personal site and not count against the 10 document limit. Each document in a personal site may be [shared](sharing.md) with up to 2 people for free. The personal site itself cannot be shared, its name is your name, the subdomain cannot be edited, and personal sites do not have workspaces.
+Sites that begin with the "@" symbol are personal sites, free to use for up to 10 docs. All Grist accounts have a personal site. Documents shared with you will go to your personal site and not count against the 10 document limit. Each document in a personal site may be [shared](sharing.md) with up to 2 people for free. The personal site itself cannot be shared, and does not support workspaces. It is named using your name, and is always available at https://docs.getgrist.com.
 
 ![team-sharing-personal-name](images/team-sharing/team-sharing-personal-name.png)
 *a personal site*
@@ -43,10 +44,11 @@ Sites that begin with the "@" symbol are personal sites, free to use for up to 1
 Billing Account
 -------------------------------
 
-You may manage billing information, and edit your team site's team name and subdomain from the billing account page. Open the user menu and click on "Billing Account" to open a menu that looks like this. 
+If you created a Team Site, or were added to it as a Billing Manager, then you may manage billing information, and edit your team site's team name and subdomain from the billing account page. Open the [user menu](glossary.md#user-menu) and click on "Billing Account" to open a menu that looks like this. 
 
 ![billing account](images/billing-page.png)
+{: .screenshot-half }
 
-The original purchaser of the team site is the default billing manager. They may add other plan mamangers if they wish.
+Click on the top "Change" icon to edit your subdomain. Note, if you change the subdomain, then any links pointing to your site or documents within your site will need updating.
 
-Click on the "Change" icon to edit your team site name or subdomain. Note that any links pointing to your site or documents within your site will need updating.
+Click on the bottom "Change" icon to edit your team site name.

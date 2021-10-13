@@ -16,21 +16,21 @@ Yes!
 
 1. **New team site.** If you’re looking to create a new team site that does not exist, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist. Click on “Upgrade Plan.”
 
-2. **Adding account to team site.** You may own or be a member of multiple teams. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manager Users. 
+2. **Adding account to team site.** You may own or be a member of multiple teams. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users. 
 
 **Did you know?** 
 
-You can add multiple accounts to Grist. Open the [user menu](glossary.md#User-Menu) and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu.
+You can sign in to Grist with multiple email accounts. Open the [user menu](glossary.md#User-Menu) and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu.
 
 ### Can I add multiple login accounts to Grist?
 
-Yes! To add multiple account to Grist, open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
+Yes! To add multiple accounts to Grist, open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
 ### How can I change the email address I use for Grist?
 
-It is not possible to change your Grist email. 
+It is not possible to change the email associated with your Grist account. However, it it possible to transfer ownership of documents and team sites between two Grist email accounts that you own. This would effectively change your Grist email. [Learn how](FAQ.md#how-to-manage-ownership-of-my-team-site). 
 
 It is possible to manage multiple accounts in Grist. To add another account, open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
 
@@ -42,7 +42,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 ### Why do I have multiple sites?
 
-All Grist users have access to a free personal account. The site name of the personal account begins with @ and is always located at [docs.getgrist.com](https://docs.getgrist.com/). This account may have up to 10 documents. Each one of those documents may be shared with up to two collaborators for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
+All Grist users have access to a free personal account. The personal site is always named beginning with @ and is always located at [docs.getgrist.com](https://docs.getgrist.com/). This account may have up to 10 documents. Each one of those documents may be shared with up to two collaborators for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
 
 Documents shared with you will be shown in your personal site and do not count against the 10 document limit.
 
@@ -58,17 +58,13 @@ You may navigate between your [personal site](teams.md#Understanding-Personal-Si
 
 2. Click "Manage Users" under the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist. 
 
-3. Add the new account as Owner, and click Confirm. 
+3. Add the new email address as Owner, and click Confirm. 
 
 4. You may also wish to go to “Billing Account” (also under the user menu) and add the new owner as a Billing Manager.
 
 **Transfer ownership**
 
-1. Open the team site you wish to transfer.
-
-2. Click “Manage Users” under the user menu. 
-
-3. Add the new account as Owner, and click Confirm. 
+1. Follow steps 1-3 above to add a second owner.
 
 4. Go to “Billing Account” (also under the user menu) and add the new Owner as a [Billing Manager](team-sharing#billing-permissions).
 
@@ -78,7 +74,7 @@ It is not possible to add a second owner to, or transfer ownership of, a [person
 
 **Did you know?** 
 
-If you’re transferring team site ownership between two Grist accounts that you own, you can more easily transfer ownership by adding multiple accounts to Grist. To add multiple accounts, open the user menu and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu. Follow the steps above to transfer ownership from one account to the other.
+If you’re transferring team site ownership between two Grist email accounts that you own, you can more easily transfer ownership by signing in with multiple accounts. To sign in with another account, open the user menu and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu. Follow the steps above to transfer ownership from one account to the other.
 
 ### Can I edit my team’s name and subdomain?
 
@@ -94,7 +90,7 @@ You may edit your site name and subdomain from the billing page. Open the [user 
 
 Yes! Follow these steps to move documents between sites.
 
-1. Click on the share icon, then duplicate document. 
+1. Open the document you wish to move and click on the share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>), then click "Duplicate Document" in the menu. 
 
 2. Select the site (organization) to which you want to transfer the document.
 
@@ -124,7 +120,9 @@ To summarize multiple records, you need [summary tables](summary-tables.md).
 
 The major difference between Grist and spreadsheets like Excel or Google Sheets is that Grist is a database, so each row in a grid represents a record (e.g. a person, a bank transaction, etc.) Since a sum across multiple records isn't the same kind of record, Grist offers summarizing data as a separate widget, which can be modified to calculate even more powerful summary data.
 
-For example, suppose you have a table of webstore orders. With just a few clicks you can summarize orders *by month* to calculate the number of orders and total sales revenue in each month for which you have data. 
+For example, suppose you have a table of webstore orders called `Orders` and you want to sum sales revenue from all orders. At the top of the left-side menu, click "Add New" button and select "Add Page" or "Add Widget to Page". In the widget picker, select the `Orders` table then click the summation icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) next to it. Add the page or widget to your document. Done! You've now created a summary table that by default counts all the records in the `Orders` table, and sums all [numeric](col-types.md#numeric-columns) and [integer](col-types.md#integer-columns) columns, such as the amount sold in each order.
+
+Summary tables can do more than a sum of a tables' columns. With just a few clicks you can summarize orders *by month* to calculate the number of orders and total sales revenue in each month for which you have data. 
 
 Take it a step further and suppose you have multiple webstores. With Grist, you can record all sales orders across all stores and months in the same table. Then, you can summarize by month *and* webstore. 
 
@@ -138,7 +136,7 @@ In addition to our [summary tables](summary-tables.md) article, we have a [video
 
 ### What does Team (+2 Per Doc) mean? 
 
-Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as your-company.getgrist.com. The team plan costs $8/month/team member. Team site owners may open the [Billing Account](teams.md#billing-account) page to manage payment and edit plan managers.
+Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as `your-company.getgrist.com`. The team plan costs $8/month/team member. Team site owners may open the [Billing Account](teams.md#billing-account) page to manage payment and edit plan managers.
 
 By default, documents within a team site may be accessed by all team members. This default can be modified to only share certain [documents](team-sharing.md) or certain [workspaces](workspaces.md) with specific team members. 
 
@@ -180,7 +178,3 @@ Learn more about [embedding Grist](embedding.md).
 ### Can I use Grist as the backend of my web app?
 
 Using Grist as a backend solution directly to a website or web app is not yet supported. We don't yet have an authentication method for this use case. The API key method isn't generally appropriate for web use, because the key would end up accessible to any viewer of the webpage, which is usually undesirable. We are interested in supporting this in the future and welcome ideas and feedback in our [community forum](https://community.getgrist.com/).
-
-### Can I create and sell apps based on Grist?
-
-White labeling is not yet supported in Grist. We are interested in supporting white labeling, and welcome ideas and feedback in our [community forum](https://community.getgrist.com/).
