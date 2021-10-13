@@ -9,13 +9,13 @@ HELPSCOUT_DOCS_API_KEY=<key>
 
 2. Run command (from checkout) to build documentation for HelpScout:
 ```
-./env/bin/mkdocs build -c -f helpscout/mkdocs.yml
+./env/bin/mkdocs build -c -f hscout/mkdocs.yml
 ```
 
 3. Run command (from checkout) to sync built documentation to HelpScout:
 
 ```
-env $(cat .helpscout) ./env/bin/python helpscout/push_to_helpscout.py
+env $(cat .helpscout) ./env/bin/python hscout/push_to_helpscout.py
 ```
 
 
