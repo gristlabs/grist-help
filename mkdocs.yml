@@ -124,10 +124,10 @@ extra_javascript:
   - js/grist.js
 
 markdown_extensions:
-  - toc:
+  toc:
       permalink: '#'
-  - admonition
-  - smarty
-  - extra
+  admonition: {}
+  smarty: {}
+  extra: {}
 
 google_analytics: ['GTM-5FDHKQ9', 'auto']
