@@ -1,6 +1,5 @@
 site_name: Grist Help Center
 site_dir: site
-site_favicon: images/favicon.png
 site_description: "Tutorials and resources for Grist, to help you organize your data, your way."
 site_url: "https://support.getgrist.com"
 
@@ -118,6 +117,7 @@ extra:
       text: 'Community'
     - href: https://www.getgrist.com
       text: 'Back to Grist'
+  google_analytics: ['GTM-5FDHKQ9', 'auto']
 extra_css:
   - css/grist.css
 extra_javascript:
@@ -129,5 +129,3 @@ markdown_extensions:
   admonition: {}
   smarty: {}
   extra: {}
-
-google_analytics: ['GTM-5FDHKQ9', 'auto']
