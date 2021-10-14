@@ -10,7 +10,7 @@
 #   DRYRUN=1  scan files and parse images, but don't actually talk to HelpScout.
 #   DRYRUN=R  read from HelpScout, but don't write to it.
 #   PREFIX=   Only process articles starting with this prefix (useful for testing).
-#             Implies NODELETE
+#             Only deletes extra articles with matching names.
 #   NOCLEAN=1 Don't delete from HelpScout articles that aren't being synced.
 
 import hashlib
@@ -45,7 +45,7 @@ class DocsPusher:
     self._dryrun = bool(os.environ.get("DRYRUN"))       # No writing to helpscout if True
     self._noread = self._dryrun and os.environ.get("DRYRUN") != "R"  # No reading helpscout either
     self._prefix = os.environ.get("PREFIX")
-    self._noclean = bool(os.environ.get("NOCLEAN")) or bool(self._prefix)  # Don't delete articles
+    self._noclean = bool(os.environ.get("NOCLEAN"))     # Don't delete articles
     self._sess = requests.Session()
     self._sess.auth = (DOCS_API_KEY, 'X')
     self._sess.hooks = {
@@ -73,7 +73,7 @@ class DocsPusher:
     with open(img_path, 'rb') as f:
       if self._dryrun:
         return f"DRYRUN/{img_path}"
-      print(f"Uploading {img_path} to {article_id}")
+      print(f" - Uploading {img_path} to {article_id}")
       ctype, _ = mimetypes.guess_type(img_path)
       resp = self._sess.post(f"{DOCS_BASE_URL}/assets/article",
           data={
@@ -127,7 +127,7 @@ class DocsPusher:
     m = re.search(r'<!--\s*article-hash (\w+)\s*-->', hscout_text)
     if m and m.group(1) == new_hash:
       print(f" - skipping because article unchanged; same hash {new_hash}")
-      return name
+      return article
 
     # Upload all images
     for img in parsed.find_all('img'):
@@ -161,7 +161,7 @@ class DocsPusher:
     from_path = urlparse(article["publicUrl"]).path
     to_url = urljoin(MAIN_SITE, f"/{orig_name}/")
     self.setRedirect(from_path, to_url)
-    return name
+    return article
 
   def setRedirect(self, from_path, to_url):
     print(f"Setting redirect {from_path} -> {to_url}")
@@ -200,19 +200,20 @@ class DocsPusher:
       pages = 1
       while page <= pages:
         resp = self._sess.get(f"{DOCS_BASE_URL}/collections/{self._coll_id}/articles",
-            json={"page": page}).json()
+            params={"page": page}).json()
         articles.extend(resp["articles"]["items"])
         page += 1
         pages = resp["articles"]["pages"]
-    return {a["name"]: a for a in articles}
+    return articles
 
   def run(self):
-    articles = self.listArticles()
-    print(f"FOUND {len(articles)} ARTICLES")
-    #for a in articles.values():
-    #  print(a["id"], a["publicUrl"], a["name"])
+    articlesList = self.listArticles()
+    print(f"FOUND {len(articlesList)} ARTICLES")
+    # for i, a in enumerate(articlesList):
+    #   print(i, a["id"], a["publicUrl"], a["name"])
+    articles = {a["name"]: a for a in articlesList}
 
-    wanted = set()
+    uploaded = []    # uploaded articles
     for (dirpath, dirnames, filenames) in os.walk(ROOT):
       name = os.path.basename(dirpath)
       for f in filenames:
@@ -221,13 +222,18 @@ class DocsPusher:
           continue
         relpath = os.path.relpath(dirpath, ROOT)
         if not self._prefix or relpath.startswith(self._prefix):
-          name = self.uploadArticle(articles, f"{dirpath}/{f}", relpath)
-          wanted.add(name)
+          article = self.uploadArticle(articles, f"{dirpath}/{f}", relpath)
+          uploaded.append(article)
 
     if not self._noclean:
-      for name, article in articles.items():
-        if name not in wanted:
-          self.deleteArticle(article["id"])
+      uploaded_ids = set(a["id"] for a in uploaded)
+      to_delete = [a for a in articlesList if a["id"] not in uploaded_ids]
+      if self._prefix:
+        uploaded_names = set(a["name"] for a in uploaded)
+        to_delete = [a for a in to_delete if a["name"] in uploaded_names]
+
+      for article in to_delete:
+        self.deleteArticle(article["id"])
 
 
 def calc_hash(text):
