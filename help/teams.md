@@ -33,22 +33,21 @@ Understanding Personal Sites
 -------------------------------
 Sites that begin with the "@" symbol are personal sites, free to use for up to 10 docs. All Grist accounts have a personal site. Documents shared with you will go to your personal site and not count against the 10 document limit. Each document in a personal site may be [shared](sharing.md) with up to 2 people for free. The personal site itself cannot be shared, and does not support workspaces. It is named using your name, and is always available at https://docs.getgrist.com.
 
-![team-sharing-personal-name](images/team-sharing/team-sharing-personal-name.png)
-*a personal site*
-{: .img-caption }
+*![team-sharing-personal-name](images/team-sharing/team-sharing-personal-name.png)*
+<em class="caption">a personal site</em>
+{: .screenshot-half }
 
-![team-sharing-team-name](images/team-sharing/team-sharing-team-name.png)
-*a team site*
-{: .img-caption }
+*![team-sharing-team-name](images/team-sharing/team-sharing-team-name.png)*
+<em class="caption">a team site</em>
+{: .screenshot-half }
 
 Billing Account
 -------------------------------
 
 If you created a Team Site, or were added to it as a Billing Manager, then you may manage billing information, and edit your team site's team name and subdomain from the billing account page. Open the [user menu](glossary.md#user-menu) and click on "Billing Account" to open a menu that looks like this. 
 
-*![billing account](images/billing-page.png)*
+<span class="screenshot-large">*![billing account](images/billing-page.png)*</span>
 {: .screenshot-half }
 
-Click on the top "Change" icon to edit your subdomain. Note, if you change the subdomain, then any links pointing to your site or documents within your site will need updating.
-
-Click on the bottom "Change" icon to edit your team site name.
+Click on the top "Change" icon to edit your team site name or subdomain. Note, if you change the
+subdomain, then any links pointing to your site or documents within your site will need updating.
