@@ -11,6 +11,7 @@ theme:
   custom_dir: overrides
 nav:
   - Welcome to Grist: index.md
+  - FAQ: FAQ.md
   - How-To Tutorials:
     - Create your own CRM: lightweight-crm.md
     - Analyze and visualize: investment-research.md
@@ -19,7 +20,6 @@ nav:
     - Creating a document: creating-doc.md
     - Sharing a document: sharing.md
     - Copying documents: copying-docs.md
-    - Team sharing [team]: team-sharing.md
     - Workspaces [team]: workspaces.md
     - Importing more data: imports.md
     - Exports & backups: exports.md
@@ -46,6 +46,10 @@ nav:
     - Intro to formulas: formulas.md
     - Working with dates: dates.md
     - Function reference: functions.md
+  - Team Sites: 
+    - Creating team sites: teams.md
+    - Sharing team sites: team-sharing.md
+    - Workspaces: workspaces.md    
   - Access rules:
     - Intro to access rules: access-rules.md
   - Integrations:
