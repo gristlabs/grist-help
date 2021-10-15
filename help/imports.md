@@ -101,5 +101,19 @@ the original record unchanged.
     **Note:** If there are multiple imported rows that have the same values for the
               selected merge fields, the last row will be used for matching and updating.
               If there are multiple existing records that have the same values for
-              the selected merge fields, all of the records will be updated if a
+              the selected merge fields, only the first record will be updated if a
               matching imported row is found.
+
+Each time the merge fields are changed, Grist will generate a preview of the updates that
+will be made to the destination table, and display them in the preview table.
+
+![import-dialog-update-records-preview](images/import-dialog-update-records-preview.png)
+
+Changes are highlighted as follows:
+
+ - New records have all of their fields highlighted in green.
+ - Updated records have red and green highlighting for any changed fields: red (with a
+   strikethrough) for existing values from the destination, and green for new
+   values from the imported file.
+ - Unchanged records have no highlighting. Field values that exist in the destination table,
+   but are blank in the imported file, are distinguished by a light gray font color.
