@@ -47,6 +47,10 @@
 .wide-img-caption img {
   margin-bottom: 0;
 }
+.wide-img-caption em {
+  display: block;
+  text-align: center;
+}
 
 .grist-button {
   display: flex;
@@ -114,6 +118,7 @@
 .screenshot-half .screenshot-full { display: block; width: 200%; margin-left: -50%; }
 .screenshot-half em { display: inline-block; }
 .screenshot-half em > img { width: 50%; margin: 0; }
+.screenshot-half .caption { display: block; text-align: center; }
 
 .carousel-indicators li {
   border: 1px solid var(--color-light-green);

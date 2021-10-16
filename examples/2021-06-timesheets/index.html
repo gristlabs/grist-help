@@ -149,6 +149,10 @@
 
     
 </li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="../../FAQ/" class="wm-article-link wm-toc-text">FAQ</a>
+
+    
+</li>
         <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-To Tutorials</span>
 </li>
 <li class="wm-toc-li-nested collapse">
@@ -181,10 +185,6 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../team-sharing/" class="wm-article-link wm-toc-text">Team sharing [team]</a>
 
     
 </li>
@@ -298,6 +298,25 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Team Sites</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../teams/" class="wm-article-link wm-toc-text">Creating team sites</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../team-sharing/" class="wm-article-link wm-toc-text">Sharing team sites</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../workspaces/" class="wm-article-link wm-toc-text">Workspaces</a>
 
     
 </li>
@@ -702,7 +721,7 @@ to rebuild the contractor summary page.</p>
 <div class="admonition tip">
 <p class="admonition-title">Did you know?</p>
 <p>If needed, you can also add conditions to this formula. For example,
-<code>sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group if Hours_Worked &gt; 0)</code>
+<code>sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group if r.Hours_Worked &gt; 0)</code>
 will only add up records in which there is a positive value in the field <code>Hours Worked</code>.</p>
 <p>Visit our <a href="../../functions/#_group">function reference</a> to learn more.</p>
 </div>
