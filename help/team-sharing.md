@@ -46,4 +46,5 @@ None of these roles give access to billing information or management.
 Billing plan managers can be added via the "Billing Account" option. 
 Open the user menu under your user icon, and select "Billing Account".
 
-![Add billing managers](images/billing-page.png)
+<span class="screenshot-large">*![Add billing managers](images/billing-page.png)*</span>
+{: .screenshot-half }
