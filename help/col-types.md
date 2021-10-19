@@ -235,7 +235,9 @@ reflected inside cells and throughout the rest of your document once you save
 your changes.
 
 Choices can be re-arranged by clicking and dragging them, which determines the
-order in which they appear when typing into a cell.
+order in which they appear when typing into a cell. You can also rename a
+choice by clicking on it and typing a new name. Renaming a choice will also
+rename all the values that are used in your document.
 
 The configuration editor supports many convenient keyboard shortcuts. You can
 press the `Up Arrow` and `Down Arrow` keys to navigate between selected choices;
