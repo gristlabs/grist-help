@@ -222,6 +222,11 @@ And here's how the table looks as Charon (doing sourcing):
 Kimberly and Charon now have read-only access to the table.  Owners still have full
 write access to all rows and columns.
 
+!!! note "Understanding reference columns in access rules" 
+    You can limit the data team members access to just those rows pertinent to their work. One way to do so is to relate all records in all tables to their respective team members. For example, leads and sales records can reference the sales rep responsible for those records. This quick video explains how. 
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZL3rHdAZzfY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Checking new values
 
 Access rules can be used to permit only certain changes to the document.

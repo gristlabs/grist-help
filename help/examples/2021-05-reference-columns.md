@@ -20,7 +20,7 @@ track of your job application process. In the template you have four tables: `Jo
 create a custom dashboard where you can easily view each job application’s status, and add new job
 applications and new milestones easily.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kOwZvmcNEfg?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://templates.getgrist.com/bhW5b6DhciXb/Job-Application-Tracker/p/1?embed=true"height="500px" width="100%" frameborder="0"></iframe>
 
 In this dashboard, clicking on each job application shows only the milestones related to that job
 application. We can create this relationship using reference columns.
@@ -28,6 +28,8 @@ application. We can create this relationship using reference columns.
 Let's create this dashboard together.
 
 ## Step 1: Creating References
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y0MKoz2RXEQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Reference columns are a type of column available under COLUMN TYPE. It is helpful to think of the
 table with the reference column as the **_referencing table_**, and the table which is being
@@ -46,8 +48,6 @@ FROM TABLE should point to `Job Applications`. SHOW COLUMN should be set to `Rol
 reference column is referencing the **_entire record_** and you are choosing which column to
 display in the reference column.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1ORnI5CxDGs?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 **Tip:** You can easily identify reference columns by the chain link icons in the column’s cells.
 
 ### Creating Reference Columns
@@ -63,9 +63,9 @@ contact works. Look at the email address for a hint.
 Note: You can always click on a Reference Column cell to open the drop-down menu and select a new
 value.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2rtTubyIzkw?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Step 2: Look up additional data in the referenced record
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_7KEUKnwI74?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Recall that the reference column is referencing another table, and correlating two specific
 records. Although you see a specific column in the **_display_** of the reference column, the
@@ -82,8 +82,6 @@ called `Company` and we use the formula `$Role.Company`{: .formula}.
 The formula structure is
 `$[Reference Column ID in Referencing Table].[Column ID in Underlying Table]`{: .formula}.
 Grist will also auto-complete parts of the formula as you type it.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1ViT0MbUA9g?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 There’s an alternative way to add multiple columns from an underlying table. If you’re interested
 in learning more, visit our website’s [help section on reference
@@ -108,7 +106,7 @@ we created a reference from the `Milestones` table to the `Job Applications` tab
 reference column. This reference tells Grist which milestones are related to which job
 applications.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QqAdS_uUqfI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZYJgPkcMhJU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 Congrats! You now know how to use reference columns to
