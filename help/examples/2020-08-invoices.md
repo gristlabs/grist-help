@@ -7,7 +7,7 @@ shows you how to set up a document like this:
 ![Invoice](/examples/images/2020-08-invoices/final-invoice.png)
 
 
-You can find a finished template at [https://public.getgrist.com/fGBhgyJbcFbr/Billing/m/fork](https://public.getgrist.com/fGBhgyJbcFbr/Billing/m/fork).
+You can find a finished template at <https://templates.getgrist.com/9NH6D58FmxwP/Invoicing>{:target="\_blank"}.
 If you'd like to add invoices to an existing document, making them work the
 way you want, understanding this tutorial should get you there.
 
