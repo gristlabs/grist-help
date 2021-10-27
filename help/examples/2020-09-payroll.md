@@ -153,4 +153,4 @@ Then mark the "As Template" checkbox.
 {: .screenshot-half }
 
 Your copy will then include all the structure, logic, and layouts of the Payroll document with
-none of the sample date.
+none of the sample data.
