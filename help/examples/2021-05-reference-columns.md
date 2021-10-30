@@ -20,9 +20,7 @@ track of your job application process. In the template you have four tables: `Jo
 create a custom dashboard where you can easily view each job application’s status, and add new job
 applications and new milestones easily.
 
-<iframe src="https://templates.getgrist.com/bhW5b6DhciXb/Job-Application-Tracker/p/1?embed=true"height="500px" width="100%" frameborder="0"></iframe>
-
-In this dashboard, clicking on each job application shows only the milestones related to that job
+[In this dashboard](https://templates.getgrist.com/bhW5b6DhciXb/Job-Application-Tracker/), clicking on each job application shows only the milestones related to that job
 application. We can create this relationship using reference columns.
 
 Let's create this dashboard together.
