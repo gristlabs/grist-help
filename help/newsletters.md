@@ -20,3 +20,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [July 2021 Newsletter](newsletters/2021-07.md): Colors, Time and Authorship Stamps, and Google Sheets Integration.
 - [August 2021 Newsletter](newsletters/2021-08.md): Reference Lists, Embedding, Templates, Pabbly, and more.
 - [September 2021 Newsletter](newsletters/2021-09.md): Improved imports, global currencies, and more ways to integrate!
+- [October 2021 Newsletter](newsletters/2021-10.md): Editing choices, inline linking, enhanced import previews, and more!
