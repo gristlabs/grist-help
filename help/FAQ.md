@@ -1,4 +1,4 @@
-# All Questions
+# Frequently Asked Questions
 
 [TOC]
 
