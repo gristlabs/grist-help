@@ -19,7 +19,7 @@ Let me first share a template. Later I'll describe how to add the same functiona
 existing document, e.g. to add mailing labels alongside [CRM](../lightweight-crm.md) or
 [Payroll](2020-09-payroll.md) data.
 
-The template is at: <https://public.getgrist.com/bk5LT8s722gE/Print-Labels/m/fork>{:target="\_blank"}.
+The template is at: <https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels>{:target="\_blank"}.
 
 You can use it right away. Simply type in your own addresses.
 
@@ -57,12 +57,30 @@ zero for the addresses you don't want to include.
 
 ### A filtered list of labels
 
-To print out only a few labels out of a larger table, use a
-`LabelCount` column with a formula. This formula can produce 1 for a label that should be
-included, or 0 for a label that should not. The page "Filtered" shows an example, with the simple
-formula that includes only California addresses: `IF($State == "CA", 1, 0)`{: .formula}:
+There are a few ways in which you can print out only a few labels out of a larger table, and these
+are illustrated in the linked template:
 
-![Filtered Page](/examples/images/2020-10-print-labels/filtered-page.png)
+1. The "Address Labels" page includes a filter button for `State`, which allows simple filtering
+   by state. You can click `+` button to easily create additional filters like this:
+
+    <span class="screenshot-large">*![Filter Button](/examples/images/2020-10-print-labels/filter-button.png)*</span>
+    {: .screenshot-half }
+
+2. To print out only a few labels out of a larger table, you can use the
+   `LabelCount` column with a formula. This formula can produce 1 for a label that should be
+   included, or 0 for a label that should not. The page "Filtered By Formula" shows an example,
+   with the simple formula that includes only California addresses:
+   `IF($State == "CA", 1, 0)`{: .formula}:
+
+    ![Filtered Page](/examples/images/2020-10-print-labels/filtered-page.png)
+
+3. The "Filtered Manually" page includes a `Select for Print` column. Click any toggle to include
+   the corresponding row into the label sheet.
+
+[GO TO TEMPLATE](https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels){:target="\_blank"}
+{: .grist-button }
+
+<br/>
 
 
 ## Adding Labels to Your Document

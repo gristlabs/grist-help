@@ -105,5 +105,5 @@ Once we have all these links, it makes sense to add a [Card View](../linking-wid
 ## Ready-made template
 
 Here is an
-[example book list](https://public.getgrist.com/hitjMGXBvPXP/Book-Club/m/fork){:target="\_blank"}
+[example book list](https://templates.getgrist.com/hdXy57qLiyNf/Book-Club){:target="\_blank"}
 that you can play with. The actual books listed may not be your thing, of course!  Adjust to taste.

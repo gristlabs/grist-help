@@ -10,7 +10,7 @@ especially if you have part-time employees.
 
 ## The Payroll Template
 
-The finished template is here: <https://public.getgrist.com/eXEBnC3hPfYA/Payroll/m/fork>.
+The finished template is here: <https://templates.getgrist.com/5pHLanQNThxk/Payroll>{:target="\_blank"}.
 Feel free to open it in a separate window, and try things yourself as you go along.
 
 The template addresses a few needs:
@@ -137,10 +137,14 @@ multi-line formulas, variables, and comments.
 
 ## Using the Payroll template
 
-To start using this example for your own payroll, open the Share menu and click "Duplicate
-Document..."
+To start using this example for your own payroll, start with the template:
 
-<span class="screenshot-large">*![Share Menu](/examples/images/2020-09-payroll/share-menu.png)*</span>
+[GO TO TEMPLATE](https://templates.getgrist.com/5pHLanQNThxk/Payroll){:target="\_blank"}
+{: .grist-button }
+
+then click "Save Copy":
+
+<span class="screenshot-large">*![Save Copy](/examples/images/2020-09-payroll/save-copy.png)*</span>
 {: .screenshot-half }
 
 Then mark the "As Template" checkbox.

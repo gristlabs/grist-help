@@ -74,7 +74,7 @@ of that document to be created; the original document will remain unaffected. Th
 can be saved via the "Save Copy" button or menu option.
 
 You can add `/m/fork` to the end of any document's URL to make that document
-open in fiddle mode (e.g. https://public.getgrist.com/1npTYpf2Cgyk/AmEx-Activity-Example/m/fork).
+open in fiddle mode (e.g. `https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork`).
 
 ## Field
 

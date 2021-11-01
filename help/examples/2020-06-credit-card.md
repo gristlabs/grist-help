@@ -21,7 +21,7 @@ any transaction to see its complete details.
 ![By Category](/examples/images/2020-06-credit-card-by-category.png)
 
 Here is the
-[example with sample data](https://public.getgrist.com/1npTYpf2Cgyk/AmEx-Activity-Example/m/fork){:target="\_blank"}
+[example with sample data](https://templates.getgrist.com/2i9WoHs2oRzK/Credit-Card-Activity-Template-AmEx/){:target="\_blank"}
  that you can play with.
 
 To use it for your own data, start by downloading your transactions. For American Express
