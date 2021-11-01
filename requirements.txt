@@ -1,3 +1,4 @@
+beautifulsoup4==4.10.0
 click==7.1.2
 future==0.18.2
 Jinja2==2.11.2
@@ -11,6 +12,7 @@ mkdocs-windmill==1.0.4
 nltk==3.5
 PyYAML==5.3.1
 regex==2020.7.14
+requests==2.26.0
 six==1.15.0
 tornado==6.0.4
 tqdm==4.48.0
