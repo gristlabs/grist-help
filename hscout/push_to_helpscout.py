@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 # Command to run from checkout:
-#   env/bin/mkdocs build -c -f helpscout/mkdocs.yml
+#   env/bin/mkdocs build -c -f hscout/mkdocs.yml
 #
 # With HELPSCOUT_DOCS_API_KEY in .helpscout, run:
-#   env $(cat .helpscout) ./env/bin/python helpscout/push_to_helpscout.py
+#   env $(cat .helpscout) ./env/bin/python hscout/push_to_helpscout.py
 #
 # Extra environment variables
 #   DRYRUN=1  scan files and parse images, but don't actually talk to HelpScout.
@@ -71,28 +71,25 @@ class DocsPusher:
     print(f"Collection {c['name']} (number={c['number']} id={c['id']})")
     return c["id"]
 
-  def getOrCreateArticle(self, article_id, name, slug):
-    """
-    Finds an existing HelpScout article, or creates a new one if article_id is None.
-    """
-    if not article_id and self._dryrun:
-      article_id = f"DRYRUN_{name}"
+  def matchesPrefix(self, urlpath):
+    return not self._prefix or urlpath.startswith(self._prefix)
 
-    if not article_id:
+  def createNewArticle(self, article):
+    if not self._dryrun:
+      print(f"Creating article {article.urlpath} {article.name!r}")
       resp = self._sess.post(f"{DOCS_BASE_URL}/articles", json={
         'collectionId': self._coll_id,
         'status': 'notpublished',
-        'name': name,
-        'slug': slug,
+        'name': article.name,
+        'slug': article.slug,
       })
-      article_id = os.path.basename(resp.headers["Location"].rstrip("/"))
-    return self.getArticle(article_id, name)
+      return os.path.basename(resp.headers["Location"].rstrip("/"))
+    return None
 
   def uploadImage(self, article_id, img_path):
     with open(img_path, 'rb') as f:
       if self._dryrun:
         return f"DRYRUN/{img_path}"
-      print(f" - Uploading image (for article {article_id}): {img_path}")
       ctype, _ = mimetypes.guess_type(img_path)
       resp = self._sess.post(f"{DOCS_BASE_URL}/assets/article",
           data={
@@ -105,7 +102,7 @@ class DocsPusher:
       return resp["filelink"]
 
   def uploadArticle(self, article):
-    print(f" - Uploading {article.urlpath} ({article.name!r})")
+    print(f" - Uploading {article.urlpath} {article.name!r}")
     if not self._dryrun:
       resp = self._sess.put(f"{DOCS_BASE_URL}/articles/{article.article_id}", json={
         'status': 'published',
@@ -119,7 +116,7 @@ class DocsPusher:
     return article
 
   def setRedirect(self, from_path, to_url):
-    print(f"Setting redirect {from_path} -> {to_url}")
+    print(f" - Setting redirect {from_path} -> {to_url}")
     if not self._dryrun:
       found = self._sess.get(f"{DOCS_BASE_URL}/redirects", params={
         "siteId": self._site_id,
@@ -176,49 +173,45 @@ class DocsPusher:
     #   1. find each article or create an empty one
     #   2. construct the mapping.
     #   3. translate each article (including links and images), and upload it.
-    desired_articles = list(self._walk_articles())
-    for article in desired_articles:
+    our_articles = list(walk_articles())
+    desired_articles = [a for a in our_articles if self.matchesPrefix(a.urlpath)]
+    for article in our_articles:
       article.parse()
       entry = articles.get(article.name)
-      article.hc_article = self.getOrCreateArticle(entry and entry["id"],
-          article.name, article.slug)
+      article_id = entry and entry["id"]
+      if not article_id:
+        if self._dryrun:
+          article_id = f"DRYRUN_{article.name}"
+        elif self.matchesPrefix(article.urlpath):
+          article_id = self.createNewArticle(article)
+      if article_id:
+        article.setHCArticle(self.getArticle(article_id, article.name))
 
     # Construct the mapping from relative paths used in the original HTML files to HelpScout URLs.
-    path_to_url_map = {a.urlpath: a.getHelpScoutPath() for a in desired_articles}
+    path_to_url_map = {a.urlpath: a.getHelpScoutURL() for a in our_articles}
 
     # Translate links in all the desired articles, and upload those articles that have changed.
     for article in desired_articles:
+      print(f"Processing article {article.article_id} {article.urlpath} {article.name!r}")
       article.translateLinks(path_to_url_map)
       article.set_hash()
       if article.hasChanged():
         article.uploadAndReplaceImages(self.uploadImage)
         self.uploadArticle(article)
+      else:
+        print(f" - Skipping unchanged article {article.urlpath} {article.name!r}")
 
     if not self._noclean:
-      ids_to_keep = set(article.article_id for article in articles)
+      ids_to_keep = set(article.article_id for article in desired_articles)
       to_delete = [a for a in articlesList if a["id"] not in ids_to_keep]
       if self._prefix:
         # If limiting to a prefix, limit deletions only to extra HelpScout articles whose names
         # match something uploaded, i.e. duplicate versions or drafts of the same article.
-        uploaded_names = set(article.name for article in articles)
+        uploaded_names = set(article.name for article in desired_articles)
         to_delete = [a for a in to_delete if a["name"] in uploaded_names]
 
       for article in to_delete:
         self.deleteArticle(article["id"])
-
-  def _walk_articles(self):
-    """
-    Generator for Article objects representing HTML files to sync to HelpScout.
-    """
-    for (dirpath, dirnames, filenames) in os.walk(ROOT):
-      name = os.path.basename(dirpath)
-      for f in filenames:
-        if f != "index.html":
-          # Each article is generated as index.html file in its own subdirectory.
-          continue
-        urlpath = os.path.relpath(dirpath, ROOT)
-        if not self._prefix or urlpath.startswith(self._prefix):
-          yield DesiredArticle(f"{dirpath}/{f}", urlpath)
 
 
 class DesiredArticle:
@@ -239,8 +232,15 @@ class DesiredArticle:
     # Article object from HelpScout (https://developer.helpscout.com/docs-api/objects/article/)
     self.hc_article = {}
 
+  def getHelpScoutURL(self):
+    return self.hc_article["publicUrl"]
+
   def getHelpScoutPath(self):
-    return urlsplit(self.hc_article["publicUrl"]).path
+    return urlsplit(self.getHelpScoutURL()).path
+
+  def setHCArticle(self, hc_article):
+    self.hc_article = hc_article
+    self.article_id = hc_article["id"]
 
   def parse(self):
     """
@@ -262,11 +262,19 @@ class DesiredArticle:
 
   def translateLinks(self, path_to_url_map):
     for link in self.parsed_html.find_all('a', href=True):
-      abs_url = urljoin(self.urlpath, link['href'])
-      new_url = path_to_url_map.get(abs_url)
-      if new_url:
-        print(f"Replacing {abs_url} (from {link['href']}) with {new_url}")
-        link['href'] = new_url
+      abs_url = urlsplit(urljoin(self.urlpath + "/", link['href']))
+      if abs_url.scheme or abs_url.netloc:    # Skip absolute or mailto URLs
+        continue
+      relpath = abs_url.path.rstrip("/")
+      mapped_url = "" if relpath == self.urlpath else path_to_url_map.get(relpath)
+      if mapped_url is not None:
+        new_url = urlsplit(mapped_url)._replace(
+            query=abs_url.query, fragment=abs_url.fragment).geturl()
+        print(f" - Link found: {link['href']} -> {new_url}")
+      else:
+        new_url = urljoin(MAIN_SITE, relpath)
+        print(f" - Unknown link: {link['href']} -> {new_url}")
+      link['href'] = new_url
 
   def set_hash(self):
     """
@@ -292,11 +300,14 @@ class DesiredArticle:
 
   def uploadAndReplaceImages(self, uploadImage):
     for img in self.parsed_html.find_all('img'):
-      abs_url = urlsplit(urljoin(self.urlpath, img['src']))
+      abs_url = urlsplit(urljoin(self.urlpath + "/", img['src']))
       if abs_url.netloc:      # Looks like an absolute path to the image, don't replace it.
         continue
-      img_path = os.path.join(ROOT, unquote(abs_url.path))
+      img_path = os.path.join(ROOT, unquote(abs_url.path).lstrip("/"))
       img['src'] = uploadImage(self.article_id, img_path)
+      # For logging, print out just some trailing parts of the long image URLs.
+      short_new_path = img['src'].split('/', 7)[-1]
+      print(f" - Replacing image {img_path} -> {short_new_path}")
 
   def getTextToUpload(self):
     # Insert a comment that we'll use later to avoid re-uploading the article when it's unchanged.
@@ -308,6 +319,21 @@ def calc_hash(text):
   h = hashlib.new('sha1')
   h.update(text.encode('utf8'))
   return h.hexdigest()
+
+
+def walk_articles():
+  """
+  Generator for Article objects representing HTML files to sync to HelpScout.
+  """
+  for (dirpath, dirnames, filenames) in os.walk(ROOT):
+    name = os.path.basename(dirpath)
+    for f in filenames:
+      if f != "index.html":
+        # Each article is generated as index.html file in its own subdirectory.
+        continue
+      urlpath = os.path.relpath(dirpath, ROOT)
+      yield DesiredArticle(f"{dirpath}/{f}", urlpath)
+
 
 
 DocsPusher().run()
