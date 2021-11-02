@@ -1,0 +1,5 @@
+INHERIT: ../mkdocs.yml
+
+markdown_extensions:
+  toc:
+    permalink: False

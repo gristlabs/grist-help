@@ -1,5 +1,9 @@
 /site
+/hscout/site
 /env
+
+# API key for HelpScout
+.helpscout
 
 # Logs
 logs

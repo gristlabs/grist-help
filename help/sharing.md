@@ -79,7 +79,7 @@ document in the snapshots section of
 
 [Access rules](access-rules.md) may be combined with view-only link sharing, 
 i.e. when the Public Access role is set to "Viewer." Read more about 
-[Link Keys](../access-rules.md/#link-keys) to learn how to set rules that
+[Link Keys](access-rules.md#link-keys) to learn how to set rules that
 limit which parts of your data users may see when accessing your document
 via a particular link.
 

@@ -58,7 +58,7 @@ git pull --all
 After you've made changes, publish them to <https://support-preview.getgrist.com>:
 
 ``` sh
-./publish-preview.sh
+./publish.sh preview
 ```
 
 ## Publishing changes live
@@ -67,7 +67,7 @@ You'll need push access to <https://github.com/dsagal/grist-help/>. The
 following command will publish changes to <https://support.getgrist.com>:
 
 ``` sh
-./env/bin/mkdocs gh-deploy
+./publish.sh live
 ```
 
 ## Editing the API
