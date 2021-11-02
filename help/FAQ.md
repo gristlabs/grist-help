@@ -14,17 +14,17 @@
 
 Yes!
 
-1. **New team site.** If you’re looking to create a new team site that does not exist, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist. Click on “Upgrade Plan.”
+1. **New team site.** If you’re looking to create a new team site that does not exist, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist. Click on “Upgrade Plan.”
 
 2. **Adding account to team site.** You may own or be a member of multiple teams. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users. 
 
 **Did you know?** 
 
-You can sign in to Grist with multiple email accounts. Open the [user menu](glossary.md#User-Menu) and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu.
+You can sign in to Grist with multiple email accounts. Open the [user menu](glossary.md#user-menu) and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu.
 
 ### Can I add multiple login accounts to Grist?
 
-Yes! To add multiple accounts to Grist, open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
+Yes! To add multiple accounts to Grist, open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.”
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
@@ -32,7 +32,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 It is not possible to change the email associated with your Grist account. However, it it possible to transfer ownership of documents and team sites between two Grist email accounts that you own. This would effectively change your Grist email. [Learn how](FAQ.md#how-to-manage-ownership-of-my-team-site). 
 
-It is possible to manage multiple accounts in Grist. To add another account, open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.” 
+It is possible to manage multiple accounts in Grist. To add another account, open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.”
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
@@ -56,7 +56,7 @@ You may navigate between your [personal site](teams.md#Understanding-Personal-Si
 
 1. Open the team site to which you want add a second owner.
 
-2. Click "Manage Users" under the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist. 
+2. Click "Manage Users" under the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist.
 
 3. Add the new email address as Owner, and click Confirm. 
 
@@ -66,7 +66,7 @@ You may navigate between your [personal site](teams.md#Understanding-Personal-Si
 
 1. Follow steps 1-3 above to add a second owner.
 
-4. Go to “Billing Account” (also under the user menu) and add the new Owner as a [Billing Manager](team-sharing#billing-permissions).
+4. Go to “Billing Account” (also under the user menu) and add the new Owner as a [Billing Manager](team-sharing.md#billing-permissions).
 
 5. The new Owner should log in, open the team site, and visit “Manage Users” and “Billing Account” pages again to remove the original owner. This will essentially transfer the ownership of the team site to the new account.
 
@@ -78,7 +78,7 @@ If you’re transferring team site ownership between two Grist email accounts th
 
 ### Can I edit my team’s name and subdomain?
 
-You may edit your site name and subdomain from the billing page. Open the [user menu](glossary.md#User-Menu) by clicking on the profile icon in the top-right of Grist, then click on [“Billing Account.”](teams.md#billing-account)
+You may edit your site name and subdomain from the billing page. Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on [“Billing Account.”](teams.md#billing-account)
 
 <center>*![Public access](images/faq/edit-subdomain.png)*</center>
 
