@@ -2,7 +2,7 @@
 
 You can import a file to [start a new Grist document](creating-doc.md), or to
 add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from [Google Drive](imports.md#import-from-a-google-drive).
+tab-separated files and from [Google Drive](imports.md#import-from-google-drive).
 
 To start a new Grist document, click the "Add New" button on the home screen
 and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
@@ -48,7 +48,10 @@ You can always rename tables and columns after an import, as well as convert typ
 ## Import from Google Drive
 
 Importing from a Google Drive is as easy as importing from an Excel file or a 
-CSV file. To start, click the "Add New" button and choose "Import from Google 
+CSV file. You can either provide an URL of a file stored in the Google Drive or
+use a Google File Picker to choose a file from your own drive.
+
+To use a Picker, click the "Add New" button and choose "Import from Google 
 Drive".
 
 ![import-dialog](images/import-google-drive-sign-in.png)
@@ -63,6 +66,16 @@ drive — just the single file you choose to import.
 Once the file has been chosen, the rest of the process is the same as importing 
 from an Excel file. In the [import dialog](imports.md#the-import-dialog) 
 you may configure what data to import, and which destination table to add it to.
+
+If you have an URL to a file or a spreadsheet stored on your Google Drive or a file that
+is publicly accessible, you can import it directly using the "Import from URL" option from
+the "Add New" menu.
+
+![import-from-url](images/import-from-url.png)
+
+If the file is not shared publicly, Grist will ask you for permission
+to read files from your Google Drive. If you don't want to allow Grist to read your files,
+it will open up Google File Picker when you can select the file you want to import.
 
 ## Import to an existing table
 
