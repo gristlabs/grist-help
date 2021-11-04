@@ -9,8 +9,7 @@
     
     
     <link rel="canonical" href="https://support.getgrist.com/imports/">
-    <link rel="shortcut icon" href="../images/favicon.png">
-    
+    <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Importing more data - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
@@ -632,7 +631,7 @@
     <h1 id="importing-more-data">Importing more data<a class="headerlink" href="#importing-more-data" title="Permanent link">#</a></h1>
 <p>You can import a file to <a href="../creating-doc/">start a new Grist document</a>, or to
 add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from <a href="./#import-from-a-google-drive">Google Drive</a>.</p>
+tab-separated files and from <a href="./#import-from-google-drive">Google Drive</a>.</p>
 <p>To start a new Grist document, click the &ldquo;Add New&rdquo; button on the home screen
 and choose &ldquo;Import document&rdquo;, as described in <a href="../creating-doc/">starting a new Grist document</a>.</p>
 <p>To add to an existing document, open that document, click the &ldquo;Add
@@ -664,7 +663,9 @@ the imported table, but will be highlighted due to the type mismatch.</p>
 <p>You can always rename tables and columns after an import, as well as convert types.</p>
 <h2 id="import-from-google-drive">Import from Google Drive<a class="headerlink" href="#import-from-google-drive" title="Permanent link">#</a></h2>
 <p>Importing from a Google Drive is as easy as importing from an Excel file or a 
-CSV file. To start, click the &ldquo;Add New&rdquo; button and choose &ldquo;Import from Google 
+CSV file. You can either provide an URL of a file stored in the Google Drive or
+use a Google File Picker to choose a file from your own drive.</p>
+<p>To use a Picker, click the &ldquo;Add New&rdquo; button and choose &ldquo;Import from Google 
 Drive&rdquo;.</p>
 <p><img alt="import-dialog" src="../images/import-google-drive-sign-in.png" /></p>
 <p>To import, sign in to your Google Account by clicking the &ldquo;Sign in&rdquo; button and
@@ -675,6 +676,13 @@ drive — just the single file you choose to import.</p>
 <p>Once the file has been chosen, the rest of the process is the same as importing 
 from an Excel file. In the <a href="./#the-import-dialog">import dialog</a> 
 you may configure what data to import, and which destination table to add it to.</p>
+<p>If you have an URL to a file or a spreadsheet stored on your Google Drive or a file that
+is publicly accessible, you can import it directly using the &ldquo;Import from URL&rdquo; option from
+the &ldquo;Add New&rdquo; menu.</p>
+<p><img alt="import-from-url" src="../images/import-from-url.png" /></p>
+<p>If the file is not shared publicly, Grist will ask you for permission
+to read files from your Google Drive. If you don&rsquo;t want to allow Grist to read your files,
+it will open up Google File Picker where you can select the file you want to import.</p>
 <h2 id="import-to-an-existing-table">Import to an existing table<a class="headerlink" href="#import-to-an-existing-table" title="Permanent link">#</a></h2>
 <p>By default, Grist imports new data as new tables, but the Import dialog allows
 you to change the destination and import data into an existing table.</p>

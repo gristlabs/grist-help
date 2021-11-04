@@ -9,8 +9,7 @@
     
     
     <link rel="canonical" href="https://support.getgrist.com/examples/2020-10-print-labels/">
-    <link rel="shortcut icon" href="../../images/favicon.png">
-    
+    <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Print mailing labels - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
@@ -639,7 +638,7 @@ at the click of a button.</p>
 <p>Let me first share a template. Later I&rsquo;ll describe how to add the same functionality to an
 existing document, e.g. to add mailing labels alongside <a href="../../lightweight-crm/">CRM</a> or
 <a href="../2020-09-payroll/">Payroll</a> data.</p>
-<p>The template is at: <a href="https://public.getgrist.com/bk5LT8s722gE/Print-Labels/m/fork" target="_blank">https://public.getgrist.com/bk5LT8s722gE/Print-Labels/m/fork</a>.</p>
+<p>The template is at: <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels</a>.</p>
 <p>You can use it right away. Simply type in your own addresses.</p>
 <p>The template shows a few variations of what you can do.</p>
 <h3 id="labels-for-a-table-of-addresses">Labels for a table of addresses<a class="headerlink" href="#labels-for-a-table-of-addresses" title="Permanent link">#</a></h3>
@@ -661,11 +660,29 @@ together all the parts of an address. (We get into the
 <p>If you have multiple addresses in the table, and want to print just one, simply set the count to
 zero for the addresses you don&rsquo;t want to include.</p>
 <h3 id="a-filtered-list-of-labels">A filtered list of labels<a class="headerlink" href="#a-filtered-list-of-labels" title="Permanent link">#</a></h3>
-<p>To print out only a few labels out of a larger table, use a
-<code>LabelCount</code> column with a formula. This formula can produce 1 for a label that should be
-included, or 0 for a label that should not. The page &ldquo;Filtered&rdquo; shows an example, with the simple
-formula that includes only California addresses: <code class="formula">IF($State == "CA", 1, 0)</code>:</p>
+<p>There are a few ways in which you can print out only a few labels out of a larger table, and these
+are illustrated in the linked template:</p>
+<ol>
+<li>
+<p>The &ldquo;Address Labels&rdquo; page includes a filter button for <code>State</code>, which allows simple filtering
+   by state. You can click <code>+</code> button to easily create additional filters like this:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Filter Button" src="/examples/images/2020-10-print-labels/filter-button.png" /></em></span></p>
+</li>
+<li>
+<p>To print out only a few labels out of a larger table, you can use the
+   <code>LabelCount</code> column with a formula. This formula can produce 1 for a label that should be
+   included, or 0 for a label that should not. The page &ldquo;Filtered By Formula&rdquo; shows an example,
+   with the simple formula that includes only California addresses:
+   <code class="formula">IF($State == "CA", 1, 0)</code>:</p>
 <p><img alt="Filtered Page" src="/examples/images/2020-10-print-labels/filtered-page.png" /></p>
+</li>
+<li>
+<p>The &ldquo;Filtered Manually&rdquo; page includes a <code>Select for Print</code> column. Click any toggle to include
+   the corresponding row into the label sheet.</p>
+</li>
+</ol>
+<p class="grist-button"><a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">GO TO TEMPLATE</a></p>
+<p><br/></p>
 <h2 id="adding-labels-to-your-document">Adding Labels to Your Document<a class="headerlink" href="#adding-labels-to-your-document" title="Permanent link">#</a></h2>
 <p>If you have a document with addresses, you can add a page with mailing labels, and the
 labels will be there &ndash; up-to-date and waiting for you &ndash; any time you open it.</p>

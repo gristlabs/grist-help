@@ -9,8 +9,7 @@
     
     
     <link rel="canonical" href="https://support.getgrist.com/examples/2021-05-reference-columns/">
-    <link rel="shortcut icon" href="../../images/favicon.png">
-    
+    <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Reference Columns Guide - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
@@ -645,12 +644,12 @@ track of your job application process. In the template you have four tables: <co
 <code>Milestones</code>, <code>Tasks</code>, and <code>Contacts</code>. Your goal is to relate relevant data between tables and
 create a custom dashboard where you can easily view each job application’s status, and add new job
 applications and new milestones easily.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kOwZvmcNEfg?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>In this dashboard, clicking on each job application shows only the milestones related to that job
+<p><a href="https://templates.getgrist.com/bhW5b6DhciXb/Job-Application-Tracker/">In this dashboard</a>, clicking on each job application shows only the milestones related to that job
 application. We can create this relationship using reference columns.</p>
 <p>Let&rsquo;s create this dashboard together.</p>
 <h2 id="step-1-creating-references">Step 1: Creating References<a class="headerlink" href="#step-1-creating-references" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y0MKoz2RXEQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <p>Reference columns are a type of column available under COLUMN TYPE. It is helpful to think of the
 table with the reference column as the <strong><em>referencing table</em></strong>, and the table which is being
 referenced as the <strong><em>underlying table</em></strong>.</p>
@@ -664,8 +663,6 @@ reference column.</p>
 FROM TABLE should point to <code>Job Applications</code>. SHOW COLUMN should be set to <code>Role</code>. Note that the
 reference column is referencing the <strong><em>entire record</em></strong> and you are choosing which column to
 display in the reference column.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1ORnI5CxDGs?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <p><strong>Tip:</strong> You can easily identify reference columns by the chain link icons in the column’s cells.</p>
 <h3 id="creating-reference-columns">Creating Reference Columns<a class="headerlink" href="#creating-reference-columns" title="Permanent link">#</a></h3>
 <p>In the <code>Contacts</code> table we have a list of contacts that are not associated with any job
@@ -676,9 +673,9 @@ column.</p>
 contact works. Look at the email address for a hint.</p>
 <p>Note: You can always click on a Reference Column cell to open the drop-down menu and select a new
 value.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2rtTubyIzkw?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <h2 id="step-2-look-up-additional-data-in-the-referenced-record">Step 2: Look up additional data in the referenced record<a class="headerlink" href="#step-2-look-up-additional-data-in-the-referenced-record" title="Permanent link">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_7KEUKnwI74?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <p>Recall that the reference column is referencing another table, and correlating two specific
 records. Although you see a specific column in the <strong><em>display</em></strong> of the reference column, the
 reference is being made to the <strong><em>entire record</em></strong>. This allows us to look up additional data
@@ -692,8 +689,6 @@ called <code>Company</code> and we use the formula <code class="formula">$Role.C
 <p>The formula structure is
 <code class="formula">$[Reference Column ID in Referencing Table].[Column ID in Underlying Table]</code>.
 Grist will also auto-complete parts of the formula as you type it.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1ViT0MbUA9g?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <p>There’s an alternative way to add multiple columns from an underlying table. If you’re interested
 in learning more, visit our website’s <a href="../../col-refs/#including-multiple-fields-from-a-reference">help section on reference
 columns</a>.</p>
@@ -711,7 +706,7 @@ will see the option &ldquo;JOB_APPLICATIONS Card List&rdquo;. This option is onl
 we created a reference from the <code>Milestones</code> table to the <code>Job Applications</code> table in the <code>Role</code>
 reference column. This reference tells Grist which milestones are related to which job
 applications.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QqAdS_uUqfI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZYJgPkcMhJU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>Congrats! You now know how to use reference columns to
 organize related data, give your data structure, and create linked widgets in productive layouts.
