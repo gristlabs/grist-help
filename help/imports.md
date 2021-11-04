@@ -75,7 +75,7 @@ the "Add New" menu.
 
 If the file is not shared publicly, Grist will ask you for permission
 to read files from your Google Drive. If you don't want to allow Grist to read your files,
-it will open up Google File Picker when you can select the file you want to import.
+it will open up Google File Picker where you can select the file you want to import.
 
 ## Import to an existing table
 
