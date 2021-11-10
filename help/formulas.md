@@ -52,6 +52,28 @@ In Grist, a single formula applies to a whole column.
 You don't have to worry about filling it in for all rows,
 and can refer to values in the same row without fuss.
 
+Column behavior
+---------------
+
+When we provided a formula for a column we told Grist to update its value on every change
+in a document. We can no longer type a value into the cell, because its behavior is
+controlled by Grist and the formula we provided.
+
+You can control column behavior using a `COLUMN BEHAVIOR` section on the creator panel.
+Each new column behaves as an `Empty column`. Typing any value into the cell makes the
+column acts as a `Data column`, where you can manually update the value in a cell or clear
+it entirely. Similarly, providing a formula expression makes the column behave as a
+`Formula Column`, where the value in the column is controlled by Grist and updated with
+the result that comes from formula calculation.
+
+![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
+
+The `COLUMN BEHAVIOR` section has some additional options, which lets you control column
+behavior even further. They may sound a little intimidating at first, but don't worry
+they will be explained in next sections: [Trigger formulas](formulas.md#trigger-formulas)
+and [Freeze a formula column](formulas.md#freeze-a-formula-column).
+
+
 Formulas that operate over many rows
 -----------------------------------------
 
@@ -176,7 +198,7 @@ available with a pure Python summary of the document.
 ![formulas-code-view](images/formulas/formulas-code-view.png)
 
 Special values available in formulas
---------------------------------
+------------------------------------
 
 For those familiar with Python, here are the extra values available to
 you in Grist:
@@ -195,14 +217,15 @@ underscore.  Auto-complete may help you if you're not sure.  You
 can also control the "ids" of columns and tables in the right side panel.
 
 Freeze a formula column
---------------------------
+-----------------------
 
-If you'd like to save the output of your formula as plain values, you can simply turn off the
-formula. First open the column options in the side panel:
+If you'd like to save the output of your formula as plain values, you can simply change
+column behavior from `Formula Column` to `Data Column`. First open the column options in
+the side panel:
 
 ![formulas-column-options](images/formulas/formulas-column-options.png)
 
-Now click on the `ACTIONS` menu and select `Convert to data column` option to turn it off:
+Now click on the `Formula Column` and select `Convert column to data` option.
 
 ![formulas-action-menu](images/formulas/formulas-action-menu.png)
 
@@ -296,7 +319,7 @@ Click on the column header, select "Column Options" and edit the
 Formula field.
 
 Trigger Formulas
---------
+----------------
 
 Formula columns are great for calculated values -- those determined by
 other data in the document. It may also be useful to store independent 
@@ -309,18 +332,11 @@ a [set of conditions](examples/2021-07-auto-stamps.md) that you decide
 , clean data when a new value is entered, or provide sensible default
 value for a column.
 
-Each data column may have an `Optional formula` that gets triggered
-on certain conditions. This formula is available in the creator panel,
-under the `DATA COLUMN` section.
+To create a Trigger Formula column you first need to open the creator panel and then 
+click on a `Set trigger formula` action. If you want to convert an existing formula use
+the `Convert to trigger formula` action available in the `COLUMN BEHAVIOR` section.
 
-![Optional formula](images/formulas/formulas-created-by-autofill.png)
-
-When you have an empty column, you first need to convert it a data column 
-by clicking `Make into data column` option under the `ACTIONS` menu. For a 
-formula column, you need first to convert it to a `Data column` by 
-clicking the `Convert to data column` option under the same `ACTIONS` menu:
-
-![Convert to data column](images/formulas/formulas-convert.png)
+![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
 
 To control when the formula is evaluated, use the two checkbox options 
 below:
