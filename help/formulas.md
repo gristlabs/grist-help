@@ -68,11 +68,28 @@ the result that comes from formula calculation.
 
 ![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
 
-The `COLUMN BEHAVIOR` section has some additional options, which lets you control column
-behavior even further. They may sound a little intimidating at first, but don't worry
-they will be explained in next sections: [Trigger formulas](formulas.md#trigger-formulas)
-and [Freeze a formula column](formulas.md#freeze-a-formula-column).
+Using `COLUMN BEHAVIOR` section you can manually change the column behavior. Most common
+options are available as green action buttons at the bottom. Depending on current
+column behavior those are:
 
+- `Set formula` action converts an empty column to a formula column.
+- `Set trigger formula` or `Convert to trigger formula` action sets a trigger on a column
+(more on triggers in the next [Trigger formulas section](formulas.md#trigger-formulas) ).
+- `Make into data column` action converts an empty column to a regular data column.
+
+Less common action are available under the behavior menu:
+
+![formulas-column-behavior-options](images/formulas/formulas-column-behavior-options.png)
+
+Depending on current column behavior those are:
+
+- `Convert column to data` converts an empty or a formula column to regular data column
+(you can read more about this feature in the 
+[Freeze a formula column section](formulas.md#freeze-a-formula-column) ).
+- `Clear and make into formula` clears all the data in a column and converts it to a
+formula column.
+- `Clear and reset` clears all data and completely resets the column to its initial
+state.
 
 Formulas that operate over many rows
 -----------------------------------------
