@@ -68,22 +68,22 @@ the result that comes from formula calculation.
 
 ![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
 
-Using `COLUMN BEHAVIOR` section you can manually change the column behavior. Most common
-options are available as green action buttons at the bottom. Depending on current
-column behavior those are:
+Using the `COLUMN BEHAVIOR` section, you can manually change the column behavior. The most
+common options are available as green action buttons at the bottom. Depending on current
+column behavior, those are:
 
 - `Set formula` action converts an empty column to a formula column.
 - `Set trigger formula` or `Convert to trigger formula` action sets a trigger on a column
 (more on triggers in the next [Trigger formulas section](formulas.md#trigger-formulas) ).
 - `Make into data column` action converts an empty column to a regular data column.
 
-Less common action are available under the behavior menu:
+Less common actions are available under the behavior menu:
 
 ![formulas-column-behavior-options](images/formulas/formulas-column-behavior-options.png)
 
-Depending on current column behavior those are:
+Depending on a current column behavior those are:
 
-- `Convert column to data` converts an empty or a formula column to regular data column
+- `Convert column to data` converts an empty or formula column to regular data column
 (you can read more about this feature in the 
 [Freeze a formula column section](formulas.md#freeze-a-formula-column) ).
 - `Clear and make into formula` clears all the data in a column and converts it to a
@@ -330,10 +330,7 @@ a reference column, and give a formula for it that matches how
 we defined `yesterday` here.
 
 To actually enter this formula in a cell, you'd use <code class="keys">*Shift* + *Enter*</code>
-to divide the lines.  For longer formulas, you may prefer to use
-the side panel, where a simple <code class="keys">*Enter*</code> gives you a new line.
-Click on the column header, select "Column Options" and edit the
-Formula field.
+to divide the lines.
 
 Trigger Formulas
 ----------------
@@ -349,8 +346,8 @@ a [set of conditions](examples/2021-07-auto-stamps.md) that you decide
 , clean data when a new value is entered, or provide sensible default
 value for a column.
 
-To create a Trigger Formula column you first need to open the creator panel and then 
-click on a `Set trigger formula` action. If you want to convert an existing formula use
+To create a Trigger Formula column, you first need to open the creator panel and 
+click on a `Set trigger formula` action. If you want to convert an existing formula, use
 the `Convert to trigger formula` action available in the `COLUMN BEHAVIOR` section.
 
 ![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
