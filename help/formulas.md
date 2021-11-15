@@ -96,7 +96,7 @@ functions, with all-uppercase names. Here's the [full list of functions](functio
 
 New documents use Python version 3.9.
 Documents created before November 8 2021 use Python version 2.7 by default.
-You can change the Python version by changing the engine under Document Settings,
+You can change the Python version by changing the engine under [Document Settings](creating-doc.md#document-settings),
 but formulas which worked in Python 2.7 may not work in 3.9 so this is not recommended for non-technical users.
 Assisted upgrades are coming soon!
 
