@@ -136,7 +136,7 @@ AVERAGE(Materials.all.Price)
 
 The [all](functions.md#all) method returns a [RecordSet](functions.md#recordset),
 which supports iterating over individual columns this way.  Equivalently,
-we could use a Python [list comprehension](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions):
+we could use a Python [list comprehension](https://docs.python.org/3.9/tutorial/datastructures.html#list-comprehensions):
 
 ```py
 AVERAGE(material.Price for material in Materials.all)
@@ -144,7 +144,7 @@ AVERAGE(material.Price for material in Materials.all)
 
 If you are not familiar with Python, it is worth following
 a tutorial.  There are thousands online, including this
-[official one](https://docs.python.org/2/tutorial/index.html).
+[official one](https://docs.python.org/3.9/tutorial/index.html).
 Python will be useful to you for all sorts of data work, not just Grist.
 
 List comprehension is useful once we're doing anything nuanced.  For example,
