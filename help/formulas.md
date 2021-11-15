@@ -41,11 +41,6 @@ Press <code class="keys">*Enter*</code>, and your formula is applied to all cell
 <span class="screenshot-large">*![formulas-price-final](images/formulas/formulas-price-final.png)*</span>
 {: .screenshot-half }
 
-Grist formulas are written in Python, the most popular language for data science.
-The entirety of [Python's  standard library](https://docs.python.org/2/library/) is available
-to you.  For those with a spreadsheet background, we've also added a suite of Excel-like
-functions, with all-uppercase names.  Here's the [full list of functions](functions.md).
-
 If you've worked with spreadsheets before, you may be surprised
 that you don't need to specify row numbers, like `B1 * C1`.
 In Grist, a single formula applies to a whole column.
@@ -90,6 +85,20 @@ Column` state.
 
 
 ![formulas-column-behavior-options](images/formulas/formulas-column-behavior-options.png)
+
+Python
+-------
+
+Grist formulas are written in Python, the most popular language for data science.
+The entirety of [Python's  standard library](https://docs.python.org/3.9/library/) is available
+to you. For those with a spreadsheet background, we've also added a suite of Excel-like
+functions, with all-uppercase names. Here's the [full list of functions](functions.md).
+
+New documents use Python version 3.9.
+Documents created before November 8 2021 use Python version 2.7 by default.
+You can change the Python version by changing the engine under Document Settings,
+but formulas which worked in Python 2.7 may not work in 3.9 so this is not recommended for non-technical users.
+Assisted upgrades are coming soon!
 
 Formulas that operate over many rows
 -----------------------------------------
