@@ -55,41 +55,41 @@ and can refer to values in the same row without fuss.
 Column behavior
 ---------------
 
-When we provided a formula for a column we told Grist to update its value on every change
-in a document. We can no longer type a value into the cell, because its behavior is
-controlled by Grist and the formula we provided.
+When we provide a formula for a column we tell Grist to update its value on every change
+in a document. We can no longer type a value into the cell, because its value is
+determined purely by the formula.
 
-You can control column behavior using a `COLUMN BEHAVIOR` section on the creator panel.
-Each new column behaves as an `Empty column`. Typing any value into the cell makes the
-column acts as a `Data column`, where you can manually update the value in a cell or clear
-it entirely. Similarly, providing a formula expression makes the column behave as a
-`Formula Column`, where the value in the column is controlled by Grist and updated with
-the result that comes from formula calculation.
+A formula column is one of three possible column behaviors, which you can control using
+the `COLUMN BEHAVIOR` section in the creator panel:
+
+- `Data column` maintains data, which you can manually update or clear, or optionally
+calculate using [trigger formulas](formulas.md#trigger-formulas).
+- `Formula column` always reflects the result of formula calculation, and is kept
+up-to-date by Grist.
+- `Empty column` is a state for a new column. Typing any value into it will turn it into a
+Data Column, while typing in a formula will turn it into a Formula Column
 
 ![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
 
 Using the `COLUMN BEHAVIOR` section, you can manually change the column behavior. The most
-common options are available as green action buttons at the bottom. Depending on current
-column behavior, those are:
+common options are available as green action buttons at the bottom, and other options are
+available under the behavior menu. Depending on the current column behavior, those are:
 
 - `Set formula` action converts an empty column to a formula column.
 - `Set trigger formula` or `Convert to trigger formula` action sets a trigger on a column
 (more on triggers in the next [Trigger formulas section](formulas.md#trigger-formulas) ).
 - `Make into data column` action converts an empty column to a regular data column.
-
-Less common actions are available under the behavior menu:
-
-![formulas-column-behavior-options](images/formulas/formulas-column-behavior-options.png)
-
-Depending on a current column behavior those are:
-
-- `Convert column to data` converts an empty or formula column to regular data column
-(you can read more about this feature in the 
+- `Convert column to data` converts a formula column to regular data column (you can read
+more about this feature in the 
 [Freeze a formula column section](formulas.md#freeze-a-formula-column) ).
 - `Clear and make into formula` clears all the data in a column and converts it to a
-formula column.
-- `Clear and reset` clears all data and completely resets the column to its initial
-state.
+formula column. (We say "clear" as a reminder that existing data in the column will be
+lost. They'll be replaced by the calculation results from the formula.)
+- `Clear and reset` clears all data and completely resets the column to its initial `Empty
+Column` state.
+
+
+![formulas-column-behavior-options](images/formulas/formulas-column-behavior-options.png)
 
 Formulas that operate over many rows
 -----------------------------------------
@@ -329,8 +329,8 @@ same lookup in multiple formulas, it would be worth making
 a reference column, and give a formula for it that matches how
 we defined `yesterday` here.
 
-To actually enter this formula in a cell, you'd use <code class="keys">*Shift* + *Enter*</code>
-to divide the lines.
+To actually enter this formula in a cell, you'd use
+<code class="keys">*Shift* + *Enter*</code> to divide the lines.
 
 Trigger Formulas
 ----------------
@@ -347,7 +347,7 @@ a [set of conditions](examples/2021-07-auto-stamps.md) that you decide
 value for a column.
 
 To create a Trigger Formula column, you first need to open the creator panel and 
-click on a `Set trigger formula` action. If you want to convert an existing formula, use
+click on the `Set trigger formula` action. If you want to convert an existing formula, use
 the `Convert to trigger formula` action available in the `COLUMN BEHAVIOR` section.
 
 ![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
@@ -386,17 +386,17 @@ This allows you to make your application even smarter, track when a record
 Simple examples:
 
 1. Ensure that the value in a column is always written in capital letters:
-![data cleanup - uppercase](images/formulas/formulas-data-clean-uppercase.png) 
+![data cleanup - uppercase](images/formulas/formulas-trigger-uppercase.png) 
 With the trigger formula of `value.upper()`{: .formula}, the value typed into
 this column will be converted to upper case automatically.  
 
 2. Format a value that the user enters to sanitize the data before saving:
-![data cleanup - format](images/formulas/formulas-data-clean-format.png)
+![data cleanup - format](images/formulas/formulas-trigger-format.png)
 With the formula like `value if value.startswith("SK") else "SK" + value`{: .formula},
 the value typed into this column will always be prefixed with "SK".
 
 3. Overwrite a default value from a referenced table:
-![data cleanup - reference](images/formulas/formulas-data-clean-reference.png)
+![data cleanup - reference](images/formulas/formulas-trigger-reference.png)
 You can use a formula like `value or $Client.Phone`{: .formula}, to provide a default
 value from a referenced table, but still allow the user to type a new one.
 

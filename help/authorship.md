@@ -13,8 +13,8 @@ A "Created By" column
 Suppose we want to fill a column automatically with the name of the creator
 of each record as they are added.  As a first step, add a column called 
 (for example) `Created By`.  In the column options in the side panel
-(see [Columns](col-types.md) for a refresher), in the `COLUMN BEHAVIOR` section, click on
-the `Set trigger formula` action.
+(see [Columns](col-types.md) for a refresher), click
+`Set trigger formula` action.
 
 ![starting a Created-By column](images/formulas/formulas-created-by-convert.png)
 
