@@ -82,12 +82,26 @@ it will open up Google File Picker where you can select the file you want to imp
 By default, Grist imports new data as new tables, but the Import dialog allows
 you to change the destination and import data into an existing table.
 
-To import cleanly into an existing table, the new data must have column names
-that exactly match the column names in the destination table.
+When importing to an existing table, Grist will attempt to match the column
+names from your data to the column names in the destination table. To manually
+specify which column from your data to import into a destination column, click
+the "three dots" (ellipsis) button to open a menu with a list of columns
+from your imported data. You may then click on a column name to match it
+to a destination column, or select 'Skip' to skip importing data to a given
+destination column.
 
-This is best suited for importing multiple datasets in the same format. For
-instance, you could import a bank statement as a new table, then import more
-statements from other months into the same table.
+![import-dialog](images/import-dialog-matching.png)
+
+You can also specify a formula for each imported column by clicking the gray
+source column field to open a formula editor. Formulas can reference
+one or more imported columns, and the result of evaluating the formula will
+be shown in the preview after closing the editor.
+
+![import-dialog](images/import-dialog-formula.png)
+
+Importing to an existing table is best suited for importing multiple datasets
+containing similar structure. For instance, you could import a bank statement as a
+new table, then import more statements from other months into the same table.
 
 For developers, the [Grist API](rest-api.md) offers a more powerful way to add data
 to a Grist document.
