@@ -82,13 +82,11 @@ it will open up Google File Picker where you can select the file you want to imp
 By default, Grist imports new data as new tables, but the Import dialog allows
 you to change the destination and import data into an existing table.
 
-When importing to an existing table, Grist will attempt to match the column
-names from your data to the column names in the destination table. To manually
-specify which column from your data to import into a destination column, click
-the "three dots" (ellipsis) button to open a menu with a list of columns
-from your imported data. You may then click on a column name to match it
-to a destination column, or select 'Skip' to skip importing data to a given
-destination column.
+When importing to an existing table, Grist will attempt to match the columns
+from your imported file to the columns in the destination table. To manually
+specify column matching, click the "three dots" button to open a menu with a
+list of columns from your imported file. Click on a column name to match it
+to a destination column, or select 'Skip' to skip importing data from that column.
 
 ![import-dialog](images/import-dialog-matching.png)
 
