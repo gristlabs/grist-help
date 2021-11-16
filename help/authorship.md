@@ -13,8 +13,8 @@ A "Created By" column
 Suppose we want to fill a column automatically with the name of the creator
 of each record as they are added.  As a first step, add a column called 
 (for example) `Created By`.  In the column options in the side panel
-(see [Columns](col-types.md) for a refresher), click on the `Actions`
-drop-down, and choose `Make into data column`.
+(see [Columns](col-types.md) for a refresher), click
+`Set trigger formula` action.
 
 ![starting a Created-By column](images/formulas/formulas-created-by-convert.png)
 
@@ -26,9 +26,9 @@ But let's stick with `user.Name`{: .formula} for now.
 
 ![a Created-By column](images/formulas/formulas-created-by-final.png)
 
-Now, to set the column whenever a record is created, select `Apply to new records`.
-And that's it!  Now whenever a record is created, the `Created At` column will be
-set to the name of the user creating it:
+Now, to set the column whenever a record is created, make sure that `Apply to new records`
+option is checked. And that's it!  Now whenever a record is created, the `Created At`
+column will be set to the name of the user creating it:
 
 ![a Created-By example](images/formulas/formulas-created-by-autofill.png)
 

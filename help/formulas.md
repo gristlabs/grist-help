@@ -52,6 +52,45 @@ In Grist, a single formula applies to a whole column.
 You don't have to worry about filling it in for all rows,
 and can refer to values in the same row without fuss.
 
+Column behavior
+---------------
+
+When we provide a formula for a column we tell Grist to update its value on every change
+in a document. We can no longer type a value into the cell, because its value is
+determined purely by the formula.
+
+A formula column is one of three possible column behaviors, which you can control using
+the `COLUMN BEHAVIOR` section in the creator panel:
+
+- `Data column` maintains data, which you can manually update or clear, or optionally
+calculate using [trigger formulas](formulas.md#trigger-formulas).
+- `Formula column` always reflects the result of formula calculation, and is kept
+up-to-date by Grist.
+- `Empty column` is a state for a new column. Typing any value into it will turn it into a
+Data Column, while typing in a formula will turn it into a Formula Column
+
+![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
+
+Using the `COLUMN BEHAVIOR` section, you can manually change the column behavior. The most
+common options are available as green action buttons at the bottom, and other options are
+available under the behavior menu. Depending on the current column behavior, those are:
+
+- `Set formula` action converts an empty column to a formula column.
+- `Set trigger formula` or `Convert to trigger formula` action sets a trigger on a column
+(more on triggers in the next [Trigger formulas section](formulas.md#trigger-formulas) ).
+- `Make into data column` action converts an empty column to a regular data column.
+- `Convert column to data` converts a formula column to regular data column (you can read
+more about this feature in the 
+[Freeze a formula column section](formulas.md#freeze-a-formula-column) ).
+- `Clear and make into formula` clears all the data in a column and converts it to a
+formula column. (We say "clear" as a reminder that existing data in the column will be
+lost. They'll be replaced by the calculation results from the formula.)
+- `Clear and reset` clears all data and completely resets the column to its initial `Empty
+Column` state.
+
+
+![formulas-column-behavior-options](images/formulas/formulas-column-behavior-options.png)
+
 Formulas that operate over many rows
 -----------------------------------------
 
@@ -176,7 +215,7 @@ available with a pure Python summary of the document.
 ![formulas-code-view](images/formulas/formulas-code-view.png)
 
 Special values available in formulas
---------------------------------
+------------------------------------
 
 For those familiar with Python, here are the extra values available to
 you in Grist:
@@ -195,14 +234,15 @@ underscore.  Auto-complete may help you if you're not sure.  You
 can also control the "ids" of columns and tables in the right side panel.
 
 Freeze a formula column
---------------------------
+-----------------------
 
-If you'd like to save the output of your formula as plain values, you can simply turn off the
-formula. First open the column options in the side panel:
+If you'd like to save the output of your formula as plain values, you can simply change
+column behavior from `Formula Column` to `Data Column`. First open the column options in
+the side panel:
 
 ![formulas-column-options](images/formulas/formulas-column-options.png)
 
-Now click on the `ACTIONS` menu and select `Convert to data column` option to turn it off:
+Now click on the `Formula Column` and select `Convert column to data` option.
 
 ![formulas-action-menu](images/formulas/formulas-action-menu.png)
 
@@ -289,14 +329,11 @@ same lookup in multiple formulas, it would be worth making
 a reference column, and give a formula for it that matches how
 we defined `yesterday` here.
 
-To actually enter this formula in a cell, you'd use <code class="keys">*Shift* + *Enter*</code>
-to divide the lines.  For longer formulas, you may prefer to use
-the side panel, where a simple <code class="keys">*Enter*</code> gives you a new line.
-Click on the column header, select "Column Options" and edit the
-Formula field.
+To actually enter this formula in a cell, you'd use
+<code class="keys">*Shift* + *Enter*</code> to divide the lines.
 
 Trigger Formulas
---------
+----------------
 
 Formula columns are great for calculated values -- those determined by
 other data in the document. It may also be useful to store independent 
@@ -309,18 +346,11 @@ a [set of conditions](examples/2021-07-auto-stamps.md) that you decide
 , clean data when a new value is entered, or provide sensible default
 value for a column.
 
-Each data column may have an `Optional formula` that gets triggered
-on certain conditions. This formula is available in the creator panel,
-under the `DATA COLUMN` section.
+To create a Trigger Formula column, you first need to open the creator panel and 
+click on the `Set trigger formula` action. If you want to convert an existing formula, use
+the `Convert to trigger formula` action available in the `COLUMN BEHAVIOR` section.
 
-![Optional formula](images/formulas/formulas-created-by-autofill.png)
-
-When you have an empty column, you first need to convert it a data column 
-by clicking `Make into data column` option under the `ACTIONS` menu. For a 
-formula column, you need first to convert it to a `Data column` by 
-clicking the `Convert to data column` option under the same `ACTIONS` menu:
-
-![Convert to data column](images/formulas/formulas-convert.png)
+![formulas-column-behavior](images/formulas/formulas-column-behavior.png)
 
 To control when the formula is evaluated, use the two checkbox options 
 below:
@@ -356,17 +386,17 @@ This allows you to make your application even smarter, track when a record
 Simple examples:
 
 1. Ensure that the value in a column is always written in capital letters:
-![data cleanup - uppercase](images/formulas/formulas-data-clean-uppercase.png) 
+![data cleanup - uppercase](images/formulas/formulas-trigger-uppercase.png) 
 With the trigger formula of `value.upper()`{: .formula}, the value typed into
 this column will be converted to upper case automatically.  
 
 2. Format a value that the user enters to sanitize the data before saving:
-![data cleanup - format](images/formulas/formulas-data-clean-format.png)
+![data cleanup - format](images/formulas/formulas-trigger-format.png)
 With the formula like `value if value.startswith("SK") else "SK" + value`{: .formula},
 the value typed into this column will always be prefixed with "SK".
 
 3. Overwrite a default value from a referenced table:
-![data cleanup - reference](images/formulas/formulas-data-clean-reference.png)
+![data cleanup - reference](images/formulas/formulas-trigger-reference.png)
 You can use a formula like `value or $Client.Phone`{: .formula}, to provide a default
 value from a referenced table, but still allow the user to type a new one.
 

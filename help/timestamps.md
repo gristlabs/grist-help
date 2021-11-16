@@ -18,7 +18,8 @@ and choose how you'd like the time and date to be shown.
 
 What we'd like is for the `Created At` value to stay unchanged once set, and to
 be calculated only when a record is created.  To make the values stay unchanged
-once set, click on the `Actions` drop-down, and choose `Convert to data column`:
+once set, we need to change column behavior from a `Formula Column` to a `Data Column`.
+Click on the `Column behavior` drop-down menu, and choose `Convert column to data`:
 
 ![a Created-At column](images/formulas/formulas-created-at-convert.png)
 
