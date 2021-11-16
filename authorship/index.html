@@ -623,8 +623,8 @@ and authorship columns let you do that.</p>
 <p>Suppose we want to fill a column automatically with the name of the creator
 of each record as they are added.  As a first step, add a column called 
 (for example) <code>Created By</code>.  In the column options in the side panel
-(see <a href="../col-types/">Columns</a> for a refresher), click on the <code>Actions</code>
-drop-down, and choose <code>Make into data column</code>.</p>
+(see <a href="../col-types/">Columns</a> for a refresher), click
+<code>Set trigger formula</code> action.</p>
 <p><img alt="starting a Created-By column" src="../images/formulas/formulas-created-by-convert.png" /></p>
 <p>Set <code class="formula">user.Name</code> as the column&rsquo;s formula.  There are other possibilities,
 such as  <code class="formula">user.Email</code>, a unique <code class="formula">user.UserID</code>, and so on.  The
@@ -632,9 +632,9 @@ user information available is the same as that in <a href="../access-rules/#acce
 Time information is available as well (see <a href="../timestamps/">Timestamp columns</a>).
 But let&rsquo;s stick with <code class="formula">user.Name</code> for now.</p>
 <p><img alt="a Created-By column" src="../images/formulas/formulas-created-by-final.png" /></p>
-<p>Now, to set the column whenever a record is created, select <code>Apply to new records</code>.
-And that&rsquo;s it!  Now whenever a record is created, the <code>Created At</code> column will be
-set to the name of the user creating it:</p>
+<p>Now, to set the column whenever a record is created, make sure that <code>Apply to new records</code>
+option is checked. And that&rsquo;s it!  Now whenever a record is created, the <code>Created At</code>
+column will be set to the name of the user creating it:</p>
 <p><img alt="a Created-By example" src="../images/formulas/formulas-created-by-autofill.png" /></p>
 <h2 id="an-updated-by-column">An &ldquo;Updated By&rdquo; column<a class="headerlink" href="#an-updated-by-column" title="Permanent link">#</a></h2>
 <p>If we want a column that stores who last edited a record (as opposed to its creator),

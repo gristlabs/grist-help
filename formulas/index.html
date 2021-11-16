@@ -297,6 +297,11 @@
             </a>
           </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#column-behavior">
+                Column behavior
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#formulas-that-operate-over-many-rows">
                 Formulas that operate over many rows
               </a>
@@ -679,6 +684,39 @@ that you don&rsquo;t need to specify row numbers, like <code>B1 * C1</code>.
 In Grist, a single formula applies to a whole column.
 You don&rsquo;t have to worry about filling it in for all rows,
 and can refer to values in the same row without fuss.</p>
+<h2 id="column-behavior">Column behavior<a class="headerlink" href="#column-behavior" title="Permanent link">#</a></h2>
+<p>When we provide a formula for a column we tell Grist to update its value on every change
+in a document. We can no longer type a value into the cell, because its value is
+determined purely by the formula.</p>
+<p>A formula column is one of three possible column behaviors, which you can control using
+the <code>COLUMN BEHAVIOR</code> section in the creator panel:</p>
+<ul>
+<li><code>Data column</code> maintains data, which you can manually update or clear, or optionally
+calculate using <a href="./#trigger-formulas">trigger formulas</a>.</li>
+<li><code>Formula column</code> always reflects the result of formula calculation, and is kept
+up-to-date by Grist.</li>
+<li><code>Empty column</code> is a state for a new column. Typing any value into it will turn it into a
+Data Column, while typing in a formula will turn it into a Formula Column</li>
+</ul>
+<p><img alt="formulas-column-behavior" src="../images/formulas/formulas-column-behavior.png" /></p>
+<p>Using the <code>COLUMN BEHAVIOR</code> section, you can manually change the column behavior. The most
+common options are available as green action buttons at the bottom, and other options are
+available under the behavior menu. Depending on the current column behavior, those are:</p>
+<ul>
+<li><code>Set formula</code> action converts an empty column to a formula column.</li>
+<li><code>Set trigger formula</code> or <code>Convert to trigger formula</code> action sets a trigger on a column
+(more on triggers in the next <a href="./#trigger-formulas">Trigger formulas section</a> ).</li>
+<li><code>Make into data column</code> action converts an empty column to a regular data column.</li>
+<li><code>Convert column to data</code> converts a formula column to regular data column (you can read
+more about this feature in the 
+<a href="./#freeze-a-formula-column">Freeze a formula column section</a> ).</li>
+<li><code>Clear and make into formula</code> clears all the data in a column and converts it to a
+formula column. (We say &ldquo;clear&rdquo; as a reminder that existing data in the column will be
+lost. They&rsquo;ll be replaced by the calculation results from the formula.)</li>
+<li><code>Clear and reset</code> clears all data and completely resets the column to its initial <code>Empty
+Column</code> state.</li>
+</ul>
+<p><img alt="formulas-column-behavior-options" src="../images/formulas/formulas-column-behavior-options.png" /></p>
 <h2 id="formulas-that-operate-over-many-rows">Formulas that operate over many rows<a class="headerlink" href="#formulas-that-operate-over-many-rows" title="Permanent link">#</a></h2>
 <p>If you are a spreadsheet user, you may find yourself wanting to have
 some special rows at the end of your table that have formulas
@@ -803,10 +841,11 @@ that are awkward in Python, those characters are replaced with an
 underscore.  Auto-complete may help you if you&rsquo;re not sure.  You
 can also control the &ldquo;ids&rdquo; of columns and tables in the right side panel.</p>
 <h2 id="freeze-a-formula-column">Freeze a formula column<a class="headerlink" href="#freeze-a-formula-column" title="Permanent link">#</a></h2>
-<p>If you&rsquo;d like to save the output of your formula as plain values, you can simply turn off the
-formula. First open the column options in the side panel:</p>
+<p>If you&rsquo;d like to save the output of your formula as plain values, you can simply change
+column behavior from <code>Formula Column</code> to <code>Data Column</code>. First open the column options in
+the side panel:</p>
 <p><img alt="formulas-column-options" src="../images/formulas/formulas-column-options.png" /></p>
-<p>Now click on the <code>ACTIONS</code> menu and select <code>Convert to data column</code> option to turn it off:</p>
+<p>Now click on the <code>Formula Column</code> and select <code>Convert column to data</code> option.</p>
 <p><img alt="formulas-action-menu" src="../images/formulas/formulas-action-menu.png" /></p>
 <p>Notice that there is no <code>=</code> sign in the column cells any more, showing that it
 is no longer a formula.  The cells will no longer change if other cells they used
@@ -868,11 +907,8 @@ same lookup in multiple formulas, it would be worth making
 <code>yesterday</code> a <a href="../col-refs/">reference column</a>.  Simply add
 a reference column, and give a formula for it that matches how
 we defined <code>yesterday</code> here.</p>
-<p>To actually enter this formula in a cell, you&rsquo;d use <code class="keys"><em>Shift</em> + <em>Enter</em></code>
-to divide the lines.  For longer formulas, you may prefer to use
-the side panel, where a simple <code class="keys"><em>Enter</em></code> gives you a new line.
-Click on the column header, select &ldquo;Column Options&rdquo; and edit the
-Formula field.</p>
+<p>To actually enter this formula in a cell, you&rsquo;d use
+<code class="keys"><em>Shift</em> + <em>Enter</em></code> to divide the lines.</p>
 <h2 id="trigger-formulas">Trigger Formulas<a class="headerlink" href="#trigger-formulas" title="Permanent link">#</a></h2>
 <p>Formula columns are great for calculated values &ndash; those determined by
 other data in the document. It may also be useful to store independent 
@@ -884,15 +920,10 @@ recalculate your data based on
 a <a href="../examples/2021-07-auto-stamps/">set of conditions</a> that you decide
 , clean data when a new value is entered, or provide sensible default
 value for a column.</p>
-<p>Each data column may have an <code>Optional formula</code> that gets triggered
-on certain conditions. This formula is available in the creator panel,
-under the <code>DATA COLUMN</code> section.</p>
-<p><img alt="Optional formula" src="../images/formulas/formulas-created-by-autofill.png" /></p>
-<p>When you have an empty column, you first need to convert it a data column 
-by clicking <code>Make into data column</code> option under the <code>ACTIONS</code> menu. For a 
-formula column, you need first to convert it to a <code>Data column</code> by 
-clicking the <code>Convert to data column</code> option under the same <code>ACTIONS</code> menu:</p>
-<p><img alt="Convert to data column" src="../images/formulas/formulas-convert.png" /></p>
+<p>To create a Trigger Formula column, you first need to open the creator panel and 
+click on the <code>Set trigger formula</code> action. If you want to convert an existing formula, use
+the <code>Convert to trigger formula</code> action available in the <code>COLUMN BEHAVIOR</code> section.</p>
+<p><img alt="formulas-column-behavior" src="../images/formulas/formulas-column-behavior.png" /></p>
 <p>To control when the formula is evaluated, use the two checkbox options 
 below:</p>
 <p><img alt="a Created-At column" src="../images/formulas/formulas-created-at-final.png" /></p>
@@ -924,19 +955,19 @@ Simple examples:</p>
 <ol>
 <li>
 <p>Ensure that the value in a column is always written in capital letters:
-<img alt="data cleanup - uppercase" src="../images/formulas/formulas-data-clean-uppercase.png" /> 
+<img alt="data cleanup - uppercase" src="../images/formulas/formulas-trigger-uppercase.png" /> 
 With the trigger formula of <code class="formula">value.upper()</code>, the value typed into
 this column will be converted to upper case automatically.  </p>
 </li>
 <li>
 <p>Format a value that the user enters to sanitize the data before saving:
-<img alt="data cleanup - format" src="../images/formulas/formulas-data-clean-format.png" />
+<img alt="data cleanup - format" src="../images/formulas/formulas-trigger-format.png" />
 With the formula like <code class="formula">value if value.startswith("SK") else "SK" + value</code>,
 the value typed into this column will always be prefixed with &ldquo;SK&rdquo;.</p>
 </li>
 <li>
 <p>Overwrite a default value from a referenced table:
-<img alt="data cleanup - reference" src="../images/formulas/formulas-data-clean-reference.png" />
+<img alt="data cleanup - reference" src="../images/formulas/formulas-trigger-reference.png" />
 You can use a formula like <code class="formula">value or $Client.Phone</code>, to provide a default
 value from a referenced table, but still allow the user to type a new one.</p>
 </li>

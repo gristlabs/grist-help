@@ -28,6 +28,40 @@ function autoPlayYouTubeModal(){
   });
 }
 
+// When the are multiple Youtube videos on a page, we can ensure at most one at a time is playing.
+// To do that, include the following script into an article:
+//    <script src="https://www.youtube.com/iframe_api"></script>
+// It causes onYouTubeIframeAPIReady() function to be called, which enables the described
+// functionality.
+function onYouTubeIframeAPIReady() {
+  let playing = null;
+
+  function onStateChange(player, event) {
+    if (event.data == 1) {
+      if (playing && playing !== player) {
+        playing.pauseVideo();
+      }
+      playing = player;
+    } else if (playing === player) {
+      playing = null;
+    }
+  }
+
+  Array.from(document.querySelectorAll('iframe')).forEach(iframe => {
+    if (!iframe.src.includes('youtube.com')) {
+      return;
+    }
+    if (!iframe.src.includes('enablejsapi=')) {
+      iframe.src += '&enablejsapi=1&origin=' + location.origin;
+    }
+    const player = new YT.Player(iframe, {
+      events: {
+        onStateChange: (ev) => onStateChange(player, ev),
+      }
+    });
+  });
+}
+
 window.onload = function() {
   expandSelected();
   autoPlayYouTubeModal();

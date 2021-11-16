@@ -626,7 +626,8 @@ and choose how you&rsquo;d like the time and date to be shown.</p>
 <p><img alt="starting a Created-At column" src="../images/formulas/formulas-created-at-start.png" /></p>
 <p>What we&rsquo;d like is for the <code>Created At</code> value to stay unchanged once set, and to
 be calculated only when a record is created.  To make the values stay unchanged
-once set, click on the <code>Actions</code> drop-down, and choose <code>Convert to data column</code>:</p>
+once set, we need to change column behavior from a <code>Formula Column</code> to a <code>Data Column</code>.
+Click on the <code>Column behavior</code> drop-down menu, and choose <code>Convert column to data</code>:</p>
 <p><img alt="a Created-At column" src="../images/formulas/formulas-created-at-convert.png" /></p>
 <p>Now, to calculate values when a record is created, select <code>Apply to new records</code>.
 And we&rsquo;re done! All new records will have <code>Created At</code> set with <code class="formula">NOW()</code> at the
