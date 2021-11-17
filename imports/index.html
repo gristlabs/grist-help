@@ -686,11 +686,20 @@ it will open up Google File Picker where you can select the file you want to imp
 <h2 id="import-to-an-existing-table">Import to an existing table<a class="headerlink" href="#import-to-an-existing-table" title="Permanent link">#</a></h2>
 <p>By default, Grist imports new data as new tables, but the Import dialog allows
 you to change the destination and import data into an existing table.</p>
-<p>To import cleanly into an existing table, the new data must have column names
-that exactly match the column names in the destination table.</p>
-<p>This is best suited for importing multiple datasets in the same format. For
-instance, you could import a bank statement as a new table, then import more
-statements from other months into the same table.</p>
+<p>When importing to an existing table, Grist will attempt to match the columns
+from your imported file to the columns in the destination table. To manually
+specify column matching, click the &ldquo;three dots&rdquo; button to open a menu with a
+list of columns from your imported file. Click on a column name to match it
+to a destination column, or select &lsquo;Skip&rsquo; to skip importing data from that column.</p>
+<p><img alt="import-dialog" src="../images/import-dialog-matching.png" /></p>
+<p>You can also specify a formula for each imported column by clicking the gray
+source column field to open a formula editor. Formulas can reference
+one or more imported columns, and the result of evaluating the formula will
+be shown in the preview after closing the editor.</p>
+<p><img alt="import-dialog" src="../images/import-dialog-formula.png" /></p>
+<p>Importing to an existing table is best suited for importing multiple datasets
+containing similar structure. For instance, you could import a bank statement as a
+new table, then import more statements from other months into the same table.</p>
 <p>For developers, the <a href="../rest-api/">Grist API</a> offers a more powerful way to add data
 to a Grist document.</p>
 <h2 id="updating-existing-records">Updating existing records<a class="headerlink" href="#updating-existing-records" title="Permanent link">#</a></h2>
@@ -700,7 +709,7 @@ them.</p>
 <p>We can tell Grist to update these records by checking the &ldquo;Update existing records&rdquo;
 option, and specifying which fields to use for matching incoming data against
 existing records.</p>
-<p><img alt="import-dialog-update-records" src="../images/import-dialog-update-records.png" /></p>
+<p class="screenshot-half"><img alt="import-dialog-update-records" src="../images/import-dialog-update-records.png" /></p>
 <p>An imported row and an existing record that have the same values for all of the
 selected merge fields are considered the same record. In this case, importing
 will update the fields of the record with the imported data. Blank values
