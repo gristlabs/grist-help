@@ -2,7 +2,7 @@
 
 ## Full power of Python
 
-[Grist uses Python (version 3.9)](formulas.md#python) for formulas. You can use nearly all features of Python and its
+[Grist uses Python (version 3.9)](python.md) for formulas. You can use nearly all features of Python and its
 standard library. See [Python documentation](https://docs.python.org/3.9/). Grist code runs in a
 secure sandbox, so Python code cannot access anything other than your document.
 
