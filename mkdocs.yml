@@ -21,7 +21,8 @@ nav:
     - Copying documents: copying-docs.md
     - Importing more data: imports.md
     - Exports & backups: exports.md
-    - Automatic Backups: automatic-backups.md
+    - Automatic backups: automatic-backups.md
+    - Document history: document-history.md
   - Pages and Tables:
     - Entering data: enter-data.md
     - Pages & widgets: page-widgets.md
@@ -43,6 +44,7 @@ nav:
   - Using formulas:
     - Intro to formulas: formulas.md
     - Working with dates: dates.md
+    - Python versions: python.md
     - Function reference: functions.md
   - Team Sites:
     - Creating team sites: teams.md
