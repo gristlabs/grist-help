@@ -126,28 +126,17 @@ a bias to larger numbers that can become significant at scale.
 But it could be a surprise to see numbers change like this in an established
 document.
 
-If you really, really need Python 2's rounding, you can do it as follows. Replace a
-formula like:
+If you really need Python 2's rounding, replace any calls to Python's
+`round` function with the Excel-compatible [ROUND](functions.md#round) function. For example:
 
 ```
 round($val, 2)
 ```
 
-with:
+would be replaced with:
 
 ```
-import math
-# Python2 style rounding, where x is the number to round, and d is the
-# desired number of digits of precision after the decimal point (use 0
-# for none).
-def py2_style_rounding(x, d):
-  p = 10 ** d
-  if x > 0:
-    return float(math.floor((x * p) + 0.5)) / p
-  else:
-    return float(math.ceil((x * p) - 0.5)) / p
-
-return py2_style_rounding($val, 2)
+ROUND($val, 2)
 ```
 
 ### Unicode text handling
