@@ -2,8 +2,8 @@
 
 ## Full power of Python
 
-Grist uses Python (version 2.7) for formulas. You can use nearly all features of Python and its
-standard library. See [Python documentation](https://docs.python.org/2/). Grist code runs in a
+[Grist uses Python (version 3.9)](python.md) for formulas. You can use nearly all features of Python and its
+standard library. See [Python documentation](https://docs.python.org/3.9/). Grist code runs in a
 secure sandbox, so Python code cannot access anything other than your document.
 
 Note that Python is case-sensitive, which applies to all functions, as well as Grist
@@ -11,7 +11,7 @@ table and column names.
 
 The table below lists Grist-specific functions for accessing your document data, as well as a
 suite of Excel-like functions provided by Grist. Don't forget also that the entire [Python's
-standard library](https://docs.python.org/2/library/) is available.
+standard library](https://docs.python.org/3.9/library/) is available.
 
 <!-- BEGIN mkpydocs table -->
 | Category | Functions |

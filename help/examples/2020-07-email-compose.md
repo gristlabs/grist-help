@@ -42,14 +42,14 @@ separating them with commas.
 
 Values of each field should be [percent-encoded](https://en.wikipedia.org/wiki/Percent-encoding),
 which in Python can be done using
-[urllib.quote](https://docs.python.org/2/library/urllib.html#urllib.quote).
+[urllib.parse.quote](https://docs.python.org/3.9/library/urllib.parse.html#urllib.parse.quote).
 
 To put this together, this formula will produce a hyperlink to create a pre-filled email:
 
 ```python
-from urllib import quote, urlencode
+from urllib.parse import quote
 return "Compose mailto:%s?cc=sales@example.com&subject=%s&body=%s" % (
-  quote($Email), quote("Welcome!"), quote($Body))
+  quote($Email), quote($Subject), quote($Body))
 ```
 
 A live example of this is here:
@@ -66,7 +66,7 @@ project, then in the table of projects, you can look up all associated people us
 group:
 
 ```python
-from urllib import quote
+from urllib.parse import quote
 people = People.lookupRecords(Project=$id)
 return "Email Group mailto:%s" % quote(", ".join(people.Email))
 ```

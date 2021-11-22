@@ -26,10 +26,16 @@ similar to a [branch](https://en.wikipedia.org/wiki/Branching_%28version_control
 [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo){:target="\_blank"}
 as used in version control systems like [Git](https://git-scm.com/){:target="\_blank"}.
 
-When working on a copy, the Share menu has some new options:
+When working on a copy, the Share menu has some new options. For example,
+you can view differences between the document copy and the original,
+using the "Compare to Original" menu item:
 
-<span class="screenshot-large">*![Unsaved Copy Menu](images/copying-docs/fork-share-menu.png)*</span>
+<span class="screenshot-large">*![Compare Menu](images/newsletters/2020-11/compare-menu.png)*</span>
 {: .screenshot-half }
+
+New material will be highlighted in green, and old material in red.
+
+![Show Differences](images/newsletters/2020-11/show-diffs.png)
 
 Once satisfied with your changes, click the option "Replace Original". Your copy will replace the
 original document. Grist will warn you if the replacement risks overwriting any recent changes in

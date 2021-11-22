@@ -12,7 +12,7 @@ is set to be a `Date` or a `DateTime`, a date-picker widget will let
 you select the date on a calendar when editing a cell.
 
 When working with dates in formulas, the dates are Python [datetime
-objects](https://docs.python.org/2/library/datetime.html). That allows
+objects](https://docs.python.org/3.9/library/datetime.html). That allows
 you to do some powerful things, but can be unexpected if you're not
 familiar with them.
 
@@ -66,7 +66,7 @@ object. It's simple to use and it will auto-detect different date formats:
 {: .screenshot-half }
 
 You can also use Python's `datetime` library, which provides two helpful functions:
-[strptime() and strftime()](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
+[strptime() and strftime()](https://docs.python.org/3.9/library/datetime.html#strftime-strptime-behavior).
 
 For example, let's say you have a table of movie sequels and their release dates (as
 strings). You'd like to parse out the actual date to be able to sort the table properly. Here's how
@@ -78,11 +78,11 @@ you would do that:
 2. The second line splits the string into two parts and returns the second part (Python arrays are
    zero-based).
 3. The third line uses Python's [strptime
-   function](https://docs.python.org/2/library/datetime.html#datetime.datetime.strptime) to parse
+   function](https://docs.python.org/3.9/library/datetime.html#datetime.datetime.strptime) to parse
    the date (e.g. "May 19, 1999") into a datetime object. The first parameter to the function is
    the string to parse, the second parameter is the date format that the string is in. Take a look
    at the [format
-   options](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior) to see if
+   options](https://docs.python.org/3.9/library/datetime.html#strftime-strptime-behavior) to see if
    the example format string `%B %d, %Y` makes sense. (Note: You could've also used `DATEVALUE(d)` to
    achieve the same result.)
 
@@ -120,7 +120,7 @@ You could also use the minus sign to subtract two dates, but you might be surpri
 ![Subtract a date](images/dates-subtract-formula.png)
 
 This happens because subtracting two `datetime` objects as we did in the example above, results in a
-[datetime.timedelta](https://docs.python.org/2/library/datetime.html#datetime.timedelta) object
+[datetime.timedelta](https://docs.python.org/3.9/library/datetime.html#datetime.timedelta) object
 which represents, "A duration expressing the difference between two date, time, or datetime
 instances to microsecond resolution."
 
@@ -156,7 +156,7 @@ Excel, returning  1-7 for Sunday-Saturday.
 
 ![Weekday formula](images/dates-weekday-formula.png)
 
-Alternatively, we can use the [strftime](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior) function:
+Alternatively, we can use the [strftime](https://docs.python.org/3.9/library/datetime.html#strftime-strptime-behavior) function:
 
 ![Weekday format](images/dates-weekday-strftime.png)
 
