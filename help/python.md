@@ -116,9 +116,9 @@ In Python 3, the import line needed changing to:
 from urllib.parse import quote_plus
 ```
 
-### There is a subtle change in rounding
+### Subtle change in rounding
 
-Python 3 switches from rounding the way many people learned in school
+Python 3 switches the built-in function `round()` from rounding the way many people learned in school
 (where when rounding `.5`, you always round up)
 to what is called "banker's rounding" (where you round from `.5` to the
 nearest even number). This is generally accepted as an improvement, mitigating
