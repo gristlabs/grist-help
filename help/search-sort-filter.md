@@ -22,6 +22,8 @@ the next widget or switch to the next page.
 
 ## Sorting
 
+hello
+
 It's easy to find a word in a dictionary, but it wouldn't be if the words weren't sorted!
 Grist offers flexible and convenient sorting options, which are quite different from a traditional
 spreadsheet.
