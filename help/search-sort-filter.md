@@ -87,7 +87,7 @@ sorting options.
 
 ### Advance sorting options
 The "Sort & Filter" subtab exposes additional sorting options that might be useful for
-various column types.:
+various column types:
 
 - `Use choice position` -- available on Choice column, sorts records using the configured
 order of choice items, rather then their names.
