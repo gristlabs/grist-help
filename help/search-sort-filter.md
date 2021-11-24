@@ -82,7 +82,24 @@ subtab in the side panel:
 <span class="screenshot-large">*![Side Panel Sort](images/search-sort-filter/side-panel-sort.png)*</span>
 {: .screenshot-half }
 
-You can add one or more columns, and save or revert settings.
+You can add one or more columns, save or revert settings and use advanced
+sorting options.
+
+### Advance sorting options
+The "Sort & Filter" subtab exposes additional sorting options that might be useful for
+various column types:
+
+- `Use choice position` -- available on Choice column, sorts records using the configured
+order of choice items, rather then their names.
+- `Empty values last` -- in alphabetical order empty values are shown first by default, use
+this option to put them at the end.
+- `Natural sort` -- for Text column will treat multi-digit numbers in strings as if they were
+a single character, allowing more human-friendly ordering. For example, using
+`natural sort`, _Product10_ will be positioned after _Product2_.
+
+<span class="screenshot-large">*![Side Panel Sorting Options](images/search-sort-filter/side-panel-sorting-options.png)*</span>
+{: .screenshot-half }
+
 
 ### Saving Row Positions
 
