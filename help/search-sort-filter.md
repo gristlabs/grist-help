@@ -22,8 +22,6 @@ the next widget or switch to the next page.
 
 ## Sorting
 
-hello
-
 It's easy to find a word in a dictionary, but it wouldn't be if the words weren't sorted!
 Grist offers flexible and convenient sorting options, which are quite different from a traditional
 spreadsheet.
@@ -127,6 +125,34 @@ revert to saved settings.
 As with sorting, you can create different widgets or pages showing the same table with different
 filter settings. For example, you could have one page showing event attendees with status
 "Confirmed" and another one showing those with status "Pending".
+
+### Filter Buttons
+
+Another way to apply filtering is through Filter Buttons. To use Filter Buttons, turn on the Filter Bar. 
+Click the “Sort & Filter” icon on the top-right of the table then select “Toggle Filter Bar”.
+
+<span class="screenshot-large">*![Toggle Filter Bar](images/search-sort-filter/toggle-filter-bar.png)*</span>
+{: .screenshot-half }
+
+A grey “+ Add Filter” button will appear at the top-left of the table. When you select this button, 
+a list of your columns will appear. 
+
+<span class="screenshot-large">*![Filter Button Selection](images/search-sort-filter/filter-button-selection.png)*</span>
+
+This filtering works exactly like the filtering you saw at the beginning of the Filtering section, seen above. 
+Select the column of data you want to filter by then uncheck the values you don’t want to see, or click “None” 
+and check only the values you do want to see. There is a search bar at the top that allows you to find values 
+of interest for longer lists.
+
+Click “Apply” to apply your settings.  
+
+After you have added your filters, be sure to click the green checkmark next to the “Search & Filter” icon to save.
+
+<span class="screenshot-large">*![Filter Button Filter Selection](images/search-sort-filter/filter-button-filter-selection.png)*</span>
+
+With the Filter Bar on, you have buttons that you can use to more easily see and update your filters. If you toggle the Filter Bar to off, your filters will be saved but the buttons will no longer be visible.
+
+<span class="screenshot-large">*![Filter Button Filtered](images/search-sort-filter/filter-button-filtered.png)*</span>
 
 ### Complex Filters
 
