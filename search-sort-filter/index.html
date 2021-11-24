@@ -680,7 +680,21 @@ transactions sorted by date, and another showing them sorted by amount.</p>
 <p>You can sort widgets other than Table, such as Card List or Chart, using the &ldquo;Sort &amp; Filter&rdquo;
 subtab in the side panel:</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="Side Panel Sort" src="../images/search-sort-filter/side-panel-sort.png" /></em></span></p>
-<p>You can add one or more columns, and save or revert settings.</p>
+<p>You can add one or more columns, save or revert settings and use advanced
+sorting options.</p>
+<h3 id="advance-sorting-options">Advance sorting options<a class="headerlink" href="#advance-sorting-options" title="Permanent link">#</a></h3>
+<p>The &ldquo;Sort &amp; Filter&rdquo; subtab exposes additional sorting options that might be useful for
+various column types:</p>
+<ul>
+<li><code>Use choice position</code> &ndash; available on Choice column, sorts records using the configured
+order of choice items, rather then their names.</li>
+<li><code>Empty values last</code> &ndash; in alphabetical order empty values are shown first by default, use
+this option to put them at the end.</li>
+<li><code>Natural sort</code> &ndash; for Text column will treat multi-digit numbers in strings as if they were
+a single character, allowing more human-friendly ordering. For example, using
+<code>natural sort</code>, <em>Product10</em> will be positioned after <em>Product2</em>.</li>
+</ul>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Side Panel Sorting Options" src="../images/search-sort-filter/side-panel-sorting-options.png" /></em></span></p>
 <h3 id="saving-row-positions">Saving Row Positions<a class="headerlink" href="#saving-row-positions" title="Permanent link">#</a></h3>
 <p>When you use the side panel, you&rsquo;ll notice one extra button: &ldquo;Update Data&rdquo;. If you click it, the
 current position of the records relative to each other is saved, and the active sort by your
