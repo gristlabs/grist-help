@@ -209,6 +209,16 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#exporting-a-document">
+                Exporting a document
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#sending-to-google-drive">
+                Sending to Google Drive
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#backing-up-an-entire-document">
                 Backing up an entire document
               </a>
@@ -630,7 +640,7 @@
 <h2 id="exporting-a-table">Exporting a table<a class="headerlink" href="#exporting-a-table" title="Permanent link">#</a></h2>
 <p>If you want to export a table to another spreadsheet or database,
 one option is to export that table in CSV format, a common interchange format for data.
-To do this, open your document to the desired table.  Then click the sharing icon
+To do this, open your document to the desired table. Then click the sharing icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
 on the top right of the screen. It opens the menu with sharing and export
 options. Select &ldquo;Export CSV&rdquo;.</p>
@@ -639,7 +649,27 @@ options. Select &ldquo;Export CSV&rdquo;.</p>
 naming your columns, excluding any hidden columns, followed by all the
 rows of data in the table in text format.</p>
 <p>When on a page with multiple page widgets, &ldquo;Export CSV&rdquo; will export only the data in the
-currently-selected widget.</p>
+currently-selected widget, to export all your data use &ldquo;Export XLSX&rdquo; option.</p>
+<h2 id="exporting-a-document">Exporting a document<a class="headerlink" href="#exporting-a-document" title="Permanent link">#</a></h2>
+<p>If you want to export all tables to Excel format, click the sharing icon
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
+on the top right of the screen and select &ldquo;Export XLSX&rdquo;.</p>
+<p>Your browser will then download an Excel file, where each table is a separate sheet
+containing all rows, without any filters applied. To use this option you need to have full
+read access for all tables in a document.</p>
+<h2 id="sending-to-google-drive">Sending to Google Drive<a class="headerlink" href="#sending-to-google-drive" title="Permanent link">#</a></h2>
+<p>If you want to export a document to Google Drive as a Google Sheet file, click the
+sharing icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
+on the top right of the screen and select &ldquo;Send to Google Drive&rdquo;.</p>
+<p>Grist will first ask you to log in to your Google Account (or use an account you already
+signed in) and then for permission to create a file in your Google Drive. Grist will be
+able to create new files and manage them but will not be able to access any other files in
+your drive.</p>
+<p><img alt="exports-send-to-google" src="../images/exports/exports-send-to-google.png" /></p>
+<p>Once you accept the permission request, Grist will export your document to an 
+<a href="./#exporting-a-document">Excel file</a> and then save it in your Google Drive as a
+Google Sheet file. To use this option, you need to have full read access for all tables in
+a document.</p>
 <h2 id="backing-up-an-entire-document">Backing up an entire document<a class="headerlink" href="#backing-up-an-entire-document" title="Permanent link">#</a></h2>
 <p>Grist makes regular backups of documents automatically, as described in <a href="../automatic-backups/">Automatic
 Backups</a>. You can also make manual backups by <a href="../copying-docs/#copying-for-backup-purposes">saving
