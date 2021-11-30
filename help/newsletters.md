@@ -21,3 +21,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [August 2021 Newsletter](newsletters/2021-08.md): Reference Lists, Embedding, Templates, Pabbly, and more.
 - [September 2021 Newsletter](newsletters/2021-09.md): Improved imports, global currencies, and more ways to integrate!
 - [October 2021 Newsletter](newsletters/2021-10.md): Editing choices, inline links, enhanced import previews, and more!
+- [November 2021 Newsletter](newsletters/2021-11.md): Column mapping, filter on hidden columns, more sorting options, and more!
