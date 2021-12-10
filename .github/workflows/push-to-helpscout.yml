@@ -5,7 +5,7 @@ on:
       - master
   pull_request:
 jobs:
-  test:
+  push-to-helpscout:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,5 +25,7 @@ jobs:
         env:
           HELPSCOUT_DOCS_API_KEY: ${{ secrets.HELPSCOUT_DOCS_API_KEY }}
           # Use dry-run for pull-request, and do the actual push only when master is updated.
-          DRYRUN: ${{ (github.event_name == 'pull_request' && 'R') || '' }}
+          #DRYRUN: ${{ (github.event_name != 'push' && 'R') || '' }}
+          # TODO temporarily reverse to try a full push on the PR
+          DRYRUN: ${{ (github.event_name == 'push' && 'R') || '' }}
         run: python hscout/push_to_helpscout.py
