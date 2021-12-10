@@ -1,0 +1,28 @@
+name: Push to HelpScout
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build docs for HelpScout
+        run: mkdocs build -c -f hscout/mkdocs.yml
+
+      - name: Push to HelpScout
+        env:
+          HELPSCOUT_DOCS_API_KEY: ${{ secrets.HELPSCOUT_DOCS_API_KEY }}
+          DRYRUN: R
+        run: python hscout/push_to_helpscout.py
