@@ -25,5 +25,5 @@ jobs:
         env:
           HELPSCOUT_DOCS_API_KEY: ${{ secrets.HELPSCOUT_DOCS_API_KEY }}
           # Use dry-run for pull-request, and do the actual push only when master is updated.
-          DRYRUN: ${{ (github.event_name == 'pull_request' && "R") || "" }}
+          DRYRUN: ${{ (github.event_name == 'pull_request' && 'R') || '' }}
         run: python hscout/push_to_helpscout.py
