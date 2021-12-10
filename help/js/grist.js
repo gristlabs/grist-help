@@ -28,11 +28,35 @@ function autoPlayYouTubeModal(){
   });
 }
 
-// When the are multiple Youtube videos on a page, we can ensure at most one at a time is playing.
-// To do that, include the following script into an article:
-//    <script src="https://www.youtube.com/iframe_api"></script>
-// It causes onYouTubeIframeAPIReady() function to be called, which enables the described
-// functionality.
+function getYouTubeIframes() {
+  return Array.from(document.querySelectorAll('iframe[src*="youtube.com"]'));
+}
+
+// Automatically include YouTube Iframe API script if the page contains multiple YouTube videos.
+// This is then used to ensure that at most one video at a time is playing.
+function maybeSetUpYouTubeAPI() {
+  // Check if there are multiple YouTube videos.
+  const youtubeIframes = getYouTubeIframes();
+  if (youtubeIframes.length > 1) {
+    // If so, update YouTube links to enable JS API.
+    youtubeIframes.forEach(iframe => {
+      if (!iframe.src.includes('enablejsapi=')) {
+        iframe.src += '&enablejsapi=1&origin=' + location.origin;
+      }
+    });
+
+    // If there isn't yet a YouTube script tag, add one.
+    if (!document.querySelector('script[href^="https://www.youtube.com/iframe_api"]')) {
+      const elem = document.createElement('script');
+      elem.setAttribute('src', "https://www.youtube.com/iframe_api");
+      document.head.appendChild(elem);
+    }
+  }
+}
+
+// When the are multiple YouTube videos on a page, we can ensure at most one at a time is playing.
+// The setup in maybeSetUpYouTubeApi adds youtube API to the page, which calls this
+// specially-named setup method.
 function onYouTubeIframeAPIReady() {
   let playing = null;
 
@@ -47,13 +71,7 @@ function onYouTubeIframeAPIReady() {
     }
   }
 
-  Array.from(document.querySelectorAll('iframe')).forEach(iframe => {
-    if (!iframe.src.includes('youtube.com')) {
-      return;
-    }
-    if (!iframe.src.includes('enablejsapi=')) {
-      iframe.src += '&enablejsapi=1&origin=' + location.origin;
-    }
+  getYouTubeIframes().forEach(iframe => {
     const player = new YT.Player(iframe, {
       events: {
         onStateChange: (ev) => onStateChange(player, ev),
@@ -65,5 +83,6 @@ function onYouTubeIframeAPIReady() {
 window.onload = function() {
   expandSelected();
   autoPlayYouTubeModal();
+  maybeSetUpYouTubeAPI();
 };
 window.addEventListener('popstate', expandSelected);
