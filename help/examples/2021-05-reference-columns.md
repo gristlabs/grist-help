@@ -134,5 +134,3 @@ By doing this, status and date also auto-update when the `Last Milestone` field 
 
 **Still need help?** Take a peek at the
 [tutorial solution](https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution), or contact us at <support@getgrist.com>.
-
-<script src="https://www.youtube.com/iframe_api"></script>
