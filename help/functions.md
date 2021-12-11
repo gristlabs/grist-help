@@ -1,17 +1,22 @@
-# Function List {: data-toc-label='' }
+# Function Reference {: data-toc-label='' }
 
-## Full power of Python
+Grist formulas support most Excel functions, as well as the Python programming language.
 
-[Grist uses Python (version 3.9)](python.md) for formulas. You can use nearly all features of Python and its
-standard library. See [Python documentation](https://docs.python.org/3.9/). Grist code runs in a
-secure sandbox, so Python code cannot access anything other than your document.
+The table below lists Grist-specific functions, and the suite of the included Excel-like functions.
+In addition, the entire [Python standard library](https://docs.python.org/3.9/library/) is
+available. For more about using formulas in Grist, see [Intro to Formulas](formulas.md).
 
-Note that Python is case-sensitive, which applies to all functions, as well as Grist
-table and column names.
+[Grist uses Python (version 3.9)](python.md) for formulas. You can use nearly all features of
+Python (see [Python documentation](https://docs.python.org/3.9/)). Here are some helpful notes:
 
-The table below lists Grist-specific functions for accessing your document data, as well as a
-suite of Excel-like functions provided by Grist. Don't forget also that the entire [Python's
-standard library](https://docs.python.org/3.9/library/) is available.
+- Python is case-sensitive, including for Grist table and column names. Excel-like functions are
+  always in uppercase. E.g. [**if**](https://docs.python.org/3/tutorial/controlflow.html#if-statements)
+  is a Python keyword, while [**IF**](#if) is an Excel-like function.
+- Compare for equality using `==`, in place of Excel's single `=` (which in Python means assignment).
+  "Not equal" uses `!=` in place of Excel's `<>`.
+- You may write multi-line Python in formulas (use <code class="keys">*Shift* + *Enter*</code> to
+  add lines), including statements, variables, imports, etc.
+- Grist code runs in a secure sandbox, with no access to anything outside your document.
 
 <!-- BEGIN mkpydocs table -->
 | Category | Functions |
