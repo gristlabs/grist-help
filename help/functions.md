@@ -3,7 +3,7 @@
 Grist formulas support most Excel functions, as well as the Python programming language.
 
 The table below lists Grist-specific functions, and the suite of the included Excel-like functions.
-In addition, the entire [Python's standard library](https://docs.python.org/3.9/library/) is
+In addition, the entire [Python standard library](https://docs.python.org/3.9/library/) is
 available. For more about using formulas in Grist, see [Intro to Formulas](formulas.md).
 
 [Grist uses Python (version 3.9)](python.md) for formulas. You can use nearly all features of
