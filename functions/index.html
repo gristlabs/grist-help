@@ -47,7 +47,13 @@
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function() {
     window.Beacon('config', {display: { style: 'icon' }});
-    window.Beacon('init', '2efd68d8-0479-42c1-a94c-87b342af7bc4');
+    window.Beacon('init', 'fc61df2a-664b-4422-b24f-964bd0cb6d53');
+    window.Beacon('suggest', [
+      {url: 'https://community.getgrist.com/', text: 'Community Forum'},
+      {url: 'https://docs.getgrist.com/p/templates', text: 'Templates'},
+      {url: 'https://github.com/gristlabs/grist-core/projects/1', text: 'Roadmap'},
+    ]);
+
     fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
       .then(function(resp) { return resp.json(); })
       .then(function(status) {
@@ -313,8 +319,48 @@
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#full-power-of-python">
-                Full power of Python
+              <a class="wm-article-link wm-page-toc-text" href="#grist">
+                Grist
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#date">
+                Date
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#info">
+                Info
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#logical">
+                Logical
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#lookup">
+                Lookup
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#math">
+                Math
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#schedule">
+                Schedule
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#stats">
+                Stats
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#text">
+                Text
               </a>
             </li>
         
@@ -620,16 +666,23 @@
 
     
 
-    <h1 id="function-list">Function List<a class="headerlink" href="#function-list" title="Permanent link">#</a></h1>
-<h2 id="full-power-of-python">Full power of Python<a class="headerlink" href="#full-power-of-python" title="Permanent link">#</a></h2>
-<p><a href="../python/">Grist uses Python (version 3.9)</a> for formulas. You can use nearly all features of Python and its
-standard library. See <a href="https://docs.python.org/3.9/">Python documentation</a>. Grist code runs in a
-secure sandbox, so Python code cannot access anything other than your document.</p>
-<p>Note that Python is case-sensitive, which applies to all functions, as well as Grist
-table and column names.</p>
-<p>The table below lists Grist-specific functions for accessing your document data, as well as a
-suite of Excel-like functions provided by Grist. Don&rsquo;t forget also that the entire <a href="https://docs.python.org/3.9/library/">Python&rsquo;s
-standard library</a> is available.</p>
+    <h1 id="function-reference">Function Reference<a class="headerlink" href="#function-reference" title="Permanent link">#</a></h1>
+<p>Grist formulas support most Excel functions, as well as the Python programming language.</p>
+<p>The table below lists Grist-specific functions, and the suite of the included Excel-like functions.
+In addition, the entire <a href="https://docs.python.org/3.9/library/">Python standard library</a> is
+available. For more about using formulas in Grist, see <a href="../formulas/">Intro to Formulas</a>.</p>
+<p><a href="../python/">Grist uses Python (version 3.9)</a> for formulas. You can use nearly all features of
+Python (see <a href="https://docs.python.org/3.9/">Python documentation</a>). Here are some helpful notes:</p>
+<ul>
+<li>Python is case-sensitive, including for Grist table and column names. Excel-like functions are
+  always in uppercase. E.g. <a href="https://docs.python.org/3/tutorial/controlflow.html#if-statements"><strong>if</strong></a>
+  is a Python keyword, while <a href="#if"><strong>IF</strong></a> is an Excel-like function.</li>
+<li>Compare for equality using <code>==</code>, in place of Excel&rsquo;s single <code>=</code> (which in Python means assignment).
+  &ldquo;Not equal&rdquo; uses <code>!=</code> in place of Excel&rsquo;s <code>&lt;&gt;</code>.</li>
+<li>You may write multi-line Python in formulas (use <code class="keys"><em>Shift</em> + <em>Enter</em></code> to
+  add lines), including statements, variables, imports, etc.</li>
+<li>Grist code runs in a secure sandbox, with no access to anything outside your document.</li>
+</ul>
 <!-- BEGIN mkpydocs table -->
 
 <table>

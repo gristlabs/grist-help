@@ -47,7 +47,13 @@
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function() {
     window.Beacon('config', {display: { style: 'icon' }});
-    window.Beacon('init', '2efd68d8-0479-42c1-a94c-87b342af7bc4');
+    window.Beacon('init', 'fc61df2a-664b-4422-b24f-964bd0cb6d53');
+    window.Beacon('suggest', [
+      {url: 'https://community.getgrist.com/', text: 'Community Forum'},
+      {url: 'https://docs.getgrist.com/p/templates', text: 'Templates'},
+      {url: 'https://github.com/gristlabs/grist-core/projects/1', text: 'Roadmap'},
+    ]);
+
     fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
       .then(function(resp) { return resp.json(); })
       .then(function(status) {
@@ -717,5 +723,5 @@ link in the bottom left corner. Or email us at <a href="&#109;&#97;&#105;&#108;&
 </html>
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-12-03 16:10:36.276117+00:00
+Build Date UTC : 2021-12-11 00:54:39.571616+00:00
 -->
