@@ -209,7 +209,7 @@ so under "Show column", select "Company". You'll see this in action shortly.
 
 ## Setting other types
 
-In Grist, every columns has a type. Often, the default of Text or Numeric is correct. For our
+In Grist, every column has a type. Often, the default of Text or Numeric is correct. For our
 "Date" column, a better type is Date. Click any cell in the "Date" column, and in the right panel,
 click into the "Column Type" dropdown and select "Date". If you'd like, you can
 also choose a different date format right below the type.
@@ -352,7 +352,7 @@ Rename them to "Due" and "To-Do Items".
 
 ![col-rename2](images/lightweight-crm/col-rename2.png)
 
-Both of these columns are calculated using formulas. Grist has great support for formulas, allowing
+Both columns are calculated using formulas. Grist has great support for formulas, allowing
 full Python syntax and many Excel functions. In Grist, a formula always applies to the entire
 column of data. To enter a formula, click on a cell in the "Due" column, and hit "=" key:
 
