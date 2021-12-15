@@ -145,7 +145,7 @@ on your desktop.
 
 ![import1](images/lightweight-crm/import1.png)
 
-You'll see a table of contacts with sample data. Note that in Grist columns have names.
+You'll see a table of contacts with sample data. Note that in Grist, columns have names.
 
 ![first-table](images/lightweight-crm/first-table.png)
 
@@ -209,7 +209,7 @@ so under "Show column", select "Company". You'll see this in action shortly.
 
 ## Setting other types
 
-In Grist, every columns has a types. Often the default of Text or Numeric is correct. For our
+In Grist, every column has a type. Often, the default of Text or Numeric is correct. For our
 "Date" column, a better type is Date. Click any cell in the "Date" column, and in the right panel,
 click into the "Column Type" dropdown and select "Date". If you'd like, you can
 also choose a different date format right below the type.
@@ -352,7 +352,7 @@ Rename them to "Due" and "To-Do Items".
 
 ![col-rename2](images/lightweight-crm/col-rename2.png)
 
-Both these columns are calculated using formulas. Grist has great support for formulas, allowing
+Both columns are calculated using formulas. Grist has great support for formulas, allowing
 full Python syntax and many Excel functions. In Grist, a formula always applies to the entire
 column of data. To enter a formula, click on a cell in the "Due" column, and hit "=" key:
 
@@ -369,8 +369,8 @@ return min(items.Date) if items else None
 Paste it in, or type in. When typing in multi-line formulas, use `Shift+Enter` to add new lines, and
 `Enter` to save.
 
-It's also a good time to change the type of this column to "Date". Open Column Options, and select
-"Date" for the type. You can choose the Date Format right below the type.
+It's also a good time to change the column type to "Date". Open Column Options, and select
+"Date" for the type. You can choose the Date Format directly below the type.
 
 ![date-format](images/lightweight-crm/date-format.png)
 
@@ -398,7 +398,7 @@ triangle in the header of the "Due" column, and select "Sort A-Z".
 
 By default, sorting settings are not saved. The highlighted green button in the top right of the
 "Contacts" table reminds us of that. To keep this sort order when you reopen the document, save it by
-clicking that green button and selecting "Save".
+clicking that green button and selecting "Save". You can also save by clicking the green check mark, to the right of the filter icon.
 
 ![section-menu](images/lightweight-crm/section-menu.png)
 
