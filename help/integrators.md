@@ -9,6 +9,13 @@ include:
 - [KonnectzIT](https://plan.konnectzit.com/feedback/grist-integration)
 - [n8n](https://n8n.io/integrations/n8n-nodes-base.grist)
 
+## Integrations via Pabbly Connect
+
+Each services provides its own way to configure the connection between Grist and other services. 
+Pabbly Connect has created a few videos walking through how to set up an integration with Grist 
+using Pabbly Connect.
+[Pabbly Connect Youtube - Grist Playlist](https://www.youtube.com/channel/UCVA5GKy8qpDxQR5xSt_zcJg/search?query=grist)
+
 ## Integrations via Zapier
 
 Each services provides its own way to configure the connection between Grist and other services.
