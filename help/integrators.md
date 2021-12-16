@@ -9,17 +9,15 @@ include:
 - [KonnectzIT](https://plan.konnectzit.com/feedback/grist-integration)
 - [n8n](https://n8n.io/integrations/n8n-nodes-base.grist)
 
-## Integrations via Pabbly Connect
+## Configuring Integrators
 
-Each services provides its own way to configure the connection between Grist and other services. 
-Pabbly Connect has created a few videos walking through how to set up an integration with Grist 
+Each integrator provides its own way to configure the connection between Grist and other services. 
+
+[Pabbly Connect](https://www.pabbly.com/connect/integrations/grist/) has created a few videos walking through how to set up an integration with Grist 
 using Pabbly Connect.
 [Pabbly Connect Youtube - Grist Playlist](https://www.youtube.com/channel/UCVA5GKy8qpDxQR5xSt_zcJg/search?query=grist)
 
-## Integrations via Zapier
-
-Each services provides its own way to configure the connection between Grist and other services.
-As an example, here is a walkthrough of how an integration with Grist can be configured using
+Included below is a walkthrough of an example of how an integration with Grist can be configured using
 [Zapier](https://zapier.com/apps/grist/integrations).
 
 Grist can trigger a workflow whenever there is a new or updated record
