@@ -332,14 +332,7 @@ body {
  * This makes code samples look more like 'readthedocs' theme.
  */
 .wm-page-content details pre {
-  padding: 5px;
-  margin: 1.5rem 0 0 0;
   background-color: #eeffcc;
-  color: #333333;
-  line-height: 120%;
-  border: 1px solid #ac9;
-  border-radius: 3px;
-  font-family: monospace, sans-serif;
 }
 
 .wm-page-content details code {

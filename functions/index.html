@@ -707,7 +707,7 @@ Python (see <a href="https://docs.python.org/3.9/">Python documentation</a>). He
 </tr>
 <tr>
 <td>Info</td>
-<td><a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#record">RECORD</a>, <a class="unimplemented" href="#type">TYPE</a></td>
+<td><a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#type">TYPE</a></td>
 </tr>
 <tr>
 <td>Logical</td>
@@ -715,7 +715,7 @@ Python (see <a href="https://docs.python.org/3.9/">Python documentation</a>). He
 </tr>
 <tr>
 <td>Lookup</td>
-<td><a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a></td>
+<td><a  href="#lookupone_2">lookupOne</a>, <a  href="#lookuprecords_2">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a></td>
 </tr>
 <tr>
 <td>Math</td>
@@ -852,7 +852,10 @@ Returns the Records from this table that match the given field=value arguments. 
 People.lookupRecords(First_Name=&quot;George&quot;, Last_Name=&quot;Washington&quot;)
 </code></pre>
 
-<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object.
+<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object.</p>
+<p>See <a href="#contains">CONTAINS</a> for an example utilizing <code>UserTable.lookupRecords</code> to find records
+where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given
+value.
 </details></p>
 <h3 id="date">Date<a class="headerlink" href="#date" title="Permanent link">#</a></h3>
 <p><details id="date"><summary >
@@ -1241,7 +1244,7 @@ Same as <code>time.second</code>.</p>
 
 <p></details>
 <details id="today"><summary >
-<code><strong>TODAY</strong>()</code>
+<code><strong>TODAY</strong>(tz=None)</code>
 <a class="headerlink" href="#today" title="Permanent link">#</a></p>
 <h4 id="today">TODAY<a class="headerlink" href="#today" title="Permanent link">#</a></h4>
 <p></summary>
@@ -1625,15 +1628,35 @@ False
 <h4 id="isref">ISREF<a class="headerlink" href="#isref" title="Permanent link">#</a></h4>
 <p></summary>
 Checks whether a value is a table record.</p>
-<p>For example, if a column person is of type Reference to the People table, then ISREF($person)
-is True.
-Similarly, ISREF(People.lookupOne(name=$name)) is True. For any other type of value,
-ISREF() would evaluate to False.</p>
+<p>For example, if a column <code>person</code> is of type Reference to the <code>People</code> table,
+then <code>ISREF($person)</code> is <code>True</code>.
+Similarly, <code>ISREF(People.lookupOne(name=$name))</code> is <code>True</code>. For any other type of value,
+<code>ISREF()</code> would evaluate to <code>False</code>.</p>
 <pre><code class="python">&gt;&gt;&gt; ISREF(17)
 False
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; ISREF(&quot;Roger&quot;)
+False
+</code></pre>
+
+<p></details>
+<details id="isreflist"><summary >
+<code><strong>ISREFLIST</strong>(value)</code>
+<a class="headerlink" href="#isreflist" title="Permanent link">#</a></p>
+<h4 id="isreflist">ISREFLIST<a class="headerlink" href="#isreflist" title="Permanent link">#</a></h4>
+<p></summary>
+Checks whether a value is a <a href="#recordset"><code>RecordSet</code></a>,
+the type of values in Reference List columns.</p>
+<p>For example, if a column <code>people</code> is of type Reference List to the <code>People</code> table,
+then <code>ISREFLIST($people)</code> is <code>True</code>.
+Similarly, <code>ISREFLIST(People.lookupRecords(name=$name))</code> is <code>True</code>. For any other type of value,
+<code>ISREFLIST()</code> would evaluate to <code>False</code>.</p>
+<pre><code class="python">&gt;&gt;&gt; ISREFLIST(17)
+False
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; ISREFLIST(&quot;Roger&quot;)
 False
 </code></pre>
 
@@ -1738,9 +1761,9 @@ True
 </code></pre>
 
 <p></details>
-<details id="record"><summary >
+<details id="record_2"><summary >
 <code><strong>RECORD</strong>(record_or_list, dates_as_iso=False, expand_refs=0)</code>
-<a class="headerlink" href="#record" title="Permanent link">#</a></p>
+<a class="headerlink" href="#record_2" title="Permanent link">#</a></p>
 <h4 id="record_1">RECORD<a class="headerlink" href="#record_1" title="Permanent link">#</a></h4>
 <p></summary>
 Returns a Python dictionary with all fields in the given record. If a list of records is given,
@@ -1940,9 +1963,9 @@ True
 </details>
 
 <h3 id="lookup">Lookup<a class="headerlink" href="#lookup" title="Permanent link">#</a></h3>
-<p><details id="lookupone"><summary >
+<p><details id="lookupone_2"><summary >
 <code>UserTable.<strong>lookupOne</strong>(self, **field_value_pairs)</code>
-<a class="headerlink" href="#lookupone" title="Permanent link">#</a></p>
+<a class="headerlink" href="#lookupone_2" title="Permanent link">#</a></p>
 <h4 id="lookupone_1">lookupOne<a class="headerlink" href="#lookupone_1" title="Permanent link">#</a></h4>
 <p></summary>
 Returns a Record matching the given field=value arguments. If multiple records match, returns
@@ -1952,9 +1975,9 @@ one of them. If none match, returns the special empty record.</p>
 </code></pre>
 
 <p></details>
-<details id="lookuprecords"><summary >
+<details id="lookuprecords_2"><summary >
 <code>UserTable.<strong>lookupRecords</strong>(self, **field_value_pairs)</code>
-<a class="headerlink" href="#lookuprecords" title="Permanent link">#</a></p>
+<a class="headerlink" href="#lookuprecords_2" title="Permanent link">#</a></p>
 <h4 id="lookuprecords_1">lookupRecords<a class="headerlink" href="#lookuprecords_1" title="Permanent link">#</a></h4>
 <p></summary>
 Returns the Records from this table that match the given field=value arguments. If
@@ -1964,7 +1987,10 @@ Returns the Records from this table that match the given field=value arguments. 
 People.lookupRecords(First_Name=&quot;George&quot;, Last_Name=&quot;Washington&quot;)
 </code></pre>
 
-<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object.
+<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object.</p>
+<p>See <a href="#contains">CONTAINS</a> for an example utilizing <code>UserTable.lookupRecords</code> to find records
+where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given
+value.
 </details>
 <details id="address"><summary class="unimplemented">
 <code><strong>ADDRESS</strong>(row, column, absolute_relative_mode, use_a1_notation, sheet)</code>
@@ -2003,8 +2029,9 @@ Returns the number of columns in a specified array or range.</p>
 <a class="headerlink" href="#contains" title="Permanent link">#</a></p>
 <h4 id="contains">CONTAINS<a class="headerlink" href="#contains" title="Permanent link">#</a></h4>
 <p></summary>
-Use this marker with <code>Table.lookupRecords</code> to find records
-where a column contains the given value, e.g:</p>
+Use this marker with <a href="#lookuprecords">UserTable.lookupRecords</a> to find records
+where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given value.</p>
+<p>For example:</p>
 <pre><code>MoviesTable.lookupRecords(genre=CONTAINS("Drama"))
 </code></pre>
 <p>will return records in <code>MoviesTable</code> where the column <code>genre</code>
@@ -2914,13 +2941,28 @@ Formats a number in Roman numerals. The second argument is ignored in this imple
 <a class="headerlink" href="#round" title="Permanent link">#</a></p>
 <h4 id="round">ROUND<a class="headerlink" href="#round" title="Permanent link">#</a></h4>
 <p></summary>
-Rounds a number to a certain number of decimal places according to standard rules.</p>
-<pre><code class="python">&gt;&gt;&gt; ROUND(2.15, 1)      # Excel actually gives the more correct 2.2
-2.1
+Rounds a number to a certain number of decimal places,
+by default to the nearest whole number if the number of places is not given.</p>
+<p>Rounds away from zero (&lsquo;up&rsquo; for positive numbers)
+in the case of a tie, i.e. when the last digit is 5.</p>
+<pre><code class="python">&gt;&gt;&gt; ROUND(1.4)
+1.0
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; ROUND(2.149, 1)
-2.1
+<pre><code class="python">&gt;&gt;&gt; ROUND(1.5)
+2.0
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; ROUND(2.5)
+3.0
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; ROUND(-2.5)
+-3.0
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; ROUND(2.15, 1)
+2.2
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; ROUND(-1.475, 2)
@@ -2941,6 +2983,10 @@ Rounds a number to a certain number of decimal places according to standard rule
 
 <pre><code class="python">&gt;&gt;&gt; ROUND(-50.55,-2)
 -100.0
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; ROUND(0)
+0.0
 </code></pre>
 
 <p></details>
