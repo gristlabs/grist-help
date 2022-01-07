@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Generates markdown from doc-comments of functions listed in the passed-in modules, and inserts it
 between special tokens in the given markdown file.
@@ -38,7 +38,8 @@ class DocItem(object):
     self.is_unimplemented = bool(_unimplemented_re.search(source))
     self.names = attrs['Name'].split(',') if 'Name' in attrs else [obj.__name__]
     # mkdocs lowercases anchor names, so use lower case of the function name.
-    self.anchor = re.sub(r'\W+', '_', self.names[0].lower())
+    self.anchor = make_unique_anchor(re.sub(r'\W+', '_', self.names[0].lower()))
+
     # For "category" use the title-cased name of the module that the function came from.
     self.category = self.modname.title()
 
@@ -104,6 +105,21 @@ class DocItem(object):
   def format_name_link(self):
     css_class = 'class="unimplemented"' if self.is_unimplemented else ""
     return ' or '.join('<a %s href="#%s">%s</a>' % (css_class, self.anchor, n) for n in self.names)
+
+
+anchors = set()
+
+def make_unique_anchor(anchor):
+  if anchor in anchors:
+    for i in range(2, 10):
+      a = "{}_{}".format(anchor, i)
+      if a not in anchors:
+        anchor = a
+        break
+    else:
+      raise Exception("Can't make unique anchor for #{}".format(anchor))
+  anchors.add(anchor)
+  return anchor
 
 def get_table_text(docitems):
   # Create the table listing all functions.
