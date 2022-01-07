@@ -2746,6 +2746,11 @@ in the case of a tie, i.e. when the last digit is 5.
 ```
 
 ```python
+>>> ROUND(-2.5)
+-3.0
+```
+
+```python
 >>> ROUND(2.15, 1)
 2.2
 ```
