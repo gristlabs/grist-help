@@ -106,7 +106,10 @@ class DocItem(object):
     css_class = 'class="unimplemented"' if self.is_unimplemented else ""
     return ' or '.join('<a %s href="#%s">%s</a>' % (css_class, self.anchor, n) for n in self.names)
 
-def make_unique_anchor(anchor, anchors=set()):
+
+anchors = set()
+
+def make_unique_anchor(anchor):
   if anchor in anchors:
     for i in range(2, 10):
       a = "{}_{}".format(anchor, i)
