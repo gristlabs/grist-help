@@ -382,6 +382,11 @@
                 Example: Sending email alerts
               </a>
             </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#readiness-column">
+                Readiness column
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -728,14 +733,26 @@ in a <code>Text</code> cell:</p>
 on Zapier.  There are several mail integrations.  For this example, we pick Gmail:</p>
 <p><img alt="zapier mail options" src="../images/zapier/gmail/zapier-mail-options.png" /></p>
 <p>Once we&rsquo;ve picked the service to connect, now we choose exactly what we want
-it to do.  In this case, we choose that when there is a <code>New or Updated Record</code>
-in Grist, we will <code>Send Email</code> in Gmail:</p>
+it to do.  In this case, we choose that when there is a <code>New or Updated Record (Instant)</code>
+in Grist, we will <code>Send Email</code> in Gmail.  Note the <code>Instant</code> there.  Triggers
+in Zapier can be either a regular kind where Zapier periodically checks for changes
+(this is relatively slow), or a special &ldquo;instant&rdquo; kind that needs special support from
+the triggering service but is a lot faster. Grist supports either kind of trigger,
+and we strongly recommend &ldquo;instant&rdquo; if you prefer results in seconds rather than minutes,
+and especially if you are the sort to get anxious if someone doesn&rsquo;t respond to your
+IMs immediately.</p>
 <p><img alt="grist and gmail" src="../images/zapier/gmail/grist-and-gmail.png" /></p>
 <p>Once we&rsquo;ve chosen a Grist account to use as before, we can pick a table within
-a document to monitor.  In fact we pick a specific column to monitor.  Typically
-this would be an <code>Updated At</code> column (see <a href="../timestamps/">Timestamp columns</a>),
-but it can in fact be anything. In our case we just have a single cell to watch.</p>
+a document to monitor.</p>
 <p><img alt="grist setup" src="../images/zapier/gmail/grist-setup.png" /></p>
+<p>For instant triggers, we can optionally specify a <a href="./#readiness-column">&ldquo;readiness&rdquo; column</a>. If we
+leave this blank, anytime a record is created or changed in the selected table,
+Grist will notify Zapier about it. If we set it, it should generally be to
+a <a href="../col-types/#toggle-columns">toggle column</a>, and Grist will notify Zapier only
+for records when that column is turned on. That is handy for records that have many
+columns being filled in manually, when we don&rsquo;t want to trigger until they are
+complete. For this example, it is fine to leave the readiness column blank.
+(For regular non-instant triggers, we would need to pick a specific column to monitor. Ideally this would be an <code>Updated At</code> column, see <a href="../timestamps/">Timestamp columns</a>).</p>
 <p>On the Gmail side, we can email to pre-set addresses, or this could be configured
 dynamically (we&rsquo;ll see an example of how in a moment):</p>
 <p><img alt="email to" src="../images/zapier/gmail/email-to.png" /></p>
@@ -745,13 +762,47 @@ the <code>Text</code> cell we calculated earlier.</p>
 <p>And we&rsquo;re done!  Zapier will offer to make a quick test that emails go out
 correctly:</p>
 <p><img alt="gmail test" src="../images/zapier/gmail/gmail-test.png" /></p>
-<p>Then you can make some votes and watch the system work.  Zapier has a &ldquo;run zap&rdquo;
-functionality to force an integration to update immediately if you are
-impatient (otherwise it may only happen periodically):</p>
+<p>Then you can make some votes and watch the system work.  For instant triggers,
+results should show up fairly snappily.  Otherwise, Zapier has a &ldquo;run zap&rdquo;
+functionality to force an integration to update immediately:</p>
 <p><img alt="run zap" src="../images/zapier/gmail/run-zap.png" /></p>
 <p>And emails should start showing up in the desired inboxes. May the best almost
 indistinguishable shade win!</p>
 <p><img alt="email update" src="../images/zapier/gmail/email-update.png" /></p>
+<h2 id="readiness-column">Readiness column<a class="headerlink" href="#readiness-column" title="Permanent link">#</a></h2>
+<p>Grist has a mechanism for alerting other services when data changes
+within a document. This serves as the basis for Zapier instant triggers.</p>
+<p>Since Grist is a spreadsheet, it is common for records (rows) to be
+created empty, and for cells to then be filled in one by one. This creates
+an important nuance for notifications. Usually it won&rsquo;t be desirable to
+send a notification until the record is in some sense &ldquo;ready&rdquo;, but when
+exactly is that?</p>
+<p>Grist lets the user decide for themselves, by creating a <a href="../col-types/#toggle-columns">toggle
+(boolean) column</a> which is turned on when the record is ready. The
+column can be set manually, or via a formula. This is called a
+readiness column.</p>
+<p>For example, if you only want to activate a trigger when columns
+called <code>Name</code> and <code>Email</code> are not empty, your readiness column can
+have the following formula:</p>
+<pre><code class="python">bool($Name and $Email)
+</code></pre>
+
+<p>You would make the column take effect by supplying it in the
+<code>Readiness column</code> option described in the
+<a href="./#example-sending-email-alerts">email alert example</a>.</p>
+<h3 id="triggering-or-avoiding-triggering-on-pre-existing-records">Triggering (or avoiding triggering) on pre-existing records<a class="headerlink" href="#triggering-or-avoiding-triggering-on-pre-existing-records" title="Permanent link">#</a></h3>
+<p>The order of steps matters when setting up an integration that uses a
+readiness column. If you have existing data, think through whether you
+want the integration to affect all existing data or just updates and
+new data.</p>
+<p>For example, if you are sending data from Grist to Google Sheets using
+a Zapier integration, you&rsquo;ll probably want to send your existing data.
+In this case, set up and enable your Zap first with an empty readiness column,
+then turn on all the readiness cells.</p>
+<p>If you want to send a notification only when something is added to Grist,
+and not for pre-existing records, make sure your readiness cells are all
+turned on prior to enabling the integration, otherwise once they are turned
+on notifications will be sent for all of them. That may be a lot!</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
