@@ -43,6 +43,7 @@ nav:
     - Transformations: col-transform.md
   - Using formulas:
     - Intro to formulas: formulas.md
+    - References and Lookups: references-lookups.md
     - Working with dates: dates.md
     - Python versions: python.md
     - Function reference: functions.md
