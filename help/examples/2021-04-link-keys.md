@@ -1,7 +1,7 @@
 # Create Unique Links in 4 Steps
 
 In Grist, “link keys” are URL parameters that when combined with the `user.LinkKey` variable in
-access rules will determine which data a link recipient is permitted to view.
+[access rules](https://support.getgrist.com/access-rules/) will determine which data a link recipient is permitted to view.
 
 You can learn to do this in four easy steps.
 [We’ve created a simple template](https://public.getgrist.com/cBRGq2QKzTSC/Private-Tutor-LinkKey-Tutorial)
@@ -26,13 +26,16 @@ each family.
 
 ![Create a UUID for each family](images/2021-04-link-keys/private-tutor-uuid.png)
 
-Convert the column to the data column to freeze its values, and set the default
-formula for new records to `UUID()`. This will ensure that new rows will also be assigned a unique
-identifier.
+Convert the column to the data column to freeze its values.
 
 <span class="screenshot-large">*![Convert to Data Column](../examples/images/2021-04-link-keys/convert-to-data-column.png)*</span>
 {: .screenshot-half }
 
+You'll notice our formula has changed to a trigger formula. Select 'Apply to new records'. 
+This will ensure that new rows will also be assigned a unique identifier.
+
+<span class="screenshot-large">*![Apply to New Records](../examples/images/2021-04-link-keys/apply-to-new-records.png)*</span>
+{: .screenshot-half }
 
 ## Step 2: Connect UUID to records in other tables
 

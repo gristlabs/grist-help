@@ -287,7 +287,7 @@ we convert the formula column to a data column, freezing its values:
 
 ![Access rules](images/access-rules/access-rules-linkkey-uuid-convert.png)
 
-And then we set the default formula for new records to `UUID()`:
+This converts our formula to a trigger formula. We set the formula to apply to new records:
 
 ![Access rules](images/access-rules/access-rules-linkkey-uuid-data.png)
 
@@ -326,6 +326,8 @@ This is just the beginning of the possibilities.  Link keys can give access to
 multiple rows across many tables.  They can be used in
 [User attribute tables](#user-attribute-tables).  And the data they give access to
 can be within tables, cards, card lists, charts, and custom widgets.
+
+Check out [another example](https://support.getgrist.com/examples/2021-04-link-keys/) to deepen your understanding of link keys even more.
 
 ## Access rule conditions
 
