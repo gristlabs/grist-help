@@ -23,7 +23,7 @@ Python (see [Python documentation](https://docs.python.org/3.9/)). Here are some
 | --- | --- |
 | Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
 | Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
-| Info | <a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#type">TYPE</a> |
+| Info | <a class="unimplemented" href="#cell">CELL</a>, <a  href="#current_conversion">CURRENT_CONVERSION</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#type">TYPE</a> |
 | Logical | <a  href="#and">AND</a>, <a  href="#false">FALSE</a>, <a  href="#if">IF</a>, <a  href="#iferror">IFERROR</a>, <a  href="#not">NOT</a>, <a  href="#or">OR</a>, <a  href="#true">TRUE</a> |
 | Lookup | <a  href="#lookupone_2">lookupOne</a>, <a  href="#lookuprecords_2">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a> |
 | Math | <a  href="#abs">ABS</a>, <a  href="#acos">ACOS</a>, <a  href="#acosh">ACOSH</a>, <a  href="#arabic">ARABIC</a>, <a  href="#asin">ASIN</a>, <a  href="#asinh">ASINH</a>, <a  href="#atan">ATAN</a>, <a  href="#atan2">ATAN2</a>, <a  href="#atanh">ATANH</a>, <a  href="#ceiling">CEILING</a>, <a  href="#combin">COMBIN</a>, <a  href="#cos">COS</a>, <a  href="#cosh">COSH</a>, <a  href="#degrees">DEGREES</a>, <a  href="#even">EVEN</a>, <a  href="#exp">EXP</a>, <a  href="#fact">FACT</a>, <a  href="#factdouble">FACTDOUBLE</a>, <a  href="#floor">FLOOR</a>, <a  href="#gcd">GCD</a>, <a  href="#int">INT</a>, <a  href="#lcm">LCM</a>, <a  href="#ln">LN</a>, <a  href="#log">LOG</a>, <a  href="#log10">LOG10</a>, <a  href="#mod">MOD</a>, <a  href="#mround">MROUND</a>, <a  href="#multinomial">MULTINOMIAL</a>, <a  href="#odd">ODD</a>, <a  href="#pi">PI</a>, <a  href="#power">POWER</a>, <a  href="#product">PRODUCT</a>, <a  href="#quotient">QUOTIENT</a>, <a  href="#radians">RADIANS</a>, <a  href="#rand">RAND</a>, <a  href="#randbetween">RANDBETWEEN</a>, <a  href="#roman">ROMAN</a>, <a  href="#round">ROUND</a>, <a  href="#rounddown">ROUNDDOWN</a>, <a  href="#roundup">ROUNDUP</a>, <a  href="#seriessum">SERIESSUM</a>, <a  href="#sign">SIGN</a>, <a  href="#sin">SIN</a>, <a  href="#sinh">SINH</a>, <a  href="#sqrt">SQRT</a>, <a  href="#sqrtpi">SQRTPI</a>, <a class="unimplemented" href="#subtotal">SUBTOTAL</a>, <a  href="#sum">SUM</a>, <a class="unimplemented" href="#sumif">SUMIF</a>, <a class="unimplemented" href="#sumifs">SUMIFS</a>, <a  href="#sumproduct">SUMPRODUCT</a>, <a class="unimplemented" href="#sumsq">SUMSQ</a>, <a  href="#tan">TAN</a>, <a  href="#tanh">TANH</a>, <a  href="#trunc">TRUNC</a>, <a  href="#uuid">UUID</a> |
@@ -66,8 +66,9 @@ Access the field named "Field" of the current record. E.g. `$First_Name` or `rec
 <a class="headerlink" href="#_group" title="Permanent link">#</a>
 #### $group
 </summary>
-In a summary view, `$group` is a special field containing the list of Records that are
-summarized by the current summary line. E.g. `len($group)` is the count of those records.
+In a [summary table](summary-tables.md), `$group` is a special field
+containing the list of Records that are summarized by the current summary line.  E.g. the formula
+`len($group)` counts the number of those records being summarized in each row.
 
 See [RecordSet](#recordset) for useful properties offered by the returned object.
 
@@ -131,30 +132,36 @@ sum(r.Population for r in Countries.all)
 ```
 </details>
 <details id="lookupone"><summary >
-<code>UserTable.__lookupOne__(self, **field_value_pairs)</code>
+<code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookupone" title="Permanent link">#</a>
 #### lookupOne
 </summary>
-Returns a Record matching the given field=value arguments. If multiple records match, returns
-one of them. If none match, returns the special empty record.
+Returns a [Record](#record) matching the given field=value arguments. The value may be any expression,
+most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
+like `"Some Value"`). If multiple records match, returns one of them. If none match, returns the
+special empty record.
 
 For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
+People.lookupOne(Email=$Work_Email)
 ```
 </details>
 <details id="lookuprecords"><summary >
-<code>UserTable.__lookupRecords__(self, **field_value_pairs)</code>
+<code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookuprecords" title="Permanent link">#</a>
 #### lookupRecords
 </summary>
-Returns the Records from this table that match the given field=value arguments. If
-`sort_by=field` is given, sort the results by that field.
+Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be any expression,
+most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
+like `"Some Value"`) (examples below).
+If `sort_by=field` is given, sort the results by that field.
 
 For example:
 ```
-People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
+People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name="George", Last_Name="Washington")
+People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
 ```
 
 See [RecordSet](#recordset) for useful properties offered by the returned object.
@@ -856,6 +863,14 @@ Returns the requested information about the specified cell. This is not implemen
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
+<details id="current_conversion"><summary >
+<code>__CURRENT_CONVERSION__(rec)</code>
+<a class="headerlink" href="#current_conversion" title="Permanent link">#</a>
+#### CURRENT_CONVERSION
+</summary>
+Special function used only when changing the type of a column.
+Doesn't work in normal formulas.
+</details>
 <details id="isblank"><summary class="unimplemented">
 <code>__ISBLANK__(value)</code>
 <a class="headerlink" href="#isblank" title="Permanent link">#</a>
@@ -1522,30 +1537,36 @@ True
 </details>
 ### Lookup
 <details id="lookupone_2"><summary >
-<code>UserTable.__lookupOne__(self, **field_value_pairs)</code>
+<code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookupone_2" title="Permanent link">#</a>
 #### lookupOne
 </summary>
-Returns a Record matching the given field=value arguments. If multiple records match, returns
-one of them. If none match, returns the special empty record.
+Returns a [Record](#record) matching the given field=value arguments. The value may be any expression,
+most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
+like `"Some Value"`). If multiple records match, returns one of them. If none match, returns the
+special empty record.
 
 For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
+People.lookupOne(Email=$Work_Email)
 ```
 </details>
 <details id="lookuprecords_2"><summary >
-<code>UserTable.__lookupRecords__(self, **field_value_pairs)</code>
+<code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookuprecords_2" title="Permanent link">#</a>
 #### lookupRecords
 </summary>
-Returns the Records from this table that match the given field=value arguments. If
-`sort_by=field` is given, sort the results by that field.
+Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be any expression,
+most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
+like `"Some Value"`) (examples below).
+If `sort_by=field` is given, sort the results by that field.
 
 For example:
 ```
-People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
+People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name="George", Last_Name="Washington")
+People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
 ```
 
 See [RecordSet](#recordset) for useful properties offered by the returned object.
@@ -2642,7 +2663,7 @@ an array.
 <a class="headerlink" href="#quotient" title="Permanent link">#</a>
 #### QUOTIENT
 </summary>
-Returns one number divided by another.
+Returns one number divided by another, without the remainder.
 
 
 ```python
@@ -3052,7 +3073,8 @@ Returns the sum of a range depending on multiple criteria.
 <a class="headerlink" href="#sumproduct" title="Permanent link">#</a>
 #### SUMPRODUCT
 </summary>
-Multiplies corresponding components in the given arrays, and returns the sum of those products.
+Multiplies corresponding components in two equally-sized arrays,
+and returns the sum of those products.
 
 
 ```python
@@ -3164,6 +3186,10 @@ digits.
 #### UUID
 </summary>
 Generate a random UUID-formatted string identifier.
+Since UUID() produces a different value each time it's called, it is best to use it in
+[trigger formula](formulas.md#trigger-formulas) for new records.
+This would only calculate UUID() once and freeze the calculated value. By contrast, a regular formula
+may get recalculated any time the document is reloaded, producing a different value for UUID() each time.
 </details>
 ### Schedule
 <details id="schedule"><summary >
@@ -4690,7 +4716,9 @@ ValueError: num_chars invalid
 <a class="headerlink" href="#len" title="Permanent link">#</a>
 #### LEN
 </summary>
-Returns the number of characters in a text string. Same as `len(text)`.
+Returns the number of characters in a text string, or the number of items in a list. Same as
+[`len`](https://docs.python.org/3/library/functions.html#len) in python.
+See [Record Set](#recordset) for an example of using `len` on a list of records.
 
 
 ```python
@@ -4887,11 +4915,11 @@ Replaces all parts of text matching the given regular expression with replacemen
 
 </details>
 <details id="replace"><summary >
-<code>__REPLACE__(old_text, start_num, num_chars, new_text)</code>
+<code>__REPLACE__(text, position, length, new_text)</code>
 <a class="headerlink" href="#replace" title="Permanent link">#</a>
 #### REPLACE
 </summary>
-Replaces part of a text string with a different text string. Start_num is counted from 1.
+Replaces part of a text string with a different text string. Position is counted from 1.
 
 
 ```python
@@ -4918,7 +4946,7 @@ Replaces part of a text string with a different text string. Start_num is counte
 >>> REPLACE('foo', 0, 1, 'bar')
 Traceback (most recent call last):
 ...
-ValueError: start_num invalid
+ValueError: position invalid
 ```
 
 </details>
