@@ -324,6 +324,10 @@ body {
   display: none;
 }
 
+.wm-page-content summary:hover .headerlink {
+  display: inline-block;
+}
+
 .wm-page-content p {
   margin-bottom: 15px;
 }
