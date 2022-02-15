@@ -20,7 +20,7 @@ Let's do that now.
 
 ## Step 1: Create a unique identifier
 
-In the family’s table, create a new column in which you will use Grist’s
+In the families table, create a new column in which you will use Grist’s
 [`UUID()`](../functions.md#uuid) function to generate and assign a unique key to
 each family.
 
