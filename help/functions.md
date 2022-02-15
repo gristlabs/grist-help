@@ -868,8 +868,8 @@ Returns the requested information about the specified cell. This is not implemen
 <a class="headerlink" href="#current_conversion" title="Permanent link">#</a>
 #### CURRENT_CONVERSION
 </summary>
-Special function used only when changing the type of a column.
-Doesn't work in normal formulas.
+Internal function used by Grist during column type conversions. Not available for use in
+formulas.
 </details>
 <details id="isblank"><summary class="unimplemented">
 <code>__ISBLANK__(value)</code>
