@@ -9,4 +9,4 @@ if [[ "$1" = "" ]]; then
 fi
 
 root=$1
-./mkpydocs.py "$root" 'grist,functions' help/functions.md
+"$root"/sandbox_venv3/bin/python ./mkpydocs.py "$root" 'grist,functions' help/functions.md
