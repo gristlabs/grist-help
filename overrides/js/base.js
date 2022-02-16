@@ -300,15 +300,37 @@ function doSearch(options) {
   var snippetBuilder = new SnippetBuilder(query);
   if (results.length > 0){
     var len = Math.min(results.length, limit || Infinity);
-    for (var i = 0; i < len; i++) {
-      var doc = searchIndex.documentStore.getDoc(results[i].ref);
+    var seen = new Set();     // Set of "path|snippet"
+    for (var i = 0; i < results.length && seen.size < len; i++) {
+      var ref = results[i].ref;
+      var doc = searchIndex.documentStore.getDoc(ref);
+      var title = doc.title;
+
+      // Skip empty titles: these are forced to empty for TOC purposes intentionally when they
+      // serve a purely stylistic purpose. They are unhelpful in search results.
+      if (!title) { continue; }
+
       var snippet = snippetBuilder.getSnippet(doc.text, snippetLen);
+      var path = ref.replace(/#.*/, '');
+
+      var key = path + '|' + snippet;
+      if (seen.has(key)) { continue; }
+      seen.add(key);
+
+      if (path !== ref) {
+        var mainDoc = searchIndex.documentStore.getDoc(path);
+        if (mainDoc && mainDoc.title) {
+          title = mainDoc.title + " > " + title;
+        }
+      }
+
       resultsElem.append(
         $('<li>').append($('<a class="search-link">').attr('href', getUrl(doc.location))
-          .append($('<div class="search-title">').text(doc.title))
+          .append($('<div class="search-title">').text(title))
           .append($('<div class="search-text">').html(snippet)))
       );
     }
+
     if (limit) {
       resultsElem.append($('<li role="separator" class="divider"></li>'));
       resultsElem.append($(
