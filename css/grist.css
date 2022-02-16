@@ -323,6 +323,15 @@ body {
 .wm-page-content summary p {
   display: none;
 }
+/* The <code> block that serves as a function header annoyingly gets auto-wrapped in a <p> */
+.wm-page-content summary p:not(:first-child) {
+  display: inline-block;
+  margin: 0;
+}
+
+.wm-page-content summary:hover .headerlink {
+  display: inline-block;
+}
 
 .wm-page-content p {
   margin-bottom: 15px;
