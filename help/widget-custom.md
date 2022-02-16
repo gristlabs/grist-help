@@ -131,18 +131,14 @@ part of the initial **ready** message. Possible values are: `none`, `read table`
 </script>
 ```
 
-It will tell Grist to ask the user if he wishes to grant your widget the required
-permission. Your widget will be reloaded with the appropriate access level if the user
-approves the request.
+This directs Grist to request the desired access level from the user. Your widget will be
+reloaded with the appropriate access level if the user approves the request.
 
-<center>![access prompt](images/widget_custom_access_prompt.png)</center>
+<span class="screenshot-large">*![access prompt](images/widget_custom_access_prompt.png)*</span>
+{: .screenshot-half }
 
-To check what access level is currently granted, you have two options. The first is to
-check the URL - the access level will be appended to the widget URL as a query parameter.
-
-> <https://gristlabs.github.io/grist-widget/inspect/onRecord.html?access=read>
-
-The second option, is to subscribe to the `onOptions` event exposed by the Grist API:
+If you wish to get notified of the access level, you can subscribe to the `onOptions`
+event that is sent to the widget after it tells Grist it is ready:
 
 ```javascript
 grist.onOptions(function(options, interaction) {
@@ -151,7 +147,7 @@ grist.onOptions(function(options, interaction) {
 ```
 
 For now, just skip the `options` parameter (it will be described in
-[Widget options](widget-custom.md#widget-options) ). The current access level is part of
+[Widget options](widget-custom.md#widget-options) section). The current access level is part of
 the second parameter, which describes how Grist will interact with your widget.
 
 ## Invoice example
@@ -193,19 +189,19 @@ grist.onOptions(function (options, interaction) {
 });
 ```
 
-Let's say you want build a custom widget that will show the image from the URL and
-optionally a single line of text below that image as the image title. You will need to
+Let's say you want to build a custom widget that will show an image from a URL and
+optionally a single line of text below as the image title. You will need to
 read two values from two columns: `Link` and `Title`.
 
-You can, of course, access those columns directly using literal column names in your
-script. Here is a complete widget source code that will do the job:
+You could access those columns directly using literal column names in your
+script. Here is a complete example of widget source code that will do the job:
 
 ```html
 <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-<img id="image" />
-<div id="title" />
+<img id="image" src=""/>
+<div id="title"></div>
 <script>
-  grist.ready();
+  grist.ready({requiredAccess: 'read table'});
   grist.onRecord(function (record) {
     document.getElementById('image').src = record.Link;
     document.getElementById('title').innerText = record.Title;
@@ -213,43 +209,48 @@ script. Here is a complete widget source code that will do the job:
 </script>
 ```
 
-This is a good approach when experimenting with Grist API, but it has two significant
-drawbacks. Every time you rename a column, you will also have to change your widget's
-source. Moreover, using this widget on a different table or sharing it
-with your friends can be difficult as column names might be different. To help with this,
-Grist offers the column mapping API.
+When getting started, this is a good approach, but it has two significant drawbacks. Every
+time you rename a column, you will also have to change your widget's source. Moreover,
+using this widget on a different table or sharing it with your friends can be difficult as
+column names might be different. To help with this, Grist offers the column mapping API.
 
-## Columns mapping
+## Column mapping
 
-Instead of using columns names directly, you can ask the user to pick which column to use
+Instead of using column names directly, you can ask the user to pick which column to use
 as a `Link` and `Title`. The list of expected columns can be sent to Grist as part of the
-ready method call:
+ready call:
 
 ```js
 grist.ready({columns: ['Link', 'Title']});
 ```
 
-Using this information, in the creator panel, Grist will hide the regular "Visible" column
-section and display a new UI for user to choose correct column.
+Using this information, in the creator panel, Grist will hide the regular "Visible"
+columns section and display specialized column pickers.
 
-<center>![pick columns](images/widget_custom_pick_columns.png)</center>
+<span class="screenshot-large">*![access prompt](images/widget_custom_pick_columns.png)*</span>
+{: .screenshot-half }
 
 Your widget will receive this mapping configuration as part of `onRecord` or `onRecords`
 event in the second parameter. You can use this configuration to do the mappings yourself
-or use an API method "mapColumnNames" to do it for you.
+or use the `mapColumnNames` helper function to do it for you.
 
 ```html
 <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-<img id="image" />
-<div id="title" />
+<img id="image" src=""/>
+<div id="title"></div>
 <script>
-grist.ready({columns: ['Link', 'Title']});
+grist.ready({columns: ['Link', 'Title'], requiredAccess: 'read table'});
 grist.onRecord(function (record, mappings) {
   const mapped = grist.mapColumnNames(record);
+  // First check if all columns were mapped.
   if (mapped) {
     document.getElementById('image').src = mapped.Link;
     document.getElementById('title').innerText = mapped.Title;
     console.log(`Using ${mappings.Link} and ${mappings.Title} columns`);
+  } else {
+    // Helper returned a null value. It means that not all
+    // required columns were mapped.
+    console.error("Please map all columns");
   }
 });
 </script>
@@ -266,19 +267,20 @@ precise, we can include more options in the request. For example:
 ```javascript
 grist.ready({columns: [
   {
-    name: "Link", // What field we will read
-    title: "Image link", // Friendly field name
-    optional: false, // Is this optional field
-    type: "Text" // What type of column we expect
+    name: "Link", // What field we will read.
+    title: "Image link", // Friendly field name.
+    optional: false, // Is this an optional field.
+    type: "Text" // What type of column we expect.
   }
 ]});
 ```
 
-The `optional` setting is important for `mapColumnNames` helper. This helper will return a
-mapped record only when all required (not optional) columns are picked.
+The `optional` setting is important for correct operation of the `mapColumnNames` helper.
+This helper will return a mapped record only when all required (not optional) columns are
+picked.
 
-By default Grist will allow user to pick any type of column. To allow only column of
-certain type you need to set a `type` property. Here are all the valid types:
+By default Grist will allow the user to pick any type of column. To allow only a column of
+a specific type, you need to set a `type` property. Here are all valid types:
 
 `Any`, `Int` (*Integer column*), `Numeric` (*Numeric column*), `Text`, `Date`, `DateTime`,
 `Bool` (*Toggle column*), `Choice`, `ChoiceList`, `Ref` (*Reference column*), `RefList`
@@ -286,43 +288,53 @@ certain type you need to set a `type` property. Here are all the valid types:
 
 Suppose the user deletes a column or changes its type so that it will no longer match the
 type requested by the widget. In that case, Grist will automatically remove this column
-from mappings.
+from the mapping.
 
 ## Widget options
 
-If your widget needs to store some local options, Grist offers a simple key-value storage
-API for you to use. Here are some JavaScript code snippets that show how to interact with
+If your widget needs to store some options, Grist offers a simple key-value storage API
+for you to use. Here are some JavaScript code snippets that show how to interact with
 this API:
 
 ```js
-// Store a simple text value 
-await grist.widgetApi.setOption('color', '#FF0000');
+// Store a simple text value .
+await grist.setOption('color', '#FF0000');
 
-// Store complex objects as json
-await grist.widgetApi.setOption('settings', {lines: 10, skipFirst: true});
+// Store complex objects as JSON.
+await grist.setOption('settings', {lines: 10, skipFirst: true});
 
 // Read previously saved option
-const color = await grist.widgetApi.getOption('color');
+const color = await grist.getOption('color');
 
-// Clear all local options
-await grist.widgetApi.clearOptions();
+// Clear all options.
+await grist.clearOptions();
 
-// Get and replace all options
-await grist.widgetApi.getOptions();
-await grist.widgetApi.setOptions({...});
+// Get and replace all options.
+await grist.getOptions();
+await grist.setOptions({...});
 ```
 
-When your widget saves or edits some option, the icon on top of the section gets
-highlighted in green. You (or someone using your widget) can either apply those options to
-the widget or revert the modification. This allows viewers (users with read-only access)
-to configure your widget without modifying the original configuration.
+You can experiment with this yourself. Here is a test widget that demonstrates how to use
+this API:
+
+> <https://gristlabs.github.io/grist-widget/inspect/onOptions.html>
+
+When your widget saves or edits some options, the icon on top of the section gets
+highlighted in green. You can either apply those options to the widget or revert that
+modification.
 
 <span class="screenshot-large">*![unsaved options](images/widget_custom_unsaved_options.png)*</span>
 {: .screenshot-half }
 
-Saving current options you will apply them to the widget and make them available to other
-collaborators. Using this menu, you can also reset all options that the widget has saved.
-To do this, press the little trash icon and then `Save`.
+This allows viewers (users with read-only access) or collaborators to
+configure your widget without overwriting original settings. This behavior should look
+familiar to you and others, as this works like
+[sorting and filtering](search-sort-filter.md#saving-sort-settings) on table or card
+views.
+
+Saving current options you will apply them to the widget and make them available to
+others. Using this menu, you can also clear all options to revert the widget to its
+initial state. To do this, press the little trash icon and then `Save`.
 
 Grist will also trigger an event, every time the options are changed (or cleared). Here is
 how you can subscribe to this event.
@@ -342,16 +354,17 @@ If you are building your own widget, you generally should not read options direc
 changed. Using the `onOptions` handler will make your widget easier to change and
 understand later.
 
-There is one more scenario to cover. Suppose your widget has some kind of configuration
-panel. In that case, you probably need some button or other UI element that the user can
-use to show it. This additional UI element will likely be rarely used by you or your
-collaborators, so it doesn't make sense to show it all the time. To help with this, Grist
-offers an additional interaction option you can send as part of the ready message.
+There is one more scenario to cover. Suppose your widget has some kind of custom
+configuration screen. In that case, you probably need some button or other UI element that
+the user can use to show it. This additional UI element will likely be rarely used by you
+or your collaborators, so it doesn't make sense to show it all the time. To help with
+this, Grist offers an additional interaction option you can send as part of the ready
+message:
 
 ```javascript
 grist.ready({
   onEditOptions: function() {
-    // Your custom logic to open the configuration panel.
+    // Your custom logic to open the custom configuration screen.
   }
 });
 ```
