@@ -133,7 +133,9 @@ Reference lists and dot notation
 
 You can iterate through a Reference List using a Python `for` loop. When iterating, each element is a Reference so dot-notation can be used here as well. Building on our prior example of attendees at a conference, suppose we have a list of registrants for each event and want to find the total balance of registration fees. We can use the following formula:
 
-`SUM(person.Balance for person in $Registrants)`
+```
+SUM(person.Balance for person in $Registrants)
+```
 
 Here, `$Registrants` is a reference list. Our Great Outdoors Expo has 4 registrants. We can see the list of registrants in the Registrants column. This list is a reference to the Registrant column of the Attendees table. 
 
@@ -278,7 +280,9 @@ lookupRecords and dot notation
 
 Similar to lookupOne, you can use Dot Notation with lookupRecords. Check out the [Private Tutor Billing](hhttps://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing) template for a great example of this. On the [Families](https://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing/p/8) page, we have a table with quite a few formula columns! We’ll take a look at the Total Paid column for our example. The formula used here is:
 
-```SUM(Payments.lookupRecords(Family=$id).Amount)```
+```
+SUM(Payments.lookupRecords(Family=$id).Amount)
+```
 
 <span class="screenshot-large">*![sum-payment](images/references-lookups/sum-payment.png)*</span>
 
