@@ -115,7 +115,7 @@ The entire formula would be `Sponsors.lookupOne(Contact_Email=$Registration_Emai
 
 Now, we have the Sponsor Level listed in the Attendee table for those attendees whose emails also appear on the sponsor list.
 
-Understanding Record Sets
+Understanding record sets
 ---------------
 
 Sometimes it is important to deal with a list of references. These can come from a Reference List Column which is a collection rather than a single data item. 
@@ -274,9 +274,6 @@ This lookup uses two fields. It will look for records in the Enrollment table wh
 Finally, `len()` counts the items in the list returned by `Enrollments.lookupRecords(Class=$id, Status="Confirmed")`.
 
 If you’d like a video walkthrough of a reverse lookup, we have another example in our [Build with Grist Webinar - Trigger Formulas v. Formulas](https://www.youtube.com/watch?v=0qVDPZd2w9I&t=788s).
-
-lookupRecords and dot notation
----------------
 
 Similar to lookupOne, you can use Dot Notation with lookupRecords. Check out the [Private Tutor Billing](hhttps://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing) template for a great example of this. On the [Families](https://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing/p/8) page, we have a table with quite a few formula columns! We’ll take a look at the Total Paid column for our example. The formula used here is:
 
