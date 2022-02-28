@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://support.getgrist.com/newsletters/2022-02/">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>2022/02 - Grist Help Center</title>
+    <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link href="../../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap-3.3.7.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/elasticlunr.min.js"></script>
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+    </script>
+    <script src="/js/base.js"></script>
+      <script src="../../js/grist.js"></script>
+    
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5FDHKQ9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GTM-5FDHKQ9');
+  </script>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    window.Beacon('config', {display: { style: 'icon' }});
+    window.Beacon('init', 'fc61df2a-664b-4422-b24f-964bd0cb6d53');
+    window.Beacon('suggest', [
+      {url: 'https://community.getgrist.com/', text: 'Community Forum'},
+      {url: 'https://docs.getgrist.com/p/templates', text: 'Templates'},
+      {url: 'https://github.com/gristlabs/grist-core/projects/1', text: 'Roadmap'},
+    ]);
+
+    fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
+      .then(function(resp) { return resp.json(); })
+      .then(function(status) {
+        // If there's exactly two orgs, will use the team name for the non-merged personal
+        // org as the company name.  Otherwise don't worry about setting company name.
+        var org = undefined;
+        if (status.orgs.length === 2) {
+          org = status.orgs[0].owner ? status.orgs[1] : status.orgs[0];
+        }
+        // If there's one user account available, fill it in silently; otherwise use
+        // the first one and prefill fields but let user see them so they can override
+        // them.  If testing this, be aware that if 'identify' was called previously,
+        // it will be cached in local storage and used even if it is not set this time
+        // around.
+        var user = status.users[0];
+        var identifyOrPrefill = status.users.length === 1 ? 'identify' : 'prefill';
+        if (user && !user.anonymous) {
+          var userObj = {};
+          if (user.email) { userObj.email = user.email; }
+          if (user.name) { userObj.name = user.name; }
+          if (user.picture) { userObj.avatar = user.picture; }
+          if (user.helpScoutSignature) { userObj.signature = user.helpScoutSignature; }
+          if (org && org.name) { userObj.company = org.name; }
+          window.Beacon(identifyOrPrefill, userObj);
+        }
+      });
+  });
+</script> 
+</head>
+
+<body>
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="/search.html" method="GET">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
+    
+
+    
+    
+      <a href="https://community.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+        <div class="wm-top-title">
+          Community
+        </div>
+      </a>
+    
+      <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link">
+        <div class="wm-top-title">
+          Back to Grist
+        </div>
+      </a>
+    
+
+    
+    <a href="../.." class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="../../images/logo.png"/>
+      
+      <div class="wm-top-title">
+        Grist Help Center<br>
+        
+          <span class="wm-top-version">1.0.2-dev</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content" class="wm-page-top-frame">
+  
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="../.." class="wm-article-link wm-toc-text">Welcome to Grist</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="../../FAQ/" class="wm-article-link wm-toc-text">FAQ</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-To Tutorials</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../automatic-backups/" class="wm-article-link wm-toc-text">Automatic backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../document-history/" class="wm-article-link wm-toc-text">Document history</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and Tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-card/" class="wm-article-link wm-toc-text">Card & Card List</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../widget-custom/" class="wm-article-link wm-toc-text">Custom</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../on-demand-tables/" class="wm-article-link wm-toc-text">On-Demand tables</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Columns and data types</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../col-types/" class="wm-article-link wm-toc-text">Columns & types</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../timestamps/" class="wm-article-link wm-toc-text">Timestamp columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../authorship/" class="wm-article-link wm-toc-text">Authorship columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Using formulas</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../formulas/" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../python/" class="wm-article-link wm-toc-text">Python versions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Team Sites</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../teams/" class="wm-article-link wm-toc-text">Creating team sites</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../team-sharing/" class="wm-article-link wm-toc-text">Sharing team sites</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../workspaces/" class="wm-article-link wm-toc-text">Workspaces</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Access rules</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../access-rules/" class="wm-article-link wm-toc-text">Intro to access rules</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../rest-api/" class="wm-article-link wm-toc-text">API usage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../api/" class="wm-article-link wm-toc-text">API reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../integrators/" class="wm-article-link wm-toc-text">Integrator Services</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../embedding/" class="wm-article-link wm-toc-text">Embedding</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">News & updates</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">2022/02</a>
+
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              February 2022 Newsletter
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#whats-new">
+                What's New
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#learning-grist">
+                Learning Grist
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#new-templates">
+                New Templates
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#help-spread-the-word">
+                Help spread the word?
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#we-are-here-to-support-you">
+                We are here to support you
+              </a>
+            </li>
+        
+      </ul>
+    </li>
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-01/" class="wm-article-link wm-toc-text">2022/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-12/" class="wm-article-link wm-toc-text">2021/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-11/" class="wm-article-link wm-toc-text">2021/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-10/" class="wm-article-link wm-toc-text">2021/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-09/" class="wm-article-link wm-toc-text">2021/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-08/" class="wm-article-link wm-toc-text">2021/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-04/" class="wm-article-link wm-toc-text">2021/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-03/" class="wm-article-link wm-toc-text">2021/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">More examples</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/" class="wm-article-link wm-toc-text">More examples</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-06-credit-card/" class="wm-article-link wm-toc-text">Credit card expenses</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill emails</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-08-invoices/" class="wm-article-link wm-toc-text">Prepare Invoices</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-09-payroll/" class="wm-article-link wm-toc-text">Track Payroll</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-11-treasure-hunt/" class="wm-article-link wm-toc-text">Treasure Hunt</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2020-12-map/" class="wm-article-link wm-toc-text">Map</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2021-01-tasks/" class="wm-article-link wm-toc-text">Task Management</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2021-03-leads/" class="wm-article-link wm-toc-text">Lead List</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2021-04-link-keys/" class="wm-article-link wm-toc-text">Link Keys Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference Columns Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary Tables Guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../examples/2021-07-auto-stamps/" class="wm-article-link wm-toc-text">Time and User Stamps</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Reference</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../keyboard-shortcuts/" class="wm-article-link wm-toc-text">Shortcuts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="/functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../limits/" class="wm-article-link wm-toc-text">Limits</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../browser-support/" class="wm-article-link wm-toc-text">Browser Support</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+
+  <div class="wm-toc-quick-links">
+    <div class="wm-toc-quick-links-header"><span class="wm-toc-text">Quick Links</span></div>
+    <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://community.getgrist.com/" class="wm-quick-link wm-toc-text">Community</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://docs.getgrist.com/p/templates" class="wm-quick-link wm-toc-text">Templates</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+  <script>
+    // Immediately expand parent items to show the selected page.
+    $('.wm-current')
+      .parents('.wm-toc-li-nested').addClass('collapse in')
+      .prev('.wm-toc-opener').addClass('wm-toc-open');
+  </script>
+  <div class="wm-content-pane">
+    <div class="wm-article">
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../2022-01/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../2022-01/" class="btn btn-xs btn-link">
+        2022/01
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        Newsletters
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="february-2022-newsletter">February 2022 Newsletter<a class="headerlink" href="#february-2022-newsletter" title="Permanent link">#</a></h1>
+<style>
+  /* restore some poorly overridden defaults */
+  .newsletter-header .table {
+    background-color: initial;
+    border: initial;
+  }
+  .newsletter-header .table > tbody > tr > td {
+    padding: initial;
+    border: initial;
+    vertical-align: initial;
+  }
+  .newsletter-header img.header-img {
+    padding: initial;
+    max-width: initial;
+    display: initial;
+    padding: initial;
+    line-height: initial;
+    background-color: initial;
+    border: initial;
+    border-radius: initial;
+    margin: initial;
+  }
+
+  /* copy newsletter styles, with a prefix for sufficient specificity */
+  .newsletter-header .header {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .newsletter-header table > tbody > tr > td.header-image {
+    width: 80px;
+    padding-right: 16px;
+  }
+  .newsletter-header table > tbody > tr > td.header-text {
+    background-color: #42494B;
+    padding: 16px 20px;
+  }
+  .newsletter-header table.header-top {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .header-title {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+  }
+  .header-month {
+    color: #FFFFFF;
+  }
+  .header-welcome {
+    margin-top: 12px;
+    color: #FFFFFF;
+  }
+</style>
+
+<div class="newsletter-header">
+<table class="header" cellpadding="0" cellspacing="0" border="0"><tr>
+  <td class="header-text">
+    <table class="header-top"><tr>
+      <td class="header-image">
+        <a href="https://www.getgrist.com">
+          <img class="header-img" src="/images/newsletters/grist-labs.png" width="80" height="80" alt="Grist Labs" border="0">
+        </a>
+      </td>
+      <td class="header-top-text">
+        <div class="header-title">Grist for the Mill</div>
+        <div class="header-month">February 2022
+          &#8226; <a href="https://www.getgrist.com/">getgrist.com</a></div>
+      </td>
+    </tr></table>
+    <div class="header-welcome" style="color: #e0e0e0;">
+      Welcome to our monthly newsletter of updates and tips for Grist users.
+    </div>
+  </td>
+</tr></table>
+</div>
+
+<h2 id="whats-new">What&rsquo;s New<a class="headerlink" href="#whats-new" title="Permanent link">#</a></h2>
+<h3 id="custom-widgets-menu">Custom Widgets Menu<a class="headerlink" href="#custom-widgets-menu" title="Permanent link">#</a></h3>
+<p>Adding custom widgets just got easier! Select from a dropdown of premade widgets that are easily configurable in the creator panel. Custom widgets include</p>
+<ul>
+<li>Markdown editor</li>
+<li>Action button</li>
+<li>View image from URL</li>
+<li>Interactive map</li>
+<li>Invoices</li>
+<li>Print labels</li>
+<li>API inspector</li>
+</ul>
+<p>&hellip;and more!</p>
+<p><img alt="Custom Widgets" src="../../images/newsletters/2022-02/custom-widgets.gif" /></p>
+<h3 id="access-rules-for-anonymous-users">Access Rules for Anonymous Users<a class="headerlink" href="#access-rules-for-anonymous-users" title="Permanent link">#</a></h3>
+<p>Granular access rules may now restrict publicly-shared, editable documents. A new user attribute, user.SessionID, makes it possible to limit which data visitors to your document may see or edit. This opens up new use cases, such as <a href="https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll" target="_blank">simple polling</a> and <a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">community-moderated crowdsourced lists</a>. </p>
+<p class="grist-button"><a href="https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll" target="_blank">TAKE OUR POLL</a></p>
+<h3 id="two-factor-authentication">Two Factor Authentication<a class="headerlink" href="#two-factor-authentication" title="Permanent link">#</a></h3>
+<p>Grist now supports two factor authentication for email + password logins. Navigate to your <a href="https://docs.getgrist.com/account" target="_blank">profile settings</a> to configure two-factor authentication with either text messages, or an authenticator app.</p>
+<p><img alt="Two Factor Authentication" src="../../images/newsletters/2022-02/2fa.png" /></p>
+<h3 id="cell-context-menu">Cell Context Menu<a class="headerlink" href="#cell-context-menu" title="Permanent link">#</a></h3>
+<p>Right-clicking on any cell now opens a menu that makes editing data in Grist more convenient. </p>
+<p><img alt="Cell Context Menu" src="../../images/newsletters/2022-02/cell-context.png" /></p>
+<h2 id="learning-grist">Learning Grist<a class="headerlink" href="#learning-grist" title="Permanent link">#</a></h2>
+<h3 id="webinar-granular-access-rules">Webinar: Granular Access Rules<a class="headerlink" href="#webinar-granular-access-rules" title="Permanent link">#</a></h3>
+<p>Learn how to create access rules that determine who can see which columns, tables, or rows of your data.</p>
+<p><strong>Wednesday March 16th at 3:00pm US Eastern Time.</strong></p>
+<p class="grist-button"><a href="https://www.getgrist.com/learn-grist-webinar/" target="_blank">SIGN UP FOR MARCH&rsquo;S WEBINAR</a></p>
+<p>On February’s webinar, Anais walked through column types and formatting, automatic backups, and how to work on forks of your document.</p>
+<p class="grist-button"><a href="https://www.youtube.com/watch?v=bOx2ONlwkvY" target="_blank">WATCH FEBRUARY&rsquo;S RECORDING</a></p>
+<h3 id="community-highlights">Community Highlights<a class="headerlink" href="#community-highlights" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<p><strong>Document tours.</strong> Our templates often have document tours. This is not yet a polished feature for users, but it’s easy to do if you would like it. <a href="https://community.getgrist.com/t/creating-document-tours/" target="_blank">Here’s how.</a></p>
+</li>
+<li>
+<p><strong>Compare a value to a corresponding value n days ago.</strong> Say you need to compare a value such as hospitalizations to hospitalizations 5 days ago. Natalie walks through a <a href="https://community.getgrist.com/t/formula-for-offset-sort-of-formula/" target="_blank">formula to do just that.</a></p>
+</li>
+<li>
+<p><strong>Sum total from referencing records.</strong> Suppose you bill for multiple services on the same invoice, and in Grist have several Services records pointing to the same Invoice records. <a href="https://community.getgrist.com/t/create-an-aggregated-of-a-field-in-a-linked-table/" target="_blank">Learn how to sum the total hours per invoice.</a></p>
+</li>
+</ul>
+<h2 id="new-templates">New Templates<a class="headerlink" href="#new-templates" title="Permanent link">#</a></h2>
+<h3 id="crowdsourced-lists">Crowdsourced Lists<a class="headerlink" href="#crowdsourced-lists" title="Permanent link">#</a></h3>
+<p>Access rules make it easier to moderate crowdsourced lists. This template has access rules that allow contributors to add new records, and edit or update their contributions — without signing in. Contributors may view all records, but cannot edit or delete someone else’s contributions. Moderators can edit or delete any data, and they may also add new moderators to the list. </p>
+<p>This template also makes use of the map widget. </p>
+<p><a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank"><img alt="Screenshot of Crowdsourced Lists" src="../../images/newsletters/2022-02/crowdsourced-lists.png" /></a></p>
+<p class="grist-button grist-button-tight"><a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">GO TO TEMPLATE</a></p>
+<h3 id="simple-poll">Simple Poll<a class="headerlink" href="#simple-poll" title="Permanent link">#</a></h3>
+<p>With the right set of access rules, you can create polls in Grist! This template reveals how.</p>
+<p><a href="https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll" target="_blank"><img alt="Screenshot of Simple Poll" src="../../images/newsletters/2022-02/simple-poll.png" /></a></p>
+<p class="grist-button grist-button-tight"><a href="https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll" target="_blank">GO TO TEMPLATE</a></p>
+<h3 id="digital-sales-crm">Digital Sales CRM<a class="headerlink" href="#digital-sales-crm" title="Permanent link">#</a></h3>
+<p>Track the sale of digital products such as courses, e-books, membership programs, and more in a simple CRM.</p>
+<p><a href="https://templates.getgrist.com/eVgQezBkmQVc/Digital-Sales-CRM" target="_blank"><img alt="Screenshot of Digital Sales CRM" src="../../images/newsletters/2022-02/digital-sales-crm.png" /></a></p>
+<p class="grist-button grist-button-tight"><a href="https://templates.getgrist.com/eVgQezBkmQVc/Digital-Sales-CRM" target="_blank">GO TO TEMPLATE</a></p>
+<h3 id="health-insurance-comparison">Health Insurance Comparison<a class="headerlink" href="#health-insurance-comparison" title="Permanent link">#</a></h3>
+<p>Create an easy-to-use calculator for your employees to compare health insurance plans offered by your organization.</p>
+<p><a href="https://templates.getgrist.com/6stpLB6PR6bR/Health-Insurance-Plan-Comparison/" target="_blank"><img alt="Screenshot of Health Insurance Comparison" src="../../images/newsletters/2022-02/health-insurance-comparison.png" /></a></p>
+<p class="grist-button grist-button-tight"><a href="https://templates.getgrist.com/6stpLB6PR6bR/Health-Insurance-Plan-Comparison/" target="_blank">GO TO TEMPLATE</a></p>
+<h2 id="help-spread-the-word">Help spread the word?<a class="headerlink" href="#help-spread-the-word" title="Permanent link">#</a></h2>
+<p>If you’re interested in helping Grist grow, consider leaving a review on product review sites. Here’s  short list where your review could make a big impact. Thank you! 🙏</p>
+<ul>
+<li><a href="https://www.g2.com/products/grist/" target="_blank">G2</a></li>
+<li><a href="https://www.capterra.com/p/232821/Grist/" target="_blank">Capterra</a></li>
+<li><a href="https://www.trustradius.com/products/grist/" target="_blank">TrustRadius</a></li>
+</ul>
+<h2 id="we-are-here-to-support-you">We are here to support you<a class="headerlink" href="#we-are-here-to-support-you" title="Permanent link">#</a></h2>
+<p><strong>Have questions, feedback, or need help?</strong> Search our <a href="../..">Help Center</a>, <a href="https://www.youtube.com/channel/UCx0ioQrrC-bIrkmZ7ZULr0g/playlists">watch video
+tutorials</a>, share ideas in our
+<a href="https://community.getgrist.com">Community</a>, or contact us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+
+  <br>
+</div><footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div style="position:relative; padding-bottom:56.25%; margin-top: 32px;">
+          <iframe src="" allowfullscreen style="position:absolute; left:0; top:0; width:100%; height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
