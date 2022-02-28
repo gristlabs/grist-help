@@ -85,9 +85,9 @@ learn to model business data, use formulas, and manage complexity.
 -->
 ## Contact us
 
+If you have questions not answered here, problem reports, or other feedback,
+please contact us!
+
 Email: <support@getgrist.com>
 
-If you have questions not answered here, problem reports, or other feedback,
-please contact us! While using Grist, you can use the
-<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Give feedback</span>
-link in the bottom left corner. Or email us at <support@getgrist.com>.
+
