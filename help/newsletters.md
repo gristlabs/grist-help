@@ -24,3 +24,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [November 2021 Newsletter](newsletters/2021-11.md): Import column mapping, filter on hidden columns, more sorting options, and more!
 - [December 2021 Newsletter](newsletters/2021-12.md): Zapier instant triggers, 4 new templates, and more!
 - [January 2022 Newsletter](newsletters/2022-01.md): Managing template document tours, and 4 new templates, including an inventory manager!
+- [February 2022 Newsletter](newsletters/2022-02.md): Custom widgets menu, 2FA, access rules improvements, and cell context menu!
