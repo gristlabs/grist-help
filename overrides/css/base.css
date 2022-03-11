@@ -147,10 +147,8 @@ body {
 }
 
 .wm-toc-repo {
-  margin-top: -15px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #e0e0e0;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
 }
 
 .wm-toc-hidden > .wm-toc-pane {
