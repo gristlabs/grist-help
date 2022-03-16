@@ -2,6 +2,8 @@ site_name: Grist Help Center
 site_dir: site
 site_description: "Tutorials and resources for Grist, to help you organize your data, your way."
 site_url: "https://support.getgrist.com"
+repo_name: "GitHub"
+repo_url: "https://github.com/gristlabs/grist-help"
 
 docs_dir: './help'
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill

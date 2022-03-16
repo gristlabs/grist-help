@@ -1,19 +1,6 @@
 {# Side-pane with table of contents #}
 <nav class="wm-toc-pane">
   {# Optional link to the repository #}
-  {%- block repo %}
-    {%- if config.repo_url %}
-    <ul class="wm-toctree wm-toc-repo">
-      <li class="wm-toc-li wm-toc-lev1">
-      <a class="wm-article-link wm-toc-text" href="{{ config.repo_url }}">
-        {% include 'repo-icon.html' %}
-        {{ config.repo_name }}
-      </a>
-      </li>
-    </ul>
-    {%- endif %}
-  {%- endblock %}
-
   {%- block site_nav %}
   <ul class="wm-toctree">
     {%- set navlevel = 1 %}
@@ -36,6 +23,20 @@
         <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
       </li>
     </ul>
+
+  {%- block repo %}
+    {%- if config.repo_url %}
+    <ul class="wm-toctree wm-toc-repo">
+      <li class="wm-toc-li wm-toc-lev2">
+      <a class="wm-quick-link wm-toc-text" href="{{ config.repo_url }}">
+        {% include 'repo-icon.html' %}
+        Edit on {{ config.repo_name }}
+      </a>
+      </li>
+    </ul>
+    {%- endif %}
+  {%- endblock %}
+
   </div>
 
 </nav>
