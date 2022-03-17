@@ -481,6 +481,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the data to add"
         content:
@@ -504,6 +505,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the data to change, with ids"
         content:
@@ -635,6 +637,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the records to add"
         content:
@@ -656,6 +659,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the records to change, with ids"
         content:
@@ -673,6 +677,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
         - in: query
           name: onmany
           schema:
@@ -682,8 +687,8 @@ paths:
               - none
               - all
             description: >
-              When updating, which matches to update:
-                * `first` - at most one match
+              Which records to update if multiple records are found to match `require`.
+                * `first` - the first matching record (default)
                 * `none` - do not update anything
                 * `all` - update all matches
         - in: query
@@ -697,24 +702,21 @@ paths:
             type: boolean
             description: "Set to true to prohibit updating records."
         - in: query
-          name: noparse
-          schema:
-            type: boolean
-            description: "Set to true to prohibit converting types."
-        - in: query
           name: allow_empty_require
           schema:
             type: boolean
-            description: "Set to true to allow `require` in the body to be empty."
+            description: "Set to true to allow `require` in the body to be empty, which will match and update all records in the table."
       requestBody:
         description: >
           The records to add or update. Instead of an id,
           a `require` object is provided, with the same structure as
-          fields. If no query parameter options are set, then the operation
+          `fields`. If no query parameter options are set, then the operation
           is as follows. First, we check if a record exists matching
           the values specified for columns in `require`. If so, we update
           it by setting the values specified for columns in `fields`. If
-          not, we create a new record with the values specified in `fields`.
+          not, we create a new record with a combination of the values
+          in `require` and `fields`, with `fields` taking priority if
+          the same column is specified in both.
           The query parameters allow for variations on this behavior.
         content:
           application/json:
@@ -1034,7 +1036,6 @@ components:
             type: object
             required:
               - require
-              - fields
             properties:
               require:
                 type: object
@@ -1283,3 +1284,9 @@ components:
       schema:
         $ref: "#/components/schemas/DocKey"
       required: true
+    noparseQueryParam:
+      in: query
+      name: noparse
+      schema:
+        type: boolean
+        description: "Set to true to prohibit parsing strings according to the column type."
