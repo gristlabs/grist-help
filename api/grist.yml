@@ -481,6 +481,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the data to add"
         content:
@@ -504,6 +505,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the data to change, with ids"
         content:
@@ -635,6 +637,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the records to add"
         content:
@@ -656,12 +659,69 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
       requestBody:
         description: "the records to change, with ids"
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/Records"
+        required: true
+      responses:
+        200:
+          description: Success
+    put:
+      tags:
+        - /records
+      summary: "Add or update records of a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/noparseQueryParam'
+        - in: query
+          name: onmany
+          schema:
+            type: string
+            enum:
+              - first
+              - none
+              - all
+            description: >
+              Which records to update if multiple records are found to match `require`.
+                * `first` - the first matching record (default)
+                * `none` - do not update anything
+                * `all` - update all matches
+        - in: query
+          name: noadd
+          schema:
+            type: boolean
+            description: "Set to true to prohibit adding records."
+        - in: query
+          name: noupdate
+          schema:
+            type: boolean
+            description: "Set to true to prohibit updating records."
+        - in: query
+          name: allow_empty_require
+          schema:
+            type: boolean
+            description: "Set to true to allow `require` in the body to be empty, which will match and update all records in the table."
+      requestBody:
+        description: >
+          The records to add or update. Instead of an id,
+          a `require` object is provided, with the same structure as
+          `fields`. If no query parameter options are set, then the operation
+          is as follows. First, we check if a record exists matching
+          the values specified for columns in `require`. If so, we update
+          it by setting the values specified for columns in `fields`. If
+          not, we create a new record with a combination of the values
+          in `require` and `fields`, with `fields` taking priority if
+          the same column is specified in both.
+          The query parameters allow for variations on this behavior.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RecordsWithRequire"
         required: true
       responses:
         200:
@@ -965,6 +1025,42 @@ components:
             id: 1
           -
             id: 2
+    RecordsWithRequire:
+      type: object
+      required:
+        - records
+      properties:
+        records:
+          type: array
+          items:
+            type: object
+            required:
+              - require
+            properties:
+              require:
+                type: object
+                description: >
+                  keys are column identifiers, and values are what we
+                  want we want to have in those columns (either by matching
+                  with an existing record, or creating a new record)
+              fields:
+                type: object
+                description: >
+                  keys are column identifiers, and values are what to place
+                  in those columns (either overwriting values in an existing
+                  record, or in a new record)
+      example:
+        records:
+          -
+            require:
+              pet: cat
+            fields:
+              popularity: 67
+          -
+            require:
+              pet: dog
+            fields:
+              popularity: 95
     Columns:
       type: object
       required:
@@ -1188,3 +1284,9 @@ components:
       schema:
         $ref: "#/components/schemas/DocKey"
       required: true
+    noparseQueryParam:
+      in: query
+      name: noparse
+      schema:
+        type: boolean
+        description: "Set to true to prohibit parsing strings according to the column type."
