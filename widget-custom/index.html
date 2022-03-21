@@ -263,28 +263,8 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#access-level">
-                Access level
-              </a>
-            </li>
-            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#invoice-example">
                 Invoice example
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-a-custom-widget">
-                Creating a custom widget
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#column-mapping">
-                Column mapping
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#widget-options">
-                Widget options
               </a>
             </li>
         
@@ -343,6 +323,10 @@
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="../formulas/" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../references-lookups/" class="wm-article-link wm-toc-text">References and Lookups</a>
 
     
 </li>
@@ -419,10 +403,6 @@
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
 
     
 </li>
@@ -622,16 +602,6 @@
         <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
       </li>
     </ul>
-    <ul class="wm-toctree wm-toc-repo">
-      <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
-        <i class="fa fa-github"></i>
-
-        Edit on GitHub
-      </a>
-      </li>
-    </ul>
-
   </div>
 
 </nav>
@@ -751,8 +721,8 @@ then <code>Add Widget to Page</code>. Then:</p>
 <p><img alt="add a custom widget" src="../images/widget_custom_add.png" /></p>
 <p>The custom widget is initially blank.  To configure it, click the three-dots button
 on the top right of the custom widget, and select &ldquo;Widget options&rdquo;.</p>
-<p><img alt="configure a custom widget" src="../images/widget_custom_example.png" /></p>
-<p>In the <code>CUSTOM</code> settings section where it says <code>Enter Custom URL</code>, put
+<p><img alt="configure a custom widget" src="../images/widget_custom_configure.png" /></p>
+<p>In the <code>CUSTOM</code> settings section where it says <code>Full URL of webpage to show</code>, put
 the link to your custom widget.  Here is a test widget to simply show table data
 in JSON:</p>
 <blockquote>
@@ -763,54 +733,30 @@ for the custom widget):</p>
 <blockquote>
 <p><a href="https://gristlabs.github.io/grist-widget/inspect/onRecord.html">https://gristlabs.github.io/grist-widget/inspect/onRecord.html</a></p>
 </blockquote>
-<h2 id="access-level">Access level<a class="headerlink" href="#access-level" title="Permanent link">#</a></h2>
-<p>When you put a link to a custom webpage it will be immediately rendered inside the section. 
-Now you have the option to grant that webpage access to data in your document.  The 
-following access levels are available:</p>
+<p>The widget will then show the webpage you&rsquo;ve requested.  Now you have the option
+to grant that webpage access to data in your document.  The following access levels
+are available:</p>
 <ul>
-<li><em>No document access</em>: the webpage is shown in the widget, but it has no access to
+<li><em>None</em>: the webpage is shown in the widget, but it has no access to
      the Grist document containing the widget.</li>
-<li><em>Read selected table</em>: the webpage is shown in the widget, and is given read access
+<li><em>Read table</em>: the webpage is shown in the widget, and is given read access
      to the table the widget is configured to select data from.</li>
-<li><em>Full document access</em>: the webpage is shown in the widget, and has full access to
+<li><em>Full</em>: the webpage is shown in the widget, and has full access to
      read and modify the Grist document containing the widget.</li>
 </ul>
 <p>The webpage should be owned and controlled by you or someone you
-trust.  With <code>Read selected table</code> permissions, a widget could send the
-data it accesses to a third party.  With <code>Full document access</code> permissions, a widget could
+trust.  With <code>Read table</code> permissions, a widget could send the
+data it accesses to a third party.  With <code>Full</code> permissions, a widget could
 send all the document data to a third party, and modify your document in
 any way.</p>
-<p>We do not recommend using <code>Full document access</code> permissions at this time, since the API
+<p>We do not recommend using <code>Full</code> permissions at this time, since the API
 for modifying the document is not yet stabilized.  If you have
 an urgent need, however, do contact us and request early access.</p>
-<p>If you are writing your own custom widget you can specify what access level it needs as
-part of the initial <strong>ready</strong> message. Possible values are: <code>none</code>, <code>read table</code> and
-<code>full</code>.</p>
-<pre><code class="html">&lt;script&gt;
-  grist.ready({
-    requiredAccess: 'read table'
-  });
-&lt;/script&gt;
-</code></pre>
-
-<p>This directs Grist to request the desired access level from the user. Your widget will be
-reloaded with the appropriate access level if the user approves the request.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_access_prompt.png" /></em></span></p>
-<p>If you wish to get notified of the access level, you can subscribe to the <code>onOptions</code>
-event that is sent to the widget after it tells Grist it is ready:</p>
-<pre><code class="javascript">grist.onOptions(function(options, interaction) {
-  console.log(interaction.access_level);
-});
-</code></pre>
-
-<p>For now, just skip the <code>options</code> parameter (it will be described in
-<a href="./#widget-options">Widget options</a> section). The current access level is part of
-the second parameter, which describes how Grist will interact with your widget.</p>
 <h2 id="invoice-example">Invoice example<a class="headerlink" href="#invoice-example" title="Permanent link">#</a></h2>
 <p>The minimal example above showed records as plain JSON, but the widget
 can get as fancy as you like.  Here is an example of showing a record
 as a printable invoice:</p>
-<p><img alt="invoice example" src="../examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p><img alt="invoice example" src="/examples/images/2020-08-invoices/final-invoice.png" /></p>
 <p>You can read the details of how to use
 this widget in our <a href="../examples/2020-08-invoices/">Invoice preparation example</a>.
 The invoice widget is hosted at:</p>
@@ -822,181 +768,9 @@ The invoice widget is hosted at:</p>
 <p><a href="https://github.com/gristlabs/grist-widget/tree/master/invoices">https://github.com/gristlabs/grist-widget/tree/master/invoices</a></p>
 </blockquote>
 <p>It uses Vue.js and <code>grist.onRecord</code>.</p>
-<h2 id="creating-a-custom-widget">Creating a custom widget<a class="headerlink" href="#creating-a-custom-widget" title="Permanent link">#</a></h2>
-<p>As you saw, writing a simple widget that uses data from a table is very easy. First, you
-need to tell Grist that you are ready and then subscribe to one of the available events:
-<code>onRecord</code>, <code>onRecords</code> or <code>onOptions</code>.</p>
-<pre><code class="javascript">grist.ready();
-grist.onRecord(function (record) {
-  // Cursor has moved.
-});
-grist.onRecords(function (record) {
-  // Data in the table has changed.
-});
-grist.onOptions(function (options, interaction) {
-  // Configuration has changed.
-});
-</code></pre>
-
-<p>Let&rsquo;s say you want to build a custom widget that will show an image from a URL and
-optionally a single line of text below as the image title. You will need to
-read two values from two columns: <code>Link</code> and <code>Title</code>.</p>
-<p>You could access those columns directly using literal column names in your
-script. Here is a complete example of widget source code that will do the job:</p>
-<pre><code class="html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
-&lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
-&lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  grist.ready({requiredAccess: 'read table'});
-  grist.onRecord(function (record) {
-    document.getElementById('image').src = record.Link;
-    document.getElementById('title').innerText = record.Title;
-  });
-&lt;/script&gt;
-</code></pre>
-
-<p>When getting started, this is a good approach, but it has two significant drawbacks. Every
-time you rename a column, you will also have to change your widget&rsquo;s source. Moreover,
-using this widget on a different table or sharing it with your friends can be difficult as
-column names might be different. To help with this, Grist offers the column mapping API.</p>
-<h2 id="column-mapping">Column mapping<a class="headerlink" href="#column-mapping" title="Permanent link">#</a></h2>
-<p>Instead of using column names directly, you can ask the user to pick which column to use
-as a <code>Link</code> and <code>Title</code>. The list of expected columns can be sent to Grist as part of the
-ready call:</p>
-<pre><code class="js">grist.ready({columns: ['Link', 'Title']});
-</code></pre>
-
-<p>Using this information, in the creator panel, Grist will hide the regular &ldquo;Visible&rdquo;
-columns section and display specialized column pickers.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_pick_columns.png" /></em></span></p>
-<p>Your widget will receive this mapping configuration as part of <code>onRecord</code> or <code>onRecords</code>
-event in the second parameter. You can use this configuration to do the mappings yourself
-or use the <code>mapColumnNames</code> helper function to do it for you.</p>
-<pre><code class="html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
-&lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
-&lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-grist.ready({columns: ['Link', 'Title'], requiredAccess: 'read table'});
-grist.onRecord(function (record, mappings) {
-  const mapped = grist.mapColumnNames(record);
-  // First check if all columns were mapped.
-  if (mapped) {
-    document.getElementById('image').src = mapped.Link;
-    document.getElementById('title').innerText = mapped.Title;
-    console.log(`Using ${mappings.Link} and ${mappings.Title} columns`);
-  } else {
-    // Helper returned a null value. It means that not all
-    // required columns were mapped.
-    console.error(&quot;Please map all columns&quot;);
-  }
-});
-&lt;/script&gt;
-</code></pre>
-
-<p>Now, if you rename one of the columns, the widget will still work. You can also use this
-widget in any other table or share with a friend, as it doesn&rsquo;t depend on your table
-structure and can be easily configured.</p>
-<p>In the configuration used above, we told Grist that all the columns are required, and the
-user can pick any column even if the column doesn&rsquo;t contain a text value. To be more
-precise, we can include more options in the request. For example:</p>
-<pre><code class="javascript">grist.ready({columns: [
-  {
-    name: &quot;Link&quot;, // What field we will read.
-    title: &quot;Image link&quot;, // Friendly field name.
-    optional: false, // Is this an optional field.
-    type: &quot;Text&quot; // What type of column we expect.
-  }
-]});
-</code></pre>
-
-<p>The <code>optional</code> setting is important for correct operation of the <code>mapColumnNames</code> helper.
-This helper will return a mapped record only when all required (not optional) columns are
-picked.</p>
-<p>By default Grist will allow the user to pick any type of column. To allow only a column of
-a specific type, you need to set a <code>type</code> property. Here are all valid types:</p>
-<p><code>Any</code>, <code>Int</code> (<em>Integer column</em>), <code>Numeric</code> (<em>Numeric column</em>), <code>Text</code>, <code>Date</code>, <code>DateTime</code>,
-<code>Bool</code> (<em>Toggle column</em>), <code>Choice</code>, <code>ChoiceList</code>, <code>Ref</code> (<em>Reference column</em>), <code>RefList</code>
-(<em>Reference List</em>), <code>Attachments</code>.</p>
-<p>Suppose the user deletes a column or changes its type so that it will no longer match the
-type requested by the widget. In that case, Grist will automatically remove this column
-from the mapping.</p>
-<h2 id="widget-options">Widget options<a class="headerlink" href="#widget-options" title="Permanent link">#</a></h2>
-<p>If your widget needs to store some options, Grist offers a simple key-value storage API
-for you to use. Here are some JavaScript code snippets that show how to interact with
-this API:</p>
-<pre><code class="js">// Store a simple text value .
-await grist.setOption('color', '#FF0000');
-
-// Store complex objects as JSON.
-await grist.setOption('settings', {lines: 10, skipFirst: true});
-
-// Read previously saved option
-const color = await grist.getOption('color');
-
-// Clear all options.
-await grist.clearOptions();
-
-// Get and replace all options.
-await grist.getOptions();
-await grist.setOptions({...});
-</code></pre>
-
-<p>You can experiment with this yourself. Here is a test widget that demonstrates how to use
-this API:</p>
-<blockquote>
-<p><a href="https://gristlabs.github.io/grist-widget/inspect/onOptions.html">https://gristlabs.github.io/grist-widget/inspect/onOptions.html</a></p>
-</blockquote>
-<p>When your widget saves or edits some options, the icon on top of the section gets
-highlighted in green. You can either apply those options to the widget or revert that
-modification.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_unsaved_options.png" /></em></span></p>
-<p>This allows viewers (users with read-only access) or collaborators to
-configure your widget without overwriting original settings. This behavior should look
-familiar to you and others, as this works like
-<a href="../search-sort-filter/#saving-sort-settings">sorting and filtering</a> on table or card
-views.</p>
-<p>Saving current options you will apply them to the widget and make them available to
-others. Using this menu, you can also clear all options to revert the widget to its
-initial state. To do this, press the little trash icon and then <code>Save</code>.</p>
-<p>Grist will also trigger an event, every time the options are changed (or cleared). Here is
-how you can subscribe to this event.</p>
-<pre><code class="javascript">grist.onOptions(function(options, interaction) {
-  if (options) {
-    console.log('Current color', options.color);
-  } else {
-    // No widget options were saved, fallback to default ones.
-  }
-});
-</code></pre>
-
-<p>If you are building your own widget, you generally should not read options directly (using
-<code>grist.widgetApi.getOption()</code>). A better pattern is to apply them all when they are
-changed. Using the <code>onOptions</code> handler will make your widget easier to change and
-understand later.</p>
-<p>There is one more scenario to cover. Suppose your widget has some kind of custom
-configuration screen. In that case, you probably need some button or other UI element that
-the user can use to show it. This additional UI element will likely be rarely used by you
-or your collaborators, so it doesn&rsquo;t make sense to show it all the time. To help with
-this, Grist offers an additional interaction option you can send as part of the ready
-message:</p>
-<pre><code class="javascript">grist.ready({
-  onEditOptions: function() {
-    // Your custom logic to open the custom configuration screen.
-  }
-});
-</code></pre>
-
-<p>This will tell Grist to display an additional button <code>Open configuration</code> in the creator
-panel and the section menu. When clicked, it will trigger your handler, which you can use
-to show your own custom configuration screen.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_open_configuration.png" /></em></span></p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
-      <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/widget-custom.md"><i class="fa fa-github"></i>
-Edit on GitHub</a>
-      </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

@@ -298,6 +298,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../references-lookups/" class="wm-article-link wm-toc-text">References and Lookups</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
 
     
@@ -449,10 +453,6 @@
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
 
     
 </li>
@@ -652,16 +652,6 @@
         <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
       </li>
     </ul>
-    <ul class="wm-toctree wm-toc-repo">
-      <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
-        <i class="fa fa-github"></i>
-
-        Edit on GitHub
-      </a>
-      </li>
-    </ul>
-
   </div>
 
 </nav>
@@ -925,7 +915,7 @@ formula <code>=UUID()</code>:</p>
 it, and never recomputed (because then it would change).  So in the right sidebar
 we convert the formula column to a data column, freezing its values:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-uuid-convert.png" /></p>
-<p>And then we set the default formula for new records to <code>UUID()</code>:</p>
+<p>This converts our formula to a trigger formula. We set the formula to apply to new records:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-linkkey-uuid-data.png" /></p>
 <p>At this point we have a solid hard-to-guess code for each order in the
 <code>UUID</code> column, that will be created as we add new orders.  It can
@@ -954,6 +944,7 @@ URL:</p>
 multiple rows across many tables.  They can be used in
 <a href="#user-attribute-tables">User attribute tables</a>.  And the data they give access to
 can be within tables, cards, card lists, charts, and custom widgets.</p>
+<p>Check out <a href="https://support.getgrist.com/examples/2021-04-link-keys/">another example</a> to deepen your understanding of link keys even more.</p>
 <h2 id="access-rule-conditions">Access rule conditions<a class="headerlink" href="#access-rule-conditions" title="Permanent link">#</a></h2>
 <p>Accress rule conditions contain a formula expressing when the rule
 should apply.  A blank condition will always apply.  When a condition
@@ -1064,10 +1055,6 @@ collect complete examples of access rule use here.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
-      <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/access-rules.md"><i class="fa fa-github"></i>
-Edit on GitHub</a>
-      </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

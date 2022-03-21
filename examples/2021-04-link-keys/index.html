@@ -298,6 +298,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../references-lookups/" class="wm-article-link wm-toc-text">References and Lookups</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
 
     
@@ -371,10 +375,6 @@
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
 
     
 </li>
@@ -607,16 +607,6 @@
         <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
       </li>
     </ul>
-    <ul class="wm-toctree wm-toc-repo">
-      <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
-        <i class="fa fa-github"></i>
-
-        Edit on GitHub
-      </a>
-      </li>
-    </ul>
-
   </div>
 
 </nav>
@@ -665,7 +655,7 @@
 
     <h1 id="create-unique-links-in-4-steps">Create Unique Links in 4 Steps<a class="headerlink" href="#create-unique-links-in-4-steps" title="Permanent link">#</a></h1>
 <p>In Grist, “link keys” are URL parameters that when combined with the <code>user.LinkKey</code> variable in
-access rules will determine which data a link recipient is permitted to view.</p>
+<a href="https://support.getgrist.com/access-rules/">access rules</a> will determine which data a link recipient is permitted to view.</p>
 <p>You can learn to do this in four easy steps.
 <a href="https://public.getgrist.com/cBRGq2QKzTSC/Private-Tutor-LinkKey-Tutorial">We’ve created a simple template</a>
 you can copy and edit as you follow along with this guide.</p>
@@ -677,14 +667,15 @@ view to just those records tied to their family.</p>
 <p class="wide-img-caption"><img alt="Tutor and family's views" src="../images/2021-04-link-keys/full-v-limited-access-animated.gif" />
 <em>The private tutor can see all data, but a parent can only see their family&rsquo;s data.</em></p>
 <h2 id="step-1-create-a-unique-identifier">Step 1: Create a unique identifier<a class="headerlink" href="#step-1-create-a-unique-identifier" title="Permanent link">#</a></h2>
-<p>In the family’s table, create a new column in which you will use Grist’s
+<p>In the families table, create a new column in which you will use Grist’s
 <a href="../../functions/#uuid"><code>UUID()</code></a> function to generate and assign a unique key to
 each family.</p>
 <p><img alt="Create a UUID for each family" src="../images/2021-04-link-keys/private-tutor-uuid.png" /></p>
-<p>Convert the column to the data column to freeze its values, and set the default
-formula for new records to <code>UUID()</code>. This will ensure that new rows will also be assigned a unique
-identifier.</p>
+<p>Convert the column to the data column to freeze its values.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="Convert to Data Column" src="../images/2021-04-link-keys/convert-to-data-column.png" /></em></span></p>
+<p>You&rsquo;ll notice our formula has changed to a trigger formula. Select &lsquo;Apply to new records&rsquo;. 
+This will ensure that new rows will also be assigned a unique identifier.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Apply to New Records" src="../images/2021-04-link-keys/apply-to-new-records.png" /></em></span></p>
 <h2 id="step-2-connect-uuid-to-records-in-other-tables">Step 2: Connect UUID to records in other tables<a class="headerlink" href="#step-2-connect-uuid-to-records-in-other-tables" title="Permanent link">#</a></h2>
 <p>In the Students, Sessions, and Payments tables, add a column that ties each record to the
 referenced family&rsquo;s UUID. Name these columns &ldquo;UUID&rdquo;,
@@ -740,10 +731,6 @@ Make a copy to see all data:</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
-      <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/examples/2021-04-link-keys.md"><i class="fa fa-github"></i>
-Edit on GitHub</a>
-      </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
