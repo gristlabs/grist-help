@@ -130,34 +130,19 @@ The only difference between a Reference column and a Reference List column is th
 
 Reference lists and dot notation
 ---------------
+Similar to references, you can use Dot Notation with reference lists. 
 
-You can iterate through a Reference List using a Python `for` loop. When iterating, each element is a Reference so dot-notation can be used here as well. Building on our prior example of attendees at a conference, suppose we have a list of registrants for each event and want to find the total balance of registration fees. We can use the following formula:
-
-```
-SUM(person.Balance for person in $Registrants)
-```
+Building on our prior example of attendees at a conference, suppose we have a list of registrants for an event and want to find the balance for each registrant. To do this, we can use dot notation.
 
 Here, `$Registrants` is a reference list. Our Great Outdoors Expo has 4 registrants. We can see the list of registrants in the Registrants column. This list is a reference to the Registrant column of the Attendees table. 
 
 <span class="screenshot-large">*![reference-list-registrants](images/references-lookups/reference-list-registrants.png)*</span>
 
-We want to find the balance for each attendee then sum all balances together.
-
-<span class="screenshot-large">*![reference-list-for-loop-sum](images/references-lookups/reference-list-for-loop-sum.png)*</span>
-
-Dot-notation works too, but returns a list of all the selected field;
+With a reference list, dot-notation returns a list of all the selected field;
 
 <span class="screenshot-large">*![registrants-balance](images/references-lookups/registrants-balance.png)*</span>
 
-`$Registrants.Balance` is a list of the Balances for each attendee in the list of `$Registrants`. This follows the format `$[A].[B]` where `[A]` is the name of your Reference List column and `[B]` is the name of the column in the referenced table you wish to pull data from.
-
-<span class="screenshot-large">*![registrants-balance-sum](images/references-lookups/registrants-balance-sum.png)*</span>
-
-When we sum these values together, we get the same value as when we used our Python `for` loop.
-
-So `SUM($Registrants.Balance)` and `SUM(person.Balance for person in $Registrants)` are equivalent.
-
-If you’d like to learn more about [Data Structures and List Comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) in Python 3, [Python.org](http://python.org/) is a great resource.
+`$Registrants.Balance` is a list of the Balances for each attendee in the list of `$Registrants`. This follows the format `$[A].[B]` where `[A]` is the name of the Reference List column and `[B]` is the name of the column in the referenced table you wish to pull data from.
 
 lookupRecords
 ---------------
@@ -172,39 +157,92 @@ The formula for lookupRecords follows this format:
 
 `[Table_Name]` is the name of the table you want to lookup data in. `[A]` is the column in the table being looked up (named at the beginning of the formula) and `[B]` is the column in the current table / the table you are entering the formula in.
 
-In the last section, we used a Reference List column to create a list of registrants. We can use lookupRecords in place of that Reference List column. Following the format above, our formula is `Attendees.lookupRecords(Event=$Event)`. This will get us a list of records where the event in the Attendees table matches the event in this row of the Events table. For our example, the event is Great Outdoors Expo.
+Suppose we want a list of the events attended by each person on our email list. We can use lookupRecords to do this. First, we need to lookup records where the email listed in the Attendees table matches an email in this list. Then, find the event associated with each of those records. 
+
+Following the format above, our initial formula is:
+```
+Attendees.lookupRecords(Registration_Email=$Email)
+```
 
 <span class="screenshot-large">*![lookup-records](images/references-lookups/lookup-records.png)*</span>
 
-`Attendees.lookupRecords(Event=$Event)` returns a list of record IDs for each record where the Event listed is Great Outdoors Expo.
+`Attendees.lookupRecords(Registration_Email=$Email)` returns a list of record IDs for each record in the Attendees table where the Registration email matches the email in this row of the Email List table. Next, we need to find the Event associated with each of these records. To do this, we can use dot notation.
 
-We saw similar results using the [lookupOne](#lookupone) function. It can be helpful to create a column for the lookup result and change its type to Reference List, as you see in the screenshot below. Then, if there is a match, the reference list column will point to the entire record for each match. As for any reference list column, you can select which field you want to show for the matched records. In this example, it shows the Registrant field of each matched record in the Attendees table.
+`Attendees.lookupRecords(Registration_Email=$Email).Event` will return the value from the Event column for each record found.
+
+<span class="screenshot-large">*![lookup-records-dot-notation](images/references-lookups/lookup-records-dot-notation.png)*</span>
+
+We saw similar results using the [lookupOne](#lookupone) function. It's helpful to change the column type to Reference List, as you see in the screenshot below. Then, if there is a match, the reference list column will point to the entire record for each match. As for any reference list column, you can select which field you want to show for the matched records. In this example, it shows the Event field of the Events table for each matched record in the Attendees table.
 
 <span class="screenshot-large">*![lookup-records-reference-list](images/references-lookups/lookup-records-reference-list.png)*</span>
+
+Reverse lookups
+---------------
+
+LookupRecords works a bit differently if a reference exists between two tables. With a reverse lookup, we can use the record ID to find a record. 
+
+Every row has a numeric id (available as `$id` in formulas) that is unique within that table. You can reveal the ID by adding a formula column where formula is `$id`{: .formula}
+
+<span class="screenshot-large">*![row-id](images/references-lookups/row-id.png)*</span>
+{: .screenshot-half }
+
+Let's take a look at the Registrants column of the Events table. 
+
+<span class="screenshot-large">*![lookup-records-id](images/references-lookups/lookup-records-id.png)*</span>
+
+The formula used here is `Attendees.lookupRecords(Event=$id)`. We use the ID to find a match rather than a column because there is an existing reference connecting the two tables.
+
+Since Attendees.Event is a reference column pointing to an Event record in the Events table, then it actually stores the unique ID of this Event. So in a formula for Registrants, using the lookup we see here, we will find all Registrant records tied to the current Event. 
+
+We use the existing reference, just in reverse - hence the name, Reverse Lookup.
+
+<span class="screenshot-large">*![reverse-lookup](images/references-lookups/reverse-lookup.png)*</span>
+
+If you’d like a video walkthrough of a reverse lookup, we have an example in our [Build with Grist Webinar - Trigger Formulas v. Formulas](https://www.youtube.com/watch?v=0qVDPZd2w9I&t=788s).
 
 Working with record sets
 ---------------
 
-lookupRecords can be used within other formulas. For example, we can use lookupRecords to find the sum of the balance for all registrants, like we did in the [Reference lists and dot notation](#reference-lists-and-dot-notation) section. Here, we will use lookupRecords to get the list of references, rather than using a reference list column.
+lookupRecords can also be used within other formulas.
+
+`SUM()` can be useful to find a sum of all numbers in a list of records. Once you find your list of records using the lookupRecords function and dot notation, you can use `SUM()` to sum all values returned, like you see in this formula:
 
 ```
-registrants = Attendees.lookupRecords(Event=$Event)
-SUM(person.Balance for person in registrants)
-```
-We recognize the first part of our formula, `Attendees.lookupRecords(Event=$Event)`, which checks the Attendees table for all records where the Event matches the Event in this row, which is Great Outdoors Expo. We assign this list to a variable, `registrants`.
-
-Next, we use our Python `for` loop to find the sum of the balances for each record found in registrants.
-
-<span class="screenshot-large">*![lookup-records-for-loop-sum](images/references-lookups/lookup-records-for-loop-sum.png)*</span>
-
-We can also use lookupRecords with dot notation.
-
-```
-registrants = Registrants.lookupRecords(Event=$Event)
-SUM(registrants.Balance)
+SUM(Table.lookupRecords(Column_A=$Column_B).Column_C)
 ```
 
-<span class="screenshot-large">*![lookup-records-dot-notation-sum](images/references-lookups/lookup-records-dot-notation-sum.png)*</span>
+You can also do this on a reference list because a reference list is the same thing, a list of records.
+
+```
+SUM($RefList.Column)
+```
+
+In the [Reference lists and dot notation](#reference-lists-and-dot-notation) section, we used the Registrants column and dot notation to find the balance for each person in our list of Registrants. We can use `SUM()` with our prior formula to find the total balance.
+```
+SUM($Registrants.Balance)
+```
+<span class="screenshot-large">*![registrants-balance-sum](images/references-lookups/registrants-balance-sum.png)*</span>
+
+We can also use lookupRecords to get the list of references, rather than using a reference list column, then find the sum of the balance for all registrants.
+
+```
+SUM(Attendees.lookupRecords(Event=$id).Balance)
+```
+
+`Attendees.lookupRecords(Event=$id).Balance` finds all records in the Attendees table where the Event column matches the ID of the row in this table, Events. Using dot notation, we find the Balance for each of the records found. Then `SUM()` sums the balances of all records found.
+
+<span class="screenshot-large">*![lookup-records-registrants-balance-sum](images/references-lookups/lookup-records-registrants-balance-sum.png)*</span>
+
+You can also iterate through a Reference List using a Python `for` loop. When iterating, each element is a Reference so dot-notation can be used here as well. To find the sum of the balance for all registrants, we use the following formula:
+
+```
+SUM(person.Balance for person in $Registrants)
+```
+This does the same thing as our lookupRecords formula we saw above. `$Registrants` is our reference list. For each record (`person`) in our list of Registrants, we find the Balance. Then, sum all balances together. In this formula, `person` is a variable that represents each element in our list and could be replaced with any other variable. 
+
+If you’d like to learn more about [Data Structures and List Comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) in Python 3, [Python.org](http://python.org/) is a great resource.
+
+<span class="screenshot-large">*![reference-list-for-loop-sum](images/references-lookups/reference-list-for-loop-sum.png)*</span>
 
 `len()` can be useful to get the number of items within a list. Once you find your list of records using the lookupRecords function, you can use `len()` to count the number of records returned, like you see in this formula:
 
@@ -212,23 +250,23 @@ SUM(registrants.Balance)
 len(Table.lookupRecords(Column_A=$Column_B))
 ```
 
-You can also do this on a reference list because a reference list is the same thing, a list of records.
+You can also do this on a reference list.
 
 ```
 len($RefList)
 ```
 
-We’ll jump back to our earlier example where we had a list of Attendees and Sponsors - We want to see how many events our Sponsors have attended. We can use lookupRecords to do this. I can create a new column in my Sponsors table called “Events Attended” and add the following formula to pull in that information;
+We want to see how many events our Sponsors have attended. We can use lookupRecords to do this. The following formula is used in the Events Attended column of the Sponsors table.
 
 ```
-len(Attendees.lookupRecords(Registration_Email=$Contact_Email))
+len(Attendees.lookupRecords(Sponsor=$id))
 ```
 
 <span class="screenshot-large">*![attendees-lookuprecords](images/references-lookups/attendees-lookuprecords.png)*</span>
 
 Let's break down the two parts of this formula, working from the inside out.
 
-`Attendees.lookupRecords(Registration_Email=$Contact_Email)` is looking for matches between the Sponsors table's Contact Email and the Attendees table's Registration Email. All records in the Attendees table that match are added to a list of records. Try writing the formula without `len()` to see what Grist returns. It should look something like this.
+`Attendees.lookupRecords(Sponsor=$id)` is looking for matches where the record in the Sponsor column of the Attendees table has the same ID as the record in this row of the Sponsors table. All records in the Attendees table that match are added to a list of records. Try writing the formula without `len()` to see what Grist returns. It should look something like this.
 
 <span class="screenshot-large">*![without-len](images/references-lookups/without-len.png)*</span>
 {: .screenshot-half }
@@ -240,28 +278,7 @@ That's a list of records.
 <span class="screenshot-large">*![len](images/references-lookups/len.png)*</span>
 {: .screenshot-half }
 
-Reverse lookups
----------------
-
-There's another way to write the Events Attended formula by using a reverse reference lookup. 
-
-Here, we use the record ID to find a record. Every row has a numeric id (available as `$id` in formulas) 
-that is unique within that table. You can reveal the ID by adding a formula column where formula is `$id`{: .formula}
-
-<span class="screenshot-large">*![row-id](images/references-lookups/row-id.png)*</span>
-{: .screenshot-half }
-
-Since Attendees.Sponsor is a reference column pointing to a Sponsor record, then it actually stores the unique ID of this sponsor. So in a formula for Sponsor, using the lookup below, we will find all Attendees records tied to the current sponsor.
-
-```
-len(Attendees.lookupRecords(Sponsor=$id))
-```
-
-<span class="screenshot-large">*![sponsor-id](images/references-lookups/sponsor-id.png)*</span>
-
-Breaking down the formula, we are counting the number of records in the Attendees table where the Sponsor column matches the ID of the row in this table (the Sponsor table).
-
-Another example of a reverse lookup can be found in the Count column of the Classes table of the [Class Enrollment](https://public.getgrist.com/doc/eW4nqWfK1k3K~8iDuMy8ApPXvzhcemSiYsS~14207/p/6) template. This column shows us how many students are enrolled in each class. The formula used here is:
+We can also include multiple arguments in a lookupRecords formula. An example of this can be found in the Count column of the Classes table of the [Class Enrollment](https://public.getgrist.com/doc/eW4nqWfK1k3K~8iDuMy8ApPXvzhcemSiYsS~14207/p/6) template. This column shows us how many students are enrolled in each class. The formula used here is:
 
 ```
 len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))
@@ -272,19 +289,3 @@ len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))
 This lookup uses two fields. It will look for records in the Enrollment table where Status is “Confirmed” and the Class column matches the ID of the row in this table. Because the Class column is referencing the Classes table, we use the record ID `$id` in the lookup.
 
 Finally, `len()` counts the items in the list returned by `Enrollments.lookupRecords(Class=$id, Status="Confirmed")`.
-
-If you’d like a video walkthrough of a reverse lookup, we have another example in our [Build with Grist Webinar - Trigger Formulas v. Formulas](https://www.youtube.com/watch?v=0qVDPZd2w9I&t=788s).
-
-Similar to lookupOne, you can use Dot Notation with lookupRecords. Check out the [Private Tutor Billing](hhttps://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing) template for a great example of this. On the [Families](https://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing/p/8) page, we have a table with quite a few formula columns! We’ll take a look at the Total Paid column for our example. The formula used here is:
-
-```
-SUM(Payments.lookupRecords(Family=$id).Amount)
-```
-
-<span class="screenshot-large">*![sum-payment](images/references-lookups/sum-payment.png)*</span>
-
-Let’s break this down a bit. Starting with `Payments.lookupRecords(Family=$id)` - this format should look familiar to what we saw in the previous example. The Family column in the Payments table is a reference column pointing to this table. The lookupRecords formula is matching the Family column in the Payments table to the IDs of records in this table.
-
-Now, let’s tack on the dot notation portion to make it `Payments.lookupRecords(Family=$id).Amount` - we are telling it to specifically lookup the Amount for records in the Payments table where the Family column matches the ID of the row in this table. Remember - the Payments table has a reference column that points the the Families table, this is why we can use the `$id`.
-
-Last but not least, we need to `SUM()` all of those amounts together! That gives us the total amount paid for each family.
