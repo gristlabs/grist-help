@@ -14,13 +14,13 @@ Keep in mind, it’s not just referencing the Full Name column but the entire re
 Reference columns and dot notation
 ---------------
 
-Using a Reference column within a formula can make it easy to get any data from the referenced record. To do this, we use dot notation. It uses the format `$A.B` where `A` is the name of the reference column and `B` is the name of the column of the referenced table that we want to pull data from.
+Using a Reference column within a formula can make it easy to get any data from the referenced record. To do this, we use dot notation. It uses the format `$A.B` where `A` is the name of the reference column and `B` is the name of the column in the referenced table that we want to pull data from.
 
 Let’s see this in action on the [Enrollment View](https://templates.getgrist.com/doc/afterschool-program/p/7) page of the Class Enrollment template. Dot notation is used in the Class_Times column of the ENROLLMENTS table, found at the bottom right of the Enrollment View page.
 
 <span class="screenshot-large">*![class-times](images/references-lookups/class-times.png)*</span>
 
-We can see that the Class_Times column is using a formula with dot notation. Using the format `$A.B` described above, we can figure out that Class is the name of the reference column and Times is the name of the column of the referenced table.
+We can see that the Class_Times column is using a formula with dot notation. Using the format `$A.B` described above, we can figure out that Class is the name of the reference column and Times is the name of the column in the referenced table.
 
 Let’s track this back to where it’s pulling from - since the reference column is Class, we can look at that column’s information to find out what table it is pulling from.
 
@@ -118,13 +118,13 @@ Now, we have the Sponsor Level listed in the Attendee table for those attendees 
 Understanding record sets
 ---------------
 
-Sometimes it is important to deal with a list of references. These can come from a Reference List Column which is a collection rather than a single data item. 
+Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. 
 
 A great example of this is seen on the [Habit Tracker](https://templates.getgrist.com/1BR9vm6GPTGX/Habit-Tracker) template. 
 
 On the Habits + Goals page, we have a list of habits and a goal for how often we wish to complete that habit. On the Habit Tracker page, we have a Reference List column labeled Habits Completed that references the records on our Habits + Goals page. 
 
-The only difference between a Reference column and a Reference List column is the ability to select multiple references.
+The only difference between a Reference column and a Reference List column is the ability to select multiple references. This creates a set of records which can be used in formulas.
 
 <span class="screenshot-large">*![habit-tracker](images/references-lookups/habit-tracker.png)*</span>
 
