@@ -56,8 +56,13 @@ nav:
   - Access rules:
     - Intro to access rules: access-rules.md
   - Integrations:
-    - API usage: rest-api.md
-    - API reference: api.md
+    - REST API usage: rest-api.md
+    - REST API reference: api.md
+    - Plugin API:
+      - Intro to Plugin API: code/README.md
+      - grist-plugin-api: code/modules/grist_plugin_api.md
+      - ... | flat | **/code/interfaces/**
+      - ... | flat | **/code/modules/**
     - Integrator Services: integrators.md
     - Embedding: embedding.md
   - News & updates:
@@ -131,6 +136,10 @@ extra_css:
   - css/grist.css
 extra_javascript:
   - js/grist.js
+
+plugins:
+  - search
+  - awesome-pages
 
 markdown_extensions:
   toc:
