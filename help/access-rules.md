@@ -464,5 +464,5 @@ collect complete examples of access rule templates and guides here.
 - [Public Giveaway](https://templates.getgrist.com/vP7WpQp89hLi/Public-Giveaway): A public giveaway organizer that uses access rules to enforce giveaway rules without requiring claimants to log into Grist.
 - [Simple Poll](https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll): A simple poll managed in Grist with access rules to limit one response per visitor.
 - [Crowdsourced List](https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List): Publicly crowdsourced list with access rules to empower moderators to edit almost anything, but limit visitors to only making and editing their own contributions. 
-- [Time Sheets](https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets): Template to capture contractor timesheets with access rules to show contractors only their historical time sheets, and allow editing only to the active month.
+- [Time Sheets](https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets): Template to capture contractor timesheets. Access rules permit contractors to view only their historical time sheets, and edit only the active month.
 - [Project Management](https://templates.getgrist.com/hifkng53AxyQ/Project-Management/): Track tasks by event and flag tasks at risk. Access rules limit permissions by department, and expand managers' permissions. 
