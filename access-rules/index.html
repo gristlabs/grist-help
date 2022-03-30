@@ -275,6 +275,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../conditional-formatting/" class="wm-article-link wm-toc-text">Conditional Formatting</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../timestamps/" class="wm-article-link wm-toc-text">Timestamp columns</a>
 
     
@@ -453,6 +457,10 @@
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-03/" class="wm-article-link wm-toc-text">2022/03</a>
 
     
 </li>
@@ -723,7 +731,7 @@ make such changes lightly.</p>
 using the <code>Manage Users</code> option in the sharing
 menu (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
 Users can be invited as Viewers, Editors, or Owners (see 
- <a href="../sharing/">Sharing a document</a> for a refresher on those roles).
+ <a href="../sharing/">Sharing a document</a> for a refresher on those roles), or a document can be <a href="../sharing/#public-access">shared publicly</a> with view or edit permissions.
 Sometimes, you need more nuance about who can see or edit individual
 parts of a document.  Access rules give us that power.</p>
 <p>Only the owners of a document can edit its access rules.
@@ -980,6 +988,7 @@ Variables that may be available in access rules are <code>user</code>, <code>rec
    web client, not the API.</li>
 <li><code>user.Origin</code>: The content of the Origin request header.  Only available in the API,
    not the web client.</li>
+<li><code>user.SessionID</code>: a unique string assigned to anonymous users for the duration of that user&rsquo;s session. For logged in users, <code>user.SessionID</code> is always <code>"u"</code> + the user&rsquo;s numeric id. </li>
 </ul>
 <p>For an example of using the <code>user</code> variable, read <a href="./#default-rules">Default rules</a>.</p>
 <p>The <code>rec</code> variable contains the state of an individual record/row, for
@@ -1060,11 +1069,15 @@ on the restrictions on condition formulas, and
 <a href="../formulas/">Formulas</a> for details on regular full-powered formulas.</p>
 <h2 id="access-rule-examples">Access rule examples<a class="headerlink" href="#access-rule-examples" title="Permanent link">#</a></h2>
 <p>Along with the extended example of using access rules in this section, we will
-collect complete examples of access rule use here.</p>
+collect complete examples of access rule templates and guides here.</p>
 <ul>
-<li><a href="../examples/2021-03-leads/">Lead lists</a>:
-  A very simple list of leads, assigned to individuals to follow up, with control
-  of assignments reserved for document owners.</li>
+<li><a href="../examples/2021-03-leads/">Lead lists</a>: A very simple list of leads, assigned to individuals to follow up, with control of assignments reserved for document owners.</li>
+<li><a href="https://templates.getgrist.com/38Dz6nMtzvwC/Account-based-Sales-Team">Account-based Sales Team</a>: Sales CRM with deals and contacts assigned to sales reps. Reps can only see their own contacts and deals, but managers can see everything. </li>
+<li><a href="https://templates.getgrist.com/vP7WpQp89hLi/Public-Giveaway">Public Giveaway</a>: A public giveaway organizer that uses access rules to enforce giveaway rules without requiring claimants to log into Grist.</li>
+<li><a href="https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll">Simple Poll</a>: A simple poll managed in Grist with access rules to limit one response per visitor.</li>
+<li><a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List">Crowdsourced List</a>: Publicly crowdsourced list with access rules to empower moderators to edit almost anything, but limit visitors to only making and editing their own contributions. </li>
+<li><a href="https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets">Time Sheets</a>: Template to capture contractor timesheets. Access rules permit contractors to view only their historical time sheets, and edit only the active month.</li>
+<li><a href="https://templates.getgrist.com/hifkng53AxyQ/Project-Management/">Project Management</a>: Track tasks by event and flag tasks at risk. Access rules limit permissions by department, and expand managers&rsquo; permissions. </li>
 </ul>
 
   <br>
