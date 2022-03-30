@@ -40,6 +40,7 @@ nav:
   - Columns and data types:
     - Columns & types: col-types.md
     - Reference columns: col-refs.md
+    - Conditional Formating: conditional-formatting.md
     - Timestamp columns: timestamps.md
     - Authorship columns: authorship.md
     - Transformations: col-transform.md
@@ -62,6 +63,7 @@ nav:
     - Embedding: embedding.md
   - News & updates:
     - Newsletters: newsletters.md
+    - 2022/03: newsletters/2022-03.md 
     - 2022/02: newsletters/2022-02.md     
     - 2022/01: newsletters/2022-01.md 
     - 2021/12: newsletters/2021-12.md    

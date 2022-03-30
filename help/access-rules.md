@@ -11,7 +11,7 @@ Every Grist document can be [shared with others](sharing.md)
 using the `Manage Users` option in the sharing
 menu (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
 Users can be invited as Viewers, Editors, or Owners (see 
- [Sharing a document](sharing.md) for a refresher on those roles).
+ [Sharing a document](sharing.md) for a refresher on those roles), or a document can be [shared publicly](sharing.md#public-access) with view or edit permissions.
 Sometimes, you need more nuance about who can see or edit individual
 parts of a document.  Access rules give us that power.
 
@@ -353,6 +353,7 @@ The `user` variable contains the following members:
    web client, not the API.
  * `user.Origin`: The content of the Origin request header.  Only available in the API,
    not the web client.
+ * `user.SessionID`: a unique string assigned to anonymous users for the duration of that user's session. For logged in users, `user.SessionID` is always u + the user's numeric id. 
 
 For an example of using the `user` variable, read [Default rules](access-rules.md#default-rules).
 
@@ -456,8 +457,12 @@ on the restrictions on condition formulas, and
 ## Access rule examples
 
 Along with the extended example of using access rules in this section, we will
-collect complete examples of access rule use here.
+collect complete examples of access rule templates and guides here.
 
- - [Lead lists](examples/2021-03-leads.md):
-  A very simple list of leads, assigned to individuals to follow up, with control
-  of assignments reserved for document owners.
+ - [Lead lists](examples/2021-03-leads.md): A very simple list of leads, assigned to individuals to follow up, with control of assignments reserved for document owners.
+- [Account-based Sales Team](https://templates.getgrist.com/38Dz6nMtzvwC/Account-based-Sales-Team): Sales CRM with deals and contacts assigned to sales reps. Reps can only see their own contacts and deals, but managers can see everything. 
+- [Public Giveaway](https://templates.getgrist.com/vP7WpQp89hLi/Public-Giveaway): A public giveaway organizer that uses access rules to enforce giveaway rules without requiring claimants to log into Grist.
+- [Simple Poll](https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll): A simple poll managed in Grist with access rules to limit one response per visitor.
+- [Crowdsourced List](https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List): Publicly crowdsourced list with access rules to empower moderators to edit almost anything, but limit visitors to only making and editing their own contributions. 
+- [Time Sheets](https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets): Template to capture contractor timesheets with access rules to show contractors only their historical time sheets, and allow editing only to recent months.
+- [Project Management](https://templates.getgrist.com/hifkng53AxyQ/Project-Management/): Track tasks by event and flag tasks at risk. Access rules limit permissions by department, and expand managers' permissions. 
