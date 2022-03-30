@@ -4,9 +4,10 @@ Conditional Formatting
 Cell style can change based on conditional rules. Conditional rules are written as formulas. Conditional formatting applies to the entire column. To add conditional formatting to a particular column, go to the `Cell Style` section of the [creator panel](glossary.md#creator-panel) and click on `Add conditional style`.
 
 ![Add conditional style](../images/columns/add-conditional-style.png)
-{: .screenshot-half }
 
-In this example, we have a list dog breeders who have raised champion thoroughbreds. Let's apply conditional formatting to the Breeder column based on the number of champion dogs. We would like to highlight in gold any breeders with more than 2 champions.
+In this example, we have a list of dog breeders who have raised champion thoroughbreds. Let's apply conditional formatting to the Breeder column based on the number of champion dogs. We would like to highlight in gold any breeders with more than 2 champions.
+
+Here the conditional formula is `$Number_of_Champions > 2`.
 
 ![Writing conditional rules](../images/columns/first-conditional-rule.png)
 
@@ -14,7 +15,12 @@ We would also like to highlight breeders with 1 or 2 champion dogs in blue, and 
 
 ![Multiple conditional rules](../images/columns/multiple-conditional-rules.PNG)
 
-Note that Grist applies the rules in order. What would happen if we swapped the last two rules? 
+Order of Rules
+--------------
+
+Note that Grist applies the rules in order. Styles applied by later rules will override those applied by earlier rules. 
+
+What would happen if we swapped the last two rules? 
 
 ![Conditional rules order](../images/columns/conditional-rules-order.PNG)
 

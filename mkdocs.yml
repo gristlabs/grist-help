@@ -40,7 +40,7 @@ nav:
   - Columns and data types:
     - Columns & types: col-types.md
     - Reference columns: col-refs.md
-    - Conditional Formating: conditional-formatting.md
+    - Conditional Formatting: conditional-formatting.md
     - Timestamp columns: timestamps.md
     - Authorship columns: authorship.md
     - Transformations: col-transform.md
