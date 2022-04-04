@@ -58,13 +58,13 @@ nav:
   - Integrations:
     - REST API usage: rest-api.md
     - REST API reference: api.md
+    - Integrator Services: integrators.md
+    - Embedding: embedding.md
     - Plugin API:
       - Intro to Plugin API: code/README.md
       - grist-plugin-api: code/modules/grist_plugin_api.md
       - ... | flat | **/code/interfaces/**
       - ... | flat | **/code/modules/**
-    - Integrator Services: integrators.md
-    - Embedding: embedding.md
   - News & updates:
     - Newsletters: newsletters.md
     - 2022/02: newsletters/2022-02.md     
