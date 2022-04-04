@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://support.getgrist.com/api/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>API reference - Grist Help Center</title>
+    <title>REST API reference - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -651,11 +651,11 @@ function fo(e){return getComputedStyle(e)}function ho(e,t){for(var n in t){var r
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../rest-api/" class="wm-article-link wm-toc-text">API usage</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../rest-api/" class="wm-article-link wm-toc-text">REST API usage</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">API reference</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">REST API reference</a>
 
     
     
@@ -722,6 +722,89 @@ function fo(e){return getComputedStyle(e)}function ho(e,t){for(var n in t){var r
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Plugin API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/" class="wm-article-link wm-toc-text">Intro to Plugin API</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/modules/grist_plugin_api/" class="wm-article-link wm-toc-text">grist-plugin-api</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.columntomap/" class="wm-article-link wm-toc-text">Interface: ColumnToMap</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.gristcolumn/" class="wm-article-link wm-toc-text">Interface: GristColumn</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.gristdocapi/" class="wm-article-link wm-toc-text">Interface: GristDocAPI</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.gristtable/" class="wm-article-link wm-toc-text">Interface: GristTable</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.gristview/" class="wm-article-link wm-toc-text">Interface: GristView</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.interactionoptions/" class="wm-article-link wm-toc-text">Interface: InteractionOptions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.interactionoptionsrequest/" class="wm-article-link wm-toc-text">Interface: InteractionOptionsRequest</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.parseoptions/" class="wm-article-link wm-toc-text">Interface: ParseOptions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.parseoptionschema/" class="wm-article-link wm-toc-text">Interface: ParseOptionSchema</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.readypayload/" class="wm-article-link wm-toc-text">Interface: ReadyPayload</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.renderoptions/" class="wm-article-link wm-toc-text">Interface: RenderOptions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.widgetapi/" class="wm-article-link wm-toc-text">Interface: WidgetAPI</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.widgetcolumnmap/" class="wm-article-link wm-toc-text">Interface: WidgetColumnMap</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/tableoperations.opoptions/" class="wm-article-link wm-toc-text">Interface: OpOptions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/tableoperations.tableoperations-1/" class="wm-article-link wm-toc-text">Interface: TableOperations</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/tableoperations.upsertoptions/" class="wm-article-link wm-toc-text">Interface: UpsertOptions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/modules/tableoperations/" class="wm-article-link wm-toc-text">Module: TableOperations</a>
+
+    
+</li>
+  </ul>
+</li>
+
   </ul>
 </li>
 
