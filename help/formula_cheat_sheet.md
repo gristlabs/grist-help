@@ -115,7 +115,7 @@ The Qty on Order and Sold columns of the All Products table are also great examp
 
 #### Comparing Values: < , > , <= , >=
 <ul>
-Allows you to compare numerical values. If Sales = `$1200` and Running Cost = `$1650`, `"Gains" if A > B else "Loss"` would return `Loss`.
+Allows you to compare numerical values. If Sales = `$1200` and Running Cost = `$1650`, `"Gains" if Sales > Running Cost else "Loss"` would return `Loss`.
 <details id="comparing values"><summary >
 Examples comparing values
 <a class="headerlink" href="#comparing_values_example" title="Permanent link">#</a>
@@ -246,6 +246,54 @@ In the first equation, we used our reference list column, Mix Product, as our li
 Finally, we use the [join()](https://www.w3schools.com/python/ref_string_join.asp) method to combine our two lists. `' '` is our starting (empty) string. We use Python's [format method](https://www.w3schools.com/python/ref_string_format.asp) to format our string. `{}` is a placeholder for each variable listed in `.format()`. Last, we use Python's [zip() function](https://www.w3schools.com/python/ref_func_zip.asp) to pair the first values from each list together and then pair the second values in each list together. `l` is assigned as our `first` list and `round_x` is assigned as our `second` list. `l = [Prod A, Prod B]` and `round_x = [2.36, 12.58]`. Zipping our lists into `'{} {}'.format(first, second)` gives us `Prod A 2.36` in our first iteration and `Prod B 12.58` in our second iteration. Our final return value is `Prod A 2.36 Prod B 12.58`.
 </details>
 </ul>
+
+#### Specify Minimum Number of Digits
+<ul>
+Allows you to specify the minimum number of digits returned in a numerical column by adding leading zeros. If x = 5, `str(x).zfill(3)` or `str('{:0>3}').format(x)` would return `005`.
+<details id="simple math example"><summary >
+Example of Specifying Minimum Number of Digits
+<a class="headerlink" href="#min_digits_example" title="Permanent link">#</a>
+#### Example of Specifying Minimum Number of Digits
+</summary>
+
+**Community Example: [Using Row ID](https://public.getgrist.com/p4zvsX9asVCc/2179-Using-id/p/1)**
+
+<span class="screenshot-large">*![min-digits](images/formula-cheat-sheet/min-digits.png)*</span>
+
+The formula used in the 5-digit ID column of the ID Examples table is:
+```
+"TCH" + str('{:0>5}'.format($id))
+```
+
+`'{:0>5}'.format($id)` takes the unique row ID and formats it to be a minimum of 5 digits. `str()` converts this number to a string. We then add this string to our first string `"TCH"` to get our final value. If the `$id` is longer than 5 digits, the formula returns the string unmodified.
+
+We can do the same thing using the [`str.zfill()`](https://docs.python.org/3/library/stdtypes.html#str.zfill) method.
+
+<span class="screenshot-large">*![min-digits-zfill](images/formula-cheat-sheet/min-digits-zfill.png)*</span>
+
+The formula used in the zfill Method column of the ID Examples table is:
+```
+str($id).zfill(5)
+```
+`str($id)` converts the row ID to a string. `.zfill(x)` returns a copy of the string with leading zeros to make a string of length `x`. In our example, it adds leading zeros to make the string 5 characters in length. Again, if the `$id` is longer than 5 digits, the formula returns the string unmodified. 
+
+</details>
+<details id="simple math errors"><summary >
+Troubleshooting Errors
+<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
+#### Troubleshooting Errors
+</summary>
+`#TypeError`: can only concatenate str (not "int") to str
+
+If you mean to use the row ID as a character rather than a numerical value, be sure to convert it to string using `str()`.
+
+
+<span class="screenshot-large">*![string-type-error](images/formula-cheat-sheet/string-type-error.png)*</span>
+{: .screenshot-half }
+
+</details>
+</ul>
+
 </ul>
 ## Working with Strings
 <ul>
