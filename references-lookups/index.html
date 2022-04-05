@@ -335,18 +335,18 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#understanding-record-sets">
+                Understanding record sets
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#reference-lists-and-dot-notation">
                 Reference lists and dot notation
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#python-for-loop">
-                Python for loop
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#lookuprecords-and-len">
-                lookupRecords and len()
+              <a class="wm-article-link wm-page-toc-text" href="#lookuprecords">
+                lookupRecords
               </a>
             </li>
             <li class="wm-toc-li">
@@ -355,13 +355,8 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#lookuprecords-with-multiple-arguments">
-                lookupRecords with multiple arguments
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#lookuprecords-and-dot-notation">
-                lookupRecords and dot notation
+              <a class="wm-article-link wm-page-toc-text" href="#working-with-record-sets">
+                Working with record sets
               </a>
             </li>
         
@@ -789,113 +784,164 @@
     
 
     <h1 id="using-references-and-lookups-in-formulas">Using References and Lookups in Formulas<a class="headerlink" href="#using-references-and-lookups-in-formulas" title="Permanent link">#</a></h1>
-<p>Reference and Reference List columns in Grist allow one table to create an explicit reference to another. 
+<p><a href="../col-refs/">Reference and Reference List columns</a> in Grist allow one table to create an explicit reference to another. 
 A common example of this is seen in the <a href="https://templates.getgrist.com/doc/afterschool-program">Class Enrollment</a> template.</p>
 <p>On the Staff page, we have a list of staff members. On the classes page, we have a reference column labeled Instructor that 
 references the records on our Staff page. </p>
 <p><span class="screenshot-large"><em><img alt="reference-column" src="../images/references-lookups/reference-column.png" /></em></span></p>
 <p>Keep in mind, it’s not just referencing the Full Name column but the entire record associated with the selected instructor. </p>
 <h2 id="reference-columns-and-dot-notation">Reference columns and dot notation<a class="headerlink" href="#reference-columns-and-dot-notation" title="Permanent link">#</a></h2>
-<p>Using a Reference column within a formula can make it easy to get any data from the referenced record. To do this, we use dot notation. It uses the format <code>$A.B</code> where <code>A</code> is the name of the reference column and <code>B</code> is the name of the column of the referenced table that we want to pull data from.</p>
+<p>Using a Reference column within a formula can make it easy to get any data from the referenced record. To do this, we use dot notation. It uses the format <code>$A.B</code> where <code>A</code> is the name of the reference column and <code>B</code> is the name of the column in the referenced table that we want to pull data from.</p>
 <p>Let’s see this in action on the <a href="https://templates.getgrist.com/doc/afterschool-program/p/7">Enrollment View</a> page of the Class Enrollment template. Dot notation is used in the Class_Times column of the ENROLLMENTS table, found at the bottom right of the Enrollment View page.</p>
 <p><span class="screenshot-large"><em><img alt="class-times" src="../images/references-lookups/class-times.png" /></em></span></p>
-<p>We can see that the Class_Times column is using a formula with dot notation. Using the format <code>$A.B</code> described above, we can figure out that Class is the name of the reference column and Times is the name of the column of the referenced table.</p>
+<p>We can see that the Class_Times column is using a formula with dot notation. Using the format <code>$A.B</code> described above, we can figure out that Class is the name of the reference column and Times is the name of the column in the referenced table.</p>
 <p>Let’s track this back to where it’s pulling from - since the reference column is Class, we can look at that column’s information to find out what table it is pulling from.</p>
 <p><span class="screenshot-large"><em><img alt="reference-classes" src="../images/references-lookups/reference-classes.png" /></em></span></p>
 <p>The Class column references data from the Classes table. Therefore, the Class_Times column is pulling from the Times column of the Classes table.</p>
 <p><span class="screenshot-large"><em><img alt="classes-times" src="../images/references-lookups/classes-times.png" /></em></span></p>
 <h2 id="chaining">Chaining<a class="headerlink" href="#chaining" title="Permanent link">#</a></h2>
-<p>If the reference field is itself a reference, this can be chained. </p>
+<p>If the reference lookup returns a reference, this can be chained. </p>
 <p>Perhaps we want to add the Instructor’s phone number to the Enrollments table. We can use the Class reference column to pull the instructor’s information from the Classes table.</p>
-<p><span class="screenshot-large"><em><img alt="reference-staff" src="../images/references-lookups/reference-staff.png" /></em></span></p>
+<p><span class="screenshot-large"><em><img alt="chaining-class-instructor" src="../images/references-lookups/chaining-class-instructor.png" /></em></span></p>
 <p>As you can see in the screenshot above, the instructor column is a reference column itself. If we follow the format from before, our dot notation would be <code>$Class.Instructor</code> but the Instructor column points to the entire record of the instructor so we need to tell it what information we want from this record, creating a chain.</p>
 <p>The instructor column references the Staff table so we navigate there to find out what column we need to pull information from in order to get the phone number. The column that contains the instructor’s phone number is Phone.</p>
-<p><span class="screenshot-large"><em><img alt="staff-phone" src="../images/references-lookups/staff-phone.png" /></em></span></p>
+<p><span class="screenshot-large"><em><img alt="chaining-instructor-phone" src="../images/references-lookups/chaining-instructor-phone.png" /></em></span></p>
 <p>Putting this all together, our dot notation for the instructor’s phone number would be <code>$Class.Instructor.Phone</code></p>
 <p><span class="screenshot-large"><em><img alt="instructor-phone" src="../images/references-lookups/instructor-phone.png" /></em></span></p>
-<p>It would be helpful to also pull in the Instructor’s name into the Enrollments table. Again, we use the Class reference column to pull the Instructor’s information from the Classes table. </p>
-<p><span class="screenshot-large"><em><img alt="enrollments-classes" src="../images/references-lookups/enrollments-classes.png" /></em></span></p>
-<p>The instructor’s name is under the Instructor column. We can see that the Instructor column is a reference which means it is pointing to the entire referenced record. If you set your formula to <code>$Class.Instructor</code>, it won’t pull in the instructor’s name. It will pull in their record ID, like you see below;</p>
+<p>What happens if we leave our formulas as <code>$Class.Instructor</code>? You will see a numeric record ID of the record in the Staff table that the Instructor column points to.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="class-instructor" src="../images/references-lookups/class-instructor.png" /></em></span></p>
-<p>Again, a reference column points to an entire record - so we still need to tell it which part of the record we want. In this case, the Instructor column points to the record in the staff table. As we did with phone number, we need to find the column in the staff table with the information we want to pull. We will pull from Full Name, making our formula <code>$Class.Instructor.Full_Name</code>.</p>
-<p>In review, our dot notation for the instructor’s name would be <code>$Class.Instructor.Full_Name</code> and for their phone number, <code>$Class.Instructor.Phone</code>.</p>
+<p>That&rsquo;s what a reference column really stores. If you change the type of this formula column to Reference, you will be able to select a column to show, such as the Full Name. </p>
+<p><span class="screenshot-large"><em><img alt="reference-class-instructor" src="../images/references-lookups/reference-class-instructor.png" /></em></span></p>
+<p>Another way to see the name is to chain the dot-notation, as we did for phone: <code>$Class.Instructor.Full_Name</code>.</p>
 <p><span class="screenshot-large"><em><img alt="instructor-details" src="../images/references-lookups/instructor-details.png" /></em></span></p>
 <h2 id="lookupone">lookupOne<a class="headerlink" href="#lookupone" title="Permanent link">#</a></h2>
-<p>Another way to point to a record is using Table.lookupOne(&hellip;) function. lookupOne allows you to look up a record by some fields, similar to Excel&rsquo;s VLOOKUP. In fact, Grist&rsquo;s version of VLOOKUP is merely an alias for lookupOne. lookupOne is rarely useful in Grist, because using a Reference type column is usually the preferred solution to connect records. However, on some occasions, lookupOne can be useful. One situation is when you have two sets of data which overlap even though they represent something different and perhaps come from different sources. </p>
-<p>For example, let&rsquo;s say that you run an event and have Attendees, as well as Sponsors. Attendees are stored in one table, perhaps populated via a form integration. </p>
-<p><span class="screenshot-large"><em><img alt="attendees" src="../images/references-lookups/attendees.png" /></em></span></p>
-<p>Sponsors are in a separate table, with fields related to their sponsorship, and perhaps maintained by another team. </p>
+<p>Another way to point to a record is using <code>Table.lookupOne(...)</code> function. <a href="https://support.getgrist.com/functions/#lookupone">lookupOne</a> allows you to look up a record by some fields, similar to Excel&rsquo;s VLOOKUP. In fact, Grist&rsquo;s version of VLOOKUP is merely an alias for lookupOne. lookupOne is rarely useful in Grist, because using a Reference type column is usually the preferred solution to connect records. However, on some occasions, lookupOne can be useful. </p>
+<p>One situation is when you have two sets of data which overlap even though they represent something different and perhaps come from different sources. An example of this can be found in our <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/m/fork">Event Sponsors + Attendees (References and Lookups)</a> document which is a modified version of the Event Sponsors + Attendees template, available in our <a href="https://public.getgrist.com/p/templates">template gallery</a>. </p>
+<p>Let&rsquo;s say that you run an event and have a list of registered attendees, as well as Sponsors. Registered attendees are stored in the All Registrations table, perhaps populated via a form integration. </p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="attendees" src="../images/references-lookups/attendees.png" /></em></span></p>
+<p>Sponsors are listed in a separate table, with fields related to their sponsorship, and perhaps maintained by another team. </p>
 <p><span class="screenshot-large"><em><img alt="sponsors" src="../images/references-lookups/sponsors.png" /></em></span></p>
-<p>Both tables contain email addresses which identify attendees and sponsors. Sometimes a sponsor may register to attend the event. In that case, you&rsquo;ll have an Attendee record with an email address that also appears in the Sponsors table. That&rsquo;s useful to know for someone looking at the attendee list. You can find a record in the sponsors table by email address by adding a formula in the Attendees table as seen below;</p>
-<p><code>Sponsors.lookupOne(Contact_Email=$Registration_Email)</code></p>
-<p>Sponsors.lookupOne(Contact_Email=$Registration_Email) is looking to see if a Contact Email from the Sponsors table matches a Registration Email from the Attendees table.</p>
-<p>The general format for this formula is <code>[Table_Name].lookupOne([A]=$[B])</code>
-Where <code>[Table_Name]</code> is the name of the table you want to lookup data in. <code>[A]</code> is the column in the table being looked up (named at the beginning of the formula) and <code>[B]</code> is the column in the current table / the table you are entering the formula in.</p>
+<p>Both tables contain email addresses which identify attendees and sponsors. Sometimes a sponsor may register to attend the event. In that case, you&rsquo;ll have an Attendee record with an email address that also appears in the Sponsors table. That&rsquo;s useful to know for someone looking at the attendee list. </p>
+<p>You can lookup a record in the sponsors table by email address by using a lookupOne formula. The Sponsor column in the All Registrations table does just that using this formula:</p>
+<pre><code>Sponsors.lookupOne(Contact_Email=$Registration_Email)
+</code></pre>
+
+<p>This formula is looking to see if a Contact Email from the Sponsors table matches a Registration Email from the All Registrations table. </p>
+<p>The general format for a lookupOne formula is: </p>
+<pre><code>[Table_Name].lookupOne([A]=$[B])
+</code></pre>
+
+<p><code>[Table_Name]</code> is the name of the table you want to lookup data in. <code>[A]</code> is the column in the table being looked up (named at the beginning of the formula) and <code>[B]</code> is the column in the current table / the table you are entering the formula in.</p>
+<p><span class="screenshot-large"><em><img alt="sponsors-lookupone-text" src="../images/references-lookups/sponsors-lookupone-text.png" /></em></span></p>
+<p>Such a formula returns a reference. In the screenshot above, you can see the lookup result returns <code>Sponsors[#]</code>. The number it returns between square brackets is the record ID of the lookup result. Where it returns <code>Sponsors[0]</code>, no match was found. </p>
+<p>It&rsquo;s often a good idea to create a column for the lookup result and change its type to Reference, as you see in the screenshot below. Then, if there is a match, the reference column will point to the entire matched record. Like any reference column, you can select which field from that record to show. In this example, it shows the Company field of the matched record in the Sponsors table.</p>
 <p><span class="screenshot-large"><em><img alt="sponsors-lookupone" src="../images/references-lookups/sponsors-lookupone.png" /></em></span></p>
-<p>Such a formula returns a reference. In fact, it&rsquo;s often a good idea to create a column for the lookup result and change its type to Reference, as you see in the screenshot above. Then, if there is a match, the reference column will pull in the data from the other table. In this case, it will pull in data from the Company column of the Sponsors table. </p>
 <h2 id="lookupone-and-dot-notation">lookupOne and dot notation<a class="headerlink" href="#lookupone-and-dot-notation" title="Permanent link">#</a></h2>
-<p>This is also easy to use in other formulas. You can use the value from lookupOne within the same formula, while using dot notation as seen below.</p>
-<p><code>Sponsors.lookupOne(Contact_Email=$Registration_Email).SponsorLevel</code></p>
-<p>We have already seen the first part of this formula. Sponsors.lookupOne(Contact_Email=$Registration_Email) is checking if a Contact Email from the Sponsors table matches a Registration Email from the Attendees table.</p>
-<p>With the addition of <code>.SponsorLevel</code>, if a match is found, pull the data from the Sponsor Level column for this record.</p>
+<p>Because lookupOne is creating a reference to a record, we can use dot notation to look up additional fields in that record.</p>
+<p>In the <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/1">example</a> above, <code>Sponsors.lookupOne(Contact_Email=$Registration_Email)</code> is checking if a Contact Email from the Sponsors table matches a Registration Email from the All Registrations table.</p>
+<p>What if we also wanted to look up the sponsor level?</p>
+<p>We can add <code>.Sponsor_Level</code> to the lookupOne formula, and, if a match is found, look up the value in the sponsor level column for the matched record.</p>
+<p>The entire formula would be <code>Sponsors.lookupOne(Contact_Email=$Registration_Email).Sponsor_Level</code>.</p>
 <p><span class="screenshot-large"><em><img alt="sponsor-level-lookupone" src="../images/references-lookups/sponsor-level-lookupone.png" /></em></span></p>
-<p>Now, we have the Sponsor Level listed in the Attendee table for those attendees whose emails also appear on the sponsor list.</p>
-<h2 id="reference-lists-and-dot-notation">Reference lists and dot notation<a class="headerlink" href="#reference-lists-and-dot-notation" title="Permanent link">#</a></h2>
-<p>Sometimes it is important to deal with a list of references. These can come from a Reference List Column which is a collection rather than a single data item. A great example of this is seen on the <a href="https://templates.getgrist.com/1BR9vm6GPTGX/Habit-Tracker">Habit Tracker</a> template. </p>
+<p>Now, we have the Sponsor Level listed in the All Registrations table for those attendees whose emails also appear on the sponsor list.</p>
+<h2 id="understanding-record-sets">Understanding record sets<a class="headerlink" href="#understanding-record-sets" title="Permanent link">#</a></h2>
+<p>Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. </p>
+<p>A great example of this is seen on the <a href="https://templates.getgrist.com/1BR9vm6GPTGX/Habit-Tracker">Habit Tracker</a> template. </p>
 <p>On the Habits + Goals page, we have a list of habits and a goal for how often we wish to complete that habit. On the Habit Tracker page, we have a Reference List column labeled Habits Completed that references the records on our Habits + Goals page. </p>
-<p>The only difference between a Reference column and a Reference List column is the ability to select multiple references.</p>
+<p>The only difference between a Reference column and a Reference List column is the ability to select multiple references. This creates a set of records which can be used in formulas.</p>
 <p><span class="screenshot-large"><em><img alt="habit-tracker" src="../images/references-lookups/habit-tracker.png" /></em></span></p>
-<h2 id="python-for-loop">Python <code>for</code> loop<a class="headerlink" href="#python-for-loop" title="Permanent link">#</a></h2>
-<p>If you are saavy with Python, you can iterate through a Reference List using a Python <code>for</code> loop. When iterating, each element is a Reference so dot-notation can be used here as well. If you are not saavy, no problem - skip this section and go right into lookupRecords to do the same thing, using Grist functions.</p>
-<p><code>SUM(person.Balance for person in $Registrants)</code></p>
-<p>Dot-notation works too, but returns a list of all the selected field;</p>
-<p><code>$Registrants.Balance</code> is a list of the Balance field from each person in the list of <code>$Registrants</code>. </p>
-<p>So <code>SUM($Registrants.Balance)</code> and <code>SUM(person.Balance for person in $Registrants)</code> are equivalent.</p>
-<p>If you’d like to learn more about <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">Data Structures and List Comprehension</a> in Python 3, <a href="http://python.org/">Python.org</a> is a great resource.</p>
-<h2 id="lookuprecords-and-len">lookupRecords and len()<a class="headerlink" href="#lookuprecords-and-len" title="Permanent link">#</a></h2>
-<p>You can also get a list of references using lookupRecords which is a Grist function.</p>
-<p>For Python users, this return value may be used in the examples discussed above. </p>
-<p><code>registrants = Registrants.lookupRecords(Event=$Event)</code></p>
-<p><code>SUM(person.Balance for person in registrants)</code></p>
-<p>or</p>
-<p><code>registrants = Registrants.lookupRecords(Event=$Event)</code></p>
-<p><code>SUM(registrants.Balance)</code></p>
-<p>Often, it is also useful to get the number of items within that list of references. To do this, we can use <code>len()</code>. It applies to record lists generated through either a Reference List column or a lookupRecords formula.</p>
-<p><code>len(Table.lookupRecords(Column_A=$Column_B))</code> counts the number of records returned by a lookupRecords function.</p>
+<h2 id="reference-lists-and-dot-notation">Reference lists and dot notation<a class="headerlink" href="#reference-lists-and-dot-notation" title="Permanent link">#</a></h2>
+<p>Similar to references, you can use Dot Notation with reference lists. </p>
+<p>Building on our prior <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3">example</a> of attendees at a conference, suppose we have a list of registrants for an event and want to find the balance for each registrant. To do this, we can use dot notation.</p>
+<p>Here, <code>$Registrants</code> is a reference list. Our Great Outdoors Expo has 4 registrants. We can see the list of registrants in the Registrants column. This list is a reference to the Name column of the All Registrants table. </p>
+<p><span class="screenshot-large"><em><img alt="reference-list-registrants" src="../images/references-lookups/reference-list-registrants.png" /></em></span></p>
+<p>With a reference list, dot-notation returns a list of all the selected field;</p>
+<p><span class="screenshot-large"><em><img alt="registrants-balance" src="../images/references-lookups/registrants-balance.png" /></em></span></p>
+<p><code>$Registrants.Balance</code> is a list of the Balances for each attendee in the list of <code>$Registrants</code>. This follows the format <code>$[A].[B]</code> where <code>[A]</code> is the name of the Reference List column and <code>[B]</code> is the name of the column in the referenced table you wish to pull data from. We&rsquo;ll learn how to find the sum of these balances in <a href="#working-with-record-sets">Working with Record Sets</a>.</p>
+<h2 id="lookuprecords">lookupRecords<a class="headerlink" href="#lookuprecords" title="Permanent link">#</a></h2>
+<p>You can also get a list of references using <a href="https://support.getgrist.com/functions/#lookuprecords">lookupRecords</a>.</p>
+<p>The formula for lookupRecords follows this format:</p>
+<pre><code>[Table_Name].lookupRecords([A]=$[B])
+</code></pre>
+
+<p><code>[Table_Name]</code> is the name of the table you want to lookup data in. <code>[A]</code> is the column in the table being looked up (named at the beginning of the formula) and <code>[B]</code> is the column in the current table / the table you are entering the formula in.</p>
+<p>Suppose we want a list of the events attended by each person in our <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/4">Email List</a> table. We can use lookupRecords to do this. First, we need to lookup records where the email listed in the All Registrations table matches an email in this list. Then, find the event associated with each of those records. </p>
+<p>Following the format above, our initial formula is:</p>
+<pre><code>All_Registrations.lookupRecords(Registration_Email=$Email)
+</code></pre>
+
+<p><span class="screenshot-large"><em><img alt="lookup-records" src="../images/references-lookups/lookup-records.png" /></em></span></p>
+<p><code>All_Registrations.lookupRecords(Registration_Email=$Email)</code> returns a list of record IDs for each record in the All Registrations table where the Registration Email matches the Email in this row of the Email List table. Next, we need to find the Event associated with each of these records. To do this, we can use dot notation.</p>
+<p><code>All_Registrations.lookupRecords(Registration_Email=$Email).Event</code> will return the value from the Event column for each record found.</p>
+<p><span class="screenshot-large"><em><img alt="lookup-records-dot-notation" src="../images/references-lookups/lookup-records-dot-notation.png" /></em></span></p>
+<p>We saw similar results using the <a href="#lookupone">lookupOne</a> function. It&rsquo;s helpful to change the column type to Reference List, as you see in the screenshot below. Then, if there is a match, the reference list column will point to the entire record for each match. Like any reference list column, you can select which field you want to show for the matched records. In this example, it shows the Event field of the Events table for each matched record in the Attendees table.</p>
+<p><span class="screenshot-large"><em><img alt="lookup-records-reference-list" src="../images/references-lookups/lookup-records-reference-list.png" /></em></span></p>
+<h2 id="reverse-lookups">Reverse lookups<a class="headerlink" href="#reverse-lookups" title="Permanent link">#</a></h2>
+<p>LookupRecords works a bit differently if a reference exists between two tables. With a reverse lookup, we can use the record ID to find a record. </p>
+<p>Every row has a numeric id (available as <code>$id</code> in formulas) that is unique within that table. You can reveal the ID by adding a formula column where formula is <code class="formula">$id</code></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="row-id" src="../images/references-lookups/row-id.png" /></em></span></p>
+<p>Let&rsquo;s take a look at the Registrants column of the <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3">Events</a> table. </p>
+<p><span class="screenshot-large"><em><img alt="lookup-records-id" src="../images/references-lookups/lookup-records-id.png" /></em></span></p>
+<p>The formula used here is <code>All_Registrations.lookupRecords(Event=$id)</code>. We use the id to find a match because in the All Registrations table, the Event column is a reference column which means its value is a record&rsquo;s id.</p>
+<p>Because All_Registrations.Event is a reference column pointing to an Event record in the Events table, we can match the id stored in the reference column to the ids of records in the Events table. That&rsquo;s why the argument in the formula is <code>Event=$id</code>.</p>
+<p>We use the existing reference, just in reverse - hence the name, Reverse Lookup.</p>
+<p><span class="screenshot-large"><em><img alt="reverse-lookup" src="../images/references-lookups/reverse-lookup.png" /></em></span></p>
+<p>If you’d like a video walkthrough of a reverse lookup, we have an example in our <a href="https://www.youtube.com/watch?v=0qVDPZd2w9I&amp;t=788s">Build with Grist Webinar - Trigger Formulas v. Formulas</a>.</p>
+<h2 id="working-with-record-sets">Working with record sets<a class="headerlink" href="#working-with-record-sets" title="Permanent link">#</a></h2>
+<p>lookupRecords can also be used within other formulas.</p>
+<p><code>SUM()</code> can be useful to find a sum of all numbers in a list of records. Once you find your list of records using the lookupRecords function and dot notation, you can use <code>SUM()</code> to sum all values returned, like you see in this formula:</p>
+<pre><code>SUM(Table.lookupRecords(Column_A=$Column_B).Column_C)
+</code></pre>
+
 <p>You can also do this on a reference list because a reference list is the same thing, a list of records.</p>
-<p><code>len($RefList)</code></p>
-<p>We’ll jump back to our earlier example where we had a list of Attendees and Sponsors - perhaps it’s a big company that runs many events. All attendees for all events are on a single table. We want to see how many events our Sponsors have attended. We can use lookupRecords to do this. I can create a new column in my Sponsors table called “Events Attended” and add the following formula to pull in that information;</p>
-<p><code>len(Attendees.lookupRecords(Registration_Email=$Contact_Email))</code></p>
+<pre><code>SUM($RefList.Column)
+</code></pre>
+
+<p>In the <a href="#reference-lists-and-dot-notation">Reference lists and dot notation</a> section, we used the Registrants column and dot notation to find the balance for each person in our list of Registrants. We can use <code>SUM()</code> with our prior formula to find the total balance.</p>
+<pre><code>SUM($Registrants.Balance)
+</code></pre>
+
+<p><span class="screenshot-large"><em><img alt="registrants-balance-sum" src="../images/references-lookups/registrants-balance-sum.png" /></em></span></p>
+<p>We can also use lookupRecords to get the list of references, rather than using a reference list column, then find the sum of the balance for all registrants. This method is used in the Ticket Revenue column of the <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3">Events</a> table using the following formula:</p>
+<pre><code>SUM(All_Registrations.lookupRecords(Event=$id).Balance)
+</code></pre>
+
+<p><code>All_Registrations.lookupRecords(Event=$id).Balance</code> finds all records in the All Registrations table where the Event column matches the ID of the row in this table, Events. Using dot notation, we find the Balance for each of the records found. Then <code>SUM()</code> sums the balances of all records found.</p>
+<p><span class="screenshot-large"><em><img alt="lookup-records-registrants-balance-sum" src="../images/references-lookups/lookup-records-registrants-balance-sum.png" /></em></span></p>
+<p>You can also iterate through a Reference List using a Python <code>for</code> loop. An example of this can be seen in the Balance (&lsquo;for&rsquo; loop) column in the Events table. When iterating, each element is a Reference so dot-notation can be used here as well. To find the sum of the balance for all registrants, we use the following formula:</p>
+<pre><code>SUM(person.Balance for person in $Registrants)
+</code></pre>
+
+<p>This does the same thing as our lookupRecords formula we saw above. <code>$Registrants</code> is our reference list. For each record (<code>person</code>) in our list of Registrants, we find the Balance. Then, sum all balances together. In this formula, <code>person</code> is a variable that represents each element in our list and could be replaced with any other variable.</p>
+<p><span class="screenshot-large"><em><img alt="reference-list-for-loop-sum" src="../images/references-lookups/reference-list-for-loop-sum.png" /></em></span></p>
+<p>If you’d like to learn more about <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">Data Structures and List Comprehension</a> in Python 3, <a href="http://python.org/">Python.org</a> is a great resource.</p>
+<p><code>len()</code> can be useful to get the number of items within a list. Once you find your list of records using the lookupRecords function, you can use <code>len()</code> to count the number of records returned, like you see in this formula:</p>
+<pre><code>len(Table.lookupRecords(Column_A=$Column_B))
+</code></pre>
+
+<p>You can also do this on a reference list.</p>
+<pre><code>len($RefList)
+</code></pre>
+
+<p>We want to see how many events our Sponsors have attended. We can use lookupRecords to do this. The following formula is used in the Events Attended column of the <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/2">Sponsors</a> table.</p>
+<pre><code>len(All_Registrations.lookupRecords(Sponsor=$id))
+</code></pre>
+
 <p><span class="screenshot-large"><em><img alt="attendees-lookuprecords" src="../images/references-lookups/attendees-lookuprecords.png" /></em></span></p>
 <p>Let&rsquo;s break down the two parts of this formula, working from the inside out.</p>
-<p><code>Attendees.lookupRecords(Registration_Email=$Contact_Email)</code> is looking for matches between the Sponsors table&rsquo;s Contact Email and the Attendees table&rsquo;s Registration Email. All records in the Attendees table that match are added to a list of records. Try writing the formula without <code>len()</code> to see what Grist returns. It should look something like this.</p>
-<p><span class="screenshot-large"><em><img alt="without-len" src="../images/references-lookups/without-len.png" /></em></span></p>
+<p><code>All_Registrations.lookupRecords(Sponsor=$id)</code> is looking for matches where the record in the Sponsor column of the All Registrations table has the same ID as the record in this row of the Sponsors table. All records in the All Registrations table that match are added to a list of records. Try writing the formula without <code>len()</code> to see what Grist returns. It should look something like this.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="without-len" src="../images/references-lookups/without-len.png" /></em></span></p>
 <p>That&rsquo;s a list of records.</p>
 <p><code>len()</code> counts how many records are in that list.</p>
-<p><span class="screenshot-large"><em><img alt="len" src="../images/references-lookups/len.png" /></em></span></p>
-<p>As long as you have two columns to compare, lookupRecords can be used between any two tables!</p>
-<h2 id="reverse-lookups">Reverse lookups<a class="headerlink" href="#reverse-lookups" title="Permanent link">#</a></h2>
-<p>There&rsquo;s another way to write the Events Attended formula by using a reverse reference lookup. Here, we use the record <code>$id</code> to find a record. Every row has a numeric id (available as <code>$id</code> in formulas) that is unique within that table. You can reveal the id by adding a formula column where formula = <code>$id</code></p>
-<p><span class="screenshot-large"><em><img alt="row-id" src="../images/references-lookups/row-id.png" /></em></span></p>
-<p>Since Attendees.Sponsor is a reference column pointing to a Sponsor record, then it actually stores the unique ID of this sponsor. So in a formula for Sponsor, using the lookup below, we will find all Attendees records tied to the current sponsor.</p>
-<p><code>len(Attendees.lookupRecords(Sponsor=$id))</code></p>
-<p><span class="screenshot-large"><em><img alt="sponsor-id" src="../images/references-lookups/sponsor-id.png" /></em></span></p>
-<p>Breaking down the formula, we are counting the number of records in the Attendees table where the Sponsor column matches the ID of the row in this table (the Sponsor table).</p>
-<h2 id="lookuprecords-with-multiple-arguments">lookupRecords with multiple arguments<a class="headerlink" href="#lookuprecords-with-multiple-arguments" title="Permanent link">#</a></h2>
-<p>Another example of a reverse lookup can be found in the Count column of the Classes table of the <a href="https://public.getgrist.com/doc/eW4nqWfK1k3K~8iDuMy8ApPXvzhcemSiYsS~14207/p/6">Class Enrollment</a> template. This column shows us how many students are enrolled in each class. The formula used here is;</p>
-<p><code>len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))</code></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="len" src="../images/references-lookups/len.png" /></em></span></p>
+<p>We can also include multiple arguments in a lookupRecords formula. An example of this can be found in the Count column of the Classes table of the <a href="https://public.getgrist.com/doc/eW4nqWfK1k3K~8iDuMy8ApPXvzhcemSiYsS~14207/p/6">Class Enrollment</a> template. This column shows us how many students are enrolled in each class. The formula used here is:</p>
+<pre><code>len(Enrollments.lookupRecords(Class=$id, Status=&quot;Confirmed&quot;))
+</code></pre>
+
 <p><span class="screenshot-large"><em><img alt="lookup-records-multiple" src="../images/references-lookups/lookup-records-multiple.png" /></em></span></p>
-<p>Enrollments.lookupRecords(Class=$id, Status=&rdquo;Confirmed&rdquo;) will lookupRecords in the Enrollment table where Status is “Confirmed” and the Class column matches the ID of the row in this table. Because the Class column is referencing the Classes table, we can use the ID in the lookup. If there was no reference between the two tables, we could use <code>Class=$Class_Code</code>.</p>
-<p><code>len()</code> counts the items in a list, so everything it found within Enrollments.lookupRecords(Class=$id, Status=&rdquo;Confirmed&rdquo;).</p>
-<p><span class="screenshot-large"><em><img alt="len-confirmed" src="../images/references-lookups/len-confirmed.png" /></em></span></p>
-<p>If you’d like a video walkthrough of a reverse lookup, we have another example in our <a href="https://www.youtube.com/watch?v=0qVDPZd2w9I&amp;t=788s">Build with Grist Webinar - Trigger Formulas v. Formulas</a>.</p>
-<h2 id="lookuprecords-and-dot-notation">lookupRecords and dot notation<a class="headerlink" href="#lookuprecords-and-dot-notation" title="Permanent link">#</a></h2>
-<p>Similar to lookupOne, you can use Dot Notation with lookupRecords. Check out the <a href="hhttps://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing">Private Tutor Billing</a> template for a great example of this. On the <a href="https://templates.getgrist.com/cJcSKdUC3nLN/Private-Tutor-Billing/p/8">Families</a> page, we have a table with quite a few formula columns! We’ll take a look at the Total Paid column for our example. The formula used here is;</p>
-<p><code>SUM(Payments.lookupRecords(Family=$id).Amount)</code></p>
-<p><span class="screenshot-large"><em><img alt="sum-payment" src="../images/references-lookups/sum-payment.png" /></em></span></p>
-<p>Let’s break this down a bit. Starting with <code>Payments.lookupRecords(Family=$id)</code> - this format should look familiar to what we saw in the previous example. The Family column in the Payments table is a reference column pointing to this table. The lookupRecords formula is matching the Family column in the Payments table to the IDs of records in this table.</p>
-<p>Now, let’s tack on the dot notation portion to make it <code>Payments.lookupRecords(Family=$id).Amount</code> - we are telling it to specifically lookup the Amount for records in the Payments table where the Family column matches the ID of the row in this table. Remember - the Payments table has a reference column that points the the Families table, this is why we can use the <code>$id</code>.</p>
-<p>Last but not least, we need to <code>SUM()</code> all of those amounts together! That gives us the total amount paid for each family.</p>
+<p>This lookup uses two fields. It will look for records in the Enrollment table where Status is “Confirmed” and the Class column matches the ID of the row in this table. Because the Class column is referencing the Classes table, we use the record ID <code>$id</code> in the lookup.</p>
+<p>Finally, <code>len()</code> counts the items in the list returned by <code>Enrollments.lookupRecords(Class=$id, Status="Confirmed")</code>.</p>
+<p>Average, min and max are a few of the other functions that can be used with lookupRecords formulas. See all available functions on our <a href="../functions/">Function reference</a> page.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
