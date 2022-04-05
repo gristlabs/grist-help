@@ -146,7 +146,7 @@ With a reference list, dot-notation returns a list of all the selected field;
 
 <span class="screenshot-large">*![registrants-balance](images/references-lookups/registrants-balance.png)*</span>
 
-`$Registrants.Balance` is a list of the Balances for each attendee in the list of `$Registrants`. This follows the format `$[A].[B]` where `[A]` is the name of the Reference List column and `[B]` is the name of the column in the referenced table you wish to pull data from.
+`$Registrants.Balance` is a list of the Balances for each attendee in the list of `$Registrants`. This follows the format `$[A].[B]` where `[A]` is the name of the Reference List column and `[B]` is the name of the column in the referenced table you wish to pull data from. We'll learn how to find the sum of these balances in [Working with Record Sets](#working-with-record-sets).
 
 lookupRecords
 ---------------
