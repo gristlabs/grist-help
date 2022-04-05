@@ -710,7 +710,20 @@ Note that `div` is a variable that represents each item in our list. In our case
 `return sorted(result)` uses the [sorted()](https://docs.python.org/3/library/functions.html#sorted) method to return our appended list `result`, sorted alphabetically.
 
 </details>
+</ul>
 
+#### Setting Default Values for New Records
+<ul>
+You can set default values for when a new record is created and save yourself the trouble of having to fill in the same fields with the same values time after time.
+
+**Read about it in the Community:** [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4)
+<details id="simple math errors"><summary >
+Troubleshooting Errors
+<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
+#### Troubleshooting Errors
+</summary>
+`#TypeError`:
+</details>
 </ul>
 
 
@@ -738,6 +751,139 @@ Troubleshooting Errors
 </ul>
 ## Working with dates and times
 <ul>
+#### Automatic Date, Time and Author Stamps
+<ul>
+You can automatically add the date or time a record was created or updated as well as who made the change.
+<details id="automatic stamps example"><summary >
+Examples of Automatic Date, Time and Author Stamps
+<a class="headerlink" href="#automatic_stamps_example" title="Permanent link">#</a>
+#### Examples of Automatic Date, Time and Author Stamps
+</summary>
+**[Grant Application Tracker](https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker) template**
+
+<span class="screenshot-large">*![date-time-trigger-formula](images/formula-cheat-sheet/date-time-trigger-formula.png)*</span>
+
+The formula used in the Last Updated column of the Tasks table is:
+```
+NOW()
+```
+This is a [trigger formula](https://support.getgrist.com/formulas/#trigger-formulas) that triggers when a change is made to any field for this record. When a change is made, this formula runs its calculation. `NOW()` calculates the current time and date for the [time zone](https://support.getgrist.com/dates/#time-zones) selected. 
+
+<span class="screenshot-large">*![created-by-trigger](images/formula-cheat-sheet/created-by-trigger.png)*</span>
+
+The formula used in the Created By column of the Tasks table is:
+```
+user.Name
+```
+This is a [trigger formula](https://support.getgrist.com/formulas/#trigger-formulas) that triggers when a new record is created. When the record is created, this formula runs its calculation. `user.Name` looks up the user account that is logged into Grist and returns the name associated with that account. 
+
+</details>
+<details id="simple math errors"><summary >
+Troubleshooting Errors
+<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
+#### Troubleshooting Errors
+</summary>
+If the time value in your datetime column is not calculating, check your formula. If `TODAY()` is used in DateTime, the time will always show 12:00am as you see below. `NOW()` is used for DateTime columns. `TODAY()` is used for Date.
+
+<span class="screenshot-large">*![today-vs-now-error](images/formula-cheat-sheet/today-vs-now-error.png)*</span>
+
+`#AttributeError`
+<ul>
+You have likely entered `user.name` but the formula is `user.Name`. Keep an eye on capitalization!
+</ul>
+
+`#NameError`
+<ul>
+You may have entered `username` or `userName`. The correct formula is `user.Name`. 
+
+Another possibility is that this was entered in as a Formula column rather than a trigger formula column. Convert it to a trigger formula and this should resolve the problem.
+</ul>
+
+</details>
+</ul>
+
+#### Filtering Data within a Specified Amount of Time
+<ul>
+Using the [`EDATE()`](https://support.getgrist.com/functions/#edate) function and [comparision operators](#comparing-values), you can determine if a date falls within a specific range then apply a filter.
+<details id="simple math example"><summary >
+Example of Filtering Data that 'Falls in 1 Month Range`
+<a class="headerlink" href="#date_filtering_example" title="Permanent link">#</a>
+#### Example Filtering Data that 'Falls in 1 Month Range`
+</summary>
+**Community Example:** [Filtering Data Within a 1-Month Range](https://public.getgrist.com/4zxVeFtGNt7n/1844)
+<span class="screenshot-large">*![1-month-range](images/formula-cheat-sheet/1-month-range.png)*</span>
+The formula used in the Falls in 1 Month Range? column of the Interactions table is:
+```
+TODAY() >= $Date >=  EDATE(TODAY(),-1)
+```
+[`TODAY()`](https://support.getgrist.com/functions/#today) returns the current date. 
+
+`$Date` is the name of a column in our table, which is a [Date](https://support.getgrist.com/col-types/#date-columns) type column.
+
+[`EDATE(start_date, months)`](https://support.getgrist.com/functions/#edate) returns the date that is the given number of months before or after the `start_date`. In this example, it returns the date that is one month prior to the start date, `TODAY()`.
+
+This formula is true if the date value in the Date column falls between `TODAY()` and our `EDATE()` which is one month ago. If the date value in the Date column does not fall between these two dates, the formula returns false.
+
+We can use this column to filter our data. If we only want to see interactions that fall within the 1 Month Range, we would filter to only include `true` values. If we want to see interactions that fall outside of the 1 Month Range, we would filter to only include `false` values.
+
+<span class="screenshot-large">*![add-filter](images/formula-cheat-sheet/add-filter.png)*</span>
+
+</details>
+<details id="date time errors"><summary >
+Troubleshooting Errors
+<a class="headerlink" href="#date_time_errors" title="Permanent link">#</a>
+#### Troubleshooting Errors
+</summary>
+`#TypeError`:
+<ul>
+<span class="screenshot-large">*![1-month-range-type-error](images/formula-cheat-sheet/1-month-range-type-error.png)*</span>
+Because `$Date` is a [Date](https://support.getgrist.com/col-types/#date-columns) type column, `TODAY()` must be used in formulas comparing dates. [`NOW()`](https://support.getgrist.com/functions/#now) is a DateTime formula that should only be used with other DateTime values. For example, if the `$Date` column was a [DateTime](https://support.getgrist.com/col-types/#datetime-columns) type column, `NOW()` would need to be used rather than `TODAY()` because it includes the time component.
+
+`NOW()` is date and time. `TODAY()` is only date.
+</ul>
+</details>
+</ul>
+
+#### Calculating the Difference Between Two Times
+<ul>
+You can find the difference between two [DateTime](https://support.getgrist.com/col-types/#datetime-columns) values using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod) function.
+<details id="divmod example"><summary >
+Example of Simple Math
+<a class="headerlink" href="#simple_math_example" title="Permanent link">#</a>
+#### Example of Simple Math
+</summary>
+**Community Example:** [Calculating Hours Worked](https://public.getgrist.com/a3HWPxrhNwJa/1863/p/4)
+
+<span class="screenshot-large">*![hours-worked](images/formula-cheat-sheet/hours-worked.png)*</span>
+
+The formula used in the Hours Worked column of the All Check IN + OUT table is:
+```
+if not $Check_In_Time or not $Check_Out_Time:
+  return None
+s = ($Check_Out_Time - $Check_In_Time).total_seconds()
+hours = divmod(abs(s), 3600)
+minutes = divmod(hours[1], 60)
+return "%dhr %dmin" % (hours[0], minutes[0])
+```
+
+The first two lines remove errors if there are no values in the Check In Time or Check Out Time columns. Instead of getting an error because no value exists, the formula returns `None`, which appears as blank.
+
+`s = ($Check_Out_Time - $Check_In_Time).total_seconds()` calculates the difference between Check In and Check Out then converts the time to seconds. This value is assigned to the variable `s`.
+
+
+</details>
+<details id="simple math errors"><summary >
+Troubleshooting Errors
+<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
+#### Troubleshooting Errors
+</summary>
+`#TypeError`:
+</details>
+</ul>
+
+
+
+
 #### Simple Math (add, subtract, multiply divide)
 <ul>
 blah
@@ -758,8 +904,5 @@ Troubleshooting Errors
 `#TypeError`:
 </details>
 </ul>
-
-
-
 
 </ul>
