@@ -194,9 +194,9 @@ Let's take a look at the Registrants column of the [Events](https://public.getgr
 
 <span class="screenshot-large">*![lookup-records-id](images/references-lookups/lookup-records-id.png)*</span>
 
-The formula used here is `All_Registrations.lookupRecords(Event=$id)`. We use the ID to find a match rather than a column because there is an existing reference connecting the two tables.
+The formula used here is `All_Registrations.lookupRecords(Event=$id)`. We use the id to find a match because in the All Registrations table, the Event column is a reference column which means its value is a record's id.
 
-Since All_Registrations.Event is a reference column pointing to an Event record in the Events table, then it actually stores the unique ID of this Event. So in a formula for Registrants, using the lookup we see here, we will find all Registrant records tied to the selected Event. 
+Because All_Registrations.Event is a reference column pointing to an Event record in the Events table, we can match the id stored in the reference column to the ids of records in the Events table. That's why the argument in the formula is `Event=$id`.
 
 We use the existing reference, just in reverse - hence the name, Reverse Lookup.
 
@@ -293,3 +293,5 @@ len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))
 This lookup uses two fields. It will look for records in the Enrollment table where Status is “Confirmed” and the Class column matches the ID of the row in this table. Because the Class column is referencing the Classes table, we use the record ID `$id` in the lookup.
 
 Finally, `len()` counts the items in the list returned by `Enrollments.lookupRecords(Class=$id, Status="Confirmed")`.
+
+Average, min and max are a few of the other functions that can be used with lookupRecords formulas. See all available functions on our [Function reference](functions.md) page.
