@@ -446,13 +446,6 @@ We want to return the last item in the list `split` in order to get our `URL`. T
 
 Alternatively, `URL` could be considered the second item in the list. The first item in a list has index `[0]` therefore `URL` would have index `[1]` and we could change our final line to `return split [1]` to get the same value.
 </details>
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
-#### Troubleshooting Errors
-</summary>
-`#TypeError`:
-</details>
 </ul>
 
 #### Direct Link to Gmail History for a Contact
@@ -509,7 +502,7 @@ Finally, we use the [join()](https://www.w3schools.com/python/ref_string_join.as
 
 #### Finding Duplicates
 <ul>
-You can find duplicates in a single column or across multiple columns
+You can find duplicates in a single column or across multiple columns either using conditional formatting or with a helper column.
 
 **Read about it in the Community:** [Ensure unique values or detect duplicates](https://community.getgrist.com/t/ensure-unique-values-or-detect-duplicates/76)
 <details id="single column duplicate example"><summary >
@@ -519,6 +512,33 @@ Finding Duplicates in a Single Column
 </summary>
 **Community Example: [Finding Duplicates in a Single Column](https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/4)**
 
+#### Find Duplicates in a Single Column Using Conditional Formatting
+<span class="screenshot-large">*![duplicates-single-conditional-formatting](images/formula-cheat-sheet/duplicates-single-conditional-formatting.png)*</span>
+
+The conditional formula used in the Grocery List column of the Duplicates in a Single Column table is:
+```
+len(Duplicates_in_a_Single_Column.lookupRecords(Grocery_List=$Grocery_List))>1
+```
+
+Let's break this down, working from the inside > out.
+```
+Duplicates_in_a_Single_Column.lookupRecords(Grocery_List=$Grocery_List)
+```
+This is a lookupRecords function that follows the format of: 
+```
+[Table_Name].lookupRecords([A]=$[B])
+``` 
+Where `[Table_Name]` is the name of the table you want to lookup data in. `[A]` is the column in the table being looked up (named at the beginning of the formula) and `[B]` is the column in the current table / the table you are entering the formula in.
+
+This formula looks up records in the Duplicates In a Single Column table where a record in the Grocery List column matches another record in the same column.
+
+`len()` counts the number of records in our list. Since each duplicate will match with the other, it should appear twice in our list. This is why `len() > 1`.
+
+If `len() > 1`, our formula is true and the conditional cell color is applied to these cells. 
+
+If `len() <= 1`, our formula is false and the cell color is unchanged.
+
+#### Find Duplicates in a Single Column Using a Helper Column
 <span class="screenshot-large">*![duplicates-single-column](images/formula-cheat-sheet/duplicates-single-column.png)*</span>
 
 The formula used in the Duplicate? column of the Duplicates in a Single Column table is:
@@ -537,23 +557,7 @@ Another way this could be written is:
 ```
 This is the format used in the Community post linked above this example.
 
-Let's break this down, working from the inside > out.
-```
-Duplicates_in_a_Single_Column.lookupRecords(Grocery_List=$Grocery_List)
-```
-This is a lookupRecords function that follows the format of: 
-```
-[Table_Name].lookupRecords([A]=$[B])
-``` 
-Where `[Table_Name]` is the name of the table you want to lookup data in. `[A]` is the column in the table being looked up (named at the beginning of the formula) and `[B]` is the column in the current table / the table you are entering the formula in.
-
-This formula looks up records in the Duplicates In a Single Column table where a record in the Grocery List column matches another record in the same column.
-
-`len()` counts the number of records in our list. Since each duplicate will match with the other, it should appear twice in our list. This is why `len() > 1`.
-
-If `len() > 1`, our formula returns `"True"`. 
-
-If `len() <= 1`, our formula returns `""` which we see as a blank entry.
+Most of this formula is familiar as we used in the conditional formatting example above. First, we lookup all records in the Grocery List column of the Duplicates in a Single Column table. `len()` counts the records in the list. If the count is greater than 1, duplicates exist and our formula returns `"True"`. If it's less than or equal to 1, the formula returns `""` which returns a blank value.
 
 </details>
 <details id="multiple column duplicate example"><summary >
@@ -563,8 +567,50 @@ Finding Duplicates Across Multiple Columns
 </summary>
 **Community Example: [Finding Duplicates Across Multiple Columns](https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/3)**
 
-First, we will walk through how to check for duplicates across two columns. Then, we will adjust the formula to also check for duplicates within each of those columns as well. 
+#### Find Duplicates Across Multiple Columns Using Conditional Formatting
+<span class="screenshot-large">*![duplicates-multiple-conditional-formatting](images/formula-cheat-sheet/duplicates-multiple-conditional-formatting.png)*</span>
 
+The first conditional formula in the Grocery List column of the Duplicates Across Multiple Columns table is:
+```
+len(Duplicates_Across_Multiple_Columns.lookupRecords(Grocery_List=$Grocery_List))>1
+```
+We walked through this formula in the conditional formatting example in [Finding Duplicates in a Single Column](#find-duplicates-in-a-single-column-using-conditional-formatting). 
+
+When this formula is true, the cell color is orange. We can see that `Eggs` appears twice in the Grocery List column.
+
+The second conditional formula in the Grocery List column is:
+```
+len(Duplicates_Across_Multiple_Columns.lookupRecords(Kitchen_Inventory=$Grocery_List))>0
+```
+This formula is similar to our first formula. Before, we compared values within the same column. This time, we are comparing values in different columns. 
+
+The order of comparison is important within this formula. 
+
+The formula for [lookupRecords](references-lookups.md/#lookuprecords) follows the format:
+```
+[Table_Name].lookupRecords([A]=$[B])
+```
+[Table_Name] is the name of the table you want to lookup data in. [A] is the column in the table being looked up and **[B] is the column you are entering the formula in**. We are entering this formula in the Grocery List column so [B] must be Grocery List.
+
+`len()` counts how many records are found in our lookupRecords formula. Because records only count when they match with another, our formula is `True` if `len() > 0` and our cells become red. If no match is found, our formula is false and the cell is unchanged.
+
+The first formula for the Kitchen Inventory column is:
+```
+len(Duplicates_Across_Multiple_Columns.lookupRecords(Kitchen_Inventory=$Kitchen_Inventory))>1
+```
+This formula is finding duplicates within the Kitchen Inventory column. If duplicates exist, the cell color would be orange. 
+
+The second formula for the Kitchen Inventory column is:
+```
+len(Duplicates_Across_Multiple_Columns.lookupRecords(Grocery_List=$Kitchen_Inventory))>0
+```
+This formula looks up records that match between the Grocery List and Kitchen Inventory columns. 
+
+Again, the format for lookupRecords is `[Table_Name].lookupRecords([A]=$[B])` and **[B] is the column you are entering the formula in**.
+
+You'll notice that `Butter` is a duplicate within the Kitchen Inventory column but the cell is red, not orange. Conditional formatting runs top to bottom. First, we check for duplicates within the column and because `butter` has a duplicate, it becomes orange. Then, we check for duplicates across both columns and because `butter` is also a duplicate here, it then becomes red.
+
+#### Find Duplicates Across Multiple Columns Using a Helper Column
 <span class="screenshot-large">*![duplicates-multiple-columns](images/formula-cheat-sheet/duplicates-multiple-columns.png)*</span>
 
 The formula used in the Duplicates Across Columns? column of the Duplicates Across Multiple Columns table is:
@@ -604,7 +650,7 @@ else:
   return ""
 ```
 
-The `if` and first `elif` statments are the same equations we saw in our [Finding Duplicates in a Single Column](#single_column_duplicate_example) example.
+The `if` and first `elif` statments are the same equations we saw in our [Finding Duplicates in a Single Column](#find-duplicates-in-a-single-column-using-using-a-helper-column) example.
 
 The `if` statement looks up records in the Duplicates Across Multiple Columns table where a record in the Kitchen Inventory column matches another record in the same column. `len()` counts the number of records in this list. If `len() > 1`, our formula is found to be true and returns `"DUP in Kitchen Inventory"`.
 
@@ -662,13 +708,6 @@ dups = counters.get($Grocery_List, 0) + counters.get($Kitchen_Inventory, 0) > 2
 `"DUP" if dups else ""` returns `"DUP"` if `dups` is found to be True. If `dups` is found to be false, it returns `""` which returns a blank value. In our example with Milk and Deli Ham, `dups` is found to be True and `"DUP"` is returned in the Duplicate? column.
 </details>
 
-</details>
-<details id="finding duplicates errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
-#### Troubleshooting Errors
-</summary>
-`#TypeError`:
 </details>
 </ul>
 
@@ -765,36 +804,9 @@ Note that `div` is a variable that represents each item in our list. In our case
 You can set default values for when a new record is created and save yourself the trouble of having to fill in the same fields with the same values time after time.
 
 **Read about it in the Community:** [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4)
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
-#### Troubleshooting Errors
-</summary>
-`#TypeError`:
-</details>
+
 </ul>
 
-
-#### Simple Math (add, subtract, multiply divide)
-<ul>
-blah
-<details id="simple math example"><summary >
-Example of Simple Math
-<a class="headerlink" href="#simple_math_example" title="Permanent link">#</a>
-#### Example of Simple Math
-</summary>
-
-<span class="screenshot-large">*![joining-lists-mix-product](images/formula-cheat-sheet/joining-lists-mix-product.png)*</span>
-
-</details>
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
-#### Troubleshooting Errors
-</summary>
-`#TypeError`:
-</details>
-</ul>
 
 </ul>
 ## Working with dates and times
@@ -892,65 +904,8 @@ Because `$Date` is a [Date](https://support.getgrist.com/col-types/#date-columns
 </details>
 </ul>
 
-#### Calculating the Difference Between Two Times
-<ul>
-You can find the difference between two [DateTime](https://support.getgrist.com/col-types/#datetime-columns) values using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod) function.
-<details id="divmod example"><summary >
-Example of Simple Math
-<a class="headerlink" href="#simple_math_example" title="Permanent link">#</a>
-#### Example of Simple Math
-</summary>
-**Community Example:** [Calculating Hours Worked](https://public.getgrist.com/a3HWPxrhNwJa/1863/p/4)
-
-<span class="screenshot-large">*![hours-worked](images/formula-cheat-sheet/hours-worked.png)*</span>
-
-The formula used in the Hours Worked column of the All Check IN + OUT table is:
-```
-if not $Check_In_Time or not $Check_Out_Time:
-  return None
-s = ($Check_Out_Time - $Check_In_Time).total_seconds()
-hours = divmod(abs(s), 3600)
-minutes = divmod(hours[1], 60)
-return "%dhr %dmin" % (hours[0], minutes[0])
-```
-
-The first two lines remove errors if there are no values in the Check In Time or Check Out Time columns. Instead of getting an error because no value exists, the formula returns `None`, which appears as blank.
-
-`s = ($Check_Out_Time - $Check_In_Time).total_seconds()` calculates the difference between Check In and Check Out then converts the time to seconds. This value is assigned to the variable `s`.
-
-
-</details>
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
-#### Troubleshooting Errors
-</summary>
-`#TypeError`:
-</details>
-</ul>
 
 
 
-
-#### Simple Math (add, subtract, multiply divide)
-<ul>
-blah
-<details id="simple math example"><summary >
-Example of Simple Math
-<a class="headerlink" href="#simple_math_example" title="Permanent link">#</a>
-#### Example of Simple Math
-</summary>
-example
-<span class="screenshot-large">*![joining-lists-mix-product](images/formula-cheat-sheet/joining-lists-mix-product.png)*</span>
-
-</details>
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
-#### Troubleshooting Errors
-</summary>
-`#TypeError`:
-</details>
-</ul>
 
 </ul>
