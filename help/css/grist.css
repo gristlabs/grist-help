@@ -537,3 +537,55 @@ footer {
 .wm-toc-quick-links-header {
   padding-left: 36px;
 }
+
+.cheat-sheet {
+  border: 1px solid var(--color-light-green);
+  border-radius: 4px;
+  margin: 16px 0;
+  padding: 0 16px;
+  overflow: hidden;
+}
+
+.cheat-sheet > p:first-child {
+  display: none;
+}
+
+.cheat-sheet > h4 {
+  background-color: var(--color-medium-grey);
+  margin: 0 -16px 8px -16px;
+  padding: 8px 16px;
+}
+
+.cheat-sheet details {
+  margin: 16px 0 16px 16px;
+  padding: 0;
+}
+
+.cheat-sheet summary {
+  margin: 0 0 0 -16px;
+  padding: 2px 8px;
+  background-color: var(--color-light-grey);
+  border-radius: 4px;
+}
+
+.cheat-sheet summary > h4 {
+  display: inline;
+  font-size: inherit;
+}
+
+.cheat-sheet summary:hover {
+  background-color: var(--color-medium-grey);
+}
+
+.cheat-sheet details[open] > summary {
+  background-color: var(--color-medium-grey);
+  margin-bottom: 16px;
+}
+
+.cheat-sheet .deflist ul {
+  list-style-type: none;
+  padding-left: 32px;
+}
+.cheat-sheet .deflist li > p:first-child {
+  margin-left: -32px;
+}

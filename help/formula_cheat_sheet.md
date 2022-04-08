@@ -7,15 +7,16 @@ in [Python](https://docs.python.org/3.9/library/_), the most popular language fo
 If you don't see what you're looking for, post in the [Community Forum](https://community.getgrist.com/) and we'll be able to help you out!
 
 ## Math Functions
-<ul>
+
+<span></span><section class="cheat-sheet">
 #### Simple Math (add, subtract, multiply divide)
-<ul>
+
 Uses `+` , `-` , `/` and `*` operators to complete calculations.
-<details id="simple math example"><summary >
-Example of Simple Math
-<a class="headerlink" href="#simple_math_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example of Simple Math
 </summary>
+
 Chestwood Art Studio ships art across the country and has the option of monthly payments over the course of 12 months.
 
 We have the subtotal, the tax (based on the state it is shipping to) and Amount Due Monthly. This formula column uses addition, multiplication and division.
@@ -28,21 +29,21 @@ The formula used here is:
 ```
 We add the subtotal to the calculated tax then divide this by 12 months to get our Amount Due Monthly.
 </details>
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Troubleshooting Errors
 </summary>
+
 `#TypeError`: Confirm all columns used in the formula are of [Numeric](https://support.getgrist.com/col-types/#numeric-columns) type.
 </details>
-</ul>
+</section>
 
+<span></span><section class="cheat-sheet">
 #### max and min
-<ul>
+
 Allows you to find the [max](https://support.getgrist.com/functions/#max) or [min](https://support.getgrist.com/functions/#min) values in a list.
-<details id="max min example"><summary >
-Examples using max() and min()
-<a class="headerlink" href="#max_min_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Examples using MAX() and MIN()
 </summary>
 **Max**: Classes table of the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program) template.
@@ -73,16 +74,17 @@ Next, all Dates assigned to the records in our item list are evaluated to find t
 
 If there are no items in the list, nothing is returned and the field is left blank.
 </details>
-</ul>
+</section>
 
+<span></span><section class="cheat-sheet">
 #### Sum
-<ul>
+
 Use the [SUM()](https://support.getgrist.com/functions/#sum) function when you want to sum values across a row. If you want to sum values in a column, use [Summary Tables](https://support.getgrist.com/summary-tables/).
-<details id="sum example"><summary >
-Examples using SUM()
-<a class="headerlink" href="#sum_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example of SUM()
 </summary>
+
 **[Custom Product Builder](https://templates.getgrist.com/gZmzYoGdS6b1/Custom-Product-Builder/p/6) template**
 
 <span class="screenshot-large">*![sum](images/formula-cheat-sheet/sum-custom-product-builder.png)*</span>
@@ -111,14 +113,14 @@ The Qty on Order and Sold columns of the All Products table are also great examp
 
 **Check out another example in our Community Forum:** [Creating a Sum of Net and Gross profit from multiple tables](https://community.getgrist.com/t/creating-a-sum-of-net-and-gross-profit-from-multiple-tables/668)
 </details>
-</ul>
+</section>
 
+<span></span><section class="cheat-sheet">
 #### Comparing Values: < , > , <= , >=
-<ul>
+
 Allows you to compare numerical values. If Sales = `$1200` and Running Cost = `$1650`, `"Gains" if Sales > Running Cost else "Loss"` would return `Loss`.
-<details id="comparing values"><summary >
-Examples comparing values
-<a class="headerlink" href="#comparing_values_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Examples comparing values
 </summary>
 
@@ -169,18 +171,19 @@ We use [len()](https://support.getgrist.com/functions/#len) to count the number 
 
 The No Internal Links? column of the [Pages Without Links to Other Pages](https://templates.getgrist.com/j9ZH7rPGafbH/Internal-Links-Tracker-for-SEO/p/5#a1.s10.r2.c33) table is another example of comparing values.
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Converting from String to Float
-<ul>
+
 **[String](https://www.w3schools.com/python/python_strings.asp)**: A sequence of characters that once defined, cannot be changed. See [Python str() Function](https://www.w3schools.com/python/ref_func_str.asp) for converting a specified value to a string.
 
 **[Integer](https://www.w3schools.com/python/python_numbers.asp)**: A whole number, without decimals. See [Python int() Function](https://www.w3schools.com/python/ref_func_int.asp) for converting a specified value to an integer number.
 
 **[Float](https://www.w3schools.com/python/gloss_python_float.asp)**: Real numbers that can store decimal values. Also called floating point number. See [Python float() Function](https://www.w3schools.com/python/ref_func_float.asp) for converting a specified value into a floating point number.
-<details id="string to float example"><summary >
-Example converting a string to a float
-<a class="headerlink" href="#string_to_float_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example converting a string to a float
 </summary>
 
@@ -208,14 +211,15 @@ In the first equation, we used our reference list column, Mix Product, as our li
 
 Finally, we use the [join()](https://www.w3schools.com/python/ref_string_join.asp) method to combine our two lists. `' '` is our starting (empty) string. We use Python's [format method](https://www.w3schools.com/python/ref_string_format.asp) to format our string. `{}` is a placeholder for each variable listed in `.format()`. Last, we use Python's [zip() function](https://www.w3schools.com/python/ref_func_zip.asp) to pair the first values from each list together and then pair the second values in each list together. `l` is assigned as our `first` list and `x` is assigned as our `second` list. `l = [Prod A, Prod B]` and `x = [5.0, 10.0]`. Zipping our lists into `'{} {}'.format(first, second)` gives us `Prod A 5.0` in our first iteration and `Prod B 10.0` in our second iteration. Our final return value is `Prod A 5.0 Prod B 10.0`.
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Rounding Numbers
-<ul>
+
 Specify the number of decimal places to give in a result using the [ROUND()](https://support.getgrist.com/functions/#round) function. If Average Temperature = `46.5`, `round($Average_Temperature)` would return `47`
-<details id="rounding example"><summary >
-Example of rounding numbers
-<a class="headerlink" href="#rounding_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example of rounding numbers
 </summary>
 **[Mixing Products](https://public.getgrist.com/v4vj2PDZS4jf/Community-665/m/fork)**
@@ -245,14 +249,15 @@ In the first equation, we used our reference list column, Mix Product, as our li
 
 Finally, we use the [join()](https://www.w3schools.com/python/ref_string_join.asp) method to combine our two lists. `' '` is our starting (empty) string. We use Python's [format method](https://www.w3schools.com/python/ref_string_format.asp) to format our string. `{}` is a placeholder for each variable listed in `.format()`. Last, we use Python's [zip() function](https://www.w3schools.com/python/ref_func_zip.asp) to pair the first values from each list together and then pair the second values in each list together. `l` is assigned as our `first` list and `round_x` is assigned as our `second` list. `l = [Prod A, Prod B]` and `round_x = [2.36, 12.58]`. Zipping our lists into `'{} {}'.format(first, second)` gives us `Prod A 2.36` in our first iteration and `Prod B 12.58` in our second iteration. Our final return value is `Prod A 2.36 Prod B 12.58`.
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Specify Minimum Number of Digits
-<ul>
+
 Allows you to specify the minimum number of digits returned in a numerical column by adding leading zeros. If x = 5, `str(x).zfill(3)` or `str('{:0>3}').format(x)` would return `005`.
-<details id="simple math example"><summary >
-Example of Specifying Minimum Number of Digits
-<a class="headerlink" href="#min_digits_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example of Specifying Minimum Number of Digits
 </summary>
 
@@ -278,9 +283,8 @@ str($id).zfill(5)
 `str($id)` converts the row ID to a string. `.zfill(x)` returns a copy of the string with leading zeros to make a string of length `x`. In our example, it adds leading zeros to make the string 5 characters in length. Again, if the `$id` is longer than 5 digits, the formula returns the string unmodified. 
 
 </details>
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Troubleshooting Errors
 </summary>
 `#TypeError`: can only concatenate str (not "int") to str
@@ -292,21 +296,20 @@ If you mean to use the row ID as a character rather than a numerical value, be s
 {: .screenshot-half }
 
 </details>
-</ul>
+</section>
 
-</ul>
 ## Working with Strings
-<ul>
+
+<span></span><section class="cheat-sheet">
 #### Combining Text From Multiple Columns
-<ul>
+
 **Method 1:** If you have a First Name column and a Last Name column, you can combine these columns to have a Full Name column. If First Name = `George` and Last Name = `Washington`, `$First_Name + " " + $Last_Name` would return `George Washington`.
 
 **Method 2:** If you have additional formatting, an easier way to do this would be using Python's [String format() method](https://www.w3schools.com/python/ref_string_format.asp). The `format()` method formats the specified value(s) and inserts them inside the string's placeholder, `{}`. Using the same example as above, our formula would be `"{} {}".format($First_Name, $Last_Name)`.
 
 Note: You can click on columns to insert them into your formulas, rather than typing them in.
-<details id="combining text method 1 example"><summary >
-Examples of Method 1
-<a class="headerlink" href="#combining_text_method1_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Examples of Method 1
 </summary>
 **[Class Enrollment](https://templates.getgrist.com/doc/afterschool-program) template**
@@ -335,9 +338,8 @@ Color is a reference column that pulls data from the Color column of the Color t
 
 Each of the values found in `$Brand.Brand_Code` and `$Color.Code`are combined with the value in the Size column with a `-` between each of the three values to make up the SKU.
 </details>
-<details id="combining text method 2 example"><summary >
-Examples of Method 2
-<a class="headerlink" href="#combining_text_method2_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Examples Method 2
 </summary>
 **[Tracking Time + Invoicing](https://templates.getgrist.com/bReAxyLmzmEQ/Tracking-Time-Invoicing) template**
@@ -416,14 +418,15 @@ This technique uses the `%` operator instead of the `format()` method. Format sp
 `\n` adds a new line.
 
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Splitting Strings of Text
-<ul>
+
 Split a string using Python's [split()](https://docs.python.org/3/library/stdtypes.html#str.split) method. If Full Name = `George Washington`, `$Full_Name.split(" ")` would return `[George, Washington]`.
-<details id="simple math example"><summary >
-Example of Splitting a String
-<a class="headerlink" href="#simple_math_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example of Simple Math
 </summary>
 
@@ -446,16 +449,17 @@ We want to return the last item in the list `split` in order to get our `URL`. T
 
 Alternatively, `URL` could be considered the second item in the list. The first item in a list has index `[0]` therefore `URL` would have index `[1]` and we could change our final line to `return split [1]` to get the same value.
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Direct Link to Gmail History for a Contact
-<ul>
+
 If you store contacts in Grist, and use Gmail to email them, you can create a formula that will open Gmail to a list of conversations with that contact. 
 
 **Read about it in the Community:** [Pull up Gmail history for a particular contact](https://community.getgrist.com/t/pull-up-gmail-history-for-a-particular-contact/517)
-<details id="hyperlink errors"><summary >
-Troubleshooting
-<a class="headerlink" href="#hyperlink_errors" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Troubleshooting
 </summary>
 Is your URL still showing after you added a label? Make sure your Column Type is Text and Cell Format is Hyperlink.
@@ -463,14 +467,15 @@ Is your URL still showing after you added a label? Make sure your Column Type is
 <span class="screenshot-large">*![text-hyperlink](images/formula-cheat-sheet/text-hyperlink.png)*</span>
 
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Joining Values Between Two Lists
-<ul>
+
 When you want to join information from a reference list, you can use Python's [join() method](https://www.w3schools.com/python/ref_string_join.asp).
-<details id="joining lists example"><summary >
-Examples of Joining Lists
-<a class="headerlink" href="#joining_lists_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Examples of Joining Lists
 </summary>
 **Community Example: [Sum Reference list](https://community.getgrist.com/t/sum-reference-list/665)**
@@ -498,16 +503,17 @@ In the first equation, we used our reference list column, Mix Product, as our li
 Finally, we use the [join()](https://www.w3schools.com/python/ref_string_join.asp) method to combine our two lists, `[5.0, 10.0]` and `[Prod A, Prod B]`. `' '` is our starting (empty) string. We use Python's [format method](https://www.w3schools.com/python/ref_string_format.asp) to format our string. `{}` is a placeholder for each variable listed in `.format()`. Last, we use Python's [zip() function](https://www.w3schools.com/python/ref_func_zip.asp) to pair the first values from each list together and then pair the second values in each list together. `l` is assigned as our `first` list and `x` is assigned as our `second` list. `l = [Prod A, Prod B]` and `x = [5.0, 10.0]`. Zipping our lists into `'{} {}'.format(first, second)` gives us `Prod A 5.0` in our first iteration and `Prod B 10.0` in our second iteration. Our final return value is `Prod A 5.0 Prod B 10.0`.
 
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Finding Duplicates
-<ul>
+
 You can find duplicates in a single column or across multiple columns either using conditional formatting or with a helper column.
 
 **Read about it in the Community:** [Ensure unique values or detect duplicates](https://community.getgrist.com/t/ensure-unique-values-or-detect-duplicates/76)
-<details id="single column duplicate example"><summary >
-Finding Duplicates in a Single Column
-<a class="headerlink" href="#single_column_duplicate_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Finding Duplicates in a Single Column
 </summary>
 **Community Example: [Finding Duplicates in a Single Column](https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/4)**
@@ -560,9 +566,8 @@ This is the format used in the Community post linked above this example.
 Most of this formula is familiar as we used in the conditional formatting example above. First, we lookup all records in the Grocery List column of the Duplicates in a Single Column table. `len()` counts the records in the list. If the count is greater than 1, duplicates exist and our formula returns `"True"`. If it's less than or equal to 1, the formula returns `""` which returns a blank value.
 
 </details>
-<details id="multiple column duplicate example"><summary >
-Finding Duplicates Across Multiple Columns
-<a class="headerlink" href="#multiple_duplicate_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Finding Duplicates Across Multiple Columns
 </summary>
 **Community Example: [Finding Duplicates Across Multiple Columns](https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/3)**
@@ -665,9 +670,8 @@ If all statements are found to be false, our formula returns our `else` statemen
 Keep in mind that the formula runs top to bottom so once a statement is found to be true for a value, it moves to the next value in the list. For example, row 5 `Butter` returns `DUP in Kitchen Inventory` but is also a duplicate across columns and could return `DUP`. Because the formula checks for duplicates within the column first, it returns `DUP in Kitchen Inventory`. Row 7 `Butter` returns `DUP` because there are no duplicate values for `Butter` in the Grocery List column. The first two statments are found to be false then the third statement is found to be true and returns `DUP`. 
 
 </details>
-<details id="finding duplicates alternate method"><summary >
-Alternative Method to Finding Duplicates
-<a class="headerlink" href="#finding_duplicates_alternate_method" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Alternative Method to Finding Duplicates
 </summary>
 An alternative method to finding duplicates is to use a helper table. In this example, your helper table will tell you how many of each item is listed. The result from the helper table will be used in your formula for duplicates.
@@ -707,16 +711,16 @@ dups = counters.get($Grocery_List, 0) + counters.get($Kitchen_Inventory, 0) > 2
 
 `"DUP" if dups else ""` returns `"DUP"` if `dups` is found to be True. If `dups` is found to be false, it returns `""` which returns a blank value. In our example with Milk and Deli Ham, `dups` is found to be True and `"DUP"` is returned in the Duplicate? column.
 </details>
+</section>
 
-</details>
-</ul>
 
+
+<span></span><section class="cheat-sheet">
 #### Using a Record's Unique Identifier in Formulas
-<ul>
+
 When a record is created, it is assigned a numeric id (available as `$id` in formulas) that is unique within that table. You can reveal the row ID by adding a formula column where the formula is `$id`{: .formula}.
-<details id="row id example"><summary >
-Examples Using Row ID in Formulas
-<a class="headerlink" href="#row_id_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Examples Using Row ID in Formulas
 </summary>
 You can reveal the ID with the formula `$id`
@@ -756,14 +760,15 @@ A reference column points to the <em>entire</em> record, not just the value you 
 
 As you can see in this screenshot, the Row ID for this particular record is `1` and because we are calculating the Count for the row with `Row ID = 1`, it will count all records in the Enrollment table where Class shows `2018F-Stars` and Status is `Confirmed`. 
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Removing Duplicates From a List
-<ul>
+
 You can remove duplicates from a list with help from Python's [append()](https://docs.python.org/3/tutorial/datastructures.html) method.
-<details id="removing duplicates example"><summary >
-Example of Removing Duplicates From a List
-<a class="headerlink" href="#removing_duplicates_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example of Removing Duplicates from a List
 </summary>
 
@@ -797,26 +802,26 @@ Note that `div` is a variable that represents each item in our list. In our case
 `return sorted(result)` uses the [sorted()](https://docs.python.org/3/library/functions.html#sorted) method to return our appended list `result`, sorted alphabetically.
 
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Setting Default Values for New Records
-<ul>
+
 You can set default values for when a new record is created and save yourself the trouble of having to fill in the same fields with the same values time after time.
 
 **Read about it in the Community:** [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4)
 
-</ul>
+</section>
 
-
-</ul>
 ## Working with dates and times
-<ul>
+
+<span></span><section class="cheat-sheet">
 #### Automatic Date, Time and Author Stamps
-<ul>
+
 You can automatically add the date or time a record was created or updated as well as who made the change.
-<details id="automatic stamps example"><summary >
-Examples of Automatic Date, Time and Author Stamps
-<a class="headerlink" href="#automatic_stamps_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Examples of Automatic Date, Time and Author Stamps
 </summary>
 **[Grant Application Tracker](https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker) template**
@@ -838,36 +843,36 @@ user.Name
 This is a [trigger formula](https://support.getgrist.com/formulas/#trigger-formulas) that triggers when a new record is created. When the record is created, this formula runs its calculation. `user.Name` looks up the user account that is logged into Grist and returns the name associated with that account. 
 
 </details>
-<details id="simple math errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#simple_math_errors" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Troubleshooting Errors
 </summary>
 If the time value in your datetime column is not calculating, check your formula. If `TODAY()` is used in DateTime, the time will always show 12:00am as you see below. `NOW()` is used for DateTime columns. `TODAY()` is used for Date.
 
 <span class="screenshot-large">*![today-vs-now-error](images/formula-cheat-sheet/today-vs-now-error.png)*</span>
 
-`#AttributeError`
-<ul>
-You have likely entered `user.name` but the formula is `user.Name`. Keep an eye on capitalization!
-</ul>
+<span></span><div class="deflist">
 
-`#NameError`
-<ul>
-You may have entered `username` or `userName`. The correct formula is `user.Name`. 
+- `#AttributeError`
+
+    You have likely entered `user.name` but the formula is `user.Name`. Keep an eye on capitalization!
+
+- `#NameError`
+
+    You may have entered `username` or `userName`. The correct formula is `user.Name`. 
 
 Another possibility is that this was entered in as a Formula column rather than a trigger formula column. Convert it to a trigger formula and this should resolve the problem.
-</ul>
 
 </details>
-</ul>
+</section>
 
+
+<span></span><section class="cheat-sheet">
 #### Filtering Data within a Specified Amount of Time
-<ul>
+
 Using the [`EDATE()`](https://support.getgrist.com/functions/#edate) function and [comparision operators](#comparing-values), you can determine if a date falls within a specific range then apply a filter.
-<details id="simple math example"><summary >
-Example of Filtering Data that 'Falls in 1 Month Range`
-<a class="headerlink" href="#date_filtering_example" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Example Filtering Data that 'Falls in 1 Month Range`
 </summary>
 **Community Example:** [Filtering Data Within a 1-Month Range](https://public.getgrist.com/4zxVeFtGNt7n/1844)
@@ -889,23 +894,20 @@ We can use this column to filter our data. If we only want to see interactions t
 <span class="screenshot-large">*![add-filter](images/formula-cheat-sheet/add-filter.png)*</span>
 
 </details>
-<details id="date time errors"><summary >
-Troubleshooting Errors
-<a class="headerlink" href="#date_time_errors" title="Permanent link">#</a>
+
+<span></span><details><summary>
 #### Troubleshooting Errors
 </summary>
-`#TypeError`:
-<ul>
-<span class="screenshot-large">*![1-month-range-type-error](images/formula-cheat-sheet/1-month-range-type-error.png)*</span>
-Because `$Date` is a [Date](https://support.getgrist.com/col-types/#date-columns) type column, `TODAY()` must be used in formulas comparing dates. [`NOW()`](https://support.getgrist.com/functions/#now) is a DateTime formula that should only be used with other DateTime values. For example, if the `$Date` column was a [DateTime](https://support.getgrist.com/col-types/#datetime-columns) type column, `NOW()` would need to be used rather than `TODAY()` because it includes the time component.
 
-`NOW()` is date and time. `TODAY()` is only date.
-</ul>
+<span></span><div class="deflist">
+
+- `#TypeError`:
+
+    <span class="screenshot-large">*![1-month-range-type-error](images/formula-cheat-sheet/1-month-range-type-error.png)*</span>
+
+    Because `$Date` is a [Date](https://support.getgrist.com/col-types/#date-columns) type column, `TODAY()` must be used in formulas comparing dates. [`NOW()`](https://support.getgrist.com/functions/#now) is a DateTime formula that should only be used with other DateTime values. For example, if the `$Date` column was a [DateTime](https://support.getgrist.com/col-types/#datetime-columns) type column, `NOW()` would need to be used rather than `TODAY()` because it includes the time component.
+
+    `NOW()` is date and time. `TODAY()` is only date.
+</div>
+
 </details>
-</ul>
-
-
-
-
-
-</ul>
