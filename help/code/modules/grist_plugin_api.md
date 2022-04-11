@@ -38,6 +38,7 @@
 - [getTable](grist_plugin_api.md#gettable)
 - [mapColumnNames](grist_plugin_api.md#mapcolumnnames)
 - [mapColumnNamesBack](grist_plugin_api.md#mapcolumnnamesback)
+- [onNewRecord](grist_plugin_api.md#onnewrecord)
 - [onOptions](grist_plugin_api.md#onoptions)
 - [onRecord](grist_plugin_api.md#onrecord)
 - [onRecords](grist_plugin_api.md#onrecords)
@@ -254,6 +255,25 @@ we don't attempt to do these transformations automatically.
 #### Returns
 
 `any`
+
+___
+
+### onNewRecord
+
+▸ **onNewRecord**(`callback`): `void`
+
+For custom widgets, add a handler that will be called whenever the
+new (blank) row is selected.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | () => `unknown` |
+
+#### Returns
+
+`void`
 
 ___
 
