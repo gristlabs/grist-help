@@ -202,7 +202,7 @@ can update access rules to show only the relevant orders.
 In the `Rules for table Orders` group, click the three-dot icon (...), and
 select `Add Default Rule` to add a rule that isn't limited to specific columns.
 Let's deny access to all rows for non-Owners as a starting point, then add back in the 
-ones we want. We can do that with the condition `user.Access != "owners"` with
+ones we want. We can do that with the condition `user.Access != OWNER` with
 `Deny All` permissions.  Then, we add another default rule by clicking `+`, and 
 add the condition `user.Team.Role == rec.Stage`.  The `rec` variable allows
 us to express rules that depend on the content within a particular record.
