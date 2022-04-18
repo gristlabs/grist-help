@@ -50,7 +50,7 @@ There are three primary roles supported by Grist:
 The option to inherit access does not affect individual plans, and is explained
 in the [Team Sharing](team-sharing.md) article.
 
-## Public access
+## Public access and link sharing
 
 If you want to share your document with a wider audience, you can make it publicly accessible.
 Open the share menu by clicking on the share icon 
@@ -62,7 +62,7 @@ screen and selecting "Manage Users". Toggle the dropdown next to "Public Access"
 Once you click "confirm", anyone with the link to your document
 will be able to view it. They will not be required to have a Grist login.
 
-The "Copy Link" button is handy to copy the link to the clipboard for
+The "Copy Link" button is handy for link sharing. You can copy the link to the clipboard for
 pasting into an email, tweet, or anywhere else.
 
 You can also allow anyone with the link to edit your document. Simply 
