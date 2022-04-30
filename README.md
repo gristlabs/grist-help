@@ -9,7 +9,7 @@ The public site is at <https://support.getgrist.com/>, served using GitHub Pages
 The content is hosted at <https://github.com/dsagal/grist-help/>. On changes to master (such as
 when a pull request is merged), the public site gets automatically republished.
 
-Previews of pull requests are automatically built by netlify, and made available at URLs such as
+Previews of pull requests are automatically built by Netlify, and made available at URLs such as
 <https://deploy-preview-153--grist-help-preview.netlify.app/>. These are shown in the PR
 Conversation tab.
 
@@ -53,7 +53,7 @@ the site from your branch, and make it available at a URL like
 Conversation tab of the pull request.
 
 Any further pushes to this branch will cause the site to update. It may take Netlify a few minutes
-to notice the push, and takes about a minute to rebuild the preview site.
+to notice the push, and takes about a minute more to rebuild the preview site.
 
 ## Publishing changes live
 
