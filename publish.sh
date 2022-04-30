@@ -5,6 +5,12 @@ if [[ "$#" -lt 1 ]]; then
   exit 1
 fi
 
+echo "This script is no longer used because publishing is"
+echo "automatic upon commits or merges into master."
+# To use the script for manual overrides, remove the next line.
+# Or better yet, simply run 'mkdocs gh-deploy'
+exit 1
+
 WHERE=$1
 
 PLATFORM="unknown"
