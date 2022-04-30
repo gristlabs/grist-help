@@ -68,10 +68,11 @@ nav:
       - ... | flat | **/code/modules/**
   - News & updates:
     - Newsletters: newsletters.md
-    - 2022/03: newsletters/2022-03.md 
-    - 2022/02: newsletters/2022-02.md     
-    - 2022/01: newsletters/2022-01.md 
-    - 2021/12: newsletters/2021-12.md    
+    - 2022/04: newsletters/2022-04.md
+    - 2022/03: newsletters/2022-03.md
+    - 2022/02: newsletters/2022-02.md
+    - 2022/01: newsletters/2022-01.md
+    - 2021/12: newsletters/2021-12.md
     - 2021/11: newsletters/2021-11.md
     - 2021/10: newsletters/2021-10.md
     - 2021/09: newsletters/2021-09.md
