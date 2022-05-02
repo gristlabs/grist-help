@@ -4,13 +4,14 @@ Repository for Grist documentation and tutorials.
 
 ## Where are the docs published?
 
-The public site is at <https://support.getgrist.com/>
+The public site is at <https://support.getgrist.com/>, served using GitHub Pages.
 
-The preview site is at <https://support-preview.getgrist.com/>
+The content is hosted at <https://github.com/dsagal/grist-help/>. On changes to master (such as
+when a pull request is merged), the public site gets automatically republished.
 
-Both are served using GitHub Pages. The public version is hosted at
-<https://github.com/dsagal/grist-help/>. The preview version is hosted at
-<https://github.com/grist-jenkins/grist-help/>.
+Previews of pull requests are automatically built by Netlify, and made available at URLs such as
+<https://deploy-preview-153--grist-help-preview.netlify.app/>. These are shown in the PR
+Conversation tab.
 
 ## Setting up local environment
 
@@ -46,29 +47,19 @@ Downloaded: 36 files, 2.0M in 0.009s (226 MB/s)
 
 ## Publishing for preview
 
-Add the preview repo as a remote. Ask for access to
-<https://github.com/grist-jenkins/grist-help/> if you don't have it. You'll
-need push access to this repo to publish for preview.
+This is now automatically done by Netlify. Whenever you create a pull request, Netlify will build
+the site from your branch, and make it available at a URL like
+<https://deploy-preview-153--grist-help-preview.netlify.app/>. A link is placed into the
+Conversation tab of the pull request.
 
-``` sh
-git remote add preview https://github.com/grist-jenkins/grist-help.git
-git pull --all
-```
-
-After you've made changes, publish them to <https://support-preview.getgrist.com>:
-
-``` sh
-./publish.sh preview
-```
+Any further pushes to this branch will cause the site to update. It may take Netlify a few minutes
+to notice the push, and takes about a minute more to rebuild the preview site.
 
 ## Publishing changes live
 
-You'll need push access to <https://github.com/dsagal/grist-help/>. The
-following command will publish changes to <https://support.getgrist.com>:
-
-``` sh
-./publish.sh live
-```
+This is now automatically done by GitHub Actions, whenever a commit is made to master, or a pull
+request is merged into master. You can see the history of these builds here: [Publish Live
+workflow](https://github.com/gristlabs/grist-help/actions/workflows/publish-live.yml).
 
 ## Editing the API
 
