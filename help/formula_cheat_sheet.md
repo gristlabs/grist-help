@@ -54,7 +54,7 @@ The formula used in the 'Spots Left' column of the Classes table is:
 ```
 max($Max_Students - $Count, 0) or "Full"
 ```
-Here, the max value is determined from either `$Max_Students - $Count` or `0`. If `$Max_Students - $Count = 0`, then no max can be determined and the value returned is "Full".
+Here, the max value is determined from either `$Max_Students - $Count` or `0`. If `$Max_Students - $Count = 0`, then no max can be determined and the value returned is "Full". When `$Count` is less than `$Max_Students`, the difference `$Max_Students - $Count` is positive and represents the spots left in the class. When `$Count` exceeds `$Max_Students`, then the class is full or oversubscribed, and `$Max_Students - $Count` is negative. The maximum of a negative number and 0 will be 0, so `max($Max_Students - $Count, 0)` is 0. This represents a full class. The addition of `or "Full"` is applied when the value is falsy, which means that a 0 is replaced with the text `"Full"`.
 
 **Min**: Contacts table of the [Lightweight CRM](https://templates.getgrist.com/doc/lightweight-crm) template.
 
@@ -70,7 +70,7 @@ Let's break this down.
 `Interactions.lookupRecords(Contact=$id, Type="To-Do")` finds all records in the Interactions table where 
 the Contacts match and the Type is To-Do. This returns a list of records that we assign to the variable `items`. 
 
-Next, all Dates assigned to the records in our item list are evaluated to find the minimum date. This is the record that is returned. So, we see the date of the task that is due the soonest. 
+Next, all Dates assigned to the records in our item list are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. 
 
 If there are no items in the list, nothing is returned and the field is left blank.
 </details>
@@ -79,7 +79,7 @@ If there are no items in the list, nothing is returned and the field is left bla
 <span></span><section class="cheat-sheet">
 #### Sum
 
-Use the [SUM()](https://support.getgrist.com/functions/#sum) function when you want to sum values across a row. If you want to sum values in a column, use [Summary Tables](https://support.getgrist.com/summary-tables/).
+Use the [SUM()](https://support.getgrist.com/functions/#sum) function when you want to sum a list of values available within a cell. If you want to sum values in a column, use [Summary Tables](https://support.getgrist.com/summary-tables/).
 
 <span></span><details><summary>
 #### Example of SUM()
@@ -109,16 +109,96 @@ SUM(Incoming_Order_Line_Items.lookupRecords(SKU=$id).Received_Qty)
 ```
 We use the [lookupRecords](https://support.getgrist.com/functions/#lookuprecords) function to find all records in the Incoming Order Line Items table where the SKU matches the SKU in this row then pull the value in the Received Qty column for each of those records. We use SUM() to find the sum of those values.
 
-The Qty on Order and Sold columns of the All Products table are also great examples of the SUM() function.
+The Qty on Order and Sold columns of the [All Products](https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/1) table are also great examples of the SUM() function.
 
 **Check out another example in our Community Forum:** [Creating a Sum of Net and Gross profit from multiple tables](https://community.getgrist.com/t/creating-a-sum-of-net-and-gross-profit-from-multiple-tables/668)
 </details>
 </section>
 
 <span></span><section class="cheat-sheet">
+#### Comparing for equality: == and !=
+
+When comparing for equality in Python, we use `==` for 'equals' and `!=` for 'does not equal'. If `$A = 2` and `$B = 3`, the formula `"True" if $A == $B else "False"` would return `False`. Alternatively, the formula `"True" if $A != $B else "False"` would return `True`. 
+
+<span></span><details><summary>
+#### Examples using `==`
+</summary>
+
+**[Inventory Manager](https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/10) template**
+
+<span class="screenshot-large">*![equality-received-qty](images/formula-cheat-sheet/equality-received-qty.png)*</span>
+
+The formula used in the Received Qty column of the Incoming Order Line Items table is:
+```
+if $Order_Number.Status =='Received':
+  return $Qty
+else:
+  return None
+```
+The Order Number column of the Incoming Order Line Items Table is a reference column that points to the Order Number column of the Incoming Orders table. `$Order_Number.Status` uses dot notation to pull the value from the Status column of the Incoming Orders table. If the value in this column is equal to `Received`, the value from the Qty column will be returned.  If the value is not equal to `Received`, nothing is returned.
+
+<span class="screenshot-large">*![equality-date-received](images/formula-cheat-sheet/equality-date-received.png)*</span>
+
+The formula used in the Date Received column of the [Create New Order](https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/16#a1.s35.r11.c82) table is:
+```
+if $Status == "Received":
+  return NOW()
+```
+This is a [trigger formula](https://support.getgrist.com/formulas/#trigger-formulas) that is triggered when a change is made to the Status column. If the value in the Status column is equal to `Received`, the current date is returned. If the values are not equal, nothing is returned.
+
+<span class="screenshot-large">*![equality-outstanding-balanced](images/formula-cheat-sheet/equality-outstanding-balance.png)*</span>
+
+The formula used in the Outstanding Balance column of the [Outgoing Orders](https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/18#a1.s39.r1.c236) table is:
+```
+if $Financial_Status == "Unpaid":
+  return $Total
+if $Financial_Status == "Paid in Full":
+  return "0.00"
+if $Financial_Status == "Partial Payment":
+  return $Total - $Amount_Paid
+```
+Here, we have three different arguments based on the value in the Financial Status column. If the value in the Financial Status column is `Unpaid`, then the value from the Total column is returned here. If Financial Status is `Paid in Full` then the balance that should be returned is `0.00`. If the value in the Financial Status column is `Partial Payment`, the formula calculates the difference between the amounts in the Total and Amount Paid columns and returns that value.
+</details>
+<span></span><details><summary>
+#### Examples using `!=`
+</summary>
+
+**[Project Management](https://docs.getgrist.com/6S68aHxVeGJu/Project-Management-copy/p/9) template**
+
+<span class="screenshot-large">*![inequality-missed-deadline](images/formula-cheat-sheet/inequality-missed-deadline.png)*</span>
+
+The formula used in the Missed Deadline column of the Missed Deadline table is:
+```
+if TODAY()> $Due_Date and $Status != "Completed":
+  return True
+else:
+  return False
+```
+If the current date is greater than the date given in the Due Date column **and** the value in the Status column is not equal to `Completed`, the formula returns `True`. If either of these statements is false, the formula returns `False`.
+
+**[Restaurant Custom Orders](https://templates.getgrist.com/e4gEm7dt4cgB/Restaurant-Custom-Orders) template**
+
+<span class="screenshot-large">*![inequality-restaurant-bom](images/formula-cheat-sheet/inequality-restaurant-bom.png)*</span>
+
+The trigger formula used in the BOM # column of the Bill of Materials table is:
+```
+MAX(o.BOM_ for o in Bill_Of_Materials.all if o.id != $id) + 1
+```
+First, we'll walk through the formula inside the parenthesis then work outwards.
+
+Here, `o` is a variable representing each record in our table. `o.BOM_` represents the BOM # for each record and `o.id` represents the row ID for each record. This is a `for` loop that makes a list of the BOM # for each record in the table Bill of Materials when the record ID does not equal the ID of this row.
+
+`MAX()` finds the maximum BOM # in the list then `+ 1` to get our final value. 
+
+This is a trigger formula that only applies to new records. When a new record is created, the formula finds the highest BOM # in the table then adds 1 so we have a unique BOM # for the new record.
+
+</details>
+</section>
+
+<span></span><section class="cheat-sheet">
 #### Comparing Values: < , > , <= , >=
 
-Allows you to compare numerical values. If Sales = `$1200` and Running Cost = `$1650`, `"Gains" if Sales > Running Cost else "Loss"` would return `Loss`.
+Allows you to compare numerical values. If Sales = `1200` and Running_Cost = `1650`, `"Gains" if $Sales > $Running_Cost else "Loss"` would return `Loss`.
 
 <span></span><details><summary>
 #### Examples comparing values
@@ -128,34 +208,23 @@ Allows you to compare numerical values. If Sales = `$1200` and Running Cost = `$
 
 <span class="screenshot-large">*![comparing-values-stock-alert](images/formula-cheat-sheet/comparing-values-stock-alert.png)*</span>
 
-The formula used here is:
+The formula used in the Stock Alert column of the All Products table is:
 ```
 if $In_Stock + $QTY_on_Order > 5:
   return "In Stock"
 if $In_Stock + $QTY_on_Order > 0:
   return "Low Stock"
-if $In_Stock + $QTY_on_Order <= 0:
+else:
   return "OUT OF STOCK"
 ```
-Here, we have three different **if-return** statements; if `x` is true, return `some_value`. Once a statement is true and a value is returned, the formula stops. 
+Here, we have two different **if-return** statements; if `x` is true, return `some_value`. Once a statement is true and a value is returned, the formula stops. If both are false, `OUT OF STOCK` is returned.
 
 First, if the value in the In Stock column plus the value in the Qty On Order column are greater than 5, return "In Stock". 
 
 Next, if the value in the In Stock column plus the value in the Qty On Order column are greater than 0, return "Low Stock". It's implied that the value is less than or equal to 5 because the first statement would have to be false for this to be evaluated. 
 
-Last, if the value in the In Stock column plus the value in the Qty On Order column are less than or equal to 0, return "OUT OF STOCK".
+Last, if all statements are false, return "OUT OF STOCK".
 
-**[Influencer Outreach](https://templates.getgrist.com/qPxe3srL7H28/Influencer-Outreach) template**
-
-<span class="screenshot-large">*![comparing-values-interactions](images/formula-cheat-sheet/comparing-values-interactions.png)*</span>
-
-The formula used in the Interactions? column of the Opportunities table is:
-```
-len(Interactions.lookupRecords(Influencer=$id))>0
-```
-We use the [lookupRecords](https://support.getgrist.com/functions/#lookuprecords) function to find all records in the Interactions table where the Influencer matches the Name in this row.
-
-We use [len()](https://support.getgrist.com/functions/#len) to count the number of records found. If there are more than zero records, the formula is evaluated to be true and the toggle will be toggled on. If there are zero records, the formula is evaluated to be false.
 
 **[Internal Links Tracker for SEO](https://templates.getgrist.com/j9ZH7rPGafbH/Internal-Links-Tracker-for-SEO) template**
 
@@ -169,7 +238,6 @@ We use the [lookupRecords](https://support.getgrist.com/functions/#lookuprecords
 
 We use [len()](https://support.getgrist.com/functions/#len) to count the number of records found. If it's less than 1, the formula is evaluated to be true and the checkbox will be checked. If it's equal to or greater than 1, the formula is evaluated to be false.
 
-The No Internal Links? column of the [Pages Without Links to Other Pages](https://templates.getgrist.com/j9ZH7rPGafbH/Internal-Links-Tracker-for-SEO/p/5#a1.s10.r2.c33) table is another example of comparing values.
 </details>
 </section>
 
@@ -177,11 +245,11 @@ The No Internal Links? column of the [Pages Without Links to Other Pages](https:
 <span></span><section class="cheat-sheet">
 #### Converting from String to Float
 
-**[String](https://www.w3schools.com/python/python_strings.asp)**: A sequence of characters that once defined, cannot be changed. See [Python str() Function](https://www.w3schools.com/python/ref_func_str.asp) for converting a specified value to a string.
-
-**[Integer](https://www.w3schools.com/python/python_numbers.asp)**: A whole number, without decimals. See [Python int() Function](https://www.w3schools.com/python/ref_func_int.asp) for converting a specified value to an integer number.
+**[String](https://www.w3schools.com/python/python_strings.asp)**: A sequence of characters or snippets of text. In code, strings are quoted e.g. `'Hello'` or `"-12"` (those are three characters in quotes, as opposed to a negative number). See [Python str() Function](https://www.w3schools.com/python/ref_func_str.asp) for converting a specified value to a string.
 
 **[Float](https://www.w3schools.com/python/gloss_python_float.asp)**: Real numbers that can store decimal values. Also called floating point number. See [Python float() Function](https://www.w3schools.com/python/ref_func_float.asp) for converting a specified value into a floating point number.
+
+**[Integer](https://www.w3schools.com/python/python_numbers.asp)**: A whole number, without decimals. See [Python int() Function](https://www.w3schools.com/python/ref_func_int.asp) for converting a specified value to an integer number.
 
 <span></span><details><summary>
 #### Example converting a string to a float
@@ -211,6 +279,20 @@ In the first equation, we used our reference list column, Mix Product, as our li
 
 Finally, we use the [join()](https://www.w3schools.com/python/ref_string_join.asp) method to combine our two lists. `' '` is our starting (empty) string. We use Python's [format method](https://www.w3schools.com/python/ref_string_format.asp) to format our string. `{}` is a placeholder for each variable listed in `.format()`. Last, we use Python's [zip() function](https://www.w3schools.com/python/ref_func_zip.asp) to pair the first values from each list together and then pair the second values in each list together. `l` is assigned as our `first` list and `x` is assigned as our `second` list. `l = [Prod A, Prod B]` and `x = [5.0, 10.0]`. Zipping our lists into `'{} {}'.format(first, second)` gives us `Prod A 5.0` in our first iteration and `Prod B 10.0` in our second iteration. Our final return value is `Prod A 5.0 Prod B 10.0`.
 </details>
+
+<span></span><details><summary>
+#### Troubleshooting
+</summary>
+**TypeError: can't multiply sequence by non-int of type 'float'**
+
+if you are trying to use different columns with *numeric* values in a mathematical formula but seeing this error, check the column types for each of the columns used in the formula. All need to be of type numeric.
+
+<span class="screenshot-large">*![column-type-numeric](images/formula-cheat-sheet/column-type-numeric.png)*</span>
+{: .screenshot-half }
+
+[float()](https://docs.python.org/3/library/functions.html#float) is only needed when dealing with alpha-numeric values like we see in the [example](#example-converting-a-string-to-a-float).
+
+</details>
 </section>
 
 
@@ -222,6 +304,16 @@ Specify the number of decimal places to give in a result using the [ROUND()](htt
 <span></span><details><summary>
 #### Example of rounding numbers
 </summary>
+**[Payroll](https://templates.getgrist.com/5pHLanQNThxk/Payroll/p/2) template**
+
+<span class="screenshot-large">*![round-payment](images/formula-cheat-sheet/round-payment.png)*</span>
+
+The formula used in the Payment column is:
+```
+ROUND($Hours*$Per_Hour, 2)
+```
+The [ROUND()](https://support.getgrist.com/functions/#round) function follows the format `ROUND(value, places)` which will round the given value to the number of places specified. Our formula finds the value for `$Hours*$Per_Hour` then rounds this value to `2` decimal places.
+
 **[Mixing Products](https://public.getgrist.com/v4vj2PDZS4jf/Community-665/m/fork)**
 
 <span class="screenshot-large">*![round](images/formula-cheat-sheet/round.png)*</span>
@@ -253,12 +345,12 @@ Finally, we use the [join()](https://www.w3schools.com/python/ref_string_join.as
 
 
 <span></span><section class="cheat-sheet">
-#### Specify Minimum Number of Digits
+#### Formatting numbers with leading zeros
 
-Allows you to specify the minimum number of digits returned in a numerical column by adding leading zeros. If x = 5, `str(x).zfill(3)` or `str('{:0>3}').format(x)` would return `005`.
+Allows you to specify the minimum number of digits returned in a numerical column by adding leading zeros. If x = 5, `str(x).zfill(3)` or `'{:0>3}'.format(x)` would return `005`.
 
 <span></span><details><summary>
-#### Example of Specifying Minimum Number of Digits
+#### Formatting numbers with leading zeros
 </summary>
 
 **Community Example: [Using Row ID](https://public.getgrist.com/p4zvsX9asVCc/2179-Using-id/p/1)**
@@ -267,10 +359,10 @@ Allows you to specify the minimum number of digits returned in a numerical colum
 
 The formula used in the 5-digit ID column of the ID Examples table is:
 ```
-"TCH" + str('{:0>5}'.format($id))
+'TCH{:0>5}'.format($id)
 ```
 
-`'{:0>5}'.format($id)` takes the unique row ID and formats it to be a minimum of 5 digits. `str()` converts this number to a string. We then add this string to our first string `"TCH"` to get our final value. If the `$id` is longer than 5 digits, the formula returns the string unmodified.
+`'{:0>5}'.format($id)` takes the unique row ID and formats it to be a minimum of 5 digits. We then add this to our string `"TCH"` to get our final value. If the `$id` is longer than 5 digits, the formula returns the string unmodified.
 
 We can do the same thing using the [`str.zfill()`](https://docs.python.org/3/library/stdtypes.html#str.zfill) method.
 
@@ -289,7 +381,7 @@ str($id).zfill(5)
 </summary>
 `#TypeError`: can only concatenate str (not "int") to str
 
-If you mean to use the row ID as a character rather than a numerical value, be sure to convert it to string using `str()`.
+If you mean to combine a string and a numerical value, be sure to convert it to string using `str()`.
 
 
 <span class="screenshot-large">*![string-type-error](images/formula-cheat-sheet/string-type-error.png)*</span>
