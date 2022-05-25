@@ -968,6 +968,7 @@ components:
                 example: 1
               fields:
                 type: object
+                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)."
       example:
         records:
           -
@@ -994,6 +995,7 @@ components:
             properties:
               fields:
                 type: object
+                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)."
       example:
         records:
           -
@@ -1040,14 +1042,16 @@ components:
               require:
                 type: object
                 description: >
-                  keys are column identifiers, and values are what we
-                  want we want to have in those columns (either by matching
+                  keys are column identifiers, and values are
+                  [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)
+                  we want to have in those columns (either by matching
                   with an existing record, or creating a new record)
               fields:
                 type: object
                 description: >
-                  keys are column identifiers, and values are what to place
-                  in those columns (either overwriting values in an existing
+                  keys are column identifiers, and values are
+                  [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)
+                  to place in those columns (either overwriting values in an existing
                   record, or in a new record)
       example:
         records:

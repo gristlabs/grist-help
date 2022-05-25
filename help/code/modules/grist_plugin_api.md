@@ -15,6 +15,8 @@
 - [ParseOptions](../interfaces/grist_plugin_api.parseoptions.md)
 - [ReadyPayload](../interfaces/grist_plugin_api.readypayload.md)
 - [RenderOptions](../interfaces/grist_plugin_api.renderoptions.md)
+- [RowRecord](../interfaces/grist_plugin_api.rowrecord.md)
+- [RowRecords](../interfaces/grist_plugin_api.rowrecords.md)
 - [WidgetAPI](../interfaces/grist_plugin_api.widgetapi.md)
 - [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md)
 
@@ -38,6 +40,7 @@
 - [getTable](grist_plugin_api.md#gettable)
 - [mapColumnNames](grist_plugin_api.md#mapcolumnnames)
 - [mapColumnNamesBack](grist_plugin_api.md#mapcolumnnamesback)
+- [onNewRecord](grist_plugin_api.md#onnewrecord)
 - [onOptions](grist_plugin_api.md#onoptions)
 - [onRecord](grist_plugin_api.md#onrecord)
 - [onRecords](grist_plugin_api.md#onrecords)
@@ -216,7 +219,7 @@ ___
 
 ### mapColumnNames
 
-▸ **mapColumnNames**(`data`, `options`): `any`
+▸ **mapColumnNames**(`data`, `options?`): `any`
 
 Renames columns in the result using columns mapping configuration passed in ready method.
 Returns null if not all required columns were mapped or not widget doesn't support
@@ -227,7 +230,7 @@ custom column mapping.
 | Name | Type |
 | :------ | :------ |
 | `data` | `any` |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
@@ -237,7 +240,7 @@ ___
 
 ### mapColumnNamesBack
 
-▸ **mapColumnNamesBack**(`data`, `options`): `any`
+▸ **mapColumnNamesBack**(`data`, `options?`): `any`
 
 Offer a convenient way to map data with renamed columns back into the
 form used in the original table. This is useful for making edits to the
@@ -249,11 +252,30 @@ we don't attempt to do these transformations automatically.
 | Name | Type |
 | :------ | :------ |
 | `data` | `any` |
-| `options` | `Object` |
+| `options?` | `Object` |
 
 #### Returns
 
 `any`
+
+___
+
+### onNewRecord
+
+▸ **onNewRecord**(`callback`): `void`
+
+For custom widgets, add a handler that will be called whenever the
+new (blank) row is selected.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callback` | (`mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
+
+#### Returns
+
+`void`
 
 ___
 
@@ -288,14 +310,12 @@ row with the cursor changes - either by switching to a different row, or
 by some value within the row potentially changing.  Handler may
 in the future be called with null if the cursor moves away from
 any row.
-TODO: currently this will be called even if the content of a different row
-changes.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`data`: `RowRecord` \| ``null``, `mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
+| `callback` | (`data`: [RowRecord](../interfaces/grist_plugin_api.rowrecord.md) \| ``null``, `mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
 
 #### Returns
 
@@ -314,7 +334,7 @@ selected records change.  Handler will be called with a list of records.
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`data`: `RowRecord`[], `mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
+| `callback` | (`data`: [RowRecord](../interfaces/grist_plugin_api.rowrecord.md)[], `mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
 
 #### Returns
 

@@ -31,7 +31,7 @@ ___
 
 ▸ **fetchSelectedRecord**(`rowId`): `Promise`<any\>
 
-Similar TODO to `fetchSelectedTable()` for return type.
+Fetches selected record by its `rowId`.
 
 #### Parameters
 
@@ -50,8 +50,6 @@ ___
 ▸ **fetchSelectedTable**(): `Promise`<any\>
 
 Like [GristDocAPI.fetchTable](grist_plugin_api.gristdocapi.md#fetchtable), but gets data for the custom section specifically, if there is any.
-TODO: return type is Promise{[colId: string]: CellValue[]}> but cannot be specified because
-ts-interface-builder does not properly support index-signature.
 
 #### Returns
 
