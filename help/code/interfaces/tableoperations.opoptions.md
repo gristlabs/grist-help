@@ -3,11 +3,23 @@
 [TableOperations](../modules/tableoperations.md).OpOptions
 
 General options for table operations.
-By default, string field values will be parsed based on the column type.
-This can be disabled.
 
 ## Hierarchy
 
 - **OpOptions**
 
   ↳ [UpsertOptions](tableoperations.upsertoptions.md)
+
+## Table of contents
+
+### Properties
+
+- [parseStrings](tableoperations.opoptions.md#parsestrings)
+
+## Properties
+
+### parseStrings
+
+• `Optional` **parseStrings**: `boolean`
+
+Whether to parse strings based on the column type. Defaults to true.

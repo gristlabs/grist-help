@@ -2,7 +2,7 @@
 
 [grist-plugin-api](../modules/grist_plugin_api.md).GristDocAPI
 
-Allows getting information from and nteracting with the Grist document to which a plugin or widget is attached.
+Allows getting information from and interacting with the Grist document to which a plugin or widget is attached.
 
 ## Table of contents
 
@@ -20,8 +20,6 @@ Allows getting information from and nteracting with the Grist document to which 
 ▸ **applyUserActions**(`actions`, `options?`): `Promise`<any\>
 
 Applies an array of user actions.
-TODO: return type should be Promise<ApplyUAResult>, but this requires importing modules from
-`app/common` which is not currently supported by the build.
 
 #### Parameters
 
@@ -40,10 +38,9 @@ ___
 
 ▸ **fetchTable**(`tableId`): `Promise`<any\>
 
-Returns a complete table of data in the format {colId: [values]}, including the 'id' column.
-Do not modify the returned arrays in-place, especially if used directly (not over RPC).
-TODO: return type is Promise{[colId: string]: CellValue[]}> but cannot be specified because
-ts-interface-builder does not properly support index-signature.
+Returns a complete table of data as [RowRecords](grist_plugin_api.rowrecords.md), including the
+'id' column. Do not modify the returned arrays in-place, especially if used
+directly (not over RPC).
 
 #### Parameters
 

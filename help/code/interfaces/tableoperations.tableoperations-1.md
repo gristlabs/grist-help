@@ -50,7 +50,7 @@ ___
 
 ### destroy
 
-▸ **destroy**(`recordId`): `Promise`<number\>
+▸ **destroy**(`recordIds`): `Promise`<void\>
 
 Delete a record or records.
 
@@ -58,23 +58,11 @@ Delete a record or records.
 
 | Name | Type |
 | :------ | :------ |
-| `recordId` | `number` |
+| `recordIds` | `number` \| `number`[] |
 
 #### Returns
 
-`Promise`<number\>
-
-▸ **destroy**(`recordIds`): `Promise`<number[]\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `recordIds` | `number`[] |
-
-#### Returns
-
-`Promise`<number[]\>
+`Promise`<void\>
 
 ___
 
