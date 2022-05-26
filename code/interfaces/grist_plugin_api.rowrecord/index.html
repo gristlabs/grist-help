@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/code/interfaces/grist_plugin_api.gristtable/">
+    <link rel="canonical" href="https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Interface: GristTable - Grist Help Center</title>
+    <title>Interface: RowRecord - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -395,21 +395,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Interface: GristTable</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.gristtable/" class="wm-article-link wm-toc-text">Interface: GristTable</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Interface: GristTable
-            </a>
-          </li>
-        
-      </ul>
-    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.gristview/" class="wm-article-link wm-toc-text">Interface: GristView</a>
@@ -440,8 +427,36 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
+      <li class="wm-toc-li wm-toc-lev3  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Interface: RowRecord
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#cellvalue">
+                CellValue
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#grist-object-types">
+                Grist Object Types
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#indexable">
+                Indexable
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecords/" class="wm-article-link wm-toc-text">Interface: RowRecords</a>
@@ -729,20 +744,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../grist_plugin_api.gristview/" class="btn btn-xs btn-default pull-right">
+      <a href="../grist_plugin_api.rowrecords/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../grist_plugin_api.gristview/" class="btn btn-xs btn-link">
-        Interface: GristView
+      <a href="../grist_plugin_api.rowrecords/" class="btn btn-xs btn-link">
+        Interface: RowRecords
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../grist_plugin_api.gristdocapi/" class="btn btn-xs btn-default pull-left">
+      <a href="../grist_plugin_api.renderoptions/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../grist_plugin_api.gristdocapi/" class="btn btn-xs btn-link">
-        Interface: GristDocAPI
+        Previous</a><a href="../grist_plugin_api.renderoptions/" class="btn btn-xs btn-link">
+        Interface: RenderOptions
       </a>
     </div>
     
@@ -750,14 +765,147 @@
 
     
 
-    <h1 id="interface-gristtable">Interface: GristTable<a class="headerlink" href="#interface-gristtable" title="Permanent link">#</a></h1>
-<p><a href="../../modules/grist_plugin_api/">grist-plugin-api</a>.GristTable</p>
-<p>Metadata and data for a table.</p>
+    <h1 id="interface-rowrecord">Interface: RowRecord<a class="headerlink" href="#interface-rowrecord" title="Permanent link">#</a></h1>
+<p><a href="../../modules/grist_plugin_api/">grist-plugin-api</a>.RowRecord</p>
+<p>Map of column ids to <code>CellValue</code>s.</p>
+<h3 id="cellvalue">CellValue<a class="headerlink" href="#cellvalue" title="Permanent link">#</a></h3>
+<p>Each <code>CellValue</code> may either be a primitive (e.g. <code>true</code>, <code>123</code>, <code>"hello"</code>, <code>null</code>)
+or a tuple (JavaScript Array) representing a Grist object. The first element of the tuple
+is a string character representing the object code. For example, <code>["L", "foo", "bar"]</code>
+is a <code>CellValue</code> of a Choice List column, where <code>"L"</code> is the type, and <code>"foo"</code> and
+<code>"bar"</code> are the choices.</p>
+<h3 id="grist-object-types">Grist Object Types<a class="headerlink" href="#grist-object-types" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L</td>
+<td>List</td>
+</tr>
+<tr>
+<td>l</td>
+<td>LookUp</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Dict</td>
+</tr>
+<tr>
+<td>D</td>
+<td>DateTime</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Censored</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Reference</td>
+</tr>
+<tr>
+<td>r</td>
+<td>ReferenceList</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Exception</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>U</td>
+<td>Unmarshallable</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Version</td>
+</tr>
+</tbody>
+</table>
+<h2 id="indexable">Indexable<a class="headerlink" href="#indexable" title="Permanent link">#</a></h2>
+<p>▪ [colId: <code>string</code>]: <code>CellValue</code></p>
+<p>Map of column ids to <code>CellValue</code>s.</p>
+<h3 id="cellvalue_1">CellValue<a class="headerlink" href="#cellvalue_1" title="Permanent link">#</a></h3>
+<p>Each <code>CellValue</code> may either be a primitive (e.g. <code>true</code>, <code>123</code>, <code>"hello"</code>, <code>null</code>)
+or a tuple (JavaScript Array) representing a Grist object. The first element of the tuple
+is a string character representing the object code. For example, <code>["L", "foo", "bar"]</code>
+is a <code>CellValue</code> of a Choice List column, where <code>"L"</code> is the type, and <code>"foo"</code> and
+<code>"bar"</code> are the choices.</p>
+<h3 id="grist-object-types_1">Grist Object Types<a class="headerlink" href="#grist-object-types_1" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L</td>
+<td>List</td>
+</tr>
+<tr>
+<td>l</td>
+<td>LookUp</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Dict</td>
+</tr>
+<tr>
+<td>D</td>
+<td>DateTime</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Censored</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Reference</td>
+</tr>
+<tr>
+<td>r</td>
+<td>ReferenceList</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Exception</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Pending</td>
+</tr>
+<tr>
+<td>U</td>
+<td>Unmarshallable</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Version</td>
+</tr>
+</tbody>
+</table>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/interfaces/grist_plugin_api.gristtable.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/interfaces/grist_plugin_api.rowrecord.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

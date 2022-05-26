@@ -427,6 +427,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecords/" class="wm-article-link wm-toc-text">Interface: RowRecords</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.widgetapi/" class="wm-article-link wm-toc-text">Interface: WidgetAPI</a>
 
     
@@ -813,7 +821,7 @@
 <p><code>Promise</code>&lt;MinimalRecord[]></p>
 <hr />
 <h3 id="destroy">destroy<a class="headerlink" href="#destroy" title="Permanent link">#</a></h3>
-<p>▸ <strong>destroy</strong>(<code>recordId</code>): <code>Promise</code>&lt;number></p>
+<p>▸ <strong>destroy</strong>(<code>recordIds</code>): <code>Promise</code>&lt;void></p>
 <p>Delete a record or records.</p>
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
 <table>
@@ -825,42 +833,24 @@
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>recordId</code></td>
-<td align="left"><code>number</code></td>
+<td align="left"><code>recordIds</code></td>
+<td align="left"><code>number</code> | <code>number</code>[]</td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;number></p>
-<p>▸ <strong>destroy</strong>(<code>recordIds</code>): <code>Promise</code>&lt;number[]></p>
-<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>recordIds</code></td>
-<td align="left"><code>number</code>[]</td>
-</tr>
-</tbody>
-</table>
-<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;number[]></p>
+<p><code>Promise</code>&lt;void></p>
 <hr />
 <h3 id="gettableid">getTableId<a class="headerlink" href="#gettableid" title="Permanent link">#</a></h3>
 <p>▸ <strong>getTableId</strong>(): <code>Promise</code>&lt;string></p>
 <p>Determine the tableId of the table.</p>
-<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">#</a></h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;string></p>
 <hr />
 <h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">#</a></h3>
 <p>▸ <strong>update</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;void></p>
 <p>Update a record or records.</p>
-<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">#</a></h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -879,13 +869,13 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">#</a></h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;void></p>
 <hr />
 <h3 id="upsert">upsert<a class="headerlink" href="#upsert" title="Permanent link">#</a></h3>
 <p>▸ <strong>upsert</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;void></p>
 <p>Add or update a record or records.</p>
-<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">#</a></h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -904,7 +894,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">#</a></h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;void></p>
 
   <br>

@@ -450,6 +450,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecords/" class="wm-article-link wm-toc-text">Interface: RowRecords</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.widgetapi/" class="wm-article-link wm-toc-text">Interface: WidgetAPI</a>
 
     
@@ -754,7 +762,7 @@
 
     <h1 id="interface-gristdocapi">Interface: GristDocAPI<a class="headerlink" href="#interface-gristdocapi" title="Permanent link">#</a></h1>
 <p><a href="../../modules/grist_plugin_api/">grist-plugin-api</a>.GristDocAPI</p>
-<p>Allows getting information from and nteracting with the Grist document to which a plugin or widget is attached.</p>
+<p>Allows getting information from and interacting with the Grist document to which a plugin or widget is attached.</p>
 <h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
 <h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h3>
 <ul>
@@ -766,9 +774,7 @@
 <h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h2>
 <h3 id="applyuseractions">applyUserActions<a class="headerlink" href="#applyuseractions" title="Permanent link">#</a></h3>
 <p>▸ <strong>applyUserActions</strong>(<code>actions</code>, <code>options?</code>): <code>Promise</code>&lt;any></p>
-<p>Applies an array of user actions.
-TODO: return type should be Promise<ApplyUAResult>, but this requires importing modules from
-<code>app/common</code> which is not currently supported by the build.</p>
+<p>Applies an array of user actions.</p>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -793,10 +799,9 @@ TODO: return type should be Promise<ApplyUAResult>, but this requires importing 
 <hr />
 <h3 id="fetchtable">fetchTable<a class="headerlink" href="#fetchtable" title="Permanent link">#</a></h3>
 <p>▸ <strong>fetchTable</strong>(<code>tableId</code>): <code>Promise</code>&lt;any></p>
-<p>Returns a complete table of data in the format {colId: [values]}, including the &lsquo;id&rsquo; column.
-Do not modify the returned arrays in-place, especially if used directly (not over RPC).
-TODO: return type is Promise{[colId: string]: CellValue[]}&gt; but cannot be specified because
-ts-interface-builder does not properly support index-signature.</p>
+<p>Returns a complete table of data as <a href="../grist_plugin_api.rowrecords/">RowRecords</a>, including the
+&lsquo;id&rsquo; column. Do not modify the returned arrays in-place, especially if used
+directly (not over RPC).</p>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
 <table>
 <thead>

@@ -427,6 +427,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecords/" class="wm-article-link wm-toc-text">Interface: RowRecords</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.widgetapi/" class="wm-article-link wm-toc-text">Interface: WidgetAPI</a>
 
     
@@ -458,6 +466,16 @@
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#hierarchy">
                 Hierarchy
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#table-of-contents">
+                Table of contents
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#properties_1">
+                Properties
               </a>
             </li>
         
@@ -749,13 +767,43 @@
 
     <h1 id="interface-upsertoptions">Interface: UpsertOptions<a class="headerlink" href="#interface-upsertoptions" title="Permanent link">#</a></h1>
 <p><a href="../../modules/tableoperations/">TableOperations</a>.UpsertOptions</p>
-<p>Extra options for upserts. By default, add and update are true,
-onMany is first, and allowEmptyRequire is false.</p>
+<p>Extra options for upserts.</p>
 <h2 id="hierarchy">Hierarchy<a class="headerlink" href="#hierarchy" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../tableoperations.opoptions/">OpOptions</a></li>
 </ul>
 <p>↳ <strong>UpsertOptions</strong></p>
+<h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
+<h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="./#add">add</a></li>
+<li><a href="./#allowemptyrequire">allowEmptyRequire</a></li>
+<li><a href="./#onmany">onMany</a></li>
+<li><a href="./#parsestrings">parseStrings</a></li>
+<li><a href="./#update">update</a></li>
+</ul>
+<h2 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h2>
+<h3 id="add">add<a class="headerlink" href="#add" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>add</strong>: <code>boolean</code></p>
+<p>Permit inserting a record. Defaults to true.</p>
+<hr />
+<h3 id="allowemptyrequire">allowEmptyRequire<a class="headerlink" href="#allowemptyrequire" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>allowEmptyRequire</strong>: <code>boolean</code></p>
+<p>Allow &ldquo;wildcard&rdquo; operation. Defaults to false.</p>
+<hr />
+<h3 id="onmany">onMany<a class="headerlink" href="#onmany" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>onMany</strong>: <code>"none"</code> | <code>"first"</code> | <code>"all"</code></p>
+<p>Whether to update none, one, or all matching records. Defaults to &ldquo;first&rdquo;.</p>
+<hr />
+<h3 id="parsestrings">parseStrings<a class="headerlink" href="#parsestrings" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>parseStrings</strong>: <code>boolean</code></p>
+<p>Whether to parse strings based on the column type. Defaults to true.</p>
+<h4 id="inherited-from">Inherited from<a class="headerlink" href="#inherited-from" title="Permanent link">#</a></h4>
+<p><a href="../tableoperations.opoptions/">OpOptions</a>.<a href="../tableoperations.opoptions/#parsestrings">parseStrings</a></p>
+<hr />
+<h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>update</strong>: <code>boolean</code></p>
+<p>Permit updating a record. Defaults to true.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">

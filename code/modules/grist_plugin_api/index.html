@@ -455,6 +455,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.rowrecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.rowrecords/" class="wm-article-link wm-toc-text">Interface: RowRecords</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.widgetapi/" class="wm-article-link wm-toc-text">Interface: WidgetAPI</a>
 
     
@@ -772,6 +780,8 @@
 <li><a href="../../interfaces/grist_plugin_api.parseoptions/">ParseOptions</a></li>
 <li><a href="../../interfaces/grist_plugin_api.readypayload/">ReadyPayload</a></li>
 <li><a href="../../interfaces/grist_plugin_api.renderoptions/">RenderOptions</a></li>
+<li><a href="../../interfaces/grist_plugin_api.rowrecord/">RowRecord</a></li>
+<li><a href="../../interfaces/grist_plugin_api.rowrecords/">RowRecords</a></li>
 <li><a href="../../interfaces/grist_plugin_api.widgetapi/">WidgetAPI</a></li>
 <li><a href="../../interfaces/grist_plugin_api.widgetcolumnmap/">WidgetColumnMap</a></li>
 </ul>
@@ -795,6 +805,7 @@
 <li><a href="./#gettable">getTable</a></li>
 <li><a href="./#mapcolumnnames">mapColumnNames</a></li>
 <li><a href="./#mapcolumnnamesback">mapColumnNamesBack</a></li>
+<li><a href="./#onnewrecord">onNewRecord</a></li>
 <li><a href="./#onoptions">onOptions</a></li>
 <li><a href="./#onrecord">onRecord</a></li>
 <li><a href="./#onrecords">onRecords</a></li>
@@ -944,7 +955,7 @@ on the table is attempted.</p>
 <p><a href="../../interfaces/tableoperations.tableoperations-1/">TableOperations</a></p>
 <hr />
 <h3 id="mapcolumnnames">mapColumnNames<a class="headerlink" href="#mapcolumnnames" title="Permanent link">#</a></h3>
-<p>▸ <strong>mapColumnNames</strong>(<code>data</code>, <code>options</code>): <code>any</code></p>
+<p>▸ <strong>mapColumnNames</strong>(<code>data</code>, <code>options?</code>): <code>any</code></p>
 <p>Renames columns in the result using columns mapping configuration passed in ready method.
 Returns null if not all required columns were mapped or not widget doesn&rsquo;t support
 custom column mapping.</p>
@@ -962,7 +973,7 @@ custom column mapping.</p>
 <td align="left"><code>any</code></td>
 </tr>
 <tr>
-<td align="left"><code>options</code></td>
+<td align="left"><code>options?</code></td>
 <td align="left"><code>Object</code></td>
 </tr>
 </tbody>
@@ -971,7 +982,7 @@ custom column mapping.</p>
 <p><code>any</code></p>
 <hr />
 <h3 id="mapcolumnnamesback">mapColumnNamesBack<a class="headerlink" href="#mapcolumnnamesback" title="Permanent link">#</a></h3>
-<p>▸ <strong>mapColumnNamesBack</strong>(<code>data</code>, <code>options</code>): <code>any</code></p>
+<p>▸ <strong>mapColumnNamesBack</strong>(<code>data</code>, <code>options?</code>): <code>any</code></p>
 <p>Offer a convenient way to map data with renamed columns back into the
 form used in the original table. This is useful for making edits to the
 original table in a widget with column mappings. As for mapColumnNames(),
@@ -990,13 +1001,35 @@ we don&rsquo;t attempt to do these transformations automatically.</p>
 <td align="left"><code>any</code></td>
 </tr>
 <tr>
-<td align="left"><code>options</code></td>
+<td align="left"><code>options?</code></td>
 <td align="left"><code>Object</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">#</a></h4>
 <p><code>any</code></p>
+<hr />
+<h3 id="onnewrecord">onNewRecord<a class="headerlink" href="#onnewrecord" title="Permanent link">#</a></h3>
+<p>▸ <strong>onNewRecord</strong>(<code>callback</code>): <code>void</code></p>
+<p>For custom widgets, add a handler that will be called whenever the
+new (blank) row is selected.</p>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>callback</code></td>
+<td align="left">(<code>mappings</code>: <a href="../../interfaces/grist_plugin_api.widgetcolumnmap/">WidgetColumnMap</a> | <code>null</code>) =&gt; <code>unknown</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">#</a></h4>
+<p><code>void</code></p>
 <hr />
 <h3 id="onoptions">onOptions<a class="headerlink" href="#onoptions" title="Permanent link">#</a></h3>
 <p>▸ <strong>onOptions</strong>(<code>callback</code>): <code>void</code></p>
@@ -1005,7 +1038,7 @@ widget options change (and on initial ready message). Handler will be
 called with an object containing saved json options, or null if no options were saved.
 The second parameter has information about the widgets relationship with
 the document that contains it.</p>
-<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">#</a></h4>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1020,7 +1053,7 @@ the document that contains it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">#</a></h4>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
 <h3 id="onrecord">onRecord<a class="headerlink" href="#onrecord" title="Permanent link">#</a></h3>
@@ -1029,31 +1062,7 @@ the document that contains it.</p>
 row with the cursor changes - either by switching to a different row, or
 by some value within the row potentially changing.  Handler may
 in the future be called with null if the cursor moves away from
-any row.
-TODO: currently this will be called even if the content of a different row
-changes.</p>
-<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>callback</code></td>
-<td align="left">(<code>data</code>: <code>RowRecord</code> | <code>null</code>, <code>mappings</code>: <a href="../../interfaces/grist_plugin_api.widgetcolumnmap/">WidgetColumnMap</a> | <code>null</code>) =&gt; <code>unknown</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">#</a></h4>
-<p><code>void</code></p>
-<hr />
-<h3 id="onrecords">onRecords<a class="headerlink" href="#onrecords" title="Permanent link">#</a></h3>
-<p>▸ <strong>onRecords</strong>(<code>callback</code>): <code>void</code></p>
-<p>For custom widgets, add a handler that will be called whenever the
-selected records change.  Handler will be called with a list of records.</p>
+any row.</p>
 <h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -1065,18 +1074,40 @@ selected records change.  Handler will be called with a list of records.</p>
 <tbody>
 <tr>
 <td align="left"><code>callback</code></td>
-<td align="left">(<code>data</code>: <code>RowRecord</code>[], <code>mappings</code>: <a href="../../interfaces/grist_plugin_api.widgetcolumnmap/">WidgetColumnMap</a> | <code>null</code>) =&gt; <code>unknown</code></td>
+<td align="left">(<code>data</code>: <a href="../../interfaces/grist_plugin_api.rowrecord/">RowRecord</a> | <code>null</code>, <code>mappings</code>: <a href="../../interfaces/grist_plugin_api.widgetcolumnmap/">WidgetColumnMap</a> | <code>null</code>) =&gt; <code>unknown</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
+<h3 id="onrecords">onRecords<a class="headerlink" href="#onrecords" title="Permanent link">#</a></h3>
+<p>▸ <strong>onRecords</strong>(<code>callback</code>): <code>void</code></p>
+<p>For custom widgets, add a handler that will be called whenever the
+selected records change.  Handler will be called with a list of records.</p>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>callback</code></td>
+<td align="left">(<code>data</code>: <a href="../../interfaces/grist_plugin_api.rowrecord/">RowRecord</a>[], <code>mappings</code>: <a href="../../interfaces/grist_plugin_api.widgetcolumnmap/">WidgetColumnMap</a> | <code>null</code>) =&gt; <code>unknown</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">#</a></h4>
+<p><code>void</code></p>
+<hr />
 <h3 id="ready">ready<a class="headerlink" href="#ready" title="Permanent link">#</a></h3>
 <p>▸ <strong>ready</strong>(<code>settings?</code>): <code>void</code></p>
 <p>Declare that a component is prepared to receive messages from the outside world.
 Grist will not attempt to communicate with it until this method is called.</p>
-<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">#</a></h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1091,13 +1122,13 @@ Grist will not attempt to communicate with it until this method is called.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">#</a></h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
 <h3 id="setoption">setOption<a class="headerlink" href="#setoption" title="Permanent link">#</a></h3>
 <p>▸ <code>Const</code> <strong>setOption</strong>(<code>key</code>, <code>value</code>): <code>Promise</code>&lt;void></p>
 <p>Shortcut for <a href="../../interfaces/grist_plugin_api.widgetapi/#setoption">WidgetAPI.setOption</a></p>
-<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">#</a></h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1116,13 +1147,13 @@ Grist will not attempt to communicate with it until this method is called.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">#</a></h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;void></p>
 <hr />
 <h3 id="setoptions">setOptions<a class="headerlink" href="#setoptions" title="Permanent link">#</a></h3>
 <p>▸ <code>Const</code> <strong>setOptions</strong>(<code>options</code>): <code>Promise</code>&lt;void></p>
 <p>Shortcut for <a href="../../interfaces/grist_plugin_api.widgetapi/#setoptions">WidgetAPI.setOptions</a></p>
-<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">#</a></h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1137,13 +1168,13 @@ Grist will not attempt to communicate with it until this method is called.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">#</a></h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;void></p>
 <hr />
 <h3 id="setselectedrows">setSelectedRows<a class="headerlink" href="#setselectedrows" title="Permanent link">#</a></h3>
 <p>▸ <code>Const</code> <strong>setSelectedRows</strong>(<code>rowIds</code>): <code>Promise</code>&lt;void></p>
 <p>Shortcut for <a href="../../interfaces/grist_plugin_api.gristview/#setselectedrows">GristView.setSelectedRows</a>.</p>
-<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">#</a></h4>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1158,7 +1189,7 @@ Grist will not attempt to communicate with it until this method is called.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">#</a></h4>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;void></p>
 
   <br>

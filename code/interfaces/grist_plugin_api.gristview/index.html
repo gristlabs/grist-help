@@ -450,6 +450,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.rowrecords/" class="wm-article-link wm-toc-text">Interface: RowRecords</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.widgetapi/" class="wm-article-link wm-toc-text">Interface: WidgetAPI</a>
 
     
@@ -772,7 +780,7 @@
 <hr />
 <h3 id="fetchselectedrecord">fetchSelectedRecord<a class="headerlink" href="#fetchselectedrecord" title="Permanent link">#</a></h3>
 <p>▸ <strong>fetchSelectedRecord</strong>(<code>rowId</code>): <code>Promise</code>&lt;any></p>
-<p>Similar TODO to <code>fetchSelectedTable()</code> for return type.</p>
+<p>Fetches selected record by its <code>rowId</code>.</p>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -793,9 +801,7 @@
 <hr />
 <h3 id="fetchselectedtable">fetchSelectedTable<a class="headerlink" href="#fetchselectedtable" title="Permanent link">#</a></h3>
 <p>▸ <strong>fetchSelectedTable</strong>(): <code>Promise</code>&lt;any></p>
-<p>Like <a href="../grist_plugin_api.gristdocapi/#fetchtable">GristDocAPI.fetchTable</a>, but gets data for the custom section specifically, if there is any.
-TODO: return type is Promise{[colId: string]: CellValue[]}&gt; but cannot be specified because
-ts-interface-builder does not properly support index-signature.</p>
+<p>Like <a href="../grist_plugin_api.gristdocapi/#fetchtable">GristDocAPI.fetchTable</a>, but gets data for the custom section specifically, if there is any.</p>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;any></p>
 <hr />
