@@ -543,6 +543,24 @@ paths:
               schema:
                 type: null
   /docs/{docId}/attachments:
+    get:
+      tags:
+        - /attachments
+      summary: "List metadata of all attachments in a doc"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/sortQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/sortHeaderParam'
+        - $ref: '#/components/parameters/limitHeaderParam'
+      responses:
+        200:
+          description: List of attachment metadata records. Note that the list may temporarily include records for attachments that are stored in the document but not referenced by any Attachments type cell.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AttachmentMetadataList"
     post:
       tags:
         - /attachments
@@ -1234,6 +1252,24 @@ components:
         timeUploaded:
           type: string
           example: "2020-02-13T12:17:19.000Z"
+    AttachmentMetadataList:
+      type: object
+      required:
+        - records
+      properties:
+        records:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - fields
+            properties:
+              id:
+                type: number
+                example: 1
+              fields:
+                $ref: "#/components/schemas/AttachmentMetadata"
   parameters:
     filterQueryParam:
       in: query
