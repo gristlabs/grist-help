@@ -41,6 +41,12 @@ A dashboard is just another name for a page, typically organized to give a
 summary or overview of a document's data.  Grist is well suited to constructing
 dashboards, by creating pages with suitably [linked widgets](linking-widgets.md).
 
+## Data Table
+
+Data is stored in tables.  Tables have named [columns](col-types.md), and a sequence of rows
+containing values for those columns.  Every row has a numeric id (available
+as `$id` in formulas) that is unique within that table. The [raw data page](raw-data.md) lists all data tables in your document.
+
 ## Document
 
 A Grist document is a collection of related data. If you work with
@@ -144,12 +150,6 @@ called a column.
 The order in which rows of a table are shown is called the sort order.
 An example of changing the sort order of a table is given in the
 [CRM tutorial](lightweight-crm.md#to-do-tasks-for-contacts).
-
-## Table
-
-Data is stored in tables.  Tables have named [columns](col-types.md), and a sequence of rows
-containing values for those columns.  Every row has a numeric id (available
-as `$id` in formulas) that is unique within that table.
 
 ## User Menu
 
