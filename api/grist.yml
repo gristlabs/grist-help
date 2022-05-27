@@ -549,7 +549,6 @@ paths:
       summary: "List metadata of all attachments in a doc"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
-        - $ref: '#/components/parameters/tableIdPathParam'
         - $ref: '#/components/parameters/filterQueryParam'
         - $ref: '#/components/parameters/sortQueryParam'
         - $ref: '#/components/parameters/limitQueryParam'
