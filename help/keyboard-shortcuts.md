@@ -59,6 +59,7 @@
 | - | - | - | 
 | <code class="keys">*⌘* *⇧* *=*</code> | <code class="keys">*Ctrl* + *Shift* + *=*</code> | Insert a new record, before the currently selected one in an unsorted table |
 | <code class="keys">*⌘* *=*</code> | <code class="keys">*Ctrl* + *=*</code> | Insert a new record, after the currently selected one in an unsorted table |
+| <code class="keys">*⌘* *⇧* *D*</code> | <code class="keys">*Ctrl* + *Shift* + *D*</code> | Duplicate the currently selected record(s) |
 | <code class="keys">*⌘* *-*</code> | <code class="keys">*Ctrl* + *-*</code> | Delete the currently selected record |
 | <code class="keys">*⌥* *⇧* *=*</code> | <code class="keys">*Alt* + *Shift* + *=*</code> | Insert a new column, before the currently selected one |
 | <code class="keys">*⌥* *=*</code> | <code class="keys">*Alt* + *=*</code> | Insert a new column, after the currently selected one |
