@@ -6,7 +6,7 @@ From your document, navigate to the raw data page by clicking on the Raw Data li
 
 ![Raw Data in Menu](images/raw-data-nav.png)
 
-Unlike other [pages](page-widgets.md), the layout in the raw data page cannot be customized. From the list of data tables, you can find the data table's name and id, and remove data. Not that removing a data table from this page *will* delete data and remove it from all pages. This is different from other pages where it is possible to remove a view of data and not delete the data itself. 
+Unlike other [pages](page-widgets.md), the layout in the raw data page cannot be customized. From the list of data tables, you can find the data table's name and id, and remove data. Note that removing a data table from this page *will* delete data and remove it from all pages. This is different from other pages where it is possible to remove a view of data and not delete the data itself. 
 
 ![Raw Data List](images/raw-data-list.png)
 
