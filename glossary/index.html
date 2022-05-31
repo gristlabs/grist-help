@@ -224,6 +224,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../raw-data/" class="wm-article-link wm-toc-text">Raw data page</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
 
     
@@ -702,6 +706,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#data-table">
+                Data Table
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#document">
                 Document
               </a>
@@ -754,11 +763,6 @@
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#sort">
                 Sort
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#table">
-                Table
               </a>
             </li>
             <li class="wm-toc-li">
@@ -880,6 +884,10 @@ the <a href="../col-types/#numeric-columns">Numeric Column Type</a> is for any k
 <p>A dashboard is just another name for a page, typically organized to give a
 summary or overview of a document&rsquo;s data.  Grist is well suited to constructing
 dashboards, by creating pages with suitably <a href="../linking-widgets/">linked widgets</a>.</p>
+<h2 id="data-table">Data Table<a class="headerlink" href="#data-table" title="Permanent link">#</a></h2>
+<p>Data is stored in tables.  Tables have named <a href="../col-types/">columns</a>, and a sequence of rows
+containing values for those columns.  Every row has a numeric id (available
+as <code>$id</code> in formulas) that is unique within that table. The <a href="../raw-data/">raw data page</a> lists all data tables in your document.</p>
 <h2 id="document">Document<a class="headerlink" href="#document" title="Permanent link">#</a></h2>
 <p>A Grist document is a collection of related data. If you work with
 databases, think of it as a single database. If you work with
@@ -957,10 +965,6 @@ called a column.</p>
 <p>The order in which rows of a table are shown is called the sort order.
 An example of changing the sort order of a table is given in the
 <a href="../lightweight-crm/#to-do-tasks-for-contacts">CRM tutorial</a>.</p>
-<h2 id="table">Table<a class="headerlink" href="#table" title="Permanent link">#</a></h2>
-<p>Data is stored in tables.  Tables have named <a href="../col-types/">columns</a>, and a sequence of rows
-containing values for those columns.  Every row has a numeric id (available
-as <code>$id</code> in formulas) that is unique within that table.</p>
 <h2 id="user-menu">User Menu<a class="headerlink" href="#user-menu" title="Permanent link">#</a></h2>
 <p>The user menu is the menu that opens by clicking your profile icon in the top-right of Grist. From there you can manage your profile, add additional Grist accounts that you own, and see a list of team sites to which you have access.</p>
 <p>Depending on where you are, the user menu will contain additional options. For example, from a <a href="../teams/#Understanding-Personal-Sites">personal site</a> you&rsquo;ll see the option to upgrade your plan to a <a href="../teams/">team site</a>. From a team site, depending on your role and permissions, you may be able to <a href="../teams/#billing-account">manage billing</a> or <a href="../team-sharing/">edit team members</a>. From a document, you&rsquo;ll find an option to edit document settings.</p>

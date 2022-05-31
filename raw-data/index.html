@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/enter-data/">
+    <link rel="canonical" href="https://support.getgrist.com/raw-data/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Entering data - Grist Help Center</title>
+    <title>Raw data page - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -216,7 +216,15 @@
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Entering data</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Raw data page</a>
 
     
     
@@ -225,40 +233,17 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Entering data
+              Raw data page
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#editing-cells">
-                Editing cells
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#copying-and-pasting">
-                Copying and pasting
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#data-entry-widgets">
-                Data entry widgets
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#linking-to-cells">
-                Linking to cells
+              <a class="wm-article-link wm-page-toc-text" href="#usage">
+                Usage
               </a>
             </li>
         
       </ul>
     </li>
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
-
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../raw-data/" class="wm-article-link wm-toc-text">Raw data page</a>
-
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
@@ -753,20 +738,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../page-widgets/" class="btn btn-xs btn-default pull-right">
+      <a href="../search-sort-filter/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../page-widgets/" class="btn btn-xs btn-link">
-        Pages & widgets
+      <a href="../search-sort-filter/" class="btn btn-xs btn-link">
+        Search, sort & filter
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../document-history/" class="btn btn-xs btn-default pull-left">
+      <a href="../page-widgets/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../document-history/" class="btn btn-xs btn-link">
-        Document history
+        Previous</a><a href="../page-widgets/" class="btn btn-xs btn-link">
+        Pages & widgets
       </a>
     </div>
     
@@ -774,58 +759,22 @@
 
     
 
-    <h1 id="entering-data">Entering data<a class="headerlink" href="#entering-data" title="Permanent link">#</a></h1>
-<p>A spreadsheet-like grid is a great way to see data. In Grist, this is the view
-offered by the default page widget called &ldquo;Table&rdquo;.</p>
-<p>As in a spreadsheet, you can use the mouse or arrow keys to move around the
-cells of a table. To start entering data into a selecte cell, either start
-typing, hit <code class="keys"><em>Enter</em></code>, or double-click the cell.</p>
-<h2 id="editing-cells">Editing cells<a class="headerlink" href="#editing-cells" title="Permanent link">#</a></h2>
-<p>While editing a cell, several keys are special:</p>
-<ul>
-<li><code class="keys"><em>Escape</em></code> cancels the operation and restores the previous value in the cell.</li>
-<li><code class="keys"><em>Tab</em></code>, <code class="keys"><em>Shift</em> + <em>Tab</em></code>
-   saves your entry and moves your cursor to the next or previous cell.</li>
-<li><code class="keys"><em>Enter</em></code> saves your entry and moves your cursor to the next row.</li>
-<li><code class="keys"><em>Shift</em> + <em>Enter</em></code> adds a newline inside your cell.</li>
-</ul>
-<h2 id="copying-and-pasting">Copying and pasting<a class="headerlink" href="#copying-and-pasting" title="Permanent link">#</a></h2>
-<p>You can copy data from Grist or paste data into it. If the pasted range is
-longer than the available records, new records will be added.</p>
-<p>Note that Grist does not create new columns automatically. If the pasted data
-has more columns than the grid displays, extra columns will be omitted.</p>
-<h2 id="data-entry-widgets">Data entry widgets<a class="headerlink" href="#data-entry-widgets" title="Permanent link">#</a></h2>
-<p>In Grist, columns have types. In addition to typing in values, many column
-types offer specialized widgets for entering data more conveniently.</p>
-<p>Here are some of the most useful ones:</p>
-<ul>
-<li><strong>Toggle</strong>. A &ldquo;Toggle&rdquo; column shows True/False values, and can show
-  them as a &ldquo;Checkbox&rdquo; or as a &ldquo;Switch&rdquo; widget, which you can select in the
-  column options. You can toggle a value in such a cell by clicking the check
-  mark or the switch, or by hitting <code class="keys"><em>Space</em></code>.</li>
-</ul>
-<p class="screenshot-half"><em><img alt="toggle-edit" src="../images/toggle-edit.png" /></em></p>
-<ul>
-<li><strong>Date</strong> and <strong>DateTime</strong>. Hitting <code class="keys"><em>Enter</em></code> on such
-  a cell will open a calendar to pick a date.</li>
-</ul>
-<p class="screenshot-half"><em><img alt="date-edit" src="../images/date-edit.png" /></em></p>
-<ul>
-<li><strong>Choice</strong> and <strong>Reference</strong>. Typing into a cell of one of these types will produce an
-  auto-complete dropdown menu.</li>
-</ul>
-<p class="screenshot-half"><em><img alt="choice-edit" src="../images/choice-edit.png" /></em></p>
-<h2 id="linking-to-cells">Linking to cells<a class="headerlink" href="#linking-to-cells" title="Permanent link">#</a></h2>
-<p>You can make a sharable link to a cell by pressing <code class="keys"><em>⌘</em> <em>⇧</em> <em>A</em></code> (Mac)
-or <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>A</em></code> (Windows) while the cell is selected.
-This option is also available via the <a href="../widget-table/#row-operations">row menu</a> as &ldquo;Copy anchor link.&rdquo;
-The link will be placed in your clipboard, ready to paste into an email or an instant messaging
-app. The link will open only for people with access to the document.</p>
+    <h1 id="raw-data-page">Raw data page<a class="headerlink" href="#raw-data-page" title="Permanent link">#</a></h1>
+<p>The raw data page is a special page that lists all <a href="../glossary/#data-table">data tables</a> in your document and summarizes your document&rsquo;s usage statistics.</p>
+<p>From your document, navigate to the raw data page by clicking on the Raw Data link in the bottom left of the pages menu.</p>
+<p><img alt="Raw Data in Menu" src="../images/raw-data-nav.png" /></p>
+<p>Unlike other <a href="../page-widgets/">pages</a>, the layout in the raw data page cannot be customized. From the list of data tables, you can find the data table&rsquo;s name and id, and remove data. Note that removing a data table from this page <em>will</em> delete data and remove it from all pages. This is different from other pages where it is possible to remove a view of data and not delete the data itself. </p>
+<p><img alt="Raw Data List" src="../images/raw-data-list.png" /></p>
+<p>Click on a data table to open it. Note that in the creator panel the <a href="../page-widgets/#page-widgets">widget type</a> cannot be changed. Renaming the widget also renames the data table. Because raw data is intended to show all data, columns cannot be hidden, either. However, columns can be rearranged, deleted, created, and modified. For creators, this view may make it easier to edit data structure, add <a href="../formulas/">formulas</a>, <a href="../conditional-formatting/">conditional formatting</a>, and so on.</p>
+<p><img alt="Raw Data View" src="../images/raw-data-lightbox.png" /></p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<p>Usage statistics are summarized beneath the list of data tables. Note that usage applies to the entire document, not individual tables. Learn more about document <a href="../limits/">limits</a>.</p>
+<p><img alt="Usage" src="../images/raw-data-usage.png" /></p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/enter-data.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/raw-data.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

@@ -267,6 +267,10 @@
     </li>
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../raw-data/" class="wm-article-link wm-toc-text">Raw data page</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
 
     
@@ -759,12 +763,12 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../search-sort-filter/" class="btn btn-xs btn-default pull-right">
+      <a href="../raw-data/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../search-sort-filter/" class="btn btn-xs btn-link">
-        Search, sort & filter
+      <a href="../raw-data/" class="btn btn-xs btn-link">
+        Raw data page
       </a>
     </div>
     
@@ -790,10 +794,16 @@ applications tailored to your needs.</p>
 <p>In Grist, you organize your document into &ldquo;pages&rdquo;. These are listed in the left panel, with collapsible
 groups. You may rearrange and group pages in the left panel by dragging them to suit your needs.</p>
 <p class="screenshot-half"><em><img alt="drag_pages" src="../images/drag_pages.png" /></em></p>
-<p>You can rename pages using the three-dots menu next to the page name in the list, or by clicking
-the page name on top of the screen.</p>
-<p class="screenshot-half"><em><img alt="rename_pages1" src="../images/rename_pages1.png" /></em></p>
-<p class="screenshot-half"><em><img alt="rename_pages2" src="../images/rename_pages2.png" /></em></p>
+<p>You can rename, remove, or duplicate pages using the three-dots menu next to the page name in the list. </p>
+<p class="screenshot-half"><em><img alt="Renaming Pages Menu" src="../images/rename_pages1.png" /></em></p>
+<ul>
+<li><strong>Renaming</strong> the page does not edit data tables&rsquo; names or widget titles. See <a href="./#changing-widget-or-its-data">changing widget</a> below to learn how to edit table and widget names.</li>
+<li><strong>Duplicating</strong> a page duplicates <em>views</em> of data and does not duplicate the data itself.</li>
+<li><strong>Removing</strong> a page does not delete data. When removing the last view of data, you will be asked if you want to delete only the view, but not the data itself; or if you want to delete both the page and the underlying data table(s). Learn more about your document&rsquo;s data in the <a href="../raw-data/">raw data page</a>.</li>
+</ul>
+<p><em><img alt="Removing Pages" src="../images/pages-delete.png" /></em></p>
+<p>Note that pages can also be renamed by clicking the page name on top of the screen. </p>
+<p class="screenshot-half"><em><img alt="Renaming Pages Breadcrumbs" src="../images/rename_pages2.png" /></em></p>
 <p>Using the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>)
 near the top of the left panel, you can collapse the panel to show only the initials of each page,
 leaving more screen space to view your data.</p>
@@ -813,6 +823,8 @@ on separate pages.</p>
 <li><a href="../widget-custom/">Custom</a>: inserts a custom webpage, optionally granting it access to the document&rsquo;s data.</li>
 </ul>
 <p><img alt="page_widget_types" src="../images/page_widget_types.png" /></p>
+<p>There is a special page called <a href="../raw-data/">raw data</a> that lists all data tables in your document and summarizes your document&rsquo;s usage statistics. Navigate to the raw data page by clicking on the Raw Data link in the bottom left of the pages menu.</p>
+<p><img alt="Raw Data in Menu" src="../images/raw-data-nav.png" /></p>
 <h2 id="widget-picker">Widget picker<a class="headerlink" href="#widget-picker" title="Permanent link">#</a></h2>
 <p>The menu opened by the &ldquo;Add New&rdquo; button has options &ldquo;Add Page&rdquo; and &ldquo;Add Widget to Page&rdquo;. In either
 case, you&rsquo;ll see the &ldquo;page widget picker&rdquo; where you can choose your desired widget:</p>
@@ -830,14 +842,15 @@ Layouts</a>.</p>
 the three-dots button on the top right of your widget, and select &ldquo;Widget options&rdquo;. This opens the
 right-side panel. Click on &ldquo;Change Widget&rdquo;.</p>
 <p class="screenshot-half"><em><img alt="change_widget" src="../images/change_widget.png" /></em></p>
-<p>You can then use the widget picker to change the widget or the data it displays.</p>
+<p>You can then use the widget picker to change the widget or the data it displays. You may also edit the widget&rsquo;s title. </p>
+<p>You can also edit the widget&rsquo;s title, or the underlying data table&rsquo;s name by clicking on the widget title above a widget. By default, the widget title is the data table&rsquo;s name. Learn more about data tables in the <a href="../raw-data/">raw data page</a>.</p>
+<p><img alt="Renaming Widgets" src="../images/widgets-renaming.png" /></p>
 <h2 id="configuring-field-lists">Configuring field lists<a class="headerlink" href="#configuring-field-lists" title="Permanent link">#</a></h2>
 <p>Although different kinds of page widgets look very different, they all represent a list of
 records. Any of the widget types can be used to show the same underlying data.</p>
 <p>In a <strong>Table</strong>, each record is represented by a row, and columns represent the same kind of value
 for each record.</p>
-<p>A table is also a helpful representation of the underlying data to keep in mind
-when configuring other widget types.</p>
+<p>Note that the <a href="../raw-data/">raw data page</a> lists all data tables.</p>
 <p>In a <strong>Card List</strong>, each row of the underlying data is shown as a card. Each column in the data
 corresponds to a <em>field</em> in this card. When talking about a Card widget, we&rsquo;ll use the term
 <em>&ldquo;field&rdquo;</em>, which conceptually is the same as a <em>&ldquo;column&rdquo;</em> in a Table widget.</p>
