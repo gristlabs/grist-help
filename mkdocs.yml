@@ -28,6 +28,7 @@ nav:
   - Pages and Tables:
     - Entering data: enter-data.md
     - Pages & widgets: page-widgets.md
+    - Raw data page: raw-data.md    
     - Search, sort & filter: search-sort-filter.md
     - Table widget: widget-table.md
     - Card & Card List: widget-card.md

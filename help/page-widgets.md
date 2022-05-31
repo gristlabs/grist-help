@@ -14,14 +14,22 @@ groups. You may rearrange and group pages in the left panel by dragging them to 
 *![drag_pages](images/drag_pages.png)*
 {: .screenshot-half }
 
-You can rename pages using the three-dots menu next to the page name in the list, or by clicking
-the page name on top of the screen.
+You can rename, remove, or duplicate pages using the three-dots menu next to the page name in the list. 
 
-*![rename_pages1](images/rename_pages1.png)*
+*![Renaming Pages Menu](images/rename_pages1.png)*
 {: .screenshot-half }
 
-*![rename_pages2](images/rename_pages2.png)*
+* **Renaming** the page does not edit data tables' names or widget titles. See [changing widget](page-widgets.md#changing-widget-or-its-data) below to learn how to edit table and widget names.
+* **Duplicating** a page duplicates *views* of data and does not duplicate the data itself.
+* **Removing** a page does not delete data. When removing the last view of data, you will be asked if you want to delete only the view, but not the data itself; or if you want to delete both the page and the underlying data table(s). Learn more about your document's data in the [raw data page](raw-data.md).
+
+*![Removing Pages](images/pages-delete.png)*
+
+Note that pages can also be renamed by clicking the page name on top of the screen. 
+
+*![Renaming Pages Breadcrumbs](images/rename_pages2.png)*
 {: .screenshot-half }
+
 
 Using the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>)
 near the top of the left panel, you can collapse the panel to show only the initials of each page,
@@ -47,7 +55,9 @@ on separate pages.
 
 ![page_widget_types](images/page_widget_types.png)
 
+There is a special page called [raw data](raw-data.md) that lists all data tables in your document and summarizes your document's usage statistics. Navigate to the raw data page by clicking on the Raw Data link in the bottom left of the pages menu.
 
+![Raw Data in Menu](images/raw-data-nav.png)
 
 ## Widget picker
 
@@ -76,9 +86,11 @@ right-side panel. Click on "Change Widget".
 *![change_widget](images/change_widget.png)*
 {: .screenshot-half }
 
-You can then use the widget picker to change the widget or the data it displays.
+You can then use the widget picker to change the widget or the data it displays. You may also edit the widget's title. 
 
+You can also edit the widget's title, or the underlying data table's name by clicking on the widget title above a widget. By default, the widget title is the data table's name. Learn more about data tables in the [raw data page](raw-data.md).
 
+![Renaming Widgets](images/widgets-renaming.png)
 
 ## Configuring field lists
 
@@ -88,8 +100,7 @@ records. Any of the widget types can be used to show the same underlying data.
 In a **Table**, each record is represented by a row, and columns represent the same kind of value
 for each record.
 
-A table is also a helpful representation of the underlying data to keep in mind
-when configuring other widget types.
+Note that the [raw data page](raw-data.md) lists all data tables.
 
 In a **Card List**, each row of the underlying data is shown as a card. Each column in the data
 corresponds to a *field* in this card. When talking about a Card widget, we'll use the term
