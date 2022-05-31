@@ -532,6 +532,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-05/" class="wm-article-link wm-toc-text">2022/05</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-04/" class="wm-article-link wm-toc-text">2022/04</a>
 
     
@@ -930,8 +934,7 @@ a choice whether to show all flights departing from this airport or all flights 
 The &ldquo;Select By&rdquo; widget will show both options to choose from:</p>
 <p class="screenshot-half"><em><img alt="linking-multiple-refs" src="../images/linking-multiple-refs.png" /></em></p>
 <h2 id="linking-summary-tables">Linking summary tables<a class="headerlink" href="#linking-summary-tables" title="Permanent link">#</a></h2>
-<p>When widgets display summarized data, as described in <a href="../summary-tables/">Summary tables</a>, they
-can also be linked, both to the underlying data and to other summary tables.</p>
+<p>When widgets display summarized data, as described in <a href="../summary-tables/">Summary tables</a>, they can also be linked to the underlying data, data that references the underlying data, and to other summary tables.</p>
 <p>For example, you can summarize the table <code>Employees</code> by job position, and include the count of
 employees for each position, the average salary, or other summary data. You can also link the
 <code>Employees</code> table to it, so that selecting a position shows all employees in that position.</p>
@@ -944,6 +947,8 @@ This is also convenient with charts.</p>
 position. As you click different positions, the pie chart updates to reflect the selected one.</p>
 <p>More examples of such linking can be found in the <a href="../investment-research/#dynamic-charts">Analyze and
 visualize</a> tutorial.</p>
+<p>Lastly, tables that reference a summary table’s underlying data may now be linked to the summary table itself. In the image below, the Champion Dog&rsquo;s table has a reference column to the Breeder table. The Breeder table is being summarized in the top right widget by the &ldquo;Country&rdquo; column. Because Champion Dog references Breeder, you may add a widget of Champion Dogs that selects by a summary table of Breeder data.</p>
+<p><span class="screenshot-large"><em><img alt="Linking Referenced Data to Summary Table" src="../images/linking-summary-reference.gif" /></em></span></p>
 <h2 id="changing-link-settings">Changing link settings<a class="headerlink" href="#changing-link-settings" title="Permanent link">#</a></h2>
 <p>After a widget is added, you can view and change its link settings from the right panel. One way
 to get to it is to click on the three-dots icon on the top right of the widget, and click on the &ldquo;Data
