@@ -27,3 +27,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [February 2022 Newsletter](newsletters/2022-02.md): Custom widgets menu, 2FA, access rules improvements, and cell context menu!
 - [March 2022 Newsletter](newsletters/2022-03.md): Conditional formatting, new API method, the new Sprouts Program, and more!
 - [April 2022 Newsletter](newsletters/2022-04.md): Rich text editor, more cell styles, and more!
+- [May 2022 Newsletter](newsletters/2022-05.md): Raw data tables, new summary table linking, and more!

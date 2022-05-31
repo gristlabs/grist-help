@@ -170,8 +170,7 @@ The "Select By" widget will show both options to choose from:
 
 ## Linking summary tables
 
-When widgets display summarized data, as described in [Summary tables](summary-tables.md), they
-can also be linked, both to the underlying data and to other summary tables.
+When widgets display summarized data, as described in [Summary tables](summary-tables.md), they can also be linked to the underlying data, data that references the underlying data, and to other summary tables.
 
 For example, you can summarize the table `Employees` by job position, and include the count of
 employees for each position, the average salary, or other summary data. You can also link the
@@ -192,6 +191,10 @@ position. As you click different positions, the pie chart updates to reflect the
 
 More examples of such linking can be found in the [Analyze and
 visualize](investment-research.md#dynamic-charts) tutorial.
+
+Lastly, tables that reference a summary table’s underlying data may now be linked to the summary table itself. In the image below, the Champion Dog's table has a reference column to the Breeder table. The Breeder table is being summarized in the top right widget by the "Country" column. Because Champion Dog references Breeder, you may add a widget of Champion Dogs that selects by a summary table of Breeder data.
+
+<span class="screenshot-large">*![Linking Referenced Data to Summary Table](../images/linking-summary-reference.gif)*</span>
 
 ## Changing link settings
 

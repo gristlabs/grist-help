@@ -83,6 +83,17 @@ i.e. when the Public Access role is set to "Viewer." Read more about
 limit which parts of your data users may see when accessing your document
 via a particular link.
 
-Access Rules do not support restricted link sharing when Public Access
-is set to "Editor." Supporting access rules in this case, and others,
-is on our [roadmap.](https://github.com/gristlabs/grist-core/issues/36)
+Access Rules are supported with link sharing when Public Access
+is set to "Viewer" or "Editor."
+
+## Leaving a Document
+
+Non-owners may look up their access details to a document by clicking on the share icon 
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top right of the
+screen and selecting "Access Details."
+
+![Access Details](../images/newsletters/2022-05/access-details.png)
+
+From the access details pop up, you may click the trash icon to leave a document.
+
+![Access Details](images/sharing/sharing-access-details.png)
