@@ -89,7 +89,7 @@ sorting options.
 The "Sort & Filter" subtab exposes additional sorting options that might be useful for
 various column types:
 
-- `Use choice position` -- available on Choice column, sorts records using the configured
+- `Use choice position` -- available on [Choice](col-types.md#choice-columns) column, sorts records using the configured
 order of choice items, rather then their names.
 - `Empty values last` -- in alphabetical order empty values are shown first by default, use
 this option to put them at the end.

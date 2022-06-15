@@ -90,7 +90,7 @@ For instance, you might want to change the formula for `PayRate` from `SUM($grou
 <span class="screenshot-large">*![summary-formula](images/summary-formula.png)*</span>
 {: .screenshot-half }
 
-Here are some useful recipies of formulas in summary tables:
+Here are some useful recipes of formulas in summary tables:
 
   - **Average**:  
     `AVERAGE($group.PayRate)` or `SUM($group.PayRate) / $count`
