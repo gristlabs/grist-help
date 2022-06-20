@@ -556,7 +556,7 @@ Is your URL still showing after you added a label? Make sure your Column Type is
 <span></span><section class="cheat-sheet">
 #### Joining a List of Strings
 
-When you want to join information from a reference list, you can use Python's [join() method](https://www.w3schools.com/python/ref_string_join.asp){:target="\_blank"}.
+When you want to join a list of strings, you can use Python's [join() method](https://www.w3schools.com/python/ref_string_join.asp){:target="\_blank"}.
 
 <span></span><details><summary>
 #### Example of Joining a List
@@ -575,7 +575,7 @@ Here, we are joining multiple strings to create our advertisement.
 
 The quotes `""` specify that this is a string and `\n` is actually a newline character that can be used to specify a new line within a string.
 
-`" : ".join($New_Location_s_in_2022)` is also a string but uses Python's [join() method](https://www.w3schools.com/python/ref_string_join.asp){:target="\_blank"} to join values from our reference list column, "New Locations in 2022". What we see in quotes before `.join` is what will separate each value in our list. 
+`" : ".join($New_Location_s_in_2022)` is also a string but uses Python's [join() method](https://www.w3schools.com/python/ref_string_join.asp){:target="\_blank"} to join values from our [choice list](col-types.md#choice-list-columns) column, "New Locations in 2022". What we see in quotes before `.join` is what will separate each value in our list. 
 
 In this example, each value is separated by a space, `:` and another space.
 
