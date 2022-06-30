@@ -6,14 +6,15 @@ Grist offers several powerful ways to analyze and visualize data. In this tutori
 - Create and configure charts
 - Link charts dynamically
 
-To explain these features, we’ll use the sample document “Investment Research”[^doc_desc]. The dataset comes
-from [Kaggle](https://www.kaggle.com/mauriciocap/crunchbase2013), and includes companies and
+To explain these features, we’ll use the sample document “Investment Research”[^doc_desc] which includes companies and
 investments in them up to 2013. Let’s take a look at the
 sample document and then we’ll talk about how to build it so that you can apply these tools to
 your own data.
 
-[^doc_desc]: The sample document includes only the “companies” and “investments” data, and includes only
-New York companies to keep it smaller and faster.
+[^doc_desc]: The dataset comes
+from [Kaggle](https://www.kaggle.com/mauriciocap/crunchbase2013). The sample documents includes only the “companies” and “investments” data, and includes only
+New York companies to keep it smaller and faster. Download [crunchbase_companies_ny.csv](/investment-research/crunchbase-companies-ny.csv)
+and [crunchbase_investments_ny.csv](/investment-research/crunchbase-investments-ny.csv).
 
 ## Exploring the example
 

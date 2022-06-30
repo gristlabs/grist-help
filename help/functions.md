@@ -21,7 +21,7 @@ Python (see [Python documentation](https://docs.python.org/3.9/)). Here are some
 <!-- BEGIN mkpydocs table -->
 | Category | Functions |
 | --- | --- |
-| Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
+| Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a>, <a href="#peek">PEEK</a> |
 | Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
 | Info | <a class="unimplemented" href="#cell">CELL</a>, <a  href="#current_conversion">CURRENT_CONVERSION</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#type">TYPE</a> |
 | Logical | <a  href="#and">AND</a>, <a  href="#false">FALSE</a>, <a  href="#if">IF</a>, <a  href="#iferror">IFERROR</a>, <a  href="#not">NOT</a>, <a  href="#or">OR</a>, <a  href="#true">TRUE</a> |
@@ -169,6 +169,25 @@ See [RecordSet](#recordset) for useful properties offered by the returned object
 See [CONTAINS](#contains) for an example utilizing `UserTable.lookupRecords` to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given
 value.
+</details>
+<details id="peek"><summary >
+#### PEEK
+<code>PEEK(Formula)</code>
+<a class="headerlink" href="#peek" title="Permanent link">#</a>
+</summary>
+Evaluates the given expression without creating dependencies or requiring that referenced values are up to date, 
+using whatever value it finds in a cell. This is useful for preventing circular reference errors, particularly in trigger formulas.
+
+For example:
+If the formula for `A` depends on `$B` and the formula for `B` depends on `$A`,
+then normally this would raise a circular reference error because each value needs to be
+calculated before the other. But if `A` uses `PEEK($B)` then it will simply get the value
+already stored in `$B` without requiring that `$B` is first calculated to the latest value.
+Therefore `A` will be calculated first, and `B` can use `$A` without problems.
+
+```
+In Table1, Column A: SUM(PEEK(Table1.all.A))
+```
 </details>
 ### Date
 <details id="date"><summary >

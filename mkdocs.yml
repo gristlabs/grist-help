@@ -69,6 +69,7 @@ nav:
       - ... | flat | **/code/modules/**
   - News & updates:
     - Newsletters: newsletters.md
+    - 2022/06: newsletters/2022-06.md    
     - 2022/05: newsletters/2022-05.md    
     - 2022/04: newsletters/2022-04.md
     - 2022/03: newsletters/2022-03.md
