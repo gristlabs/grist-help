@@ -53,7 +53,7 @@ Allows you to find the [max](functions.md#max) or [min](functions.md#min) values
 <span></span><details><summary>
 #### Examples using MAX() and MIN()
 </summary>
-*Because [max](functions.md#max) and [min](functions.md#min) exist both as Python and spreadsheet functions, they can be used in a formula as either all caps or all lowercase, e.g.* **MAX()** or **max()**
+*[MAX()](functions.md#max) and [MIN()](functions.md#min) when capitalized are spreadsheet functions which require a specific syntax. Spreadsheet formula syntax is summarized in our [functions reference](functions.md). max() and min() in lowercase are Python functions.*
 
 **Max**: Classes table of the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program){:target="\_blank"} template.
 
@@ -87,7 +87,7 @@ Next, we use [dot notation](references-lookups.md#lookuprecords-and-dot-notation
 
 If there are no items in the list, nothing is returned and the field is left blank.
 
-In the MAX() example, the list has two items: `$Max_Students - $Count` and `0`, and the formula returns whichever is greater. In the MIN() example, the variable `items` is pulling a list of records based on the [lookupRecords](references-lookups.md#lookuprecords-and-len) arguments, listing the dates, and returning the smallest date.
+In the MAX() example, the list has two items: `$Max_Students - $Count` and `0`, and the formula returns whichever is greater. In the min() example, the variable `items` is pulling a list of records based on the [lookupRecords](references-lookups.md#lookuprecords-and-len) arguments, listing the dates, and returning the smallest date. Note that this is a Python function. If we had written the formula as MIN(), a spreadsheet function, the formula would not work because the spreadsheet formula requires a very [specific format](functions.md#min).
 
 
 </details>
