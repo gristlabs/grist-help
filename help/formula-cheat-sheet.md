@@ -2,7 +2,14 @@ Formula Cheat Sheet
 =========
 
 Grist has a powerful data engine to calculate the cells of your tables using formulas. Grist formulas are written
-in [Python](https://docs.python.org/3.9/library/_){:target="\_blank"}, the most popular language for data science. We also have a suite of Excel-like [functions](functions.md), with all-uppercase names. 
+in [Python](https://docs.python.org/3.9/library/_){:target="\_blank"}, the most popular language for data science. We also have a suite of Excel-like [functions](functions.md), with all-uppercase names. Here are some helpful notes:
+
+- Formulas apply to the entire column
+- Fields are included in formulas as `$ColumnID`.
+- Python is case-sensitive, including for Grist table and column names. If your column ID is `title`, the formula will use `$title`, where both are lowercase.
+- You may write multi-line Python in formulas (use <code class="keys">*Shift* + *Enter*</code> to
+  add lines), including statements, variables, imports, etc.
+- Grist code runs in a secure sandbox, with no access to anything outside your document.
 
 If you don't see what you're looking for, post in the [Community Forum](https://community.getgrist.com/) and we'll be able to help you out!
 
@@ -41,11 +48,13 @@ We add the subtotal to the calculated tax then divide this by 12 months to get o
 <span></span><section class="cheat-sheet">
 #### max and min
 
-Allows you to find the [max](functions.md#max) or [min](functions.md#min) values in a list.
+Allows you to find the [max](functions.md#max) or [min](functions.md#min) values in a list. 
 
 <span></span><details><summary>
 #### Examples using MAX() and MIN()
 </summary>
+*Because [max](functions.md#max) and [min](functions.md#min) exist both as Python and spreadsheet functions, they can be used in a formula as either all caps or all lowercase, e.g.* **MAX()** or **max()**
+
 **Max**: Classes table of the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program){:target="\_blank"} template.
 
 <span class="screenshot-large">*![max](images/formula-cheat-sheet/max.png)*</span>
@@ -54,7 +63,9 @@ The formula used in the 'Spots Left' column of the Classes table is:
 ```
 max($Max_Students - $Count, 0) or "Full"
 ```
-This formula shows the number of spots remaining in a class, or the text 'Full' when the class is full or oversubscribed
+This formula shows the number of spots remaining in a class, or the text 'Full' when the class is full or oversubscribed. 
+
+We build a list between the parenthesis consisting of two items: `$Max_Students - $Count` and `0`. The formula returns whichever is greater.
 
 When `$Count` is less than `$Max_Students`, the difference `$Max_Students - $Count` is positive and represents the spots left in the class. When `$Count` exceeds `$Max_Students`, then the class is full or oversubscribed, and `$Max_Students - $Count` is negative. The maximum of a negative number and 0 will be 0, so `max($Max_Students - $Count, 0)` is 0. This represents a full class. The addition of `or "Full"` is applied when the value is falsy, which means that a 0 is replaced with the text `"Full"`.
 
@@ -72,9 +83,13 @@ Let's break this down.
 `Interactions.lookupRecords(Contact=$id, Type="To-Do")` finds all records in the Interactions table where 
 the Contacts match and the Type is To-Do. This returns a list of records that we assign to the variable `items`. 
 
-Next, all Dates assigned to the records in our item list are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. 
+Next, we use [dot notation](references-lookups.md#lookuprecords-and-dot-notation) to find all Dates assigned to the records in our `items` list. These dates are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. 
 
 If there are no items in the list, nothing is returned and the field is left blank.
+
+In the MAX() example, the list has two items: `$Max_Students - $Count` and `0`, and the formula returns whichever is greater. In the MIN() example, the variable `items` is pulling a list of records based on the [lookupRecords](references-lookups.md#lookuprecords-and-len) arguments, listing the dates, and returning the smallest date.
+
+
 </details>
 </section>
 
