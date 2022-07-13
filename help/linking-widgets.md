@@ -53,7 +53,7 @@ By" dropdown and choose the "DEPARTMENTS" widget added in the first step.
 {: .screenshot-half }
 
 That’s all it takes: now selecting a department in the first table will cause the second table to
-show only the employees in that department. Note that this relies on the `Emploeees` table having a
+show only the employees in that department. Note that this relies on the `Employees` table having a
 column of type `Reference` with the target table of `Departments`. See [Reference
 columns](col-refs.md).
 
@@ -192,7 +192,7 @@ position. As you click different positions, the pie chart updates to reflect the
 More examples of such linking can be found in the [Analyze and
 visualize](investment-research.md#dynamic-charts) tutorial.
 
-Lastly, tables that reference a summary table’s underlying data may now be linked to the summary table itself. In the image below, the Champion Dog's table has a reference column to the Breeder table. The Breeder table is being summarized in the top right widget by the "Country" column. Because Champion Dog references Breeder, you may add a widget of Champion Dogs that selects by a summary table of Breeder data.
+Lastly, tables that reference a summary table’s underlying data may now be linked to the summary table itself. In the image below, the Champion Dog's table has a [reference column](col-types.md#reference-columns) to the Breeder table. The Breeder table is being summarized in the top right widget by the "Country" column. Because Champion Dog references Breeder, you may add a widget of Champion Dogs that selects by a summary table of Breeder data.
 
 <span class="screenshot-large">*![Linking Referenced Data to Summary Table](../images/linking-summary-reference.gif)*</span>
 
