@@ -1,24 +1,24 @@
 # Interface: UpsertOptions
 
-[TableOperations](../modules/tableoperations.md).UpsertOptions
+[TableOperations](../modules/TableOperations.md).UpsertOptions
 
 Extra options for upserts.
 
 ## Hierarchy
 
-- [OpOptions](tableoperations.opoptions.md)
+- [`OpOptions`](TableOperations.OpOptions.md)
 
-  ↳ **UpsertOptions**
+  ↳ **`UpsertOptions`**
 
 ## Table of contents
 
 ### Properties
 
-- [add](tableoperations.upsertoptions.md#add)
-- [allowEmptyRequire](tableoperations.upsertoptions.md#allowemptyrequire)
-- [onMany](tableoperations.upsertoptions.md#onmany)
-- [parseStrings](tableoperations.upsertoptions.md#parsestrings)
-- [update](tableoperations.upsertoptions.md#update)
+- [add](TableOperations.UpsertOptions.md#add)
+- [allowEmptyRequire](TableOperations.UpsertOptions.md#allowemptyrequire)
+- [onMany](TableOperations.UpsertOptions.md#onmany)
+- [parseStrings](TableOperations.UpsertOptions.md#parsestrings)
+- [update](TableOperations.UpsertOptions.md#update)
 
 ## Properties
 
@@ -54,7 +54,7 @@ Whether to parse strings based on the column type. Defaults to true.
 
 #### Inherited from
 
-[OpOptions](tableoperations.opoptions.md).[parseStrings](tableoperations.opoptions.md#parsestrings)
+[OpOptions](TableOperations.OpOptions.md).[parseStrings](TableOperations.OpOptions.md#parsestrings)
 
 ___
 

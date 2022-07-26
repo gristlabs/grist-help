@@ -21,8 +21,8 @@
     "redoc-cli": "^0.9.8"
   },
   "devDependencies": {
-    "typedoc": "^0.20.36",
-    "typedoc-plugin-markdown": "3.9",
-    "typescript": "^3.9.3"
+    "typedoc": "^0.23.9",
+    "typedoc-plugin-markdown": "3.13.4",
+    "typescript": "^4.7.4"
   }
 }

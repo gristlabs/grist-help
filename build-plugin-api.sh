@@ -11,8 +11,9 @@ fi
 
 DIR=$PWD
 cd $1
+rm -rf $DIR/tmp-code
 $DIR/node_modules/.bin/typedoc \
-  --out $DIR/tmp-code\
+  --out $DIR/tmp-code \
   --plugin "typedoc-plugin-markdown" \
   --hideBreadcrumbs \
   --logLevel Verbose
@@ -20,3 +21,4 @@ rm -rf $DIR/help/code/interfaces $DIR/help/code/modules
 mv $DIR/tmp-code/interfaces $DIR/help/code/interfaces
 mv $DIR/tmp-code/modules $DIR/help/code/modules
 rm -rf $DIR/tmp-code
+echo "Documentation moved to $DIR/help/code"

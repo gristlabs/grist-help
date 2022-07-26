@@ -8,11 +8,11 @@ API definitions for CustomSection plugins.
 
 ### Properties
 
-- [allowMultiple](grist_plugin_api.columntomap.md#allowmultiple)
-- [name](grist_plugin_api.columntomap.md#name)
-- [optional](grist_plugin_api.columntomap.md#optional)
-- [title](grist_plugin_api.columntomap.md#title)
-- [type](grist_plugin_api.columntomap.md#type)
+- [allowMultiple](grist_plugin_api.ColumnToMap.md#allowmultiple)
+- [name](grist_plugin_api.ColumnToMap.md#name)
+- [optional](grist_plugin_api.ColumnToMap.md#optional)
+- [title](grist_plugin_api.ColumnToMap.md#title)
+- [type](grist_plugin_api.ColumnToMap.md#type)
 
 ## Properties
 

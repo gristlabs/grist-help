@@ -1,20 +1,20 @@
 # Interface: OpOptions
 
-[TableOperations](../modules/tableoperations.md).OpOptions
+[TableOperations](../modules/TableOperations.md).OpOptions
 
 General options for table operations.
 
 ## Hierarchy
 
-- **OpOptions**
+- **`OpOptions`**
 
-  ↳ [UpsertOptions](tableoperations.upsertoptions.md)
+  ↳ [`UpsertOptions`](TableOperations.UpsertOptions.md)
 
 ## Table of contents
 
 ### Properties
 
-- [parseStrings](tableoperations.opoptions.md#parsestrings)
+- [parseStrings](TableOperations.OpOptions.md#parsestrings)
 
 ## Properties
 

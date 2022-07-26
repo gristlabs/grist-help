@@ -8,9 +8,9 @@ Initial message sent by the CustomWidget with initial requirements.
 
 ### Properties
 
-- [columns](grist_plugin_api.interactionoptionsrequest.md#columns)
-- [hasCustomOptions](grist_plugin_api.interactionoptionsrequest.md#hascustomoptions)
-- [requiredAccess](grist_plugin_api.interactionoptionsrequest.md#requiredaccess)
+- [columns](grist_plugin_api.InteractionOptionsRequest.md#columns)
+- [hasCustomOptions](grist_plugin_api.InteractionOptionsRequest.md#hascustomoptions)
+- [requiredAccess](grist_plugin_api.InteractionOptionsRequest.md#requiredaccess)
 
 ## Properties
 
