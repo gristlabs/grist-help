@@ -59,21 +59,7 @@ ___
 
 ▸ **getAccessToken**(`options`): `Promise`<[`AccessTokenResult`](grist_plugin_api.AccessTokenResult.md)\>
 
-Get a token for out-of-band access to the document. The returned token can
-be used to authorize regular REST API calls that access the content of the
-document. For example, in a custom widget for a table with a `Photos` column
-containing attachments, the following code will update the `src` of an
-image with id `the_image` to show the attachment:
-```js
-grist.onRecord(async (record) => {
-  const tokenInfo = await grist.docApi.getAccessToken({readOnly: true});
-  const img = document.getElementById('the_image');
-  const id = record.Photos[0];  // get an id of an attachment - there could be several,
-                                // we just take the first.
-  const src = `${tokenInfo.baseUrl}/attachments/${id}/download?auth=${tokenInfo.token}`;
-  img.setAttribute('src', src);
-});
-```
+Get a token for out-of-band access to the document.
 
 #### Parameters
 
