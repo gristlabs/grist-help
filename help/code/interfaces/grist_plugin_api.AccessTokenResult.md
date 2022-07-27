@@ -43,5 +43,5 @@ ___
 
 • **ttlMsecs**: `number`
 
-Number of milliseconds was created to be valid for. This will be several
-minutes.
+Number of milliseconds the access token will remain valid for
+after creation. This will be several minutes.
