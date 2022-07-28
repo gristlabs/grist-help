@@ -8,28 +8,28 @@ Interface for the data backing a single widget.
 
 ### Methods
 
-- [allowSelectBy](grist_plugin_api.gristview.md#allowselectby)
-- [fetchSelectedRecord](grist_plugin_api.gristview.md#fetchselectedrecord)
-- [fetchSelectedTable](grist_plugin_api.gristview.md#fetchselectedtable)
-- [setSelectedRows](grist_plugin_api.gristview.md#setselectedrows)
+- [allowSelectBy](grist_plugin_api.GristView.md#allowselectby)
+- [fetchSelectedRecord](grist_plugin_api.GristView.md#fetchselectedrecord)
+- [fetchSelectedTable](grist_plugin_api.GristView.md#fetchselectedtable)
+- [setSelectedRows](grist_plugin_api.GristView.md#setselectedrows)
 
 ## Methods
 
 ### allowSelectBy
 
-▸ **allowSelectBy**(): `Promise`<void\>
+▸ **allowSelectBy**(): `Promise`<`void`\>
 
 Allow custom widget to be listed as a possible source for linking with SELECT BY.
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<`void`\>
 
 ___
 
 ### fetchSelectedRecord
 
-▸ **fetchSelectedRecord**(`rowId`): `Promise`<any\>
+▸ **fetchSelectedRecord**(`rowId`): `Promise`<`any`\>
 
 Fetches selected record by its `rowId`.
 
@@ -41,25 +41,25 @@ Fetches selected record by its `rowId`.
 
 #### Returns
 
-`Promise`<any\>
+`Promise`<`any`\>
 
 ___
 
 ### fetchSelectedTable
 
-▸ **fetchSelectedTable**(): `Promise`<any\>
+▸ **fetchSelectedTable**(): `Promise`<`any`\>
 
-Like [GristDocAPI.fetchTable](grist_plugin_api.gristdocapi.md#fetchtable), but gets data for the custom section specifically, if there is any.
+Like [GristDocAPI.fetchTable](grist_plugin_api.GristDocAPI.md#fetchtable), but gets data for the custom section specifically, if there is any.
 
 #### Returns
 
-`Promise`<any\>
+`Promise`<`any`\>
 
 ___
 
 ### setSelectedRows
 
-▸ **setSelectedRows**(`rowIds`): `Promise`<void\>
+▸ **setSelectedRows**(`rowIds`): `Promise`<`void`\>
 
 Set the list of selected rows to be used against any linked widget. Requires `allowSelectBy()`.
 
@@ -71,4 +71,4 @@ Set the list of selected rows to be used against any linked widget. Requires `al
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<`void`\>

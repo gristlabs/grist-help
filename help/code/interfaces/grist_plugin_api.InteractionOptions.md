@@ -8,7 +8,7 @@ Widget configuration set and approved by Grist, sent as part of ready message.
 
 ### Properties
 
-- [accessLevel](grist_plugin_api.interactionoptions.md#accesslevel)
+- [accessLevel](grist_plugin_api.InteractionOptions.md#accesslevel)
 
 ## Properties
 

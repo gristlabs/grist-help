@@ -6,17 +6,17 @@ Options when initializing connection to Grist.
 
 ## Hierarchy
 
-- `Omit`<[InteractionOptionsRequest](grist_plugin_api.interactionoptionsrequest.md), ``"hasCustomOptions"``\>
+- `Omit`<[`InteractionOptionsRequest`](grist_plugin_api.InteractionOptionsRequest.md), ``"hasCustomOptions"``\>
 
-  ↳ **ReadyPayload**
+  ↳ **`ReadyPayload`**
 
 ## Table of contents
 
 ### Properties
 
-- [columns](grist_plugin_api.readypayload.md#columns)
-- [onEditOptions](grist_plugin_api.readypayload.md#oneditoptions)
-- [requiredAccess](grist_plugin_api.readypayload.md#requiredaccess)
+- [columns](grist_plugin_api.ReadyPayload.md#columns)
+- [onEditOptions](grist_plugin_api.ReadyPayload.md#oneditoptions)
+- [requiredAccess](grist_plugin_api.ReadyPayload.md#requiredaccess)
 
 ## Properties
 
@@ -35,13 +35,13 @@ ___
 
 ### onEditOptions
 
-• **onEditOptions**: () => `unknown`
-
-Handler that will be called by Grist to open additional configuration panel inside the Custom Widget.
+• `Optional` **onEditOptions**: () => `unknown`
 
 #### Type declaration
 
 ▸ (): `unknown`
+
+Handler that will be called by Grist to open additional configuration panel inside the Custom Widget.
 
 ##### Returns
 

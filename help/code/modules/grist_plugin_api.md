@@ -4,21 +4,21 @@
 
 ### Interfaces
 
-- [ColumnToMap](../interfaces/grist_plugin_api.columntomap.md)
-- [GristColumn](../interfaces/grist_plugin_api.gristcolumn.md)
-- [GristDocAPI](../interfaces/grist_plugin_api.gristdocapi.md)
-- [GristTable](../interfaces/grist_plugin_api.gristtable.md)
-- [GristView](../interfaces/grist_plugin_api.gristview.md)
-- [InteractionOptions](../interfaces/grist_plugin_api.interactionoptions.md)
-- [InteractionOptionsRequest](../interfaces/grist_plugin_api.interactionoptionsrequest.md)
-- [ParseOptionSchema](../interfaces/grist_plugin_api.parseoptionschema.md)
-- [ParseOptions](../interfaces/grist_plugin_api.parseoptions.md)
-- [ReadyPayload](../interfaces/grist_plugin_api.readypayload.md)
-- [RenderOptions](../interfaces/grist_plugin_api.renderoptions.md)
-- [RowRecord](../interfaces/grist_plugin_api.rowrecord.md)
-- [RowRecords](../interfaces/grist_plugin_api.rowrecords.md)
-- [WidgetAPI](../interfaces/grist_plugin_api.widgetapi.md)
-- [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md)
+- [AccessTokenOptions](../interfaces/grist_plugin_api.AccessTokenOptions.md)
+- [AccessTokenResult](../interfaces/grist_plugin_api.AccessTokenResult.md)
+- [ColumnToMap](../interfaces/grist_plugin_api.ColumnToMap.md)
+- [GristColumn](../interfaces/grist_plugin_api.GristColumn.md)
+- [GristDocAPI](../interfaces/grist_plugin_api.GristDocAPI.md)
+- [GristTable](../interfaces/grist_plugin_api.GristTable.md)
+- [GristView](../interfaces/grist_plugin_api.GristView.md)
+- [InteractionOptions](../interfaces/grist_plugin_api.InteractionOptions.md)
+- [InteractionOptionsRequest](../interfaces/grist_plugin_api.InteractionOptionsRequest.md)
+- [ParseOptionSchema](../interfaces/grist_plugin_api.ParseOptionSchema.md)
+- [ParseOptions](../interfaces/grist_plugin_api.ParseOptions.md)
+- [ReadyPayload](../interfaces/grist_plugin_api.ReadyPayload.md)
+- [RenderOptions](../interfaces/grist_plugin_api.RenderOptions.md)
+- [WidgetAPI](../interfaces/grist_plugin_api.WidgetAPI.md)
+- [WidgetColumnMap](../interfaces/grist_plugin_api.WidgetColumnMap.md)
 
 ### Variables
 
@@ -35,6 +35,7 @@
 - [clearOptions](grist_plugin_api.md#clearoptions)
 - [fetchSelectedRecord](grist_plugin_api.md#fetchselectedrecord)
 - [fetchSelectedTable](grist_plugin_api.md#fetchselectedtable)
+- [getAccessToken](grist_plugin_api.md#getaccesstoken)
 - [getOption](grist_plugin_api.md#getoption)
 - [getOptions](grist_plugin_api.md#getoptions)
 - [getTable](grist_plugin_api.md#gettable)
@@ -53,7 +54,7 @@
 
 ### checkers
 
-• `Const` **checkers**: `Pick`<ICheckerSuite, ``"ParseOptions"`` \| ``"ParseFileResult"`` \| ``"FileSource"`` \| ``"ParseOptionSchema"`` \| ``"GristTables"`` \| ``"RenderTarget"`` \| ``"RenderOptions"`` \| ``"GristColumn"`` \| ``"GristTable"`` \| ``"ImportSource"`` \| ``"FileContent"`` \| ``"FileListItem"`` \| ``"URL"`` \| ``"CustomSectionAPI"`` \| ``"EditOptionsAPI"`` \| ``"ParseFileAPI"`` \| ``"ComponentKind"`` \| ``"GristAPI"`` \| ``"GristDocAPI"`` \| ``"GristView"`` \| ``"ImportSourceAPI"`` \| ``"ImportProcessorAPI"`` \| ``"InternalImportSourceAPI"`` \| ``"Storage"`` \| ``"WidgetAPI"``\>
+• `Const` **checkers**: `Pick`<`ICheckerSuite`, ``"CustomSectionAPI"`` \| ``"ParseOptions"`` \| ``"ParseFileResult"`` \| ``"FileSource"`` \| ``"ParseOptionSchema"`` \| ``"GristTables"`` \| ``"EditOptionsAPI"`` \| ``"ParseFileAPI"`` \| ``"RenderTarget"`` \| ``"RenderOptions"`` \| ``"ComponentKind"`` \| ``"GristAPI"`` \| ``"GristDocAPI"`` \| ``"GristView"`` \| ``"GristColumn"`` \| ``"GristTable"`` \| ``"ImportSourceAPI"`` \| ``"ImportProcessorAPI"`` \| ``"ImportSource"`` \| ``"FileContent"`` \| ``"FileListItem"`` \| ``"URL"`` \| ``"InternalImportSourceAPI"`` \| ``"Storage"`` \| ``"WidgetAPI"``\>
 
 We also create and export a global checker object that includes all of the types above.
 
@@ -61,7 +62,7 @@ ___
 
 ### docApi
 
-• `Const` **docApi**: [GristDocAPI](../interfaces/grist_plugin_api.gristdocapi.md) & [GristView](../interfaces/grist_plugin_api.gristview.md)
+• `Const` **docApi**: [`GristDocAPI`](../interfaces/grist_plugin_api.GristDocAPI.md) & [`GristView`](../interfaces/grist_plugin_api.GristView.md)
 
 A collection of methods for fetching document data. The
 fetchSelectedTable and fetchSelectedRecord methods are
@@ -79,7 +80,7 @@ ___
 
 ### selectedTable
 
-• `Const` **selectedTable**: [TableOperations](../interfaces/tableoperations.tableoperations-1.md)
+• `Const` **selectedTable**: [`TableOperations`](../interfaces/TableOperations.TableOperations.md)
 
 Get the current selected table (for custom widgets).
 
@@ -87,7 +88,7 @@ ___
 
 ### viewApi
 
-• `Const` **viewApi**: [GristView](../interfaces/grist_plugin_api.gristview.md)
+• `Const` **viewApi**: [`GristView`](../interfaces/grist_plugin_api.GristView.md)
 
 Interface for the records backing a custom widget.
 
@@ -95,7 +96,7 @@ ___
 
 ### widgetApi
 
-• `Const` **widgetApi**: [WidgetAPI](../interfaces/grist_plugin_api.widgetapi.md)
+• `Const` **widgetApi**: [`WidgetAPI`](../interfaces/grist_plugin_api.WidgetAPI.md)
 
 Interface for the state of a custom widget.
 
@@ -103,33 +104,33 @@ Interface for the state of a custom widget.
 
 ### allowSelectBy
 
-▸ `Const` **allowSelectBy**(): `Promise`<void\>
+▸ **allowSelectBy**(): `Promise`<`void`\>
 
-Shortcut for [GristView.allowSelectBy](../interfaces/grist_plugin_api.gristview.md#allowselectby).
+Allow custom widget to be listed as a possible source for linking with SELECT BY.
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<`void`\>
 
 ___
 
 ### clearOptions
 
-▸ `Const` **clearOptions**(): `Promise`<void\>
+▸ **clearOptions**(): `Promise`<`void`\>
 
-Shortcut for [WidgetAPI.clearOptions](../interfaces/grist_plugin_api.widgetapi.md#clearoptions)
+Clears all the options.
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<`void`\>
 
 ___
 
 ### fetchSelectedRecord
 
-▸ **fetchSelectedRecord**(`rowId`, `options?`): `Promise`<any\>
+▸ **fetchSelectedRecord**(`rowId`, `options?`): `Promise`<`any`\>
 
-Fetches current selected record as for [GristView.fetchSelectedRecord](../interfaces/grist_plugin_api.gristview.md#fetchselectedrecord),
+Fetches current selected record as for [GristView.fetchSelectedRecord](../interfaces/grist_plugin_api.GristView.md#fetchselectedrecord),
 but decoding data by default, replacing e.g. ['D', timestamp] with
 a moment date. Option `keepEncoded` skips the decoding step.
 
@@ -138,19 +139,20 @@ a moment date. Option `keepEncoded` skips the decoding step.
 | Name | Type |
 | :------ | :------ |
 | `rowId` | `number` |
-| `options?` | `Object` |
+| `options` | `Object` |
+| `options.keepEncoded?` | `boolean` |
 
 #### Returns
 
-`Promise`<any\>
+`Promise`<`any`\>
 
 ___
 
 ### fetchSelectedTable
 
-▸ **fetchSelectedTable**(`options?`): `Promise`<any\>
+▸ **fetchSelectedTable**(`options?`): `Promise`<`any`\>
 
-Fetches data backing the widget as for [GristView.fetchSelectedTable](../interfaces/grist_plugin_api.gristview.md#fetchselectedtable),
+Fetches data backing the widget as for [GristView.fetchSelectedTable](../interfaces/grist_plugin_api.GristView.md#fetchselectedtable),
 but decoding data by default, replacing e.g. ['D', timestamp] with
 a moment date. Option `keepEncoded` skips the decoding step.
 
@@ -158,19 +160,53 @@ a moment date. Option `keepEncoded` skips the decoding step.
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Object` |
+| `options` | `Object` |
+| `options.keepEncoded?` | `boolean` |
 
 #### Returns
 
-`Promise`<any\>
+`Promise`<`any`\>
+
+___
+
+### getAccessToken
+
+▸ **getAccessToken**(`options?`): `Promise`<[`AccessTokenResult`](../interfaces/grist_plugin_api.AccessTokenResult.md)\>
+
+Get an access token, for making API calls outside of the custom widget
+API. There is no caching of tokens. The returned token can
+be used to authorize regular REST API calls that access the content of the
+document. For example, in a custom widget for a table with a `Photos` column
+containing attachments, the following code will update the `src` of an
+image with id `the_image` to show the attachment:
+```js
+grist.onRecord(async (record) => {
+  const tokenInfo = await grist.docApi.getAccessToken({readOnly: true});
+  const img = document.getElementById('the_image');
+  const id = record.Photos[0];  // get an id of an attachment - there could be several
+                                // in a cell, for this example we just take the first.
+  const src = `${tokenInfo.baseUrl}/attachments/${id}/download?auth=${tokenInfo.token}`;
+  img.setAttribute('src', src);
+});
+```
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | [`AccessTokenOptions`](../interfaces/grist_plugin_api.AccessTokenOptions.md) |
+
+#### Returns
+
+`Promise`<[`AccessTokenResult`](../interfaces/grist_plugin_api.AccessTokenResult.md)\>
 
 ___
 
 ### getOption
 
-▸ `Const` **getOption**(`key`): `Promise`<any\>
+▸ **getOption**(`key`): `Promise`<`any`\>
 
-Shortcut for [WidgetAPI.getOption](../interfaces/grist_plugin_api.widgetapi.md#getoption)
+Get single value from Widget options object.
 
 #### Parameters
 
@@ -180,25 +216,25 @@ Shortcut for [WidgetAPI.getOption](../interfaces/grist_plugin_api.widgetapi.md#g
 
 #### Returns
 
-`Promise`<any\>
+`Promise`<`any`\>
 
 ___
 
 ### getOptions
 
-▸ `Const` **getOptions**(): `Promise`<``null`` \| object\>
+▸ **getOptions**(): `Promise`<``null`` \| `object`\>
 
-Shortcut for [WidgetAPI.getOptions](../interfaces/grist_plugin_api.widgetapi.md#getoptions)
+Gets all options stored by the widget. Options are stored as plain JSON object.
 
 #### Returns
 
-`Promise`<``null`` \| object\>
+`Promise`<``null`` \| `object`\>
 
 ___
 
 ### getTable
 
-▸ **getTable**(`tableId?`): [TableOperations](../interfaces/tableoperations.tableoperations-1.md)
+▸ **getTable**(`tableId?`): [`TableOperations`](../interfaces/TableOperations.TableOperations.md)
 
 Get access to a table in the document. If no tableId specified, this
 will use the current selected table (for custom widgets).
@@ -213,7 +249,7 @@ on the table is attempted.
 
 #### Returns
 
-[TableOperations](../interfaces/tableoperations.tableoperations-1.md)
+[`TableOperations`](../interfaces/TableOperations.TableOperations.md)
 
 ___
 
@@ -231,6 +267,9 @@ custom column mapping.
 | :------ | :------ |
 | `data` | `any` |
 | `options?` | `Object` |
+| `options.columns?` | `ColumnsToMap` |
+| `options.mappings?` | ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md) |
+| `options.reverse?` | `boolean` |
 
 #### Returns
 
@@ -253,6 +292,8 @@ we don't attempt to do these transformations automatically.
 | :------ | :------ |
 | `data` | `any` |
 | `options?` | `Object` |
+| `options.columns?` | `ColumnsToMap` |
+| `options.mappings?` | ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md) |
 
 #### Returns
 
@@ -271,7 +312,7 @@ new (blank) row is selected.
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
+| `callback` | (`mappings`: ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md)) => `unknown` |
 
 #### Returns
 
@@ -293,7 +334,7 @@ the document that contains it.
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`options`: `any`, `settings`: [InteractionOptions](../interfaces/grist_plugin_api.interactionoptions.md)) => `unknown` |
+| `callback` | (`options`: `any`, `settings`: [`InteractionOptions`](../interfaces/grist_plugin_api.InteractionOptions.md)) => `unknown` |
 
 #### Returns
 
@@ -315,7 +356,7 @@ any row.
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`data`: [RowRecord](../interfaces/grist_plugin_api.rowrecord.md) \| ``null``, `mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
+| `callback` | (`data`: ``null`` \| [`RowRecord`](../interfaces/GristData.RowRecord.md), `mappings`: ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md)) => `unknown` |
 
 #### Returns
 
@@ -334,7 +375,7 @@ selected records change.  Handler will be called with a list of records.
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`data`: [RowRecord](../interfaces/grist_plugin_api.rowrecord.md)[], `mappings`: [WidgetColumnMap](../interfaces/grist_plugin_api.widgetcolumnmap.md) \| ``null``) => `unknown` |
+| `callback` | (`data`: [`RowRecord`](../interfaces/GristData.RowRecord.md)[], `mappings`: ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md)) => `unknown` |
 
 #### Returns
 
@@ -353,7 +394,7 @@ Grist will not attempt to communicate with it until this method is called.
 
 | Name | Type |
 | :------ | :------ |
-| `settings?` | [ReadyPayload](../interfaces/grist_plugin_api.readypayload.md) |
+| `settings?` | [`ReadyPayload`](../interfaces/grist_plugin_api.ReadyPayload.md) |
 
 #### Returns
 
@@ -363,9 +404,9 @@ ___
 
 ### setOption
 
-▸ `Const` **setOption**(`key`, `value`): `Promise`<void\>
+▸ **setOption**(`key`, `value`): `Promise`<`void`\>
 
-Shortcut for [WidgetAPI.setOption](../interfaces/grist_plugin_api.widgetapi.md#setoption)
+Store single value in the Widget options object (and create it if necessary).
 
 #### Parameters
 
@@ -376,15 +417,15 @@ Shortcut for [WidgetAPI.setOption](../interfaces/grist_plugin_api.widgetapi.md#s
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<`void`\>
 
 ___
 
 ### setOptions
 
-▸ `Const` **setOptions**(`options`): `Promise`<void\>
+▸ **setOptions**(`options`): `Promise`<`void`\>
 
-Shortcut for [WidgetAPI.setOptions](../interfaces/grist_plugin_api.widgetapi.md#setoptions)
+Replaces all options stored by the widget.
 
 #### Parameters
 
@@ -394,15 +435,15 @@ Shortcut for [WidgetAPI.setOptions](../interfaces/grist_plugin_api.widgetapi.md#
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<`void`\>
 
 ___
 
 ### setSelectedRows
 
-▸ `Const` **setSelectedRows**(`rowIds`): `Promise`<void\>
+▸ **setSelectedRows**(`rowIds`): `Promise`<`void`\>
 
-Shortcut for [GristView.setSelectedRows](../interfaces/grist_plugin_api.gristview.md#setselectedrows).
+Set the list of selected rows to be used against any linked widget. Requires `allowSelectBy()`.
 
 #### Parameters
 
@@ -412,4 +453,4 @@ Shortcut for [GristView.setSelectedRows](../interfaces/grist_plugin_api.gristvie
 
 #### Returns
 
-`Promise`<void\>
+`Promise`<`void`\>
