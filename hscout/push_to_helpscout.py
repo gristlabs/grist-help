@@ -115,13 +115,16 @@ class DocsPusher:
     self.setRedirect(article.getHelpScoutPath(), to_url)
     return article
 
+  def findRedirect(self, from_path, cache=[]):
+    if not cache:
+      redirects = self.listRedirects()
+      cache.append({r["urlMapping"]: r for r in redirects})
+    return cache[0].get(from_path, None)
+
   def setRedirect(self, from_path, to_url):
     print(f" - Setting redirect {from_path} -> {to_url}")
+    found = self.findRedirect(from_path)
     if not self._dryrun:
-      found = self._sess.get(f"{DOCS_BASE_URL}/redirects", params={
-        "siteId": self._site_id,
-        "url": from_path,
-      }).json()["redirectedUrl"]
       if not found:
         self._sess.post(f"{DOCS_BASE_URL}/redirects", json={
           "siteId": self._site_id,
@@ -157,6 +160,20 @@ class DocsPusher:
         page += 1
         pages = resp["articles"]["pages"]
     return articles
+
+  def listRedirects(self):
+    redirects = []
+    if not self._noread:
+      page = 1
+      pages = 1
+      while page <= pages:
+        resp = self._sess.get(f"{DOCS_BASE_URL}/redirects/site/{self._site_id}",
+            params={"page": page}).json()
+        redirects.extend(resp["redirects"]["items"])
+        page += 1
+        pages = resp["redirects"]["pages"]
+    print(f"FOUND {len(redirects)} REDIRECTS")
+    return redirects
 
   def run(self):
     articlesList = self.listArticles()
