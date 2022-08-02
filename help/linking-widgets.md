@@ -194,7 +194,7 @@ visualize](investment-research.md#dynamic-charts) tutorial.
 
 Lastly, tables that reference a summary table’s underlying data may now be linked to the summary table itself. In the image below, the Champion Dog's table has a [reference column](col-types.md#reference-columns) to the Breeder table. The Breeder table is being summarized in the top right widget by the "Country" column. Because Champion Dog references Breeder, you may add a widget of Champion Dogs that selects by a summary table of Breeder data.
 
-<span class="screenshot-large">*![Linking Referenced Data to Summary Table](../images/linking-summary-reference.gif)*</span>
+<span class="screenshot-large">*![Linking Referenced Data to Summary Table](images/linking-summary-reference.gif)*</span>
 
 ## Changing link settings
 

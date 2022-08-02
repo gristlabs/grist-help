@@ -92,7 +92,7 @@ Non-owners may look up their access details to a document by clicking on the sha
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top right of the
 screen and selecting "Access Details."
 
-![Access Details](../images/newsletters/2022-05/access-details.png)
+![Access Details](images/newsletters/2022-05/access-details.png)
 
 From the access details pop up, you may click the trash icon to leave a document.
 
