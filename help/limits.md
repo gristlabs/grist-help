@@ -17,7 +17,7 @@ Older free plans had a limit of ten documents. Learn more about [legacy limits.]
 
 For team sites on both the Free and Pro plan, there is no limit on the number of team members that may be added to the site.  For team sites on the Pro plan, the number of team members determines the price. See our [pricing page](https://www2.getgrist.com/pricing) for details.
 
-Team members added to your team site and may inherit access to workspaces or documents
+Team members added to your team site may inherit access to workspaces or documents
 within that organization. Learn more about [team
 sharing](team-sharing.md#team-sharing).
 
@@ -72,6 +72,8 @@ Older free personal plans have the following limits:
 * 10 documents per site
 * No workspaces
 * 100,000 rows
+
+To determine if you're on a legacy personal site, click on your site name (@your-name) in the top left. Personal sites on the legacy plan will say "Personal Site (Legacy)" in the dropdown menu.
 
 On the current Free plan, all personal and team sites share the same limits as described above and on our [pricing page.](https://www2.getgrist.com/pricing)
 

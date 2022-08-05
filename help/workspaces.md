@@ -1,7 +1,7 @@
 Workspaces
 -------------------------------
 
-Documents can collected in folders
+Documents can be collected in folders
 called "workspaces" which can be shared as a single unit with other users.
 This is convenient, for example, for documents related to a single project.
 

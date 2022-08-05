@@ -14,7 +14,7 @@
 
 Yes! You may create multiple team sites on either the Free or Pro plan.
 
-1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on the upgrade button in the top-right. You may also click on your profile icon in the top right to open the user menu, then click "Upgrade Plan". In the pop-up, select a Free or Pro team site.
+1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on top-left site name (@your-name) to open a list of sites. Click on the "+ Create new team site". In the pop-up, select a Free or Pro team site.
 
 2. **Adding account to team site.** You may own or be a member of multiple teams. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users. 
 
