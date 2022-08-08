@@ -15,7 +15,7 @@ Older free plans had a limit of ten documents. Learn more about [legacy limits.]
 
 ## Number of collaborators
 
-For team sites on both the Free and Pro plan, there is no limit on the number of team members that may be added to the site.  For team sites on the Pro plan, the number of team members determines the price. See our [pricing page](https://www2.getgrist.com/pricing) for details.
+For team sites on both the Free and Pro plan, there is no limit on the number of team members that may be added to the site.  For team sites on the Pro plan, the number of team members determines the price. See our [pricing page](https://www.getgrist.com/pricing) for details.
 
 Team members added to your team site may inherit access to workspaces or documents
 within that organization. Learn more about [team
@@ -36,7 +36,9 @@ table with the product type as an extra column.
 On the Free plan, documents have a limit of 5,000 rows.
 
 On the Pro plan, document may have up to 100,000 rows. This is a rule of thumb. The actual limit depends
-also on the number of tables, columns, and the average size of data in each cell.
+also on the number of tables, columns, and the average size of data in each cell. One way to
+estimate it is to measure the size of the data when it is in CSV format: the limit is around 20MB
+in this format. For example, a document with 200,000 rows and 12 numeric columns would reach that.
 
 Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.
 
@@ -75,5 +77,5 @@ Older free personal plans have the following limits:
 
 To determine if you're on a legacy personal site, click on your site name (@your-name) in the top left. Personal sites on the legacy plan will say "Personal Site (Legacy)" in the dropdown menu.
 
-On the current Free plan, all personal and team sites share the same limits as described above and on our [pricing page.](https://www2.getgrist.com/pricing)
+On the current Free plan, all personal and team sites share the same limits as described above and on our [pricing page.](https://www.getgrist.com/pricing)
 

@@ -1,9 +1,9 @@
 Teams
 =========
 
-Team sites are meant for regular collaboration by groups. They store documents at a subdomain of your choice such as your-team.getgrist.com. Team sites may be on a Free or Pro plan.
+Team sites are meant for regular collaboration by groups. They store documents at a subdomain of your choice such as `your-team.getgrist.com`. Team sites may be on a Free or Pro plan.
 
-The difference between a Free and Pro plan is the document limits. Documents on a Free plan can have up to 5,000 rows, and include automatic backups for 30 days. While personal sites are only available with the Free plan, team sites may be on a Free or Pro plan. On a Pro plan, the limits are much higher. See the [pricing page](https://www2.getgrist.com/pricing) for more details.
+The difference between a Free and Pro plan is the document limits. Documents on a Free plan can have up to 5,000 rows, and include automatic backups for 30 days. While personal sites are only available with the Free plan, team sites may be on a Free or Pro plan. On a Pro plan, the limits are much higher. See the [pricing page](https://www.getgrist.com/pricing) for more details.
 
 If you have a team site but aren't seeing it, click in the top-left corner to open a drop-down menu of sites to which you have access.
 
@@ -28,12 +28,14 @@ but depending on the [role](team-sharing.md#Roles) they chose for you, some opti
 ask your colleague to change your role.
 
 For a team site in which you are an Owner or Editor,
-you can [create documents](creating-doc.md), [create workspaces](workspaces.md),
-or immediately start [sharing](team-sharing.md) the site with others.
+you can [create documents](creating-doc.md) or [workspaces](workspaces.md). When your role is an
+Owner, you can immediately start [sharing](team-sharing.md) the site with others.
 
 Understanding Personal Sites
 -------------------------------
-Sites that begin with the "@" symbol are personal sites. All Grist accounts have a personal site. That’s also where you will find personal documents shared with you by others. Each document in a personal site may be [shared](sharing.md) with up to 2 Guests for free. Your personal site is named using your name, and is always available at https://docs.getgrist.com.
+Sites that begin with the "@" symbol are personal sites. All Grist accounts have a personal site.
+Your personal site is named using your name, and is always available at <https://docs.getgrist.com>.
+That’s also where you will find personal documents shared with you by others. Each document in a personal site may be [shared](sharing.md) with up to 2 Guests for free.
 
 *![team-sharing-personal-name](images/team-sharing/team-sharing-personal-name.png)*
 <em class="caption">a personal site</em>
