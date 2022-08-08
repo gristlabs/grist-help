@@ -1,14 +1,11 @@
 Workspaces
 -------------------------------
 
-A [team site](team-sharing.md) can be divided into collections of documents
+Documents can be collected in folders
 called "workspaces" which can be shared as a single unit with other users.
 This is convenient, for example, for documents related to a single project.
-You can only create workspaces on team sites, not personal sites.
-To check what kind of site you have, or to find a team site you have
-purchased, follow the steps at [Team sharing](team-sharing.md).
 
-A team site, when first created, has a single workspace called "Home."
+When a site is first created, it has a single workspace called "Home."
 
 ![team-sharing-team-site](images/team-sharing/team-sharing-team-site.png)
 
@@ -32,8 +29,18 @@ the left bar, then select "Add New", then "Create empty document"
 *![workspaces-add-document](images/workspaces/workspaces-add-document.png)*
 {: .screenshot-half }
 
-You can control who has access to a workspace using "Manage Users."
-The controls are just like for [sharing documents](sharing.md).
+To move a document from one workspace to another, hover over the document,
+click on the three-dots icon to the right of the document's name, and
+select "Move".
+
+![workspaces-move-document](images/workspaces/workspaces-move-document.png)
+
+You'll then have the option to pick the workspace you want.
+
+![workspaces-move-dialog](images/workspaces/workspaces-move-dialog.png)
+
+On [team sites](teams.md), workspace owners can control who has access to a workspace using "Manage Users."
+The controls are just like for [sharing documents](sharing.md). Workspaces in [personal sites](teams.md#understanding-personal-sites) cannot be shared.
 
 ![workspaces-manage-users](images/workspaces/workspaces-manage-users.png)
 
@@ -52,13 +59,3 @@ of a document limits inheritance to "None."  You will still see the
 document listed, so that if you ever decide to delete the workspace
 you'll know what you're deleting.  Viewers of a workspace will only
 see documents they have access to listed.
-
-To move a document from one workspace to another, hover over the document,
-click on the three-dots icon to the right of the document's name, and
-select "Move".
-
-![workspaces-move-document](images/workspaces/workspaces-move-document.png)
-
-You'll then have the option to pick the workspace you want.
-
-![workspaces-move-dialog](images/workspaces/workspaces-move-dialog.png)

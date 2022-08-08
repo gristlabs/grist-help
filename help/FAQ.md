@@ -12,9 +12,9 @@
 
 ### Can I add multiple teams to the same Grist account? 
 
-Yes!
+Yes! You may create multiple team sites on either the Free or Pro plan.
 
-1. **New team site.** If you’re looking to create a new team site that does not exist, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist. Click on “Upgrade Plan.”
+1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on top-left site name (@your-name) to open a list of sites. Click on the "+ Create new team site". In the pop-up, select a Free or Pro team site.
 
 2. **Adding account to team site.** You may own or be a member of multiple teams. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users. 
 
@@ -134,25 +134,19 @@ In addition to our [summary tables](summary-tables.md) article, we have a [video
 
 ## Sharing 
 
-### What does Team (+2 Per Doc) mean? 
+### What's the difference between a team member and a guest? 
 
-Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as `your-company.getgrist.com`. The team plan costs $8/month/team member. Team site owners may open the [Billing Account](teams.md#billing-account) page to manage payment and edit plan managers.
+Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as `your-team.getgrist.com`. On the Pro plan, the number of team members determines the price.
 
 By default, documents within a team site may be accessed by all team members. This default can be modified to only share certain [documents](team-sharing.md) or certain [workspaces](workspaces.md) with specific team members. 
 
-At the document level, you may choose to [share a document](sharing.md) with up to 2 outside collaborators (non-team members) at no additional cost.
-
-For example, say Wiley Co. has a team site with 5 team members. They pay $40 per month to collaborate in Grist on an unlimited number of documents.
-
-Wiley Co. sometimes works with a contractor on a project, a company called Roadrunner. Wiley Co. shares one of their documents with 2 Roadrunner employees at no additional cost. Those two document-level shares are considered outside collaborators, or guests.
-
-Wiley Co. sometimes works with a second contractor, a company called ACME. Wiley Co. shares one of their documents with 2 ACME employees at no additional cost. Wiley Co. has four outside collaborators, or guests, but since there are at most 2 per document, there is no additional cost.
+Guests, on the other hand, are invited to particular documents, but are not added to your team. All documents in Grist, including those on personal sites, are allowed up to 2 free guests, and do not affect the plan price. 
 
 ### Can I only share Grist documents with my team?
 
 There are many ways to share Grist data with non-team members. 
 
-1. **Outside collaborators.** Each document may be shared with 2 outside collaborators (non-team members) at no additional cost.
+1. **Guests.** Each document may be shared with 2 guests (non-team members) at no additional cost.
 2. **Link Sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
 
 <center>*![Public access](images/faq/link-sharing.png)*</center>

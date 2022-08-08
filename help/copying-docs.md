@@ -73,7 +73,7 @@ menu. Clicking it opens a dialog:
 
 Type in the new name. If you have access to one or more team accounts, you may have a choice of a
 destination team and a destination workspace where to save the copy. Note that on a team
-plan, you would not be able to save the document outside of the team account unless you have
+site, you would not be able to save the document outside of the team site unless you have
 owner-level access to the document.
 
 
