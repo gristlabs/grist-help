@@ -17,8 +17,9 @@ $DIR/node_modules/.bin/typedoc \
   --plugin "typedoc-plugin-markdown" \
   --hideBreadcrumbs \
   --logLevel Verbose
-rm -rf $DIR/help/code/interfaces $DIR/help/code/modules
+rm -rf $DIR/help/code/interfaces $DIR/help/code/modules $DIR/help/code/enums
 mv $DIR/tmp-code/interfaces $DIR/help/code/interfaces
 mv $DIR/tmp-code/modules $DIR/help/code/modules
+mv $DIR/tmp-code/enums $DIR/help/code/enums
 rm -rf $DIR/tmp-code
 echo "Documentation moved to $DIR/help/code"
