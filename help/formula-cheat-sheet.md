@@ -608,6 +608,9 @@ You can find duplicates in a column using either conditional formatting or a hel
 <span></span><details><summary>
 #### Example of Finding Duplicates
 </summary>
+
+**Video Walkthrough: [Finding Duplicates with a Formula](https://www.youtube.com/watch?v=7lNz2Mw7yyw&list=PL3Q9Tu1JOy_79QFrtQOEO1wHVIYYazdIf){:target="\_blank"}**
+
 **Community Example: [Finding Duplicates](https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/4){:target="\_blank"}**
 
 <span class="screenshot-large">*![duplicates-single-column](images/formula-cheat-sheet/duplicates-single-column.png)*</span>
@@ -753,6 +756,42 @@ sorted(
 </details>
 </section>
 
+<span></span><section class="cheat-sheet">
+#### Creating a Table of Unique Records
+Quickly create a table of unique values by creating a [summary table](summary-tables.md) then [detach it](summary-tables.md#detaching-summary-tables) to turn it into an independant data table.
+
+<span></span><details><summary>
+#### Examples of Creating a Table of Unique Records
+</summary>
+
+**Video Walkthrough: [Back to Basics: Migrating from spreadsheet to Grist](https://www.youtube.com/watch?v=-mNh2P_Wa6c&t=2311s){:target="\_blank"}**
+
+<span class="screenshot-large">*![unique-values-initial-list](images/formula-cheat-sheet/unique-values-initial-list.png)*</span>
+{: .screenshot-half }
+
+We have a table of Students where some names are duplicated. Our first step in creating a unique table is to create a [summary table](summary-tables.md). 
+
+Under the green 'Add New' button, select 'Add New Page' then select 'Table' under 'Select Widget' and under 'Select Data' we'll choose the table with the duplicated values. In this example, that is our Students table. To create a summary table, click the green summation icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) then under 'Group By', select the column(s) where data is duplicated. 
+
+Click the green 'Add to Page' button to create the summary table.
+
+<span class="screenshot-large">*![unique-values-create-summary-table](images/formula-cheat-sheet/unique-values-create-summary-table.png)*</span>
+If you select multiple columns, the values across all selected columns create a single unique value. In our example, we have `McFly` duplicated in the 'Last Name' column, but each of these records has a different value in the 'First Name' column, `Marty` and `George`, making these their own unique record. You can see that in the summary table below.
+
+<span class="screenshot-large">*![unique-values-summary-table](images/formula-cheat-sheet/unique-values-summary-table.png)*</span>
+{: .screenshot-half }
+
+Next, we want to turn our summary table into an independent data table. Open the table configuration panel on the right-hand side of the screen. Select the Data tab then 'Detach'.
+
+<span class="screenshot-large">*![unique-values-detach](images/formula-cheat-sheet/unique-values-detach.png)*</span>
+
+We now have a table containing all unique records.
+
+<span class="screenshot-large">*![unique-values-final](images/formula-cheat-sheet/unique-values-final.png)*</span>
+{: .screenshot-half }
+
+</details>
+</section>
 
 <span></span><section class="cheat-sheet">
 #### Setting Default Values for New Records
@@ -762,6 +801,40 @@ You can set default values for when a new record is created and save yourself th
 **Read about it in the Community:** [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4){:target="\_blank"}
 
 </section>
+
+<span></span><section class="cheat-sheet">
+#### Creating a Radio Button Column
+
+Create a toggle column that works like a radio button - where only one record can be toggled to True at any time.
+
+<span></span><details><summary>
+#### Example of Creating a Radio Button Column
+</summary>
+
+**Community Example: [Radio Button Example](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/4/m/fork){:target="\_blank"}**
+
+<span class="screenshot-large">*![radio-button](images/formula-cheat-sheet/radio-button.png)*</span>
+
+You'll first need to create a toggle column and a helper column. Our 'Radio' column is a toggle type column. Our 'Helper' column is a formula column. The formula used in the Helper column of the 'Radio Button Example' table is:
+```
+Radio_Button_Example.lookupRecords(Radio=True)
+```
+We use a [lookupRecords](functions.md#lookuprecords) function to find all records in the 'Radio Button Example' table where the value in the 'Radio' column is `True`. The value returned is the column ID for those records where 'Radio' is `True`.
+
+<span class="screenshot-large">*![radio-button-trigger](images/formula-cheat-sheet/radio-button-trigger.png)*</span>
+
+Next, we need to set up a trigger formula in our toggle column, 'Radio'. The trigger formula in the 'Radio' column is:
+```
+False
+```
+This trigger formula applies only on changes to the column 'Helper'. 
+
+When the value in the 'Helper' column changes, all other toggles will become `False`. The value in the 'Helper' column only changes when a toggle is set to `True`. Therefore, anytime a toggle is set to `True`, the 'Helper' column will update and then all other toggles will be set to `False`. 
+
+</details>
+</section>
+
+
 
 ## Working with dates and times
 
@@ -862,3 +935,165 @@ We can use this column to filter our data. If we only want to see interactions t
 </div>
 
 </details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Calculating the Sum or Difference Between Two Times
+
+You can find the difference or sum between two [DateTime](col-types.md#datetime-columns) values using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod) function.
+
+<span></span><details><summary>
+#### Example of Calculating the Difference Between Two Times
+</summary>
+**Community Example:** [Calculating Age in Years](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/3/m/fork)
+
+<span class="screenshot-large">*![hours-worked](images/formula-cheat-sheet/hours-worked.png)*</span>
+
+The formula used in the Age column of the Calculating Age table is:
+```
+difference = TODAY() - $Birthdate
+difference_in_years = difference.days/365.2425
+return ROUND(difference_in_years,0)
+```
+First, we calculate the difference between today's date (found using the [TODAY()](functions.md#today) function) and the date value in the Birthdate column. We assign this value to the variable `difference`.
+
+Next, we calculate the number of days within the value assigned to the variable `difference`. We divide this number by the number of days in one year. We assign this value to the variable `difference_in_years`. 
+
+Last, we use the [ROUND()](functions.md#round) function to round the value assigned to the variable `difference_in_years` to the nearest whole number (with zero decimals).
+
+You do have the option to include seconds in the calculation. See the 'Age (w/ Seconds)' column in the Calculating Age table. The formula used here is:
+```
+difference = TODAY() - $Birthdate
+difference_in_years = (difference.days + difference.seconds/86400)/365.2425
+return ROUND(difference_in_years,0)
+```
+Because we round to a whole number, the partial day (represented in seconds) doesn't make a difference in our final value. If you were calculating difference in days, the seconds might make a difference, depending how far into the current day you are.
+
+**Community Example:** [Calculating Hours Worked](https://public.getgrist.com/a3HWPxrhNwJa/1863/p/4)
+
+<span class="screenshot-large">*![hours-worked](images/formula-cheat-sheet/hours-worked.png)*</span>
+
+The formula used in the Hours Worked column of the All Check IN + OUT table is:
+```
+if not $Check_In_Time or not $Check_Out_Time:
+  return None
+s = ($Check_Out_Time - $Check_In_Time).total_seconds()
+hours = divmod(abs(s), 3600)
+minutes = divmod(hours[1], 60)
+return "%dhr %dmin" % (hours[0], minutes[0])
+```
+
+The first two lines remove errors if there are no values in the Check In Time or Check Out Time columns. Instead of getting an error because no value exists, the formula returns `None`, which appears as blank.
+
+`s = ($Check_Out_Time - $Check_In_Time).total_seconds()` calculates the difference between Check In and Check Out then converts the time to seconds. This value is assigned to the variable `s`.
+
+`hours = divmod(abs(s), 3600)` takes the absolute value of our total seconds and gets the number of hours (3600 seconds in 1 hour) using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod) function. This number is assigned to the variable `hours`. 
+
+`minutes = divmod(hours[1], 60)` uses the remainder of hours to calculate minutes. This is assigned to the variable `minutes`.
+
+`"%dhr %dmin" % (hours[0], minutes[0])` uses the [`%`](https://docs.python.org/2/library/stdtypes.html#string-formatting-operations) string formatting operator to format our string, `%dhr %dmin`. Format specifiers begin with `%` followed by a character that represents the data type. %d is a placeholder for an integer. The first `%d` is replaced with `hours[0]` and the second `%d` is replaced with `minutes[0]`.
+
+Check out our [Time Tracker template](https://templates.getgrist.com/np7TVHmuvFcH/Simple-Time-Tracker) for another example!
+
+
+
+</details>
+
+<span></span><details><summary>
+#### Troubleshooting Errors
+</summary>
+
+<span></span><div class="deflist">
+
+- `#TypeError`:
+
+    <span class="screenshot-large">*![time-diff-typeerror](images/formula-cheat-sheet/time-diff-typeerror.png)*</span>
+
+    Check your entry for any extra characters. 
+</div>
+
+</details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Formatting Dates
+
+Use the [MONTH()](functions.md#month) or [YEAR()](functions.md#year) functions to return the month or year of a date represented as an integer or use Python's [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime) method to create a string representing the time with an explicit format. Bookmark the [Format Code Cheat Sheet](https://strftime.org/) for easy reference.
+
+<span></span><details><summary>
+#### Examples of Formatting Dates
+</summary>
+
+**[Sales Commission Dashboard](https://templates.getgrist.com/pVq4xESKtU24/Sales-Commissions-Dashboard) Template**
+
+<span class="screenshot-large">*![strftime-year-month](images/formula-cheat-sheet/strftime-year-month.png)*</span>
+
+The formula used in the Month column of the Sales table is:
+```
+$Date.strftime("%Y-%m")
+```
+`$Date` is the column where our initial date value is. 
+
+Next, we use the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime) method to format the date value from the `$Date` column, using the formatting codes found in the [Cheat Sheet](https://strftime.org/). 
+
+Our formatting codes fall between quotes `""` because this is a string format. 
+
+`%Y` is the year with century as a decimal number, e.g. 2022. `%m` is the month as a zero-padded decimal number, e.g. 06. 
+
+We can include characters to separate our formatting codes. Here, we use `-` to separate year and month.
+
+This is handy for summarizing data over each month. Create a column with year-month, like we saw in this example, then create a [summary table](summary-tables.md) grouped by the year-month column. 
+
+If you wish to summarize your data over each year, you would only include the formatting code for year within the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime) function. 
+
+The Year column of the Sales table is great example of of this.
+
+<span class="screenshot-large">*![strftime-year](images/formula-cheat-sheet/strftime-year.png)*</span>
+
+The formula used in the Year column of the Sales table is:
+```
+$Date.strftime("%Y")
+```
+Again, we pull our initial date value from the `$Date` column. Next, we use the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime) method and format code `%Y` to show the year as a decimal number, e.g. 2022.
+
+Note that you can also use the built-in [YEAR()](functions.md#year) function to do the same thing. 
+
+<span class="screenshot-large">*![year-function](images/formula-cheat-sheet/year-function.png)*</span>
+
+The formula used in the screenshot above is:
+```
+YEAR($Date)
+```
+This formula returns the year corresponding to a date as an integer.
+
+If you would like to return the month corresponding to a date as an integer, you would use the [MONTH()](functions.md#month) function.
+
+<span class="screenshot-large">*![month-function](images/formula-cheat-sheet/month-function.png)*</span>
+
+The formula used in the screenshot above is:
+```
+MONTH($Date)
+```
+This formula returns the month value from the date in our Date column.
+
+If you were to create a summary table grouped by Month, all data across different years of that month would be summarized. For example, if you have data from March 2021 and March 2022, it would all be summarized under `March`. This is where the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime) method comes in handy, allowing you to join Month and Year so you can report across each individual month of each year.
+
+Check out this [Community Forum post](https://community.getgrist.com/t/summary-table-with-content-from-multiple-tables/894) for an example using the [MONTH()](functions.md#month) and [YEAR()](functions.md#year) functions to summarize data across multiple tables.
+
+</details>
+
+<span></span><details><summary>
+#### Troubleshooting Errors
+</summary>
+
+<span></span><div class="deflist">
+
+- `#AttributeError`:
+
+    <span class="screenshot-large">*![strftime-attribute-error](images/formula-cheat-sheet/strftime-attribute-error.png)*</span>
+
+    The column you are calling the Date value from needs to be a [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) type column. 
+</div>
+
+</details>
+</section>
