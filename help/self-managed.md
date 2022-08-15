@@ -65,8 +65,8 @@ documents again.
 If using some other tool or service, here are the important points:
 
  * The container name is `gristlabs/grist` or `gristlabs/grist-ee`
-   (for some tools, you may need to prefix these names with `docker.io/`.
- * A volume, or mount, or directory, needs to be available at location
+   (for some tools, you may need to prefix these names with `docker.io/`).
+ * A volume (or mount, or directory) needs to be available at location
    `/persist` within the container. It can be initially empty - Grist
    will populate it. Without this volume, nothing you do will be stored long-term.
  * Port `8484` on the container needs to be exposed. This can be changed
@@ -180,13 +180,12 @@ you don't need.
 
 ## Custom styling {: .tag-core .tag-ee }
 
-There are two environment variables useful for tweaking the Grist UI:
-
 The Grist UI has many elements, some of which may not be relevant to you.
-You can turn off many elements using *GRIST_HIDE_UI_ELEMENTS*.
+You can turn off many elements using `GRIST_HIDE_UI_ELEMENTS`.
 This is comma-separated list of parts of the UI to hide.
-Allowed names of parts: helpCenter,billing,templates,multiSite,multiAccounts.
-The UI elements present is also affected by whether *GRIST_SINGLE_ORG* is set.
+The allowed names of parts are:
+`helpCenter,billing,templates,multiSite,multiAccounts`.
+The UI elements present is also affected by whether `GRIST_SINGLE_ORG` is set.
 
 
 ```
@@ -196,11 +195,8 @@ docker run
   ...
 ```
 
-It is a good idea to hide at least `billing` since these elements are
-functional only on our SaaS.
-
 By default pages of the Grist UI have ` - Grist` added to their title. You can
-change this by setting `GRIST_PAGE_TITLE_SUFFIX`
+change this by setting `GRIST_PAGE_TITLE_SUFFIX`:
 
 ```
 docker run
@@ -209,7 +205,7 @@ docker run
   ...
 ```
 
-You can set the suffix to `_blank` to entirely remove it.
+You can set the suffix to `"_blank"` to entirely remove it.
 
 You can also override the CSS styling of the site if you set
 `APP_STATIC_INCLUDE_CUSTOM_CSS` to `true`.
@@ -338,16 +334,16 @@ For details, see [Cloud Storage](install/cloud-storage.md).
 ## General authentication methods {: .tag-core .tag-ee }
 
 For our SaaS, we use a system based around AWS Cognito that we do not intend
-to inflict on the world, and which is not available in Grist Core or Enterprise.
+to inflict on the world, and which is available neither in Grist Core nor Enterprise.
 
 Authentication can be set up in many ways for Grist Core and Enterprise, using
-SAML or forwarded headers. It is hard to give short instructions for this
-step, as there is a lot of variety in the SSOs people have connected Grist with.
+SAML or forwarded headers. Between the two, many popular SSOs can be hooked
+up, such as Google or Microsoft sign-ins.
 
   * [SAML](install/saml.md).
   * [Forwarded headers](install/forwarded-headers.md).
 
-For any authentication method, you may want to consider setting the
+For any authentication method, you may want to also consider setting the
 following variables:
 
   * `COOKIE_MAX_AGE`: (optional) expiration date for Grist session
