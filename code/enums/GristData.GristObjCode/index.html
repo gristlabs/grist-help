@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/code/modules/GristData/">
+    <link rel="canonical" href="https://support.getgrist.com/code/enums/GristData.GristObjCode/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Module: GristData - Grist Help Center</title>
+    <title>Enumeration: GristObjCode - Grist Help Center</title>
     <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
@@ -387,7 +387,7 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api/" class="wm-article-link wm-toc-text">grist-plugin-api</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../modules/grist_plugin_api/" class="wm-article-link wm-toc-text">grist-plugin-api</a>
 
     
 </li>
@@ -499,38 +499,15 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="../DocApiTypes/" class="wm-article-link wm-toc-text">Module: DocApiTypes</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../modules/DocApiTypes/" class="wm-article-link wm-toc-text">Module: DocApiTypes</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Module: GristData</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../modules/GristData/" class="wm-article-link wm-toc-text">Module: GristData</a>
 
     
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Module: GristData
-            </a>
-          </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#table-of-contents">
-                Table of contents
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#type-aliases_1">
-                Type Aliases
-              </a>
-            </li>
-        
-      </ul>
-    </li>
-    
 </li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="../TableOperations/" class="wm-article-link wm-toc-text">Module: TableOperations</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../modules/TableOperations/" class="wm-article-link wm-toc-text">Module: TableOperations</a>
 
     
 </li>
@@ -803,20 +780,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../TableOperations/" class="btn btn-xs btn-default pull-right">
+      <a href="../../interfaces/DocApiTypes.AddOrUpdateRecord/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../TableOperations/" class="btn btn-xs btn-link">
-        Module: TableOperations
+      <a href="../../interfaces/DocApiTypes.AddOrUpdateRecord/" class="btn btn-xs btn-link">
+        Interface: AddOrUpdateRecord
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../DocApiTypes/" class="btn btn-xs btn-default pull-left">
+      <a href="../../" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../DocApiTypes/" class="btn btn-xs btn-link">
-        Module: DocApiTypes
+        Previous</a><a href="../../" class="btn btn-xs btn-link">
+        None
       </a>
     </div>
     
@@ -824,30 +801,70 @@
 
     
 
-    <h1 id="module-gristdata">Module: GristData<a class="headerlink" href="#module-gristdata" title="Permanent link">#</a></h1>
+    <h1 id="enumeration-gristobjcode">Enumeration: GristObjCode<a class="headerlink" href="#enumeration-gristobjcode" title="Permanent link">#</a></h1>
+<p><a href="../../modules/GristData/">GristData</a>.GristObjCode</p>
+<p>Letter codes for CellValue types encoded as [code, args&hellip;] tuples.</p>
 <h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
-<h3 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">#</a></h3>
+<h3 id="enumeration-members">Enumeration Members<a class="headerlink" href="#enumeration-members" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="../../enums/GristData.GristObjCode/">GristObjCode</a></li>
+<li><a href="./#censored">Censored</a></li>
+<li><a href="./#date">Date</a></li>
+<li><a href="./#datetime">DateTime</a></li>
+<li><a href="./#dict">Dict</a></li>
+<li><a href="./#exception">Exception</a></li>
+<li><a href="./#list">List</a></li>
+<li><a href="./#lookup">LookUp</a></li>
+<li><a href="./#pending">Pending</a></li>
+<li><a href="./#reference">Reference</a></li>
+<li><a href="./#referencelist">ReferenceList</a></li>
+<li><a href="./#skip">Skip</a></li>
+<li><a href="./#unmarshallable">Unmarshallable</a></li>
+<li><a href="./#versions">Versions</a></li>
 </ul>
-<h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h3>
-<ul>
-<li><a href="../../interfaces/GristData.RowRecord/">RowRecord</a></li>
-<li><a href="../../interfaces/GristData.RowRecords/">RowRecords</a></li>
-</ul>
-<h3 id="type-aliases">Type Aliases<a class="headerlink" href="#type-aliases" title="Permanent link">#</a></h3>
-<ul>
-<li><a href="./#cellvalue">CellValue</a></li>
-</ul>
-<h2 id="type-aliases_1">Type Aliases<a class="headerlink" href="#type-aliases_1" title="Permanent link">#</a></h2>
-<h3 id="cellvalue">CellValue<a class="headerlink" href="#cellvalue" title="Permanent link">#</a></h3>
-<p>Ƭ <strong>CellValue</strong>: <code>number</code> | <code>string</code> | <code>boolean</code> | <code>null</code> | [<a href="../../enums/GristData.GristObjCode/"><code>GristObjCode</code></a>, &hellip;unknown[]]</p>
-<p>Possible types of cell content.</p>
+<h2 id="enumeration-members_1">Enumeration Members<a class="headerlink" href="#enumeration-members_1" title="Permanent link">#</a></h2>
+<h3 id="censored">Censored<a class="headerlink" href="#censored" title="Permanent link">#</a></h3>
+<p>• <strong>Censored</strong> = <code>"C"</code></p>
+<hr />
+<h3 id="date">Date<a class="headerlink" href="#date" title="Permanent link">#</a></h3>
+<p>• <strong>Date</strong> = <code>"d"</code></p>
+<hr />
+<h3 id="datetime">DateTime<a class="headerlink" href="#datetime" title="Permanent link">#</a></h3>
+<p>• <strong>DateTime</strong> = <code>"D"</code></p>
+<hr />
+<h3 id="dict">Dict<a class="headerlink" href="#dict" title="Permanent link">#</a></h3>
+<p>• <strong>Dict</strong> = <code>"O"</code></p>
+<hr />
+<h3 id="exception">Exception<a class="headerlink" href="#exception" title="Permanent link">#</a></h3>
+<p>• <strong>Exception</strong> = <code>"E"</code></p>
+<hr />
+<h3 id="list">List<a class="headerlink" href="#list" title="Permanent link">#</a></h3>
+<p>• <strong>List</strong> = <code>"L"</code></p>
+<hr />
+<h3 id="lookup">LookUp<a class="headerlink" href="#lookup" title="Permanent link">#</a></h3>
+<p>• <strong>LookUp</strong> = <code>"l"</code></p>
+<hr />
+<h3 id="pending">Pending<a class="headerlink" href="#pending" title="Permanent link">#</a></h3>
+<p>• <strong>Pending</strong> = <code>"P"</code></p>
+<hr />
+<h3 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">#</a></h3>
+<p>• <strong>Reference</strong> = <code>"R"</code></p>
+<hr />
+<h3 id="referencelist">ReferenceList<a class="headerlink" href="#referencelist" title="Permanent link">#</a></h3>
+<p>• <strong>ReferenceList</strong> = <code>"r"</code></p>
+<hr />
+<h3 id="skip">Skip<a class="headerlink" href="#skip" title="Permanent link">#</a></h3>
+<p>• <strong>Skip</strong> = <code>"S"</code></p>
+<hr />
+<h3 id="unmarshallable">Unmarshallable<a class="headerlink" href="#unmarshallable" title="Permanent link">#</a></h3>
+<p>• <strong>Unmarshallable</strong> = <code>"U"</code></p>
+<hr />
+<h3 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">#</a></h3>
+<p>• <strong>Versions</strong> = <code>"V"</code></p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/modules/GristData.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/enums/GristData.GristObjCode.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
