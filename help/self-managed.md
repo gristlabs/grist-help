@@ -42,7 +42,7 @@ and get support.
 
 ### How do I install Grist? {: .tag-core .tag-ee }
 
-The easiest way to installer Grist is as a container. We will
+The easiest way to install Grist is as a container. We will
 describe how using [Docker](https://www.docker.com/),
 but there are many other tools and services for running
 containers.
@@ -62,10 +62,9 @@ For Grist Enterprise use `gristlabs/grist-ee` instead of
 `gristlabs/grist`.
 
 You should then be able to visit `http://localhost:8484` in
-your browser. Already you will be able to open and edit Grist documents
-downloaded from another installation (such as our SaaS), making sure all
-the features you expect are present, including the ability to export the
-documents again.
+your browser. Already you will be able to create and edit Grist
+documents, and to open and edit documents downloaded from another
+Grist installation (such as our SaaS).
 
 If using some other tool or service, here are the important points:
 
