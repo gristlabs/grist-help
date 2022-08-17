@@ -4,11 +4,11 @@ GristConnect {: .tag-ee }
 Discourse is popular forum software made to be integrated with many sites
 (including [our own](https://community.getgrist.com)).  It is annoying
 if users need a login for a forum that is separate to their login on
-the rest of a site. The  protocol Discourse created for solving this
+the rest of a site. The protocol Discourse created for solving this
 is quite well done and is called 
 [DiscourseConnect](https://meta.discourse.org/t/discourseconnect-official-single-sign-on-for-discourse-sso/13045).
 We decided to have Grist support the same protocol, so any software
-that has plugins for letting Discourse use its logins (such as Word Press)
+that has plugins for letting Discourse use its logins (such as WordPress)
 can also let Grist use its logins. This isn't an official standard so
 we called our implementation of it "GristConnect" rather than
 "DiscourseConnect".
