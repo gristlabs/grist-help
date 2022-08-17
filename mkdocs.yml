@@ -68,6 +68,12 @@ nav:
       - grist-plugin-api: code/modules/grist_plugin_api.md
       - ... | flat | **/code/interfaces/**
       - ... | flat | **/code/modules/**
+  - Self-Managed:
+    - Self-managed Grist: self-managed.md
+    - SAML: install/saml.md
+    - Forwarded headers: install/forwarded-headers.md
+    - Cloud storage: install/cloud-storage.md
+    - GristConnect: install/grist-connect.md
   - News & updates:
     - Newsletters: newsletters.md
     - 2022/07: newsletters/2022-07.md     

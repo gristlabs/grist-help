@@ -598,3 +598,25 @@ footer {
 .cheat-sheet .deflist li > p:first-child {
   margin-left: -32px;
 }
+
+.tag-core::after, .tag-ee::after {
+  margin-left: 1em;
+  font-size: 14px;
+  background: cornsilk;
+  padding: 0.1em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  border-radius: 0.25em;
+}
+
+.tag-core::after {
+  content: "core";
+}
+
+.tag-ee::after {
+  content: "enterprise";
+}
+
+.tag-core.tag-ee::after {
+  content: "core, enterprise";
+}
