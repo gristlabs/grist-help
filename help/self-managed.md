@@ -134,7 +134,7 @@ You will need to place a "reverse proxy" in front of Grist to
 handle "ssl termination" (decrypting encypted traffic) using 
 a certificate that establishes ownership of the site. If you don't
 know what this means, you could try using the
-[Grist Omnibus](https://github.com/paulfitz/grist-omnibus) which
+[Grist Omnibus](https://github.com/gristlabs/grist-omnibus) which
 packages Grist with a reverse proxy that will 
 use [Let's Encrypt](https://letsencrypt.org/) to get a certificate
 for you automatically.
