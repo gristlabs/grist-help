@@ -11,7 +11,7 @@ For Azure:
   * For the storage account’s blob service, make sure that versioning is enabled.
   * Get a connection string from the storage account’s Access Keys section. It may look something like `DefaultEndpointsProtocol=https;AccountName=...`.
   * Place the connection string in an environment variable called `AZURE_STORAGE_CONNECTION_STRING`. 
-  * set the name of an Azure storage container in an environment variable called `GRIST_AZURE_CONTAINER`. An example of a container name is `my-grist-docs`.
+  * Set the name of an Azure storage container in an environment variable called `GRIST_AZURE_CONTAINER`. An example of a container name is `my-grist-docs`.
   * Set a prefix such as `v1/` in an environment variable called `GRIST_AZURE_PREFIX`.
 
 For S3:

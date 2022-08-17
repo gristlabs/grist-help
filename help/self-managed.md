@@ -310,7 +310,7 @@ format as our `manifest.json`.
 ### How do I set up email notifications? {: .tag-ee }
 
 In Grist SaaS, we send emails such as invitations to share a 
-document using a service [SendGrid](https://sendgrid.com/).
+document using [SendGrid](https://sendgrid.com/).
 The same mechanism is available in Grist Enterprise. There is
 not yet an equivalent in Grist Core.
 
