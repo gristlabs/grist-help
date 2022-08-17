@@ -1,5 +1,10 @@
-Self-Managed Grist
-==================
+# Self-Managed Grist
+
+[TOC]
+
+## The essentials
+
+### What is Self-Managed Grist?
 
 There are three flavors of Grist:
 
@@ -35,9 +40,9 @@ for 30 days using the instructions in the following sections,
 or [sign up for our Grist Enterprise plan](https://www.getgrist.com/pricing)
 and get support.
 
-## Installation {: .tag-core .tag-ee }
+### How do I install Grist? {: .tag-core .tag-ee }
 
-The easiest way to run Grist is as a container. We will
+The easiest way to installer Grist is as a container. We will
 describe how using [Docker](https://www.docker.com/),
 but there are many other tools and services for running
 containers.
@@ -87,7 +92,7 @@ take at least the following steps:
     [general authentication methods](self-managed.md#general-authentication-methods) that cover many cases,
 	and a [special authentication method](self-managed.md#special-authentication-methods) for custom cases.
 
-## Sandboxing {: .tag-core .tag-ee }
+### How do I sandbox documents? {: .tag-core .tag-ee }
 
 Grist allows for very powerful formulas, using Python.  We recommend
 setting the environment variable `GRIST_SANDBOX_FLAVOR` to `gvisor` if
@@ -110,7 +115,7 @@ import glob
 glob.glob('/etc/*')
 ```
 
-## Serving from a public host {: .tag-core .tag-ee }
+### How do I run Grist on a server? {: .tag-core .tag-ee }
 
 We suggest that you become familiar with all the other aspects of
 self-management on this page before serving Grist from a public host
@@ -135,7 +140,59 @@ packages Grist with a reverse proxy that will
 use [Let's Encrypt](https://letsencrypt.org/) to get a certificate
 for you automatically.
 
-## Activation key {: .tag-ee }
+### How do I set up a team? {: .tag-core .tag-ee }
+
+Grist has a concept of "team sites" that are independently managed and
+named areas containing their own workspaces and documents.  Team sites
+can have distinct subdomains (as on our SaaS's [hosted team sites](teams.md)),
+or be distinguished by
+a special path prefix.  This often does not make sense for self-managed
+installations, where there is a single team.  With a single domain and
+a single team, the special path prefix (which looks like `/o/<team-name>`)
+is an inelegant waste of space in URLs. So you can direct Grist to
+use a single team by setting `GRIST_SINGLE_ORG` ("org" or "organization"
+is a synonym for team):
+
+```
+docker run ...
+  -e GRIST_SINGLE_ORG=cool-beans
+```
+
+The name of the team should use only the characters A-Z, a-z, 0-9, and the
+hyphen (`-`).  You may also want to look into
+[Custom styling](self-managed.md#custom-styling) to hide any UI elements
+you don't need.
+
+### How do I set up authentication? {: .tag-core .tag-ee }
+
+Authentication can be set up in many ways for Grist Core and Enterprise, using
+SAML or forwarded headers. Between the two, many popular SSOs can be hooked
+up, such as Google or Microsoft sign-ins.
+
+  * [SAML](install/saml.md).
+  * [Forwarded headers](install/forwarded-headers.md).
+
+For any authentication method, you may want to also consider setting the
+following variables:
+
+  * `COOKIE_MAX_AGE`: (optional) expiration date for Grist session
+    cookie, when set to `none` session cookie will be in a `Session`
+    mode - it should be removed after closing a browser. If set to a
+    number, the units of the number are milliseconds.
+  * `GRIST_FORCE_LOGIN`: (optional) when set to `true` this will
+    instruct Grist to redirect anonymous users to a login page.
+
+For our SaaS, we use a custom authentication system based around AWS
+Cognito. Currently, we have no plans to release that as part of Core
+or Enterprise.
+
+### Are there other authentication methods? {: .tag-ee }
+
+If users on your site login via WordPress, or via a custom mechanism
+you developed, you may want to consider
+[GristConnect](install/grist-connect.md), available for Grist Enterprise.
+
+### How do I activate Grist Enterprise? {: .tag-ee }
 
 Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
@@ -156,32 +213,15 @@ docker run ...
   -it gristlabs/grist-ee
 ```
 
-## Teams {: .tag-core .tag-ee }
+---
 
-Grist has a concept of "team sites" that are independently managed and
-named areas containing their own workspaces and documents.  Team sites
-can have distinct subdomains, or be distinguished by a special path
-prefix.  This often does not make sense for self-managed
-installations, where there is a single team.  With a single domain and
-a single team, the special path prefix (which looks like `/o/<team-name>`)
-is an inelegant waste of space in URLs. So you can direct Grist to
-use a single team by setting `GRIST_SINGLE_ORG` ("org" or "organization"
-is a synonym for team):
+## Customization
 
-```
-docker run ...
-  -e GRIST_SINGLE_ORG=cool-beans
-```
-
-The name of the team should use only the characters A-Z, a-z, 0-9, and the
-hyphen (`-`).  You may also want to look into
-[Custom styling](self-managed.md#custom-styling) to hide any UI elements
-you don't need.
-
-## Custom styling {: .tag-core .tag-ee }
+### How do I customize styling? {: .tag-core .tag-ee }
 
 The Grist UI has many elements, some of which may not be relevant to you.
-You can turn off many elements using `GRIST_HIDE_UI_ELEMENTS`.
+For self-managed installations of Grist,
+you can turn off many elements using `GRIST_HIDE_UI_ELEMENTS`.
 This is comma-separated list of parts of the UI to hide.
 The allowed names of parts are:
 `helpCenter,billing,templates,multiSite,multiAccounts`.
@@ -244,10 +284,11 @@ It is possible to direct Grist to load static resources from a CDN by
 setting `APP_STATIC_URL`. If you do so, and you are using custom CSS,
 you'll need to ensure the custom CSS is available from that base URL.
 
-## List of custom widgets {: .tag-core .tag-ee }
+### How do I list custom widgets? {: .tag-core .tag-ee }
 
 In our SaaS, Grist has a [list of pre-built custom widgets](https://support.getgrist.com/newsletters/2022-02/#custom-widgets-menu) available in the UI.
-You can have your install offer the same list by setting the following:
+You can have your self-managed installation offer the same list by
+setting the following:
 
 ```
 docker run
@@ -267,105 +308,12 @@ or by manually preparing a `.json` file on a public server in the same
 format as our `manifest.json`.
 
 
-## Configure a "home" database {: .tag-core .tag-ee }
-
-Grist stores metadata about users, documents, workspaces, etc in a
-database called the "home" database. This does not contain the
-material inside documents such as tables and columns, but does contain
-document names and creation times, for example.  By default, Grist
-will create a home database in an Sqlite file within the /persist
-directory. To use instead a PostgreSQL database, create one (version
-11 **or earlier**) and a user with sufficient access to create tables,
-and set the following variables:
-
-* TYPEORM_TYPE - set to postgres
-* TYPEORM_DATABASE - set to name of database, e.g. home
-* TYPEORM_USERNAME - set to postgres username with rights to the database
-* TYPEORM_PASSWORD - set to postgres password with rights to the database
-* TYPEORM_HOST - set to hostname of database, e.g. grist.mumble.rds.amazonaws.com
-* TYPEORM_PORT - set to port number of database if not the default for PostgreSQL
-
-Currently, we support PostgreSQL up to and including version 11 (please
-contact us if this is a blocker for you and we'll prioritize generalizing this).
-
-## Configure a state store {: .tag-core .tag-ee }
-
-Grist can be configured to use Redis as an external state cache. For
-most Grist functionality, this is optional. It is required for webhook
-support. To use, just set `REDIS_URL` to something like
-`redis://hostname/N` where `N` is a redis database number.
-
-```
-docker run
-  ...
-  -e REDIS_URL="redis://hostname/N"
-  ...
-```
-
-## Configuring S3 or Azure storage {: .tag-ee }
-
-This feature allows automatic syncing of Grist documents and document
-versions to an S3 or Azure storage account. It is not currently available
-in Grist Core.
-
-For Azure, you will need a setting like:
-
-```
-docker run
-  ...
-  -e AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=..." \
-  -e GRIST_AZURE_CONTAINER=my-grist-docs \
-  -e GRIST_AZURE_PREFIX=v1/ \
-  ...
-```
-
-For S3, you will need something like:
-
-```
-docker run
-  ...
-  -e GRIST_DOCS_S3_BUCKET=my-grist-docs \
-  -e GRIST_DOCS_S3_PREFIX=v1/ \
-  ...
-```
-
-For details, see [Cloud Storage](install/cloud-storage.md).
-
-## General authentication methods {: .tag-core .tag-ee }
-
-Authentication can be set up in many ways for Grist Core and Enterprise, using
-SAML or forwarded headers. Between the two, many popular SSOs can be hooked
-up, such as Google or Microsoft sign-ins.
-
-  * [SAML](install/saml.md).
-  * [Forwarded headers](install/forwarded-headers.md).
-
-For any authentication method, you may want to also consider setting the
-following variables:
-
-  * `COOKIE_MAX_AGE`: (optional) expiration date for Grist session
-    cookie, when set to `none` session cookie will be in a `Session`
-    mode - it should be removed after closing a browser. If set to a
-    number, the units of the number are milliseconds.
-  * `GRIST_FORCE_LOGIN`: (optional) when set to `true` this will
-    instruct Grist to redirect anonymous users to a login page.
-
-For our SaaS, we use a custom authentication system based around AWS
-Cognito. Currently, we have no plans to release that as part of Core
-or Enterprise.
-
-## Special authentication methods {: .tag-ee }
-
-If users on your site login via WordPress, or via a custom mechanism
-you developed, you may want to consider
-[GristConnect](install/grist-connect.md).
-
-## Sending emails {: .tag-ee }
+### How do I set up email notifications? {: .tag-ee }
 
 In Grist SaaS, we send emails such as invitations to share a 
-document using [SendGrid](https://sendgrid.com/). The same mechanism
-is available in Grist Enterprise. There is not yet an equivalent in
-Grist Core.
+document using a service [SendGrid](https://sendgrid.com/).
+The same mechanism is available in Grist Enterprise. There is
+not yet an equivalent in Grist Core.
 
 You will need to set a SendGrid API key:
 
@@ -449,14 +397,83 @@ For reference, there are example SendGrid templates in
 [example-sendgrid-templates.zip](/install/example-sendgrid-templates.zip)
 based on an export of the SendGrid templates for our SaaS.
 
-## Upgrades {: .tag-core .tag-ee }
+---
+
+## Operations
+
+### What is a "home" database? {: .tag-core .tag-ee }
+
+Grist stores metadata about users, documents, workspaces, etc in a
+database called the "home" database. This does not contain the
+material inside documents such as tables and columns, but does contain
+document names and creation times, for example.  By default, Grist
+will create a home database in an Sqlite file within the `/persist`
+directory. To use instead a PostgreSQL database, create one (version
+11 **or earlier**) and a user with sufficient access to create tables,
+and set the following variables:
+
+* TYPEORM_TYPE - set to postgres
+* TYPEORM_DATABASE - set to name of database, e.g. home
+* TYPEORM_USERNAME - set to postgres username with rights to the database
+* TYPEORM_PASSWORD - set to postgres password with rights to the database
+* TYPEORM_HOST - set to hostname of database, e.g. grist.mumble.rds.amazonaws.com
+* TYPEORM_PORT - set to port number of database if not the default for PostgreSQL
+
+Currently, we support PostgreSQL up to and including version 11 (please
+contact us if this is a blocker for you and we'll prioritize generalizing this).
+
+### What is a state store? {: .tag-core .tag-ee }
+
+Grist can be configured to use Redis as an external state cache. For
+most Grist functionality, this is optional. It is required for webhook
+support. To use, just set `REDIS_URL` to something like
+`redis://hostname/N` where `N` is a redis database number.
+
+```
+docker run
+  ...
+  -e REDIS_URL="redis://hostname/N"
+  ...
+```
+
+### How do I set up S3 or Azure backups? {: .tag-ee }
+
+Grist's cloud storage feature allows automatic syncing of Grist
+documents and document versions to an S3 or Azure storage account. This
+feature is not currently available in Grist Core.
+
+For Azure, you will need a setting like:
+
+```
+docker run
+  ...
+  -e AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=..." \
+  -e GRIST_AZURE_CONTAINER=my-grist-docs \
+  -e GRIST_AZURE_PREFIX=v1/ \
+  ...
+```
+
+For S3, you will need something like:
+
+```
+docker run
+  ...
+  -e GRIST_DOCS_S3_BUCKET=my-grist-docs \
+  -e GRIST_DOCS_S3_PREFIX=v1/ \
+  ...
+```
+
+For details, see [Cloud Storage](install/cloud-storage.md).
+
+### How do I upgrade my installation? {: .tag-core .tag-ee }
 
 We currently release new Grist Core and Enterprise images at
-approximately weekly intervals.
+approximately weekly intervals. Grist handles any migrations that
+may be needed to the documents or databases it uses.
 Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
 keep your version of Grist up to date for you.
 
-## High availability {: .tag-ee }
+### What if I need high availability? {: .tag-ee }
 
 We have developed expertise in hosting very busy Grist installations,
 with many users, including how to upgrade with minimal disruption,
