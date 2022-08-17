@@ -286,7 +286,7 @@ and set the following variables:
 * TYPEORM_PORT - set to port number of database if not the default for PostgreSQL
 
 Currently, we support PostgreSQL up to and including version 11 (please
-contact this if it is a blocker for you and we'll prioritize generalizing this).
+contact us if this is a blocker for you and we'll prioritize generalizing this).
 
 ## Configure a state store {: .tag-core .tag-ee }
 
@@ -333,9 +333,6 @@ For details, see [Cloud Storage](install/cloud-storage.md).
 
 ## General authentication methods {: .tag-core .tag-ee }
 
-For our SaaS, we use a system based around AWS Cognito that we do not intend
-to inflict on the world, and which is available neither in Grist Core nor Enterprise.
-
 Authentication can be set up in many ways for Grist Core and Enterprise, using
 SAML or forwarded headers. Between the two, many popular SSOs can be hooked
 up, such as Google or Microsoft sign-ins.
@@ -352,6 +349,10 @@ following variables:
     number, the units of the number are milliseconds.
   * `GRIST_FORCE_LOGIN`: (optional) when set to `true` this will
     instruct Grist to redirect anonymous users to a login page.
+
+For our SaaS, we use a custom authentication system based around AWS
+Cognito. Currently, we have no plans to release that as part of Core
+or Enterprise.
 
 ## Special authentication methods {: .tag-ee }
 
