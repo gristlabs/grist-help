@@ -21,9 +21,9 @@ Python (see [Python documentation](https://docs.python.org/3.9/)). Here are some
 <!-- BEGIN mkpydocs table -->
 | Category | Functions |
 | --- | --- |
-| Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a>, <a href="#peek">PEEK</a> |
+| Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
 | Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
-| Info | <a class="unimplemented" href="#cell">CELL</a>, <a  href="#current_conversion">CURRENT_CONVERSION</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#type">TYPE</a> |
+| Info | <a class="unimplemented" href="#cell">CELL</a>, <a  href="#current_conversion">CURRENT_CONVERSION</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#peek">PEEK</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#request">REQUEST</a>, <a class="unimplemented" href="#type">TYPE</a> |
 | Logical | <a  href="#and">AND</a>, <a  href="#false">FALSE</a>, <a  href="#if">IF</a>, <a  href="#iferror">IFERROR</a>, <a  href="#not">NOT</a>, <a  href="#or">OR</a>, <a  href="#true">TRUE</a> |
 | Lookup | <a  href="#lookupone_2">lookupOne</a>, <a  href="#lookuprecords_2">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a> |
 | Math | <a  href="#abs">ABS</a>, <a  href="#acos">ACOS</a>, <a  href="#acosh">ACOSH</a>, <a  href="#arabic">ARABIC</a>, <a  href="#asin">ASIN</a>, <a  href="#asinh">ASINH</a>, <a  href="#atan">ATAN</a>, <a  href="#atan2">ATAN2</a>, <a  href="#atanh">ATANH</a>, <a  href="#ceiling">CEILING</a>, <a  href="#combin">COMBIN</a>, <a  href="#cos">COS</a>, <a  href="#cosh">COSH</a>, <a  href="#degrees">DEGREES</a>, <a  href="#even">EVEN</a>, <a  href="#exp">EXP</a>, <a  href="#fact">FACT</a>, <a  href="#factdouble">FACTDOUBLE</a>, <a  href="#floor">FLOOR</a>, <a  href="#gcd">GCD</a>, <a  href="#int">INT</a>, <a  href="#lcm">LCM</a>, <a  href="#ln">LN</a>, <a  href="#log">LOG</a>, <a  href="#log10">LOG10</a>, <a  href="#mod">MOD</a>, <a  href="#mround">MROUND</a>, <a  href="#multinomial">MULTINOMIAL</a>, <a  href="#odd">ODD</a>, <a  href="#pi">PI</a>, <a  href="#power">POWER</a>, <a  href="#product">PRODUCT</a>, <a  href="#quotient">QUOTIENT</a>, <a  href="#radians">RADIANS</a>, <a  href="#rand">RAND</a>, <a  href="#randbetween">RANDBETWEEN</a>, <a  href="#roman">ROMAN</a>, <a  href="#round">ROUND</a>, <a  href="#rounddown">ROUNDDOWN</a>, <a  href="#roundup">ROUNDUP</a>, <a  href="#seriessum">SERIESSUM</a>, <a  href="#sign">SIGN</a>, <a  href="#sin">SIN</a>, <a  href="#sinh">SINH</a>, <a  href="#sqrt">SQRT</a>, <a  href="#sqrtpi">SQRTPI</a>, <a class="unimplemented" href="#subtotal">SUBTOTAL</a>, <a  href="#sum">SUM</a>, <a class="unimplemented" href="#sumif">SUMIF</a>, <a class="unimplemented" href="#sumifs">SUMIFS</a>, <a  href="#sumproduct">SUMPRODUCT</a>, <a class="unimplemented" href="#sumsq">SUMSQ</a>, <a  href="#tan">TAN</a>, <a  href="#tanh">TANH</a>, <a  href="#trunc">TRUNC</a>, <a  href="#uuid">UUID</a> |
@@ -169,25 +169,6 @@ See [RecordSet](#recordset) for useful properties offered by the returned object
 See [CONTAINS](#contains) for an example utilizing `UserTable.lookupRecords` to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given
 value.
-</details>
-<details id="peek"><summary >
-#### PEEK
-<code>PEEK(Formula)</code>
-<a class="headerlink" href="#peek" title="Permanent link">#</a>
-</summary>
-Evaluates the given expression without creating dependencies or requiring that referenced values are up to date, 
-using whatever value it finds in a cell. This is useful for preventing circular reference errors, particularly in trigger formulas.
-
-For example:
-If the formula for `A` depends on `$B` and the formula for `B` depends on `$A`,
-then normally this would raise a circular reference error because each value needs to be
-calculated before the other. But if `A` uses `PEEK($B)` then it will simply get the value
-already stored in `$B` without requiring that `$B` is first calculated to the latest value.
-Therefore `A` will be calculated first, and `B` can use `$A` without problems.
-
-```
-In Table1, Column A: SUM(PEEK(Table1.all.A))
-```
 </details>
 ### Date
 <details id="date"><summary >
@@ -1308,6 +1289,21 @@ True
 ```
 
 </details>
+<details id="peek"><summary >
+#### PEEK
+<code>__PEEK__(func)</code>
+<a class="headerlink" href="#peek" title="Permanent link">#</a>
+</summary>
+Evaluates the given expression without creating dependencies
+or requiring that referenced values are up to date, using whatever value it finds in a cell.
+This is useful for preventing circular reference errors, particularly in trigger formulas.
+
+For example, if the formula for `A` depends on `$B` and the formula for `B` depends on `$A`,
+then normally this would raise a circular reference error because each value needs to be
+calculated before the other. But if `A` uses `PEEK($B)` then it will simply get the value
+already stored in `$B` without requiring that `$B` is first calculated to the latest value.
+Therefore `A` will be calculated first, and `B` can use `$A` without problems.
+</details>
 <details id="record_2"><summary >
 #### RECORD
 <code>__RECORD__(record_or_list, dates_as_iso=False, expand_refs=0)</code>
@@ -1336,6 +1332,14 @@ RECORD(rec)
 RECORD(People.lookupOne(First_Name="Alice"))
 RECORD(People.lookupRecords(Department="HR"))
 ```
+</details>
+<details id="request"><summary class="unimplemented">
+#### REQUEST
+<code>__REQUEST__(url, params=None, headers=None)</code>
+<a class="headerlink" href="#request" title="Permanent link">#</a>
+</summary>
+
+<span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 <details id="type"><summary class="unimplemented">
 #### TYPE
@@ -1632,7 +1636,7 @@ Returns the number of columns in a specified array or range.
 </details>
 <details id="contains"><summary >
 #### CONTAINS
-<code>__CONTAINS__(value)</code>
+<code>__CONTAINS__(value, match_empty=no_match_empty)</code>
 <a class="headerlink" href="#contains" title="Permanent link">#</a>
 </summary>
 Use this marker with [UserTable.lookupRecords](#lookuprecords) to find records
@@ -1651,6 +1655,16 @@ must have values of a container type such as list, tuple, or set.
 In particular the values mustn't be strings, e.g. `"Comedy-Drama"` won't match
 even though `"Drama" in "Comedy-Drama"` is `True` in Python.
 It also won't match substrings within container elements, e.g. `["Comedy-Drama"]`.
+
+You can optionally pass a second argument `match_empty` to indicate a value that
+should be matched against empty lists in the looked up column.
+
+For example, given this formula:
+
+    MoviesTable.lookupRecords(genre=CONTAINS(g, match_empty=''))
+
+If `g` is `''` (i.e. equal to `match_empty`) then the column `genre` in the returned records
+will either be an empty list (or other container) or a list containing `g` as usual.
 </details>
 <details id="getpivotdata"><summary class="unimplemented">
 #### GETPIVOTDATA
@@ -3492,9 +3506,10 @@ Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 <code>__COUNT__(value, *more_values)</code>
 <a class="headerlink" href="#count" title="Permanent link">#</a>
 </summary>
-Returns the count of numerical values in a dataset, ignoring non-numerical values.
+Returns the count of numerical and date/datetime values in a dataset,
+ignoring other types of values.
 
-Each argument may be a value or an array. Values that are not numbers, including logical
+Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored.
 
 
@@ -3509,8 +3524,13 @@ and blank values, and text representations of numbers, are ignored.
 ```
 
 ```python
->>> COUNT([2, -1, "Hello", DATE(2015,1,1)], True, [False, "123", "", 11.5])
+>>> COUNT([DATE(2000, 1, 1), DATE(2000, 1, 2), DATE(2000, 1, 3), "Hello"])
 3
+```
+
+```python
+>>> COUNT([2, -1, "Hello", DATE(2015,1,1)], True, [False, "123", "", 11.5])
+4
 ```
 
 ```python
@@ -3723,11 +3743,11 @@ Returns the value of the log-normal cumulative distribution with given mean and 
 <code>__MAX__(value, *more_values)</code>
 <a class="headerlink" href="#max" title="Permanent link">#</a>
 </summary>
-Returns the maximum value in a dataset, ignoring non-numerical values.
+Returns the maximum value in a dataset, ignoring values other than numbers and dates/datetimes.
 
-Each argument may be a value or an array. Values that are not numbers, including logical
+Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored. Returns 0 if the arguments
-contain no numbers.
+contain no numbers or dates.
 
 
 ```python
@@ -3736,7 +3756,7 @@ contain no numbers.
 ```
 
 ```python
->>> MAX([2, -1.5, "Hello", DATE(2015, 1, 1)], True, [False, "123", "", 11.5])
+>>> MAX([2, -1.5, "Hello"], True, [False, "123", "", 11.5])
 11.5
 ```
 
@@ -3751,8 +3771,23 @@ contain no numbers.
 ```
 
 ```python
->>> MAX("Hello", "123", DATE(2015, 1, 1))
+>>> MAX("Hello", "123", True, False)
 0
+```
+
+```python
+>>> MAX(DATE(2015, 1, 1), DATE(2015, 1, 2))
+datetime.date(2015, 1, 2)
+```
+
+```python
+>>> MAX(DATE(2015, 1, 1), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.datetime(2015, 1, 1, 12, 34, 56)
+```
+
+```python
+>>> MAX(DATE(2015, 1, 2), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.date(2015, 1, 2)
 ```
 
 </details>
@@ -3844,11 +3879,11 @@ ValueError: MEDIAN requires at least one number
 <code>__MIN__(value, *more_values)</code>
 <a class="headerlink" href="#min" title="Permanent link">#</a>
 </summary>
-Returns the minimum value in a dataset, ignoring non-numerical values.
+Returns the minimum value in a dataset, ignoring values other than numbers and dates/datetimes.
 
-Each argument may be a value or an array. Values that are not numbers, including logical
+Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored. Returns 0 if the arguments
-contain no numbers.
+contain no numbers or dates.
 
 
 ```python
@@ -3857,7 +3892,7 @@ contain no numbers.
 ```
 
 ```python
->>> MIN([2, -1.5, "Hello", DATE(2015, 1, 1)], True, [False, "123", "", 11.5])
+>>> MIN([2, -1.5, "Hello"], True, [False, "123", "", 11.5])
 -1.5
 ```
 
@@ -3872,8 +3907,23 @@ contain no numbers.
 ```
 
 ```python
->>> MIN("Hello", "123", DATE(2015, 1, 1))
+>>> MIN("Hello", "123", True, False)
 0
+```
+
+```python
+>>> MIN(DATE(2015, 1, 1), DATE(2015, 1, 2))
+datetime.date(2015, 1, 1)
+```
+
+```python
+>>> MIN(DATE(2015, 1, 1), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.date(2015, 1, 1)
+```
+
+```python
+>>> MIN(DATE(2015, 1, 2), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.datetime(2015, 1, 1, 12, 34, 56)
 ```
 
 </details>
