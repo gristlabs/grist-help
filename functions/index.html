@@ -915,7 +915,7 @@ Python (see <a href="https://docs.python.org/3.9/">Python documentation</a>). He
 <tbody>
 <tr>
 <td>Grist</td>
-<td><a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a>, <a href="#peek">PEEK</a></td>
+<td><a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a></td>
 </tr>
 <tr>
 <td>Date</td>
@@ -923,7 +923,7 @@ Python (see <a href="https://docs.python.org/3.9/">Python documentation</a>). He
 </tr>
 <tr>
 <td>Info</td>
-<td><a class="unimplemented" href="#cell">CELL</a>, <a  href="#current_conversion">CURRENT_CONVERSION</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#type">TYPE</a></td>
+<td><a class="unimplemented" href="#cell">CELL</a>, <a  href="#current_conversion">CURRENT_CONVERSION</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#peek">PEEK</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#request">REQUEST</a>, <a class="unimplemented" href="#type">TYPE</a></td>
 </tr>
 <tr>
 <td>Logical</td>
@@ -1079,25 +1079,7 @@ People.lookupRecords(Last_Name=&quot;Johnson&quot;, sort_by=&quot;First_Name&quo
 <p>See <a href="#contains">CONTAINS</a> for an example utilizing <code>UserTable.lookupRecords</code> to find records
 where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given
 value.
-</details>
-<details id="peek"><summary ></p>
-<h4 id="peek">PEEK<a class="headerlink" href="#peek" title="Permanent link">#</a></h4>
-<p><code>PEEK(Formula)</code>
-<a class="headerlink" href="#peek" title="Permanent link">#</a>
-</summary>
-Evaluates the given expression without creating dependencies or requiring that referenced values are up to date, 
-using whatever value it finds in a cell. This is useful for preventing circular reference errors, particularly in trigger formulas.</p>
-<p>For example:
-If the formula for <code>A</code> depends on <code>$B</code> and the formula for <code>B</code> depends on <code>$A</code>,
-then normally this would raise a circular reference error because each value needs to be
-calculated before the other. But if <code>A</code> uses <code>PEEK($B)</code> then it will simply get the value
-already stored in <code>$B</code> without requiring that <code>$B</code> is first calculated to the latest value.
-Therefore <code>A</code> will be calculated first, and <code>B</code> can use <code>$A</code> without problems.</p>
-<pre><code>In Table1, Column A: SUM(PEEK(Table1.all.A))
-</code></pre>
-
-</details>
-
+</details></p>
 <h3 id="date">Date<a class="headerlink" href="#date" title="Permanent link">#</a></h3>
 <p><details id="date"><summary ></p>
 <h4 id="date_1">DATE<a class="headerlink" href="#date_1" title="Permanent link">#</a></h4>
@@ -2010,6 +1992,20 @@ True
 </code></pre>
 
 <p></details>
+<details id="peek"><summary ></p>
+<h4 id="peek">PEEK<a class="headerlink" href="#peek" title="Permanent link">#</a></h4>
+<p><code><strong>PEEK</strong>(func)</code>
+<a class="headerlink" href="#peek" title="Permanent link">#</a>
+</summary>
+Evaluates the given expression without creating dependencies
+or requiring that referenced values are up to date, using whatever value it finds in a cell.
+This is useful for preventing circular reference errors, particularly in trigger formulas.</p>
+<p>For example, if the formula for <code>A</code> depends on <code>$B</code> and the formula for <code>B</code> depends on <code>$A</code>,
+then normally this would raise a circular reference error because each value needs to be
+calculated before the other. But if <code>A</code> uses <code>PEEK($B)</code> then it will simply get the value
+already stored in <code>$B</code> without requiring that <code>$B</code> is first calculated to the latest value.
+Therefore <code>A</code> will be calculated first, and <code>B</code> can use <code>$A</code> without problems.
+</details>
 <details id="record_2"><summary ></p>
 <h4 id="record_1">RECORD<a class="headerlink" href="#record_1" title="Permanent link">#</a></h4>
 <p><code><strong>RECORD</strong>(record_or_list, dates_as_iso=False, expand_refs=0)</code>
@@ -2034,6 +2030,13 @@ RECORD(People.lookupRecords(Department=&quot;HR&quot;))
 </code></pre>
 
 <p></details>
+<details id="request"><summary class="unimplemented"></p>
+<h4 id="request">REQUEST<a class="headerlink" href="#request" title="Permanent link">#</a></h4>
+<p><code><strong>REQUEST</strong>(url, params=None, headers=None)</code>
+<a class="headerlink" href="#request" title="Permanent link">#</a>
+</summary></p>
+<p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
+</details>
 <details id="type"><summary class="unimplemented"></p>
 <h4 id="type">TYPE<a class="headerlink" href="#type" title="Permanent link">#</a></h4>
 <p><code><strong>TYPE</strong>(value)</code>
@@ -2281,7 +2284,7 @@ Returns the number of columns in a specified array or range.</p>
 </details>
 <details id="contains"><summary ></p>
 <h4 id="contains">CONTAINS<a class="headerlink" href="#contains" title="Permanent link">#</a></h4>
-<p><code><strong>CONTAINS</strong>(value)</code>
+<p><code><strong>CONTAINS</strong>(value, match_empty=no_match_empty)</code>
 <a class="headerlink" href="#contains" title="Permanent link">#</a>
 </summary>
 Use this marker with <a href="#lookuprecords">UserTable.lookupRecords</a> to find records
@@ -2296,7 +2299,14 @@ i.e. <code>"Drama" in $genre</code>.</p>
 must have values of a container type such as list, tuple, or set.
 In particular the values mustn&rsquo;t be strings, e.g. <code>"Comedy-Drama"</code> won&rsquo;t match
 even though <code>"Drama" in "Comedy-Drama"</code> is <code>True</code> in Python.
-It also won&rsquo;t match substrings within container elements, e.g. <code>["Comedy-Drama"]</code>.
+It also won&rsquo;t match substrings within container elements, e.g. <code>["Comedy-Drama"]</code>.</p>
+<p>You can optionally pass a second argument <code>match_empty</code> to indicate a value that
+should be matched against empty lists in the looked up column.</p>
+<p>For example, given this formula:</p>
+<pre><code>MoviesTable.lookupRecords(genre=CONTAINS(g, match_empty=''))
+</code></pre>
+<p>If <code>g</code> is <code>''</code> (i.e. equal to <code>match_empty</code>) then the column <code>genre</code> in the returned records
+will either be an empty list (or other container) or a list containing <code>g</code> as usual.
 </details>
 <details id="getpivotdata"><summary class="unimplemented"></p>
 <h4 id="getpivotdata">GETPIVOTDATA<a class="headerlink" href="#getpivotdata" title="Permanent link">#</a></h4>
@@ -3783,8 +3793,9 @@ Calculates r, the Pearson product-moment correlation coefficient of a dataset.</
 <p><code><strong>COUNT</strong>(value, *more_values)</code>
 <a class="headerlink" href="#count" title="Permanent link">#</a>
 </summary>
-Returns the count of numerical values in a dataset, ignoring non-numerical values.</p>
-<p>Each argument may be a value or an array. Values that are not numbers, including logical
+Returns the count of numerical and date/datetime values in a dataset,
+ignoring other types of values.</p>
+<p>Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored.</p>
 <pre><code class="python">&gt;&gt;&gt; COUNT([2, -1.0, 11])
 3
@@ -3794,8 +3805,12 @@ and blank values, and text representations of numbers, are ignored.</p>
 3
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; COUNT([2, -1, &quot;Hello&quot;, DATE(2015,1,1)], True, [False, &quot;123&quot;, &quot;&quot;, 11.5])
+<pre><code class="python">&gt;&gt;&gt; COUNT([DATE(2000, 1, 1), DATE(2000, 1, 2), DATE(2000, 1, 3), &quot;Hello&quot;])
 3
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; COUNT([2, -1, &quot;Hello&quot;, DATE(2015,1,1)], True, [False, &quot;123&quot;, &quot;&quot;, 11.5])
+4
 </code></pre>
 
 <pre><code class="python">&gt;&gt;&gt; COUNT(False, True)
@@ -3982,15 +3997,15 @@ Returns the value of the log-normal cumulative distribution with given mean and 
 <p><code><strong>MAX</strong>(value, *more_values)</code>
 <a class="headerlink" href="#max" title="Permanent link">#</a>
 </summary>
-Returns the maximum value in a dataset, ignoring non-numerical values.</p>
-<p>Each argument may be a value or an array. Values that are not numbers, including logical
+Returns the maximum value in a dataset, ignoring values other than numbers and dates/datetimes.</p>
+<p>Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored. Returns 0 if the arguments
-contain no numbers.</p>
+contain no numbers or dates.</p>
 <pre><code class="python">&gt;&gt;&gt; MAX([2, -1.5, 11.5])
 11.5
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; MAX([2, -1.5, &quot;Hello&quot;, DATE(2015, 1, 1)], True, [False, &quot;123&quot;, &quot;&quot;, 11.5])
+<pre><code class="python">&gt;&gt;&gt; MAX([2, -1.5, &quot;Hello&quot;], True, [False, &quot;123&quot;, &quot;&quot;, 11.5])
 11.5
 </code></pre>
 
@@ -4002,8 +4017,20 @@ contain no numbers.</p>
 -123
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; MAX(&quot;Hello&quot;, &quot;123&quot;, DATE(2015, 1, 1))
+<pre><code class="python">&gt;&gt;&gt; MAX(&quot;Hello&quot;, &quot;123&quot;, True, False)
 0
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; MAX(DATE(2015, 1, 1), DATE(2015, 1, 2))
+datetime.date(2015, 1, 2)
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; MAX(DATE(2015, 1, 1), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.datetime(2015, 1, 1, 12, 34, 56)
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; MAX(DATE(2015, 1, 2), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.date(2015, 1, 2)
 </code></pre>
 
 <p></details>
@@ -4077,15 +4104,15 @@ ValueError: MEDIAN requires at least one number
 <p><code><strong>MIN</strong>(value, *more_values)</code>
 <a class="headerlink" href="#min" title="Permanent link">#</a>
 </summary>
-Returns the minimum value in a dataset, ignoring non-numerical values.</p>
-<p>Each argument may be a value or an array. Values that are not numbers, including logical
+Returns the minimum value in a dataset, ignoring values other than numbers and dates/datetimes.</p>
+<p>Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored. Returns 0 if the arguments
-contain no numbers.</p>
+contain no numbers or dates.</p>
 <pre><code class="python">&gt;&gt;&gt; MIN([2, -1.5, 11.5])
 -1.5
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; MIN([2, -1.5, &quot;Hello&quot;, DATE(2015, 1, 1)], True, [False, &quot;123&quot;, &quot;&quot;, 11.5])
+<pre><code class="python">&gt;&gt;&gt; MIN([2, -1.5, &quot;Hello&quot;], True, [False, &quot;123&quot;, &quot;&quot;, 11.5])
 -1.5
 </code></pre>
 
@@ -4097,8 +4124,20 @@ contain no numbers.</p>
 123
 </code></pre>
 
-<pre><code class="python">&gt;&gt;&gt; MIN(&quot;Hello&quot;, &quot;123&quot;, DATE(2015, 1, 1))
+<pre><code class="python">&gt;&gt;&gt; MIN(&quot;Hello&quot;, &quot;123&quot;, True, False)
 0
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; MIN(DATE(2015, 1, 1), DATE(2015, 1, 2))
+datetime.date(2015, 1, 1)
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; MIN(DATE(2015, 1, 1), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.date(2015, 1, 1)
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; MIN(DATE(2015, 1, 2), datetime.datetime(2015, 1, 1, 12, 34, 56))
+datetime.datetime(2015, 1, 1, 12, 34, 56)
 </code></pre>
 
 <p></details>
