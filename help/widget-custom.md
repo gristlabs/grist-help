@@ -428,6 +428,8 @@ Note that these options are both built into Grist. You can 'Duplicate row' and '
 <span class="screenshot-large">*![duplicate-delete-row](images/widget-custom/duplicate-delete-row.png)*</span>
 {: .screenshot-half }
 
+You can find an example of both a duplicate and delete button in our [Webinar 7 (Custom Widgets)](https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/4){:target="\_blank"} template. You can also watch a video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=2172s){:target="\_blank"}.
+
 ### Copy to clipboard
 
 Copy to clipboard copies a value from the specified column of the selected record. When configuring the widget, you will need to select which column you wish to copy data from. 
@@ -435,6 +437,8 @@ Copy to clipboard copies a value from the specified column of the selected recor
 <span class="screenshot-large">*![copy-to-clipboard](images/widget-custom/copy-to-clipboard.png)*</span>
 
 Note that you can also copy data from a selected cell by using the keyboard shortcut <code class="keys">*Ctrl* + *C*</code> on Windows or <code class="keys">*⌘* + *C*</code> on Mac. To paste, use <code class="keys">*Ctrl* + *V*</code> or <code class="keys">*⌘* + *V*</code>.
+
+You can find an example of the copy to clipboard button in our [Webinar 7 (Custom Widgets)](https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/4){:target="\_blank"} template. You can also watch a video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=2063s){:target="\_blank"}.
 
 ### Dropbox Embedder
 
@@ -543,6 +547,8 @@ Any HTML formatting in the specified text column will apply and be viewable in t
 
 For help on HTML formatting, check out this guide from W3 Schools: [HTML Text Formatting](https://www.w3schools.com/html/html_formatting.asp){:target="\_blank"}
 
+You can find an example of the HTML Viewer in our [Webinar 7 (Custom Widgets)](https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/1){:target="\_blank"} template. You can also watch a video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=1538s){:target="\_blank"}.
+
 ### Image Viewer
 
 Embed images from online sources.
@@ -567,6 +573,10 @@ To copy the URL for an image, right click on the photo then 'Copy image address'
 {: .screenshot-half }
 
 For an example of the Image Viewer widget, check out our [U.S. National Park Database](https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4){:target="\_blank"}, and add a park review while you're there!
+
+You can also check out our [Meme Generator](https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator){:target="\_blank"} template for another great example.
+
+For a video walkthrough, be sure to watch our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=559s){:target="\_blank"}!
 
 ### Map
 
@@ -617,6 +627,10 @@ You can configure the map to show only the selected location by clicking the 'Op
 
 <span class="screenshot-large">*![map-configuration-location](images/widget-custom/map-configuration-location.png)*</span>
 
+Check out our [Mapping Locations](https://templates.getgrist.com/pyMHqncEspfZ/Mapping-Locations){:target="\_blank"} template or our [Crowdsourced List](https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1){:target="\_blank"} for two great examples!
+
+For a video walkthrough, check out our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=713s){:target="\_blank"}.
+
 ### Markdown
 
 The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget.
@@ -649,6 +663,8 @@ To edit the text directly in the widget, click the edit icon. The text will reve
 {: .screenshot-half }
 
 For help on Markdown formatting, check out the [Markdown Guide](https://www.markdownguide.org/basic-syntax/){:target="\_blank"} for basic syntax. This guide is also accessible in the Markdown widget by clicking the information icon at the top of the widget. The guide will open in a new tab of your browser for easy reference.
+
+You can find an example of the Markdown editor in our [Webinar 7 (Custom Widgets)](https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result){:target="\_blank"} template and check out this video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=1339s){:target="\_blank"}.
 
 ### Notepad
 
@@ -684,6 +700,10 @@ As you can see in the screenshot below, the code for the formatted text is not u
 
 <span class="screenshot-large">*![notepad-edited-text-code](images/widget-custom/notepad-edited-text-code.png)*</span>
 
+Check out our [U.S. National Park Database](https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/13){:target="\_blank"} or our [🛒 Grocery List + Meal Planner](https://templates.getgrist.com/cMQA7uuBbtMW/-Grocery-List-Meal-Planner/p/3){:target="\_blank"} for two great Notepad examples!
+
+You can also check out this video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=1194s){:target="\_blank"}.
+
 ### Print Labels
 
 The Print Labels custom widget allows you to customize and print labels directly from Grist.
@@ -711,3 +731,7 @@ To leave any blank labels at the beginning of the sheet, click the settings icon
 
 <span class="screenshot-large">*![print-label-blanks](images/widget-custom/print-label-blanks.png)*</span>
 {: .screenshot-half }
+
+Check out our [Print Mailing Labels](https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels){:target="\_blank"} template and our [Treasure Hunt](https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/6){:target="\_blank"} template for two great examples!
+
+You can also check out this video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=1749s){:target="\_blank"}.
