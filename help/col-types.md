@@ -3,8 +3,7 @@
 Columns and data types
 ======================
 
-Adding and removing columns
--------------------------------
+## Adding and removing columns
 
 Every Grist table, when first created, has three columns called A, B, and C.
 To rename a column, hover on the column header, click on the drop-down, then
@@ -38,8 +37,7 @@ reorder them.  You can also hide columns here.
 *![Visible columns](images/columns/columns-visible-columns.png)*
 {: .screenshot-half }
 
-Renaming columns
-------------------
+## Renaming columns
 
 You can rename columns in several ways.  One way is to
 click on the column header when the column is already selected.
@@ -55,8 +53,7 @@ can change it, though it will still need to be Python-friendly.  To change
 the name, deselect "Use Name as ID" if it is selected, and edit the "ID" entry now
 shown.
 
-Specifying a type
------------------
+## Specifying a type
 
 Grist columns have types, similar to other spreadsheets or databases.  The type of a column
 controls its appearance and the help Grist will offer you when editing cells.
@@ -91,8 +88,8 @@ referencing the invalid value will also display an error):
 ![Toggle out-of-vocabulary](images/columns/columns-toggle-oov.png)
 
 
-Supported types
----------------
+## Supported types
+
 Grist supports the following types:
 
 <div class='grist-mod__table'></div> <!-- For css styling via css/extra.css -->
@@ -111,8 +108,7 @@ Reference      | A reference column to another table.
 Reference List | A list of references to another table.
 Attachment     | Cells where you can place files or images.
 
-Text columns
---------------
+## Text columns
 
 You can put any text you like in this type of column.  For formatting,
 you can control alignment and word-wrap, text color and background color.
@@ -138,8 +134,7 @@ In general, the value until the last space is used as the link text, while the l
 Link formatting is particularly useful when links are generated using a formula such as:  
 `$Company + " " + $Website`{: .formula}
 
-Numeric columns
------------------
+## Numeric columns
 
 This type is for numbers, including floating-point numbers. In addition to controlling alignment
 and color, you can choose the number format, and the minimum and maximum number of digits to
@@ -168,14 +163,12 @@ The options under NUMBER FORMAT include:
   in accounting, and usually combined with `$` or `,` formats.
 
 
-Integer columns
------------------
+## Integer columns
 
 This is strictly for whole numbers.  It has the same options as
 the numeric type.
 
-Toggle columns
-----------------
+## Toggle columns
 
 This type is for storing true/false values.  The values can be shown
 as text, checkboxes, or switches.
@@ -185,8 +178,7 @@ as text, checkboxes, or switches.
 
 See also example in [Specifying a type](col-types.md#specifying-a-type).
 
-Date columns
-----
+## Date columns
 
 This type is for storing calendar dates (without a time of day component).
 More details in [Working with dates](dates.md).  You can choose the
@@ -196,8 +188,7 @@ format for dates, see the [date formatting reference](https://momentjs.com/docs/
 {: .screenshot-half }
 
 
-DateTime columns
----------
+## DateTime columns
 
 This type is for storing calendar dates plus time of day.
 More details in [Working with dates](dates.md).  You can choose the
@@ -206,8 +197,7 @@ format for dates, see the [date and time formatting reference](https://momentjs.
 *![Format date](images/columns/columns-format-datetime.png)*
 {: .screenshot-half }
 
-Choice columns
--------
+## Choice columns
 
 This type is for storing one of a set of valid values, where you get to
 specify the available values.
@@ -265,8 +255,7 @@ valid choice and into the cell in one step.
 *![Format choice](images/columns/columns-cell-choice.png)*
 {: .screenshot-half }
 
-Choice List columns
-------------
+## Choice List columns
 
 This type is for storing multiple values from a set of valid values, where you
 get to specify the available values.
@@ -295,8 +284,7 @@ while the cell is being edited. You can also use the arrow keys and the
 `Delete` key to navigate and delete choices, or simply click the delete icon
 when hovering your cursor over a choice.
 
-Reference columns
-----------
+## Reference columns
 
 This sets up a cross-reference to another table.  You can specify the
 table to reference, and a column within that table to show.
@@ -307,8 +295,7 @@ details.
 {: .screenshot-half }
 
 
-Reference List columns
-----------
+## Reference List columns
 
 Like [Reference columns](#reference-columns), but can store multiple
 references in a single cell.
@@ -319,8 +306,7 @@ There's a lot you can do with this kind of column, see
 {: .screenshot-half }
 
 
-Attachment columns
------------
+## Attachment columns
 
 This column type lets you insert entire files and images in cells.
 When images are added in cells, a preview thumbnail is shown in the

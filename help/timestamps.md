@@ -5,8 +5,7 @@ Sometimes it is useful to have columns that store when individual records were c
 and updated.  This is useful later, for example to sort records by age or freshness.
 Grist lets you create such columns easily.
 
-A "Created At" column
-------------------------
+## A "Created At" column
 
 Suppose we want a column that stores when a record was created.
 As a first step, add a column called (for example) `Created At` and enter `NOW()`{: .formula} as
@@ -29,8 +28,7 @@ moment of their creation.
 
 ![a Created-At column](images/formulas/formulas-created-at-final.png)
 
-An "Updated At" column
--------------------------
+## An "Updated At" column
 
 If we want a column that stores when a record is updated (as opposed to created),
 the procedure is similar to that for [a "Created At" column](timestamps.md#a-created-at-column),

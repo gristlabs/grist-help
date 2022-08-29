@@ -24,15 +24,15 @@ Grist documents and shared with your team.
 ![team-sharing-team-site](images/team-sharing/team-sharing-team-site.png)
 
 If a colleague has shared a team site with you, you'll see the same thing,
-but depending on the [role](team-sharing.md#Roles) they chose for you, some options may be inactive.  If you need those options,
+but depending on the [role](team-sharing.md#roles) they chose for you, some options may be inactive.  If you need those options,
 ask your colleague to change your role.
 
 For a team site in which you are an Owner or Editor,
 you can [create documents](creating-doc.md) or [workspaces](workspaces.md). When your role is an
 Owner, you can immediately start [sharing](team-sharing.md) the site with others.
 
-Understanding Personal Sites
--------------------------------
+## Understanding Personal Sites
+
 Sites that begin with the "@" symbol are personal sites. All Grist accounts have a personal site.
 Your personal site is named using your name, and is always available at <https://docs.getgrist.com>.
 That’s also where you will find personal documents shared with you by others. Each document in a personal site may be [shared](sharing.md) with up to 2 Guests for free.
@@ -45,8 +45,7 @@ That’s also where you will find personal documents shared with you by others. 
 <em class="caption">a team site</em>
 {: .screenshot-half }
 
-Billing Account
--------------------------------
+## Billing Account
 
 If you created a team site on the Pro plan, or were added to it as a Billing Manager, then you may manage billing information, and edit your team site's name and subdomain from the billing account page. Open the [user menu](glossary.md#user-menu) and click on "Billing Account" to open a menu that looks like this. 
 

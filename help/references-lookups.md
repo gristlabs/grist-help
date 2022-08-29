@@ -11,8 +11,7 @@ references the records on our Staff page.
 
 Keep in mind, it’s not just referencing the Full Name column but the entire record associated with the selected instructor. 
 
-Reference columns and dot notation
----------------
+## Reference columns and dot notation
 
 Using a Reference column within a formula can make it easy to get any data from the referenced record. To do this, we use dot notation. It uses the format `$A.B` where `A` is the name of the reference column and `B` is the name of the column in the referenced table that we want to pull data from.
 
@@ -30,8 +29,7 @@ The Class column references data from the Classes table. Therefore, the Class_Ti
 
 <span class="screenshot-large">*![classes-times](images/references-lookups/classes-times.png)*</span>
 
-Chaining
----------------
+## Chaining
 
 If the reference lookup returns a reference, this can be chained. 
 
@@ -62,8 +60,7 @@ Another way to see the name is to chain the dot-notation, as we did for phone: `
 
 <span class="screenshot-large">*![instructor-details](images/references-lookups/instructor-details.png)*</span>
 
-lookupOne
----------------
+## lookupOne
 
 Another way to point to a record is using `Table.lookupOne(...)` function. [lookupOne](https://support.getgrist.com/functions/#lookupone) allows you to look up a record by some fields, similar to Excel's VLOOKUP. In fact, Grist's version of VLOOKUP is merely an alias for lookupOne. lookupOne is rarely useful in Grist, because using a Reference type column is usually the preferred solution to connect records. However, on some occasions, lookupOne can be useful. 
 
@@ -102,8 +99,7 @@ It's often a good idea to create a column for the lookup result and change its t
 
 <span class="screenshot-large">*![sponsors-lookupone](images/references-lookups/sponsors-lookupone.png)*</span>
 
-lookupOne and dot notation
----------------
+## lookupOne and dot notation
 
 Because lookupOne is creating a reference to a record, we can use dot notation to look up additional fields in that record.
 
@@ -119,8 +115,7 @@ The entire formula would be `Sponsors.lookupOne(Contact_Email=$Registration_Emai
 
 Now, we have the Sponsor Level listed in the All Registrations table for those attendees whose emails also appear on the sponsor list.
 
-Understanding record sets
----------------
+## Understanding record sets
 
 Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. 
 
@@ -132,8 +127,8 @@ The only difference between a Reference column and a Reference List column is th
 
 <span class="screenshot-large">*![habit-tracker](images/references-lookups/habit-tracker.png)*</span>
 
-Reference lists and dot notation
----------------
+## Reference lists and dot notation
+
 Similar to references, you can use Dot Notation with reference lists. 
 
 Building on our prior [example](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3) of attendees at a conference, suppose we have a list of registrants for an event and want to find the balance for each registrant. To do this, we can use dot notation.
@@ -148,8 +143,7 @@ With a reference list, dot-notation returns a list of all the selected field;
 
 `$Registrants.Balance` is a list of the Balances for each attendee in the list of `$Registrants`. This follows the format `$[A].[B]` where `[A]` is the name of the Reference List column and `[B]` is the name of the column in the referenced table you wish to pull data from. We'll learn how to find the sum of these balances in [Working with Record Sets](#working-with-record-sets).
 
-lookupRecords
----------------
+## lookupRecords
 
 You can also get a list of references using [lookupRecords](https://support.getgrist.com/functions/#lookuprecords).
 
@@ -180,8 +174,7 @@ We saw similar results using the [lookupOne](#lookupone) function. It's helpful 
 
 <span class="screenshot-large">*![lookup-records-reference-list](images/references-lookups/lookup-records-reference-list.png)*</span>
 
-Reverse lookups
----------------
+## Reverse lookups
 
 LookupRecords works a bit differently if a reference exists between two tables. With a reverse lookup, we can use the record ID to find a record. 
 
@@ -204,8 +197,7 @@ We use the existing reference, just in reverse - hence the name, Reverse Lookup.
 
 If you’d like a video walkthrough of a reverse lookup, we have an example in our [Build with Grist Webinar - Trigger Formulas v. Formulas](https://www.youtube.com/watch?v=0qVDPZd2w9I&t=788s).
 
-Working with record sets
----------------
+## Working with record sets
 
 lookupRecords can also be used within other formulas.
 

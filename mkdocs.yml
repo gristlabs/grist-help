@@ -5,6 +5,10 @@ site_url: "https://support.getgrist.com"
 repo_name: "GitHub"
 repo_url: "https://github.com/gristlabs/grist-help"
 
+# use directory urls (for prettiness) unless running htmlproofing
+# (which is confused by them).
+use_directory_urls: !ENV [HTMLPROOFER_OVERRIDE_USE_DIRECTORY_URLS, true]
+
 docs_dir: './help'
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
 theme:
@@ -154,6 +158,9 @@ extra_javascript:
 plugins:
   - search
   - awesome-pages
+  - htmlproofer:
+      enabled: !ENV [HTMLPROOFER_ENABLED, false]
+      validate_external_urls: false
 
 markdown_extensions:
   toc:

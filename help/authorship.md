@@ -7,8 +7,7 @@ tracks document changes in the Activity tab of Document History, but nevertheles
 convenient to have that information in tabular form available to formulas and filters,
 and authorship columns let you do that.
 
-A "Created By" column
-------------------------
+## A "Created By" column
 
 Suppose we want to fill a column automatically with the name of the creator
 of each record as they are added.  As a first step, add a column called 
@@ -33,8 +32,7 @@ column will be set to the name of the user creating it:
 ![a Created-By example](images/formulas/formulas-created-by-autofill.png)
 
 
-An "Updated By" column
--------------------------
+## An "Updated By" column
 
 If we want a column that stores who last edited a record (as opposed to its creator),
 the procedure is similar to that for [a "Created By" column](authorship.md#a-created-by-column),

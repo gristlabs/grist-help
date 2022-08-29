@@ -11,7 +11,7 @@ Every Grist document can be [shared with others](sharing.md)
 using the `Manage Users` option in the sharing
 menu (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
 Users can be invited as Viewers, Editors, or Owners (see 
- [Sharing a document](sharing.md) for a refresher on those roles), or a document can be [shared publicly](sharing.md#public-access) with view or edit permissions.
+ [Sharing a document](sharing.md) for a refresher on those roles), or a document can be [shared publicly](sharing.md#public-access-and-link-sharing) with view or edit permissions.
 Sometimes, you need more nuance about who can see or edit individual
 parts of a document.  Access rules give us that power.
 

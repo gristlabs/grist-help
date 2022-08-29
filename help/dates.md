@@ -16,8 +16,7 @@ objects](https://docs.python.org/3.9/library/datetime.html). That allows
 you to do some powerful things, but can be unexpected if you're not
 familiar with them.
 
-Making a date/time column
------------------------
+## Making a date/time column
 
 For a general introduction to setting the type of columns,
 see [Columns and data types](col-types.md).
@@ -46,8 +45,7 @@ and times.
 *![formulas-date-widget](images/formulas/formulas-date-widget.png)*
 {: .screenshot-half }
 
-Inserting the current date
------------------------------
+## Inserting the current date
 
 You can insert the current date in a cell using
 <code class="keys">*⌘* + **;** (semicolon)</code> (Mac) or <code class="keys">*Ctrl* + **;**</code> (Windows).
@@ -57,8 +55,8 @@ You can insert the current date and time using
 
 When editing a date cell, the date entry widget has a "today" button for today's date.
 
-Parsing dates from strings
---------------------------
+## Parsing dates from strings
+
 The [DATEVALUE](functions.md#datevalue) function converts a string that represents a date into a `datetime`
 object. It's simple to use and it will auto-detect different date formats:
 
@@ -109,8 +107,8 @@ dateutil.parser.parse($date_text, dayfirst=True)
 ```
 
 
-Date arithmetic
----------------
+## Date arithmetic
+
 Once you have a proper date column, often you'll want to do date arithmetic such as calculating the
 difference between two dates. The simplest way to do this is to use the [DATEDIF](functions.md#datedif)
 function which takes two dates and the unit of information to return (Days, Months, or Years).
@@ -146,8 +144,8 @@ DAYS($Last_day, $First_day)
     [`MONTH`](functions.md#month), [`HOUR`](functions.md#hour),
     and [many more](functions.md#date).
 
-Getting a part of the date
---------------------------
+## Getting a part of the date
+
 You've seen how to parse the date, display it in different formats, and do date arithmetic. But what
 if you want to get more information about a specific date, such as getting its day of the week?
 
@@ -164,8 +162,7 @@ Yet another option would be to reformat the date using Date Format in Column Opt
 (see the [date formatting reference](https://momentjs.com/docs/#/displaying/format/)).
 
 
-Time zones
------------
+## Time zones
 
 Values in `DateTime` columns represent moments in time. The same moment will look different in
 different timezones. In Grist, the timezone is set on each `DateTime` column. For instance, if the
@@ -185,8 +182,8 @@ If you do the same in a `Text` column, the date/time will be inserted as the tex
 the document's global timezone setting. Similarly, inserting the current date into a `Date` column
 will produce the current date according to the document's timezone.
 
-Additional resources
---------------------
+## Additional resources
+
 * [Python cheatsheet for strftime](http://strftime.org), for using with `strftime()` and
   `strptime()` in formulas.
 * [Date formatting cheatsheet](https://momentjs.com/docs/#/displaying/format/), for specifying the
