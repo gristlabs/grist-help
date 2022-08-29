@@ -878,6 +878,7 @@
 </ul>
 </li>
 <li><a href="#operations">Operations</a><ul>
+<li><a href="#what-are-the-hardware-requirements-for-hosting-grist">What are the hardware requirements for hosting Grist?</a></li>
 <li><a href="#what-is-a-home-database">What is a &ldquo;home&rdquo; database?</a></li>
 <li><a href="#what-is-a-state-store">What is a state store?</a></li>
 <li><a href="#how-do-i-set-up-s3-or-azure-backups">How do I set up S3 or Azure backups?</a></li>
@@ -957,15 +958,15 @@ Grist installation (such as our SaaS).</p>
 <p>Installed this way, Grist is accessible only to you. Typically you want to
 take at least the following steps:</p>
 <ul>
-<li><a href="./#sandboxing">Set up sandboxing</a> - this is important to
+<li><a href="./#how-do-i-sandbox-documents">Set up sandboxing</a> - this is important to
     place bounds on what formulas can do.</li>
-<li><a href="./#serving-from-a-public-host">Serve from a public host</a>
+<li><a href="./#how-do-i-run-grist-on-a-server">Serve from a public host</a>
     so you can collaborate live with others.</li>
 <li>Enable an authentication method so users can log in. Often you&rsquo;ll want
     to hook Grist up to an &ldquo;SSO&rdquo; (Single Sign-On) service you already use.
     We support some very 
-    <a href="./#general-authentication-methods">general authentication methods</a> that cover many cases,
-    and a <a href="./#special-authentication-methods">special authentication method</a> for custom cases.</li>
+    <a href="./#how-do-i-set-up-authentication">general authentication methods</a> that cover many cases,
+    and a <a href="./#are-there-other-authentication-methods">special authentication method</a> for custom cases.</li>
 </ul>
 <h3 class="tag-core tag-ee" id="how-do-i-sandbox-documents">How do I sandbox documents?<a class="headerlink" href="#how-do-i-sandbox-documents" title="Permanent link">#</a></h3>
 <p>Grist allows for very powerful formulas, using Python.  We recommend
@@ -988,7 +989,7 @@ glob.glob('/etc/*')
 <h3 class="tag-core tag-ee" id="how-do-i-run-grist-on-a-server">How do I run Grist on a server?<a class="headerlink" href="#how-do-i-run-grist-on-a-server" title="Permanent link">#</a></h3>
 <p>We suggest that you become familiar with all the other aspects of
 self-management on this page before serving Grist from a public host
-(especially <a href="./#sandboxing">Sandboxing</a>).
+(especially <a href="./#how-do-i-sandbox-documents">Sandboxing</a>).
 When you do, it is important to tell Grist where it will be served
 from, using the <code>APP_HOME_URL</code> variable. For example, if you will
 be serving from <code>https://grist.example.com</code>, let Grist know like
@@ -1023,7 +1024,7 @@ is a synonym for team):</p>
 
 <p>The name of the team should use only the characters A-Z, a-z, 0-9, and the
 hyphen (<code>-</code>).  You may also want to look into
-<a href="./#custom-styling">Custom styling</a> to hide any UI elements
+<a href="./#how-do-i-customize-styling">Custom styling</a> to hide any UI elements
 you don&rsquo;t need.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-set-up-authentication">How do I set up authentication?<a class="headerlink" href="#how-do-i-set-up-authentication" title="Permanent link">#</a></h3>
 <p>Authentication can be set up in many ways for Grist Core and Enterprise, using
@@ -1076,7 +1077,7 @@ you can turn off many elements using <code>GRIST_HIDE_UI_ELEMENTS</code>.
 This is comma-separated list of parts of the UI to hide.
 The allowed names of parts are:
 <code>helpCenter,billing,templates,multiSite,multiAccounts</code>.
-The UI elements present is also affected by whether <code>GRIST_SINGLE_ORG</code> is set.</p>
+The UI elements present are also affected by whether <code>GRIST_SINGLE_ORG</code> is set.</p>
 <pre><code>docker run
   ...
   -e GRIST_HIDE_UI_ELEMENTS=helpCenter,billing,templates,multiSite,multiAccounts \
@@ -1110,7 +1111,7 @@ styles is possible. Note that all CSS rules should use
 <code>!important</code> to make sure they have the highest precedence. Otherwise,
 it’s possible for more specific rules included by our framework to take
 precedence.</p>
-<p>To override <code>custom.css</code>, you can made your own copy and make
+<p>To override <code>custom.css</code>, you can make your own copy and make
 sure Grist uses it. If the CSS file is in your current directory, then
 do:</p>
 <pre><code>docker run
@@ -1224,6 +1225,43 @@ as follows:</p>
 based on an export of the SendGrid templates for our SaaS.</p>
 <hr />
 <h2 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">#</a></h2>
+<h3 class="tag-core tag-ee" id="what-are-the-hardware-requirements-for-hosting-grist">What are the hardware requirements for hosting Grist?<a class="headerlink" href="#what-are-the-hardware-requirements-for-hosting-grist" title="Permanent link">#</a></h3>
+<p>For hosting Grist as a Linux container, here is a known good configuration
+for a variety of moderate workloads:</p>
+<ul>
+<li>8GB RAM</li>
+<li>2 CPUs</li>
+<li>20GB disk</li>
+</ul>
+<p>Grist is packaged for the following CPU architectures:</p>
+<ul>
+<li>x86_64 (Sandy Bridge or later if sandboxing is enabled)</li>
+<li>ARM64</li>
+</ul>
+<p>Every Grist document is a separate database, so it is difficult to
+state absolute minimum requirements without knowing what documents will be
+used. In tests, the <a href="https://templates.getgrist.com/doc/investment-research">Investment Research template</a>
+runs comfortably served from a Grist container with:</p>
+<ul>
+<li>100MB RAM without sandboxing enabled.</li>
+<li>200MB RAM with sandboxing enabled.</li>
+<li>1 CPU.</li>
+</ul>
+<p>Memory and CPU requirements will scale with the number of documents
+simultaneously in use by your team.</p>
+<p><a href="./#how-do-i-sandbox-documents">Sandboxing</a> is an important issue in serving
+Grist. It is achieved using <a href="https://gvisor.dev/">gvisor</a>. Sandboxing depends on
+the availability of particular capabilities, and may be unavailable in
+environments that deny or lack these capabilities. Grist sandboxing is known
+to work in the following environments:</p>
+<ul>
+<li>Regular unprivileged docker containers with default security settings.</li>
+<li>AWS EC2 instances.</li>
+<li>AWS Fargate containers, with <code>SYS_PTRACE</code> set in <code>linuxParameters.capabilities</code>.</li>
+</ul>
+<p>Grist sandboxing has been reported to fail to initialize on older
+Intel processors that do not support the <code>XSAVE</code> feature (supported by
+Sandy Bridge and later).</p>
 <h3 class="tag-core tag-ee" id="what-is-a-home-database">What is a &ldquo;home&rdquo; database?<a class="headerlink" href="#what-is-a-home-database" title="Permanent link">#</a></h3>
 <p>Grist stores metadata about users, documents, workspaces, etc in a
 database called the &ldquo;home&rdquo; database. This does not contain the
