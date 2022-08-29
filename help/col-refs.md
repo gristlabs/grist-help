@@ -1,10 +1,9 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Reference and Reference Lists
-==================================
+# Reference and Reference Lists
 
-Overview
---------
+## Overview
+
 Reference and Reference List columns in Grist allow one table to create an explicit reference
 to another. In the database world this is similar to a foreign key. In the spreadsheet world
 this is similar to a `VLOOKUP`, but much more powerful and easier to use.
@@ -12,8 +11,7 @@ this is similar to a `VLOOKUP`, but much more powerful and easier to use.
 In this guide we'll use the term **underlying table** for the table that lists all available values,
 and **referencing table** for the table that uses those values.
 
-Creating a new Reference column
--------------------------------
+## Creating a new Reference column
 
 Suppose we have a document with two tables, Clients and Projects.  The Clients table lists
 our clients - names, contacts, signing dates - and the Projects table lists projects we do for
@@ -57,8 +55,8 @@ highlighted as invalid:
 *![Invalid reference value](images/column-ref-invalid.png)*
 {: .screenshot-half }
 
-Adding values to a Reference column
------------------------------------
+## Adding values to a Reference column
+
 Sometimes it's useful to add a new value to the dropdown list without having to switch to the
 underlying table. Reference columns make it easy! Just type in the value you want add and select the
 `+` value in the dropdown list. Grist will automatically add a new record containing this value to
@@ -67,8 +65,8 @@ the underlying table and insert the proper reference:
 *![Add reference value](images/column-ref-add-value.png)*
 {: .screenshot-half }
 
-Converting Text column to Reference
------------------------------------
+## Converting Text column to Reference
+
 When working with existing data, it's common to have existing text values that should really be
 reference values. Don't worry, conversion is simple! Just change the column type to `Reference` and
 Grist will automatically find and substitute matching values for references. If some values are not
@@ -80,8 +78,8 @@ doesn't exist in the `Clients` table:
 
 ![Convert values after](images/column-ref-convert-after.png)
 
-Including multiple fields from a reference
-------------------------------------------
+## Including multiple fields from a reference
+
 A big benefit of reference columns is that they allow you to easily bring in multiple columns from
 the underlying table. In our example, if you wanted to bring in `$Client.Contact` to the `Projects`
 table, you can just select the `Contact` column from the `Add Reference Columns` section and it will be
@@ -106,8 +104,8 @@ in this example confuse you.
     `$Client.Contact` (singular). That's because the formula refers to the referencing column,
     **not** the underlying table. In our example, the referencing column is `Client`.
 
-Creating a new Reference List column
-------------------------------------
+## Creating a new Reference List column
+
 
 So far our example has only dealt with projects that have a single client. Suppose that
 we also have projects with multiple clients, and we'd like to maintain references to
@@ -124,8 +122,8 @@ hit "Apply" and the `Client` column will be ready to accept as many clients as y
 
 ![Reference List set-up](images/columns/columns-reference-list-transform.png)
 
-Editing values in a Reference List column
------------------------------------
+## Editing values in a Reference List column
+
 To make changes to a Reference List cell, simply double-click the cell or press the
 <code class="keys">*Enter*</code> key after you have selected the cell you want to
 edit. You can also start typing after selecting a cell if you'd like to write over

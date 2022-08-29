@@ -46,7 +46,7 @@ All Grist users have access to a free personal account. The personal site is alw
 
 Documents shared with you will be shown in your personal site and do not count against the 10 document limit.
 
-You may navigate between your [personal site](teams.md#Understanding-Personal-Sites) and [team sites](teams.md) by clicking in the top-left corner to open a drop-down menu of sites to which you have access.
+You may navigate between your [personal site](teams.md#understanding-personal-sites) and [team sites](teams.md) by clicking in the top-left corner to open a drop-down menu of sites to which you have access.
 
 <center>*![Navigating between sites](images/faq/personal-and-team-site.png)*</center>
 
@@ -147,7 +147,7 @@ Guests, on the other hand, are invited to particular documents, but are not adde
 There are many ways to share Grist data with non-team members. 
 
 1. **Guests.** Each document may be shared with 2 guests (non-team members) at no additional cost.
-2. **Link Sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
+2. **Link Sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access-and-link-sharing). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
 
 <center>*![Public access](images/faq/link-sharing.png)*</center>
 

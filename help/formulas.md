@@ -47,8 +47,7 @@ In Grist, a single formula applies to a whole column.
 You don't have to worry about filling it in for all rows,
 and can refer to values in the same row without fuss.
 
-Column behavior
----------------
+## Column behavior
 
 When we provide a formula for a column we tell Grist to update its value on every change
 in a document. We can no longer type a value into the cell, because its value is
@@ -86,8 +85,7 @@ Column` state.
 
 ![formulas-column-behavior-options](images/formulas/formulas-column-behavior-options.png)
 
-Python
--------
+## Python
 
 Grist formulas are written in Python, the most popular language for data science.
 The entirety of [Python's  standard library](https://docs.python.org/3.9/library/) is available
@@ -96,8 +94,7 @@ functions, with all-uppercase names. Here's the [full list of functions](functio
 Grist documents may use Python 2 or Python 3, see our [Python guide](python.md)
 for details.
 
-Formulas that operate over many rows
------------------------------------------
+## Formulas that operate over many rows
 
 If you are a spreadsheet user, you may find yourself wanting to have
 some special rows at the end of your table that have formulas
@@ -210,8 +207,7 @@ else:
   return $Quantity * $Unit_Price
 ```
 
-Code viewer
--------------
+## Code viewer
 
 Once you have a lot of formulas, or if you have been invited to a document
 and want to get an overview of its formulas, there is a code viewer
@@ -219,8 +215,7 @@ available with a pure Python summary of the document.
 
 ![formulas-code-view](images/formulas/formulas-code-view.png)
 
-Special values available in formulas
-------------------------------------
+## Special values available in formulas
 
 For those familiar with Python, here are the extra values available to
 you in Grist:
@@ -238,8 +233,7 @@ that are awkward in Python, those characters are replaced with an
 underscore.  Auto-complete may help you if you're not sure.  You
 can also control the "ids" of columns and tables in the right side panel.
 
-Freeze a formula column
------------------------
+## Freeze a formula column
 
 If you'd like to save the output of your formula as plain values, you can simply change
 column behavior from `Formula Column` to `Data Column`. First open the column options in
@@ -266,8 +260,7 @@ The side panel has lots of other handy settings, such as cell formatting
 (number of digits after decimal point, color, etc).  The options apply
 just as much to formula columns as to regular columns.
 
-Lookups
---------
+## Lookups
 
 Grist functions [lookupOne](functions.md#lookupone) and
 [lookupRecords](functions.md#lookuprecords) are useful for enumerating
@@ -301,8 +294,7 @@ whether [Summary tables](summary-tables.md) and
 [Summary formulas](summary-tables.md#summary-formulas) might be
 what you are looking for.
 
-Recursion
-----------
+## Recursion
 
 Lookups are handy for recursive formulas.  Suppose we have a table counting how many
 events we have per day, and want to add a cumulative sum of those event counts.
@@ -337,8 +329,7 @@ we defined `yesterday` here.
 To actually enter this formula in a cell, you'd use
 <code class="keys">*Shift* + *Enter*</code> to divide the lines.
 
-Trigger Formulas
-----------------
+## Trigger Formulas
 
 Formula columns are great for calculated values -- those determined by
 other data in the document. It may also be useful to store independent 

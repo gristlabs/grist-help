@@ -83,11 +83,11 @@ Let's break this down.
 `Interactions.lookupRecords(Contact=$id, Type="To-Do")` finds all records in the Interactions table where 
 the Contacts match and the Type is To-Do. This returns a list of records that we assign to the variable `items`. 
 
-Next, we use [dot notation](references-lookups.md#lookuprecords-and-dot-notation) to find all Dates assigned to the records in our `items` list. These dates are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. 
+Next, we use [dot notation](references-lookups.md#reference-columns-and-dot-notation) to find all Dates assigned to the records in our `items` list. These dates are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. 
 
 If there are no items in the list, nothing is returned and the field is left blank.
 
-In the MAX() example, the list has two items: `$Max_Students - $Count` and `0`, and the formula returns whichever is greater. In the min() example, the variable `items` is pulling a list of records based on the [lookupRecords](references-lookups.md#lookuprecords-and-len) arguments, listing the dates, and returning the smallest date. Note that this is a Python function. If we had written the formula as MIN(), a spreadsheet function, the formula would not work because the spreadsheet formula requires a very [specific format](functions.md#min).
+In the MAX() example, the list has two items: `$Max_Students - $Count` and `0`, and the formula returns whichever is greater. In the min() example, the variable `items` is pulling a list of records based on the [lookupRecords](references-lookups.md#lookuprecords) arguments, listing the dates, and returning the smallest date. Note that this is a Python function. If we had written the formula as MIN(), a spreadsheet function, the formula would not work because the spreadsheet formula requires a very [specific format](functions.md#min).
 
 
 </details>

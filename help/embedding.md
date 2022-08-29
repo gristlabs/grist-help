@@ -6,10 +6,10 @@
 
 Perhaps you'd like to list your product, prices and quantities on your website,
 or you want to display a pie chart of voting results that updates live. With
-[public access](sharing.md#public-access) turned on, you may embed your
+[public access](sharing.md#public-access-and-link-sharing) turned on, you may embed your
 Grist document on your own site.
 
-To do that, you first need to make it [public](sharing.md#public-access) and have
+To do that, you first need to make it [public](sharing.md#public-access-and-link-sharing) and have
 access to your website's code in order to place some HTML code in the desired location.
 
 If your site is hosted on some popular cloud CMS platform (like Blogger or WordPress),

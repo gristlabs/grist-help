@@ -1,5 +1,4 @@
-Team Sharing
-=========
+# Team Sharing
 
 We saw how to share individual documents with other users in the
 [Sharing](sharing.md) article.  Team sites give your further control,
@@ -22,8 +21,7 @@ All documents within the site will be accessible to those people,
 unless you turn off the "Inherit access" sharing option for individual [workspaces](workspaces.md)
 or [documents](sharing.md).
 
-Roles
--------------------------------
+## Roles
 
 There are three primary roles supported by Grist for team sites:
 
@@ -38,8 +36,8 @@ There are three primary roles supported by Grist for team sites:
 - **Owner**: gives a user complete permissions to the site's workspaces and documents,
   including their sharing settings.
 
-Billing Permissions
--------------------------------
+## Billing Permissions
+
 None of these roles give access to billing information or management.
 Billing plan managers can be added via the "Billing Account" option. 
 Open the user menu under your user icon, and select "Billing Account".

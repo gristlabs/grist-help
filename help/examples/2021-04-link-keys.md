@@ -43,7 +43,7 @@ In the Students, Sessions, and Payments tables, add a column that ties each reco
 referenced family's UUID. Name these columns "UUID",
 with the simple formula `$Family.UUID`{: .formula}.
 Not sure how this works? Brush up on Grist's powerful [reference
-columns](../col-refs.md#top).
+columns](../col-refs.md#reference-and-reference-lists).
 
 ![Use reference columns to fetch UUID](images/2021-04-link-keys/private-tutor-reference-UUID.png)
 

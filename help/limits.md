@@ -19,7 +19,7 @@ For team sites on both the Free and Pro plan, there is no limit on the number of
 
 Team members added to your team site may inherit access to workspaces or documents
 within that organization. Learn more about [team
-sharing](team-sharing.md#team-sharing).
+sharing](team-sharing.md).
 
 On both personal and team sites, each document may be shared with up to 2 free guests who do not affect the plan price even on the Pro plan.
 
