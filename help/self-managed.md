@@ -224,7 +224,7 @@ you can turn off many elements using `GRIST_HIDE_UI_ELEMENTS`.
 This is comma-separated list of parts of the UI to hide.
 The allowed names of parts are:
 `helpCenter,billing,templates,multiSite,multiAccounts`.
-The UI elements present is also affected by whether `GRIST_SINGLE_ORG` is set.
+The UI elements present are also affected by whether `GRIST_SINGLE_ORG` is set.
 
 
 ```
@@ -268,7 +268,7 @@ styles is possible. Note that all CSS rules should use
 it’s possible for more specific rules included by our framework to take
 precedence.
 
-To override `custom.css`, you can made your own copy and make
+To override `custom.css`, you can make your own copy and make
 sure Grist uses it. If the CSS file is in your current directory, then
 do:
 
