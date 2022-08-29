@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Running htmlproofer plugin to check for internal link problems."
 
 if [[ "$1" = "install" ]]; then
