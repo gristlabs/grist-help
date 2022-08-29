@@ -81,15 +81,15 @@ If using some other tool or service, here are the important points:
 Installed this way, Grist is accessible only to you. Typically you want to
 take at least the following steps:
 
-  * [Set up sandboxing](self-managed.md#sandboxing) - this is important to
+  * [Set up sandboxing](self-managed.md#how-do-i-sandbox-documents) - this is important to
     place bounds on what formulas can do.
-  * [Serve from a public host](self-managed.md#serving-from-a-public-host)
+  * [Serve from a public host](self-managed.md#how-do-i-run-grist-on-a-server)
     so you can collaborate live with others.
   * Enable an authentication method so users can log in. Often you'll want
     to hook Grist up to an "SSO" (Single Sign-On) service you already use.
 	We support some very 
-    [general authentication methods](self-managed.md#general-authentication-methods) that cover many cases,
-	and a [special authentication method](self-managed.md#special-authentication-methods) for custom cases.
+    [general authentication methods](self-managed.md#how-do-i-set-up-authentication) that cover many cases,
+	and a [special authentication method](self-managed.md#are-there-other-authentication-methods) for custom cases.
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
@@ -118,7 +118,7 @@ glob.glob('/etc/*')
 
 We suggest that you become familiar with all the other aspects of
 self-management on this page before serving Grist from a public host
-(especially [Sandboxing](self-managed.md#sandboxing)).
+(especially [Sandboxing](self-managed.md#how-do-i-sandbox-documents)).
 When you do, it is important to tell Grist where it will be served
 from, using the `APP_HOME_URL` variable. For example, if you will
 be serving from `https://grist.example.com`, let Grist know like
@@ -159,7 +159,7 @@ docker run ...
 
 The name of the team should use only the characters A-Z, a-z, 0-9, and the
 hyphen (`-`).  You may also want to look into
-[Custom styling](self-managed.md#custom-styling) to hide any UI elements
+[Custom styling](self-managed.md#how-do-i-customize-styling) to hide any UI elements
 you don't need.
 
 ### How do I set up authentication? {: .tag-core .tag-ee }
@@ -426,7 +426,7 @@ runs comfortably served from a Grist container with:
 Memory and CPU requirements will scale with the number of documents
 simultaneously in use by your team.
 
-[Sandboxing](self-managed.md#sandboxing) is an important issue in serving
+[Sandboxing](self-managed.md#how-do-i-sandbox-documents) is an important issue in serving
 Grist. It is achieved using [gvisor](https://gvisor.dev/). Sandboxing depends on
 the availability of particular capabilities, and may be unavailable in
 environments that deny or lack these capabilities. Grist sandboxing is known

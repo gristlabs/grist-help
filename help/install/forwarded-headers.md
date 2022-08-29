@@ -5,7 +5,7 @@ You may have a middleware that does authentication and then passes identity
 on to web applications in a header. If you do, then Grist can be configured
 to respect that header.
 
-!!! warning "The redirection logic for authentication using forwarded headers currently assumes a [single team site](../self-managed.md#teams) configuration, and may misbehave for multi-site configurations."
+!!! warning "The redirection logic for authentication using forwarded headers currently assumes a [single team site](../self-managed.md#how-do-i-set-up-a-team) configuration, and may misbehave for multi-site configurations."
 
 To make this work, here is what you'll need to do:
 
