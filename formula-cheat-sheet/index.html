@@ -916,9 +916,9 @@ return min(items.Date) if items else None
 <p>Let&rsquo;s break this down. </p>
 <p><code>Interactions.lookupRecords(Contact=$id, Type="To-Do")</code> finds all records in the Interactions table where 
 the Contacts match and the Type is To-Do. This returns a list of records that we assign to the variable <code>items</code>. </p>
-<p>Next, we use <a href="../references-lookups/#lookuprecords-and-dot-notation">dot notation</a> to find all Dates assigned to the records in our <code>items</code> list. These dates are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. </p>
+<p>Next, we use <a href="../references-lookups/#reference-columns-and-dot-notation">dot notation</a> to find all Dates assigned to the records in our <code>items</code> list. These dates are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. </p>
 <p>If there are no items in the list, nothing is returned and the field is left blank.</p>
-<p>In the MAX() example, the list has two items: <code>$Max_Students - $Count</code> and <code>0</code>, and the formula returns whichever is greater. In the min() example, the variable <code>items</code> is pulling a list of records based on the <a href="../references-lookups/#lookuprecords-and-len">lookupRecords</a> arguments, listing the dates, and returning the smallest date. Note that this is a Python function. If we had written the formula as MIN(), a spreadsheet function, the formula would not work because the spreadsheet formula requires a very <a href="../functions/#min">specific format</a>.</p>
+<p>In the MAX() example, the list has two items: <code>$Max_Students - $Count</code> and <code>0</code>, and the formula returns whichever is greater. In the min() example, the variable <code>items</code> is pulling a list of records based on the <a href="../references-lookups/#lookuprecords">lookupRecords</a> arguments, listing the dates, and returning the smallest date. Note that this is a Python function. If we had written the formula as MIN(), a spreadsheet function, the formula would not work because the spreadsheet formula requires a very <a href="../functions/#min">specific format</a>.</p>
 <p></details>
 </section></p>
 <p><span></span><section class="cheat-sheet"></p>
