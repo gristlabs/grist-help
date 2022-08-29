@@ -400,6 +400,46 @@ based on an export of the SendGrid templates for our SaaS.
 
 ## Operations
 
+### What are the hardware requirements for hosting Grist? {: .tag-core .tag-ee }
+
+For hosting Grist as a Linux container, here is a known good configuration
+for a variety of moderate workloads:
+
+ * 8GB RAM
+ * 2 CPUs
+ * 20GB disk
+
+Grist is packaged for the following CPU architectures:
+
+ * x86_64 (Sandy Bridge or later if sandboxing is enabled)
+ * ARM64
+
+Every Grist document is a separate database, so it is difficult to
+state absolute minimum requirements without knowing what documents will be
+used. In tests, the [Investment Research template](https://templates.getgrist.com/doc/investment-research)
+runs comfortably served from a Grist container with:
+
+  * 100MB RAM without sandboxing enabled.
+  * 200MB RAM with sandboxing enabled.
+  * 1 CPU.
+
+Memory and CPU requirements will scale with the number of documents
+simultaneously in use by your team.
+
+[Sandboxing](self-managed.md#sandboxing) is an important issue in serving
+Grist. It is achieved using [gvisor](https://gvisor.dev/). Sandboxing depends on
+the availability of particular capabilities, and may be unavailable in
+environments that deny or lack these capabilities. Grist sandboxing is known
+to work in the following environments:
+
+ * Regular unprivileged docker containers with default security settings.
+ * AWS EC2 instances.
+ * AWS Fargate containers, with `SYS_PTRACE` set in `linuxParameters.capabilities`.
+
+Grist sandboxing has been reported to fail to initialize on older
+Intel processors that do not support the `XSAVE` feature (supported by
+Sandy Bridge and later).
+
 ### What is a "home" database? {: .tag-core .tag-ee }
 
 Grist stores metadata about users, documents, workspaces, etc in a
