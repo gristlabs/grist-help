@@ -30,3 +30,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [May 2022 Newsletter](newsletters/2022-05.md): Raw data tables, new summary table linking, and more!
 - [June 2022 Newsletter](newsletters/2022-06.md): Filtering by range, new `PEEK()` function, and more!
 - [July 2022 Newsletter](newsletters/2022-07.md): Formula cheat sheet and summary tables in raw data!
+- [August 2022 Newsletter](newsletters/2022-08.md): Free team sites, conditional row styles, better formula help, and more!

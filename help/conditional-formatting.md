@@ -1,7 +1,9 @@
 Conditional Formatting
 ======================
 
-Cell style can change based on conditional rules. Conditional rules are written as formulas. Conditional formatting applies to the entire column. To add conditional formatting to a particular column, go to the `Cell Style` section of the [creator panel](glossary.md#creator-panel) and click on `Add conditional style`.
+Cell style can change based on conditional rules. Conditional rules are written as formulas. Conditional formatting can apply to an entire row or cells in a column. 
+
+To add conditional formatting to a particular column, select the column, go to the `CELL STYLE` section of the [creator panel](glossary.md#creator-panel) under the `Column` tab, and click on `Add conditional style`.
 
 *![Add conditional style](images/columns/add-conditional-style.png)*
 {: .screenshot-half}
@@ -16,12 +18,16 @@ We would also like to highlight breeders with 1 or 2 champion dogs in blue, and 
 
 ![Multiple conditional rules](images/columns/multiple-conditional-rules.PNG)
 
+To add conditional formatting to rows, go to the `ROW STYLE` section of the [creator panel](glossary.md#creator-panel) under the `Table > Widget` tab, and click on `Add conditional style`.
+
+![Conditional Row Styles](../images/newsletters/2022-08/conditional-row.png)
+
 Order of Rules
 --------------
 
 Note that Grist applies the rules in order. Styles applied by later rules will override those applied by earlier rules.
 
-What would happen if we swapped the last two rules?
+What would happen if we swapped the last two rules in the example above?
 
 ![Conditional rules order](images/columns/conditional-rules-order.PNG)
 
