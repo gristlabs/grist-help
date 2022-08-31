@@ -11,10 +11,10 @@ investments in them up to 2013. Let’s take a look at the
 sample document and then we’ll talk about how to build it so that you can apply these tools to
 your own data.
 
-[^doc_desc]: The dataset comes
-from [Kaggle](https://www.kaggle.com/mauriciocap/crunchbase2013). The sample documents includes only the “companies” and “investments” data, and includes only
-New York companies to keep it smaller and faster. Download [crunchbase_companies_ny.csv](/investment-research/crunchbase-companies-ny.csv)
-and [crunchbase_investments_ny.csv](/investment-research/crunchbase-investments-ny.csv).
+[^doc_desc]: Download [crunchbase_companies_ny.csv](/investment-research/crunchbase-companies-ny.csv)
+and [crunchbase_investments_ny.csv](/investment-research/crunchbase-investments-ny.csv). The sample data includes only the “companies” and “investments” data, and includes only
+New York companies to keep it smaller and faster. The dataset comes
+from [Kaggle](https://www.kaggle.com/mauriciocap/crunchbase2013).
 
 ## Exploring the example
 
