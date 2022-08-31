@@ -570,6 +570,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-08/" class="wm-article-link wm-toc-text">2022/08</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-07/" class="wm-article-link wm-toc-text">2022/07</a>
 
     
@@ -847,16 +851,19 @@
     
 
     <h1 id="conditional-formatting">Conditional Formatting<a class="headerlink" href="#conditional-formatting" title="Permanent link">#</a></h1>
-<p>Cell style can change based on conditional rules. Conditional rules are written as formulas. Conditional formatting applies to the entire column. To add conditional formatting to a particular column, go to the <code>Cell Style</code> section of the <a href="../glossary/#creator-panel">creator panel</a> and click on <code>Add conditional style</code>.</p>
+<p>Cell style can change based on conditional rules. Conditional rules are written as formulas. Conditional formatting can apply to an entire row or cells in a column. </p>
+<p>To add conditional formatting to a particular column, select the column, go to the <code>CELL STYLE</code> section of the <a href="../glossary/#creator-panel">creator panel</a> under the <code>Column</code> tab, and click on <code>Add conditional style</code>.</p>
 <p class="screenshot-half"><em><img alt="Add conditional style" src="../images/columns/add-conditional-style.png" /></em></p>
 <p>In this example, we have a list of dog breeders who have raised champion thoroughbreds. Let&rsquo;s apply conditional formatting to the Breeder column based on the number of champion dogs. We would like to highlight in gold any breeders with more than 2 champions.</p>
 <p><img alt="Writing conditional rules" src="../images/columns/first-conditional-rule.png" /></p>
 <p>Here the conditional formula is <code class="formula">$Number_of_Champions &gt; 2</code>.</p>
 <p>We would also like to highlight breeders with 1 or 2 champion dogs in blue, and 0 champion dogs in brown. Click <code>Add another rule</code> to add more conditional styles.</p>
 <p><img alt="Multiple conditional rules" src="../images/columns/multiple-conditional-rules.PNG" /></p>
+<p>To add conditional formatting to rows, go to the <code>ROW STYLE</code> section of the <a href="../glossary/#creator-panel">creator panel</a> under the <code>Table &gt; Widget</code> tab, and click on <code>Add conditional style</code>.</p>
+<p><img alt="Conditional Row Styles" src="../images/newsletters/2022-08/conditional-row.png" /></p>
 <h2 id="order-of-rules">Order of Rules<a class="headerlink" href="#order-of-rules" title="Permanent link">#</a></h2>
 <p>Note that Grist applies the rules in order. Styles applied by later rules will override those applied by earlier rules.</p>
-<p>What would happen if we swapped the last two rules?</p>
+<p>What would happen if we swapped the last two rules in the example above?</p>
 <p><img alt="Conditional rules order" src="../images/columns/conditional-rules-order.PNG" /></p>
 <p>Notice that Gen Hamamoto, who has 0 champion dogs, is not highlighted in brown. This is because after applying the second conditional style, <code class="formula">$Number_of_Champions == 0</code>, Grist applied the third, <code class="formula">$Number_of_Champions &lt;= 2</code>, which applies to Gen Hamamoto as well and shades him blue.</p>
 

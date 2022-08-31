@@ -247,7 +247,7 @@ permalink,name,category_code,funding_total_usd,status,country_code,state_code,re
 /company/cappture-2,CAPPTURE,advertising,1000000,operating,USA,NY,New York,New York,1,2012-01-01,2012,2012-07-31,2012-07-31,
 /company/car-guy-nation,Car Guy Nation,ecommerce,950000,operating,USA,NY,New York,White Plains,1,2011-01-01,2011,2013-01-01,2013-01-01,2013-09-17
 /company/cardflight,CardFlight,mobile,,operating,USA,NY,New York,New York,1,2013-02-01,2013,2013-06-27,2013-06-27,2013-02-01
-/company/carestream-health,Carestream,biotech,2400000000.0,operating,USA,NY,Rochester,Rochester,1,,,2013-06-12,2013-06-12,1991-01-01
+/company/carestream-health,Carestream,biotech,2400000000,operating,USA,NY,Rochester,Rochester,1,,,2013-06-12,2013-06-12,1991-01-01
 /company/carnival,Carnival,mobile,2400000,operating,USA,NY,New York,New York,1,,,2013-08-27,2013-08-27,
 /company/cartoondollemporium,Cartoon Doll Emporium,games_video,,operating,USA,NY,New York,New York,1,2006-01-01,2006,2007-07-01,2007-07-01,2007-01-01
 /company/carzen,CarZen,web,350000,closed,USA,NY,New York,New York,1,2008-05-01,2008,2008-05-01,2008-05-01,
@@ -1707,7 +1707,7 @@ permalink,name,category_code,funding_total_usd,status,country_code,state_code,re
 /company/veotag,Veotag,web,1950000,acquired,USA,NY,New York,New York,2,,,2007-05-01,2009-06-09,2010-03-08
 /company/verbalizeit,VerbalizeIt,web,1618000,operating,USA,NY,New York,New York,2,2011-02-01,2011,2012-05-17,2012-11-18,2011-04-01
 /company/veri,Veri,web,1218000,operating,USA,NY,New York,New York,3,2011-02-01,2011,2011-01-01,2011-07-01,2011-08-02
-/company/verizon,Verizon,mobile,3985050000.0,ipo,USA,NY,New York,New York,2,,,2010-01-26,2012-03-05,2013-09-12
+/company/verizon,Verizon,mobile,3985050000,ipo,USA,NY,New York,New York,2,,,2010-01-26,2012-03-05,2013-09-12
 /company/vettro,Vettro,software,15000000,operating,USA,NY,New York,New York,1,1999-01-01,1999,2007-03-01,2007-03-01,
 /company/vhx,VHX,web,4450000,operating,USA,NY,New York,Brooklyn,2,2011-05-01,2011,2012-06-19,2013-08-29,2012-08-07
 /company/vibrantmedia,Vibrant Media,advertising,17000000,operating,USA,NY,New York,New York,2,2000-07-01,2000,2000-07-01,2005-11-01,2013-09-23
