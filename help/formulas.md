@@ -402,3 +402,5 @@ instead of the value provided by the user.
 
 For a detailed, real-life example read our [guide](examples/2021-07-auto-stamps.md)
 on how to create time and user stamps.
+
+For more information on formulas and trigger formulas, check out our webinar [Trigger Formulas v. Formulas](https://youtu.be/0qVDPZd2w9I).
