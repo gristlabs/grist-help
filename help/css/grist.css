@@ -113,9 +113,7 @@
 }
 
 /* a way to size images to half if intrinsic size; see https://stackoverflow.com/a/25026615/328565 */
-.screenshot-half { text-align: center; overflow: hidden; }
-.screenshot-half .screenshot-large { display: block; width: 150%; margin-left: -25%; }
-.screenshot-half .screenshot-full { display: block; width: 200%; margin-left: -50%; }
+.screenshot-half { text-align: center; overflow: hidden; width: 200%; margin-left: -50%; }
 .screenshot-half em { display: inline-block; }
 .screenshot-half em > img { width: 50%; margin: 0; }
 .screenshot-half .caption { display: block; text-align: center; }
