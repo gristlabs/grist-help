@@ -147,7 +147,7 @@ investment, it shows the “category_code” of the company linked to its invest
 
 ## Summarize
 
-The powerful feature you’ve been waiting for is the one that summarizes the data. [Summary tables](summary-tables.md) summerize each numeric column in a data table. We want to find the sum for the funding_total_usd column in our Companies table. Set the column type to 'Numeric' and change the Number Format to `$`.
+The powerful feature you’ve been waiting for is the one that summarizes the data. [Summary tables](summary-tables.md) summarize each numeric column in a data table. We want to find the sum for the `funding_total_usd` column in the Companies table. Check that the column type is set to 'Numeric' and formatted with `$`.
 
 ![11.5-set-numeric](images/investment-research/11.5-set-numeric.png)
 
