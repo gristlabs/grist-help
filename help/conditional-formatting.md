@@ -20,7 +20,7 @@ We would also like to highlight breeders with 1 or 2 champion dogs in blue, and 
 
 To add conditional formatting to rows, go to the `ROW STYLE` section of the [creator panel](glossary.md#creator-panel) under the `Table > Widget` tab, and click on `Add conditional style`.
 
-![Conditional Row Styles](../images/newsletters/2022-08/conditional-row.png)
+![Conditional Row Styles](images/newsletters/2022-08/conditional-row.png)
 
 Order of Rules
 --------------

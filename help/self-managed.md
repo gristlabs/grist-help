@@ -396,6 +396,45 @@ For reference, there are example SendGrid templates in
 [example-sendgrid-templates.zip](/install/example-sendgrid-templates.zip)
 based on an export of the SendGrid templates for our SaaS.
 
+### How do I add more python packages? {: .tag-core .tag-ee }
+
+The set of python packages available for use in formulas is currently
+not configurable. You can add packages anyway if you are willing to
+build and install your own version of the Grist.
+
+!!! warning "Grist documents made on an installation with custom python packages will not bring those packages with them if copied to a different installation. Formulas using custom python packages will give errors when those packages are unavailable."
+
+Create an empty directory, and add the following into it, in a file called
+`Dockerfile`:
+
+```
+FROM gristlabs/grist  # or grist-ee, or grist-omnibus
+
+RUN \
+  apt update && apt install -y openssl && \
+  python3 -m pip install phonenumbers
+```
+
+Replace `phonenumbers` with the python package or packages you want
+to install. You can now build your custom Grist image by running a
+`docker build` in the directory with `Dockerfile` in it:
+
+```sh
+# replace "custom" with a username or organization name.
+docker build -t custom/grist .
+```
+
+Once done, you can use `custom/grist` in place of `gristlabs/grist(-ee)` in
+[How do I install Grist](self-managed.md#how-do-i-install-grist),
+and your python library will now be available to import in formalas.
+
+If you want the import done automatically, so you don't have to do it in
+formulas, currently that requires a code change to
+[sandbox/grist/gencode.py](https://github.com/gristlabs/grist-core/blob/e95b2154051d5a8393bb005af49565d08117106a/sandbox/grist/gencode.py#L173).
+If you are comfortable making code changes, then the build instructions
+of the [grist-core](https://github.com/gristlabs/grist-core/) repository
+are the place to start.
+
 ---
 
 ## Operations
@@ -439,6 +478,44 @@ to work in the following environments:
 Grist sandboxing has been reported to fail to initialize on older
 Intel processors that do not support the `XSAVE` feature (supported by
 Sandy Bridge and later).
+
+### What files does Grist store? {: .tag-core .tag-ee }
+
+When installed as a container, Grist expects to have access to a
+persistent volume, or a directory shared with the host, in which it
+stores everything that needs to last beyond a container restart.
+Concretely, if you started Grist exactly as described in
+[How do I install Grist](self-managed.md#how-do-i-install-grist),
+that directory would be `~/grist`. Here's what you would find there:
+
+ * A subdirectory called `docs`, containing `*.grist` files.
+   These are Grist documents. Grist documents are SQLite databases,
+   so you can inspect these files with the standard `sqlite3`
+   utility. You can also upload them to another installation of
+   Grist (such as our hosted service) and view/edit them there.
+   If you move or rename these files, Grist will no longer recognize
+   them.
+   If [cloud storage](self-managed.md#how-do-i-set-up-s3-or-azure-backups)
+   is configured, there will be extra files alongside each `.grist` file
+   for tracking its storage state.
+
+ * A file called `grist-sessions.db`. This contains information
+   to support browser sessions with Grist. It is a SQLite database.
+   If [redis is configured](self-managed.md#what-is-a-state-store),
+   that is used instead of this file.
+
+ * A file called `home.sqlite3`. This contains information about
+   teams, workspaces, and documents (metadata only, such as names,
+   rather than document contents such as tables and cells). It is a
+   SQLite database. It is called the
+   [home database](self-managed.md#what-is-a-home-database)
+   and if PostgreSQL is configured that is used instead of this file.
+
+ * If using Grist Omnibus, there are other files, including:
+
+     - An `auth` directory, with a SQLite database for tracking login
+       state, and a store of any certificates created.
+     - A `param` directory, with secrets invented for the installation.
 
 ### What is a "home" database? {: .tag-core .tag-ee }
 
