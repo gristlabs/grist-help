@@ -1107,6 +1107,8 @@ precise, we can include more options in the request. For example:</p>
     title: &quot;Image link&quot;, // Friendly field name.
     optional: false, // Is this an optional field.
     type: &quot;Text&quot; // What type of column we expect.
+    description: &quot;Some text&quot; // Description of a field.
+    allowMultiple: false // Allows multiple column assignment.
   }
 ]});
 </code></pre>
@@ -1119,6 +1121,14 @@ a specific type, you need to set a <code>type</code> property. Here are all vali
 <p><code>Any</code>, <code>Int</code> (<em>Integer column</em>), <code>Numeric</code> (<em>Numeric column</em>), <code>Text</code>, <code>Date</code>, <code>DateTime</code>,
 <code>Bool</code> (<em>Toggle column</em>), <code>Choice</code>, <code>ChoiceList</code>, <code>Ref</code> (<em>Reference column</em>), <code>RefList</code>
 (<em>Reference List</em>), <code>Attachments</code>.</p>
+<p>Use <code>title</code> and <code>description</code> fields to help your users understand what is the purpose of
+the column. The <code>description</code> will be displayed just below the column name, and the
+<code>title</code> will be used as a column label. Both are optional and you can put there any text
+you want.</p>
+<p>If you need to map multiple columns (for example in a custom chart widget), you can use
+<code>allowMultiple</code> option. This will allow your users to pick a set of columns that will
+be returned as list of mapped table column names. The <code>mapColumnNames</code> helper will then
+return an array of mapped column values in a single field. </p>
 <p>Suppose the user deletes a column or changes its type so that it will no longer match the
 type requested by the widget. In that case, Grist will automatically remove this column
 from the mapping.</p>
