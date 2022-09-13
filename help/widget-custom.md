@@ -271,6 +271,8 @@ grist.ready({columns: [
     title: "Image link", // Friendly field name.
     optional: false, // Is this an optional field.
     type: "Text" // What type of column we expect.
+    description: "Some text" // Description of a field.
+    allowMultiple: false // Allows multiple column assignment.
   }
 ]});
 ```
@@ -285,6 +287,16 @@ a specific type, you need to set a `type` property. Here are all valid types:
 `Any`, `Int` (*Integer column*), `Numeric` (*Numeric column*), `Text`, `Date`, `DateTime`,
 `Bool` (*Toggle column*), `Choice`, `ChoiceList`, `Ref` (*Reference column*), `RefList`
 (*Reference List*), `Attachments`.
+
+Use `title` and `description` fields to help your users understand what is the purpose of
+the column. The `description` will be displayed just below the column name, and the
+`title` will be used as a column label. Both are optional and you can put there any text
+you want.
+
+If you need to map multiple columns (for example in a custom chart widget), you can use
+`allowMultiple` option. This will allow your users to pick a set of columns that will
+be returned as list of mapped table column names. The `mapColumnNames` helper will then
+return an array of mapped column values in a single field. 
 
 Suppose the user deletes a column or changes its type so that it will no longer match the
 type requested by the widget. In that case, Grist will automatically remove this column

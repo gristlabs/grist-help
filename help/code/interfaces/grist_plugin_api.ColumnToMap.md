@@ -9,6 +9,7 @@ API definitions for CustomSection plugins.
 ### Properties
 
 - [allowMultiple](grist_plugin_api.ColumnToMap.md#allowmultiple)
+- [description](grist_plugin_api.ColumnToMap.md#description)
 - [name](grist_plugin_api.ColumnToMap.md#name)
 - [optional](grist_plugin_api.ColumnToMap.md#optional)
 - [title](grist_plugin_api.ColumnToMap.md#title)
@@ -21,6 +22,14 @@ API definitions for CustomSection plugins.
 • `Optional` **allowMultiple**: `boolean`
 
 Allow multiple column assignment, the result will be list of mapped table column names.
+
+___
+
+### description
+
+• `Optional` **description**: ``null`` \| `string`
+
+Optional long description of a column (used as a help text in section mapping).
 
 ___
 
