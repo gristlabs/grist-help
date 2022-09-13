@@ -380,7 +380,8 @@ to show your own custom configuration screen.
 
 All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown. 
 
-*![premade-widgets](images/widget-custom/premade-widgets.png)*
+<span class="screenshot-large">*![premade-widgets](images/widget-custom/premade-widgets.png)*</span>
+{: .screenshot-half }
 
 ### Copy to clipboard
 
@@ -396,18 +397,20 @@ You can find an example of the copy to clipboard button in our [Webinar 7 (Custo
 
 View and access files saved to dropbox. 
 
-*![dropbox-embedder-widget](images/widget-custom/dropbox-embedder-widget.png)*
+<span class="screenshot-large">*![dropbox-embedder-widget](images/widget-custom/dropbox-embedder-widget.png)*</span>
+{: .screenshot-half }
 
 To start, add a new column to your table to store your dropbox links. 
 
 Then, add a new custom widget to the page. Choose the data table that contains the dropbox links and 'Select By' that same table.
 
-![dropbox-add-widget](images/widget-custom/dropbox-add-widget.png)
-
+<span class="screenshot-large">*![dropbox-add-widget](images/widget-custom/dropbox-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'Dropbox Embedder' from the Custom dropdown and allow access to read the selected table. Under 'Dropbox Link', select the column that contains your dropbox links.
 
-*![dropbox-embedder-configuration](images/widget-custom/dropbox-embedder-configuration.png)*
+<span class="screenshot-large">*![dropbox-embedder-configuration](images/widget-custom/dropbox-embedder-configuration.png)*</span>
+{: .screenshot-half }
 
 You can create links to folders or specific files in Dropbox. Click 'Share' then set permissions for the link. You can choose to allow anyone with the link to view or edit. Create, then copy the link. Paste this link into your Dropbox Link column in Grist. Note that users cannot edit directly in the custom widget even if edit permissions are granted. To edit, select the object in the Dropbox Embedder and it will open in a new tab where it can be edited directly in Dropbox.
 
@@ -427,11 +430,13 @@ To start, add a new column to your table to store your video URLs.
 
 Then, add a new custom widget to the page. Choose the data table that contains the video URLs and 'Select By' that same table.
 
-*![video-player-add-widget](images/widget-custom/video-player-add-widget.png)*
+<span class="screenshot-large">*![video-player-add-widget](images/widget-custom/video-player-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'Grist Video Player' from the Custom dropdown and allow access to read the selected table. Under 'URL', select the column that contains your video URLs.
 
-*![video-player-configuration](images/widget-custom/video-player-configuration.png)*
+<span class="screenshot-large">*![video-player-configuration](images/widget-custom/video-player-configuration.png)*</span>
+{: .screenshot-half }
 
 For most online videos, including YouTube videos and videos stored on Google Drive, you can simply click the 'Share' option and copy the URL. 
 
@@ -475,11 +480,13 @@ To start, add a new column to your table. This will be where you add you write H
 
 Then, add a new custom widget to the page. Choose the data table that contains the HTML and 'Select By' that same table.
 
-*![html-viewer-add-widget](images/widget-custom/html-viewer-add-widget.png)*
+<span class="screenshot-large">*![html-viewer-add-widget](images/widget-custom/html-viewer-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'HTML Viewer' from the Custom dropdown and allow access to read the selected table. Under 'HTML', select the text column that contains your HTML.
 
-*![html-viewer-configuration](images/widget-custom/html-viewer-configuration.png)*
+<span class="screenshot-large">*![html-viewer-configurationt](images/widget-custom/html-viewer-configuration.png)*</span>
+{: .screenshot-half }
 
 Your HTML will be viewable in the custom widget.
 
@@ -499,11 +506,13 @@ To start, add a new column to your table. This will be where you add the URL for
 
 Then, add a new custom widget to the page. Choose the data table that contains the image URL and 'Select By' that same table.
 
-*![image-viewer-add-widget](images/widget-custom/image-viewer-add-widget.png)*
+<span class="screenshot-large">*![image-viewer-add-widget](images/widget-custom/image-viewer-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'Image Viewer' from the Custom dropdown and allow access to read the selected table. Under 'Image URL', select the column that contains the URLs for your images.
 
-*![image-viewer-configuration](images/widget-custom/image-viewer-configuration.png)*
+<span class="screenshot-large">*![image-viewer-configuration](images/widget-custom/image-viewer-configuration.png)*</span>
+{: .screenshot-half }
 
 To copy the URL for an image, right click on the photo then 'Copy image address'. This copies the URL to your clipboard. Paste this URL into your specified column in Grist.
 
@@ -523,7 +532,8 @@ The custom map widget allows you to display locations using latitude and longitu
 
 If using existing lat-long coordinates, you will need three columns; Name, Longitude and Latitude.
 
-*![map-lat-long-columns](images/widget-custom/map-lat-long-columns.png)*
+<span class="screenshot-large">*![map-lat-long-columns](images/widget-custom/map-lat-long-columns.png)*</span>
+{: .screenshot-half }
 
 If using an address, you will need six columns; Name, Address, Geocode, Longitude, Latitude, and Geocoded Address.
 
@@ -533,11 +543,13 @@ Geocode is a [toggle type column](col-types.md#toggle-columns) that should be se
 
 If you wish to convert all records, you can make Geocode a formula column with the formula = `True`. This will mark all records as True.
 
-*![map-geocode-true](images/widget-custom/map-geocode-true.png)*
+<span class="screenshot-large">*![map-geocode-true](images/widget-custom/map-geocode-true.png)*</span>
+{: .screenshot-half }
 
 Next, add a new custom widget to the page. Choose the data table that contains the addresses or lat-long coordinates and 'Select By' that same table.
 
-*![map-add-widget](images/widget-custom/map-add-widget.png)*
+<span class="screenshot-large">*![map-add-widget](images/widget-custom/map-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'Map' from the Custom dropdown. 
 
@@ -545,11 +557,13 @@ If you already have **lat-long coordinates**, you can set your access level to *
 
 If you are using an **address** and that needs to be converted into lat-long coordinates, you will need to set your access level to *Full document access* because the widget needs permission to write to your document in order to add lat-long coordinates.
 
-*![map-configuration-1](images/widget-custom/map-configuration-1.png)*
+<span class="screenshot-large">*![map-configuration-1](images/widget-custom/map-configuration-1.png)*</span>
+{: .screenshot-half }
 
 Map all required columns. Note that Name, Longitude and Latitude are labeled as required. Geocode, Address and Geocoded Address are listed as optional. If you are using addresses and need Grist to convert these to lat-long coordinates, you must map all six columns.
 
-*![map-configuration-2](images/widget-custom/map-configuration-2.png)*
+<span class="screenshot-large">*![map-configuration-2](images/widget-custom/map-configuration-2.png)*</span>
+{: .screenshot-half }
 
 After mapping the necessary columns and selecting the appropriate Access Level, the map widget will populate. 
 
@@ -575,13 +589,15 @@ To start, add a new column to your table. This will be where you will add your t
 
 Then, add a new custom widget to the page. Choose the data table that contains the text formatted with Markdown and 'Select By' that same table.
 
-*![markdown-add-widget](images/widget-custom/markdown-add-widget.png)*
+<span class="screenshot-large">*![markdown-add-widget](images/widget-custom/markdown-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'Markdown' from the Custom dropdown and allow **Full document access**. Because the widget is also an editor, it needs permission to write to the document.
 
 Under 'Content', select the text column that contains Markdown formatting.
 
-*![markdown-configuration](images/widget-custom/markdown-configuration.png)*
+<span class="screenshot-large">*![markdown-configuration](images/widget-custom/markdown-configuration.png)*</span>
+{: .screenshot-half }
 
 Any Markdown formatting in the specified text column will apply and be viewable and editable in the custom widget.
 
@@ -589,7 +605,8 @@ Any Markdown formatting in the specified text column will apply and be viewable 
 
 To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text.
 
-*![markdown-edit](images/widget-custom/markdown-edit.png)*
+<span class="screenshot-large">*![markdown-edit](images/widget-custom/markdown-edit.png)*</span>
+{: .screenshot-half }
 
 For help on Markdown formatting, check out the [Markdown Guide](https://www.markdownguide.org/basic-syntax/){:target="\_blank"} for basic syntax. This guide is also accessible in the Markdown widget by clicking the information icon at the top of the widget. The guide will open in a new tab of your browser for easy reference.
 
@@ -607,13 +624,15 @@ To start, add a new column to your table. This will be where details for our for
 
 Then, add a new custom widget to the page. Choose the data table that contains the column we just added and 'Select By' that same table.
 
-*![notepad-add-widget](images/widget-custom/notepad-add-widget.png)*
+<span class="screenshot-large">*![notepad-add-widget](images/widget-custom/notepad-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'Notepad' from the Custom dropdown and allow **Full document access**. Because the widget is also an editor, it needs permission to write to the document.
 
 Under 'Content', select the column created to store our formatted text.
 
-*![notepad-configuration](images/widget-custom/notepad-configuration.png)*
+<span class="screenshot-large">*![notepad-configuration](images/widget-custom/notepad-configuration.png)*</span>
+{: .screenshot-half }
 
 If the text column you chose under Content has existing text, that text will appear in the Notepad widget, ready to be formatted.
 
@@ -641,11 +660,13 @@ To start, add a new column to your table. This column will contain the text for 
 
 Next, add a new custom widget to the page. Choose the data table that contains the label details.
 
-*![print-label-add-widget](images/widget-custom/print-label-add-widget.png)*
+<span class="screenshot-large">*![print-label-add-widget](images/widget-custom/print-label-add-widget.png)*</span>
+{: .screenshot-half }
 
 To configure, select 'Print Labels' from the Custom dropdown and allow access to read the selected table. Under 'Label', select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.
 
-*![print-label-configuration](images/widget-custom/print-label-configuration.png)*
+<span class="screenshot-large">*![print-label-configuration](images/widget-custom/print-label-configuration.png)*</span>
+{: .screenshot-half }
 
 You can select from standard sheet sizes under the dropdown in the upper left of the widget. Be sure to save any changes by clicking the green check mark at the upper right of the widget.
 
