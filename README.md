@@ -86,3 +86,13 @@ To update `help/functions.md` from the documentation comments in Grist, run:
 
 It replaces content between `BEGIN mkpydocs`/`END mkpydocs` markers in `help/functions.md`. You
 can edit text outside of those markers directly.
+
+## Updating plugin API reference
+
+To update `help/code` from the documentation comments in Grist, run:
+
+```
+./build-plugin-api.sh <path-to-grist-checkout>
+```
+
+You need to first run `yarn install` in your Grist checkout directory.
