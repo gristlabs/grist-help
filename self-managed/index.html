@@ -879,10 +879,12 @@
 <li><a href="#how-do-i-customize-styling">How do I customize styling?</a></li>
 <li><a href="#how-do-i-list-custom-widgets">How do I list custom widgets?</a></li>
 <li><a href="#how-do-i-set-up-email-notifications">How do I set up email notifications?</a></li>
+<li><a href="#how-do-i-add-more-python-packages">How do I add more python packages?</a></li>
 </ul>
 </li>
 <li><a href="#operations">Operations</a><ul>
 <li><a href="#what-are-the-hardware-requirements-for-hosting-grist">What are the hardware requirements for hosting Grist?</a></li>
+<li><a href="#what-files-does-grist-store">What files does Grist store?</a></li>
 <li><a href="#what-is-a-home-database">What is a &ldquo;home&rdquo; database?</a></li>
 <li><a href="#what-is-a-state-store">What is a state store?</a></li>
 <li><a href="#how-do-i-set-up-s3-or-azure-backups">How do I set up S3 or Azure backups?</a></li>
@@ -1227,6 +1229,38 @@ as follows:</p>
 <p>For reference, there are example SendGrid templates in
 <a href="/install/example-sendgrid-templates.zip">example-sendgrid-templates.zip</a>
 based on an export of the SendGrid templates for our SaaS.</p>
+<h3 class="tag-core tag-ee" id="how-do-i-add-more-python-packages">How do I add more python packages?<a class="headerlink" href="#how-do-i-add-more-python-packages" title="Permanent link">#</a></h3>
+<p>The set of python packages available for use in formulas is currently
+not configurable. You can add packages anyway if you are willing to
+build and install your own version of the Grist.</p>
+<div class="admonition warning">
+<p class="admonition-title">Grist documents made on an installation with custom python packages will not bring those packages with them if copied to a different installation. Formulas using custom python packages will give errors when those packages are unavailable.</p>
+</div>
+<p>Create an empty directory, and add the following into it, in a file called
+<code>Dockerfile</code>:</p>
+<pre><code>FROM gristlabs/grist  # or grist-ee, or grist-omnibus
+
+RUN \
+  apt update &amp;&amp; apt install -y openssl &amp;&amp; \
+  python3 -m pip install phonenumbers
+</code></pre>
+
+<p>Replace <code>phonenumbers</code> with the python package or packages you want
+to install. You can now build your custom Grist image by running a
+<code>docker build</code> in the directory with <code>Dockerfile</code> in it:</p>
+<pre><code class="sh"># replace &quot;custom&quot; with a username or organization name.
+docker build -t custom/grist .
+</code></pre>
+
+<p>Once done, you can use <code>custom/grist</code> in place of <code>gristlabs/grist(-ee)</code> in
+<a href="./#how-do-i-install-grist">How do I install Grist</a>,
+and your python library will now be available to import in formalas.</p>
+<p>If you want the import done automatically, so you don&rsquo;t have to do it in
+formulas, currently that requires a code change to
+<a href="https://github.com/gristlabs/grist-core/blob/e95b2154051d5a8393bb005af49565d08117106a/sandbox/grist/gencode.py#L173">sandbox/grist/gencode.py</a>.
+If you are comfortable making code changes, then the build instructions
+of the <a href="https://github.com/gristlabs/grist-core/">grist-core</a> repository
+are the place to start.</p>
 <hr />
 <h2 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">#</a></h2>
 <h3 class="tag-core tag-ee" id="what-are-the-hardware-requirements-for-hosting-grist">What are the hardware requirements for hosting Grist?<a class="headerlink" href="#what-are-the-hardware-requirements-for-hosting-grist" title="Permanent link">#</a></h3>
@@ -1266,6 +1300,49 @@ to work in the following environments:</p>
 <p>Grist sandboxing has been reported to fail to initialize on older
 Intel processors that do not support the <code>XSAVE</code> feature (supported by
 Sandy Bridge and later).</p>
+<h3 class="tag-core tag-ee" id="what-files-does-grist-store">What files does Grist store?<a class="headerlink" href="#what-files-does-grist-store" title="Permanent link">#</a></h3>
+<p>When installed as a container, Grist expects to have access to a
+persistent volume, or a directory shared with the host, in which it
+stores everything that needs to last beyond a container restart.
+Concretely, if you started Grist exactly as described in
+<a href="./#how-do-i-install-grist">How do I install Grist</a>,
+that directory would be <code>~/grist</code>. Here&rsquo;s what you would find there:</p>
+<ul>
+<li>
+<p>A subdirectory called <code>docs</code>, containing <code>*.grist</code> files.
+   These are Grist documents. Grist documents are SQLite databases,
+   so you can inspect these files with the standard <code>sqlite3</code>
+   utility. You can also upload them to another installation of
+   Grist (such as our hosted service) and view/edit them there.
+   If you move or rename these files, Grist will no longer recognize
+   them.
+   If <a href="./#how-do-i-set-up-s3-or-azure-backups">cloud storage</a>
+   is configured, there will be extra files alongside each <code>.grist</code> file
+   for tracking its storage state.</p>
+</li>
+<li>
+<p>A file called <code>grist-sessions.db</code>. This contains information
+   to support browser sessions with Grist. It is a SQLite database.
+   If <a href="./#what-is-a-state-store">redis is configured</a>,
+   that is used instead of this file.</p>
+</li>
+<li>
+<p>A file called <code>home.sqlite3</code>. This contains information about
+   teams, workspaces, and documents (metadata only, such as names,
+   rather than document contents such as tables and cells). It is a
+   SQLite database. It is called the
+   <a href="./#what-is-a-home-database">home database</a>
+   and if PostgreSQL is configured that is used instead of this file.</p>
+</li>
+<li>
+<p>If using Grist Omnibus, there are other files, including:</p>
+<ul>
+<li>An <code>auth</code> directory, with a SQLite database for tracking login
+   state, and a store of any certificates created.</li>
+<li>A <code>param</code> directory, with secrets invented for the installation.</li>
+</ul>
+</li>
+</ul>
 <h3 class="tag-core tag-ee" id="what-is-a-home-database">What is a &ldquo;home&rdquo; database?<a class="headerlink" href="#what-is-a-home-database" title="Permanent link">#</a></h3>
 <p>Grist stores metadata about users, documents, workspaces, etc in a
 database called the &ldquo;home&rdquo; database. This does not contain the
