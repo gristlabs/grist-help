@@ -1,3 +1,7 @@
+---
+description: The essentials of creating and maintaining a self-managed Grist installation.
+---
+
 # Self-Managed Grist
 
 [TOC]

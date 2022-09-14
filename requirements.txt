@@ -10,6 +10,7 @@ MarkupSafe==1.1.1
 mkdocs==1.2.3
 mkdocs-awesome-pages-plugin==2.7.0
 mkdocs-htmlproofer-plugin==0.8.0
+mkdocs-meta-descriptions-plugin==2.0.0
 mkdocs-windmill==1.0.4
 nltk==3.5
 PyYAML==5.3.1
