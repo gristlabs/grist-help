@@ -11,14 +11,14 @@ The most common chart types are illustrated here:
 
 ## Chart types
 
-Each chart type plots several data series. Use the "Visible Series" list in the "Widgets" side panel
-for choosing the series to plot. The order of the list matters and determines how each series is
-used, as described below.
+Each chart type plots several data series. Select the series to plot along the X-axis then choose to plot any other series by 
+clicking the green 'Add Series' text in the [creator panel](glossary.md#creator-panel). If adding more than one series, the 
+order of the list matters and determines how each series is used, as described below.
 
 #### Bar Chart
 
-Needs two or more series: the first for bar labels (x-axis), the second for bar heights (y-axis).
-Additional series create additional bars at each data point and specify their heights.
+Needs two or more series: the first for bar labels (x-axis), the second for bar heights (y-axis). Additional series create 
+additional bars at each data point and specify their heights.
 
   <span class="screenshot-large">*![widget_chart_bar](images/widget_chart_bar.png)*</span>
   {: .screenshot-half }
@@ -72,9 +72,8 @@ survival times on the X axis, and the number of points that survive at that time
 
 A number of chart options are available, some of them specific to certain chart types.
 
-**Group by first column**: When checked, an extra series is expected as the first series in the
-"Visible Series" list, and should contain a group label for each data point. All points with the
-same group value are plotted as a separate line.
+**Split Series**: When checked, an extra series is to be selected under the 'Split Series' dropdown. The series
+should contain a group label for each data point. All points with the same group value are plotted as a separate line.
 
 For example:
 
@@ -99,6 +98,5 @@ series should be followed by *two* series, one for the top error bars, and one f
   <span class="screenshot-large">*![widget_chart_error_bars](images/widget_chart_error_bars.png)*</span>
   {: .screenshot-half }
 
-In the example here, the first series ("Cell Line") specifies how to group the data into lines,
-since "Group by first column" is checked. The second and third series specify the X and Y values,
-and the last series ("SD") specifies the error bars for the Y values.
+In the example here, "Split Series" is checked. So the series selected from the Split Series dropdown ("Cell Line"), specifies how to group the data into lines. 
+The series selected under the X-Axis dropdown ("Log[Drug], uM"), specifies our values along the x-axis. Our first series in the Series list ("% Viable Cells"), specifies our y-axis values, and the series that follows that ("SD"), specifies the error bars for those Y values.
