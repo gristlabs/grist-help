@@ -162,6 +162,7 @@ plugins:
   - htmlproofer:
       enabled: !ENV [HTMLPROOFER_ENABLED, false]
       validate_external_urls: false
+  - meta-descriptions
 
 markdown_extensions:
   toc:
@@ -169,3 +170,4 @@ markdown_extensions:
   admonition: {}
   smarty: {}
   extra: {}
+  meta: {}
