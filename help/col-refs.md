@@ -146,9 +146,9 @@ or <code class="keys">*Tab*</code> , or click anywhere outside the editor.
 To close the editor and discard any changes you've made, press
 <code class="keys">*Escape*</code>.
 
-## How Reference columns work
+## Understanding reference columns
 
-As we have stated earlier, Reference columns reference an entire record in the underlying table. We can choose a label to represent the record but a reference is always pointing to a record's unique ID. What does that really mean?
+Reference columns reference an entire record in the underlying table. We can choose a label to represent the record (the column set in "SHOW COLUMN"), but a reference's value is always a record's unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?
 
 Let's take a look at the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork) template.
 
