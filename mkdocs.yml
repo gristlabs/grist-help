@@ -130,6 +130,7 @@ nav:
     # link, so that only the above page item gets highlighted when the function reference is open.
     - Function reference: /functions/
     - Limits: limits.md
+    - Data Security: data-security.md
     - Browser Support: browser-support.md
     - Glossary: glossary.md
 
