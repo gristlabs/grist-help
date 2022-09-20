@@ -145,3 +145,34 @@ To save your changes and close the editor, either press <code class="keys">*Ente
 or <code class="keys">*Tab*</code> , or click anywhere outside the editor.
 To close the editor and discard any changes you've made, press
 <code class="keys">*Escape*</code>.
+
+## Understanding reference columns
+
+Cells in a reference column always identify an *entire* record in the referenced table. For convenience, you may select which column from that record to show by setting the "SHOW COLUMN". However, the cell's value is *always* a record's unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?
+
+Let's take a look at the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork) template.
+
+In the Classes table, the Instructor column is a reference column that references data from the Staff table. Full Name is selected under 'Show Column' and is used as a label to represent the record from the Staff table that is being referenced here.
+
+*![columns-reference-explanation](images/columns/columns-reference-explanation.png)*
+
+We can change that label to any other value contained within the record. Let's change it to 'Row ID'. 
+
+<span class="screenshot-large">*![columns-reference-explanation-show-column](images/columns/columns-reference-explanation-show-column.png)*</span>
+{: .screenshot-half }
+
+The row ID is what is actually being stored within the Reference or Reference List column. With this ID, we can fetch any data associated with this record. 
+
+*![columns-reference-explanation-rowid1](images/columns/columns-reference-explanation-rowid1.png)*
+
+In the first row of the Classes table, we see `Staff[2]` as the value in the Instructor column. This represents the record in the Staff table with Row ID = `2`.
+
+We can navigate to the Staff table and see which record is assigned Row ID = `2`.
+
+To view a record's unique ID, add a new column with the formula = [`$id`](formula-cheat-sheet.md#using-a-records-unique-identifier-in-formulas). 
+
+*![columns-reference-explanation-rowid](images/columns/columns-reference-explanation-rowid.png)*
+
+We can see that the value in the Full Name column for the record with Row ID =`2` is `Dowbakin, Daniella`. If we revert back to our original settings for the Instructor column of the Classes table, where `Full Name` was selected under Show Column, we see that the Full Name value associated with `Staff[2]` is `Dowbakin, Daniella`.
+
+*![columns-reference-explanation-fullname](images/columns/columns-reference-explanation-fullname.png)*
