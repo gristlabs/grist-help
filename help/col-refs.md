@@ -148,7 +148,7 @@ To close the editor and discard any changes you've made, press
 
 ## Understanding reference columns
 
-Reference columns reference an entire record in the underlying table. We can choose a label to represent the record (the column set in "SHOW COLUMN"), but a reference's value is always a record's unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?
+Cells in a reference column always identify an *entire* record in the referenced table. For convenience, you may select which column from that record to show by setting the "SHOW COLUMN". However, the cell's value is *always* a record's unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?
 
 Let's take a look at the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork) template.
 
