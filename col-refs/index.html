@@ -331,6 +331,11 @@
                 Editing values in a Reference List column
               </a>
             </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#understanding-reference-columns">
+                Understanding reference columns
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -995,6 +1000,21 @@ key, or move your cursor over a reference and click the <code>X</code> icon.</p>
 or <code class="keys"><em>Tab</em></code> , or click anywhere outside the editor.
 To close the editor and discard any changes you&rsquo;ve made, press
 <code class="keys"><em>Escape</em></code>.</p>
+<h2 id="understanding-reference-columns">Understanding reference columns<a class="headerlink" href="#understanding-reference-columns" title="Permanent link">#</a></h2>
+<p>Cells in a reference column always identify an <em>entire</em> record in the referenced table. For convenience, you may select which column from that record to show by setting the &ldquo;SHOW COLUMN&rdquo;. However, the cell&rsquo;s value is <em>always</em> a record&rsquo;s unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?</p>
+<p>Let&rsquo;s take a look at the <a href="https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork">Class Enrollment</a> template.</p>
+<p>In the Classes table, the Instructor column is a reference column that references data from the Staff table. Full Name is selected under &lsquo;Show Column&rsquo; and is used as a label to represent the record from the Staff table that is being referenced here.</p>
+<p><em><img alt="columns-reference-explanation" src="../images/columns/columns-reference-explanation.png" /></em></p>
+<p>We can change that label to any other value contained within the record. Let&rsquo;s change it to &lsquo;Row ID&rsquo;. </p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-reference-explanation-show-column" src="../images/columns/columns-reference-explanation-show-column.png" /></em></span></p>
+<p>The row ID is what is actually being stored within the Reference or Reference List column. With this ID, we can fetch any data associated with this record. </p>
+<p><em><img alt="columns-reference-explanation-rowid1" src="../images/columns/columns-reference-explanation-rowid1.png" /></em></p>
+<p>In the first row of the Classes table, we see <code>Staff[2]</code> as the value in the Instructor column. This represents the record in the Staff table with Row ID = <code>2</code>.</p>
+<p>We can navigate to the Staff table and see which record is assigned Row ID = <code>2</code>.</p>
+<p>To view a record&rsquo;s unique ID, add a new column with the formula = <a href="../formula-cheat-sheet/#using-a-records-unique-identifier-in-formulas"><code>$id</code></a>. </p>
+<p><em><img alt="columns-reference-explanation-rowid" src="../images/columns/columns-reference-explanation-rowid.png" /></em></p>
+<p>We can see that the value in the Full Name column for the record with Row ID =<code>2</code> is <code>Dowbakin, Daniella</code>. If we revert back to our original settings for the Instructor column of the Classes table, where <code>Full Name</code> was selected under Show Column, we see that the Full Name value associated with <code>Staff[2]</code> is <code>Dowbakin, Daniella</code>.</p>
+<p><em><img alt="columns-reference-explanation-fullname" src="../images/columns/columns-reference-explanation-fullname.png" /></em></p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
