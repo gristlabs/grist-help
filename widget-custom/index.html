@@ -306,6 +306,11 @@ server (for example, GitHub Pages).">
                 Widget options
               </a>
             </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#premade-custom-widgets">
+                Premade Custom Widgets
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -1217,6 +1222,147 @@ message:</p>
 panel and the section menu. When clicked, it will trigger your handler, which you can use
 to show your own custom configuration screen.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_open_configuration.png" /></em></span></p>
+<h2 id="premade-custom-widgets">Premade Custom Widgets<a class="headerlink" href="#premade-custom-widgets" title="Permanent link">#</a></h2>
+<p>All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown. </p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="premade-widgets" src="../images/widget-custom/premade-widgets.png" /></em></span></p>
+<h3 id="copy-to-clipboard">Copy to clipboard<a class="headerlink" href="#copy-to-clipboard" title="Permanent link">#</a></h3>
+<p>Copy to clipboard copies a value from the specified column of the selected record. When configuring the widget, you will need to select which column you wish to copy data from. </p>
+<p><em><img alt="copy-to-clipboard" src="../images/widget-custom/copy-to-clipboard.png" /></em></p>
+<p>Note that you can also copy data from a selected cell by using the keyboard shortcut <code class="keys"><em>Ctrl</em> + <em>C</em></code> on Windows or <code class="keys"><em>⌘</em> + <em>C</em></code> on Mac. To paste, use <code class="keys"><em>Ctrl</em> + <em>V</em></code> or <code class="keys"><em>⌘</em> + <em>V</em></code>.</p>
+<p>You can find an example of the copy to clipboard button in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/4" target="_blank">Webinar 7 (Custom Widgets)</a> template. You can also watch a video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=2063s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="dropbox-embedder">Dropbox Embedder<a class="headerlink" href="#dropbox-embedder" title="Permanent link">#</a></h3>
+<p>View and access files saved to dropbox. </p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-widget" src="../images/widget-custom/dropbox-embedder-widget.png" /></em></span></p>
+<p>To start, add a new column to your table to store your dropbox links. </p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the dropbox links and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-add-widget" src="../images/widget-custom/dropbox-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Dropbox Embedder&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Dropbox Link&rsquo;, select the column that contains your dropbox links.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-configuration" src="../images/widget-custom/dropbox-embedder-configuration.png" /></em></span></p>
+<p>You can create links to folders or specific files in Dropbox. Click &lsquo;Share&rsquo; then set permissions for the link. You can choose to allow anyone with the link to view or edit. Create, then copy the link. Paste this link into your Dropbox Link column in Grist. Note that users cannot edit directly in the custom widget even if edit permissions are granted. To edit, select the object in the Dropbox Embedder and it will open in a new tab where it can be edited directly in Dropbox.</p>
+<p><span class="screenshot-large"><em><img alt="dropbox-embedder-create-link" src="../images/widget-custom/dropbox-embedder-create-link.png" /></em></span></p>
+<p>You can check out an example of the Dropbox Embedder in our <a href="https://templates.getgrist.com/uXMbETLdfriM/Hurricane-Preparedness" target="_blank">Hurricane Preparedness</a> template.</p>
+<p><em><img alt="dropbox-embedder" src="../images/widget-custom/dropbox-embedder.png" /></em></p>
+<h3 id="grist-video-player">Grist Video Player<a class="headerlink" href="#grist-video-player" title="Permanent link">#</a></h3>
+<p>Embed videos from online sources like YouTube, Vimeo, Facebook Video, Google Drive and more.</p>
+<p><em><img alt="video-player" src="../images/widget-custom/video-player.png" /></em></p>
+<p>To start, add a new column to your table to store your video URLs. </p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the video URLs and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-add-widget" src="../images/widget-custom/video-player-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Grist Video Player&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;URL&rsquo;, select the column that contains your video URLs.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-configuration" src="../images/widget-custom/video-player-configuration.png" /></em></span></p>
+<p>For most online videos, including YouTube videos and videos stored on Google Drive, you can simply click the &lsquo;Share&rsquo; option and copy the URL. </p>
+<p><em><img alt="youtube-embed" src="../images/widget-custom/youtube-embed.png" /></em></p>
+<p>For some other videos, you may see this error:</p>
+<p><em><img alt="video-player-error" src="../images/widget-custom/video-player-error.png" /></em></p>
+<p>If this happens, you&rsquo;ll need to take the URL from the Embed code.</p>
+<p>After clicking the share option on the video, click the option to &lsquo;Embed&rsquo;.</p>
+<p><em><img alt="video-facebook-embed" src="../images/widget-custom/video-facebook-embed.png" /></em></p>
+<p>Then, click to copy the code.</p>
+<p><em><img alt="video-facebook-embed-2" src="../images/widget-custom/video-facebook-embed-2.png" /></em></p>
+<p>The code it gives you will look something like this:</p>
+<p><em><img alt="video-facebook-embed-code" src="../images/widget-custom/video-facebook-embed-code.png" /></em></p>
+<p>Copy the URL that is found between quotes following <code>src</code>. The highlighted portion in the screenshot below is what you would copy for this particular Facebook video. </p>
+<p><em><img alt="video-facebook-embed-src" src="../images/widget-custom/video-facebook-embed-src.png" /></em></p>
+<p>Paste this URL into your URL column in Grist and the video will now appear in the Grist Video Player custom widget.</p>
+<p><em><img alt="video-player-embed" src="../images/widget-custom/video-player-embed.png" /></em></p>
+<h3 id="html-viewer">HTML Viewer<a class="headerlink" href="#html-viewer" title="Permanent link">#</a></h3>
+<p>The HTML viewer displays HTML written in a cell.</p>
+<p>For text-editing widgets, check out our <a href="#markdown">Markdown</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
+<p><em><img alt="html-viewer" src="../images/widget-custom/html-viewer.png" /></em></p>
+<p>To start, add a new column to your table. This will be where you add you write HTML. </p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the HTML and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-add-widget" src="../images/widget-custom/html-viewer-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;HTML Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;HTML&rsquo;, select the text column that contains your HTML.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-configurationt" src="../images/widget-custom/html-viewer-configuration.png" /></em></span></p>
+<p>Your HTML will be viewable in the custom widget.</p>
+<p><em><img alt="html-viewer-final-example" src="../images/widget-custom/html-viewer-final-example.png" /></em></p>
+<p>For help on HTML formatting, check out this guide from W3 Schools: <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank">HTML Text Formatting</a></p>
+<p>You can find an example of the HTML Viewer in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/1" target="_blank">Webinar 7 (Custom Widgets)</a> template. You can also watch a video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1538s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="image-viewer">Image Viewer<a class="headerlink" href="#image-viewer" title="Permanent link">#</a></h3>
+<p>View images from URL.</p>
+<p><em><img alt="image-viewer" src="../images/widget-custom/image-viewer.png" /></em></p>
+<p>To start, add a new column to your table. This will be where you add the URL for your image. </p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the image URL and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-add-widget" src="../images/widget-custom/image-viewer-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Image Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Image URL&rsquo;, select the column that contains the URLs for your images.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-configuration" src="../images/widget-custom/image-viewer-configuration.png" /></em></span></p>
+<p>To copy the URL for an image, right click on the photo then &lsquo;Copy image address&rsquo;. This copies the URL to your clipboard. Paste this URL into your specified column in Grist.</p>
+<p><em><img alt="image-viewer-save-image" src="../images/widget-custom/image-viewer-save-image.png" /></em></p>
+<p>For an example of the Image Viewer widget, check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">U.S. National Park Database</a>, and add a park review while you&rsquo;re there!</p>
+<p>You can also check out our <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Meme Generator</a> template for another great example.</p>
+<p>For a video walkthrough, be sure to watch our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Custom Widgets Webinar</a>!</p>
+<h3 id="map">Map<a class="headerlink" href="#map" title="Permanent link">#</a></h3>
+<p>The custom map widget allows you to display locations using latitude and longitude coordinates. If your data is an address, rather than in lat-long format, Grist can convert the address into lat-long coordinates. </p>
+<p><em><img alt="map-widget" src="../images/widget-custom/map-widget.png" /></em></p>
+<p>If using existing lat-long coordinates, you will need three columns; Name, Longitude and Latitude.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-lat-long-columns" src="../images/widget-custom/map-lat-long-columns.png" /></em></span></p>
+<p>If using an address, you will need six columns; Name, Address, Geocode, Longitude, Latitude, and Geocoded Address.</p>
+<p><em><img alt="map-address-columns" src="../images/widget-custom/map-address-columns.png" /></em></p>
+<p>Geocode is a <a href="../col-types/#toggle-columns">toggle type column</a> that should be set to true for any record you wish to convert from address to lat-long coordinates to be shown on the map.</p>
+<p>If you wish to convert all records, you can make Geocode a formula column with the formula = <code>True</code>. This will mark all records as True.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-geocode-true" src="../images/widget-custom/map-geocode-true.png" /></em></span></p>
+<p>Next, add a new custom widget to the page. Choose the data table that contains the addresses or lat-long coordinates and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-add-widget" src="../images/widget-custom/map-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Map&rsquo; from the Custom dropdown. </p>
+<p>If you already have <strong>lat-long coordinates</strong>, you can set your access level to <em>Read selected table</em>. </p>
+<p>If you are using an <strong>address</strong> and that needs to be converted into lat-long coordinates, you will need to set your access level to <em>Full document access</em> because the widget needs permission to write to your document in order to add lat-long coordinates.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-1" src="../images/widget-custom/map-configuration-1.png" /></em></span></p>
+<p>Map all required columns. Note that Name, Longitude and Latitude are labeled as required. Geocode, Address and Geocoded Address are listed as optional. If you are using addresses and need Grist to convert these to lat-long coordinates, you must map all six columns.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-2" src="../images/widget-custom/map-configuration-2.png" /></em></span></p>
+<p>After mapping the necessary columns and selecting the appropriate Access Level, the map widget will populate. </p>
+<p><em><img alt="map-final" src="../images/widget-custom/map-final.png" /></em></p>
+<p>You can configure the map to show only the selected location by clicking the &lsquo;Open Configuration&rsquo; option in the <a href="../glossary/#creator-panel">creator panel</a>. Then, uncheck &lsquo;All Locations&rsquo;. Click the green check mark at the top of the widget to save the updated configuration settings.</p>
+<p><em><img alt="map-configuration-location" src="../images/widget-custom/map-configuration-location.png" /></em></p>
+<p>Check out our <a href="https://templates.getgrist.com/pyMHqncEspfZ/Mapping-Locations" target="_blank">Mapping Locations</a> template or our <a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">Crowdsourced List</a> for two great examples!</p>
+<p>For a video walkthrough, check out our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=713s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">#</a></h3>
+<p>The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget.</p>
+<p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
+<p><em><img alt="markdown-widget" src="../images/widget-custom/markdown-widget.png" /></em></p>
+<p>To start, add a new column to your table. This will be where you will add your text that will be formatted using Markdown. </p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the text formatted with Markdown and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-add-widget" src="../images/widget-custom/markdown-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Markdown&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
+<p>Under &lsquo;Content&rsquo;, select the text column that contains Markdown formatting.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-configuration" src="../images/widget-custom/markdown-configuration.png" /></em></span></p>
+<p>Any Markdown formatting in the specified text column will apply and be viewable and editable in the custom widget.</p>
+<p><em><img alt="markdown-final" src="../images/widget-custom/markdown-final.png" /></em></p>
+<p>To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-edit" src="../images/widget-custom/markdown-edit.png" /></em></span></p>
+<p>For help on Markdown formatting, check out the <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown Guide</a> for basic syntax. This guide is also accessible in the Markdown widget by clicking the information icon at the top of the widget. The guide will open in a new tab of your browser for easy reference.</p>
+<p>You can find an example of the Markdown editor in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result" target="_blank">Webinar 7 (Custom Widgets)</a> template and check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1339s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="notepad">Notepad<a class="headerlink" href="#notepad" title="Permanent link">#</a></h3>
+<p>The Notepad custom widget allows you to format text using a rich text editor.</p>
+<p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#markdown">Markdown</a> custom widgets.</p>
+<p><em><img alt="notepad-widget" src="../images/widget-custom/notepad-widget.png" /></em></p>
+<p>To start, add a new column to your table. This will be where details for our formatted text will be stored. </p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the column we just added and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-add-widget" src="../images/widget-custom/notepad-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Notepad&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
+<p>Under &lsquo;Content&rsquo;, select the column created to store our formatted text.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-configuration" src="../images/widget-custom/notepad-configuration.png" /></em></span></p>
+<p>If the text column you chose under Content has existing text, that text will appear in the Notepad widget, ready to be formatted.</p>
+<p><em><img alt="notepad-saved-text" src="../images/widget-custom/notepad-saved-text.png" /></em></p>
+<p>Use any of the options shown here to format your text.</p>
+<p><em><img alt="notepad-symbols" src="../images/widget-custom/notepad-symbols.png" /></em></p>
+<p>As you can see in the screenshot below, the code for the formatted text is not useful to see in your table. You will edit text directly in the Notepad widget so you can <a href="../widget-table/#column-operations">hide</a> this column from your data table.</p>
+<p><em><img alt="notepad-edited-text-code" src="../images/widget-custom/notepad-edited-text-code.png" /></em></p>
+<p>Check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/13" target="_blank">U.S. National Park Database</a> or our <a href="https://templates.getgrist.com/cMQA7uuBbtMW/-Grocery-List-Meal-Planner/p/3" target="_blank">🛒 Grocery List + Meal Planner</a> for two great Notepad examples!</p>
+<p>You can also check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1194s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="print-labels">Print Labels<a class="headerlink" href="#print-labels" title="Permanent link">#</a></h3>
+<p>The Print Labels custom widget allows you to customize and print labels directly from Grist.</p>
+<p><em><img alt="print-label" src="../images/widget-custom/print-label.png" /></em></p>
+<p>To start, add a new column to your table. This column will contain the text for the label. Optionally, you can add a second column to specify a label count, allowing you to print more than one of the same label without having to create duplicate records.</p>
+<p>Next, add a new custom widget to the page. Choose the data table that contains the label details.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-add-widget" src="../images/widget-custom/print-label-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Print Labels&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Label&rsquo;, select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-configuration" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
+<p>You can select from standard sheet sizes under the dropdown in the upper left of the widget. Be sure to save any changes by clicking the green check mark at the upper right of the widget.</p>
+<p><em><img alt="print-label-sheet-configuration" src="../images/widget-custom/print-label-sheet-configuration.png" /></em></p>
+<p>To leave any blank labels at the beginning of the sheet, click the settings icon then specify how many labels should be left blank. This is especially helpful if a portion of your label sheet has already been used. You can skip the used labels and begin printing on your first unused label.</p>
+<p><em><img alt="print-label-blanks" src="../images/widget-custom/print-label-blanks.png" /></em></p>
+<p>Check out our <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">Print Mailing Labels</a> template and our <a href="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/6" target="_blank">Treasure Hunt</a> template for two great examples!</p>
+<p>You can also check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1749s" target="_blank">Custom Widgets Webinar</a>.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
