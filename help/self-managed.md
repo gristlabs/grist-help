@@ -161,8 +161,8 @@ docker run ...
   -e GRIST_SINGLE_ORG=cool-beans
 ```
 
-The name of the team should use only the characters A-Z, a-z, 0-9, and the
-hyphen (`-`).  You may also want to look into
+The name of the team should use only the lower-case characters a-z, the digits
+0-9, and the hyphen (`-`).  You may also want to look into
 [Custom styling](self-managed.md#how-do-i-customize-styling) to hide any UI elements
 you don't need.
 
