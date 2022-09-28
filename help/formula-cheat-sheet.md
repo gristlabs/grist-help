@@ -834,6 +834,106 @@ When the value in the 'Helper' column changes, all other toggles will become `Fa
 </details>
 </section>
 
+<span></span><section class="cheat-sheet">
+#### Formatting Telephone Numbers
+
+Automatically reformat a phone number to a specific format following entry. E.g. `1234567890` becomes `(123)-456-7890`.
+
+<span></span><details><summary>
+#### Example of Formatting a U.S. Telephone Number
+</summary>
+
+**Community Example: [Formatting Telephone Numbers](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/2/m/fork){:target="\_blank"}**
+
+*![formatting-us-phone-numbers](images/formula-cheat-sheet/formatting-us-phone-numbers.png)*</span>
+
+The formula used in the "Local (US) Phone Number" column of the "Formatting Telephone Numbers" table is:
+```
+import re
+
+def format_tel(tel):
+    tel = tel.removesuffix(".0")
+    tel = tel.removeprefix("+")
+    tel = tel.removeprefix("1")
+    tel = re.sub("[ ()-]", '', tel)
+
+    if len(tel) == 10:
+      tel = f"({tel[:3]})-{tel[3:6]}-{tel[6:]}"
+    return tel
+format_tel(str(value))
+```
+Note that this is a [trigger formula](formulas.md#trigger-formulas) that applies when changes are made to this column. Meaning, this formula runs as soon as a value is entered into the cell.
+
+First, we import Python's [re module](https://docs.python.org/3/library/re.html) which provides regular expression matching operations.
+
+Next, we define our function as `format_tel()`. Our parameters are `tel`. You'll see this function in the last line of the formula where `tel` = `str(value)`, meaning our parameter is the value that is entered into the cell. `str()` converts the value entered into a string.
+
+The following changes are made to that value;
+
+`tel.removsuffix(".0")` removes any decimal values.
+
+`tel.removeprefix("+")` removes a `+` entered at the beginning of the string.
+
+`tel.removeprefix("1")` removes a leading `1` as we assume this is a U.S. Phone Number.
+
+`re.sub("[ ()-]", '', tel)` removes any spaces, parenthesis `()`, and dashes `-`.
+
+After the string has been updated, we use `len()` to count the number of characters in the string. If there are 10 (the number of digits in a U.S. telephone number), the string will be [reformatted](https://docs.python.org/3/tutorial/inputoutput.html) according to the next line in the formula; `tel = f"({tel[:3]})-{tel[3:6]}-{tel[6:]}"`.
+
+`{tel[:3]}` represents the first three characters in the string and is enclosed in parenthesis. `{tel[3:6]}` represents characters four through six and `{tel[6:]}` represents the last four characters in the string. Each grouping is separated by a dash `-`.
+
+Finally, our formula returns our newly formatted telephone number.
+
+</details>
+
+<span></span><details><summary>
+#### Example of Formatting an International Telephone Number
+</summary>
+
+**Community Example: [Formatting Telephone Numbers](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/2/m/fork){:target="\_blank"}**
+
+*![formatting-int-phone-numbers](images/formula-cheat-sheet/formatting-int-phone-numbers.png)*</span>
+
+The formula used in the "International Phone Number" column of the "Formatting Telephone Numbers" table is:
+```
+import re
+
+def format_tel(tel):
+    tel = tel.removesuffix(".0")
+    tel = tel.removeprefix("+")
+    tel = re.sub("[ ()-]", '', tel)
+    if len(tel) == 11:
+      tel = f"{tel[:1]}-{tel[1:4]}-{tel[4:7]}-{tel[7:]}"
+    if len(tel) == 12:
+      tel = f"{tel[:2]}-{tel[2:5]}-{tel[5:8]}-{tel[8:]}"
+    if len(tel) == 13:
+      tel = f"{tel[:3]}-{tel[3:6]}-{tel[6:9]}-{tel[9:]}"
+    return tel
+format_tel(str(value))
+```
+Note that this is a [trigger formula](formulas.md#trigger-formulas) that applies when changes are made to this column. Meaning, this formula runs as soon as a value is entered into the cell.
+
+First, we import Python's [re module](https://docs.python.org/3/library/re.html) which provides regular expression matching operations.
+
+Next, we define our function as `format_tel()`. Our parameters are `tel`. You'll see this function in the last line of the formula where `tel` = `str(value)`, meaning our parameter is the value that is entered into the cell. `str()` converts the value entered into a string.
+
+The following changes are made to that value;
+
+`tel.removsuffix(".0")` removes any decimal values.
+
+`tel.removeprefix("+")` removes a `+` entered at the beginning of the string.
+
+`re.sub("[ ()-]", '', tel)` removes any spaces, parenthesis `()`, and dashes `-`.
+
+After the string has been updated, we use `len()` to count the number of characters in the string. The string will be [reformatted](https://docs.python.org/3/tutorial/inputoutput.html) according to `if` statement with the same number of characters. E.g. A string with 13 characters would have the following format; `tel = f"{tel[:3]}-{tel[3:6]}-{tel[6:9]}-{tel[9:]}"`.
+
+`{tel[:3]}` represents the first three characters in the string. `{tel[3:6]}` represents characters four through six and `{tel[6:9]}` represents characters seven through nine. `{tel[9:]}` represents the last four characters in the string. Each grouping is separated by a dash `-`.
+
+Finally, our formula returns our newly formatted telephone number.
+
+</details>
+</section>
+
 
 
 ## Working with dates and times
