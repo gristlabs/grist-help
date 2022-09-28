@@ -55,7 +55,11 @@ within a shared volume. The key/cert pair were created following instructions he
 
   * [Auth0: use custom certificate to sign requests](https://auth0.com/docs/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests#use-custom-certificate-to-sign-requests)
   * [Auth0 as the SAML identity provider](https://auth0.com/docs/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests#auth0-as-the-saml-identity-provider)
- 
+
+In your Auth0 settings also make sure that:
+
+ * The "Application Callback URL" is set to `https://<grist-domain>/saml/assert`.
+
 ## Example: Authentik
 
 In [Authentik](https://goauthentik.io/), add a Provider called `Grist` with:
