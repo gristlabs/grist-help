@@ -3,20 +3,15 @@
 ## Exporting a table
 
 If you want to export a table to another spreadsheet or database,
-one option is to export that table in CSV format, a common interchange format for data.
-To do this, open your document to the desired table. Then click the sharing icon
-(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen. It opens the menu with sharing and export
-options. Select "Export CSV".
+you can export that table as either an XLSX file or a CSV, a common interchange format for data.
+To do this, open your document to the desired table or widget. Then click the three dot menu in the top right of the widget. 
+Select either "Download as CSV" or "Download as XLSX".
 
-![exports-export-csv](images/exports/exports-export-csv.png)
+<center>![Export Table](../images/exports/export-table.png)</center>
 
-Your browser will then download a CSV file containing a header row
-naming your columns, excluding any hidden columns, followed by all the
-rows of data in the table in text format.
-
-When on a page with multiple page widgets, "Export CSV" will export only the data in the
-currently-selected widget, to export all your data use "Export XLSX" option.
+Your browser will then download a file containing a header row
+naming your columns, excluding any hidden columns or filtered-out rows, followed by all the
+rows of data visible in the table. To export [filtered data](search-sort-filter.md#filtering), make sure to save your filter.
 
 ## Exporting a document
 
@@ -24,9 +19,14 @@ If you want to export all tables to Excel format, click the sharing icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
 on the top right of the screen and select "Export XLSX".
 
+<center>![Export Document](../images/exports/export-xlsx.png)</center>
+
 Your browser will then download an Excel file, where each table is a separate sheet
 containing all rows, without any filters applied. To use this option you need to have full
 read access for all tables in a document.
+
+A note about "Export CSV" in the sharing menu. When on a page with multiple page widgets, "Export CSV" will export only the data in the
+currently-selected widget. To export all your data, use "Export XLSX" or the "Download" option which is explained below in [backing up an entire document](exports.md#backing-up-an-entire-document).
 
 ## Sending to Google Drive
 
