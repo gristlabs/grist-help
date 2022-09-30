@@ -96,3 +96,8 @@ To update `help/code` from the documentation comments in Grist, run:
 ```
 
 You need to first run `yarn install` in your Grist checkout directory.
+
+## License
+
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License](LICENSE.txt).
