@@ -11,7 +11,7 @@ Select either "Download as CSV" or "Download as XLSX".
 
 Your browser will then download a file containing a header row
 naming your columns, excluding any hidden columns or filtered-out rows, followed by all the
-rows of data visible in the table. To export [filtered data](search-sort-filter.md#filtering), make sure to save your filter.
+rows of data visible in the table.
 
 ## Exporting a document
 
