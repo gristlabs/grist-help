@@ -142,7 +142,6 @@ body {
   top: 0;
   left: 0;
   margin-left: 0;
-  height: auto;
   box-shadow: 2px 3px 4px 0 grey;
 }
 
@@ -175,9 +174,6 @@ body {
     height: auto;
     overflow: visible;
   }
-  .wm-content-pane {
-    height: auto;
-  }
   .wm-small-hide {
     display: none;
   }
@@ -206,15 +202,11 @@ body {
     order: 1;
   }
 
-  body {
-    overflow: visible;
-  }
   .wm-toc-pane {
     display: none;
   }
   .wm-content-pane {
     padding-left: 0px;
-    overflow: visible;
   }
 }
 
