@@ -33,7 +33,7 @@ nav:
   - Pages and Tables:
     - Entering data: enter-data.md
     - Pages & widgets: page-widgets.md
-    - Raw data page: raw-data.md    
+    - Raw data page: raw-data.md
     - Search, sort & filter: search-sort-filter.md
     - Table widget: widget-table.md
     - Card & Card List: widget-card.md
@@ -80,11 +80,11 @@ nav:
     - GristConnect: install/grist-connect.md
   - News & updates:
     - Newsletters: newsletters.md
-    - 2022/09: newsletters/2022-09.md      
-    - 2022/08: newsletters/2022-08.md      
-    - 2022/07: newsletters/2022-07.md     
-    - 2022/06: newsletters/2022-06.md    
-    - 2022/05: newsletters/2022-05.md    
+    - 2022/09: newsletters/2022-09.md
+    - 2022/08: newsletters/2022-08.md
+    - 2022/07: newsletters/2022-07.md
+    - 2022/06: newsletters/2022-06.md
+    - 2022/05: newsletters/2022-05.md
     - 2022/04: newsletters/2022-04.md
     - 2022/03: newsletters/2022-03.md
     - 2022/02: newsletters/2022-02.md
@@ -152,6 +152,7 @@ extra:
       text: 'Community'
     - href: https://www.getgrist.com
       text: 'Back to Grist'
+      hide_on_small_screen: true
   google_analytics: ['GTM-5FDHKQ9', 'auto']
 extra_css:
   - css/grist.css
