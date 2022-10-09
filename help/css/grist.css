@@ -371,6 +371,7 @@ body {
   width: unset;
   height: 48px;
   color: initial;
+  white-space: normal;
 }
 
 .wm-top-link, .wm-top-link:hover, .wm-top-link:active, .wm-top-link:visited, .wm-top-link:focus {
