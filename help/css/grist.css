@@ -337,6 +337,10 @@ body {
   margin-bottom: 15px;
 }
 
+.wm-page-content iframe {
+  max-width: 100%;
+}
+
 /*
  * This makes code samples look more like 'readthedocs' theme.
  */
@@ -367,6 +371,7 @@ body {
   width: unset;
   height: 48px;
   color: initial;
+  white-space: normal;
 }
 
 .wm-top-link, .wm-top-link:hover, .wm-top-link:active, .wm-top-link:visited, .wm-top-link:focus {

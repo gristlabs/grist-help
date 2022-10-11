@@ -7,7 +7,7 @@ you can export that table as either an XLSX file or a CSV, a common interchange 
 To do this, open your document to the desired table or widget. Then click the three dot menu in the top right of the widget. 
 Select either "Download as CSV" or "Download as XLSX".
 
-<center>![Export Table](../images/exports/export-table.png)</center>
+<center>![Export Table](images/exports/export-table.png)</center>
 
 Your browser will then download a file containing a header row
 naming your columns, excluding any hidden columns or filtered-out rows, followed by all the
@@ -19,7 +19,7 @@ If you want to export all tables to Excel format, click the sharing icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
 on the top right of the screen and select "Export XLSX".
 
-<center>![Export Document](../images/exports/export-xlsx.png)</center>
+<center>![Export Document](images/exports/export-xlsx.png)</center>
 
 Your browser will then download an Excel file, where each table is a separate sheet
 containing all rows, without any filters applied. To use this option you need to have full
