@@ -1,6 +1,5 @@
 body {
   background-color: #f8f8f8;
-  overflow: hidden;
 }
 
 /***********************************************************************
@@ -14,6 +13,8 @@ body {
   border-radius: 0px;
   margin-bottom: 0px;
   height: 50px;
+  width: 100%;
+  position: fixed;
   z-index: 2;
 }
 
@@ -106,7 +107,7 @@ body {
  ***********************************************************************/
 
 .wm-toc-pane {
-  position: absolute;
+  position: fixed;
   top: 0px;
   padding-top: 70px;
   height: 100%;
@@ -124,12 +125,7 @@ body {
 }
 
 .wm-content-pane {
-  position: absolute;
-  top: 0px;
   padding-top: 50px;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
   padding-left: 250px;
   transition: padding-left 0.3s;
   /* required for iPhone to scroll the contained iframe */
@@ -137,12 +133,10 @@ body {
 }
 
 .wm-toc-pane.wm-toc-dropdown {
-  position: absolute;
   display: block;
   top: 0;
   left: 0;
   margin-left: 0;
-  height: auto;
   box-shadow: 2px 3px 4px 0 grey;
 }
 
@@ -175,9 +169,6 @@ body {
     height: auto;
     overflow: visible;
   }
-  .wm-content-pane {
-    height: auto;
-  }
   .wm-small-hide {
     display: none;
   }
@@ -206,15 +197,11 @@ body {
     order: 1;
   }
 
-  body {
-    overflow: visible;
-  }
   .wm-toc-pane {
     display: none;
   }
   .wm-content-pane {
     padding-left: 0px;
-    overflow: visible;
   }
 }
 
