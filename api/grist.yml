@@ -1,5 +1,9 @@
 info:
-  description: "An API for manipulating Grist sites, workspaces, and documents."
+  description: |
+    An API for manipulating Grist sites, workspaces, and documents.
+
+    # Authentication
+    <SecurityDefinitions />
   version: "1.0.1"
   title: "Grist API"
 openapi: 3.0.0

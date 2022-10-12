@@ -13,13 +13,14 @@ fi
 options="--options.theme.spacing.sectionVertical=2 \
        --options.hideDownloadButton --disableGoogleFont --options.pathInMiddlePanel \
        --options.theme.breakpoints.medium=50rem --options.theme.breakpoints.large=50rem \
-       --options.theme.menu.width=0px \
+       --options.theme.sidebar.width=0px \
+       --options.scrollYOffset=48 \
        --options.jsonSampleExpandLevel=all"
 
 if [[ "$1" = "" ]]; then
   set -x
-  $cli bundle api/grist.yml -t api/body.hbs --output=help/api.md $options
-  $cli bundle api/grist.yml -t api/head.hbs --output=overrides/api-head-tmp.html $options
+  $cli build api/grist.yml -t api/body.hbs --output=help/api.md $options
+  $cli build api/grist.yml -t api/head.hbs --output=overrides/api-head-tmp.html $options
   # There is some javascript for loading yaml files that has a special character in it
   # that Jinja's "raw" mode actually modifies for some reason.  I don't think we need this
   # code?  So this line just brutally removes this character.
