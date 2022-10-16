@@ -4773,7 +4773,7 @@ this country. E.g. `FORMAT_PHONE(value, "US")`.
   - `"*"` or `"E164"` - E164 format, like international with no separators, e.g. `+12345678901`.
   - `"tel"` or `"RFC3966"` - format suitable to use as a [hyperlink](col-types.md#hyperlinks).
 
-E.g. `FORMAT_PHONE(value, format="#")` or `FORMAT_PHONE(value, "US", "#")`.
+E.g. `FORMAT_PHONE(value, "#")` or `FORMAT_PHONE(value, "US", "#")`.
 
 For more details, see the [phonenumbers](https://github.com/daviddrysdale/python-phonenumbers)
 Python library, which underlies this function.
@@ -4800,7 +4800,7 @@ u'tel:+1-234-567-8901'
 ```
 
 ```python
->>> FORMAT_PHONE("(234) 567-8901")  # doctest: +IGNORE_EXCEPTION_DETAIL
+>>> FORMAT_PHONE("(234) 567-8901")
 Traceback (most recent call last):
 ...
 NumberParseException: (0) Missing or invalid default region.
