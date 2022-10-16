@@ -4775,6 +4775,9 @@ this country. E.g. `FORMAT_PHONE(value, "US")`.
 
 E.g. `FORMAT_PHONE(value, format="#")` or `FORMAT_PHONE(value, "US", "#")`.
 
+For more details, see the [phonenumbers](https://github.com/daviddrysdale/python-phonenumbers)
+Python library, which underlies this function.
+
 
 ```python
 >>> FORMAT_PHONE("+12345678901")
