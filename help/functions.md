@@ -29,7 +29,7 @@ Python (see [Python documentation](https://docs.python.org/3.9/)). Here are some
 | Math | <a  href="#abs">ABS</a>, <a  href="#acos">ACOS</a>, <a  href="#acosh">ACOSH</a>, <a  href="#arabic">ARABIC</a>, <a  href="#asin">ASIN</a>, <a  href="#asinh">ASINH</a>, <a  href="#atan">ATAN</a>, <a  href="#atan2">ATAN2</a>, <a  href="#atanh">ATANH</a>, <a  href="#ceiling">CEILING</a>, <a  href="#combin">COMBIN</a>, <a  href="#cos">COS</a>, <a  href="#cosh">COSH</a>, <a  href="#degrees">DEGREES</a>, <a  href="#even">EVEN</a>, <a  href="#exp">EXP</a>, <a  href="#fact">FACT</a>, <a  href="#factdouble">FACTDOUBLE</a>, <a  href="#floor">FLOOR</a>, <a  href="#gcd">GCD</a>, <a  href="#int">INT</a>, <a  href="#lcm">LCM</a>, <a  href="#ln">LN</a>, <a  href="#log">LOG</a>, <a  href="#log10">LOG10</a>, <a  href="#mod">MOD</a>, <a  href="#mround">MROUND</a>, <a  href="#multinomial">MULTINOMIAL</a>, <a  href="#odd">ODD</a>, <a  href="#pi">PI</a>, <a  href="#power">POWER</a>, <a  href="#product">PRODUCT</a>, <a  href="#quotient">QUOTIENT</a>, <a  href="#radians">RADIANS</a>, <a  href="#rand">RAND</a>, <a  href="#randbetween">RANDBETWEEN</a>, <a  href="#roman">ROMAN</a>, <a  href="#round">ROUND</a>, <a  href="#rounddown">ROUNDDOWN</a>, <a  href="#roundup">ROUNDUP</a>, <a  href="#seriessum">SERIESSUM</a>, <a  href="#sign">SIGN</a>, <a  href="#sin">SIN</a>, <a  href="#sinh">SINH</a>, <a  href="#sqrt">SQRT</a>, <a  href="#sqrtpi">SQRTPI</a>, <a class="unimplemented" href="#subtotal">SUBTOTAL</a>, <a  href="#sum">SUM</a>, <a class="unimplemented" href="#sumif">SUMIF</a>, <a class="unimplemented" href="#sumifs">SUMIFS</a>, <a  href="#sumproduct">SUMPRODUCT</a>, <a class="unimplemented" href="#sumsq">SUMSQ</a>, <a  href="#tan">TAN</a>, <a  href="#tanh">TANH</a>, <a  href="#trunc">TRUNC</a>, <a  href="#uuid">UUID</a> |
 | Schedule | <a  href="#schedule">SCHEDULE</a> |
 | Stats | <a class="unimplemented" href="#avedev">AVEDEV</a>, <a  href="#average">AVERAGE</a>, <a  href="#averagea">AVERAGEA</a>, <a class="unimplemented" href="#averageif">AVERAGEIF</a>, <a class="unimplemented" href="#averageifs">AVERAGEIFS</a>, <a  href="#average_weighted">AVERAGE_WEIGHTED</a>, <a class="unimplemented" href="#binomdist">BINOMDIST</a>, <a class="unimplemented" href="#confidence">CONFIDENCE</a>, <a class="unimplemented" href="#correl">CORREL</a>, <a  href="#count">COUNT</a>, <a  href="#counta">COUNTA</a>, <a class="unimplemented" href="#covar">COVAR</a>, <a class="unimplemented" href="#critbinom">CRITBINOM</a>, <a class="unimplemented" href="#devsq">DEVSQ</a>, <a class="unimplemented" href="#expondist">EXPONDIST</a>, <a class="unimplemented" href="#fdist">FDIST</a>, <a class="unimplemented" href="#fisher">FISHER</a>, <a class="unimplemented" href="#fisherinv">FISHERINV</a>, <a class="unimplemented" href="#forecast">FORECAST</a>, <a class="unimplemented" href="#f_dist">F_DIST</a>, <a class="unimplemented" href="#f_dist_rt">F_DIST_RT</a>, <a class="unimplemented" href="#geomean">GEOMEAN</a>, <a class="unimplemented" href="#harmean">HARMEAN</a>, <a class="unimplemented" href="#hypgeomdist">HYPGEOMDIST</a>, <a class="unimplemented" href="#intercept">INTERCEPT</a>, <a class="unimplemented" href="#kurt">KURT</a>, <a class="unimplemented" href="#large">LARGE</a>, <a class="unimplemented" href="#loginv">LOGINV</a>, <a class="unimplemented" href="#lognormdist">LOGNORMDIST</a>, <a  href="#max">MAX</a>, <a  href="#maxa">MAXA</a>, <a  href="#median">MEDIAN</a>, <a  href="#min">MIN</a>, <a  href="#mina">MINA</a>, <a class="unimplemented" href="#mode">MODE</a>, <a class="unimplemented" href="#negbinomdist">NEGBINOMDIST</a>, <a class="unimplemented" href="#normdist">NORMDIST</a>, <a class="unimplemented" href="#norminv">NORMINV</a>, <a class="unimplemented" href="#normsdist">NORMSDIST</a>, <a class="unimplemented" href="#normsinv">NORMSINV</a>, <a class="unimplemented" href="#pearson">PEARSON</a>, <a class="unimplemented" href="#percentile">PERCENTILE</a>, <a class="unimplemented" href="#percentrank">PERCENTRANK</a>, <a class="unimplemented" href="#percentrank_exc">PERCENTRANK_EXC</a>, <a class="unimplemented" href="#percentrank_inc">PERCENTRANK_INC</a>, <a class="unimplemented" href="#permut">PERMUT</a>, <a class="unimplemented" href="#poisson">POISSON</a>, <a class="unimplemented" href="#prob">PROB</a>, <a class="unimplemented" href="#quartile">QUARTILE</a>, <a class="unimplemented" href="#rank">RANK</a>, <a class="unimplemented" href="#rank_avg">RANK_AVG</a>, <a class="unimplemented" href="#rank_eq">RANK_EQ</a>, <a class="unimplemented" href="#rsq">RSQ</a>, <a class="unimplemented" href="#skew">SKEW</a>, <a class="unimplemented" href="#slope">SLOPE</a>, <a class="unimplemented" href="#small">SMALL</a>, <a class="unimplemented" href="#standardize">STANDARDIZE</a>, <a  href="#stdev">STDEV</a>, <a  href="#stdeva">STDEVA</a>, <a  href="#stdevp">STDEVP</a>, <a  href="#stdevpa">STDEVPA</a>, <a class="unimplemented" href="#steyx">STEYX</a>, <a class="unimplemented" href="#tdist">TDIST</a>, <a class="unimplemented" href="#tinv">TINV</a>, <a class="unimplemented" href="#trimmean">TRIMMEAN</a>, <a class="unimplemented" href="#ttest">TTEST</a>, <a class="unimplemented" href="#t_inv">T_INV</a>, <a class="unimplemented" href="#t_inv_2t">T_INV_2T</a>, <a class="unimplemented" href="#var">VAR</a>, <a class="unimplemented" href="#vara">VARA</a>, <a class="unimplemented" href="#varp">VARP</a>, <a class="unimplemented" href="#varpa">VARPA</a>, <a class="unimplemented" href="#weibull">WEIBULL</a>, <a class="unimplemented" href="#ztest">ZTEST</a> |
-| Text | <a  href="#char">CHAR</a>, <a  href="#clean">CLEAN</a>, <a  href="#code">CODE</a>, <a  href="#concat">CONCAT</a>, <a  href="#concatenate">CONCATENATE</a>, <a  href="#dollar">DOLLAR</a>, <a  href="#exact">EXACT</a>, <a  href="#find">FIND</a>, <a  href="#fixed">FIXED</a>, <a  href="#left">LEFT</a>, <a  href="#len">LEN</a>, <a  href="#lower">LOWER</a>, <a  href="#mid">MID</a>, <a  href="#proper">PROPER</a>, <a  href="#regexextract">REGEXEXTRACT</a>, <a  href="#regexmatch">REGEXMATCH</a>, <a  href="#regexreplace">REGEXREPLACE</a>, <a  href="#replace">REPLACE</a>, <a  href="#rept">REPT</a>, <a  href="#right">RIGHT</a>, <a  href="#search">SEARCH</a>, <a  href="#substitute">SUBSTITUTE</a>, <a  href="#t">T</a>, <a class="unimplemented" href="#text">TEXT</a>, <a  href="#trim">TRIM</a>, <a  href="#upper">UPPER</a>, <a  href="#value">VALUE</a> |
+| Text | <a  href="#char">CHAR</a>, <a  href="#clean">CLEAN</a>, <a  href="#code">CODE</a>, <a  href="#concat">CONCAT</a>, <a  href="#concatenate">CONCATENATE</a>, <a  href="#dollar">DOLLAR</a>, <a  href="#exact">EXACT</a>, <a  href="#find">FIND</a>, <a  href="#fixed">FIXED</a>, <a  href="#format_phone">FORMAT_PHONE</a>, <a  href="#left">LEFT</a>, <a  href="#len">LEN</a>, <a  href="#lower">LOWER</a>, <a  href="#mid">MID</a>, <a  href="#proper">PROPER</a>, <a  href="#regexextract">REGEXEXTRACT</a>, <a  href="#regexmatch">REGEXMATCH</a>, <a  href="#regexreplace">REGEXREPLACE</a>, <a  href="#replace">REPLACE</a>, <a  href="#rept">REPT</a>, <a  href="#right">RIGHT</a>, <a  href="#search">SEARCH</a>, <a  href="#substitute">SUBSTITUTE</a>, <a  href="#t">T</a>, <a class="unimplemented" href="#text">TEXT</a>, <a  href="#trim">TRIM</a>, <a  href="#upper">UPPER</a>, <a  href="#value">VALUE</a> |
 <!-- END mkpydocs table -->
 
 <!-- BEGIN mkpydocs docs -->
@@ -4750,6 +4750,77 @@ If no_commas is True, then omits the commas.
 ```python
 >>> FIXED(3521.478, -2, True)
 '3500'
+```
+
+</details>
+<details id="format_phone"><summary >
+#### FORMAT_PHONE
+<code>__FORMAT_PHONE__(value, input=None, format=None)</code>
+<a class="headerlink" href="#format_phone" title="Permanent link">#</a>
+</summary>
+Formats a phone number. By default, the number must start with "+", and will be formatted as an
+international number, e.g. `+12345678901` becomes `+1 234-567-8901`. Arguments affect this
+behavior.
+
+`input` argument specifies a country code (e.g. "US" or "FR") for interpreting a national phone
+number. When given, a number _without_ the international code will be interpreted according to
+this country. E.g. `FORMAT_PHONE(value, "US")`.
+
+`format` argument specifies the output format, according to this table:
+
+  - `"+"` or `"INTL"` - international format, e.g. `+1 234-567-8901` or `+33 2 34 56 78 90`.
+  - `"#"` or `"NATL"` - national format, e.g. `(234) 567-8901` or `02 34 56 78 90`.
+  - `"*"` or `"E164"` - E164 format, like international with no separators, e.g. `+12345678901`.
+  - `"tel"` or `"RFC3966"` - format suitable to use as a [hyperlink](col-types.md#hyperlinks).
+
+E.g. `FORMAT_PHONE(value, format="#")` or `FORMAT_PHONE(value, "US", "#")`.
+
+
+```python
+>>> FORMAT_PHONE("+12345678901")
+u'+1 234-567-8901'
+```
+
+```python
+>>> FORMAT_PHONE("+12345678901", "#")
+u'(234) 567-8901'
+```
+
+```python
+>>> FORMAT_PHONE("+12345678901", format="#")
+u'(234) 567-8901'
+```
+
+```python
+>>> FORMAT_PHONE("(234)567 89-01", "US", "tel")
+u'tel:+1-234-567-8901'
+```
+
+```python
+>>> FORMAT_PHONE("(234) 567-8901")  # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+...
+NumberParseException: (0) Missing or invalid default region.
+```
+
+```python
+>>> FORMAT_PHONE("(23)-4567 89-01", "FR")
+u'+33 2345678901'
+```
+
+```python
+>>> FORMAT_PHONE("234567890", "FR", "tel")
+u'tel:+33-2-34-56-78-90'
+```
+
+```python
+>>> FORMAT_PHONE("tel:+33-2-34-56-78-90", "US", "#")
+u'02 34 56 78 90'
+```
+
+```python
+>>> FORMAT_PHONE("tel:+1-234-567-8901", input="US", format="*")
+u'+12345678901'
 ```
 
 </details>
