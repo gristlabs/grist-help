@@ -4859,25 +4859,35 @@ ValueError: start_num invalid
 </details>
 <details id="phone_format"><summary >
 #### PHONE_FORMAT
-<code>__PHONE_FORMAT__(value, input=None, format=None)</code>
+<code>__PHONE_FORMAT__(value, country=None, format=None)</code>
 <a class="headerlink" href="#phone_format" title="Permanent link">#</a>
 </summary>
-Formats a phone number. By default, the number must start with "+", and will be formatted as an
-international number, e.g. `+12345678901` becomes `+1 234-567-8901`. Arguments affect this
-behavior.
+Formats a phone number.
 
-`input` argument specifies a country code (e.g. "US" or "FR") for interpreting a national phone
-number. When given, a number _without_ the international code will be interpreted according to
-this country. E.g. `PHONE_FORMAT(value, "US")`.
+With no optional arguments, the number must start with "+" and the international dialing prefix,
+and will be formatted as an international number, e.g. `+12345678901` becomes `+1 234-567-8901`.
 
-`format` argument specifies the output format, according to this table:
+The `country` argument allows specifying a 2-letter country code (e.g. "US" or "GB") for
+interpreting phone numbers that don't start with "+". E.g. `PHONE_FORMAT('2025555555', 'US')`
+would be seen as a US number and formatted as "(202) 555-5555". Phone numbers that start with
+"+" ignore `country`. E.g. `PHONE_FORMAT('+33555555555', 'US')` is a French number because '+33'
+is the international prefix for France.
 
-  - `"+"` or `"INTL"` - international format, e.g. `+1 234-567-8901` or `+33 2 34 56 78 90`.
-  - `"#"` or `"NATL"` - national format, e.g. `(234) 567-8901` or `02 34 56 78 90`.
-  - `"*"` or `"E164"` - E164 format, like international with no separators, e.g. `+12345678901`.
-  - `"tel"` or `"RFC3966"` - format suitable to use as a [hyperlink](col-types.md#hyperlinks).
+The `format` argument specifies the output format, according to this table:
 
-E.g. `PHONE_FORMAT(value, "#")` or `PHONE_FORMAT(value, "US", "#")`.
+  - `"#"` or `"NATL"` (default) - use the national format, without the international dialing
+    prefix, when possible. E.g. `(234) 567-8901` for "US", or `02 34 56 78 90` for "FR". If
+    `country` is omitted, or the number does not correspond to the given country, the
+    international format is used instead.
+  - `"+"` or `"INTL"` - international format, e.g. `+1 234-567-8901` or
+    `+33 2 34 56 78 90`.
+  - `"*"` or `"E164"` - E164 format, like international but with no separators, e.g.
+    `+12345678901`.
+  - `"tel"` or `"RFC3966"` - format suitable to use as a [hyperlink](col-types.md#hyperlinks),
+    e.g. 'tel:+1-234-567-8901'.
+
+When specifying the `output` argument, you may omit the `country` argument. I.e.
+`PHONE_FORMAT(value, "tel")` is equivalent to `PHONE_FORMAT(value, None, "tel")`.
 
 For more details, see the [phonenumbers](https://github.com/daviddrysdale/python-phonenumbers)
 Python library, which underlies this function.
@@ -4889,18 +4899,28 @@ u'+1 234-567-8901'
 ```
 
 ```python
->>> PHONE_FORMAT("+12345678901", "#")
+>>> PHONE_FORMAT("2345678901", "US")
 u'(234) 567-8901'
 ```
 
 ```python
->>> PHONE_FORMAT("+12345678901", format="#")
-u'(234) 567-8901'
+>>> PHONE_FORMAT("2345678901", "GB")
+u'023 4567 8901'
 ```
 
 ```python
->>> PHONE_FORMAT("(234)567 89-01", "US", "tel")
-u'tel:+1-234-567-8901'
+>>> PHONE_FORMAT("2345678901", "GB", "+")
+u'+44 23 4567 8901'
+```
+
+```python
+>>> PHONE_FORMAT("+442345678901", "GB")
+u'023 4567 8901'
+```
+
+```python
+>>> PHONE_FORMAT("+12345678901", "GB")
+u'+1 234-567-8901'
 ```
 
 ```python
@@ -4911,22 +4931,27 @@ NumberParseException: (0) Missing or invalid default region.
 ```
 
 ```python
->>> PHONE_FORMAT("(23)-4567 89-01", "FR")
-u'+33 2345678901'
+>>> PHONE_FORMAT("(234)567 89-01", "US", "tel")
+u'tel:+1-234-567-8901'
 ```
 
 ```python
->>> PHONE_FORMAT("234567890", "FR", "tel")
-u'tel:+33-2-34-56-78-90'
-```
-
-```python
->>> PHONE_FORMAT("tel:+33-2-34-56-78-90", "US", "#")
+>>> PHONE_FORMAT("2/3456/7890", "FR", '#')
 u'02 34 56 78 90'
 ```
 
 ```python
->>> PHONE_FORMAT("tel:+1-234-567-8901", input="US", format="*")
+>>> PHONE_FORMAT("+33234567890", '#')
+u'+33 2 34 56 78 90'
+```
+
+```python
+>>> PHONE_FORMAT("+33234567890", 'tel')
+u'tel:+33-2-34-56-78-90'
+```
+
+```python
+>>> PHONE_FORMAT("tel:+1-234-567-8901", country="US", format="*")
 u'+12345678901'
 ```
 
