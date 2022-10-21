@@ -4886,7 +4886,7 @@ The `format` argument specifies the output format, according to this table:
   - `"tel"` or `"RFC3966"` - format suitable to use as a [hyperlink](col-types.md#hyperlinks),
     e.g. 'tel:+1-234-567-8901'.
 
-When specifying the `output` argument, you may omit the `country` argument. I.e.
+When specifying the `format` argument, you may omit the `country` argument. I.e.
 `PHONE_FORMAT(value, "tel")` is equivalent to `PHONE_FORMAT(value, None, "tel")`.
 
 For more details, see the [phonenumbers](https://github.com/daviddrysdale/python-phonenumbers)
