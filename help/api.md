@@ -19,6 +19,9 @@ toc:
     title: "/records"
     url: "#tag/records"
   -
+    title: "/tables"
+    url: "#tag/tables"
+  -
     title: "/columns"
     url: "#tag/columns"
   -
