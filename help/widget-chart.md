@@ -43,16 +43,14 @@ Additional series specify Y values for additional lines.
 
 #### Scatter Plot
 
-Needs three or more series: the first for the point labels, and the second and third for the X and Y values for each point, respectively. Additional series specify Y values for additional sets of points.
+Needs a label and two or more series. The label applies to the points. The series apply the X and Y values for each point, respectively. Additional series specify Y values for additional sets of points.
 
 *![widget_chart_scatter](images/widget_chart_scatter.png)*
 
 #### Kaplan-Meier Plot
 
 The [Kaplan-Meier Plot](https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator) is useful
-for certain studies, and needs two series: the first for the label of the line to which a point
-belongs, the second giving a survival time or time-to-failure of that point. The plot shows the
-survival times on the X axis, and the number of points that survive at that time on the Y axis.
+for certain studies, and needs one label and one series. The label applies to the lines being plotted. The series gives a survival time or time-to-failure of that point. The plot shows the survival times on the X axis, and the number of points that survive at that time on the Y axis.
 
 *![widget_chart_km](images/widget_chart_km.png)*
 
@@ -75,7 +73,7 @@ by connecting neighboring points. The "Show Markers" option described next can b
 keep a visual cue for which points are present.
 
 **Show markers** [for Line Charts only]: When checked, each point on the line is marked
-additionally by a small circle. See the example for "Group by first column" above.
+additionally by a small circle. See the example for Split Series above.
 
 **Stack series** [for Line and Bar Charts]: When checked, split series will be stacked, rather than shown separately, giving a total for your selected series. In this example, we can see the total revenue for each month across all three departments. Note that 'Split series' must be checked in order to select multiple series to stack.
 
