@@ -879,57 +879,51 @@ a summary table (as described in <a href="../summary-tables/">Summary tables</a>
 <p>The most common chart types are illustrated here:</p>
 <p><img alt="widget_chart_examples" src="../images/widget_chart_examples.png" /></p>
 <h2 id="chart-types">Chart types<a class="headerlink" href="#chart-types" title="Permanent link">#</a></h2>
-<p>Each chart type plots several data series. Use the &ldquo;Visible Series&rdquo; list in the &ldquo;Widgets&rdquo; side panel
-for choosing the series to plot. The order of the list matters and determines how each series is
-used, as described below.</p>
+<p>Each chart type plots one or several data series. Select the series to plot by 
+clicking the green &lsquo;Add Series&rsquo; text in the <a href="../glossary/#creator-panel">creator panel</a>. In the area above the &ldquo;Series&rdquo; section of the creator panel, you may configure the x-axis for most charts, or the labels for pie and donut charts.</p>
 <h4 id="bar-chart">Bar Chart<a class="headerlink" href="#bar-chart" title="Permanent link">#</a></h4>
-<p>Needs two or more series: the first for bar labels (x-axis), the second for bar heights (y-axis).
-Additional series create additional bars at each data point and specify their heights.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_bar" src="../images/widget_chart_bar.png" /></em></span></p>
+<p>Needs an x-axis and at least one series to plot along the y-axis. Additional series create 
+additional bars at each point on the x-axis. To stack series onto the same bar, select the &ldquo;Stack series&rdquo; checkbox.</p>
+<p><em><img alt="widget_chart_bar" src="../images/widget_chart_bar.png" /></em></p>
 <h4 id="line-chart">Line Chart<a class="headerlink" href="#line-chart" title="Permanent link">#</a></h4>
-<p>Needs two or more series: the first series is for the X values, the second is for Y values to create the line.
+<p>Needs an x-axis and at least one series to plot along the y-axis. 
 Additional series specify Y values for additional lines.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_line" src="../images/widget_chart_line.png" /></em></span></p>
+<p><em><img alt="widget_chart_line" src="../images/widget_chart_line.png" /></em></p>
 <h4 id="pie-chart">Pie Chart<a class="headerlink" href="#pie-chart" title="Permanent link">#</a></h4>
-<p>Needs two series: the first for the pie slice labels, the second for the pie slice sizes.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_pie" src="../images/widget_chart_pie.png" /></em></span></p>
+<p>Needs pie slice labels and one series for the pie slice sizes.</p>
+<p><em><img alt="widget_chart_pie" src="../images/widget_chart_pie.png" /></em></p>
 <h4 id="area-chart">Area Chart<a class="headerlink" href="#area-chart" title="Permanent link">#</a></h4>
-<p>Similar to a line chart, needs two or more series: the first for the X values, the second for
-the Y values to create the line. Additional series specify Y values for additional
-lines.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_area" src="../images/widget_chart_area.png" /></em></span></p>
+<p>Similar to a line chart, needs an x-axis and at least one series to plot along the y-axis. 
+Additional series specify Y values for additional lines.</p>
+<p><em><img alt="widget_chart_area" src="../images/widget_chart_area.png" /></em></p>
 <h4 id="scatter-plot">Scatter Plot<a class="headerlink" href="#scatter-plot" title="Permanent link">#</a></h4>
-<p>Needs three or more series: the first for the point labels, and the second and third for the X and
-Y values for each point, respectively. Additional series specify Y values for additional sets of
-points.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_scatter" src="../images/widget_chart_scatter.png" /></em></span></p>
+<p>Needs a label and two or more series. The label applies to the points. The series apply the X and Y values for each point, respectively. Additional series specify Y values for additional sets of points.</p>
+<p><em><img alt="widget_chart_scatter" src="../images/widget_chart_scatter.png" /></em></p>
 <h4 id="kaplan-meier-plot">Kaplan-Meier Plot<a class="headerlink" href="#kaplan-meier-plot" title="Permanent link">#</a></h4>
 <p>The <a href="https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator">Kaplan-Meier Plot</a> is useful
-for certain studies, and needs two series: the first for the label of the line to which a point
-belongs, the second giving a survival time or time-to-failure of that point. The plot shows the
-survival times on the X axis, and the number of points that survive at that time on the Y axis.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_km" src="../images/widget_chart_km.png" /></em></span></p>
+for certain studies, and needs one label and one series. The label applies to the lines being plotted. The series gives a survival time or time-to-failure of that point. The plot shows the survival times on the X axis, and the number of points that survive at that time on the Y axis.</p>
+<p><em><img alt="widget_chart_km" src="../images/widget_chart_km.png" /></em></p>
 <h2 id="chart-options">Chart options<a class="headerlink" href="#chart-options" title="Permanent link">#</a></h2>
 <p>A number of chart options are available, some of them specific to certain chart types.</p>
-<p><strong>Group by first column</strong>: When checked, an extra series is expected as the first series in the
-&ldquo;Visible Series&rdquo; list, and should contain a group label for each data point. All points with the
-same group value are plotted as a separate line.</p>
+<p><strong>Split Series</strong>: When checked, an extra series is to be selected under the &lsquo;Split Series&rsquo; dropdown. The series
+should contain a group label for each data point. All points with the same group value are plotted as a separate line.</p>
 <p>For example:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_grouped" src="../images/widget_chart_grouped.png" /></em></span></p>
+<p><em><img alt="widget_chart_grouped" src="../images/widget_chart_grouped.png" /></em></p>
 <p><strong>Invert Y-axis</strong>: When checked the Y axis is flipped, with smaller values above and larger values
 below.</p>
 <p><strong>Connect gaps</strong> [for Line Charts only]: When checked, gaps caused by missing values are connected
 by connecting neighboring points. The &ldquo;Show Markers&rdquo; option described next can be used to
 keep a visual cue for which points are present.</p>
 <p><strong>Show markers</strong> [for Line Charts only]: When checked, each point on the line is marked
-additionally by a small circle. See the example for &ldquo;Group by first column&rdquo; above.</p>
+additionally by a small circle. See the example for Split Series above.</p>
+<p><strong>Stack series</strong> [for Line and Bar Charts]: When checked, split series will be stacked, rather than shown separately, giving a total for your selected series. In this example, we can see the total revenue for each month across all three departments. Note that &lsquo;Split series&rsquo; must be checked in order to select multiple series to stack.</p>
+<p><em><img alt="widget_chart_stack_series" src="../images/widget_chart_stack_series.png" /></em></p>
 <p><strong>Error bars</strong> [for Line and Bar Charts]: When set to &ldquo;Symmetric&rdquo;, each Y series should be
 followed by a series for the length of the error bars to show. When set to &ldquo;Above+Below&rdquo;, each Y
 series should be followed by <em>two</em> series, one for the top error bars, and one for the bottom.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget_chart_error_bars" src="../images/widget_chart_error_bars.png" /></em></span></p>
-<p>In the example here, the first series (&ldquo;Cell Line&rdquo;) specifies how to group the data into lines,
-since &ldquo;Group by first column&rdquo; is checked. The second and third series specify the X and Y values,
-and the last series (&ldquo;SD&rdquo;) specifies the error bars for the Y values.</p>
+<p><em><img alt="widget_chart_error_bars" src="../images/widget_chart_error_bars.png" /></em></p>
+<p>In the example here, &ldquo;Split Series&rdquo; is checked. So the series selected from the Split Series dropdown (&ldquo;Cell Line&rdquo;), specifies how to group the data into lines. 
+The series selected under the X-Axis dropdown (&ldquo;Log[Drug], uM&rdquo;), specifies our values along the x-axis. Our first series in the Series list (&ldquo;% Viable Cells&rdquo;), specifies our y-axis values, and the series that follows that (&ldquo;SD&rdquo;), specifies the error bars for those Y values.</p>
 
   <br>
 </div><footer class="col-md-12 wm-page-content">
