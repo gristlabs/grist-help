@@ -964,7 +964,7 @@ Python (see <a href="https://docs.python.org/3.9/">Python documentation</a>). He
 </tr>
 <tr>
 <td>Text</td>
-<td><a  href="#char">CHAR</a>, <a  href="#clean">CLEAN</a>, <a  href="#code">CODE</a>, <a  href="#concat">CONCAT</a>, <a  href="#concatenate">CONCATENATE</a>, <a  href="#dollar">DOLLAR</a>, <a  href="#exact">EXACT</a>, <a  href="#find">FIND</a>, <a  href="#fixed">FIXED</a>, <a  href="#left">LEFT</a>, <a  href="#len">LEN</a>, <a  href="#lower">LOWER</a>, <a  href="#mid">MID</a>, <a  href="#proper">PROPER</a>, <a  href="#regexextract">REGEXEXTRACT</a>, <a  href="#regexmatch">REGEXMATCH</a>, <a  href="#regexreplace">REGEXREPLACE</a>, <a  href="#replace">REPLACE</a>, <a  href="#rept">REPT</a>, <a  href="#right">RIGHT</a>, <a  href="#search">SEARCH</a>, <a  href="#substitute">SUBSTITUTE</a>, <a  href="#t">T</a>, <a class="unimplemented" href="#text">TEXT</a>, <a  href="#trim">TRIM</a>, <a  href="#upper">UPPER</a>, <a  href="#value">VALUE</a></td>
+<td><a  href="#char">CHAR</a>, <a  href="#clean">CLEAN</a>, <a  href="#code">CODE</a>, <a  href="#concat">CONCAT</a>, <a  href="#concatenate">CONCATENATE</a>, <a  href="#dollar">DOLLAR</a>, <a  href="#exact">EXACT</a>, <a  href="#find">FIND</a>, <a  href="#fixed">FIXED</a>, <a  href="#left">LEFT</a>, <a  href="#len">LEN</a>, <a  href="#lower">LOWER</a>, <a  href="#mid">MID</a>, <a  href="#phone_format">PHONE_FORMAT</a>, <a  href="#proper">PROPER</a>, <a  href="#regexextract">REGEXEXTRACT</a>, <a  href="#regexmatch">REGEXMATCH</a>, <a  href="#regexreplace">REGEXREPLACE</a>, <a  href="#replace">REPLACE</a>, <a  href="#rept">REPT</a>, <a  href="#right">RIGHT</a>, <a  href="#search">SEARCH</a>, <a  href="#substitute">SUBSTITUTE</a>, <a  href="#t">T</a>, <a class="unimplemented" href="#text">TEXT</a>, <a  href="#trim">TRIM</a>, <a  href="#upper">UPPER</a>, <a  href="#value">VALUE</a></td>
 </tr>
 <tr>
 <td><!-- END mkpydocs table --></td>
@@ -4928,6 +4928,87 @@ start_num 1.</p>
 Traceback (most recent call last):
 ...
 ValueError: start_num invalid
+</code></pre>
+
+<p></details>
+<details id="phone_format"><summary ></p>
+<h4 id="phone_format">PHONE_FORMAT<a class="headerlink" href="#phone_format" title="Permanent link">#</a></h4>
+<p><code><strong>PHONE_FORMAT</strong>(value, country=None, format=None)</code>
+<a class="headerlink" href="#phone_format" title="Permanent link">#</a>
+</summary>
+Formats a phone number.</p>
+<p>With no optional arguments, the number must start with &ldquo;+&rdquo; and the international dialing prefix,
+and will be formatted as an international number, e.g. <code>+12345678901</code> becomes <code>+1 234-567-8901</code>.</p>
+<p>The <code>country</code> argument allows specifying a 2-letter country code (e.g. &ldquo;US&rdquo; or &ldquo;GB&rdquo;) for
+interpreting phone numbers that don&rsquo;t start with &ldquo;+&rdquo;. E.g. <code>PHONE_FORMAT('2025555555', 'US')</code>
+would be seen as a US number and formatted as &ldquo;(202) 555-5555&rdquo;. Phone numbers that start with
+&ldquo;+&rdquo; ignore <code>country</code>. E.g. <code>PHONE_FORMAT('+33555555555', 'US')</code> is a French number because &lsquo;+33&rsquo;
+is the international prefix for France.</p>
+<p>The <code>format</code> argument specifies the output format, according to this table:</p>
+<ul>
+<li><code>"#"</code> or <code>"NATL"</code> (default) - use the national format, without the international dialing
+    prefix, when possible. E.g. <code>(234) 567-8901</code> for &ldquo;US&rdquo;, or <code>02 34 56 78 90</code> for &ldquo;FR&rdquo;. If
+    <code>country</code> is omitted, or the number does not correspond to the given country, the
+    international format is used instead.</li>
+<li><code>"+"</code> or <code>"INTL"</code> - international format, e.g. <code>+1 234-567-8901</code> or
+    <code>+33 2 34 56 78 90</code>.</li>
+<li><code>"*"</code> or <code>"E164"</code> - E164 format, like international but with no separators, e.g.
+    <code>+12345678901</code>.</li>
+<li><code>"tel"</code> or <code>"RFC3966"</code> - format suitable to use as a <a href="../col-types/#hyperlinks">hyperlink</a>,
+    e.g. &lsquo;tel:+1-234-567-8901&rsquo;.</li>
+</ul>
+<p>When specifying the <code>format</code> argument, you may omit the <code>country</code> argument. I.e.
+<code>PHONE_FORMAT(value, "tel")</code> is equivalent to <code>PHONE_FORMAT(value, None, "tel")</code>.</p>
+<p>For more details, see the <a href="https://github.com/daviddrysdale/python-phonenumbers">phonenumbers</a>
+Python library, which underlies this function.</p>
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;+12345678901&quot;)
+u'+1 234-567-8901'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;2345678901&quot;, &quot;US&quot;)
+u'(234) 567-8901'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;2345678901&quot;, &quot;GB&quot;)
+u'023 4567 8901'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;2345678901&quot;, &quot;GB&quot;, &quot;+&quot;)
+u'+44 23 4567 8901'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;+442345678901&quot;, &quot;GB&quot;)
+u'023 4567 8901'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;+12345678901&quot;, &quot;GB&quot;)
+u'+1 234-567-8901'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;(234) 567-8901&quot;)
+Traceback (most recent call last):
+...
+NumberParseException: (0) Missing or invalid default region.
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;(234)567 89-01&quot;, &quot;US&quot;, &quot;tel&quot;)
+u'tel:+1-234-567-8901'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;2/3456/7890&quot;, &quot;FR&quot;, '#')
+u'02 34 56 78 90'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;+33234567890&quot;, '#')
+u'+33 2 34 56 78 90'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;+33234567890&quot;, 'tel')
+u'tel:+33-2-34-56-78-90'
+</code></pre>
+
+<pre><code class="python">&gt;&gt;&gt; PHONE_FORMAT(&quot;tel:+1-234-567-8901&quot;, country=&quot;US&quot;, format=&quot;*&quot;)
+u'+12345678901'
 </code></pre>
 
 <p></details>
