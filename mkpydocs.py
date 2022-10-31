@@ -92,7 +92,8 @@ class DocItem(object):
     for part in parts:
       if isinstance(part, doctest.Example):
         output.append("```python")
-        output.append('>>> ' + part.source.strip())
+        source = part.source.split("# doctest:", 1)[0]    # Remove special doctest: comments
+        output.append('>>> ' + source.strip())
         output.append(part.want.strip())
         output.append("```")
       elif part.strip().startswith('More tests:'):
