@@ -749,6 +749,57 @@ paths:
         200:
           description: Success
 
+  /docs/{docId}/tables:
+    get:
+      tags:
+        - /tables
+      summary: "List tables in a document"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: The tables in a document
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tables"
+    post:
+      tags:
+        - /tables
+      summary: "Add tables to a document"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "the tables to add"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTables"
+        required: true
+      responses:
+        200:
+          description: The table created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TablesWithoutFields"
+    patch:
+      tags:
+        - /tables
+      summary: "Modify tables of a document"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "the tables to change, with ids"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Tables"
+        required: true
+      responses:
+        200:
+          description: Success
+
   /docs/{docId}/tables/{tableId}/columns:
     get:
       tags:
@@ -764,6 +815,44 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Columns"
+    post:
+      tags:
+        - /columns
+      summary: "Add columns to a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+      requestBody:
+        description: "the columns to add"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateColumns"
+        required: true
+      responses:
+        200:
+          description: The columns created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ColumnsWithoutFields"
+    patch:
+      tags:
+        - /columns
+      summary: "Modify columns of a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+      requestBody:
+        description: "the columns to change, with ids"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Columns"
+        required: true
+      responses:
+        200:
+          description: Success
 
 tags:
   - name: /orgs
@@ -774,6 +863,8 @@ tags:
     description: "Workspaces contain collections of Grist documents."
   - name: /records
     description: "Tables contain collections of records (also called rows)."
+  - name: /tables
+    description: "Documents are structured as a collection of tables."
   - name: /columns
     description: "Tables are structured as a collection of columns."
   - name: /data
@@ -1077,16 +1168,98 @@ components:
                   record, or in a new record)
       example:
         records:
-          -
-            require:
+          - require:
               pet: cat
             fields:
               popularity: 67
-          -
-            require:
+          - require:
               pet: dog
             fields:
               popularity: 95
+
+    Tables:
+      type: object
+      required:
+        - tables
+      properties:
+        tables:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - fields
+            properties:
+              id:
+                type: string
+                example: Table1
+              fields:
+                type: object
+      example:
+        tables:
+          - id: People
+            fields:
+              tableRef: 1
+              onDemand: true
+          - id: Places
+            fields:
+              tableRef: 2
+              onDemand: false
+    TablesWithoutFields:
+      type: object
+      required:
+        - tables
+      properties:
+        tables:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+                example: Table1
+      example:
+        tables:
+          - id: People
+          - id: Places
+    CreateTables:
+      type: object
+      required:
+        - tables
+      properties:
+        tables:
+          type: array
+          items:
+            type: object
+            required:
+              - columns
+            properties:
+              id:
+                type: string
+                example: Table1
+              columns:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: ColumnName
+                    fields:
+                      type: object
+      example:
+        tables:
+          - id: People
+            columns:
+              - id: pet
+                fields:
+                  label: "Pet"
+              - id: popularity
+                fields:
+                  label: "Popularity ❤"
+
     Columns:
       type: object
       required:
@@ -1107,14 +1280,55 @@ components:
                 type: object
       example:
         columns:
-          -
-            id: pet
+          - id: pet
             fields:
               label: "Pet"
-          -
-            id: popularity
+          - id: popularity
             fields:
               label: "Popularity ❤"
+    CreateColumns:
+      type: object
+      required:
+        - columns
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: ColumnName
+              fields:
+                type: object
+      example:
+        columns:
+          - id: pet
+            fields:
+              label: "Pet"
+          - id: popularity
+            fields:
+              label: "Popularity ❤"
+    ColumnsWithoutFields:
+      type: object
+      required:
+        - columns
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+                example: ColumnName
+      example:
+        columns:
+          - id: pet
+          - id: popularity
+
     RowIds:
       type: array
       example: [101, 102, 103]
