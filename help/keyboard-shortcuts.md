@@ -48,7 +48,7 @@
 | <code class="keys">*Enter*</code> | <code class="keys">*Enter*</code> | Finish editing a cell, saving the value |
 | <code class="keys">*Escape*</code> | <code class="keys">*Escape*</code> | Discard changes to a cell value |
 | <code class="keys">*⌘* *D*</code> | <code class="keys">*Ctrl* + *D*</code> | Fills current selection with the contents of the top row in the selection |
-| <code class="keys">*Backspace*</code>,<code class="keys">*Del*</code> | <code class="keys">*Backspace*</code>,<code class="keys">*Del*</code> | Clears the currently selected cells |
+| <code class="keys">*Delete*</code> | <code class="keys">*Backspace*</code>,<code class="keys">*Delete*</code> | Clears the currently selected cells |
 | <code class="keys">*Enter*</code>,<code class="keys">*Space*</code> | <code class="keys">*Enter*</code>,<code class="keys">*Space*</code> | Toggles the value of checkbox cells |
 | <code class="keys">*=*</code> | <code class="keys">*=*</code> | When typed at the start of a cell, make this a formula column |
 | <code class="keys">*⌘* *;*</code> | <code class="keys">*Ctrl* + *;*</code> | Insert the current date |
@@ -60,7 +60,7 @@
 | <code class="keys">*⌘* *⇧* *Enter*</code> | <code class="keys">*Ctrl* + *Shift* + *Enter*</code> | Insert a new record, before the currently selected one in an unsorted table |
 | <code class="keys">*⌘* *Enter*</code> | <code class="keys">*Ctrl* + *Enter*</code> | Insert a new record, after the currently selected one in an unsorted table |
 | <code class="keys">*⌘* *⇧* *D*</code> | <code class="keys">*Ctrl* + *Shift* + *D*</code> | Duplicate the currently selected record(s) |
-| <code class="keys">*⌘* *Backspace*</code>,<code class="keys">*⌘* *Del*</code> | <code class="keys">*Ctrl* + *Backspace*</code>,<code class="keys">*Ctrl* + *Del*</code> | Delete the currently selected record(s) |
+| <code class="keys">*⌘* *Delete*</code> | <code class="keys">*Ctrl* + *Backspace*</code>,<code class="keys">*Ctrl* + *Delete*</code> | Delete the currently selected record(s) |
 | <code class="keys">*⌥* *⇧* *=*</code> | <code class="keys">*Alt* + *Shift* + *=*</code> | Insert a new column, before the currently selected one |
 | <code class="keys">*⌥* *=*</code> | <code class="keys">*Alt* + *=*</code> | Insert a new column, after the currently selected one |
 | <code class="keys">*⌃* *M*</code> | <code class="keys">*Ctrl* + *M*</code> | Rename the currently selected column |
