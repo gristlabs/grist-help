@@ -388,7 +388,6 @@ str($id).zfill(5)
 
 If you mean to combine a string and a numerical value, be sure to convert it to string using `str()`.
 
-
 <span class="screenshot-large">*![string-type-error](images/formula-cheat-sheet/string-type-error.png)*</span>
 {: .screenshot-half }
 
@@ -609,8 +608,6 @@ You can find duplicates in a column using either conditional formatting or a hel
 #### Example of Finding Duplicates
 </summary>
 
-**Video Walkthrough: [Finding Duplicates with a Formula](https://www.youtube.com/watch?v=7lNz2Mw7yyw&list=PL3Q9Tu1JOy_79QFrtQOEO1wHVIYYazdIf){:target="\_blank"}**
-
 **Community Example: [Finding Duplicates](https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/4){:target="\_blank"}**
 
 <span class="screenshot-large">*![duplicates-single-column](images/formula-cheat-sheet/duplicates-single-column.png)*</span>
@@ -643,6 +640,8 @@ This same formula can be used in conditional formatting. This can be seen in the
 If `len() > 1`, our formula is true and the conditional cell color is applied to these cells. 
 
 If `len() <= 1`, our formula is false and the cell color is unchanged.
+
+**Video Walkthrough: [Finding Duplicates with a Formula](https://www.youtube.com/watch?v=7lNz2Mw7yyw&list=PL3Q9Tu1JOy_79QFrtQOEO1wHVIYYazdIf){:target="\_blank"}**
 
 </details>
 
@@ -764,8 +763,6 @@ Quickly create a table of unique values by creating a [summary table](summary-ta
 #### Examples of Creating a Table of Unique Records
 </summary>
 
-**Video Walkthrough: [Back to Basics: Migrating from spreadsheet to Grist](https://www.youtube.com/watch?v=-mNh2P_Wa6c&t=2311s){:target="\_blank"}**
-
 <span class="screenshot-large">*![unique-values-initial-list](images/formula-cheat-sheet/unique-values-initial-list.png)*</span>
 {: .screenshot-half }
 
@@ -790,46 +787,33 @@ We now have a table containing all unique records.
 <span class="screenshot-large">*![unique-values-final](images/formula-cheat-sheet/unique-values-final.png)*</span>
 {: .screenshot-half }
 
+**Video Walkthrough: [Back to Basics: Migrating from spreadsheet to Grist](https://www.youtube.com/watch?v=-mNh2P_Wa6c&t=2311s){:target="\_blank"}**
+
 </details>
 </section>
 
 <span></span><section class="cheat-sheet">
 #### Setting Default Values for New Records
 
-You can set default values for when a new record is created and save yourself the trouble of having to fill in the same fields with the same values time after time.
-
-**Read about it in the Community:** [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4){:target="\_blank"}
-
-</section>
-
-<span></span><section class="cheat-sheet">
-#### Creating a Radio Button Column
-
-Create a toggle column that works like a radio button - where only one record can be toggled to True at any time.
+Using [trigger formulas](formulas.md#trigger-formulas), you can set default values for when a new record is created, or when a record is updated, and save yourself the trouble of having to fill in the same fields with the same values time after time.
 
 <span></span><details><summary>
-#### Example of Creating a Radio Button Column
+#### Examples of Setting Default Values
 </summary>
 
-**Community Example: [Radio Button Example](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/4/m/fork){:target="\_blank"}**
+**Community Example: [Setting Default Values Example](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/5/m/fork){:target="\_blank"}**
 
-<span class="screenshot-large">*![radio-button](images/formula-cheat-sheet/radio-button.png)*</span>
+*![default-string-1](images/formula-cheat-sheet/default-string-1.png)*</span>
 
-You'll first need to create a toggle column and a helper column. Our 'Radio' column is a toggle type column. Our 'Helper' column is a formula column. The formula used in the Helper column of the 'Radio Button Example' table is:
+The trigger formula used in the 'Default String' column of the 'Setting Default Values' table is:
 ```
-Radio_Button_Example.lookupRecords(Radio=True)
+"In Progress"
 ```
-We use a [lookupRecords](functions.md#lookuprecords) function to find all records in the 'Radio Button Example' table where the value in the 'Radio' column is `True`. The value returned is the column ID for those records where 'Radio' is `True`.
+We have 'Apply to new records' selected for our trigger formula. Meaning, that when a new record is created, this formula will calculate and return the string `In Progress`. This particular column is a [Choice](col-types.md#choice-columns) column so the cell defaults to the choice `In Progress` when the record is created but the value can be changed to `Complete` in the future.
 
-<span class="screenshot-large">*![radio-button-trigger](images/formula-cheat-sheet/radio-button-trigger.png)*</span>
+For examples on setting defaults on current time and logged in user, see [Automatic Date, Time and Author Stamps](#automatic-date-time-and-author-stamps).
 
-Next, we need to set up a trigger formula in our toggle column, 'Radio'. The trigger formula in the 'Radio' column is:
-```
-False
-```
-This trigger formula applies only on changes to the column 'Helper'. 
-
-When the value in the 'Helper' column changes, all other toggles will become `False`. The value in the 'Helper' column only changes when a toggle is set to `True`. Therefore, anytime a toggle is set to `True`, the 'Helper' column will update and then all other toggles will be set to `False`. 
+For more examples from the Community, check out [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4){:target="\_blank"}.
 
 </details>
 </section>
@@ -934,8 +918,6 @@ Finally, our formula returns our newly formatted telephone number.
 </details>
 </section>
 
-
-
 ## Working with dates and times
 
 <span></span><section class="cheat-sheet">
@@ -1038,18 +1020,42 @@ We can use this column to filter our data. If we only want to see interactions t
 </section>
 
 <span></span><section class="cheat-sheet">
-#### Calculating the Sum or Difference Between Two Times
+#### Calculating the Difference Between Two Dates
 
-You can find the difference or sum between two [DateTime](col-types.md#datetime-columns) values using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod) function.
+You can find the number of days between two [Date](col-types.md#date-columns) values using the [DAYS()](functions.md#days) function.
 
 <span></span><details><summary>
-#### Example of Calculating the Difference Between Two Times
+#### Example of Calculating the Difference Between Two Dates
 </summary>
+**Community Example:** [Difference Between 2 Dates](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/6/m/fork)
+
+<span class="screenshot-large">*![days-til-due](images/formula-cheat-sheet/days-til-due.png)*</span>
+
+The formula used in the "Days til Due" column of the "Difference Between 2 Dates" table is:
+```
+($Due_Date-$Assigned_Date).days
+```
+First, we subtract one date column from the other. Note that you should use the later of the two dates as your first selection otherwise you will end up with a negative number of days.
+
+This is followed by `.days` so our formula will return the number of days between the two given date values.
+
+You can also use [`TODAY()`](functions.md#today) in place of the second date column. You can see an example of this in the "Difference Between Date and TODAY()" table.
+
+<span class="screenshot-large">*![days-remaining](images/formula-cheat-sheet/days-remaining.png)*</span>
+
+The formula used in the "Days Remaining" column is:
+```
+($Renewal_Date-TODAY()).days
+```
+Here, we subtract today's date from the date in the Renewal Date column to find the number of days until the client's contract renews. Because the value for TODAY() changes every day, the days remaining will continue to count down each day.
+
+You can also use the [DAYS()](functions.md#days) function to find difference in years. Take a look at our example in the Age column of the Calculating Age table.
+
 **Community Example:** [Calculating Age in Years](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/3/m/fork)
 
-<span class="screenshot-large">*![hours-worked](images/formula-cheat-sheet/hours-worked.png)*</span>
+<span class="screenshot-large">*![diff-in-years](images/formula-cheat-sheet/diff-in-years.png)*</span>
 
-The formula used in the Age column of the Calculating Age table is:
+The formula used here is:
 ```
 difference = TODAY() - $Birthdate
 difference_in_years = difference.days/365.2425
@@ -1061,13 +1067,50 @@ Next, we calculate the number of days within the value assigned to the variable 
 
 Last, we use the [ROUND()](functions.md#round) function to round the value assigned to the variable `difference_in_years` to the nearest whole number (with zero decimals).
 
-You do have the option to include seconds in the calculation. See the 'Age (w/ Seconds)' column in the Calculating Age table. The formula used here is:
+You do have the option to include seconds in the calculation. See the "Age (w/ Seconds)" column in the Calculating Age table. 
+
+<span class="screenshot-large">*![diff-in-years-seconds](images/formula-cheat-sheet/diff-in-years-seconds.png)*</span>
+
+The formula used here is:
 ```
 difference = TODAY() - $Birthdate
 difference_in_years = (difference.days + difference.seconds/86400)/365.2425
 return ROUND(difference_in_years,0)
 ```
-Because we round to a whole number, the partial day (represented in seconds) doesn't make a difference in our final value. If you were calculating difference in days, the seconds might make a difference, depending how far into the current day you are.
+Because we round to a whole number of years, the partial day (represented in seconds) doesn't make a difference in our final value. If you were calculating difference in days, the seconds might make a difference, depending how far into the current day you are.
+
+</details>
+
+<span></span><details><summary>
+#### Troubleshooting Errors
+</summary>
+
+<span></span><div class="deflist">
+
+- `#TypeError`:
+
+    <span class="screenshot-large">*![date-diff-typeerror](images/formula-cheat-sheet/date-diff-typeerror.png)*</span>
+
+    Confirm that all columns used within the [DAYS()](functions.md#days) function are [Date](col-types.md#date-columns) type columns. 
+
+- `#NameError`:
+
+    <span class="screenshot-large">*![date-diff-nameerror](images/formula-cheat-sheet/date-diff-nameerror.png)*</span>
+
+    Case matters! [TODAY()](functions.md#today) is a function. today() is not. Be sure you are using uppercase. 
+</div>
+
+</details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Calculating the Difference Between Two Times
+
+You can find the difference between two [DateTime](col-types.md#datetime-columns) values using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod) function.
+
+<span></span><details><summary>
+#### Example of Calculating the Difference Between Two Times
+</summary>
 
 **Community Example:** [Calculating Hours Worked](https://public.getgrist.com/a3HWPxrhNwJa/1863/p/4)
 
@@ -1095,8 +1138,6 @@ The first two lines remove errors if there are no values in the Check In Time or
 
 Check out our [Time Tracker template](https://templates.getgrist.com/np7TVHmuvFcH/Simple-Time-Tracker) for another example!
 
-
-
 </details>
 
 <span></span><details><summary>
@@ -1118,7 +1159,7 @@ Check out our [Time Tracker template](https://templates.getgrist.com/np7TVHmuvFc
 <span></span><section class="cheat-sheet">
 #### Formatting Dates
 
-Use the [MONTH()](functions.md#month) or [YEAR()](functions.md#year) functions to return the month or year of a date represented as an integer or use Python's [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime) method to create a string representing the time with an explicit format. Bookmark the [Format Code Cheat Sheet](https://strftime.org/) for easy reference.
+Use Python's [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime) method to create a string representing the time with an explicit format. Bookmark the [Format Code Cheat Sheet](https://strftime.org/) for easy reference. You can also pull the year with [YEAR()](functions.md#year). This returns an integer. The same is true for [MONTH()](functions.md#month).
 
 <span></span><details><summary>
 #### Examples of Formatting Dates
