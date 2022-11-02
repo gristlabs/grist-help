@@ -9,12 +9,14 @@ Every Grist table, when first created, has three columns called A, B, and C.
 To rename a column, hover on the column header, click on the drop-down, then
 select "Rename column" (you can also just click on the column header twice).
 
-![Column rename](images/columns/columns-rename-column.png)
+<span class="screenshot-large">*![columns-rename-column](images/columns/columns-rename-column.png)*</span>
+{: .screenshot-half }
 
 To delete a column, hover on the column header, click on the drop-down, then
 select "Delete column".
 
-![Delete column](images/columns/columns-delete-column.png)
+<span class="screenshot-large">*![columns-delete-column](images/columns/columns-delete-column.png)*</span>
+{: .screenshot-half }
 
 To add a column, click on the "+" symbol in the header row, then type in
 the column name.
@@ -29,7 +31,8 @@ location.
 
 Another way to reorder columns is via the widget options:
 
-![Widget options](images/columns/columns-widget-options.png)
+<span class="screenshot-large">*![columns-widget-options](images/columns/columns-widget-options.png)*</span>
+{: .screenshot-half }
 
 In the visible columns section, the columns can be dragged around freely to
 reorder them.  You can also hide columns here.
@@ -67,19 +70,19 @@ by default.
 To inspect the type of a column, hover over the column header, then click on the drop-down,
 then select "Column Options".  The "Column Type" section is what you are looking for.
 
-![Sidebar > Column options > Type](images/columns/columns-column-options.png)
+*![columns-column-options](images/columns/columns-column-options.png)*
 
 You will often want to control the column type manually.  You can change it in the "Column Type"
 section.  For example, here we set a column full of "yes" and "no" responses to be of type
 `Toggle`:
 
-![Sidebar > Column options > Toggle](images/columns/columns-toggle.png)
+*![columns-toggle](images/columns/columns-toggle.png)*
 
 One advantage of doing so is that Grist can now offer you ways to visualize the column that
 are specialized to on/off style values.  Each column type has different options in the
 "Cell Format" section of the side panel:
 
-![Sidebar > Column options > Toggle appearance](images/columns/columns-toggle-appearance.png)
+*![columns-toggle-appearance](images/columns/columns-toggle-appearance.png)*
 
 Regardless of the column type, you can enter **any value** in cells. If a value entered is
 incompatible with the defined type, the cell will be highlighted with an error (and columns
@@ -116,7 +119,7 @@ you can control alignment and word-wrap, text color and background color.
 If the column is used for storing web links, you can turn on "HyperLink"
 formatting to make links prettier and to include a clickable link icon.
 
-*![Format text](images/columns/columns-format-text.png)*
+<span class="screenshot-large">*![columns-format-text](images/columns/columns-format-text.png)*</span>
 {: .screenshot-half }
 
 ### Hyperlinks
@@ -140,7 +143,7 @@ This type is for numbers, including floating-point numbers. In addition to contr
 and color, you can choose the number format, and the minimum and maximum number of digits to
 show after the decimal point.
 
-*![Format numeric](images/columns/columns-format-numeric.png)*
+<span class="screenshot-large">*![columns-format-numeric](images/columns/columns-format-numeric.png)*</span>
 {: .screenshot-half }
 
 Choosing the "Spinner" option for CELL FORMAT will show arrows in each cell for
@@ -153,7 +156,9 @@ The options under NUMBER FORMAT include:
   *![Format numeric](images/columns/columns-format-currency.png)*
   {: .screenshot-half }
   
-  Tip: You can set a document's default timezone, locale, and currency in Document Settings.
+!!! note "Setting Default Currency"
+    You can set a document's default timezone, locale, and currency in [Document Settings](creating-doc.md#document-settings).
+  
   
 - `,`: Turn on the display of thousands separators.
 - `%`: Show numbers as percentages. E.g. "0.5" would show as "50%".
@@ -184,7 +189,7 @@ This type is for storing calendar dates (without a time of day component).
 More details in [Working with dates](dates.md).  You can choose the
 format for dates, see the [date formatting reference](https://momentjs.com/docs/#/displaying/format/).
 
-*![Format date](images/columns/columns-format-date.png)*
+<span class="screenshot-large">*![columns-format-date](images/columns/columns-format-date.png)*</span>
 {: .screenshot-half }
 
 
@@ -192,17 +197,19 @@ format for dates, see the [date formatting reference](https://momentjs.com/docs/
 
 This type is for storing calendar dates plus time of day.
 More details in [Working with dates](dates.md).  You can choose the
-format for dates, see the [date and time formatting reference](https://momentjs.com/docs/#/displaying/format/).  You can also specify the timezone to display for.
+format for dates, see the [date and time formatting reference](https://momentjs.com/docs/#/displaying/format/).  You can also specify the timezone to display for. 
 
-*![Format date](images/columns/columns-format-datetime.png)*
+<span class="screenshot-large">*![columns-format-datetime](images/columns/columns-format-datetime.png)*</span>
 {: .screenshot-half }
+
+If you'd like to set a default timezone for your document, you can do so in [Document Settings](creating-doc.md#document-settings).
 
 ## Choice columns
 
 This type is for storing one of a set of valid values, where you get to
 specify the available values.
 
-*![Format choice](images/columns/columns-format-choice.png)*
+<span class="screenshot-large">*![columns-format-choice](images/columns/columns-format-choice.png)*</span>
 {: .screenshot-half }
 
 There's an example of using this type of column in
@@ -252,7 +259,7 @@ and `Enter` to add a choice to a cell. If your input is not one of the
 valid choices, Grist will display a menu option for conveniently adding it as a
 valid choice and into the cell in one step.
 
-*![Format choice](images/columns/columns-cell-choice.png)*
+<span class="screenshot-large">*![columns-cell-choice](images/columns/columns-cell-choice.png)*</span>
 {: .screenshot-half }
 
 ## Choice List columns
@@ -260,7 +267,7 @@ valid choice and into the cell in one step.
 This type is for storing multiple values from a set of valid values, where you
 get to specify the available values.
 
-*![Format choice](images/columns/columns-format-choice-list.png)*
+<span class="screenshot-large">*![columns-format-choice-list](images/columns/columns-format-choice-list.png)*</span>
 {: .screenshot-half }
 
 If you start off with a populated text column, Grist will take all unique
@@ -291,9 +298,8 @@ table to reference, and a column within that table to show.
 There's a lot you can do with this kind of column, see [Reference columns](col-refs.md) for
 details.
 
-*![Format reference](images/columns/columns-format-reference.png)*
+<span class="screenshot-large">*![columns-format-reference](images/columns/columns-format-reference.png)*</span>
 {: .screenshot-half }
-
 
 ## Reference List columns
 
@@ -302,9 +308,8 @@ references in a single cell.
 There's a lot you can do with this kind of column, see
 [Reference columns](col-refs.md#creating-a-new-reference-list-column) for details.
 
-*![Format reference](images/columns/columns-format-reference-list.png)*
+<span class="screenshot-large">*![columns-format-reference-list](images/columns/columns-format-reference-list.png)*</span>
 {: .screenshot-half }
-
 
 ## Attachment columns
 
@@ -312,7 +317,7 @@ This column type lets you insert entire files and images in cells.
 When images are added in cells, a preview thumbnail is shown in the
 cell.  The "Size" bar gives control of the scale of this thumbnail.
 
-*![Format attachment](images/columns/columns-format-attachment.png)*
+<span class="screenshot-large">*![columns-format-attachment](images/columns/columns-format-attachment.png)*</span>
 {: .screenshot-half }
 
 When you create an attachment column, cells of that column will
