@@ -42,7 +42,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 ### Why do I have multiple sites?
 
-All Grist users have access to a free personal account. The personal site is always named beginning with @ and is always located at [docs.getgrist.com](https://docs.getgrist.com/). This account may have up to 10 documents. Each one of those documents may be shared with up to two collaborators for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
+All Grist users have access to a free personal account. The personal site is always named beginning with @ and is always located at [docs.getgrist.com](https://docs.getgrist.com/). This account may have up to 10 documents. Each one of those documents may be shared with up to two guests for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
 
 Documents shared with you will be shown in your personal site and do not count against the 10 document limit.
 
