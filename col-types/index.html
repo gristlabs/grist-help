@@ -944,10 +944,10 @@
 <p>Every Grist table, when first created, has three columns called A, B, and C.
 To rename a column, hover on the column header, click on the drop-down, then
 select &ldquo;Rename column&rdquo; (you can also just click on the column header twice).</p>
-<p><img alt="Column rename" src="../images/columns/columns-rename-column.png" /></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-rename-column" src="../images/columns/columns-rename-column.png" /></em></span></p>
 <p>To delete a column, hover on the column header, click on the drop-down, then
 select &ldquo;Delete column&rdquo;.</p>
-<p><img alt="Delete column" src="../images/columns/columns-delete-column.png" /></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-delete-column" src="../images/columns/columns-delete-column.png" /></em></span></p>
 <p>To add a column, click on the &ldquo;+&rdquo; symbol in the header row, then type in
 the column name.</p>
 <p class="screenshot-half"><em><img alt="Add column" src="../images/columns/columns-add-column.png" /></em></p>
@@ -956,7 +956,7 @@ by clicking on the column header.  Next, click and hold on the column header.
 After a second or two, you&rsquo;ll be able to drag the entire column to its new
 location.</p>
 <p>Another way to reorder columns is via the widget options:</p>
-<p><img alt="Widget options" src="../images/columns/columns-widget-options.png" /></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-widget-options" src="../images/columns/columns-widget-options.png" /></em></span></p>
 <p>In the visible columns section, the columns can be dragged around freely to
 reorder them.  You can also hide columns here.</p>
 <p class="screenshot-half"><em><img alt="Visible columns" src="../images/columns/columns-visible-columns.png" /></em></p>
@@ -984,15 +984,15 @@ that doesn&rsquo;t look like a number, the column will be changed to <code>Text<
 by default.</p>
 <p>To inspect the type of a column, hover over the column header, then click on the drop-down,
 then select &ldquo;Column Options&rdquo;.  The &ldquo;Column Type&rdquo; section is what you are looking for.</p>
-<p><img alt="Sidebar &gt; Column options &gt; Type" src="../images/columns/columns-column-options.png" /></p>
+<p><em><img alt="columns-column-options" src="../images/columns/columns-column-options.png" /></em></p>
 <p>You will often want to control the column type manually.  You can change it in the &ldquo;Column Type&rdquo;
 section.  For example, here we set a column full of &ldquo;yes&rdquo; and &ldquo;no&rdquo; responses to be of type
 <code>Toggle</code>:</p>
-<p><img alt="Sidebar &gt; Column options &gt; Toggle" src="../images/columns/columns-toggle.png" /></p>
+<p><em><img alt="columns-toggle" src="../images/columns/columns-toggle.png" /></em></p>
 <p>One advantage of doing so is that Grist can now offer you ways to visualize the column that
 are specialized to on/off style values.  Each column type has different options in the
 &ldquo;Cell Format&rdquo; section of the side panel:</p>
-<p><img alt="Sidebar &gt; Column options &gt; Toggle appearance" src="../images/columns/columns-toggle-appearance.png" /></p>
+<p><em><img alt="columns-toggle-appearance" src="../images/columns/columns-toggle-appearance.png" /></em></p>
 <p>Regardless of the column type, you can enter <strong>any value</strong> in cells. If a value entered is
 incompatible with the defined type, the cell will be highlighted with an error (and columns
 referencing the invalid value will also display an error):</p>
@@ -1062,7 +1062,7 @@ referencing the invalid value will also display an error):</p>
 you can control alignment and word-wrap, text color and background color.</p>
 <p>If the column is used for storing web links, you can turn on &ldquo;HyperLink&rdquo;
 formatting to make links prettier and to include a clickable link icon.</p>
-<p class="screenshot-half"><em><img alt="Format text" src="../images/columns/columns-format-text.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-text" src="../images/columns/columns-format-text.png" /></em></span></p>
 <h3 id="hyperlinks">Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permanent link">#</a></h3>
 <p>When a Text column uses &ldquo;HyperLink&rdquo; formatting, values get formatted like so:</p>
 <ul>
@@ -1079,7 +1079,7 @@ formatting to make links prettier and to include a clickable link icon.</p>
 <p>This type is for numbers, including floating-point numbers. In addition to controlling alignment
 and color, you can choose the number format, and the minimum and maximum number of digits to
 show after the decimal point.</p>
-<p class="screenshot-half"><em><img alt="Format numeric" src="../images/columns/columns-format-numeric.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-numeric" src="../images/columns/columns-format-numeric.png" /></em></span></p>
 <p>Choosing the &ldquo;Spinner&rdquo; option for CELL FORMAT will show arrows in each cell for
 increasing/decreasing the number.</p>
 <p>The options under NUMBER FORMAT include:</p>
@@ -1087,7 +1087,10 @@ increasing/decreasing the number.</p>
 <li><code>$</code>: Format for currency amounts, such as dollars or euro. Selecting the <code>$</code> will add a currency prefix, thousands separators, and default to 2 digits after the decimal point. It will also open a currency selector for international currencies.</li>
 </ul>
 <p class="screenshot-half"><em><img alt="Format numeric" src="../images/columns/columns-format-currency.png" /></em></p>
-<p>Tip: You can set a document&rsquo;s default timezone, locale, and currency in Document Settings.</p>
+<div class="admonition note">
+<p class="admonition-title">Setting Default Currency</p>
+<p>You can set a document&rsquo;s default timezone, locale, and currency in <a href="../creating-doc/#document-settings">Document Settings</a>.</p>
+</div>
 <ul>
 <li><code>,</code>: Turn on the display of thousands separators.</li>
 <li><code>%</code>: Show numbers as percentages. E.g. &ldquo;0.5&rdquo; would show as &ldquo;50%&rdquo;.</li>
@@ -1108,16 +1111,17 @@ as text, checkboxes, or switches.</p>
 <p>This type is for storing calendar dates (without a time of day component).
 More details in <a href="../dates/">Working with dates</a>.  You can choose the
 format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format/">date formatting reference</a>.</p>
-<p class="screenshot-half"><em><img alt="Format date" src="../images/columns/columns-format-date.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-date" src="../images/columns/columns-format-date.png" /></em></span></p>
 <h2 id="datetime-columns">DateTime columns<a class="headerlink" href="#datetime-columns" title="Permanent link">#</a></h2>
 <p>This type is for storing calendar dates plus time of day.
 More details in <a href="../dates/">Working with dates</a>.  You can choose the
-format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format/">date and time formatting reference</a>.  You can also specify the timezone to display for.</p>
-<p class="screenshot-half"><em><img alt="Format date" src="../images/columns/columns-format-datetime.png" /></em></p>
+format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format/">date and time formatting reference</a>.  You can also specify the timezone to display for. </p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-datetime" src="../images/columns/columns-format-datetime.png" /></em></span></p>
+<p>If you&rsquo;d like to set a default timezone for your document, you can do so in <a href="../creating-doc/#document-settings">Document Settings</a>.</p>
 <h2 id="choice-columns">Choice columns<a class="headerlink" href="#choice-columns" title="Permanent link">#</a></h2>
 <p>This type is for storing one of a set of valid values, where you get to
 specify the available values.</p>
-<p class="screenshot-half"><em><img alt="Format choice" src="../images/columns/columns-format-choice.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-choice" src="../images/columns/columns-format-choice.png" /></em></span></p>
 <p>There&rsquo;s an example of using this type of column in
 the <a href="../lightweight-crm/#setting-other-types">Lightweight CRM example</a>.</p>
 <p>If you start off with a populated text column, Grist will take all unique
@@ -1156,11 +1160,11 @@ in an autocomplete menu. You can either click on a choice, or use the arrow keys
 and <code>Enter</code> to add a choice to a cell. If your input is not one of the
 valid choices, Grist will display a menu option for conveniently adding it as a
 valid choice and into the cell in one step.</p>
-<p class="screenshot-half"><em><img alt="Format choice" src="../images/columns/columns-cell-choice.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-cell-choice" src="../images/columns/columns-cell-choice.png" /></em></span></p>
 <h2 id="choice-list-columns">Choice List columns<a class="headerlink" href="#choice-list-columns" title="Permanent link">#</a></h2>
 <p>This type is for storing multiple values from a set of valid values, where you
 get to specify the available values.</p>
-<p class="screenshot-half"><em><img alt="Format choice" src="../images/columns/columns-format-choice-list.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-choice-list" src="../images/columns/columns-format-choice-list.png" /></em></span></p>
 <p>If you start off with a populated text column, Grist will take all unique
 values from that column as the valid choices.</p>
 <p>Choice List columns are configured the same way <a href="#choice-columns">Choice</a> columns are, and
@@ -1181,18 +1185,18 @@ when hovering your cursor over a choice.</p>
 table to reference, and a column within that table to show.
 There&rsquo;s a lot you can do with this kind of column, see <a href="../col-refs/">Reference columns</a> for
 details.</p>
-<p class="screenshot-half"><em><img alt="Format reference" src="../images/columns/columns-format-reference.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-reference" src="../images/columns/columns-format-reference.png" /></em></span></p>
 <h2 id="reference-list-columns">Reference List columns<a class="headerlink" href="#reference-list-columns" title="Permanent link">#</a></h2>
 <p>Like <a href="#reference-columns">Reference columns</a>, but can store multiple
 references in a single cell.
 There&rsquo;s a lot you can do with this kind of column, see
 <a href="../col-refs/#creating-a-new-reference-list-column">Reference columns</a> for details.</p>
-<p class="screenshot-half"><em><img alt="Format reference" src="../images/columns/columns-format-reference-list.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-reference-list" src="../images/columns/columns-format-reference-list.png" /></em></span></p>
 <h2 id="attachment-columns">Attachment columns<a class="headerlink" href="#attachment-columns" title="Permanent link">#</a></h2>
 <p>This column type lets you insert entire files and images in cells.
 When images are added in cells, a preview thumbnail is shown in the
 cell.  The &ldquo;Size&rdquo; bar gives control of the scale of this thumbnail.</p>
-<p class="screenshot-half"><em><img alt="Format attachment" src="../images/columns/columns-format-attachment.png" /></em></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-attachment" src="../images/columns/columns-format-attachment.png" /></em></span></p>
 <p>When you create an attachment column, cells of that column will
 have a paperclip icon:</p>
 <p><img alt="Attachment paperclip" src="../images/columns/columns-attachment-column.png" /></p>
