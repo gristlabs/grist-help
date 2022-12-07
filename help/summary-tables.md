@@ -218,6 +218,9 @@ words, if a never-before-seen position (perhaps "Chief Troublemaker") appears in
 data, a summary table would update automatically to include it, but a detached table will not.
 
 !!! note "Use a detached Summary Table to create a table of unique values"
-    Create a summary table grouped by the column(s) that you wish to create a unique list of. Then, detach it. Now you have a table of unique values!
-
+    1. Create a summary table grouped by the column(s) that you wish to create a unique list of. 
     If you select multiple columns under 'Group By', the values across all selected columns create a single unique value.
+    
+    2. Detach the Summary Table. Now you have a table of unique values!
+
+    For a video walkthrough, check out [Back to Basics: Migrating from spreadsheet to Grist](https://www.youtube.com/watch?v=-mNh2P_Wa6c&t=2311s){:target="\_blank"}.
