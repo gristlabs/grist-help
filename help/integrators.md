@@ -8,6 +8,7 @@ include:
 - [Pabbly Connect](https://www.pabbly.com/connect/integrations/grist/)
 - [KonnectzIT](https://plan.konnectzit.com/feedback/grist-integration)
 - [n8n](https://n8n.io/integrations/n8n-nodes-base.grist)
+- [Make](https://www.make.com/en/integrations/grist) - Formerly Integromat
 
 ## Configuring Integrators
 
