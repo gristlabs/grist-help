@@ -145,14 +145,12 @@ filter settings. For example, you could have one page showing event attendees wi
 
 ### Pinning Filters
 
-Filters can be pinned at the top of a table for quick filtering. By default, filters will be pinned when first applied to a table. To unpin a filter, click the filter button then click the pin icon. When pinned, the pin icon will be green. When unpinned, the pin icon will be grey. If you unpin a filter button, any saved filters will still be applied but the button will no longer be visible.
+Filters can be pinned at the top of a table for quick filtering. By default, filters will be pinned when first applied to a table. To unpin a filter, click the filter button then click the pin icon. If you unpin a filter button, any saved filters will still be applied but the button will no longer be visible.
 
 <span class="screenshot-large">*![pinning-filters](images/search-sort-filter/pinning-filters.png)*</span>
 {: .screenshot-half } 
 
-If you want to save your pinned filters for future sessions, click the save button next to the “Search & Filter” icon.
-
-The value in saving pinned filters with no filters applied is the ability to do quick filters and lookups without saving that filter forever, or for the rest of your team to see. So it may be useful to save the buttons without any filtering to create a quick filter toolbar.
+It may be useful to save the buttons without any filtering to create a quick filter toolbar.
 
 If you do save settings with filters applied, that saves it for future sessions and other team members will see the same thing.
 
