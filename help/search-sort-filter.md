@@ -121,8 +121,8 @@ dialog listing the values in the column:
 <span class="screenshot-large">*![Filter Menu](images/search-sort-filter/filter-menu.png)*</span>
 {: .screenshot-half }
 
-Uncheck the values you don't want to see, or click "Select none" and then check only the values
-you do want to see. The magnifying glass icon in the corner of the dialog lets you find values of
+Uncheck the values you don't want to see, or click "None" and then check only the values
+you do want to see. The search bar at the top of the dialog lets you find values of
 interest if the list is long.
 
 Click "Apply" to apply your setting.
@@ -143,37 +143,19 @@ As with sorting, you can create different widgets or pages showing the same tabl
 filter settings. For example, you could have one page showing event attendees with status
 "Confirmed" and another one showing those with status "Pending".
 
-### Filter Buttons
+### Pinning Filters
 
-Another way to apply filtering is through Filter Buttons. To use Filter Buttons, turn on the Filter Bar. 
-Click the “Sort & Filter” icon on the top-right of the table then select “Toggle Filter Bar”.
+Filters can be pinned at the top of a table for quick filtering. By default, filters will be pinned when first applied to a table. To unpin a filter, click the filter button then click the pin icon. If you unpin a filter button, any saved filters will still be applied but the button will no longer be visible.
 
-<span class="screenshot-large">*![Toggle Filter Bar](images/search-sort-filter/toggle-filter-bar.png)*</span>
-{: .screenshot-half }
+<span class="screenshot-large">*![pinning-filters](images/search-sort-filter/pinning-filters.png)*</span>
+{: .screenshot-half } 
 
-A grey “+ Add Filter” button will appear at the top-left of the table. When you select this button, 
-a list of your columns will appear. 
+It may be useful to save the buttons without any filtering to create a quick filter toolbar.
 
-<span class="screenshot-large">*![Filter Button Selection](images/search-sort-filter/filter-button-selection.png)*</span>
-
-Filtering from the filter bar works exactly like the filtering described above. Note that there is a search bar at the top 
-that allows you to easily find values in longer lists.
-
-Click “Apply” to apply your settings.  
-
-If you want to save your filters for future sessions, click the green checkmark next to the “Search & Filter” icon to save.
-
-The value in <em>not</em> saving settings is the ability to do quick filters and lookups without saving that filter forever, or for 
-the rest of your team to see. So it may be useful to save the buttons without any filtering to create a quick filter toolbar.
-
-If you <em>do</em> save settings with filters applied, that saves it for future sessions and other team members will see the same thing.
+If you do save settings with filters applied, that saves it for future sessions and other team members will see the same thing.
 
 <span class="screenshot-large">*![Filter Button Filter Selection](images/search-sort-filter/filter-button-filter-selection.png)*</span>
-
-With the Filter Bar on, you have buttons that you can use to more easily see and update your filters. If you toggle the Filter Bar to off, 
-any saved filters will still be applied but the buttons will no longer be visible.
-
-<span class="screenshot-large">*![Filter Button Filtered](images/search-sort-filter/filter-button-filtered.png)*</span>
+{: .screenshot-half } 
 
 ### Complex Filters
 
