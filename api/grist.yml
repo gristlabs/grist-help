@@ -1389,7 +1389,7 @@ components:
           description: "Use \"true\" to indicate that the column label should not be used as the column identifier. Use \"false\" to use the label as the identifier."
         recalcWhen:
           type: integer
-          description: "A number indicating when the column should be recalculated. <ol><li>On new records or when any field in recalcDeps changes, it's a 'data-cleaning'.</li><li>Never.</li><li>Calculate on new records and on manual updates to any data field.</li></ol>"
+          description: "A number indicating when the column should be recalculated. <ol start='0'><li>On new records or when any field in recalcDeps changes, it's a 'data-cleaning'.</li><li>Never.</li><li>Calculate on new records and on manual updates to any data field.</li></ol>"
         visibleCol:
           type: integer
           description: "For Ref and RefList columns, the colRef of a column to display"
