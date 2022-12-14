@@ -827,7 +827,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateColumns"
+              $ref: "#/components/schemas/CreateColumns"              
         required: true
       responses:
         200:
@@ -1272,7 +1272,7 @@ components:
                 type: string
                 example: ColumnName
               fields:
-                $ref: "#/components/schemas/FieldsWithRef"
+                $ref: "#/components/schemas/GetFields"
       example:
         columns:
           - id: pet
@@ -1296,7 +1296,7 @@ components:
                 type: string
                 description: Column identifier
               fields:
-                $ref: "#/components/schemas/Fields"
+                $ref: "#/components/schemas/CreateFields"
       example:
         columns:
           - id: pet
@@ -1306,6 +1306,19 @@ components:
             fields:
               label: "Popularity ❤"
               type: Int
+          - id: Order
+            fields:
+              type: Ref:Orders
+              visibleCol: 2
+          - id: Formula
+            fields:
+              type: Int
+              formula: $A + $B
+              isFormula: true
+          - id: Status
+            fields:
+              type: Choice
+              widgetOptions: "{\"choices\":[\"New\",\"Old\"],\"choiceOptions\":{\"New\":{\"fillColor\":\"#FF0000\",\"textColor\":\"#FFFFFF\"}}}"
     PatchColumns:
       type: object
       required:
@@ -1323,7 +1336,7 @@ components:
                 type: string
                 description: Column identifier
               fields:
-                $ref: "#/components/schemas/Fields"
+                $ref: "#/components/schemas/CreateFields"
       example:
         columns:
           - id: pet
@@ -1377,17 +1390,27 @@ components:
         recalcWhen:
           type: integer
           description: "A number indicating when the column should be recalculated. <ol><li>On new records or when any field in recalcDeps changes, it's a 'data-cleaning'.</li><li>Never.</li><li>Calculate on new records and on manual updates to any data field.</li></ol>"
-        recalcDeps:
-          type: string
-          description: "An encoded array of column identifiers (colRefs) that this column depends on. If any of these columns change, the column will be recalculated. E.g.: <code>[2, 3]</code>"
         visibleCol:
           type: integer
           description: "For Ref and RefList columns, the colRef of a column to display"
-    FieldsWithRef:
+    CreateFields:
       allOf:
         - $ref: '#/components/schemas/Fields'
         - type: object
           properties:
+            recalcDeps:
+              type: string
+              description: "An encoded array of column identifiers (colRefs) that this column depends on. If any of these columns change, the column will be recalculated. E.g.: <code>[2, 3]</code>"
+    GetFields:
+      allOf:
+        - $ref: '#/components/schemas/Fields'
+        - type: object
+          properties:
+            recalcDeps:
+              type: array
+              items:
+                type: integer
+              description: "An array of column identifiers (colRefs) that this column depends on, prefixed with \"L\" constant. If any of these columns change, the column will be recalculated. E.g.: <code>[\"L\", 2, 3]</code>"
             colRef:
               type: integer
               description: "Column reference, e.g.: <code>2</code>"
