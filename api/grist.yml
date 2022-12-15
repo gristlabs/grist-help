@@ -827,7 +827,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateColumns"
+              $ref: "#/components/schemas/CreateColumns"              
         required: true
       responses:
         200:
@@ -848,7 +848,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Columns"
+              $ref: "#/components/schemas/PatchColumns"
         required: true
       responses:
         200:
@@ -1262,6 +1262,65 @@ components:
 
     Columns:
       type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: ColumnName
+              fields:
+                $ref: "#/components/schemas/GetFields"
+      example:
+        columns:
+          - id: pet
+            fields:
+              label: "Pet"
+          - id: popularity
+            fields:
+              label: "Popularity ❤"
+              type: "Int"
+    CreateColumns:
+      type: object
+      required:
+        - columns
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Column identifier
+              fields:
+                $ref: "#/components/schemas/CreateFields"
+      example:
+        columns:
+          - id: pet
+            fields:
+              label: "Pet"
+          - id: popularity
+            fields:
+              label: "Popularity ❤"
+              type: Int
+          - id: Order
+            fields:
+              type: Ref:Orders
+              visibleCol: 2
+          - id: Formula
+            fields:
+              type: Int
+              formula: $A + $B
+              isFormula: true
+          - id: Status
+            fields:
+              type: Choice
+              widgetOptions: "{\"choices\":[\"New\",\"Old\"],\"choiceOptions\":{\"New\":{\"fillColor\":\"#FF0000\",\"textColor\":\"#FFFFFF\"}}}"
+    PatchColumns:
+      type: object
       required:
         - columns
       properties:
@@ -1275,9 +1334,9 @@ components:
             properties:
               id:
                 type: string
-                example: ColumnName
+                description: Column identifier
               fields:
-                type: object
+                $ref: "#/components/schemas/CreateFields"
       example:
         columns:
           - id: pet
@@ -1286,29 +1345,7 @@ components:
           - id: popularity
             fields:
               label: "Popularity ❤"
-    CreateColumns:
-      type: object
-      required:
-        - columns
-      properties:
-        columns:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                example: ColumnName
-              fields:
-                type: object
-      example:
-        columns:
-          - id: pet
-            fields:
-              label: "Pet"
-          - id: popularity
-            fields:
-              label: "Popularity ❤"
+              type: Int
     ColumnsWithoutFields:
       type: object
       required:
@@ -1328,7 +1365,55 @@ components:
         columns:
           - id: pet
           - id: popularity
-
+    Fields:
+      type: object
+      properties:
+        type:
+          type: string
+          description: "Column type, by default Any. Ref, RefList and DateTime types requires a postfix, e.g. <code>DateTime:America/New_York</code>, <code>Ref:Users</code>"
+          enum: [Any, Text, Numeric, Int, Bool, Date, DateTime:<timezone>, Choice, ChoiceList, Ref:<tableId>, RefList:<tableId>, Attachments]
+        label:
+          type: string
+          description: Column label.
+        formula:
+          type: string
+          description: "A python formula, e.g.: <code>$A + Table1.lookupOne(B=$B)</code>"
+        isFormula:
+          type: boolean
+          description: Use "true" to indicate that the column is a formula column. Use "false" for trigger formula column.
+        widgetOptions:
+          type: string
+          description: "A JSON object with widget options, e.g.: <code>{\"choices\": [\"cat\", \"dog\"], \"alignment\": \"right\"}</code>"
+        untieColIdFromLabel:
+          type: boolean
+          description: "Use \"true\" to indicate that the column label should not be used as the column identifier. Use \"false\" to use the label as the identifier."
+        recalcWhen:
+          type: integer
+          description: "A number indicating when the column should be recalculated. <ol start='0'><li>On new records or when any field in recalcDeps changes, it's a 'data-cleaning'.</li><li>Never.</li><li>Calculate on new records and on manual updates to any data field.</li></ol>"
+        visibleCol:
+          type: integer
+          description: "For Ref and RefList columns, the colRef of a column to display"
+    CreateFields:
+      allOf:
+        - $ref: '#/components/schemas/Fields'
+        - type: object
+          properties:
+            recalcDeps:
+              type: string
+              description: "An encoded array of column identifiers (colRefs) that this column depends on. If any of these columns change, the column will be recalculated. E.g.: <code>[2, 3]</code>"
+    GetFields:
+      allOf:
+        - $ref: '#/components/schemas/Fields'
+        - type: object
+          properties:
+            recalcDeps:
+              type: array
+              items:
+                type: integer
+              description: "An array of column identifiers (colRefs) that this column depends on, prefixed with \"L\" constant. If any of these columns change, the column will be recalculated. E.g.: <code>[\"L\", 2, 3]</code>"
+            colRef:
+              type: integer
+              description: "Column reference, e.g.: <code>2</code>"
     RowIds:
       type: array
       example: [101, 102, 103]
