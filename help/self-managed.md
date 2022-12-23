@@ -94,6 +94,7 @@ take at least the following steps:
 	We support some very 
     [general authentication methods](self-managed.md#how-do-i-set-up-authentication) that cover many cases,
 	and a [special authentication method](self-managed.md#are-there-other-authentication-methods) for custom cases.
+  * Consider enabling [snapshot support](self-managed.md#how-do-i-set-up-snapshots) if you want Grist to handle document backups.
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
@@ -499,7 +500,7 @@ that directory would be `~/grist`. Here's what you would find there:
    Grist (such as our hosted service) and view/edit them there.
    If you move or rename these files, Grist will no longer recognize
    them.
-   If [cloud storage](self-managed.md#how-do-i-set-up-s3-or-azure-backups)
+   If [snapshot support](self-managed.md#how-do-i-set-up-snapshots)
    is configured, there will be extra files alongside each `.grist` file
    for tracking its storage state.
 
@@ -546,7 +547,7 @@ contact us if this is a blocker for you and we'll prioritize generalizing this).
 
 Grist can be configured to use Redis as an external state cache. For
 most Grist functionality, this is optional. It is required for webhook
-support. To use, just set `REDIS_URL` to something like
+support, and recommended for snapshot support. To use, just set `REDIS_URL` to something like
 `redis://hostname/N` where `N` is a redis database number.
 
 ```
@@ -556,34 +557,56 @@ docker run
   ...
 ```
 
-### How do I set up S3 or Azure backups? {: .tag-ee }
+### How do I set up snapshots? {: .tag-core .tag-ee }
 
 Grist's cloud storage feature allows automatic syncing of Grist
-documents and document versions to an S3 or Azure storage account. This
-feature is not currently available in Grist Core.
+documents and document versions to an S3-compatible bucket
+(available for all Grist versions) or to Azure storage (in Enterprise Grist).
 
-For Azure, you will need a setting like:
+Here is an example of running Grist locally, with snapshots stored
+in a test MinIO instance:
 
+```sh
+# Make a network
+docker network create grist
+
+# Start Redis in our network (recommended for snapshots)
+docker run --rm --network grist --name redis redis
+
+# Start MinIO in our network
+docker run --rm --network grist --name minio \
+  -v /tmp/minio:/data \
+  -p 9000:9000 -p 9001:9001 \
+  -e MINIO_ROOT_USER=grist -e MINIO_ROOT_PASSWORD=admingrist \
+   -it minio/minio server /data -console-address ":9001"
+
+# Visit http://localhost:9000 and set up a bucket called grist-docs.
+# Make sure to enable versioning on the bucket.
+
+# Hook Grist up to Redis and MinIO
+docker run --rm --network grist \
+  -e GRIST_DOCS_MINIO_ACCESS_KEY=grist \
+  -e GRIST_DOCS_MINIO_SECRET_KEY=admingrist \
+  -e GRIST_DOCS_MINIO_USE_SSL=0 \
+  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
+  -e GRIST_DOCS_MINIO_ENDPOINT=minio \
+  -e GRIST_DOCS_MINIO_PORT=9000 \
+  -e REDIS_URL=redis://redis \
+  -v /tmp/grist:/persist -p 8484:8484 -it gristlabs/grist
 ```
-docker run
+
+Here are flags to make Grist talk to an AWS S3 bucket using the MinIO
+client:
+```
   ...
-  -e AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=..." \
-  -e GRIST_AZURE_CONTAINER=my-grist-docs \
-  -e GRIST_AZURE_PREFIX=v1/ \
+  -e GRIST_DOCS_MINIO_ACCESS_KEY=$AWS_ACCESS_KEY_ID \
+  -e GRIST_DOCS_MINIO_SECRET_KEY=$AWS_SECRET_ACCESS_KEY \
+  -e GRIST_DOCS_MINIO_ENDPOINT=s3.amazonaws.com \
+  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
   ...
 ```
 
-For S3, you will need something like:
-
-```
-docker run
-  ...
-  -e GRIST_DOCS_S3_BUCKET=my-grist-docs \
-  -e GRIST_DOCS_S3_PREFIX=v1/ \
-  ...
-```
-
-For details, see [Cloud Storage](install/cloud-storage.md).
+For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
