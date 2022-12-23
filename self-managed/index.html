@@ -908,7 +908,7 @@
 <li><a href="#what-files-does-grist-store">What files does Grist store?</a></li>
 <li><a href="#what-is-a-home-database">What is a &ldquo;home&rdquo; database?</a></li>
 <li><a href="#what-is-a-state-store">What is a state store?</a></li>
-<li><a href="#how-do-i-set-up-s3-or-azure-backups">How do I set up S3 or Azure backups?</a></li>
+<li><a href="#how-do-i-set-up-snapshots">How do I set up snapshots?</a></li>
 <li><a href="#how-do-i-upgrade-my-installation">How do I upgrade my installation?</a></li>
 <li><a href="#what-if-i-need-high-availability">What if I need high availability?</a></li>
 </ul>
@@ -994,6 +994,7 @@ take at least the following steps:</p>
     We support some very 
     <a href="./#how-do-i-set-up-authentication">general authentication methods</a> that cover many cases,
     and a <a href="./#are-there-other-authentication-methods">special authentication method</a> for custom cases.</li>
+<li>Consider enabling <a href="./#how-do-i-set-up-snapshots">snapshot support</a> if you want Grist to handle document backups.</li>
 </ul>
 <h3 class="tag-core tag-ee" id="how-do-i-sandbox-documents">How do I sandbox documents?<a class="headerlink" href="#how-do-i-sandbox-documents" title="Permanent link">#</a></h3>
 <p>Grist allows for very powerful formulas, using Python.  We recommend
@@ -1337,7 +1338,7 @@ that directory would be <code>~/grist</code>. Here&rsquo;s what you would find t
    Grist (such as our hosted service) and view/edit them there.
    If you move or rename these files, Grist will no longer recognize
    them.
-   If <a href="./#how-do-i-set-up-s3-or-azure-backups">cloud storage</a>
+   If <a href="./#how-do-i-set-up-snapshots">snapshot support</a>
    is configured, there will be extra files alongside each <code>.grist</code> file
    for tracking its storage state.</p>
 </li>
@@ -1386,7 +1387,7 @@ contact us if this is a blocker for you and we&rsquo;ll prioritize generalizing 
 <h3 class="tag-core tag-ee" id="what-is-a-state-store">What is a state store?<a class="headerlink" href="#what-is-a-state-store" title="Permanent link">#</a></h3>
 <p>Grist can be configured to use Redis as an external state cache. For
 most Grist functionality, this is optional. It is required for webhook
-support. To use, just set <code>REDIS_URL</code> to something like
+support, and recommended for snapshot support. To use, just set <code>REDIS_URL</code> to something like
 <code>redis://hostname/N</code> where <code>N</code> is a redis database number.</p>
 <pre><code>docker run
   ...
@@ -1394,28 +1395,51 @@ support. To use, just set <code>REDIS_URL</code> to something like
   ...
 </code></pre>
 
-<h3 class="tag-ee" id="how-do-i-set-up-s3-or-azure-backups">How do I set up S3 or Azure backups?<a class="headerlink" href="#how-do-i-set-up-s3-or-azure-backups" title="Permanent link">#</a></h3>
+<h3 class="tag-core tag-ee" id="how-do-i-set-up-snapshots">How do I set up snapshots?<a class="headerlink" href="#how-do-i-set-up-snapshots" title="Permanent link">#</a></h3>
 <p>Grist&rsquo;s cloud storage feature allows automatic syncing of Grist
-documents and document versions to an S3 or Azure storage account. This
-feature is not currently available in Grist Core.</p>
-<p>For Azure, you will need a setting like:</p>
-<pre><code>docker run
-  ...
-  -e AZURE_STORAGE_CONNECTION_STRING=&quot;DefaultEndpointsProtocol=https;AccountName=...&quot; \
-  -e GRIST_AZURE_CONTAINER=my-grist-docs \
-  -e GRIST_AZURE_PREFIX=v1/ \
+documents and document versions to an S3-compatible bucket
+(available for all Grist versions) or to Azure storage (in Enterprise Grist).</p>
+<p>Here is an example of running Grist locally, with snapshots stored
+in a test MinIO instance:</p>
+<pre><code class="sh"># Make a network
+docker network create grist
+
+# Start Redis in our network (recommended for snapshots)
+docker run --rm --network grist --name redis redis
+
+# Start MinIO in our network
+docker run --rm --network grist --name minio \
+  -v /tmp/minio:/data \
+  -p 9000:9000 -p 9001:9001 \
+  -e MINIO_ROOT_USER=grist -e MINIO_ROOT_PASSWORD=admingrist \
+   -it minio/minio server /data -console-address &quot;:9001&quot;
+
+# Visit http://localhost:9000 and set up a bucket called grist-docs.
+# Make sure to enable versioning on the bucket.
+
+# Hook Grist up to Redis and MinIO
+docker run --rm --network grist \
+  -e GRIST_DOCS_MINIO_ACCESS_KEY=grist \
+  -e GRIST_DOCS_MINIO_SECRET_KEY=admingrist \
+  -e GRIST_DOCS_MINIO_USE_SSL=0 \
+  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
+  -e GRIST_DOCS_MINIO_ENDPOINT=minio \
+  -e GRIST_DOCS_MINIO_PORT=9000 \
+  -e REDIS_URL=redis://redis \
+  -v /tmp/grist:/persist -p 8484:8484 -it gristlabs/grist
+</code></pre>
+
+<p>Here are flags to make Grist talk to an AWS S3 bucket using the MinIO
+client:</p>
+<pre><code>  ...
+  -e GRIST_DOCS_MINIO_ACCESS_KEY=$AWS_ACCESS_KEY_ID \
+  -e GRIST_DOCS_MINIO_SECRET_KEY=$AWS_SECRET_ACCESS_KEY \
+  -e GRIST_DOCS_MINIO_ENDPOINT=s3.amazonaws.com \
+  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
   ...
 </code></pre>
 
-<p>For S3, you will need something like:</p>
-<pre><code>docker run
-  ...
-  -e GRIST_DOCS_S3_BUCKET=my-grist-docs \
-  -e GRIST_DOCS_S3_PREFIX=v1/ \
-  ...
-</code></pre>
-
-<p>For details, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
+<p>For details, and other options, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-upgrade-my-installation">How do I upgrade my installation?<a class="headerlink" href="#how-do-i-upgrade-my-installation" title="Permanent link">#</a></h3>
 <p>We currently release new Grist Core and Enterprise images at
 approximately weekly intervals. Grist handles any migrations that

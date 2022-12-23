@@ -8,11 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
       <meta name="description" content="This feature allows automatic syncing of Grist documents and document
-versions to an S3 or Azure storage account. It is not currently available
-in Grist Core.">
+versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
       <meta property="og:description" content="This feature allows automatic syncing of Grist documents and document
-versions to an S3 or Azure storage account. It is not currently available
-in Grist Core.">
+versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
     
     
     <link rel="canonical" href="https://support.getgrist.com/install/cloud-storage/">
@@ -554,6 +552,26 @@ in Grist Core.">
               Cloud Storage
             </a>
           </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#s3-compatible-stores-via-minio-client">
+                S3-compatible stores via MinIO client
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#azure">
+                Azure
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#s3-with-native-aws-client">
+                S3 with native AWS client
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#usage-once-configured">
+                Usage once configured
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -870,10 +888,28 @@ in Grist Core.">
 
     
 
-    <h1 class="tag-ee" id="cloud-storage">Cloud Storage<a class="headerlink" href="#cloud-storage" title="Permanent link">#</a></h1>
+    <h1 class="tag-core tag-ee" id="cloud-storage">Cloud Storage<a class="headerlink" href="#cloud-storage" title="Permanent link">#</a></h1>
 <p>This feature allows automatic syncing of Grist documents and document
-versions to an S3 or Azure storage account. It is not currently available
-in Grist Core.</p>
+versions to S3-compatible stores such as MinIO (or AWS S3 itself).</p>
+<p>Grist Enterprise has native support for Azure storage accounts, and
+for AWS S3 using AWS&rsquo;s official client.</p>
+<p>It is advisable to have <a href="../../self-managed/#what-is-a-state-store">Redis enabled</a> when using cloud storage, since this is the best-tested configuration.</p>
+<p>Enabling snapshotting results in a big change in how documents are stored, and is best done prior to creating documents. Back up your work before changing this configuration.</p>
+<h2 class="tag-core tag-ee" id="s3-compatible-stores-via-minio-client">S3-compatible stores via MinIO client<a class="headerlink" href="#s3-compatible-stores-via-minio-client" title="Permanent link">#</a></h2>
+<p>Turn this on by setting the following environment variables:</p>
+<ul>
+<li>Set <code>GRIST_DOCS_MINIO_ACCESS_KEY</code> and <code>GRIST_DOCS_MINIO_SECRET_KEY</code>.</li>
+<li>Set <code>GRIST_DOCS_MINIO_BUCKET</code> to the name of a versioned bucket you have created. It is important that the bucket have versioning enabled.</li>
+<li>Set <code>GRIST_DOCS_MINIO_ENDPOINT</code> to the appropriate hostname - no protocol, no port.</li>
+<li>(Optional) Set <code>GRIST_DOCS_MINIO_USE_SSL</code> to <code>1</code> to use <code>https</code> protocol (default) or <code>0</code> for <code>http</code>.</li>
+<li>(Optional) Set <code>GRIST_DOCS_MINIO_PORT</code> to the port to use, if the default for the protocol (80/443) isn&rsquo;t right.</li>
+</ul>
+<p>If using AWS S3, the endpoint to use is <code>s3.amazonaws.com</code>, and
+there&rsquo;s no need to set a port number or SSL flag. The access and
+secret keys are your <code>AWS_ACCESS_KEY_ID</code> and
+<code>AWS_SECRET_ACCESS_KEY</code>. Make sure to create a versioned bucket in
+advance.</p>
+<h2 class="tag-ee" id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">#</a></h2>
 <p>For Azure:</p>
 <ul>
 <li>Create a storage account in the Azure portal.</li>
@@ -883,17 +919,18 @@ in Grist Core.</p>
 <li>Set the name of an Azure storage container in an environment variable called <code>GRIST_AZURE_CONTAINER</code>. An example of a container name is <code>my-grist-docs</code>.</li>
 <li>Set a prefix such as <code>v1/</code> in an environment variable called <code>GRIST_AZURE_PREFIX</code>.</li>
 </ul>
+<h2 class="tag-ee" id="s3-with-native-aws-client">S3 with native AWS client<a class="headerlink" href="#s3-with-native-aws-client" title="Permanent link">#</a></h2>
 <p>For S3:</p>
 <ul>
 <li>Set the name of the S3 bucket in an environment variable called <code>GRIST_DOCS_S3_BUCKET</code>. An example of a bucket name is <code>my-grist-docs</code>.</li>
 <li>Set a prefix such as <code>v1/</code> in an environment variable called <code>GRIST_DOCS_S3_PREFIX</code>.</li>
+<li>Arrange for access using AWS&rsquo;s many options; if nothing else, you can set <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> variables.</li>
 </ul>
-<p>Once the Azure or S3 configuration is in place, start Grist as normal
+<h2 class="tag-core tag-ee" id="usage-once-configured">Usage once configured<a class="headerlink" href="#usage-once-configured" title="Permanent link">#</a></h2>
+<p>Once the external storage configuration is in place, start Grist as normal
 for self-managed Grist. Upon startup, there should be a line like:</p>
-<p><code>info: == grist.externalStorage.s3.url: s3://my-grist-docs/v1/</code></p>
-<p>or</p>
-<p><code>info: == grist.externalStorage.azure.url: azure://my-grist-docs/v1/</code></p>
-<p>All documents will be read from and saved to the corresponding S3 or
+<p><code>info: == grist.externalStorage.[s3|azure|minio].active: true</code></p>
+<p>All documents will be read from and saved to the corresponding S3 bucket or
 Azure container. Configuration is simplest on a fresh Grist install
 without any preexisting Grist documents.</p>
 <p>Once up and running, it is a good idea to configure the storage
