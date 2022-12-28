@@ -411,22 +411,14 @@ structure](#lock-down-structure) -- is an important first step in limiting data 
 
 When a user receives an error message denying them access because of a
 rule, it can be helpful to give specific details that will help them understand
-the problem.  You can do this by adding a comment in the condition formula.
-The first comment in a condition will be passed on to the user in the
-event of the condition leading to a denial of access (either by
-matching, or failing to match).  Comments are python-style,
-starting with a `#`.  They can come after the formula like this:
+the problem.  You can do this by adding a memo for the condition. First, click 
+the memo icon to the right of your condition.
 
-```py
-newRec.Count > 1  # No duplicates allowed
-```
+![Comment Icon](images/access-rules/access-rules-comment-icon.png)
 
-Or before it, like this:
+Type the error message you wish to display into the entry box. Be sure to save your changes.
 
-```py
-# Talk to Arjun to get full access
-user.Access == OWNER
-```
+![Comment Added](images/access-rules/access-rules-comment-added.png)
 
 As a full example, suppose we have a table listing airports, and we want to
 forbid entry of a new record with the same airport code as an existing
