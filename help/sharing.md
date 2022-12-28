@@ -77,6 +77,9 @@ data. Should anything go wrong, you may recover previous versions of your
 document in the snapshots section of
 [Document History.](./automatic-backups.md#examining-backups)
 
+!!! note "Sharing an Embedded Style View"
+    Adding `?embed=true` or `?style=light` to the end of a document's URL produces an embedded style of page. With `?embed=true`, it will also force the view to be read-only. To learn more about embedding, see [Embedding Grist](embedding.md)
+
 [Access rules](access-rules.md) may be combined with view-only link sharing, 
 i.e. when the Public Access role is set to "Viewer." Read more about 
 [Link Keys](access-rules.md#link-keys) to learn how to set rules that
