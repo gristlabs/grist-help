@@ -420,31 +420,7 @@ Type the error message you wish to display into the entry box. Be sure to save y
 
 ![Comment Added](images/access-rules/access-rules-comment-added.png)
 
-As a full example, suppose we have a table listing airports, and we want to
-forbid entry of a new record with the same airport code as an existing
-one.  In the table, we can add a formula `Count` that counts how many
-records have the same code as each other:
-
-![Airport table](images/access-rules/access-rules-dupe-setup.png)
-
-Now, we can add an access rule to forbid any record update or creation that would
-result in a `Count` above one.  We can also include a memo to explain the problem:
-
-![Duplicate rule](images/access-rules/access-rules-dupe-rule.png)
-
-Now if we try to add a new row with an existing code, we get a helpful error:
-
-![Duplicate error](images/access-rules/access-rules-dupe-forbidden.png)
-
-This example also shows that sometimes the condition for an access rule needs
-to be expressed in two parts: a user-independent formula in the table itself
-(which has access to full spreadsheet functionality but does not have
-access to the user's identity or attributes), and a user-dependent formula
-in the access rule page (which has access to the user's identity and attributes,
-but has limits to its structure).
-See [Access rule conditions](access-rules.md#access-rule-conditions) for details
-on the restrictions on condition formulas, and
-[Formulas](formulas.md) for details on regular full-powered formulas.
+For an explanation of how this particular Access Rule works, see [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md)
 
 ## Access rule examples
 
