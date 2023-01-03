@@ -188,8 +188,7 @@ column containing a sum, with a formula such as `SUM($group.funding_total_usd)`.
 
 ![15-summary-sum-formula](images/investment-research/15-summary-sum-formula.png)
 
-!!! tip ""
-    **Side note for Python fans.**
+!!! note "A note for Python fans"
     `$group` is a special Python object. It’s an iterable collection of records. Using an
     attribute like `$group.A` is a shorthand for the list of values in the `A` column of all the
     records in the group, i.e. it’s roughly equivalent to `[r.A for r in $group]`.
@@ -240,9 +239,7 @@ For a chart, you’ll always follow up by customizing it.
 
 Open the right panel, and select “Chart” tab / “Widget” subtab. 
 
-For this first chart, under “Chart type", select “Pie Chart”. To construct this chart, two series are required: 
-the first one will be used as labels, and the second as values.  Since we
-want the chart to show “category_code” as labels, select this series from the "Label" dropdown. We want to use “funding_total_usd” as values, so this should be listed at the top of the “series” list in the configuration panel. As you move your mouse
+For this first chart, under “Chart type", select “Pie Chart”. To construct this chart, first select a label, and then select a series to summarize in the pie chart.  Since we want the chart to show “category_code” as labels, select this series from the "Label" dropdown. We want to use “funding_total_usd” as values, so this should be listed at the top of the “series” list in the configuration panel. As you move your mouse
 over the items in that list, use the double vertical bars that show up to drag and drop a series at the top of the list. Alternatively, you can hide the other series from the list by clicking the trash icon.
 
 ![20-chart-vis-fields](images/investment-research/20-chart-vis-fields.png)
@@ -280,11 +277,7 @@ group by “funded_year”, click "Add Page".
 Let’s rename this new page “Breakdowns”.
 
 Next, add a widget to this page, selecting widget “Chart”, data “Investments”. For “Group By”,  we
-pick *two* columns: “Company_category_code” and “funded_year”.
-
-!!! tip ""
-    **Note:** This is why we added the “Company_category_code” column earlier. We can only group investment
-    records by the category code if we have this code for each investment.
+pick *two* columns: “Company_category_code” and “funded_year”. This is why we added the “Company_category_code” column earlier. We can only group investment records by the category code if we have this code for each investment.
 
 The “Select By” dropdown at the bottom left of the dialog box lists widgets already on the screen that
 can control the selection of data in the chart we are adding. In “Select By”, choose “INVESTMENTS
