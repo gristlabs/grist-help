@@ -58,3 +58,6 @@ Here are two more examples with a chart and a card list view:
 Embedding editable documents is not yet supported, but we are working on it
 and will make it available soon. You can track our progress on our 
 [Roadmap](https://github.com/gristlabs/grist-core/issues/66).
+
+!!! note "Sharing an Embedded Style View"
+    Adding `?embed=true` or `?style=light` to the end of a document's page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. `?style=light` can be edited and follows access rules, while `?embed=true` is read-only. To learn more about link sharing, see [Public access and link sharing](sharing.md#public-access-and-link-sharing)
