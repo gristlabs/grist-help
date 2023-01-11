@@ -420,6 +420,10 @@ Type the error message you wish to display into the entry box. Be sure to save y
 
 ![Comment Added](images/access-rules/access-rules-comment-added.png)
 
+When the rule blocks a user from performing an action, the memo will appear as a notification.
+
+![Duplicate error](images/access-rules/access-rules-dupe-forbidden.png)
+
 For an explanation of how this particular Access Rule works, see [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md)
 
 ## Access rule examples
