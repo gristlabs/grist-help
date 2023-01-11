@@ -134,8 +134,8 @@ rule to withhold `Address` and `Phone` columns from user `Charon`:
 
 ## View as another user
 
-A convenient way to check if access rules work as expected is with the `View
-As` feature, available in the `Users` dropdown.  This allows an Owner
+A convenient way to check if access rules work as expected is with the `View As` feature, 
+available in the `View As` dropdown.  This allows an Owner
 to open the document as if they were one of the people it is shared
 with, to see what their colleague would see.  The Owner does not
 "become" that colleague - any changes they make will be recorded as
@@ -144,15 +144,15 @@ document from the colleague's perspective.
 
 ![Access rules](images/access-rules/access-rules-view-as.png)
 
-In our example, we could click `View As` on the Kiwi row, and the
-document reopens, with a little red tag warning that we are viewing it
-as `kiwi@getgrist.com`.  The `Piece` and `Email` columns are missing,
+In our example, we could select Kiwi, and the
+document reopens, with a large banner stating that we are viewing it
+as Kiwi.  The `Piece` and `Email` columns are missing,
 and the `Financials` table is surpressed:
 
 ![Access rules](images/access-rules/access-rules-view-as-kiwi.png)
 
-When satisfied that everything looks as expected, we click the `x` in
-the red tag to close this preview, and the document will reload.
+When satisfied that everything looks as expected, we click the green `View as Yourself` 
+button to close this preview, and the document will reload.
 
 ## User attribute tables
 
