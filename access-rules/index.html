@@ -1044,21 +1044,21 @@ see a different set of columns, we can do that.  For example here we add a
 rule to withhold <code>Address</code> and <code>Phone</code> columns from user <code>Charon</code>:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-sourcing-single.png" /></p>
 <h2 id="view-as-another-user">View as another user<a class="headerlink" href="#view-as-another-user" title="Permanent link">#</a></h2>
-<p>A convenient way to check if access rules work as expected is with the <code>View
-As</code> feature, available in the <code>Users</code> dropdown.  This allows an Owner
+<p>A convenient way to check if access rules work as expected is with the <code>View As</code> feature, 
+available in the <code>View As</code> dropdown.  This allows an Owner
 to open the document as if they were one of the people it is shared
 with, to see what their colleague would see.  The Owner does not
 &ldquo;become&rdquo; that colleague - any changes they make will be recorded as
 coming from themselves and not the colleague - but they do see the
 document from the colleague&rsquo;s perspective.</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-view-as.png" /></p>
-<p>In our example, we could click <code>View As</code> on the Kiwi row, and the
-document reopens, with a little red tag warning that we are viewing it
-as <code>kiwi@getgrist.com</code>.  The <code>Piece</code> and <code>Email</code> columns are missing,
+<p>In our example, we could select Kiwi, and the
+document reopens, with a large banner stating that we are viewing it
+as Kiwi.  The <code>Piece</code> and <code>Email</code> columns are missing,
 and the <code>Financials</code> table is surpressed:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-view-as-kiwi.png" /></p>
-<p>When satisfied that everything looks as expected, we click the <code>x</code> in
-the red tag to close this preview, and the document will reload.</p>
+<p>When satisfied that everything looks as expected, we click the green <code>View as Yourself</code> 
+button to close this preview, and the document will reload.</p>
 <h2 id="user-attribute-tables">User attribute tables<a class="headerlink" href="#user-attribute-tables" title="Permanent link">#</a></h2>
 <p>If we are successful and hire many sourcing and delivery people,
 then adding them one by one to rules would be tedious.  One solution
@@ -1256,38 +1256,14 @@ structure</a> &ndash; is an important first step in limiting data access.</p>
 <h2 id="access-rule-memos">Access rule memos<a class="headerlink" href="#access-rule-memos" title="Permanent link">#</a></h2>
 <p>When a user receives an error message denying them access because of a
 rule, it can be helpful to give specific details that will help them understand
-the problem.  You can do this by adding a comment in the condition formula.
-The first comment in a condition will be passed on to the user in the
-event of the condition leading to a denial of access (either by
-matching, or failing to match).  Comments are python-style,
-starting with a <code>#</code>.  They can come after the formula like this:</p>
-<pre><code class="py">newRec.Count &gt; 1  # No duplicates allowed
-</code></pre>
-
-<p>Or before it, like this:</p>
-<pre><code class="py"># Talk to Arjun to get full access
-user.Access == OWNER
-</code></pre>
-
-<p>As a full example, suppose we have a table listing airports, and we want to
-forbid entry of a new record with the same airport code as an existing
-one.  In the table, we can add a formula <code>Count</code> that counts how many
-records have the same code as each other:</p>
-<p><img alt="Airport table" src="../images/access-rules/access-rules-dupe-setup.png" /></p>
-<p>Now, we can add an access rule to forbid any record update or creation that would
-result in a <code>Count</code> above one.  We can also include a memo to explain the problem:</p>
-<p><img alt="Duplicate rule" src="../images/access-rules/access-rules-dupe-rule.png" /></p>
-<p>Now if we try to add a new row with an existing code, we get a helpful error:</p>
+the problem.  You can do this by adding a memo for the condition. First, click 
+the memo icon to the right of your condition.</p>
+<p><img alt="Comment Icon" src="../images/access-rules/access-rules-comment-icon.png" /></p>
+<p>Type the error message you wish to display into the entry box. Be sure to save your changes.</p>
+<p><img alt="Comment Added" src="../images/access-rules/access-rules-comment-added.png" /></p>
+<p>When the rule blocks a user from performing an action, the memo will appear as a notification.</p>
 <p><img alt="Duplicate error" src="../images/access-rules/access-rules-dupe-forbidden.png" /></p>
-<p>This example also shows that sometimes the condition for an access rule needs
-to be expressed in two parts: a user-independent formula in the table itself
-(which has access to full spreadsheet functionality but does not have
-access to the user&rsquo;s identity or attributes), and a user-dependent formula
-in the access rule page (which has access to the user&rsquo;s identity and attributes,
-but has limits to its structure).
-See <a href="./#access-rule-conditions">Access rule conditions</a> for details
-on the restrictions on condition formulas, and
-<a href="../formulas/">Formulas</a> for details on regular full-powered formulas.</p>
+<p>For an explanation of how this particular Access Rule works, see <a href="../examples/2023-01-acl-memo/">Access Rules to Restrict Duplicate Records</a></p>
 <h2 id="access-rule-examples">Access rule examples<a class="headerlink" href="#access-rule-examples" title="Permanent link">#</a></h2>
 <p>Along with the extended example of using access rules in this section, we will
 collect complete examples of access rule templates and guides here.</p>

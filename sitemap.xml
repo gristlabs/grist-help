@@ -501,6 +501,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://support.getgrist.com/examples/2023-01-acl-memo/</loc>
+         <lastmod>2023-01-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://support.getgrist.com/install/cloud-storage/</loc>
          <lastmod>2023-01-17</lastmod>
          <changefreq>daily</changefreq>
