@@ -1,12 +1,6 @@
 Access rules
 ==============
 
-!!! warning "Access rules are an experimental feature"
-    The design of access rules is likely to evolve, and sometimes
-    that will require updates to documents that use them.  We won't
-    make such changes lightly.
-
-
 Every Grist document can be [shared with others](sharing.md) 
 using the `Manage Users` option in the sharing
 menu (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
