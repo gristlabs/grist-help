@@ -1,10 +1,5 @@
 # Page widget: Custom
 
-!!! warning "Custom widgets are an experimental feature"
-    The design of custom widgets is likely to evolve, and sometimes
-    that will require updates to documents that use them.  We won't
-    make such changes lightly.
-
 The **Custom** widget allows a user to insert almost
 anything in their document.  To create a custom widget currently
 requires knowledge of web development, and access to a public web
