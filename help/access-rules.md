@@ -128,8 +128,8 @@ rule to withhold `Address` and `Phone` columns from user `Charon`:
 
 ## View as another user
 
-A convenient way to check if access rules work as expected is with the `View
-As` feature, available in the `Users` dropdown.  This allows an Owner
+A convenient way to check if access rules work as expected is with the `View As` feature, 
+available in the `View As` dropdown.  This allows an Owner
 to open the document as if they were one of the people it is shared
 with, to see what their colleague would see.  The Owner does not
 "become" that colleague - any changes they make will be recorded as
@@ -138,15 +138,15 @@ document from the colleague's perspective.
 
 ![Access rules](images/access-rules/access-rules-view-as.png)
 
-In our example, we could click `View As` on the Kiwi row, and the
-document reopens, with a little red tag warning that we are viewing it
-as `kiwi@getgrist.com`.  The `Piece` and `Email` columns are missing,
+In our example, we could select Kiwi, and the
+document reopens, with a large banner stating that we are viewing it
+as Kiwi.  The `Piece` and `Email` columns are missing,
 and the `Financials` table is surpressed:
 
 ![Access rules](images/access-rules/access-rules-view-as-kiwi.png)
 
-When satisfied that everything looks as expected, we click the `x` in
-the red tag to close this preview, and the document will reload.
+When satisfied that everything looks as expected, we click the green `View as Yourself` 
+button to close this preview, and the document will reload.
 
 ## User attribute tables
 
@@ -405,48 +405,20 @@ structure](#lock-down-structure) -- is an important first step in limiting data 
 
 When a user receives an error message denying them access because of a
 rule, it can be helpful to give specific details that will help them understand
-the problem.  You can do this by adding a comment in the condition formula.
-The first comment in a condition will be passed on to the user in the
-event of the condition leading to a denial of access (either by
-matching, or failing to match).  Comments are python-style,
-starting with a `#`.  They can come after the formula like this:
+the problem.  You can do this by adding a memo for the condition. First, click 
+the memo icon to the right of your condition.
 
-```py
-newRec.Count > 1  # No duplicates allowed
-```
+![Comment Icon](images/access-rules/access-rules-comment-icon.png)
 
-Or before it, like this:
+Type the error message you wish to display into the entry box. Be sure to save your changes.
 
-```py
-# Talk to Arjun to get full access
-user.Access == OWNER
-```
+![Comment Added](images/access-rules/access-rules-comment-added.png)
 
-As a full example, suppose we have a table listing airports, and we want to
-forbid entry of a new record with the same airport code as an existing
-one.  In the table, we can add a formula `Count` that counts how many
-records have the same code as each other:
-
-![Airport table](images/access-rules/access-rules-dupe-setup.png)
-
-Now, we can add an access rule to forbid any record update or creation that would
-result in a `Count` above one.  We can also include a memo to explain the problem:
-
-![Duplicate rule](images/access-rules/access-rules-dupe-rule.png)
-
-Now if we try to add a new row with an existing code, we get a helpful error:
+When the rule blocks a user from performing an action, the memo will appear as a notification.
 
 ![Duplicate error](images/access-rules/access-rules-dupe-forbidden.png)
 
-This example also shows that sometimes the condition for an access rule needs
-to be expressed in two parts: a user-independent formula in the table itself
-(which has access to full spreadsheet functionality but does not have
-access to the user's identity or attributes), and a user-dependent formula
-in the access rule page (which has access to the user's identity and attributes,
-but has limits to its structure).
-See [Access rule conditions](access-rules.md#access-rule-conditions) for details
-on the restrictions on condition formulas, and
-[Formulas](formulas.md) for details on regular full-powered formulas.
+For an explanation of how this particular Access Rule works, see [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md)
 
 ## Access rule examples
 

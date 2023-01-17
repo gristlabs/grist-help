@@ -56,6 +56,9 @@ ready-to-use templates.
   Learn to create columns that stamp the time or a user's name to a record when it is created or
   updated.
 
+- [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md):
+  Learn to how to create a condition in Access Rules to restrict a duplicate record from being created.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
