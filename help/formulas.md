@@ -47,6 +47,12 @@ In Grist, a single formula applies to a whole column.
 You don't have to worry about filling it in for all rows,
 and can refer to values in the same row without fuss.
 
+You can format numeric columns to look better by [setting column
+type](col-types.md#specifying-a-type) to `Numeric`, and selecting suitable formatting options:
+
+<span class="screenshot-large">*![formulas-price-final](images/formulas/formulas-price-formatted.png)*</span>
+{: .screenshot-half }
+
 ## Column behavior
 
 When we provide a formula for a column we tell Grist to update its value on every change
@@ -278,7 +284,7 @@ of results, `lookupRecords` takes an optional `sort_by` parameter.  For example,
 we could use this formula to sort by the product name itself:
 
 ```py
-list(Materials.lookupRecords(Category='Ship', sort_by='Product').Product)
+Materials.lookupRecords(Category='Ship', sort_by='Product').Product
 ```
 
 If you want to sort by multiple columns, remember that you can create a hidden
