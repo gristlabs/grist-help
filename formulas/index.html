@@ -962,6 +962,9 @@ that you don&rsquo;t need to specify row numbers, like <code>B1 * C1</code>.
 In Grist, a single formula applies to a whole column.
 You don&rsquo;t have to worry about filling it in for all rows,
 and can refer to values in the same row without fuss.</p>
+<p>You can format numeric columns to look better by <a href="../col-types/#specifying-a-type">setting column
+type</a> to <code>Numeric</code>, and selecting suitable formatting options:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-final" src="../images/formulas/formulas-price-formatted.png" /></em></span></p>
 <h2 id="column-behavior">Column behavior<a class="headerlink" href="#column-behavior" title="Permanent link">#</a></h2>
 <p>When we provide a formula for a column we tell Grist to update its value on every change
 in a document. We can no longer type a value into the cell, because its value is
@@ -1156,7 +1159,7 @@ to match.  For example, <code class="formula">Materials.lookupRecords(Category='
 for details of how to add a new field to a card.  If you care about the order
 of results, <code>lookupRecords</code> takes an optional <code>sort_by</code> parameter.  For example,
 we could use this formula to sort by the product name itself:</p>
-<pre><code class="py">list(Materials.lookupRecords(Category='Ship', sort_by='Product').Product)
+<pre><code class="py">Materials.lookupRecords(Category='Ship', sort_by='Product').Product
 </code></pre>
 
 <p>If you want to sort by multiple columns, remember that you can create a hidden
