@@ -420,7 +420,9 @@ When the rule blocks a user from performing an action, the memo will appear as a
 
 For an explanation of how this particular Access Rule works, see [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md)
 
-## Access rule examples
+## Access rule resources and examples
+
+Check out our [Access Rules playlist](https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_6q7p0P7i57Fzm4SsSAzhiQ) on Youtube for helpful walkthroughs of using Access Rules in documents.
 
 Along with the extended example of using access rules in this section, we will
 collect complete examples of access rule templates and guides here.
