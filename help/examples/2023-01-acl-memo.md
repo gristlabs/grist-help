@@ -14,8 +14,8 @@ result in a `Count` above one.  We can also include a memo to explain the proble
 
 ![Duplicate rule](images/2023-01-acl-memo/access-rules-dupe-rule.png)
 
-!!! note "new.Rec" 
-    This variable is available for record/row creation and updating, and contains the state of a row after a proposed change, allowing you to selectively allow or deny certain changes.
+!!! note `newRec` 
+    This variable is available for record/row creation and updating, and contains the state of a row after a proposed change, allowing you to selectively allow or deny certain changes. See [checking new values](../access-rules.md/#checking-new-values) for details.
 
 Now if we try to add a new row with an existing code, we get a helpful error:
 
