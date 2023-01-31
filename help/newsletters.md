@@ -19,19 +19,20 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [June 2021 Newsletter](newsletters/2021-06.md): Introducing Freeze Columns and a timesheet-tracking template.
 - [July 2021 Newsletter](newsletters/2021-07.md): Colors, Time and Authorship Stamps, and Google Sheets Integration.
 - [August 2021 Newsletter](newsletters/2021-08.md): Reference Lists, Embedding, Templates, Pabbly, and more.
-- [September 2021 Newsletter](newsletters/2021-09.md): Improved imports, global currencies, and more ways to integrate!
-- [October 2021 Newsletter](newsletters/2021-10.md): Editing choices, inline links, enhanced import previews, and more!
-- [November 2021 Newsletter](newsletters/2021-11.md): Import column mapping, filter on hidden columns, more sorting options, and more!
-- [December 2021 Newsletter](newsletters/2021-12.md): Zapier instant triggers, 4 new templates, and more!
-- [January 2022 Newsletter](newsletters/2022-01.md): Managing template document tours, and 4 new templates, including an inventory manager!
-- [February 2022 Newsletter](newsletters/2022-02.md): Custom widgets menu, 2FA, access rules improvements, and cell context menu!
-- [March 2022 Newsletter](newsletters/2022-03.md): Conditional formatting, new API method, the new Sprouts Program, and more!
-- [April 2022 Newsletter](newsletters/2022-04.md): Rich text editor, more cell styles, and more!
-- [May 2022 Newsletter](newsletters/2022-05.md): Raw data tables, new summary table linking, and more!
-- [June 2022 Newsletter](newsletters/2022-06.md): Filtering by range, new `PEEK()` function, and more!
-- [July 2022 Newsletter](newsletters/2022-07.md): Formula cheat sheet and summary tables in raw data!
-- [August 2022 Newsletter](newsletters/2022-08.md): Free team sites, conditional row styles, better formula help, and more!
-- [September 2022 Newsletter](newsletters/2022-09.md): Dark Mode 🕶 + improved user management
-- [October 2022 Newsletter](newsletters/2022-10.md): Quick sums, duplicate tables, new API methods, and more!
-- [November 2022 Newsletter](newsletters/2022-11.md): Grist experiment with AI formula writing, improved sort and filter, and more!
-- [December 2022 Newsletter](newsletters/2022-12.md): New date filter with calendar, snapshots in grist-core, and more!
+- [September 2021 Newsletter](newsletters/2021-09.md): Improved imports, global currencies, and more ways to integrate.
+- [October 2021 Newsletter](newsletters/2021-10.md): Editing choices, inline links, and enhanced import previews.
+- [November 2021 Newsletter](newsletters/2021-11.md): Import column mapping, filter on hidden columns, and more sorting options.
+- [December 2021 Newsletter](newsletters/2021-12.md): Zapier instant triggers, and four new templates.
+- [January 2022 Newsletter](newsletters/2022-01.md): Managing template document tours, and 4 new templates, including an inventory manager.
+- [February 2022 Newsletter](newsletters/2022-02.md): Custom widgets menu, 2FA, access rules improvements, and cell context menu.
+- [March 2022 Newsletter](newsletters/2022-03.md): Conditional formatting, new API method, and the new Sprouts Program.
+- [April 2022 Newsletter](newsletters/2022-04.md): Rich text editor, and more cell styles.
+- [May 2022 Newsletter](newsletters/2022-05.md): Raw data tables, and new summary table linking.
+- [June 2022 Newsletter](newsletters/2022-06.md): Filtering by range, and new `PEEK()` function.
+- [July 2022 Newsletter](newsletters/2022-07.md): Formula cheat sheet and summary tables in raw data.
+- [August 2022 Newsletter](newsletters/2022-08.md): Free team sites, conditional row styles, and better formula help.
+- [September 2022 Newsletter](newsletters/2022-09.md): Dark Mode 🕶 + improved user management.
+- [October 2022 Newsletter](newsletters/2022-10.md): Quick sums, duplicate tables, and new API methods.
+- [November 2022 Newsletter](newsletters/2022-11.md): Grist experiment with AI formula writing, and improved sort and filter.
+- [December 2022 Newsletter](newsletters/2022-12.md): New date filter with calendar, and snapshots in grist-core.
+- [January 2023 Newsletter](newsletters/2023-01.md): Grist en Français, Español, Português, and Deutsch! Plus expanding widgets and access rules improvements.
