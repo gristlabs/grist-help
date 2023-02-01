@@ -4,18 +4,35 @@ The raw data page is a special page that lists all [data tables](glossary.md#dat
 
 From your document, navigate to the raw data page by clicking on the Raw Data link in the bottom left of the pages menu.
 
-![Raw Data in Menu](images/raw-data-nav.png)
+![Raw Data in Menu](images/raw-data/raw-data-nav.png)
 
 Unlike other [pages](page-widgets.md), the layout in the raw data page cannot be customized. From the list of data tables, you can find the data table's name and id, and remove data. Note that removing a data table from this page *will* delete data and remove it from all pages. This is different from other pages where it is possible to remove a view of data and not delete the data itself. 
 
-![Raw Data List](images/raw-data-list.png)
+![Raw Data List](images/raw-data/raw-data-list.png)
 
 Click on a data table to open it. Note that in the creator panel the [widget type](page-widgets.md#page-widgets) cannot be changed. Renaming the widget also renames the data table. Because raw data is intended to show all data, columns cannot be hidden, either. However, columns can be rearranged, deleted, created, and modified. For creators, this view may make it easier to edit data structure, add [formulas](formulas.md), [conditional formatting](conditional-formatting.md), and so on.
 
-![Raw Data View](images/raw-data-lightbox.png)
+![Raw Data View](images/raw-data/raw-data-lightbox.png)
+
+## Duplicating Data
+
+Tables can be duplicated from the Raw Data page. Click the three-dot icon to the right of the table you wish to duplicate then select 'Duplicate Table' from the menu.
+
+![raw-data-duplicate-table](images/raw-data/raw-data-duplicate-table.png)
+
+By default, a duplicated table will only contain the table structure, not the data. If you wish to copy all data in addition to the table structure, be sure to check the box prior to clicking 'Save'. If duplicating data and access rules exist for the original table, those rules **will not** be duplicated. Only the document default rules wil apply to the copy.
+
+<span class="screenshot-large">*![raw-data-duplicate-data](images/raw-data/raw-data-duplicate-data.png)*</span>
+{: .screenshot-half } 
+
+This will create a new, unlinked duplicate table. Meaning, if you update data in this new copy, the original table will not be updated. 
+
+Note that instead of duplicating tables, it's usually better to segment data using [linked views](linking-widgets.md). For example, if you have multiple clients that all have similar data sets, you could keep all data for all clients in a single table but with the added column 'Client' to segment the data.
+
+***insert example as to when you would use this feature***
 
 ## Usage
 
 Usage statistics are summarized beneath the list of data tables. Note that usage applies to the entire document, not individual tables. Learn more about document [limits](limits.md).
 
-![Usage](images/raw-data-usage.png)
+![Usage](images/raw-data/raw-data-usage.png)
