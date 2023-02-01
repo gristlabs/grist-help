@@ -25,7 +25,7 @@ By default, a duplicated table will only contain the table structure, not the da
 <span class="screenshot-large">*![raw-data-duplicate-data](images/raw-data/raw-data-duplicate-data.png)*</span>
 {: .screenshot-half } 
 
-This will create a new, unlinked duplicate table. Meaning, if you update data in this new copy, the original table will not be updated. 
+The duplicate table is a new table that is not linked to the original. Meaning, if you update data in the copy, the original table will not be updated, and vice versa.
 
 Note that instead of duplicating tables, it's usually better to segment data using [linked views](linking-widgets.md). For example, if you have multiple clients that all have similar data sets, you could keep all data for all clients in a single table but with the added column 'Client' to segment the data.
 
