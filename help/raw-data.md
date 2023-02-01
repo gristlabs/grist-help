@@ -20,7 +20,7 @@ Tables can be duplicated from the Raw Data page. Click the three-dot icon to the
 
 ![raw-data-duplicate-table](images/raw-data/raw-data-duplicate-table.png)
 
-By default, a duplicated table will only contain the table structure, not the data. If you wish to copy all data in addition to the table structure, be sure to check the box prior to clicking 'Save'. If duplicating data and access rules exist for the original table, those rules **will not** be duplicated. Only the document default rules wil apply to the copy.
+By default, a duplicated table will only contain the table structure, not the data. If you wish to copy all data in addition to the table structure, be sure to check the box prior to clicking 'Save'. If the original table has any access rules, those rules **will not** be duplicated. Only the document's default rules will apply to the copied table.
 
 <span class="screenshot-large">*![raw-data-duplicate-data](images/raw-data/raw-data-duplicate-data.png)*</span>
 {: .screenshot-half } 
