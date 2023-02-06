@@ -43,6 +43,10 @@ the rules from top to bottom, and find the first applicable rule
 that allows (green) or denies (red) that permission.
 We'll see plenty of examples as we go.
 
+As we add more specific rules for tables, we typically want to grant OWNERs full access. Rather than adding a specific rule for each table to grant this access, we can check the box next to this option under Default Rules. 
+
+![access-rules-default-owner-access](images/access-rules/access-rules-default-owner-access.png)
+
 ## Lock down structure
 
 By default Owners and Editors are equally powerful within a document, with the ability to create
@@ -50,22 +54,13 @@ or delete tables or columns, write formulas, reorganize pages, and so on.
 
 Suppose we want only the original Owners of the document to be allowed to change
 its structure, as we plan to invite other specialized collaborators as Editors.
-To do this, we add a default rule specifying that any user who is not an
-owner (`user.Access != OWNER`) should be denied structure permissions
-(`S`).  Click the little `+` sign in the `CONDITION` of the `Default Rules`
-and fill in the condition and permissions as follows:
+To do this, uncheck the box for the first rule listed under 'Special Rules' to 
+disallow editors from editing structure. 
 
 ![Access rules](images/access-rules/access-rules-lock-structure.png)
 
-For more information about possible formulas, read [Access rule conditions](access-rules.md#access-rule-conditions).
-
-Once we've made changes, the `SAVE` button becomes an inviting green
-(if is grayed out, and you've just composed a condition formula, press
-enter or click elsewhere to let Grist know you are finished).  We
-click `SAVE` for the rule to take effect.  If Grist finds errors,
-you'll be alerted and the changes will not save.
-
-![Access rules](images/access-rules/access-rules-lock-structure-saved.png)
+Once we've made changes, the `SAVE` button becomes an inviting green.  We
+click `SAVE` for the rule to take effect. 
 
 **Important.** This is an important first step for any document where you intend to block any access to Editors.
 Without denying them the structure permission (`S`), anyone with edit access will be able to
@@ -420,9 +415,7 @@ When the rule blocks a user from performing an action, the memo will appear as a
 
 For an explanation of how this particular Access Rule works, see [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md)
 
-## Access rule resources and examples
-
-Check out our [Access Rules playlist](https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_6q7p0P7i57Fzm4SsSAzhiQ) on Youtube for helpful walkthroughs of using Access Rules in documents.
+## Access rule examples
 
 Along with the extended example of using access rules in this section, we will
 collect complete examples of access rule templates and guides here.
