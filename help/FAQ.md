@@ -32,7 +32,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then select “Profile Settings”.
 
-From here, you can manage the name associated with your account, update the appearance to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out [Grist API](rest-api.md#grist-api).
+From here, you can manage the name associated with your account, update Grist's theme to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out [Grist API](rest-api.md#grist-api).
 
 **Would you like to help translate Grist?**
 
