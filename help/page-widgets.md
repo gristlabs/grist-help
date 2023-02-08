@@ -57,7 +57,7 @@ on separate pages.
 
 There is a special page called [raw data](raw-data.md) that lists all data tables in your document and summarizes your document's usage statistics. Navigate to the raw data page by clicking on the Raw Data link in the bottom left of the pages menu.
 
-![Raw Data in Menu](images/raw-data-nav.png)
+![Raw Data in Menu](images/raw-data/raw-data-nav.png)
 
 ## Widget picker
 
