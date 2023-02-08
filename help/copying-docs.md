@@ -1,6 +1,6 @@
 # Copying Documents
 
-It is sometimes useful to make a copy of a Grist document. A few scenarios are described below. In
+It is sometimes useful to make a copy, or clone, of a Grist document. A few scenarios are described below. In
 all cases, you would start with the "Share" menu available from the top bar of an open document:
 
 <span class="screenshot-large">*![Share Menu](images/copying-docs/open-share-menu.png)*</span>
