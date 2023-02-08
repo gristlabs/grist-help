@@ -397,6 +397,11 @@ parts of a document.  Access rules give us that power.">
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#seed-rules">
+                Seed Rules
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#restrict-access-to-columns">
                 Restrict access to columns
               </a>
@@ -442,8 +447,8 @@ parts of a document.  Access rules give us that power.">
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#access-rule-resources-and-examples">
-                Access rule resources and examples
+              <a class="wm-article-link wm-page-toc-text" href="#access-rule-examples">
+                Access rule examples
               </a>
             </li>
         
@@ -995,18 +1000,11 @@ We&rsquo;ll see plenty of examples as we go.</p>
 or delete tables or columns, write formulas, reorganize pages, and so on.</p>
 <p>Suppose we want only the original Owners of the document to be allowed to change
 its structure, as we plan to invite other specialized collaborators as Editors.
-To do this, we add a default rule specifying that any user who is not an
-owner (<code>user.Access != OWNER</code>) should be denied structure permissions
-(<code>S</code>).  Click the little <code>+</code> sign in the <code>CONDITION</code> of the <code>Default Rules</code>
-and fill in the condition and permissions as follows:</p>
+To do this, uncheck the box for the first rule listed under &lsquo;Special Rules&rsquo; to 
+disallow editors from editing structure. </p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure.png" /></p>
-<p>For more information about possible formulas, read <a href="./#access-rule-conditions">Access rule conditions</a>.</p>
-<p>Once we&rsquo;ve made changes, the <code>SAVE</code> button becomes an inviting green
-(if is grayed out, and you&rsquo;ve just composed a condition formula, press
-enter or click elsewhere to let Grist know you are finished).  We
-click <code>SAVE</code> for the rule to take effect.  If Grist finds errors,
-you&rsquo;ll be alerted and the changes will not save.</p>
-<p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure-saved.png" /></p>
+<p>Once we&rsquo;ve made changes, the <code>SAVE</code> button becomes an inviting green.  We
+click <code>SAVE</code> for the rule to take effect. </p>
 <p><strong>Important.</strong> This is an important first step for any document where you intend to block any access to Editors.
 Without denying them the structure permission (<code>S</code>), anyone with edit access will be able to
 create or change formulas. Since formula calculations are not limited by access control rules,
@@ -1030,6 +1028,13 @@ document</a> with them as an Editor so that the restrictions
 we&rsquo;ve set up apply to them.  They won&rsquo;t see the <code>Financials</code> table in the
 left side bar, and attempts to open it will be denied:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-private-table-is-hidden.png" /></p>
+<h2 id="seed-rules">Seed Rules<a class="headerlink" href="#seed-rules" title="Permanent link">#</a></h2>
+<p>When writing access rules for specific tables, it is fairly common to repeat the same rule across many tables — 
+for example, always grant owners full read and write permissions. To automatically add a set of rules to all 
+new table rules, you can write &ldquo;seed rules.&rdquo; There is a checkbox above default rules that makes the common 
+case easier with one click. Click it to write a seed rule that will automatically grant owners full access 
+whenever table rules are added. Click the <code>&gt;</code> icon to uncollapse the seed rules table to modify seed rules.</p>
+<p><img alt="access-rules-default-owner-access" src="../images/access-rules/access-rules-default-owner-access.png" /></p>
 <h2 id="restrict-access-to-columns">Restrict access to columns<a class="headerlink" href="#restrict-access-to-columns" title="Permanent link">#</a></h2>
 <p>We can restrict a collaborator&rsquo;s access to columns.  In our eample, we might
 wish to give a delivery specialist more limited access to
@@ -1272,8 +1277,7 @@ the memo icon to the right of your condition.</p>
 <p>When the rule blocks a user from performing an action, the memo will appear as a notification.</p>
 <p><img alt="Duplicate error" src="../images/access-rules/access-rules-dupe-forbidden.png" /></p>
 <p>For an explanation of how this particular Access Rule works, see <a href="../examples/2023-01-acl-memo/">Access Rules to Restrict Duplicate Records</a></p>
-<h2 id="access-rule-resources-and-examples">Access rule resources and examples<a class="headerlink" href="#access-rule-resources-and-examples" title="Permanent link">#</a></h2>
-<p>Check out our <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_6q7p0P7i57Fzm4SsSAzhiQ">Access Rules playlist</a> on Youtube for helpful walkthroughs of using Access Rules in documents.</p>
+<h2 id="access-rule-examples">Access rule examples<a class="headerlink" href="#access-rule-examples" title="Permanent link">#</a></h2>
 <p>Along with the extended example of using access rules in this section, we will
 collect complete examples of access rule templates and guides here.</p>
 <ul>
