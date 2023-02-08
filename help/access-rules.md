@@ -50,22 +50,13 @@ or delete tables or columns, write formulas, reorganize pages, and so on.
 
 Suppose we want only the original Owners of the document to be allowed to change
 its structure, as we plan to invite other specialized collaborators as Editors.
-To do this, we add a default rule specifying that any user who is not an
-owner (`user.Access != OWNER`) should be denied structure permissions
-(`S`).  Click the little `+` sign in the `CONDITION` of the `Default Rules`
-and fill in the condition and permissions as follows:
+To do this, uncheck the box for the first rule listed under 'Special Rules' to 
+disallow editors from editing structure. 
 
 ![Access rules](images/access-rules/access-rules-lock-structure.png)
 
-For more information about possible formulas, read [Access rule conditions](access-rules.md#access-rule-conditions).
-
-Once we've made changes, the `SAVE` button becomes an inviting green
-(if is grayed out, and you've just composed a condition formula, press
-enter or click elsewhere to let Grist know you are finished).  We
-click `SAVE` for the rule to take effect.  If Grist finds errors,
-you'll be alerted and the changes will not save.
-
-![Access rules](images/access-rules/access-rules-lock-structure-saved.png)
+Once we've made changes, the `SAVE` button becomes an inviting green.  We
+click `SAVE` for the rule to take effect. 
 
 **Important.** This is an important first step for any document where you intend to block any access to Editors.
 Without denying them the structure permission (`S`), anyone with edit access will be able to
@@ -95,6 +86,16 @@ we've set up apply to them.  They won't see the `Financials` table in the
 left side bar, and attempts to open it will be denied:
 
 ![Access rules](images/access-rules/access-rules-private-table-is-hidden.png)
+
+## Seed Rules
+
+When writing access rules for specific tables, it is fairly common to repeat the same rule across many tables — 
+for example, always grant owners full read and write permissions. To automatically add a set of rules to all 
+new table rules, you can write "seed rules." There is a checkbox above default rules that makes the common 
+case easier with one click. Click it to write a seed rule that will automatically grant owners full access 
+whenever table rules are added. Click the `>` icon to uncollapse the seed rules table to modify seed rules.
+
+![access-rules-default-owner-access](images/access-rules/access-rules-default-owner-access.png)
 
 ## Restrict access to columns
 
@@ -420,9 +421,7 @@ When the rule blocks a user from performing an action, the memo will appear as a
 
 For an explanation of how this particular Access Rule works, see [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md)
 
-## Access rule resources and examples
-
-Check out our [Access Rules playlist](https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_6q7p0P7i57Fzm4SsSAzhiQ) on Youtube for helpful walkthroughs of using Access Rules in documents.
+## Access rule examples
 
 Along with the extended example of using access rules in this section, we will
 collect complete examples of access rule templates and guides here.
