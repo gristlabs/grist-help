@@ -27,7 +27,7 @@ By default, a duplicated table will only contain the table structure, not the da
 
 The duplicate table is a new table that is not linked to the original. Meaning, if you update data in the copy, the original table will not be updated, and vice versa.
 
-Note that instead of duplicating tables, it's usually better to segment data by adding a new column. Let's use expenses as an example. Rather than having separate tables for each month, include all data in a single table with a new column, month. If you have multiple sets of data with overlapping columns, this is an easy indicator that the data should all be in the same table.
+Note that instead of duplicating tables, it's usually better to segment data by adding a new column. Let's use expenses as an example. Rather than having separate tables for each month's expenses, it is better to include all data in a single table and create a new column called "Month" to segment rows into months. In general, if you have multiple tables with near identical columns, this is an indicator that the data could all be in the same table. Doing so may make data analysis easier.
 
 ## Usage
 
