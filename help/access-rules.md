@@ -43,10 +43,6 @@ the rules from top to bottom, and find the first applicable rule
 that allows (green) or denies (red) that permission.
 We'll see plenty of examples as we go.
 
-As we add more specific rules for tables, we typically want to grant OWNERs full access. Rather than adding a specific rule for each table to grant this access, we can check the box next to this option under Default Rules. 
-
-![access-rules-default-owner-access](images/access-rules/access-rules-default-owner-access.png)
-
 ## Lock down structure
 
 By default Owners and Editors are equally powerful within a document, with the ability to create
@@ -90,6 +86,16 @@ we've set up apply to them.  They won't see the `Financials` table in the
 left side bar, and attempts to open it will be denied:
 
 ![Access rules](images/access-rules/access-rules-private-table-is-hidden.png)
+
+## Seed Rules
+
+When writing access rules for specific tables, it is fairly common to repeat the same rule across many tables — 
+for example, always grant owners full read and write permissions. To automatically add a set of rules to all 
+new table rules, you can write "seed rules." There is a checkbox above default rules that makes the common 
+case easier with one click. Click it to write a seed rule that will automatically grant owners full access 
+whenever table rules are added. Click the `>` icon to uncollapse the seed rules table to modify seed rules.
+
+![access-rules-default-owner-access](images/access-rules/access-rules-default-owner-access.png)
 
 ## Restrict access to columns
 
