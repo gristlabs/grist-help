@@ -28,6 +28,16 @@ Yes! To add multiple accounts to Grist, open the [user menu](glossary.md#user-me
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
+### How do I update my profile settings?
+
+Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then select “Profile Settings”.
+
+From here, you can manage the name associated with your account, update Grist's theme to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out [Grist API](rest-api.md#grist-api).
+
+**Would you like to help translate Grist?**
+
+We use [Weblate](https://hosted.weblate.org/engage/grist/) to manage translations and welcome volunteer translators! If you’d like to translate Grist into a new language (thank you!) let us know which language in this [Community thread](https://community.getgrist.com/t/translating-grist/2086), and we’ll add the language on Weblate.
+
 ### How can I change the email address I use for Grist?
 
 It is not possible to change the email associated with your Grist account. However, it it possible to transfer ownership of documents and team sites between two Grist email accounts that you own. This would effectively change your Grist email. [Learn how](FAQ.md#how-to-manage-ownership-of-my-team-site). 
