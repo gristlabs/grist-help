@@ -44,3 +44,11 @@ Open the user menu under your user icon, and select "Billing Account".
 
 <span class="screenshot-large">*![Add billing managers](images/billing-page.png)*</span>
 {: .screenshot-half }
+
+## Removing Team Members
+
+To remove a user from your team, click 'Manage Team' at the upper right of the page then click the delete icon to the right of their name. You must click the confirm button to save the change.
+
+![remove-team-members](images/team-sharing/remove-team-members.png)
+
+When users are removed from your team, your monthly bill will be reduced, prorated for the time remaining in the billing cycle.
