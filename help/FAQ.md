@@ -36,7 +36,7 @@ From here, you can manage the name associated with your account, update the appe
 
 **Would you like to help translate Grist?**
 
-We use [Weblate](https://hosted.weblate.org/engage/grist/) to manage translations and welcome volunteer translators!
+We use [Weblate](https://hosted.weblate.org/engage/grist/) to manage translations and welcome volunteer translators! If you’d like to translate Grist into a new language (thank you!) let us know which language in this [Community thread](https://community.getgrist.com/t/translating-grist/2086), and we’ll add the language on Weblate.
 
 ### How can I change the email address I use for Grist?
 
