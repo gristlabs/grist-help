@@ -22,4 +22,4 @@ Now if we try to add a new row with an existing code, we get a helpful error:
 ![Duplicate error](images/2023-01-acl-memo/access-rules-dupe-forbidden.png)
 
 See [Access rule conditions](../access-rules.md#access-rule-conditions) for details
-on writing access rule conditions, and [Formulas](formulas.md) to learn more about using formulas in columns.
+on writing access rule conditions, and [Formulas](../formulas.md) to learn more about using formulas in columns.
