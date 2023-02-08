@@ -143,6 +143,34 @@ As with sorting, you can create different widgets or pages showing the same tabl
 filter settings. For example, you could have one page showing event attendees with status
 "Confirmed" and another one showing those with status "Pending".
 
+## Range Filtering
+
+Certain column types allow for filtering within a range of values.
+
+When filtering a numeric or integer type column, you have the option to filter within a range of numbers. For example, if you only want to see high-value purchases in a [table of credit card transactions](https://templates.getgrist.com/2i9WoHs2oRzK/Credit-Card-Activity-Template-AmEx/p/1), you could add a filter for the amount column and enter a minimum value of $500. The table would be filtered to show any transactions with an amount of $500 or greater.
+
+<span class="screenshot-large">*![range-filtering-numeric](images/search-sort-filter/range-filtering-numeric.png)*</span>
+{: .screenshot-half }
+
+When filtering a date or datetime type column, you have the option to filter within a specified date range. The range can be entered into the "Start" and "End" fields, or selected on a calendar.
+
+Perhaps you went on vacation and want to see all transactions during that time. We could add a filter to the Date column to see all transactions within the date range of the trip.
+
+<span class="screenshot-large">*![range-filtering-date](images/search-sort-filter/range-filtering-date.png)*</span>
+{: .screenshot-half }
+
+You can also filter date and datetime type columns by a relative range, which is a range relative to today's date. For example, you might want to filter for tasks due in the next 14 days. That filter would update each day so that it is always filtering by 14 days into the future, relative to today's date. 
+
+When filtering a date or datetime column, there are several relative ranges suggested as a shortcut, as seen in the image below.
+
+<span class="screenshot-large">*![range-filtering-date-dynamic](images/search-sort-filter/range-filtering-date-dynamic.png)*</span>
+{: .screenshot-half }
+
+If you use the calendar to select a range of dates, you can also convert each absolute date into a relative date by selecting from the list of relative dates available.
+
+<span class="screenshot-large">*![range-filtering-relative-date](images/search-sort-filter/range-filtering-relative-date.png)*</span>
+{: .screenshot-half }
+
 ### Pinning Filters
 
 Filters can be pinned at the top of a table for quick filtering. By default, filters will be pinned when first applied to a table. To unpin a filter, click the filter button then click the pin icon. If you unpin a filter button, any saved filters will still be applied but the button will no longer be visible.
