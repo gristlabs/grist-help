@@ -922,6 +922,17 @@ to on a site, do:</p>
   https://&lt;docs|TEAM&gt;.getgrist.com/api/orgs/current/workspaces
 </code></pre>
 
+<p>When making changes via the API, and passing data via the request
+body, be sure to set the <code>Content-Type</code> header to
+<code>application/json</code>. For example, to change the name of a document, you
+could do:</p>
+<pre><code class="sh">curl -XPATCH \
+  -H &quot;Authorization: Bearer &lt;API-KEY-GOES-HERE&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{&quot;name&quot;: &quot;Lesson Plans&quot;}' \
+  https://&lt;docs|TEAM&gt;.getgrist.com/api/docs/&lt;DOC-ID-GOES-HERE&gt;
+</code></pre>
+
 <p>For details of the endpoints available, see our <a href="../api/">API docs</a>.</p>
 <p>There are also client libraries available:</p>
 <ul>
