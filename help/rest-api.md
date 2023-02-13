@@ -46,6 +46,19 @@ curl -H "Authorization: Bearer <API-KEY-GOES-HERE>" \
   https://<docs|TEAM>.getgrist.com/api/orgs/current/workspaces
 ```
 
+When making changes via the API, and passing data via the request
+body, be sure to set the `Content-Type` header to
+`application/json`. For example, to change the name of a document, you
+could do:
+
+```sh
+curl -XPATCH \
+  -H "Authorization: Bearer <API-KEY-GOES-HERE>" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Lesson Plans"}' \
+  https://<docs|TEAM>.getgrist.com/api/docs/<DOC-ID-GOES-HERE>
+```
+
 For details of the endpoints available, see our [API docs](api.md).
 
 There are also client libraries available:
