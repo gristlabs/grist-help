@@ -606,6 +606,8 @@ client:
   ...
 ```
 
+As per [MinIO specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1).), the default bucket region is `us-east-1`. This default region can be overwritten using the `GRIST_DOCS_MINIO_BUCKET_REGION` flag.
+
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
