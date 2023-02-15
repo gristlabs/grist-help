@@ -146,6 +146,10 @@ and the `Financials` table is surpressed:
 
 ![Access rules](images/access-rules/access-rules-view-as-kiwi.png)
 
+You can also check in Raw Data to confirm only the expected tables, columns, and rows are exposed.
+
+![Access rules](images/access-rules/access-rules-view-as-kiwi-raw-data.png)
+
 When satisfied that everything looks as expected, we click the green `View as Yourself` 
 button to close this preview, and the document will reload.
 
