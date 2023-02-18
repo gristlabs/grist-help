@@ -22,6 +22,8 @@ jobs:
         run: mkdocs build -c -f hscout/mkdocs.yml
 
       - name: Push to HelpScout
+        # Skip when no secrets are available (e.g. when running on a public fork)
+        if: ${{ github.secret_source != 'None' }}
         env:
           HELPSCOUT_DOCS_API_KEY: ${{ secrets.HELPSCOUT_DOCS_API_KEY }}
           # Use dry-run except for pushes to master.
