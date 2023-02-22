@@ -418,6 +418,62 @@ html {
 }
 
 
+/***********************************************************************
+ Feedback area
+ ***********************************************************************/
+
+.feedback-box {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 80px;
+  border-radius: 5px;
+}
+
+.feedback-box-title {
+  text-transform: uppercase;
+  font-size: 70%;
+}
+
+.feedback-box-question {
+  font-size: 200%;
+}
+
+.feedback-box-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3em;
+  margin: 10px;
+}
+
+.feedback-box-button {
+  font-size: 120%;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.feedback-box-button:hover {
+  background-color: #ccc;
+}
+
+.feedback-box-button:active {
+  background-color: #aaa;
+}
+
+.feedback-box-response {
+  font-size: 150%;
+  color: #888;
+  margin: 10px;
+}
+
 
 /***********************************************************************
  * The rest is taken from base.css from mkdocs.
