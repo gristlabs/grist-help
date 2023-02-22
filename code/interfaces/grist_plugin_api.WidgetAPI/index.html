@@ -981,6 +981,50 @@
 <p><code>Promise</code>&lt;<code>void</code>></p>
 
   <br>
+</div>
+
+<script>
+  function giveFeedback(event) {
+    document.getElementsByClassName('feedback-box-buttons')[0].style.display = 'none';
+    document.getElementsByClassName('feedback-box-response')[0].style.display = 'block';
+    const page = window.location.href;
+
+    // No formal telemetry endpoint yet, so use /api/log for practice.
+    // Results can still be queried just less systematically.
+    const url = new URL('https://docs.getgrist.com/api/log');
+    // Duplicate info in query parameters so it is logged with URL in case
+    // body isn't logged (hard to test until live on *.getgrist.com).
+    url.searchParams.set('event', event);
+    url.searchParams.set('page', page);
+
+    fetch(url.href, {
+      method: 'POST',
+      body: JSON.stringify({
+        event,
+        docId: null,
+        page,
+        source: 'support',
+      }),
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      }
+    }).catch(e => {
+      console.warn('Failed to report feedback', e);
+    });
+  }
+</script>
+<div class="feedback-box">
+  <div class="feedback-box-title">Give Feedback</div>
+  <div class="feedback-box-question">Was this article helpful?</div>
+  <div class="feedback-box-buttons">
+    <div class="feedback-box-button" onclick="javascript:giveFeedback('thumbsUp')">&#x1F44D;</div>
+    <div class="feedback-box-button" onclick="javascript:giveFeedback('thumbsDown')">&#x1F44E;</div>
+  </div>
+  <div class="feedback-box-response" style="display: none;">
+    Thank you for letting us know!
+  </div>
 </div><footer class="col-md-12 wm-page-content">
       <p>
         <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/interfaces/grist_plugin_api.WidgetAPI.md"><i class="fa fa-github"></i>
