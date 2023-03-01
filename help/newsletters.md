@@ -36,3 +36,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [November 2022 Newsletter](newsletters/2022-11.md): Grist experiment with AI formula writing, and improved sort and filter.
 - [December 2022 Newsletter](newsletters/2022-12.md): New date filter with calendar, and snapshots in grist-core.
 - [January 2023 Newsletter](newsletters/2023-01.md): Grist en Français, Español, Português, and Deutsch! Plus expanding widgets and access rules improvements.
+- [February 2023 Newsletter](newsletters/2023-02.md): Grist in more languages, and a sneak peek into dev passion projects.
