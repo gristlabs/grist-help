@@ -555,6 +555,11 @@ A good informative overview of SAML is at https://www.okta.com/integrate/documen
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#example-google">
+                Example: Google
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#troubleshooting">
                 Troubleshooting
               </a>
@@ -974,6 +979,35 @@ logout URLs with Authentik at the time of writing look like:</p>
 <li><code>GRIST_SAML_IDP_LOGIN</code> = <code>https://...authentik.../application/saml/grist/sso/binding/redirect/</code></li>
 <li><code>GRIST_SAML_IDP_LOGOUT</code> = <code>https://...authentik.../if/session-end/grist/</code></li>
 </ul>
+<h2 id="example-google">Example: Google<a class="headerlink" href="#example-google" title="Permanent link">#</a></h2>
+<p>In <a href="https://admin.google.com/">Google Admin</a>, under the &ldquo;Apps&rdquo; section, in &ldquo;Web and Mobile Apps&rdquo;, add a new custom SAML app.</p>
+<p>Set the app name, description and icon to your liking, and click on Next.</p>
+<p>Take note of the contents of the field <code>SSO URL</code>, and download the provided certificate.</p>
+<p>Configure the app in Google Admin as follows:</p>
+<ul>
+<li>ACS URL: <code>https://&lt;grist-domain&gt;/saml/assert</code></li>
+<li>Entity ID: <code>https://&lt;grist-domain&gt;/saml/metadata.xml</code></li>
+<li>Check the Signed Response checkbox.</li>
+<li>Leave <code>Start URL</code> empty, and the <code>Name ID</code> settings as default.</li>
+</ul>
+<p>Click on Next, and optionally, under Attributes, add two mappings for automatic name population:</p>
+<ul>
+<li>Google Directory attribute <code>First Name</code> set to App attribute <code>FirstName</code></li>
+<li>Google Directory attribute <code>Last Name</code> set to App attribute <code>LastName</code> </li>
+</ul>
+<p>Then click on Finish, and configure Grist&rsquo;s settings:</p>
+<ul>
+<li><code>GRIST_SAML_IDP_SKIP_SLO</code> = <code>true</code></li>
+<li><code>GRIST_SAML_SP_HOST</code> = <code>https://&lt;grist-domain&gt;</code></li>
+<li><code>GRIST_SAML_IDP_UNENCRYPTED</code> = <code>true</code></li>
+<li><code>GRIST_SAML_IDP_LOGIN</code> = <code>https://accounts.google.com/o/saml2/idp?idpid=xxxx</code> (provided to you by Google as <code>SSO URL</code>)</li>
+<li><code>GRIST_SAML_IDP_LOGOUT</code> = <code>https://&lt;grist-domain&gt;</code> (since Google does not support Single Logout, just return the user to the homepage)</li>
+<li><code>GRIST_SAML_IDP_CERTS</code> = <code>.../google.pem</code> (provided to you by Google earlier)</li>
+<li><code>GRIST_SAML_SP_KEY</code> = <code>.../saml.pem</code></li>
+<li><code>GRIST_SAML_SP_CERT</code> = <code>.../saml.crt</code></li>
+</ul>
+<p>To create the keypair used in <code>GRIST_SAML_SP_KEY</code> and <code>GRIST_SAML_SP_CERT</code>, follow the same instructions as for Auth0 and Authentik.</p>
+<p>Note: Google does not verify incoming SAML messages, so they do not allow uploading a public key for that purpose.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>We expect IdP to provide us with name_id, a unique identifier for the user.
 We also use optional attributes for the user&rsquo;s name, for which we accept any of:</p>
