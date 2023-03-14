@@ -80,6 +80,41 @@ logout URLs with Authentik at the time of writing look like:
   * `GRIST_SAML_IDP_LOGIN` = `https://...authentik.../application/saml/grist/sso/binding/redirect/`
   * `GRIST_SAML_IDP_LOGOUT` = `https://...authentik.../if/session-end/grist/`
 
+## Example: Google
+
+In [Google Admin](https://admin.google.com/), under the "Apps" section, in "Web and Mobile Apps", add a new custom SAML app.
+
+Set the app name, description and icon to your liking, and click on Next.
+
+Take note of the contents of the field `SSO URL`, and download the provided certificate.
+
+Configure the app in Google Admin as follows:
+
+  * ACS URL: `https://<grist-domain>/saml/assert`
+  * Entity ID: `https://<grist-domain>/saml/metadata.xml`
+  * Check the Signed Response checkbox.
+  * Leave `Start URL` empty, and the `Name ID` settings as default.
+
+Click on Next, and optionally, under Attributes, add two mappings for automatic name population:
+
+  * Google Directory attribute `First Name` set to App attribute `FirstName`
+  * Google Directory attribute `Last Name` set to App attribute `LastName` 
+
+Then click on Finish, and configure Grist's settings:
+
+  * `GRIST_SAML_IDP_SKIP_SLO` = `true`
+  * `GRIST_SAML_SP_HOST` = `https://<grist-domain>`
+  * `GRIST_SAML_IDP_UNENCRYPTED` = `true`
+  * `GRIST_SAML_IDP_LOGIN` = `https://accounts.google.com/o/saml2/idp?idpid=xxxx` (provided to you by Google as `SSO URL`)
+  * `GRIST_SAML_IDP_LOGOUT` = `https://<grist-domain>` (since Google does not support Single Logout, just return the user to the homepage)
+  * `GRIST_SAML_IDP_CERTS` = `.../google.pem` (provided to you by Google earlier)
+  * `GRIST_SAML_SP_KEY` = `.../saml.pem`
+  * `GRIST_SAML_SP_CERT` = `.../saml.crt`
+
+To create the keypair used in `GRIST_SAML_SP_KEY` and `GRIST_SAML_SP_CERT`, follow the same instructions as for Auth0 and Authentik.
+
+Note: Google does not verify incoming SAML messages, so they do not allow uploading a public key for that purpose.
+
 ## Troubleshooting
 
 We expect IdP to provide us with name_id, a unique identifier for the user.
