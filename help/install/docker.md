@@ -7,6 +7,16 @@ The following `docker-compose.yml` files are needed.
 
 Make sure, you adjust the environment variables to your needs.
 
+### Requirements
+
+You need to have the most recent Docker distribution including the `docker compose` extension installed.
+
+Prepare host environment.
+
+```bash
+sudo -u "$(id -un 1001):$(id -un 1001)" mkdir -p ./config/nginx/site-confs ./data ./database/data
+```
+
 ### NGINX Reverse Proxy with automatic HTTPS
 
 For automatic HTTPS to work, you first need to setup proper DNS entries for the server you are running this reverse proxy on.
@@ -34,6 +44,49 @@ services:
     volumes:
       - ./config:/config
     restart: unless-stopped
+```
+
+#### NGINX Configuration
+
+
+`./config/nginx/site-confs/grist.conf`
+```nginx
+# grist.mydomain.eu
+# Grist
+# Database Excel
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name grist.mydomain.eu webhook.grist.mydomain.eu;
+
+    #root /config/www;
+    index index.html index.htm index.php;
+
+    # enable subfolder method reverse proxy confs
+    include /config/nginx/proxy-confs/*.subfolder.conf;
+
+    # enable for ldap auth (requires ldap-location.conf in the location block)
+    #include /config/nginx/ldap-server.conf;
+
+    # enable for Authelia (requires authelia-location.conf in the location block)
+    #include /config/nginx/authelia-server.conf;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    # deny access to .htaccess/.htpasswd files
+    location ~ /\.ht {
+        deny all;
+    }
+}
 ```
 
 ### Grist
