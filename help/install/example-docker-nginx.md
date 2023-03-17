@@ -16,7 +16,7 @@ You need to have the most recent Docker distribution including the `docker compo
 To prepare the host environment, create an empty directory, and within it do:
 
 ```bash
-sudo -u "$(id -un 1001):$(id -un 1001)" mkdir -p ./config/nginx/site-confs ./data ./database/data
+sudo -u "$(id -un 1000):$(id -un 1000)" mkdir -p ./config/nginx/site-confs ./data ./database/data
 ```
 
 ### NGINX Reverse Proxy with automatic HTTPS
@@ -36,8 +36,8 @@ services:
     container_name: nginx-letsencrypt-master
     network_mode: "host"
     environment:
-      - PUID=1001 # Optional Change
-      - PGID=1001 # Optional Change
+      - PUID=1000 # Optional Change
+      - PGID=1000 # Optional Change
       - TZ=Europe/London # Change!
       - URL=mydomain.eu # Change here, in ./config/nginx/site-confs/grist.conf & in .env files!
       - SUBDOMAINS=grist,webhook.grist # Change here, in ./config/nginx/site-confs/grist.conf & in .env files!
@@ -58,7 +58,7 @@ The following configuration is to be placed in `./config/nginx/site-confs/grist.
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    
+
     # Adjust to your needs!
     server_name grist.mydomain.eu webhook.grist.mydomain.eu;
 
@@ -93,20 +93,20 @@ services:
   grist:
     image: gristlabs/grist:1.0.8 # Change! --> https://hub.docker.com/r/gristlabs/grist/tags
     container_name: grist
-    user: "1001" # Optional Change
+    user: "1000" # Optional Change
     env_file:
       - ./grist.env
     volumes:
       - ./data:/persist
     ports:
-      - 127.0.0.1:3000:443
+      - 127.0.0.1:3000:8080
     depends_on:
       - database
 
   database:
     image: postgres:15-alpine
     container_name: grist_db
-    user: "1001" # Optional Change
+    user: "1000" # Optional Change
     env_file:
       - ./grist_db.env
     volumes:
@@ -121,7 +121,7 @@ The following `.env` files must be located in the same folder as the Grist `dock
 ```
 # https://github.com/gristlabs/grist-core#environment-variables
 
-PORT=443
+PORT=8080
 APP_HOME_URL=https://grist.mydomain.eu
 GRIST_ALLOWED_HOSTS=webhook.grist.mydomain.eu # Replace with webhook target domains
 GRIST_DOMAIN=grist.mydomain.eu
