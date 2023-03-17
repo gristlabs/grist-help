@@ -13,7 +13,7 @@ You will need to adjust the environment variables to your needs.
 
 You need to have the most recent Docker distribution including the `docker compose` extension installed.
 
-Prepare host environment.
+To prepare the host environment, create an empty directory, and within it do:
 
 ```bash
 sudo -u "$(id -un 1001):$(id -un 1001)" mkdir -p ./config/nginx/site-confs ./data ./database/data
@@ -23,9 +23,11 @@ sudo -u "$(id -un 1001):$(id -un 1001)" mkdir -p ./config/nginx/site-confs ./dat
 
 For automatic HTTPS to work, you first need to setup proper DNS entries for the server you are running this reverse proxy on.
 
-This NGINX is separate from Grist, so you can have more than one backend, NGINX may route to.
-It pretty much acts, like a normal NGINX on the host, except much better.
+This reverse proxy is separate from Grist, so you can have more than one backend to which it can route traffic - for example, Authelia for authentication.
+This setup uses SWAG, a Docker image that bundles the NGINX reverse proxy with useful services including TLS certificate generation and renewal.
 
+
+This is the `docker-compose.yml` file managing the NGINX instance.
 ```docker
 version: "3.9"
 services:
@@ -37,8 +39,8 @@ services:
       - PUID=1001 # Optional Change
       - PGID=1001 # Optional Change
       - TZ=Europe/London # Change!
-      - URL=mydomain.eu # Change here & in .env files!
-      - SUBDOMAINS=grist,webhook.grist # Change here & in .env files!
+      - URL=mydomain.eu # Change here, in ./config/nginx/site-confs/grist.conf & in .env files!
+      - SUBDOMAINS=grist,webhook.grist # Change here, in ./config/nginx/site-confs/grist.conf & in .env files!
       - VALIDATION=http
       - EMAIL=admin@mydomain.eu # Change!
       - ONLY_SUBDOMAINS=true
@@ -51,19 +53,14 @@ services:
 #### NGINX Configuration
 
 
-`./config/nginx/site-confs/grist.conf`
+The following configuration is to be placed in `./config/nginx/site-confs/grist.conf`, to make the NGINX instance route to Grist properly.
 ```nginx
-# grist.mydomain.eu
-# Grist
-# Database Excel
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-
+    
+    # Adjust to your needs!
     server_name grist.mydomain.eu webhook.grist.mydomain.eu;
-
-    #root /config/www;
-    index index.html index.htm index.php;
 
     # enable subfolder method reverse proxy confs
     include /config/nginx/proxy-confs/*.subfolder.conf;
@@ -82,11 +79,6 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
-    }
-
-    # deny access to .htaccess/.htpasswd files
-    location ~ /\.ht {
-        deny all;
     }
 }
 ```
@@ -123,7 +115,7 @@ services:
 
 ### Environment
 
-The following `.env` files must be located in the same folder, as the Grist `docker-compose.yml`.
+The following `.env` files must be located in the same folder as the Grist `docker-compose.yml`.
 
 ### `grist.env`
 ```
@@ -131,7 +123,7 @@ The following `.env` files must be located in the same folder, as the Grist `doc
 
 PORT=443
 APP_HOME_URL=https://grist.mydomain.eu
-GRIST_ALLOWED_HOSTS=grist,webhook.grist
+GRIST_ALLOWED_HOSTS=webhook.grist.mydomain.eu # Replace with webhook target domains
 GRIST_DOMAIN=grist.mydomain.eu
 GRIST_SINGLE_ORG=myorg
 GRIST_HIDE_UI_ELEMENTS=billing
@@ -143,7 +135,6 @@ GRIST_PAGE_TITLE_SUFFIX=_blank
 GRIST_FORCE_LOGIN=true
 GRIST_SUPPORT_ANON=false
 GRIST_THROTTLE_CPU=true
-HOME_PORT=share
 
 GRIST_SANDBOX_FLAVOR=gvisor
 PYTHON_VERSION=3
