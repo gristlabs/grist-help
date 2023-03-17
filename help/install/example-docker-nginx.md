@@ -1,11 +1,13 @@
-Docker {: .tag-core .tag-ee }
+Example using Docker and NGINX {: .tag-core .tag-ee }
 ====
+
+###### This Example is originally authored by [Akito](https://github.com/theAkito).
 
 This is a **complete** Docker setup example for Grist.
 
 The following `docker-compose.yml` files are needed.
 
-Make sure, you adjust the environment variables to your needs.
+You will need to adjust the environment variables to your needs.
 
 ### Requirements
 
@@ -165,5 +167,3 @@ POSTGRES_DB=grist
 POSTGRES_USER=grist
 POSTGRES_PASSWORD=mysupersecretpassword CHANGE THIS!!!!
 ```
-
-###### This Example is originally authored by [Akito](https://github.com/theAkito).
