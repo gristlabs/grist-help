@@ -23,7 +23,7 @@ sudo -u "$(id -un 1000):$(id -un 1000)" mkdir -p ./config/nginx/site-confs ./dat
 
 For automatic HTTPS to work, you first need to setup proper DNS entries for the server you are running this reverse proxy on.
 
-This reverse proxy is separate from Grist, so you can have more than one backend to which it can route traffic - for example, Authelia for authentication.
+This reverse proxy is decoupled from Grist, in a separate `docker-compose.yml`, so you may conveniently provide additional backends to which it can route traffic - for example, Authelia for authentication.
 This setup uses SWAG, a Docker image that bundles the NGINX reverse proxy with useful services including TLS certificate generation and renewal.
 
 
@@ -84,6 +84,10 @@ server {
 ```
 
 ### Grist
+
+This is the `docker-compose.yml` for the Grist backend.
+It contains the Grist app deployment, which is accompanied by a PostgreSQL database.
+
 ```docker
 # https://github.com/gristlabs/grist-core#using-grist
 
