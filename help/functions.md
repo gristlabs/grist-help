@@ -5348,7 +5348,7 @@ remove other whitespace such as tab or newline characters.
 <code>__UPPER__(text)</code>
 <a class="headerlink" href="#upper" title="Permanent link">#</a>
 </summary>
-Converts a specified string to uppercase. Same as `text.lower()`.
+Converts a specified string to uppercase. Same as `text.upper()`.
 
 
 ```python
