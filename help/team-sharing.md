@@ -12,7 +12,7 @@ To share a team site, click on the "Manage Team" button in the top right of your
 You can now invite people just as you did for individual documents in
 [Sharing](sharing.md).
 
-![team-sharing-invite-people](images/team-sharing/team-sharing-invite-people.png)
+<span class="screenshot-large">*![team-sharing-invite-people](images/team-sharing/team-sharing-invite-people.png)*</span>
 
 Just as for documents, you can invite people as viewers, editors, or owners of the
 team site.
