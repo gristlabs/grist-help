@@ -52,15 +52,3 @@ To remove a user from your team, click 'Manage Team' at the upper right of the p
 ![remove-team-members](images/team-sharing/remove-team-members.png)
 
 When users are removed from your team, your monthly bill will be reduced, prorated for the time remaining in the billing cycle.
-
-## Anonymous Access
-
-You can grant anonymous access to a team site by adding the special user `anon@getgrist.com` to your team as a VIEWER. This will make the team publicly accessible to anyone with the link. 
-
-![anonymous-access](images/team-sharing/anonymous-access.png)
-
-If a user is logged into Grist, but their user account is not specifically added as a team member, they will not be able to access the site. You must be anonymous (not logged in) to have access. The user can log out then follow the link to access the site.
-
-You can control which documents and workspaces anonymous users have access to by updating the 'Inherit Access' settings at the document or workspace level. By default, workspaces and documents are set to inherit access 'In Full', meaning these document and workspaces would be accessible by the anonymous user. You can change this setting under the 'Manage Users' menu for both workspaces and documents. Change Inherit access to 'None' then add the users who should have access.
-
-![anonymous-inherit-access](images/team-sharing/anonymous-inherit-access.png)
