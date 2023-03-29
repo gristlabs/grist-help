@@ -540,8 +540,8 @@ and set the following variables:
 * TYPEORM_HOST - set to hostname of database, e.g. grist.mumble.rds.amazonaws.com
 * TYPEORM_PORT - set to port number of database if not the default for PostgreSQL
 
-Currently, we support PostgreSQL up to and including version 11 (please
-contact us if this is a blocker for you and we'll prioritize generalizing this).
+Grist is known to work with PostgreSQL from versions 10 through 14 (later versions
+are likely to work also, but have not been specifically tested at the time of writing).
 
 ### What is a state store? {: .tag-core .tag-ee }
 
