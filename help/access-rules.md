@@ -112,7 +112,7 @@ select `Add Column Rule`:
 
 In the `Columns` area we have a new `[Add Column]` dropdown to add all the columns
 to which we want the rule to apply (in our case `Email` and `Piece`).
-For the condition, we culd use `user.Email == 'kiwi@getgrist.com'`.  This checks
+For the condition, we could use `user.Email == 'kiwi@getgrist.com'`.  This checks
 for the email address of Kimberly, our fictional delivery specialist; we
 could also check by name or a numeric ID.  We turn all available permissions off for
 this user on these columns:
