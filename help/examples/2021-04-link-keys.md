@@ -61,7 +61,7 @@ Convert the column type to Text > Hyperlink.
 ![Creating unique links](images/2021-04-link-keys/private-tutor-UUID-links.png)
 
 **How does this work?** The link generated for "Raddon, Fin" is
-`.../Private-Tutor-recUUID/p/9?UUID=6752c258-443d-4a2c-800d-1491da265b72`. The “link key” is the
+`.../Private-Tutor-recUUID/p/9?UUID_=6752c258-443d-4a2c-800d-1491da265b72`. The “link key” is the
 part of the URL that reads `?UUID_=6752c258-443d-4a2c-800d-1491da265b72`.
 
 ## Step 4: Create access rules
