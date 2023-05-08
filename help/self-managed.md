@@ -15,6 +15,9 @@ There are three flavors of Grist:
   * **SaaS** (Software as a Service): Grist is available as a hosted service
     at [docs.getgrist.com](https://docs.getgrist.com).
     No installation needed. Free and paid plans, with usage limits.
+  * **Desktop App**: Grist is available as a desktop application, built with Electron.
+    It is available for download at [https://github.com/gristlabs/grist-electron/releases](https://github.com/gristlabs/grist-electron/releases).
+    This desktop application does not need internet and is not tied to any online account or service.
   * **Self-Managed Enterprise**: Grist is available as a licensed application
     installed by enterprises on their own infrastructure
     with our support and backing. Contains proprietary features
