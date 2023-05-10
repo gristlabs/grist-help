@@ -409,16 +409,14 @@ clicking that green button and selecting "Save". You can also save by clicking t
 Grist has more great features, some of which are used in the "Lightweight CRM" example
 document. To read more about those, follow the links to their documentation.
 
-- Any text column may be shown as a hyperlink. Lightweight CRM example uses it twice: for the "website" field,
-  and for a formula-constructed hyperlink to a Gmail search page for the given contact's email. The latter is
-  handy if you use Gmail.
+- Any text column may be shown as a [hyperlink](https://support.getgrist.com/col-types/#hyperlinks). 
+Lightweight CRM example uses it twice: for the "website" field, and for a formula-constructed hyperlink 
+to a [Gmail search](https://community.getgrist.com/t/pull-up-gmail-history-for-a-particular-contact/517) page 
+for the given contact's email. The latter is handy if you use Gmail.
 
-<!-- TODO: Add an article on hyperlinks and link to it above -->
-
-- Grist supports attachments. In the example, there is an "Attachments" field for each contact
-  that may be used to store an image of a business card, for example.
-
-<!-- TODO: Add an article on attachments and link to it above -->
+- Grist supports [attachments](https://support.getgrist.com/col-types/#attachment-columns_). In the 
+example, there is an "Attachments" field for each contact that may be used to store an image of a 
+business card, for example.
 
 In an actual business, you'll need more. Specialized CRM products have tons of features. Their
 problem is complexity: trying to satisfy the needs of many different clients makes for a
