@@ -10,7 +10,7 @@ description: The essentials of creating and maintaining a self-managed Grist ins
 
 ### What is Self-Managed Grist?
 
-There are three flavors of Grist:
+There are four flavors of Grist:
 
   * **SaaS** (Software as a Service): Grist is available as a hosted service
     at [docs.getgrist.com](https://docs.getgrist.com).
