@@ -529,8 +529,8 @@ database called the "home" database. This does not contain the
 material inside documents such as tables and columns, but does contain
 document names and creation times, for example.  By default, Grist
 will create a home database in an Sqlite file within the `/persist`
-directory. To use instead a PostgreSQL database, create one (version
-11 **or earlier**) and a user with sufficient access to create tables,
+directory. To use instead a PostgreSQL database, create the
+database along with a user with sufficient access to create tables,
 and set the following variables:
 
 * TYPEORM_TYPE - set to postgres
