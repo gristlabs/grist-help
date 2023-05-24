@@ -926,14 +926,19 @@ their arrangement.</p>
 <p>Move the mouse cursor over the title of the widget. A small drag icon will appear over to the left
 of the title. When you press this icon, you can drag the entire widget to a different place on the
 screen.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-start-drag" src="../images/layout-start-drag.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-start-drag" src="../images/custom-layouts/layout-start-drag.png" /></em></span></p>
 <p>As you move it close to the edge of the screen, or the edge of another widget, you&rsquo;ll see a dashed
 outline &ndash; sometimes more than one &ndash; where the widget can be dropped.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-drop-areas" src="../images/layout-drop-areas.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-drop-areas" src="../images/custom-layouts/layout-drop-areas.png" /></em></span></p>
 <p>Release the mouse to reposition this widget.</p>
 <p>To resize widgets, move the mouse cursor between two widgets until a dashed line appear. Drag this
 dashed line to resize.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-resizing" src="../images/layout-resizing.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-resizing" src="../images/custom-layouts/layout-resizing.png" /></em></span></p>
+<p>To expand a widget, click the expand icon at the upper-right of the widget. This will open a full-page view of the widget.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-expand-widgets" src="../images/custom-layouts/layout-expand-widgets.png" /></em></span></p>
+<p>To collapse a widget, click and drag a widget to the widget tray at the top of the page.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-collapse-widget" src="../images/custom-layouts/layout-collapse-widget.png" /></em></span></p>
+<p>When you click on a collapsed widget, it opens in a full-page view. To restore it to the main page, just drag the collapsed widget to the desired location.</p>
 <h2 id="layout-recommendations">Layout recommendations<a class="headerlink" href="#layout-recommendations" title="Permanent link">#</a></h2>
 <p>While there is no limit to how complicated a layout you can create, you should aim for simple
 layouts that will be easy to use for your users (even when you are the only user!)</p>
@@ -944,15 +949,15 @@ widgets</a>) should be to the right or below it.</p>
 <p>The most common one is to have a list of items on the left, with one or more widgets on the right
 providing more information. For instance, the Lightweight CRM example includes a list of people on
 the left, with a person&rsquo;s card and a table of related interactions to the right of the list.</p>
-<p><img alt="layout-list-detail" src="../images/layout-list-detail.png" /></p>
+<p><img alt="layout-list-detail" src="../images/custom-layouts/layout-list-detail.png" /></p>
 <p>In this usage, you might want to include in the list only the minimal information you need,
 perhaps only a contact&rsquo;s name. If your table has many columns, a quick way to leave only a few is
 via the widget options in the right-side panel. In the table widget, click the three-dot menu on
 the top right, and select &ldquo;Widget options&rdquo;.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-widget-options" src="../images/layout-widget-options.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-widget-options" src="../images/custom-layouts/layout-widget-options.png" /></em></span></p>
 <p>You&rsquo;ll see a list of &ldquo;Visible Columns&rdquo;. Click &ldquo;Select
 all&rdquo; link on top of that list:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-hide-selected" src="../images/layout-hide-selected.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="layout-hide-selected" src="../images/custom-layouts/layout-hide-selected.png" /></em></span></p>
 <p>Now uncheck the few fields you want to keep, and click &ldquo;Hide columns&rdquo; to hide the rest.</p>
 <h2 id="layout-spreadsheet-plus">Layout: Spreadsheet plus<a class="headerlink" href="#layout-spreadsheet-plus" title="Permanent link">#</a></h2>
 <p>Sometimes a wide spreadsheet with many columns is convenient. If you&rsquo;d like to see more info
@@ -962,23 +967,23 @@ info.</p>
 <p>For instance, here is a possible layout based on the Lightweight CRM example. It shows contacts as
 a wide spreadsheet, and below that includes sections with an overall summary, and interactions for
 the selected contact.</p>
-<p><img alt="layout-spreadsheet-plus" src="../images/layout-spreadsheet-plus.png" /></p>
+<p><img alt="layout-spreadsheet-plus" src="../images/custom-layouts/layout-spreadsheet-plus.png" /></p>
 <h2 id="layout-summary-and-details">Layout: Summary and details<a class="headerlink" href="#layout-summary-and-details" title="Permanent link">#</a></h2>
 <p>Sometimes it&rsquo;s useful to divide up a large dataset into subsets. For instance, you might have
 credit card transactions, and want a way to view them one month at a time. To do it, you&rsquo;ll use a
 &ldquo;Month&rdquo; column, creating one <a href="../dates/">with a formula</a> if needed. Then create a summary table
 grouped by &ldquo;Month&rdquo; (see <a href="../summary-tables/">Summary tables</a>, and link the table of transactions to
 it.</p>
-<p><img alt="layout-summary-details" src="../images/layout-summary-details.png" /></p>
+<p><img alt="layout-summary-details" src="../images/custom-layouts/layout-summary-details.png" /></p>
 <p>We can then select a month and see a spreadsheet of only the transactions in that month.</p>
 <h2 id="layout-charts-dashboard">Layout: Charts dashboard<a class="headerlink" href="#layout-charts-dashboard" title="Permanent link">#</a></h2>
 <p>If you have many charts, you can just lay them out in a grid to create a top-level dashboard.</p>
-<p><img alt="widget_chart_examples" src="../images/widget_chart_examples.png" /></p>
+<p><img alt="widget_chart_examples" src="../images/custom-layouts/widget_chart_examples.png" /></p>
 <p>For dynamic charts in which data is selected by another table, a layout like
 <a href="#layout-list-and-detail">List-and-detail</a> above would work well. One tip is to include both a Table
 widget and a Chart widget, configured and linked the same way, and differing only in the widget
 type:</p>
-<p><img alt="layout-chart-table" src="../images/layout-chart-table.png" /></p>
+<p><img alt="layout-chart-table" src="../images/custom-layouts/layout-chart-table.png" /></p>
 <p>Having a table alongside the chart can be a useful reference, as well as provide more context to
 what is visible in the chart.</p>
 
