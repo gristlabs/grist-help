@@ -35,6 +35,8 @@ To collapse a widget, click and drag a widget to the widget tray at the top of t
 <span class="screenshot-large">*![layout-collapse-widget](images/custom-layouts/layout-collapse-widget.png)*</span>
 {: .screenshot-half }
 
+When you click on a collapsed widget, it opens in a full-page view. To restore it to the main page, just drag the collapsed widget to the desired location.
+
 ## Layout recommendations
 
 While there is no limit to how complicated a layout you can create, you should aim for simple
