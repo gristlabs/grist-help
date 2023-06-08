@@ -1548,7 +1548,8 @@ components:
         upload:
           type: array
           items:
-            type: File
+            type: string
+            format: binary
     AttachmentId:
       type: number
       description: An integer ID
