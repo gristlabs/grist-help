@@ -105,6 +105,9 @@ paths:
                 delta:
                   $ref: "#/components/schemas/OrgAccessWrite"
         required: true
+      responses:
+        200:
+          description: Success
   /orgs/{orgId}/workspaces:
     get:
       tags:
@@ -271,8 +274,9 @@ paths:
                 delta:
                   $ref: "#/components/schemas/WorkspaceAccessWrite"
         required: true
-
-
+      responses:
+        200:
+          description: Success
 
   /docs/{docId}:
     get:
@@ -392,6 +396,9 @@ paths:
                 delta:
                   $ref: "#/components/schemas/DocAccessWrite"
         required: true
+      responses:
+        200:
+          description: Success
   /docs/{docId}/download:
     get:
       tags:
