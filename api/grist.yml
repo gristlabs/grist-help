@@ -10,13 +10,18 @@ openapi: 3.0.0
 security:
   - API Key: []   
 servers:
-  - url: https://docs.getgrist.com/api
-  - url: https://<TEAM>.getgrist.com/api
+  - url: https://{subdomain}.getgrist.com/api
+    variables:
+        subdomain:
+            description: The team name, or `docs` for personal areas
+            default: docs
+
 paths:
   /orgs:
     get:
+      operationId: listOrgs
       tags:
-        - /orgs
+        - orgs
       summary: "List the orgs you have access to"
       description: "This enumerates all the team sites or personal areas available."
       responses:
@@ -28,8 +33,9 @@ paths:
                 $ref: "#/components/schemas/Orgs"
   /orgs/{orgId}:
     get:
+      operationId: describeOrg
       tags:
-        - /orgs
+        - orgs
       summary: "Describe an org"
       parameters:
         - in: path
@@ -45,8 +51,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/Org"
     patch:
+      operationId: modifyOrg
       tags:
-        - /orgs
+        - orgs
       summary: "Modify an org"
       parameters:
         - in: path
@@ -67,8 +74,9 @@ paths:
 
   /orgs/{orgId}/access:
     get:
+      operationId: listOrgAccess
       tags:
-        - /orgs
+        - orgs
       summary: "List users with access to org"
       parameters:
         - in: path
@@ -84,8 +92,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/OrgAccessRead"
     patch:
+      operationId: modifyOrgAccess
       tags:
-        - /orgs
+        - orgs
       summary: "Change who has access to org"
       parameters:
         - in: path
@@ -105,10 +114,14 @@ paths:
                 delta:
                   $ref: "#/components/schemas/OrgAccessWrite"
         required: true
+      responses:
+        200:
+          description: Success
   /orgs/{orgId}/workspaces:
     get:
+      operationId: listWorkspaces
       tags:
-        - /orgs
+        - orgs
       summary: "List workspaces and documents within an org"
       parameters:
         - in: path
@@ -124,8 +137,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/OrgWithWorkspaces"
     post:
+      operationId: createWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Create an empty workspace"
       parameters:
         - in: path
@@ -154,8 +168,9 @@ paths:
 
   /workspaces/{workspaceId}:
     get:
+      operationId: describeWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Describe a workspace"
       parameters:
         - in: path
@@ -171,8 +186,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
     patch:
+      operationId: modifyWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Modify a workspace"
       parameters:
         - in: path
@@ -191,8 +207,9 @@ paths:
         200:
           description: Success
     delete:
+      operationId: deleteWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Delete a workspace"
       parameters:
         - in: path
@@ -205,8 +222,9 @@ paths:
           description: Success
   /workspaces/{workspaceId}/docs:
     post:
+      operationId: createDoc
       tags:
-        - /docs
+        - docs
       summary: "Create an empty document"
       parameters:
         - in: path
@@ -233,8 +251,9 @@ paths:
 
   /workspaces/{workspaceId}/access:
     get:
+      operationId: listWorkspaceAccess
       tags:
-        - /workspaces
+        - workspaces
       summary: "List users with access to workspace"
       parameters:
         - in: path
@@ -250,8 +269,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/WorkspaceAccessRead"
     patch:
+      operationId: modifyWorkspaceAccess
       tags:
-        - /workspaces
+        - workspaces
       summary: "Change who has access to workspace"
       parameters:
         - in: path
@@ -271,13 +291,15 @@ paths:
                 delta:
                   $ref: "#/components/schemas/WorkspaceAccessWrite"
         required: true
-
-
+      responses:
+        200:
+          description: Success
 
   /docs/{docId}:
     get:
+      operationId: describeDoc
       tags:
-        - /docs
+        - docs
       summary: "Describe a document"
       parameters:
         - in: path
@@ -293,8 +315,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/DocWithWorkspace"
     patch:
+      operationId: modifyDoc
       tags:
-        - /docs
+        - docs
       summary: "Modify document metadata (but not its contents)"
       parameters:
         - in: path
@@ -313,8 +336,9 @@ paths:
         200:
           description: Success
     delete:
+      operationId: deleteDoc
       tags:
-        - /docs
+        - docs
       summary: "Delete a document"
       parameters:
         - in: path
@@ -327,8 +351,9 @@ paths:
           description: Success
   /docs/{docId}/move:
     patch:
+      operationId: moveDoc
       tags:
-        - /docs
+        - docs
       summary: "Move document to another workspace in the same org."
       parameters:
         - in: path
@@ -354,8 +379,9 @@ paths:
 
   /docs/{docId}/access:
     get:
+      operationId: listDocAccess
       tags:
-        - /docs
+        - docs
       summary: "List users with access to document"
       parameters:
         - in: path
@@ -371,8 +397,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/DocAccessRead"
     patch:
+      operationId: modifyDocAccess
       tags:
-        - /docs
+        - docs
       summary: "Change who has access to document"
       parameters:
         - in: path
@@ -392,10 +419,14 @@ paths:
                 delta:
                   $ref: "#/components/schemas/DocAccessWrite"
         required: true
+      responses:
+        200:
+          description: Success
   /docs/{docId}/download:
     get:
+      operationId: downloadDoc
       tags:
-        - /docs
+        - docs
       summary: "Content of document, as an Sqlite file"
       parameters:
         - in: path
@@ -413,8 +444,9 @@ paths:
                 format: binary
   /docs/{docId}/download/xlsx:
     get:
+      operationId: downloadDocXlsx
       tags:
-        - /docs
+        - docs
       summary: "Content of document, as an Excel file"
       parameters:
         - in: path
@@ -432,8 +464,9 @@ paths:
                 format: binary
   /docs/{docId}/download/csv:
     get:
+      operationId: downloadDocCsv
       tags:
-        - /docs
+        - docs
       summary: "Content of table, as a CSV file"
       parameters:
         - in: path
@@ -456,8 +489,9 @@ paths:
                 type: string
   /docs/{docId}/tables/{tableId}/data:
     get:
+      operationId: getTableData
       tags:
-        - /data
+        - data
       summary: "Fetch data from a table"
       deprecated: true
       description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
@@ -477,8 +511,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/Data"
     post:
+      operationId: addRows
       tags:
-        - /data
+        - data
       summary: "Add rows to a table"
       deprecated: true
       description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
@@ -501,8 +536,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/RowIds"
     patch:
+      operationId: modifyRows
       tags:
-        - /data
+        - data
       summary: "Modify rows of a table"
       deprecated: true
       description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
@@ -526,8 +562,9 @@ paths:
                 $ref: "#/components/schemas/RowIds"
   /docs/{docId}/tables/{tableId}/data/delete:
     post:
+      operationId: deleteRows
       tags:
-        - /data
+        - data
       summary: "Delete rows of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -542,14 +579,11 @@ paths:
       responses:
         200:
           description: Nothing returned
-          content:
-            application/json:
-              schema:
-                type: null
   /docs/{docId}/attachments:
     get:
+      operationId: "listAttachments"
       tags:
-        - /attachments
+        - attachments
       summary: "List metadata of all attachments in a doc"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -566,8 +600,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/AttachmentMetadataList"
     post:
+      operationId: "uploadAttachments"
       tags:
-        - /attachments
+        - attachments
       summary: "Upload attachments to a doc"
       parameters:
         - in: path
@@ -591,8 +626,9 @@ paths:
                 $ref: "#/components/schemas/RowIds"
   /docs/{docId}/attachments/{attachmentId}:
     get:
+      operationId: "getAttachmentMetadata"
       tags:
-        - /attachments
+        - attachments
       summary: "Get the metadata for an attachment"
       parameters:
         - in: path
@@ -614,8 +650,9 @@ paths:
                 $ref: "#/components/schemas/AttachmentMetadata"
   /docs/{docId}/attachments/{attachmentId}/download:
     get:
+      operationId: "downloadAttachment"
       tags:
-        - /attachments
+        - attachments
       summary: "Download the contents of an attachment"
       parameters:
         - in: path
@@ -634,8 +671,9 @@ paths:
 
   /docs/{docId}/tables/{tableId}/records:
     get:
+      operationId: "listRecords"
       tags:
-        - /records
+        - records
       summary: "Fetch records from a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -651,10 +689,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Records"
+                $ref: "#/components/schemas/RecordsList"
     post:
+      operationId: "addRecords"
       tags:
-        - /records
+        - records
       summary: "Add records to a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -675,8 +714,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/RecordsWithoutFields"
     patch:
+      operationId: "modifyRecords"
       tags:
-        - /records
+        - records
       summary: "Modify records of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -687,14 +727,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Records"
+              $ref: "#/components/schemas/RecordsList"
         required: true
       responses:
         200:
           description: Success
     put:
+      operationId: "replaceRecords"
       tags:
-        - /records
+        - records
       summary: "Add or update records of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -751,8 +792,9 @@ paths:
 
   /docs/{docId}/tables:
     get:
+      operationId: "listTables"
       tags:
-        - /tables
+        - tables
       summary: "List tables in a document"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -762,10 +804,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Tables"
+                $ref: "#/components/schemas/TablesList"
     post:
+      operationId: "addTables"
       tags:
-        - /tables
+        - tables
       summary: "Add tables to a document"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -784,8 +827,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/TablesWithoutFields"
     patch:
+      operationId: "modifyTables"
       tags:
-        - /tables
+        - tables
       summary: "Modify tables of a document"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -794,7 +838,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Tables"
+              $ref: "#/components/schemas/TablesList"
         required: true
       responses:
         200:
@@ -802,8 +846,9 @@ paths:
 
   /docs/{docId}/tables/{tableId}/columns:
     get:
+      operationId: "listColumns"
       tags:
-        - /columns
+        - columns
       summary: "List columns in a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -814,10 +859,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Columns"
+                $ref: "#/components/schemas/ColumnsList"
     post:
+      operationId: "addColumns"
       tags:
-        - /columns
+        - columns
       summary: "Add columns to a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -837,8 +883,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/ColumnsWithoutFields"
     patch:
+      operationId: "modifyColumns"
       tags:
-        - /columns
+        - columns
       summary: "Modify columns of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -880,7 +927,7 @@ components:
       description: "Access to the Grist API is controlled by an Authorization header, which should contain the word 'Bearer', followed by a space, followed by your API key."
   schemas:
     OrgKey:
-      oneof:
+      oneOf:
         - integer
         - string
       description: This can be an integer id, or a string subdomain (e.g. `gristlabs`), or `current` if the org is implied by the domain in the url
@@ -1050,7 +1097,8 @@ components:
             type: integer
       additionalProperties:
         type: array
-        items: {}
+        items:
+          type: object
       example:
         id: [1, 2]
         pet: ["cat", "dog"]
@@ -1059,11 +1107,12 @@ components:
       type: object
       additionalProperties:
         type: array
-        items: {}
+        items:
+          type: object
       example:
         pet: ["cat", "dog"]
         popularity: [67, 95]
-    Records:
+    RecordsList:
       type: object
       required:
         - records
@@ -1177,7 +1226,7 @@ components:
             fields:
               popularity: 95
 
-    Tables:
+    TablesList:
       type: object
       required:
         - tables
@@ -1260,7 +1309,7 @@ components:
                 fields:
                   label: "Popularity ❤"
 
-    Columns:
+    ColumnsList:
       type: object
       properties:
         columns:
@@ -1539,7 +1588,8 @@ components:
         upload:
           type: array
           items:
-            type: File
+            type: string
+            format: binary
     AttachmentId:
       type: number
       description: An integer ID
