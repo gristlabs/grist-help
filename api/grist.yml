@@ -880,7 +880,7 @@ components:
       description: "Access to the Grist API is controlled by an Authorization header, which should contain the word 'Bearer', followed by a space, followed by your API key."
   schemas:
     OrgKey:
-      oneof:
+      oneOf:
         - integer
         - string
       description: This can be an integer id, or a string subdomain (e.g. `gristlabs`), or `current` if the org is implied by the domain in the url
