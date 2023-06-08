@@ -1050,7 +1050,8 @@ components:
             type: integer
       additionalProperties:
         type: array
-        items: {}
+        items:
+          type: object
       example:
         id: [1, 2]
         pet: ["cat", "dog"]
@@ -1059,7 +1060,8 @@ components:
       type: object
       additionalProperties:
         type: array
-        items: {}
+        items:
+          type: object
       example:
         pet: ["cat", "dog"]
         popularity: [67, 95]
