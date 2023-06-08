@@ -689,7 +689,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Records"
+                $ref: "#/components/schemas/RecordsList"
     post:
       operationId: "addRecords"
       tags:
@@ -727,7 +727,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Records"
+              $ref: "#/components/schemas/RecordsList"
         required: true
       responses:
         200:
@@ -804,7 +804,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Tables"
+                $ref: "#/components/schemas/TablesList"
     post:
       operationId: "addTables"
       tags:
@@ -838,7 +838,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Tables"
+              $ref: "#/components/schemas/TablesList"
         required: true
       responses:
         200:
@@ -859,7 +859,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Columns"
+                $ref: "#/components/schemas/ColumnsList"
     post:
       operationId: "addColumns"
       tags:
@@ -1112,7 +1112,7 @@ components:
       example:
         pet: ["cat", "dog"]
         popularity: [67, 95]
-    Records:
+    RecordsList:
       type: object
       required:
         - records
@@ -1226,7 +1226,7 @@ components:
             fields:
               popularity: 95
 
-    Tables:
+    TablesList:
       type: object
       required:
         - tables
@@ -1309,7 +1309,7 @@ components:
                 fields:
                   label: "Popularity ❤"
 
-    Columns:
+    ColumnsList:
       type: object
       properties:
         columns:
