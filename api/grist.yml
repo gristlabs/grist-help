@@ -21,7 +21,7 @@ paths:
     get:
       operationId: listOrgs
       tags:
-        - /orgs
+        - orgs
       summary: "List the orgs you have access to"
       description: "This enumerates all the team sites or personal areas available."
       responses:
@@ -35,7 +35,7 @@ paths:
     get:
       operationId: describeOrg
       tags:
-        - /orgs
+        - orgs
       summary: "Describe an org"
       parameters:
         - in: path
@@ -53,7 +53,7 @@ paths:
     patch:
       operationId: modifyOrg
       tags:
-        - /orgs
+        - orgs
       summary: "Modify an org"
       parameters:
         - in: path
@@ -76,7 +76,7 @@ paths:
     get:
       operationId: listOrgAccess
       tags:
-        - /orgs
+        - orgs
       summary: "List users with access to org"
       parameters:
         - in: path
@@ -94,7 +94,7 @@ paths:
     patch:
       operationId: modifyOrgAccess
       tags:
-        - /orgs
+        - orgs
       summary: "Change who has access to org"
       parameters:
         - in: path
@@ -121,7 +121,7 @@ paths:
     get:
       operationId: listWorkspaces
       tags:
-        - /orgs
+        - orgs
       summary: "List workspaces and documents within an org"
       parameters:
         - in: path
@@ -139,7 +139,7 @@ paths:
     post:
       operationId: createWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Create an empty workspace"
       parameters:
         - in: path
@@ -170,7 +170,7 @@ paths:
     get:
       operationId: describeWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Describe a workspace"
       parameters:
         - in: path
@@ -188,7 +188,7 @@ paths:
     patch:
       operationId: modifyWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Modify a workspace"
       parameters:
         - in: path
@@ -209,7 +209,7 @@ paths:
     delete:
       operationId: deleteWorkspace
       tags:
-        - /workspaces
+        - workspaces
       summary: "Delete a workspace"
       parameters:
         - in: path
@@ -224,7 +224,7 @@ paths:
     post:
       operationId: createDoc
       tags:
-        - /docs
+        - docs
       summary: "Create an empty document"
       parameters:
         - in: path
@@ -253,7 +253,7 @@ paths:
     get:
       operationId: listWorkspaceAccess
       tags:
-        - /workspaces
+        - workspaces
       summary: "List users with access to workspace"
       parameters:
         - in: path
@@ -271,7 +271,7 @@ paths:
     patch:
       operationId: modifyWorkspaceAccess
       tags:
-        - /workspaces
+        - workspaces
       summary: "Change who has access to workspace"
       parameters:
         - in: path
@@ -299,7 +299,7 @@ paths:
     get:
       operationId: describeDoc
       tags:
-        - /docs
+        - docs
       summary: "Describe a document"
       parameters:
         - in: path
@@ -317,7 +317,7 @@ paths:
     patch:
       operationId: modifyDoc
       tags:
-        - /docs
+        - docs
       summary: "Modify document metadata (but not its contents)"
       parameters:
         - in: path
@@ -338,7 +338,7 @@ paths:
     delete:
       operationId: deleteDoc
       tags:
-        - /docs
+        - docs
       summary: "Delete a document"
       parameters:
         - in: path
@@ -353,7 +353,7 @@ paths:
     patch:
       operationId: moveDoc
       tags:
-        - /docs
+        - docs
       summary: "Move document to another workspace in the same org."
       parameters:
         - in: path
@@ -381,7 +381,7 @@ paths:
     get:
       operationId: listDocAccess
       tags:
-        - /docs
+        - docs
       summary: "List users with access to document"
       parameters:
         - in: path
@@ -399,7 +399,7 @@ paths:
     patch:
       operationId: modifyDocAccess
       tags:
-        - /docs
+        - docs
       summary: "Change who has access to document"
       parameters:
         - in: path
@@ -426,7 +426,7 @@ paths:
     get:
       operationId: downloadDoc
       tags:
-        - /docs
+        - docs
       summary: "Content of document, as an Sqlite file"
       parameters:
         - in: path
@@ -446,7 +446,7 @@ paths:
     get:
       operationId: downloadDocXlsx
       tags:
-        - /docs
+        - docs
       summary: "Content of document, as an Excel file"
       parameters:
         - in: path
@@ -466,7 +466,7 @@ paths:
     get:
       operationId: downloadDocCsv
       tags:
-        - /docs
+        - docs
       summary: "Content of table, as a CSV file"
       parameters:
         - in: path
@@ -491,7 +491,7 @@ paths:
     get:
       operationId: getTableData
       tags:
-        - /data
+        - data
       summary: "Fetch data from a table"
       deprecated: true
       description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
@@ -513,7 +513,7 @@ paths:
     post:
       operationId: addRows
       tags:
-        - /data
+        - data
       summary: "Add rows to a table"
       deprecated: true
       description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
@@ -538,7 +538,7 @@ paths:
     patch:
       operationId: modifyRows
       tags:
-        - /data
+        - data
       summary: "Modify rows of a table"
       deprecated: true
       description: "Deprecated in favor of `records` endpoints. We have no immediate plans to remove these endpoints, but consider `records` a better starting point for new projects."
@@ -564,7 +564,7 @@ paths:
     post:
       operationId: deleteRows
       tags:
-        - /data
+        - data
       summary: "Delete rows of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -583,7 +583,7 @@ paths:
     get:
       operationId: "listAttachments"
       tags:
-        - /attachments
+        - attachments
       summary: "List metadata of all attachments in a doc"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -602,7 +602,7 @@ paths:
     post:
       operationId: "uploadAttachments"
       tags:
-        - /attachments
+        - attachments
       summary: "Upload attachments to a doc"
       parameters:
         - in: path
@@ -628,7 +628,7 @@ paths:
     get:
       operationId: "getAttachmentMetadata"
       tags:
-        - /attachments
+        - attachments
       summary: "Get the metadata for an attachment"
       parameters:
         - in: path
@@ -652,7 +652,7 @@ paths:
     get:
       operationId: "downloadAttachment"
       tags:
-        - /attachments
+        - attachments
       summary: "Download the contents of an attachment"
       parameters:
         - in: path
@@ -673,7 +673,7 @@ paths:
     get:
       operationId: "listRecords"
       tags:
-        - /records
+        - records
       summary: "Fetch records from a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -693,7 +693,7 @@ paths:
     post:
       operationId: "addRecords"
       tags:
-        - /records
+        - records
       summary: "Add records to a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -716,7 +716,7 @@ paths:
     patch:
       operationId: "modifyRecords"
       tags:
-        - /records
+        - records
       summary: "Modify records of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -735,7 +735,7 @@ paths:
     put:
       operationId: "replaceRecords"
       tags:
-        - /records
+        - records
       summary: "Add or update records of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -794,7 +794,7 @@ paths:
     get:
       operationId: "listTables"
       tags:
-        - /tables
+        - tables
       summary: "List tables in a document"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -808,7 +808,7 @@ paths:
     post:
       operationId: "addTables"
       tags:
-        - /tables
+        - tables
       summary: "Add tables to a document"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -829,7 +829,7 @@ paths:
     patch:
       operationId: "modifyTables"
       tags:
-        - /tables
+        - tables
       summary: "Modify tables of a document"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -848,7 +848,7 @@ paths:
     get:
       operationId: "listColumns"
       tags:
-        - /columns
+        - columns
       summary: "List columns in a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -863,7 +863,7 @@ paths:
     post:
       operationId: "addColumns"
       tags:
-        - /columns
+        - columns
       summary: "Add columns to a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
@@ -885,7 +885,7 @@ paths:
     patch:
       operationId: "modifyColumns"
       tags:
-        - /columns
+        - columns
       summary: "Modify columns of a table"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
