@@ -15,6 +15,7 @@ servers:
 paths:
   /orgs:
     get:
+      operationId: listOrgs
       tags:
         - /orgs
       summary: "List the orgs you have access to"
@@ -28,6 +29,7 @@ paths:
                 $ref: "#/components/schemas/Orgs"
   /orgs/{orgId}:
     get:
+      operationId: describeOrg
       tags:
         - /orgs
       summary: "Describe an org"
@@ -45,6 +47,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Org"
     patch:
+      operationId: modifyOrg
       tags:
         - /orgs
       summary: "Modify an org"
@@ -67,6 +70,7 @@ paths:
 
   /orgs/{orgId}/access:
     get:
+      operationId: listOrgAccess
       tags:
         - /orgs
       summary: "List users with access to org"
@@ -84,6 +88,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/OrgAccessRead"
     patch:
+      operationId: modifyOrgAccess
       tags:
         - /orgs
       summary: "Change who has access to org"
@@ -110,6 +115,7 @@ paths:
           description: Success
   /orgs/{orgId}/workspaces:
     get:
+      operationId: listWorkspaces
       tags:
         - /orgs
       summary: "List workspaces and documents within an org"
@@ -127,6 +133,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/OrgWithWorkspaces"
     post:
+      operationId: createWorkspace
       tags:
         - /workspaces
       summary: "Create an empty workspace"
@@ -157,6 +164,7 @@ paths:
 
   /workspaces/{workspaceId}:
     get:
+      operationId: describeWorkspace
       tags:
         - /workspaces
       summary: "Describe a workspace"
@@ -174,6 +182,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
     patch:
+      operationId: modifyWorkspace
       tags:
         - /workspaces
       summary: "Modify a workspace"
@@ -194,6 +203,7 @@ paths:
         200:
           description: Success
     delete:
+      operationId: deleteWorkspace
       tags:
         - /workspaces
       summary: "Delete a workspace"
@@ -208,6 +218,7 @@ paths:
           description: Success
   /workspaces/{workspaceId}/docs:
     post:
+      operationId: createDoc
       tags:
         - /docs
       summary: "Create an empty document"
@@ -236,6 +247,7 @@ paths:
 
   /workspaces/{workspaceId}/access:
     get:
+      operationId: listWorkspaceAccess
       tags:
         - /workspaces
       summary: "List users with access to workspace"
@@ -253,6 +265,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/WorkspaceAccessRead"
     patch:
+      operationId: modifyWorkspaceAccess
       tags:
         - /workspaces
       summary: "Change who has access to workspace"
@@ -280,6 +293,7 @@ paths:
 
   /docs/{docId}:
     get:
+      operationId: describeDoc
       tags:
         - /docs
       summary: "Describe a document"
@@ -297,6 +311,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/DocWithWorkspace"
     patch:
+      operationId: modifyDoc
       tags:
         - /docs
       summary: "Modify document metadata (but not its contents)"
@@ -317,6 +332,7 @@ paths:
         200:
           description: Success
     delete:
+      operationId: deleteDoc
       tags:
         - /docs
       summary: "Delete a document"
@@ -331,6 +347,7 @@ paths:
           description: Success
   /docs/{docId}/move:
     patch:
+      operationId: moveDoc
       tags:
         - /docs
       summary: "Move document to another workspace in the same org."
@@ -358,6 +375,7 @@ paths:
 
   /docs/{docId}/access:
     get:
+      operationId: listDocAccess
       tags:
         - /docs
       summary: "List users with access to document"
@@ -375,6 +393,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/DocAccessRead"
     patch:
+      operationId: modifyDocAccess
       tags:
         - /docs
       summary: "Change who has access to document"
@@ -401,6 +420,7 @@ paths:
           description: Success
   /docs/{docId}/download:
     get:
+      operationId: downloadDoc
       tags:
         - /docs
       summary: "Content of document, as an Sqlite file"
@@ -420,6 +440,7 @@ paths:
                 format: binary
   /docs/{docId}/download/xlsx:
     get:
+      operationId: downloadDocXlsx
       tags:
         - /docs
       summary: "Content of document, as an Excel file"
@@ -439,6 +460,7 @@ paths:
                 format: binary
   /docs/{docId}/download/csv:
     get:
+      operationId: downloadDocCsv
       tags:
         - /docs
       summary: "Content of table, as a CSV file"
@@ -463,6 +485,7 @@ paths:
                 type: string
   /docs/{docId}/tables/{tableId}/data:
     get:
+      operationId: getTableData
       tags:
         - /data
       summary: "Fetch data from a table"
@@ -484,6 +507,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Data"
     post:
+      operationId: addRows
       tags:
         - /data
       summary: "Add rows to a table"
@@ -508,6 +532,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/RowIds"
     patch:
+      operationId: modifyRows
       tags:
         - /data
       summary: "Modify rows of a table"
@@ -533,6 +558,7 @@ paths:
                 $ref: "#/components/schemas/RowIds"
   /docs/{docId}/tables/{tableId}/data/delete:
     post:
+      operationId: deleteRows
       tags:
         - /data
       summary: "Delete rows of a table"
@@ -555,6 +581,7 @@ paths:
                 type: null
   /docs/{docId}/attachments:
     get:
+      operationId: "listAttachments"
       tags:
         - /attachments
       summary: "List metadata of all attachments in a doc"
@@ -573,6 +600,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/AttachmentMetadataList"
     post:
+      operationId: "uploadAttachments"
       tags:
         - /attachments
       summary: "Upload attachments to a doc"
@@ -598,6 +626,7 @@ paths:
                 $ref: "#/components/schemas/RowIds"
   /docs/{docId}/attachments/{attachmentId}:
     get:
+      operationId: "getAttachmentMetadata"
       tags:
         - /attachments
       summary: "Get the metadata for an attachment"
@@ -621,6 +650,7 @@ paths:
                 $ref: "#/components/schemas/AttachmentMetadata"
   /docs/{docId}/attachments/{attachmentId}/download:
     get:
+      operationId: "downloadAttachment"
       tags:
         - /attachments
       summary: "Download the contents of an attachment"
@@ -641,6 +671,7 @@ paths:
 
   /docs/{docId}/tables/{tableId}/records:
     get:
+      operationId: "listRecords"
       tags:
         - /records
       summary: "Fetch records from a table"
@@ -660,6 +691,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Records"
     post:
+      operationId: "addRecords"
       tags:
         - /records
       summary: "Add records to a table"
@@ -682,6 +714,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/RecordsWithoutFields"
     patch:
+      operationId: "modifyRecords"
       tags:
         - /records
       summary: "Modify records of a table"
@@ -700,6 +733,7 @@ paths:
         200:
           description: Success
     put:
+      operationId: "replaceRecords"
       tags:
         - /records
       summary: "Add or update records of a table"
@@ -758,6 +792,7 @@ paths:
 
   /docs/{docId}/tables:
     get:
+      operationId: "listTables"
       tags:
         - /tables
       summary: "List tables in a document"
@@ -771,6 +806,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Tables"
     post:
+      operationId: "addTables"
       tags:
         - /tables
       summary: "Add tables to a document"
@@ -791,6 +827,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/TablesWithoutFields"
     patch:
+      operationId: "modifyTables"
       tags:
         - /tables
       summary: "Modify tables of a document"
@@ -809,6 +846,7 @@ paths:
 
   /docs/{docId}/tables/{tableId}/columns:
     get:
+      operationId: "listColumns"
       tags:
         - /columns
       summary: "List columns in a table"
@@ -823,6 +861,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Columns"
     post:
+      operationId: "addColumns"
       tags:
         - /columns
       summary: "Add columns to a table"
@@ -844,6 +883,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ColumnsWithoutFields"
     patch:
+      operationId: "modifyColumns"
       tags:
         - /columns
       summary: "Modify columns of a table"
