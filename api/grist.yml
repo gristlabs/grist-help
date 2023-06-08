@@ -10,8 +10,12 @@ openapi: 3.0.0
 security:
   - API Key: []   
 servers:
-  - url: https://docs.getgrist.com/api
-  - url: https://<TEAM>.getgrist.com/api
+  - url: https://{subdomain}.getgrist.com/api
+    variables:
+        subdomain:
+            description: The team name, or `docs` for personal areas
+            default: docs
+
 paths:
   /orgs:
     get:
