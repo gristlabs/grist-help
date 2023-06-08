@@ -575,10 +575,6 @@ paths:
       responses:
         200:
           description: Nothing returned
-          content:
-            application/json:
-              schema:
-                type: null
   /docs/{docId}/attachments:
     get:
       operationId: "listAttachments"
