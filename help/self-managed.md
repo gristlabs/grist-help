@@ -613,6 +613,20 @@ As per [MinIO specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:t
 
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
+### How do I control telemetry? {: .tag-core .tag-ee }
+
+By default, Grist installations do not "phone home" to any central
+service. It is useful to permit them to do so, to give Grist Labs some
+limited insight into your usage, through measurements called
+telemetry. This will help guide development, and draw attention to
+self-managed users as a group.
+
+To enable limited telemetry, set the environment variable
+`GRIST_TELEMETRY_LEVEL` to `limited`. Read
+[limited telemetry](telemetry-limited.md) for exact details
+on what is sent, and [telemetry overview](telemetry.md)
+for further explanation.
+
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
 We currently release new Grist Core and Enterprise images at

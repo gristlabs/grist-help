@@ -78,6 +78,10 @@ nav:
     - Forwarded headers: install/forwarded-headers.md
     - Cloud storage: install/cloud-storage.md
     - GristConnect: install/grist-connect.md
+    - Telemetry:
+      - Overview of Telemetry: telemetry.md
+      - Limited Telemetry: telemetry-limited.md
+      - Full Telemetry: telemetry-full.md
   - News & updates:
     - Newsletters: newsletters.md
     - 2023/05: newsletters/2023-05.md   
