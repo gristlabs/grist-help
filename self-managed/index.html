@@ -574,6 +574,25 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Telemetry</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry/" class="wm-article-link wm-toc-text">Overview of Telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-limited/" class="wm-article-link wm-toc-text">Limited Telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-full/" class="wm-article-link wm-toc-text">Full Telemetry</a>
+
+    
+</li>
+  </ul>
+</li>
+
   </ul>
 </li>
 
@@ -937,6 +956,7 @@
 <li><a href="#what-is-a-home-database">What is a &ldquo;home&rdquo; database?</a></li>
 <li><a href="#what-is-a-state-store">What is a state store?</a></li>
 <li><a href="#how-do-i-set-up-snapshots">How do I set up snapshots?</a></li>
+<li><a href="#how-do-i-control-telemetry">How do I control telemetry?</a></li>
 <li><a href="#how-do-i-upgrade-my-installation">How do I upgrade my installation?</a></li>
 <li><a href="#what-if-i-need-high-availability">What if I need high availability?</a></li>
 </ul>
@@ -1472,6 +1492,17 @@ client:</p>
 
 <p>As per <a href="https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1">MinIO specs</a>.), the default bucket region is <code>us-east-1</code>. This default region can be overwritten using the <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> flag.</p>
 <p>For details, and other options, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
+<h3 class="tag-core tag-ee" id="how-do-i-control-telemetry">How do I control telemetry?<a class="headerlink" href="#how-do-i-control-telemetry" title="Permanent link">#</a></h3>
+<p>By default, Grist installations do not &ldquo;phone home&rdquo; to any central
+service. It is useful to permit them to do so, to give Grist Labs some
+limited insight into your usage, through measurements called
+telemetry. This will help guide development, and draw attention to
+self-managed users as a group.</p>
+<p>To enable limited telemetry, set the environment variable
+<code>GRIST_TELEMETRY_LEVEL</code> to <code>limited</code>. Read
+<a href="../telemetry-limited/">limited telemetry</a> for exact details
+on what is sent, and <a href="../telemetry/">telemetry overview</a>
+for further explanation.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-upgrade-my-installation">How do I upgrade my installation?<a class="headerlink" href="#how-do-i-upgrade-my-installation" title="Permanent link">#</a></h3>
 <p>We currently release new Grist Core and Enterprise images at
 approximately weekly intervals. Grist handles any migrations that
