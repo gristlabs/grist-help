@@ -1,9 +1,5 @@
 ## Embedding Grist
 
-!!! warning "This is an experimental feature"
-    The design of this feature is likely to evolve. Keep an eye on our
-    [Roadmap](https://github.com/gristlabs/grist-core/projects/1) for updates. 
-
 Perhaps you'd like to list your product, prices and quantities on your website,
 or you want to display a pie chart of voting results that updates live. With
 [public access](sharing.md#public-access-and-link-sharing) turned on, you may embed your
