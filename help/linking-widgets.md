@@ -59,7 +59,7 @@ columns](col-refs.md).
 
 ## Types of linking {: data-toc-label='' }
 
-Linking widgets only works when there is some relationships between records in the underlying
+Linking widgets only works when there is a relationship between records in the underlying
 data. There are several kinds of relationships supported.
 
 ## Same-record linking
