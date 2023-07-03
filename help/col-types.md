@@ -43,18 +43,34 @@ reorder them.  You can also hide columns here.
 ## Renaming columns
 
 You can rename columns in several ways.  One way is to
-click on the column header when the column is already selected.
-Another is to hover on the column
-header, click on the drop-down, then select "Rename Column".
-Another is by selecting "Column Options" in the same drop-down, and editing the "Field"
-name shown at the top.  A bonus with this method is that you can also control
+double click a column header. Then, you can rename the column or add a column description.
+
+*![rename columns](images/columns/columns-rename-header.png)*
+{: .screenshot-half }
+
+You can also hover on the column header, click on the drop-down, then select "Rename Column". This opens the same
+pop up seen above.
+
+*![rename columns](images/columns/columns-rename-renamecolumn.png)*
+{: .screenshot-half }
+
+Selecting "Column Options" in the same drop-down opens the Creator Panel. From here, you can edit the
+Column Label, shown at the top or add a description.
+
+*![rename columns](images/columns/columns-rename-creatorpanel.png)*
+{: .screenshot-half }
+
+A bonus with this method is that you can also control
 the identifier given to the column
 in formulas.  By default this is based on the field name, with any
 characters Python doesn't like replaced with "\_", and a number added if needed
 to keep the name unique within your table.  If you don't like this identifier, you
-can change it, though it will still need to be Python-friendly.  To change
-the name, deselect "Use Name as ID" if it is selected, and edit the "ID" entry now
-shown.
+can change it, though it will still need to be Python-friendly.  Click the link icon to make the
+ID field editable, then enter the new Column ID.
+
+*![rename columns](images/columns/columns-rename-col-id.png)*
+{: .screenshot-half }
+
 
 ## Specifying a type
 

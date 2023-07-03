@@ -86,11 +86,12 @@ right-side panel. Click on "Change Widget".
 *![change_widget](images/change_widget.png)*
 {: .screenshot-half }
 
-You can then use the widget picker to change the widget or the data it displays. You may also edit the widget's title. 
+You can then use the widget picker to change the widget or the data it displays. You may also edit the widget's title or add a description. 
 
-You can also edit the widget's title, or the underlying data table's name by clicking on the widget title above a widget. By default, the widget title is the data table's name. Learn more about data tables in the [raw data page](raw-data.md).
+You can also edit the widget's title, the underlying data table's name or add a description for the widget by clicking on the widget title above a widget. By default, the widget title is the data table's name. Learn more about data tables in the [raw data page](raw-data.md).
 
-![Renaming Widgets](images/widgets-renaming.png)
+*![Renaming Widgets](images/widgets-renaming.png)*
+{: .screenshot-half }
 
 ## Configuring field lists
 
