@@ -928,8 +928,8 @@ components:
   schemas:
     OrgKey:
       oneOf:
-        - integer
-        - string
+        - type: integer
+        - type: string
       description: This can be an integer id, or a string subdomain (e.g. `gristlabs`), or `current` if the org is implied by the domain in the url
     WorkspaceKey:
       type: integer
