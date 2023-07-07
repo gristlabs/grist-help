@@ -167,7 +167,7 @@ extra:
     - href: https://www.getgrist.com
       text: 'Back to Grist'
       hide_on_small_screen: true
-  google_analytics: ['GTM-5FDHKQ9', 'auto']
+  google_tag_manager: 'GTM-5FDHKQ9'
 extra_css:
   - css/grist.css
 extra_javascript:

@@ -27,6 +27,10 @@
     <title>{% if page and page.title and not page.is_homepage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
   {%- endblock %}
 
+  {%- block analytics_head %}
+    {% include 'analytics-head.html' %}
+  {%- endblock %}
+
   {%- block styles %}
     <link href="{{ '/css/bootstrap-3.3.7.min.css'|url }}" rel="stylesheet">
     <link href="{{ '/css/font-awesome-4.7.0.css'|url }}" rel="stylesheet">
@@ -64,10 +68,6 @@
     {%- endfor %}
   {%- endblock %}
 
-  {%- block analytics %}
-    {% include 'analytics.html' %}
-  {%- endblock %}
-
   {%- block beacon %}
     {% include 'beacon.html' %}
   {%- endblock %}
@@ -76,6 +76,9 @@
 </head>
 
 <body>
+{%- block analytics_body %}
+  {% include 'analytics-body.html' %}
+{%- endblock %}
 {% include 'topbar.html' %}
 
 <div id="main-content">
