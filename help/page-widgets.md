@@ -88,7 +88,11 @@ right-side panel. Click on "Change Widget".
 
 You can then use the widget picker to change the widget or the data it displays. You may also edit the widget's title or add a description. 
 
-You can also edit the widget's title, the underlying data table's name or add a description for the widget by clicking on the widget title above a widget. By default, the widget title is the data table's name. Learn more about data tables in the [raw data page](raw-data.md).
+## Renaming widgets
+
+You can rename widgets in several ways. We saw in the section above that you can edit a widget's title or add a description from the Widget tab of the Creator Panel.
+
+Another way is to click on the widget title above a widget. From here, you can edit the widget's title, the underlying data table's name or add a description. By default, the widget title is the data table's name. To override this, enter a new title under 'Widget Title'. Learn more about data tables in the [raw data page](raw-data.md).
 
 *![Renaming Widgets](images/widgets-renaming.png)*
 {: .screenshot-half }
