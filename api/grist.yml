@@ -904,7 +904,7 @@ paths:
   /docs/{docId}/webhooks:
     get:
       tags:
-        - /webhooks
+        - webhooks
       summary: "Webhooks associated with a document"
       parameters:
         - in: path
@@ -921,8 +921,8 @@ paths:
                 $ref: "#/components/schemas/Webhooks"
     post:
       tags:
-        - /webhooks
-      summary: "Create a new webhook for a document"
+        - webhooks
+      summary: "Create new webhooks for a document"
       parameters:
         - in: path
           name: docId
@@ -930,19 +930,44 @@ paths:
             $ref: "#/components/schemas/DocKey"
           required: true
       requestBody:
-        description: "the webhook settings"
+        description: "an array of webhook settings"
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/WebhookPartialFields"
+              type: object
+              required:
+                - webhooks
+              properties:
+                webhooks:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/WebhookPartialFields"
       responses:
         200:
           description: "Success"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - webhooks
+                properties:
+                  webhooks:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - id
+                      properties:
+                        id:
+                          type: string
+                          description: Webhook identifier
+                          example: "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
 
   /docs/{docId}/webhooks/{webhookId}:
     patch:
       tags:
-        - /webhooks
+        - webhooks
       summary: "Modify a webhook"
       parameters:
         - in: path
@@ -966,7 +991,7 @@ paths:
           description: "Success."
     delete:
       tags:
-        - /webhooks
+        - webhooks
       summary: "Remove a webhook"
       parameters:
         - in: path
@@ -982,11 +1007,21 @@ paths:
       responses:
         200:
           description: "Success."
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - success
+                properties:
+                  success:
+                    type: boolean
+                    example: true
 
   /docs/{docId}/webhooks/queue:
     delete:
       tags:
-        - /webhooks
+        - webhooks
       summary: "Empty a document's queue of undelivered payloads"
       parameters:
         - in: path
@@ -999,22 +1034,24 @@ paths:
           description: "Success."
 
 tags:
-  - name: /orgs
+  - name: orgs
     description: "Team sites and personal spaces are called 'orgs' in the API."
-  - name: /workspaces
+  - name: workspaces
     description: "Sites can be organized into groups of documents called workspaces."
-  - name: /docs
+  - name: docs
     description: "Workspaces contain collections of Grist documents."
-  - name: /records
+  - name: records
     description: "Tables contain collections of records (also called rows)."
-  - name: /tables
+  - name: tables
     description: "Documents are structured as a collection of tables."
-  - name: /columns
+  - name: columns
     description: "Tables are structured as a collection of columns."
-  - name: /data
+  - name: data
     description: "Work with table data, using a (now deprecated) columnar format. We now recommend the `records` endpoints."
-  - name: /attachments
+  - name: attachments
     description: "Documents may include attached files. Data records can refer to these using a column of type `Attachments`."
+  - name: webhooks
+    description: "Document changes can trigger requests to URLs called webhooks."
 components:
   securitySchemes:
     API Key:
@@ -1127,11 +1164,16 @@ components:
           type: array
           items:
             type: string
+          example:
+            - add
+            - update
         isReadyColumn:
           type: string
           nullable: true
+          example: null
         tableId:
           type: string
+          example: "Projects"
     WebhookUsage:
       type: object
       nullable: true
