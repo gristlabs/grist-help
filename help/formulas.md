@@ -2,7 +2,7 @@ Formulas
 =========
 
 Grist has a powerful data engine to calculate the cells of your
-tables using formulas.  If you've used spreadsheets before, or
+tables using formulas. It even has an [AI Formula Assistant](ai-assistant.md) to help write formulas. If you've used spreadsheets before, or
 database expressions, you'll be on familiar territory - but there are
 some wrinkles you'll want to know about, so hang around.
 
