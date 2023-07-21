@@ -57,6 +57,8 @@ nav:
     - Python versions: python.md
     - Function reference: functions.md
     - Formula Cheat Sheet: formula-cheat-sheet.md
+  - AI Assistant:
+    - AI Assistant: ai-assistant.md
   - Team Sites:
     - Creating team sites: teams.md
     - Sharing team sites: team-sharing.md
