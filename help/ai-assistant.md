@@ -23,16 +23,16 @@ When you apply a suggested formula, you will see the formula previewed in the co
 
 ## AI Assistant for Self-hosters
 
-For self-hosters looking to connect their Grist instance, set the `OPENAI_API_KEY` environment variable. Learn more about [self-managing Grist](self-managed.md). 
+For self-hosters looking to connect their Grist instance, set the `OPENAI_API_KEY` [environment variable](https://github.com/gristlabs/grist-core/#environment-variables){:target="\_blank"}. Learn more about [self-managing Grist](self-managed.md). 
 
 ## Pricing for AI Assistant
 
 Free personal and free team plans have 100 AI Assistant credits (or requests). For free team sites, that applies to the whole team. 
 
-Pro plans include 100 AI Assistant credits per month. The credits automatically top up to 100 every billing cycle. Credits apply to the whole team. If you need more credits, there are two upgrade options:
+[Pro plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 100 AI Assistant credits per month. The credits automatically top up to 100 every billing cycle. Credits apply to the whole team. It costs one credit per chat message sent. If you need more credits, there are two upgrade options:
 
-* 500 monthly credits for $10 per month (not per person)
-* 2,000 monthly credits for $29 per month (not per person)
+* 500 monthly credits for $10 per month (per team, not per person)
+* 2,000 monthly credits for $29 per month (per team, not per person)
 
 ## Best Practices
 
