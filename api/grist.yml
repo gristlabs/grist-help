@@ -918,7 +918,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Webhooks"
+                type: object
+                required:
+                  - webhooks
+                properties:
+                  webhooks:
+                    type: object
+                    $ref: "#/components/schemas/Webhooks"
     post:
       tags:
         - webhooks
@@ -941,7 +947,12 @@ paths:
                 webhooks:
                   type: array
                   items:
-                    $ref: "#/components/schemas/WebhookPartialFields"
+                    type: object
+                    required:
+                      - fields
+                    properties:
+                      fields:
+                        $ref: "#/components/schemas/WebhookPartialFields"
       responses:
         200:
           description: "Success"
@@ -956,13 +967,7 @@ paths:
                     type: array
                     items:
                       type: object
-                      required:
-                        - id
-                      properties:
-                        id:
-                          type: string
-                          description: Webhook identifier
-                          example: "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
+                      $ref: "#/components/schemas/WebhookId"
 
   /docs/{docId}/webhooks/{webhookId}:
     patch:
@@ -1219,7 +1224,6 @@ components:
         - attempts
         - status
       properties:
-        $ref: "#/components/schemas/Properties"
         size:
           type: number
           example: 1
@@ -1236,6 +1240,15 @@ components:
         status:
           type: string
           example: "success"
+    WebhookId:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: Webhook identifier
+          example: "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
     WebhookRequiredProperties:
       type: object
       required:
