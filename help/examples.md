@@ -59,6 +59,9 @@ ready-to-use templates.
 - [Access Rules to Restrict Duplicate Records](examples/2023-01-acl-memo.md):
   Learn to how to create a condition in Access Rules to restrict a duplicate record from being created.
 
+- [Creating Proposals & Contracts](examples/2023-07-proposals-contracts.md):
+  Preview printable forms side by side with your project data.
+
 ## Have something to share?
 
 Have your own template to share with the world? Email us at <support@getgrist.com>, and we may
