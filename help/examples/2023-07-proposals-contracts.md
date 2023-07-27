@@ -20,6 +20,8 @@ will then be replaced by the cell value for the selected project. So, it makes i
 
 *![Projects](/examples/images/2023-07-proposals-contracts/column-placeholders.png)*
 
+## Creating templates
+
 Let's add a new table, *Templates*, to the page to store our template data. Add two columns; **Name** and **Template Formatting**. 
 
 *![Templates](/examples/images/2023-07-proposals-contracts/templates-table.png)*
@@ -38,7 +40,6 @@ Under 'Content', select the column **Template Formatting**. This is the column t
 Create a Template in the Templates table by entering a value in the **Name** column. Then, start editing the template formatting within the custom widget. 
 
 *![Proposal Template](/examples/images/2023-07-proposals-contracts/create-proposal-template-1.png)*
-
 
 The widget uses Markdown formatting to format the text. For help on Markdown, click the `?` at the top of the widget to view the [Markdown Guide](https://www.markdownguide.org/basic-syntax/).
 
@@ -83,6 +84,8 @@ template.format_map(Foo(
 ```
 
 ![Proposal Formula](/examples/images/2023-07-proposals-contracts/proposal-formula.png)
+
+## Setting up a proposal dashboard
 
 Next, we'll want to populate our proposal template with actual project data! Start creating a Proposal Dashboard by adding a new page to your document. Click the green 'Add New' button then 'Add Page'.
 
@@ -181,6 +184,8 @@ In the last portion of the formula, we can specify variables that pull from othe
 
     This tells the formula what to use in place of the variable `{Customer_Address}`.
 
+## Printing and Saving
+
 Once your proposal is ready to go, you can print it or save it as a PDF. Click the three-dot icon at the upper-right of the widget then 'Print widget'.
 
 *![print-proposal](/examples/images/2023-07-proposals-contracts/print-proposal.png)*
@@ -188,6 +193,8 @@ Once your proposal is ready to go, you can print it or save it as a PDF. Click t
 From here, you can either select a printer or choose 'Save as PDF' from the Destination dropdown.
 
 *![print-or-pdf](/examples/images/2023-07-proposals-contracts/print-or-pdf.png)*
+
+## Setting up multiple forms
 
 You can add more form templates by following the same steps that we have just completed. 
 
