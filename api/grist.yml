@@ -901,23 +901,162 @@ paths:
         200:
           description: Success
 
+  /docs/{docId}/webhooks:
+    get:
+      tags:
+        - webhooks
+      summary: "Webhooks associated with a document"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      responses:
+        200:
+          description: "A list of webhooks."
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - webhooks
+                properties:
+                  webhooks:
+                    type: object
+                    $ref: "#/components/schemas/Webhooks"
+    post:
+      tags:
+        - webhooks
+      summary: "Create new webhooks for a document"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      requestBody:
+        description: "an array of webhook settings"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - webhooks
+              properties:
+                webhooks:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - fields
+                    properties:
+                      fields:
+                        $ref: "#/components/schemas/WebhookPartialFields"
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - webhooks
+                properties:
+                  webhooks:
+                    type: array
+                    items:
+                      type: object
+                      $ref: "#/components/schemas/WebhookId"
+
+  /docs/{docId}/webhooks/{webhookId}:
+    patch:
+      tags:
+        - webhooks
+      summary: "Modify a webhook"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: webhookId
+          schema:
+            type: string
+          required: true
+      requestBody:
+        description: "the changes to make"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WebhookPartialFields"
+      responses:
+        200:
+          description: "Success."
+    delete:
+      tags:
+        - webhooks
+      summary: "Remove a webhook"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: path
+          name: webhookId
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          description: "Success."
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - success
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+
+  /docs/{docId}/webhooks/queue:
+    delete:
+      tags:
+        - webhooks
+      summary: "Empty a document's queue of undelivered payloads"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      responses:
+        200:
+          description: "Success."
+
 tags:
-  - name: /orgs
+  - name: orgs
     description: "Team sites and personal spaces are called 'orgs' in the API."
-  - name: /workspaces
+  - name: workspaces
     description: "Sites can be organized into groups of documents called workspaces."
-  - name: /docs
+  - name: docs
     description: "Workspaces contain collections of Grist documents."
-  - name: /records
+  - name: records
     description: "Tables contain collections of records (also called rows)."
-  - name: /tables
+  - name: tables
     description: "Documents are structured as a collection of tables."
-  - name: /columns
+  - name: columns
     description: "Tables are structured as a collection of columns."
-  - name: /data
+  - name: data
     description: "Work with table data, using a (now deprecated) columnar format. We now recommend the `records` endpoints."
-  - name: /attachments
+  - name: attachments
     description: "Documents may include attached files. Data records can refer to these using a column of type `Attachments`."
+  - name: webhooks
+    description: "Document changes can trigger requests to URLs called webhooks."
 components:
   securitySchemes:
     API Key:
@@ -976,6 +1115,165 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Org"
+    Webhooks:
+      type: array
+      items:
+        $ref: "#/components/schemas/Webhook"
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
+        fields:
+          $ref: "#/components/schemas/WebhookFields"
+        usage:
+          $ref: "#/components/schemas/WebhookUsage"
+    WebhookFields:
+      allOf:
+        - $ref: "#/components/schemas/WebhookPartialFields"
+        - $ref: "#/components/schemas/WebhookRequiredFields"
+    WebhookRequiredFields:
+      type: object
+      required:
+        - name
+        - memo
+        - url
+        - enabled
+        - unsubscribeKey
+        - eventTypes
+        - isReadyColumn
+        - tableId
+      properties:
+        unsubscribeKey:
+          type: string
+    WebhookPartialFields:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "new-project-email"
+          nullable: true
+        memo:
+          type: string
+          example: "Send an email when a project is added"
+          nullable: true
+        url:
+          type: string
+          format: uri
+          example: "https://example.com/webhook/123"
+        enabled:
+          type: boolean
+        eventTypes:
+          type: array
+          items:
+            type: string
+          example:
+            - add
+            - update
+        isReadyColumn:
+          type: string
+          nullable: true
+          example: null
+        tableId:
+          type: string
+          example: "Projects"
+    WebhookUsage:
+      type: object
+      nullable: true
+      required:
+        - numWaiting
+        - status
+      properties:
+        numWaiting:
+          type: integer
+        status:
+          type: string
+          example: "idle"
+        updatedTime:
+          type: number
+          nullable: true
+          format: "UNIX epoch in milliseconds"
+          example: 1685637500424
+        lastSuccessTime:
+          type: number
+          nullable: true
+          format: "UNIX epoch in milliseconds"
+          example: 1685637500424
+        lastFailureTime:
+          type: number
+          nullable: true
+          format: "UNIX epoch in milliseconds"
+          example: 1685637500424
+        lastErrorMessage:
+          type: string
+          nullable: true
+          example: null
+        lastHttpStatus:
+          type: number
+          nullable: true
+          example: 200
+        lastEventBatch:
+          $ref: "#/components/schemas/WebhookBatchStatus"
+    WebhookBatchStatus:
+      type: object
+      nullable: true
+      required:
+        - size
+        - attempts
+        - status
+      properties:
+        size:
+          type: number
+          example: 1
+        attempts:
+          type: number
+          example: 1
+        errorMessage:
+          type: string
+          nullable: true
+          example: null
+        httpStatus:
+          type: number
+          example: 200
+        status:
+          type: string
+          example: "success"
+    WebhookId:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: Webhook identifier
+          example: "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
+    WebhookRequiredProperties:
+      type: object
+      required:
+        - size
+      properties:
+        size:
+          type: number
+          example: 1
+    WebhookProperties:
+      size:
+        type: number
+        example: 1
+      attempts:
+        type: number
+        example: 1
+      errorMessage:
+        type: string
+        nullable: true
+        example: null
+      httpStatus:
+        type: number
+        example: 200
+      status:
+        type: string
+        example: "success"
     Workspace:
       type: object
       required:
