@@ -613,7 +613,7 @@ As per [MinIO specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:t
 
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
-### How do I control telemetry? {: .tag-core .tag-ee }
+### How do I control telemetry? {: .tag-core }
 
 By default, Grist installations do not "phone home" to any central
 service. It is useful to permit them to do so, to give Grist Labs some
@@ -621,11 +621,35 @@ limited insight into your usage, through measurements called
 telemetry. This will help guide development, and draw attention to
 self-managed users as a group.
 
-To enable limited telemetry, set the environment variable
-`GRIST_TELEMETRY_LEVEL` to `limited`. Read
-[limited telemetry](telemetry-limited.md) for exact details
-on what is sent, and [telemetry overview](telemetry.md)
-for further explanation.
+The simplest way for an owner of a Grist installation to opt in to sending
+telemetry to Grist Labs is to click the "Opt in to Telemetry" button on
+the "Support Grist" banner on the main page of the installation.
+If you do not wish to opt in, you can dismiss the banner.
+The banner is shown only to the owner of the installation.
+The owner of the installation is the user whose email address
+matches the `GRIST_DEFAULT_EMAIL` environment variable (if set).
+
+<span class="screenshot-large">*![Self-hosted Telemetry](images/newsletters/2023-07/core-telemetry-opt-in.png)*</span>
+{: .screenshot-half }
+
+You can control telemetry at any time using the "Support Grist"
+page, if you are the owner of the installation.
+
+<span class="screenshot-large">*![Control Telemetry](images/support-page-link.png)*</span>
+{: .screenshot-half }
+
+Rather than using buttons to opt in to telemetry,
+you may set the environment variable `GRIST_TELEMETRY_LEVEL` to
+`limited`. This has the same effect as the "Opt in to Telemetry"
+button. The `GRIST_TELEMETRY_LEVEL` environment variable,
+if set, takes priority over any setting made interactively.
+Recommended values are `limited` or `off`.
+
+In either case, read [limited telemetry](telemetry-limited.md) for exact details
+of what data is sent, and [telemetry overview](telemetry.md) for further explanation.
+An interactive method for controlling telemetry is only
+available for Grist Core builds currently. In all cases,
+the default is to not send telemetry.
 
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
