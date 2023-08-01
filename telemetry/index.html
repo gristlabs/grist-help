@@ -953,7 +953,7 @@ aimed at quantifying aspects of how Grist is used. A self-managed
 installation of Grist by default does no telemetry.
 When telemetry is enabled, data about usage is sent to a service
 maintained by Grist Labs.</p>
-<p>Telemetry is currently configured by optional environment variables:</p>
+<p>Telemetry may be configured by optional environment variables:</p>
 <ul>
 <li><code>GRIST_TELEMETRY_LEVEL</code>. This may be <code>off</code>, <code>limited</code>,
     or <code>full</code>. The default is <code>off</code>. A setting of <code>limited</code> or
@@ -969,6 +969,8 @@ maintained by Grist Labs.</p>
     If you are running a large hosted service, you may wish to
     direct telemetry to a service you control.</li>
 </ul>
+<p>Telemetry may also be configured interactively by the owner of
+a Grist installation, see <a href="../self-managed/#how-do-i-control-telemetry">How do I control telemetry?</a> for details.</p>
 <p>The <code>limited</code> setting results in some coarse-grained telemetry. This
 level is intended for an installation of Grist that has opted in to
 providing telemetry. The goal is to understand how Grist is used “in

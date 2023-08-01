@@ -1518,17 +1518,34 @@ client:</p>
 
 <p>As per <a href="https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1">MinIO specs</a>.), the default bucket region is <code>us-east-1</code>. This default region can be overwritten using the <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> flag.</p>
 <p>For details, and other options, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
-<h3 class="tag-core tag-ee" id="how-do-i-control-telemetry">How do I control telemetry?<a class="headerlink" href="#how-do-i-control-telemetry" title="Permanent link">#</a></h3>
+<h3 class="tag-core" id="how-do-i-control-telemetry">How do I control telemetry?<a class="headerlink" href="#how-do-i-control-telemetry" title="Permanent link">#</a></h3>
 <p>By default, Grist installations do not &ldquo;phone home&rdquo; to any central
 service. It is useful to permit them to do so, to give Grist Labs some
 limited insight into your usage, through measurements called
 telemetry. This will help guide development, and draw attention to
 self-managed users as a group.</p>
-<p>To enable limited telemetry, set the environment variable
-<code>GRIST_TELEMETRY_LEVEL</code> to <code>limited</code>. Read
-<a href="../telemetry-limited/">limited telemetry</a> for exact details
-on what is sent, and <a href="../telemetry/">telemetry overview</a>
-for further explanation.</p>
+<p>The simplest way for an owner of a Grist installation to opt in to sending
+telemetry to Grist Labs is to click the &ldquo;Opt in to Telemetry&rdquo; button on
+the &ldquo;Support Grist&rdquo; banner on the main page of the installation.
+If you do not wish to opt in, you can dismiss the banner.
+The banner is shown only to the owner of the installation.
+The owner of the installation is the user whose email address
+matches the <code>GRIST_DEFAULT_EMAIL</code> environment variable (if set).</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Self-hosted Telemetry" src="../images/newsletters/2023-07/core-telemetry-opt-in.png" /></em></span></p>
+<p>You can control telemetry at any time using the &ldquo;Support Grist&rdquo;
+page, if you are the owner of the installation.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Control Telemetry" src="../images/support-page-link.png" /></em></span></p>
+<p>Rather than using buttons to opt in to telemetry,
+you may set the environment variable <code>GRIST_TELEMETRY_LEVEL</code> to
+<code>limited</code>. This has the same effect as the &ldquo;Opt in to Telemetry&rdquo;
+button. The <code>GRIST_TELEMETRY_LEVEL</code> environment variable,
+if set, takes priority over any setting made interactively.
+Recommended values are <code>limited</code> or <code>off</code>.</p>
+<p>In either case, read <a href="../telemetry-limited/">limited telemetry</a> for exact details
+of what data is sent, and <a href="../telemetry/">telemetry overview</a> for further explanation.
+An interactive method for controlling telemetry is only
+available for Grist Core builds currently. In all cases,
+the default is to not send telemetry.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-upgrade-my-installation">How do I upgrade my installation?<a class="headerlink" href="#how-do-i-upgrade-my-installation" title="Permanent link">#</a></h3>
 <p>We currently release new Grist Core and Enterprise images at
 approximately weekly intervals. Grist handles any migrations that
