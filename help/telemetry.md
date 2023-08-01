@@ -6,7 +6,7 @@ installation of Grist by default does no telemetry.
 When telemetry is enabled, data about usage is sent to a service
 maintained by Grist Labs.
 
-Telemetry is currently configured by optional environment variables:
+Telemetry may be configured by optional environment variables:
 
   * `GRIST_TELEMETRY_LEVEL`. This may be `off`, `limited`,
     or `full`. The default is `off`. A setting of `limited` or
@@ -21,6 +21,9 @@ Telemetry is currently configured by optional environment variables:
 	sent. It defaults to a service operated by Grist Labs.
 	If you are running a large hosted service, you may wish to
 	direct telemetry to a service you control.
+
+Telemetry may also be configured interactively by the owner of
+a Grist installation, see [How do I control telemetry?](self-managed.md#how-do-i-control-telemetry) for details.
 
 The `limited` setting results in some coarse-grained telemetry. This
 level is intended for an installation of Grist that has opted in to
