@@ -30,7 +30,7 @@ Now, let's add a custom widget beside the table to view our **Template Formattin
 
 *![Add Custom Widget](/examples/images/2023-07-proposals-contracts/add-custom-widget.png)*
 
-Configure the custom widget by selecting Markdown from the Custom dropdown. Since we will be editing the template directly in the custom widget, you must allow 'Full document access' under Access Level so the widget can update the *Templates* table. 
+Configure the custom widget by selecting Markdown from the Custom dropdown. Since we will be editing the template directly in the custom widget, you must allow 'Full document access' under Access Level so the widget can update the `Templates` table. 
 
 Under 'Content', select the column **Template Formatting**. This is the column that will be updated when we make edits within the custom widget.
 
