@@ -8,9 +8,7 @@ all desktop platforms. These are available here:
 
 Other modern browsers will work to the degree they are standards compliant. In particular, Grist
 is reported to work on modern Safari and Microsoft Edge. If you encounter errors or unexpected
-behavior on these browsers, we encourage you to report them to us (at <support@getgrist.com> or
-using <span class="app-menu-item"><span class="grist-icon" style="--icon:
-var(--icon-Feedback)"></span> Give feedback</span> link in the app).
+behavior on these browsers, we encourage you to report them to us by emailing us at <support@getgrist.com>.
 
 ## Mobile Support
 
