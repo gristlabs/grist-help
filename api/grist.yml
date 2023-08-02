@@ -1711,7 +1711,13 @@ components:
                 type: string
                 description: Column identifier
               fields:
-                $ref: "#/components/schemas/CreateFields"
+                allOf:
+                  - $ref: "#/components/schemas/CreateFields"
+                  - type: object
+                    properties:
+                      colId:
+                        type: string
+                        description: Set it to the new column ID when you want to change it.
       example:
         columns:
           - id: pet
