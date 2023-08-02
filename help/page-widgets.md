@@ -38,6 +38,14 @@ leaving more screen space to view your data.
 To add a new page, use the "Add New" button, and click "Add Page". At that point, you'll get to
 choose the page widget to include in the new page.
 
+!!! note "Using Emojis in Page and Widget Names"
+    You can add any emoji to a Page or Widget name. The keyboard shortcut to open the emoji keyboard is `Windows Logo` + `.` (period) on PC or `Command` + `Control` + `Space` on Mac. You can also copy/paste an online source like [Emojipedia](https://emojipedia.org/). 
+    
+    When a Page name starts with an emoji, it will replace the page icon.
+
+    *![page-emoji-icon](images/page-emoji-icon.png)*
+    {: .screenshot-half }
+
 ## Page widgets
 
 A page contains sections, such as tables or charts, which we call "page widgets". Each page widget
