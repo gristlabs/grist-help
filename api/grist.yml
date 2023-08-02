@@ -895,7 +895,35 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PatchColumns"
+              $ref: "#/components/schemas/UpdateColumns"
+        required: true
+      responses:
+        200:
+          description: Success
+    put:
+      operationId: "replaceColumns"
+      tags:
+        - columns
+      summary: "Add or update columns of a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+        - in: query
+          name: noadd
+          schema:
+            type: boolean
+            description: "Set to true to prohibit adding records."
+        - in: query
+          name: noupdate
+          schema:
+            type: boolean
+            description: "Set to true to prohibit updating records."
+      requestBody:
+        description: The columns to add or update.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateColumns"
         required: true
       responses:
         200:
@@ -1666,7 +1694,7 @@ components:
             fields:
               type: Choice
               widgetOptions: "{\"choices\":[\"New\",\"Old\"],\"choiceOptions\":{\"New\":{\"fillColor\":\"#FF0000\",\"textColor\":\"#FFFFFF\"}}}"
-    PatchColumns:
+    UpdateColumns:
       type: object
       required:
         - columns
