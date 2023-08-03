@@ -918,6 +918,11 @@ paths:
           schema:
             type: boolean
             description: "Set to true to prohibit updating records."
+        - in: query
+          name: replaceall
+          schema:
+            type: boolean
+            description: "Set to true to remove existing columns that are not specified in the request body"
       requestBody:
         description: The columns to add or update.
         content:
