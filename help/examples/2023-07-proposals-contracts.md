@@ -27,11 +27,11 @@ Let's add a new table, `Templates`, to the page to store our template data. Add 
 
 *![Templates](/examples/images/2023-07-proposals-contracts/templates-table.png)*
 
-Now, let's add a custom widget beside the table to view our **Template Formatting**. Click the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Custom* and under 'Select Data', select *Templates*. Under 'Select By', select *Templates* again.
+Now, let's add a custom widget beside the table to view our **Template Formatting**. Click the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Custom* and under 'Select Data', select `Templates`. Under 'Select By', select `Templates` again.
 
 *![Add Custom Widget](/examples/images/2023-07-proposals-contracts/add-custom-widget.png)*
 
-Configure the custom widget by selecting Markdown from the Custom dropdown. Since we will be editing the template directly in the custom widget, you must allow 'Full document access' under Access Level so the widget can update the `Templates` table. 
+Configure the custom widget by selecting *Markdown* from the Custom dropdown. Since we will be editing the template directly in the custom widget, you must allow 'Full document access' under Access Level so the widget can update the `Templates` table. 
 
 Under 'Content', select the column **Template Formatting**. This is the column that will be updated when we make edits within the custom widget.
 
@@ -57,11 +57,13 @@ We will exclusively use the custom widget to edit the template formatting so thi
 
 In your template, you'll have details and text that remain the same across all projects such as formatting, section headers and your own company's information. That is the information you'll type directly into the template. You'll also have information that changes, such as **Project Name** or **Customer Name**. We can use variables containing column IDs as placeholders for that dynamic data. 
 
-**Project Name**, **Customer Name** and **Customer Address** will all change based on the selected Project. So, this is information we should store in our `Projects` table. Add these three columns to the `Projects` table.
+**Project Name**, **Customer Name** and **Customer Address** will all change based on the selected Project. So, this is information we should store in our `Projects` table.
+
+Add the columns **Project Name**, **Customer Name** and **Customer Address** to the `Projects` table.
 
 ![Projects Table](/examples/images/2023-07-proposals-contracts/project-customer-columns.png)
 
-We can use the column IDs for each of these columns as placeholders in our template with the format `{COLUMN_ID}`. A column's ID can be found under the Table tab of the Creator Panel, directly under the Column Label.
+We can use the column IDs for each of these columns as placeholders in our template with the format `{COLUMN_ID}`. A column's ID can be found under the 'Table' tab of the Creator Panel, directly under the Column Label.
 
 ![Variables](/examples/images/2023-07-proposals-contracts/project-name-variable.png)
 
@@ -87,15 +89,15 @@ template.format_map(Find_Data())
 
 ## Setting up a proposal dashboard
 
-Next, we'll want to populate our proposal template with actual project data! Start creating a Proposal Dashboard by adding a new page to your document. Click the green 'Add New' button then 'Add Page'.
+Next, we'll want to populate our proposal template with actual project data! Start creating a *Proposal Dashboard* by adding a new page to your document. Click the green 'Add New' button then 'Add Page'.
 
-Under 'Select Widget', select *Table* and under 'Select Data', select *Projects*.
+Under 'Select Widget', select *Table* and under 'Select Data', select `Projects`.
 
 ![Add Project Table](/examples/images/2023-07-proposals-contracts/add-projects-table.png)
 
 You'll notice that having this information in a table view is a bit busy. A [Card widget](../widget-card.md) will help simplify our view.
 
-Add a new widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Card* and under 'Select Data', select *Projects*. Under 'Select By', select *Projects* and add to page.
+Add a new widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Card* and under 'Select Data', select `Projects`. Under 'Select By', select `Projects` and add to page.
 
 ![Add Project Card](/examples/images/2023-07-proposals-contracts/add-projects-card.png)
 
@@ -103,7 +105,7 @@ Your dashboard should look similar to the screenshot below.
 
 ![project-dashboard-start](/examples/images/2023-07-proposals-contracts/project-dashboard-start.png)
 
-Now that we have all of our Project details in a Card view, we can hide them from our table view. Under the Table tab of the Creator Panel, select all columns except Project Name and Customer Name then click the green 'Hide Columns' button.
+Now that we have all of our Project details in a Card view, we can hide them from our table view. Under the Table tab of the Creator Panel, select all columns except **Project Name** and **Customer Name** then click the green 'Hide Columns' button.
 
 *![Hide Columns](/examples/images/2023-07-proposals-contracts/hide-project-columns.png)*
 {: .screenshot-half }
@@ -112,7 +114,7 @@ By keeping most project details in the Card widget, rather than the table widget
 
 ![project-table-card](/examples/images/2023-07-proposals-contracts/project-table-card.png)
 
-Finally, we'll want to add a view of our project-specific proposal. Add a new custom widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Custom* and under 'Select Data', select *Projects*. Under 'Select By', select *Projects* and add to page.
+Finally, we'll want to add a view of our project-specific proposal. Add a new custom widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Custom* and under 'Select Data', select `Projects`. Under 'Select By', select `Projects` and add to page.
 
 *![Add custom Widget](/examples/images/2023-07-proposals-contracts/add-custom-project-widget.png)*
 
@@ -125,7 +127,7 @@ Under 'Content', select the column **Proposal**. This is the formula column that
 
 [Customize your layout](../custom-layouts.md) by rearranging and resizing widgets.
 
-Add Project details for a new project and see how your Proposal updates to display the newly added data.
+Add project details for a new project and see how your proposal updates to display the newly added data.
 
 *![Populated Proposal](/examples/images/2023-07-proposals-contracts/populated-proposal.png)*
 
@@ -143,11 +145,11 @@ First, create a new table called `Customers` for customer-specific information l
 
 Some of this data is included in our Projects data set. To avoid duplicating data, we need to update our **Customer Name** and **Customer Address** columns to pull from our `Customers` table. 
 
-On our Proposals dashboard, select the **Customer Name** field then update the column type to *Reference*. Confirm that 'Data from Table' is set to *Customers* and 'Show Column' is **Name**. 
+On our *Proposals Dashboard* page, select the **Customer Name** field then update the column type to *Reference*. Confirm that 'Data from Table' is set to `Customers` and 'Show Column' is **Name**. 
 
 *![customer-name-reference](/examples/images/2023-07-proposals-contracts/customer-name-reference.png)*
 
-Next, we need to update the **Customer Address** field to pull the address for the *Customer* listed in the **Customer Name** column. 
+Next, we need to update the **Customer Address** field to pull the address for the `Customer` listed in the **Customer Name** column. 
 
 Update the **Customer Address** column to use the following formula:
 ```
@@ -161,7 +163,7 @@ When you take a look at a proposal for an existing project, you'll notice that t
 
 We can modify our formula in the **Proposal** column to look for data in other tables.
 
-In the `Projects1` table, update the formula in the **Proposals** column to the following;
+In the `Projects` table, update the formula in the **Proposals** column to the following;
 ```
 # Finds all data associated with this record
 class Find_Data(dict):
