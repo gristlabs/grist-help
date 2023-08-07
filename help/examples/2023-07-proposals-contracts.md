@@ -15,8 +15,9 @@ First of all, make a table to record project details by
 
 *![Projects](/examples/images/2023-07-proposals-contracts/make-projects-table.png)*
 
-We'll create our Proposal template alongside our `Projects` table. We can insert column IDs as placeholders in our Proposal template that
-will then be replaced by the cell value for the selected project. This makes it easier to build these out side by side.
+We'll create our Proposal template alongside our `Projects` table. 
+
+We can insert column IDs as placeholders in our Proposal template that will then be replaced by the cell value for the selected project. For example, in the screenshot below, the value in the **Project Name** column will replace the variable `{Project_Name}` in the proposal template on the right. Seeing the available columns while creating our proposal will make it easier to populate those variables.
 
 *![Projects](/examples/images/2023-07-proposals-contracts/column-placeholders.png)*
 
@@ -71,16 +72,15 @@ Finish building out your template to fit your needs. Be sure to add a column to 
 Finally, we need to add a formula column that will create our unique proposals. This formula column will combine the template formatting we just created with our project-specifc data. Add a new column to the `Projects` table with the following formula;
 ```
 # Finds all data associated with this record
-class Foo(dict):
+class Find_Data(dict):
   def __missing__(self, key):
     return getattr(rec, key)
 
 # Finds the "Proposal" template in the Templates table
 template = Templates.lookupOne(Name="Proposal").Template_Formatting
 
-# Formats the template with fields from this table
-template.format_map(Foo(
-))
+# Formats the template with fields from this table as well as fields from the referenced table
+template.format_map(Find_Data())
 ```
 
 ![Proposal Formula](/examples/images/2023-07-proposals-contracts/proposal-formula.png)
@@ -99,10 +99,18 @@ Add a new widget to the page by clicking the green 'Add New' button then 'Add wi
 
 ![Add Project Card](/examples/images/2023-07-proposals-contracts/add-projects-card.png)
 
+Your dashboard should look similar to the screenshot below.
+
+![project-dashboard-start](/examples/images/2023-07-proposals-contracts/project-dashboard-start.png)
+
 Now that we have all of our Project details in a Card view, we can hide them from our table view. Under the Table tab of the Creator Panel, select all columns except Project Name and Customer Name then click the green 'Hide Columns' button.
 
 *![Hide Columns](/examples/images/2023-07-proposals-contracts/hide-project-columns.png)*
 {: .screenshot-half }
+
+By keeping most project details in the Card widget, rather than the table widget, it simplifies our dashboard. You can easily see all projects in the table widget and when you want to see details for a specific project, select the project and the card widget will update to show you project details.
+
+![project-table-card](/examples/images/2023-07-proposals-contracts/project-table-card.png)
 
 Finally, we'll want to add a view of our project-specific proposal. Add a new custom widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Custom* and under 'Select Data', select *Projects*. Under 'Select By', select *Projects* and add to page.
 
@@ -156,7 +164,7 @@ We can modify our formula in the **Proposal** column to look for data in other t
 In the `Projects1` table, update the formula in the **Proposals** column to the following;
 ```
 # Finds all data associated with this record
-class Foo(dict):
+class Find_Data(dict):
   def __missing__(self, key):
     return getattr(rec, key)
 
@@ -164,7 +172,7 @@ class Foo(dict):
 template = Templates.lookupOne(Name="Proposal").Template_Formatting
 
 # Formats the template with fields from this table as well as fields from the referenced table
-template.format_map(Foo(
+template.format_map(Find_Data(
   Customer_Name = $Customer_Name.Name,
 ))
 ```
@@ -176,7 +184,7 @@ In the last portion of the formula, we can specify variables that pull from othe
     The **Customer Address** column can be deleted from the `Projects` table completely. This data is already stored in the `Customers` table and our **Customer Name** column is a reference column pointing to this table. We can use this reference column to pull any other information from the `Customers` table to include in our proposal. If you choose to delete **Customer Address** from the `Projects` table, update the last section of formula to the following;
 
     ```
-    template.format_map(Foo(
+    template.format_map(Find_data(
       Customer_Name = $Customer_Name.Name,
       Customer_Address = $Customer_Name.Address.replace('\n', '<br>'),
     ))
