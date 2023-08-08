@@ -23,15 +23,15 @@ We can insert column IDs as placeholders in our Proposal template that will then
 
 ## Creating templates
 
-Let's add a new table, `Templates`, to the page to store our template data. Add two columns; **Name** and **Template Formatting**. 
+Let's add a new table, `Templates`, to the page to store our template data. Add two columns: **Name** and **Template Formatting**. 
 
 *![Templates](/examples/images/2023-07-proposals-contracts/templates-table.png)*
 
-Now, let's add a custom widget beside the table to view our **Template Formatting**. Click the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Custom* and under 'Select Data', select `Templates`. Under 'Select By', select `Templates` again.
+Now, let's add a custom widget beside the table to view our **Template Formatting**. Click the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select 'Custom' and under 'Select Data', select `Templates`. Under 'Select By', select `Templates` again.
 
 *![Add Custom Widget](/examples/images/2023-07-proposals-contracts/add-custom-widget.png)*
 
-Configure the custom widget by selecting *Markdown* from the Custom dropdown. Since we will be editing the template directly in the custom widget, you must allow 'Full document access' under Access Level so the widget can update the `Templates` table. 
+Configure the custom widget by selecting 'Markdown' from the 'Custom' dropdown. Since we will be editing the template directly in the custom widget, you must allow 'Full document access' under Access Level so the widget can update the `Templates` table. 
 
 Under 'Content', select the column **Template Formatting**. This is the column that will be updated when we make edits within the custom widget.
 
@@ -71,7 +71,7 @@ Finish building out your template to fit your needs. Be sure to add a column to 
 
 ![Proposal](/examples/images/2023-07-proposals-contracts/proposal-template.png)
 
-Finally, we need to add a formula column that will create our unique proposals. This formula column will combine the template formatting we just created with our project-specifc data. Add a new column to the `Projects` table with the following formula;
+Finally, we need to add a formula column that will create our unique proposals. This formula column will combine the template formatting we just created with our project-specifc data. Add a new column to the `Projects` table with the following formula:
 ```
 # Finds all data associated with this record
 class Find_Data(dict):
@@ -91,13 +91,13 @@ template.format_map(Find_Data())
 
 Next, we'll want to populate our proposal template with actual project data! Start creating a *Proposal Dashboard* by adding a new page to your document. Click the green 'Add New' button then 'Add Page'.
 
-Under 'Select Widget', select *Table* and under 'Select Data', select `Projects`.
+Under 'Select Widget', select 'Table' and under 'Select Data', select `Projects`.
 
 ![Add Project Table](/examples/images/2023-07-proposals-contracts/add-projects-table.png)
 
 You'll notice that having this information in a table view is a bit busy. A [Card widget](../widget-card.md) will help simplify our view.
 
-Add a new widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Card* and under 'Select Data', select `Projects`. Under 'Select By', select `Projects` and add to page.
+Add a new widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select 'Card' and under 'Select Data', select `Projects`. Under 'Select By', select `Projects` and add to page.
 
 ![Add Project Card](/examples/images/2023-07-proposals-contracts/add-projects-card.png)
 
@@ -105,20 +105,20 @@ Your dashboard should look similar to the screenshot below.
 
 ![project-dashboard-start](/examples/images/2023-07-proposals-contracts/project-dashboard-start.png)
 
-Now that we have all of our Project details in a Card view, we can hide them from our table view. Under the Table tab of the Creator Panel, select all columns except **Project Name** and **Customer Name** then click the green 'Hide Columns' button.
+Now that we have all of our Project details in a Card view, we can hide them from our table view. Under the 'Table' tab of the Creator Panel, select all columns except **Project Name** and **Customer Name** then click the green 'Hide Columns' button.
 
 *![Hide Columns](/examples/images/2023-07-proposals-contracts/hide-project-columns.png)*
 {: .screenshot-half }
 
-By keeping most project details in the Card widget, rather than the table widget, it simplifies our dashboard. You can easily see all projects in the table widget and when you want to see details for a specific project, select the project and the card widget will update to show you project details.
+Keeping most project details in the Card widget, rather than the Table widget, simplifies our dashboard. You can easily see all projects in the Table widget, and when you want to see details for a specific project, select the project and the Card widget will update to show you project details.
 
 ![project-table-card](/examples/images/2023-07-proposals-contracts/project-table-card.png)
 
-Finally, we'll want to add a view of our project-specific proposal. Add a new custom widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select *Custom* and under 'Select Data', select `Projects`. Under 'Select By', select `Projects` and add to page.
+Finally, we'll want to add a view of our project-specific proposal. Add a new custom widget to the page by clicking the green 'Add New' button then 'Add widget to page'. Under 'Select Widget', select 'Custom' and under 'Select Data', select `Projects`. Under 'Select By', select `Projects` and add to page.
 
 *![Add custom Widget](/examples/images/2023-07-proposals-contracts/add-custom-project-widget.png)*
 
-Configure the custom widget by selecting Markdown from the Custom dropdown. You must allow 'Full document access'. 
+Configure the custom widget by selecting 'Markdown' from the 'Custom' dropdown. You must allow 'Full document access'. 
 
 Under 'Content', select the column **Proposal**. This is the formula column that combines our template formatting with our project-specific data.
 
@@ -149,7 +149,7 @@ On our *Proposals Dashboard* page, select the **Customer Name** field then updat
 
 *![customer-name-reference](/examples/images/2023-07-proposals-contracts/customer-name-reference.png)*
 
-Next, we need to update the **Customer Address** field to pull the address for the `Customer` listed in the **Customer Name** column. 
+Next, we need to update the **Customer Address** field to pull the address for the customer listed in the **Customer Name** column. 
 
 Update the **Customer Address** column to use the following formula:
 ```
@@ -163,7 +163,7 @@ When you take a look at a proposal for an existing project, you'll notice that t
 
 We can modify our formula in the **Proposal** column to look for data in other tables.
 
-In the `Projects` table, update the formula in the **Proposals** column to the following;
+In the `Projects` table, update the formula in the **Proposals** column to the following:
 ```
 # Finds all data associated with this record
 class Find_Data(dict):
@@ -183,7 +183,7 @@ In the last portion of the formula, we can specify variables that pull from othe
 `Customer_Name = $Customer_Name.Name` is for our reference column, **Customer Name**. It uses [dot notation](../references-lookups.md#reference-columns-and-dot-notation) to specify what data to pull from the referenced table. 
 
 !!! note "Note: Customer Address"
-    The **Customer Address** column can be deleted from the `Projects` table completely. This data is already stored in the `Customers` table and our **Customer Name** column is a reference column pointing to this table. We can use this reference column to pull any other information from the `Customers` table to include in our proposal. If you choose to delete **Customer Address** from the `Projects` table, update the last section of formula to the following;
+    The **Customer Address** column can be deleted from the `Projects` table completely. This data is already stored in the `Customers` table and our **Customer Name** column is a reference column pointing to this table. We can use this reference column to pull any other information from the `Customers` table to include in our proposal. If you choose to delete **Customer Address** from the `Projects` table, update the last section of formula to the following:
 
     ```
     template.format_map(Find_data(
@@ -200,7 +200,7 @@ Once your proposal is ready to go, you can print it or save it as a PDF. Click t
 
 *![print-proposal](/examples/images/2023-07-proposals-contracts/print-proposal.png)*
 
-From here, you can either select a printer or choose 'Save as PDF' from the Destination dropdown.
+From here, you can either select a printer or choose 'Save as PDF' from the 'Destination' dropdown.
 
 *![print-or-pdf](/examples/images/2023-07-proposals-contracts/print-or-pdf.png)*
 
