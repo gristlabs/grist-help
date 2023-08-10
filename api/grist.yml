@@ -853,6 +853,11 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - in: query
+          name: includeHidden
+          schema:
+            type: boolean
+            description: "Set to true to include the hidden columns (like \"manualSort\")"
       responses:
         200:
           description: The columns in a table
