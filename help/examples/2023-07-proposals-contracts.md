@@ -5,7 +5,8 @@ to generate proposals and contracts right there, alongside those records. You ca
 
 *![Proposal](/examples/images/2023-07-proposals-contracts/final-proposal.png)*
 
-You can find a finished template at <https://public.getgrist.com/doc/iQHKDbgpoLXAQmeoepn9Kx>{:target="\_blank"}.
+You can find a finished template here: [📝 Proposals & Contracts Template](https://public.getgrist.com/nyPmvvea8c54/-Proposals-Contracts/m/fork){:target="\_blank"}.
+
 If you'd like to add a proposal to an existing document, understanding this tutorial should get you there.
 
 ## Setting up a Project table

@@ -140,7 +140,8 @@ nav:
       - Reference Columns Guide: examples/2021-05-reference-columns.md
       - Summary Tables Guide: examples/2021-06-timesheets.md
       - Time and User Stamps: examples/2021-07-auto-stamps.md
-      - Restrict Duplicate Records: examples/2023-01-acl-memo.md      
+      - Restrict Duplicate Records: examples/2023-01-acl-memo.md   
+      - Proposals & Contracts: examples/2023-07-proposals-contracts.md
   - Reference:
     - Shortcuts: keyboard-shortcuts.md
     # The function reference (functions.md) is listed above; here is an intentionally non-standard
