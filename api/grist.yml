@@ -8,7 +8,7 @@ info:
   title: "Grist API"
 openapi: 3.0.0
 security:
-  - API Key: []   
+  - API Key: []
 servers:
   - url: https://{subdomain}.getgrist.com/api
     variables:
@@ -28,7 +28,7 @@ paths:
         200:
           description: An array of organizations
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Orgs"
   /orgs/{orgId}:
@@ -47,7 +47,7 @@ paths:
         200:
           description: An organization
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Org"
     patch:
@@ -133,7 +133,7 @@ paths:
         200:
           description: An org's workspaces and documents
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/OrgWithWorkspaces"
     post:
@@ -182,7 +182,7 @@ paths:
         200:
           description: A workspace
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
     patch:
@@ -311,7 +311,7 @@ paths:
         200:
           description: A document's metadata
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/DocWithWorkspace"
     patch:
@@ -507,7 +507,7 @@ paths:
         200:
           description: Cells from the table
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Data"
     post:
@@ -878,7 +878,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateColumns"              
+              $ref: "#/components/schemas/CreateColumns"
         required: true
       responses:
         200:
