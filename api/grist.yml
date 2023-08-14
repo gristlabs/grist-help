@@ -924,9 +924,13 @@ paths:
           name: replaceall
           schema:
             type: boolean
-            description: "Set to true to remove existing columns that are not specified in the request body"
+            description: "Set to true to remove existing columns (except the hidden ones) that are not specified in the request body."
       requestBody:
-        description: The columns to add or update.
+        description: >
+          The columns to add or update. We check whether the specified column ID exists:
+          if so, the column is updated with the provided data, otherwise a new column is created.
+
+          Also note that some query parameters alter this behavior.
         content:
           application/json:
             schema:
