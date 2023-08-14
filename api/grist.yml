@@ -683,6 +683,7 @@ paths:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/sortHeaderParam'
         - $ref: '#/components/parameters/limitHeaderParam'
+        - $ref: '#/components/parameters/hiddenQueryParam'
       responses:
         200:
           description: Records from the table
@@ -853,11 +854,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
-        - in: query
-          name: includeHidden
-          schema:
-            type: boolean
-            description: "Set to true to include the hidden columns (like \"manualSort\")"
+        - $ref: '#/components/parameters/hiddenQueryParam'
       responses:
         200:
           description: The columns in a table
@@ -2025,3 +2022,9 @@ components:
       schema:
         type: boolean
         description: "Set to true to prohibit parsing strings according to the column type."
+    hiddenQueryParam:
+      in: query
+      name: hidden
+      schema:
+        type: boolean
+        description: "Set to true to include the hidden columns (like \"manualSort\")"
