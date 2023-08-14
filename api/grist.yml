@@ -8,7 +8,7 @@ info:
   title: "Grist API"
 openapi: 3.0.0
 security:
-  - API Key: []   
+  - API Key: []
 servers:
   - url: https://{subdomain}.getgrist.com/api
     variables:
@@ -28,7 +28,7 @@ paths:
         200:
           description: An array of organizations
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Orgs"
   /orgs/{orgId}:
@@ -47,7 +47,7 @@ paths:
         200:
           description: An organization
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Org"
     patch:
@@ -133,7 +133,7 @@ paths:
         200:
           description: An org's workspaces and documents
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/OrgWithWorkspaces"
     post:
@@ -182,7 +182,7 @@ paths:
         200:
           description: A workspace
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/WorkspaceWithOrg"
     patch:
@@ -311,7 +311,7 @@ paths:
         200:
           description: A document's metadata
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/DocWithWorkspace"
     patch:
@@ -507,7 +507,7 @@ paths:
         200:
           description: Cells from the table
           content:
-            application/json:    
+            application/json:
               schema:
                 $ref: "#/components/schemas/Data"
     post:
@@ -683,6 +683,7 @@ paths:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/sortHeaderParam'
         - $ref: '#/components/parameters/limitHeaderParam'
+        - $ref: '#/components/parameters/hiddenQueryParam'
       responses:
         200:
           description: Records from the table
@@ -853,6 +854,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/hiddenQueryParam'
       responses:
         200:
           description: The columns in a table
@@ -873,7 +875,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateColumns"              
+              $ref: "#/components/schemas/CreateColumns"
         required: true
       responses:
         200:
@@ -895,7 +897,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PatchColumns"
+              $ref: "#/components/schemas/UpdateColumns"
+        required: true
+      responses:
+        200:
+          description: Success
+    put:
+      operationId: "replaceColumns"
+      tags:
+        - columns
+      summary: "Add or update columns of a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+        - in: query
+          name: noadd
+          schema:
+            type: boolean
+            description: "Set to true to prohibit adding columns."
+        - in: query
+          name: noupdate
+          schema:
+            type: boolean
+            description: "Set to true to prohibit updating columns."
+        - in: query
+          name: replaceall
+          schema:
+            type: boolean
+            description: "Set to true to remove existing columns (except the hidden ones) that are not specified in the request body."
+      requestBody:
+        description: >
+          The columns to add or update. We check whether the specified column ID exists:
+          if so, the column is updated with the provided data, otherwise a new column is created.
+
+          Also note that some query parameters alter this behavior.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateColumns"
         required: true
       responses:
         200:
@@ -1666,7 +1705,7 @@ components:
             fields:
               type: Choice
               widgetOptions: "{\"choices\":[\"New\",\"Old\"],\"choiceOptions\":{\"New\":{\"fillColor\":\"#FF0000\",\"textColor\":\"#FFFFFF\"}}}"
-    PatchColumns:
+    UpdateColumns:
       type: object
       required:
         - columns
@@ -1683,7 +1722,13 @@ components:
                 type: string
                 description: Column identifier
               fields:
-                $ref: "#/components/schemas/CreateFields"
+                allOf:
+                  - $ref: "#/components/schemas/CreateFields"
+                  - type: object
+                    properties:
+                      colId:
+                        type: string
+                        description: Set it to the new column ID when you want to change it.
       example:
         columns:
           - id: pet
@@ -1981,3 +2026,9 @@ components:
       schema:
         type: boolean
         description: "Set to true to prohibit parsing strings according to the column type."
+    hiddenQueryParam:
+      in: query
+      name: hidden
+      schema:
+        type: boolean
+        description: "Set to true to include the hidden columns (like \"manualSort\")"
