@@ -914,12 +914,12 @@ paths:
           name: noadd
           schema:
             type: boolean
-            description: "Set to true to prohibit adding records."
+            description: "Set to true to prohibit adding columns."
         - in: query
           name: noupdate
           schema:
             type: boolean
-            description: "Set to true to prohibit updating records."
+            description: "Set to true to prohibit updating columns."
         - in: query
           name: replaceall
           schema:
