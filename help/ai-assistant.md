@@ -23,7 +23,11 @@ When you apply a suggested formula, you will see the formula previewed in the co
 
 ## AI Assistant for Self-hosters
 
-For self-hosters looking to connect their Grist instance, set the `OPENAI_API_KEY` [environment variable](https://github.com/gristlabs/grist-core/#environment-variables){:target="\_blank"}. Learn more about [self-managing Grist](self-managed.md). 
+For self-hosters looking to connect their Grist instance, set the [AI Assistant-related environment variables](https://github.com/gristlabs/grist-core#ai-formula-assistant-related-variables-all-optional){:target="\_blank"}. 
+
+The above variables also enable the use of the LLaMA family of self-hostable models via [llama2-cpp-python](https://github.com/abetlen/llama-cpp-python){:target="\_blank"}.
+
+Learn more about [self-managing Grist](self-managed.md). 
 
 ## Pricing for AI Assistant
 
