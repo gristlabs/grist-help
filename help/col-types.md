@@ -54,7 +54,7 @@ pop up seen above.
 *![rename columns](images/columns/columns-rename-renamecolumn.png)*
 {: .screenshot-half }
 
-Selecting "Column Options" in the same drop-down opens the Creator Panel. From here, you can edit the
+Selecting "Column Options" in the same drop-down opens the creator panel. From here, you can edit the
 Column Label, shown at the top or add a description.
 
 *![rename columns](images/columns/columns-rename-creatorpanel.png)*
@@ -71,6 +71,24 @@ ID field editable, then enter the new Column ID.
 *![rename columns](images/columns/columns-rename-col-id.png)*
 {: .screenshot-half }
 
+## Formatting columns
+
+Header and cell styles can be modified under the Column tab of the creator panel. 
+
+*![columns-formatting](images/columns/columns-formatting.png)*
+{: .screenshot-half }
+
+When you open the styling menu, you have the option to apply text formatting as well as text and fill colors. 
+
+*![columns-formatting-options](images/columns/columns-formatting-options.png)*
+
+If you want more color options, click the fill color box then find the shade you want. If you have a specific color you wish to use,
+ you can enter the hex code, RGB or HSL values.
+
+*![column-formatting-hex](images/columns/column-formatting-hex.png)*
+{: .screenshot-half }
+
+Cell style can also be changed based on conditional rules. Learn more about [Conditional Formatting](conditional-formatting.md).
 
 ## Specifying a type
 
