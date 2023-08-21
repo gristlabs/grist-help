@@ -54,7 +54,7 @@ pop up seen above.
 *![rename columns](images/columns/columns-rename-renamecolumn.png)*
 {: .screenshot-half }
 
-Selecting "Column Options" in the same drop-down opens the Creator Panel. From here, you can edit the
+Selecting "Column Options" in the same drop-down opens the creator panel. From here, you can edit the
 Column Label, shown at the top or add a description.
 
 *![rename columns](images/columns/columns-rename-creatorpanel.png)*
@@ -73,7 +73,7 @@ ID field editable, then enter the new Column ID.
 
 ## Formatting columns
 
-Header styles and cell styles can be modified under the Column tab of the Creator Panel. 
+Header and cell styles can be modified under the Column tab of the creator panel. 
 
 *![columns-formatting](images/columns/columns-formatting.png)*
 {: .screenshot-half }
