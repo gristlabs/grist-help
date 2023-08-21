@@ -2,7 +2,7 @@ Python
 -------
 
 Grist formulas are written in Python, the most popular language for data science.
-The entirety of [Python's  standard library](https://docs.python.org/3.11/library/) is available
+The entirety of [Python's standard library](https://docs.python.org/3.11/library/) is available
 to you. For those with a spreadsheet background, we've also added a suite of Excel-like
 functions, with all-uppercase names. Here's the [full list of functions](functions.md).
 Python formulas are evaluated in a sandbox, without internet access, and without a
