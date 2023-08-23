@@ -1069,7 +1069,7 @@ Column</code> state.</li>
 <p><img alt="formulas-column-behavior-options" src="../images/formulas/formulas-column-behavior-options.png" /></p>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h2>
 <p>Grist formulas are written in Python, the most popular language for data science.
-The entirety of <a href="https://docs.python.org/3.9/library/">Python&rsquo;s  standard library</a> is available
+The entirety of <a href="https://docs.python.org/3/library/">Python&rsquo;s standard library</a> is available
 to you. For those with a spreadsheet background, we&rsquo;ve also added a suite of Excel-like
 functions, with all-uppercase names. Here&rsquo;s the <a href="../functions/">full list of functions</a>.
 Grist documents may use Python 2 or Python 3, see our <a href="../python/">Python guide</a>
@@ -1101,13 +1101,13 @@ doesn&rsquo;t do anything with them but count them.</p>
 
 <p>The <a href="../functions/#all">all</a> method returns a <a href="../functions/#recordset">RecordSet</a>,
 which supports iterating over individual columns this way.  Equivalently,
-we could use a Python <a href="https://docs.python.org/3.9/tutorial/datastructures.html#list-comprehensions">list comprehension</a>:</p>
+we could use a Python <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a>:</p>
 <pre><code class="py">AVERAGE(material.Price for material in Materials.all)
 </code></pre>
 
 <p>If you are not familiar with Python, it is worth following
 a tutorial.  There are thousands online, including this
-<a href="https://docs.python.org/3.9/tutorial/index.html">official one</a>.
+<a href="https://docs.python.org/3/tutorial/index.html">official one</a>.
 Python will be useful to you for all sorts of data work, not just Grist.</p>
 <p>List comprehension is useful once we&rsquo;re doing anything nuanced.  For example,
 here&rsquo;s a formula to list the names of products with a quantity greater than 80:</p>

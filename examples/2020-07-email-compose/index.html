@@ -993,7 +993,7 @@ fill in other parts of the email, using this format:</p>
 separating them with commas.</p>
 <p>Values of each field should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">percent-encoded</a>,
 which in Python can be done using
-<a href="https://docs.python.org/3.9/library/urllib.parse.html#urllib.parse.quote">urllib.parse.quote</a>.</p>
+<a href="https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote">urllib.parse.quote</a>.</p>
 <p>To put this together, this formula will produce a hyperlink to create a pre-filled email:</p>
 <pre><code class="python">from urllib.parse import quote
 return &quot;Compose mailto:%s?cc=sales@example.com&amp;subject=%s&amp;body=%s&quot; % (

@@ -995,7 +995,7 @@ The <code>Date</code> and <code>DateTime</code> column types support different f
 options. When a column
 is set to be a <code>Date</code> or a <code>DateTime</code>, a date-picker widget will let
 you select the date on a calendar when editing a cell.</p>
-<p>When working with dates in formulas, the dates are Python <a href="https://docs.python.org/3.9/library/datetime.html">datetime
+<p>When working with dates in formulas, the dates are Python <a href="https://docs.python.org/3/library/datetime.html">datetime
 objects</a>. That allows
 you to do some powerful things, but can be unexpected if you&rsquo;re not
 familiar with them.</p>
@@ -1028,7 +1028,7 @@ and times.</p>
 object. It&rsquo;s simple to use and it will auto-detect different date formats:</p>
 <p class="screenshot-half"><em><img alt="Parse date from string datevalue" src="../images/dates-parse-datevalue.png" /></em></p>
 <p>You can also use Python&rsquo;s <code>datetime</code> library, which provides two helpful functions:
-<a href="https://docs.python.org/3.9/library/datetime.html#strftime-strptime-behavior">strptime() and strftime()</a>.</p>
+<a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strptime() and strftime()</a>.</p>
 <p>For example, let&rsquo;s say you have a table of movie sequels and their release dates (as
 strings). You&rsquo;d like to parse out the actual date to be able to sort the table properly. Here&rsquo;s how
 you would do that:</p>
@@ -1037,11 +1037,11 @@ you would do that:</p>
 <li>First line imports the datetime library</li>
 <li>The second line splits the string into two parts and returns the second part (Python arrays are
    zero-based).</li>
-<li>The third line uses Python&rsquo;s <a href="https://docs.python.org/3.9/library/datetime.html#datetime.datetime.strptime">strptime
+<li>The third line uses Python&rsquo;s <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime">strptime
    function</a> to parse
    the date (e.g. &ldquo;May 19, 1999&rdquo;) into a datetime object. The first parameter to the function is
    the string to parse, the second parameter is the date format that the string is in. Take a look
-   at the <a href="https://docs.python.org/3.9/library/datetime.html#strftime-strptime-behavior">format
+   at the <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">format
    options</a> to see if
    the example format string <code>%B %d, %Y</code> makes sense. (Note: You could&rsquo;ve also used <code>DATEVALUE(d)</code> to
    achieve the same result.)</li>
@@ -1068,7 +1068,7 @@ function which takes two dates and the unit of information to return (Days, Mont
 <p>You could also use the minus sign to subtract two dates, but you might be surprised at the result:</p>
 <p><img alt="Subtract a date" src="../images/dates-subtract-formula.png" /></p>
 <p>This happens because subtracting two <code>datetime</code> objects as we did in the example above, results in a
-<a href="https://docs.python.org/3.9/library/datetime.html#datetime.timedelta">datetime.timedelta</a> object
+<a href="https://docs.python.org/3/library/datetime.html#datetime.timedelta">datetime.timedelta</a> object
 which represents, &ldquo;A duration expressing the difference between two date, time, or datetime
 instances to microsecond resolution.&rdquo;</p>
 <p>In Grist (and Python) you have to be more specific above how you want to display the date
@@ -1095,7 +1095,7 @@ if you want to get more information about a specific date, such as getting its d
 <p>One option is to use the <a href="../functions/#weekday">WEEKDAY</a> function, which behaves as it does in
 Excel, returning  1-7 for Sunday-Saturday.</p>
 <p><img alt="Weekday formula" src="../images/dates-weekday-formula.png" /></p>
-<p>Alternatively, we can use the <a href="https://docs.python.org/3.9/library/datetime.html#strftime-strptime-behavior">strftime</a> function:</p>
+<p>Alternatively, we can use the <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strftime</a> function:</p>
 <p><img alt="Weekday format" src="../images/dates-weekday-strftime.png" /></p>
 <p>Yet another option would be to reformat the date using Date Format in Column Options
 (see the <a href="https://momentjs.com/docs/#/displaying/format/">date formatting reference</a>).</p>
