@@ -127,7 +127,7 @@ documentation:
   how we look up all rates for the given person and role.
 - [list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions):
   how we filter for only those rates with an earlier `Rate_Start`.
-- [max function](https://docs.python.org/3.9/library/functions.html#max):
+- [max function](https://docs.python.org/3/library/functions.html#max):
   how we choose the rate record with the latest `Rate_Start`.
 - [.Field](https://support.getgrist.com/functions/#_field): how we get the `Hourly_Rate` field
   from the rate record.

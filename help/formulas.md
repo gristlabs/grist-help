@@ -94,7 +94,7 @@ Column` state.
 ## Python
 
 Grist formulas are written in Python, the most popular language for data science.
-The entirety of [Python's  standard library](https://docs.python.org/3.9/library/) is available
+The entirety of [Python's standard library](https://docs.python.org/3/library/) is available
 to you. For those with a spreadsheet background, we've also added a suite of Excel-like
 functions, with all-uppercase names. Here's the [full list of functions](functions.md).
 Grist documents may use Python 2 or Python 3, see our [Python guide](python.md)
@@ -135,7 +135,7 @@ AVERAGE(Materials.all.Price)
 
 The [all](functions.md#all) method returns a [RecordSet](functions.md#recordset),
 which supports iterating over individual columns this way.  Equivalently,
-we could use a Python [list comprehension](https://docs.python.org/3.9/tutorial/datastructures.html#list-comprehensions):
+we could use a Python [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions):
 
 ```py
 AVERAGE(material.Price for material in Materials.all)
@@ -143,7 +143,7 @@ AVERAGE(material.Price for material in Materials.all)
 
 If you are not familiar with Python, it is worth following
 a tutorial.  There are thousands online, including this
-[official one](https://docs.python.org/3.9/tutorial/index.html).
+[official one](https://docs.python.org/3/tutorial/index.html).
 Python will be useful to you for all sorts of data work, not just Grist.
 
 List comprehension is useful once we're doing anything nuanced.  For example,

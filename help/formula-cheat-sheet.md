@@ -2,7 +2,7 @@ Formula Cheat Sheet
 =========
 
 Grist has a powerful data engine to calculate the cells of your tables using formulas. Grist formulas are written
-in [Python](https://docs.python.org/3.9/library/_){:target="\_blank"}, the most popular language for data science. We also have a suite of Excel-like [functions](functions.md), with all-uppercase names. Here are some helpful notes:
+in [Python](https://docs.python.org/3/library/){:target="\_blank"}, the most popular language for data science. We also have a suite of Excel-like [functions](functions.md), with all-uppercase names. Here are some helpful notes:
 
 - Formulas apply to the entire column
 - Fields are included in formulas as `$ColumnID`.

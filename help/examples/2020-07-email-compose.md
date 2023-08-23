@@ -42,7 +42,7 @@ separating them with commas.
 
 Values of each field should be [percent-encoded](https://en.wikipedia.org/wiki/Percent-encoding),
 which in Python can be done using
-[urllib.parse.quote](https://docs.python.org/3.9/library/urllib.parse.html#urllib.parse.quote).
+[urllib.parse.quote](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.quote).
 
 To put this together, this formula will produce a hyperlink to create a pre-filled email:
 
