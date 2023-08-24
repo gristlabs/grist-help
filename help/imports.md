@@ -84,15 +84,14 @@ you to change the destination and import data into an existing table.
 
 When importing to an existing table, Grist will attempt to match the columns
 from your imported file to the columns in the destination table. To manually
-specify column matching, click the "three dots" button to open a menu with a
-list of columns from your imported file. Click on a column name to match it
+specify column matching, click the 'Source Column' drop down to open a menu with a list of 
+unused columns from your imported file. Click on a column name to match it
 to a destination column, or select 'Skip' to skip importing data from that column.
 
 ![import-dialog](images/import-dialog-matching.png)
 
-You can also specify a formula for each imported column by clicking the gray
-source column field to open a formula editor. Formulas can reference
-one or more imported columns, and the result of evaluating the formula will
+You can also specify a formula for each imported column by clicking 'Apply Formula' from the 'Source Column' 
+drop down menu. Formulas can reference one or more imported columns, and the result of evaluating the formula will
 be shown in the preview after closing the editor.
 
 ![import-dialog](images/import-dialog-formula.png)
