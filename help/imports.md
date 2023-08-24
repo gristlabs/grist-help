@@ -113,7 +113,8 @@ We can tell Grist to update these records by checking the "Update existing recor
 option, and specifying which fields to use for matching incoming data against
 existing records.
 
-![import-dialog-update-records](images/import-dialog-update-records.png){: .screenshot-half }
+![import-dialog-update-records](images/import-dialog-update-records.png)
+{: .screenshot-half }
 
 An imported row and an existing record that have the same values for all of the
 selected merge fields are considered the same record. In this case, importing
