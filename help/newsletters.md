@@ -42,3 +42,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [May 2023 Newsletter](newsletters/2023-05.md): Column and widget description, webhooks, and a vote for the best flashcards.
 - [June 2023 Newsletter](newsletters/2023-06.md): Selector row highlighting, new templates, and community contributions.
 - [July 2023 Newsletter](newsletters/2023-07.md): AI Formula Assistant launched!
+- [August 2023 Newsletter](newsletters/2023-08.md): Grist CSV Viewer! Llama AI support!
