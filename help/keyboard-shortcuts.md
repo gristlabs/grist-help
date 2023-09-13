@@ -39,10 +39,10 @@
 | <code class="keys">*⇧* *→*</code> | <code class="keys">*Shift* + *→*</code> | Adds the element to the right of the cursor to the selected range |
 | <code class="keys">*⇧* *←*</code> | <code class="keys">*Shift* + *←*</code> | Adds the element to the left of the cursor to the selected range |
 | <code class="keys">*⌘* *A*</code> | <code class="keys">*Ctrl* + *A*</code> | Selects all currently displayed cells |
-| <code class="keys">*⌘* *Shift* *↑*</code> | <code class="keys">*Ctrl* + *Shift* + *↑*</code> | Selects all cells above the selected cell in the same column |
-| <code class="keys">*⌘* *Shift* *↓*</code> | <code class="keys">*Ctrl* + *Shift* + *↓*</code> | Selects all cells below the selected cell in the same column |
-| <code class="keys">*⌘* *Shift* *→*</code> | <code class="keys">*Ctrl* + *Shift* + *→*</code> | Selects all cells to the right of the selected cell in the same row |
-| <code class="keys">*⌘* *Shift* *←*</code> | <code class="keys">*Ctrl* + *Shift* + *←*</code> | Selects all cells to the left of the selected cell in the same row |
+| <code class="keys">*⌘* *Shift* *↑*</code> | <code class="keys">*Ctrl* + *Shift* + *↑*</code> | Selects cells above the selected cell in the same column |
+| <code class="keys">*⌘* *Shift* *↓*</code> | <code class="keys">*Ctrl* + *Shift* + *↓*</code> | Selects cells below the selected cell in the same column |
+| <code class="keys">*⌘* *Shift* *→*</code> | <code class="keys">*Ctrl* + *Shift* + *→*</code> | Selects cells to the right of the selected cell in the same row |
+| <code class="keys">*⌘* *Shift* *←*</code> | <code class="keys">*Ctrl* + *Shift* + *←*</code> | Selects cells to the left of the selected cell in the same row |
 | <code class="keys">*⌘* *⇧* *A*</code> | <code class="keys">*Ctrl* + *Shift* + *A*</code> | Copy anchor link |
 
 ###Editing
