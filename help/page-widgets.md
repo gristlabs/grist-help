@@ -59,7 +59,7 @@ on separate pages.
 - [Card](widget-card.md): shows a single record in a form-like layout which you can customize.
 - [Card List](widget-card.md): uses the same layout options as a card, displays a scrollable list of records.
 - [Chart](widget-chart.md): plots data on a chart with support for several different chart types.
-- [Calendar](widget-calendar.md): Displays event data in a calendar view.
+- [Calendar](widget-calendar.md): displays event data in a calendar view.
 - [Custom](widget-custom.md): inserts a custom webpage, optionally granting it access to the document's data.
 
 ![page_widget_types](images/page_widget_types.png)

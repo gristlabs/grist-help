@@ -9,8 +9,8 @@ The calendar widget allows viewing data in a calendar view. In Grist, event data
 In your data table, you will need three columns of data:
 
 1. [Text](col-types.md#text-columns) column, containing the title of your event.
-2. [DateTime](col-types.md#datetime-columns) column that will contain the date and time that the event begins.
-3. [DateTime](col-types.md#datetime-columns) column, containing the date and time that the event ends.
+2. [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event begins.
+3. [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event ends.
 4. (Optional) [Toggle](col-types.md#toggle-columns) column, noting if an event is all day long.
 
 *![widget-calendar-columns](images/widget-calendar/widget-calendar-columns.png)*
@@ -29,7 +29,7 @@ Configure the widget by selecting the columns in your data table that contain St
 
 ## Linking event details
 
-Once you have your Calendar widget added, it might be useful to see more event details in a Table or Card widget.
+Once you have your calendar widget added, it might be useful to see more event details in a table or card widget.
 
 This example will walk through a card widget.
 
@@ -72,14 +72,13 @@ For a linked card widget, click the three-dot icon at the upper-right of the lin
 
 *![widget-calendar-delete-record](images/widget-calendar/widget-calendar-delete-record.png)*
 
-If you do not have a linked widget, you can delete an event by clicking the three-dot icon at the upper-right of the Calendar widget, then ‘Show raw data’.
+If you do not have a linked widget, you can delete an event by clicking the three-dot icon at the upper-right of the calendar widget, then ‘Show raw data’.
 
 *![widget-calendar-raw-data](images/widget-calendar/widget-calendar-raw-data.png)*
 
 Find the event you want to delete, then delete that row.
 
-!!! note "Keyboard shortcut"
-    Use shortcut <code class="keys">*Ctrl* + *Delete*</code> on Windows or <code class="keys">*⌘* *Delete*</code> on Mac to delete the currently selected record(s).
+*![widget-calendar-raw-data-delete-record](images/widget-calendar/widget-calendar-raw-data-delete-record.png)*
 
 !!! note "Keyboard shortcut"
-    Use shortcut <code class="keys">*Ctrl* + *Delete*</code> on Windows or <code class="keys">*⌘* *Delete*</code> on Mac to delete the currently selected record(s)
+    Use shortcut <code class="keys">*Ctrl* + *Delete*</code> on Windows or <code class="keys">*⌘* *Delete*</code> on Mac to delete the currently selected record(s).
