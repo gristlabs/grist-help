@@ -1,6 +1,6 @@
 # Page widget: Calendar
 
-The **Calendar** widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the **Calendar** widget can be configured to display that data.
+The calendar widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the calendar widget can be configured to display that data.
 
 *![widget-calendar-intro](images/widget-calendar/widget-calendar-intro.png)*
 
@@ -9,8 +9,8 @@ The **Calendar** widget allows viewing data in a calendar view. In Grist, event 
 In your data table, you will need three columns of data;
 
 1. [Text](col-types.md#text-columns) column, containing the title of your event.
-2. [DateTime](col-types.md#datetime-columns) column that will contain the date and time that the event begins.
-3. [DateTime](col-types.md#datetime-columns) column, containing the date and time that the event ends.
+2. [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column that will contain the date and time that the event begins.
+3. [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date and time that the event ends.
 4. [OPTIONAL] [Toggle](col-types.md#toggle-columns) column, noting if an event is all day long
 
 *![widget-calendar-columns](images/widget-calendar/widget-calendar-columns.png)*
@@ -29,22 +29,22 @@ Configure the widget by selecting the columns in your data table that contain St
 
 ## Linking Event Details
 
-Once you have your Calendar widget added, it might be useful to see more event details in a Table widget or a Card widget.
+Once you have your calendar widget added, it might be useful to see more event details in a table widget or a card widget.
 
-This example will walk through a Card widget.
+This example will walk through a card widget.
 
-To create a linked view, add a new type of widget such as a table or a card, and select the same data table. Under ‘Select By’, select the Calendar widget. Then, add to page.
+To create a linked view, add a new type of widget such as a table or a card, and select the same data table. Under ‘Select By’, select the calendar widget. Then, add to page.
 
 *![widget-calendar-linked-card-selectby](images/widget-calendar/widget-calendar-linked-card-selectby.png)*
 {: .screenshot-half }
 
-Now, when you click on an event in the Calendar widget, the linked widget will update to show the details for the selected event.
+Now, when you click on an event in the calendar widget, the linked widget will update to show the details for the selected event.
 
 *![widget-calendar-linked-card](images/widget-calendar/widget-calendar-linked-card.png)*
 
 ## Adding a new event
 
-You can add a new event by clicking on the start time for the event in the Calendar widget. Select the New Event record in the Calendar view to add event details in the linked widget.
+You can add a new event by clicking on the start time for the event in the calendar widget. Select the New Event record in the calendar view to add event details in the linked widget.
 
 *![widget-calendar-new-event](images/widget-calendar/widget-calendar-new-event.png)*
 
@@ -72,13 +72,13 @@ For a linked card widget, click the three-dot icon at the upper-right of the lin
 
 *![widget-calendar-delete-record](images/widget-calendar/widget-calendar-delete-record.png)*
 
-If you do not have a linked widget, you can delete an event by clicking the three-dot icon at the upper-right of the Calendar widget then ‘Show raw data’.
+If you do not have a linked widget, you can delete an event by clicking the three-dot icon at the upper-right of the calendar widget then ‘Show raw data’.
 
 *![widget-calendar-raw-data](images/widget-calendar/widget-calendar-raw-data.png)*
 
 Find the event you want to delete, then delete that record.
 
+*![widget-calendar-raw-data-delete-record](images/widget-calendar/widget-calendar-raw-data-delete-record.png)*
+
 !!! note "Keyboard shortcut"
     Use shortcut <code class="keys">*Ctrl* + *Delete*</code> on Windows or <code class="keys">*⌘* *Delete*</code> on Mac to delete the currently selected record(s)
-
-*![widget-calendar-raw-data-delete-record](images/widget-calendar/widget-calendar-raw-data-delete-record.png)*
