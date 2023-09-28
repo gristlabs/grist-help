@@ -6,12 +6,12 @@ The calendar widget allows viewing data in a calendar view. In Grist, event data
 
 ## Setting up your data
 
-In your data table, you will need three columns of data:
+In your data table, you will need two columns of data, with the option to add two additional data columns:
 
-1. [Text](col-types.md#text-columns) column, containing the title of your event.
-2. [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event begins.
-3. [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event ends.
-4. (Optional) [Toggle](col-types.md#toggle-columns) column, noting if an event is all day long.
+1. **Title**: [Text](col-types.md#text-columns) column, containing the title of your event.
+2. **Start Date**: [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event begins.
+3. *(Optional)* **End Date**: [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event ends.
+4. *(Optional)* **All Day?**: [Toggle](col-types.md#toggle-columns) column, noting if an event is all day long.
 
 *![widget-calendar-columns](images/widget-calendar/widget-calendar-columns.png)*
 
@@ -22,7 +22,7 @@ Add a calendar widget from the ‘Add New’ menu. Select the table containing y
 *![widget-calendar-add-widget](images/widget-calendar/widget-calendar-add-widget.png)*
 {: .screenshot-half }
 
-Configure the widget by selecting the columns in your data table that contain Start Date, End Date, Title and Is All Day (optional).
+Configure the widget by selecting the columns in your data table that contain Start Date, End Date (optional), Title and Is All Day (optional).
 
 *![widget-calendar-configuration](images/widget-calendar/widget-calendar-configuration.png)*
 {: .screenshot-half }
