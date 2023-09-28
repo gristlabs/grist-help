@@ -28,6 +28,9 @@ toc:
     title: "/attachments"
     url: "#tag/attachments"
   -
+    title: "/sql"
+    url: "#tag/sql"
+  -
     title: "/webhooks"
     url: "#tag/webhooks"
   -
