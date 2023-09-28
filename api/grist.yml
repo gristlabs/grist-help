@@ -1077,6 +1077,72 @@ paths:
         200:
           description: "Success."
 
+  /docs/{docId}/sql:
+    get:
+      tags:
+        - sql
+      summary: "Run an SQL query against a document"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: query
+          name: q
+          schema:
+            type: string
+            description: "The SQL query to run. This GET endpoint is a simplified version of the corresponding POST endpoint, which allows specifying parameters and options in the request body."
+      responses:
+        200:
+          description: "The result set for the query."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SqlResultSet"
+    post:
+      tags:
+        - sql
+      summary: "Run an SQL query against a document, with options or parameters"
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+      requestBody:
+        description: "Query options"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - sql
+              properties:
+                sql:
+                  type: string
+                  description: "The SQL query to run. Must be a single SELECT statement, with no trailing semicolon. WITH clauses are permitted. All Grist documents are currently SQLite databases, and the SQL query is interpreted and run by SQLite, with various defensive measures. Statements that would modify the database are not supported."
+                  example: "select * from Pets where popularity >= ?"
+                args:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: number
+                      - type: string
+                  description: "Parameters for the query."
+                  example: [ 50 ]
+                timeout:
+                  type: number
+                  description: "Timeout after which operations on the document will be interrupted. Specified in milliseconds. Defaults to 1000 (1 second). This default is controlled by an optional environment variable read by the Grist app, GRIST_SQL_TIMEOUT_MSEC. The default cannot be exceeded, only reduced."
+                  example: 500
+      responses:
+        200:
+          description: "The result set for the query."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SqlResultSet"
+
 tags:
   - name: orgs
     description: "Team sites and personal spaces are called 'orgs' in the API."
@@ -1966,6 +2032,36 @@ components:
                 example: 1
               fields:
                 $ref: "#/components/schemas/AttachmentMetadata"
+    SqlResultSet:
+      type: object
+      required:
+        - statement
+        - records
+      properties:
+        statement:
+          type: string
+          description: "A copy of the SQL statement."
+          example: "select * from Pets ..."
+        records:
+          type: array
+          items:
+            type: object
+            required:
+              - fields
+            properties:
+              fields:
+                type: object
+          example:
+          -
+            fields:
+              id: 1
+              pet: cat
+              popularity: 67
+          -
+            fields:
+              id: 2
+              pet: dog
+              popularity: 95
   parameters:
     filterQueryParam:
       in: query
