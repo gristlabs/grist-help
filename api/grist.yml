@@ -1092,7 +1092,7 @@ paths:
           name: q
           schema:
             type: string
-            description: "The SQL query to run. This GET endpoint is a simplified version of the corresponding POST endpoint, which allows specifying parameters and options in the request body."
+            description: "The SQL query to run. This GET endpoint is a simplified version of the corresponding POST endpoint, without support for parameters or options. See the POST endpoint for details of what's allowed in the SQL query string."
       responses:
         200:
           description: "The result set for the query."
