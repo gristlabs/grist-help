@@ -27,9 +27,28 @@ Configure the widget by selecting the columns in your data table that contain St
 *![widget-calendar-configuration](images/widget-calendar/widget-calendar-configuration.png)*
 {: .screenshot-half }
 
+## Adding a new event
+
+You can add a new event by clicking on the start time for the event in the calendar widget. In the popup, you can add a title for the event and modify the start and end time. You also have the option to mark the event as 'all day'. 
+
+*![widget-calendar-new-event](images/widget-calendar/widget-calendar-new-event.png)*
+
+You can also modify the start and end time of an event by clicking and dragging the event directly on the calendar.
+
+To modify an event’s start time, click and drag from the middle of the event. When modifying start time, the duration of the event will remain the same. 
+
+*![widget-calendar-adjust-start](images/widget-calendar/widget-calendar-adjust-start.png)*
+
+To modify an event's end time, click and drag from the bottom of the event. You’ll notice that the icon is slightly different from the icon that appears when modifying start time. 
+
+
+*![widget-calendar-adjust-time](images/widget-calendar/widget-calendar-adjust-time.png)*
+
+Any changes to start and end time will be made to the underlying data table so your data will always be consistent!
+
 ## Linking event details
 
-Once you have your calendar widget added, it might be useful to see more event details in a table or card widget.
+It might be useful to see more event details in a table or card widget.
 
 This example will walk through a card widget.
 
@@ -42,43 +61,12 @@ Now, when you click on an event in the calendar widget, the linked widget will u
 
 *![widget-calendar-linked-card](images/widget-calendar/widget-calendar-linked-card.png)*
 
-## Adding a new event
-
-You can add a new event by clicking on the start time for the event in the calendar widget. Select the New Event record in the calendar view to add event details in the linked widget.
-
-*![widget-calendar-new-event](images/widget-calendar/widget-calendar-new-event.png)*
-
 !!! note "Collapsing widgets"
     Drag the linked widget into the attic at the top of the page to collapse. The widget will still be linked but will take up less space on the page! Simply click the box to expand and view linked record details.
 
     Read more on [Custom Layouts](custom-layouts.md).
 
-You can modify the end time of an event by clicking and dragging from the bottom of the event. Updates to the end time will be reflected in the underlying data table.
-
-*![widget-calendar-adjust-time](images/widget-calendar/widget-calendar-adjust-time.png)*
-
-You can also modify an event’s start time by clicking and dragging from the middle of the event. You’ll notice that the icon is slightly different from the icon that appears when modifying end time. 
-
-*![widget-calendar-adjust-start](images/widget-calendar/widget-calendar-adjust-start.png)*
-
-When modifying start time, the duration of the event will remain the same. Any changes to start and end time will be made to the underlying data table so your data will always be consistent!
-
 ## Deleting an event
-To delete an event, select the event in the calendar so the linked widget updates to show the event’s details.
-
-For a linked table widget, right click the record then select ‘Delete row’.
-
-For a linked card widget, click the three-dot icon at the upper-right of the linked widget then ‘Delete record’.
+To delete an event, select the event in the calendar then click 'delete' in the popup.
 
 *![widget-calendar-delete-record](images/widget-calendar/widget-calendar-delete-record.png)*
-
-If you do not have a linked widget, you can delete an event by clicking the three-dot icon at the upper-right of the calendar widget, then ‘Show raw data’.
-
-*![widget-calendar-raw-data](images/widget-calendar/widget-calendar-raw-data.png)*
-
-Find the event you want to delete, then delete that row.
-
-*![widget-calendar-raw-data-delete-record](images/widget-calendar/widget-calendar-raw-data-delete-record.png)*
-
-!!! note "Keyboard shortcut"
-    Use shortcut <code class="keys">*Ctrl* + *Delete*</code> on Windows or <code class="keys">*⌘* *Delete*</code> on Mac to delete the currently selected record(s).
