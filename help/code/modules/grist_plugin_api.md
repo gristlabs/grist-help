@@ -7,6 +7,7 @@
 - [AccessTokenOptions](../interfaces/grist_plugin_api.AccessTokenOptions.md)
 - [AccessTokenResult](../interfaces/grist_plugin_api.AccessTokenResult.md)
 - [ColumnToMap](../interfaces/grist_plugin_api.ColumnToMap.md)
+- [CursorPos](../interfaces/grist_plugin_api.CursorPos.md)
 - [GristColumn](../interfaces/grist_plugin_api.GristColumn.md)
 - [GristDocAPI](../interfaces/grist_plugin_api.GristDocAPI.md)
 - [GristTable](../interfaces/grist_plugin_api.GristTable.md)
@@ -19,6 +20,10 @@
 - [RenderOptions](../interfaces/grist_plugin_api.RenderOptions.md)
 - [WidgetAPI](../interfaces/grist_plugin_api.WidgetAPI.md)
 - [WidgetColumnMap](../interfaces/grist_plugin_api.WidgetColumnMap.md)
+
+### Type Aliases
+
+- [UIRowId](grist_plugin_api.md#uirowid)
 
 ### Variables
 
@@ -46,9 +51,18 @@
 - [onRecord](grist_plugin_api.md#onrecord)
 - [onRecords](grist_plugin_api.md#onrecords)
 - [ready](grist_plugin_api.md#ready)
+- [setCursorPos](grist_plugin_api.md#setcursorpos)
 - [setOption](grist_plugin_api.md#setoption)
 - [setOptions](grist_plugin_api.md#setoptions)
 - [setSelectedRows](grist_plugin_api.md#setselectedrows)
+
+## Type Aliases
+
+### UIRowId
+
+Ƭ **UIRowId**: `number` \| ``"new"``
+
+Represents the id of a row in a table. The value of the `id` column. Might be a number or 'new' value for a new row.
 
 ## Variables
 
@@ -106,7 +120,8 @@ Interface for the state of a custom widget.
 
 ▸ **allowSelectBy**(): `Promise`<`void`\>
 
-Allow custom widget to be listed as a possible source for linking with SELECT BY.
+Deprecated now. It was used for filtering selected table by `setSelectedRows` method.
+Now the preferred way it to use ready message.
 
 #### Returns
 
@@ -402,6 +417,24 @@ Grist will not attempt to communicate with it until this method is called.
 
 ___
 
+### setCursorPos
+
+▸ **setCursorPos**(`pos`): `Promise`<`void`\>
+
+Sets the cursor position to a specific row and field. `sectionId` is ignored. Used for widget linking.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `pos` | [`CursorPos`](../interfaces/grist_plugin_api.CursorPos.md) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+___
+
 ### setOption
 
 ▸ **setOption**(`key`, `value`): `Promise`<`void`\>
@@ -443,13 +476,13 @@ ___
 
 ▸ **setSelectedRows**(`rowIds`): `Promise`<`void`\>
 
-Set the list of selected rows to be used against any linked widget. Requires `allowSelectBy()`.
+Set the list of selected rows to be used against any linked widget.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `rowIds` | `number`[] |
+| `rowIds` | ``null`` \| `number`[] |
 
 #### Returns
 
