@@ -37,7 +37,7 @@ Below you should be able to see an embedded live table (not a screenshot) from o
         height="250px" width="100%" frameborder="0">
 </iframe>
 
-This is live, read-only view of the Grist page and it gets updated as soon as 
+This is a live, read-only view of the Grist page and it gets updated as soon as 
 someone edits it. You can, of course, embed any page you wish, including card view, charts
 and any page with multiple sections.
 
@@ -51,9 +51,22 @@ Here are two more examples with a chart and a card list view:
         height="300px" width="100%" frameborder="0">
 </iframe>
 
-Embedding editable documents is not yet supported, but we are working on it
-and will make it available soon. You can track our progress on our 
-[Roadmap](https://github.com/gristlabs/grist-core/issues/66).
+## Parameters
+
+#### Read-Only vs. Editable
+
+Appending a URL with `?embed=true` shares the page as read-only while `?style=singlePage` can be edited and follows [access rules](access-rules.md).
 
 !!! note "Sharing an Embedded Style View"
-    Adding `?embed=true` or `?style=singlePage` to the end of a document's page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. `?style=singlePage` can be edited and follows access rules, while `?embed=true` is read-only. To learn more about link sharing, see [Public access and link sharing](sharing.md#public-access-and-link-sharing)
+    Adding `?embed=true` or `?style=singlePage` to the end of a document's page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. To learn more about link sharing, see [Public access and link sharing](sharing.md#public-access-and-link-sharing)
+
+#### Appearance
+
+Control how an embedded iframe appears by assigning a theme appearance by appending `?themeAppearance=light` for light mode or `?themeAppearance=dark` for dark mode to your URL.
+
+You can also override the operating system's default using `?themeSyncWithOs=false`.
+
+!!! note "Chaining Parameters"
+    When adding parameters to the end of your URL, the first always leads with `?`. Any additional parameters lead with `&`. For example, [https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&themeAppearance=dark&themeSyncWithOs=false](https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&themeAppearance=dark&themeSyncWithOs=false) creates an embedded-style, read-only view and forces dark mode, regardless of your OS settings.
+
+
