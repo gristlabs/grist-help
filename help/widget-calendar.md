@@ -6,12 +6,13 @@ The calendar widget allows viewing data in a calendar view. In Grist, event data
 
 ## Setting up your data
 
-In your data table, you will need two columns of data, with the option to add two additional data columns:
+In your data table, you will need two columns of data, with the option to add three additional data columns:
 
 1. **Title**: [Text](col-types.md#text-columns) column, containing the title of your event.
 2. **Start Date**: [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event begins.
 3. *(Optional)* **End Date**: [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) column, containing the date, or date and time, that the event ends.
 4. *(Optional)* **All Day?**: [Toggle](col-types.md#toggle-columns) column, noting if an event is all day long.
+5. *(Optional)* **Type**: [Choice](col-types.md#choice-columns) or [Choice List](col-types.md#choice-list-columns) column, containing the event category and styling.
 
 *![widget-calendar-columns](images/widget-calendar/widget-calendar-columns.png)*
 
@@ -22,14 +23,14 @@ Add a calendar widget from the ‘Add New’ menu. Select the table containing y
 *![widget-calendar-add-widget](images/widget-calendar/widget-calendar-add-widget.png)*
 {: .screenshot-half }
 
-Configure the widget by selecting the columns in your data table that contain Start Date, End Date (optional), Title and Is All Day (optional).
+Configure the widget by selecting the columns in your data table that contain Start Date, End Date (optional), Is All Day (optional), Title and Type (optional).
 
 *![widget-calendar-configuration](images/widget-calendar/widget-calendar-configuration.png)*
 {: .screenshot-half }
 
 ## Adding a new event
 
-You can add a new event by clicking on the start time for the event in the calendar widget. In the popup, you can add a title for the event and modify the start and end time. You also have the option to mark the event as 'all day'. 
+You can add a new event by double clicking the start time for the event in the calendar widget. In the popup, you can add a title for the event and modify the start and end time. You also have the option to mark the event as 'all day'. 
 
 *![widget-calendar-new-event](images/widget-calendar/widget-calendar-new-event.png)*
 
@@ -66,6 +67,6 @@ Now, when you click on an event in the calendar widget, the linked widget will u
     Read more on [Custom Layouts](custom-layouts.md).
 
 ## Deleting an event
-To delete an event, select the event in the calendar then click 'delete' in the popup.
+To delete an event, double click the event in the calendar then select 'delete' in the popup.
 
 *![widget-calendar-delete-record](images/widget-calendar/widget-calendar-delete-record.png)*
