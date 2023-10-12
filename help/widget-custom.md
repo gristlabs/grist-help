@@ -390,15 +390,9 @@ to show your own custom configuration screen.
 
 ## Custom Widget linking
 
-<!--
-Write here a paragraph about that the custom widget can be used as a source of linking. All dev
-needs to do is to call grist.ready({allowSelectBy: true}), and then update the cursor position
-by calling grist.setCursorPos({rowId: 20})
--->
-
 Custom widgets can also be used as a source of linking (see [Linking widgets](linking-widgets.md)).
-All you need to do is to inform Grist that your widget supports linking by passing additional
-options to the `ready` call (see [Widget API](/code/modules/grist_plugin_api/#ready)):
+All you need to do is inform Grist that your widget supports linking by passing an additional
+option to the `ready` call (see [Widget API](/code/modules/grist_plugin_api/#ready)):
 
 ```javascript
 grist.ready({
