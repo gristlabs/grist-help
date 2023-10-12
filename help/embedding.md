@@ -33,7 +33,7 @@ Since this Help Center document is a regular HTML file, we can try it right away
 Below you should be able to see an embedded live table (not a screenshot) from one of our
 [examples](https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6):
 
-<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true" 
+<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&themeAppearance=light&themeSyncWithOs=false" 
         height="250px" width="100%" frameborder="0">
 </iframe>
 
@@ -43,11 +43,11 @@ and any page with multiple sections.
 
 Here are two more examples with a chart and a card list view:
 
-<iframe src="https://public.getgrist.com/42dAvZXMFewH/Funding-Pipeline/p/13?embed=true" 
+<iframe src="https://public.getgrist.com/42dAvZXMFewH/Funding-Pipeline/p/13?embed=true&themeAppearance=light&themeSyncWithOs=false" 
         height="300px" width="100%" frameborder="0">
 </iframe>
 
-<iframe src="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/3?embed=true" 
+<iframe src="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/3?embed=true&themeAppearance=light&themeSyncWithOs=false" 
         height="300px" width="100%" frameborder="0">
 </iframe>
 
@@ -58,7 +58,7 @@ Here are two more examples with a chart and a card list view:
 Appending a URL with `?embed=true` shares the page as read-only while `?style=singlePage` can be edited and follows [access rules](access-rules.md).
 
 !!! note "Sharing an Embedded Style View"
-    Adding `?embed=true` or `?style=singlePage` to the end of a document's page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. To learn more about link sharing, see [Public access and link sharing](sharing.md#public-access-and-link-sharing)
+    Adding `?embed=true` or `?style=singlePage` to the end of a document's page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. To learn more about link sharing, see [Public access and link sharing](sharing.md#public-access-and-link-sharing).
 
 #### Appearance
 
