@@ -46,6 +46,7 @@
 - [getTable](grist_plugin_api.md#gettable)
 - [mapColumnNames](grist_plugin_api.md#mapcolumnnames)
 - [mapColumnNamesBack](grist_plugin_api.md#mapcolumnnamesback)
+- [on](grist_plugin_api.md#on)
 - [onNewRecord](grist_plugin_api.md#onnewrecord)
 - [onOptions](grist_plugin_api.md#onoptions)
 - [onRecord](grist_plugin_api.md#onrecord)
@@ -55,6 +56,7 @@
 - [setOption](grist_plugin_api.md#setoption)
 - [setOptions](grist_plugin_api.md#setoptions)
 - [setSelectedRows](grist_plugin_api.md#setselectedrows)
+- [testWaitForPendingRequests](grist_plugin_api.md#testwaitforpendingrequests)
 
 ## Type Aliases
 
@@ -316,6 +318,53 @@ we don't attempt to do these transformations automatically.
 
 ___
 
+### on
+
+▸ **on**(`eventName`, `listener`): `Rpc`
+
+Adds the `listener` function to the end of the listeners array for the
+event named `eventName`. No checks are made to see if the `listener` has
+already been added. Multiple calls passing the same combination of `eventName`and `listener` will result in the `listener` being added, and called, multiple
+times.
+
+```js
+server.on('connection', (stream) => {
+  console.log('someone connected!');
+});
+```
+
+Returns a reference to the `EventEmitter`, so that calls can be chained.
+
+By default, event listeners are invoked in the order they are added. The`emitter.prependListener()` method can be used as an alternative to add the
+event listener to the beginning of the listeners array.
+
+```js
+const myEE = new EventEmitter();
+myEE.on('foo', () => console.log('a'));
+myEE.prependListener('foo', () => console.log('b'));
+myEE.emit('foo');
+// Prints:
+//   b
+//   a
+```
+
+**`Since`**
+
+v0.1.101
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `eventName` | `string` \| `symbol` | The name of the event. |
+| `listener` | (...`args`: `any`[]) => `void` | The callback function |
+
+#### Returns
+
+`Rpc`
+
+___
+
 ### onNewRecord
 
 ▸ **onNewRecord**(`callback`): `void`
@@ -487,3 +536,17 @@ Set the list of selected rows to be used against any linked widget.
 #### Returns
 
 `Promise`<`void`\>
+
+___
+
+### testWaitForPendingRequests
+
+▸ **testWaitForPendingRequests**(): `Promise`<``null`` \| `void`\>
+
+Used by tests to wait for all pending requests to settle.
+
+TODO: currently only waits for requests for mappings.
+
+#### Returns
+
+`Promise`<``null`` \| `void`\>
