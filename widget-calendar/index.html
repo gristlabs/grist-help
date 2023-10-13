@@ -985,27 +985,28 @@
 <p>The calendar widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the calendar widget can be configured to display that data.</p>
 <p><em><img alt="widget-calendar-intro" src="../images/widget-calendar/widget-calendar-intro.png" /></em></p>
 <h2 id="setting-up-your-data">Setting up your data<a class="headerlink" href="#setting-up-your-data" title="Permanent link">#</a></h2>
-<p>In your data table, you will need two columns of data, with the option to add two additional data columns:</p>
+<p>In your data table, you will need two columns of data, with the option to add three additional data columns:</p>
 <ol>
 <li><strong>Title</strong>: <a href="../col-types/#text-columns">Text</a> column, containing the title of your event.</li>
 <li><strong>Start Date</strong>: <a href="../col-types/#date-columns">Date</a> or <a href="../col-types/#datetime-columns">DateTime</a> column, containing the date, or date and time, that the event begins.</li>
 <li><em>(Optional)</em> <strong>End Date</strong>: <a href="../col-types/#date-columns">Date</a> or <a href="../col-types/#datetime-columns">DateTime</a> column, containing the date, or date and time, that the event ends.</li>
-<li><em>(Optional)</em> <strong>All Day?</strong>: <a href="../col-types/#toggle-columns">Toggle</a> column, noting if an event is all day long.</li>
+<li><em>(Optional)</em> <strong>Is All Day?</strong>: <a href="../col-types/#toggle-columns">Toggle</a> column, noting if an event is all day long.</li>
+<li><em>(Optional)</em> <strong>Type</strong>: <a href="../col-types/#choice-columns">Choice</a> or <a href="../col-types/#choice-list-columns">Choice List</a> column, containing the event category and styling.</li>
 </ol>
 <p><em><img alt="widget-calendar-columns" src="../images/widget-calendar/widget-calendar-columns.png" /></em></p>
 <h2 id="configuring-the-calendar">Configuring the calendar<a class="headerlink" href="#configuring-the-calendar" title="Permanent link">#</a></h2>
 <p>Add a calendar widget from the ‘Add New’ menu. Select the table containing your event data.</p>
 <p class="screenshot-half"><em><img alt="widget-calendar-add-widget" src="../images/widget-calendar/widget-calendar-add-widget.png" /></em></p>
-<p>Configure the widget by selecting the columns in your data table that contain Start Date, End Date (optional), Title and Is All Day (optional).</p>
+<p>Configure the widget by selecting the columns in your data table that contain Start Date, End Date (optional), Is All Day? (optional), Title and Type (optional).</p>
 <p class="screenshot-half"><em><img alt="widget-calendar-configuration" src="../images/widget-calendar/widget-calendar-configuration.png" /></em></p>
 <h2 id="adding-a-new-event">Adding a new event<a class="headerlink" href="#adding-a-new-event" title="Permanent link">#</a></h2>
-<p>You can add a new event by clicking on the start time for the event in the calendar widget. In the popup, you can add a title for the event and modify the start and end time. You also have the option to mark the event as &lsquo;all day&rsquo;. </p>
+<p>You can add a new event by double-clicking the start time for the event in the calendar widget. In the popup, you can add a title for the event and modify the start and end time. You also have the option to mark the event as &lsquo;all day&rsquo;. </p>
 <p><em><img alt="widget-calendar-new-event" src="../images/widget-calendar/widget-calendar-new-event.png" /></em></p>
 <p>You can also modify the start and end time of an event by clicking and dragging the event directly on the calendar.</p>
 <p>To modify an event’s start time, click and drag from the middle of the event. When modifying start time, the duration of the event will remain the same. </p>
-<p><em><img alt="widget-calendar-adjust-start" src="../images/widget-calendar/widget-calendar-adjust-start.png" /></em></p>
+<p class="screenshot-half"><em><img alt="widget-calendar-adjust-start" src="../images/widget-calendar/widget-calendar-adjust-start.png" /></em></p>
 <p>To modify an event&rsquo;s end time, click and drag from the bottom of the event. You’ll notice that the icon is slightly different from the icon that appears when modifying start time. </p>
-<p><em><img alt="widget-calendar-adjust-time" src="../images/widget-calendar/widget-calendar-adjust-time.png" /></em></p>
+<p class="screenshot-half"><em><img alt="widget-calendar-adjust-time" src="../images/widget-calendar/widget-calendar-adjust-time.png" /></em></p>
 <p>Any changes to start and end time will be made to the underlying data table so your data will always be consistent!</p>
 <h2 id="linking-event-details">Linking event details<a class="headerlink" href="#linking-event-details" title="Permanent link">#</a></h2>
 <p>It might be useful to see more event details in a table or card widget.</p>
@@ -1020,7 +1021,7 @@
 <p>Read more on <a href="../custom-layouts/">Custom Layouts</a>.</p>
 </div>
 <h2 id="deleting-an-event">Deleting an event<a class="headerlink" href="#deleting-an-event" title="Permanent link">#</a></h2>
-<p>To delete an event, select the event in the calendar then click &lsquo;delete&rsquo; in the popup.</p>
+<p>To delete an event, double-click the event in the calendar then select &lsquo;delete&rsquo; in the popup.</p>
 <p><em><img alt="widget-calendar-delete-record" src="../images/widget-calendar/widget-calendar-delete-record.png" /></em></p>
 
   <br>
