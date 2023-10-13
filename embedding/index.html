@@ -416,6 +416,22 @@
             </a>
           </li>
         
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#parameters">
+              Parameters
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#read-only-vs-editable">
+                Read-Only vs. Editable
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#appearance">
+                Appearance
+              </a>
+            </li>
+        
       </ul>
     </li>
     
@@ -983,28 +999,35 @@ to make it look better on your site.</p>
 <p>Since this Help Center document is a regular HTML file, we can try it right away!
 Below you should be able to see an embedded live table (not a screenshot) from one of our
 <a href="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6">examples</a>:</p>
-<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true" 
+<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&themeAppearance=light&themeSyncWithOs=false" 
         height="250px" width="100%" frameborder="0">
 </iframe>
 
-<p>This is live, read-only view of the Grist page and it gets updated as soon as 
+<p>This is a live, read-only view of the Grist page and it gets updated as soon as 
 someone edits it. You can, of course, embed any page you wish, including card view, charts
 and any page with multiple sections.</p>
 <p>Here are two more examples with a chart and a card list view:</p>
-<iframe src="https://public.getgrist.com/42dAvZXMFewH/Funding-Pipeline/p/13?embed=true" 
+<iframe src="https://public.getgrist.com/42dAvZXMFewH/Funding-Pipeline/p/13?embed=true&themeAppearance=light&themeSyncWithOs=false" 
         height="300px" width="100%" frameborder="0">
 </iframe>
 
-<iframe src="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/3?embed=true" 
+<iframe src="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/3?embed=true&themeAppearance=light&themeSyncWithOs=false" 
         height="300px" width="100%" frameborder="0">
 </iframe>
 
-<p>Embedding editable documents is not yet supported, but we are working on it
-and will make it available soon. You can track our progress on our 
-<a href="https://github.com/gristlabs/grist-core/issues/66">Roadmap</a>.</p>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
+<h4 id="read-only-vs-editable">Read-Only vs. Editable<a class="headerlink" href="#read-only-vs-editable" title="Permanent link">#</a></h4>
+<p>Appending a URL with <code>?embed=true</code> shares the page as read-only while <code>?style=singlePage</code> can be edited and follows <a href="../access-rules/">access rules</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Sharing an Embedded Style View</p>
-<p>Adding <code>?embed=true</code> or <code>?style=singlePage</code> to the end of a document&rsquo;s page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. <code>?style=singlePage</code> can be edited and follows access rules, while <code>?embed=true</code> is read-only. To learn more about link sharing, see <a href="../sharing/#public-access-and-link-sharing">Public access and link sharing</a></p>
+<p>Adding <code>?embed=true</code> or <code>?style=singlePage</code> to the end of a document&rsquo;s page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. To learn more about link sharing, see <a href="../sharing/#public-access-and-link-sharing">Public access and link sharing</a>.</p>
+</div>
+<h4 id="appearance">Appearance<a class="headerlink" href="#appearance" title="Permanent link">#</a></h4>
+<p>Control how an embedded iframe appears by assigning a theme appearance by appending <code>?themeAppearance=light</code> for light mode or <code>?themeAppearance=dark</code> for dark mode to your URL.</p>
+<p>You can also override the operating system&rsquo;s default using <code>?themeSyncWithOs=false</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Chaining Parameters</p>
+<p>When adding parameters to the end of your URL, the first always leads with <code>?</code>. Any additional parameters lead with <code>&amp;</code>. For example, <a href="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&amp;themeAppearance=dark&amp;themeSyncWithOs=false">https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&amp;themeAppearance=dark&amp;themeSyncWithOs=false</a> creates an embedded-style, read-only view and forces dark mode, regardless of your OS settings.</p>
 </div>
 
   <br>
