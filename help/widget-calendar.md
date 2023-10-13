@@ -39,10 +39,12 @@ You can also modify the start and end time of an event by clicking and dragging 
 To modify an event’s start time, click and drag from the middle of the event. When modifying start time, the duration of the event will remain the same. 
 
 *![widget-calendar-adjust-start](images/widget-calendar/widget-calendar-adjust-start.png)*
+{: .screenshot-half }
 
 To modify an event's end time, click and drag from the bottom of the event. You’ll notice that the icon is slightly different from the icon that appears when modifying start time. 
 
 *![widget-calendar-adjust-time](images/widget-calendar/widget-calendar-adjust-time.png)*
+{: .screenshot-half }
 
 Any changes to start and end time will be made to the underlying data table so your data will always be consistent!
 
