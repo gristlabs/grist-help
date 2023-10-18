@@ -8,11 +8,20 @@ Initial message sent by the CustomWidget with initial requirements.
 
 ### Properties
 
+- [allowSelectBy](grist_plugin_api.InteractionOptionsRequest.md#allowselectby)
 - [columns](grist_plugin_api.InteractionOptionsRequest.md#columns)
 - [hasCustomOptions](grist_plugin_api.InteractionOptionsRequest.md#hascustomoptions)
 - [requiredAccess](grist_plugin_api.InteractionOptionsRequest.md#requiredaccess)
 
 ## Properties
+
+### allowSelectBy
+
+• `Optional` **allowSelectBy**: `boolean`
+
+Show widget as linking source.
+
+___
 
 ### columns
 

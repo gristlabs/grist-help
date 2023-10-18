@@ -11,6 +11,7 @@ Interface for the data backing a single widget.
 - [allowSelectBy](grist_plugin_api.GristView.md#allowselectby)
 - [fetchSelectedRecord](grist_plugin_api.GristView.md#fetchselectedrecord)
 - [fetchSelectedTable](grist_plugin_api.GristView.md#fetchselectedtable)
+- [setCursorPos](grist_plugin_api.GristView.md#setcursorpos)
 - [setSelectedRows](grist_plugin_api.GristView.md#setselectedrows)
 
 ## Methods
@@ -19,7 +20,8 @@ Interface for the data backing a single widget.
 
 ▸ **allowSelectBy**(): `Promise`<`void`\>
 
-Allow custom widget to be listed as a possible source for linking with SELECT BY.
+Deprecated now. It was used for filtering selected table by `setSelectedRows` method.
+Now the preferred way it to use ready message.
 
 #### Returns
 
@@ -57,17 +59,35 @@ Like [GristDocAPI.fetchTable](grist_plugin_api.GristDocAPI.md#fetchtable), but g
 
 ___
 
-### setSelectedRows
+### setCursorPos
 
-▸ **setSelectedRows**(`rowIds`): `Promise`<`void`\>
+▸ **setCursorPos**(`pos`): `Promise`<`void`\>
 
-Set the list of selected rows to be used against any linked widget. Requires `allowSelectBy()`.
+Sets the cursor position to a specific row and field. `sectionId` is ignored. Used for widget linking.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `rowIds` | `number`[] |
+| `pos` | [`CursorPos`](grist_plugin_api.CursorPos.md) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+___
+
+### setSelectedRows
+
+▸ **setSelectedRows**(`rowIds`): `Promise`<`void`\>
+
+Set the list of selected rows to be used against any linked widget.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rowIds` | ``null`` \| `number`[] |
 
 #### Returns
 

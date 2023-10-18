@@ -14,11 +14,24 @@ Options when initializing connection to Grist.
 
 ### Properties
 
+- [allowSelectBy](grist_plugin_api.ReadyPayload.md#allowselectby)
 - [columns](grist_plugin_api.ReadyPayload.md#columns)
 - [onEditOptions](grist_plugin_api.ReadyPayload.md#oneditoptions)
 - [requiredAccess](grist_plugin_api.ReadyPayload.md#requiredaccess)
 
 ## Properties
+
+### allowSelectBy
+
+• `Optional` **allowSelectBy**: `boolean`
+
+Show widget as linking source.
+
+#### Inherited from
+
+Omit.allowSelectBy
+
+___
 
 ### columns
 

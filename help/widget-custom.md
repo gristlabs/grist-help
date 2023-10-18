@@ -279,9 +279,13 @@ picked.
 By default Grist will allow the user to pick any type of column. To allow only a column of
 a specific type, you need to set a `type` property. Here are all valid types:
 
-`Any`, `Int` (*Integer column*), `Numeric` (*Numeric column*), `Text`, `Date`, `DateTime`,
+`Int` (*Integer column*), `Numeric` (*Numeric column*), `Text`, `Date`, `DateTime`,
 `Bool` (*Toggle column*), `Choice`, `ChoiceList`, `Ref` (*Reference column*), `RefList`
 (*Reference List*), `Attachments`.
+
+The default value of `type` is `Any`, so Grist will allow the user to pick any column type. You
+can also specify a list of types, for example `Date,DateTime`. In that case, Grist will allow
+the user to pick any column that matches one of the types in the list.
 
 Use `title` and `description` fields to help your users understand what is the purpose of
 the column. The `description` will be displayed just below the column name, and the
@@ -382,6 +386,33 @@ to show your own custom configuration screen.
 
 <span class="screenshot-large">*![unsaved options](images/widget_custom_open_configuration.png)*</span>
 {: .screenshot-half }
+
+
+## Custom Widget linking
+
+Custom widgets can also be used as a source of linking (see [Linking widgets](linking-widgets.md)).
+All you need to do is inform Grist that your widget supports linking by passing an additional
+option to the `ready` call (see [Widget API](/code/modules/grist_plugin_api/#ready)):
+
+```javascript
+grist.ready({
+  allowSelectBy: true
+});
+```
+
+This will enable the `Select By` option in the widget configuration panel. Now you can use your
+widget to control the cursor position in linked widgets. To do this, you need to call the
+`setCursorPos` function:
+
+```javascript
+// Inform Grist that the cursor should be moved to the row with id 20.
+grist.setCursorPos({rowId: 20});
+
+// or inform that your widget is creating a new row.
+grist.setCursorPos({rowId: 'new'});
+```
+
+
 
 ## Premade Custom Widgets
 

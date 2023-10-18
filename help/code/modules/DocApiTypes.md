@@ -11,3 +11,5 @@
 - [RecordsPatch](../interfaces/DocApiTypes.RecordsPatch.md)
 - [RecordsPost](../interfaces/DocApiTypes.RecordsPost.md)
 - [RecordsPut](../interfaces/DocApiTypes.RecordsPut.md)
+- [SqlPost](../interfaces/DocApiTypes.SqlPost.md)
+- [TablePost](../interfaces/DocApiTypes.TablePost.md)
