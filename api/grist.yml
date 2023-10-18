@@ -2120,7 +2120,7 @@ components:
       name: tableId
       schema:
         type: string
-        description: name of a table (normalized)
+        description: normalized table name (see `TABLE ID` in Raw Data) or numeric row ID in `_grist_Tables`
       required: true
     docIdPathParam:
       in: path
