@@ -433,6 +433,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#type-aliases_1">
+                Type Aliases
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#variables_1">
                 Variables
               </a>
@@ -475,6 +480,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/DocApiTypes.SqlPost/" class="wm-article-link wm-toc-text">Interface: SqlPost</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/DocApiTypes.TablePost/" class="wm-article-link wm-toc-text">Interface: TablePost</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/GristData.RowRecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
 
     
@@ -504,6 +517,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.ColumnToMap/" class="wm-article-link wm-toc-text">Interface: ColumnToMap</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.CursorPos/" class="wm-article-link wm-toc-text">Interface: CursorPos</a>
 
     
 </li>
@@ -978,6 +995,7 @@
 <li><a href="../../interfaces/grist_plugin_api.AccessTokenOptions/">AccessTokenOptions</a></li>
 <li><a href="../../interfaces/grist_plugin_api.AccessTokenResult/">AccessTokenResult</a></li>
 <li><a href="../../interfaces/grist_plugin_api.ColumnToMap/">ColumnToMap</a></li>
+<li><a href="../../interfaces/grist_plugin_api.CursorPos/">CursorPos</a></li>
 <li><a href="../../interfaces/grist_plugin_api.GristColumn/">GristColumn</a></li>
 <li><a href="../../interfaces/grist_plugin_api.GristDocAPI/">GristDocAPI</a></li>
 <li><a href="../../interfaces/grist_plugin_api.GristTable/">GristTable</a></li>
@@ -990,6 +1008,10 @@
 <li><a href="../../interfaces/grist_plugin_api.RenderOptions/">RenderOptions</a></li>
 <li><a href="../../interfaces/grist_plugin_api.WidgetAPI/">WidgetAPI</a></li>
 <li><a href="../../interfaces/grist_plugin_api.WidgetColumnMap/">WidgetColumnMap</a></li>
+</ul>
+<h3 id="type-aliases">Type Aliases<a class="headerlink" href="#type-aliases" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="./#uirowid">UIRowId</a></li>
 </ul>
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">#</a></h3>
 <ul>
@@ -1012,15 +1034,21 @@
 <li><a href="./#gettable">getTable</a></li>
 <li><a href="./#mapcolumnnames">mapColumnNames</a></li>
 <li><a href="./#mapcolumnnamesback">mapColumnNamesBack</a></li>
+<li><a href="./#on">on</a></li>
 <li><a href="./#onnewrecord">onNewRecord</a></li>
 <li><a href="./#onoptions">onOptions</a></li>
 <li><a href="./#onrecord">onRecord</a></li>
 <li><a href="./#onrecords">onRecords</a></li>
 <li><a href="./#ready">ready</a></li>
+<li><a href="./#setcursorpos">setCursorPos</a></li>
 <li><a href="./#setoption">setOption</a></li>
 <li><a href="./#setoptions">setOptions</a></li>
 <li><a href="./#setselectedrows">setSelectedRows</a></li>
 </ul>
+<h2 id="type-aliases_1">Type Aliases<a class="headerlink" href="#type-aliases_1" title="Permanent link">#</a></h2>
+<h3 id="uirowid">UIRowId<a class="headerlink" href="#uirowid" title="Permanent link">#</a></h3>
+<p>Ƭ <strong>UIRowId</strong>: <code>number</code> | <code>"new"</code></p>
+<p>Represents the id of a row in a table. The value of the <code>id</code> column. Might be a number or &lsquo;new&rsquo; value for a new row.</p>
 <h2 id="variables_1">Variables<a class="headerlink" href="#variables_1" title="Permanent link">#</a></h2>
 <h3 id="checkers">checkers<a class="headerlink" href="#checkers" title="Permanent link">#</a></h3>
 <p>• <code>Const</code> <strong>checkers</strong>: <code>Pick</code>&lt;<code>ICheckerSuite</code>, <code>"CustomSectionAPI"</code> | <code>"ParseOptions"</code> | <code>"ParseFileResult"</code> | <code>"FileSource"</code> | <code>"ParseOptionSchema"</code> | <code>"GristTables"</code> | <code>"EditOptionsAPI"</code> | <code>"ParseFileAPI"</code> | <code>"RenderTarget"</code> | <code>"RenderOptions"</code> | <code>"ComponentKind"</code> | <code>"GristAPI"</code> | <code>"GristDocAPI"</code> | <code>"GristView"</code> | <code>"GristColumn"</code> | <code>"GristTable"</code> | <code>"ImportSourceAPI"</code> | <code>"ImportProcessorAPI"</code> | <code>"ImportSource"</code> | <code>"FileContent"</code> | <code>"FileListItem"</code> | <code>"URL"</code> | <code>"InternalImportSourceAPI"</code> | <code>"Storage"</code> | <code>"WidgetAPI"</code>></p>
@@ -1050,7 +1078,8 @@ overridden to decode data by default.</p>
 <h2 id="functions_1">Functions<a class="headerlink" href="#functions_1" title="Permanent link">#</a></h2>
 <h3 id="allowselectby">allowSelectBy<a class="headerlink" href="#allowselectby" title="Permanent link">#</a></h3>
 <p>▸ <strong>allowSelectBy</strong>(): <code>Promise</code>&lt;<code>void</code>></p>
-<p>Allow custom widget to be listed as a possible source for linking with SELECT BY.</p>
+<p>Deprecated now. It was used for filtering selected table by <code>setSelectedRows</code> method.
+Now the preferred way it to use ready message.</p>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;<code>void</code>></p>
 <hr />
@@ -1280,11 +1309,61 @@ we don&rsquo;t attempt to do these transformations automatically.</p>
 <h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">#</a></h4>
 <p><code>any</code></p>
 <hr />
+<h3 id="on">on<a class="headerlink" href="#on" title="Permanent link">#</a></h3>
+<p>▸ <strong>on</strong>(<code>eventName</code>, <code>listener</code>): <code>Rpc</code></p>
+<p>Adds the <code>listener</code> function to the end of the listeners array for the
+event named <code>eventName</code>. No checks are made to see if the <code>listener</code> has
+already been added. Multiple calls passing the same combination of <code>eventName</code>and <code>listener</code> will result in the <code>listener</code> being added, and called, multiple
+times.</p>
+<pre><code class="js">server.on('connection', (stream) =&gt; {
+  console.log('someone connected!');
+});
+</code></pre>
+
+<p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
+<p>By default, event listeners are invoked in the order they are added. The<code>emitter.prependListener()</code> method can be used as an alternative to add the
+event listener to the beginning of the listeners array.</p>
+<pre><code class="js">const myEE = new EventEmitter();
+myEE.on('foo', () =&gt; console.log('a'));
+myEE.prependListener('foo', () =&gt; console.log('b'));
+myEE.emit('foo');
+// Prints:
+//   b
+//   a
+</code></pre>
+
+<p><strong><code>Since</code></strong></p>
+<p>v0.1.101</p>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>eventName</code></td>
+<td align="left"><code>string</code> | <code>symbol</code></td>
+<td align="left">The name of the event.</td>
+</tr>
+<tr>
+<td align="left"><code>listener</code></td>
+<td align="left">(&hellip;<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+<td align="left">The callback function</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">#</a></h4>
+<p><code>Rpc</code></p>
+<hr />
 <h3 id="onnewrecord">onNewRecord<a class="headerlink" href="#onnewrecord" title="Permanent link">#</a></h3>
 <p>▸ <strong>onNewRecord</strong>(<code>callback</code>): <code>void</code></p>
 <p>For custom widgets, add a handler that will be called whenever the
 new (blank) row is selected.</p>
-<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">#</a></h4>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1299,7 +1378,7 @@ new (blank) row is selected.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">#</a></h4>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
 <h3 id="onoptions">onOptions<a class="headerlink" href="#onoptions" title="Permanent link">#</a></h3>
@@ -1309,7 +1388,7 @@ widget options change (and on initial ready message). Handler will be
 called with an object containing saved json options, or null if no options were saved.
 The second parameter has information about the widgets relationship with
 the document that contains it.</p>
-<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">#</a></h4>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1324,7 +1403,7 @@ the document that contains it.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">#</a></h4>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
 <h3 id="onrecord">onRecord<a class="headerlink" href="#onrecord" title="Permanent link">#</a></h3>
@@ -1334,7 +1413,7 @@ row with the cursor changes - either by switching to a different row, or
 by some value within the row potentially changing.  Handler may
 in the future be called with null if the cursor moves away from
 any row.</p>
-<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">#</a></h4>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1349,14 +1428,14 @@ any row.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">#</a></h4>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
 <h3 id="onrecords">onRecords<a class="headerlink" href="#onrecords" title="Permanent link">#</a></h3>
 <p>▸ <strong>onRecords</strong>(<code>callback</code>): <code>void</code></p>
 <p>For custom widgets, add a handler that will be called whenever the
 selected records change.  Handler will be called with a list of records.</p>
-<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">#</a></h4>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1371,14 +1450,14 @@ selected records change.  Handler will be called with a list of records.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">#</a></h4>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
 <h3 id="ready">ready<a class="headerlink" href="#ready" title="Permanent link">#</a></h3>
 <p>▸ <strong>ready</strong>(<code>settings?</code>): <code>void</code></p>
 <p>Declare that a component is prepared to receive messages from the outside world.
 Grist will not attempt to communicate with it until this method is called.</p>
-<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">#</a></h4>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1393,13 +1472,34 @@ Grist will not attempt to communicate with it until this method is called.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">#</a></h4>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
+<hr />
+<h3 id="setcursorpos">setCursorPos<a class="headerlink" href="#setcursorpos" title="Permanent link">#</a></h3>
+<p>▸ <strong>setCursorPos</strong>(<code>pos</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>Sets the cursor position to a specific row and field. <code>sectionId</code> is ignored. Used for widget linking.</p>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>pos</code></td>
+<td align="left"><a href="../../interfaces/grist_plugin_api.CursorPos/"><code>CursorPos</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">#</a></h4>
+<p><code>Promise</code>&lt;<code>void</code>></p>
 <hr />
 <h3 id="setoption">setOption<a class="headerlink" href="#setoption" title="Permanent link">#</a></h3>
 <p>▸ <strong>setOption</strong>(<code>key</code>, <code>value</code>): <code>Promise</code>&lt;<code>void</code>></p>
 <p>Store single value in the Widget options object (and create it if necessary).</p>
-<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">#</a></h4>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1418,13 +1518,13 @@ Grist will not attempt to communicate with it until this method is called.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">#</a></h4>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;<code>void</code>></p>
 <hr />
 <h3 id="setoptions">setOptions<a class="headerlink" href="#setoptions" title="Permanent link">#</a></h3>
 <p>▸ <strong>setOptions</strong>(<code>options</code>): <code>Promise</code>&lt;<code>void</code>></p>
 <p>Replaces all options stored by the widget.</p>
-<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">#</a></h4>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1439,13 +1539,13 @@ Grist will not attempt to communicate with it until this method is called.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">#</a></h4>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;<code>void</code>></p>
 <hr />
 <h3 id="setselectedrows">setSelectedRows<a class="headerlink" href="#setselectedrows" title="Permanent link">#</a></h3>
 <p>▸ <strong>setSelectedRows</strong>(<code>rowIds</code>): <code>Promise</code>&lt;<code>void</code>></p>
-<p>Set the list of selected rows to be used against any linked widget. Requires <code>allowSelectBy()</code>.</p>
-<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">#</a></h4>
+<p>Set the list of selected rows to be used against any linked widget.</p>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -1456,11 +1556,11 @@ Grist will not attempt to communicate with it until this method is called.</p>
 <tbody>
 <tr>
 <td align="left"><code>rowIds</code></td>
-<td align="left"><code>number</code>[]</td>
+<td align="left"><code>null</code> | <code>number</code>[]</td>
 </tr>
 </tbody>
 </table>
-<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">#</a></h4>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">#</a></h4>
 <p><code>Promise</code>&lt;<code>void</code>></p>
 
   <br>

@@ -447,6 +447,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../DocApiTypes.SqlPost/" class="wm-article-link wm-toc-text">Interface: SqlPost</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../DocApiTypes.TablePost/" class="wm-article-link wm-toc-text">Interface: TablePost</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../GristData.RowRecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
 
     
@@ -500,6 +508,10 @@
         
       </ul>
     </li>
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.CursorPos/" class="wm-article-link wm-toc-text">Interface: CursorPos</a>
+
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.GristColumn/" class="wm-article-link wm-toc-text">Interface: GristColumn</a>
@@ -945,12 +957,12 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../grist_plugin_api.GristColumn/" class="btn btn-xs btn-default pull-right">
+      <a href="../grist_plugin_api.CursorPos/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../grist_plugin_api.GristColumn/" class="btn btn-xs btn-link">
-        Interface: GristColumn
+      <a href="../grist_plugin_api.CursorPos/" class="btn btn-xs btn-link">
+        Interface: CursorPos
       </a>
     </div>
     
@@ -976,6 +988,7 @@
 <li><a href="./#description">description</a></li>
 <li><a href="./#name">name</a></li>
 <li><a href="./#optional">optional</a></li>
+<li><a href="./#stricttype">strictType</a></li>
 <li><a href="./#title">title</a></li>
 <li><a href="./#type">type</a></li>
 </ul>
@@ -996,13 +1009,18 @@
 <p>• <code>Optional</code> <strong>optional</strong>: <code>boolean</code></p>
 <p>Mark column as optional all columns are required by default.</p>
 <hr />
+<h3 id="stricttype">strictType<a class="headerlink" href="#stricttype" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>strictType</strong>: <code>boolean</code></p>
+<p>Match column type strictly, so &ldquo;Any&rdquo; will require &ldquo;Any&rdquo; and not any other type.</p>
+<hr />
 <h3 id="title">title<a class="headerlink" href="#title" title="Permanent link">#</a></h3>
 <p>• <code>Optional</code> <strong>title</strong>: <code>null</code> | <code>string</code></p>
 <p>Title or short description of a column (used as a label in section mapping).</p>
 <hr />
 <h3 id="type">type<a class="headerlink" href="#type" title="Permanent link">#</a></h3>
 <p>• <code>Optional</code> <strong>type</strong>: <code>string</code></p>
-<p>Column type, by default ANY.</p>
+<p>Column types (as comma separated list), by default &ldquo;Any&rdquo;, what means that any type is
+allowed (unless strictType is true).</p>
 
   <br>
 </div>

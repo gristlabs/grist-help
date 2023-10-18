@@ -319,6 +319,11 @@ server (for example, GitHub Pages).">
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#custom-widget-linking">
+                Custom Widget linking
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#premade-custom-widgets">
                 Premade Custom Widgets
               </a>
@@ -506,6 +511,14 @@ server (for example, GitHub Pages).">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/DocApiTypes.SqlPost/" class="wm-article-link wm-toc-text">Interface: SqlPost</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/DocApiTypes.TablePost/" class="wm-article-link wm-toc-text">Interface: TablePost</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/GristData.RowRecord/" class="wm-article-link wm-toc-text">Interface: RowRecord</a>
 
     
@@ -535,6 +548,10 @@ server (for example, GitHub Pages).">
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.ColumnToMap/" class="wm-article-link wm-toc-text">Interface: ColumnToMap</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/interfaces/grist_plugin_api.CursorPos/" class="wm-article-link wm-toc-text">Interface: CursorPos</a>
 
     
 </li>
@@ -1234,9 +1251,12 @@ This helper will return a mapped record only when all required (not optional) co
 picked.</p>
 <p>By default Grist will allow the user to pick any type of column. To allow only a column of
 a specific type, you need to set a <code>type</code> property. Here are all valid types:</p>
-<p><code>Any</code>, <code>Int</code> (<em>Integer column</em>), <code>Numeric</code> (<em>Numeric column</em>), <code>Text</code>, <code>Date</code>, <code>DateTime</code>,
+<p><code>Int</code> (<em>Integer column</em>), <code>Numeric</code> (<em>Numeric column</em>), <code>Text</code>, <code>Date</code>, <code>DateTime</code>,
 <code>Bool</code> (<em>Toggle column</em>), <code>Choice</code>, <code>ChoiceList</code>, <code>Ref</code> (<em>Reference column</em>), <code>RefList</code>
 (<em>Reference List</em>), <code>Attachments</code>.</p>
+<p>The default value of <code>type</code> is <code>Any</code>, so Grist will allow the user to pick any column type. You
+can also specify a list of types, for example <code>Date,DateTime</code>. In that case, Grist will allow
+the user to pick any column that matches one of the types in the list.</p>
 <p>Use <code>title</code> and <code>description</code> fields to help your users understand what is the purpose of
 the column. The <code>description</code> will be displayed just below the column name, and the
 <code>title</code> will be used as a column label. Both are optional and you can put there any text
@@ -1318,6 +1338,25 @@ message:</p>
 panel and the section menu. When clicked, it will trigger your handler, which you can use
 to show your own custom configuration screen.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_open_configuration.png" /></em></span></p>
+<h2 id="custom-widget-linking">Custom Widget linking<a class="headerlink" href="#custom-widget-linking" title="Permanent link">#</a></h2>
+<p>Custom widgets can also be used as a source of linking (see <a href="../linking-widgets/">Linking widgets</a>).
+All you need to do is inform Grist that your widget supports linking by passing an additional
+option to the <code>ready</code> call (see <a href="/code/modules/grist_plugin_api/#ready">Widget API</a>):</p>
+<pre><code class="javascript">grist.ready({
+  allowSelectBy: true
+});
+</code></pre>
+
+<p>This will enable the <code>Select By</code> option in the widget configuration panel. Now you can use your
+widget to control the cursor position in linked widgets. To do this, you need to call the
+<code>setCursorPos</code> function:</p>
+<pre><code class="javascript">// Inform Grist that the cursor should be moved to the row with id 20.
+grist.setCursorPos({rowId: 20});
+
+// or inform that your widget is creating a new row.
+grist.setCursorPos({rowId: 'new'});
+</code></pre>
+
 <h2 id="premade-custom-widgets">Premade Custom Widgets<a class="headerlink" href="#premade-custom-widgets" title="Permanent link">#</a></h2>
 <p>All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown. </p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="premade-widgets" src="../images/widget-custom/premade-widgets.png" /></em></span></p>
