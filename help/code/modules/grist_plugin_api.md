@@ -56,7 +56,6 @@
 - [setOption](grist_plugin_api.md#setoption)
 - [setOptions](grist_plugin_api.md#setoptions)
 - [setSelectedRows](grist_plugin_api.md#setselectedrows)
-- [testWaitForPendingRequests](grist_plugin_api.md#testwaitforpendingrequests)
 
 ## Type Aliases
 
@@ -536,17 +535,3 @@ Set the list of selected rows to be used against any linked widget.
 #### Returns
 
 `Promise`<`void`\>
-
-___
-
-### testWaitForPendingRequests
-
-▸ **testWaitForPendingRequests**(): `Promise`<``null`` \| `void`\>
-
-Used by tests to wait for all pending requests to settle.
-
-TODO: currently only waits for requests for mappings.
-
-#### Returns
-
-`Promise`<``null`` \| `void`\>
