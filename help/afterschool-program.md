@@ -3,8 +3,7 @@
 Grist shines when your business data has some complexity. In this example, we’ll look at an
 organization that runs after-school activities for children.
 
-Feel free to refer to the "Afterschool Program" example document in Examples & Templates in your
-Grist home page.
+Feel free to refer to the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program) document, found on our [Examples & Templates](https://public.getgrist.com/p/templates) page.
 
 In this exercise we will show how to go about planning, designing, and creating such document.
 
