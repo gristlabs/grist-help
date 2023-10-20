@@ -434,6 +434,18 @@ paths:
           schema:
             $ref: "#/components/schemas/DocKey"
           required: true
+        - in: query
+          name: nohistory
+          schema:
+            type: boolean
+            description: "Remove document history (can significantly reduce file size)"
+          required: false
+        - in: query
+          name: template
+          schema:
+            type: boolean
+            description: "Remove all data and history but keep the structure to use the document as a template"
+          required: false
       responses:
         200:
           description: A document's content in Sqlite form
@@ -2108,7 +2120,7 @@ components:
       name: tableId
       schema:
         type: string
-        description: name of a table (normalized)
+        description: normalized table name (see `TABLE ID` in Raw Data) or numeric row ID in `_grist_Tables`
       required: true
     docIdPathParam:
       in: path
