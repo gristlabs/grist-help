@@ -82,7 +82,7 @@ doesn't exist in the `Clients` table:
 
 A big benefit of reference columns is that they allow you to easily bring in multiple columns from
 the underlying table. In our example, if you wanted to bring in `$Client.Contact` to the `Projects`
-table, you can just select the `Contact` column from the `Add Reference Columns` section and it will be
+table, you can just select the `Contact` column from the `Add Referenced Columns` section and it will be
 automatically added to the `Projects` table:
 
 ![Additional columns inserted](images/column-ref-other-columns.png)
