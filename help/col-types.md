@@ -18,11 +18,41 @@ select "Delete column".
 <span class="screenshot-large">*![columns-delete-column](images/columns/columns-delete-column.png)*</span>
 {: .screenshot-half }
 
-To add a column, click on the "+" symbol in the header row, then type in
-the column name.
+To add a column, click on the "+" symbol in the header row to open the 'Add Column' menu.
 
-*![Add column](images/columns/columns-add-column.png)*
+![Add column](images/columns/columns-add-column.png)
+
+The first option in the menu, '+ Add Column', will add a new, empty data column to your table.
+
+*![Add new column](images/columns/columns-add-new-column.png)*
 {: .screenshot-half }
+
+'Hidden Columns' expands to show a list of columns hidden from this view that can be quickly added back.
+
+*![Add hidden column](images/columns/columns-add-hidden-column.png)*
+{: .screenshot-half }
+
+'Lookups' allows you to add data columns from related tables. You can use reference columns to relate data in different tables. Learn more about [References and Lookups](references-lookups.md).
+
+*![Add lookup column](images/columns/columns-add-lookup.png)*
+{: .screenshot-half }
+
+'Shortcuts' lists the most frequently used [trigger formula](formulas.md#trigger-formulas) functions.
+
+*![Add shortcut column](images/columns/columns-add-shortcut.png)*
+{: .screenshot-half }
+
+Learn more about each shortcut option at the links below.
+
+- [Timestamp](formula-cheat-sheet.md#examples-of-automatic-date-time-and-author-stamps)
+
+- [Authorship](formula-cheat-sheet.md#examples-of-automatic-date-time-and-author-stamps)
+
+- [Detect Duplicates in...](formula-cheat-sheet.md#finding-duplicates)
+
+- [UUID](access-rules.md#link-keys)
+
+## Reordering columns
 
 To reorder a column, first select the column if it isn't already selected,
 by clicking on the column header.  Next, click and hold on the column header.
