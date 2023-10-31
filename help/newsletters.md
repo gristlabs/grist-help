@@ -44,3 +44,4 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 - [July 2023 Newsletter](newsletters/2023-07.md): AI Formula Assistant launched!
 - [August 2023 Newsletter](newsletters/2023-08.md): Grist CSV Viewer! Llama AI support!
 - [September 2023 Newsletter](newsletters/2023-09.md): Calendar widget, two new templates, and API endpoint for making SQL queries.
+- [October 2023 Newsletter](newsletters/2023-10.md): New formula schortcuts, two experimental widgets, colorful calendar events and much more!
