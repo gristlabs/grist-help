@@ -18,7 +18,7 @@ from [Kaggle](https://www.kaggle.com/mauriciocap/crunchbase2013).
 
 ## Exploring the example
 
-Open the document “[Investment Research](https://templates.getgrist.com/doc/investment-research)”, found in Examples & Templates in your Grist home page.
+Open the document “[Investment Research](https://templates.getgrist.com/doc/investment-research){: target="\_blank"}”, found in Examples & Templates in your Grist home page.
 The first thing you’ll see is “Overview”. This page contains two charts next to two tables.
 
 ![1-overview-page](images/investment-research/1-overview-page.png)
