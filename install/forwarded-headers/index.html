@@ -1005,7 +1005,9 @@ to respect that header.</p>
     Make sure that the logout path is handled by your middleware!</li>
 <li>If you want to allow anonymous access in some cases, make sure all
     other Grist paths are free of your middleware. Grist will
-    trigger the middleware (by redirecting to <code>/auth/login</code>) as needed.</li>
+    trigger the middleware (by redirecting to <code>/auth/login</code>) as needed.
+    It&rsquo;s a good idea to strip <code>GRIST_FORWARD_AUTH_HEADER</code> from outside requests
+    on all paths that aren&rsquo;t handld by your middleware.</li>
 <li>Your middleware may allow you to specify where to forward the user to
     after logging out. That should be <code>/signed-out</code> on the Grist site.</li>
 </ul>
@@ -1036,7 +1038,10 @@ web apps served by the same middleware had difficulty coordinating logouts.
 That could be resolved by applying the middleware to all Grist paths
 and setting <code>GRIST_IGNORE_SESSION=true</code> so Grist has no separate notion
 of who is signed in. But then sharing some documents with everyone
-publically (without signing in) became a problem.</p>
+publically (without signing in) became a problem. Note that with <code>GRIST_IGNORE_SESSION=true</code>,
+Grist will trust <code>GRIST_FORWARD_AUTH_HEADER</code> on all requests, so it is imperative that you have
+middleware that overrides or strips this header for <em>all</em> outside requests before forwarding them
+to Grist.</p>
 <p>If on the contrary you want to be sure the user must be logged in before
 using Grist in any way, you can set <code>GRIST_FORCE_LOGIN=true</code>.</p>
 
