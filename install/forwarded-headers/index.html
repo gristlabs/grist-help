@@ -1007,7 +1007,7 @@ to respect that header.</p>
     other Grist paths are free of your middleware. Grist will
     trigger the middleware (by redirecting to <code>/auth/login</code>) as needed.
     It&rsquo;s a good idea to strip <code>GRIST_FORWARD_AUTH_HEADER</code> from outside requests
-    on all paths that aren&rsquo;t handld by your middleware.</li>
+    on all paths that aren&rsquo;t handled by your middleware.</li>
 <li>Your middleware may allow you to specify where to forward the user to
     after logging out. That should be <code>/signed-out</code> on the Grist site.</li>
 </ul>
