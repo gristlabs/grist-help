@@ -110,10 +110,6 @@ data it accesses to a third party.  With `Full document access` permissions, a w
 send all the document data to a third party, and modify your document in
 any way.
 
-We do not recommend using `Full document access` permissions at this time, since the API
-for modifying the document is not yet stabilized.  If you have
-an urgent need, however, do contact us and request early access.
-
 If you are writing your own custom widget you can specify what access level it needs as
 part of the initial **ready** message. Possible values are: `none`, `read table` and
 `full`.
