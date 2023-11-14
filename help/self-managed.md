@@ -34,12 +34,12 @@ sections. For clarity, the sections are tagged
 with which flavor they apply to, for example:
 {: .tag-core .tag-ee }
 
-The full source code for Grist Core is always available at 
+The full source code for Grist Core is always available at
 [github.com/gristlabs/grist-core](https://github.com/gristlabs/grist-core/)
 and is under an Apache-2.0 license. You may use and redistribute Core
 freely, under the terms of the free software license.
 The full source for Grist Enterprise
-is also available, at 
+is also available, at
 [github.com/gristlabs/grist-ee](https://github.com/gristlabs/grist-ee/),
 under a proprietary license that does not grant any automatic
 rights to use or redistribute the software. You can evaluate Enterprise
@@ -82,7 +82,7 @@ If using some other tool or service, here are the important points:
    will populate it. Without this volume, nothing you do will be stored long-term.
  * Port `8484` on the container needs to be exposed. This can be changed
    if you also set the `PORT` environment variable for the container.
- * The environment variable `GRIST_SESSION_SECRET` should be set 
+ * The environment variable `GRIST_SESSION_SECRET` should be set
    to something secret for the container.
 
 Installed this way, Grist is accessible only to you. Typically you want to
@@ -94,7 +94,7 @@ take at least the following steps:
     so you can collaborate live with others.
   * Enable an authentication method so users can log in. Often you'll want
     to hook Grist up to an "SSO" (Single Sign-On) service you already use.
-	We support some very 
+	We support some very
     [general authentication methods](self-managed.md#how-do-i-set-up-authentication) that cover many cases,
 	and a [special authentication method](self-managed.md#are-there-other-authentication-methods) for custom cases.
   * Consider enabling [snapshot support](self-managed.md#how-do-i-set-up-snapshots) if you want Grist to handle document backups.
@@ -118,7 +118,7 @@ you can create a document and then check that this formula
 gives an empty result:
 
 ```
-import glob 
+import glob
 glob.glob('/etc/*')
 ```
 
@@ -139,11 +139,11 @@ docker run ...
 ```
 
 You will need to place a "reverse proxy" in front of Grist to
-handle "ssl termination" (decrypting encypted traffic) using 
+handle "ssl termination" (decrypting encypted traffic) using
 a certificate that establishes ownership of the site. If you don't
 know what this means, you could try using the
 [Grist Omnibus](https://github.com/gristlabs/grist-omnibus) which
-packages Grist with a reverse proxy that will 
+packages Grist with a reverse proxy that will
 use [Let's Encrypt](https://letsencrypt.org/) to get a certificate
 for you automatically.
 
@@ -173,10 +173,11 @@ you don't need.
 ### How do I set up authentication? {: .tag-core .tag-ee }
 
 Authentication can be set up in many ways for Grist Core and Enterprise, using
-SAML or forwarded headers. Between the two, many popular SSOs can be hooked
+SAML, OpenID Connect or forwarded headers. Between the two, many popular SSOs can be hooked
 up, such as Google or Microsoft sign-ins.
 
   * [SAML](install/saml.md).
+  * [OpenID Connect](install/oidc.md)
   * [Forwarded headers](install/forwarded-headers.md).
 
 For any authentication method, you may want to also consider setting the
@@ -205,7 +206,7 @@ Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
 Get an activation key by [signing up for Grist Enterprise](https://www.getgrist.com/pricing).
 You don't need an activation key to run Grist Core.
- 
+
 Place the contents of your activation key in an environment variable called
 `GRIST_ACTIVATION`, or place it in a directory available to Grist and
 provide the full path to the file with the environment variable
@@ -317,7 +318,7 @@ format as our `manifest.json`.
 
 ### How do I set up email notifications? {: .tag-ee }
 
-In Grist SaaS, we send emails such as invitations to share a 
+In Grist SaaS, we send emails such as invitations to share a
 document using [SendGrid](https://sendgrid.com/).
 The same mechanism is available in Grist Enterprise. There is
 not yet an equivalent in Grist Core.

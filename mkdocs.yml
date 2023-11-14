@@ -78,6 +78,7 @@ nav:
   - Self-Managed:
     - Self-managed Grist: self-managed.md
     - SAML: install/saml.md
+    - OIDC: install/oidc.md
     - Forwarded headers: install/forwarded-headers.md
     - Cloud storage: install/cloud-storage.md
     - GristConnect: install/grist-connect.md
@@ -90,16 +91,16 @@ nav:
     - 2023/10: newsletters/2023-10.md
     - 2023/09: newsletters/2023-09.md
     - 2023/08: newsletters/2023-08.md
-    - 2023/07: newsletters/2023-07.md  
-    - 2023/06: newsletters/2023-06.md   
-    - 2023/05: newsletters/2023-05.md   
-    - 2023/04: newsletters/2023-04.md     
-    - 2023/03: newsletters/2023-03.md      
-    - 2023/02: newsletters/2023-02.md      
-    - 2023/01: newsletters/2023-01.md       
-    - 2022/12: newsletters/2022-12.md    
-    - 2022/11: newsletters/2022-11.md     
-    - 2022/10: newsletters/2022-10.md    
+    - 2023/07: newsletters/2023-07.md
+    - 2023/06: newsletters/2023-06.md
+    - 2023/05: newsletters/2023-05.md
+    - 2023/04: newsletters/2023-04.md
+    - 2023/03: newsletters/2023-03.md
+    - 2023/02: newsletters/2023-02.md
+    - 2023/01: newsletters/2023-01.md
+    - 2022/12: newsletters/2022-12.md
+    - 2022/11: newsletters/2022-11.md
+    - 2022/10: newsletters/2022-10.md
     - 2022/09: newsletters/2022-09.md
     - 2022/08: newsletters/2022-08.md
     - 2022/07: newsletters/2022-07.md
@@ -145,7 +146,7 @@ nav:
       - Reference Columns Guide: examples/2021-05-reference-columns.md
       - Summary Tables Guide: examples/2021-06-timesheets.md
       - Time and User Stamps: examples/2021-07-auto-stamps.md
-      - Restrict Duplicate Records: examples/2023-01-acl-memo.md   
+      - Restrict Duplicate Records: examples/2023-01-acl-memo.md
       - Proposals & Contracts: examples/2023-07-proposals-contracts.md
   - Reference:
     - Shortcuts: keyboard-shortcuts.md
