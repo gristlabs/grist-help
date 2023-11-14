@@ -951,6 +951,19 @@ paths:
       responses:
         200:
           description: Success
+  /docs/{docId}/tables/{tableId}/columns/{colId}:
+    delete:
+      operationId: "deleteColumn"
+      tags:
+        - columns
+      summary: "Delete a column of a table"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/tableIdPathParam'
+        - $ref: '#/components/parameters/colIdPathParam'
+      responses:
+        200:
+          description: Success
 
   /docs/{docId}/webhooks:
     get:
@@ -2115,6 +2128,13 @@ components:
         description: "Same as `limit` query parameter."
         example: "5"
       required: false
+    colIdPathParam:
+      in: path
+      name: colId
+      schema:
+        type: string
+        description: The column id (without the starting `$`) as shown in the column configuration below the label
+      required: true
     tableIdPathParam:
       in: path
       name: tableId
