@@ -2,9 +2,11 @@
 
 Welcome to our monthly newsletter of updates and tips for Grist users. The phrase "Grist for the
 mill" means "useful experience, material, or knowledge", perfectly reflecting its purpose.
+
 To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup).
 
-- [October 2023 Newsletter](newsletters/2023-10.md): New formula shortcuts, two experimental widgets, colorful calendar events and much more!- [September 2023 Newsletter](newsletters/2023-09.md): Calendar widget, two new templates, and API endpoint for making SQL queries.
+- [October 2023 Newsletter](newsletters/2023-10.md): New formula shortcuts, two experimental widgets, colorful calendar events and much more!
+- [September 2023 Newsletter](newsletters/2023-09.md): Calendar widget, two new templates, and API endpoint for making SQL queries.
 - [August 2023 Newsletter](newsletters/2023-08.md): Grist CSV Viewer! Llama AI support!
 - [July 2023 Newsletter](newsletters/2023-07.md): AI Formula Assistant launched!
 - [June 2023 Newsletter](newsletters/2023-06.md): Selector row highlighting, new templates, and community contributions.
