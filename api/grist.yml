@@ -466,9 +466,10 @@ paths:
           schema:
             $ref: "#/components/schemas/DocKey"
           required: true
+        - $ref: '#/components/parameters/headerQueryParam'
       responses:
         200:
-          description: A documents's content in Excel form
+          description: A document's content in Excel form
           content:
             application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
               schema:
@@ -492,6 +493,7 @@ paths:
             type: string
             description: "Name of a table (normalized)."
           required: true
+        - $ref: '#/components/parameters/headerQueryParam'
       responses:
         200:
           description: A table's content in CSV form
@@ -499,6 +501,33 @@ paths:
             text/csv:
               schema:
                 type: string
+  /docs/{docId}/download/table-schema:
+    get:
+      operationId: downloadTableSchema
+      tags:
+        - docs
+      summary: "The schema of a table"
+      description: "The schema follows [frictionlessdata's table-schema standard](https://specs.frictionlessdata.io/table-schema/)."
+      parameters:
+        - in: path
+          name: docId
+          schema:
+            $ref: "#/components/schemas/DocKey"
+          required: true
+        - in: query
+          name: tableId
+          schema:
+            type: string
+            description: "Name of a table (normalized)."
+          required: true
+        - $ref: '#/components/parameters/headerQueryParam'
+      responses:
+        200:
+          description: A table's table-schema in JSON format.
+          content:
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TableSchemaResult'
   /docs/{docId}/tables/{tableId}/data:
     get:
       operationId: getTableData
@@ -2087,6 +2116,37 @@ components:
               id: 2
               pet: dog
               popularity: 95
+    TableSchemaResult:
+      type: object
+      required:
+        - name
+        - title
+        - schema
+      properties:
+        name:
+          type: string
+          description: "The ID (technical name) of the table"
+        title:
+          type: string
+          description: "The human readable name of the table"
+        path:
+          type: string
+          description: "The URL to download the CSV"
+          example: "https://getgrist.com/o/docs/api/docs/ID/download/csv?tableId=Table1&...."
+        format:
+          type: string
+          enum: ["csv"]
+        mediatype:
+          type: string
+          enum: ["text/csv"]
+        encoding:
+          type: string
+          enum: ["utf-8"]
+        dialect:
+          $ref: https://specs.frictionlessdata.io/schemas/csv-dialect.json
+        schema:
+          $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
+
   parameters:
     filterQueryParam:
       in: query
@@ -2160,3 +2220,13 @@ components:
       schema:
         type: boolean
         description: "Set to true to include the hidden columns (like \"manualSort\")"
+    headerQueryParam:
+      in: query
+      name: header
+      schema:
+        type: string
+        description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
+        enum:
+          - colId
+          - label
+      required: false
