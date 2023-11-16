@@ -30,7 +30,7 @@ Expected environment variables:
 
 ## Example: Gitlab
 
-See [how to create an OAuth2 application in Gitlab in this documentation](https://docs.gitlab.com/ee/integration/oauth_provider.html). The redirection URI should be `https://<grist-domain>/oauth2/callback` (or `http://localhost:8484/oauth2/callback` if tested locally, change `8484` to the port you listen on).
+See [how to create an OAuth2 application in Gitlab in this documentation](https://docs.gitlab.com/ee/integration/oauth_provider.html). While creating the application, set the redirection URI to `https://<grist-domain>/oauth2/callback` (or `http://localhost:8484/oauth2/callback` if tested locally, change `8484` to the port you listen on) and select the scopes you will specify in `GRIST_OIDC_IDP_SCOPES`.
 
 Once the application is set up and start grist with these settings:
 
