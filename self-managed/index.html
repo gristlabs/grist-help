@@ -597,6 +597,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/oidc/" class="wm-article-link wm-toc-text">OIDC</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../install/forwarded-headers/" class="wm-article-link wm-toc-text">Forwarded headers</a>
 
     
@@ -1048,12 +1052,12 @@
 much the same way, as described in the following
 sections. For clarity, the sections are tagged
 with which flavor they apply to, for example:</p>
-<p>The full source code for Grist Core is always available at 
+<p>The full source code for Grist Core is always available at
 <a href="https://github.com/gristlabs/grist-core/">github.com/gristlabs/grist-core</a>
 and is under an Apache-2.0 license. You may use and redistribute Core
 freely, under the terms of the free software license.
 The full source for Grist Enterprise
-is also available, at 
+is also available, at
 <a href="https://github.com/gristlabs/grist-ee/">github.com/gristlabs/grist-ee</a>,
 under a proprietary license that does not grant any automatic
 rights to use or redistribute the software. You can evaluate Enterprise
@@ -1089,7 +1093,7 @@ Grist installation (such as our SaaS).</p>
    will populate it. Without this volume, nothing you do will be stored long-term.</li>
 <li>Port <code>8484</code> on the container needs to be exposed. This can be changed
    if you also set the <code>PORT</code> environment variable for the container.</li>
-<li>The environment variable <code>GRIST_SESSION_SECRET</code> should be set 
+<li>The environment variable <code>GRIST_SESSION_SECRET</code> should be set
    to something secret for the container.</li>
 </ul>
 <p>Installed this way, Grist is accessible only to you. Typically you want to
@@ -1101,7 +1105,7 @@ take at least the following steps:</p>
     so you can collaborate live with others.</li>
 <li>Enable an authentication method so users can log in. Often you&rsquo;ll want
     to hook Grist up to an &ldquo;SSO&rdquo; (Single Sign-On) service you already use.
-    We support some very 
+    We support some very
     <a href="./#how-do-i-set-up-authentication">general authentication methods</a> that cover many cases,
     and a <a href="./#are-there-other-authentication-methods">special authentication method</a> for custom cases.</li>
 <li>Consider enabling <a href="./#how-do-i-set-up-snapshots">snapshot support</a> if you want Grist to handle document backups.</li>
@@ -1120,7 +1124,7 @@ from the network.</p>
 <p>To sanity-check that formulas are being evaluated within a sandbox,
 you can create a document and then check that this formula
 gives an empty result:</p>
-<pre><code>import glob 
+<pre><code>import glob
 glob.glob('/etc/*')
 </code></pre>
 
@@ -1138,11 +1142,11 @@ this:</p>
 </code></pre>
 
 <p>You will need to place a &ldquo;reverse proxy&rdquo; in front of Grist to
-handle &ldquo;ssl termination&rdquo; (decrypting encypted traffic) using 
+handle &ldquo;ssl termination&rdquo; (decrypting encypted traffic) using
 a certificate that establishes ownership of the site. If you don&rsquo;t
 know what this means, you could try using the
 <a href="https://github.com/gristlabs/grist-omnibus">Grist Omnibus</a> which
-packages Grist with a reverse proxy that will 
+packages Grist with a reverse proxy that will
 use <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> to get a certificate
 for you automatically.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-set-up-a-team">How do I set up a team?<a class="headerlink" href="#how-do-i-set-up-a-team" title="Permanent link">#</a></h3>
@@ -1166,10 +1170,11 @@ is a synonym for team):</p>
 you don&rsquo;t need.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-set-up-authentication">How do I set up authentication?<a class="headerlink" href="#how-do-i-set-up-authentication" title="Permanent link">#</a></h3>
 <p>Authentication can be set up in many ways for Grist Core and Enterprise, using
-SAML or forwarded headers. Between the two, many popular SSOs can be hooked
+SAML, OpenID Connect or forwarded headers. Between the two, many popular SSOs can be hooked
 up, such as Google or Microsoft sign-ins.</p>
 <ul>
 <li><a href="../install/saml/">SAML</a>.</li>
+<li><a href="../install/oidc/">OpenID Connect</a></li>
 <li><a href="../install/forwarded-headers/">Forwarded headers</a>.</li>
 </ul>
 <p>For any authentication method, you may want to also consider setting the
@@ -1280,7 +1285,7 @@ drop-down.</p>
 or by manually preparing a <code>.json</code> file on a public server in the same
 format as our <code>manifest.json</code>.</p>
 <h3 class="tag-ee" id="how-do-i-set-up-email-notifications">How do I set up email notifications?<a class="headerlink" href="#how-do-i-set-up-email-notifications" title="Permanent link">#</a></h3>
-<p>In Grist SaaS, we send emails such as invitations to share a 
+<p>In Grist SaaS, we send emails such as invitations to share a
 document using <a href="https://sendgrid.com/">SendGrid</a>.
 The same mechanism is available in Grist Enterprise. There is
 not yet an equivalent in Grist Core.</p>
