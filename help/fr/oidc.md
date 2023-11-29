@@ -13,34 +13,37 @@ Note :
   l'utilisateur s'authentifie, comme Keycloak, Authelia, …
 * OIDC est l’acronyme pour OpenID Connect
 
-Expected environment variables:
+Les variables d'environnement attendues :
 
-* `GRIST_OIDC_IDP_ISSUER` - the issuer URL for the IdP, passed to
-  node-openid-client, see:
+* `GRIST_OIDC_IDP_ISSUER` - l'URL de l'issuer pour le fournisseur d'identité,
+  passé à node-openid-client, voir :
   <https://github.com/panva/node-openid-client/blob/a84d022f195f82ca1c97f8f6b2567ebcef8738c3/docs/README.md#issuerdiscoverissuer>.
-  **This variable turns on the OIDC login system.**
-* `GRIST_OIDC_IDP_CLIENT_ID` - the client ID for the application, as registered
-  with the IdP.
-* `GRIST_OIDC_IDP_CLIENT_SECRET` - the client secret for the application, as
-  registered with the IdP.
-* `GRIST_OIDC_IDP_SCOPES` (optional) - the scopes to request from the IdP, as a
-  space-separated list. Defaults to `"openid email profile"`.
-* `GRIST_OIDC_SP_HOST` (optional) - this is just the base URL of the Grist site,
-  such as `https://<grist-domain>` (when OIDC is active, there will be a
-  `/oauth2/callback` endpoint available here for implementing the protocol). If
-  omitted, `APP_HOME_URL` will be used.
-* `GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT` (optional) - If set to "true", on
-  logout, there won't be any attempt to call the IdP's `end_session_endpoint`
-  (the user will remain logged in in the IdP). You should only set it to "true"
-  if the IdP does not provide such endpoint (for example if you use Gitlab).
-* `GRIST_OIDC_SP_PROFILE_NAME_ATTR` (optional) - The key of the attribute to use
-  for the user's name. If omitted, the name will be the concatenation of
-  `given_name` + `family_name` if they are provided or the `name` attribute
-  otherwise.
-* `GRIST_OIDC_SP_PROFILE_EMAIL_ATTR` (optional) - The key of the attribute to
-  use for the user's email. Defaults to "email".
+  **Cette variable active le système d'authentification OIDC**
+* `GRIST_OIDC_IDP_CLIENT_ID` - l'ID Client pour l'application, tel qu'enregistré
+  auprès du fournisseur d'identité.
+* `GRIST_OIDC_IDP_CLIENT_SECRET` - le secret client pour l'application, tel
+  qu'enregistré auprès du fournisseur d'identité.
+* `GRIST_OIDC_IDP_SCOPES` (optionnel) - les scopes (périmètres) à demander
+  auprès du fournisseur d'identité, en tant que liste séparées par des espaces.
+  Vaut par défaut `"openid email profile"`.
+* `GRIST_OIDC_SP_HOST` (optionnel) - il s'agit juste de l'URL de base pour le
+  site Grist, par exemple `https://<grist-domain>` (quand OIDC est activé, un
+  endpoint `/oauth2/callback` sera mise à disposition pour l'implémentation du
+  protocole). Si omise, `APP_HOME_URL` sera utilisé.</grist-domain>
+* `GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT` (optionnel) - Si mis à "true", au
+  moment de la déconnection, il n'y aura pas d'appel au `end_session_endpoint`
+  du fournisseur d'identité (l'utilisateur restera connecté auprès du
+  fournisseur d'identité). Vous devriez le définir à "true" seulement si le
+  fournisseur d'identité ne fournit pas l'endpoint (par exemple si vous utilisez
+  Gitlab).
+* `GRIST_OIDC_SP_PROFILE_NAME_ATTR` (optionnel) - La clé pour l'attribut à
+  utiliser pour le nom de l'utilisateur. Si omis, le nome sera la concaténation
+  de `given_name` et de `family_name` (prénom et nom) s'il sont fournis ou
+  autrement l'attribut `name`.
+* `GRIST_OIDC_SP_PROFILE_EMAIL_ATTR` (optionnel) - La clé de l'attribut à
+  utiliser pour l'adresse email de l'utulisateur. Vaut par défaut "email".
 
-## Example: Gitlab
+## Exemple : Gitlab
 
 See [how to create an OAuth2 application in Gitlab in this
 documentation](https://docs.gitlab.com/ee/integration/oauth_provider.html).
