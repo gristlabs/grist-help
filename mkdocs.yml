@@ -42,6 +42,7 @@ nav:
     - Custom: widget-custom.md
     - Linking widgets: linking-widgets.md
     - Custom layouts: custom-layouts.md
+    - Record Cards: record-cards.md
     - Summary tables: summary-tables.md
     - On-Demand tables: on-demand-tables.md
   - Columns and data types:
