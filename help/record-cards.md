@@ -2,7 +2,7 @@
 
 Record Cards are a quick, easy way to view a record's details. 
 
-To view a record's details as a card, hover over the row number and click the arrow icon that appears. Select 'View as card' from the drop-down menu.
+To view a record's details as a card, hover over the row number and click the arrow icon that appears. Select 'View as card' from the dropdown menu.
 
 ![view-as-card](images/record-cards/record-cards-view-as-card.png)
 
