@@ -8,7 +8,7 @@ info:
   title: "Grist API"
 openapi: 3.0.0
 security:
-  - API Key: []
+  - API_Key: []
 servers:
   - url: https://{subdomain}.getgrist.com/api
     variables:
