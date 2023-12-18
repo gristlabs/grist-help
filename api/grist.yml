@@ -38,11 +38,7 @@ paths:
         - orgs
       summary: "Describe an org"
       parameters:
-        - in: path
-          name: orgId
-          schema:
-            $ref: "#/components/schemas/OrgKey"
-          required: true
+        - $ref: '#/components/parameters/orgIdPathParam'
       responses:
         200:
           description: An organization
@@ -56,11 +52,7 @@ paths:
         - orgs
       summary: "Modify an org"
       parameters:
-        - in: path
-          name: orgId
-          schema:
-            $ref: "#/components/schemas/OrgKey"
-          required: true
+        - $ref: '#/components/parameters/orgIdPathParam'
       requestBody:
         description: "the changes to make"
         content:
@@ -79,11 +71,7 @@ paths:
         - orgs
       summary: "List users with access to org"
       parameters:
-        - in: path
-          name: orgId
-          schema:
-            $ref: "#/components/schemas/OrgKey"
-          required: true
+        - $ref: '#/components/parameters/orgIdPathParam'
       responses:
         200:
           description: "Users with access to org"
@@ -97,11 +85,7 @@ paths:
         - orgs
       summary: "Change who has access to org"
       parameters:
-        - in: path
-          name: orgId
-          schema:
-            $ref: "#/components/schemas/OrgKey"
-          required: true
+        - $ref: '#/components/parameters/orgIdPathParam'
       requestBody:
         description: "the changes to make"
         content:
@@ -124,11 +108,7 @@ paths:
         - orgs
       summary: "List workspaces and documents within an org"
       parameters:
-        - in: path
-          name: orgId
-          schema:
-            $ref: "#/components/schemas/OrgKey"
-          required: true
+        - $ref: '#/components/parameters/orgIdPathParam'
       responses:
         200:
           description: An org's workspaces and documents
@@ -142,11 +122,7 @@ paths:
         - workspaces
       summary: "Create an empty workspace"
       parameters:
-        - in: path
-          name: orgId
-          schema:
-            $ref: "#/components/schemas/OrgKey"
-          required: true
+        - $ref: '#/components/parameters/orgIdPathParam'
       requestBody:
         description: "settings for the workspace"
         content:
@@ -1144,11 +1120,6 @@ components:
       bearerFormat: "Authorization: Bearer XXXXXXXXXXX"
       description: "Access to the Grist API is controlled by an Authorization header, which should contain the word 'Bearer', followed by a space, followed by your API key."
   schemas:
-    OrgKey:
-      oneOf:
-        - type: integer
-        - type: string
-      description: This can be an integer id, or a string subdomain (e.g. `gristlabs`), or `current` if the org is implied by the domain in the url
     WorkspaceKey:
       type: integer
       description: An integer id
@@ -2125,6 +2096,15 @@ components:
       schema:
         type: string
       description: A string id (UUID)
+      required: true
+    orgIdPathParam:
+      in: path
+      name: orgId
+      schema:
+        oneOf:
+          - type: integer
+          - type: string
+      description: This can be an integer id, or a string subdomain (e.g. `gristlabs`), or `current` if the org is implied by the domain in the url
       required: true
     noparseQueryParam:
       in: query
