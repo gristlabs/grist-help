@@ -1090,7 +1090,7 @@ tags:
     description: "Document changes can trigger requests to URLs called webhooks."
 components:
   securitySchemes:
-    API Key:
+    API_Key:
       type: http
       scheme: bearer
       bearerFormat: "Authorization: Bearer XXXXXXXXXXX"
