@@ -302,11 +302,7 @@ paths:
         - docs
       summary: "Describe a document"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
           description: A document's metadata
@@ -320,11 +316,7 @@ paths:
         - docs
       summary: "Modify document metadata (but not its contents)"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
         description: "the changes to make"
         content:
@@ -341,11 +333,7 @@ paths:
         - docs
       summary: "Delete a document"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
           description: Success
@@ -356,11 +344,7 @@ paths:
         - docs
       summary: "Move document to another workspace in the same org."
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
         description: "the target workspace"
         content:
@@ -384,11 +368,7 @@ paths:
         - docs
       summary: "List users with access to document"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
           description: "Users with access to document"
@@ -402,11 +382,7 @@ paths:
         - docs
       summary: "Change who has access to document"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
         description: "the changes to make"
         content:
@@ -429,11 +405,7 @@ paths:
         - docs
       summary: "Content of document, as an Sqlite file"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: query
           name: nohistory
           schema:
@@ -461,11 +433,7 @@ paths:
         - docs
       summary: "Content of document, as an Excel file"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/headerQueryParam'
       responses:
         200:
@@ -482,11 +450,7 @@ paths:
         - docs
       summary: "Content of table, as a CSV file"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: query
           name: tableId
           schema:
@@ -509,11 +473,7 @@ paths:
       summary: "The schema of a table"
       description: "The schema follows [frictionlessdata's table-schema standard](https://specs.frictionlessdata.io/table-schema/)."
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: query
           name: tableId
           schema:
@@ -646,11 +606,7 @@ paths:
         - attachments
       summary: "Upload attachments to a doc"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
         description: "the files to add to the doc"
         content:
@@ -672,11 +628,7 @@ paths:
         - attachments
       summary: "Get the metadata for an attachment"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: path
           name: attachmentId
           schema:
@@ -696,11 +648,7 @@ paths:
         - attachments
       summary: "Download the contents of an attachment"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: path
           name: attachmentId
           schema:
@@ -1000,11 +948,7 @@ paths:
         - webhooks
       summary: "Webhooks associated with a document"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
           description: "A list of webhooks."
@@ -1023,11 +967,7 @@ paths:
         - webhooks
       summary: "Create new webhooks for a document"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
         description: "an array of webhook settings"
         content:
@@ -1068,11 +1008,7 @@ paths:
         - webhooks
       summary: "Modify a webhook"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: path
           name: webhookId
           schema:
@@ -1092,11 +1028,7 @@ paths:
         - webhooks
       summary: "Remove a webhook"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: path
           name: webhookId
           schema:
@@ -1122,11 +1054,7 @@ paths:
         - webhooks
       summary: "Empty a document's queue of undelivered payloads"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
           description: "Success."
@@ -1137,11 +1065,7 @@ paths:
         - sql
       summary: "Run an SQL query against a document"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
         - in: query
           name: q
           schema:
@@ -1159,11 +1083,7 @@ paths:
         - sql
       summary: "Run an SQL query against a document, with options or parameters"
       parameters:
-        - in: path
-          name: docId
-          schema:
-            $ref: "#/components/schemas/DocKey"
-          required: true
+        - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
         description: "Query options"
         content:
@@ -1232,9 +1152,6 @@ components:
     WorkspaceKey:
       type: integer
       description: An integer id
-    DocKey:
-      type: string
-      description: A string id (UUID)
     Org:
       type: object
       required:
@@ -2206,7 +2123,8 @@ components:
       in: path
       name: docId
       schema:
-        $ref: "#/components/schemas/DocKey"
+        type: string
+      description: A string id (UUID)
       required: true
     noparseQueryParam:
       in: query
