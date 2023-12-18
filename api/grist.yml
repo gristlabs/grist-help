@@ -8,7 +8,7 @@ info:
   title: "Grist API"
 openapi: 3.0.0
 security:
-  - API_Key: []
+  - ApiKey: []
 servers:
   - url: https://{subdomain}.getgrist.com/api
     variables:
@@ -1090,7 +1090,7 @@ tags:
     description: "Document changes can trigger requests to URLs called webhooks."
 components:
   securitySchemes:
-    API_Key:
+    ApiKey:
       type: http
       scheme: bearer
       bearerFormat: "Authorization: Bearer XXXXXXXXXXX"
