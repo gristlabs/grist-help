@@ -149,11 +149,7 @@ paths:
         - workspaces
       summary: "Describe a workspace"
       parameters:
-        - in: path
-          name: workspaceId
-          schema:
-            $ref: "#/components/schemas/WorkspaceKey"
-          required: true
+        - $ref: '#/components/parameters/workspaceIdPathParam'
       responses:
         200:
           description: A workspace
@@ -167,11 +163,7 @@ paths:
         - workspaces
       summary: "Modify a workspace"
       parameters:
-        - in: path
-          name: workspaceId
-          schema:
-            $ref: "#/components/schemas/WorkspaceKey"
-          required: true
+        - $ref: '#/components/parameters/workspaceIdPathParam'
       requestBody:
         description: "the changes to make"
         content:
@@ -188,11 +180,7 @@ paths:
         - workspaces
       summary: "Delete a workspace"
       parameters:
-        - in: path
-          name: workspaceId
-          schema:
-            $ref: "#/components/schemas/WorkspaceKey"
-          required: true
+        - $ref: '#/components/parameters/workspaceIdPathParam'
       responses:
         200:
           description: Success
@@ -203,11 +191,7 @@ paths:
         - docs
       summary: "Create an empty document"
       parameters:
-        - in: path
-          name: workspaceId
-          schema:
-            $ref: "#/components/schemas/WorkspaceKey"
-          required: true
+        - $ref: '#/components/parameters/workspaceIdPathParam'
       requestBody:
         description: "settings for the document"
         content:
@@ -232,11 +216,7 @@ paths:
         - workspaces
       summary: "List users with access to workspace"
       parameters:
-        - in: path
-          name: workspaceId
-          schema:
-            $ref: "#/components/schemas/WorkspaceKey"
-          required: true
+        - $ref: '#/components/parameters/workspaceIdPathParam'
       responses:
         200:
           description: "Users with access to workspace"
@@ -250,11 +230,7 @@ paths:
         - workspaces
       summary: "Change who has access to workspace"
       parameters:
-        - in: path
-          name: workspaceId
-          schema:
-            $ref: "#/components/schemas/WorkspaceKey"
-          required: true
+        - $ref: '#/components/parameters/workspaceIdPathParam'
       requestBody:
         description: "the changes to make"
         content:
@@ -1120,9 +1096,6 @@ components:
       bearerFormat: "Authorization: Bearer XXXXXXXXXXX"
       description: "Access to the Grist API is controlled by an Authorization header, which should contain the word 'Bearer', followed by a space, followed by your API key."
   schemas:
-    WorkspaceKey:
-      type: integer
-      description: An integer id
     Org:
       type: object
       required:
@@ -2105,6 +2078,13 @@ components:
           - type: integer
           - type: string
       description: This can be an integer id, or a string subdomain (e.g. `gristlabs`), or `current` if the org is implied by the domain in the url
+      required: true
+    workspaceIdPathParam:
+      in: path
+      name: workspaceId
+      description: An integer id
+      schema:
+        type: integer
       required: true
     noparseQueryParam:
       in: query
