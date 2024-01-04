@@ -1453,6 +1453,37 @@ grist.setCursorPos({rowId: 'new'});
 <p>For an example of the Image Viewer widget, check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">U.S. National Park Database</a>, and add a park review while you&rsquo;re there!</p>
 <p>You can also check out our <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Meme Generator</a> template for another great example.</p>
 <p>For a video walkthrough, be sure to watch our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Custom Widgets Webinar</a>!</p>
+<h3 id="jupyterlite-notebook">JupyterLite Notebook<a class="headerlink" href="#jupyterlite-notebook" title="Permanent link">#</a></h3>
+<p>This widget lets you run custom Python code in <a href="https://jupyterlite.readthedocs.io/">JupyterLite</a>, a version of <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab</a> running entirely in the browser. You can use the full <a href="/code/modules/grist_plugin_api/">custom widget plugin API</a> and access or modify any data in the document (subject to Access Rules), unlocking nearly unlimited possibilities for advanced users.</p>
+<p>You’ll be presented with a notebook where you can enter and run Python code, e.g:</p>
+<p><img alt="jupyterlite-notebook-example-notebook" src="../images/widget-custom/jupyterlite-notebook-example-notebook.png" /></p>
+<p>After typing code in a cell, click the play button or press Shift+Enter to run that cell.</p>
+<p>Unlike formulas, code isn’t saved automatically. You must press the usual ‘Save’ button above the widget (outside the notebook) to persist the code within your Grist document. On the other hand, changes to settings within the notebook (e.g. keyboard shortcuts) are saved in your browser’s local storage, so they’re not shared with other users of the document.</p>
+<p>A special object called <code>grist</code> is automatically available to use in Python code, which mirrors many common methods of the usual <a href="https://support.getgrist.com/code/modules/grist_plugin_api/">JS plugin API</a>. Note that many of these methods are asynchronous, so you should use <code>await</code> before calling them.</p>
+<ul>
+<li><code>async fetch_selected_table()</code>: returns the data of the table backing the notebook widget.</li>
+<li><code>async fetch_selected_record(row_id=None)</code>: returns a record of the table backing the notebook widget. If <code>row_id</code> is specified, returns the record at that row. Otherwise, returns the record at the current cursor position in a widget linked to the notebook widget.</li>
+<li><code>async fetch_table(table_id)</code>: returns the data of the specified table. Note that this differs from <code>fetch_selected_table</code> (even for the same table) in several ways:<ul>
+<li>The widget must have full document access.</li>
+<li>All columns are included, whereas <code>fetch_selected_table</code> excludes columns that are hidden in the widget configuration.</li>
+<li>All rows are included, whereas <code>fetch_selected_table</code> takes widget filters and &lsquo;SELECT BY&rsquo; into account.</li>
+<li>The data is not sorted according to the widget&rsquo;s configuration.</li>
+<li>The data is fetched from the server, so the method may be slower.</li>
+<li>The values for reference columns are row IDs of the referenced table, whereas <code>fetch_selected_table</code> returns the values displayed based on the &lsquo;SHOW COLUMN&rsquo; configuration.</li>
+</ul>
+</li>
+<li><code>on_record(callback)</code>: registers a callback function to run when the cursor moves in a widget linked to the notebook widget, i.e. the widget chosen from the &ldquo;SELECT BY&rdquo; dropdown in the Data section of the widget configuration. The callback function will be passed the record at the current cursor position. You can also use this as a decorator, i.e. <code>@grist.on_record</code>.</li>
+<li><code>on_records(callback)</code>: similar to <code>on_record</code>, but runs when the source data of the widget changes. The callback function will be passed the same data as returned by <code>fetch_selected_table</code>.</li>
+<li><code>get_table(table_id)</code>: returns a <code>TableOperations</code> class similar to the interface in the usual <a href="https://support.getgrist.com/code/interfaces/TableOperations.TableOperations/">JS plugin API</a> for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:<ul>
+<li><code>async create(records, parse_strings=True)</code></li>
+<li><code>async update(records, parse_strings=True)</code></li>
+<li><code>async upsert(records, parse_strings=True, add=True, update=True, on_many="first", allow_empty_require=False)</code></li>
+<li><code>async destroy(row_ids)</code></li>
+</ul>
+</li>
+</ul>
+<p>You can also use <code>grist.raw</code> for direct access to the plugin API, e.g. <code>await grist.raw.docApi.fetchTable(table_id)</code>. This may return raw cell values which you can decode with <code>grist.decode_cell_value(value)</code>.</p>
+<p>You can use many (but not all) third-party libraries in your notebook such as <code>pandas</code>. Many will be installed automatically when they&rsquo;re imported. Others will require running <code>%pip install &lt;package name&gt;</code> in a cell, e.g. <code>%pip install pandas</code>. Note that it&rsquo;s <code>%pip</code> and not <code>!pip</code> as in a regular Jupyter notebook.</p>
 <h3 id="map">Map<a class="headerlink" href="#map" title="Permanent link">#</a></h3>
 <p>The custom map widget allows you to display locations using latitude and longitude coordinates. If your data is an address, rather than in lat-long format, Grist can convert the address into lat-long coordinates. </p>
 <p><em><img alt="map-widget" src="../images/widget-custom/map-widget.png" /></em></p>
