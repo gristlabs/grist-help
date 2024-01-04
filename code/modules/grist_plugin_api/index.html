@@ -528,6 +528,14 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.CustomSectionAPI/" class="wm-article-link wm-toc-text">Interface: CustomSectionAPI</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/" class="wm-article-link wm-toc-text">Interface: FetchSelectedOptions</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../../interfaces/grist_plugin_api.GristColumn/" class="wm-article-link wm-toc-text">Interface: GristColumn</a>
 
     
@@ -1016,6 +1024,8 @@
 <li><a href="../../interfaces/grist_plugin_api.AccessTokenResult/">AccessTokenResult</a></li>
 <li><a href="../../interfaces/grist_plugin_api.ColumnToMap/">ColumnToMap</a></li>
 <li><a href="../../interfaces/grist_plugin_api.CursorPos/">CursorPos</a></li>
+<li><a href="../../interfaces/grist_plugin_api.CustomSectionAPI/">CustomSectionAPI</a></li>
+<li><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/">FetchSelectedOptions</a></li>
 <li><a href="../../interfaces/grist_plugin_api.GristColumn/">GristColumn</a></li>
 <li><a href="../../interfaces/grist_plugin_api.GristDocAPI/">GristDocAPI</a></li>
 <li><a href="../../interfaces/grist_plugin_api.GristTable/">GristTable</a></li>
@@ -1031,6 +1041,7 @@
 </ul>
 <h3 id="type-aliases">Type Aliases<a class="headerlink" href="#type-aliases" title="Permanent link">#</a></h3>
 <ul>
+<li><a href="./#columnstomap">ColumnsToMap</a></li>
 <li><a href="./#uirowid">UIRowId</a></li>
 </ul>
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">#</a></h3>
@@ -1066,6 +1077,11 @@
 <li><a href="./#setselectedrows">setSelectedRows</a></li>
 </ul>
 <h2 id="type-aliases_1">Type Aliases<a class="headerlink" href="#type-aliases_1" title="Permanent link">#</a></h2>
+<h3 id="columnstomap">ColumnsToMap<a class="headerlink" href="#columnstomap" title="Permanent link">#</a></h3>
+<p>Ƭ <strong>ColumnsToMap</strong>: (<code>string</code> | <a href="../../interfaces/grist_plugin_api.ColumnToMap/"><code>ColumnToMap</code></a>)[]</p>
+<p>Tells Grist what columns a Custom Widget expects and allows users to map between existing column names
+and those requested by the Custom Widget.</p>
+<hr />
 <h3 id="uirowid">UIRowId<a class="headerlink" href="#uirowid" title="Permanent link">#</a></h3>
 <p>Ƭ <strong>UIRowId</strong>: <code>number</code> | <code>"new"</code></p>
 <p>Represents the id of a row in a table. The value of the <code>id</code> column. Might be a number or &lsquo;new&rsquo; value for a new row.</p>
@@ -1081,7 +1097,7 @@ fetchSelectedTable and fetchSelectedRecord methods are
 overridden to decode data by default.</p>
 <hr />
 <h3 id="sectionapi">sectionApi<a class="headerlink" href="#sectionapi" title="Permanent link">#</a></h3>
-<p>• <code>Const</code> <strong>sectionApi</strong>: <code>CustomSectionAPI</code></p>
+<p>• <code>Const</code> <strong>sectionApi</strong>: <a href="../../interfaces/grist_plugin_api.CustomSectionAPI/"><code>CustomSectionAPI</code></a></p>
 <p>Interface for the mapping of a custom widget.</p>
 <hr />
 <h3 id="selectedtable">selectedTable<a class="headerlink" href="#selectedtable" title="Permanent link">#</a></h3>
@@ -1111,9 +1127,7 @@ Now the preferred way it to use ready message.</p>
 <hr />
 <h3 id="fetchselectedrecord">fetchSelectedRecord<a class="headerlink" href="#fetchselectedrecord" title="Permanent link">#</a></h3>
 <p>▸ <strong>fetchSelectedRecord</strong>(<code>rowId</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>></p>
-<p>Fetches current selected record as for <a href="../../interfaces/grist_plugin_api.GristView/#fetchselectedrecord">GristView.fetchSelectedRecord</a>,
-but decoding data by default, replacing e.g. [&lsquo;D&rsquo;, timestamp] with
-a moment date. Option <code>keepEncoded</code> skips the decoding step.</p>
+<p>Same as <a href="../../interfaces/grist_plugin_api.GristView/#fetchselectedrecord">GristView.fetchSelectedRecord</a>, but the option <code>keepEncoded</code> is <code>false</code> by default.</p>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -1129,11 +1143,7 @@ a moment date. Option <code>keepEncoded</code> skips the decoding step.</p>
 </tr>
 <tr>
 <td align="left"><code>options</code></td>
-<td align="left"><code>Object</code></td>
-</tr>
-<tr>
-<td align="left"><code>options.keepEncoded?</code></td>
-<td align="left"><code>boolean</code></td>
+<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1142,9 +1152,7 @@ a moment date. Option <code>keepEncoded</code> skips the decoding step.</p>
 <hr />
 <h3 id="fetchselectedtable">fetchSelectedTable<a class="headerlink" href="#fetchselectedtable" title="Permanent link">#</a></h3>
 <p>▸ <strong>fetchSelectedTable</strong>(<code>options?</code>): <code>Promise</code>&lt;<code>any</code>></p>
-<p>Fetches data backing the widget as for <a href="../../interfaces/grist_plugin_api.GristView/#fetchselectedtable">GristView.fetchSelectedTable</a>,
-but decoding data by default, replacing e.g. [&lsquo;D&rsquo;, timestamp] with
-a moment date. Option <code>keepEncoded</code> skips the decoding step.</p>
+<p>Same as <a href="../../interfaces/grist_plugin_api.GristView/#fetchselectedtable">GristView.fetchSelectedTable</a>, but the option <code>keepEncoded</code> is <code>false</code> by default.</p>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -1156,11 +1164,7 @@ a moment date. Option <code>keepEncoded</code> skips the decoding step.</p>
 <tbody>
 <tr>
 <td align="left"><code>options</code></td>
-<td align="left"><code>Object</code></td>
-</tr>
-<tr>
-<td align="left"><code>options.keepEncoded?</code></td>
-<td align="left"><code>boolean</code></td>
+<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1278,7 +1282,7 @@ custom column mapping.</p>
 </tr>
 <tr>
 <td align="left"><code>options.columns?</code></td>
-<td align="left"><code>ColumnsToMap</code></td>
+<td align="left"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
 </tr>
 <tr>
 <td align="left"><code>options.mappings?</code></td>
@@ -1318,7 +1322,7 @@ we don&rsquo;t attempt to do these transformations automatically.</p>
 </tr>
 <tr>
 <td align="left"><code>options.columns?</code></td>
-<td align="left"><code>ColumnsToMap</code></td>
+<td align="left"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
 </tr>
 <tr>
 <td align="left"><code>options.mappings?</code></td>
@@ -1427,12 +1431,13 @@ the document that contains it.</p>
 <p><code>void</code></p>
 <hr />
 <h3 id="onrecord">onRecord<a class="headerlink" href="#onrecord" title="Permanent link">#</a></h3>
-<p>▸ <strong>onRecord</strong>(<code>callback</code>): <code>void</code></p>
+<p>▸ <strong>onRecord</strong>(<code>callback</code>, <code>options?</code>): <code>void</code></p>
 <p>For custom widgets, add a handler that will be called whenever the
 row with the cursor changes - either by switching to a different row, or
 by some value within the row potentially changing.  Handler may
 in the future be called with null if the cursor moves away from
-any row.</p>
+any row.
+By default, <code>options.keepEncoded</code> is <code>false</code>.</p>
 <h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -1446,15 +1451,20 @@ any row.</p>
 <td align="left"><code>callback</code></td>
 <td align="left">(<code>data</code>: <code>null</code> | <a href="../../interfaces/GristData.RowRecord/"><code>RowRecord</code></a>, <code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
 </tr>
+<tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
+</tr>
 </tbody>
 </table>
 <h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">#</a></h4>
 <p><code>void</code></p>
 <hr />
 <h3 id="onrecords">onRecords<a class="headerlink" href="#onrecords" title="Permanent link">#</a></h3>
-<p>▸ <strong>onRecords</strong>(<code>callback</code>): <code>void</code></p>
+<p>▸ <strong>onRecords</strong>(<code>callback</code>, <code>options?</code>): <code>void</code></p>
 <p>For custom widgets, add a handler that will be called whenever the
-selected records change.  Handler will be called with a list of records.</p>
+selected records change.
+By default, <code>options.format</code> is <code>'rows'</code> and <code>options.keepEncoded</code> is <code>false</code>.</p>
 <h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -1467,6 +1477,10 @@ selected records change.  Handler will be called with a list of records.</p>
 <tr>
 <td align="left"><code>callback</code></td>
 <td align="left">(<code>data</code>: <a href="../../interfaces/GristData.RowRecord/"><code>RowRecord</code></a>[], <code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
+</tr>
+<tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>

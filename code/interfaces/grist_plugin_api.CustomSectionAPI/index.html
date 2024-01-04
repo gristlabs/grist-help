@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="grist-plugin-api.AccessTokenOptions">
-      <meta property="og:description" content="grist-plugin-api.AccessTokenOptions">
+      <meta name="description" content="grist-plugin-api.CustomSectionAPI">
+      <meta property="og:description" content="grist-plugin-api.CustomSectionAPI">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/code/interfaces/grist_plugin_api.AccessTokenOptions/">
+    <link rel="canonical" href="https://support.getgrist.com/code/interfaces/grist_plugin_api.CustomSectionAPI/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <link rel="me" href="https://fosstodon.org/@grist">
     <meta name="thumbnail" content="https://support.getgrist.com/images/favicon.png">
     <meta property="og:image" content="https://support.getgrist.com/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Interface: AccessTokenOptions - Grist Help Center</title>
+    <title>Interface: CustomSectionAPI - Grist Help Center</title>
     
   
 
@@ -479,31 +479,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Interface: AccessTokenOptions</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.AccessTokenOptions/" class="wm-article-link wm-toc-text">Interface: AccessTokenOptions</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Interface: AccessTokenOptions
-            </a>
-          </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#table-of-contents">
-                Table of contents
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#properties_1">
-                Properties
-              </a>
-            </li>
-        
-      </ul>
-    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.AccessTokenResult/" class="wm-article-link wm-toc-text">Interface: AccessTokenResult</a>
@@ -518,8 +495,31 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.CustomSectionAPI/" class="wm-article-link wm-toc-text">Interface: CustomSectionAPI</a>
+      <li class="wm-toc-li wm-toc-lev3  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Interface: CustomSectionAPI</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Interface: CustomSectionAPI
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#table-of-contents">
+                Table of contents
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#methods_1">
+                Methods
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.FetchSelectedOptions/" class="wm-article-link wm-toc-text">Interface: FetchSelectedOptions</a>
@@ -985,20 +985,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../grist_plugin_api.AccessTokenResult/" class="btn btn-xs btn-default pull-right">
+      <a href="../grist_plugin_api.FetchSelectedOptions/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../grist_plugin_api.AccessTokenResult/" class="btn btn-xs btn-link">
-        Interface: AccessTokenResult
+      <a href="../grist_plugin_api.FetchSelectedOptions/" class="btn btn-xs btn-link">
+        Interface: FetchSelectedOptions
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../TableOperations.UpsertOptions/" class="btn btn-xs btn-default pull-left">
+      <a href="../grist_plugin_api.CursorPos/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../TableOperations.UpsertOptions/" class="btn btn-xs btn-link">
-        Interface: UpsertOptions
+        Previous</a><a href="../grist_plugin_api.CursorPos/" class="btn btn-xs btn-link">
+        Interface: CursorPos
       </a>
     </div>
     
@@ -1006,18 +1006,42 @@
 
     
 
-    <h1 id="interface-accesstokenoptions">Interface: AccessTokenOptions<a class="headerlink" href="#interface-accesstokenoptions" title="Permanent link">#</a></h1>
-<p><a href="../../modules/grist_plugin_api/">grist-plugin-api</a>.AccessTokenOptions</p>
-<p>Options when creating access tokens.</p>
+    <h1 id="interface-customsectionapi">Interface: CustomSectionAPI<a class="headerlink" href="#interface-customsectionapi" title="Permanent link">#</a></h1>
+<p><a href="../../modules/grist_plugin_api/">grist-plugin-api</a>.CustomSectionAPI</p>
+<p>Interface for the mapping of a custom widget.</p>
 <h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
-<h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h3>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="./#readonly">readOnly</a></li>
+<li><a href="./#configure">configure</a></li>
+<li><a href="./#mappings">mappings</a></li>
 </ul>
-<h2 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h2>
-<h3 id="readonly">readOnly<a class="headerlink" href="#readonly" title="Permanent link">#</a></h3>
-<p>• <code>Optional</code> <strong>readOnly</strong>: <code>boolean</code></p>
-<p>Restrict use of token to reading only</p>
+<h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h2>
+<h3 id="configure">configure<a class="headerlink" href="#configure" title="Permanent link">#</a></h3>
+<p>▸ <strong>configure</strong>(<code>customOptions</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>Initial request from a Custom Widget that wants to declare its requirements.</p>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>customOptions</code></td>
+<td align="left"><a href="../grist_plugin_api.InteractionOptionsRequest/"><code>InteractionOptionsRequest</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
+<p><code>Promise</code>&lt;<code>void</code>></p>
+<hr />
+<h3 id="mappings">mappings<a class="headerlink" href="#mappings" title="Permanent link">#</a></h3>
+<p>▸ <strong>mappings</strong>(): <code>Promise</code>&lt;<code>null</code> | <a href="../grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>></p>
+<p>Returns current widget configuration (if requested through configuration method).</p>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">#</a></h4>
+<p><code>Promise</code>&lt;<code>null</code> | <a href="../grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>></p>
 
   <br>
 </div>
@@ -1066,7 +1090,7 @@
   </div>
 </div><footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/interfaces/grist_plugin_api.AccessTokenOptions.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/interfaces/grist_plugin_api.CustomSectionAPI.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

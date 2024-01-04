@@ -396,6 +396,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://support.getgrist.com/code/interfaces/grist_plugin_api.CustomSectionAPI/</loc>
+         <lastmod>2024-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://support.getgrist.com/code/interfaces/grist_plugin_api.FetchSelectedOptions/</loc>
+         <lastmod>2024-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://support.getgrist.com/code/interfaces/grist_plugin_api.GristColumn/</loc>
          <lastmod>2024-01-04</lastmod>
          <changefreq>daily</changefreq>

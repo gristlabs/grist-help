@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="grist-plugin-api.AccessTokenOptions">
-      <meta property="og:description" content="grist-plugin-api.AccessTokenOptions">
+      <meta name="description" content="grist-plugin-api.FetchSelectedOptions">
+      <meta property="og:description" content="grist-plugin-api.FetchSelectedOptions">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/code/interfaces/grist_plugin_api.AccessTokenOptions/">
+    <link rel="canonical" href="https://support.getgrist.com/code/interfaces/grist_plugin_api.FetchSelectedOptions/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <link rel="me" href="https://fosstodon.org/@grist">
     <meta name="thumbnail" content="https://support.getgrist.com/images/favicon.png">
     <meta property="og:image" content="https://support.getgrist.com/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Interface: AccessTokenOptions - Grist Help Center</title>
+    <title>Interface: FetchSelectedOptions - Grist Help Center</title>
     
   
 
@@ -479,31 +479,8 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Interface: AccessTokenOptions</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.AccessTokenOptions/" class="wm-article-link wm-toc-text">Interface: AccessTokenOptions</a>
 
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Interface: AccessTokenOptions
-            </a>
-          </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#table-of-contents">
-                Table of contents
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#properties_1">
-                Properties
-              </a>
-            </li>
-        
-      </ul>
-    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.AccessTokenResult/" class="wm-article-link wm-toc-text">Interface: AccessTokenResult</a>
@@ -522,8 +499,31 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.FetchSelectedOptions/" class="wm-article-link wm-toc-text">Interface: FetchSelectedOptions</a>
+      <li class="wm-toc-li wm-toc-lev3  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Interface: FetchSelectedOptions</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Interface: FetchSelectedOptions
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#table-of-contents">
+                Table of contents
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#properties_1">
+                Properties
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="../grist_plugin_api.GristColumn/" class="wm-article-link wm-toc-text">Interface: GristColumn</a>
@@ -985,20 +985,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../grist_plugin_api.AccessTokenResult/" class="btn btn-xs btn-default pull-right">
+      <a href="../grist_plugin_api.GristColumn/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../grist_plugin_api.AccessTokenResult/" class="btn btn-xs btn-link">
-        Interface: AccessTokenResult
+      <a href="../grist_plugin_api.GristColumn/" class="btn btn-xs btn-link">
+        Interface: GristColumn
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../TableOperations.UpsertOptions/" class="btn btn-xs btn-default pull-left">
+      <a href="../grist_plugin_api.CustomSectionAPI/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../TableOperations.UpsertOptions/" class="btn btn-xs btn-link">
-        Interface: UpsertOptions
+        Previous</a><a href="../grist_plugin_api.CustomSectionAPI/" class="btn btn-xs btn-link">
+        Interface: CustomSectionAPI
       </a>
     </div>
     
@@ -1006,18 +1006,48 @@
 
     
 
-    <h1 id="interface-accesstokenoptions">Interface: AccessTokenOptions<a class="headerlink" href="#interface-accesstokenoptions" title="Permanent link">#</a></h1>
-<p><a href="../../modules/grist_plugin_api/">grist-plugin-api</a>.AccessTokenOptions</p>
-<p>Options when creating access tokens.</p>
+    <h1 id="interface-fetchselectedoptions">Interface: FetchSelectedOptions<a class="headerlink" href="#interface-fetchselectedoptions" title="Permanent link">#</a></h1>
+<p><a href="../../modules/grist_plugin_api/">grist-plugin-api</a>.FetchSelectedOptions</p>
+<p>Options for functions which fetch data from the selected table or record:</p>
+<ul>
+<li><a href="../../modules/grist_plugin_api/#onrecords">onRecords</a></li>
+<li><a href="../../modules/grist_plugin_api/#onrecord">onRecord</a></li>
+<li><a href="../../modules/grist_plugin_api/#fetchselectedrecord">fetchSelectedRecord</a></li>
+<li><a href="../../modules/grist_plugin_api/#fetchselectedtable">fetchSelectedTable</a></li>
+<li><a href="../grist_plugin_api.GristView/#fetchselectedrecord">GristView.fetchSelectedRecord</a></li>
+<li><a href="../grist_plugin_api.GristView/#fetchselectedtable">GristView.fetchSelectedTable</a></li>
+</ul>
+<p>The different methods have different default values for <code>keepEncoded</code> and <code>format</code>.</p>
 <h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="./#readonly">readOnly</a></li>
+<li><a href="./#format">format</a></li>
+<li><a href="./#includecolumns">includeColumns</a></li>
+<li><a href="./#keepencoded">keepEncoded</a></li>
 </ul>
 <h2 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h2>
-<h3 id="readonly">readOnly<a class="headerlink" href="#readonly" title="Permanent link">#</a></h3>
-<p>• <code>Optional</code> <strong>readOnly</strong>: <code>boolean</code></p>
-<p>Restrict use of token to reading only</p>
+<h3 id="format">format<a class="headerlink" href="#format" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>format</strong>: <code>"columns"</code> | <code>"rows"</code></p>
+<ul>
+<li><code>rows</code>, the returned data will be an array of objects, one per row, with column names as keys.</li>
+<li><code>columns</code>, the returned data will be an object with column names as keys, and arrays of values.</li>
+</ul>
+<hr />
+<h3 id="includecolumns">includeColumns<a class="headerlink" href="#includecolumns" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>includeColumns</strong>: <code>"shown"</code> | <code>"normal"</code> | <code>"all"</code></p>
+<ul>
+<li><code>shown</code> (default): return only columns that are explicitly shown
+  in the right panel configuration of the widget. This is the only value that doesn&rsquo;t require full access.</li>
+<li><code>normal</code>: return all &lsquo;normal&rsquo; columns, regardless of whether the user has shown them.</li>
+<li><code>all</code>: also return special invisible columns like <code>manualSort</code> and display helper columns.</li>
+</ul>
+<hr />
+<h3 id="keepencoded">keepEncoded<a class="headerlink" href="#keepencoded" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>keepEncoded</strong>: <code>boolean</code></p>
+<ul>
+<li><code>true</code>: the returned data will contain raw <code>CellValue</code>s.</li>
+<li><code>false</code>: the values will be decoded, replacing e.g. <code>['D', timestamp]</code> with a moment date.</li>
+</ul>
 
   <br>
 </div>
@@ -1066,7 +1096,7 @@
   </div>
 </div><footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/interfaces/grist_plugin_api.AccessTokenOptions.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/code/interfaces/grist_plugin_api.FetchSelectedOptions.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
