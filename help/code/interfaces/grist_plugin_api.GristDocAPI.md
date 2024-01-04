@@ -39,7 +39,7 @@ ___
 
 ▸ **fetchTable**(`tableId`): `Promise`<`any`\>
 
-Returns a complete table of data as RowRecords, including the
+Returns a complete table of data as [GristData.RowRecords](GristData.RowRecords.md), including the
 'id' column. Do not modify the returned arrays in-place, especially if used
 directly (not over RPC).
 
