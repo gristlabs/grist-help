@@ -8,6 +8,7 @@
 - [AccessTokenResult](../interfaces/grist_plugin_api.AccessTokenResult.md)
 - [ColumnToMap](../interfaces/grist_plugin_api.ColumnToMap.md)
 - [CursorPos](../interfaces/grist_plugin_api.CursorPos.md)
+- [CustomSectionAPI](../interfaces/grist_plugin_api.CustomSectionAPI.md)
 - [FetchSelectedOptions](../interfaces/grist_plugin_api.FetchSelectedOptions.md)
 - [GristColumn](../interfaces/grist_plugin_api.GristColumn.md)
 - [GristDocAPI](../interfaces/grist_plugin_api.GristDocAPI.md)
@@ -88,7 +89,7 @@ ___
 
 ### sectionApi
 
-• `Const` **sectionApi**: `CustomSectionAPI`
+• `Const` **sectionApi**: [`CustomSectionAPI`](../interfaces/grist_plugin_api.CustomSectionAPI.md)
 
 Interface for the mapping of a custom widget.
 
