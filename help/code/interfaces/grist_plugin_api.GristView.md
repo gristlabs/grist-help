@@ -31,15 +31,16 @@ ___
 
 ### fetchSelectedRecord
 
-▸ **fetchSelectedRecord**(`rowId`): `Promise`<`any`\>
+▸ **fetchSelectedRecord**(`rowId`, `options?`): `Promise`<`any`\>
 
-Fetches selected record by its `rowId`.
+Fetches selected record by its `rowId`. By default, `options.keepEncoded` is `true`.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `rowId` | `number` |
+| `options?` | [`FetchSelectedOptions`](grist_plugin_api.FetchSelectedOptions.md) |
 
 #### Returns
 
@@ -49,9 +50,16 @@ ___
 
 ### fetchSelectedTable
 
-▸ **fetchSelectedTable**(): `Promise`<`any`\>
+▸ **fetchSelectedTable**(`options?`): `Promise`<`any`\>
 
 Like [GristDocAPI.fetchTable](grist_plugin_api.GristDocAPI.md#fetchtable), but gets data for the custom section specifically, if there is any.
+By default, `options.keepEncoded` is `true` and `format` is `columns`.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options?` | [`FetchSelectedOptions`](grist_plugin_api.FetchSelectedOptions.md) |
 
 #### Returns
 
