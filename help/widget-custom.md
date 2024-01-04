@@ -584,8 +584,7 @@ This widget lets you run custom Python code in [JupyterLite](https://jupyterlite
 
 You’ll be presented with a notebook where you can enter and run Python code, e.g:
 
-<span class="screenshot-large">*![jupyterlite-notebook-example-notebook](./images/widget-custom/jupyterlite-notebook-example-notebook.png)*</span>
-{: .screenshot-half }
+![jupyterlite-notebook-example-notebook](./images/widget-custom/jupyterlite-notebook-example-notebook.png)
 
 After typing code in a cell, click the play button or press Shift+Enter to run that cell.
 
