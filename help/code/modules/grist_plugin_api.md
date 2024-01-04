@@ -25,6 +25,7 @@
 
 ### Type Aliases
 
+- [ColumnsToMap](grist_plugin_api.md#columnstomap)
 - [UIRowId](grist_plugin_api.md#uirowid)
 
 ### Variables
@@ -60,6 +61,15 @@
 - [setSelectedRows](grist_plugin_api.md#setselectedrows)
 
 ## Type Aliases
+
+### ColumnsToMap
+
+Ƭ **ColumnsToMap**: (`string` \| [`ColumnToMap`](../interfaces/grist_plugin_api.ColumnToMap.md))[]
+
+Tells Grist what columns a Custom Widget expects and allows users to map between existing column names
+and those requested by the Custom Widget.
+
+___
 
 ### UIRowId
 
@@ -279,7 +289,7 @@ custom column mapping.
 | :------ | :------ |
 | `data` | `any` |
 | `options?` | `Object` |
-| `options.columns?` | `ColumnsToMap` |
+| `options.columns?` | [`ColumnsToMap`](grist_plugin_api.md#columnstomap) |
 | `options.mappings?` | ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md) |
 | `options.reverse?` | `boolean` |
 
@@ -304,7 +314,7 @@ we don't attempt to do these transformations automatically.
 | :------ | :------ |
 | `data` | `any` |
 | `options?` | `Object` |
-| `options.columns?` | `ColumnsToMap` |
+| `options.columns?` | [`ColumnsToMap`](grist_plugin_api.md#columnstomap) |
 | `options.mappings?` | ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md) |
 
 #### Returns

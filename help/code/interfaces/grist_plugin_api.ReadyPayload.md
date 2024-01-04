@@ -35,7 +35,7 @@ ___
 
 ### columns
 
-• `Optional` **columns**: `ColumnsToMap`
+• `Optional` **columns**: [`ColumnsToMap`](../modules/grist_plugin_api.md#columnstomap)
 
 Tells Grist what columns Custom Widget expects and allows user to map between existing column names
 and those requested by Custom Widget.
