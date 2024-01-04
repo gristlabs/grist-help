@@ -8,6 +8,7 @@
 - [AccessTokenResult](../interfaces/grist_plugin_api.AccessTokenResult.md)
 - [ColumnToMap](../interfaces/grist_plugin_api.ColumnToMap.md)
 - [CursorPos](../interfaces/grist_plugin_api.CursorPos.md)
+- [FetchSelectedOptions](../interfaces/grist_plugin_api.FetchSelectedOptions.md)
 - [GristColumn](../interfaces/grist_plugin_api.GristColumn.md)
 - [GristDocAPI](../interfaces/grist_plugin_api.GristDocAPI.md)
 - [GristTable](../interfaces/grist_plugin_api.GristTable.md)
@@ -146,17 +147,14 @@ ___
 
 ▸ **fetchSelectedRecord**(`rowId`, `options?`): `Promise`<`any`\>
 
-Fetches current selected record as for [GristView.fetchSelectedRecord](../interfaces/grist_plugin_api.GristView.md#fetchselectedrecord),
-but decoding data by default, replacing e.g. ['D', timestamp] with
-a moment date. Option `keepEncoded` skips the decoding step.
+Same as [GristView.fetchSelectedRecord](../interfaces/grist_plugin_api.GristView.md#fetchselectedrecord), but the option `keepEncoded` is `false` by default.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `rowId` | `number` |
-| `options` | `Object` |
-| `options.keepEncoded?` | `boolean` |
+| `options` | [`FetchSelectedOptions`](../interfaces/grist_plugin_api.FetchSelectedOptions.md) |
 
 #### Returns
 
@@ -168,16 +166,13 @@ ___
 
 ▸ **fetchSelectedTable**(`options?`): `Promise`<`any`\>
 
-Fetches data backing the widget as for [GristView.fetchSelectedTable](../interfaces/grist_plugin_api.GristView.md#fetchselectedtable),
-but decoding data by default, replacing e.g. ['D', timestamp] with
-a moment date. Option `keepEncoded` skips the decoding step.
+Same as [GristView.fetchSelectedTable](../interfaces/grist_plugin_api.GristView.md#fetchselectedtable), but the option `keepEncoded` is `false` by default.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Object` |
-| `options.keepEncoded?` | `boolean` |
+| `options` | [`FetchSelectedOptions`](../interfaces/grist_plugin_api.FetchSelectedOptions.md) |
 
 #### Returns
 
@@ -407,19 +402,21 @@ ___
 
 ### onRecord
 
-▸ **onRecord**(`callback`): `void`
+▸ **onRecord**(`callback`, `options?`): `void`
 
 For custom widgets, add a handler that will be called whenever the
 row with the cursor changes - either by switching to a different row, or
 by some value within the row potentially changing.  Handler may
 in the future be called with null if the cursor moves away from
 any row.
+By default, `options.keepEncoded` is `false`.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `callback` | (`data`: ``null`` \| [`RowRecord`](../interfaces/GristData.RowRecord.md), `mappings`: ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md)) => `unknown` |
+| `options` | [`FetchSelectedOptions`](../interfaces/grist_plugin_api.FetchSelectedOptions.md) |
 
 #### Returns
 
@@ -429,16 +426,18 @@ ___
 
 ### onRecords
 
-▸ **onRecords**(`callback`): `void`
+▸ **onRecords**(`callback`, `options?`): `void`
 
 For custom widgets, add a handler that will be called whenever the
-selected records change.  Handler will be called with a list of records.
+selected records change.
+By default, `options.format` is `'rows'` and `options.keepEncoded` is `false`.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `callback` | (`data`: [`RowRecord`](../interfaces/GristData.RowRecord.md)[], `mappings`: ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md)) => `unknown` |
+| `options` | [`FetchSelectedOptions`](../interfaces/grist_plugin_api.FetchSelectedOptions.md) |
 
 #### Returns
 
