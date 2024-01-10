@@ -30,6 +30,7 @@
 | <code class="keys">*⌥* *↑*</code> | <code class="keys">*Alt* + *↑*</code> | Open previous page |
 | <code class="keys">*⌘* *O*</code> | <code class="keys">*Ctrl* + *O*</code> | Activate next page widget |
 | <code class="keys">*⌘* *⇧* *O*</code> | <code class="keys">*Ctrl* + *Shift* + *O*</code> | Activate previous page widget |
+| <code class="keys">*Space*</code> | <code class="keys">*Space*</code> | Opens a record card in a table widget |
 
 ###Selection
 | Key (Mac) | Key (Windows) | Description | 
@@ -53,7 +54,7 @@
 | <code class="keys">*Escape*</code> | <code class="keys">*Escape*</code> | Discard changes to a cell value |
 | <code class="keys">*⌘* *D*</code> | <code class="keys">*Ctrl* + *D*</code> | Fills current selection with the contents of the top row in the selection |
 | <code class="keys">*Delete*</code> | <code class="keys">*Backspace*</code>,<code class="keys">*Delete*</code> | Clears the currently selected cells |
-| <code class="keys">*Enter*</code>,<code class="keys">*Space*</code> | <code class="keys">*Enter*</code>,<code class="keys">*Space*</code> | Toggles the value of checkbox cells |
+| <code class="keys">*Enter*</code> | <code class="keys">*Enter*</code> | Toggles the value of checkbox cells |
 | <code class="keys">*=*</code> | <code class="keys">*=*</code> | When typed at the start of a cell, make this a formula column |
 | <code class="keys">*⌘* *;*</code> | <code class="keys">*Ctrl* + *;*</code> | Insert the current date |
 | <code class="keys">*⌘* *⇧* *;*</code> | <code class="keys">*Ctrl* + *Shift* + *;*</code> | Insert the current date and time |
