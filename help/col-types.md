@@ -22,10 +22,16 @@ To add a column, click on the "+" symbol in the header row to open the "Add Colu
 
 ![Add column](images/columns/columns-add-column.png)
 
-The first option in the menu, "+ Add Column", will add a new, empty data column to your table.
+The first option in the menu, "Add Column", will add a new, empty data column to your table.
 
-*![Add new column](images/columns/columns-add-new-column.png)*
+If you know what column type you need, the next option allows you to assign a type for your new column. Select a column type from the expanded menu.
+
+*![Add new column type](images/columns/columns-add-new-column-type.png)*
 {: .screenshot-half }
+
+The third option, 'Add formula column', will add a new formula column with the formula entry box immediately opened so you can begin entering your formula without additional clicks.
+
+![Add formula column](images/columns/columns-add-formula-column.png)
 
 "Hidden Columns" expands to show a list of columns hidden from this view that can be quickly added back.
 
