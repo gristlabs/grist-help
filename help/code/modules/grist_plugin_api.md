@@ -158,7 +158,8 @@ ___
 
 ▸ **fetchSelectedRecord**(`rowId`, `options?`): `Promise`<`any`\>
 
-Same as [GristView.fetchSelectedRecord](../interfaces/grist_plugin_api.GristView.md#fetchselectedrecord), but the option `keepEncoded` is `false` by default.
+Same as [GristView.fetchSelectedRecord](../interfaces/grist_plugin_api.GristView.md#fetchselectedrecord),
+but the option `keepEncoded` is `false` by default.
 
 #### Parameters
 
@@ -177,7 +178,8 @@ ___
 
 ▸ **fetchSelectedTable**(`options?`): `Promise`<`any`\>
 
-Same as [GristView.fetchSelectedTable](../interfaces/grist_plugin_api.GristView.md#fetchselectedtable), but the option `keepEncoded` is `false` by default.
+Same as [GristView.fetchSelectedTable](../interfaces/grist_plugin_api.GristView.md#fetchselectedtable),
+but the option `keepEncoded` is `false` by default.
 
 #### Parameters
 

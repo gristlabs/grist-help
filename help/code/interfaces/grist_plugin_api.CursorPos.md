@@ -9,6 +9,7 @@ Represents the position of an active cursor on a page.
 ### Properties
 
 - [fieldIndex](grist_plugin_api.CursorPos.md#fieldindex)
+- [linkingRowIds](grist_plugin_api.CursorPos.md#linkingrowids)
 - [rowId](grist_plugin_api.CursorPos.md#rowid)
 - [rowIndex](grist_plugin_api.CursorPos.md#rowindex)
 - [sectionId](grist_plugin_api.CursorPos.md#sectionid)
@@ -20,6 +21,15 @@ Represents the position of an active cursor on a page.
 • `Optional` **fieldIndex**: `number`
 
 The index of the selected field in the current view.
+
+___
+
+### linkingRowIds
+
+• `Optional` **linkingRowIds**: [`UIRowId`](../modules/grist_plugin_api.md#uirowid)[]
+
+When in a linked section, CursorPos may include which rows in the controlling sections are
+selected: the rowId in the linking-source section, in _that_ section's linking source, etc.
 
 ___
 

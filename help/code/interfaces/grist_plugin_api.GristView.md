@@ -52,7 +52,8 @@ ___
 
 ▸ **fetchSelectedTable**(`options?`): `Promise`<`any`\>
 
-Like [GristDocAPI.fetchTable](grist_plugin_api.GristDocAPI.md#fetchtable), but gets data for the custom section specifically, if there is any.
+Like [GristDocAPI.fetchTable](grist_plugin_api.GristDocAPI.md#fetchtable),
+but gets data for the custom section specifically, if there is any.
 By default, `options.keepEncoded` is `true` and `format` is `columns`.
 
 #### Parameters

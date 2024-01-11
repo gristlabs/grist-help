@@ -40,7 +40,7 @@ ___
 
 ### onMany
 
-• `Optional` **onMany**: ``"none"`` \| ``"first"`` \| ``"all"``
+• `Optional` **onMany**: ``"all"`` \| ``"none"`` \| ``"first"``
 
 Whether to update none, one, or all matching records. Defaults to "first".
 
