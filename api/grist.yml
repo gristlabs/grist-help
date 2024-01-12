@@ -101,11 +101,12 @@ paths:
       responses:
         200:
           description: Success
+
   /orgs/{orgId}/workspaces:
     get:
       operationId: listWorkspaces
       tags:
-        - orgs
+        - workspaces
       summary: "List workspaces and documents within an org"
       parameters:
         - $ref: '#/components/parameters/orgIdPathParam'
@@ -115,7 +116,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OrgWithWorkspaces"
+                type: array
+                items:
+                  $ref: "#/components/schemas/WorkspaceWithDocsAndDomain"
     post:
       operationId: createWorkspace
       tags:
@@ -156,7 +159,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/WorkspaceWithOrg"
+                $ref: "#/components/schemas/WorkspaceWithDocsAndOrg"
     patch:
       operationId: modifyWorkspace
       tags:
@@ -1336,10 +1339,6 @@ components:
           type: string
           nullable: true
           example: null
-    Workspaces:
-      type: array
-      items:
-        $ref: "#/components/schemas/Workspace"
     WorkspaceWithDocs:
       allOf:
         - $ref: "#/components/schemas/Workspace"
@@ -1351,6 +1350,14 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/Doc"
+    WorkspaceWithDocsAndDomain:
+      allOf:
+        - $ref: "#/components/schemas/WorkspaceWithDocs"
+        - type: object
+          properties:
+            orgDomain:
+              type: string
+              example: "gristlabs"
     WorkspaceWithOrg:
       allOf:
         - $ref: "#/components/schemas/Workspace"
@@ -1360,17 +1367,10 @@ components:
           properties:
             org:
               $ref: "#/components/schemas/Org"
-    OrgWithWorkspaces:
+    WorkspaceWithDocsAndOrg:
       allOf:
-        - $ref: "#/components/schemas/Org"
-        - type: object
-          required:
-          - workspaces
-          properties:
-            workspaces:
-              type: array
-              items:
-                $ref: "#/components/schemas/WorkspaceWithDocs"
+        - $ref: "#/components/schemas/WorkspaceWithDocs"
+        - $ref: "#/components/schemas/WorkspaceWithOrg"
     DocWithWorkspace:
       allOf:
         - $ref: "#/components/schemas/Doc"
