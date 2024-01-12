@@ -1013,6 +1013,7 @@
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="./#fieldindex">fieldIndex</a></li>
+<li><a href="./#linkingrowids">linkingRowIds</a></li>
 <li><a href="./#rowid">rowId</a></li>
 <li><a href="./#rowindex">rowIndex</a></li>
 <li><a href="./#sectionid">sectionId</a></li>
@@ -1021,6 +1022,11 @@
 <h3 id="fieldindex">fieldIndex<a class="headerlink" href="#fieldindex" title="Permanent link">#</a></h3>
 <p>• <code>Optional</code> <strong>fieldIndex</strong>: <code>number</code></p>
 <p>The index of the selected field in the current view.</p>
+<hr />
+<h3 id="linkingrowids">linkingRowIds<a class="headerlink" href="#linkingrowids" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>linkingRowIds</strong>: <a href="../../modules/grist_plugin_api/#uirowid"><code>UIRowId</code></a>[]</p>
+<p>When in a linked section, CursorPos may include which rows in the controlling sections are
+selected: the rowId in the linking-source section, in <em>that</em> section&rsquo;s linking source, etc.</p>
 <hr />
 <h3 id="rowid">rowId<a class="headerlink" href="#rowid" title="Permanent link">#</a></h3>
 <p>• <code>Optional</code> <strong>rowId</strong>: <a href="../../modules/grist_plugin_api/#uirowid"><code>UIRowId</code></a></p>

@@ -1025,6 +1025,70 @@
 <h3 id="cellvalue">CellValue<a class="headerlink" href="#cellvalue" title="Permanent link">#</a></h3>
 <p>Ƭ <strong>CellValue</strong>: <code>number</code> | <code>string</code> | <code>boolean</code> | <code>null</code> | [<a href="../../enums/GristData.GristObjCode/"><code>GristObjCode</code></a>, &hellip;unknown[]]</p>
 <p>Possible types of cell content.</p>
+<p>Each <code>CellValue</code> may either be a primitive (e.g. <code>true</code>, <code>123</code>, <code>"hello"</code>, <code>null</code>)
+or a tuple (JavaScript Array) representing a Grist object. The first element of the tuple
+is a string character representing the object code. For example, <code>["L", "foo", "bar"]</code>
+is a <code>CellValue</code> of a Choice List column, where <code>"L"</code> is the type, and <code>"foo"</code> and
+<code>"bar"</code> are the choices.</p>
+<h3 id="grist-object-types">Grist Object Types<a class="headerlink" href="#grist-object-types" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>L</code></td>
+<td>List, e.g. <code>["L", "foo", "bar"]</code> or <code>["L", 1, 2]</code></td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>LookUp, as <code>["l", value, options]</code></td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>Dict, as <code>["O", {key: value, ...}]</code></td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>DateTimes, as <code>["D", timestamp, timezone]</code>, e.g. <code>["D", 1704945919, "UTC"]</code></td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>Date, as <code>["d", timestamp]</code>, e.g. <code>["d", 1704844800]</code></td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td>Censored, as <code>["C"]</code></td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td>Reference, as <code>["R", table_id, row_id]</code>, e.g. <code>["R", "People", 17]</code></td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>ReferenceList, as <code>["r", table_id, row_id_list]</code>, e.g. <code>["r", "People", [1,2]]</code></td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td>Exception, as <code>["E", name, ...]</code>, e.g. <code>["E", "ValueError"]</code></td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>Pending, as <code>["P"]</code></td>
+</tr>
+<tr>
+<td><code>U</code></td>
+<td>Unmarshallable, as <code>["U", text_representation]</code></td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>Version, as <code>["V", version_obj]</code></td>
+</tr>
+</tbody>
+</table>
 
   <br>
 </div>

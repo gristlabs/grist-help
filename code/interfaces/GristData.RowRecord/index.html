@@ -471,16 +471,6 @@
               Interface: RowRecord
             </a>
           </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#cellvalue">
-                CellValue
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#grist-object-types">
-                Grist Object Types
-              </a>
-            </li>
         
       </ul>
     </li>
@@ -1008,72 +998,7 @@
 
     <h1 id="interface-rowrecord">Interface: RowRecord<a class="headerlink" href="#interface-rowrecord" title="Permanent link">#</a></h1>
 <p><a href="../../modules/GristData/">GristData</a>.RowRecord</p>
-<p>Map of column ids to <code>CellValue</code>s.</p>
-<h3 id="cellvalue">CellValue<a class="headerlink" href="#cellvalue" title="Permanent link">#</a></h3>
-<p>Each <code>CellValue</code> may either be a primitive (e.g. <code>true</code>, <code>123</code>, <code>"hello"</code>, <code>null</code>)
-or a tuple (JavaScript Array) representing a Grist object. The first element of the tuple
-is a string character representing the object code. For example, <code>["L", "foo", "bar"]</code>
-is a <code>CellValue</code> of a Choice List column, where <code>"L"</code> is the type, and <code>"foo"</code> and
-<code>"bar"</code> are the choices.</p>
-<h3 id="grist-object-types">Grist Object Types<a class="headerlink" href="#grist-object-types" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>L</td>
-<td>List</td>
-</tr>
-<tr>
-<td>l</td>
-<td>LookUp</td>
-</tr>
-<tr>
-<td>O</td>
-<td>Dict</td>
-</tr>
-<tr>
-<td>D</td>
-<td>DateTime</td>
-</tr>
-<tr>
-<td>d</td>
-<td>Date</td>
-</tr>
-<tr>
-<td>C</td>
-<td>Censored</td>
-</tr>
-<tr>
-<td>R</td>
-<td>Reference</td>
-</tr>
-<tr>
-<td>r</td>
-<td>ReferenceList</td>
-</tr>
-<tr>
-<td>E</td>
-<td>Exception</td>
-</tr>
-<tr>
-<td>P</td>
-<td>Pending</td>
-</tr>
-<tr>
-<td>U</td>
-<td>Unmarshallable</td>
-</tr>
-<tr>
-<td>V</td>
-<td>Version</td>
-</tr>
-</tbody>
-</table>
+<p>Map of column ids to <a href="../../modules/GristData/#cellvalue">CellValue</a>&lsquo;s.</p>
 
   <br>
 </div>
