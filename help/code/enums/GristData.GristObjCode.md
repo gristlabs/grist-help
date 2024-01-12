@@ -2,7 +2,7 @@
 
 [GristData](../modules/GristData.md).GristObjCode
 
-Letter codes for CellValue types encoded as [code, args...] tuples.
+Letter codes for [CellValue](../modules/GristData.md#cellvalue) types encoded as [code, args...] tuples.
 
 ## Table of contents
 

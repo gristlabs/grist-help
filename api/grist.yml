@@ -101,11 +101,12 @@ paths:
       responses:
         200:
           description: Success
+
   /orgs/{orgId}/workspaces:
     get:
       operationId: listWorkspaces
       tags:
-        - orgs
+        - workspaces
       summary: "List workspaces and documents within an org"
       parameters:
         - $ref: '#/components/parameters/orgIdPathParam'
@@ -115,7 +116,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OrgWithWorkspaces"
+                type: array
+                items:
+                  $ref: "#/components/schemas/WorkspaceWithDocsAndDomain"
     post:
       operationId: createWorkspace
       tags:
@@ -156,7 +159,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/WorkspaceWithOrg"
+                $ref: "#/components/schemas/WorkspaceWithDocsAndOrg"
     patch:
       operationId: modifyWorkspace
       tags:
@@ -1336,10 +1339,6 @@ components:
           type: string
           nullable: true
           example: null
-    Workspaces:
-      type: array
-      items:
-        $ref: "#/components/schemas/Workspace"
     WorkspaceWithDocs:
       allOf:
         - $ref: "#/components/schemas/Workspace"
@@ -1351,6 +1350,14 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/Doc"
+    WorkspaceWithDocsAndDomain:
+      allOf:
+        - $ref: "#/components/schemas/WorkspaceWithDocs"
+        - type: object
+          properties:
+            orgDomain:
+              type: string
+              example: "gristlabs"
     WorkspaceWithOrg:
       allOf:
         - $ref: "#/components/schemas/Workspace"
@@ -1360,17 +1367,10 @@ components:
           properties:
             org:
               $ref: "#/components/schemas/Org"
-    OrgWithWorkspaces:
+    WorkspaceWithDocsAndOrg:
       allOf:
-        - $ref: "#/components/schemas/Org"
-        - type: object
-          required:
-          - workspaces
-          properties:
-            workspaces:
-              type: array
-              items:
-                $ref: "#/components/schemas/WorkspaceWithDocs"
+        - $ref: "#/components/schemas/WorkspaceWithDocs"
+        - $ref: "#/components/schemas/WorkspaceWithOrg"
     DocWithWorkspace:
       allOf:
         - $ref: "#/components/schemas/Doc"
@@ -2014,54 +2014,54 @@ components:
       name: filter
       schema:
         type: string
-        description: "This is a JSON object mapping column names to arrays of allowed values.  For example, to filter column `pet` for values `cat` and `dog`, the filter would be `{\"pet\": [\"cat\", \"dog\"]}`. JSON contains characters that are not safe to place in a URL, so it is important to url-encode them.  For this example, the url-encoding is `%7B%22pet%22%3A%20%5B%22cat%22%2C%20%22dog%22%5D%7D`. See https://rosettacode.org/wiki/URL_encoding for how to url-encode a string, or https://www.urlencoder.org/ to try some examples. Multiple columns can be filtered. For example the filter for `pet` being either `cat` or `dog`, AND `size` being either `tiny` or `outrageously small`, would be `{\"pet\": [\"cat\", \"dog\"], \"size\": [\"tiny\", \"outrageously small\"]}`."
-        example: "{\"pet\": [\"cat\", \"dog\"]}"
+      description: "This is a JSON object mapping column names to arrays of allowed values.  For example, to filter column `pet` for values `cat` and `dog`, the filter would be `{\"pet\": [\"cat\", \"dog\"]}`. JSON contains characters that are not safe to place in a URL, so it is important to url-encode them.  For this example, the url-encoding is `%7B%22pet%22%3A%20%5B%22cat%22%2C%20%22dog%22%5D%7D`. See https://rosettacode.org/wiki/URL_encoding for how to url-encode a string, or https://www.urlencoder.org/ to try some examples. Multiple columns can be filtered. For example the filter for `pet` being either `cat` or `dog`, AND `size` being either `tiny` or `outrageously small`, would be `{\"pet\": [\"cat\", \"dog\"], \"size\": [\"tiny\", \"outrageously small\"]}`."
+      example: "{\"pet\": [\"cat\", \"dog\"]}"
       required: false
     sortQueryParam:
       in: query
       name: sort
       schema:
         type: string
-        description: "Order in which to return results. If a single column name is given (e.g. `pet`), results are placed in ascending order of values in that column. To get results in an order that was previously prepared manually in Grist, use the special `manualSort` column name. Multiple columns can be specified, separated by commas (e.g. `pet,age`). For descending order, prefix a column name with a `-` character (e.g. `pet,-age`). To include additional sorting options append them after a colon (e.g. `pet,-age:naturalSort;emptyFirst,owner`). Available options are: `choiceOrder`, `naturalSort`, `emptyFirst`. Without the `sort` parameter, the order of results is unspecified."
-        example: "pet,-age"
+      description: "Order in which to return results. If a single column name is given (e.g. `pet`), results are placed in ascending order of values in that column. To get results in an order that was previously prepared manually in Grist, use the special `manualSort` column name. Multiple columns can be specified, separated by commas (e.g. `pet,age`). For descending order, prefix a column name with a `-` character (e.g. `pet,-age`). To include additional sorting options append them after a colon (e.g. `pet,-age:naturalSort;emptyFirst,owner`). Available options are: `choiceOrder`, `naturalSort`, `emptyFirst`. Without the `sort` parameter, the order of results is unspecified."
+      example: "pet,-age"
       required: false
     limitQueryParam:
       in: query
       name: limit
       schema:
         type: number
-        description: "Return at most this number of rows.  A value of 0 is equivalent to having no limit."
-        example: "5"
+      description: "Return at most this number of rows.  A value of 0 is equivalent to having no limit."
+      example: "5"
       required: false
     sortHeaderParam:
       in: header
       name: X-Sort
       schema:
         type: string
-        description: "Same as `sort` query parameter."
-        example: "pet,-age"
+      description: "Same as `sort` query parameter."
+      example: "pet,-age"
       required: false
     limitHeaderParam:
       in: header
       name: X-Limit
       schema:
         type: number
-        description: "Same as `limit` query parameter."
-        example: "5"
+      description: "Same as `limit` query parameter."
+      example: "5"
       required: false
     colIdPathParam:
       in: path
       name: colId
       schema:
         type: string
-        description: The column id (without the starting `$`) as shown in the column configuration below the label
+      description: The column id (without the starting `$`) as shown in the column configuration below the label
       required: true
     tableIdPathParam:
       in: path
       name: tableId
       schema:
         type: string
-        description: normalized table name (see `TABLE ID` in Raw Data) or numeric row ID in `_grist_Tables`
+      description: normalized table name (see `TABLE ID` in Raw Data) or numeric row ID in `_grist_Tables`
       required: true
     docIdPathParam:
       in: path
@@ -2091,20 +2091,20 @@ components:
       name: noparse
       schema:
         type: boolean
-        description: "Set to true to prohibit parsing strings according to the column type."
+      description: "Set to true to prohibit parsing strings according to the column type."
     hiddenQueryParam:
       in: query
       name: hidden
       schema:
         type: boolean
-        description: "Set to true to include the hidden columns (like \"manualSort\")"
+      description: "Set to true to include the hidden columns (like \"manualSort\")"
     headerQueryParam:
       in: query
       name: header
       schema:
         type: string
-        description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
         enum:
           - colId
           - label
+      description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
       required: false

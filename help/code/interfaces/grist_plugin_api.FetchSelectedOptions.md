@@ -47,5 +47,5 @@ ___
 
 • `Optional` **keepEncoded**: `boolean`
 
-- `true`: the returned data will contain raw `CellValue`s.
+- `true`: the returned data will contain raw [CellValue](../modules/GristData.md#cellvalue)'s.
 - `false`: the values will be decoded, replacing e.g. `['D', timestamp]` with a moment date.
