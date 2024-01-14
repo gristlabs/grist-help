@@ -1033,6 +1033,9 @@ A good informative overview of OIDC is at <a href="https://developer.okta.com/bl
     such as <code>https://&lt;grist-domain&gt;</code> (when OIDC is active, there will
     be a <code>/oauth2/callback</code> endpoint available here for implementing the protocol).
     If omitted, <code>APP_HOME_URL</code> will be used.</li>
+<li><code>GRIST_OIDC_IDP_END_SESSION_ENDPOINT</code> (optional) - If set, overrides the IdP&rsquo;s <code>end_session_endpoint</code> with
+    an alternative URL to redirect user upon logout (for an IdP that has a logout endpoint but does not support
+    the OIDC RP-Initiated Logout specification).</li>
 <li><code>GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT</code> (optional) -  If set to &ldquo;true&rdquo;, on logout, there won&rsquo;t be
     any attempt to call the IdP&rsquo;s <code>end_session_endpoint</code> (the user will remain logged in in the IdP).
     You should only set it to &ldquo;true&rdquo; if the IdP does not provide such endpoint (for example if you use Gitlab).</li>
