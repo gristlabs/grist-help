@@ -21,6 +21,9 @@ Expected environment variables:
     such as `https://<grist-domain>` (when OIDC is active, there will
 	be a `/oauth2/callback` endpoint available here for implementing the protocol).
 	If omitted, `APP_HOME_URL` will be used.
+  * `GRIST_OIDC_IDP_END_SESSION_ENDPOINT` (optional) - If set, overrides the IdP's `end_session_endpoint` with
+    an alternative URL to redirect user upon logout (for an IdP that has a logout endpoint but does not support
+    the OIDC RP-Initiated Logout specification).
   * `GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT` (optional) -  If set to "true", on logout, there won't be
     any attempt to call the IdP's `end_session_endpoint` (the user will remain logged in in the IdP).
     You should only set it to "true" if the IdP does not provide such endpoint (for example if you use Gitlab).
