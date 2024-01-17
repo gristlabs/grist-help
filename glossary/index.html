@@ -978,6 +978,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#lookups">
+                Lookups
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#page">
                 Page
               </a>
@@ -1005,6 +1010,11 @@
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#sort">
                 Sort
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#trigger-formulas">
+                Trigger Formulas
               </a>
             </li>
             <li class="wm-toc-li">
@@ -1176,6 +1186,11 @@ Examples of importing include:</p>
 <li>Calling Grist&rsquo;s API from a program and adding data read from another source
    (see: <a href="../rest-api/">Grist API</a>).</li>
 </ul>
+<h2 id="lookups">Lookups<a class="headerlink" href="#lookups" title="Permanent link">#</a></h2>
+<p>Lookup formulas allow you to &ldquo;look up&rdquo; data in other tables.</p>
+<p><a href="../references-lookups/#lookupone">lookupOne</a> allows you to look up a single record in another table by matching some data across two tables, similar to Excel&rsquo;s VLOOKUP.</p>
+<p><a href="../references-lookups/#lookuprecords">lookupRecords</a> allows you to look up multiple records in another table by matching some data across two tables.</p>
+<p>Lookups can be combined with dot notation to pull data from referenced records. <a href="../references-lookups/">Learn how.</a></p>
 <h2 id="page">Page<a class="headerlink" href="#page" title="Permanent link">#</a></h2>
 <p>Grist documents are organized visually into pages.  Each page allows
 you to view or edit one or more tables.  The nature of these viewers
@@ -1207,6 +1222,8 @@ called a column.</p>
 <p>The order in which rows of a table are shown is called the sort order.
 An example of changing the sort order of a table is given in the
 <a href="../lightweight-crm/#to-do-tasks-for-contacts">CRM tutorial</a>.</p>
+<h2 id="trigger-formulas">Trigger Formulas<a class="headerlink" href="#trigger-formulas" title="Permanent link">#</a></h2>
+<p>A <a href="../formulas/#trigger-formulas">trigger formula</a> is a formula that recalculates your data based on a set of conditions that you decide. They also allow you to clean data when a new value is entered (<a href="https://www.youtube.com/watch?v=wwzm39ADslA&amp;list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&amp;index=10&amp;t=2282s" target="_blank">watch webinar</a>), provide a sensible <a href="../formula-cheat-sheet/#setting-default-values-for-new-records">default value</a> for a column or <a href="../formula-cheat-sheet/#automatic-date-time-and-author-stamps">create Time and Authorship stamps</a>.</p>
 <h2 id="user-menu">User Menu<a class="headerlink" href="#user-menu" title="Permanent link">#</a></h2>
 <p>The user menu is the menu that opens by clicking your profile icon in the top-right of Grist. From there you can manage your profile, add additional Grist accounts that you own, and see a list of team sites to which you have access.</p>
 <p>Depending on where you are, the user menu will contain additional options. For example, from a <a href="../teams/#understanding-personal-sites">personal site</a> you&rsquo;ll see the option to upgrade your plan to a <a href="../teams/">team site</a>. From a team site, depending on your role and permissions, you may be able to <a href="../teams/#billing-account">manage billing</a> or <a href="../team-sharing/">edit team members</a>. From a document, you&rsquo;ll find an option to edit document settings.</p>
