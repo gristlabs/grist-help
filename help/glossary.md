@@ -164,7 +164,7 @@ An example of changing the sort order of a table is given in the
 
 ## Trigger Formulas
 
-A [trigger formula](formulas.md#trigger-formulas) is a formula that recalculates your data based on a set of conditions that you decide. They also allow you to clean data when a new value is entered [(watch webinar)](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s){: target="\_blank"}, provide a sensible [default value](formula-cheat-sheet.md#setting-default-values-for-new-records) for a column or [create Time and Authorship stamps](formula-cheat-sheet.md#automatic-date-time-and-author-stamps).
+A [trigger formula](formulas.md#trigger-formulas) is a formula that recalculates your data based on a set of conditions that you decide. They also allow you to clean data when a new value is entered ([watch webinar](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s){: target="\_blank"}), provide a sensible [default value](formula-cheat-sheet.md#setting-default-values-for-new-records) for a column or [create Time and Authorship stamps](formula-cheat-sheet.md#automatic-date-time-and-author-stamps).
 
 ## User Menu
 
