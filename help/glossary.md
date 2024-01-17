@@ -115,7 +115,7 @@ Lookup formulas allow you to "look up" data in other tables.
 
 [lookupRecords](references-lookups.md#lookuprecords) allows you to look up multiple records in another table by matching some data across two tables.
 
-[Dot Notation](references-lookups.md#reference-columns-and-dot-notation) allows you to use a [reference column](col-refs.md) to look up more data for a referenced record. Dot Notation can also be used with [reference lists](references-lookups.md#reference-lists-and-dot-notation) as well as within a [lookupOne](references-lookups.md#lookupone-and-dot-notation) or [lookupRecords](references-lookups.md#lookuprecords) formula.
+Lookups can be combined with dot notation to pull data from referenced records. [Learn how.](references-lookups.md)
 
 ## Page
 
@@ -164,7 +164,7 @@ An example of changing the sort order of a table is given in the
 
 ## Trigger Formulas
 
-A [trigger formula](formulas.md#trigger-formulas) is a formula that recalculates your data based on a set of conditions that you decide. They also allow you to [clean data](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s) when a new value is entered, provide a sensible [default value](formula-cheat-sheet.md#setting-default-values-for-new-records) for a column or [create Time and Authorship stamps](formula-cheat-sheet.md#automatic-date-time-and-author-stamps).
+A [trigger formula](formulas.md#trigger-formulas) is a formula that recalculates your data based on a set of conditions that you decide. They also allow you to clean data when a new value is entered [(watch webinar)](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s), provide a sensible [default value](formula-cheat-sheet.md#setting-default-values-for-new-records) for a column or [create Time and Authorship stamps](formula-cheat-sheet.md#automatic-date-time-and-author-stamps).
 
 ## User Menu
 
