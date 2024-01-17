@@ -29,7 +29,7 @@ If you know what column type you need, the next option allows you to assign a ty
 *![Add new column type](images/columns/columns-add-new-column-type.png)*
 {: .screenshot-half }
 
-The third option, 'Add formula column', will add a new formula column with the formula entry box immediately opened so you can begin entering your formula without additional clicks.
+The third option, "Add formula column", will add a new formula column with the formula entry box immediately opened so you can begin entering your formula without additional clicks.
 
 ![Add formula column](images/columns/columns-add-formula-column.png)
 
