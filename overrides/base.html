@@ -123,49 +123,61 @@
   {%- endif %}
 </div>
 
+<div class="feedback-box">
+  <div class="feedback-box-title">Give Feedback</div>
+  <div class="feedback-box-question">Was this article helpful?</div>
+  <div class="feedback-box-buttons">
+    <button class="feedback-box-button" data-rating="thumbsUp">&#x1F44D;</button>
+    <button class="feedback-box-button" data-rating="thumbsDown">&#x1F44E;</button>
+  </div>
+  <div class="feedback-box-response">
+    Thank you for letting us know!
+  </div>
+</div>
+
 <script>
-  function giveFeedback(event) {
-    document.getElementsByClassName('feedback-box-buttons')[0].style.display = 'none';
-    document.getElementsByClassName('feedback-box-response')[0].style.display = 'block';
-    const page = window.location.href;
+function initFeedbackButtons() {
+  // const serverUrl = "https://docs.getgrist.com";
+  const serverUrl = "http://localhost:8080";
+  const feedbackBox = document.querySelector('.feedback-box');
+  const buttons = document.querySelectorAll('.feedback-box-button');
+  document.querySelector('.feedback-box-buttons').addEventListener('click', giveFeedback);
 
-    // No formal telemetry endpoint yet, so use /api/log for practice.
-    // Results can still be queried just less systematically.
-    const url = new URL('https://docs.getgrist.com/api/log');
-    // Duplicate info in query parameters so it is logged with URL in case
-    // body isn't logged (hard to test until live on *.getgrist.com).
-    url.searchParams.set('event', event);
-    url.searchParams.set('page', page);
+  async function giveFeedback(event) {
+    const rating = event.target.dataset.rating;
+    if (!rating) { return; }
+    buttons.forEach(b => { b.disabled = true; });
+    try {
+      console.log("Sending rating to " + serverUrl + '/api/telemetry');
+      const resp = await window.fetch(serverUrl + '/api/telemetry', makePayload(rating));
+      if (!resp.ok) { throw new Error(resp.statusText); }
+    } catch (err) {
+      console.warn('Failed to report feedback', err);
+      document.querySelector('.feedback-box-response').textContent = String(err);
+    } finally {
+      buttons.forEach(b => { b.disabled = false; });
+      feedbackBox.classList.add('feedback-submitted');
+    }
+  }
 
-    fetch(url.href, {
+  function makePayload(rating) {
+    const url = window.location.href;
+    return {
       method: 'POST',
       body: JSON.stringify({
-        event,
-        docId: null,
-        page,
-        source: 'support',
+        event: 'ratedHelpCenterArticle',
+        metadata: {full: {url, rating}},
       }),
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest',
-      }
-    }).catch(e => {
-      console.warn('Failed to report feedback', e);
-    });
+      },
+    };
   }
+}
+initFeedbackButtons();
 </script>
-<div class="feedback-box">
-  <div class="feedback-box-title">Give Feedback</div>
-  <div class="feedback-box-question">Was this article helpful?</div>
-  <div class="feedback-box-buttons">
-    <div class="feedback-box-button" onclick="javascript:giveFeedback('thumbsUp')">&#x1F44D;</div>
-    <div class="feedback-box-button" onclick="javascript:giveFeedback('thumbsDown')">&#x1F44E;</div>
-  </div>
-  <div class="feedback-box-response" style="display: none;">
-    Thank you for letting us know!
-  </div>
-</div>
 
   {%- endif -%}
 
