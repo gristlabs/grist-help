@@ -167,7 +167,7 @@ function initFeedbackButtons() {
         event: 'ratedHelpCenterArticle',
         metadata: {full: {url, rating}},
       }),
-      credentials: 'include',
+      credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest',
