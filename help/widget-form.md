@@ -67,7 +67,7 @@ After sharing the link to your published form, end users can submit data to your
 
 *![widget-form-submission](images/widget-form/widget-form-submission.png)*
 
-All submitted data will appear in your underlying data table in your Grist document!
+All submitted data will appear in your underlying data table in your Grist document! Collecting data has never been so easy. 😍
 
 *![widget-form-submission-table](images/widget-form/widget-form-submission-table.png)*
 
