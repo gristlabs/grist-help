@@ -37,6 +37,7 @@ nav:
     - Search, sort & filter: search-sort-filter.md
     - Table widget: widget-table.md
     - Card & Card List: widget-card.md
+    - Form: widget-form.md
     - Chart: widget-chart.md
     - Calendar: widget-calendar.md
     - Custom: widget-custom.md
