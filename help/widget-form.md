@@ -13,7 +13,7 @@ Create a table containing the columns of data you wish to populate via form.
 
 ## Creating your form
 
-Add a form widget from the 'Add New' menu. Select the data table you wish to populate with form data. 
+Add a form widget from the "Add New" menu. Select the data table you wish to populate with form data. 
 
 *![widget-form-add-widget](images/widget-form/widget-form-add-widget.png)*
 {: .screenshot-half }
