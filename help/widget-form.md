@@ -93,7 +93,7 @@ Once a form has been published, a button will appear to copy the link to the for
 
 *![widget-form-footer-options-published](images/widget-form/widget-form-footer-options-published.png)*
 
-## Form Submissions
+## Form submissions
 
 After sharing the link to your published form, end users can submit data to your Grist document via the form.
 
