@@ -458,22 +458,34 @@ html {
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  background-color: transparent;
 }
 
-.feedback-box-button:hover {
+.feedback-box-button:disabled {
+  opacity: 0.5;
+}
+
+.feedback-box-button:hover:enabled {
   background-color: #ccc;
 }
 
-.feedback-box-button:active {
+.feedback-box-button:active:enabled {
   background-color: #aaa;
 }
 
 .feedback-box-response {
+  display: none;
   font-size: 150%;
   color: #888;
   margin: 10px;
 }
 
+.feedback-submitted .feedback-box-buttons {
+  display: none;
+}
+.feedback-submitted .feedback-box-response {
+  display: block;
+}
 
 /***********************************************************************
  * The rest is taken from base.css from mkdocs.
