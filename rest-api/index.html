@@ -7,18 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist has an API for manipulating documents, workspaces, and team sites.
-To access this API, you’ll need an API key.  An API key is owned by a single
-user, and has the same permissions as that user.  To enable API access for
-yourself, click on the circle with your profile picture or initial
-on the top right of the screen.  Then select the “Profile Settings”
-option.">
-      <meta property="og:description" content="Grist has an API for manipulating documents, workspaces, and team sites.
-To access this API, you’ll need an API key.  An API key is owned by a single
-user, and has the same permissions as that user.  To enable API access for
-yourself, click on the circle with your profile picture or initial
-on the top right of the screen.  Then select the “Profile Settings”
-option.">
+      <meta name="description" content="Grist has an API for manipulating documents, workspaces, and team sites.">
+      <meta property="og:description" content="Grist has an API for manipulating documents, workspaces, and team sites.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/rest-api/">
@@ -418,9 +408,19 @@ option.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Grist API
+              Grist API Usage
             </a>
           </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#authentication">
+                Authentication
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#usage">
+                Usage
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -1014,20 +1014,25 @@ option.">
 
     
 
-    <h1 id="grist-api">Grist API<a class="headerlink" href="#grist-api" title="Permanent link">#</a></h1>
-<p>Grist has an API for manipulating documents, workspaces, and team sites.
-To access this API, you&rsquo;ll need an API key.  An API key is owned by a single
+    <h1 id="grist-api-usage">Grist API Usage<a class="headerlink" href="#grist-api-usage" title="Permanent link">#</a></h1>
+<p>Grist has an API for manipulating documents, workspaces, and team sites.</p>
+<ul>
+<li><a href="../api/">API Reference</a> shows documentation of all available endpoints.</li>
+<li><a href="https://docs.getgrist.com/apiconsole">Interactive API Console</a> allows you to make API calls using your Grist login.</li>
+</ul>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
+<p>To access the Grist API, you&rsquo;ll need an API key.  An API key is owned by a single
 user, and has the same permissions as that user.  To enable API access for
-yourself, click on the circle with your profile picture or initial
-on the top right of the screen.  Then select the &ldquo;Profile Settings&rdquo;
-option.</p>
+yourself, visit your <a href="https://docs.getgrist.com/account">Profile Settings</a>. You can always find
+this page by clicking your profile picture or initial on the top right of the screen to open the
+account menu.  Then select the &ldquo;Profile Settings&rdquo; option:</p>
 <p class="screenshot-half"><em><img alt="api-profile-settings" src="../images/api/api-profile-settings.png" /></em></p>
 <p>This shows a dialog with all of your profile setting options. Scroll down to the &ldquo;API&rdquo; section.</p>
 <p><img alt="api-user-profile" src="../images/api/api-user-profile.png" /></p>
 <p>Click on the &ldquo;Create&rdquo; button to create an API Key.</p>
 <p><img alt="api-create-api-key" src="../images/api/api-create-api-key.png" /></p>
 <p>You can now copy this key for use when making API calls.  To be
-clear, copy the key you get when clicking &ldquo;Create&rdquo;, not the key
+clear, copy the key in your profile settings, not the key
 in the above screenshot, which isn&rsquo;t a real one.  You can
 revoke your API key by clicking &ldquo;Remove&rdquo; from Profile Settings at any time.
 You&rsquo;ll then have the option to create a new one if you wish.</p>
@@ -1039,6 +1044,7 @@ your api key):</p>
 <p>This should return a list of organizations, which is what the API calls
 <a href="../team-sharing/">team sites</a> and your personal site.  Your personal site
 is accessible at <code>docs.getgrist.com</code>.  Team sites are accessible at <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>To access documents on your personal site via the API, simply continue
 using the <code>docs.getgrist.com</code> domain.  To access documents and
 workspaces on a team site, use <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
@@ -1059,7 +1065,8 @@ could do:</p>
   https://&lt;docs|TEAM&gt;.getgrist.com/api/docs/&lt;DOC-ID-GOES-HERE&gt;
 </code></pre>
 
-<p>For details of the endpoints available, see our <a href="../api/">API docs</a>.</p>
+<p>For details of the endpoints available, see our <a href="../api/">API docs</a> or the interactive
+<a href="https://docs.getgrist.com/apiconsole">API console</a>.</p>
 <p>There are also client libraries available:</p>
 <ul>
 <li><a href="https://www.npmjs.com/package/grist-api">JavaScript/TypeScript client library</a></li>
