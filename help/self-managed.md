@@ -54,9 +54,9 @@ describe how using [Docker](https://www.docker.com/),
 but there are many other tools and services for running
 containers.
 
-To try Grist out,
-make an empty directory for Grist to store material in
-(say `~/grist`) and then for Grist Core you can do:
+You can also host Grist on AWS using the [Grist Omnibus listing on the AWS Marketplace](https://aws.amazon.com/marketplace/management/products/prod-ljgtgt5bwdf2w/overview/product-information). Full instructions for this hosting method can be found [here](install/aws-marketplace.md).
+
+To try Grist out using Docker, make an empty directory for Grist to store material in (say `~/grist`) and then for Grist Core you can do:
 
 ```
 docker run -p 8484:8484 \
