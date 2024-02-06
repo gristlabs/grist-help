@@ -9,8 +9,8 @@ After deploying the image, Grist should be instantly available on your public IP
 
 Default credentials:
 
-* email: `admin@[your-public-ip4-dns-adress]` (such as “`admin@ec2-34-224-196-207.compute-1.amazonaws.com`“)
-* password: `[your-public-ip4-dns-adress]`
+* email: admin@example.getgrist.com
+* password: [your-instance-ID]
 
 ### How to log in to EC2 instance
 
