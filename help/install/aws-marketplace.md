@@ -66,6 +66,12 @@ Once the above has been configured, you should be able to log in with your Googl
 * The VPC can be accessed from the internet (allowing internet gateway and routing tables to handle traffic).
 * A security group connection from ports 22 (SSH for configuration), 80 (HTTP connection) and 433 (HTTPS connection) is allowed.
 
+## Updating `grist-omnibus`
+
+The packaged version of `grist-omnibus` will auto-update before each launch. To update `grist-omnibus` manually, restart the EC2 instance or log in via SSH and call `sudo ~/grist/restartGrist`.
+
+There are currently no plans to support the Grist AWS Marketplace environment outside of `grist-omnibus`.
+
 ## Other important information 
 
 * Your EC2 instance should have the “Persistent store” option checked.
