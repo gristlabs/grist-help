@@ -54,8 +54,6 @@ describe how using [Docker](https://www.docker.com/),
 but there are many other tools and services for running
 containers.
 
-You can also host Grist on AWS using the [Grist Omnibus listing on the AWS Marketplace](https://aws.amazon.com/marketplace/management/products/prod-ljgtgt5bwdf2w/overview/product-information). Full instructions for this hosting method can be found [here](install/aws-marketplace.md).
-
 To try Grist out using Docker, make an empty directory for Grist to store material in (say `~/grist`) and then for Grist Core you can do:
 
 ```
@@ -98,6 +96,10 @@ take at least the following steps:
     [general authentication methods](self-managed.md#how-do-i-set-up-authentication) that cover many cases,
 	and a [special authentication method](self-managed.md#are-there-other-authentication-methods) for custom cases.
   * Consider enabling [snapshot support](self-managed.md#how-do-i-set-up-snapshots) if you want Grist to handle document backups.
+
+#### Grist on AWS
+
+You can also host Grist on AWS. Full instructions on this hosting method are available on the [Grist AWS Marketplace](install/aws-marketplace.md) page.
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
