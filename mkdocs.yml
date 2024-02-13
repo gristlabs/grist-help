@@ -9,7 +9,7 @@ repo_url: "https://github.com/gristlabs/grist-help"
 # (which is confused by them).
 use_directory_urls: !ENV [HTMLPROOFER_OVERRIDE_USE_DIRECTORY_URLS, true]
 
-docs_dir: './help'
+docs_dir: './help/en/docs' # Add localization folder here for now, we'll handle i18n later
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
 theme:
   name: windmill

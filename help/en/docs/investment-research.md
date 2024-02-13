@@ -11,8 +11,8 @@ investments in them up to 2013. Let’s take a look at the
 sample document and then we’ll talk about how to build it so that you can apply these tools to
 your own data.
 
-[^doc_desc]: Download [crunchbase_companies_ny.csv](/investment-research/crunchbase-companies-ny.csv)
-and [crunchbase_investments_ny.csv](/investment-research/crunchbase-investments-ny.csv). The sample data includes only the “companies” and “investments” data, and includes only
+[^doc_desc]: Download [crunchbase_companies_ny.csv](/unlocalized-assets/investment-research/crunchbase-companies-ny.csv)
+and [crunchbase_investments_ny.csv](/unlocalized-assets/investment-research/crunchbase-investments-ny.csv). The sample data includes only the “companies” and “investments” data, and includes only
 New York companies to keep it smaller and faster. The dataset comes
 from [Kaggle](https://www.kaggle.com/mauriciocap/crunchbase2013).
 
@@ -68,9 +68,9 @@ the first step.
 
 Let’s import the raw data. We’ll import two CSV files, where each will become its own table. To
 follow along, save the files from
-[crunchbase_companies_ny.csv](/investment-research/crunchbase-companies-ny.csv)
+[crunchbase_companies_ny.csv](/unlocalized-assets/investment-research/crunchbase-companies-ny.csv)
 and
-[crunchbase_investments_ny.csv](/investment-research/crunchbase-investments-ny.csv)
+[crunchbase_investments_ny.csv](/unlocalized-assets/investment-research/crunchbase-investments-ny.csv)
 to
 your computer first. Then, create a Grist document by importing the first file from the home page.
 
@@ -237,7 +237,7 @@ and the same table (Companies) and summary column (category_code) as before. The
 
 For a chart, you’ll always follow up by customizing it.
 
-Open the right panel, and select “Chart” tab / “Widget” subtab. 
+Open the right panel, and select “Chart” tab / “Widget” subtab.
 
 For this first chart, under “Chart type", select “Pie Chart”. To construct this chart, first select a label, and then select a series to summarize in the pie chart.  Since we want the chart to show “category_code” as labels, select this series from the "Label" dropdown. We want to use “funding_total_usd” as values, so this should be listed at the top of the “series” list in the configuration panel. As you move your mouse
 over the items in that list, use the double vertical bars that show up to drag and drop a series at the top of the list. Alternatively, you can hide the other series from the list by clicking the trash icon.
@@ -257,7 +257,7 @@ axis values. Under 'Series' select a second (and possible additional) column to 
 You can rearrange the sections on the screen into a configuration you'd like to
 see for a dashboard. Move your mouse to the top left of each section until you
 see a "drag handle" icon. Use that icon to drag each section into the desired
-spot relative to other sections. Once you’re finished, rename the page by hovering over the 
+spot relative to other sections. Once you’re finished, rename the page by hovering over the
 page name then clicking the three-dot icon to open the menu. Select "Rename" and rename to “Overview”.
 
 ![22-rearrange-widgets](images/investment-research/22-rearrange-widgets.png)
@@ -341,7 +341,7 @@ case, pick the widget that we just added: “INVESTMENTS [by Company_category_co
 ![29-dynamic-chart2](images/investment-research/29-dynamic-chart2.png)
 
 As in the previous section, we configure the chart by selecting “Chart Type” as “Bar Chart”, and
-in the “X-Axis” dropdown, selecting “funded_year” and under "Series", selecting 
+in the “X-Axis” dropdown, selecting “funded_year” and under "Series", selecting
 “raised_amount_usd” and hiding the rest.
 
 ![30-breakdowns-page-done](images/investment-research/30-breakdowns-page-done.png)
