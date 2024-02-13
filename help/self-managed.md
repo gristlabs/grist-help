@@ -99,7 +99,7 @@ take at least the following steps:
 
 #### Grist on AWS
 
-You can also host Grist on AWS. Full instructions on this hosting method are available on the [Grist AWS Marketplace](install/aws-marketplace.md) page.
+You can also host Grist on AWS. Full instructions on this hosting method are available on the Grist [AWS Marketplace page](install/aws-marketplace.md).
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
