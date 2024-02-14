@@ -629,6 +629,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/aws-marketplace/" class="wm-article-link wm-toc-text">AWS Marketplace</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Telemetry</span>
 </li>
 <li class="wm-toc-li-nested collapse">
@@ -1025,7 +1029,10 @@
 <li><a href="#self-managed-grist">Self-Managed Grist</a><ul>
 <li><a href="#the-essentials">The essentials</a><ul>
 <li><a href="#what-is-self-managed-grist">What is Self-Managed Grist?</a></li>
-<li><a href="#how-do-i-install-grist">How do I install Grist?</a></li>
+<li><a href="#how-do-i-install-grist">How do I install Grist?</a><ul>
+<li><a href="#grist-on-aws">Grist on AWS</a></li>
+</ul>
+</li>
 <li><a href="#how-do-i-sandbox-documents">How do I sandbox documents?</a></li>
 <li><a href="#how-do-i-run-grist-on-a-server">How do I run Grist on a server?</a></li>
 <li><a href="#how-do-i-set-up-a-team">How do I set up a team?</a></li>
@@ -1097,9 +1104,7 @@ and get support.</p>
 describe how using <a href="https://www.docker.com/">Docker</a>,
 but there are many other tools and services for running
 containers.</p>
-<p>To try Grist out,
-make an empty directory for Grist to store material in
-(say <code>~/grist</code>) and then for Grist Core you can do:</p>
+<p>To try Grist out using Docker, make an empty directory for Grist to store material in (say <code>~/grist</code>) and then for Grist Core you can do:</p>
 <pre><code>docker run -p 8484:8484 \
   -v ~/grist:/persist \
   -e GRIST_SESSION_SECRET=invent-a-secret-here \
@@ -1138,6 +1143,8 @@ take at least the following steps:</p>
     and a <a href="./#are-there-other-authentication-methods">special authentication method</a> for custom cases.</li>
 <li>Consider enabling <a href="./#how-do-i-set-up-snapshots">snapshot support</a> if you want Grist to handle document backups.</li>
 </ul>
+<h4 id="grist-on-aws">Grist on AWS<a class="headerlink" href="#grist-on-aws" title="Permanent link">#</a></h4>
+<p>You can also host Grist on AWS. Full instructions on this hosting method are available on the Grist <a href="../install/aws-marketplace/">AWS Marketplace page</a>.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-sandbox-documents">How do I sandbox documents?<a class="headerlink" href="#how-do-i-sandbox-documents" title="Permanent link">#</a></h3>
 <p>Grist allows for very powerful formulas, using Python.  We recommend
 setting the environment variable <code>GRIST_SANDBOX_FLAVOR</code> to <code>gvisor</code> if

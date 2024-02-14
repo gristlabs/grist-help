@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Tutorials and resources for Grist, to help you organize your data, your way.">
-      <meta property="og:description" content="Tutorials and resources for Grist, to help you organize your data, your way.">
+      <meta name="description" content="Grist on the AWS Marketplace has what you need to run a self-hosted Grist instance with minimal setup, and is based on grist-omnibus. Below are the complete configuration steps, including authentication via OpenID.">
+      <meta property="og:description" content="Grist on the AWS Marketplace has what you need to run a self-hosted Grist instance with minimal setup, and is based on grist-omnibus. Below are the complete configuration steps, including authentication via OpenID.">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/newsletters/2023-11/">
+    <link rel="canonical" href="https://support.getgrist.com/install/aws-marketplace/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <link rel="me" href="https://fosstodon.org/@grist">
     <meta name="thumbnail" content="https://support.getgrist.com/images/favicon.png">
     <meta property="og:image" content="https://support.getgrist.com/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>2023/11 - Grist Help Center</title>
+    <title>AWS Marketplace - Grist Help Center</title>
     
   
 
@@ -581,28 +581,71 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../install/saml/" class="wm-article-link wm-toc-text">SAML</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../saml/" class="wm-article-link wm-toc-text">SAML</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../install/oidc/" class="wm-article-link wm-toc-text">OIDC</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../oidc/" class="wm-article-link wm-toc-text">OIDC</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../install/forwarded-headers/" class="wm-article-link wm-toc-text">Forwarded headers</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../forwarded-headers/" class="wm-article-link wm-toc-text">Forwarded headers</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../install/cloud-storage/" class="wm-article-link wm-toc-text">Cloud storage</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../cloud-storage/" class="wm-article-link wm-toc-text">Cloud storage</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../install/grist-connect/" class="wm-article-link wm-toc-text">GristConnect</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../grist-connect/" class="wm-article-link wm-toc-text">GristConnect</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../../install/aws-marketplace/" class="wm-article-link wm-toc-text">AWS Marketplace</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">AWS Marketplace</a>
 
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              AWS Marketplace
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#first-run-setup">
+                First run setup
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#custom-domain-and-ssl-setup-for-https-access">
+                Custom domain and SSL setup for HTTPS access
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#authentication-setup">
+                Authentication setup
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#running-grist-in-a-separate-vpc">
+                Running Grist in a separate VPC
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#updating-grist-omnibus">
+                Updating grist-omnibus
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#other-important-information">
+                Other important information
+              </a>
+            </li>
+        
+      </ul>
+    </li>
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Telemetry</span>
@@ -631,225 +674,187 @@
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../" class="wm-article-link wm-toc-text">Newsletters</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-12/" class="wm-article-link wm-toc-text">2023/12</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-12/" class="wm-article-link wm-toc-text">2023/12</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">2023/11</a>
-
-    
-    
-    <li class="wm-page-toc wm-toc-li-nested collapse in">
-      <ul class="wm-toctree">
-        
-          <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#_top">
-              November 2023 Newsletter
-            </a>
-          </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#whats-new">
-                What's New
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#community-highlights">
-                Community Highlights
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#learning-grist">
-                Learning Grist
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#help-spread-the-word">
-                Help spread the word
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#we-are-here-to-support-you">
-                We are here to support you
-              </a>
-            </li>
-        
-      </ul>
-    </li>
-    
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-10/" class="wm-article-link wm-toc-text">2023/10</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-11/" class="wm-article-link wm-toc-text">2023/11</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-09/" class="wm-article-link wm-toc-text">2023/09</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-10/" class="wm-article-link wm-toc-text">2023/10</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-08/" class="wm-article-link wm-toc-text">2023/08</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-09/" class="wm-article-link wm-toc-text">2023/09</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-07/" class="wm-article-link wm-toc-text">2023/07</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-08/" class="wm-article-link wm-toc-text">2023/08</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-06/" class="wm-article-link wm-toc-text">2023/06</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-07/" class="wm-article-link wm-toc-text">2023/07</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-05/" class="wm-article-link wm-toc-text">2023/05</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-06/" class="wm-article-link wm-toc-text">2023/06</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-04/" class="wm-article-link wm-toc-text">2023/04</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-05/" class="wm-article-link wm-toc-text">2023/05</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-03/" class="wm-article-link wm-toc-text">2023/03</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-04/" class="wm-article-link wm-toc-text">2023/04</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-02/" class="wm-article-link wm-toc-text">2023/02</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-03/" class="wm-article-link wm-toc-text">2023/03</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2023-01/" class="wm-article-link wm-toc-text">2023/01</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-02/" class="wm-article-link wm-toc-text">2023/02</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-12/" class="wm-article-link wm-toc-text">2022/12</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2023-01/" class="wm-article-link wm-toc-text">2023/01</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-11/" class="wm-article-link wm-toc-text">2022/11</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-12/" class="wm-article-link wm-toc-text">2022/12</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-10/" class="wm-article-link wm-toc-text">2022/10</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-11/" class="wm-article-link wm-toc-text">2022/11</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-09/" class="wm-article-link wm-toc-text">2022/09</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-10/" class="wm-article-link wm-toc-text">2022/10</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-08/" class="wm-article-link wm-toc-text">2022/08</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-09/" class="wm-article-link wm-toc-text">2022/09</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-07/" class="wm-article-link wm-toc-text">2022/07</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-08/" class="wm-article-link wm-toc-text">2022/08</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-06/" class="wm-article-link wm-toc-text">2022/06</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-07/" class="wm-article-link wm-toc-text">2022/07</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-05/" class="wm-article-link wm-toc-text">2022/05</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-06/" class="wm-article-link wm-toc-text">2022/06</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-04/" class="wm-article-link wm-toc-text">2022/04</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-05/" class="wm-article-link wm-toc-text">2022/05</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-03/" class="wm-article-link wm-toc-text">2022/03</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-04/" class="wm-article-link wm-toc-text">2022/04</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-03/" class="wm-article-link wm-toc-text">2022/03</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2022-01/" class="wm-article-link wm-toc-text">2022/01</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-12/" class="wm-article-link wm-toc-text">2021/12</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2022-01/" class="wm-article-link wm-toc-text">2022/01</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-11/" class="wm-article-link wm-toc-text">2021/11</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-12/" class="wm-article-link wm-toc-text">2021/12</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-10/" class="wm-article-link wm-toc-text">2021/10</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-11/" class="wm-article-link wm-toc-text">2021/11</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-09/" class="wm-article-link wm-toc-text">2021/09</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-10/" class="wm-article-link wm-toc-text">2021/10</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-08/" class="wm-article-link wm-toc-text">2021/08</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-09/" class="wm-article-link wm-toc-text">2021/09</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-08/" class="wm-article-link wm-toc-text">2021/08</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-04/" class="wm-article-link wm-toc-text">2021/04</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-03/" class="wm-article-link wm-toc-text">2021/03</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-04/" class="wm-article-link wm-toc-text">2021/04</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-03/" class="wm-article-link wm-toc-text">2021/03</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="../2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
 
     
 </li>
@@ -1012,20 +1017,20 @@
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../2023-10/" class="btn btn-xs btn-default pull-right">
+      <a href="../../telemetry/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../2023-10/" class="btn btn-xs btn-link">
-        2023/10
+      <a href="../../telemetry/" class="btn btn-xs btn-link">
+        Overview of Telemetry
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../2023-12/" class="btn btn-xs btn-default pull-left">
+      <a href="../grist-connect/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../2023-12/" class="btn btn-xs btn-link">
-        2023/12
+        Previous</a><a href="../grist-connect/" class="btn btn-xs btn-link">
+        GristConnect
       </a>
     </div>
     
@@ -1033,161 +1038,74 @@
 
     
 
-    <h1 id="november-2023-newsletter">November 2023 Newsletter<a class="headerlink" href="#november-2023-newsletter" title="Permanent link">#</a></h1>
-<style>
-  /* restore some poorly overridden defaults */
-  .newsletter-header .table {
-    background-color: initial;
-    border: initial;
-  }
-  .newsletter-header .table > tbody > tr > td {
-    padding: initial;
-    border: initial;
-    vertical-align: initial;
-  }
-  .newsletter-header img.header-img {
-    padding: initial;
-    max-width: initial;
-    display: initial;
-    padding: initial;
-    line-height: initial;
-    background-color: initial;
-    border: initial;
-    border-radius: initial;
-    margin: initial;
-  }
-
-  /* copy newsletter styles, with a prefix for sufficient specificity */
-  .newsletter-header .header {
-    border: none;
-    padding: 0;
-    margin: 0;
-  }
-  .newsletter-header table > tbody > tr > td.header-image {
-    width: 80px;
-    padding-right: 16px;
-  }
-  .newsletter-header table > tbody > tr > td.header-text {
-    background-color: #42494B;
-    padding: 16px 20px;
-  }
-  .newsletter-header table.header-top {
-    border: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-  .header-title {
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    line-height: 28px;
-    color: #FFFFFF;
-  }
-  .header-month {
-    color: #FFFFFF;
-  }
-  .header-welcome {
-    margin-top: 12px;
-    color: #FFFFFF;
-  }
-  .newsletter-summary {
-    background-color: #e3fff5;
-    margin: 0;
-    padding: 10px;
-  }
-  .newsletter-summary-header {
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid lightgrey;
-  }
-  .newsletter-summary ul {
-    padding-left: 20px;
-  }
-  .newsletter-summary li {
-    margin-bottom: 10px;
-  }
-  .newsletter-summary li p {
-    margin: 0px
-  }
-</style>
-
-<div class="newsletter-header">
-<table class="header" cellpadding="0" cellspacing="0" border="0"><tr>
-  <td class="header-text">
-    <table class="header-top"><tr>
-      <td class="header-image">
-        <a href="https://www.getgrist.com">
-          <img class="header-img" src="/images/newsletters/grist-labs.png" width="80" height="80" alt="Grist Labs" border="0">
-        </a>
-      </td>
-      <td class="header-top-text">
-        <div class="header-title">Grist for the Mill</div>
-        <div class="header-month">November 2023
-          &#8226; <a href="https://www.getgrist.com/">getgrist.com</a></div>
-      </td>
-    </tr></table>
-    <div class="header-welcome" style="color: #e0e0e0;">
-      Welcome to our monthly newsletter of updates and tips for Grist users.
-    </div>
-  </td>
-</tr></table>
-</div>
-
-<h2 id="whats-new">What&rsquo;s New<a class="headerlink" href="#whats-new" title="Permanent link">#</a></h2>
-<h3 id="hang-out-with-us-on-discord">Hang out with us on Discord!<a class="headerlink" href="#hang-out-with-us-on-discord" title="Permanent link">#</a></h3>
-<p>We’ve created an official <a href="https://discord.gg/MYKpYQ3fbP" target="_blank">Grist Discord server</a> for those interested in a place to chat about Grist and Grist-related topics. As a fun kickoff, we’re going to see how many of this year’s <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> puzzles we can solve with Grist. 📆🧩</p>
-<p class="grist-button"><a href="https://discord.gg/MYKpYQ3fbP" target="_blank">JOIN DISCORD</a></p>
-<h3 id="record-cards">Record cards<a class="headerlink" href="#record-cards" title="Permanent link">#</a></h3>
-<p>Don’t let the humble name fool you, this is a big one!</p>
-<p>We all know how helpful references are. But sometimes you want to take a peek at the referenced record without changing your current view. Now you can! The “link” icon in reference and reference list columns is now an actual hyperlink, and it opens the referenced record in a pop-up.</p>
-<p><img alt="Referenced record card" src="../../images/newsletters/2023-11/record-card1.gif" /></p>
-<p>But this doesn’t just affect references! You can also view any row in a table as a card with a single click, letting you see its base record in full.</p>
-<p><img alt="Row record card" src="../../images/newsletters/2023-11/record-card2a.gif" /></p>
-<p>Record cards are default card views for every table. They can be configured on the <a href="https://support.getgrist.com/raw-data/#raw-data-page" target="_blank">Raw Data page</a>.</p>
-<h3 id="add-column-with-type">Add column with type<a class="headerlink" href="#add-column-with-type" title="Permanent link">#</a></h3>
-<p>Our quest to improve the experience of adding new columns continues. Now you can set the column type right in the “Add Column” menu. Behold!</p>
-<p><img alt="Add column type" src="../../images/newsletters/2023-11/add-column-type.gif" /></p>
-<h3 id="security-update-for-self-hosters">Security update for self-hosters<a class="headerlink" href="#security-update-for-self-hosters" title="Permanent link">#</a></h3>
-<p>We released a security fix earlier this month related to the suggested configuration of <code>grist-core</code> with traefik, as well as for <a href="https://github.com/gristlabs/grist-omnibus" target="_blank"><code>grist-omnibus</code></a>. See this <a href="https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856/24" target="_blank">Community update</a> for more details.</p>
-<p>The fix also affects those who do Grist authentication by forwarding a header for all endpoints (e.g. behind HTTP Basic Auth), as it makes a previously optional flag required. You may need to review your settings – see <a href="https://github.com/gristlabs/grist-core/issues/750#issuecomment-1811082115" target="_blank">this issue</a> for details.</p>
-<h3 id="grist-console-qa">Grist Console Q&amp;A<a class="headerlink" href="#grist-console-qa" title="Permanent link">#</a></h3>
-<p>CTO Paul was able to share some fascinating Grist-related nuggets in an excellent <a href="https://console.substack.com/p/console-184" target="_blank">Console Q&amp;A</a>. Learn about the origins of the name “Grist”, how (and why) we build Grist, and how we may be able to communicate with extraterrestrials. 👽 </p>
-<p>(That last one may not be directly related to Grist.)</p>
-<h2 id="community-highlights">Community Highlights<a class="headerlink" href="#community-highlights" title="Permanent link">#</a></h2>
+    <h1 class="tag-core tag-ee" id="aws-marketplace">AWS Marketplace<a class="headerlink" href="#aws-marketplace" title="Permanent link">#</a></h1>
+<p>Grist on the AWS Marketplace has what you need to run a self-hosted Grist instance with minimal setup, and is based on <a href="https://github.com/gristlabs/grist-omnibus"><code>grist-omnibus</code></a>. Below are the complete configuration steps, including authentication via OpenID.</p>
+<h2 id="first-run-setup">First run setup<a class="headerlink" href="#first-run-setup" title="Permanent link">#</a></h2>
+<p>After deploying the instance, Grist should be instantly available through the HTTP protocol on an autogenerated domain such as <code>ec2-3-94-254-105.compute-1.amazonaws.com</code> (labeled <code>Public IPv4 DNS</code> by AWS).</p>
+<p>Default credentials:</p>
 <ul>
-<li>Self-hosters: Grist now natively supports authentication with OpenID Connect. See the complete documentation <a href="https://support.getgrist.com/install/oidc/#openid-connect" target="_blank">here</a>. A huge thanks to <a href="https://github.com/fflorent" target="_blank">@fflorent</a> from <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">ANCT</a> for their work on this PR!</li>
-<li>Looking for a simpler way to self-host Grist? Florent has also packaged Grist on <a href="https://apps.yunohost.org/app/grist" target="_blank">YunoHost</a>, a Debian-based OS designed to help democratize self-hosting. Check out <a href="https://community.getgrist.com/t/self-hosting-grist-made-easy-with-yunohost/3692" target="_blank">Florent’s post in our forum</a> for more information.</li>
-<li>Andreas Klöckner (<a href="https://github.com/inducer" target="_blank">@inducer</a> on GitHub) has shared not one, not two, but THREE Grist-related projects on the <a href="https://community.getgrist.com/t/mail-merge-availability-like-mini-doodle-whenisgood-plus-a-small-python-client/3547" target="_blank">Community forum</a>:<ul>
-<li><a href="https://github.com/inducer/grist-availability/" target="_blank">grist-availability</a>: a tool to help with multi-person scheduling using the new calendar widget.</li>
-<li><a href="https://github.com/inducer/grist-mailmerge/" target="_blank">grist-mailmerge</a>: a batch emailer driven by a Grist table and a Jinja template.</li>
-<li><a href="https://github.com/inducer/pygrist-mini" target="_blank">pygrist-mini</a>: a tiny Grist API client for Python.</li>
+<li>email: admin@example.getgrist.com</li>
+<li>password: [instance-id]*</li>
+</ul>
+<p>* Instance ID can be found on the EC2 page in the AWS Console:
+<img alt="AWS Instance ID screenshot" src="../../images/aws-instance.png" /></p>
+<h3 id="how-to-log-in-to-the-grist-instance">How to log in to the Grist instance<a class="headerlink" href="#how-to-log-in-to-the-grist-instance" title="Permanent link">#</a></h3>
+<p>During deployment, you should have been asked about creating or using key pairs. You can use this pair to log in via SSH from your terminal/bash. The default user for the Grist EC2 instance is named “ubuntu”, and you can log in to <code>ubuntu@[ec2-instance-public-ip]</code>.</p>
+<p><strong>Note:</strong> You need to use the <code>*.pem</code> file you received while generating key pairs on AWS. Details about connecting via SSH can be found in the following places: </p>
+<ul>
+<li>Windows: <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh</a></li>
+<li>Linux: <a href="https://www.ssh.com/academy/ssh/command">https://www.ssh.com/academy/ssh/command</a></li>
+<li>macOS: <a href="https://www.servermania.com/kb/articles/ssh-mac">https://www.servermania.com/kb/articles/ssh-mac</a></li>
+</ul>
+<p>If you don’t want to connect via SSH, AWS provides the option to connect from within the AWS console using the “Connect” button:</p>
+<p><img alt="AWS Connect screenshot" src="../../images/aws-connect.png" /></p>
+<h2 id="custom-domain-and-ssl-setup-for-https-access">Custom domain and SSL setup for HTTPS access<a class="headerlink" href="#custom-domain-and-ssl-setup-for-https-access" title="Permanent link">#</a></h2>
+<p>Custom domains are required for secure access to Grist. If you already have an SSL certificate, you can use your own (as described in the <a href="https://github.com/gristlabs/grist-omnibus/"><code>grist-omnibus</code> README</a>). If not, Grist can generate a certificate from Let’s Encrypt. For that, a valid domain and email must be configured:</p>
+<ol>
+<li>Point the domain to the IP address of the Grist EC2 instance. If you don&rsquo;t use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP service</a>, the instance can have a different public IPv4 address each time it&rsquo;s started.</li>
+<li>Log in to the Grist EC2 instance.</li>
+<li>Set the URL parameter in the <code>grist/gristParameters</code> file. You need administrator privileges to perform this action, so you can open an editor by running <code>sudo nano grist/gristParameters</code>.</li>
+<li>Run the <code>restartGrist</code> script with <code>sudo ~/grist/restartGrist</code>.</li>
+</ol>
+<p>Once the above steps are completed, you should be able to access Grist on your custom domain.</p>
+<h2 id="authentication-setup">Authentication setup<a class="headerlink" href="#authentication-setup" title="Permanent link">#</a></h2>
+<p>We support Google or Microsoft as OpenID providers. For configuring other authentication providers, please refer to the <a href="https://dexidp.io/docs/getting-started/">dex documentation</a>.</p>
+<p>To configure Grist authentication with Google or Microsoft, you must have an application registered with the corresponding provider:</p>
+<ul>
+<li>Microsoft: <a href="https://learn.microsoft.com/en-us/power-pages/security/authentication/openid-settings">https://learn.microsoft.com/en-us/power-pages/security/authentication/openid-settings</a></li>
+<li>Google: <a href="https://support.google.com/cloud/answer/6158849?hl=en">https://support.google.com/cloud/answer/6158849?hl=en</a></li>
+</ul>
+<p>Once you have your client ID and secret, you’ll need to pass them to the <code>gristParameters</code> file inside the Grist EC2 instance:</p>
+<ol>
+<li>Log in to the Grist EC2 instance.</li>
+<li>Open <code>~/grist/gristParameters</code>.</li>
+<li>Update the <code>CLIENT_ID</code> and <code>CLIENT_SECRET</code> sections for the relevant provider(s).<ul>
+<li>If you’re using only one provider, leave the second section commented out. </li>
 </ul>
 </li>
-<li>Translations started for Arabic, Czech, Chinese (Traditional), Dutch and Thai! We’re now at 20 languages either complete or in-progress, all thanks to community contributors. See <a href="https://community.getgrist.com/t/translating-grist/2086" target="_blank">here</a> for more information on translating Grist.</li>
+<li>Update <code>ADMIN_EMAIL</code> in the same file. It should correspond to the email you will use to log in via your authentication provider. For example: <code>ADMIN_EMAIL=frank@your-organization.com</code><ul>
+<li>If you want to change your team’s name, update <code>TEAM_NAME</code> in the same file. </li>
 </ul>
-<p>Working on something cool with Grist? Let us know by posting in the <a href="https://community.getgrist.com/c/showcase/8" target="_blank">Showcase forum</a>!</p>
-<h2 id="learning-grist">Learning Grist<a class="headerlink" href="#learning-grist" title="Permanent link">#</a></h2>
-<h3 id="webinar-multimedia-views">Webinar: Multimedia Views<a class="headerlink" href="#webinar-multimedia-views" title="Permanent link">#</a></h3>
-<p>In December, we’ll cover multimedia views so you can explore even more ways to display your data. Maps and Notepads and Video Players, oh my!</p>
-<p><strong>Thursday December 14 at 3:00pm US Eastern Time.</strong></p>
-<p><a href="https://www.getgrist.com/webinars/multimedia-views/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=build-webinar&amp;utm_term=december-2023/" target="_blank"><img alt="Multimedia views webinar" src="../../images/newsletters/2023-11/multimedia-views-webinar.png" /></a></p>
-<p class="grist-button"><a href="https://www.getgrist.com/webinars/multimedia-views/?utm_source=support-newsletter&amp;utm_medium=internal&amp;utm_campaign=build-webinar&amp;utm_term=december-2023" target="_blank">SIGN UP FOR DECEMBER&rsquo;S WEBINAR</a></p>
-<h3 id="charts-and-summary-tables">Charts and Summary Tables<a class="headerlink" href="#charts-and-summary-tables" title="Permanent link">#</a></h3>
-<p>In November, we learned how to summarize and analyze data in charts and summary tables, with tips and tricks to get more out of summary tables.</p>
-<p class="grist-button"><a href="https://www.getgrist.com/webinars/charts-view-and-summary-tables-webinar/" target="_blank">WATCH NOVEMBER&rsquo;S RECORDING</a></p>
-<h2 id="help-spread-the-word">Help spread the word<a class="headerlink" href="#help-spread-the-word" title="Permanent link">#</a></h2>
-<p>If you’re interested in helping Grist grow, consider leaving a review on product review sites. Here’s a short list where your review could make a big impact. Thank you! 🙏</p>
+</li>
+<li>Run <code>restartGrist</code> with the clean flag using <code>sudo ~/grist/restartGrist clean</code> to clear old login data. <strong>Important:</strong> This will delete all Grist documents!</li>
+</ol>
+<p>Once the above has been configured, you should be able to log in with your Google/Microsoft credentials.</p>
+<h2 id="running-grist-in-a-separate-vpc">Running Grist in a separate VPC<a class="headerlink" href="#running-grist-in-a-separate-vpc" title="Permanent link">#</a></h2>
+<p><code>grist-omnibus</code> is designed to work on each account-default VPC. To make it run on a custom VPC, you’ll need to properly configure all VPC elements. For more information on this configuration, read <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">here</a>. To run Grist on a VPC, the following must be properly set up: </p>
 <ul>
-<li><a href="https://stackshare.io/getgrist" target="_blank">Stackshare</a></li>
-<li><a href="https://www.capterra.com/p/232821/Grist/" target="_blank">Capterra</a></li>
-<li><a href="https://www.trustradius.com/products/grist/" target="_blank">TrustRadius</a></li>
-<li><a href="https://alternativeto.net/software/grist/about/" target="_blank">AlternativeTo</a></li>
+<li>Assigning a public DNS name to the Grist EC2 instance is allowed.</li>
+<li>The VPC can be accessed from the internet (allowing internet gateway and routing tables to handle traffic).</li>
+<li>A security group connection from ports 22 (SSH for configuration), 80 (HTTP connection) and 433 (HTTPS connection) is allowed.</li>
 </ul>
-<h2 id="we-are-here-to-support-you">We are here to support you<a class="headerlink" href="#we-are-here-to-support-you" title="Permanent link">#</a></h2>
-<p><strong>Sprouts Program.</strong> Grist often surprises people with its capabilities. Schedule a <strong>free</strong> Sprouts call with an expert to see if Grist can address your needs. <a href="https://www.getgrist.com/sprouts-program/" target="_blank">Learn more.</a></p>
-<p><strong>Have questions, feedback, or need help?</strong> Search our <a href="../..">Help Center</a>, <a href="https://www.youtube.com/channel/UCx0ioQrrC-bIrkmZ7ZULr0g/playlists">watch video
-tutorials</a>, share ideas in our
-<a href="https://community.getgrist.com">Community</a>, or contact us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<h2 id="updating-grist-omnibus">Updating <code>grist-omnibus</code><a class="headerlink" href="#updating-grist-omnibus" title="Permanent link">#</a></h2>
+<p>The packaged version of <code>grist-omnibus</code> will auto-update before each launch. To update <code>grist-omnibus</code> manually, restart the Grist EC2 instance or log in via SSH and call <code>sudo ~/grist/restartGrist</code>.</p>
+<p>There are currently no plans to support the Grist AWS Marketplace environment outside of <code>grist-omnibus</code>.</p>
+<h2 id="other-important-information">Other important information<a class="headerlink" href="#other-important-information" title="Permanent link">#</a></h2>
+<ul>
+<li>The Grist EC2 instance should have the “Persistent store” option checked.</li>
+<li>Grist stores all the data in the <code>~/grist-persist</code> directory. Deleting this folder will result in a loss of all data from all documents. </li>
+<li>Do not delete <code>~/grist-persist/acme.json</code>, as it contains a private key from Let’s Encrypt. Deleting it too often can result in Let’s Encrypt denying issuing further certificates from your domain.</li>
+</ul>
 
   <br>
 </div>
@@ -1247,7 +1165,7 @@ function initFeedbackButtons() {
 initFeedbackButtons();
 </script><footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/newsletters/2023-11.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/install/aws-marketplace.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
