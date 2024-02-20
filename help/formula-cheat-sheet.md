@@ -388,7 +388,6 @@ str($id).zfill(5)
 
 If you mean to combine a string and a numerical value, be sure to convert it to string using `str()`.
 
-
 <span class="screenshot-large">*![string-type-error](images/formula-cheat-sheet/string-type-error.png)*</span>
 {: .screenshot-half }
 
@@ -608,6 +607,7 @@ You can find duplicates in a column using either conditional formatting or a hel
 <span></span><details><summary>
 #### Example of Finding Duplicates
 </summary>
+
 **Community Example: [Finding Duplicates](https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/4){:target="\_blank"}**
 
 <span class="screenshot-large">*![duplicates-single-column](images/formula-cheat-sheet/duplicates-single-column.png)*</span>
@@ -640,6 +640,8 @@ This same formula can be used in conditional formatting. This can be seen in the
 If `len() > 1`, our formula is true and the conditional cell color is applied to these cells. 
 
 If `len() <= 1`, our formula is false and the cell color is unchanged.
+
+**Video Walkthrough: [Finding Duplicates with a Formula](https://www.youtube.com/watch?v=7lNz2Mw7yyw&list=PL3Q9Tu1JOy_79QFrtQOEO1wHVIYYazdIf){:target="\_blank"}**
 
 </details>
 
@@ -753,14 +755,146 @@ sorted(
 </details>
 </section>
 
-
 <span></span><section class="cheat-sheet">
 #### Setting Default Values for New Records
 
-You can set default values for when a new record is created and save yourself the trouble of having to fill in the same fields with the same values time after time.
+Using [trigger formulas](formulas.md#trigger-formulas), you can set default values for when a new record is created, or when a record is updated, and save yourself the trouble of having to fill in the same fields with the same values time after time.
 
-**Read about it in the Community:** [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4){:target="\_blank"}
+<span></span><details><summary>
+#### Examples of Setting Default Values
+</summary>
 
+**Community Example: [Setting Default Values Example](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/5/m/fork){:target="\_blank"}**
+
+*![default-string-1](images/formula-cheat-sheet/default-string-1.png)*</span>
+
+The trigger formula used in the 'Default String' column of the 'Setting Default Values' table is:
+```
+"In Progress"
+```
+We have 'Apply to new records' selected for our trigger formula. Meaning, that when a new record is created, this formula will calculate and return the string `In Progress`. This particular column is a [Choice](col-types.md#choice-columns) column so the cell defaults to the choice `In Progress` when the record is created but the value can be changed to `Complete` in the future.
+
+For examples on setting defaults on current time and logged in user, see [Automatic Date, Time and Author Stamps](#automatic-date-time-and-author-stamps).
+
+For more examples from the Community, check out [Default values on the widget](https://community.getgrist.com/t/default-values-on-the-widget/689/4){:target="\_blank"}.
+
+</details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Formatting Telephone Numbers [ NEW ]
+
+Format a phone number using the [PHONE_FORMAT()](https://support.getgrist.com/functions/#phone_format) function.
+
+<span></span><details><summary>
+#### Examples of Formatting Phone Numbers
+</summary>
+
+**Community Example: [Formatting Telephone Numbers](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/2/m/fork){:target="\_blank"}**
+
+*![formatting-us-phone-numbers](images/formula-cheat-sheet/formatting-us-phone-numbers.png)*</span>
+
+</details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Formatting Telephone Numbers
+
+Automatically reformat a phone number to a specific format following entry. E.g. `1234567890` becomes `(123)-456-7890`.
+
+<span></span><details><summary>
+#### Example of Formatting a U.S. Telephone Number
+</summary>
+
+**Community Example: [Formatting Telephone Numbers](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/2/m/fork){:target="\_blank"}**
+
+*![formatting-us-phone-numbers](images/formula-cheat-sheet/formatting-us-phone-numbers.png)*</span>
+
+The formula used in the "Local (US) Phone Number" column of the "Formatting Telephone Numbers" table is:
+```
+import re
+
+def format_tel(tel):
+    tel = tel.removesuffix(".0")
+    tel = tel.removeprefix("+")
+    tel = tel.removeprefix("1")
+    tel = re.sub("[ ()-]", '', tel)
+
+    if len(tel) == 10:
+      tel = f"({tel[:3]})-{tel[3:6]}-{tel[6:]}"
+    return tel
+format_tel(str(value))
+```
+Note that this is a [trigger formula](formulas.md#trigger-formulas) that applies when changes are made to this column. Meaning, this formula runs as soon as a value is entered into the cell.
+
+First, we import Python's [re module](https://docs.python.org/3/library/re.html) which provides regular expression matching operations.
+
+Next, we define our function as `format_tel()`. Our parameters are `tel`. You'll see this function in the last line of the formula where `tel` = `str(value)`, meaning our parameter is the value that is entered into the cell. `str()` converts the value entered into a string.
+
+The following changes are made to that value;
+
+`tel.removsuffix(".0")` removes any decimal values.
+
+`tel.removeprefix("+")` removes a `+` entered at the beginning of the string.
+
+`tel.removeprefix("1")` removes a leading `1` as we assume this is a U.S. Phone Number.
+
+`re.sub("[ ()-]", '', tel)` removes any spaces, parenthesis `()`, and dashes `-`.
+
+After the string has been updated, we use `len()` to count the number of characters in the string. If there are 10 (the number of digits in a U.S. telephone number), the string will be [reformatted](https://docs.python.org/3/tutorial/inputoutput.html) according to the next line in the formula; `tel = f"({tel[:3]})-{tel[3:6]}-{tel[6:]}"`.
+
+`{tel[:3]}` represents the first three characters in the string and is enclosed in parenthesis. `{tel[3:6]}` represents characters four through six and `{tel[6:]}` represents the last four characters in the string. Each grouping is separated by a dash `-`.
+
+Finally, our formula returns our newly formatted telephone number.
+
+</details>
+
+<span></span><details><summary>
+#### Example of Formatting an International Telephone Number
+</summary>
+
+**Community Example: [Formatting Telephone Numbers](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/2/m/fork){:target="\_blank"}**
+
+*![formatting-int-phone-numbers](images/formula-cheat-sheet/formatting-int-phone-numbers.png)*</span>
+
+The formula used in the "International Phone Number" column of the "Formatting Telephone Numbers" table is:
+```
+import re
+
+def format_tel(tel):
+    tel = tel.removesuffix(".0")
+    tel = tel.removeprefix("+")
+    tel = re.sub("[ ()-]", '', tel)
+    if len(tel) == 11:
+      tel = f"{tel[:1]}-{tel[1:4]}-{tel[4:7]}-{tel[7:]}"
+    if len(tel) == 12:
+      tel = f"{tel[:2]}-{tel[2:5]}-{tel[5:8]}-{tel[8:]}"
+    if len(tel) == 13:
+      tel = f"{tel[:3]}-{tel[3:6]}-{tel[6:9]}-{tel[9:]}"
+    return tel
+format_tel(str(value))
+```
+Note that this is a [trigger formula](formulas.md#trigger-formulas) that applies when changes are made to this column. Meaning, this formula runs as soon as a value is entered into the cell.
+
+First, we import Python's [re module](https://docs.python.org/3/library/re.html) which provides regular expression matching operations.
+
+Next, we define our function as `format_tel()`. Our parameters are `tel`. You'll see this function in the last line of the formula where `tel` = `str(value)`, meaning our parameter is the value that is entered into the cell. `str()` converts the value entered into a string.
+
+The following changes are made to that value;
+
+`tel.removsuffix(".0")` removes any decimal values.
+
+`tel.removeprefix("+")` removes a `+` entered at the beginning of the string.
+
+`re.sub("[ ()-]", '', tel)` removes any spaces, parenthesis `()`, and dashes `-`.
+
+After the string has been updated, we use `len()` to count the number of characters in the string. The string will be [reformatted](https://docs.python.org/3/tutorial/inputoutput.html) according to `if` statement with the same number of characters. E.g. A string with 13 characters would have the following format; `tel = f"{tel[:3]}-{tel[3:6]}-{tel[6:9]}-{tel[9:]}"`.
+
+`{tel[:3]}` represents the first three characters in the string. `{tel[3:6]}` represents characters four through six and `{tel[6:9]}` represents characters seven through nine. `{tel[9:]}` represents the last four characters in the string. Each grouping is separated by a dash `-`.
+
+Finally, our formula returns our newly formatted telephone number.
+
+</details>
 </section>
 
 ## Working with dates and times
@@ -862,3 +996,224 @@ We can use this column to filter our data. If we only want to see interactions t
 </div>
 
 </details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Calculating the Difference Between Two Dates
+
+You can find the number of days between two [Date](col-types.md#date-columns) values using the [DAYS()](functions.md#days) function.
+
+<span></span><details><summary>
+#### Example of Calculating the Difference Between Two Dates
+</summary>
+**Community Example:** [Difference Between 2 Dates](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/6/m/fork){:target="\_blank"}
+
+<span class="screenshot-large">*![days-til-due](images/formula-cheat-sheet/days-til-due.png)*</span>
+
+The formula used in the "Days til Due" column of the "Difference Between 2 Dates" table is:
+```
+($Due_Date-$Assigned_Date).days
+```
+First, we subtract one date column from the other. Note that you should use the later of the two dates as your first selection otherwise you will end up with a negative number of days.
+
+This is followed by `.days` so our formula will return the number of days between the two given date values.
+
+You can also use [`TODAY()`](functions.md#today) in place of the second date column. You can see an example of this in the "Difference Between Date and TODAY()" table.
+
+<span class="screenshot-large">*![days-remaining](images/formula-cheat-sheet/days-remaining.png)*</span>
+
+The formula used in the "Days Remaining" column is:
+```
+($Renewal_Date-TODAY()).days
+```
+Here, we subtract today's date from the date in the Renewal Date column to find the number of days until the client's contract renews. Because the value for TODAY() changes every day, the days remaining will continue to count down each day.
+
+You can also use the [DAYS()](functions.md#days) function to find difference in years. Take a look at our example in the Age column of the Calculating Age table.
+
+**Community Example:** [Calculating Age in Years](https://public.getgrist.com/kpjkFrJPRepr/Formula-Cheat-Sheet-Examples/p/3/m/fork){:target="\_blank"}
+
+<span class="screenshot-large">*![diff-in-years](images/formula-cheat-sheet/diff-in-years.png)*</span>
+
+The formula used here is:
+```
+difference = TODAY() - $Birthdate
+difference_in_years = difference.days/365.2425
+return ROUND(difference_in_years,0)
+```
+First, we calculate the difference between today's date (found using the [TODAY()](functions.md#today) function) and the date value in the Birthdate column. We assign this value to the variable `difference`.
+
+Next, we calculate the number of days within the value assigned to the variable `difference`. We divide this number by the number of days in one year. We assign this value to the variable `difference_in_years`. 
+
+Last, we use the [ROUND()](functions.md#round) function to round the value assigned to the variable `difference_in_years` to the nearest whole number (with zero decimals).
+
+You do have the option to include seconds in the calculation. See the "Age (w/ Seconds)" column in the Calculating Age table. 
+
+<span class="screenshot-large">*![diff-in-years-seconds](images/formula-cheat-sheet/diff-in-years-seconds.png)*</span>
+
+The formula used here is:
+```
+difference = TODAY() - $Birthdate
+difference_in_years = (difference.days + difference.seconds/86400)/365.2425
+return ROUND(difference_in_years,0)
+```
+Because we round to a whole number of years, the partial day (represented in seconds) doesn't make a difference in our final value. If you were calculating difference in days, the seconds might make a difference, depending how far into the current day you are.
+
+</details>
+
+<span></span><details><summary>
+#### Troubleshooting Errors
+</summary>
+
+<span></span><div class="deflist">
+
+- `#TypeError`:
+
+    <span class="screenshot-large">*![date-diff-typeerror](images/formula-cheat-sheet/date-diff-typeerror.png)*</span>
+
+    Confirm that all columns used within the [DAYS()](functions.md#days) function are [Date](col-types.md#date-columns) type columns. 
+
+- `#NameError`:
+
+    <span class="screenshot-large">*![date-diff-nameerror](images/formula-cheat-sheet/date-diff-nameerror.png)*</span>
+
+    Case matters! [TODAY()](functions.md#today) is a function. today() is not. Be sure you are using uppercase. 
+</div>
+
+</details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Calculating the Difference Between Two Times
+
+You can find the difference between two [DateTime](col-types.md#datetime-columns) values using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod){:target="\_blank"} function.
+
+<span></span><details><summary>
+#### Example of Calculating the Difference Between Two Times
+</summary>
+
+**Community Example:** [Calculating Hours Worked](https://public.getgrist.com/a3HWPxrhNwJa/1863/p/4){:target="\_blank"}
+
+<span class="screenshot-large">*![hours-worked](images/formula-cheat-sheet/hours-worked.png)*</span>
+
+The formula used in the Hours Worked column of the All Check IN + OUT table is:
+```
+if not $Check_In_Time or not $Check_Out_Time:
+  return None
+s = ($Check_Out_Time - $Check_In_Time).total_seconds()
+hours = divmod(abs(s), 3600)
+minutes = divmod(hours[1], 60)
+return "%dhr %dmin" % (hours[0], minutes[0])
+```
+
+The first two lines remove errors if there are no values in the Check In Time or Check Out Time columns. Instead of getting an error because no value exists, the formula returns `None`, which appears as blank.
+
+`s = ($Check_Out_Time - $Check_In_Time).total_seconds()` calculates the difference between Check In and Check Out then converts the time to seconds. This value is assigned to the variable `s`.
+
+`hours = divmod(abs(s), 3600)` takes the absolute value of our total seconds and gets the number of hours (3600 seconds in 1 hour) using Python's [divmod](https://docs.python.org/3/library/functions.html#divmod){:target="\_blank"} function. This number is assigned to the variable `hours`. 
+
+`minutes = divmod(hours[1], 60)` uses the remainder of hours to calculate minutes. This is assigned to the variable `minutes`.
+
+`"%dhr %dmin" % (hours[0], minutes[0])` uses the [`%`](https://docs.python.org/2/library/stdtypes.html#string-formatting-operations){:target="\_blank"} string formatting operator to format our string, `%dhr %dmin`. Format specifiers begin with `%` followed by a character that represents the data type. %d is a placeholder for an integer. The first `%d` is replaced with `hours[0]` and the second `%d` is replaced with `minutes[0]`.
+
+Check out our [Time Tracker template](https://templates.getgrist.com/np7TVHmuvFcH/Simple-Time-Tracker){:target="\_blank"} for another example!
+
+</details>
+
+<span></span><details><summary>
+#### Troubleshooting Errors
+</summary>
+
+<span></span><div class="deflist">
+
+- `#TypeError`:
+
+    <span class="screenshot-large">*![time-diff-typeerror](images/formula-cheat-sheet/time-diff-typeerror.png)*</span>
+
+    Check your entry for any extra characters. 
+</div>
+
+</details>
+</section>
+
+<span></span><section class="cheat-sheet">
+#### Formatting Dates
+
+Use Python's [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime){:target="\_blank"} method to create a string representing the time with an explicit format. Bookmark the [Format Code Cheat Sheet](https://strftime.org/){:target="\_blank"} for easy reference. You can also pull the year with [YEAR()](functions.md#year). This returns an integer. The same is true for [MONTH()](functions.md#month).
+
+<span></span><details><summary>
+#### Examples of Formatting Dates
+</summary>
+
+**[Sales Commission Dashboard](https://templates.getgrist.com/pVq4xESKtU24/Sales-Commissions-Dashboard){:target="\_blank"} Template**
+
+<span class="screenshot-large">*![strftime-year-month](images/formula-cheat-sheet/strftime-year-month.png)*</span>
+
+The formula used in the Month column of the Sales table is:
+```
+$Date.strftime("%Y-%m")
+```
+`$Date` is the column where our initial date value is. 
+
+Next, we use the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime){:target="\_blank"} method to format the date value from the `$Date` column, using the formatting codes found in the [Cheat Sheet](https://strftime.org/){:target="\_blank"}. 
+
+Our formatting codes fall between quotes `""` because this is a string format. 
+
+`%Y` is the year with century as a decimal number, e.g. 2022. `%m` is the month as a zero-padded decimal number, e.g. 06. 
+
+We can include characters to separate our formatting codes. Here, we use `-` to separate year and month.
+
+This is handy for summarizing data over each month. Create a column with year-month, like we saw in this example, then create a [summary table](summary-tables.md) grouped by the year-month column. 
+
+If you wish to summarize your data over each year, you would only include the formatting code for year within the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime){:target="\_blank"} function. 
+
+The Year column of the Sales table is great example of of this.
+
+<span class="screenshot-large">*![strftime-year](images/formula-cheat-sheet/strftime-year.png)*</span>
+
+The formula used in the Year column of the Sales table is:
+```
+$Date.strftime("%Y")
+```
+Again, we pull our initial date value from the `$Date` column. Next, we use the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime){:target="\_blank"} method and format code `%Y` to show the year as a decimal number, e.g. 2022.
+
+Note that you can also use the built-in [YEAR()](functions.md#year) function to do the same thing. 
+
+<span class="screenshot-large">*![year-function](images/formula-cheat-sheet/year-function.png)*</span>
+
+The formula used in the screenshot above is:
+```
+YEAR($Date)
+```
+This formula returns the year corresponding to a date as an integer.
+
+If you would like to return the month corresponding to a date as an integer, you would use the [MONTH()](functions.md#month) function.
+
+<span class="screenshot-large">*![month-function](images/formula-cheat-sheet/month-function.png)*</span>
+
+The formula used in the screenshot above is:
+```
+MONTH($Date)
+```
+This formula returns the month value from the date in our Date column.
+
+If you were to create a summary table grouped by Month, all data across different years of that month would be summarized. For example, if you have data from March 2021 and March 2022, it would all be summarized under `March`. This is where the [strftime()](https://docs.python.org/3/library/datetime.html#datetime.date.strftime){:target="\_blank"} method comes in handy, allowing you to join Month and Year so you can report across each individual month of each year.
+
+Check out this [Community Forum post](https://community.getgrist.com/t/summary-table-with-content-from-multiple-tables/894){:target="\_blank"} for an example using the [MONTH()](functions.md#month) and [YEAR()](functions.md#year) functions to summarize data across multiple tables.
+
+</details>
+
+<span></span><details><summary>
+#### Troubleshooting Errors
+</summary>
+
+<span></span><div class="deflist">
+
+- `#AttributeError`:
+
+    <span class="screenshot-large">*![strftime-attribute-error](images/formula-cheat-sheet/strftime-attribute-error.png)*</span>
+
+    The column you are calling the Date value from needs to be a [Date](col-types.md#date-columns) or [DateTime](col-types.md#datetime-columns) type column. 
+</div>
+
+</details>
+</section>
