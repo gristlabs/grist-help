@@ -6,7 +6,7 @@ and it probably asks you to enter hours for each employee once a month.
 This is where Grist can help you keep track of things conveniently, and to reduce mistakes,
 especially if you have part-time employees.
 
-![Payroll Summary](/examples/images/2020-09-payroll/pay-periods.png)
+![Payroll Summary](../examples/images/2020-09-payroll/pay-periods.png)
 
 ## The Payroll Template
 
@@ -27,7 +27,7 @@ The template addresses a few needs:
 
 Let’s start with the "People" tab in the example. It addresses our needs (1), (2), and (3).
 
-![People Page](/examples/images/2020-09-payroll/people-page.png)
+![People Page](../examples/images/2020-09-payroll/people-page.png)
 
 On top, we have a list of people, with contact info such as address and phone number. To add a new
 person, click into the last row of the `PEOPLE` table, and type in the data.
@@ -44,7 +44,7 @@ class="keys">*⌘* + **;** (semicolon)</code> on Mac or <code class="keys">*Ctrl
 Windows). Set the `Role` that it applies to, and the `Hourly Rate`. The `Comment` field is for
 your own notes.
 
-<span class="screenshot-large">*![Adding Rates](/examples/images/2020-09-payroll/add-rate.png)*</span>
+<span class="screenshot-large">*![Adding Rates](../examples/images/2020-09-payroll/add-rate.png)*</span>
 {: .screenshot-half }
 
 Don’t modify values for existing rates, or past payroll computations will be affected. When you
@@ -58,7 +58,7 @@ page first in the list of pages to have it open by default when you open the doc
 bottom (you can use these handy shortcuts: <code class="keys">*⌘* *↓*</code> on Mac, <code
 class="keys">*Ctrl* + *↓*</code> on Windows).
 
-![Payroll Page](/examples/images/2020-09-payroll/payroll-page.png)
+![Payroll Page](../examples/images/2020-09-payroll/payroll-page.png)
 
 To add a payroll entry, type in the date (or use the date picker), select the person using
 auto-complete, select their role, and type in their hours. The next few columns automatically look
@@ -76,7 +76,7 @@ to customize this further to your needs, I’ll explain it in detail below.
 Here the totals for each period are automatically tallied up to address our need (5) — to see an
 overview, to enter data into a payroll system, and to check that everything matches.
 
-![Payroll Summary](/examples/images/2020-09-payroll/pay-periods.png)
+![Payroll Summary](../examples/images/2020-09-payroll/pay-periods.png)
 
 The latest pay period (in our case, a month) is on top of the top-left table. You can select any
 pay period there to see a pie chart with an overview of pay broken down by role, and a table of
@@ -96,7 +96,7 @@ We now have a convenient and simple payroll tracker.
 I promised to show how rates are looked up. Open up the "Payroll" page, click on
 any cell in the `Per Hour` column, and hit <code class="keys">*Enter*</code>.
 
-<span class="screenshot-large">*![Rate Lookup Formula](/examples/images/2020-09-payroll/rate-lookup-formula.png)*</span>
+<span class="screenshot-large">*![Rate Lookup Formula](../examples/images/2020-09-payroll/rate-lookup-formula.png)*</span>
 {: .screenshot-half }
 
 The formula you see is an involved Python function, but it is intentionally broken up into bits,
@@ -144,12 +144,12 @@ To start using this example for your own payroll, start with the template:
 
 then click "Save Copy":
 
-<span class="screenshot-large">*![Save Copy](/examples/images/2020-09-payroll/save-copy.png)*</span>
+<span class="screenshot-large">*![Save Copy](../examples/images/2020-09-payroll/save-copy.png)*</span>
 {: .screenshot-half }
 
 Then mark the "As Template" checkbox.
 
-<span class="screenshot-large">*![Duplicate As Template](/examples/images/2020-09-payroll/duplicate-as-template.png)*</span>
+<span class="screenshot-large">*![Duplicate As Template](../examples/images/2020-09-payroll/duplicate-as-template.png)*</span>
 {: .screenshot-half }
 
 Your copy will then include all the structure, logic, and layouts of the Payroll document with

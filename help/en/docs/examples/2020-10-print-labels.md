@@ -29,7 +29,7 @@ The template shows a few variations of what you can do.
 
 That's what you see in the first page:
 
-![Address Labels Page](/examples/images/2020-10-print-labels/address-labels-page.png)
+![Address Labels Page](../examples/images/2020-10-print-labels/address-labels-page.png)
 
 You can use the dropdown on top of the labels widget to select the size of the labels, depending
 on what actual label paper you are planning to print on.
@@ -42,7 +42,7 @@ together all the parts of an address. (We get into the
 To print the labels, select "Print widget" from the menu above the labels widget (see also
 [Printing Notes](#printing-notes) below):
 
-<span class="screenshot-large">*![Print Menu](/examples/images/2020-10-print-labels/print-menu.png)*</span>
+<span class="screenshot-large">*![Print Menu](../examples/images/2020-10-print-labels/print-menu.png)*</span>
 {: .screenshot-half }
 
 ### A sheet of labels for the same address
@@ -50,7 +50,7 @@ To print the labels, select "Print widget" from the menu above the labels widget
 If you need many identical labels, e.g. for a return address, add another column named
 `LabelCount`. This is illustrated in the page "Label Sheets".
 
-![Label Sheets Page](/examples/images/2020-10-print-labels/label-sheets-page.png)
+![Label Sheets Page](../examples/images/2020-10-print-labels/label-sheets-page.png)
 
 If you have multiple addresses in the table, and want to print just one, simply set the count to
 zero for the addresses you don't want to include.
@@ -63,7 +63,7 @@ are illustrated in the linked template:
 1. The "Address Labels" page includes a filter button for `State`, which allows simple filtering
    by state. You can click `+` button to easily create additional filters like this:
 
-    <span class="screenshot-large">*![Filter Button](/examples/images/2020-10-print-labels/filter-button.png)*</span>
+    <span class="screenshot-large">*![Filter Button](../examples/images/2020-10-print-labels/filter-button.png)*</span>
     {: .screenshot-half }
 
 2. To print out only a few labels out of a larger table, you can use the
@@ -72,7 +72,7 @@ are illustrated in the linked template:
    with the simple formula that includes only California addresses:
    `IF($State == "CA", 1, 0)`{: .formula}:
 
-    ![Filtered Page](/examples/images/2020-10-print-labels/filtered-page.png)
+    ![Filtered Page](../examples/images/2020-10-print-labels/filtered-page.png)
 
 3. The "Filtered Manually" page includes a `Select for Print` column. Click any toggle to include
    the corresponding row into the label sheet.
@@ -92,7 +92,7 @@ I'll assume that you already have a page that shows a table with addresses. Perh
 "People", "Clients", or "Employees". Open the menu next to the page name in the left
 panel, and click "Duplicate":
 
-<span class="screenshot-large">*![Duplicate Page](/examples/images/2020-10-print-labels/duplicate-page.png)*</span>
+<span class="screenshot-large">*![Duplicate Page](../examples/images/2020-10-print-labels/duplicate-page.png)*</span>
 {: .screenshot-half }
 
 This gives you a new page. We'll add the labels here, to avoid taking up screen space in the page
@@ -119,14 +119,14 @@ Note that this is Python syntax for formatting strings. Here is a brief guide to
 Click `Add New` button and select `Add Widget to Page`. In the dialog that appears select widget `Custom`
 and the table that contains the addresses:
 
-<span class="screenshot-large">*![Add Page](/examples/images/2020-10-print-labels/add-page.png)*</span>
+<span class="screenshot-large">*![Add Page](../examples/images/2020-10-print-labels/add-page.png)*</span>
 {: .screenshot-half }
 
 Click `Add to Page`.
 
 Open the menu above the widget and select "Widget Options":
 
-<span class="screenshot-large">*![Widget Options](/examples/images/2020-10-print-labels/widget-options.png)*</span>
+<span class="screenshot-large">*![Widget Options](../examples/images/2020-10-print-labels/widget-options.png)*</span>
 {: .screenshot-half }
 
 In the right-side panel that opens, in the "Custom" section, enter the URL of the widget that
@@ -139,7 +139,7 @@ Then change the "Access" dropdown from `none` to `read table`.
 You should now see your labels! If not, check that `LabelText` is listed below under "Visible
 Columns". (If it's under "Hidden Columns", click the "eye" icon to make it visible to the widget.)
 
-<span class="screenshot-large">*![Visible Columns](/examples/images/2020-10-print-labels/visible-columns.png)*</span>
+<span class="screenshot-large">*![Visible Columns](../examples/images/2020-10-print-labels/visible-columns.png)*</span>
 {: .screenshot-half }
 
 You can add another column named `LabelCount` for printing multiple labels or omitting some
@@ -172,5 +172,5 @@ This feature is built using [Custom Widgets](../widget-custom.md). It allows you
 developer, to customize it further using HTML, CSS, and Javascript. For interested developers, the
 code for this widget is available at <https://github.com/gristlabs/grist-widget/tree/master/printlabels>.
 
-<span class="screenshot-large">*![Enjoy Label](/examples/images/2020-10-print-labels/enjoy-label.png)*</span>
+<span class="screenshot-large">*![Enjoy Label](../examples/images/2020-10-print-labels/enjoy-label.png)*</span>
 {: .screenshot-half }

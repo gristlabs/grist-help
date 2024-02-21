@@ -12,7 +12,7 @@ Seekers can be paired up in teams as needed, depending on their age.
 The hunt really rewards preparation, and Grist can help with that.
 Here's an example hunt:
 
-![Treasure Hunt document](/examples/images/2020-11-treasure-hunt/hunt.png)
+![Treasure Hunt document](../examples/images/2020-11-treasure-hunt/hunt.png)
 
 You can play with the example yourself here:
 
@@ -41,7 +41,7 @@ the clues will survive long enough to be found!
 Enter everywhere you think of in the "Places" widget in the Treasure Hunt document.
 Don't worry about their order just yet.
 
-*![Places Widget](/examples/images/2020-11-treasure-hunt/places.png)*
+*![Places Widget](../examples/images/2020-11-treasure-hunt/places.png)*
 {: .screenshot-half }
 
 ## Clues
@@ -58,7 +58,7 @@ be a pleasure for people who know your space from the before-times
 but cannot be physically present to at least visualize it and propose devious
 hidey-holes to torture those who are.
 
-![Clues Widget](/examples/images/2020-11-treasure-hunt/clues.png)
+![Clues Widget](../examples/images/2020-11-treasure-hunt/clues.png)
 
 ## The Trail
 
@@ -72,7 +72,7 @@ definitely not rocket science but still surprisingly easy to lose
 track of (especially for younger trail creators).  It will also warn
 you if you've repeated the same location twice.
 
-*![Trail Widget](/examples/images/2020-11-treasure-hunt/trail.png)*
+*![Trail Widget](../examples/images/2020-11-treasure-hunt/trail.png)*
 {: .screenshot-half }
 
 ## Printing
@@ -83,7 +83,7 @@ them if delegating this task to enthusiastic helpers.  If the trail
 is outdoors, and it may rain, it is a good idea to wrap clues in
 aluminum foil or plastic.
 
-![Printing](/examples/images/2020-11-treasure-hunt/print.png)
+![Printing](../examples/images/2020-11-treasure-hunt/print.png)
 
 Ideas for places and clues are good to hang onto for future events,
 either as a Grist document or as a print-out.  Enjoy the hunt, and

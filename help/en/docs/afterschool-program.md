@@ -39,14 +39,14 @@ instructor.
 When starting from scratch, you'll create a new empty document (see [Creating a
 document](creating-doc.md)), rename the initial empty table "Table1" to "Classes", add the columns
 you need, and type in some classes. To follow the steps of this tutorial, you can instead import
-[Classes.csv](/unlocalized-assets/afterschool-program/Classes.csv){: data-wm-adjusted=1 }
+[Classes.csv](./unlocalized-assets/afterschool-program/Classes.csv){: data-wm-adjusted=1 }
 (or simply refer to the "Afterschool Program" example document).
 
 ![add-classes](images/afterschool-program/add-classes.png)
 
 For the Staff table, click the "Add New" button and select "Add Empty Table". Rename it to
 "Staff", create some columns, and enter some data about instructors. Or import
-[Staff.csv](/unlocalized-assets/afterschool-program/Staff.csv) to use sample data and save a few steps.
+[Staff.csv](./unlocalized-assets/afterschool-program/Staff.csv) to use sample data and save a few steps.
 
 ![add-staff](images/afterschool-program/add-staff.png)
 
@@ -108,7 +108,7 @@ Next, we will continue with students and their enrollments.
 
 Each class has a number of students. So, we’ll need a table of students. Again, add a new empty
 table, rename it to "Students", and fill it with the students’ names, grade levels, etc. Or
-import [Students.csv](/unlocalized-assets/afterschool-program/Students.csv) to use sample data and save a few steps.
+import [Students.csv](./unlocalized-assets/afterschool-program/Students.csv) to use sample data and save a few steps.
 
 ![students-table](images/afterschool-program/students-table.png)
 
@@ -143,7 +143,7 @@ becomes this:
 {: .screenshot-half }
 
 So, let’s add a new table, name it "Enrollments", and add the columns we need. Here too, to follow
-along, you may import sample data from [Enrollments.csv](/unlocalized-assets/afterschool-program/Enrollments.csv).
+along, you may import sample data from [Enrollments.csv](./unlocalized-assets/afterschool-program/Enrollments.csv).
 
 ![enrollments-table](images/afterschool-program/enrollments-table.png)
 
@@ -271,7 +271,7 @@ will likely simplify your daily workflow.
 
 So, let’s add one more table: `Families`. We’ll include the parent name and contact info, and link
 each child to a record here. You can import sample data from
-[Families.csv](/unlocalized-assets/afterschool-program/Families.csv).
+[Families.csv](./unlocalized-assets/afterschool-program/Families.csv).
 
 ![families1](images/afterschool-program/families1.png)
 

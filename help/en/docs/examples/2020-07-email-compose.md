@@ -16,13 +16,13 @@ this formula:
 `"Compose Email mailto:%s" % ($Email)`{: .formula}.
 Set its type to Text, and its cell format to Hyperlink:
 
-<span class="screenshot-large">*![HyperLink Format](/examples/images/2020-07-hyperlink-format.png)*</span>
+<span class="screenshot-large">*![HyperLink Format](../examples/images/2020-07-hyperlink-format.png)*</span>
 {: .screenshot-half }
 
 You'll get a link in each person's row, which you can click to start composing an email to that
 person:
 
-<span class="screenshot-large">*![Mailto Cells](/examples/images/2020-07-hyperlink-cells.png)*</span>
+<span class="screenshot-large">*![Mailto Cells](../examples/images/2020-07-hyperlink-cells.png)*</span>
 {: .screenshot-half }
 
 See an example of this in action here:
