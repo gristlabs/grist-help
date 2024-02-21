@@ -1,3 +1,8 @@
+# Python script adapted from the fastapi project to manage translations
+# License: MIT
+# Source: https://github.com/tiangolo/fastapi/blob/master/scripts/docs.py
+# Original Author: Sebastián Ramírez
+
 import json
 import logging
 import os
@@ -29,21 +34,23 @@ missing_translation_snippet = """
 {!../../../docs/missing-translation.md!}
 """
 
-docs_path = Path("docs")
-en_docs_path = Path("docs/en")
-en_config_path: Path = en_docs_path / mkdocs_name
+docs_folder_name = "help"
+docs_path = Path("help")
+en_docs_path = Path("help/en")
+base_config_path: Path = Path(mkdocs_name)
 site_path = Path("site").absolute()
 build_site_path = Path("site_build").absolute()
 
 
 @lru_cache
 def is_mkdocs_insiders() -> bool:
-    version = metadata.version("mkdocs-material")
-    return "insiders" in version
+    return False
+    # version = metadata.version("mkdocs-material")
+    # return "insiders" in version
 
 
-def get_en_config() -> Dict[str, Any]:
-    return mkdocs.utils.yaml_load(en_config_path.read_text(encoding="utf-8"))
+def get_base_config_path() -> Dict[str, Any]:
+    return mkdocs.utils.yaml_load(base_config_path.read_text(encoding="utf-8"))
 
 
 def get_lang_paths() -> List[Path]:
@@ -77,16 +84,16 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     """
     Generate a new docs translation directory for the language LANG.
     """
-    new_path: Path = Path("docs") / lang
+    new_path: Path = docs_path / lang
     if new_path.exists():
         typer.echo(f"The language was already created: {lang}")
         raise typer.Abort()
     new_path.mkdir()
     new_config_path: Path = Path(new_path) / mkdocs_name
     new_config_path.write_text("INHERIT: ../en/mkdocs.yml\n", encoding="utf-8")
-    new_config_docs_path: Path = new_path / "docs"
+    new_config_docs_path: Path = new_path / folder_name
     new_config_docs_path.mkdir()
-    en_index_path: Path = en_docs_path / "docs" / "index.md"
+    en_index_path: Path = en_docs_path / folder_name / "index.md"
     new_index_path: Path = new_config_docs_path / "index.md"
     en_index_content = en_index_path.read_text(encoding="utf-8")
     new_index_content = f"{missing_translation_snippet}\n\n{en_index_content}"
@@ -108,7 +115,7 @@ def build_lang(
     print(f"Insiders file {insiders_env_file}")
     if is_mkdocs_insiders():
         print("Using insiders")
-    lang_path: Path = Path("docs") / lang
+    lang_path: Path = docs_path / lang
     if not lang_path.is_dir():
         typer.echo(f"The language translation doesn't seem to exist yet: {lang}")
         raise typer.Abort()
@@ -146,7 +153,7 @@ index_sponsors_template = """
 
 
 def generate_readme_content() -> str:
-    en_index = en_docs_path / "docs" / "index.md"
+    en_index = en_docs_path / docs_folder_name / "index.md"
     content = en_index.read_text("utf-8")
     match_pre = re.search(r"</style>\n\n", content)
     match_start = re.search(r"<!-- sponsors -->", content)
@@ -267,17 +274,17 @@ def live(
 
 
 def get_updated_config_content() -> Dict[str, Any]:
-    config = get_en_config()
+    config = get_base_config_path()
     languages = [{"en": "/"}]
     new_alternate: List[Dict[str, str]] = []
     # Language names sourced from https://quickref.me/iso-639-1
     # Contributors may wish to update or change these, e.g. to fix capitalization.
-    language_names_path = Path(__file__).parent / "../docs/language_names.yml"
+    language_names_path = Path(__file__).parent / docs_folder_name / "language_names.yml"
     local_language_names: Dict[str, str] = mkdocs.utils.yaml_load(
         language_names_path.read_text(encoding="utf-8")
     )
     for lang_path in get_lang_paths():
-        if lang_path.name in {"en", "em"} or not lang_path.is_dir():
+        if lang_path.name == "en" or not lang_path.is_dir():
             continue
         code = lang_path.name
         languages.append({code: f"/{code}/"})
@@ -287,19 +294,18 @@ def get_updated_config_content() -> Dict[str, Any]:
         if code not in local_language_names:
             print(
                 f"Missing language name for: {code}, "
-                "update it in docs/language_names.yml"
+                f"update it in {docs_folder_name}/language_names.yml"
             )
             raise typer.Abort()
         use_name = f"{code} - {local_language_names[code]}"
         new_alternate.append({"link": url, "name": use_name})
-    new_alternate.append({"link": "/em/", "name": "😉"})
     config["extra"]["alternate"] = new_alternate
     return config
 
 
 def update_config() -> None:
     config = get_updated_config_content()
-    en_config_path.write_text(
+    base_config_path.write_text(
         yaml.dump(config, sort_keys=False, width=200, allow_unicode=True),
         encoding="utf-8",
     )
@@ -311,13 +317,13 @@ def verify_config() -> None:
     Verify main mkdocs.yml content to make sure it uses the latest language names.
     """
     typer.echo("Verifying mkdocs.yml")
-    config = get_en_config()
+    config = get_base_config_path()
     updated_config = get_updated_config_content()
     if config != updated_config:
         typer.secho(
-            "docs/en/mkdocs.yml outdated from docs/language_names.yml, "
+            f"{docs_folder_name}/en/mkdocs.yml outdated from {docs_folder_name}/language_names.yml, "
             "update language_names.yml and run "
-            "python ./scripts/docs.py update-languages",
+            "python ./docs.py update-languages",
             color=typer.colors.RED,
         )
         raise typer.Abort()
