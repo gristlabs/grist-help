@@ -1,7 +1,5 @@
 # Grist Help Center
 
-(Just checking a change to netlify preview build)
-
 Repository for Grist documentation and tutorials.
 
 ## Where are the docs published?
