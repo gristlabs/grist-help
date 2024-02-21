@@ -4,7 +4,7 @@ set -e
 
 if [[ "$1" = "" ]]; then
   echo "Usage: $0 grist-checkout-dir"
-  echo "  Rebuilds help/plugin-api"
+  echo "  Rebuilds help/en/docs/plugin-api"
   echo "Before running, make sure packages are up to date, and Grist has been built."
   exit 2
 fi
@@ -17,9 +17,9 @@ $DIR/node_modules/.bin/typedoc \
   --plugin "typedoc-plugin-markdown" \
   --hideBreadcrumbs \
   --logLevel Verbose
-rm -rf $DIR/help/code/interfaces $DIR/help/code/modules $DIR/help/code/enums
-mv $DIR/tmp-code/interfaces $DIR/help/code/interfaces
-mv $DIR/tmp-code/modules $DIR/help/code/modules
-mv $DIR/tmp-code/enums $DIR/help/code/enums
+rm -rf $DIR/help/en/docs/code/interfaces $DIR/help/en/docs/code/modules $DIR/help/en/docs/code/enums
+mv $DIR/tmp-code/interfaces $DIR/help/en/docs/code/interfaces
+mv $DIR/tmp-code/modules $DIR/help/en/docs/code/modules
+mv $DIR/tmp-code/enums $DIR/help/en/docs/code/enums
 rm -rf $DIR/tmp-code
-echo "Documentation moved to $DIR/help/code"
+echo "Documentation moved to $DIR/help/en/docs/code"

@@ -6,7 +6,7 @@
  *    node build-shortcuts.js [-i] grist-root
  *
  * Reads the grist shortcuts from the grist source tree specified by `grist-root` and generates a
- * formatted content, which is then inserted into the target file (`help/keyboard-shortcuts.md`)
+ * formatted content, which is then inserted into the target file (`help/en/docs/keyboard-shortcuts.md`)
  * in-between the two markers `<!-- START -->` and `<!-- END -->`. Logs the resulting page to
  * standard output, or save to the target file if `-i` (the edit in place option) is passed.
  *
@@ -15,7 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const TARGET_FILE = __dirname + '/help/keyboard-shortcuts.md';
+const TARGET_FILE = __dirname + '/help/en/docs/keyboard-shortcuts.md';
 
 const KEY_MAP_MAC = {
   Mod: '⌘',

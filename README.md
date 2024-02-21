@@ -22,7 +22,7 @@ python3 -m venv env
 ```
 
 Then visit <http://localhost:8000/> to preview documentation. All the articles,
-as well as static files, are under `/help` subdirectory. While `mkdocs serve`
+as well as static files, are under `/help/en/docs` subdirectory. While `mkdocs serve`
 is running, you may make changes there, and the open page will refresh to show
 the changes.
 
@@ -78,18 +78,18 @@ Once you're done, add the results to the main documentation with:
 
 ## Updating function reference
 
-To update `help/functions.md` from the documentation comments in Grist, run:
+To update `help/en/docs/functions.md` from the documentation comments in Grist, run:
 
 ```
 ./build-functions.sh <path-to-grist-checkout>
 ```
 
-It replaces content between `BEGIN mkpydocs`/`END mkpydocs` markers in `help/functions.md`. You
+It replaces content between `BEGIN mkpydocs`/`END mkpydocs` markers in `help/en/docs/functions.md`. You
 can edit text outside of those markers directly.
 
 ## Updating plugin API reference
 
-To update `help/code` from the documentation comments in Grist, run:
+To update `help/en/docs/code` from the documentation comments in Grist, run:
 
 ```
 ./build-plugin-api.sh <path-to-grist-checkout>

@@ -139,7 +139,7 @@ The rest of this tutorial will show you how to create such a document on your ow
 exercise that will teach you some of the key features of Grist.
 
 To start, we'll import a file with sample contacts from the Grist home page. First, save this file
-to your desktop: [lightweight-crm-contacts.csv](lightweight-crm-contacts.csv). Then click the "Add
+to your desktop: [lightweight-crm-contacts.csv](/unlocalized-assets/lightweight-crm-contacts.csv). Then click the "Add
 New" button on the top left of your Grist home page, click "Import document", and select the file
 on your desktop.
 
@@ -409,13 +409,13 @@ clicking that green button and selecting "Save". You can also save by clicking t
 Grist has more great features, some of which are used in the "Lightweight CRM" example
 document. To read more about those, follow the links to their documentation.
 
-- Any text column may be shown as a [hyperlink](https://support.getgrist.com/col-types/#hyperlinks). 
-Lightweight CRM example uses it twice: for the "website" field, and for a formula-constructed hyperlink 
-to a [Gmail search](https://community.getgrist.com/t/pull-up-gmail-history-for-a-particular-contact/517) page 
+- Any text column may be shown as a [hyperlink](https://support.getgrist.com/col-types/#hyperlinks).
+Lightweight CRM example uses it twice: for the "website" field, and for a formula-constructed hyperlink
+to a [Gmail search](https://community.getgrist.com/t/pull-up-gmail-history-for-a-particular-contact/517) page
 for the given contact's email. The latter is handy if you use Gmail.
 
-- Grist supports [attachments](https://support.getgrist.com/col-types/#attachment-columns_). In the 
-example, there is an "Attachments" field for each contact that may be used to store an image of a 
+- Grist supports [attachments](https://support.getgrist.com/col-types/#attachment-columns_). In the
+example, there is an "Attachments" field for each contact that may be used to store an image of a
 business card, for example.
 
 In an actual business, you'll need more. Specialized CRM products have tons of features. Their

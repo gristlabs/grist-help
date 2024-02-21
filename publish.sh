@@ -41,17 +41,17 @@ check_remote() {
 
 
 if [[ "$WHERE" = "preview" ]]; then
-  echo 'support-preview.getgrist.com' > help/CNAME
+  echo 'support-preview.getgrist.com' > help/en/docs/CNAME
 
   # Don't let the preview site get crawled and indexed.
-  cat > help/robots.txt <<EOF
+  cat > help/en/docs/robots.txt <<EOF
 User-agent: *
 Disallow: /
 EOF
 
   check_remote preview
   $ENV_BIN/mkdocs gh-deploy -r preview
-  git checkout -- help/CNAME help/robots.txt
+  git checkout -- help/en/docs/CNAME help/en/docs/robots.txt
   echo "Published to https://$(git show preview/gh-pages:CNAME)"
 
 elif [[ "$WHERE" = "live" ]]; then

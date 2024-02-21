@@ -66,7 +66,7 @@ obscure chart format that Grist doesn't currently support.
 
 ## Adding a custom widget
 
-To add a custom widget that reads from a table, click on `Add New`, 
+To add a custom widget that reads from a table, click on `Add New`,
 then `Add Widget to Page`. Then:
 
   * For `Select Widget` choose `Custom` to get a Custom Widget.
@@ -93,8 +93,8 @@ for the custom widget):
 
 ## Access level
 
-When you put a link to a custom webpage it will be immediately rendered inside the section. 
-Now you have the option to grant that webpage access to data in your document.  The 
+When you put a link to a custom webpage it will be immediately rendered inside the section.
+Now you have the option to grant that webpage access to data in your document.  The
 following access levels are available:
 
    - *No document access*: the webpage is shown in the widget, but it has no access to
@@ -291,7 +291,7 @@ you want.
 If you need to map multiple columns (for example in a custom chart widget), you can use
 `allowMultiple` option. This will allow your users to pick a set of columns that will
 be returned as list of mapped table column names. The `mapColumnNames` helper will then
-return an array of mapped column values in a single field. 
+return an array of mapped column values in a single field.
 
 Suppose the user deletes a column or changes its type so that it will no longer match the
 type requested by the widget. In that case, Grist will automatically remove this column
@@ -412,7 +412,7 @@ grist.setCursorPos({rowId: 'new'});
 
 ## Premade Custom Widgets
 
-All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown. 
+All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown.
 
 <span class="screenshot-large">*![premade-widgets](images/widget-custom/premade-widgets.png)*</span>
 {: .screenshot-half }
@@ -439,7 +439,7 @@ As you customize the widget, remember to regularly click the ‘Save’ button a
 
 ### Copy to clipboard
 
-Copy to clipboard copies a value from the specified column of the selected record. When configuring the widget, you will need to select which column you wish to copy data from. 
+Copy to clipboard copies a value from the specified column of the selected record. When configuring the widget, you will need to select which column you wish to copy data from.
 
 *![copy-to-clipboard](images/widget-custom/copy-to-clipboard.png)*
 
@@ -449,12 +449,12 @@ You can find an example of the copy to clipboard button in our [Webinar 7 (Custo
 
 ### Dropbox Embedder
 
-View and access files saved to dropbox. 
+View and access files saved to dropbox.
 
 <span class="screenshot-large">*![dropbox-embedder-widget](images/widget-custom/dropbox-embedder-widget.png)*</span>
 {: .screenshot-half }
 
-To start, add a new column to your table to store your dropbox links. 
+To start, add a new column to your table to store your dropbox links.
 
 Then, add a new custom widget to the page. Choose the data table that contains the dropbox links and 'Select By' that same table.
 
@@ -480,7 +480,7 @@ Embed videos from online sources like YouTube, Vimeo, Facebook Video, Google Dri
 
 *![video-player](images/widget-custom/video-player.png)*
 
-To start, add a new column to your table to store your video URLs. 
+To start, add a new column to your table to store your video URLs.
 
 Then, add a new custom widget to the page. Choose the data table that contains the video URLs and 'Select By' that same table.
 
@@ -492,7 +492,7 @@ To configure, select 'Grist Video Player' from the Custom dropdown and allow acc
 <span class="screenshot-large">*![video-player-configuration](images/widget-custom/video-player-configuration.png)*</span>
 {: .screenshot-half }
 
-For most online videos, including YouTube videos and videos stored on Google Drive, you can simply click the 'Share' option and copy the URL. 
+For most online videos, including YouTube videos and videos stored on Google Drive, you can simply click the 'Share' option and copy the URL.
 
 *![youtube-embed](images/widget-custom/youtube-embed.png)*
 
@@ -514,7 +514,7 @@ The code it gives you will look something like this:
 
 *![video-facebook-embed-code](images/widget-custom/video-facebook-embed-code.png)*
 
-Copy the URL that is found between quotes following `src`. The highlighted portion in the screenshot below is what you would copy for this particular Facebook video. 
+Copy the URL that is found between quotes following `src`. The highlighted portion in the screenshot below is what you would copy for this particular Facebook video.
 
 *![video-facebook-embed-src](images/widget-custom/video-facebook-embed-src.png)*
 
@@ -530,7 +530,7 @@ For text-editing widgets, check out our [Markdown](#markdown) and [Notepad](#not
 
 *![html-viewer](images/widget-custom/html-viewer.png)*
 
-To start, add a new column to your table. This will be where you add you write HTML. 
+To start, add a new column to your table. This will be where you add you write HTML.
 
 Then, add a new custom widget to the page. Choose the data table that contains the HTML and 'Select By' that same table.
 
@@ -556,7 +556,7 @@ View images from URL.
 
 *![image-viewer](images/widget-custom/image-viewer.png)*
 
-To start, add a new column to your table. This will be where you add the URL for your image. 
+To start, add a new column to your table. This will be where you add the URL for your image.
 
 Then, add a new custom widget to the page. Choose the data table that contains the image URL and 'Select By' that same table.
 
@@ -590,7 +590,7 @@ After typing code in a cell, click the play button or press Shift+Enter to run t
 
 Unlike formulas, code isn’t saved automatically. You must press the usual ‘Save’ button above the widget (outside the notebook) to persist the code within your Grist document. On the other hand, changes to settings within the notebook (e.g. keyboard shortcuts) are saved in your browser’s local storage, so they’re not shared with other users of the document.
 
-A special object called `grist` is automatically available to use in Python code, which mirrors many common methods of the usual [JS plugin API](https://support.getgrist.com/code/modules/grist_plugin_api/). Note that many of these methods are asynchronous, so you should use `await` before calling them.
+A special object called `grist` is automatically available to use in Python code, which mirrors many common methods of the usual [JS plugin API](/code/modules/grist_plugin_api/). Note that many of these methods are asynchronous, so you should use `await` before calling them.
 
 - `async fetch_selected_table()`: returns the data of the table backing the notebook widget.
 - `async fetch_selected_record(row_id=None)`: returns a record of the table backing the notebook widget. If `row_id` is specified, returns the record at that row. Otherwise, returns the record at the current cursor position in a widget linked to the notebook widget.
@@ -603,7 +603,7 @@ A special object called `grist` is automatically available to use in Python code
     - The values for reference columns are row IDs of the referenced table, whereas `fetch_selected_table` returns the values displayed based on the 'SHOW COLUMN' configuration.
 - `on_record(callback)`: registers a callback function to run when the cursor moves in a widget linked to the notebook widget, i.e. the widget chosen from the "SELECT BY" dropdown in the Data section of the widget configuration. The callback function will be passed the record at the current cursor position. You can also use this as a decorator, i.e. `@grist.on_record`.
 - `on_records(callback)`: similar to `on_record`, but runs when the source data of the widget changes. The callback function will be passed the same data as returned by `fetch_selected_table`.
-- `get_table(table_id)`: returns a `TableOperations` class similar to the interface in the usual [JS plugin API](https://support.getgrist.com/code/interfaces/TableOperations.TableOperations/) for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:
+- `get_table(table_id)`: returns a `TableOperations` class similar to the interface in the usual [JS plugin API](/code/interfaces/TableOperations.TableOperations/) for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:
     - `async create(records, parse_strings=True)`
     - `async update(records, parse_strings=True)`
     - `async upsert(records, parse_strings=True, add=True, update=True, on_many="first", allow_empty_require=False)`
@@ -615,7 +615,7 @@ You can use many (but not all) third-party libraries in your notebook such as `p
 
 ### Map
 
-The custom map widget allows you to display locations using latitude and longitude coordinates. If your data is an address, rather than in lat-long format, Grist can convert the address into lat-long coordinates. 
+The custom map widget allows you to display locations using latitude and longitude coordinates. If your data is an address, rather than in lat-long format, Grist can convert the address into lat-long coordinates.
 
 *![map-widget](images/widget-custom/map-widget.png)*
 
@@ -640,9 +640,9 @@ Next, add a new custom widget to the page. Choose the data table that contains t
 <span class="screenshot-large">*![map-add-widget](images/widget-custom/map-add-widget.png)*</span>
 {: .screenshot-half }
 
-To configure, select 'Map' from the Custom dropdown. 
+To configure, select 'Map' from the Custom dropdown.
 
-If you already have **lat-long coordinates**, you can set your access level to *Read selected table*. 
+If you already have **lat-long coordinates**, you can set your access level to *Read selected table*.
 
 If you are using an **address** and that needs to be converted into lat-long coordinates, you will need to set your access level to *Full document access* because the widget needs permission to write to your document in order to add lat-long coordinates.
 
@@ -654,7 +654,7 @@ Map all required columns. Note that Name, Longitude and Latitude are labeled as 
 <span class="screenshot-large">*![map-configuration-2](images/widget-custom/map-configuration-2.png)*</span>
 {: .screenshot-half }
 
-After mapping the necessary columns and selecting the appropriate Access Level, the map widget will populate. 
+After mapping the necessary columns and selecting the appropriate Access Level, the map widget will populate.
 
 *![map-final](images/widget-custom/map-final.png)*
 
@@ -674,7 +674,7 @@ For other text-editing widgets, check out our [HTML](#html-viewer) and [Notepad]
 
 *![markdown-widget](images/widget-custom/markdown-widget.png)*
 
-To start, add a new column to your table. This will be where you will add your text that will be formatted using Markdown. 
+To start, add a new column to your table. This will be where you will add your text that will be formatted using Markdown.
 
 Then, add a new custom widget to the page. Choose the data table that contains the text formatted with Markdown and 'Select By' that same table.
 
@@ -709,7 +709,7 @@ For other text-editing widgets, check out our [HTML](#html-viewer) and [Markdown
 
 *![notepad-widget](images/widget-custom/notepad-widget.png)*
 
-To start, add a new column to your table. This will be where details for our formatted text will be stored. 
+To start, add a new column to your table. This will be where details for our formatted text will be stored.
 
 Then, add a new custom widget to the page. Choose the data table that contains the column we just added and 'Select By' that same table.
 
