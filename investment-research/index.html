@@ -1102,9 +1102,9 @@ the first step.</p>
 <h2 id="get-the-data">Get the data<a class="headerlink" href="#get-the-data" title="Permanent link">#</a></h2>
 <p>Let’s import the raw data. We’ll import two CSV files, where each will become its own table. To
 follow along, save the files from
-<a href="/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a>
+<a href="/unlocalized-assets/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a>
 and
-<a href="/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>
+<a href="/unlocalized-assets/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>
 to
 your computer first. Then, create a Grist document by importing the first file from the home page.</p>
 <p><img alt="4-first-import" src="../images/investment-research/4-first-import.png" /></p>
@@ -1207,7 +1207,7 @@ table. Select the “Add New” button again, pick “Add Widget to Page”, sel
 and the same table (Companies) and summary column (category_code) as before. Then click &ldquo;Add to Page&rdquo;.</p>
 <p><img alt="19-add-chart1" src="../images/investment-research/19-add-chart1.png" /></p>
 <p>For a chart, you’ll always follow up by customizing it.</p>
-<p>Open the right panel, and select “Chart” tab / “Widget” subtab. </p>
+<p>Open the right panel, and select “Chart” tab / “Widget” subtab.</p>
 <p>For this first chart, under “Chart type&rdquo;, select “Pie Chart”. To construct this chart, first select a label, and then select a series to summarize in the pie chart.  Since we want the chart to show “category_code” as labels, select this series from the &ldquo;Label&rdquo; dropdown. We want to use “funding_total_usd” as values, so this should be listed at the top of the “series” list in the configuration panel. As you move your mouse
 over the items in that list, use the double vertical bars that show up to drag and drop a series at the top of the list. Alternatively, you can hide the other series from the list by clicking the trash icon.</p>
 <p><img alt="20-chart-vis-fields" src="../images/investment-research/20-chart-vis-fields.png" /></p>
@@ -1221,7 +1221,7 @@ axis values. Under &lsquo;Series&rsquo; select a second (and possible additional
 <p>You can rearrange the sections on the screen into a configuration you&rsquo;d like to
 see for a dashboard. Move your mouse to the top left of each section until you
 see a &ldquo;drag handle&rdquo; icon. Use that icon to drag each section into the desired
-spot relative to other sections. Once you’re finished, rename the page by hovering over the 
+spot relative to other sections. Once you’re finished, rename the page by hovering over the
 page name then clicking the three-dot icon to open the menu. Select &ldquo;Rename&rdquo; and rename to “Overview”.</p>
 <p><img alt="22-rearrange-widgets" src="../images/investment-research/22-rearrange-widgets.png" /></p>
 <h2 id="dynamic-charts">Dynamic charts<a class="headerlink" href="#dynamic-charts" title="Permanent link">#</a></h2>
@@ -1275,7 +1275,7 @@ tables on this page, you have a choice of which one will drive the data in this 
 case, pick the widget that we just added: “INVESTMENTS [by Company_category_code]”.</p>
 <p><img alt="29-dynamic-chart2" src="../images/investment-research/29-dynamic-chart2.png" /></p>
 <p>As in the previous section, we configure the chart by selecting “Chart Type” as “Bar Chart”, and
-in the “X-Axis” dropdown, selecting “funded_year” and under &ldquo;Series&rdquo;, selecting 
+in the “X-Axis” dropdown, selecting “funded_year” and under &ldquo;Series&rdquo;, selecting
 “raised_amount_usd” and hiding the rest.</p>
 <p><img alt="30-breakdowns-page-done" src="../images/investment-research/30-breakdowns-page-done.png" /></p>
 <p>We can now click through the categories, and see the history of investment into each one.</p>
@@ -1288,8 +1288,8 @@ your Business in Grist’.</p>
 <hr />
 <ol>
 <li id="fn:doc_desc">
-<p>Download <a href="/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a>
-and <a href="/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>. The sample data includes only the “companies” and “investments” data, and includes only
+<p>Download <a href="/unlocalized-assets/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a>
+and <a href="/unlocalized-assets/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>. The sample data includes only the “companies” and “investments” data, and includes only
 New York companies to keep it smaller and faster. The dataset comes
 from <a href="https://www.kaggle.com/mauriciocap/crunchbase2013">Kaggle</a>.&#160;<a class="footnote-backref" href="#fnref:doc_desc" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>

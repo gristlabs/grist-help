@@ -1093,12 +1093,12 @@ instructor.</p>
 <p>When starting from scratch, you&rsquo;ll create a new empty document (see <a href="../creating-doc/">Creating a
 document</a>), rename the initial empty table &ldquo;Table1&rdquo; to &ldquo;Classes&rdquo;, add the columns
 you need, and type in some classes. To follow the steps of this tutorial, you can instead import
-<a data-wm-adjusted="1" href="/afterschool-program/Classes.csv">Classes.csv</a>
+<a data-wm-adjusted="1" href="/unlocalized-assets/afterschool-program/Classes.csv">Classes.csv</a>
 (or simply refer to the &ldquo;Afterschool Program&rdquo; example document).</p>
 <p><img alt="add-classes" src="../images/afterschool-program/add-classes.png" /></p>
 <p>For the Staff table, click the &ldquo;Add New&rdquo; button and select &ldquo;Add Empty Table&rdquo;. Rename it to
 &ldquo;Staff&rdquo;, create some columns, and enter some data about instructors. Or import
-<a href="/afterschool-program/Staff.csv">Staff.csv</a> to use sample data and save a few steps.</p>
+<a href="/unlocalized-assets/afterschool-program/Staff.csv">Staff.csv</a> to use sample data and save a few steps.</p>
 <p><img alt="add-staff" src="../images/afterschool-program/add-staff.png" /></p>
 <p>We want the <em>Instructor</em> column in the <code>Classes</code> table to be a reference to the <code>Staff</code> table.
 Currently, the <code>Staff</code> table doesn&rsquo;t have any column that uniquely identifies each record. For
@@ -1137,7 +1137,7 @@ instructors in the <code>Staff</code> table, or start typing to use auto-complet
 <h2 id="students">Students<a class="headerlink" href="#students" title="Permanent link">#</a></h2>
 <p>Each class has a number of students. So, we’ll need a table of students. Again, add a new empty
 table, rename it to &ldquo;Students&rdquo;, and fill it with the students’ names, grade levels, etc. Or
-import <a href="/afterschool-program/Students.csv">Students.csv</a> to use sample data and save a few steps.</p>
+import <a href="/unlocalized-assets/afterschool-program/Students.csv">Students.csv</a> to use sample data and save a few steps.</p>
 <p><img alt="students-table" src="../images/afterschool-program/students-table.png" /></p>
 <p>Let&rsquo;s add here a &ldquo;Full Name&rdquo; formula column, just like in the <code>Staff</code> table. It will come in handy.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="students-fullname" src="../images/afterschool-program/students-fullname.png" /></em></span></p>
@@ -1157,7 +1157,7 @@ they have paid for the class, and perhaps more.</p>
 <p>becomes this:</p>
 <p class="screenshot-half"><span class="screenshot-full"><em><img alt="many-to-many-join" src="../images/many-to-many-join.png" /></em></span></p>
 <p>So, let’s add a new table, name it &ldquo;Enrollments&rdquo;, and add the columns we need. Here too, to follow
-along, you may import sample data from <a href="/afterschool-program/Enrollments.csv">Enrollments.csv</a>.</p>
+along, you may import sample data from <a href="/unlocalized-assets/afterschool-program/Enrollments.csv">Enrollments.csv</a>.</p>
 <p><img alt="enrollments-table" src="../images/afterschool-program/enrollments-table.png" /></p>
 <p>In Column Options for the column <em>Student</em>, set the Column Type to &ldquo;Reference&rdquo;, set the referenced table to <code>Students</code>, and select &ldquo;Full Name&rdquo; as the column to show.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="enrollments-student-col" src="../images/afterschool-program/enrollments-student-col.png" /></em></span></p>
@@ -1232,7 +1232,7 @@ Recognizing the parent-child relationship in your database may seem like a compl
 will likely simplify your daily workflow.</p>
 <p>So, let’s add one more table: <code>Families</code>. We’ll include the parent name and contact info, and link
 each child to a record here. You can import sample data from
-<a href="/afterschool-program/Families.csv">Families.csv</a>.</p>
+<a href="/unlocalized-assets/afterschool-program/Families.csv">Families.csv</a>.</p>
 <p><img alt="families1" src="../images/afterschool-program/families1.png" /></p>
 <p>Note that we added a <em>Full Name</em> column here as for other tables that list people.</p>
 <p>In the Students table, we’ll add a column named &ldquo;Family&rdquo;, and make it a Reference to <code>Families</code>.</p>
