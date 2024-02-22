@@ -3,7 +3,7 @@
 # Python script adapted from the fastapi project to manage translations
 # License: MIT
 # Source: https://github.com/tiangolo/fastapi/blob/master/scripts/docs.py
-# Original Author: Sebastián Ramírez
+# Original Author: Sebastián Ramírez and contributors
 
 import json
 import logging
@@ -41,8 +41,8 @@ site_path = Path("site").absolute()
 build_site_path = Path("site_build").absolute()
 
 
-def language_docs_dir(langue_base: Path):
-    return langue_base / "docs"
+def language_docs_dir(lang: str) -> Path:
+    return docs_path / lang / "docs"
 
 
 def get_missing_translation_snippet() -> str:
@@ -82,6 +82,18 @@ def complete_existing_lang(incomplete: str):
             yield lang_path.name
 
 
+# FIXME: remove this?
+# def fallback_to_en(lang: str, file: str) -> str:
+#     en_file = language_docs_dir('en') / file
+#     local_file = language_docs_dir(lang) / file
+#     local_file.parent.mkdir(parents=True, exist_ok=True)
+#     if not en_file.exists() or local_file.exists():
+#         return
+#     en_file_content = en_file.read_text(encoding="utf-8")
+#     local_file_content = f"{get_missing_translation_snippet()}\n\n{en_file_content}"
+#     local_file.write_text(local_file_content, encoding="utf-8")
+
+
 @app.command()
 def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     """
@@ -94,9 +106,9 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     new_path.mkdir()
     new_config_path: Path = Path(new_path) / mkdocs_name
     new_config_path.write_text(get_mkdocs_yaml_for_lang(lang), encoding="utf-8")
-    new_config_docs_path: Path = language_docs_dir(new_path)
+    new_config_docs_path: Path = language_docs_dir(lang)
     new_config_docs_path.mkdir()
-    en_index_path: Path = language_docs_dir(en_docs_path) / "index.md"
+    en_index_path: Path = language_docs_dir('en') / "index.md"
     new_index_path: Path = new_config_docs_path / "index.md"
     en_index_content = en_index_path.read_text(encoding="utf-8")
     new_index_content = f"{get_missing_translation_snippet()}\n\n{en_index_content}"
