@@ -1,3 +1,5 @@
+#!./env/bin/python
+
 # Python script adapted from the fastapi project to manage translations
 # License: MIT
 # Source: https://github.com/tiangolo/fastapi/blob/master/scripts/docs.py
