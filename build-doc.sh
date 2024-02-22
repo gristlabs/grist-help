@@ -8,4 +8,4 @@ if [ -e env ]; then
   source ./env/bin/activate
 fi
 
-mkdocs build
+python3 ./docs.py build-all

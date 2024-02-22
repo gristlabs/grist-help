@@ -101,3 +101,5 @@ You need to first run `yarn install` in your Grist checkout directory.
 
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License](LICENSE.txt).
+
+The script [docs.py](./docs.py) is MIT licensed, credits to Sebastián Ramírez and the FastAPI project contributors.
