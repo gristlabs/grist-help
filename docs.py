@@ -180,9 +180,9 @@ def serve() -> None:
     typer.echo("This is here only to preview a site with translations already built.")
     typer.echo("Make sure you run the build-all command first.")
     os.chdir("site")
-    server_address = ("", 8008)
+    server_address = ("", 8000)
     server = HTTPServer(server_address, SimpleHTTPRequestHandler)
-    typer.echo("Serving at: http://127.0.0.1:8008")
+    typer.echo("Serving at: http://127.0.0.1:8000")
     server.serve_forever()
 
 
@@ -207,7 +207,7 @@ def live(
         lang = "en"
     lang_path: Path = docs_path / lang
     os.chdir(lang_path)
-    mkdocs.commands.serve.serve(dev_addr="127.0.0.1:8008")
+    mkdocs.commands.serve.serve(dev_addr="127.0.0.1:8000")
 
 
 def get_updated_config_content() -> Dict[str, Any]:
