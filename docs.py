@@ -82,18 +82,6 @@ def complete_existing_lang(incomplete: str):
             yield lang_path.name
 
 
-# FIXME: remove this?
-# def fallback_to_en(lang: str, file: str) -> str:
-#     en_file = language_docs_dir('en') / file
-#     local_file = language_docs_dir(lang) / file
-#     local_file.parent.mkdir(parents=True, exist_ok=True)
-#     if not en_file.exists() or local_file.exists():
-#         return
-#     en_file_content = en_file.read_text(encoding="utf-8")
-#     local_file_content = f"{get_missing_translation_snippet()}\n\n{en_file_content}"
-#     local_file.write_text(local_file_content, encoding="utf-8")
-
-
 @app.command()
 def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     """
@@ -126,8 +114,6 @@ def build_lang(
     """
     Build the docs for a language.
     """
-    insiders_env_file = os.environ.get("INSIDERS_FILE")
-    print(f"Insiders file {insiders_env_file}")
     lang_path: Path = docs_path / lang
     if not lang_path.is_dir():
         typer.echo(f"The language translation doesn't seem to exist yet: {lang}")

@@ -24,14 +24,6 @@ def get_missing_translation_content(docs_dir: str) -> str:
     return missing_translation_path.read_text(encoding="utf-8")
 
 
-# @lru_cache
-# def get_mkdocs_material_langs() -> List[str]:
-#     material_path = Path(material.__file__).parent
-#     material_langs_path = material_path / "templates" / "partials" / "languages"
-#     langs = [file.stem for file in material_langs_path.glob("*.html")]
-#     return langs
-
-
 class EnFile(File):
     pass
 
