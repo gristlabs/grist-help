@@ -15,6 +15,7 @@ from importlib import metadata
 from multiprocessing import Pool
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
+from textwrap import dedent
 
 import mkdocs.commands.build
 import mkdocs.commands.serve
@@ -30,16 +31,31 @@ app = typer.Typer()
 
 mkdocs_name = "mkdocs.yml"
 
-missing_translation_snippet = """
-{!../../../docs/missing-translation.md!}
-"""
-
 docs_folder_name = "help"
 docs_path = Path("help")
 en_docs_path = Path("help/en")
 base_config_path: Path = Path(mkdocs_name)
 site_path = Path("site").absolute()
 build_site_path = Path("site_build").absolute()
+
+
+def language_docs_dir(langue_base: Path):
+    return langue_base / "docs"
+
+
+def get_missing_translation_snippet() -> str:
+    missing_translation_file_path = (Path(__file__).parent / "help/missing-translation.md")
+    return missing_translation_file_path.read_text(encoding="utf-8")
+
+
+def get_mkdocs_yaml_for_lang(lang: str) -> str:
+    return dedent(f"""
+    INHERIT: ../../mkdocs.yml
+    docs_dir: './docs'
+    theme:
+      custom_dir: ../../overrides
+      language: {lang}
+    """).lstrip()
 
 
 def get_base_config_path() -> Dict[str, Any]:
@@ -75,13 +91,13 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
         raise typer.Abort()
     new_path.mkdir()
     new_config_path: Path = Path(new_path) / mkdocs_name
-    new_config_path.write_text("INHERIT: ../en/mkdocs.yml\n", encoding="utf-8")
-    new_config_docs_path: Path = new_path / folder_name
+    new_config_path.write_text(get_mkdocs_yaml_for_lang(lang), encoding="utf-8")
+    new_config_docs_path: Path = language_docs_dir(new_path)
     new_config_docs_path.mkdir()
-    en_index_path: Path = en_docs_path / folder_name / "index.md"
+    en_index_path: Path = language_docs_dir(en_docs_path) / "index.md"
     new_index_path: Path = new_config_docs_path / "index.md"
     en_index_content = en_index_path.read_text(encoding="utf-8")
-    new_index_content = f"{missing_translation_snippet}\n\n{en_index_content}"
+    new_index_content = f"{get_missing_translation_snippet()}\n\n{en_index_content}"
     new_index_path.write_text(new_index_content, encoding="utf-8")
     typer.secho(f"Successfully initialized: {new_path}", color=typer.colors.GREEN)
     update_languages()
@@ -247,12 +263,6 @@ def verify_config() -> None:
         )
         raise typer.Abort()
     typer.echo("Valid mkdocs.yml ✅")
-
-
-@app.command()
-def verify_docs():
-    verify_readme()
-    verify_config()
 
 
 @app.command()
