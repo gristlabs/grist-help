@@ -18,15 +18,14 @@ Conversation tab.
 ``` sh
 python3 -m venv env
 ./env/bin/pip install -r requirements.txt
-./env/bin/mkdocs serve
+./docs.py live en # or whatever code for language you want to see
 ```
 
 Then visit <http://localhost:8000/> to preview documentation. All the articles,
-as well as static files, are under `/help/en/docs` subdirectory. While `mkdocs serve`
-is running, you may make changes there, and the open page will refresh to show
-the changes.
+as well as static files, are under `/help/en/docs` subdirectory. While `./docs.py live`
+is running, you may make changes there, and the open page will refresh to show the changes.
 
-While `mkdocs serve` is running, you can run `./check_links.sh` to check
+While `./docs.py live` is running, you can run `./check_links.sh` to check
 for broken links in the site.  It will print out a lot of chatter, then
 if there are broken links, conclude with a section like this:
 
