@@ -1,18 +1,21 @@
+# Mkdocs hooks adapted from the fastapi project
+# License: MIT
+# Source: https://github.com/tiangolo/fastapi/blob/master/scripts/mkdocs_hooks.py
+# Original Author: Sebastián Ramírez and contributors
+
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, List, Union
 
-import material
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import File, Files
 from mkdocs.structure.nav import Link, Navigation, Section
 from mkdocs.structure.pages import Page
+from mkdocs.utils.yaml import yaml_load
 
-non_traslated_sections = [
-    "reference/",
-    "release-notes.md",
-]
+import glob
 
+non_translated_sections = [] # Add the sections that are not translated here
 
 @lru_cache
 def get_missing_translation_content(docs_dir: str) -> str:
@@ -21,27 +24,16 @@ def get_missing_translation_content(docs_dir: str) -> str:
     return missing_translation_path.read_text(encoding="utf-8")
 
 
-@lru_cache
-def get_mkdocs_material_langs() -> List[str]:
-    material_path = Path(material.__file__).parent
-    material_langs_path = material_path / "templates" / "partials" / "languages"
-    langs = [file.stem for file in material_langs_path.glob("*.html")]
-    return langs
+# @lru_cache
+# def get_mkdocs_material_langs() -> List[str]:
+#     material_path = Path(material.__file__).parent
+#     material_langs_path = material_path / "templates" / "partials" / "languages"
+#     langs = [file.stem for file in material_langs_path.glob("*.html")]
+#     return langs
 
 
 class EnFile(File):
     pass
-
-
-def on_config(config: MkDocsConfig, **kwargs: Any) -> MkDocsConfig:
-    available_langs = get_mkdocs_material_langs()
-    dir_path = Path(config.docs_dir)
-    lang = dir_path.parent.name
-    if lang in available_langs:
-        config.theme["language"] = lang
-    if not (config.site_url or "").endswith(f"{lang}/") and not lang == "en":
-        config.site_url = f"{config.site_url}{lang}/"
-    return config
 
 
 def resolve_file(*, item: str, files: Files, config: MkDocsConfig) -> None:
@@ -76,11 +68,26 @@ def resolve_files(*, items: List[Any], files: Files, config: MkDocsConfig) -> No
             else:
                 raise ValueError(f"Unexpected value: {values}")
 
+def get_images_relative_paths(docs_dir: str) -> List[str]:
+    en_docs_path = (Path(docs_dir) / "../../en/docs").resolve()
+    images = glob.glob(f"{en_docs_path}/images/**/*", recursive=True)
+    return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), images))
 
 def on_files(files: Files, *, config: MkDocsConfig) -> Files:
-    resolve_files(items=config.nav or [], files=files, config=config)
-    if "logo" in config.theme:
-        resolve_file(item=config.theme["logo"], files=files, config=config)
+
+    # We circumvent the fact that the config.nav object is not available anymore
+    # due to the removal made by mkdocs-awesome-pages-plugin.
+    #
+    # So we read the config file again to get the nav object.
+    with open(config.config_file_path, 'rb') as f:
+        untouched_config = yaml_load(f)
+        resolve_files(items=untouched_config['nav'] or [], files=files, config=config)
+
+    images = get_images_relative_paths(config.docs_dir)
+
+    resolve_files(items=images, files=files, config=config)
+    if "logo" in config.extra:
+        resolve_file(item=config.extra["logo"], files=files, config=config)
     if "favicon" in config.theme:
         resolve_file(item=config.theme["favicon"], files=files, config=config)
     resolve_files(items=config.extra_css, files=files, config=config)
@@ -128,7 +135,7 @@ def on_page_markdown(
     markdown: str, *, page: Page, config: MkDocsConfig, files: Files
 ) -> str:
     if isinstance(page.file, EnFile):
-        for excluded_section in non_traslated_sections:
+        for excluded_section in non_translated_sections:
             if page.file.src_path.startswith(excluded_section):
                 return markdown
         missing_translation_content = get_missing_translation_content(config.docs_dir)

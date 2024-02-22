@@ -196,3 +196,5 @@ markdown_extensions:
   smarty: {}
   extra: {}
   meta: {}
+hooks:
+- ../../mkdocs-utils/hooks.py
