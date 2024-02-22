@@ -3,3 +3,5 @@ INHERIT: ../mkdocs.yml
 markdown_extensions:
   toc:
     permalink: False
+hooks:
+- ../mkdocs-utils/hooks.py
