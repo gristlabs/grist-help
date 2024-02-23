@@ -17,7 +17,8 @@ Conversation tab.
 
 ``` sh
 python3 -m venv env
-./env/bin/pip install -r requirements.txt
+source ./env/bin/activate # for most shells, or source ./env/bin/activate.fish or source ./env/bin/activate.csh depending on your shell
+pip install -r requirements.txt
 ./docs.py live en # or whatever code for language you want to see
 ```
 
@@ -43,6 +44,14 @@ FINISHED --2020-03-13 10:38:07--
 Total wall clock time: 1.3s
 Downloaded: 36 files, 2.0M in 0.009s (226 MB/s)
 ```
+
+In order to build the website with all the languages, run:
+```sh
+source ./env/bin/activate
+./docs.py serve
+```
+
+Also see `./docs.py --help` for the full list of commands and options available.
 
 ## Publishing for preview
 
