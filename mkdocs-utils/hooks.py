@@ -112,14 +112,14 @@ def generate_renamed_section_items(
 
 
 def on_nav(
-  nav: Navigation, *, config: MkDocsConfig, _: Files
+  nav: Navigation, *, config: MkDocsConfig, **_: Any
 ) -> Navigation:
   new_items = generate_renamed_section_items(nav.items, config=config)
   return Navigation(items=new_items, pages=nav.pages)
 
 
 def on_page_markdown(
-  markdown: str, *, page: Page, config: MkDocsConfig
+  markdown: str, *, page: Page, config: MkDocsConfig, **_: Any
 ) -> str:
   if isinstance(page.file, EnFile):
     for excluded_section in non_translated_sections:

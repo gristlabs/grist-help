@@ -27,12 +27,12 @@ logging.basicConfig(level=logging.INFO)
 
 app = typer.Typer()
 
-alternate_langs_config_name = "mkdocs-alternate-langs.yml"
+mkdocs_config_name = "mkdocs.yml"
 
 docs_folder_name = "help"
 docs_path = Path("help")
 en_docs_path = Path("help/en")
-alternate_langs_config_path: Path = Path(alternate_langs_config_name)
+alternate_langs_config_path: Path = Path("mkdocs-alternate-langs.yml")
 site_path = Path("site").absolute()
 build_site_path = Path("site_build").absolute()
 
@@ -88,7 +88,7 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     typer.echo(f"The language was already created: {lang}")
     raise typer.Abort()
   new_path.mkdir()
-  new_config_path: Path = Path(new_path) / alternate_langs_config_name
+  new_config_path: Path = Path(new_path) / mkdocs_config_name
   new_config_path.write_text(get_mkdocs_yaml_for_lang(lang), encoding="utf-8")
   new_config_docs_path: Path = language_docs_dir(lang)
   new_config_docs_path.mkdir()
@@ -133,6 +133,7 @@ def build_lang(
   shutil.copytree(build_site_dist_path, dist_path, dirs_exist_ok=True)
   os.chdir(current_dir)
   typer.secho(f"Successfully built docs for: {lang}", color=typer.colors.GREEN)
+
 
 @app.command()
 def build_all() -> None:
