@@ -16,6 +16,7 @@ from mkdocs.utils.yaml import yaml_load
 
 non_translated_sections = [] # Add the sections that are not translated here
 
+
 @lru_cache
 def get_missing_translation_content(docs_dir: str) -> str:
   docs_dir_path = Path(docs_dir)

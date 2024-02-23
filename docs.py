@@ -92,11 +92,18 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
   new_config_path.write_text(get_mkdocs_yaml_for_lang(lang), encoding="utf-8")
   new_config_docs_path: Path = language_docs_dir(lang)
   new_config_docs_path.mkdir()
+
   en_index_path: Path = language_docs_dir('en') / "index.md"
   new_index_path: Path = new_config_docs_path / "index.md"
   en_index_content = en_index_path.read_text(encoding="utf-8")
   new_index_content = f"{get_missing_translation_snippet()}\n\n{en_index_content}"
   new_index_path.write_text(new_index_content, encoding="utf-8")
+
+  # Create the images directory
+  images_dir = new_config_docs_path / "images"
+  images_dir.mkdir()
+  (images_dir / ".gitkeep").touch()
+
   typer.secho(f"Successfully initialized: {new_path}", color=typer.colors.GREEN)
   update_languages()
 
