@@ -209,6 +209,7 @@ def live(
     lang = "en"
   lang_path: Path = docs_path / lang
   os.chdir(lang_path)
+  os.environ["DISABLE_LANGUAGE_SELECTOR"] = "true"
   mkdocs.commands.serve.serve(dev_addr="127.0.0.1:8000")
 
 
@@ -258,9 +259,7 @@ def verify_config() -> None:
   """
   typer.echo("Verifying mkdocs-alternate-lang.yml")
   config = get_alternate_langs_config()
-  print(config)
   updated_config = get_updated_config_content()
-  print(updated_config)
   if config != updated_config:
     typer.secho(
       f"./mkdocs-alternate-lang.yml outdated from {docs_folder_name}/language_names.yml, "
