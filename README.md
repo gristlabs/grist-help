@@ -16,6 +16,7 @@ Conversation tab.
 ## Setting up local environment
 
 ``` sh
+# initiate a python virtual environment
 python3 -m venv env
 source ./env/bin/activate # for most shells, or source ./env/bin/activate.fish or source ./env/bin/activate.csh depending on your shell
 pip install -r requirements.txt
