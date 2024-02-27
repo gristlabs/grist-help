@@ -3,3 +3,4 @@ extra:
   alternate:
   - link: /
     name: en - English
+    code: en
