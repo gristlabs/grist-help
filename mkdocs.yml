@@ -15,6 +15,8 @@ docs_dir: './help/en/docs' # Add localization folder here for now, we'll handle 
 theme:
   name: windmill
   custom_dir: overrides
+  # Disable the language selector when running in live (so for a specific language)
+  disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
 nav:
   - Welcome to Grist: index.md
   - FAQ: FAQ.md

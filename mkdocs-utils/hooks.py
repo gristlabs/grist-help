@@ -87,11 +87,6 @@ def on_files(files: Files, *, config: MkDocsConfig) -> Files:
   resolve_files(items=config.extra_javascript, files=files, config=config)
   return files
 
-def on_config(config: MkDocsConfig) -> MkDocsConfig:
-  if os.environ.get("DISABLE_LANGUAGE_SELECTOR") == 'true':
-    config.theme["disable_language_selector"] = True
-  return config
-
 def on_page_markdown(
   markdown: str, *, page: Page, config: MkDocsConfig, **_: Any
 ) -> str:
