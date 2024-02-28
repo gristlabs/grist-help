@@ -139,7 +139,7 @@ The rest of this tutorial will show you how to create such a document on your ow
 exercise that will teach you some of the key features of Grist.
 
 To start, we'll import a file with sample contacts from the Grist home page. First, save this file
-to your desktop: [lightweight-crm-contacts.csv](/unlocalized-assets/lightweight-crm-contacts.csv). Then click the "Add
+to your desktop: [lightweight-crm-contacts.csv](./unlocalized-assets/lightweight-crm-contacts.csv). Then click the "Add
 New" button on the top left of your Grist home page, click "Import document", and select the file
 on your desktop.
 

@@ -388,7 +388,7 @@ to show your own custom configuration screen.
 
 Custom widgets can also be used as a source of linking (see [Linking widgets](linking-widgets.md)).
 All you need to do is inform Grist that your widget supports linking by passing an additional
-option to the `ready` call (see [Widget API](/code/modules/grist_plugin_api/#ready)):
+option to the `ready` call (see [Widget API](./code/modules/grist_plugin_api.md#ready)):
 
 ```javascript
 grist.ready({
@@ -580,7 +580,7 @@ For a video walkthrough, be sure to watch our [Custom Widgets Webinar](https://w
 
 ### JupyterLite Notebook
 
-This widget lets you run custom Python code in [JupyterLite](https://jupyterlite.readthedocs.io/), a version of [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) running entirely in the browser. You can use the full [custom widget plugin API](/code/modules/grist_plugin_api/) and access or modify any data in the document (subject to Access Rules), unlocking nearly unlimited possibilities for advanced users.
+This widget lets you run custom Python code in [JupyterLite](https://jupyterlite.readthedocs.io/), a version of [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) running entirely in the browser. You can use the full [custom widget plugin API](./code/modules/grist_plugin_api.md) and access or modify any data in the document (subject to Access Rules), unlocking nearly unlimited possibilities for advanced users.
 
 You’ll be presented with a notebook where you can enter and run Python code, e.g:
 
@@ -590,7 +590,7 @@ After typing code in a cell, click the play button or press Shift+Enter to run t
 
 Unlike formulas, code isn’t saved automatically. You must press the usual ‘Save’ button above the widget (outside the notebook) to persist the code within your Grist document. On the other hand, changes to settings within the notebook (e.g. keyboard shortcuts) are saved in your browser’s local storage, so they’re not shared with other users of the document.
 
-A special object called `grist` is automatically available to use in Python code, which mirrors many common methods of the usual [JS plugin API](/code/modules/grist_plugin_api/). Note that many of these methods are asynchronous, so you should use `await` before calling them.
+A special object called `grist` is automatically available to use in Python code, which mirrors many common methods of the usual [JS plugin API](./code/modules/grist_plugin_api.md). Note that many of these methods are asynchronous, so you should use `await` before calling them.
 
 - `async fetch_selected_table()`: returns the data of the table backing the notebook widget.
 - `async fetch_selected_record(row_id=None)`: returns a record of the table backing the notebook widget. If `row_id` is specified, returns the record at that row. Otherwise, returns the record at the current cursor position in a widget linked to the notebook widget.
@@ -603,7 +603,7 @@ A special object called `grist` is automatically available to use in Python code
     - The values for reference columns are row IDs of the referenced table, whereas `fetch_selected_table` returns the values displayed based on the 'SHOW COLUMN' configuration.
 - `on_record(callback)`: registers a callback function to run when the cursor moves in a widget linked to the notebook widget, i.e. the widget chosen from the "SELECT BY" dropdown in the Data section of the widget configuration. The callback function will be passed the record at the current cursor position. You can also use this as a decorator, i.e. `@grist.on_record`.
 - `on_records(callback)`: similar to `on_record`, but runs when the source data of the widget changes. The callback function will be passed the same data as returned by `fetch_selected_table`.
-- `get_table(table_id)`: returns a `TableOperations` class similar to the interface in the usual [JS plugin API](/code/interfaces/TableOperations.TableOperations/) for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:
+- `get_table(table_id)`: returns a `TableOperations` class similar to the interface in the usual [JS plugin API](./code/interfaces/TableOperations.TableOperations.md) for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:
     - `async create(records, parse_strings=True)`
     - `async update(records, parse_strings=True)`
     - `async upsert(records, parse_strings=True, add=True, update=True, on_many="first", allow_empty_require=False)`

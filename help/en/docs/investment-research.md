@@ -11,8 +11,8 @@ investments in them up to 2013. Let’s take a look at the
 sample document and then we’ll talk about how to build it so that you can apply these tools to
 your own data.
 
-[^doc_desc]: Download [crunchbase_companies_ny.csv](/unlocalized-assets/investment-research/crunchbase-companies-ny.csv)
-and [crunchbase_investments_ny.csv](/unlocalized-assets/investment-research/crunchbase-investments-ny.csv). The sample data includes only the “companies” and “investments” data, and includes only
+[^doc_desc]: Download [crunchbase_companies_ny.csv](./unlocalized-assets/investment-research/crunchbase-companies-ny.csv)
+and [crunchbase_investments_ny.csv](./unlocalized-assets/investment-research/crunchbase-investments-ny.csv). The sample data includes only the “companies” and “investments” data, and includes only
 New York companies to keep it smaller and faster. The dataset comes
 from [Kaggle](https://www.kaggle.com/mauriciocap/crunchbase2013).
 
@@ -68,9 +68,9 @@ the first step.
 
 Let’s import the raw data. We’ll import two CSV files, where each will become its own table. To
 follow along, save the files from
-[crunchbase_companies_ny.csv](/unlocalized-assets/investment-research/crunchbase-companies-ny.csv)
+[crunchbase_companies_ny.csv](./unlocalized-assets/investment-research/crunchbase-companies-ny.csv)
 and
-[crunchbase_investments_ny.csv](/unlocalized-assets/investment-research/crunchbase-investments-ny.csv)
+[crunchbase_investments_ny.csv](./unlocalized-assets/investment-research/crunchbase-investments-ny.csv)
 to
 your computer first. Then, create a Grist document by importing the first file from the home page.
 

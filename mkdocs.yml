@@ -1,3 +1,4 @@
+INHERIT: ./mkdocs-alternate-langs.yml
 site_name: Grist Help Center
 site_dir: site
 site_description: "Tutorials and resources for Grist, to help you organize your data, your way."
@@ -14,6 +15,8 @@ docs_dir: './help/en/docs' # Add localization folder here for now, we'll handle 
 theme:
   name: windmill
   custom_dir: overrides
+  # Disable the language selector when running in live (so for a specific language)
+  disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
 nav:
   - Welcome to Grist: index.md
   - FAQ: FAQ.md
@@ -203,3 +206,6 @@ markdown_extensions:
   smarty: {}
   extra: {}
   meta: {}
+
+hooks:
+- ../../mkdocs-utils/hooks.py

@@ -404,7 +404,7 @@ Here are the meanings of the keys in this file:
     suppressed via the unsubscribe link in emails.
 
 For reference, there are example SendGrid templates in
-[example-sendgrid-templates.zip](/install/example-sendgrid-templates.zip)
+[example-sendgrid-templates.zip](./install/example-sendgrid-templates.zip)
 based on an export of the SendGrid templates for our SaaS.
 
 ### How do I add more python packages? {: .tag-core .tag-ee }

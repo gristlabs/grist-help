@@ -16,17 +16,18 @@ Conversation tab.
 ## Setting up local environment
 
 ``` sh
+# initiate a python virtual environment
 python3 -m venv env
-./env/bin/pip install -r requirements.txt
-./env/bin/mkdocs serve
+source ./env/bin/activate # for most shells, or source ./env/bin/activate.fish or source ./env/bin/activate.csh depending on your shell
+pip install -r requirements.txt
+./docs.py live en # or whatever code for language you want to see
 ```
 
 Then visit <http://localhost:8000/> to preview documentation. All the articles,
-as well as static files, are under `/help/en/docs` subdirectory. While `mkdocs serve`
-is running, you may make changes there, and the open page will refresh to show
-the changes.
+as well as static files, are under `/help/en/docs` subdirectory. While `./docs.py live`
+is running, you may make changes there, and the open page will refresh to show the changes.
 
-While `mkdocs serve` is running, you can run `./check_links.sh` to check
+While `./docs.py live` is running, you can run `./check_links.sh` to check
 for broken links in the site.  It will print out a lot of chatter, then
 if there are broken links, conclude with a section like this:
 
@@ -44,6 +45,16 @@ FINISHED --2020-03-13 10:38:07--
 Total wall clock time: 1.3s
 Downloaded: 36 files, 2.0M in 0.009s (226 MB/s)
 ```
+
+In order to build the website with all the languages, run both `build-all`
+(so it builds the website) and then `serve` for preview:
+```sh
+source ./env/bin/activate
+./docs.py build-all
+./docs.py serve
+```
+
+Also see `./docs.py --help` for the full list of commands and options available.
 
 ## Publishing for preview
 
@@ -101,3 +112,5 @@ You need to first run `yarn install` in your Grist checkout directory.
 
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License](LICENSE.txt).
+
+The script [docs.py](./docs.py) is MIT licensed, credits to Sebastián Ramírez and the FastAPI project contributors.

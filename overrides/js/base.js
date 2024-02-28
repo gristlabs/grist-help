@@ -129,6 +129,22 @@ function initMainWindow() {
 
   // Initialize search functionality.
   initSearch();
+
+  $('#wm-language-select').on('change', function() {
+    // Hint the user if they're using in live mode (which doesn't support language switching).
+    // This should not happen in production, so an alert is fine.
+    if (this.dataset.unavailable) {
+      alert(
+        'The website is run using "./docs.py live [lang]", which is meant for a single language.\n\n'
+        + 'Please run it using "./docs.py build-all" and then "./docs.py serve" to test the language selector.'
+      );
+      return false;
+    }
+    var currentLang = document.documentElement.lang || 'en';
+
+    var matchLangInPath = new RegExp('^/' + (currentLang === 'en' ? '' : currentLang + '/'));
+    location.pathname = location.pathname.replace(matchLangInPath, $(this).val());
+  });
 }
 
 // Other initialization of iframe contents.
@@ -158,7 +174,12 @@ function initSearch() {
   var searchResults = $('#mkdocs-search-results');
 
   // Fetch the prebuilt index data, and add to the index.
-  $.getJSON(getUrl('/search/search_index.json'))
+  var lang = document.documentElement.lang || 'en';
+  var searchPath = '/search/search_index.json';
+  if (lang !== 'en') {
+    searchPath = '/' + lang + searchPath;
+  }
+  $.getJSON(getUrl(searchPath))
   .done(function(data) {
     data.docs.forEach(function(doc) {
       searchIndex.addDoc(doc);

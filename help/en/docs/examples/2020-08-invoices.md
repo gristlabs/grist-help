@@ -4,7 +4,7 @@ If you are keeping records of who is charged what in Grist, it can be convenient
 to generate invoices right there and then beside those records.  This tutorial
 shows you how to set up a document like this:
 
-![Invoice](/examples/images/2020-08-invoices/final-invoice.png)
+![Invoice](../examples/images/2020-08-invoices/final-invoice.png)
 
 
 You can find a finished template at <https://templates.getgrist.com/9NH6D58FmxwP/Invoicing>{:target="\_blank"}.
@@ -17,7 +17,7 @@ First of all, make a table to record invoices by
 [creating an empty document](../creating-doc.md) and renaming `Table1` to `Invoices`:
 
 
-![Invoice](/examples/images/2020-08-invoices/make-invoices-table.png)
+![Invoice](../examples/images/2020-08-invoices/make-invoices-table.png)
 
 Now, let's add a widget beside the table to view the finished invoices.
 There are all sorts of possible styles of invoice, so Grist lets web
@@ -32,14 +32,14 @@ Click on `Add New`, then `Add Widget to Page`.  Then:
   * For `Select By` choose `INVOICES` so that the Custom Widget will show data from whatever
     invoice is currently selected by the user.
 
-![Invoice](/examples/images/2020-08-invoices/add-custom-widget.png)
+![Invoice](../examples/images/2020-08-invoices/add-custom-widget.png)
 
 Great, now we have two widgets, a Table Widget that will have invoice data,
 and a Custom Widget that will view that data as a nicely formatted, printable invoice.
 The Custom Widget starts off blank; select `Widget options` to specify what we want in
 it:
 
-![Invoice](/examples/images/2020-08-invoices/widget-options.png)
+![Invoice](../examples/images/2020-08-invoices/widget-options.png)
 
 In the `CUSTOM` settings section where it says `Full URL of webpage to show`, put this
 link:
@@ -49,12 +49,12 @@ link:
 And set `Access` to `read table`.  This grants the Custom Widget access to read the
 Invoices table.
 
-![Invoice](/examples/images/2020-08-invoices/set-url.png)
+![Invoice](../examples/images/2020-08-invoices/set-url.png)
 
 Now place anything you like in a row of the Invoices table (I just added the number `1`).
 An incomplete invoice will immediately show up:
 
-![Invoice](/examples/images/2020-08-invoices/empty-invoice.png)
+![Invoice](../examples/images/2020-08-invoices/empty-invoice.png)
 
 The incomplete invoice shows what column names to use to control what parts of the
 invoice.  An extra black box shows what columns the widget understands, what columns
@@ -71,25 +71,25 @@ where `$id` is an auto-incrementing numeric identifier assigned to each row.
 But you could set it manually or with a different formula.  As soon as it is
 set, the invoice updates:
 
-![Invoice](/examples/images/2020-08-invoices/add-number.png)
+![Invoice](../examples/images/2020-08-invoices/add-number.png)
 
 The next column the help box suggests is `Client`, so
 let's rename the `B` column to `Client`.  Later we will give client
 information in a structured way, but for now let's just put some text
 here (use <code class="keys">*Shift* + *Enter*</code> to insert line breaks):
 
-![Invoice](/examples/images/2020-08-invoices/add-client.png)
+![Invoice](../examples/images/2020-08-invoices/add-client.png)
 
 Great, now the Client box is filled out.  The next suggested column is `Items`,
 so let's rename the `C` column to `Items`.  Later we will give item
 information in a structured way, but for now let's just put some text here:
 
-![Invoice](/examples/images/2020-08-invoices/add-items.png)
+![Invoice](../examples/images/2020-08-invoices/add-items.png)
 
 And now the Description is set.  We're missing a total, so let's add a
 column called `Total` and set it to `100`:
 
-![Invoice](/examples/images/2020-08-invoices/add-total.png)
+![Invoice](../examples/images/2020-08-invoices/add-total.png)
 
 The invoice won't update immediately.  This is the first new column we've
 added - until now we've been renaming them.  When we created the Custom Widget,
@@ -97,20 +97,20 @@ it was given access to the columns that existed at the time of creation.
 To let the widget see the new column, open `Widget options` again and move
 `Total` from `Hidden Columns` to `Visible Columns`:
 
-![Invoice](/examples/images/2020-08-invoices/add-total-visible.png)
+![Invoice](../examples/images/2020-08-invoices/add-total-visible.png)
 
 Great, the invoice updated.  Now let's set who the invoice is from, by
 adding an `Invoicer` column (remember to make it visible to the widget
 via `Widget options`).
 
-![Invoice](/examples/images/2020-08-invoices/add-invoicer.png)
+![Invoice](../examples/images/2020-08-invoices/add-invoicer.png)
 
 As a last step to creating a usable invoice, let's make an `Issued`
 column and put today's date in it (remember to make it visible to the widget
 via `Widget options`).  As soon as the invoice has a date, the black help
 box will disappear:
 
-![Invoice](/examples/images/2020-08-invoices/add-issued.png)
+![Invoice](../examples/images/2020-08-invoices/add-issued.png)
 
 Okay!  If someone sent me that, I'd pay it.  You should nudge me by
 giving it a due date though.  Let's make a `Due` column and set it to
@@ -120,12 +120,12 @@ visible to the widget via `Widget options`.  Also, be sure to
 `Issued` to `Date` or you won't be able to do date math on it (it will
 just be a string).
 
-![Invoice](/examples/images/2020-08-invoices/add-due.png)
+![Invoice](../examples/images/2020-08-invoices/add-due.png)
 
 If there are special instructions to go with the invoice, we can add a `Note`
 column.  Remember to make it visible to the widget via `Widget options`.
 
-![Invoice](/examples/images/2020-08-invoices/add-note.png)
+![Invoice](../examples/images/2020-08-invoices/add-note.png)
 
 ## Entering client information
 
@@ -156,19 +156,19 @@ When the invoice widget sees a column named "References", it fills out the invoi
 "packaged" values in that column, rather than the individual invoice fields. The benefit will be
 seen in the next step, since these packaged values can include data from related records.
 
-![Invoice](/examples/images/2020-08-invoices/add-references.png)
+![Invoice](../examples/images/2020-08-invoices/add-references.png)
 
 Next let's place client information in a separate table.  Add a new table
 to the page for entering business information by clicking
 on `Add New`, `Add Widget to Page`, then `Select Widget > Table` and
 `Select Data > New Table`:
 
-![Invoice](/examples/images/2020-08-invoices/add-businesses.png)
+![Invoice](../examples/images/2020-08-invoices/add-businesses.png)
 
 Then rename the table to `Businesses`. Let's also empty the `Client` column
 so we can see help about what the widget expects there:
 
-![Invoice](/examples/images/2020-08-invoices/add-businesses-rename.png)
+![Invoice](../examples/images/2020-08-invoices/add-businesses-rename.png)
 
 The widget suggests `Name`, `Street1`, `Street2`, `City`, `State`
 and `Zip` columns.  So let's provide those columns in our `Businesses` table,
@@ -177,12 +177,12 @@ the `Client` column, and in `Column options` set the Column Type to
 `Reference`.  Refer to `Businesses` `Name` if Grist doesn't automatically
 guess that.
 
-![Invoice](/examples/images/2020-08-invoices/add-a-business.png)
+![Invoice](../examples/images/2020-08-invoices/add-a-business.png)
 
 Once you hit `Apply`, you will see a nicely formatted Client
 section.
 
-![Invoice](/examples/images/2020-08-invoices/link-client.png)
+![Invoice](../examples/images/2020-08-invoices/link-client.png)
 
 ## Entering invoicer information
 
@@ -207,7 +207,7 @@ your business, you could skip setting up a reference by entering a formula like 
 
 Then set the Column Type for `Invoicer` to `Any` in the right-side panel.
 
-![Invoice](/examples/images/2020-08-invoices/link-invoice.png)
+![Invoice](../examples/images/2020-08-invoices/link-invoice.png)
 
 Notice how emails, phone numbers, and links are specially formatted by the
 widget.
@@ -223,7 +223,7 @@ and give it those four columns.  We can set `Total` to be this simple formula:
 
 `$Price * $Quantity`{: .formula}
 
-![Invoice](/examples/images/2020-08-invoices/add-items-table.png)
+![Invoice](../examples/images/2020-08-invoices/add-items-table.png)
 
 Now we need to pull these items into the `Invoices` table so that
 the Custom Widget gets access to them. Set the `Items` column to
@@ -231,32 +231,32 @@ the formula `Items.lookupRecords()`{: .formula}, and then reset
 its column type to be `Any`. This formula needs a little more work,
 which we'll do soon, but let's just start with that.
 
-![Invoice](/examples/images/2020-08-invoices/add-items-lookup.png)
+![Invoice](../examples/images/2020-08-invoices/add-items-lookup.png)
 
 Great, our invoice is updating nicely!  Remove the `Total` column
 to get an automatically calculated one:
 
-![Invoice](/examples/images/2020-08-invoices/plausible-invoice.png)
+![Invoice](../examples/images/2020-08-invoices/plausible-invoice.png)
 
 It is probably more comfortable to edit invoices
 as a Card Widget than a Table Widget, so let's change that
 using `Widget options`, `Table`, `Change Widget`, `Card`, `Save`.
 You can [customize the card layout](../widget-card.md#editing-card-layout) to your taste.
 
-![Invoice](/examples/images/2020-08-invoices/invoice-card.png)
+![Invoice](../examples/images/2020-08-invoices/invoice-card.png)
 
 To add a new invoice, click the little `+` above the invoices card,
 set an `Issued` date, and pick either the existing Client or add
 a new one.
 
-![Invoice](/examples/images/2020-08-invoices/invoice-new.png)
+![Invoice](../examples/images/2020-08-invoices/invoice-new.png)
 
 Once we have a second invoice, it becomes clear we skimped on the
 formula for collecting invoice items - all the invoices contain
 all the items.  No problem, we can get more specific by adding an `Invoice`
 column to `Items` and setting it up to refer to specific `Invoices`:
 
-![Invoice](/examples/images/2020-08-invoices/add-invoice-column.png)
+![Invoice](../examples/images/2020-08-invoices/add-invoice-column.png)
 
 Once that is done we can sprinkle on some Grist fairy dust, and
 go to `Widget options` for the `ITEMS` Table Widget, click
@@ -266,7 +266,7 @@ are shown.  Even better, when you add new items, the `invoice`
 column is automatically set to the invoice you are viewing.
 So you can just hide the `invoice` column and forget about it.
 
-![Invoice](/examples/images/2020-08-invoices/link-items-to-invoice.png)
+![Invoice](../examples/images/2020-08-invoices/link-items-to-invoice.png)
 
 Now let the Custom Widget know what items to use by updating the
 `Items` formula to be more picky:
@@ -275,7 +275,7 @@ Now let the Custom Widget know what items to use by updating the
 Items.lookupRecords(Invoice=$id)
 ```
 
-![Invoice](/examples/images/2020-08-invoices/items-formula.png)
+![Invoice](../examples/images/2020-08-invoices/items-formula.png)
 
 With that, entering new invoices is a breeze!
 
@@ -298,6 +298,6 @@ don't need to be Grist experts).
 For interested developers, the GitHub code is here:
 <https://github.com/gristlabs/grist-widget/tree/master/invoices>.
 
-![Invoice](/examples/images/2020-08-invoices/final-invoice.png)
+![Invoice](../examples/images/2020-08-invoices/final-invoice.png)
 
 Enjoy, and good luck getting paid!
