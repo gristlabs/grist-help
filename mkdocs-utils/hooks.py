@@ -7,6 +7,7 @@ import glob
 from functools import lru_cache
 import os
 from pathlib import Path
+from textwrap import indent
 from typing import Any, List, Union
 
 from mkdocs.config.defaults import MkDocsConfig
@@ -20,9 +21,9 @@ non_translated_sections = [] # Add the sections that are not translated here
 
 @lru_cache
 def get_missing_translation_content(docs_dir: str) -> str:
-  docs_dir_path = Path(docs_dir)
-  missing_translation_path = docs_dir_path.parent.parent / "missing-translation.md"
-  return missing_translation_path.read_text(encoding="utf-8")
+  missing_translation_file_path = Path(docs_dir) / "MISSING-TRANSLATION.md"
+  missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
+  return "!!!warning\n\n" + indent(missing_translation_content, "    ")
 
 
 class EnFile(File):
