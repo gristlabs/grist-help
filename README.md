@@ -46,9 +46,11 @@ Total wall clock time: 1.3s
 Downloaded: 36 files, 2.0M in 0.009s (226 MB/s)
 ```
 
-In order to build the website with all the languages, run:
+In order to build the website with all the languages, run both `build-all`
+(so it builds the website) and then `serve` for preview:
 ```sh
 source ./env/bin/activate
+./docs.py build-all
 ./docs.py serve
 ```
 
