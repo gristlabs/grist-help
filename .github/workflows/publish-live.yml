@@ -20,5 +20,9 @@ jobs:
       - name: Fetch origin/gh-pages
         run: git fetch origin gh-pages
 
+      - name: Building the documentation
+        run: python3 ./docs.py build-all
+
       - name: Publish live
-        run: mkdocs gh-deploy
+        run: |
+          ghp-import -m "Deployed ${GITHUB_SHA:0:7} with MkDocs version: $(pip show mkdocs | grep -Po "Version: \K.*")" -p site
