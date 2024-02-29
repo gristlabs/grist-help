@@ -106,6 +106,15 @@ html {
   margin-left: 0.5rem;
 }
 
+#wm-language-select {
+  border: none;
+  display: none; /* Hide it for now :) */
+}
+
+#wm-language-select, #wm-language-select option {
+  background-color: var(--color-dark);
+}
+
 /***********************************************************************
  Table of contents (side pane)
  ***********************************************************************/

@@ -130,6 +130,13 @@ server (for example, GitHub Pages).">
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -699,6 +706,10 @@ server (for example, GitHub Pages).">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -1005,7 +1016,7 @@ server (for example, GitHub Pages).">
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1378,7 +1389,7 @@ to show your own custom configuration screen.</p>
 <h2 id="custom-widget-linking">Custom Widget linking<a class="headerlink" href="#custom-widget-linking" title="Permanent link">#</a></h2>
 <p>Custom widgets can also be used as a source of linking (see <a href="../linking-widgets/">Linking widgets</a>).
 All you need to do is inform Grist that your widget supports linking by passing an additional
-option to the <code>ready</code> call (see <a href="/code/modules/grist_plugin_api/#ready">Widget API</a>):</p>
+option to the <code>ready</code> call (see <a href="../code/modules/grist_plugin_api/#ready">Widget API</a>):</p>
 <pre><code class="javascript">grist.ready({
   allowSelectBy: true
 });
@@ -1474,12 +1485,12 @@ grist.setCursorPos({rowId: 'new'});
 <p>You can also check out our <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Meme Generator</a> template for another great example.</p>
 <p>For a video walkthrough, be sure to watch our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Custom Widgets Webinar</a>!</p>
 <h3 id="jupyterlite-notebook">JupyterLite Notebook<a class="headerlink" href="#jupyterlite-notebook" title="Permanent link">#</a></h3>
-<p>This widget lets you run custom Python code in <a href="https://jupyterlite.readthedocs.io/">JupyterLite</a>, a version of <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab</a> running entirely in the browser. You can use the full <a href="/code/modules/grist_plugin_api/">custom widget plugin API</a> and access or modify any data in the document (subject to Access Rules), unlocking nearly unlimited possibilities for advanced users.</p>
+<p>This widget lets you run custom Python code in <a href="https://jupyterlite.readthedocs.io/">JupyterLite</a>, a version of <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab</a> running entirely in the browser. You can use the full <a href="../code/modules/grist_plugin_api/">custom widget plugin API</a> and access or modify any data in the document (subject to Access Rules), unlocking nearly unlimited possibilities for advanced users.</p>
 <p>You’ll be presented with a notebook where you can enter and run Python code, e.g:</p>
 <p><img alt="jupyterlite-notebook-example-notebook" src="../images/widget-custom/jupyterlite-notebook-example-notebook.png" /></p>
 <p>After typing code in a cell, click the play button or press Shift+Enter to run that cell.</p>
 <p>Unlike formulas, code isn’t saved automatically. You must press the usual ‘Save’ button above the widget (outside the notebook) to persist the code within your Grist document. On the other hand, changes to settings within the notebook (e.g. keyboard shortcuts) are saved in your browser’s local storage, so they’re not shared with other users of the document.</p>
-<p>A special object called <code>grist</code> is automatically available to use in Python code, which mirrors many common methods of the usual <a href="/code/modules/grist_plugin_api/">JS plugin API</a>. Note that many of these methods are asynchronous, so you should use <code>await</code> before calling them.</p>
+<p>A special object called <code>grist</code> is automatically available to use in Python code, which mirrors many common methods of the usual <a href="../code/modules/grist_plugin_api/">JS plugin API</a>. Note that many of these methods are asynchronous, so you should use <code>await</code> before calling them.</p>
 <ul>
 <li><code>async fetch_selected_table()</code>: returns the data of the table backing the notebook widget.</li>
 <li><code>async fetch_selected_record(row_id=None)</code>: returns a record of the table backing the notebook widget. If <code>row_id</code> is specified, returns the record at that row. Otherwise, returns the record at the current cursor position in a widget linked to the notebook widget.</li>
@@ -1494,7 +1505,7 @@ grist.setCursorPos({rowId: 'new'});
 </li>
 <li><code>on_record(callback)</code>: registers a callback function to run when the cursor moves in a widget linked to the notebook widget, i.e. the widget chosen from the &ldquo;SELECT BY&rdquo; dropdown in the Data section of the widget configuration. The callback function will be passed the record at the current cursor position. You can also use this as a decorator, i.e. <code>@grist.on_record</code>.</li>
 <li><code>on_records(callback)</code>: similar to <code>on_record</code>, but runs when the source data of the widget changes. The callback function will be passed the same data as returned by <code>fetch_selected_table</code>.</li>
-<li><code>get_table(table_id)</code>: returns a <code>TableOperations</code> class similar to the interface in the usual <a href="/code/interfaces/TableOperations.TableOperations/">JS plugin API</a> for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:<ul>
+<li><code>get_table(table_id)</code>: returns a <code>TableOperations</code> class similar to the interface in the usual <a href="../code/interfaces/TableOperations.TableOperations/">JS plugin API</a> for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:<ul>
 <li><code>async create(records, parse_strings=True)</code></li>
 <li><code>async update(records, parse_strings=True)</code></li>
 <li><code>async upsert(records, parse_strings=True, add=True, update=True, on_many="first", allow_empty_require=False)</code></li>

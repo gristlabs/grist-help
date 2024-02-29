@@ -126,6 +126,13 @@ and it probably asks you to enter hours for each employee once a month.">
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -637,6 +644,10 @@ and it probably asks you to enter hours for each employee once a month.">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -986,7 +997,7 @@ and it probably asks you to enter hours for each employee once a month.">
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1045,7 +1056,7 @@ and it probably asks you to enter hours for each employee once a month.">
 and it probably asks you to enter hours for each employee once a month.</p>
 <p>This is where Grist can help you keep track of things conveniently, and to reduce mistakes,
 especially if you have part-time employees.</p>
-<p><img alt="Payroll Summary" src="/examples/images/2020-09-payroll/pay-periods.png" /></p>
+<p><img alt="Payroll Summary" src="../images/2020-09-payroll/pay-periods.png" /></p>
 <h2 id="the-payroll-template">The Payroll Template<a class="headerlink" href="#the-payroll-template" title="Permanent link">#</a></h2>
 <p>The finished template is here: <a href="https://templates.getgrist.com/5pHLanQNThxk/Payroll" target="_blank">https://templates.getgrist.com/5pHLanQNThxk/Payroll</a>.
 Feel free to open it in a separate window, and try things yourself as you go along.</p>
@@ -1061,7 +1072,7 @@ Feel free to open it in a separate window, and try things yourself as you go alo
 </ol>
 <h2 id="the-people-page">The &ldquo;People&rdquo; Page<a class="headerlink" href="#the-people-page" title="Permanent link">#</a></h2>
 <p>Let’s start with the &ldquo;People&rdquo; tab in the example. It addresses our needs (1), (2), and (3).</p>
-<p><img alt="People Page" src="/examples/images/2020-09-payroll/people-page.png" /></p>
+<p><img alt="People Page" src="../images/2020-09-payroll/people-page.png" /></p>
 <p>On top, we have a list of people, with contact info such as address and phone number. To add a new
 person, click into the last row of the <code>PEOPLE</code> table, and type in the data.</p>
 <p>Below that we have a card for the selected person &ndash; a handy way to view or update the selected
@@ -1073,7 +1084,7 @@ effective date into the <code>Rate Start</code> column (perhaps using the shortc
 class="keys"><em>⌘</em> + <strong>;</strong> (semicolon)</code> on Mac or <code class="keys"><em>Ctrl</em> + <strong>;</strong></code> on
 Windows). Set the <code>Role</code> that it applies to, and the <code>Hourly Rate</code>. The <code>Comment</code> field is for
 your own notes.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Adding Rates" src="/examples/images/2020-09-payroll/add-rate.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Adding Rates" src="../images/2020-09-payroll/add-rate.png" /></em></span></p>
 <p>Don’t modify values for existing rates, or past payroll computations will be affected. When you
 give someone a raise, add it as a new row. This way, full history is preserved, and is available
 for reference.</p>
@@ -1082,7 +1093,7 @@ for reference.</p>
 page first in the list of pages to have it open by default when you open the document. Scroll to the
 bottom (you can use these handy shortcuts: <code class="keys"><em>⌘</em> <em>↓</em></code> on Mac, <code
 class="keys"><em>Ctrl</em> + <em>↓</em></code> on Windows).</p>
-<p><img alt="Payroll Page" src="/examples/images/2020-09-payroll/payroll-page.png" /></p>
+<p><img alt="Payroll Page" src="../images/2020-09-payroll/payroll-page.png" /></p>
 <p>To add a payroll entry, type in the date (or use the date picker), select the person using
 auto-complete, select their role, and type in their hours. The next few columns automatically look
 up the relevant rate, and calculate the payment.</p>
@@ -1094,7 +1105,7 @@ to customize this further to your needs, I’ll explain it in detail below.</p>
 <h2 id="the-pay-periods-page">The &ldquo;Pay Periods&rdquo; Page<a class="headerlink" href="#the-pay-periods-page" title="Permanent link">#</a></h2>
 <p>Here the totals for each period are automatically tallied up to address our need (5) — to see an
 overview, to enter data into a payroll system, and to check that everything matches.</p>
-<p><img alt="Payroll Summary" src="/examples/images/2020-09-payroll/pay-periods.png" /></p>
+<p><img alt="Payroll Summary" src="../images/2020-09-payroll/pay-periods.png" /></p>
 <p>The latest pay period (in our case, a month) is on top of the top-left table. You can select any
 pay period there to see a pie chart with an overview of pay broken down by role, and a table of
 how much each person earned that month.</p>
@@ -1107,7 +1118,7 @@ your payroll service allows it.</p>
 <h2 id="under-the-hood">Under the hood<a class="headerlink" href="#under-the-hood" title="Permanent link">#</a></h2>
 <p>I promised to show how rates are looked up. Open up the &ldquo;Payroll&rdquo; page, click on
 any cell in the <code>Per Hour</code> column, and hit <code class="keys"><em>Enter</em></code>.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Rate Lookup Formula" src="/examples/images/2020-09-payroll/rate-lookup-formula.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Rate Lookup Formula" src="../images/2020-09-payroll/rate-lookup-formula.png" /></em></span></p>
 <p>The formula you see is an involved Python function, but it is intentionally broken up into bits,
 with comments explaining what each line does:</p>
 <pre><code class="python"># Get all the rates for the Person and Role in this row.
@@ -1144,9 +1155,9 @@ multi-line formulas, variables, and comments.</p>
 <p>To start using this example for your own payroll, start with the template:</p>
 <p class="grist-button"><a href="https://templates.getgrist.com/5pHLanQNThxk/Payroll" target="_blank">GO TO TEMPLATE</a></p>
 <p>then click &ldquo;Save Copy&rdquo;:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Save Copy" src="/examples/images/2020-09-payroll/save-copy.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Save Copy" src="../images/2020-09-payroll/save-copy.png" /></em></span></p>
 <p>Then mark the &ldquo;As Template&rdquo; checkbox.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Duplicate As Template" src="/examples/images/2020-09-payroll/duplicate-as-template.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Duplicate As Template" src="../images/2020-09-payroll/duplicate-as-template.png" /></em></span></p>
 <p>Your copy will then include all the structure, logic, and layouts of the Payroll document with
 none of the sample data.</p>
 

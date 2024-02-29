@@ -128,6 +128,13 @@ Suppose we have a list of some of the largest objects in America:">
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -639,6 +646,10 @@ Suppose we have a list of some of the largest objects in America:">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -958,7 +969,7 @@ Suppose we have a list of some of the largest objects in America:">
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1016,18 +1027,18 @@ Suppose we have a list of some of the largest objects in America:">
 <p>It can be useful sometimes to visualize lists of locations on a geographic map.
 Grist can do that if a table has at least a <code>Name</code>, <code>Latitude</code>, and <code>Longitude</code> column.
 Suppose we have a list of some of the largest objects in America:</p>
-<p><img alt="List of large objects" src="/examples/images/2020-12-map/large-objects.png" /></p>
+<p><img alt="List of large objects" src="../images/2020-12-map/large-objects.png" /></p>
 <p>The first step to making a map for these is to add a <a href="../../widget-custom/">Custom Widget</a> to the page:</p>
-<p><img alt="Add custom widget" src="/examples/images/2020-12-map/add-custom.png" /></p>
+<p><img alt="Add custom widget" src="../images/2020-12-map/add-custom.png" /></p>
 <p>Once we set the widget to be <code>https://gristlabs.github.io/grist-widget/map/</code>
 and give it <code>Read table</code> access, a map should appear:</p>
-<p><img alt="Add map widget" src="/examples/images/2020-12-map/set-map.png" /></p>
+<p><img alt="Add map widget" src="../images/2020-12-map/set-map.png" /></p>
 <p>Clicking around in the list of objects brings up the corresponding
 &ldquo;pop-up&rdquo; on the map.
 We can add other sections to taste, such as a detail &ldquo;card&rdquo; view
 of the attraction&rsquo;s details. This example is available at
 <a href="https://public.getgrist.com/3boQPJrgFmFi/Large-in-America/m/fork" target="_blank">https://public.getgrist.com/3boQPJrgFmFi/Large-in-America/m/fork</a>.</p>
-<p><img alt="Large in America" src="/examples/images/2020-12-map/large-in-america.png" /></p>
+<p><img alt="Large in America" src="../images/2020-12-map/large-in-america.png" /></p>
 <p>This example has some hidden columns related to geocoding (the process
 of automatically calculating coordinates from addresses).  You can see
 these on the second page called <code>Geocoding</code>.  They are <code>Geocode</code>,
@@ -1039,7 +1050,7 @@ it is simply <code>", ".join([$City, $State])</code>.  The <code>GeocodedAddress
 be left untouched; it is a space for the geocoder to store information.
 Finally, <code>Geocode</code> is a toggle that should be turned on to automatically
 generate latitude and longitudes.</p>
-<p><img alt="Geocoding" src="/examples/images/2020-12-map/geocoding.png" /></p>
+<p><img alt="Geocoding" src="../images/2020-12-map/geocoding.png" /></p>
 <p>The geocoder will not touch any rows
 with <code>Geocode</code> turned off.  When <code>Geocode</code> is turned on for a row,
 latitudes and longitudes are computed and stored automatically for that row

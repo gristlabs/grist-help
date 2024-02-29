@@ -128,6 +128,13 @@ is using Grist as an ad-hoc lead tracker for sales and potential advisors:">
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -639,6 +646,10 @@ is using Grist as an ad-hoc lead tracker for sales and potential advisors:">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -963,7 +974,7 @@ is using Grist as an ad-hoc lead tracker for sales and potential advisors:">
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1021,13 +1032,13 @@ is using Grist as an ad-hoc lead tracker for sales and potential advisors:">
 <p>Access rules let you control how a shared document is used, and maintain
 a separation of roles and responsibilities.  In this example, we suppose an entrepeneur
 is using Grist as an ad-hoc lead tracker for sales and potential advisors:</p>
-<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork"><img alt="Lead table" src="/examples/images/2021-03-leads/leads-table.png" /></a></p>
+<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork"><img alt="Lead table" src="../images/2021-03-leads/leads-table.png" /></a></p>
 <p>Our entrepeneur wants to delegate sales leads to a small team of freelancers, and 
 keep potential advisors private.  They want to be able to assign someone to follow-up
 a lead just by writing their initials in an &ldquo;Assignment&rdquo; column, and not
 allow anyone else to change that assignment.  Here are the rules they come up with,
 which you can see yourself <a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork/p/acl">by visiting the example</a>:</p>
-<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork/p/acl"><img alt="Lead rules" src="/examples/images/2021-03-leads/leads-rules.png" /></a></p>
+<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork/p/acl"><img alt="Lead rules" src="../images/2021-03-leads/leads-rules.png" /></a></p>
 <p>There are three blocks of rules.  First, the rule for the Advisors table:</p>
 <ul>
 <li>This restricts all access to the Advisors table to the owner.  We assume the
@@ -1054,25 +1065,25 @@ Click &ldquo;Save Copy&rdquo;, and place the document in your Personal area or i
 sure they <a href="../../access-rules/#view-as-another-user">see what you expect</a>.</p>
 <p>You&rsquo;ll want to turn off the &ldquo;Special Rules&rdquo; that allowed you to inspect the
 example and to make a complete copy of it:</p>
-<p><img alt="Lead specials" src="/examples/images/2021-03-leads/leads-specials.png" /></p>
+<p><img alt="Lead specials" src="../images/2021-03-leads/leads-specials.png" /></p>
 <p>Remember to hit &ldquo;Save&rdquo; after you change rules, so they take effect.</p>
 <h2 id="per-user-access">Per-user access<a class="headerlink" href="#per-user-access" title="Permanent link">#</a></h2>
 <p>Suppose we now want to restrict the leads to be viewed only by the person they
 are assigned to (or by the owner).  We can do that in several ways.  One
 convenient way is to add a table listing team members, including their
 email address:</p>
-<p><a href="https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork"><img alt="Lead team" src="/examples/images/2021-03-leads/leads-team.png" /></a></p>
+<p><a href="https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork"><img alt="Lead team" src="../images/2021-03-leads/leads-team.png" /></a></p>
 <p>Once we have such a table, we can make the <code>Assignment</code> column refer to it.
 See <a href="https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork">https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork</a> for
 the complete example (you&rsquo;ll need to make a copy to get full access,
 otherwise you&rsquo;ll see a filtered view).</p>
-<p><img alt="Lead reference" src="/examples/images/2021-03-leads/leads-reference.png" /></p>
+<p><img alt="Lead reference" src="../images/2021-03-leads/leads-reference.png" /></p>
 <p>We can then use the team members in rules, via a
 <a href="../../access-rules/#user-attribute-tables">user attribute table</a>:</p>
-<p><img alt="Lead attributes" src="/examples/images/2021-03-leads/leads-attributes.png" /></p>
+<p><img alt="Lead attributes" src="../images/2021-03-leads/leads-attributes.png" /></p>
 <p>Then every user the document is shared with (other than owners) will
 see a filtered view of just those leads assigned to them:</p>
-<p><img alt="Lead filtered" src="/examples/images/2021-03-leads/leads-filtered.png" /></p>
+<p><img alt="Lead filtered" src="../images/2021-03-leads/leads-filtered.png" /></p>
 <p>Read our <a href="../../access-rules/">introduction to access rules</a> to learn
 more about what you can do with access rules.</p>
 

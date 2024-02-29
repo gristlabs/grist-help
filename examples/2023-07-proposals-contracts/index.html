@@ -126,6 +126,13 @@ to generate proposals and contracts right there, alongside those records. You ca
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -637,6 +644,10 @@ to generate proposals and contracts right there, alongside those records. You ca
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -986,7 +997,7 @@ to generate proposals and contracts right there, alongside those records. You ca
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1043,40 +1054,40 @@ to generate proposals and contracts right there, alongside those records. You ca
     <h1 id="creating-proposals">Creating Proposals<a class="headerlink" href="#creating-proposals" title="Permanent link">#</a></h1>
 <p>If you are keeping business details and contracts in Grist, it can be convenient
 to generate proposals and contracts right there, alongside those records. You can use the <a href="../../widget-custom/#markdown">Markdown Custom Widget</a> to create a custom &lsquo;form&rsquo; for Proposals, Contracts, or many other types of documents. This tutorial shows you how to set up a document like this:</p>
-<p><em><img alt="Proposal" src="/examples/images/2023-07-proposals-contracts/final-proposal.png" /></em></p>
+<p><em><img alt="Proposal" src="../images/2023-07-proposals-contracts/final-proposal.png" /></em></p>
 <p>You can find a finished template here: <a href="https://public.getgrist.com/nyPmvvea8c54/-Proposals-Contracts/m/fork" target="_blank">📝 Proposals &amp; Contracts Template</a>.</p>
 <p>If you&rsquo;d like to add a proposal to an existing document, understanding this tutorial should get you there.</p>
 <h2 id="setting-up-a-project-table">Setting up a Project table<a class="headerlink" href="#setting-up-a-project-table" title="Permanent link">#</a></h2>
 <p>First of all, make a table to record project details by
 <a href="../../creating-doc/">creating an empty document</a> and renaming <code>Table1</code> to <code>Projects</code>:</p>
-<p><em><img alt="Projects" src="/examples/images/2023-07-proposals-contracts/make-projects-table.png" /></em></p>
+<p><em><img alt="Projects" src="../images/2023-07-proposals-contracts/make-projects-table.png" /></em></p>
 <p>We&rsquo;ll create our Proposal template alongside our <code>Projects</code> table. </p>
 <p>We can insert column IDs as placeholders in our Proposal template that will then be replaced by the cell value for the selected project. For example, in the screenshot below, the value in the <strong>Project Name</strong> column will replace the variable <code>{Project_Name}</code> in the proposal template on the right. Seeing the available columns while creating our proposal will make it easier to populate those variables.</p>
-<p><em><img alt="Projects" src="/examples/images/2023-07-proposals-contracts/column-placeholders.png" /></em></p>
+<p><em><img alt="Projects" src="../images/2023-07-proposals-contracts/column-placeholders.png" /></em></p>
 <h2 id="creating-templates">Creating templates<a class="headerlink" href="#creating-templates" title="Permanent link">#</a></h2>
 <p>Let&rsquo;s add a new table, <code>Templates</code>, to the page to store our template data. Add two columns: <strong>Name</strong> and <strong>Template Formatting</strong>. </p>
-<p><em><img alt="Templates" src="/examples/images/2023-07-proposals-contracts/templates-table.png" /></em></p>
+<p><em><img alt="Templates" src="../images/2023-07-proposals-contracts/templates-table.png" /></em></p>
 <p>Now, let&rsquo;s add a custom widget beside the table to view our <strong>Template Formatting</strong>. Click the green &lsquo;Add New&rsquo; button then &lsquo;Add widget to page&rsquo;. Under &lsquo;Select Widget&rsquo;, select &lsquo;Custom&rsquo; and under &lsquo;Select Data&rsquo;, select <code>Templates</code>. Under &lsquo;Select By&rsquo;, select <code>Templates</code> again.</p>
-<p><em><img alt="Add Custom Widget" src="/examples/images/2023-07-proposals-contracts/add-custom-widget.png" /></em></p>
+<p><em><img alt="Add Custom Widget" src="../images/2023-07-proposals-contracts/add-custom-widget.png" /></em></p>
 <p>Configure the custom widget by selecting &lsquo;Markdown&rsquo; from the &lsquo;Custom&rsquo; dropdown. Since we will be editing the template directly in the custom widget, you must allow &lsquo;Full document access&rsquo; under Access Level so the widget can update the <code>Templates</code> table. </p>
 <p>Under &lsquo;Content&rsquo;, select the column <strong>Template Formatting</strong>. This is the column that will be updated when we make edits within the custom widget.</p>
-<p class="screenshot-half"><em><img alt="Markdown Widget" src="/examples/images/2023-07-proposals-contracts/markdown-configuration.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Markdown Widget" src="../images/2023-07-proposals-contracts/markdown-configuration.png" /></em></p>
 <p>Create a Template in the <code>Templates</code> table by entering a value in the <strong>Name</strong> column. Then, start editing the template formatting within the custom widget. </p>
-<p><em><img alt="Proposal Template" src="/examples/images/2023-07-proposals-contracts/create-proposal-template-1.png" /></em></p>
+<p><em><img alt="Proposal Template" src="../images/2023-07-proposals-contracts/create-proposal-template-1.png" /></em></p>
 <p>The widget uses Markdown formatting to format the text. For help on Markdown, click the <code>?</code> at the top of the widget to view the <a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide</a>.</p>
-<p class="screenshot-half"><em><img alt="markdown-help" src="/examples/images/2023-07-proposals-contracts/markdown-help.png" /></em></p>
+<p class="screenshot-half"><em><img alt="markdown-help" src="../images/2023-07-proposals-contracts/markdown-help.png" /></em></p>
 <p>When you click the &lsquo;save&rsquo; icon, formatting from the widget will populate the <strong>Template Formatting</strong> column.</p>
-<p><img alt="Proposal Template" src="/examples/images/2023-07-proposals-contracts/create-proposal-template.png" /></p>
+<p><img alt="Proposal Template" src="../images/2023-07-proposals-contracts/create-proposal-template.png" /></p>
 <p>We will exclusively use the custom widget to edit the template formatting so this column can be hidden from the table view. To hide the column, right-click on the column header then &lsquo;Hide column&rsquo;.</p>
-<p><img alt="Hide Column" src="/examples/images/2023-07-proposals-contracts/hide-formatting-column.png" /></p>
+<p><img alt="Hide Column" src="../images/2023-07-proposals-contracts/hide-formatting-column.png" /></p>
 <p>In your template, you&rsquo;ll have details and text that remain the same across all projects such as formatting, section headers and your own company&rsquo;s information. That is the information you&rsquo;ll type directly into the template. You&rsquo;ll also have information that changes, such as <strong>Project Name</strong> or <strong>Customer Name</strong>. We can use variables containing column IDs as placeholders for that dynamic data. </p>
 <p><strong>Project Name</strong>, <strong>Customer Name</strong> and <strong>Customer Address</strong> will all change based on the selected Project. So, this is information we should store in our <code>Projects</code> table.</p>
 <p>Add the columns <strong>Project Name</strong>, <strong>Customer Name</strong> and <strong>Customer Address</strong> to the <code>Projects</code> table.</p>
-<p><img alt="Projects Table" src="/examples/images/2023-07-proposals-contracts/project-customer-columns.png" /></p>
+<p><img alt="Projects Table" src="../images/2023-07-proposals-contracts/project-customer-columns.png" /></p>
 <p>We can use the column IDs for each of these columns as placeholders in our template with the format <code>{COLUMN_ID}</code>. A column&rsquo;s ID can be found under the &lsquo;Table&rsquo; tab of the Creator Panel, directly under the Column Label.</p>
-<p><img alt="Variables" src="/examples/images/2023-07-proposals-contracts/project-name-variable.png" /></p>
+<p><img alt="Variables" src="../images/2023-07-proposals-contracts/project-name-variable.png" /></p>
 <p>Finish building out your template to fit your needs. Be sure to add a column to your <code>Projects</code> table for all variable information.</p>
-<p><img alt="Proposal" src="/examples/images/2023-07-proposals-contracts/proposal-template.png" /></p>
+<p><img alt="Proposal" src="../images/2023-07-proposals-contracts/proposal-template.png" /></p>
 <p>Finally, we need to add a formula column that will create our unique proposals. This formula column will combine the template formatting we just created with our project-specifc data. Add a new column to the <code>Projects</code> table with the following formula:</p>
 <pre><code># Finds all data associated with this record
 class Find_Data(dict):
@@ -1090,28 +1101,28 @@ template = Templates.lookupOne(Name=&quot;Proposal&quot;).Template_Formatting
 template.format_map(Find_Data())
 </code></pre>
 
-<p><img alt="Proposal Formula" src="/examples/images/2023-07-proposals-contracts/proposal-formula.png" /></p>
+<p><img alt="Proposal Formula" src="../images/2023-07-proposals-contracts/proposal-formula.png" /></p>
 <h2 id="setting-up-a-proposal-dashboard">Setting up a proposal dashboard<a class="headerlink" href="#setting-up-a-proposal-dashboard" title="Permanent link">#</a></h2>
 <p>Next, we&rsquo;ll want to populate our proposal template with actual project data! Start creating a <em>Proposal Dashboard</em> by adding a new page to your document. Click the green &lsquo;Add New&rsquo; button then &lsquo;Add Page&rsquo;.</p>
 <p>Under &lsquo;Select Widget&rsquo;, select &lsquo;Table&rsquo; and under &lsquo;Select Data&rsquo;, select <code>Projects</code>.</p>
-<p><img alt="Add Project Table" src="/examples/images/2023-07-proposals-contracts/add-projects-table.png" /></p>
+<p><img alt="Add Project Table" src="../images/2023-07-proposals-contracts/add-projects-table.png" /></p>
 <p>You&rsquo;ll notice that having this information in a table view is a bit busy. A <a href="../../widget-card/">Card widget</a> will help simplify our view.</p>
 <p>Add a new widget to the page by clicking the green &lsquo;Add New&rsquo; button then &lsquo;Add widget to page&rsquo;. Under &lsquo;Select Widget&rsquo;, select &lsquo;Card&rsquo; and under &lsquo;Select Data&rsquo;, select <code>Projects</code>. Under &lsquo;Select By&rsquo;, select <code>Projects</code> and add to page.</p>
-<p><img alt="Add Project Card" src="/examples/images/2023-07-proposals-contracts/add-projects-card.png" /></p>
+<p><img alt="Add Project Card" src="../images/2023-07-proposals-contracts/add-projects-card.png" /></p>
 <p>Your dashboard should look similar to the screenshot below.</p>
-<p><img alt="project-dashboard-start" src="/examples/images/2023-07-proposals-contracts/project-dashboard-start.png" /></p>
+<p><img alt="project-dashboard-start" src="../images/2023-07-proposals-contracts/project-dashboard-start.png" /></p>
 <p>Now that we have all of our Project details in a Card view, we can hide them from our table view. Under the &lsquo;Table&rsquo; tab of the Creator Panel, select all columns except <strong>Project Name</strong> and <strong>Customer Name</strong> then click the green &lsquo;Hide Columns&rsquo; button.</p>
-<p class="screenshot-half"><em><img alt="Hide Columns" src="/examples/images/2023-07-proposals-contracts/hide-project-columns.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Hide Columns" src="../images/2023-07-proposals-contracts/hide-project-columns.png" /></em></p>
 <p>Keeping most project details in the Card widget, rather than the Table widget, simplifies our dashboard. You can easily see all projects in the Table widget, and when you want to see details for a specific project, select the project and the Card widget will update to show you project details.</p>
-<p><img alt="project-table-card" src="/examples/images/2023-07-proposals-contracts/project-table-card.png" /></p>
+<p><img alt="project-table-card" src="../images/2023-07-proposals-contracts/project-table-card.png" /></p>
 <p>Finally, we&rsquo;ll want to add a view of our project-specific proposal. Add a new custom widget to the page by clicking the green &lsquo;Add New&rsquo; button then &lsquo;Add widget to page&rsquo;. Under &lsquo;Select Widget&rsquo;, select &lsquo;Custom&rsquo; and under &lsquo;Select Data&rsquo;, select <code>Projects</code>. Under &lsquo;Select By&rsquo;, select <code>Projects</code> and add to page.</p>
-<p><em><img alt="Add custom Widget" src="/examples/images/2023-07-proposals-contracts/add-custom-project-widget.png" /></em></p>
+<p><em><img alt="Add custom Widget" src="../images/2023-07-proposals-contracts/add-custom-project-widget.png" /></em></p>
 <p>Configure the custom widget by selecting &lsquo;Markdown&rsquo; from the &lsquo;Custom&rsquo; dropdown. You must allow &lsquo;Full document access&rsquo;. </p>
 <p>Under &lsquo;Content&rsquo;, select the column <strong>Proposal</strong>. This is the formula column that combines our template formatting with our project-specific data.</p>
-<p class="screenshot-half"><em><img alt="Configure Custom Widget" src="/examples/images/2023-07-proposals-contracts/proposal-custom-widget-configuration.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Configure Custom Widget" src="../images/2023-07-proposals-contracts/proposal-custom-widget-configuration.png" /></em></p>
 <p><a href="../../custom-layouts/">Customize your layout</a> by rearranging and resizing widgets.</p>
 <p>Add project details for a new project and see how your proposal updates to display the newly added data.</p>
-<p><em><img alt="Populated Proposal" src="/examples/images/2023-07-proposals-contracts/populated-proposal.png" /></em></p>
+<p><em><img alt="Populated Proposal" src="../images/2023-07-proposals-contracts/populated-proposal.png" /></em></p>
 <h2 id="entering-customer-information">Entering customer information<a class="headerlink" href="#entering-customer-information" title="Permanent link">#</a></h2>
 <p>Now, let&rsquo;s make two useful changes to the Project set-up:</p>
 <ul>
@@ -1120,10 +1131,10 @@ template.format_map(Find_Data())
 <li>Update the formula in the <strong>Proposal</strong> column of the <code>Projects</code> table to look for information in another table.  </li>
 </ul>
 <p>First, create a new table called <code>Customers</code> for customer-specific information like <strong>Name</strong> and <strong>Address</strong>.</p>
-<p><em><img alt="Customers Table" src="/examples/images/2023-07-proposals-contracts/customers-table.png" /></em></p>
+<p><em><img alt="Customers Table" src="../images/2023-07-proposals-contracts/customers-table.png" /></em></p>
 <p>Some of this data is included in our Projects data set. To avoid duplicating data, we need to update our <strong>Customer Name</strong> and <strong>Customer Address</strong> columns to pull from our <code>Customers</code> table. </p>
 <p>On our <em>Proposals Dashboard</em> page, select the <strong>Customer Name</strong> field then update the column type to <em>Reference</em>. Confirm that &lsquo;Data from Table&rsquo; is set to <code>Customers</code> and &lsquo;Show Column&rsquo; is <strong>Name</strong>. </p>
-<p><em><img alt="customer-name-reference" src="/examples/images/2023-07-proposals-contracts/customer-name-reference.png" /></em></p>
+<p><em><img alt="customer-name-reference" src="../images/2023-07-proposals-contracts/customer-name-reference.png" /></em></p>
 <p>Next, we need to update the <strong>Customer Address</strong> field to pull the address for the customer listed in the <strong>Customer Name</strong> column. </p>
 <p>Update the <strong>Customer Address</strong> column to use the following formula:</p>
 <pre><code>$Customer_Name.Address
@@ -1131,7 +1142,7 @@ template.format_map(Find_Data())
 
 <p>This formula uses our reference column, <strong>Customer</strong>, along with <a href="../../references-lookups/#reference-columns-and-dot-notation">dot notation</a>, to pull the value from the <strong>Address</strong> column of the referenced table.</p>
 <p>When you take a look at a proposal for an existing project, you&rsquo;ll notice that the <strong>Customer Name</strong> no longer populates. This is because of the way reference columns store data. Although under &lsquo;Show Column&rsquo;, we chose to see the value from the <strong>Name</strong> column of the referenced table, reference columns actually store a record&rsquo;s ID. That is what we are seeing now in the proposal. </p>
-<p><em><img alt="proposal-reference" src="/examples/images/2023-07-proposals-contracts/proposal-reference.png" /></em></p>
+<p><em><img alt="proposal-reference" src="../images/2023-07-proposals-contracts/proposal-reference.png" /></em></p>
 <p>We can modify our formula in the <strong>Proposal</strong> column to look for data in other tables.</p>
 <p>In the <code>Projects</code> table, update the formula in the <strong>Proposals</strong> column to the following:</p>
 <pre><code># Finds all data associated with this record
@@ -1161,19 +1172,19 @@ template.format_map(Find_Data(
 </div>
 <h2 id="printing-and-saving">Printing and Saving<a class="headerlink" href="#printing-and-saving" title="Permanent link">#</a></h2>
 <p>Once your proposal is ready to go, you can print it or save it as a PDF. Click the three-dot icon at the upper-right of the widget then select &lsquo;Print widget&rsquo;.</p>
-<p><em><img alt="print-proposal" src="/examples/images/2023-07-proposals-contracts/print-proposal.png" /></em></p>
+<p><em><img alt="print-proposal" src="../images/2023-07-proposals-contracts/print-proposal.png" /></em></p>
 <p>From here, you can either select a printer or choose &lsquo;Save as PDF&rsquo; from the &lsquo;Destination&rsquo; dropdown.</p>
-<p><em><img alt="print-or-pdf" src="/examples/images/2023-07-proposals-contracts/print-or-pdf.png" /></em></p>
+<p><em><img alt="print-or-pdf" src="../images/2023-07-proposals-contracts/print-or-pdf.png" /></em></p>
 <h2 id="setting-up-multiple-forms">Setting up multiple forms<a class="headerlink" href="#setting-up-multiple-forms" title="Permanent link">#</a></h2>
 <p>You can add more form templates by following the same steps that we have just completed. </p>
 <p>Add a new template to the <code>Templates</code> table then build out the template using variables containing column IDs for any data that is project-specific. If you have some sections that are the same as another form, copy it over to save yourself the trouble of retyping!</p>
-<p><em><img alt="contract-template" src="/examples/images/2023-07-proposals-contracts/contract-template.png" /></em></p>
+<p><em><img alt="contract-template" src="../images/2023-07-proposals-contracts/contract-template.png" /></em></p>
 <p>Create a dashboard where you can select a project and enter details for this form then preview the form in a custom widget. </p>
-<p><em><img alt="contract-dashboard" src="/examples/images/2023-07-proposals-contracts/contract-dashboard.png" /></em></p>
+<p><em><img alt="contract-dashboard" src="../images/2023-07-proposals-contracts/contract-dashboard.png" /></em></p>
 <p>Don&rsquo;t forget, you&rsquo;ll need to add a formula column that combines the new form template with details for the selected project!</p>
-<p><em><img alt="contract-formula" src="/examples/images/2023-07-proposals-contracts/contract-formula.png" /></em></p>
+<p><em><img alt="contract-formula" src="../images/2023-07-proposals-contracts/contract-formula.png" /></em></p>
 <p>This formula column is what you&rsquo;ll select under the &lsquo;Content&rsquo; dropdown while configuring the <a href="../../widget-custom/#markdown">Markdown Custom Widget</a>.</p>
-<p><em><img alt="contract-widget-configuration" src="/examples/images/2023-07-proposals-contracts/contract-widget-configuration.png" /></em></p>
+<p><em><img alt="contract-widget-configuration" src="../images/2023-07-proposals-contracts/contract-widget-configuration.png" /></em></p>
 
   <br>
 </div>

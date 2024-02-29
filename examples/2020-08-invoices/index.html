@@ -128,6 +128,13 @@ shows you how to set up a document like this:">
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -639,6 +646,10 @@ shows you how to set up a document like this:">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -983,7 +994,7 @@ shows you how to set up a document like this:">
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1041,14 +1052,14 @@ shows you how to set up a document like this:">
 <p>If you are keeping records of who is charged what in Grist, it can be convenient
 to generate invoices right there and then beside those records.  This tutorial
 shows you how to set up a document like this:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/final-invoice.png" /></p>
 <p>You can find a finished template at <a href="https://templates.getgrist.com/9NH6D58FmxwP/Invoicing" target="_blank">https://templates.getgrist.com/9NH6D58FmxwP/Invoicing</a>.
 If you&rsquo;d like to add invoices to an existing document, making them work the
 way you want, understanding this tutorial should get you there.</p>
 <h2 id="setting-up-an-invoice-table">Setting up an invoice table<a class="headerlink" href="#setting-up-an-invoice-table" title="Permanent link">#</a></h2>
 <p>First of all, make a table to record invoices by
 <a href="../../creating-doc/">creating an empty document</a> and renaming <code>Table1</code> to <code>Invoices</code>:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/make-invoices-table.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/make-invoices-table.png" /></p>
 <p>Now, let&rsquo;s add a widget beside the table to view the finished invoices.
 There are all sorts of possible styles of invoice, so Grist lets web
 developers create their own using Custom Widgets.  We&rsquo;ll use an example
@@ -1061,12 +1072,12 @@ any web developer could tweak it for you.</p>
 <li>For <code>Select By</code> choose <code>INVOICES</code> so that the Custom Widget will show data from whatever
     invoice is currently selected by the user.</li>
 </ul>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-custom-widget.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-custom-widget.png" /></p>
 <p>Great, now we have two widgets, a Table Widget that will have invoice data,
 and a Custom Widget that will view that data as a nicely formatted, printable invoice.
 The Custom Widget starts off blank; select <code>Widget options</code> to specify what we want in
 it:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/widget-options.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/widget-options.png" /></p>
 <p>In the <code>CUSTOM</code> settings section where it says <code>Full URL of webpage to show</code>, put this
 link:</p>
 <blockquote>
@@ -1074,10 +1085,10 @@ link:</p>
 </blockquote>
 <p>And set <code>Access</code> to <code>read table</code>.  This grants the Custom Widget access to read the
 Invoices table.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/set-url.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/set-url.png" /></p>
 <p>Now place anything you like in a row of the Invoices table (I just added the number <code>1</code>).
 An incomplete invoice will immediately show up:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/empty-invoice.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/empty-invoice.png" /></p>
 <p>The incomplete invoice shows what column names to use to control what parts of the
 invoice.  An extra black box shows what columns the widget understands, what columns
 it is ignoring, and what extra columns the widget could make use of.
@@ -1091,34 +1102,34 @@ business yet.  I&rsquo;m going to choose the set the invoice number to be <code 
 where <code>$id</code> is an auto-incrementing numeric identifier assigned to each row.
 But you could set it manually or with a different formula.  As soon as it is
 set, the invoice updates:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-number.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-number.png" /></p>
 <p>The next column the help box suggests is <code>Client</code>, so
 let&rsquo;s rename the <code>B</code> column to <code>Client</code>.  Later we will give client
 information in a structured way, but for now let&rsquo;s just put some text
 here (use <code class="keys"><em>Shift</em> + <em>Enter</em></code> to insert line breaks):</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-client.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-client.png" /></p>
 <p>Great, now the Client box is filled out.  The next suggested column is <code>Items</code>,
 so let&rsquo;s rename the <code>C</code> column to <code>Items</code>.  Later we will give item
 information in a structured way, but for now let&rsquo;s just put some text here:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-items.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-items.png" /></p>
 <p>And now the Description is set.  We&rsquo;re missing a total, so let&rsquo;s add a
 column called <code>Total</code> and set it to <code>100</code>:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-total.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-total.png" /></p>
 <p>The invoice won&rsquo;t update immediately.  This is the first new column we&rsquo;ve
 added - until now we&rsquo;ve been renaming them.  When we created the Custom Widget,
 it was given access to the columns that existed at the time of creation.
 To let the widget see the new column, open <code>Widget options</code> again and move
 <code>Total</code> from <code>Hidden Columns</code> to <code>Visible Columns</code>:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-total-visible.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-total-visible.png" /></p>
 <p>Great, the invoice updated.  Now let&rsquo;s set who the invoice is from, by
 adding an <code>Invoicer</code> column (remember to make it visible to the widget
 via <code>Widget options</code>).</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-invoicer.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-invoicer.png" /></p>
 <p>As a last step to creating a usable invoice, let&rsquo;s make an <code>Issued</code>
 column and put today&rsquo;s date in it (remember to make it visible to the widget
 via <code>Widget options</code>).  As soon as the invoice has a date, the black help
 box will disappear:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-issued.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-issued.png" /></p>
 <p>Okay!  If someone sent me that, I&rsquo;d pay it.  You should nudge me by
 giving it a due date though.  Let&rsquo;s make a <code>Due</code> column and set it to
 a month from the <code>Issued</code> date.  Remember to make the <code>Due</code> column
@@ -1126,10 +1137,10 @@ visible to the widget via <code>Widget options</code>.  Also, be sure to
 <a href="../../col-types/#specifying-a-type">set the Column Type</a> for
 <code>Issued</code> to <code>Date</code> or you won&rsquo;t be able to do date math on it (it will
 just be a string).</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-due.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-due.png" /></p>
 <p>If there are special instructions to go with the invoice, we can add a <code>Note</code>
 column.  Remember to make it visible to the widget via <code>Widget options</code>.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-note.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-note.png" /></p>
 <h2 id="entering-client-information">Entering client information<a class="headerlink" href="#entering-client-information" title="Permanent link">#</a></h2>
 <p>Now, let&rsquo;s make two useful changes to the invoice set-up:</p>
 <ul>
@@ -1154,25 +1165,25 @@ that the widget will get updated as we add and change referenced material.</p>
 <p>When the invoice widget sees a column named &ldquo;References&rdquo;, it fills out the invoice using the
 &ldquo;packaged&rdquo; values in that column, rather than the individual invoice fields. The benefit will be
 seen in the next step, since these packaged values can include data from related records.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-references.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-references.png" /></p>
 <p>Next let&rsquo;s place client information in a separate table.  Add a new table
 to the page for entering business information by clicking
 on <code>Add New</code>, <code>Add Widget to Page</code>, then <code>Select Widget &gt; Table</code> and
 <code>Select Data &gt; New Table</code>:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-businesses.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-businesses.png" /></p>
 <p>Then rename the table to <code>Businesses</code>. Let&rsquo;s also empty the <code>Client</code> column
 so we can see help about what the widget expects there:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-businesses-rename.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-businesses-rename.png" /></p>
 <p>The widget suggests <code>Name</code>, <code>Street1</code>, <code>Street2</code>, <code>City</code>, <code>State</code>
 and <code>Zip</code> columns.  So let&rsquo;s provide those columns in our <code>Businesses</code> table,
 and fill them in for an example client.  Then place the same <code>Name</code> in
 the <code>Client</code> column, and in <code>Column options</code> set the Column Type to
 <code>Reference</code>.  Refer to <code>Businesses</code> <code>Name</code> if Grist doesn&rsquo;t automatically
 guess that.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-a-business.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-a-business.png" /></p>
 <p>Once you hit <code>Apply</code>, you will see a nicely formatted Client
 section.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/link-client.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/link-client.png" /></p>
 <h2 id="entering-invoicer-information">Entering invoicer information<a class="headerlink" href="#entering-invoicer-information" title="Permanent link">#</a></h2>
 <p>We could do the same thing for the <code>Invoicer</code> column as we did for the <code>Client</code>
 column, and make it a reference to the <code>Businesses</code> table or a separate table.
@@ -1192,7 +1203,7 @@ your business, you could skip setting up a reference by entering a formula like 
 </code></pre>
 
 <p>Then set the Column Type for <code>Invoicer</code> to <code>Any</code> in the right-side panel.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/link-invoice.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/link-invoice.png" /></p>
 <p>Notice how emails, phone numbers, and links are specially formatted by the
 widget.</p>
 <h2 id="entering-item-information">Entering item information<a class="headerlink" href="#entering-item-information" title="Permanent link">#</a></h2>
@@ -1203,30 +1214,30 @@ where each item has a <code>Description</code>, <code>Price</code>, <code>Quanti
 So we go ahead and add an <code>Items</code> table like we added <code>Businesses</code>,
 and give it those four columns.  We can set <code>Total</code> to be this simple formula:</p>
 <p><code class="formula">$Price * $Quantity</code></p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-items-table.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-items-table.png" /></p>
 <p>Now we need to pull these items into the <code>Invoices</code> table so that
 the Custom Widget gets access to them. Set the <code>Items</code> column to
 the formula <code class="formula">Items.lookupRecords()</code>, and then reset
 its column type to be <code>Any</code>. This formula needs a little more work,
 which we&rsquo;ll do soon, but let&rsquo;s just start with that.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-items-lookup.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-items-lookup.png" /></p>
 <p>Great, our invoice is updating nicely!  Remove the <code>Total</code> column
 to get an automatically calculated one:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/plausible-invoice.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/plausible-invoice.png" /></p>
 <p>It is probably more comfortable to edit invoices
 as a Card Widget than a Table Widget, so let&rsquo;s change that
 using <code>Widget options</code>, <code>Table</code>, <code>Change Widget</code>, <code>Card</code>, <code>Save</code>.
 You can <a href="../../widget-card/#editing-card-layout">customize the card layout</a> to your taste.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/invoice-card.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/invoice-card.png" /></p>
 <p>To add a new invoice, click the little <code>+</code> above the invoices card,
 set an <code>Issued</code> date, and pick either the existing Client or add
 a new one.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/invoice-new.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/invoice-new.png" /></p>
 <p>Once we have a second invoice, it becomes clear we skimped on the
 formula for collecting invoice items - all the invoices contain
 all the items.  No problem, we can get more specific by adding an <code>Invoice</code>
 column to <code>Items</code> and setting it up to refer to specific <code>Invoices</code>:</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/add-invoice-column.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/add-invoice-column.png" /></p>
 <p>Once that is done we can sprinkle on some Grist fairy dust, and
 go to <code>Widget options</code> for the <code>ITEMS</code> Table Widget, click
 <code>Change Widget</code>, and set <code>SELECT BY</code> to <code>INVOICES Card</code>.  Once
@@ -1234,13 +1245,13 @@ that is saved, only the items for the currently selected invoice
 are shown.  Even better, when you add new items, the <code>invoice</code>
 column is automatically set to the invoice you are viewing.
 So you can just hide the <code>invoice</code> column and forget about it.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/link-items-to-invoice.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/link-items-to-invoice.png" /></p>
 <p>Now let the Custom Widget know what items to use by updating the
 <code>Items</code> formula to be more picky:</p>
 <pre><code>Items.lookupRecords(Invoice=$id)
 </code></pre>
 
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/items-formula.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/items-formula.png" /></p>
 <p>With that, entering new invoices is a breeze!</p>
 <ul>
 <li>Click <code>+</code> to add a new invoice card.</li>
@@ -1259,7 +1270,7 @@ it is in and change it a bit (or hire a web developer to do that for me - they
 don&rsquo;t need to be Grist experts).</p>
 <p>For interested developers, the GitHub code is here:
 <a href="https://github.com/gristlabs/grist-widget/tree/master/invoices">https://github.com/gristlabs/grist-widget/tree/master/invoices</a>.</p>
-<p><img alt="Invoice" src="/examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p><img alt="Invoice" src="../images/2020-08-invoices/final-invoice.png" /></p>
 <p>Enjoy, and good luck getting paid!</p>
 
   <br>

@@ -130,6 +130,13 @@ with all that.">
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -641,6 +648,10 @@ with all that.">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -970,7 +981,7 @@ with all that.">
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1041,7 +1052,7 @@ mix-ups. One thing we can do is add a link to search for a book
 on <a href="https://isbnsearch.org">isbnsearch.org</a>
 by its title and author. To do this, add a new column, and then set it to be a
 <a href="../../col-types/#text-columns">HyperLink column</a>:</p>
-<p><img alt="Make an ISBN finder" src="/examples/images/2020-06-book-club-find-isbn.png" /></p>
+<p><img alt="Make an ISBN finder" src="../images/2020-06-book-club-find-isbn.png" /></p>
 <p>What we&rsquo;re going to do is fill this column using a formula that takes the
 book title and the author&rsquo;s name, and uses them as a keyword to search on
 the <a href="https://isbnsearch.org">isbnsearch.org</a> site.  Here&rsquo;s the formula:</p>
@@ -1053,13 +1064,13 @@ keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author or &quot;&quot;)
 <p>URLs with spaces or apostrophes or other odd letters you might find in
 names need special encoding, so we&rsquo;ve used the python <code>urllib</code> module to make sure
 everything gets encoded correctly.  Now we&rsquo;ve got a handy <code>[isbn]</code> link beside each book:</p>
-<p><img alt="ISBN link formula" src="/examples/images/2020-06-book-club-isbn-link.png" /></p>
+<p><img alt="ISBN link formula" src="../images/2020-06-book-club-isbn-link.png" /></p>
 <p>We can click the arrow by <code>[isbn]</code>, locate the book, and make note of its ISBN code
 in a new column:</p>
-<p><img alt="Start" src="/examples/images/2020-06-book-club-isbn-search-result.png" /></p>
+<p><img alt="Start" src="../images/2020-06-book-club-isbn-search-result.png" /></p>
 <p>Then we can add it into our book list. Now that we have a helping hand for finding ISBNs,
 let&rsquo;s add a few more books too:</p>
-<p><img alt="Start" src="/examples/images/2020-06-book-club-all-isbn.png" /></p>
+<p><img alt="Start" src="../images/2020-06-book-club-all-isbn.png" /></p>
 <h2 id="library-and-store-lookups">Library and store lookups<a class="headerlink" href="#library-and-store-lookups" title="Permanent link">#</a></h2>
 <p>Once we have the ISBN, adding a link to buy the book is easy.  Here&rsquo;s a formula
 for the <a href="https://indiebound.org">indiebound.org</a> site, which in the U.S. is likely
@@ -1075,10 +1086,10 @@ keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author or &quot;&quot;) 
 </code></pre>
 
 <p>The new links look like this:</p>
-<p><img alt="Start" src="/examples/images/2020-06-book-club-buy.png" /></p>
+<p><img alt="Start" src="../images/2020-06-book-club-buy.png" /></p>
 <p>Clicking on the <code>[buy]</code> link near a book now brings us to that book on
 <a href="https://indiebound.org">indiebound.org</a>.</p>
-<p><img alt="Start" src="/examples/images/2020-06-book-club-indie.png" /></p>
+<p><img alt="Start" src="../images/2020-06-book-club-indie.png" /></p>
 <p>For your local library, the same idea is very likely to work.  For example, in
 northern New Jersey, in the US, here&rsquo;s what you want:</p>
 <pre><code class="py">import urllib
@@ -1097,7 +1108,7 @@ keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author.Name or &quot;&qu
 </code></pre>
 
 <p>Once we have all these links, it makes sense to add a <a href="../../linking-widgets/#same-record-linking">Card View</a> so we can lay them out:</p>
-<p><img alt="Start" src="/examples/images/2020-06-book-club-card.png" /></p>
+<p><img alt="Start" src="../images/2020-06-book-club-card.png" /></p>
 <h2 id="ready-made-template">Ready-made template<a class="headerlink" href="#ready-made-template" title="Permanent link">#</a></h2>
 <p>Here is an
 <a href="https://templates.getgrist.com/hdXy57qLiyNf/Book-Club" target="_blank">example book list</a>

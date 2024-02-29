@@ -128,6 +128,13 @@ type of label.">
     <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
       <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left" name="lang"
+      
+      >
+      
+      <option value="/" selected>en - English</option>
+      
+    </select>
 
     
     
@@ -639,6 +646,10 @@ type of label.">
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
 
     
@@ -978,7 +989,7 @@ type of label.">
     </ul>
     <ul class="wm-toctree wm-toc-repo">
       <li class="wm-toc-li wm-toc-lev2">
-      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help/">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
         <i class="fa fa-github"></i>
 
         Edit on GitHub
@@ -1052,7 +1063,7 @@ existing document, e.g. to add mailing labels alongside <a href="../../lightweig
 <p>The template shows a few variations of what you can do.</p>
 <h3 id="labels-for-a-table-of-addresses">Labels for a table of addresses<a class="headerlink" href="#labels-for-a-table-of-addresses" title="Permanent link">#</a></h3>
 <p>That&rsquo;s what you see in the first page:</p>
-<p><img alt="Address Labels Page" src="/examples/images/2020-10-print-labels/address-labels-page.png" /></p>
+<p><img alt="Address Labels Page" src="../images/2020-10-print-labels/address-labels-page.png" /></p>
 <p>You can use the dropdown on top of the labels widget to select the size of the labels, depending
 on what actual label paper you are planning to print on.</p>
 <p>What&rsquo;s actually printed is a hidden column named <code>LabelText</code>. If you show this column, or find it
@@ -1061,11 +1072,11 @@ together all the parts of an address. (We get into the
 <a href="#add-the-labeltext-formula">details of this formula</a> below.)</p>
 <p>To print the labels, select &ldquo;Print widget&rdquo; from the menu above the labels widget (see also
 <a href="#printing-notes">Printing Notes</a> below):</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Print Menu" src="/examples/images/2020-10-print-labels/print-menu.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Print Menu" src="../images/2020-10-print-labels/print-menu.png" /></em></span></p>
 <h3 id="a-sheet-of-labels-for-the-same-address">A sheet of labels for the same address<a class="headerlink" href="#a-sheet-of-labels-for-the-same-address" title="Permanent link">#</a></h3>
 <p>If you need many identical labels, e.g. for a return address, add another column named
 <code>LabelCount</code>. This is illustrated in the page &ldquo;Label Sheets&rdquo;.</p>
-<p><img alt="Label Sheets Page" src="/examples/images/2020-10-print-labels/label-sheets-page.png" /></p>
+<p><img alt="Label Sheets Page" src="../images/2020-10-print-labels/label-sheets-page.png" /></p>
 <p>If you have multiple addresses in the table, and want to print just one, simply set the count to
 zero for the addresses you don&rsquo;t want to include.</p>
 <h3 id="a-filtered-list-of-labels">A filtered list of labels<a class="headerlink" href="#a-filtered-list-of-labels" title="Permanent link">#</a></h3>
@@ -1075,7 +1086,7 @@ are illustrated in the linked template:</p>
 <li>
 <p>The &ldquo;Address Labels&rdquo; page includes a filter button for <code>State</code>, which allows simple filtering
    by state. You can click <code>+</code> button to easily create additional filters like this:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Filter Button" src="/examples/images/2020-10-print-labels/filter-button.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Filter Button" src="../images/2020-10-print-labels/filter-button.png" /></em></span></p>
 </li>
 <li>
 <p>To print out only a few labels out of a larger table, you can use the
@@ -1083,7 +1094,7 @@ are illustrated in the linked template:</p>
    included, or 0 for a label that should not. The page &ldquo;Filtered By Formula&rdquo; shows an example,
    with the simple formula that includes only California addresses:
    <code class="formula">IF($State == "CA", 1, 0)</code>:</p>
-<p><img alt="Filtered Page" src="/examples/images/2020-10-print-labels/filtered-page.png" /></p>
+<p><img alt="Filtered Page" src="../images/2020-10-print-labels/filtered-page.png" /></p>
 </li>
 <li>
 <p>The &ldquo;Filtered Manually&rdquo; page includes a <code>Select for Print</code> column. Click any toggle to include
@@ -1098,7 +1109,7 @@ labels will be there &ndash; up-to-date and waiting for you &ndash; any time you
 <p>I&rsquo;ll assume that you already have a page that shows a table with addresses. Perhaps it&rsquo;s called
 &ldquo;People&rdquo;, &ldquo;Clients&rdquo;, or &ldquo;Employees&rdquo;. Open the menu next to the page name in the left
 panel, and click &ldquo;Duplicate&rdquo;:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Duplicate Page" src="/examples/images/2020-10-print-labels/duplicate-page.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Duplicate Page" src="../images/2020-10-print-labels/duplicate-page.png" /></em></span></p>
 <p>This gives you a new page. We&rsquo;ll add the labels here, to avoid taking up screen space in the page
 you used for other purposes.</p>
 <h3 id="add-the-labeltext-formula">Add the LabelText formula<a class="headerlink" href="#add-the-labeltext-formula" title="Permanent link">#</a></h3>
@@ -1117,17 +1128,17 @@ rename, add, or remove fields depending on the names of your columns:</p>
 <h3 id="add-the-custom-widget">Add the Custom Widget<a class="headerlink" href="#add-the-custom-widget" title="Permanent link">#</a></h3>
 <p>Click <code>Add New</code> button and select <code>Add Widget to Page</code>. In the dialog that appears select widget <code>Custom</code>
 and the table that contains the addresses:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Add Page" src="/examples/images/2020-10-print-labels/add-page.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Add Page" src="../images/2020-10-print-labels/add-page.png" /></em></span></p>
 <p>Click <code>Add to Page</code>.</p>
 <p>Open the menu above the widget and select &ldquo;Widget Options&rdquo;:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Widget Options" src="/examples/images/2020-10-print-labels/widget-options.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Widget Options" src="../images/2020-10-print-labels/widget-options.png" /></em></span></p>
 <p>In the right-side panel that opens, in the &ldquo;Custom&rdquo; section, enter the URL of the widget that
 implements the mailing labels functionality:</p>
 <p><code>https://gristlabs.github.io/grist-widget/printlabels/</code></p>
 <p>Then change the &ldquo;Access&rdquo; dropdown from <code>none</code> to <code>read table</code>.</p>
 <p>You should now see your labels! If not, check that <code>LabelText</code> is listed below under &ldquo;Visible
 Columns&rdquo;. (If it&rsquo;s under &ldquo;Hidden Columns&rdquo;, click the &ldquo;eye&rdquo; icon to make it visible to the widget.)</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Visible Columns" src="/examples/images/2020-10-print-labels/visible-columns.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Visible Columns" src="../images/2020-10-print-labels/visible-columns.png" /></em></span></p>
 <p>You can add another column named <code>LabelCount</code> for printing multiple labels or omitting some
 labels. If you do, just be sure to add it to &ldquo;Visible Columns&rdquo; of the Custom Widget, as those are
 the only columns available to it.</p>
@@ -1148,7 +1159,7 @@ Scaling and Shrink to Fit Page Width&rdquo; should be off.</p>
 <p>This feature is built using <a href="../../widget-custom/">Custom Widgets</a>. It allows you, or a third-party
 developer, to customize it further using HTML, CSS, and Javascript. For interested developers, the
 code for this widget is available at <a href="https://github.com/gristlabs/grist-widget/tree/master/printlabels">https://github.com/gristlabs/grist-widget/tree/master/printlabels</a>.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Enjoy Label" src="/examples/images/2020-10-print-labels/enjoy-label.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Enjoy Label" src="../images/2020-10-print-labels/enjoy-label.png" /></em></span></p>
 
   <br>
 </div>
