@@ -21,7 +21,7 @@ non_translated_sections = [] # Add the sections that are not translated here
 
 @lru_cache
 def get_missing_translation_content(docs_dir: str) -> str:
-  missing_translation_file_path = Path(docs_dir) / "MISSING-TRANSLATION.md"
+  missing_translation_file_path = Path(docs_dir).parent / "MISSING-TRANSLATION.md"
   missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
   return "!!!warning\n\n" + indent(missing_translation_content, "    ")
 

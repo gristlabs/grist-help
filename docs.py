@@ -42,7 +42,7 @@ def language_docs_dir(lang: str) -> Path:
 
 
 def get_missing_translation_snippet() -> str:
-  missing_translation_file_path = (Path(__file__).parent / "help/en/docs/MISSING-TRANSLATION.md")
+  missing_translation_file_path = (Path(__file__).parent / "help/en/MISSING-TRANSLATION.md")
   missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
   return "!!!warning\n\n" + indent(missing_translation_content, "    ")
 
@@ -101,8 +101,8 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
   new_index_path.write_text(new_index_content, encoding="utf-8")
 
   # Copy the MISSING-TRANSLATION.md file, which can be localized later
-  en_missing_translation_path: Path = language_docs_dir('en') / "MISSING-TRANSLATION.md"
-  new_missing_translation_path: Path = new_config_docs_path / "MISSING-TRANSLATION.md"
+  en_missing_translation_path: Path = docs_path / "en" / "MISSING-TRANSLATION.md"
+  new_missing_translation_path: Path = new_path / "MISSING-TRANSLATION.md"
   new_missing_translation_path.write_bytes(en_missing_translation_path.read_bytes())
 
   # Create the images directory
