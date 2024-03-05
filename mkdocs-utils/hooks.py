@@ -5,14 +5,12 @@
 
 import glob
 from functools import lru_cache
-import os
 from pathlib import Path
 from textwrap import indent
-from typing import Any, List, Union
+from typing import Any, List
 
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import File, Files
-from mkdocs.structure.nav import Link, Navigation, Section
 from mkdocs.structure.pages import Page
 from mkdocs.utils.yaml import yaml_load
 

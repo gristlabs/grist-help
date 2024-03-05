@@ -35,14 +35,17 @@ en_docs_path = Path("help/en")
 alternate_langs_config_path: Path = Path("mkdocs-alternate-langs.yml")
 site_path = Path("site").absolute()
 build_site_path = Path("site_build").absolute()
-
+MISSING_TRANSLATION_FILENAME = "MISSING-TRANSLATION.md"
 
 def language_docs_dir(lang: str) -> Path:
   return docs_path / lang / "docs"
 
 
+def get_missing_translation_path(lang: str) -> Path:
+  return Path(docs_path) / lang / MISSING_TRANSLATION_FILENAME
+
 def get_missing_translation_snippet() -> str:
-  missing_translation_file_path = (Path(__file__).parent / "help/en/MISSING-TRANSLATION.md")
+  missing_translation_file_path = get_missing_translation_path("en")
   missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
   return "!!!warning\n\n" + indent(missing_translation_content, "    ")
 
@@ -101,8 +104,8 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
   new_index_path.write_text(new_index_content, encoding="utf-8")
 
   # Copy the MISSING-TRANSLATION.md file, which can be localized later
-  en_missing_translation_path: Path = docs_path / "en" / "MISSING-TRANSLATION.md"
-  new_missing_translation_path: Path = new_path / "MISSING-TRANSLATION.md"
+  en_missing_translation_path: Path = get_missing_translation_path("en")
+  new_missing_translation_path: Path = get_missing_translation_path(lang)
   new_missing_translation_path.write_bytes(en_missing_translation_path.read_bytes())
 
   # Create the images directory
