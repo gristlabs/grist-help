@@ -4,3 +4,6 @@ extra:
   - link: /
     name: en - English
     code: en
+  - link: /fr/
+    name: fr - français
+    code: fr
