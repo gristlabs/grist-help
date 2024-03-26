@@ -55,13 +55,15 @@ Free plans are limited to 5,000 API calls per document per day. Pro plans raise 
 Free plans may be rate limited to 5 API requests per second per document. The team plan does not impose
 such a rate limit.
 
-API requests are limited to 1MB in the size of payload.
-
 Separately, there is a concurrency limit of 10 for all plans: if 10 authorized API requests are
 currently being processed for a particular document, any other API requests will be rejected (with
 HTTP status code 429) until at least one of the original requests completes.  A client that waits
 for one request to complete before sending the next would not hit this limit (assuming it is the
 sole client accessing the document).
+
+The size of API requests is limited to 1MB. In particular, this applies to the total payload of
+API requests adding or updating multiple records at once, which means that such requests may need
+to be split into batches that fit within this limit.
 
 ## Document availability
 
