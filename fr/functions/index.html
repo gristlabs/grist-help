@@ -1102,10 +1102,11 @@ The list of all the records in this table.</p>
 Returns a <a href="#record">Record</a> matching the given field=value arguments. The value may be any expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
 like <code>"Some Value"</code>). If multiple records match, returns one of them. If none match, returns the
-special empty record.</p>
+special empty record. If <code>sort_by=field</code> is given, sort the results by that field.</p>
 <p>For example:</p>
 <pre><code>People.lookupOne(First_Name=&quot;Lewis&quot;, Last_Name=&quot;Carroll&quot;)
 People.lookupOne(Email=$Work_Email)
+People.lookupOne(Email=$Work_Email, sort_by=$Date)
 </code></pre>
 
 <p></details>
