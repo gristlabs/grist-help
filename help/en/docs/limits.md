@@ -61,6 +61,10 @@ HTTP status code 429) until at least one of the original requests completes.  A 
 for one request to complete before sending the next would not hit this limit (assuming it is the
 sole client accessing the document).
 
+The size of the body of any individual API request is limited to 1MB. In particular, this means
+that requests adding or updating multiple records may need to be split into batches that fit
+within this limit.
+
 ## Document availability
 
 From time to time, during upgrades and operational transitions,
