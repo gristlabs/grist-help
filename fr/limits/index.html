@@ -973,6 +973,9 @@ currently being processed for a particular document, any other API requests will
 HTTP status code 429) until at least one of the original requests completes.  A client that waits
 for one request to complete before sending the next would not hit this limit (assuming it is the
 sole client accessing the document).</p>
+<p>The size of the body of any individual API request is limited to 1MB. In particular, this means
+that requests adding or updating multiple records may need to be split into batches that fit
+within this limit.</p>
 <h2 id="document-availability">Document availability<a class="headerlink" href="#document-availability" title="Permanent link">#</a></h2>
 <p>From time to time, during upgrades and operational transitions,
 individual Grist documents may become inaccessible for a period of
