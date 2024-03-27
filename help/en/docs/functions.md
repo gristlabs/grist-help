@@ -139,12 +139,13 @@ sum(r.Population for r in Countries.all)
 Returns a [Record](#record) matching the given field=value arguments. The value may be any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
 like `"Some Value"`). If multiple records match, returns one of them. If none match, returns the
-special empty record.
+special empty record. If `sort_by=field` is given, sort the results by that field.
 
 For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
+People.lookupOne(Email=$Work_Email, sort_by=$Date)
 ```
 </details>
 <details id="lookuprecords"><summary >
