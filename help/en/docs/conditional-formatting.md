@@ -1,4 +1,4 @@
-Conditional Styling
+Conditional Formatting
 ======================
 
 Cell style can change based on conditional rules. Conditional rules are written as formulas. Conditional formatting can apply to an entire row or cells in a column. 
