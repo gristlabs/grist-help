@@ -1,11 +1,11 @@
-Conditional Formatting
+Conditional Styling
 ======================
 
 Cell style can change based on conditional rules. Conditional rules are written as formulas. Conditional formatting can apply to an entire row or cells in a column. 
 
 To add conditional formatting to a particular column, select the column, go to the `CELL STYLE` section of the [creator panel](glossary.md#creator-panel) under the `Column` tab, and click on `Add conditional style`.
 
-*![Add conditional style](images/columns/add-conditional-style.png)*
+*![Add conditional style](images/columns/donuts.png)*
 {: .screenshot-half}
 
 In this example, we have a list of dog breeders who have raised champion thoroughbreds. Let's apply conditional formatting to the Breeder column based on the number of champion dogs. We would like to highlight in gold any breeders with more than 2 champions.
