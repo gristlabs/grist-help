@@ -145,7 +145,7 @@ For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
-People.lookupOne(Email=$Work_Email, sort_by=$Date)
+People.lookupOne(Email=$Work_Email, sort_by="Date")
 ```
 </details>
 <details id="lookuprecords"><summary >
