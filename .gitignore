@@ -47,6 +47,9 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
+# Python cached bytecode
+__pycache__/
+
 # Optional npm cache directory
 .npm
 
