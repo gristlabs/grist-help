@@ -1,7 +1,7 @@
 AWS Marketplace {: .tag-core .tag-ee }
 ============
 
-Grist on the AWS Marketplace has what you need to run a self-hosted Grist instance with minimal setup, and is based on [`grist-omnibus`](https://github.com/gristlabs/grist-omnibus). Below are the complete configuration steps, including authentication via OpenID.
+[Grist on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-kkchmamumozhq) has what you need to run a self-hosted Grist instance with minimal setup, and is based on [`grist-omnibus`](https://github.com/gristlabs/grist-omnibus). Below are the complete configuration steps, including authentication via OpenID.
 
 ## First run setup
 
