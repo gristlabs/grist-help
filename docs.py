@@ -10,11 +10,14 @@ import logging
 import os
 import shutil
 import subprocess
+import requests
+from getpass import getpass
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from multiprocessing import Pool
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 from textwrap import dedent, indent
+from requests.adapters import HTTPAdapter, Retry
 
 import mkdocs.commands.build
 import mkdocs.commands.serve
@@ -115,7 +118,8 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
 
   typer.secho(f"Successfully initialized: {new_path}", color=typer.colors.GREEN)
   update_languages()
-
+  typer.echo("If you are the owner of the weblate project, " +
+    "you may also run './docs.py update-languages --update-weblate' to update the allowed languages. If not, you may just go on and open a PR.", bold=True)
 
 @app.command()
 def build_lang(
@@ -174,6 +178,53 @@ def update_languages() -> None:
   """
   update_config()
 
+@app.command()
+def update_weblate_filters() -> None:
+  """
+  Update the language filters (`language_regex` property), so only languages matching the regex can be added.
+  Therefore no language can be added in Weblate unless they are present in the alternate langs.
+
+  Also see:
+   - https://github.com/WeblateOrg/weblate/discussions/9703
+   - https://docs.weblate.org/en/latest/admin/projects.html#component-language-regex
+  """
+
+  api_key = os.environ.get("WEBLATE_API_KEY")
+  grist_help_project_slug = 'grist-help'
+  if not api_key:
+    api_key = getpass("Enter Weblate API Key (or set WEBLATE_API_KEY in environment): ")
+
+  s = requests.Session()
+  s.headers.update({
+    "Authorization": f"Token {api_key}",
+    "Accept": "application/json"
+  })
+  retries = Retry(total=3,
+                backoff_factor=0.1,
+                status_forcelist=[ 500, 502, 503, 504 ])
+  s.mount('https://', HTTPAdapter(max_retries=retries))
+
+  base_api_url = 'https://hosted.weblate.org/api'
+  resp = s.get(f'{base_api_url}/projects/{grist_help_project_slug}/components/?page_size=1000')
+  resp.raise_for_status()
+
+  slugs = [item['slug'] for item in resp.json().get('results')]
+  if len(slugs) == 1000:
+    raise typer.Abort('The number of components returned is more than 1000, the code should be updated to handle pagination')
+
+  config = get_alternate_langs_config()
+  languages = [item['code'] for item in config['extra']['alternate']]
+  language_filter=f'^({"|".join(languages)})$'
+
+  for slug in slugs:
+    component_url = f'{base_api_url}/components/{grist_help_project_slug}/{slug}/'
+    res = s.patch(component_url, json = { "language_regex": language_filter })
+    res.raise_for_status()
+    typer.echo(typer.style("SUCCESS:", fg=typer.colors.GREEN, bold=True) +
+      f" languages updated succesfully for {slug}")
+
+  typer.secho('ALL DONE for Weblate! Please note that weblate users will only be suggested to add allowed translations once the "Add missing translation" job has run (every 24h)', fg=typer
+.colors.GREEN, bold=True)
 
 @app.command()
 def serve() -> None:
