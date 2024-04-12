@@ -124,6 +124,13 @@ import glob
 glob.glob('/etc/*')
 ```
 
+There are some reasons why `gvisor` sandboxing, as configured for
+Grist, may fail.
+
+ * Your processor may not be supported. On `x86_64`, Sandy Bridge
+   or later is needed. Check that the `XSAVE` processor flag is set.
+ * The `SYS_PTRACE` capability may not be available.
+
 ### How do I run Grist on a server? {: .tag-core .tag-ee }
 
 We suggest that you become familiar with all the other aspects of
