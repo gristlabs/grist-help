@@ -53,7 +53,7 @@ For example, when running on localhost and http, settings that work with the
 When used with docker, make sure that the key and certificate files are accessible
 within a shared volume. The key/cert pair were created following instructions here:
 
-  * [Auth0: use custom certificate to sign requests](https://auth0.com/docs/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests#use-custom-certificate-to-sign-requests)
+  * [Auth0: use custom certificate to sign requests](https://auth0.com/docs/authenticate/protocols/saml/saml-sso-integrations/sign-and-encrypt-saml-requests#use-a-custom-key-to-sign-requests)
   * [Auth0 as the SAML identity provider](https://auth0.com/docs/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests#auth0-as-the-saml-identity-provider)
 
 In your Auth0 settings also make sure that:
