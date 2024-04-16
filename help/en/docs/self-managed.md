@@ -124,6 +124,34 @@ import glob
 glob.glob('/etc/*')
 ```
 
+Here are some reasons why `gvisor` sandboxing, as configured for
+Grist, may fail, and what you can do to diagnose the problem.
+
+#### XSAVE not available
+
+Your processor may not be supported. On `x86_64`, Sandy Bridge
+or later is needed. Check that the `XSAVE` processor flag is set.
+Here's a quick way to test that:
+
+```sh
+grep -q '\bxsave\b' /proc/cpuinfo && echo "XSAVE enabled" || echo "XSAVE missing"
+```
+
+#### PTRACE not available
+
+The `SYS_PTRACE` capability may not be available. If running
+in docker, you could try explicitly granting it, if you are
+comfortable with making it available:
+
+```
+docker run ...
+  --cap-add=SYS_PTRACE
+  ...
+```
+
+In some cloud environments such as AWS ECS, you may need to
+explicitly list this capability in your container configuration.
+
 ### How do I run Grist on a server? {: .tag-core .tag-ee }
 
 We suggest that you become familiar with all the other aspects of
