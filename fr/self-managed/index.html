@@ -919,7 +919,11 @@
 <li><a href="#grist-on-aws">Grist on AWS</a></li>
 </ul>
 </li>
-<li><a href="#how-do-i-sandbox-documents">How do I sandbox documents?</a></li>
+<li><a href="#how-do-i-sandbox-documents">How do I sandbox documents?</a><ul>
+<li><a href="#xsave-not-available">XSAVE not available</a></li>
+<li><a href="#ptrace-not-available">PTRACE not available</a></li>
+</ul>
+</li>
 <li><a href="#how-do-i-run-grist-on-a-server">How do I run Grist on a server?</a></li>
 <li><a href="#how-do-i-set-up-a-team">How do I set up a team?</a></li>
 <li><a href="#how-do-i-set-up-authentication">How do I set up authentication?</a></li>
@@ -1049,6 +1053,26 @@ gives an empty result:</p>
 glob.glob('/etc/*')
 </code></pre>
 
+<p>Here are some reasons why <code>gvisor</code> sandboxing, as configured for
+Grist, may fail, and what you can do to diagnose the problem.</p>
+<h4 id="xsave-not-available">XSAVE not available<a class="headerlink" href="#xsave-not-available" title="Permanent link">#</a></h4>
+<p>Your processor may not be supported. On <code>x86_64</code>, Sandy Bridge
+or later is needed. Check that the <code>XSAVE</code> processor flag is set.
+Here&rsquo;s a quick way to test that:</p>
+<pre><code class="sh">grep -q '\bxsave\b' /proc/cpuinfo &amp;&amp; echo &quot;XSAVE enabled&quot; || echo &quot;XSAVE missing&quot;
+</code></pre>
+
+<h4 id="ptrace-not-available">PTRACE not available<a class="headerlink" href="#ptrace-not-available" title="Permanent link">#</a></h4>
+<p>The <code>SYS_PTRACE</code> capability may not be available. If running
+in docker, you could try explicitly granting it, if you are
+comfortable with making it available:</p>
+<pre><code>docker run ...
+  --cap-add=SYS_PTRACE
+  ...
+</code></pre>
+
+<p>In some cloud environments such as AWS ECS, you may need to
+explicitly list this capability in your container configuration.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-run-grist-on-a-server">How do I run Grist on a server?<a class="headerlink" href="#how-do-i-run-grist-on-a-server" title="Permanent link">#</a></h3>
 <p>We suggest that you become familiar with all the other aspects of
 self-management on this page before serving Grist from a public host
