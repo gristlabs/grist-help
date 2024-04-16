@@ -1,4 +1,4 @@
-Colonne de Paternité
+Les Colonnes de Paternité
 ===================
 
 Il est parfois utile d'avoir des colonnes qui enregistrent le nom de la personne
