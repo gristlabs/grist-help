@@ -1,52 +1,64 @@
-Authorship columns
+Colonne de Paternité
 ===================
 
-Sometimes it is useful to have columns that record who created individual records, and
-who last updated them.  Grist lets you create such columns easily.  It also automatically
-tracks document changes in the Activity tab of Document History, but nevertheless it is
-convenient to have that information in tabular form available to formulas and filters,
-and authorship columns let you do that.
+Il est parfois utile d'avoir des colonnes qui enregistrent le nom de la personne
+qui a créée une nouvelle ligne ou mis à jour de la donnée. Grist permet de créer
+facilement ce type de colonnes. Grist va suivre automatiquement les
+modifications apportées au document dans l'onglet "Historique du document", mais
+il est parfois pratique de disposer de ces informations sous forme de tableau
+pour les formules et les filtres, et les colonnes de Paternité vous permettent
+de le faire.
 
-## A "Created By" column
+## Une colonne "Créé par"
 
-Suppose we want to fill a column automatically with the name of the creator
-of each record as they are added.  As a first step, add a column called 
-(for example) `Created By`.  In the column options in the side panel
-(see [Columns](col-types.md) for a refresher), click
-`Set trigger formula` action.
+Supposons que nous voulions remplir automatiquement une colonne avec le nom du
+créateur de chaque nouvelle ligne au fur et à mesure qu'elles sont ajoutées.
+Pour commencer, ajouter une colonne appelée (par exemple) `Créé par`. Dans les
+options de colonne du panneau latéral (voir [Colonnes](col-types.md) pour un
+rappel), cliquez sur l'action `Définir une formule d'initialisation`.
 
-![starting a Created-By column](images/formulas/formulas-created-by-convert.png)
+![créer une colonne Créé Par](images/formulas/formulas-created-by-convert.png)
 
-Set `user.Name`{: .formula} as the column's formula.  There are other possibilities,
-such as  `user.Email`{: .formula}, a unique `user.UserID`{: .formula}, and so on.  The
-user information available is the same as that in [Access rule conditions](access-rules.md#access-rule-conditions).
-Time information is available as well (see [Timestamp columns](timestamps.md)).
-But let's stick with `user.Name`{: .formula} for now.
+Définissez `user.Name`{ : .formula} comme formule de la colonne. Il existe
+d'autres possibilités, comme `user.Email`{ : .formula}, ou `user.UserID`{ :
+.formula}, etc. Les informations disponibles sur l'utilisateur sont les mêmes
+que dans les [Permissions Avancées](access-rules.md#access-rule-conditions).
+L'horodatage est également disponible (voir [Colonnes
+d'horodatage](timestamps.md)). Mais restons-en à `user.Name`{ : .formula} pour
+l'instant.
 
-![a Created-By column](images/formulas/formulas-created-by-final.png)
+![une colonne Créé par](images/formulas/formulas-created-by-final.png)
 
-Now, to set the column whenever a record is created, make sure that `Apply to new records`
-option is checked. And that's it!  Now whenever a record is created, the `Created At`
-column will be set to the name of the user creating it:
+Maintenant, afin de paramétrer la colonne pour chaque nouvelle ligne créée,
+assurez-vous que l'option `Appliquer sur les nouvelles lignes uniquement` est
+cochée. Et c'est tout! Maintenant, à chaque fois qu'une nouvelle ligne est
+créée, la colonne `Créé par` aura le nom de l'utilisateur qui a créé cette ligne
 
-![a Created-By example](images/formulas/formulas-created-by-autofill.png)
+![un exemple Créé par](images/formulas/formulas-created-by-autofill.png)
 
 
-## An "Updated By" column
+## Une colonne "Mis à jour par"
 
-If we want a column that stores who last edited a record (as opposed to its creator),
-the procedure is similar to that for [a "Created By" column](authorship.md#a-created-by-column),
-but instead of `Apply to new records`,
-select `Apply on record changes`.  Then select `Any field` (assuming you want any
-change in a record to count as an update) and press `OK`.  You can alternatively
-pick and choose which columns, when updated, will trigger the formula.
+Si nous voulons une colonne qui enregistre le nom de la dernière personne qui a
+modifié une ligne (par opposition à la personne qui a créé la ligne), la
+procédure est similaire à [une colonne "Créé
+par"](authorship.md#a-created-by-column), mais au lieu de "Appliquer sur les
+nouvelles lignes uniquement", sélectionnez "Réappliquer en cas de modification
+de la ligne". Sélectionnez ensuite `N'importe quel champ` (en supposant que vous
+voulez que tout changement dans une ligne soit considéré comme une mise à jour)
+et appuyez sur `OK`. Par ailleurs, vous pouvez également choisir que certaines
+colonnes en particulier qui, lorsqu'elles seront mises à jour, déclencheront la
+formule.
 
-![an Updated-By column](images/formulas/formulas-updated-by-setup.png)
+![une colonne Mise à jour par](images/formulas/formulas-updated-by-setup.png)
 
-Here is an example the the new column at work - when `Cotton Candy v Candy Floss`
-is updated,a user name appears for that record:
+Voici un exemple de la nouvelle colonne à l'œuvre - lorsque `Cotton Candy v
+Candy Floss` est mise à jour, un nom d'utilisateur apparaît pour cette ligne :
 
-![an Updated-By column](images/formulas/formulas-updated-by-autofill.png)
+![une colonne Mise à jour par](images/formulas/formulas-updated-by-autofill.png)
 
-!!! note "It is still possible for a user to manually edit cells in the `Created By` and `Updated By` columns. If you don't want that to be allowed, use [access rules](access-rules.md) to forbid it."
+!!! note "Il est toujours possible pour un utilisateur de modifier manuellement
+les cellules dans les colonnes `Créé par` et `Mis à jour par`. Si vous ne voulez
+pas que cela soit autorisé, utilisez les [Permissions Avancées](access-rules.md)
+pour l'interdire."
 
