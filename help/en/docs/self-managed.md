@@ -413,7 +413,11 @@ The set of python packages available for use in formulas is currently
 not configurable. You can add packages anyway if you are willing to
 build and install your own version of the Grist.
 
-!!! warning "Grist documents made on an installation with custom python packages will not bring those packages with them if copied to a different installation. Formulas using custom python packages will give errors when those packages are unavailable."
+!!! warning "Warning"
+
+    **Grist documents made on an installation with custom python packages 
+    will not bring those packages with them if copied to a different installation. 
+    Formulas using custom python packages will give errors when those packages are unavailable.**
 
 Create an empty directory, and add the following into it, in a file called
 `Dockerfile`:

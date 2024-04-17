@@ -39,7 +39,10 @@ pick and choose which columns to "count" as updates and which to ignore.
 
 ![an Updated-At column](images/formulas/formulas-updated-at.png)
 
-!!! note "It is still possible for a user to manually edit cells in the `Created At` and `Updated At` columns. If you don't want that to be allowed, use [access rules](access-rules.md) to forbid it."
+!!! note ""
+    **It is still possible for a user to manually edit cells in the `Created At`
+    and `Updated At` columns. If you don't want that to be allowed, use
+    [access rules](access-rules.md) to forbid it.**
 
 Here is an example of the new columns at work. One new record was added, for
 `Unorthodox Delivery Methods`, and a created and updated time were set for it
