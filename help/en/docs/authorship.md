@@ -10,7 +10,7 @@ and authorship columns let you do that.
 ## A "Created By" column
 
 Suppose we want to fill a column automatically with the name of the creator
-of each record as they are added.  As a first step, add a column called 
+of each record as they are added.  As a first step, add a column called
 (for example) `Created By`.  In the column options in the side panel
 (see [Columns](col-types.md) for a refresher), click
 `Set trigger formula` action.
@@ -48,5 +48,8 @@ is updated,a user name appears for that record:
 
 ![an Updated-By column](images/formulas/formulas-updated-by-autofill.png)
 
-!!! note "It is still possible for a user to manually edit cells in the `Created By` and `Updated By` columns. If you don't want that to be allowed, use [access rules](access-rules.md) to forbid it."
+!!! note ""
+    **It is still possible for a user to manually edit cells in the `Created By`
+    and `Updated By` columns. If you don't want that to be allowed,
+    use [access rules](access-rules.md) to forbid it.**
 
