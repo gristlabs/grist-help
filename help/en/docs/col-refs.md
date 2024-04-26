@@ -177,7 +177,7 @@ We can see that the value in the Full Name column for the record with Row ID =`2
 
 *![columns-reference-explanation-fullname](images/columns/columns-reference-explanation-fullname.png)*
 
-## Filtering Reference Choices in Dropdown 
+## Filtering Reference choices in dropdown 
 
 When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re tracking population changes in the 1,000 most populous world cities. When entering a city into the reference column for city selection, the dropdown lists all 1,000 cities. 
 
