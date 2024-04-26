@@ -181,19 +181,35 @@ We can see that the value in the Full Name column for the record with Row ID =`2
 
 When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re tracking population changes in the 1,000 most populous world cities. When entering a city into the reference column for city selection, the dropdown lists all 1,000 cities. 
 
+*![whatever](/images/filter-reference-columns/unfiltered-cities.png)*
+{: .screenshot-half } 
 
 It would be useful if the dropdown list of city choices were filtered based on the country selected in the “Country” column.
 
 To filter a reference column’s dropdown list, select the reference column then set a “Dropdown Condition“ in the Creator Panel under ‘Column’ tab. 
 
+*![whatever](/images/filter-reference-columns/set-dropdown-condition.png)*
+{: .screenshot-half } 
+
 
 You can filter a dropdown’s choice by writing a condition as a formula. The attribute choice refers to choices in the dropdown. In this case the formula is choice.Country == $Country. 
 
+*![whatever](/images/filter-reference-columns/city-filter-condition.png)*
+{: .screenshot-half } 
+
+*![whatever](/images/filter-reference-columns/filtered-cities.png)*
+{: .screenshot-half } 
 
 
 Why did that work? The city column is a reference column pointing to a CITIES table that matches countries and cities. That  table looks like this.
 
+*![whatever](/images/filter-reference-columns/cities-tables.png)*
+{: .screenshot-half } 
+
 The formula condition choice.Country == $Country is looking up each choice’s country in the CITIES table using a [reference lookup](https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation), then it compares those countries to the value entered in the “Country” column of the POPULATION RANKINGS table. 
+
+*![whatever](/images/filter-reference-columns/filtered-cities-highlight.png)*
+{: .screenshot-half } 
 
 The dropdown now lists only choices whose country equals the country entered in Country column. 
 
