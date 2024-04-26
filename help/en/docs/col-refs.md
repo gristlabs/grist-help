@@ -176,3 +176,41 @@ To view a record's unique ID, add a new column with the formula = [`$id`](formul
 We can see that the value in the Full Name column for the record with Row ID =`2` is `Dowbakin, Daniella`. If we revert back to our original settings for the Instructor column of the Classes table, where `Full Name` was selected under Show Column, we see that the Full Name value associated with `Staff[2]` is `Dowbakin, Daniella`.
 
 *![columns-reference-explanation-fullname](images/columns/columns-reference-explanation-fullname.png)*
+
+## Filtering Reference choices in dropdown 
+
+When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re tracking population changes in the 1,000 most populous world cities. When entering a city into the reference column for city selection, the dropdown lists all 1,000 cities. 
+
+*![Unfiltered reference dropdown list](/images/filter-reference-columns/unfiltered-cities.png)*
+{: .screenshot-half } 
+
+It would be useful if the dropdown list of city choices were filtered based on the country selected in the `Country` column.
+
+To filter a reference column’s dropdown list, select the reference column then set a “Dropdown Condition“ in the Creator Panel under the "Column" tab. 
+
+*![Set dropdown condition](/images/filter-reference-columns/set-dropdown-condition.png)*
+{: .screenshot-half } 
+
+
+You can filter a dropdown’s choice by writing a condition as a formula. The attribute `choice` refers to choices in the dropdown. In this case the formula is `choice.Country == $Country`. 
+
+*![Reference dropdown filter condition](/images/filter-reference-columns/city-filter-condition.png)*
+{: .screenshot-half } 
+
+*![Filtered reference dropdown list](/images/filter-reference-columns/filtered-cities.png)*
+{: .screenshot-half } 
+
+
+Why did that work? The city column is a reference column pointing to a `Cities` table that matches countries and cities. That table looks like this.
+
+*![Cities reference table](/images/filter-reference-columns/cities-tables.png)*
+{: .screenshot-half } 
+
+The formula condition `choice.Country == $Country` is looking up each choice’s country in the `Cities` table using a [reference lookup](https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation), then it compares those countries to the value entered in the `Country` column of the `Population Rankings` table. 
+
+*![Filtered reference dropdown list](/images/filter-reference-columns/filtered-cities-highlight.png)*
+{: .screenshot-half } 
+
+The dropdown now lists only choices (aka cities) whose country equals the country entered in `Country` column. 
+
+Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with [access rules](https://support.getgrist.com/access-rules/) may notice similarities in how to think about writing these formulas.
