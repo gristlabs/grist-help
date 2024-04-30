@@ -169,13 +169,50 @@ docker run ...
 ```
 
 You will need to place a "reverse proxy" in front of Grist to
-handle "ssl termination" (decrypting encypted traffic) using
+handle "SSL termination" (decrypting encypted traffic) using
 a certificate that establishes ownership of the site. If you don't
 know what this means, you could try using the
 [Grist Omnibus](https://github.com/gristlabs/grist-omnibus) which
 packages Grist with a reverse proxy that will
 use [Let's Encrypt](https://letsencrypt.org/) to get a certificate
 for you automatically.
+
+An important job of such a proxy is to correctly forward
+[websocket](https://en.wikipedia.org/wiki/WebSocket) connections. This
+amounts to two requirements:
+
+  1. Ensure that the proxy is using HTTP 1.1
+  2. Pass the necessary Upgrade, Connection, and Host HTTP headers so
+     that an HTTP connection can be upgraded to a websocket connection.
+
+For example, here is a minimal configuration for
+[nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/),
+a possible choice for reverse proxy.
+
+```
+server {
+    server_name grist.example.com;
+
+    location / {
+        proxy_pass http://localhost:8484;
+        proxy_redirect     off;
+        proxy_set_header   Host             $host;
+        proxy_set_header   X-Real-IP        $remote_addr;
+        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+    }
+}
+```
+
+This configuration will handle basic HTTP traffic and websockets. It
+still requires additional SSL/TLS configuration. A simple option for
+self-hosting on a small scale is to use [`certbot` by the
+EFF](https://certbot.eff.org/).
 
 ### How do I set up a team? {: .tag-core .tag-ee }
 
