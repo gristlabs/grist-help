@@ -306,6 +306,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://support.getgrist.com/newsletters/2024-04/</loc>
+         <lastmod>2024-04-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://support.getgrist.com/newsletters/2024-03/</loc>
          <lastmod>2024-04-30</lastmod>
          <changefreq>daily</changefreq>
