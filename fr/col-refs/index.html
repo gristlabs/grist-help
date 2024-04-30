@@ -1062,18 +1062,19 @@ To close the editor and discard any changes you&rsquo;ve made, press
 <p><em><img alt="columns-reference-explanation-fullname" src="../images/columns/columns-reference-explanation-fullname.png" /></em></p>
 <h2 id="filtering-reference-choices-in-dropdown">Filtering Reference choices in dropdown<a class="headerlink" href="#filtering-reference-choices-in-dropdown" title="Permanent link">#</a></h2>
 <p>When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re tracking population changes in the 1,000 most populous world cities. When entering a city into the reference column for city selection, the dropdown lists all 1,000 cities. </p>
-<p class="screenshot-half"><em><img alt="Unfiltered reference dropdown list" src="/images/filter-reference-columns/unfiltered-cities.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Unfiltered reference dropdown list" src="../images/filter-reference-columns/unfiltered-cities.png" /></em></p>
 <p>It would be useful if the dropdown list of city choices were filtered based on the country selected in the <code>Country</code> column.</p>
 <p>To filter a reference column’s dropdown list, select the reference column then set a “Dropdown Condition“ in the Creator Panel under the &ldquo;Column&rdquo; tab. </p>
-<p class="screenshot-half"><em><img alt="Set dropdown condition" src="/images/filter-reference-columns/set-dropdown-condition.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Set dropdown condition" src="../images/filter-reference-columns/set-dropdown-condition.png" /></em></p>
 <p>You can filter a dropdown’s choice by writing a condition as a formula. The attribute <code>choice</code> refers to choices in the dropdown. In this case the formula is <code>choice.Country == $Country</code>. </p>
-<p class="screenshot-half"><em><img alt="Reference dropdown filter condition" src="/images/filter-reference-columns/city-filter-condition.png" /></em></p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="/images/filter-reference-columns/filtered-cities.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Reference dropdown filter condition" src="../images/filter-reference-columns/city-filter-condition.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/filter-reference-columns/filtered-cities.png" /></em></p>
 <p>Why did that work? The city column is a reference column pointing to a <code>Cities</code> table that matches countries and cities. That table looks like this.</p>
-<p class="screenshot-half"><em><img alt="Cities reference table" src="/images/filter-reference-columns/cities-tables.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Cities reference table" src="../images/filter-reference-columns/cities-tables.png" /></em></p>
 <p>The formula condition <code>choice.Country == $Country</code> is looking up each choice’s country in the <code>Cities</code> table using a <a href="https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation">reference lookup</a>, then it compares those countries to the value entered in the <code>Country</code> column of the <code>Population Rankings</code> table. </p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="/images/filter-reference-columns/filtered-cities-highlight.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/filter-reference-columns/filtered-cities-highlight.png" /></em></p>
 <p>The dropdown now lists only choices (aka cities) whose country equals the country entered in <code>Country</code> column. </p>
+<p>The <code>choice</code> attribute can also be used when setting dropdown filter conditions for <a href="../col-types/#choice-columns">Choice</a> and <a href="../col-types/#choice-list-columns">Choice List</a> columns.</p>
 <p>Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with <a href="https://support.getgrist.com/access-rules/">access rules</a> may notice similarities in how to think about writing these formulas.</p>
 
   <br>
