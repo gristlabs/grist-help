@@ -138,8 +138,7 @@ sum(r.Population for r in Countries.all)
 </summary>
 Returns a [Record](#record) matching the given field=value arguments. The value may be any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
-like `"Some Value"`). If multiple records match, returns one of them. If none match, returns the
-special empty record. If `sort_by=field` is given, sort the results by that field.
+like `"Some Value"`). If multiple records are found, the first match is returned. You may set the optional sort_by parameter to the column ID by which to sort multiple matching results, to determine which of them is returned. You can prefix the column ID with "-" to reverse the order.
 
 For example:
 ```
