@@ -361,6 +361,9 @@ while the cell is being edited. You can also use the arrow keys and the
 `Delete` key to navigate and delete choices, or simply click the delete icon
 when hovering your cursor over a choice.
 
+!!! note "Filtering Choice and Choice List columns' dropdown lists"
+    When entering data into a Choice or Choice List column you will see a dropdown list of all available choices. Sometimes it would be useful to filter the dropdown list based on a condition, such as the value in another cell. Writing conditions to filter choice dropdown lists is similar to [filtering reference column's dropdown lists](col-refs.md#filtering-reference-choices-in-dropdown).
+
 ## Reference columns
 
 This sets up a cross-reference to another table.  You can specify the
