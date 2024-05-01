@@ -1091,13 +1091,47 @@ this:</p>
 </code></pre>
 
 <p>You will need to place a &ldquo;reverse proxy&rdquo; in front of Grist to
-handle &ldquo;ssl termination&rdquo; (decrypting encypted traffic) using
+handle &ldquo;SSL termination&rdquo; (decrypting encypted traffic) using
 a certificate that establishes ownership of the site. If you don&rsquo;t
 know what this means, you could try using the
 <a href="https://github.com/gristlabs/grist-omnibus">Grist Omnibus</a> which
 packages Grist with a reverse proxy that will
 use <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> to get a certificate
 for you automatically.</p>
+<p>An important job of such a proxy is to correctly forward
+<a href="https://en.wikipedia.org/wiki/WebSocket">websocket</a> connections. This
+amounts to two requirements:</p>
+<ol>
+<li>Ensure that the proxy is using HTTP 1.1</li>
+<li>Pass the necessary Upgrade, Connection, and Host HTTP headers so
+     that an HTTP connection can be upgraded to a websocket connection.</li>
+</ol>
+<p>For example, here is a minimal configuration for
+<a href="https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/">nginx</a>,
+a possible choice for reverse proxy.</p>
+<pre><code>server {
+    server_name grist.example.com;
+
+    location / {
+        proxy_pass http://localhost:8484;
+        proxy_redirect     off;
+        proxy_set_header   Host             $host;
+        proxy_set_header   X-Real-IP        $remote_addr;
+        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &quot;upgrade&quot;;
+
+    }
+}
+</code></pre>
+
+<p>This configuration will handle basic HTTP traffic and websockets. It
+still requires additional SSL/TLS configuration. A simple option for
+self-hosting on a small scale is to use <a href="https://certbot.eff.org/"><code>certbot</code> by the
+EFF</a>.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-set-up-a-team">How do I set up a team?<a class="headerlink" href="#how-do-i-set-up-a-team" title="Permanent link">#</a></h3>
 <p>Grist has a concept of &ldquo;team sites&rdquo; that are independently managed and
 named areas containing their own workspaces and documents.  Team sites
