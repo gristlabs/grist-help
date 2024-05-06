@@ -98,7 +98,7 @@ Such a formula returns a reference. In the screenshot above, you can see the loo
 It's often a good idea to create a column for the lookup result and change its type to Reference, as you see in the screenshot below. Then, if there is a match, the reference column will point to the entire matched record. Like any reference column, you can select which field from that record to show. In this example, it shows the Company field of the matched record in the Sponsors table.
 
 <span class="screenshot-large">*![sponsors-lookupone](images/references-lookups/sponsors-lookupone.png)*</span>
-Alternatively, we could use the following formula to illustrate a clear example to find the earliest interaction associated with a specific contact ID:
+Alternatively, we could use the following formula to illustrate an example to find the earliest interaction associated with a specific contact ID:
 
 ```
 Interactions.lookupOne(Contact=$id, sort_by="Date")
