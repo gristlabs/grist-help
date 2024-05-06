@@ -122,6 +122,7 @@ Now, let’s say we added a date column as the event has stretched over the cour
 ```
 Sponsors.lookupOne(Contact_Name=$id, sort_by="Date")
 ```
+
 Specifically, `sort_by` causes multiple results to be sorted by Date, in ascending order, and since `lookupOne` returns the first of the matches, it becomes the earliest date.
 
 Additionally, we can use the (-) symbol and reverse the order, finding the latest interaction:
