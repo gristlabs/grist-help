@@ -350,8 +350,6 @@ The `user` variable contains the following members:
  * `user.LinkKey`: an object with any access control URL parameters.  Access control URL
    parameters end in an underscore (which is then stripped).  Only available in the
    web client, not the API.
- * `user.Origin`: The content of the Origin request header.  Only available in the API,
-   not the web client.
  * `user.SessionID`: a unique string assigned to anonymous users for the duration of that user's session. For logged in users, `user.SessionID` is always `"u"` + the user's numeric id. 
 
 For an example of using the `user` variable, read [Default rules](access-rules.md#default-rules).
