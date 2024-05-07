@@ -1242,8 +1242,6 @@ Variables that may be available in access rules are <code>user</code>, <code>rec
 <li><code>user.LinkKey</code>: an object with any access control URL parameters.  Access control URL
    parameters end in an underscore (which is then stripped).  Only available in the
    web client, not the API.</li>
-<li><code>user.Origin</code>: The content of the Origin request header.  Only available in the API,
-   not the web client.</li>
 <li><code>user.SessionID</code>: a unique string assigned to anonymous users for the duration of that user&rsquo;s session. For logged in users, <code>user.SessionID</code> is always <code>"u"</code> + the user&rsquo;s numeric id. </li>
 </ul>
 <p>For an example of using the <code>user</code> variable, read <a href="./#default-rules">Default rules</a>.</p>
