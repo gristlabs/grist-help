@@ -115,6 +115,22 @@ The entire formula would be `Sponsors.lookupOne(Contact_Email=$Registration_Emai
 
 Now, we have the Sponsor Level listed in the All Registrations table for those attendees whose emails also appear on the sponsor list.
 
+## lookupOne and sort_by 
+
+Now, let’s say we added a date column as the event has stretched over the course of a few days and we want to see when an attendee has been present. We could use the following formula to illustrate an example to find the earliest interaction associated with a specific contact:
+
+```
+Sponsors.lookupOne(Contact_Name=$id, sort_by="Date")
+```
+
+Specifically, `sort_by` causes multiple results to be sorted by Date, in ascending order, and since `lookupOne` returns the first of the matches, it becomes the earliest date.
+
+Additionally, we can use the (-) symbol and reverse the order, finding the latest interaction:
+
+```
+Sponsors.lookupOne(Contact_Name=$id, sort_by="-Date")
+```
+
 ## Understanding record sets
 
 Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. 
