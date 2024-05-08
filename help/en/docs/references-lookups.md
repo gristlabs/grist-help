@@ -115,6 +115,28 @@ The entire formula would be `Sponsors.lookupOne(Contact_Email=$Registration_Emai
 
 Now, we have the Sponsor Level listed in the All Registrations table for those attendees whose emails also appear on the sponsor list.
 
+## lookupOne and sort_by ##
+
+The `lookupOne` function and the optional `sort_by` parameter can be used together to sort multiple matching results to determine which of them is returned. You can also prefix the column ID with "-" to reverse the order.
+
+For instance, consider this example from the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program) template. This template tracks enrollment for extracurricular and other classes - logging information for students, families, and staff. 
+
+On this page, we have a list of students and their respective information.
+
+<span class="screenshot-large">*![student-table](images/references-lookups/students-page.png)*</span>
+
+Additionally, we have a Families page that outlines the parent of each student and we’d like to find which student in each family is the oldest. 
+
+<span class="screenshot-large">*![family-table](images/references-lookups/families-page.png)*</span>
+
+To find who the oldest student is, we would create an oldest student column. 
+
+Then, the following formula would look at the Students table, return the specific students associated with each family, sort them by their birthday, and return their full name: 
+
+`Students.lookupOne(Family=$id, sort_by="Birthday").Full_Name`
+
+In this case, this would return: Raddon, Brockie. 
+
 ## Understanding record sets
 
 Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. 
