@@ -125,7 +125,7 @@ On this page, we have a list of students and their respective information.
 
 <span class="screenshot-large">*![student-table](images/references-lookups/students-final-2.png)*</span>
 
-Additionally, we have a Families page that outlines the parent of each student and we’d like to find which student in each family is the oldest. So, we would create an oldest student column. 
+Additionally, we have a Families page that outlines the parent of each student and we’d like to find which student in each family is the oldest. So, we would create an oldest student column.
 
 <span class="screenshot-large">*![family-table](images/references-lookups/families-final-2.png)*</span>
 
