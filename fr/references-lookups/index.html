@@ -379,6 +379,11 @@ A common example of this is seen in the Class Enrollment template.">
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#lookupone-and-sort_by">
+                lookupOne and sort_by
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#understanding-record-sets">
                 Understanding record sets
               </a>
@@ -1006,6 +1011,19 @@ references the records on our Staff page. </p>
 <p>The entire formula would be <code>Sponsors.lookupOne(Contact_Email=$Registration_Email).Sponsor_Level</code>.</p>
 <p><span class="screenshot-large"><em><img alt="sponsor-level-lookupone" src="../images/references-lookups/sponsor-level-lookupone.png" /></em></span></p>
 <p>Now, we have the Sponsor Level listed in the All Registrations table for those attendees whose emails also appear on the sponsor list.</p>
+<h2 id="lookupone-and-sort_by">lookupOne and sort_by<a class="headerlink" href="#lookupone-and-sort_by" title="Permanent link">#</a></h2>
+<p>When the <code>lookupOne</code> function encounters multiple matching results, it returns the first one by row ID. The optional <code>sort_by</code> parameter can be used to sort these results by another field, to determine which one would be returned as the first match. You can also prefix the column ID with &ldquo;-&rdquo; to reverse the order.</p>
+<p>For instance, consider this example from the <a href="https://templates.getgrist.com/doc/afterschool-program">Class Enrollment</a> template. This template tracks enrollment for extracurricular and other classes - logging information for students, families, and staff. </p>
+<p>On this page, we have a list of students and their respective information.</p>
+<p><span class="screenshot-large"><em><img alt="student-table" src="../images/references-lookups/students-final-2.png" /></em></span></p>
+<p>Additionally, we have a Families page that outlines the parent of each student and we’d like to find which student in each family is the oldest. So, we would create an oldest student column.</p>
+<p><span class="screenshot-large"><em><img alt="family-table" src="../images/references-lookups/families-final-2.png" /></em></span></p>
+<p>Then, the following formula would look at the Students table, find the specific students associated with each family, sort them by their birthday, and return the one student with the earliest birthday: </p>
+<p><code>Students.lookupOne(Family=$id, sort_by="Birthday")</code></p>
+<p>In this case, this would return: Raddon, Brockie. </p>
+<p>Alternatively, if we want to find the youngest student, the formula would include &ldquo;-&ldquo;: </p>
+<p><code>Students.lookupOne(Family=$id, sort_by="-Birthday”)</code></p>
+<p>In this case, this would return: Raddon, Care. </p>
 <h2 id="understanding-record-sets">Understanding record sets<a class="headerlink" href="#understanding-record-sets" title="Permanent link">#</a></h2>
 <p>Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. </p>
 <p>A great example of this is seen on the <a href="https://templates.getgrist.com/1BR9vm6GPTGX/Habit-Tracker">Habit Tracker</a> template. </p>
