@@ -3,7 +3,9 @@ Formula Timer
 
 Grist has a built-in formula timer that will measure the time it takes to evaluate each formula in a document. This helps diagnose which formulas are responsible for slow performance when a document is first opened, or when a document responds to changes.
 
-Grist's formula timer can be found on the 'Document Settings' page, under 'Data Engine'. Select 'Start timing' to begin.
+Grist's formula timer can be found on the 'Document Settings' page, under 'Data Engine'.
+
+Select 'Start timing' to begin.
 
 <span class="screenshot-large">*![formula-timer-settings](images/formula-timer/formula-timer-settings.png)*</span>
 
