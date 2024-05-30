@@ -60,6 +60,7 @@ nav:
     - Intro to formulas: formulas.md
     - References and Lookups: references-lookups.md
     - Working with dates: dates.md
+    - Formula timer: formula-timer.md
     - Python versions: python.md
     - Function reference: functions.md
     - Formula Cheat Sheet: formula-cheat-sheet.md
