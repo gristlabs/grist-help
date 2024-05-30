@@ -31,13 +31,13 @@ Results are displayed in a table format.
 
 *Note that this table is not saved anywhere in the document. If you click away from this page, you will need to run the formula timer again to retrieve the table.*
 
-Sort the Total Time column from Z > A so the formulas that take the longest time to run are listed first.
+Sort the **Total Time** column from Z > A so the formulas that take the longest time to run are listed first.
 
 <span class="screenshot-large">*![formula-timer-result-sort](images/formula-timer/formula-timer-result-sort.png)*</span>
 
-The table specifies the Table ID and Column ID containing each formula. Review the formulas with the highest total time to see how they can be improved.
+The table specifies the **Table ID** and **Column ID** containing each formula. Review the formulas with the highest total time to see how they can be improved.
 
-If your document is experiencing slowness due to formula calculations, you'll see Total Times greater than 1 second. 
+If your document is experiencing slowness due to formula calculations, you'll see **Total Times** greater than 1 second. 
 
 <span class="screenshot-large">*![formula-timer-results](images/formula-timer/formula-timer-results.png)*</span>
 
