@@ -365,16 +365,6 @@
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#start-timing">
-                Start timing
-              </a>
-            </li>
-            <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#time-reload">
-                Time reload
-              </a>
-            </li>
-            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#results">
                 Results
               </a>
@@ -1050,22 +1040,26 @@
 
     <h1 id="formula-timer">Formula Timer<a class="headerlink" href="#formula-timer" title="Permanent link">#</a></h1>
 <p>Grist has a built-in formula timer that will measure the time it takes to evaluate each formula in a document. This helps diagnose which formulas are responsible for slow performance when a document is first opened, or when a document responds to changes.</p>
-<p>Grist&rsquo;s formula timer can be found on the &lsquo;Document Settings&rsquo; page, under &lsquo;Data Engine&rsquo;. Select &lsquo;Start timing&rsquo; to begin.</p>
+<p>Grist&rsquo;s formula timer can be found on the &lsquo;Document Settings&rsquo; page, under &lsquo;Data Engine&rsquo;.</p>
+<p>Select &lsquo;Start timing&rsquo; to begin.</p>
 <p><span class="screenshot-large"><em><img alt="formula-timer-settings" src="../images/formula-timer/formula-timer-settings.png" /></em></span></p>
 <p>On the next screen, you will have two choices, &lsquo;Start timing&rsquo; and &lsquo;Time reload&rsquo;.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="formula-timer-selection" src="../images/formula-timer/formula-timer-selection.png" /></em></span></p>
-<h2 id="start-timing">Start timing<a class="headerlink" href="#start-timing" title="Permanent link">#</a></h2>
+<p><strong>Start timing</strong></p>
 <p>&lsquo;Start timing&rsquo; allows you to make changes to the document then stop timing to see the results. This is useful if you want to test specific formulas. You can make a change that affects that formula then come back and click &lsquo;Stop timing&rsquo; to see the result.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="formula-timer-stop-timing" src="../images/formula-timer/formula-timer-stop-timing.png" /></em></span></p>
-<h2 id="time-reload">Time reload<a class="headerlink" href="#time-reload" title="Permanent link">#</a></h2>
+<p><strong>Time reload</strong></p>
 <p>&lsquo;Time reload&rsquo; forces a reload of the document while timing formulas and shows the result. This will show timing results for all formulas across the entire document.</p>
 <h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">#</a></h2>
 <p>Results are displayed in a table format.</p>
-<p><em>Note that this table is not saved anywhere in the document. If you click away from this page, you will need to run the formula timer again to retrieve the table.</em></p>
-<p>Sort the Total Time column from Z &gt; A so the formulas that take the longest time to run are listed first.</p>
+<div class="admonition warning">
+<p class="admonition-title">⚠️ Results Table</p>
+<p>The Formula Timer results table is not saved anywhere in the document. If you click away from this page, you will need to run the formula timer again to retrieve the table.</p>
+</div>
+<p>Sort the <strong>Total Time</strong> column from Z &gt; A so the formulas that take the longest time to run are listed first.</p>
 <p><span class="screenshot-large"><em><img alt="formula-timer-result-sort" src="../images/formula-timer/formula-timer-result-sort.png" /></em></span></p>
-<p>The table specifies the Table ID and Column ID containing each formula. Review the formulas with the highest total time to see how they can be improved.</p>
-<p>If your document is experiencing slowness due to formula calculations, you&rsquo;ll see Total Times greater than 1 second. </p>
+<p>The table specifies the <strong>Table ID</strong> and <strong>Column ID</strong> containing each formula. Review the formulas with the highest total time to see how they can be improved.</p>
+<p>If your document is experiencing slowness due to formula calculations, you&rsquo;ll see <strong>Total Times</strong> greater than 1 second. </p>
 <p><span class="screenshot-large"><em><img alt="formula-timer-results" src="../images/formula-timer/formula-timer-results.png" /></em></span></p>
 <p>Need guidance on how to improve a formula? Post to our <a href="https://community.getgrist.com/">Community Forum</a>!</p>
 
