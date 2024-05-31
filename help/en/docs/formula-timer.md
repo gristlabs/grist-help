@@ -29,7 +29,7 @@ On the next screen, you will have two choices, 'Start timing' and 'Time reload'.
 
 Results are displayed in a table format.
 
-!!! note "⚠️ Results Table"
+!!! warning "⚠️ Results Table"
     The Formula Timer results table is not saved anywhere in the document. If you click away from this page, you will need to run the formula timer again to retrieve the table.
 
 Sort the **Total Time** column from Z > A so the formulas that take the longest time to run are listed first.
