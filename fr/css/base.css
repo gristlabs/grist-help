@@ -588,13 +588,13 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
 }
 
 .admonition.note { /* csslint allow: adjoining-classes */
-    color: #3a87ad;
+    color: #226d93;
     background-color: #d9edf7;
     border-color: #bce8f1;
 }
 
 .admonition.warning { /* csslint allow: adjoining-classes */
-    color: #c09853;
+    color: #845d1a;
     background-color: #fcf8e3;
     border-color: #fbeed5;
 }
