@@ -55,7 +55,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 ### Why do I have multiple sites?
 
-All Grist users have access to a free personal account. The personal site is always named beginning with "@" and is always located at [docs.getgrist.com](https://docs.getgrist.com/). Each document in this account may be shared with up to two guests for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
+All Grist users have access to a free personal site. The personal site is always named beginning with "@" and is always located at [docs.getgrist.com](https://docs.getgrist.com/). Each document in this site may be shared with up to two guests for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
 
 Documents shared with you from other personal accounts will be shown in your personal site in workspaces named with "@Name" to indicate the owner of that document.
 
@@ -149,7 +149,7 @@ In addition to our [summary tables](summary-tables.md) article, we have a [video
 
 ### What's the difference between a team member and a guest? 
 
-Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as `your-team.getgrist.com`. On the paid plans, the number of team members determines the price.
+Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as `your-team.getgrist.com`. On paid plans, the number of team members determines the price.
 
 By default, documents within a team site may be accessed by all team members. This default can be modified to only share certain [documents](team-sharing.md) or certain [workspaces](workspaces.md) with specific team members. 
 
