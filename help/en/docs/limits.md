@@ -5,7 +5,7 @@ mind, here is a list of limitations that apply to its operation.
 
 ## Number of documents
 
-On all plans, the number of documents is not limited. 
+On all plans, the number of documents is not limited.
 
 To prevent accidental abuse of the system by automation
 tools, team sites may be limited to 1000 documents. If you encounter such a limit for legitimate
@@ -15,13 +15,13 @@ Older free plans had a limit of ten documents. Learn more about [legacy limits.]
 
 ## Number of collaborators
 
-For team sites on both the Free and Pro plan, there is no limit on the number of team members that may be added to the site.  For team sites on the Pro plan, the number of team members determines the price. See our [pricing page](https://www.getgrist.com/pricing) for details.
+For team sites on all plans, there is no limit on the number of team members that may be added to the site.  For paid plans, the number of team members determines the price. See our [pricing page](https://www.getgrist.com/pricing) for details.
 
 Team members added to your team site may inherit access to workspaces or documents
 within that organization. Learn more about [team
 sharing](team-sharing.md).
 
-On both personal and team sites, each document may be shared with up to 2 free guests who do not affect the plan price even on the Pro plan.
+On both personal and team sites, each document may be shared with up to 2 free guests who do not affect the plan price even on paid plans.
 
 ## Number of tables per document
 
@@ -35,7 +35,7 @@ table with the product type as an extra column.
 
 On the Free plan, documents have a limit of 5,000 rows.
 
-On the Pro plan, document may have up to 100,000 rows. This is a rule of thumb. The actual limit depends
+On the Pro plan, documents may have up to 100,000 rows. This is a rule of thumb. The actual limit depends
 also on the number of tables, columns, and the average size of data in each cell. One way to
 estimate it is to measure the size of the data when it is in CSV format: the limit is around 20MB
 in this format. For example, a document with 200,000 rows and 12 numeric columns would reach that.
