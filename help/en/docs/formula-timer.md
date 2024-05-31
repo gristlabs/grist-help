@@ -1,4 +1,4 @@
-Formula Timer
+Formula timer
 =========
 
 Grist has a built-in formula timer that will measure the time it takes to evaluate each formula in a document. This helps diagnose which formulas are responsible for slow performance when a document is first opened, or when a document responds to changes.
