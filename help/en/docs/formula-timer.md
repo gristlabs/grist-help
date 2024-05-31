@@ -14,14 +14,14 @@ On the next screen, you will have two choices, 'Start timing' and 'Time reload'.
 <span class="screenshot-large">*![formula-timer-selection](images/formula-timer/formula-timer-selection.png)*</span>
 {: .screenshot-half }
 
-## Start timing
+**Start timing**
 
 'Start timing' allows you to make changes to the document then stop timing to see the results. This is useful if you want to test specific formulas. You can make a change that affects that formula then come back and click 'Stop timing' to see the result.
 
 <span class="screenshot-large">*![formula-timer-stop-timing](images/formula-timer/formula-timer-stop-timing.png)*</span>
 {: .screenshot-half }
 
-## Time reload
+**Time reload**
 
 'Time reload' forces a reload of the document while timing formulas and shows the result. This will show timing results for all formulas across the entire document.
 
@@ -29,7 +29,7 @@ On the next screen, you will have two choices, 'Start timing' and 'Time reload'.
 
 Results are displayed in a table format.
 
-!!! note "Results Table"
+!!! note ""
     The Formula Timer results table is not saved anywhere in the document. If you click away from this page, you will need to run the formula timer again to retrieve the table.
 
 Sort the **Total Time** column from Z > A so the formulas that take the longest time to run are listed first.
