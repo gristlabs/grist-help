@@ -10,17 +10,20 @@
 
 ## Accounts
 
-### Can I add multiple teams to the same Grist account? 
+### Can I add multiple teams to the same Grist login account?
 
-Yes! You may create multiple team sites on either the Free or Pro plan.
+Yes! You may create multiple team sites. Each team site may be on the free or a paid plan. Each
+team site on a paid plan is associated with its own subscription, and is billed separately.
 
-1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on top-left site name (@your-name) to open a list of sites. Click on the "+ Create new team site". In the pop-up, select a Free or Pro team site.
+1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on top-left site name (@your-name) to open a list of sites. Click on the "+ Create new team site". In the pop-up, select the plan to use.
 
-2. **Adding account to team site.** You may own or be a member of multiple teams. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users. 
+2. **Adding account to team site.** You may own or be a member of multiple teams sites. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users.
 
 **Did you know?** 
 
-You can sign in to Grist with multiple email accounts. Open the [user menu](glossary.md#user-menu) and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu.
+A single team site can work well for an organization with multiple teams (or subteams). You can use workspaces
+within a team site, and [manage access to them](workspaces.md#managing-access) to create separate
+areas for different teams.
 
 ### Can I add multiple login accounts to Grist?
 
@@ -52,9 +55,9 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 ### Why do I have multiple sites?
 
-All Grist users have access to a free personal account. The personal site is always named beginning with @ and is always located at [docs.getgrist.com](https://docs.getgrist.com/). This account may have up to 10 documents. Each one of those documents may be shared with up to two guests for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
+All Grist users have access to a free personal site. The personal site is always named beginning with "@" and is always located at [docs.getgrist.com](https://docs.getgrist.com/). Each document in this site may be shared with up to two guests for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
 
-Documents shared with you will be shown in your personal site and do not count against the 10 document limit.
+Documents shared with you from other personal accounts will be shown in your personal site in workspaces named with "@Name" to indicate the owner of that document.
 
 You may navigate between your [personal site](teams.md#understanding-personal-sites) and [team sites](teams.md) by clicking in the top-left corner to open a drop-down menu of sites to which you have access.
 
@@ -146,7 +149,7 @@ In addition to our [summary tables](summary-tables.md) article, we have a [video
 
 ### What's the difference between a team member and a guest? 
 
-Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as `your-team.getgrist.com`. On the Pro plan, the number of team members determines the price.
+Team members all have access to a [team site](teams.md), which is located at a url with a custom subdomain, such as `your-team.getgrist.com`. On paid plans, the number of team members determines the price.
 
 By default, documents within a team site may be accessed by all team members. This default can be modified to only share certain [documents](team-sharing.md) or certain [workspaces](workspaces.md) with specific team members. 
 

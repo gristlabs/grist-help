@@ -39,6 +39,8 @@ You'll then have the option to pick the workspace you want.
 
 ![workspaces-move-dialog](images/workspaces/workspaces-move-dialog.png)
 
+## Managing access
+
 On [team sites](teams.md), workspace owners can control who has access to a workspace using "Manage Users."
 The controls are just like for [sharing documents](sharing.md). Workspaces in [personal sites](teams.md#understanding-personal-sites) cannot be shared.
 
