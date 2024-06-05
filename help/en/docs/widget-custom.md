@@ -572,6 +572,18 @@ To copy the URL for an image, right click on the photo then 'Copy image address'
 
 *![image-viewer-save-image](images/widget-custom/image-viewer-save-image.png)*
 
+Additionally, you can add multiple images for a specific entry. First, head to the 🌳 All National Park Sites Card and click into the Park Image field. 
+
+*![image-viewer-park-card](images/widget-custom/image-viewer-park-card.png)*
+
+Here, you can paste an additional link to add another photo. For proper spacing, use a space or a new line. A comma will not work to seperate the links. 
+
+*![image-viewer-multiple-links](images/widget-custom/image-viewer-multiple-links.png)*
+
+Now, there are two photos that you can toggle through by clicking on the arrows in the 🌳 All National Park Sites Custom Widget. 
+
+*![image-viewer-park-multiple](images/widget-custom/image-viewer-multiple.png)*
+
 For an example of the Image Viewer widget, check out our [U.S. National Park Database](https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4){:target="\_blank"}, and add a park review while you're there!
 
 You can also check out our [Meme Generator](https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator){:target="\_blank"} template for another great example.
