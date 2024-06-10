@@ -8,10 +8,10 @@ mind, here is a list of limitations that apply to its operation.
 On all plans, the number of documents is not limited.
 
 To prevent accidental abuse of the system by automation
-tools, team sites may be limited to 1000 documents. If you encounter such a limit for legitimate
+tools, team sites may be limited to 1,000 documents. If you encounter such a limit for legitimate
 use, please contact support to increase it.
 
-Older free plans had a limit of ten documents. Learn more about [legacy limits.](#legacy-limits)
+Older free plans had a limit of ten documents. Learn more about [legacy limits](#legacy-limits).
 
 ## Number of collaborators
 
@@ -33,16 +33,19 @@ table with the product type as an extra column.
 
 ## Rows per document
 
-On the Free plan, documents have a limit of 5,000 rows.
+On the Free plan, documents have a limit of 5,000 rows. The limit for Pro and Business plans is 100,000 and 150,000 rows, respectively.
 
-On the Pro plan, documents may have up to 100,000 rows. This is a rule of thumb. The actual limit depends
-also on the number of tables, columns, and the average size of data in each cell. One way to
-estimate it is to measure the size of the data when it is in CSV format: the limit is around 20MB
-in this format. For example, a document with 200,000 rows and 12 numeric columns would reach that.
+Documents are also subject to data size limits, as described below.
+
+## Data size
+
+There a hard limit to a document's total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document's current data size on the ['Raw Data' page](https://support.getgrist.com/raw-data/#usage).
+
+We recommend 20MB as a soft limit for optimal performance, as documents beyond 20MB in data size may slow down. To help optimize formulas on large documents, you can use the built-in [formula timer](https://support.getgrist.com/formula-timer/). 
 
 Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.
 
-## Upload limits
+## Uploads
 
 Uploads are limited to 50MB, both for attachments and to import data. Note that an import within
 this limit may result in a document that exceeds the document size limit, in which case the upload
@@ -50,7 +53,7 @@ is still likely to fail.
 
 ## API limits
 
-Free plans are limited to 5,000 API calls per document per day. Pro plans raise the limit to 40,000 calls per document per day.
+Free plans are limited to 5,000 API calls per document per day. Pro and Business plans raise the limit to 40,000 and 60,000 calls per document per day, respectively.
 
 Free plans may be rate limited to 5 API requests per second per document. The team plan does not impose
 such a rate limit.
@@ -81,5 +84,5 @@ Older free personal plans have the following limits:
 
 To determine if you're on a legacy personal site, click on your site name (@your-name) in the top left. Personal sites on the legacy plan will say "Personal Site (Legacy)" in the dropdown menu.
 
-On the current Free plan, all personal and team sites share the same limits as described above and on our [pricing page.](https://www.getgrist.com/pricing)
+On the current Free plan, all personal and team sites share the same limits as described above and on our [pricing page](https://www.getgrist.com/pricing).
 
