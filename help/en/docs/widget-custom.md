@@ -572,7 +572,7 @@ To copy the URL for an image, right click on the photo then 'Copy image address'
 
 *![image-viewer-save-image](images/widget-custom/image-viewer-save-image.png)*
 
-Additionally, you can add multiple images for a specific entry. First, head to the 🌳 All National Park Sites Card and click into the Park Image field. 
+Additionally, you can add multiple images for a specific record by adding multiple image URLs, separated by a space or new line, into a single cell.
 
 *![image-viewer-park-card](images/widget-custom/image-viewer-park-card.png)*
 
