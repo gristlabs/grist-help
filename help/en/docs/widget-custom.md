@@ -580,7 +580,7 @@ A comma will not work to separate the links.
 
 *![image-viewer-multiple-links](images/widget-custom/image-viewer-multiple-links.png)*
 
-Now, there are two photos that you can toggle through by clicking on the arrows in the 🌳 All National Park Sites Custom Widget. 
+When multiple image URLs are present, the image viewer custom widget will function as a carousel. Click the arrows to view additional images.
 
 *![image-viewer-park-multiple](images/widget-custom/image-viewer-multiple.png)*
 
