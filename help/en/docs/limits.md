@@ -41,7 +41,7 @@ Documents are also subject to data size limits, as described below.
 
 There is a hard limit to a document's total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document's current data size on the ['Raw Data' page](https://support.getgrist.com/raw-data/#usage).
 
-We recommend 20MB as a soft limit for optimal performance, as documents beyond 20MB in data size may slow down. To help optimize formulas on large documents, you can use the built-in [formula timer](https://support.getgrist.com/formula-timer/). 
+For memory and performance reasons, there's a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in [formula timer](https://support.getgrist.com/formula-timer/).
 
 Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.
 
