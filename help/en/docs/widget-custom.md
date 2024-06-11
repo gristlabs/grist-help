@@ -574,15 +574,14 @@ To copy the URL for an image, right click on the photo then 'Copy image address'
 
 Additionally, you can add multiple images for a specific record by adding multiple image URLs, separated by a space or new line, into a single cell.
 
-*![image-viewer-park-card](images/widget-custom/image-viewer-park-card.png)*
-
-A comma will not work to separate the links. 
+Please note that a comma will not work to separate the links. 
 
 *![image-viewer-multiple-links](images/widget-custom/image-viewer-multiple-links.png)*
 
 When multiple image URLs are present, the image viewer custom widget will function as a carousel. Click the arrows to view additional images.
 
-*![image-viewer-park-multiple](images/widget-custom/image-viewer-multiple.png)*
+<span class="screenshot-large">*![image-viewer-park-multiple](images/widget-custom/image-viewer-multiple.png)*</span>
+{: .screenshot-half }
 
 For an example of the Image Viewer widget, check out our [U.S. National Park Database](https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4){:target="\_blank"}, and add a park review while you're there!
 
