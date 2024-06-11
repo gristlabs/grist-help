@@ -576,7 +576,7 @@ Additionally, you can add multiple images for a specific record by adding multip
 
 *![image-viewer-park-card](images/widget-custom/image-viewer-park-card.png)*
 
-Here, you can paste an additional link to add another photo. For proper spacing, use a space or a new line. A comma will not work to seperate the links. 
+A comma will not work to separate the links. 
 
 *![image-viewer-multiple-links](images/widget-custom/image-viewer-multiple-links.png)*
 
