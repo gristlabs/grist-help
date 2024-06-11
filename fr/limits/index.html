@@ -833,8 +833,13 @@ mind, here is a list of limitations that apply to its operation.">
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#upload-limits">
-                Upload limits
+              <a class="wm-article-link wm-page-toc-text" href="#data-size">
+                Data size
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#uploads">
+                Uploads
               </a>
             </li>
             <li class="wm-toc-li">
@@ -954,9 +959,9 @@ mind, here is a list of limitations that apply to its operation.</p>
 <h2 id="number-of-documents">Number of documents<a class="headerlink" href="#number-of-documents" title="Permanent link">#</a></h2>
 <p>On all plans, the number of documents is not limited.</p>
 <p>To prevent accidental abuse of the system by automation
-tools, team sites may be limited to 1000 documents. If you encounter such a limit for legitimate
+tools, team sites may be limited to 1,000 documents. If you encounter such a limit for legitimate
 use, please contact support to increase it.</p>
-<p>Older free plans had a limit of ten documents. Learn more about <a href="#legacy-limits">legacy limits.</a></p>
+<p>Older free plans had a limit of ten documents. Learn more about <a href="#legacy-limits">legacy limits</a>.</p>
 <h2 id="number-of-collaborators">Number of collaborators<a class="headerlink" href="#number-of-collaborators" title="Permanent link">#</a></h2>
 <p>For team sites on all plans, there is no limit on the number of team members that may be added to the site.  For paid plans, the number of team members determines the price. See our <a href="https://www.getgrist.com/pricing">pricing page</a> for details.</p>
 <p>Team members added to your team site may inherit access to workspaces or documents
@@ -970,18 +975,18 @@ tables, consider merging ones that have the same structure.  For
 example, if you have a table for each product type, consider using a single
 table with the product type as an extra column.</p>
 <h2 id="rows-per-document">Rows per document<a class="headerlink" href="#rows-per-document" title="Permanent link">#</a></h2>
-<p>On the Free plan, documents have a limit of 5,000 rows.</p>
-<p>On the Pro plan, documents may have up to 100,000 rows. This is a rule of thumb. The actual limit depends
-also on the number of tables, columns, and the average size of data in each cell. One way to
-estimate it is to measure the size of the data when it is in CSV format: the limit is around 20MB
-in this format. For example, a document with 200,000 rows and 12 numeric columns would reach that.</p>
+<p>On the Free plan, documents have a limit of 5,000 rows. The limit for Pro and Business plans is 100,000 and 150,000 rows, respectively.</p>
+<p>Documents are also subject to data size limits, as described below.</p>
+<h2 id="data-size">Data size<a class="headerlink" href="#data-size" title="Permanent link">#</a></h2>
+<p>There is a hard limit to a document&rsquo;s total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document&rsquo;s current data size on the <a href="https://support.getgrist.com/raw-data/#usage">&lsquo;Raw Data&rsquo; page</a>.</p>
+<p>For memory and performance reasons, there&rsquo;s a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in <a href="https://support.getgrist.com/formula-timer/">formula timer</a>.</p>
 <p>Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.</p>
-<h2 id="upload-limits">Upload limits<a class="headerlink" href="#upload-limits" title="Permanent link">#</a></h2>
+<h2 id="uploads">Uploads<a class="headerlink" href="#uploads" title="Permanent link">#</a></h2>
 <p>Uploads are limited to 50MB, both for attachments and to import data. Note that an import within
 this limit may result in a document that exceeds the document size limit, in which case the upload
 is still likely to fail.</p>
 <h2 id="api-limits">API limits<a class="headerlink" href="#api-limits" title="Permanent link">#</a></h2>
-<p>Free plans are limited to 5,000 API calls per document per day. Pro plans raise the limit to 40,000 calls per document per day.</p>
+<p>Free plans are limited to 5,000 API calls per document per day. Pro and Business plans raise the limit to 40,000 and 60,000 calls per document per day, respectively.</p>
 <p>Free plans may be rate limited to 5 API requests per second per document. The team plan does not impose
 such a rate limit.</p>
 <p>Separately, there is a concurrency limit of 10 for all plans: if 10 authorized API requests are
@@ -1004,7 +1009,7 @@ some seconds. Please bear this in mind when using Grist&rsquo;s API.</p>
 <li>100,000 rows</li>
 </ul>
 <p>To determine if you&rsquo;re on a legacy personal site, click on your site name (@your-name) in the top left. Personal sites on the legacy plan will say &ldquo;Personal Site (Legacy)&rdquo; in the dropdown menu.</p>
-<p>On the current Free plan, all personal and team sites share the same limits as described above and on our <a href="https://www.getgrist.com/pricing">pricing page.</a></p>
+<p>On the current Free plan, all personal and team sites share the same limits as described above and on our <a href="https://www.getgrist.com/pricing">pricing page</a>.</p>
 
   <br>
 </div>
