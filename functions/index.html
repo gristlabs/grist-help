@@ -1248,15 +1248,15 @@ The list of all the records in this table.</p>
 </summary>
 Returns a <a href="#record">Record</a> matching the given field=value arguments. The value may be any expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
-like <code>"Some Value"</code>). If multiple records match, returns one of them. If none match, returns the
-special empty record. If <code>sort_by=field</code> is given, sort the results by that field.</p>
+like <code>"Some Value"</code>). If multiple records are found, the first match is returned. You may set the optional <code>sort_by</code> parameter to the column ID by which to sort multiple matching results, to determine which of them is returned. You can prefix the column ID with &ldquo;-&rdquo; to reverse the order.</p>
 <p>For example:</p>
 <pre><code>People.lookupOne(First_Name=&quot;Lewis&quot;, Last_Name=&quot;Carroll&quot;)
 People.lookupOne(Email=$Work_Email)
 People.lookupOne(Email=$Work_Email, sort_by=&quot;Date&quot;)
 </code></pre>
 
-<p></details>
+<p>Learn more about <a href="../references-lookups/#lookupone">lookupOne</a>.
+</details>
 <details id="lookuprecords"><summary ></p>
 <h4 id="lookuprecords">lookupRecords<a class="headerlink" href="#lookuprecords" title="Permanent link">#</a></h4>
 <p><code>UserTable.<strong>lookupRecords</strong>(Field_In_Lookup_Table=value, &hellip;)</code>
@@ -1275,7 +1275,8 @@ People.lookupRecords(Last_Name=&quot;Johnson&quot;, sort_by=&quot;First_Name&quo
 <p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object.</p>
 <p>See <a href="#contains">CONTAINS</a> for an example utilizing <code>UserTable.lookupRecords</code> to find records
 where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given
-value.
+value.</p>
+<p>Learn more about <a href="../references-lookups/#lookuprecords">lookupRecords</a>.
 </details></p>
 <h3 id="date">Date<a class="headerlink" href="#date" title="Permanent link">#</a></h3>
 <p><details id="date"><summary ></p>
