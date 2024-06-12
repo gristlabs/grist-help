@@ -138,8 +138,7 @@ sum(r.Population for r in Countries.all)
 </summary>
 Returns a [Record](#record) matching the given field=value arguments. The value may be any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
-like `"Some Value"`). If multiple records match, returns one of them. If none match, returns the
-special empty record. If `sort_by=field` is given, sort the results by that field.
+like `"Some Value"`). If multiple records are found, the first match is returned. You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching results, to determine which of them is returned. You can prefix the column ID with "-" to reverse the order.
 
 For example:
 ```
@@ -147,6 +146,8 @@ People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
 People.lookupOne(Email=$Work_Email, sort_by="Date")
 ```
+
+Learn more about [lookupOne](references-lookups.md#lookupone).
 </details>
 <details id="lookuprecords"><summary >
 #### lookupRecords
@@ -170,6 +171,8 @@ See [RecordSet](#recordset) for useful properties offered by the returned object
 See [CONTAINS](#contains) for an example utilizing `UserTable.lookupRecords` to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given
 value.
+
+Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 ### Date
 <details id="date"><summary >
