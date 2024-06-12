@@ -572,6 +572,17 @@ To copy the URL for an image, right click on the photo then 'Copy image address'
 
 *![image-viewer-save-image](images/widget-custom/image-viewer-save-image.png)*
 
+Additionally, you can add multiple images for a specific record by adding multiple image URLs, separated by a space or new line, into a single cell.
+
+Please note that a comma will not work to separate the links. 
+
+*![image-viewer-multiple-links](images/widget-custom/image-viewer-multiple-links.png)*
+
+When multiple image URLs are present, the image viewer custom widget will function as a carousel. Click the arrows to view additional images.
+
+<span class="screenshot-large">*![image-viewer-park-multiple](images/widget-custom/image-viewer-multiple.png)*</span>
+{: .screenshot-half }
+
 For an example of the Image Viewer widget, check out our [U.S. National Park Database](https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4){:target="\_blank"}, and add a park review while you're there!
 
 You can also check out our [Meme Generator](https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator){:target="\_blank"} template for another great example.
