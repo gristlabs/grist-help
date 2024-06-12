@@ -146,6 +146,8 @@ People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
 People.lookupOne(Email=$Work_Email, sort_by="Date")
 ```
+
+Learn more about [lookupOne](references-lookups.md#lookupone).
 </details>
 <details id="lookuprecords"><summary >
 #### lookupRecords
@@ -169,6 +171,8 @@ See [RecordSet](#recordset) for useful properties offered by the returned object
 See [CONTAINS](#contains) for an example utilizing `UserTable.lookupRecords` to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given
 value.
+
+Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 ### Date
 <details id="date"><summary >
