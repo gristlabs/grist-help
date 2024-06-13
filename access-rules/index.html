@@ -1202,7 +1202,7 @@ or a <code>Piece</code> column with details of what is in the parcel.</p>
 <p>Click <code>Add Table Rules</code> and select <code>Orders</code> to create a rule group for the <code>Orders</code> table.
 Now, in the <code>Rules for table Orders</code> group, click the three-dot icon (&hellip;), and
 select <code>Add Column Rule</code>:</p>
-<p><img alt="Access rules" src="../images/access-rules/access-rules-limit-columns-rules.png" /></p>
+<p><img alt="Access rules" src="../images/access-rules/column-rule.png" /></p>
 <p>In the <code>Columns</code> area we have a new <code>[Add Column]</code> dropdown to add all the columns
 to which we want the rule to apply (in our case <code>Email</code> and <code>Piece</code>).
 For the condition, we could use <code>user.Email == 'kiwi@getgrist.com'</code>.  This checks
@@ -1267,7 +1267,7 @@ column called <code>Stage</code> that can be set to <code>Sourcing</code> or <co
 can update access rules to show only the relevant orders.</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-stage-column.png" /></p>
 <p>In the <code>Rules for table Orders</code> group, click the three-dot icon (&hellip;), and
-select <code>Add Default Rule</code> to add a rule that isn&rsquo;t limited to specific columns.
+select <code>Add Table-wide Rule</code> to add a rule that isn&rsquo;t limited to specific columns.
 Let&rsquo;s deny access to all rows for non-Owners as a starting point, then add back in the 
 ones we want. We can do that with the condition <code>user.Access != OWNER</code> with
 <code>Deny All</code> permissions.  Then, we add another default rule by clicking <code>+</code>, and 
@@ -1275,7 +1275,7 @@ add the condition <code>user.Team.Role == rec.Stage</code>.  The <code>rec</code
 us to express rules that depend on the content within a particular record.
 Here, we check if the <code>Stage</code> column of a record matches the user&rsquo;s role.
 If it is, we allow <code>R</code> Read access:</p>
-<p><img alt="Access rules" src="../images/access-rules/access-rules-stage-rules.png" /></p>
+<p><img alt="Access rules" src="../images/access-rules/table-wide-rule-big.png" /></p>
 <p>Here&rsquo;s how the table looks now as Kimberly (doing deliveries):</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-stage-kiwi.png" /></p>
 <p>And here&rsquo;s how the table looks as Charon (doing sourcing):</p>
