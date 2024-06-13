@@ -108,7 +108,7 @@ Click `Add Table Rules` and select `Orders` to create a rule group for the `Orde
 Now, in the `Rules for table Orders` group, click the three-dot icon (...), and
 select `Add Column Rule`:
 
-![Access rules](images/access-rules/access-rules-limit-columns-rules.png)
+![Access rules](images/access-rules/column-rule.png)
 
 In the `Columns` area we have a new `[Add Column]` dropdown to add all the columns
 to which we want the rule to apply (in our case `Email` and `Piece`).
@@ -199,7 +199,7 @@ can update access rules to show only the relevant orders.
 ![Access rules](images/access-rules/access-rules-stage-column.png)
 
 In the `Rules for table Orders` group, click the three-dot icon (...), and
-select `Add Default Rule` to add a rule that isn't limited to specific columns.
+select `Add Table-wide Rule` to add a rule that isn't limited to specific columns.
 Let's deny access to all rows for non-Owners as a starting point, then add back in the 
 ones we want. We can do that with the condition `user.Access != OWNER` with
 `Deny All` permissions.  Then, we add another default rule by clicking `+`, and 
@@ -208,7 +208,7 @@ us to express rules that depend on the content within a particular record.
 Here, we check if the `Stage` column of a record matches the user's role.
 If it is, we allow `R` Read access:
 
-![Access rules](images/access-rules/access-rules-stage-rules.png)
+![Access rules](images/access-rules/table-wide-rule-big.png)
 
 Here's how the table looks now as Kimberly (doing deliveries):
 
