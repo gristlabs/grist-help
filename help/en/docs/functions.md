@@ -22,14 +22,14 @@ Python (see [Python documentation](https://docs.python.org/3.11/)). Here are som
 | Category | Functions |
 | --- | --- |
 | Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
-| Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
-| Info | <a class="unimplemented" href="#cell">CELL</a>, <a  href="#current_conversion">CURRENT_CONVERSION</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#peek">PEEK</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#request">REQUEST</a>, <a class="unimplemented" href="#type">TYPE</a> |
+| Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#moonphase">MOONPHASE</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
+| Info | <a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#peek">PEEK</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#request">REQUEST</a>, <a class="unimplemented" href="#type">TYPE</a> |
 | Logical | <a  href="#and">AND</a>, <a  href="#false">FALSE</a>, <a  href="#if">IF</a>, <a  href="#iferror">IFERROR</a>, <a  href="#not">NOT</a>, <a  href="#or">OR</a>, <a  href="#true">TRUE</a> |
 | Lookup | <a  href="#lookupone_2">lookupOne</a>, <a  href="#lookuprecords_2">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a> |
-| Math | <a  href="#abs">ABS</a>, <a  href="#acos">ACOS</a>, <a  href="#acosh">ACOSH</a>, <a  href="#arabic">ARABIC</a>, <a  href="#asin">ASIN</a>, <a  href="#asinh">ASINH</a>, <a  href="#atan">ATAN</a>, <a  href="#atan2">ATAN2</a>, <a  href="#atanh">ATANH</a>, <a  href="#ceiling">CEILING</a>, <a  href="#combin">COMBIN</a>, <a  href="#cos">COS</a>, <a  href="#cosh">COSH</a>, <a  href="#degrees">DEGREES</a>, <a  href="#even">EVEN</a>, <a  href="#exp">EXP</a>, <a  href="#fact">FACT</a>, <a  href="#factdouble">FACTDOUBLE</a>, <a  href="#floor">FLOOR</a>, <a  href="#gcd">GCD</a>, <a  href="#int">INT</a>, <a  href="#lcm">LCM</a>, <a  href="#ln">LN</a>, <a  href="#log">LOG</a>, <a  href="#log10">LOG10</a>, <a  href="#mod">MOD</a>, <a  href="#mround">MROUND</a>, <a  href="#multinomial">MULTINOMIAL</a>, <a  href="#odd">ODD</a>, <a  href="#pi">PI</a>, <a  href="#power">POWER</a>, <a  href="#product">PRODUCT</a>, <a  href="#quotient">QUOTIENT</a>, <a  href="#radians">RADIANS</a>, <a  href="#rand">RAND</a>, <a  href="#randbetween">RANDBETWEEN</a>, <a  href="#roman">ROMAN</a>, <a  href="#round">ROUND</a>, <a  href="#rounddown">ROUNDDOWN</a>, <a  href="#roundup">ROUNDUP</a>, <a  href="#seriessum">SERIESSUM</a>, <a  href="#sign">SIGN</a>, <a  href="#sin">SIN</a>, <a  href="#sinh">SINH</a>, <a  href="#sqrt">SQRT</a>, <a  href="#sqrtpi">SQRTPI</a>, <a class="unimplemented" href="#subtotal">SUBTOTAL</a>, <a  href="#sum">SUM</a>, <a class="unimplemented" href="#sumif">SUMIF</a>, <a class="unimplemented" href="#sumifs">SUMIFS</a>, <a  href="#sumproduct">SUMPRODUCT</a>, <a class="unimplemented" href="#sumsq">SUMSQ</a>, <a  href="#tan">TAN</a>, <a  href="#tanh">TANH</a>, <a  href="#trunc">TRUNC</a>, <a  href="#uuid">UUID</a> |
+| Math | <a  href="#abs">ABS</a>, <a  href="#acos">ACOS</a>, <a  href="#acosh">ACOSH</a>, <a  href="#arabic">ARABIC</a>, <a  href="#asin">ASIN</a>, <a  href="#asinh">ASINH</a>, <a  href="#atan">ATAN</a>, <a  href="#atan2">ATAN2</a>, <a  href="#atanh">ATANH</a>, <a  href="#ceiling">CEILING</a>, <a  href="#combin">COMBIN</a>, <a  href="#cos">COS</a>, <a  href="#cosh">COSH</a>, <a  href="#degrees">DEGREES</a>, <a  href="#even">EVEN</a>, <a  href="#exp">EXP</a>, <a  href="#fact">FACT</a>, <a  href="#factdouble">FACTDOUBLE</a>, <a  href="#floor">FLOOR</a>, <a  href="#gcd">GCD</a>, <a  href="#int">INT</a>, <a  href="#lcm">LCM</a>, <a  href="#ln">LN</a>, <a  href="#log">LOG</a>, <a  href="#log10">LOG10</a>, <a  href="#mod">MOD</a>, <a  href="#mround">MROUND</a>, <a  href="#multinomial">MULTINOMIAL</a>, <a  href="#num">NUM</a>, <a  href="#odd">ODD</a>, <a  href="#pi">PI</a>, <a  href="#power">POWER</a>, <a  href="#product">PRODUCT</a>, <a  href="#quotient">QUOTIENT</a>, <a  href="#radians">RADIANS</a>, <a  href="#rand">RAND</a>, <a  href="#randbetween">RANDBETWEEN</a>, <a  href="#roman">ROMAN</a>, <a  href="#round">ROUND</a>, <a  href="#rounddown">ROUNDDOWN</a>, <a  href="#roundup">ROUNDUP</a>, <a  href="#seriessum">SERIESSUM</a>, <a  href="#sign">SIGN</a>, <a  href="#sin">SIN</a>, <a  href="#sinh">SINH</a>, <a  href="#sqrt">SQRT</a>, <a  href="#sqrtpi">SQRTPI</a>, <a class="unimplemented" href="#subtotal">SUBTOTAL</a>, <a  href="#sum">SUM</a>, <a class="unimplemented" href="#sumif">SUMIF</a>, <a class="unimplemented" href="#sumifs">SUMIFS</a>, <a  href="#sumproduct">SUMPRODUCT</a>, <a class="unimplemented" href="#sumsq">SUMSQ</a>, <a  href="#tan">TAN</a>, <a  href="#tanh">TANH</a>, <a  href="#trunc">TRUNC</a>, <a  href="#uuid">UUID</a> |
 | Schedule | <a  href="#schedule">SCHEDULE</a> |
 | Stats | <a class="unimplemented" href="#avedev">AVEDEV</a>, <a  href="#average">AVERAGE</a>, <a  href="#averagea">AVERAGEA</a>, <a class="unimplemented" href="#averageif">AVERAGEIF</a>, <a class="unimplemented" href="#averageifs">AVERAGEIFS</a>, <a  href="#average_weighted">AVERAGE_WEIGHTED</a>, <a class="unimplemented" href="#binomdist">BINOMDIST</a>, <a class="unimplemented" href="#confidence">CONFIDENCE</a>, <a class="unimplemented" href="#correl">CORREL</a>, <a  href="#count">COUNT</a>, <a  href="#counta">COUNTA</a>, <a class="unimplemented" href="#covar">COVAR</a>, <a class="unimplemented" href="#critbinom">CRITBINOM</a>, <a class="unimplemented" href="#devsq">DEVSQ</a>, <a class="unimplemented" href="#expondist">EXPONDIST</a>, <a class="unimplemented" href="#fdist">FDIST</a>, <a class="unimplemented" href="#fisher">FISHER</a>, <a class="unimplemented" href="#fisherinv">FISHERINV</a>, <a class="unimplemented" href="#forecast">FORECAST</a>, <a class="unimplemented" href="#f_dist">F_DIST</a>, <a class="unimplemented" href="#f_dist_rt">F_DIST_RT</a>, <a class="unimplemented" href="#geomean">GEOMEAN</a>, <a class="unimplemented" href="#harmean">HARMEAN</a>, <a class="unimplemented" href="#hypgeomdist">HYPGEOMDIST</a>, <a class="unimplemented" href="#intercept">INTERCEPT</a>, <a class="unimplemented" href="#kurt">KURT</a>, <a class="unimplemented" href="#large">LARGE</a>, <a class="unimplemented" href="#loginv">LOGINV</a>, <a class="unimplemented" href="#lognormdist">LOGNORMDIST</a>, <a  href="#max">MAX</a>, <a  href="#maxa">MAXA</a>, <a  href="#median">MEDIAN</a>, <a  href="#min">MIN</a>, <a  href="#mina">MINA</a>, <a class="unimplemented" href="#mode">MODE</a>, <a class="unimplemented" href="#negbinomdist">NEGBINOMDIST</a>, <a class="unimplemented" href="#normdist">NORMDIST</a>, <a class="unimplemented" href="#norminv">NORMINV</a>, <a class="unimplemented" href="#normsdist">NORMSDIST</a>, <a class="unimplemented" href="#normsinv">NORMSINV</a>, <a class="unimplemented" href="#pearson">PEARSON</a>, <a class="unimplemented" href="#percentile">PERCENTILE</a>, <a class="unimplemented" href="#percentrank">PERCENTRANK</a>, <a class="unimplemented" href="#percentrank_exc">PERCENTRANK_EXC</a>, <a class="unimplemented" href="#percentrank_inc">PERCENTRANK_INC</a>, <a class="unimplemented" href="#permut">PERMUT</a>, <a class="unimplemented" href="#poisson">POISSON</a>, <a class="unimplemented" href="#prob">PROB</a>, <a class="unimplemented" href="#quartile">QUARTILE</a>, <a class="unimplemented" href="#rank">RANK</a>, <a class="unimplemented" href="#rank_avg">RANK_AVG</a>, <a class="unimplemented" href="#rank_eq">RANK_EQ</a>, <a class="unimplemented" href="#rsq">RSQ</a>, <a class="unimplemented" href="#skew">SKEW</a>, <a class="unimplemented" href="#slope">SLOPE</a>, <a class="unimplemented" href="#small">SMALL</a>, <a class="unimplemented" href="#standardize">STANDARDIZE</a>, <a  href="#stdev">STDEV</a>, <a  href="#stdeva">STDEVA</a>, <a  href="#stdevp">STDEVP</a>, <a  href="#stdevpa">STDEVPA</a>, <a class="unimplemented" href="#steyx">STEYX</a>, <a class="unimplemented" href="#tdist">TDIST</a>, <a class="unimplemented" href="#tinv">TINV</a>, <a class="unimplemented" href="#trimmean">TRIMMEAN</a>, <a class="unimplemented" href="#ttest">TTEST</a>, <a class="unimplemented" href="#t_inv">T_INV</a>, <a class="unimplemented" href="#t_inv_2t">T_INV_2T</a>, <a class="unimplemented" href="#var">VAR</a>, <a class="unimplemented" href="#vara">VARA</a>, <a class="unimplemented" href="#varp">VARP</a>, <a class="unimplemented" href="#varpa">VARPA</a>, <a class="unimplemented" href="#weibull">WEIBULL</a>, <a class="unimplemented" href="#ztest">ZTEST</a> |
-| Text | <a  href="#char">CHAR</a>, <a  href="#clean">CLEAN</a>, <a  href="#code">CODE</a>, <a  href="#concat">CONCAT</a>, <a  href="#concatenate">CONCATENATE</a>, <a  href="#dollar">DOLLAR</a>, <a  href="#exact">EXACT</a>, <a  href="#find">FIND</a>, <a  href="#fixed">FIXED</a>, <a  href="#left">LEFT</a>, <a  href="#len">LEN</a>, <a  href="#lower">LOWER</a>, <a  href="#mid">MID</a>, <a  href="#phone_format">PHONE_FORMAT</a>, <a  href="#proper">PROPER</a>, <a  href="#regexextract">REGEXEXTRACT</a>, <a  href="#regexmatch">REGEXMATCH</a>, <a  href="#regexreplace">REGEXREPLACE</a>, <a  href="#replace">REPLACE</a>, <a  href="#rept">REPT</a>, <a  href="#right">RIGHT</a>, <a  href="#search">SEARCH</a>, <a  href="#substitute">SUBSTITUTE</a>, <a  href="#t">T</a>, <a class="unimplemented" href="#text">TEXT</a>, <a  href="#trim">TRIM</a>, <a  href="#upper">UPPER</a>, <a  href="#value">VALUE</a> |
+| Text | <a  href="#char">CHAR</a>, <a  href="#clean">CLEAN</a>, <a  href="#code">CODE</a>, <a  href="#concat">CONCAT</a>, <a  href="#concatenate">CONCATENATE</a>, <a  href="#dollar">DOLLAR</a>, <a  href="#exact">EXACT</a>, <a  href="#find">FIND</a>, <a  href="#fixed">FIXED</a>, <a  href="#left">LEFT</a>, <a  href="#len">LEN</a>, <a  href="#lower">LOWER</a>, <a  href="#mid">MID</a>, <a  href="#phone_format">PHONE_FORMAT</a>, <a  href="#proper">PROPER</a>, <a  href="#regexextract">REGEXEXTRACT</a>, <a  href="#regexmatch">REGEXMATCH</a>, <a  href="#regexreplace">REGEXREPLACE</a>, <a  href="#replace">REPLACE</a>, <a  href="#rept">REPT</a>, <a  href="#right">RIGHT</a>, <a  href="#search">SEARCH</a>, <a  href="#substitute">SUBSTITUTE</a>, <a  href="#t">T</a>, <a  href="#tasteme">TASTEME</a>, <a class="unimplemented" href="#text">TEXT</a>, <a  href="#trim">TRIM</a>, <a  href="#upper">UPPER</a>, <a  href="#value">VALUE</a> |
 <!-- END mkpydocs table -->
 
 <!-- BEGIN mkpydocs docs -->
@@ -67,8 +67,8 @@ Access the field named "Field" of the current record. E.g. `$First_Name` or `rec
 <a class="headerlink" href="#_group" title="Permanent link">#</a>
 </summary>
 In a [summary table](summary-tables.md), `$group` is a special field
-containing the list of Records that are summarized by the current summary line.  E.g. the formula
-`len($group)` counts the number of those records being summarized in each row.
+containing the list of Records that are summarized by the current summary line.  E.g. the
+formula `len($group)` counts the number of those records being summarized in each row.
 
 See [RecordSet](#recordset) for useful properties offered by the returned object.
 
@@ -136,15 +136,21 @@ sum(r.Population for r in Countries.all)
 <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookupone" title="Permanent link">#</a>
 </summary>
-Returns a [Record](#record) matching the given field=value arguments. The value may be any expression,
+Returns a [Record](#record) matching the given field=value arguments. The value may be any
+expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
-like `"Some Value"`). If multiple records are found, the first match is returned. You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching results, to determine which of them is returned. You can prefix the column ID with "-" to reverse the order.
+like `"Some Value"`). If multiple records are found, the first match is returned.
+
+You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
+results, to determine which of them is returned. You can prefix the column ID with "-" to
+reverse the order.
 
 For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
-People.lookupOne(Email=$Work_Email, sort_by="Date")
+Tickets.lookupOne(Person=$id, sort_by="Date")   # Find the first ticket for the person
+Tickets.lookupOne(Person=$id, sort_by="-Date")  # Find the last ticket for the person
 ```
 
 Learn more about [lookupOne](references-lookups.md#lookupone).
@@ -154,16 +160,21 @@ Learn more about [lookupOne](references-lookups.md#lookupone).
 <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookuprecords" title="Permanent link">#</a>
 </summary>
-Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be any expression,
+Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
+any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
 like `"Some Value"`) (examples below).
-If `sort_by=field` is given, sort the results by that field.
+
+You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
+results, to determine which of them is returned. You can prefix the column ID with "-" to
+reverse the order.
 
 For example:
 ```
 People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name="George", Last_Name="Washington")
 People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
+Orders.lookupRecords(Customer=$id, sort_by="-OrderDate")
 ```
 
 See [RecordSet](#recordset) for useful properties offered by the returned object.
@@ -622,6 +633,57 @@ Same as `date.month`.
 ```
 
 </details>
+<details id="moonphase"><summary >
+#### MOONPHASE
+<code>__MOONPHASE__(date, output='emoji')</code>
+<a class="headerlink" href="#moonphase" title="Permanent link">#</a>
+</summary>
+Returns the phase of the moon on the given date. The output defaults to a moon-phase emoji.
+
+- With `output="days"`, the output is the age of the moon in days (new moon being 0).
+- With `output="fraction"`, the output is the fraction of the lunar month since new moon.
+
+The calculation isn't astronomically precise, but good enough for wolves and sailors.
+
+Do NOT! use `output="lunacy"`.
+
+
+```python
+>>> MOONPHASE(datetime.date(1900, 1, 1), "days")
+0.0
+```
+
+```python
+>>> MOONPHASE(datetime.date(1900, 1, 1), "fraction")
+0.0
+```
+
+```python
+>>> MOONPHASE(datetime.datetime(1900, 1, 1)) == '🌑'
+True
+```
+
+```python
+>>> MOONPHASE(datetime.date(1900, 1, 15)) == '🌕'
+True
+```
+
+```python
+>>> MOONPHASE(datetime.date(1900, 1, 30)) == '🌑'
+True
+```
+
+```python
+>>> [MOONPHASE(DATEADD(datetime.date(2023, 4, 1), days=4*n)) for n in range(8)] == ['🌔', '🌕', '🌖', '🌗', '🌘', '🌑', '🌒', '🌓']
+True
+```
+
+```python
+>>> [round(MOONPHASE(DATEADD(datetime.date(2023, 4, 1), days=4*n), "days"), 1) for n in range(8)]
+[10.4, 14.4, 18.4, 22.4, 26.4, 0.9, 4.9, 8.9]
+```
+
+</details>
 <details id="now"><summary >
 #### NOW
 <code>__NOW__(tz=None)</code>
@@ -866,14 +928,6 @@ Fraction between same dates, using the Actual/365 basis argument. Uses a 365 day
 Returns the requested information about the specified cell. This is not implemented in Grist
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
-</details>
-<details id="current_conversion"><summary >
-#### CURRENT_CONVERSION
-<code>__CURRENT_CONVERSION__(rec)</code>
-<a class="headerlink" href="#current_conversion" title="Permanent link">#</a>
-</summary>
-Internal function used by Grist during column type conversions. Not available for use in
-formulas.
 </details>
 <details id="isblank"><summary class="unimplemented">
 #### ISBLANK
@@ -1339,7 +1393,7 @@ RECORD(People.lookupRecords(Department="HR"))
 </details>
 <details id="request"><summary class="unimplemented">
 #### REQUEST
-<code>__REQUEST__(url, params=None, headers=None)</code>
+<code>__REQUEST__(url, params=None, headers=None, method='GET', data=None, json=None)</code>
 <a class="headerlink" href="#request" title="Permanent link">#</a>
 </summary>
 
@@ -1568,32 +1622,45 @@ True
 <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookupone_2" title="Permanent link">#</a>
 </summary>
-Returns a [Record](#record) matching the given field=value arguments. The value may be any expression,
+Returns a [Record](#record) matching the given field=value arguments. The value may be any
+expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
-like `"Some Value"`). If multiple records match, returns one of them. If none match, returns the
-special empty record.
+like `"Some Value"`). If multiple records are found, the first match is returned.
+
+You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
+results, to determine which of them is returned. You can prefix the column ID with "-" to
+reverse the order.
 
 For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
+Tickets.lookupOne(Person=$id, sort_by="Date")   # Find the first ticket for the person
+Tickets.lookupOne(Person=$id, sort_by="-Date")  # Find the last ticket for the person
 ```
+
+Learn more about [lookupOne](references-lookups.md#lookupone).
 </details>
 <details id="lookuprecords_2"><summary >
 #### lookupRecords
 <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookuprecords_2" title="Permanent link">#</a>
 </summary>
-Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be any expression,
+Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
+any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
 like `"Some Value"`) (examples below).
-If `sort_by=field` is given, sort the results by that field.
+
+You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
+results, to determine which of them is returned. You can prefix the column ID with "-" to
+reverse the order.
 
 For example:
 ```
 People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name="George", Last_Name="Washington")
 People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
+Orders.lookupRecords(Customer=$id, sort_by="-OrderDate")
 ```
 
 See [RecordSet](#recordset) for useful properties offered by the returned object.
@@ -1601,6 +1668,8 @@ See [RecordSet](#recordset) for useful properties offered by the returned object
 See [CONTAINS](#contains) for an example utilizing `UserTable.lookupRecords` to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given
 value.
+
+Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 <details id="address"><summary class="unimplemented">
 #### ADDRESS
@@ -2589,6 +2658,37 @@ Returns the factorial of the sum of values divided by the product of the values'
 ```
 
 </details>
+<details id="num"><summary >
+#### NUM
+<code>__NUM__(value)</code>
+<a class="headerlink" href="#num" title="Permanent link">#</a>
+</summary>
+For a Python floating-point value that's actually an integer, returns a Python integer type.
+Otherwise, returns the value unchanged. This is helpful sometimes when a value comes from a
+Numeric Grist column (represented as floats), but when int values are actually expected.
+
+
+```python
+>>> NUM(-17.0)
+-17
+```
+
+```python
+>>> NUM(1.5)
+1.5
+```
+
+```python
+>>> NUM(4)
+4
+```
+
+```python
+>>> NUM("NA")
+'NA'
+```
+
+</details>
 <details id="odd"><summary >
 #### ODD
 <code>__ODD__(value)</code>
@@ -3223,10 +3323,12 @@ digits.
 <a class="headerlink" href="#uuid" title="Permanent link">#</a>
 </summary>
 Generate a random UUID-formatted string identifier.
+
 Since UUID() produces a different value each time it's called, it is best to use it in
 [trigger formula](formulas.md#trigger-formulas) for new records.
-This would only calculate UUID() once and freeze the calculated value. By contrast, a regular formula
-may get recalculated any time the document is reloaded, producing a different value for UUID() each time.
+This would only calculate UUID() once and freeze the calculated value. By contrast, a regular
+formula may get recalculated any time the document is reloaded, producing a different value for
+UUID() each time.
 </details>
 ### Schedule
 <details id="schedule"><summary >
@@ -4959,6 +5061,13 @@ u'tel:+33-2-34-56-78-90'
 u'+12345678901'
 ```
 
+```python
+>>> PHONE_FORMAT(33234567890)
+Traceback (most recent call last):
+...
+TypeError: Phone number must be a text value. If formatting a value from a Numeric column, convert that column to Text first.
+```
+
 </details>
 <details id="proper"><summary >
 #### PROPER
@@ -5317,13 +5426,37 @@ u''
 ```
 
 </details>
+<details id="tasteme"><summary >
+#### TASTEME
+<code>__TASTEME__(food)</code>
+<a class="headerlink" href="#tasteme" title="Permanent link">#</a>
+</summary>
+For any given piece of text, decides if it is tasty or not.
+
+This is not serious. It appeared as an Easter egg, and is kept as such. It is in fact a puzzle
+to figure out the underlying simple rule. It has been surprisingly rarely cracked, even after
+reading the source code, which is freely available and may entertain Python fans.
+
+
+```python
+>>> TASTEME('Banana')
+True
+```
+
+```python
+>>> TASTEME('Garlic')
+False
+```
+
+</details>
 <details id="text"><summary class="unimplemented">
 #### TEXT
 <code>__TEXT__(number, format_type)</code>
 <a class="headerlink" href="#text" title="Permanent link">#</a>
 </summary>
 Converts a number into text according to a specified format. It is not yet implemented in
-Grist.
+Grist. You can use the similar Python functions str() to convert numbers into strings, and
+optionally format() to specify the number format.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
