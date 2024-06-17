@@ -53,7 +53,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 You can delete your account in Profile Settings by selecting Delete Account under Privacy & Data. Please note that this action is permanent. 
 
-Alternatively, you can learn more about deleting team sites [here](https://support.getgrist.com/teams/#billing-account). 
+Need to delete a team site? Learn more [here](https://support.getgrist.com/teams/#billing-account). 
 
 
 ---
