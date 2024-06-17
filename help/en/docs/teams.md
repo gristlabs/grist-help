@@ -55,5 +55,3 @@ Click on the top "Change" icon to edit your team site name or subdomain. Note, i
 subdomain, then any links pointing to your site or documents within your site will need updating.
 
 You can also delete a team site under Billing Summary by clicking "Delete team site".
-
-Please note that this action cannot be undone and this will remove your site with all documents. Make sure you have created a backup of important data beforehand.
