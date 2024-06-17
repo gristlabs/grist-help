@@ -20,15 +20,13 @@ A record card will open to display record data for the referenced record.
 
 ## Editing a Record Card's Layout
 
-You can edit a record card's layout from the [Raw Data](raw-data.md) page. Click the card icon to open.
+You can edit a record card's layout from the [Raw Data](raw-data.md) page. This new layout will apply to any new card widgets using the same table as source data. Click the card icon to open.
 
 ![record-cards-edit-layout](images/record-cards/record-cards-edit-layout.png)
 
 You can drag and drop fields to rearrange, resize and add/delete fields from the view. Learn more about [editing card layouts](widget-card.md#editing-card-layout).
 
 ![record-cards-edit-layout-2](images/record-cards/record-cards-edit-layout-2.png)
-
-Additionally, layouts saved for record cards become the default layout for card widgets added to pages in the future.
 
 ## Disabling a Record Card
 
