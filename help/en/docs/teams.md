@@ -54,4 +54,4 @@ If you created a team site on the Pro or Business plan, or were added to it as a
 Click on the top "Change" icon to edit your team site name or subdomain. Note, if you change the
 subdomain, then any links pointing to your site or documents within your site will need updating.
 
-You can also delete a team site under Billing Summary by clicking "Delete team site".
+Team sites can be deleted from the Billing Summary page by clicking "Delete team site". Please note that this action cannot be undone and this will remove your site with all documents. Make sure you have created a backup of important data beforehand.
