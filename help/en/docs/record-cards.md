@@ -28,6 +28,8 @@ You can drag and drop fields to rearrange, resize and add/delete fields from the
 
 ![record-cards-edit-layout-2](images/record-cards/record-cards-edit-layout-2.png)
 
+Additionally, layouts saved for record cards become the default layout for card widgets added to pages in the future.
+
 ## Disabling a Record Card
 
 You can also disable a record card from the [Raw Data](raw-data.md) page. To disable a record card for a particular table, click the three-dot icon to the right of the table name then select 'Disable Record Card' from the dropdown. 
