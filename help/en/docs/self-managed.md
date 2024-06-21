@@ -16,7 +16,7 @@ There are four flavors of Grist:
     at [docs.getgrist.com](https://docs.getgrist.com).
     No installation needed. Free and paid plans, with usage limits.
   * **Desktop App**: Grist is available as a desktop application, built with Electron.
-    It is available for download at [https://github.com/gristlabs/grist-electron/releases](https://github.com/gristlabs/grist-electron/releases).
+    It is available for download at [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases).
     This desktop application does not need internet and is not tied to any online account or service.
   * **Self-Managed Enterprise**: Grist is available as a licensed application
     installed by enterprises on their own infrastructure
