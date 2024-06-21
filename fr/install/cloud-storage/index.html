@@ -943,6 +943,8 @@ for AWS S3 using AWS&rsquo;s official client.</p>
 <li>Set <code>GRIST_DOCS_MINIO_ENDPOINT</code> to the appropriate hostname - no protocol, no port.</li>
 <li>(Optional) Set <code>GRIST_DOCS_MINIO_USE_SSL</code> to <code>1</code> to use <code>https</code> protocol (default) or <code>0</code> for <code>http</code>.</li>
 <li>(Optional) Set <code>GRIST_DOCS_MINIO_PORT</code> to the port to use, if the default for the protocol (80/443) isn&rsquo;t right.</li>
+<li>(Optional) Set <code>GRIST_DOCS_MINIO_PREFIX</code> to the prefix for your documents, defaults to &ldquo;docs/&rdquo;.</li>
+<li>(Optional) Set <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> to the region for your bucket, defaults to &ldquo;us-east-1&rdquo;.</li>
 </ul>
 <p>If using AWS S3, the endpoint to use is <code>s3.amazonaws.com</code>, and
 there&rsquo;s no need to set a port number or SSL flag. The access and
