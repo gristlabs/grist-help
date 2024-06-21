@@ -21,6 +21,8 @@ Turn this on by setting the following environment variables:
   * Set `GRIST_DOCS_MINIO_ENDPOINT` to the appropriate hostname - no protocol, no port.
   * (Optional) Set `GRIST_DOCS_MINIO_USE_SSL` to `1` to use `https` protocol (default) or `0` for `http`.
   * (Optional) Set `GRIST_DOCS_MINIO_PORT` to the port to use, if the default for the protocol (80/443) isn't right.
+  * (Optional) Set `GRIST_DOCS_MINIO_PREFIX` to the prefix for your documents, defaults to "docs/".
+  * (Optional) Set `GRIST_DOCS_MINIO_BUCKET_REGION` to the region for your bucket, defaults to "us-east-1".
 
 If using AWS S3, the endpoint to use is `s3.amazonaws.com`, and
 there's no need to set a port number or SSL flag. The access and
