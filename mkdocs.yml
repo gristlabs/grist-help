@@ -36,7 +36,7 @@ nav:
   - Pages and Tables:
     - Entering data: enter-data.md
     - Pages & widgets: page-widgets.md
-    - Raw data page: raw-data.md
+    - Raw data: raw-data.md
     - Search, sort & filter: search-sort-filter.md
     - Table widget: widget-table.md
     - Card & Card List: widget-card.md
@@ -163,7 +163,7 @@ nav:
       - Restrict Duplicate Records: examples/2023-01-acl-memo.md
       - Proposals & Contracts: examples/2023-07-proposals-contracts.md
   - Reference:
-    - Shortcuts: keyboard-shortcuts.md
+    - Keyboard Shortcuts: keyboard-shortcuts.md
     # The function reference (functions.md) is listed above; here is an intentionally non-standard
     # link, so that only the above page item gets highlighted when the function reference is open.
     - Function reference: /functions/
