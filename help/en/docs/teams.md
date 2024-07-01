@@ -49,7 +49,7 @@ That’s also where you will find personal documents shared with you by others. 
 
 If you created a team site on the Pro or Business plan, or were added to it as a Billing Manager, then you may manage billing information, and edit your team site's name and subdomain from the billing account page. Open the [user menu](glossary.md#user-menu) and click on "Billing Account" to open a menu that looks like this.
 
-<span class="screenshot-large">*![billing account new image](images/billing-account-new-image.png)*</span>
+<span class="screenshot-large">*![billing account](images/team-sharing/billing-account.png)*</span>
 
 Click on the top "Change" icon to edit your team site name or subdomain. Note, if you change the
 subdomain, then any links pointing to your site or documents within your site will need updating.
