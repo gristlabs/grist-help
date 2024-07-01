@@ -49,6 +49,13 @@ It is possible to manage multiple accounts in Grist. To add another account, ope
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
+### How do I delete my account?
+
+You can delete your account in Profile Settings by selecting Delete Account under Privacy & Data. Please note that this action is permanent. 
+
+Need to delete a team site? Learn more [here](teams.md#billing-account). 
+
+
 ---
 
 ## Plans
