@@ -183,7 +183,7 @@ There are many ways to share Grist data with non-team members.
 
 Yes, it is possible to embed Grist [pages](page-widgets.md#pages) as view-only data in a website in an iframe. 
 
-`<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true></iframe>`
+`<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true"></iframe>`
 
 Replace the url written in the code above with the URL of the Grist page you wish to embed, follow by `?embed=true` at the end of the url.
 
