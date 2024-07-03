@@ -5,7 +5,7 @@ We saw how to share individual documents with other users in the
 allowing you to share a team site's collections of documents in whole or in part
 with others. You may further group documents into [workspaces](workspaces.md) and edit permissions at the workspace-level as well.
 
-To share a team site, click on the "Manage Team" button in the top right of your team site homepage.
+To share a team site, click on the 'Manage Team' button in the top right of your team site homepage.
 
 ![team-sharing-manage-users](images/team-sharing/team-sharing-team-site.png)
 
@@ -18,7 +18,7 @@ Just as for documents, you can invite people as viewers, editors, or owners of t
 team site.
 
 All documents within the site will be accessible to those people,
-unless you turn off the "Inherit access" sharing option for individual [workspaces](workspaces.md)
+unless you turn off the 'Inherit access' sharing option for individual [workspaces](workspaces.md)
 or [documents](sharing.md).
 
 ## Roles
@@ -39,8 +39,8 @@ There are three primary roles supported by Grist for team sites:
 ## Billing Permissions
 
 None of these roles give access to billing information or management.
-Billing plan managers can be added via the "Billing Account" option. 
-Open the user menu under your user icon, and select "Billing Account".
+Billing plan managers can be added via the 'Billing Account' option. 
+Open the user menu under your user icon, and select 'Billing Account'.
 
 <span class="screenshot-large">*![Add billing managers](images/team-sharing/billing-page.png)*</span>
 {: .screenshot-half }
