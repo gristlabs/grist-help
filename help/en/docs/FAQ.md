@@ -15,7 +15,7 @@
 Yes! You may create multiple team sites. Each team site may be on the free or a paid plan. Each
 team site on a paid plan is associated with its own subscription, and is billed separately.
 
-1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on top-left site name (@your-name) to open a list of sites. Click on the "+ Create new team site". In the pop-up, select the plan to use.
+1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on top-left site name (@your-name) to open a list of sites. Click on the '+ Create new team site'. In the pop-up, select the plan to use.
 
 2. **Adding account to team site.** You may own or be a member of multiple teams sites. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users.
 
@@ -51,7 +51,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 ### How do I delete my account?
 
-You can delete your account in Profile Settings by selecting Delete Account under Privacy & Data. Please note that this action is permanent. 
+You can delete your account in 'Profile Settings' by selecting 'Delete Account' under 'Privacy & Data'. Please note that this action is permanent. 
 
 Need to delete a team site? Learn more [here](teams.md#billing-account). 
 
@@ -62,9 +62,9 @@ Need to delete a team site? Learn more [here](teams.md#billing-account).
 
 ### Why do I have multiple sites?
 
-All Grist users have access to a free personal site. The personal site is always named beginning with "@" and is always located at [docs.getgrist.com](https://docs.getgrist.com/). Each document in this site may be shared with up to two guests for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
+All Grist users have access to a free personal site. The personal site is always named beginning with '@' and is always located at [docs.getgrist.com](https://docs.getgrist.com/). Each document in this site may be shared with up to two guests for free. Learn more about free plans on our [pricing page](https://www.getgrist.com/pricing/).
 
-Documents shared with you from other personal accounts will be shown in your personal site in workspaces named with "@Name" to indicate the owner of that document.
+Documents shared with you from other personal accounts will be shown in your personal site in workspaces named with '@Name' to indicate the owner of that document.
 
 You may navigate between your [personal site](teams.md#understanding-personal-sites) and [team sites](teams.md) by clicking in the top-left corner to open a drop-down menu of sites to which you have access.
 
@@ -76,7 +76,7 @@ You may navigate between your [personal site](teams.md#understanding-personal-si
 
 1. Open the team site to which you want add a second owner.
 
-2. Click "Manage Users" under the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist.
+2. Click 'Manage Users' under the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist.
 
 3. Add the new email address as Owner, and click Confirm. 
 
@@ -110,7 +110,7 @@ You may edit your site name and subdomain from the billing page. Open the [user 
 
 Yes! Follow these steps to move documents between sites.
 
-1. Open the document you wish to move and click on the share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>), then click "Duplicate Document" in the menu. 
+1. Open the document you wish to move and click on the share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>), then click 'Duplicate Document' in the menu. 
 
 2. Select the site (organization) to which you want to transfer the document.
 
@@ -140,7 +140,7 @@ To summarize multiple records, you need [summary tables](summary-tables.md).
 
 The major difference between Grist and spreadsheets like Excel or Google Sheets is that Grist is a database, so each row in a grid represents a record (e.g. a person, a bank transaction, etc.) Since a sum across multiple records isn't the same kind of record, Grist offers summarizing data as a separate widget, which can be modified to calculate even more powerful summary data.
 
-For example, suppose you have a table of webstore orders called `Orders` and you want to sum sales revenue from all orders. At the top of the left-side menu, click "Add New" button and select "Add Page" or "Add Widget to Page". In the widget picker, select the `Orders` table then click the summation icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) next to it. Add the page or widget to your document. Done! You've now created a summary table that by default counts all the records in the `Orders` table, and sums all [numeric](col-types.md#numeric-columns) and [integer](col-types.md#integer-columns) columns, such as the amount sold in each order.
+For example, suppose you have a table of webstore orders called `Orders` and you want to sum sales revenue from all orders. At the top of the left-side menu, click 'Add New' button and select 'Add Page' or 'Add Widget to Page'. In the widget picker, select the `Orders` table then click the summation icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) next to it. Add the page or widget to your document. Done! You've now created a summary table that by default counts all the records in the `Orders` table, and sums all [numeric](col-types.md#numeric-columns) and [integer](col-types.md#integer-columns) columns, such as the amount sold in each order.
 
 Summary tables can do more than a sum of a tables' columns. With just a few clicks you can summarize orders *by month* to calculate the number of orders and total sales revenue in each month for which you have data. 
 
