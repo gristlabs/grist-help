@@ -17,7 +17,7 @@ team site on a paid plan is associated with its own subscription, and is billed 
 
 1. **New team site.** If you’re looking to create a new team site, navigate to your personal site at [docs.getgrist.com](https://docs.getgrist.com/), then click on top-left site name (@your-name) to open a list of sites. Click on the '+ Create new team site'. In the pop-up, select the plan to use.
 
-2. **Adding account to team site.** You may own or be a member of multiple teams sites. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on Manage Users.
+2. **Adding account to team site.** You may own or be a member of multiple teams sites. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on 'Manage Users'.
 
 **Did you know?** 
 
@@ -27,13 +27,13 @@ areas for different teams.
 
 ### Can I add multiple login accounts to Grist?
 
-Yes! To add multiple accounts to Grist, open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.”
+Yes! To add multiple accounts to Grist, open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on 'Add Account'.
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
 ### How do I update my profile settings?
 
-Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then select “Profile Settings”.
+Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then select 'Profile Settings'.
 
 From here, you can manage the name associated with your account, update Grist's theme to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out [Grist API](rest-api.md#grist-api).
 
@@ -45,7 +45,7 @@ We use [Weblate](https://hosted.weblate.org/engage/grist/) to manage translation
 
 It is not possible to change the email associated with your Grist account. However, it it possible to transfer ownership of documents and team sites between two Grist email accounts that you own. This would effectively change your Grist email. [Learn how](FAQ.md#how-to-manage-ownership-of-my-team-site). 
 
-It is possible to manage multiple accounts in Grist. To add another account, open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on “Add Account.”
+It is possible to manage multiple accounts in Grist. To add another account, open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on 'Add Account'.
 
 You can now easily switch between all your accounts, and all your teams, from the user menu.
 
@@ -80,25 +80,25 @@ You may navigate between your [personal site](teams.md#understanding-personal-si
 
 3. Add the new email address as Owner, and click Confirm. 
 
-4. You may also wish to go to “Billing Account” (also under the user menu) and add the new owner as a Billing Manager.
+4. You may also wish to go to 'Billing Account' (also under the user menu) and add the new owner as a Billing Manager.
 
 **Transfer ownership**
 
 1. Follow steps 1-3 above to add a second owner.
 
-4. Go to “Billing Account” (also under the user menu) and add the new Owner as a [Billing Manager](team-sharing.md#billing-permissions).
+4. Go to 'Billing Account' (also under the user menu) and add the new Owner as a [Billing Manager](team-sharing.md#billing-permissions).
 
-5. The new Owner should log in, open the team site, and visit “Manage Users” and “Billing Account” pages again to remove the original owner. This will essentially transfer the ownership of the team site to the new account.
+5. The new Owner should log in, open the team site, and visit 'Manage Users' and 'Billing Account' pages again to remove the original owner. This will essentially transfer the ownership of the team site to the new account.
 
 It is not possible to add a second owner to, or transfer ownership of, a [personal account](teams.md#understanding-personal-sites).
 
 **Did you know?** 
 
-If you’re transferring team site ownership between two Grist email accounts that you own, you can more easily transfer ownership by signing in with multiple accounts. To sign in with another account, open the user menu and click on “Add Account.” You can now easily switch between all your accounts, and all your teams, from the user menu. Follow the steps above to transfer ownership from one account to the other.
+If you’re transferring team site ownership between two Grist email accounts that you own, you can more easily transfer ownership by signing in with multiple accounts. To sign in with another account, open the user menu and click on 'Add Account'. You can now easily switch between all your accounts, and all your teams, from the user menu. Follow the steps above to transfer ownership from one account to the other.
 
 ### Can I edit my team’s name and subdomain?
 
-You may edit your site name and subdomain from the billing page. Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on [“Billing Account.”](teams.md#billing-account)
+You may edit your site name and subdomain from the billing page. Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on ['Billing Account'](teams.md#billing-account).
 
 <center>*![Public access](images/faq/edit-subdomain.png)*</center>
 
@@ -167,13 +167,13 @@ Guests, on the other hand, are invited to particular documents, but are not adde
 There are many ways to share Grist data with non-team members. 
 
 1. **Guests.** Each document may be shared with 2 guests (non-team members) at no additional cost.
-2. **Link Sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access-and-link-sharing). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
+2. **Link sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access-and-link-sharing). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
 
 <center>*![Public access](images/faq/link-sharing.png)*</center>
 
-3. **Restricted View-only link sharing.** With view-only link sharing, there is a way to further restrict what people can see by using Grist's access rules to set specific URL parameters called [link keys](access-rules.md#link-keys) that determine which tables, columns, or rows are shown when a specific link is shared. 
+3. **Restricted view-only link sharing.** With view-only link sharing, there is a way to further restrict what people can see by using Grist's access rules to set specific URL parameters called [link keys](access-rules.md#link-keys) that determine which tables, columns, or rows are shown when a specific link is shared. 
 
-4. **View-only Embed.** Grist [pages](page-widgets.md#pages) can be embedded into websites in an iframe. [Learn how.](embedding.md)
+4. **View-only embed.** Grist [pages](page-widgets.md#pages) can be embedded into websites in an iframe. [Learn how](embedding.md).
 
 ---
 
