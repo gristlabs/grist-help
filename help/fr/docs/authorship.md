@@ -19,12 +19,12 @@ rappel), cliquez sur l'action `Définir une formule d'initialisation`.
 
 ![créer une colonne Créé Par](images/formulas/formulas-created-by-convert.png)
 
-Définissez `user.Name`{ : .formula} comme formule de la colonne. Il existe
-d'autres possibilités, comme `user.Email`{ : .formula}, ou `user.UserID`{ :
+Définissez `user.Name`{: .formula} comme formule de la colonne. Il existe
+d'autres possibilités, comme `user.Email`{: .formula}, ou `user.UserID`{:
 .formula}, etc. Les informations disponibles sur l'utilisateur sont les mêmes
 que dans les [Permissions Avancées](access-rules.md#access-rule-conditions).
 L'horodatage est également disponible (voir [Colonnes
-d'horodatage](timestamps.md)). Mais restons-en à `user.Name`{ : .formula} pour
+d'horodatage](timestamps.md)). Mais restons-en à `user.Name`{: .formula} pour
 l'instant.
 
 ![une colonne Créé par](images/formulas/formulas-created-by-final.png)
@@ -50,15 +50,14 @@ et appuyez sur `OK`. Par ailleurs, vous pouvez également choisir que certaines
 colonnes en particulier qui, lorsqu'elles seront mises à jour, déclencheront la
 formule.
 
-![une colonne Mise à jour par](images/formulas/formulas-updated-by-setup.png)
+![an Updated-By column](images/formulas/formulas-updated-by-setup.png)
 
 Voici un exemple de la nouvelle colonne à l'œuvre - lorsque `Cotton Candy v
 Candy Floss` est mise à jour, un nom d'utilisateur apparaît pour cette ligne :
 
-![une colonne Mise à jour par](images/formulas/formulas-updated-by-autofill.png)
+![an Updated-By column](images/formulas/formulas-updated-by-autofill.png)
 
-!!! note "Il est toujours possible pour un utilisateur de modifier manuellement
-les cellules dans les colonnes `Créé par` et `Mis à jour par`. Si vous ne voulez
-pas que cela soit autorisé, utilisez les [Permissions Avancées](access-rules.md)
-pour l'interdire."
+!!! note "" **It is still possible for a user to manually edit cells in the
+`Created By` and `Updated By` columns. If you don't want that to be allowed, use
+[access rules](access-rules.md) to forbid it.**
 
