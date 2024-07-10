@@ -1,3 +1,5 @@
-The current page still doesn't have a translation for this language.
+We're just getting started translating this language, sorry!
 
-But you can help translating it: [Contributing](https://hosted.weblate.org/engage/grist-help/){.internal-link target=_blank}.
+We show partially translated languages to track progress.
+
+This page isn't translated yet. But the good news is that [you can join the translation community to help us 👋](https://hosted.weblate.org/engage/grist-help/){.internal-link target=_blank}.
