@@ -175,7 +175,7 @@
 .btn-group.wm-vcentered { display: inline-flex; }
 .btn-group.wm-vcentered > .btn.btn-sm { float: none; }
 
-.home-link {
+.home-link, .home-top-tool-selector {
   font-size: 18px;
   margin-right: 3rem;
   flex: 0 0.1 auto;
@@ -184,7 +184,7 @@
 
 /* small screens */
 @media (max-width: 600px) {
-  .home-link, .wm-top-brand {
+  .home-link, .wm-top-brand, .home-top-tool-selector {
     font-size: 16px;
   }
 }
