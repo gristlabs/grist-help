@@ -17,8 +17,8 @@ Pour s'enregistrer et commencer à utiliser Grist, rendez-vous sur
 [https://docs.getgrist.com](https://docs.getgrist.com).
 
 Pour apprendre comment prendre en main Grist, nous vous recommandons de
-commencer avec nos tutoriels "How-To", et nos vidéos d'introduction. {:
-.clearfix }
+commencer avec nos tutoriels "How-To", et nos vidéos d'introduction.\
+{: .clearfix }
 
 <div class="row" markdown="1">
 
