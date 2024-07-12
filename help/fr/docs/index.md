@@ -46,22 +46,28 @@ complexity.
 ### Vidéos d'introduction
 
 [![Créer un document](https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg) *Créer un
-document*](creating-doc.md) {: .img-caption }
+document*](creating-doc.md)\
+{: .img-caption }
 
 [![Pages & vues](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages &
-vues*](page-widgets.md) {: .img-caption }
+vues*](page-widgets.md)\
+{: .img-caption }
 
 [![Colonnes & types](https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg) *Colonnes &
-types*](col-types.md) {: .img-caption }
+types*](col-types.md)\
+{: .img-caption }
 
 [![Les colonnes Référence](https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg) *Les
-colonnes Référence*](col-refs.md) {: .img-caption }
+colonnes Référence*](col-refs.md)\
+{: .img-caption }
 
 [![Lier les vues entre elles](https://img.youtube.com/vi/F5m_je0QKvs/0.jpg)
-*Lier les vues entre elles*](linking-widgets.md) {: .img-caption }
+*Lier les vues entre elles*](linking-widgets.md)\
+{: .img-caption }
 
 [![Partager un document](https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg) *Partager
-un document*](sharing.md) {: .img-caption }
+un document*](sharing.md)\
+{: .img-caption }
 
 </div>
 
