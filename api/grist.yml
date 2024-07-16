@@ -449,7 +449,7 @@ paths:
       tags:
         - docs
       summary: "Reload a document"
-      description: "Close and reopen the document, forcing the python engine to retart."
+      description: "Closes and reopens the document, forcing the python engine to restart."
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
       responses:
