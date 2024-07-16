@@ -454,7 +454,7 @@ paths:
         - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
-          description: Document reopened successfully
+          description: Document reloaded successfully
   /docs/{docId}/tables/{tableId}/data:
     get:
       operationId: getTableData
