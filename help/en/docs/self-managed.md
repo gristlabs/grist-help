@@ -267,13 +267,10 @@ you developed, you may want to consider
 
 ### How do I enable Grist Enterprise? {: .tag-ee }
 
-Grist Enterprise can be enabled by visiting the Admin Panel, clicking the
-toggle to enable Enterprise, and restarting the Grist instance.
+Grist Enterprise can be enabled by visiting the Admin Panel and clicking the "Enable Grist Enterprise Features" toggle.
+This will cause Grist to automatically restart.
 
-Alternatively, if you are a new Grist hoster, you can use the `gristlabs/grist-ee`
-docker image which has Enterprise features enabled by default.
-
-This will give you an unactivated version of Grist Enterprise, with a 30 day trial period.
+You should now have an unactivated version of Grist Enterprise, with a 30 day trial period.
 
 Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
@@ -291,7 +288,7 @@ restarting Grist.
 ```
 docker run ...
   -e GRIST_ACTIVATION=<activation-key-goes-here> \
-  -it gristlabs/grist-ee
+  -it gristlabs/grist
 ```
 
 ---
@@ -494,7 +491,7 @@ Create an empty directory, and add the following into it, in a file called
 `Dockerfile`:
 
 ```
-FROM gristlabs/grist  # or grist-ee, or grist-omnibus
+FROM gristlabs/grist  # or grist-oss or grist-omnibus
 
 RUN \
   apt update && apt install -y openssl && \
