@@ -443,6 +443,27 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/TableSchemaResult'
+  /docs/{docId}/states/remove:
+    post:
+      operationId: deleteActions
+      tags:
+        - docs
+      summary: "Truncate the document's action history"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - keep
+              properties:
+                keep:
+                  type: integer
+                  description: "The number of the latest history actions to keep"
+              example:
+                keep: 3
   /docs/{docId}/force-reload:
     post:
       operationId: forceReload
