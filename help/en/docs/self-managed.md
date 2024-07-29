@@ -270,6 +270,8 @@ you developed, you may want to consider
 Grist Enterprise can be enabled by visiting the Admin Panel and clicking the "Enable Grist Enterprise Features" toggle.
 This will cause Grist to automatically restart.
 
+![Enterprise toggle on the admin panel](images/admin-panel/enterprise-toggle.png)
+
 You should now have an unactivated version of Grist Enterprise, with a 30 day trial period.
 
 Activation keys are used to run Grist Enterprise after a trial period
