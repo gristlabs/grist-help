@@ -21,14 +21,15 @@ Python (see [Python documentation](https://docs.python.org/3.11/)). Here are som
 <!-- BEGIN mkpydocs table -->
 | Category | Functions |
 | --- | --- |
-| Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
+| Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#find_">find.*</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
 | Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#moonphase">MOONPHASE</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
 | Info | <a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#peek">PEEK</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#request">REQUEST</a>, <a class="unimplemented" href="#type">TYPE</a> |
 | Logical | <a  href="#and">AND</a>, <a  href="#false">FALSE</a>, <a  href="#if">IF</a>, <a  href="#iferror">IFERROR</a>, <a  href="#not">NOT</a>, <a  href="#or">OR</a>, <a  href="#true">TRUE</a> |
 | Lookup | <a  href="#lookupone_2">lookupOne</a>, <a  href="#lookuprecords_2">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a> |
 | Math | <a  href="#abs">ABS</a>, <a  href="#acos">ACOS</a>, <a  href="#acosh">ACOSH</a>, <a  href="#arabic">ARABIC</a>, <a  href="#asin">ASIN</a>, <a  href="#asinh">ASINH</a>, <a  href="#atan">ATAN</a>, <a  href="#atan2">ATAN2</a>, <a  href="#atanh">ATANH</a>, <a  href="#ceiling">CEILING</a>, <a  href="#combin">COMBIN</a>, <a  href="#cos">COS</a>, <a  href="#cosh">COSH</a>, <a  href="#degrees">DEGREES</a>, <a  href="#even">EVEN</a>, <a  href="#exp">EXP</a>, <a  href="#fact">FACT</a>, <a  href="#factdouble">FACTDOUBLE</a>, <a  href="#floor">FLOOR</a>, <a  href="#gcd">GCD</a>, <a  href="#int">INT</a>, <a  href="#lcm">LCM</a>, <a  href="#ln">LN</a>, <a  href="#log">LOG</a>, <a  href="#log10">LOG10</a>, <a  href="#mod">MOD</a>, <a  href="#mround">MROUND</a>, <a  href="#multinomial">MULTINOMIAL</a>, <a  href="#num">NUM</a>, <a  href="#odd">ODD</a>, <a  href="#pi">PI</a>, <a  href="#power">POWER</a>, <a  href="#product">PRODUCT</a>, <a  href="#quotient">QUOTIENT</a>, <a  href="#radians">RADIANS</a>, <a  href="#rand">RAND</a>, <a  href="#randbetween">RANDBETWEEN</a>, <a  href="#roman">ROMAN</a>, <a  href="#round">ROUND</a>, <a  href="#rounddown">ROUNDDOWN</a>, <a  href="#roundup">ROUNDUP</a>, <a  href="#seriessum">SERIESSUM</a>, <a  href="#sign">SIGN</a>, <a  href="#sin">SIN</a>, <a  href="#sinh">SINH</a>, <a  href="#sqrt">SQRT</a>, <a  href="#sqrtpi">SQRTPI</a>, <a class="unimplemented" href="#subtotal">SUBTOTAL</a>, <a  href="#sum">SUM</a>, <a class="unimplemented" href="#sumif">SUMIF</a>, <a class="unimplemented" href="#sumifs">SUMIFS</a>, <a  href="#sumproduct">SUMPRODUCT</a>, <a class="unimplemented" href="#sumsq">SUMSQ</a>, <a  href="#tan">TAN</a>, <a  href="#tanh">TANH</a>, <a  href="#trunc">TRUNC</a>, <a  href="#uuid">UUID</a> |
+| Prevnext | <a  href="#next">NEXT</a>, <a  href="#previous">PREVIOUS</a>, <a  href="#rank">RANK</a> |
 | Schedule | <a  href="#schedule">SCHEDULE</a> |
-| Stats | <a class="unimplemented" href="#avedev">AVEDEV</a>, <a  href="#average">AVERAGE</a>, <a  href="#averagea">AVERAGEA</a>, <a class="unimplemented" href="#averageif">AVERAGEIF</a>, <a class="unimplemented" href="#averageifs">AVERAGEIFS</a>, <a  href="#average_weighted">AVERAGE_WEIGHTED</a>, <a class="unimplemented" href="#binomdist">BINOMDIST</a>, <a class="unimplemented" href="#confidence">CONFIDENCE</a>, <a class="unimplemented" href="#correl">CORREL</a>, <a  href="#count">COUNT</a>, <a  href="#counta">COUNTA</a>, <a class="unimplemented" href="#covar">COVAR</a>, <a class="unimplemented" href="#critbinom">CRITBINOM</a>, <a class="unimplemented" href="#devsq">DEVSQ</a>, <a class="unimplemented" href="#expondist">EXPONDIST</a>, <a class="unimplemented" href="#fdist">FDIST</a>, <a class="unimplemented" href="#fisher">FISHER</a>, <a class="unimplemented" href="#fisherinv">FISHERINV</a>, <a class="unimplemented" href="#forecast">FORECAST</a>, <a class="unimplemented" href="#f_dist">F_DIST</a>, <a class="unimplemented" href="#f_dist_rt">F_DIST_RT</a>, <a class="unimplemented" href="#geomean">GEOMEAN</a>, <a class="unimplemented" href="#harmean">HARMEAN</a>, <a class="unimplemented" href="#hypgeomdist">HYPGEOMDIST</a>, <a class="unimplemented" href="#intercept">INTERCEPT</a>, <a class="unimplemented" href="#kurt">KURT</a>, <a class="unimplemented" href="#large">LARGE</a>, <a class="unimplemented" href="#loginv">LOGINV</a>, <a class="unimplemented" href="#lognormdist">LOGNORMDIST</a>, <a  href="#max">MAX</a>, <a  href="#maxa">MAXA</a>, <a  href="#median">MEDIAN</a>, <a  href="#min">MIN</a>, <a  href="#mina">MINA</a>, <a class="unimplemented" href="#mode">MODE</a>, <a class="unimplemented" href="#negbinomdist">NEGBINOMDIST</a>, <a class="unimplemented" href="#normdist">NORMDIST</a>, <a class="unimplemented" href="#norminv">NORMINV</a>, <a class="unimplemented" href="#normsdist">NORMSDIST</a>, <a class="unimplemented" href="#normsinv">NORMSINV</a>, <a class="unimplemented" href="#pearson">PEARSON</a>, <a class="unimplemented" href="#percentile">PERCENTILE</a>, <a class="unimplemented" href="#percentrank">PERCENTRANK</a>, <a class="unimplemented" href="#percentrank_exc">PERCENTRANK_EXC</a>, <a class="unimplemented" href="#percentrank_inc">PERCENTRANK_INC</a>, <a class="unimplemented" href="#permut">PERMUT</a>, <a class="unimplemented" href="#poisson">POISSON</a>, <a class="unimplemented" href="#prob">PROB</a>, <a class="unimplemented" href="#quartile">QUARTILE</a>, <a class="unimplemented" href="#rank">RANK</a>, <a class="unimplemented" href="#rank_avg">RANK_AVG</a>, <a class="unimplemented" href="#rank_eq">RANK_EQ</a>, <a class="unimplemented" href="#rsq">RSQ</a>, <a class="unimplemented" href="#skew">SKEW</a>, <a class="unimplemented" href="#slope">SLOPE</a>, <a class="unimplemented" href="#small">SMALL</a>, <a class="unimplemented" href="#standardize">STANDARDIZE</a>, <a  href="#stdev">STDEV</a>, <a  href="#stdeva">STDEVA</a>, <a  href="#stdevp">STDEVP</a>, <a  href="#stdevpa">STDEVPA</a>, <a class="unimplemented" href="#steyx">STEYX</a>, <a class="unimplemented" href="#tdist">TDIST</a>, <a class="unimplemented" href="#tinv">TINV</a>, <a class="unimplemented" href="#trimmean">TRIMMEAN</a>, <a class="unimplemented" href="#ttest">TTEST</a>, <a class="unimplemented" href="#t_inv">T_INV</a>, <a class="unimplemented" href="#t_inv_2t">T_INV_2T</a>, <a class="unimplemented" href="#var">VAR</a>, <a class="unimplemented" href="#vara">VARA</a>, <a class="unimplemented" href="#varp">VARP</a>, <a class="unimplemented" href="#varpa">VARPA</a>, <a class="unimplemented" href="#weibull">WEIBULL</a>, <a class="unimplemented" href="#ztest">ZTEST</a> |
+| Stats | <a class="unimplemented" href="#avedev">AVEDEV</a>, <a  href="#average">AVERAGE</a>, <a  href="#averagea">AVERAGEA</a>, <a class="unimplemented" href="#averageif">AVERAGEIF</a>, <a class="unimplemented" href="#averageifs">AVERAGEIFS</a>, <a  href="#average_weighted">AVERAGE_WEIGHTED</a>, <a class="unimplemented" href="#binomdist">BINOMDIST</a>, <a class="unimplemented" href="#confidence">CONFIDENCE</a>, <a class="unimplemented" href="#correl">CORREL</a>, <a  href="#count">COUNT</a>, <a  href="#counta">COUNTA</a>, <a class="unimplemented" href="#covar">COVAR</a>, <a class="unimplemented" href="#critbinom">CRITBINOM</a>, <a class="unimplemented" href="#devsq">DEVSQ</a>, <a class="unimplemented" href="#expondist">EXPONDIST</a>, <a class="unimplemented" href="#fdist">FDIST</a>, <a class="unimplemented" href="#fisher">FISHER</a>, <a class="unimplemented" href="#fisherinv">FISHERINV</a>, <a class="unimplemented" href="#forecast">FORECAST</a>, <a class="unimplemented" href="#f_dist">F_DIST</a>, <a class="unimplemented" href="#f_dist_rt">F_DIST_RT</a>, <a class="unimplemented" href="#geomean">GEOMEAN</a>, <a class="unimplemented" href="#harmean">HARMEAN</a>, <a class="unimplemented" href="#hypgeomdist">HYPGEOMDIST</a>, <a class="unimplemented" href="#intercept">INTERCEPT</a>, <a class="unimplemented" href="#kurt">KURT</a>, <a class="unimplemented" href="#large">LARGE</a>, <a class="unimplemented" href="#loginv">LOGINV</a>, <a class="unimplemented" href="#lognormdist">LOGNORMDIST</a>, <a  href="#max">MAX</a>, <a  href="#maxa">MAXA</a>, <a  href="#median">MEDIAN</a>, <a  href="#min">MIN</a>, <a  href="#mina">MINA</a>, <a class="unimplemented" href="#mode">MODE</a>, <a class="unimplemented" href="#negbinomdist">NEGBINOMDIST</a>, <a class="unimplemented" href="#normdist">NORMDIST</a>, <a class="unimplemented" href="#norminv">NORMINV</a>, <a class="unimplemented" href="#normsdist">NORMSDIST</a>, <a class="unimplemented" href="#normsinv">NORMSINV</a>, <a class="unimplemented" href="#pearson">PEARSON</a>, <a class="unimplemented" href="#percentile">PERCENTILE</a>, <a class="unimplemented" href="#percentrank">PERCENTRANK</a>, <a class="unimplemented" href="#percentrank_exc">PERCENTRANK_EXC</a>, <a class="unimplemented" href="#percentrank_inc">PERCENTRANK_INC</a>, <a class="unimplemented" href="#permut">PERMUT</a>, <a class="unimplemented" href="#poisson">POISSON</a>, <a class="unimplemented" href="#prob">PROB</a>, <a class="unimplemented" href="#quartile">QUARTILE</a>, <a class="unimplemented" href="#rank_avg">RANK_AVG</a>, <a class="unimplemented" href="#rank_eq">RANK_EQ</a>, <a class="unimplemented" href="#rsq">RSQ</a>, <a class="unimplemented" href="#skew">SKEW</a>, <a class="unimplemented" href="#slope">SLOPE</a>, <a class="unimplemented" href="#small">SMALL</a>, <a class="unimplemented" href="#standardize">STANDARDIZE</a>, <a  href="#stdev">STDEV</a>, <a  href="#stdeva">STDEVA</a>, <a  href="#stdevp">STDEVP</a>, <a  href="#stdevpa">STDEVPA</a>, <a class="unimplemented" href="#steyx">STEYX</a>, <a class="unimplemented" href="#tdist">TDIST</a>, <a class="unimplemented" href="#tinv">TINV</a>, <a class="unimplemented" href="#trimmean">TRIMMEAN</a>, <a class="unimplemented" href="#ttest">TTEST</a>, <a class="unimplemented" href="#t_inv">T_INV</a>, <a class="unimplemented" href="#t_inv_2t">T_INV_2T</a>, <a class="unimplemented" href="#var">VAR</a>, <a class="unimplemented" href="#vara">VARA</a>, <a class="unimplemented" href="#varp">VARP</a>, <a class="unimplemented" href="#varpa">VARPA</a>, <a class="unimplemented" href="#weibull">WEIBULL</a>, <a class="unimplemented" href="#ztest">ZTEST</a> |
 | Text | <a  href="#char">CHAR</a>, <a  href="#clean">CLEAN</a>, <a  href="#code">CODE</a>, <a  href="#concat">CONCAT</a>, <a  href="#concatenate">CONCATENATE</a>, <a  href="#dollar">DOLLAR</a>, <a  href="#exact">EXACT</a>, <a  href="#find">FIND</a>, <a  href="#fixed">FIXED</a>, <a  href="#left">LEFT</a>, <a  href="#len">LEN</a>, <a  href="#lower">LOWER</a>, <a  href="#mid">MID</a>, <a  href="#phone_format">PHONE_FORMAT</a>, <a  href="#proper">PROPER</a>, <a  href="#regexextract">REGEXEXTRACT</a>, <a  href="#regexmatch">REGEXMATCH</a>, <a  href="#regexreplace">REGEXREPLACE</a>, <a  href="#replace">REPLACE</a>, <a  href="#rept">REPT</a>, <a  href="#right">RIGHT</a>, <a  href="#search">SEARCH</a>, <a  href="#substitute">SUBSTITUTE</a>, <a  href="#t">T</a>, <a  href="#tasteme">TASTEME</a>, <a class="unimplemented" href="#text">TEXT</a>, <a  href="#trim">TRIM</a>, <a  href="#upper">UPPER</a>, <a  href="#value">VALUE</a> |
 <!-- END mkpydocs table -->
 
@@ -103,6 +104,54 @@ min(Tasks.lookupRecords(Owner="Bob").DueDate)
 
 You can get the number of records in a RecordSet using `len`, e.g. `len($group)`.
 </details>
+<details id="find_"><summary >
+#### find.*
+<code>RecordSet.**find.\***(value)</code>
+<a class="headerlink" href="#find_" title="Permanent link">#</a>
+</summary>
+A set of methods for finding values in sorted sets of records, as returned by
+[`lookupRecords`](#lookuprecords). For example:
+```
+Transactions.lookupRecords(..., order_by="Date").find.lt($Date)
+Table.lookupRecords(..., order_by=("Foo", "Bar")).find.le(foo, bar)
+```
+
+If the `find` attribute is shadowed by a same-named user column, you may use `_find` instead.
+
+The methods available are:
+
+- __`lt`__: (less than) find nearest record with sort values < the given values
+- __`le`__: (less than or equal to) find nearest record with sort values <= the given values
+- __`gt`__: (greater than) find nearest record with sort values > the given values
+- __`ge`__: (greater than or equal to) find nearest record with sort values >= the given values
+- __`eq`__: (equal to) find nearest record with sort values == the given values
+
+Example from <https://templates.getgrist.com/5pHLanQNThxk/Payroll>. Each person has a history of
+pay rates, in the Rates table. To find a rate applicable on a certain date, here is how you
+can do it old-style:
+```python
+# Get all the rates for the Person and Role in this row.
+rates = Rates.lookupRecords(Person=$Person, Role=$Role)
+
+# Pick out only those rates whose Rate_Start is on or before this row's Date.
+past_rates = [r for r in rates if r.Rate_Start <= $Date]
+
+# Select the latest of past_rates, i.e. maximum by Rate_Start.
+rate = max(past_rates, key=lambda r: r.Rate_Start)
+
+# Return the Hourly_Rate from the relevant Rates record.
+return rate.Hourly_Rate
+```
+
+With the new methods, it is much simpler:
+```python
+rates = Rates.lookupRecords(Person=$Person, Role=$Role, order_by="Rate_Start")
+rate = rates.find.le($Date)
+return rate.Hourly_Rate
+```
+
+Note that this is also much faster when there are many rates for the same Person and Role.
+</details>
 <details id="usertable"><summary >
 #### UserTable
 <code>class __UserTable__</code>
@@ -139,21 +188,28 @@ sum(r.Population for r in Countries.all)
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
-like `"Some Value"`). If multiple records are found, the first match is returned.
-
-You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with "-" to
-reverse the order.
+like `"Some Value"`).
 
 For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
-Tickets.lookupOne(Person=$id, sort_by="Date")   # Find the first ticket for the person
-Tickets.lookupOne(Person=$id, sort_by="-Date")  # Find the last ticket for the person
 ```
 
 Learn more about [lookupOne](references-lookups.md#lookupone).
+
+If multiple records are found, the first match is returned. You may set the optional `order_by`
+parameter to the column ID by which to sort the matches, to determine which of them is
+returned as the first one. By default, the record with the lowest row ID is returned.
+
+See [`lookupRecords`](#lookuprecords) for details of all available options and behavior of
+`order_by` (and of its legacy alternative, `sort_by`).
+
+For example:
+```
+Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Priority.
+Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
+```
 </details>
 <details id="lookuprecords"><summary >
 #### lookupRecords
@@ -165,19 +221,34 @@ any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
 like `"Some Value"`) (examples below).
 
-You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with "-" to
-reverse the order.
-
 For example:
 ```
 People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name="George", Last_Name="Washington")
-People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
-Orders.lookupRecords(Customer=$id, sort_by="-OrderDate")
 ```
 
-See [RecordSet](#recordset) for useful properties offered by the returned object.
+You may set the optional `order_by` parameter to the column ID by which to sort the results.
+You can prefix the column ID with "-" to reverse the order. You can also specify multiple
+column IDs as a tuple (e.g. `order_by=("Account", "-Date")`).
+
+For example:
+```
+Transactions.lookupRecords(Account=$Account, order_by="Date")
+Transactions.lookupRecords(Account=$Account, order_by="-Date")
+Transactions.lookupRecords(Active=True, order_by=("Account", "-Date"))
+```
+
+For records with equal `order_by` fields, the results are sorted according to how they appear
+in views (which is determined by the special `manualSort` column). You may set `order_by=None`
+to match the order of records in unsorted views.
+
+By default, with no `order_by`, records are sorted by row ID, as if with `order_by="id"`.
+
+For backward compatibility, `sort_by` may be used instead of `order_by`, but only allows a
+single field, and falls back to row ID (rather than `manualSort`).
+
+See [RecordSet](#recordset) for useful properties offered by the returned object. In
+particular, methods like [`.find.le`](#find_) allow searching for nearest values.
 
 See [CONTAINS](#contains) for an example utilizing `UserTable.lookupRecords` to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given
@@ -1625,21 +1696,28 @@ True
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
-like `"Some Value"`). If multiple records are found, the first match is returned.
-
-You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with "-" to
-reverse the order.
+like `"Some Value"`).
 
 For example:
 ```
 People.lookupOne(First_Name="Lewis", Last_Name="Carroll")
 People.lookupOne(Email=$Work_Email)
-Tickets.lookupOne(Person=$id, sort_by="Date")   # Find the first ticket for the person
-Tickets.lookupOne(Person=$id, sort_by="-Date")  # Find the last ticket for the person
 ```
 
 Learn more about [lookupOne](references-lookups.md#lookupone).
+
+If multiple records are found, the first match is returned. You may set the optional `order_by`
+parameter to the column ID by which to sort the matches, to determine which of them is
+returned as the first one. By default, the record with the lowest row ID is returned.
+
+See [`lookupRecords`](#lookuprecords) for details of all available options and behavior of
+`order_by` (and of its legacy alternative, `sort_by`).
+
+For example:
+```
+Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Priority.
+Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
+```
 </details>
 <details id="lookuprecords_2"><summary >
 #### lookupRecords
@@ -1651,19 +1729,34 @@ any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
 like `"Some Value"`) (examples below).
 
-You may set the optional `sort_by` parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with "-" to
-reverse the order.
-
 For example:
 ```
 People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name="George", Last_Name="Washington")
-People.lookupRecords(Last_Name="Johnson", sort_by="First_Name")
-Orders.lookupRecords(Customer=$id, sort_by="-OrderDate")
 ```
 
-See [RecordSet](#recordset) for useful properties offered by the returned object.
+You may set the optional `order_by` parameter to the column ID by which to sort the results.
+You can prefix the column ID with "-" to reverse the order. You can also specify multiple
+column IDs as a tuple (e.g. `order_by=("Account", "-Date")`).
+
+For example:
+```
+Transactions.lookupRecords(Account=$Account, order_by="Date")
+Transactions.lookupRecords(Account=$Account, order_by="-Date")
+Transactions.lookupRecords(Active=True, order_by=("Account", "-Date"))
+```
+
+For records with equal `order_by` fields, the results are sorted according to how they appear
+in views (which is determined by the special `manualSort` column). You may set `order_by=None`
+to match the order of records in unsorted views.
+
+By default, with no `order_by`, records are sorted by row ID, as if with `order_by="id"`.
+
+For backward compatibility, `sort_by` may be used instead of `order_by`, but only allows a
+single field, and falls back to row ID (rather than `manualSort`).
+
+See [RecordSet](#recordset) for useful properties offered by the returned object. In
+particular, methods like [`.find.le`](#find_) allow searching for nearest values.
 
 See [CONTAINS](#contains) for an example utilizing `UserTable.lookupRecords` to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given
@@ -3330,6 +3423,75 @@ This would only calculate UUID() once and freeze the calculated value. By contra
 formula may get recalculated any time the document is reloaded, producing a different value for
 UUID() each time.
 </details>
+### Prevnext
+<details id="next"><summary >
+#### NEXT
+<code>__NEXT__(rec, *, group_by=(), order_by)</code>
+<a class="headerlink" href="#next" title="Permanent link">#</a>
+</summary>
+Finds the next record in the table according to the order specified by `order_by`, and
+grouping specified by `group_by`. See [`PREVIOUS`](#previous) for details.
+</details>
+<details id="previous"><summary >
+#### PREVIOUS
+<code>__PREVIOUS__(rec, *, group_by=(), order_by)</code>
+<a class="headerlink" href="#previous" title="Permanent link">#</a>
+</summary>
+Finds the previous record in the table according to the order specified by `order_by`, and
+grouping specified by `group_by`. Each of these arguments may be a column ID or a tuple of
+column IDs, and `order_by` allows column IDs to be prefixed with "-" to reverse sort order.
+
+For example,
+```python
+PREVIOUS(rec, order_by="Date")    # The previous record when sorted by increasing Date.
+PREVIOUS(rec, order_by="-Date")   # The previous record when sorted by decreasing Date.
+```
+
+You may use `group_by` to search for the previous record within a filtered group. For example,
+this finds the previous record with the same Account as `rec`, when records are filtered by the
+Account of `rec` and sorted by increasing Date:
+```python
+PREVIOUS(rec, group_by="Account", order_by="Date")
+```
+
+When multiple records have the same `order_by` values (e.g. the same Date in the examples above),
+the order is determined by the relative position of rows in views. This is done internally by
+falling back to the special column `manualSort` and the row ID column `id`.
+
+Use `order_by=None` to find the previous record in an unsorted table (when rows may be
+rearranged by dragging them manually). For example:
+```python
+PREVIOUS(rec, order_by=None)      # The previous record in the unsorted list of records.
+```
+
+You may specify multiple column IDs as a tuple, for both `group_by` and `order_by`. This can be
+used to match views sorted by multiple columns. For example:
+```python
+PREVIOUS(rec, group_by=("Account", "Year"), order_by=("Date", "-Amount"))
+```
+</details>
+<details id="rank"><summary >
+#### RANK
+<code>__RANK__(rec, *, group_by=(), order_by, order='asc')</code>
+<a class="headerlink" href="#rank" title="Permanent link">#</a>
+</summary>
+Returns the rank (or position) of this record in the table according to the order specified by
+`order_by`, and grouping specified by `group_by`. See [`PREVIOUS`](#previous) for details of
+these parameters.
+
+The `order` parameter may be `"asc"` (which is the default) or `"desc"`.
+
+When `order` is `"asc"` or omitted, the first record in the group in the sorted order would have
+the rank of 1. When `order` is `"desc"`, the last record in the sorted order would have the rank
+of 1.
+
+If there are multiple groups, there will be multiple records with the same rank. In particular,
+each group will have a record with rank 1.
+
+For example, `RANK(rec, group_by="Year", order_by="Score", order="desc")` will return the rank of
+the current record (`rec`) among all the records in its table for the same year, ordered by
+decreasing score.
+</details>
 ### Schedule
 <details id="schedule"><summary >
 #### SCHEDULE
@@ -4205,15 +4367,6 @@ Given a set of values and corresponding probabilities, calculates the probabilit
 <a class="headerlink" href="#quartile" title="Permanent link">#</a>
 </summary>
 Returns a value nearest to a specified quartile of a dataset.
-
-<span class="grist-tip">Note</span>This function is not currently implemented in Grist.
-</details>
-<details id="rank"><summary class="unimplemented">
-#### RANK
-<code>__RANK__(value, data, is_ascending=None)</code>
-<a class="headerlink" href="#rank" title="Permanent link">#</a>
-</summary>
-Returns the rank of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
