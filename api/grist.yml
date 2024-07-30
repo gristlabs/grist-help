@@ -1110,10 +1110,10 @@ paths:
         - users
       summary: "Delete a user from Grist"
       description: |
-        Also delete the user's personal org (aka team site).
-        Currently only the user themselves is allowed to delete their own account.
+        This action also deletes the user's personal organisation and all the workspaces and documents it contains.
+        Currently, only the users themselves are allowed to delete their own accounts.
 
-        ⚠️ **This cannot be undone, please be cautious when using this endpoint** ⚠️
+        ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
       parameters:
         - $ref: '#/components/parameters/userIdPathParam'
       requestBody:
@@ -1160,7 +1160,7 @@ tags:
   - name: sql
     description: "Sql endpoint to query data from documents."
   - name: users
-    description: "Users of Grist"
+    description: "Grist users."
 components:
   securitySchemes:
     ApiKey:
