@@ -515,6 +515,18 @@ If you are comfortable making code changes, then the build instructions
 of the [grist-core](https://github.com/gristlabs/grist-core/) repository
 are the place to start.
 
+### How do I configure webhooks? {: .tag-core .tag-ee }
+
+It is possible to use webhooks to enable integrations with external
+services. The [webhooks documentation](webhooks.md) has further details.
+
+Note that when self-hosting, only external services allowed by the
+[`ALLOWED_WEBHOOK_DOMAINS` environment variable](
+https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables)
+are allowed. [There are security concerns](webhooks.md#security) with
+allowing any domain, as internal Grist services may become vulnerable
+to manipulation.
+
 ---
 
 ## Operations
