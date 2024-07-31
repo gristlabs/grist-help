@@ -1104,6 +1104,39 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SqlResultSet"
+  /users/{userId}:
+    delete:
+      tags:
+        - users
+      summary: "Delete a user from Grist"
+      description: |
+        This action also deletes the user's personal organisation and all the workspaces and documents it contains.
+        Currently, only the users themselves are allowed to delete their own accounts.
+
+        ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
+      parameters:
+        - $ref: '#/components/parameters/userIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  description: "The user's name to delete (for confirmation, to avoid deleting the wrong account)."
+                  example: "John Doe"
+      responses:
+        200:
+          description: "The account has been deleted successfully"
+        400:
+          description: "The passed user name does not match the one retrieved from the database given the passed user id"
+        403:
+          description: "The caller is not allowed to delete this account"
+        404:
+          description: "The user is not found"
 
 tags:
   - name: orgs
@@ -1124,6 +1157,10 @@ tags:
     description: "Documents may include attached files. Data records can refer to these using a column of type `Attachments`."
   - name: webhooks
     description: "Document changes can trigger requests to URLs called webhooks."
+  - name: sql
+    description: "Sql endpoint to query data from documents."
+  - name: users
+    description: "Grist users."
 components:
   securitySchemes:
     ApiKey:
@@ -2118,6 +2155,13 @@ components:
       description: An integer id
       schema:
         type: integer
+      required: true
+    userIdPathParam:
+      in: path
+      name: userId
+      schema:
+        type: integer
+      description: A user id
       required: true
     noparseQueryParam:
       in: query
