@@ -19,6 +19,11 @@ _token_replace_re = re.compile(
   r'(?P<end><!-- END mkpydocs (?P=type) -->)', re.S)
 _unimplemented_re = re.compile(r'raise NotImplemented')
 
+def get_category(modname):
+  if modname == 'prevnext':
+    return 'Cumulative'
+  return modname.title()
+
 class DocItem(object):
   def __init__(self, obj, modname=None, doc=None):
     # obj is the object (e.g. a function or a class) to be documented.
@@ -41,7 +46,7 @@ class DocItem(object):
     self.anchor = make_unique_anchor(re.sub(r'\W+', '_', self.names[0].lower()))
 
     # For "category" use the title-cased name of the module that the function came from.
-    self.category = self.modname.title()
+    self.category = get_category(self.modname)
 
     # Use this chance to check that @unimplemented decorator (used for autocomplete) is correct.
     if self.is_unimplemented != getattr(obj, 'unimplemented', False):
