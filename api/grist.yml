@@ -297,7 +297,7 @@ paths:
       operationId: moveDoc
       tags:
         - docs
-      summary: "Move document to another workspace in the same org."
+      summary: "Move document to another workspace."
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
