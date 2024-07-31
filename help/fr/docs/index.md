@@ -1,16 +1,7 @@
-!!!warning
+# Bienvenue sur Grist ! {: data-toc-label='' }
 
-    Nous commençons tout juste à traduire la documentation pour cette langue, désolé !
-
-    Nous affichons des pages traduites partiellement de sorte de suivre l'avancement.
-
-    Cette page n'est pas encore traduite. Mais la bonne nouvelle est que [vous pouvez rejoindre la communauté de traduction pour nous aider 👋](https://hosted.weblate.org/engage/grist-help/){.internal-link target=_blank}.
-
-
-
-# Welcome to Grist! {: data-toc-label='' }
-
-[Grist](https://www.getgrist.com) is a software product to organize, analyze, and share data.
+[Grist](https://www.getgrist.com) est une solution pour organiser, analyser et
+partager des données.
 
 <div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">
   <a href="#" data-toggle="modal" data-target="#video-modal"
@@ -22,10 +13,11 @@
 Grist combines the best of spreadsheets and databases. Grist lets you work with simple grids and
 lists, and is at its best when data gets more complex.
 
-To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
+Pour s'enregistrer et commencer à utiliser Grist, rendez-vous sur
+[https://docs.getgrist.com](https://docs.getgrist.com).
 
-To learn Grist, we recommend starting with our How-To tutorials, or our
-Intro videos.
+Pour apprendre comment prendre en main Grist, nous vous recommandons de
+commencer avec nos tutoriels "How-To", et nos vidéos d'introduction.\
 {: .clearfix }
 
 <div class="row" markdown="1">
@@ -34,49 +26,58 @@ Intro videos.
 
 ### How-To Tutorials
 
-[Create a custom CRM](lightweight-crm.md). Using the "Lightweight CRM" example,
-learn to link data, and create high-productivity layouts.
+[Créer un CRM personnalisé](lightweight-crm.md). En utilisant l'exemple "CRM
+léger" ("Lightweigth CRM"), apprenez à lier les données entre elles, et à créer
+des agencements pour une bonne performance.
 
-[Analyze and visualize data](investment-research.md). Using the "Investment
-Research" example, learn to create summary tables and charts, and link charts dynamically.
+[Analysez et visualiser les donnéès](investment-research.md). En utilisant
+l'exemple "Investment Research" ("Recherche en matière d'investissement"),
+apprenez à créer des tables de résumé et des graphiques, et à lien les
+graphiques dynamiquement entre eux.
 
-[Managing business data](afterschool-program.md). Using the "Afterschool Program" example,
-learn to model business data, use formulas, and manage complexity.
+[Managing business data](afterschool-program.md). Using the "Afterschool
+Program" example, learn to model business data, use formulas, and manage
+complexity.
 
 </div>
 
 <div class="col-md-6 column-images" markdown="1">
 
-### Intro Videos
+### Vidéos d'introduction
 
-[![Creating a doc](https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg) *Creating a doc*](creating-doc.md)
+[![Créer un document](https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg) *Créer un
+document*](creating-doc.md)\
 {: .img-caption }
 
-[![Pages & widgets](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages & widgets*](page-widgets.md)
+[![Pages & vues](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages &
+vues*](page-widgets.md)\
 {: .img-caption }
 
-[![Columns & types](https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg) *Columns & types*](col-types.md)
+[![Colonnes & types](https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg) *Colonnes &
+types*](col-types.md)\
 {: .img-caption }
 
-[![Reference columns](https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg) *Reference&nbsp;columns*](col-refs.md)
+[![Les colonnes Référence](https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg) *Les
+colonnes Référence*](col-refs.md)\
 {: .img-caption }
 
-[![Linking widgets](https://img.youtube.com/vi/F5m_je0QKvs/0.jpg) *Linking widgets*](linking-widgets.md)
+[![Lier les vues entre elles](https://img.youtube.com/vi/F5m_je0QKvs/0.jpg)
+*Lier les vues entre elles*](linking-widgets.md)\
 {: .img-caption }
 
-[![Sharing a doc](https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg) *Sharing a doc*](sharing.md)
+[![Partager un document](https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg) *Partager
+un document*](sharing.md)\
 {: .img-caption }
 
 </div>
 
 </div>
 
-## Popular shortcuts
+## Raccourcis populaires
 
-- [Frequently Asked Questions](FAQ.md)
+- [Foire Aux Questions](FAQ.md)
 - [Function reference](functions.md)
-- [Keyboard shortcuts](keyboard-shortcuts.md)
-
+- [Raccourcis clavier](keyboard-shortcuts.md)
 
 <!--
 
@@ -93,11 +94,11 @@ learn to model business data, use formulas, and manage complexity.
 {: .img-caption .coming-soon }
 
 -->
-## Contact us
+## Nous contacter
 
-If you have questions not answered here, problem reports, or other feedback,
-please contact us!
+Si vous avez des questions dont vous ne trouvez pas la réponse ici, si vous
+souhaitez remonter des problèmes ou d'autres retours, merci de nous contacter !
 
-Email: <support@getgrist.com>
+Email : <support@getgrist.com>
 
 

@@ -19,12 +19,12 @@ rappel), cliquez sur l'action `Définir une formule d'initialisation`.
 
 ![créer une colonne Créé Par](images/formulas/formulas-created-by-convert.png)
 
-Définissez `user.Name`{ : .formula} comme formule de la colonne. Il existe
-d'autres possibilités, comme `user.Email`{ : .formula}, ou `user.UserID`{ :
+Définissez `user.Name`{: .formula} comme formule de la colonne. Il existe
+d'autres possibilités, comme `user.Email`{: .formula}, ou `user.UserID`{:
 .formula}, etc. Les informations disponibles sur l'utilisateur sont les mêmes
 que dans les [Permissions Avancées](access-rules.md#access-rule-conditions).
 L'horodatage est également disponible (voir [Colonnes
-d'horodatage](timestamps.md)). Mais restons-en à `user.Name`{ : .formula} pour
+d'horodatage](timestamps.md)). Mais restons-en à `user.Name`{: .formula} pour
 l'instant.
 
 ![une colonne Créé par](images/formulas/formulas-created-by-final.png)
@@ -37,7 +37,7 @@ créée, la colonne `Créé par` aura le nom de l'utilisateur qui a créé cette
 ![un exemple Créé par](images/formulas/formulas-created-by-autofill.png)
 
 
-## Une colonne "Mis à jour par"
+## Une colonne "Dernière mise à jour par"
 
 Si nous voulons une colonne qui enregistre le nom de la dernière personne qui a
 modifié une ligne (par opposition à la personne qui a créé la ligne), la
@@ -50,15 +50,17 @@ et appuyez sur `OK`. Par ailleurs, vous pouvez également choisir que certaines
 colonnes en particulier qui, lorsqu'elles seront mises à jour, déclencheront la
 formule.
 
-![une colonne Mise à jour par](images/formulas/formulas-updated-by-setup.png)
+![Une colonne "Dernière mise à jour
+par"](images/formulas/formulas-updated-by-setup.png)
 
 Voici un exemple de la nouvelle colonne à l'œuvre - lorsque `Cotton Candy v
 Candy Floss` est mise à jour, un nom d'utilisateur apparaît pour cette ligne :
 
-![une colonne Mise à jour par](images/formulas/formulas-updated-by-autofill.png)
+![Une colonne "Dernière mise à jour
+par"](images/formulas/formulas-updated-by-autofill.png)
 
-!!! note "Il est toujours possible pour un utilisateur de modifier manuellement
-les cellules dans les colonnes `Créé par` et `Mis à jour par`. Si vous ne voulez
-pas que cela soit autorisé, utilisez les [Permissions Avancées](access-rules.md)
-pour l'interdire."
+!!! note "" **Il est toujours possible pour un utilisateur de modifier
+manuellement des cellules dans les colonnes `Créé par` ou `Dernière mise à jour
+par`. Si vous ne souhaitez pas le permettre, utilisez [les règles
+d'accès](access-rules.md) pour l'interdire.**
 
