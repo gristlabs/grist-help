@@ -8,13 +8,13 @@ added to a table or if existing rows are modified.
 
 You can configure webhooks from the 'Document Settings' page. Click 'Settings' under the 'Tools' menu found at the bottom of the left-hand navigation panel while viewing a document.
 
-![webhooks-settings](images/webhooks/settings.png)
+<span class="screenshot-large">*![webhooks-settings](images/webhooks/settings.png)*</span>
 {: .screenshot-half }
 
 Under the 'API' section of 'Document Settings', click on the
 'Manage Webhooks' button.
 
-![webhooks-api-settings](images/webhooks/settings-webhooks.png)
+<span class="screenshot-large">*![webhooks-api-settings](images/webhooks/settings-webhooks.png)*</span>
 {: .screenshot-half }
 
 This will enable you to define webhooks for your document, where each
