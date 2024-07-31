@@ -378,6 +378,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#cumulative">
+                Cumulative
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#date">
                 Date
               </a>
@@ -1119,7 +1124,11 @@ Python (see <a href="https://docs.python.org/3.11/">Python documentation</a>). H
 <tbody>
 <tr>
 <td>Grist</td>
-<td><a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a></td>
+<td><a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#find_">find.*</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a></td>
+</tr>
+<tr>
+<td>Cumulative</td>
+<td><a  href="#next">NEXT</a>, <a  href="#previous">PREVIOUS</a>, <a  href="#rank">RANK</a></td>
 </tr>
 <tr>
 <td>Date</td>
@@ -1147,7 +1156,7 @@ Python (see <a href="https://docs.python.org/3.11/">Python documentation</a>). H
 </tr>
 <tr>
 <td>Stats</td>
-<td><a class="unimplemented" href="#avedev">AVEDEV</a>, <a  href="#average">AVERAGE</a>, <a  href="#averagea">AVERAGEA</a>, <a class="unimplemented" href="#averageif">AVERAGEIF</a>, <a class="unimplemented" href="#averageifs">AVERAGEIFS</a>, <a  href="#average_weighted">AVERAGE_WEIGHTED</a>, <a class="unimplemented" href="#binomdist">BINOMDIST</a>, <a class="unimplemented" href="#confidence">CONFIDENCE</a>, <a class="unimplemented" href="#correl">CORREL</a>, <a  href="#count">COUNT</a>, <a  href="#counta">COUNTA</a>, <a class="unimplemented" href="#covar">COVAR</a>, <a class="unimplemented" href="#critbinom">CRITBINOM</a>, <a class="unimplemented" href="#devsq">DEVSQ</a>, <a class="unimplemented" href="#expondist">EXPONDIST</a>, <a class="unimplemented" href="#fdist">FDIST</a>, <a class="unimplemented" href="#fisher">FISHER</a>, <a class="unimplemented" href="#fisherinv">FISHERINV</a>, <a class="unimplemented" href="#forecast">FORECAST</a>, <a class="unimplemented" href="#f_dist">F_DIST</a>, <a class="unimplemented" href="#f_dist_rt">F_DIST_RT</a>, <a class="unimplemented" href="#geomean">GEOMEAN</a>, <a class="unimplemented" href="#harmean">HARMEAN</a>, <a class="unimplemented" href="#hypgeomdist">HYPGEOMDIST</a>, <a class="unimplemented" href="#intercept">INTERCEPT</a>, <a class="unimplemented" href="#kurt">KURT</a>, <a class="unimplemented" href="#large">LARGE</a>, <a class="unimplemented" href="#loginv">LOGINV</a>, <a class="unimplemented" href="#lognormdist">LOGNORMDIST</a>, <a  href="#max">MAX</a>, <a  href="#maxa">MAXA</a>, <a  href="#median">MEDIAN</a>, <a  href="#min">MIN</a>, <a  href="#mina">MINA</a>, <a class="unimplemented" href="#mode">MODE</a>, <a class="unimplemented" href="#negbinomdist">NEGBINOMDIST</a>, <a class="unimplemented" href="#normdist">NORMDIST</a>, <a class="unimplemented" href="#norminv">NORMINV</a>, <a class="unimplemented" href="#normsdist">NORMSDIST</a>, <a class="unimplemented" href="#normsinv">NORMSINV</a>, <a class="unimplemented" href="#pearson">PEARSON</a>, <a class="unimplemented" href="#percentile">PERCENTILE</a>, <a class="unimplemented" href="#percentrank">PERCENTRANK</a>, <a class="unimplemented" href="#percentrank_exc">PERCENTRANK_EXC</a>, <a class="unimplemented" href="#percentrank_inc">PERCENTRANK_INC</a>, <a class="unimplemented" href="#permut">PERMUT</a>, <a class="unimplemented" href="#poisson">POISSON</a>, <a class="unimplemented" href="#prob">PROB</a>, <a class="unimplemented" href="#quartile">QUARTILE</a>, <a class="unimplemented" href="#rank">RANK</a>, <a class="unimplemented" href="#rank_avg">RANK_AVG</a>, <a class="unimplemented" href="#rank_eq">RANK_EQ</a>, <a class="unimplemented" href="#rsq">RSQ</a>, <a class="unimplemented" href="#skew">SKEW</a>, <a class="unimplemented" href="#slope">SLOPE</a>, <a class="unimplemented" href="#small">SMALL</a>, <a class="unimplemented" href="#standardize">STANDARDIZE</a>, <a  href="#stdev">STDEV</a>, <a  href="#stdeva">STDEVA</a>, <a  href="#stdevp">STDEVP</a>, <a  href="#stdevpa">STDEVPA</a>, <a class="unimplemented" href="#steyx">STEYX</a>, <a class="unimplemented" href="#tdist">TDIST</a>, <a class="unimplemented" href="#tinv">TINV</a>, <a class="unimplemented" href="#trimmean">TRIMMEAN</a>, <a class="unimplemented" href="#ttest">TTEST</a>, <a class="unimplemented" href="#t_inv">T_INV</a>, <a class="unimplemented" href="#t_inv_2t">T_INV_2T</a>, <a class="unimplemented" href="#var">VAR</a>, <a class="unimplemented" href="#vara">VARA</a>, <a class="unimplemented" href="#varp">VARP</a>, <a class="unimplemented" href="#varpa">VARPA</a>, <a class="unimplemented" href="#weibull">WEIBULL</a>, <a class="unimplemented" href="#ztest">ZTEST</a></td>
+<td><a class="unimplemented" href="#avedev">AVEDEV</a>, <a  href="#average">AVERAGE</a>, <a  href="#averagea">AVERAGEA</a>, <a class="unimplemented" href="#averageif">AVERAGEIF</a>, <a class="unimplemented" href="#averageifs">AVERAGEIFS</a>, <a  href="#average_weighted">AVERAGE_WEIGHTED</a>, <a class="unimplemented" href="#binomdist">BINOMDIST</a>, <a class="unimplemented" href="#confidence">CONFIDENCE</a>, <a class="unimplemented" href="#correl">CORREL</a>, <a  href="#count">COUNT</a>, <a  href="#counta">COUNTA</a>, <a class="unimplemented" href="#covar">COVAR</a>, <a class="unimplemented" href="#critbinom">CRITBINOM</a>, <a class="unimplemented" href="#devsq">DEVSQ</a>, <a class="unimplemented" href="#expondist">EXPONDIST</a>, <a class="unimplemented" href="#fdist">FDIST</a>, <a class="unimplemented" href="#fisher">FISHER</a>, <a class="unimplemented" href="#fisherinv">FISHERINV</a>, <a class="unimplemented" href="#forecast">FORECAST</a>, <a class="unimplemented" href="#f_dist">F_DIST</a>, <a class="unimplemented" href="#f_dist_rt">F_DIST_RT</a>, <a class="unimplemented" href="#geomean">GEOMEAN</a>, <a class="unimplemented" href="#harmean">HARMEAN</a>, <a class="unimplemented" href="#hypgeomdist">HYPGEOMDIST</a>, <a class="unimplemented" href="#intercept">INTERCEPT</a>, <a class="unimplemented" href="#kurt">KURT</a>, <a class="unimplemented" href="#large">LARGE</a>, <a class="unimplemented" href="#loginv">LOGINV</a>, <a class="unimplemented" href="#lognormdist">LOGNORMDIST</a>, <a  href="#max">MAX</a>, <a  href="#maxa">MAXA</a>, <a  href="#median">MEDIAN</a>, <a  href="#min">MIN</a>, <a  href="#mina">MINA</a>, <a class="unimplemented" href="#mode">MODE</a>, <a class="unimplemented" href="#negbinomdist">NEGBINOMDIST</a>, <a class="unimplemented" href="#normdist">NORMDIST</a>, <a class="unimplemented" href="#norminv">NORMINV</a>, <a class="unimplemented" href="#normsdist">NORMSDIST</a>, <a class="unimplemented" href="#normsinv">NORMSINV</a>, <a class="unimplemented" href="#pearson">PEARSON</a>, <a class="unimplemented" href="#percentile">PERCENTILE</a>, <a class="unimplemented" href="#percentrank">PERCENTRANK</a>, <a class="unimplemented" href="#percentrank_exc">PERCENTRANK_EXC</a>, <a class="unimplemented" href="#percentrank_inc">PERCENTRANK_INC</a>, <a class="unimplemented" href="#permut">PERMUT</a>, <a class="unimplemented" href="#poisson">POISSON</a>, <a class="unimplemented" href="#prob">PROB</a>, <a class="unimplemented" href="#quartile">QUARTILE</a>, <a class="unimplemented" href="#rank_avg">RANK_AVG</a>, <a class="unimplemented" href="#rank_eq">RANK_EQ</a>, <a class="unimplemented" href="#rsq">RSQ</a>, <a class="unimplemented" href="#skew">SKEW</a>, <a class="unimplemented" href="#slope">SLOPE</a>, <a class="unimplemented" href="#small">SMALL</a>, <a class="unimplemented" href="#standardize">STANDARDIZE</a>, <a  href="#stdev">STDEV</a>, <a  href="#stdeva">STDEVA</a>, <a  href="#stdevp">STDEVP</a>, <a  href="#stdevpa">STDEVPA</a>, <a class="unimplemented" href="#steyx">STEYX</a>, <a class="unimplemented" href="#tdist">TDIST</a>, <a class="unimplemented" href="#tinv">TINV</a>, <a class="unimplemented" href="#trimmean">TRIMMEAN</a>, <a class="unimplemented" href="#ttest">TTEST</a>, <a class="unimplemented" href="#t_inv">T_INV</a>, <a class="unimplemented" href="#t_inv_2t">T_INV_2T</a>, <a class="unimplemented" href="#var">VAR</a>, <a class="unimplemented" href="#vara">VARA</a>, <a class="unimplemented" href="#varp">VARP</a>, <a class="unimplemented" href="#varpa">VARPA</a>, <a class="unimplemented" href="#weibull">WEIBULL</a>, <a class="unimplemented" href="#ztest">ZTEST</a></td>
 </tr>
 <tr>
 <td>Text</td>
@@ -1224,6 +1233,50 @@ min(Tasks.lookupRecords(Owner=&quot;Bob&quot;).DueDate)
 
 <p>You can get the number of records in a RecordSet using <code>len</code>, e.g. <code>len($group)</code>.
 </details>
+<details id="find_"><summary ></p>
+<h4 id="find">find.*<a class="headerlink" href="#find" title="Permanent link">#</a></h4>
+<p><code>RecordSet.<strong>find.*</strong>(value)</code>
+<a class="headerlink" href="#find_" title="Permanent link">#</a>
+</summary>
+A set of methods for finding values in sorted sets of records, as returned by
+<a href="#lookuprecords"><code>lookupRecords</code></a>. For example:</p>
+<pre><code>Transactions.lookupRecords(..., order_by=&quot;Date&quot;).find.lt($Date)
+Table.lookupRecords(..., order_by=(&quot;Foo&quot;, &quot;Bar&quot;)).find.le(foo, bar)
+</code></pre>
+
+<p>If the <code>find</code> attribute is shadowed by a same-named user column, you may use <code>_find</code> instead.</p>
+<p>The methods available are:</p>
+<ul>
+<li><strong><code>lt</code></strong>: (less than) find nearest record with sort values &lt; the given values</li>
+<li><strong><code>le</code></strong>: (less than or equal to) find nearest record with sort values &lt;= the given values</li>
+<li><strong><code>gt</code></strong>: (greater than) find nearest record with sort values &gt; the given values</li>
+<li><strong><code>ge</code></strong>: (greater than or equal to) find nearest record with sort values &gt;= the given values</li>
+<li><strong><code>eq</code></strong>: (equal to) find nearest record with sort values == the given values</li>
+</ul>
+<p>Example from <a href="https://templates.getgrist.com/5pHLanQNThxk/Payroll">our Payroll template</a>.
+Each person has a history of pay rates, in the Rates table. To find a rate applicable on a
+certain date, here is how you can do it old-style:</p>
+<pre><code class="python"># Get all the rates for the Person and Role in this row.
+rates = Rates.lookupRecords(Person=$Person, Role=$Role)
+
+# Pick out only those rates whose Rate_Start is on or before this row's Date.
+past_rates = [r for r in rates if r.Rate_Start &lt;= $Date]
+
+# Select the latest of past_rates, i.e. maximum by Rate_Start.
+rate = max(past_rates, key=lambda r: r.Rate_Start)
+
+# Return the Hourly_Rate from the relevant Rates record.
+return rate.Hourly_Rate
+</code></pre>
+
+<p>With the new methods, it is much simpler:</p>
+<pre><code class="python">rates = Rates.lookupRecords(Person=$Person, Role=$Role, order_by=&quot;Rate_Start&quot;)
+rate = rates.find.le($Date)
+return rate.Hourly_Rate
+</code></pre>
+
+<p>Note that this is also much faster when there are many rates for the same Person and Role.
+</details>
 <details id="usertable"><summary ></p>
 <h4 id="usertable">UserTable<a class="headerlink" href="#usertable" title="Permanent link">#</a></h4>
 <p><code>class <strong>UserTable</strong></code>
@@ -1257,19 +1310,24 @@ The list of all the records in this table.</p>
 Returns a <a href="#record">Record</a> matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
-like <code>"Some Value"</code>). If multiple records are found, the first match is returned.</p>
-<p>You may set the optional <code>sort_by</code> parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with &ldquo;-&rdquo; to
-reverse the order.</p>
+like <code>"Some Value"</code>).</p>
 <p>For example:</p>
 <pre><code>People.lookupOne(First_Name=&quot;Lewis&quot;, Last_Name=&quot;Carroll&quot;)
 People.lookupOne(Email=$Work_Email)
-Tickets.lookupOne(Person=$id, sort_by=&quot;Date&quot;)   # Find the first ticket for the person
-Tickets.lookupOne(Person=$id, sort_by=&quot;-Date&quot;)  # Find the last ticket for the person
 </code></pre>
 
-<p>Learn more about <a href="../references-lookups/#lookupone">lookupOne</a>.
-</details>
+<p>Learn more about <a href="../references-lookups/#lookupone">lookupOne</a>.</p>
+<p>If multiple records are found, the first match is returned. You may set the optional <code>order_by</code>
+parameter to the column ID by which to sort the matches, to determine which of them is
+returned as the first one. By default, the record with the lowest row ID is returned.</p>
+<p>See <a href="#lookuprecords"><code>lookupRecords</code></a> for details of all available options and behavior of
+<code>order_by</code> (and of its legacy alternative, <code>sort_by</code>).</p>
+<p>For example:</p>
+<pre><code>Tasks.lookupOne(Project=$id, order_by=&quot;Priority&quot;)  # Task with the smallest Priority.
+Rates.lookupOne(Person=$id, order_by=&quot;-Date&quot;)      # Rate with the latest Date.
+</code></pre>
+
+<p></details>
 <details id="lookuprecords"><summary ></p>
 <h4 id="lookuprecords">lookupRecords<a class="headerlink" href="#lookuprecords" title="Permanent link">#</a></h4>
 <p><code>UserTable.<strong>lookupRecords</strong>(Field_In_Lookup_Table=value, &hellip;)</code>
@@ -1279,21 +1337,92 @@ Returns a <a href="#recordset">RecordSet</a> matching the given field=value argu
 any expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
 like <code>"Some Value"</code>) (examples below).</p>
-<p>You may set the optional <code>sort_by</code> parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with &ldquo;-&rdquo; to
-reverse the order.</p>
 <p>For example:</p>
 <pre><code>People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name=&quot;George&quot;, Last_Name=&quot;Washington&quot;)
-People.lookupRecords(Last_Name=&quot;Johnson&quot;, sort_by=&quot;First_Name&quot;)
-Orders.lookupRecords(Customer=$id, sort_by=&quot;-OrderDate&quot;)
 </code></pre>
 
-<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object.</p>
+<p>You may set the optional <code>order_by</code> parameter to the column ID by which to sort the results.
+You can prefix the column ID with &ldquo;-&rdquo; to reverse the order. You can also specify multiple
+column IDs as a tuple (e.g. <code>order_by=("Account", "-Date")</code>).</p>
+<p>For example:</p>
+<pre><code>Transactions.lookupRecords(Account=$Account, order_by=&quot;Date&quot;)
+Transactions.lookupRecords(Account=$Account, order_by=&quot;-Date&quot;)
+Transactions.lookupRecords(Active=True, order_by=(&quot;Account&quot;, &quot;-Date&quot;))
+</code></pre>
+
+<p>For records with equal <code>order_by</code> fields, the results are sorted according to how they appear
+in views (which is determined by the special <code>manualSort</code> column). You may set <code>order_by=None</code>
+to match the order of records in unsorted views.</p>
+<p>By default, with no <code>order_by</code>, records are sorted by row ID, as if with <code>order_by="id"</code>.</p>
+<p>For backward compatibility, <code>sort_by</code> may be used instead of <code>order_by</code>, but only allows a
+single field, and falls back to row ID (rather than <code>manualSort</code>).</p>
+<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object. In
+particular, methods like <a href="#find_"><code>.find.le</code></a> allow searching for nearest values.</p>
 <p>See <a href="#contains">CONTAINS</a> for an example utilizing <code>UserTable.lookupRecords</code> to find records
 where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given
 value.</p>
 <p>Learn more about <a href="../references-lookups/#lookuprecords">lookupRecords</a>.
+</details></p>
+<h3 id="cumulative">Cumulative<a class="headerlink" href="#cumulative" title="Permanent link">#</a></h3>
+<p><details id="next"><summary ></p>
+<h4 id="next">NEXT<a class="headerlink" href="#next" title="Permanent link">#</a></h4>
+<p><code><strong>NEXT</strong>(rec, *, group_by=(), order_by)</code>
+<a class="headerlink" href="#next" title="Permanent link">#</a>
+</summary>
+Finds the next record in the table according to the order specified by <code>order_by</code>, and
+grouping specified by <code>group_by</code>. See <a href="#previous"><code>PREVIOUS</code></a> for details.
+</details>
+<details id="previous"><summary ></p>
+<h4 id="previous">PREVIOUS<a class="headerlink" href="#previous" title="Permanent link">#</a></h4>
+<p><code><strong>PREVIOUS</strong>(rec, *, group_by=(), order_by)</code>
+<a class="headerlink" href="#previous" title="Permanent link">#</a>
+</summary>
+Finds the previous record in the table according to the order specified by <code>order_by</code>, and
+grouping specified by <code>group_by</code>. Each of these arguments may be a column ID or a tuple of
+column IDs, and <code>order_by</code> allows column IDs to be prefixed with &ldquo;-&rdquo; to reverse sort order.</p>
+<p>For example,</p>
+<pre><code class="python">PREVIOUS(rec, order_by=&quot;Date&quot;)    # The previous record when sorted by increasing Date.
+PREVIOUS(rec, order_by=&quot;-Date&quot;)   # The previous record when sorted by decreasing Date.
+</code></pre>
+
+<p>You may use <code>group_by</code> to search for the previous record within a filtered group. For example,
+this finds the previous record with the same Account as <code>rec</code>, when records are filtered by the
+Account of <code>rec</code> and sorted by increasing Date:</p>
+<pre><code class="python">PREVIOUS(rec, group_by=&quot;Account&quot;, order_by=&quot;Date&quot;)
+</code></pre>
+
+<p>When multiple records have the same <code>order_by</code> values (e.g. the same Date in the examples above),
+the order is determined by the relative position of rows in views. This is done internally by
+falling back to the special column <code>manualSort</code> and the row ID column <code>id</code>.</p>
+<p>Use <code>order_by=None</code> to find the previous record in an unsorted table (when rows may be
+rearranged by dragging them manually). For example:</p>
+<pre><code class="python">PREVIOUS(rec, order_by=None)      # The previous record in the unsorted list of records.
+</code></pre>
+
+<p>You may specify multiple column IDs as a tuple, for both <code>group_by</code> and <code>order_by</code>. This can be
+used to match views sorted by multiple columns. For example:</p>
+<pre><code class="python">PREVIOUS(rec, group_by=(&quot;Account&quot;, &quot;Year&quot;), order_by=(&quot;Date&quot;, &quot;-Amount&quot;))
+</code></pre>
+
+<p></details>
+<details id="rank"><summary ></p>
+<h4 id="rank">RANK<a class="headerlink" href="#rank" title="Permanent link">#</a></h4>
+<p><code><strong>RANK</strong>(rec, *, group_by=(), order_by, order=&rsquo;asc&rsquo;)</code>
+<a class="headerlink" href="#rank" title="Permanent link">#</a>
+</summary>
+Returns the rank (or position) of this record in the table according to the order specified by
+<code>order_by</code>, and grouping specified by <code>group_by</code>. See <a href="#previous"><code>PREVIOUS</code></a> for details of
+these parameters.</p>
+<p>The <code>order</code> parameter may be <code>"asc"</code> (which is the default) or <code>"desc"</code>.</p>
+<p>When <code>order</code> is <code>"asc"</code> or omitted, the first record in the group in the sorted order would have
+the rank of 1. When <code>order</code> is <code>"desc"</code>, the last record in the sorted order would have the rank
+of 1.</p>
+<p>If there are multiple groups, there will be multiple records with the same rank. In particular,
+each group will have a record with rank 1.</p>
+<p>For example, <code>RANK(rec, group_by="Year", order_by="Score", order="desc")</code> will return the rank of
+the current record (<code>rec</code>) among all the records in its table for the same year, ordered by
+decreasing score.
 </details></p>
 <h3 id="date">Date<a class="headerlink" href="#date" title="Permanent link">#</a></h3>
 <p><details id="date"><summary ></p>
@@ -2471,19 +2600,24 @@ True
 Returns a <a href="#record">Record</a> matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
-like <code>"Some Value"</code>). If multiple records are found, the first match is returned.</p>
-<p>You may set the optional <code>sort_by</code> parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with &ldquo;-&rdquo; to
-reverse the order.</p>
+like <code>"Some Value"</code>).</p>
 <p>For example:</p>
 <pre><code>People.lookupOne(First_Name=&quot;Lewis&quot;, Last_Name=&quot;Carroll&quot;)
 People.lookupOne(Email=$Work_Email)
-Tickets.lookupOne(Person=$id, sort_by=&quot;Date&quot;)   # Find the first ticket for the person
-Tickets.lookupOne(Person=$id, sort_by=&quot;-Date&quot;)  # Find the last ticket for the person
 </code></pre>
 
-<p>Learn more about <a href="../references-lookups/#lookupone">lookupOne</a>.
-</details>
+<p>Learn more about <a href="../references-lookups/#lookupone">lookupOne</a>.</p>
+<p>If multiple records are found, the first match is returned. You may set the optional <code>order_by</code>
+parameter to the column ID by which to sort the matches, to determine which of them is
+returned as the first one. By default, the record with the lowest row ID is returned.</p>
+<p>See <a href="#lookuprecords"><code>lookupRecords</code></a> for details of all available options and behavior of
+<code>order_by</code> (and of its legacy alternative, <code>sort_by</code>).</p>
+<p>For example:</p>
+<pre><code>Tasks.lookupOne(Project=$id, order_by=&quot;Priority&quot;)  # Task with the smallest Priority.
+Rates.lookupOne(Person=$id, order_by=&quot;-Date&quot;)      # Rate with the latest Date.
+</code></pre>
+
+<p></details>
 <details id="lookuprecords_2"><summary ></p>
 <h4 id="lookuprecords_1">lookupRecords<a class="headerlink" href="#lookuprecords_1" title="Permanent link">#</a></h4>
 <p><code>UserTable.<strong>lookupRecords</strong>(Field_In_Lookup_Table=value, &hellip;)</code>
@@ -2493,17 +2627,28 @@ Returns a <a href="#recordset">RecordSet</a> matching the given field=value argu
 any expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
 like <code>"Some Value"</code>) (examples below).</p>
-<p>You may set the optional <code>sort_by</code> parameter to the column ID by which to sort multiple matching
-results, to determine which of them is returned. You can prefix the column ID with &ldquo;-&rdquo; to
-reverse the order.</p>
 <p>For example:</p>
 <pre><code>People.lookupRecords(Email=$Work_Email)
 People.lookupRecords(First_Name=&quot;George&quot;, Last_Name=&quot;Washington&quot;)
-People.lookupRecords(Last_Name=&quot;Johnson&quot;, sort_by=&quot;First_Name&quot;)
-Orders.lookupRecords(Customer=$id, sort_by=&quot;-OrderDate&quot;)
 </code></pre>
 
-<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object.</p>
+<p>You may set the optional <code>order_by</code> parameter to the column ID by which to sort the results.
+You can prefix the column ID with &ldquo;-&rdquo; to reverse the order. You can also specify multiple
+column IDs as a tuple (e.g. <code>order_by=("Account", "-Date")</code>).</p>
+<p>For example:</p>
+<pre><code>Transactions.lookupRecords(Account=$Account, order_by=&quot;Date&quot;)
+Transactions.lookupRecords(Account=$Account, order_by=&quot;-Date&quot;)
+Transactions.lookupRecords(Active=True, order_by=(&quot;Account&quot;, &quot;-Date&quot;))
+</code></pre>
+
+<p>For records with equal <code>order_by</code> fields, the results are sorted according to how they appear
+in views (which is determined by the special <code>manualSort</code> column). You may set <code>order_by=None</code>
+to match the order of records in unsorted views.</p>
+<p>By default, with no <code>order_by</code>, records are sorted by row ID, as if with <code>order_by="id"</code>.</p>
+<p>For backward compatibility, <code>sort_by</code> may be used instead of <code>order_by</code>, but only allows a
+single field, and falls back to row ID (rather than <code>manualSort</code>).</p>
+<p>See <a href="#recordset">RecordSet</a> for useful properties offered by the returned object. In
+particular, methods like <a href="#find_"><code>.find.le</code></a> allow searching for nearest values.</p>
 <p>See <a href="#contains">CONTAINS</a> for an example utilizing <code>UserTable.lookupRecords</code> to find records
 where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given
 value.</p>
@@ -4578,14 +4723,6 @@ Given a set of values and corresponding probabilities, calculates the probabilit
 Returns a value nearest to a specified quartile of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rank"><summary class="unimplemented"></p>
-<h4 id="rank">RANK<a class="headerlink" href="#rank" title="Permanent link">#</a></h4>
-<p><code><strong>RANK</strong>(value, data, is_ascending=None)</code>
-<a class="headerlink" href="#rank" title="Permanent link">#</a>
-</summary>
-Returns the rank of a specified value in a dataset.</p>
-<p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.
-</details>
 <details id="rank_avg"><summary class="unimplemented"></p>
 <h4 id="rank_avg">RANK_AVG<a class="headerlink" href="#rank_avg" title="Permanent link">#</a></h4>
 <p><code><strong>RANK_AVG</strong>(value, data, is_ascending=None)</code>
@@ -5029,7 +5166,7 @@ False
 
 <p></details>
 <details id="find"><summary ></p>
-<h4 id="find">FIND<a class="headerlink" href="#find" title="Permanent link">#</a></h4>
+<h4 id="find_1">FIND<a class="headerlink" href="#find_1" title="Permanent link">#</a></h4>
 <p><code><strong>FIND</strong>(find_text, within_text, start_num=1)</code>
 <a class="headerlink" href="#find" title="Permanent link">#</a>
 </summary>
