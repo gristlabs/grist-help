@@ -180,38 +180,38 @@ We can see that the value in the **Full Name** column for the record with Row ID
 
 When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re tracking population changes in the 1,000 most populous world cities. When entering a city into the reference column for city selection, the dropdown lists all 1,000 cities. 
 
-*![Unfiltered reference dropdown list](images/filter-reference-columns/unfiltered-cities.png)*
+*![Unfiltered reference dropdown list](images/columns/unfiltered-cities.png)*
 {: .screenshot-half } 
 
-It would be useful if the dropdown list of city choices were filtered based on the country selected in the **Country** column.
+It would be useful if the dropdown list of city choices were filtered based on the country selected in the **Country: Pop Ranking** column.
 
-To filter a reference column’s dropdown list, select the reference column then set a 'Dropdown Condition' in the *creator panel* under the 'Column' tab. 
+To filter a reference column’s dropdown list, select the reference column then 'Set dropdown condition` in the *creator panel* under the 'Column' tab. 
 
-*![Set dropdown condition](images/filter-reference-columns/set-dropdown-condition.png)*
-{: .screenshot-half } 
-
-
-You can filter a dropdown’s choice by writing a condition as a formula. The attribute `choice` refers to choices in the dropdown. In this case the formula is `choice.Country == $Country`. 
-
-*![Reference dropdown filter condition](images/filter-reference-columns/city-filter-condition.png)*
-{: .screenshot-half } 
-
-*![Filtered reference dropdown list](images/filter-reference-columns/filtered-cities.png)*
+*![Set dropdown condition](images/columns/set-dropdown-condition.png)*
 {: .screenshot-half } 
 
 
-Why did that work? The **City** column is a reference column pointing to the *Cities* table that matches countries and cities. That table looks like this.
+You can filter a dropdown’s choice by writing a condition as a formula. The attribute `choice` refers to choices in the dropdown. In this case the formula is `choice.Country_Cities == $Country_Pop_Ranking`. 
 
-*![Cities reference table](images/filter-reference-columns/cities-tables.png)*
+*![Reference dropdown filter condition](images/columns/city-filter-condition.png)*
 {: .screenshot-half } 
 
-The formula condition `choice.Country == $Country` is looking up each choice’s country in the *Cities* table using a [reference lookup](https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation), then it compares those countries to the value entered in the **Country** column of the *Population Rankings* table. 
-
-*![Filtered reference dropdown list](images/filter-reference-columns/filtered-cities-highlight.png)*
+*![Filtered reference dropdown list](images/columns/filtered-cities.png)*
 {: .screenshot-half } 
 
-The dropdown now lists only choices (aka cities) whose country equals the country entered in **Country** column. 
+
+Why did that work? The **City: Pop Ranking** column is a reference column pointing to the *Cities* table that matches countries and cities. That table looks like this.
+
+*![Cities reference table](images/columns/cities-tables.png)*
+{: .screenshot-half } 
+
+The formula condition `choice.Country_Cities == $Country_Pop_Ranking` is looking up each choice’s country, listed in the **Country: Cities** column of  the *Cities* table using a [reference lookup](references-lookups.md#reference-columns-and-dot-notation), then it compares those countries to the value entered in the **Country: Pop Ranking** column of the *Population Rankings* table. 
+
+*![Filtered reference dropdown list](images/columns/filtered-cities-highlight.png)*
+{: .screenshot-half } 
+
+The dropdown now lists only choices (aka cities) whose country equals the country entered in **Country: Pop Ranking** column. 
 
 The `choice` attribute can also be used when setting dropdown filter conditions for [*choice*](col-types.md#choice-columns) and [*choice list*](col-types.md#choice-list-columns) columns.
 
-Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with [access rules](https://support.getgrist.com/access-rules/) may notice similarities in how to think about writing these formulas.
+Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with [access rules](access-rules.md) may notice similarities in how to think about writing these formulas.
