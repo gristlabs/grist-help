@@ -340,7 +340,7 @@ your understanding of link keys even more.
 
 ## Access rule conditions
 
-Accress rule conditions contain a formula expressing when the rule should apply.
+Access rule conditions contain a formula expressing when the rule should apply.
 A blank condition will always apply. When a condition applies for an action, the
 permissions associated with the condition are set to allowed or denied for that
 action if no earlier rule in the same group has yet set them. When a condition
