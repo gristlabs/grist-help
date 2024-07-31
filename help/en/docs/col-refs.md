@@ -103,6 +103,8 @@ in this example confuse you.
     `$Client.Contact` (singular). That's because the formula refers to the referencing column,
     **not** the underlying table. In our example, the referencing column is **Client**.
 
+    Check out our article on [References & Lookups](references-lookups.md) to see more ways to use references in formulas.
+
 ## Creating a new Reference List column
 
 
