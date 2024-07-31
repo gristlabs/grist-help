@@ -330,7 +330,7 @@ Check out [another example](https://support.getgrist.com/examples/2021-04-link-k
 
 ## Access rule conditions
 
-Accress rule conditions contain a formula expressing when the rule
+Access rule conditions contain a formula expressing when the rule
 should apply.  A blank condition will always apply.  When a condition
 applies for an action, the permissions associated with the condition are
 set to allowed or denied for that action if no earlier rule in the same
