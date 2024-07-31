@@ -76,6 +76,7 @@ nav:
     - REST API reference: api.md
     - Integrator services: integrators.md
     - Embedding: embedding.md
+    - Webhooks: webhooks.md
     - Plugin API:
       - Intro to Plugin API: code/README.md
       - grist-plugin-api: code/modules/grist_plugin_api.md
