@@ -428,6 +428,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../webhooks/" class="wm-article-link wm-toc-text">Webhooks</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Plugin API</span>
 </li>
 <li class="wm-toc-li-nested collapse">
@@ -1083,6 +1087,7 @@
 <li><a href="#how-do-i-list-custom-widgets">How do I list custom widgets?</a></li>
 <li><a href="#how-do-i-set-up-email-notifications">How do I set up email notifications?</a></li>
 <li><a href="#how-do-i-add-more-python-packages">How do I add more python packages?</a></li>
+<li><a href="#how-do-i-configure-webhooks">How do I configure webhooks?</a></li>
 </ul>
 </li>
 <li><a href="#operations">Operations</a><ul>
@@ -1527,6 +1532,14 @@ formulas, currently that requires a code change to
 If you are comfortable making code changes, then the build instructions
 of the <a href="https://github.com/gristlabs/grist-core/">grist-core</a> repository
 are the place to start.</p>
+<h3 class="tag-core tag-ee" id="how-do-i-configure-webhooks">How do I configure webhooks?<a class="headerlink" href="#how-do-i-configure-webhooks" title="Permanent link">#</a></h3>
+<p>It is possible to use webhooks to enable integrations with external
+services. The <a href="../webhooks/">webhooks documentation</a> has further details.</p>
+<p>Note that when self-hosting, only external services allowed by the
+<a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables"><code>ALLOWED_WEBHOOK_DOMAINS</code> environment variable</a>
+are allowed. <a href="../webhooks/#security">There are security concerns</a> with
+allowing any domain, as internal Grist services may become vulnerable
+to manipulation.</p>
 <hr />
 <h2 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">#</a></h2>
 <h3 class="tag-core tag-ee" id="what-are-the-hardware-requirements-for-hosting-grist">What are the hardware requirements for hosting Grist?<a class="headerlink" href="#what-are-the-hardware-requirements-for-hosting-grist" title="Permanent link">#</a></h3>
