@@ -2,9 +2,10 @@
 
 The raw data page is a special page that lists all [data tables](glossary.md#data-table) in your document and summarizes your document's usage statistics.
 
-From your document, navigate to the raw data page by clicking on the Raw Data link in the bottom left of the pages menu.
+From your document, navigate to the raw data page by clicking on the 'Raw Data' link in the bottom left of the pages menu.
 
-![Raw Data in Menu](images/raw-data/raw-data-nav.png)
+<span class="screenshot-large">*![Raw Data in Menu](images/raw-data/raw-data-nav.png)*</span>
+{: .screenshot-half } 
 
 Unlike other [pages](page-widgets.md), the layout in the raw data page cannot be customized. From the list of data tables, you can find the data table's name and id, and remove data. Note that removing a data table from this page *will* delete data and remove it from all pages. This is different from other pages where it is possible to remove a view of data and not delete the data itself. 
 
@@ -16,7 +17,7 @@ Click on a data table to open it. Note that in the creator panel the [widget typ
 
 ## Duplicating Data
 
-Tables can be duplicated from the Raw Data page. Click the three-dot icon to the right of the table you wish to duplicate then select 'Duplicate Table' from the menu.
+Tables can be duplicated from the 'Raw Data' page. Click the three-dot icon to the right of the table you wish to duplicate then select 'Duplicate Table' from the menu.
 
 ![raw-data-duplicate-table](images/raw-data/raw-data-duplicate-table.png)
 
@@ -27,7 +28,7 @@ By default, a duplicated table will only contain the table structure, not the da
 
 The duplicate table is a new table that is not linked to the original. Meaning, if you update data in the copy, the original table will not be updated, and vice versa.
 
-Note that instead of duplicating tables, it's usually better to segment data by adding a new column. Let's use expenses as an example. Rather than having separate tables for each month's expenses, it is better to include all data in a single table and create a new column called "Month" to segment rows into months. In general, if you have multiple tables with near identical columns, this is an indicator that the data could all be in the same table. Doing so may make data analysis easier.
+Note that instead of duplicating tables, it's usually better to segment data by adding a new column. Let's use expenses as an example. Rather than having separate tables for each month's expenses, it is better to include all data in a single table and create a new column called **Month** to segment rows into months. In general, if you have multiple tables with near identical columns, this is an indicator that the data could all be in the same table. Doing so may make data analysis easier.
 
 ## Usage
 
