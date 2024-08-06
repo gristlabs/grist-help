@@ -187,7 +187,7 @@ When entering data into a reference column you will see a dropdown list of all a
 
 It would be useful if the dropdown list of city choices were filtered based on the country selected in the **Country: Pop Ranking** column.
 
-To filter a reference column’s dropdown list, select the reference column then 'Set dropdown condition` in the *creator panel* under the 'Column' tab. 
+To filter a reference column’s dropdown list, select the reference column then 'Set dropdown condition' in the *creator panel* under the 'Column' tab. 
 
 *![Set dropdown condition](images/columns/set-dropdown-condition.png)*
 {: .screenshot-half } 
