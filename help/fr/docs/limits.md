@@ -1,32 +1,32 @@
 # Limites
 
-To help you assess whether Grist will work for a use-case you have in mind, here is a list of limitations that apply to its operation.
+Pour vous aider à évaluer si Grist fonctionnera pour un cas d’usage que vous avez en tête, voici une liste de limitations qui s’appliquent à son fonctionnement.
 
 ## Nombre de documents
 
 Pour tous les plans, aucune limite de document n'est appliquée.
 
-To prevent accidental abuse of the system by automation tools, team sites may be limited to 1,000 documents. If you encounter such a limit for legitimate use, please contact support to increase it.
+Pour éviter toute utilisation abusive accidentelle du système par des outils d'automatisation, les espaces d'équipe peuvent être limités à 1 000 documents. Si vous rencontrez une telle limite pour une utilisation légitime, veuillez contacter le support pour l'augmenter.
 
-Older free plans had a limit of ten documents. Learn more about [legacy limits](#legacy-limits).
+Les anciens plans gratuits avaient une limite de dix documents. En savoir plus sur [les anciennes limites](#legacy-limits).
 
 ## Number of collaborators
 
-For team sites on all plans, there is no limit on the number of team members that may be added to the site.  For paid plans, the number of team members determines the price. See our [pricing page](https://www.getgrist.com/pricing) for details.
+Pour les espaces d'équipe de tous les forfaits, il n'y a aucune limite au nombre de membres de l'équipe qui peuvent être ajoutés au site. Pour les forfaits payants, le nombre de membres de l'équipe détermine le prix. Consultez notre [page de tarification](https://www.getgrist.com/pricing) pour plus de détails.
 
 Team members added to your team site may inherit access to workspaces or documents within that organization. Learn more about [team sharing](team-sharing.md).
 
-On both personal and team sites, each document may be shared with up to 2 free guests who do not affect the plan price even on paid plans.
+Sur les espaces personnels et d'équipe, chaque document peut être partagé avec jusqu'à 2 invités gratuits qui n'affectent pas le prix du forfait, même sur les forfaits payants.
 
-## Number of tables per document
+## Nombre de tables par document
 
-There is a limit of 500 tables allowed per document. This is a soft limit. If you find yourself with a large number of tables, consider merging ones that have the same structure.  For example, if you have a table for each product type, consider using a single table with the product type as an extra column.
+La limite autorisée est de 500 tables par document. Il s'agit d'une limite souple. Si vous vous retrouvez avec un grand nombre de tables, envisagez de fusionner ceux qui ont la même structure. Par exemple, si vous avez une table pour chaque type de produit, envisagez d'utiliser une seul table avec le type de produit comme colonne supplémentaire.
 
 ## Rows per document
 
 On the Free plan, documents have a limit of 5,000 rows. The limit for Pro and Business plans is 100,000 and 150,000 rows, respectively.
 
-Documents are also subject to data size limits, as described below.
+Les documents sont également soumis à des limitations de taille de données, comme décrit ci-dessous.
 
 ## Data size
 
@@ -38,7 +38,7 @@ Attachments are counted separately. Attachments plus data in a single document a
 
 ## Uploads
 
-Uploads are limited to 50MB, both for attachments and to import data. Note that an import within this limit may result in a document that exceeds the document size limit, in which case the upload is still likely to fail.
+Les téléversements sont limités à 50 Mo, tant pour les pièces jointes que pour l'importation de données. Notez qu'une importation dans cette limite peut entraîner un document dépassant la taille limite du document, auquel cas le téléchargement risque toujours d'échouer.
 
 ## API limits
 
@@ -58,10 +58,10 @@ From time to time, during upgrades and operational transitions, individual Grist
 
 Older free personal plans have the following limits:
 
-- 10 documents per site
-- No workspaces
+- 10 documents par espace d'équipe
+- Pas de dossier
 - 100,000 rows
 
-To determine if you're on a legacy personal site, click on your site name (@your-name) in the top left. Personal sites on the legacy plan will say "Personal Site (Legacy)" in the dropdown menu.
+Pour déterminer si vous utilisez un espace personnel existant, cliquez sur le nom de votre site (@votre-nom) en haut à gauche. Les sites personnels sur le plan existant afficheront « Site personnel (ancien) » dans le menu déroulant.
 
-On the current Free plan, all personal and team sites share the same limits as described above and on our [pricing page](https://www.getgrist.com/pricing).
+Dans le plan gratuit actuel, tous les espaces personnels et d'équipe partagent les mêmes limites que celles décrites ci-dessus et sur notre [page de tarification](https://www.getgrist.com/pricing) .
