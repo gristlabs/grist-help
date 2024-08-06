@@ -1,6 +1,6 @@
 ## Embedding Grist
 
-Perhaps you'd like to list your product, prices and quantities on your website,
+You'd like to list your product, prices and quantities on your website,
 or you want to display a pie chart of voting results that updates live. With
 [public access](sharing.md#public-access-and-link-sharing) turned on, you may embed your
 Grist document on your own site.
