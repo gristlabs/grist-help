@@ -10,11 +10,11 @@ Pour éviter toute utilisation abusive accidentelle du système par des outils d
 
 Les anciens plans gratuits avaient une limite de dix documents. En savoir plus sur [les anciennes limites](#legacy-limits).
 
-## Number of collaborators
+## Nombre de collaborateurs
 
 Pour les espaces d'équipe de tous les forfaits, il n'y a aucune limite au nombre de membres de l'équipe qui peuvent être ajoutés au site. Pour les forfaits payants, le nombre de membres de l'équipe détermine le prix. Consultez notre [page de tarification](https://www.getgrist.com/pricing) pour plus de détails.
 
-Team members added to your team site may inherit access to workspaces or documents within that organization. Learn more about [team sharing](team-sharing.md).
+Les membres de l'équipe ajoutés à votre site d'équipe peuvent hériter de l'accès aux espaces de travail ou aux documents au sein de cette organisation. En savoir plus sur [le partage d'équipe](team-sharing.md) .
 
 Sur les espaces personnels et d'équipe, chaque document peut être partagé avec jusqu'à 2 invités gratuits qui n'affectent pas le prix du forfait, même sur les forfaits payants.
 
@@ -22,45 +22,45 @@ Sur les espaces personnels et d'équipe, chaque document peut être partagé ave
 
 La limite autorisée est de 500 tables par document. Il s'agit d'une limite souple. Si vous vous retrouvez avec un grand nombre de tables, envisagez de fusionner ceux qui ont la même structure. Par exemple, si vous avez une table pour chaque type de produit, envisagez d'utiliser une seul table avec le type de produit comme colonne supplémentaire.
 
-## Rows per document
+## Lignes par document
 
-On the Free plan, documents have a limit of 5,000 rows. The limit for Pro and Business plans is 100,000 and 150,000 rows, respectively.
+Avec le plan gratuit, les documents ont une limite de 5 000 lignes. La limite pour les plans Pro et Business est respectivement de 100 000 et 150 000 lignes.
 
 Les documents sont également soumis à des limitations de taille de données, comme décrit ci-dessous.
 
-## Data size
+## Taille des données
 
-There is a hard limit to a document's total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document's current data size on the ['Raw Data' page](https://support.getgrist.com/raw-data/#usage).
+La taille totale des données d'un document est limitée, elle est déterminée en multipliant la limite de lignes par 2 Ko. Cela signifie que les documents du plan Free ont une limite de taille de données de 10 Mo, tandis que les documents des plans Pro et Business ont des limites de 200 Mo et 300 Mo respectivement. Cette valeur correspond approximativement à la taille des données au format CSV. Vous pouvez voir la taille actuelle des données d'un document sur la [page « Données brutes »](https://support.getgrist.com/raw-data/#usage) .
 
-For memory and performance reasons, there's a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in [formula timer](https://support.getgrist.com/formula-timer/).
+Pour des raisons de mémoire et de performances, la taille des données recommandée est limitée à 20 Mo. Les documents dépassant 20 Mo peuvent ralentir ou atteindre des limites de mémoire en fonction de leur complexité. Par exemple, un document contenant 100 000 lignes et 24 colonnes numériques atteindrait cette limite recommandée. Pour optimiser les formules sur des documents volumineux, vous pouvez utiliser le [minuteur de formule](https://support.getgrist.com/formula-timer/) intégré.
 
-Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.
+Les pièces jointes sont comptabilisées séparément. Les pièces jointes et les données d'un même document sont limitées à 1 Go sur tous les forfaits.
 
-## Uploads
+## Téléchargements
 
 Les téléversements sont limités à 50 Mo, tant pour les pièces jointes que pour l'importation de données. Notez qu'une importation dans cette limite peut entraîner un document dépassant la taille limite du document, auquel cas le téléchargement risque toujours d'échouer.
 
-## API limits
+## Limites de l'API
 
-Free plans are limited to 5,000 API calls per document per day. Pro and Business plans raise the limit to 40,000 and 60,000 calls per document per day, respectively.
+Les plans gratuits sont limités à 5 000 appels API par document et par jour. Les plans Pro et Business augmentent la limite à 40 000 et 60 000 appels par document et par jour, respectivement.
 
-Free plans may be rate limited to 5 API requests per second per document. The team plan does not impose such a rate limit.
+Les plans gratuits peuvent être limités à 5 requêtes API par seconde et par document. Le plan d'équipe n'impose pas une telle limite de débit.
 
-Separately, there is a concurrency limit of 10 for all plans: if 10 authorized API requests are currently being processed for a particular document, any other API requests will be rejected (with HTTP status code 429) until at least one of the original requests completes.  A client that waits for one request to complete before sending the next would not hit this limit (assuming it is the sole client accessing the document).
+Par ailleurs, il existe une limite de simultanéité de 10 pour tous les plans : si 10 requêtes API autorisées sont actuellement en cours de traitement pour un document particulier, toutes les autres requêtes API seront rejetées (avec le code d'état HTTP 429) jusqu'à ce qu'au moins une des requêtes d'origine soit terminée. Un client qui attend qu'une requête soit terminée avant d'envoyer la suivante n'atteindra pas cette limite (en supposant qu'il soit le seul client à accéder au document).
 
-The size of the body of any individual API request is limited to 1MB. In particular, this means that requests adding or updating multiple records may need to be split into batches that fit within this limit.
+La taille du corps de chaque requête API individuelle est limitée à 1 Mo. En particulier, cela signifie que les demandes d'ajout ou de mise à jour de plusieurs enregistrements peuvent devoir être divisées en lots qui respectent cette limite.
 
-## Document availability
+## Disponibilité des documents
 
-From time to time, during upgrades and operational transitions, individual Grist documents may become inaccessible for a period of some seconds. Please bear this in mind when using Grist's API.
+De temps à autre, lors des mises à niveau et des transitions opérationnelles, certains documents Grist peuvent devenir inaccessibles pendant quelques secondes. Veuillez en tenir compte lorsque vous utilisez l'API de Grist.
 
-## Legacy limits
+## Limites héritées
 
-Older free personal plans have the following limits:
+Les anciens forfaits personnels gratuits ont les limites suivantes :
 
 - 10 documents par espace d'équipe
 - Pas de dossier
-- 100,000 rows
+- 100 000 lignes
 
 Pour déterminer si vous utilisez un espace personnel existant, cliquez sur le nom de votre site (@votre-nom) en haut à gauche. Les sites personnels sur le plan existant afficheront « Site personnel (ancien) » dans le menu déroulant.
 
