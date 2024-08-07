@@ -18,13 +18,12 @@ theme:
   # Disable the language selector when running in live (so for a specific language)
   disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
 nav:
-  - Welcome to Grist: index.md
-  - FAQ: FAQ.md
-  - How-to tutorials:
-    - Create your own CRM: lightweight-crm.md
-    - Analyze and visualize: investment-research.md
-    - Manage business data: afterschool-program.md
-  - Managing documents:
+# NEW
+  - Grist fundamentals:
+    - Team sites and workspaces: # PLACEHOLDER
+    - Documents, pages and widgets: # PLACEHOLDER
+    - Raw data: raw-data.md
+  - Documents:
     - Creating a document: creating-doc.md
     - Sharing a document: sharing.md
     - Copying documents: copying-docs.md
@@ -33,10 +32,17 @@ nav:
     - Automatic backups: automatic-backups.md
     - Document history: document-history.md
     - Workspaces: workspaces.md
+    - Pages & widgets: page-widgets.md
+    - Linking widgets: linking-widgets.md
+# OLD
+  - Welcome to Grist: index.md
+  - FAQ: FAQ.md
+  - How-to tutorials:
+    - Create your own CRM: lightweight-crm.md
+    - Analyze and visualize: investment-research.md
+    - Manage business data: afterschool-program.md
   - Pages and tables:
     - Entering data: enter-data.md
-    - Pages & widgets: page-widgets.md
-    - Raw data: raw-data.md
     - Search, sort & filter: search-sort-filter.md
     - Table widget: widget-table.md
     - Card & card list: widget-card.md
@@ -44,7 +50,7 @@ nav:
     - Chart: widget-chart.md
     - Calendar: widget-calendar.md
     - Custom: widget-custom.md
-    - Linking widgets: linking-widgets.md
+    - # Linking widgets: linking-widgets.md
     - Custom layouts: custom-layouts.md
     - Record cards: record-cards.md
     - Summary tables: summary-tables.md
