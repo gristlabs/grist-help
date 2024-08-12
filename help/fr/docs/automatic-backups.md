@@ -13,7 +13,7 @@ Pour voir la liste des sauvegardes, cliquez sur "Historique des documents" dans 
 dans le panneau de droite :
 
 <span class="screenshot-large">* ![Menu Copie non sauvegardée](images/automatic-backups/doc-history.png)*</span>
-{ : .screenshot-half }
+{: .screenshot-half }
 
 Vous pouvez ouvrir n'importe lequel des instantanés répertoriés pour voir le document tel qu'il existait à ce moment-là.
 
@@ -22,7 +22,7 @@ Vous pouvez ouvrir n'importe lequel des instantanés répertoriés pour voir le 
 Lors de l'examen d'un instantané, le menu "Partager" propose des options supplémentaires ;
 
 <span class="screenshot-large">* ![Unsaved Copy Menu](images/automatic-backups/snapshot-share-menu.png)*</span>
-{ : .screenshot-half }
+{: .screenshot-half }
 
 Utilisez l'option "Remplacer la version actuelle" pour revenir à la version que vous consultez.
 

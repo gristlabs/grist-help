@@ -5,7 +5,7 @@ Pour accéder aux informations relatives à l'historique d'un document, cliquez 
 Le panneau de droite propose alors deux onglets, "Activité" et "Instantanés".
 
 <span class="screenshot-large">* ![Historique du document](images/automatic-backups/doc-history.png)*</span>
-{ : .screenshot-half }
+{: .screenshot-half }
 
 ## Instantanés
 

@@ -10,13 +10,13 @@ Cette opération permet d'ouvrir une fiche modifiable contenant les détails de 
 
 ![fiche-exemple](images/record-cards/record-cards-example.png)
 
-Si votre tableau contient une colonne [référence ou liste de références] (col-refs.md), vous pouvez cliquer sur l'icône du lien pour ouvrir la fiche de la notice liée.
+Si votre tableau contient une colonne [référence ou liste de références](col-refs.md), vous pouvez cliquer sur l'icône du lien pour ouvrir la fiche de la notice liée.
 
 ![fiches-référence-col](images/record-cards/record-cards-reference-col.png)
 
 Une fiche d'enregistrement s'ouvre pour afficher les données de l'enregistrement référencé.
 
-![fiches-références-enregistrement](images/record-cards/record-cards-références-enregistrement.png)
+![fiches-références-enregistrement](images/record-cards/record-cards-referenced-record.png)
 
 ## Modifier la mise en page d'une fiche
 
@@ -24,7 +24,7 @@ Vous pouvez modifier la mise en page d'une fiche à partir de la page [Raw Data]
 
 ![cartes-enregistrées-edit-layout](images/record-cards/record-cards-edit-layout.png)
 
-Vous pouvez glisser-déposer les champs pour les réorganiser, les redimensionner et les ajouter/supprimer de la vue. En savoir plus sur la [modification de la présentation des cartes] (widget-card.md#editing-card-layout).
+Vous pouvez glisser-déposer les champs pour les réorganiser, les redimensionner et les ajouter/supprimer de la vue. En savoir plus sur la [modification de la présentation des cartes](widget-card.md#editing-card-layout).
 
 ![cartes-enregistrées-edit-layout-2](images/record-cards/record-cards-edit-layout-2.png)
 

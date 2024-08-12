@@ -16,15 +16,15 @@ Vous pouvez utiliser Grist sans problème dans des navigateurs mobiles tels que 
 
 Sur les petits écrans, vous pouvez trouver la liste des pages à partir du bouton situé dans la barre inférieure.
 
-* ![Grist on mobile](images/newsletters/2021-02/mobile-pages.png)*
+*![Grist on mobile](images/newsletters/2021-02/mobile-pages.png)*
 
 Pour les pages comportant plusieurs vues, seule la vue active est développée. Les autres vues sont réduites jusqu'à ce que vous les développiez.
 
-* ![Widgets extensibles](images/newsletters/2021-02/mobile-widgets.png)*
+*![Widgets extensibles](images/newsletters/2021-02/mobile-widgets.png)*
 
 Pour modifier une cellule, il suffit de la toucher deux fois.
 
 La prise en charge des appareils mobiles est encore en cours d'élaboration. Pour revenir à la version de bureau sur un appareil mobile, ouvrez le menu de votre compte et sélectionnez l'option "Basculer en mode mobile" :
 
-* ![Basculer en mode mobile](images/toggle-mobile-mode.png)*
-{ : .screenshot-half }
+*![Basculer en mode mobile](images/toggle-mobile-mode.png)*
+{: .screenshot-half }
