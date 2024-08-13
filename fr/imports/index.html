@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="You can import a file to start a new Grist document, or to
-add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from Google Drive.">
-      <meta property="og:description" content="You can import a file to start a new Grist document, or to
-add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from Google Drive.">
+      <meta name="description" content="Vous pouvez importer un fichier pour créer un nouveau document Grist, ou pour
+ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON,
+de fichiers séparés par des tabulations et de Google Drive.">
+      <meta property="og:description" content="Vous pouvez importer un fichier pour créer un nouveau document Grist, ou pour
+ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON,
+de fichiers séparés par des tabulations et de Google Drive.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/imports/">
@@ -228,32 +228,32 @@ tab-separated files and from Google Drive.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Importing more data
+              Importation de données supplémentaires
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#the-import-dialog">
-                The Import dialog
+              <a class="wm-article-link wm-page-toc-text" href="#la-boite-de-dialogue-dimportation">
+                La boîte de dialogue d'importation
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#guessing-data-structure">
-                Guessing data structure
+              <a class="wm-article-link wm-page-toc-text" href="#deviner-la-structure-des-donnees">
+                Deviner la structure des données
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#import-from-google-drive">
-                Import from Google Drive
+              <a class="wm-article-link wm-page-toc-text" href="#importer-depuis-google-drive">
+                Importer depuis Google Drive
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#import-to-an-existing-table">
-                Import to an existing table
+              <a class="wm-article-link wm-page-toc-text" href="#importer-dans-une-table-existante">
+                Importer dans une table existante
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#updating-existing-records">
-                Updating existing records
+              <a class="wm-article-link wm-page-toc-text" href="#mise-a-jour-des-enregistrements-existants">
+                Mise à jour des enregistrements existants
               </a>
             </li>
         
@@ -942,116 +942,109 @@ tab-separated files and from Google Drive.">
 
     
 
-    <h1 id="importing-more-data">Importing more data<a class="headerlink" href="#importing-more-data" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://hosted.weblate.org/engage/grist-help/" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
-</div>
-<p>You can import a file to <a href="../creating-doc/">start a new Grist document</a>, or to
-add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from <a href="./#import-from-google-drive">Google Drive</a>.</p>
-<p>To start a new Grist document, click the &ldquo;Add New&rdquo; button on the home screen
-and choose &ldquo;Import document&rdquo;, as described in <a href="../creating-doc/">starting a new Grist document</a>.</p>
-<p>To add to an existing document, open that document, click the &ldquo;Add
-New&rdquo; button and then &ldquo;Import from file&rdquo;.  By default, each imported
-table is added as a new Grist table, but when examining the preview
-dialog for an import, you have an option to change the destination to
-an existing Grist table.</p>
-<p>You can also import any of the same formats from a URL, using the &ldquo;Import from URL&rdquo; option.</p>
-<h2 id="the-import-dialog">The Import dialog<a class="headerlink" href="#the-import-dialog" title="Permanent link">#</a></h2>
-<p>When you import data into an existing document, Grist opens an import dialog to
-show you what will be imported. This dialog offers available import options,
-lets you choose whether to create a new table or add to an existing one, and
-shows a preview of the data.</p>
+    <h1 id="importation-de-donnees-supplementaires">Importation de données supplémentaires<a class="headerlink" href="#importation-de-donnees-supplementaires" title="Permanent link">#</a></h1>
+<p>Vous pouvez importer un fichier pour <a href="../creating-doc/">créer un nouveau document Grist</a>, ou pour
+ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON,
+de fichiers séparés par des tabulations et de <a href="./#import-from-google-drive">Google Drive</a>.</p>
+<p>Pour commencer un nouveau document Grist, cliquez sur le bouton &ldquo;Add New&rdquo; sur l&rsquo;écran d&rsquo;accueil
+et choisissez &ldquo;Importer un document&rdquo;, comme décrit dans <a href="../creating-doc/">Démarrer un nouveau document Grist</a>.</p>
+<p>Pour ajouter un élément à un document existant, ouvrez ce document, cliquez sur le bouton &ldquo;Ajouter un nouvel élément&rdquo;, puis sur &ldquo;Importer à partir d&rsquo;un fichier&rdquo;.
+Nouveau&rdquo;, puis &ldquo;Importer depuis un fichier&rdquo;.  Par défaut, chaque tableau importé
+par défaut, chaque tableau importé est ajouté en tant que nouveau tableau Grist.
+de prévisualisation d&rsquo;une importation, vous avez la possibilité de changer la destination en une table Grist existante.
+une table Grist existante.</p>
+<p>Vous pouvez également importer les mêmes formats à partir d&rsquo;une URL, en utilisant l&rsquo;option &ldquo;Importer à partir d&rsquo;une URL&rdquo;.</p>
+<h2 id="la-boite-de-dialogue-dimportation">La boîte de dialogue d&rsquo;importation<a class="headerlink" href="#la-boite-de-dialogue-dimportation" title="Permanent link">#</a></h2>
+<p>Lorsque vous importez des données dans un document existant, Grist ouvre une boîte de dialogue d&rsquo;importation pour vous montrer ce qui sera importé.
+pour vous montrer ce qui sera importé. Cette boîte de dialogue propose les options d&rsquo;importation disponibles,
+vous permet de choisir entre la création d&rsquo;un nouveau tableau ou l&rsquo;ajout à un tableau existant, et
+affiche un aperçu des données.</p>
 <p><img alt="import-dialog" src="../images/import-dialog.png" /></p>
-<p>The &ldquo;Import options&rdquo; link on the top right is sometimes useful when importing
-delimited files. Grist guesses the settings to parse the data (such as the
-field delimiter), but if it guesses incorrectly, you can adjust the settings.</p>
-<h2 id="guessing-data-structure">Guessing data structure<a class="headerlink" href="#guessing-data-structure" title="Permanent link">#</a></h2>
-<p>In all cases, when you import a file, Grist makes guesses about the structure of the file.</p>
-<p>For Excel files, Grist treats each sheet as a separated table. For CSV and
-other delimited formats, one file becomes one table. For both Excel and
-delimited files, Grist tries to detect whether the headers are included and
-which line they occur in. If Grist detects there are no headers, it will name
-columns as &ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;, etc.</p>
-<p>Grist automatically tries to parse numbers, dates, and boolean fields to detect
-the most suitable type for each column. It tries to be lossless: e.g. if it
-marks a column as numeric, any text values in it (such as &ldquo;N/A&rdquo;) will remain in
-the imported table, but will be highlighted due to the type mismatch.</p>
-<p>You can always rename tables and columns after an import, as well as convert types.</p>
-<h2 id="import-from-google-drive">Import from Google Drive<a class="headerlink" href="#import-from-google-drive" title="Permanent link">#</a></h2>
-<p>Importing from a Google Drive is as easy as importing from an Excel file or a 
-CSV file. You can either provide an URL of a file stored in the Google Drive or
-use a Google File Picker to choose a file from your own drive.</p>
-<p>To use a Picker, click the &ldquo;Add New&rdquo; button and choose &ldquo;Import from Google 
+<p>Le lien &ldquo;Options d&rsquo;importation&rdquo; en haut à droite est parfois utile lors de l&rsquo;importation de fichiers délimités.
+fichiers délimités. Grist devine les paramètres pour analyser les données (comme le délimiteur de champ
+), mais s&rsquo;il se trompe, vous pouvez ajuster les paramètres.</p>
+<h2 id="deviner-la-structure-des-donnees">Deviner la structure des données<a class="headerlink" href="#deviner-la-structure-des-donnees" title="Permanent link">#</a></h2>
+<p>Dans tous les cas, lorsque vous importez un fichier, Grist fait des suppositions sur la structure du fichier.</p>
+<p>Pour les fichiers Excel, Grist traite chaque feuille comme un tableau séparé. Pour les formats CSV et
+et autres formats délimités, un fichier devient un tableau. Pour les fichiers Excel et
+fichiers délimités, Grist essaie de détecter si les en-têtes sont inclus et
+dans quelle ligne ils se trouvent. Si Grist détecte qu&rsquo;il n&rsquo;y a pas d&rsquo;en-têtes, il nommera les colonnes &ldquo;A&rdquo;, &ldquo;B&rdquo; et &ldquo;C&rdquo;.
+colonnes comme &ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;, etc.</p>
+<p>Grist essaie automatiquement d&rsquo;analyser les nombres, les dates et les champs booléens afin de détecter le type le plus approprié pour chaque colonne.
+le type le plus approprié pour chaque colonne. Il s&rsquo;efforce d&rsquo;être sans perte : par exemple, s&rsquo;il
+une colonne comme numérique, toute valeur textuelle (telle que &ldquo;N/A&rdquo;) restera dans la
+dans le tableau importé, mais elles seront mises en évidence en raison de la non-concordance des types.</p>
+<p>Vous pouvez toujours renommer les tables et les colonnes après une importation, ainsi que convertir les types.</p>
+<h2 id="importer-depuis-google-drive">Importer depuis Google Drive<a class="headerlink" href="#importer-depuis-google-drive" title="Permanent link">#</a></h2>
+<p>L&rsquo;importation à partir d&rsquo;un Google Drive est aussi simple que l&rsquo;importation à partir d&rsquo;un fichier Excel ou d&rsquo;un fichier
+CSV. Vous pouvez soit fournir l&rsquo;URL d&rsquo;un fichier stocké dans le lecteur Google, soit utiliser le sélecteur de fichiers Google pour choisir un fichier sur votre propre lecteur.
+utiliser le sélecteur de fichiers Google pour choisir un fichier sur votre propre disque.</p>
+<p>Pour utiliser un sélecteur, cliquez sur le bouton &ldquo;Ajouter nouveau&rdquo; et choisissez &ldquo;Importer depuis Google
 Drive&rdquo;.</p>
 <p><img alt="import-dialog" src="../images/import-google-drive-sign-in.png" /></p>
-<p>To import, sign in to your Google Account by clicking the &ldquo;Sign in&rdquo; button and
-following the sign-in process. Grist will ask for a permission to read the file
-you will import from Google Drive. We won&rsquo;t read any other files on your
-drive — just the single file you choose to import.</p>
+<p>Pour importer, connectez-vous à votre compte Google en cliquant sur le bouton &ldquo;Connexion&rdquo; et en suivant la procédure de connexion.
+en suivant la procédure de connexion. Grist vous demandera l&rsquo;autorisation de lire le fichier que vous allez importer de Google Drive.
+que vous allez importer depuis Google Drive. Nous ne lirons pas d&rsquo;autres fichiers sur votre
+uniquement le fichier que vous avez choisi d&rsquo;importer.</p>
 <p><img alt="import-dialog" src="../images/import-google-drive-picker.png" /></p>
-<p>Once the file has been chosen, the rest of the process is the same as importing 
-from an Excel file. In the <a href="./#the-import-dialog">import dialog</a> 
-you may configure what data to import, and which destination table to add it to.</p>
-<p>If you have an URL to a file or a spreadsheet stored on your Google Drive or a file that
-is publicly accessible, you can import it directly using the &ldquo;Import from URL&rdquo; option from
-the &ldquo;Add New&rdquo; menu.</p>
+<p>Une fois le fichier choisi, le reste du processus est identique à l&rsquo;importation à partir d&rsquo;un fichier Excel.
+à partir d&rsquo;un fichier Excel. Dans la <a href="./#the-import-dialog">boîte de dialogue d&rsquo;importation</a>
+vous pouvez configurer les données à importer et le tableau de destination auquel les ajouter.</p>
+<p>Si vous disposez de l&rsquo;URL d&rsquo;un fichier ou d&rsquo;une feuille de calcul stockée sur votre Google Drive ou d&rsquo;un fichier qui est
+accessible au public, vous pouvez l&rsquo;importer directement à l&rsquo;aide de l&rsquo;option &ldquo;Importer à partir d&rsquo;une URL&rdquo; du menu &ldquo;Ajouter un nouveau&rdquo;.
+dans le menu &ldquo;Ajouter nouveau&rdquo;.</p>
 <p><img alt="import-from-url" src="../images/import-from-url.png" /></p>
-<p>If the file is not shared publicly, Grist will ask you for permission
-to read files from your Google Drive. If you don&rsquo;t want to allow Grist to read your files,
-it will open up Google File Picker where you can select the file you want to import.</p>
-<h2 id="import-to-an-existing-table">Import to an existing table<a class="headerlink" href="#import-to-an-existing-table" title="Permanent link">#</a></h2>
-<p>By default, Grist imports new data as new tables, but the Import dialog allows
-you to change the destination and import data into an existing table.</p>
-<p>When importing to an existing table, Grist will attempt to match the columns
-from your imported file to the columns in the destination table. To manually
-specify column matching, click the &lsquo;Source Column&rsquo; drop down to open a menu with a list of 
-unused columns from your imported file. Click on a column name to match it
-to a destination column, or select &lsquo;Skip&rsquo; to skip importing data from that column.</p>
+<p>Si le fichier n&rsquo;est pas partagé publiquement, Grist vous demandera l&rsquo;autorisation de lire les fichiers de votre Google Drive.
+de lire les fichiers de votre Google Drive. Si vous ne souhaitez pas autoriser Grist à lire vos fichiers,
+Grist ouvrira le sélecteur de fichiers Google, dans lequel vous pourrez sélectionner le fichier que vous souhaitez importer.</p>
+<h2 id="importer-dans-une-table-existante">Importer dans une table existante<a class="headerlink" href="#importer-dans-une-table-existante" title="Permanent link">#</a></h2>
+<p>Par défaut, Grist importe les nouvelles données dans de nouvelles tables, mais la boîte de dialogue Importation vous permet de modifier la destination et d&rsquo;importer les données dans une table existante.
+de modifier la destination et d&rsquo;importer des données dans une table existante.</p>
+<p>Lors de l&rsquo;importation dans une table existante, Grist tentera de faire correspondre les colonnes de votre fichier importé aux colonnes de la table de destination.
+de votre fichier importé aux colonnes de la table de destination. Pour spécifier manuellement
+Pour spécifier manuellement la correspondance des colonnes, cliquez sur le menu déroulant &ldquo;Colonne source&rdquo; pour ouvrir un menu avec une liste de colonnes inutilisées de votre fichier importé.
+colonnes inutilisées de votre fichier importé. Cliquez sur le nom d&rsquo;une colonne pour la faire correspondre
+à une colonne de destination, ou sélectionnez &ldquo;Ignorer&rdquo; pour ne pas importer les données de cette colonne.</p>
 <p><img alt="import-dialog" src="../images/import-dialog-matching.png" /></p>
-<p>You can also specify a formula for each imported column by clicking &lsquo;Apply Formula&rsquo; from the &lsquo;Source Column&rsquo; 
-drop down menu. Formulas can reference one or more imported columns, and the result of evaluating the formula will
-be shown in the preview after closing the editor.</p>
+<p>Vous pouvez également spécifier une formule pour chaque colonne importée en cliquant sur &ldquo;Appliquer une formule&rdquo; dans le menu déroulant &ldquo;Colonne source&rdquo;.
+dans le menu déroulant &ldquo;Colonne source&rdquo;. Les formules peuvent faire référence à une ou plusieurs colonnes importées, et le résultat de l&rsquo;évaluation de la formule sera affiché dans l&rsquo;aperçu après la fermeture de l&rsquo;éditeur.
+sera affiché dans l&rsquo;aperçu après la fermeture de l&rsquo;éditeur.</p>
 <p><img alt="import-dialog" src="../images/import-dialog-formula.png" /></p>
-<p>Importing to an existing table is best suited for importing multiple datasets
-containing similar structure. For instance, you could import a bank statement as a
-new table, then import more statements from other months into the same table.</p>
-<p>For developers, the <a href="../rest-api/">Grist API</a> offers a more powerful way to add data
-to a Grist document.</p>
-<h2 id="updating-existing-records">Updating existing records<a class="headerlink" href="#updating-existing-records" title="Permanent link">#</a></h2>
-<p>Suppose the table we are importing to already contains some of the data in our
-file. We&rsquo;d like Grist to update these existing records rather than duplicate
-them.</p>
-<p>We can tell Grist to update these records by checking the &ldquo;Update existing records&rdquo;
-option, and specifying which fields to use for matching incoming data against
-existing records.</p>
+<p>L&rsquo;importation dans une table existante convient mieux à l&rsquo;importation de plusieurs ensembles de données
+contenant une structure similaire. Par exemple, vous pouvez importer un relevé bancaire dans une nouvelle table, puis importer d&rsquo;autres relevés d&rsquo;autres mois dans la même table.
+nouveau tableau, puis importer d&rsquo;autres relevés d&rsquo;autres mois dans le même tableau.</p>
+<p>Pour les développeurs, l&rsquo;<a href="../rest-api/">API Grist</a> offre un moyen plus puissant d&rsquo;ajouter des données à un document Grist.
+à un document Grist.</p>
+<h2 id="mise-a-jour-des-enregistrements-existants">Mise à jour des enregistrements existants<a class="headerlink" href="#mise-a-jour-des-enregistrements-existants" title="Permanent link">#</a></h2>
+<p>Supposons que la table que nous importons contienne déjà une partie des données de notre fichier.
+dans notre fichier. Nous aimerions que Grist mette à jour ces enregistrements existants plutôt que de les dupliquer.
+les dupliquer.</p>
+<p>Nous pouvons demander à Grist de mettre à jour ces enregistrements en cochant l&rsquo;option &ldquo;Mettre à jour les enregistrements existants&rdquo;
+et en spécifiant les champs à utiliser pour comparer les données entrantes aux enregistrements existants.
+les enregistrements existants.</p>
 <p class="screenshot-half"><img alt="import-dialog-update-records" src="../images/import-dialog-update-records.png" /></p>
-<p>An imported row and an existing record that have the same values for all of the
-selected merge fields are considered the same record. In this case, importing
-will update the fields of the record with the imported data. Blank values
-from the imported data will be skipped, leaving the corresponding fields in
-the original record unchanged.</p>
-<div class="admonition tip">
-<p><strong>Note:</strong> If there are multiple imported rows that have the same values for the
-          selected merge fields, the last row will be used for matching and updating.
-          If there are multiple existing records that have the same values for
-          the selected merge fields, only the first record will be updated if a
-          matching imported row is found.</p>
-</div>
-<p>Each time the merge fields are changed, Grist will generate a preview of the updates that
-will be made to the destination table, and display them in the preview table.</p>
+<p>Une ligne importée et un enregistrement existant qui ont les mêmes valeurs pour tous les champs de fusion sélectionnés sont considérés comme le même enregistrement.
+champs de fusion sélectionnés sont considérés comme le même enregistrement. Dans ce cas, l&rsquo;importation
+mettra à jour les champs de l&rsquo;enregistrement avec les données importées. Les valeurs vides
+Les valeurs vides des données importées seront ignorées, laissant les champs correspondants de l&rsquo;enregistrement d&rsquo;origine inchangés.
+l&rsquo;enregistrement d&rsquo;origine.</p>
+<p>! !! tip &ldquo;&rdquo;
+    <strong>Note:</strong> S&rsquo;il y a plusieurs lignes importées qui ont les mêmes valeurs pour les champs de fusion sélectionnés, la dernière ligne sera utilisée pour la correspondance et la mise à jour.
+              champs de fusion sélectionnés, la dernière ligne sera utilisée pour la correspondance et la mise à jour.
+              Si plusieurs enregistrements existants ont les mêmes valeurs pour les champs de fusion sélectionnés, seule la première ligne sera utilisée pour la correspondance et la mise à jour.
+              champs de fusion sélectionnés, seul le premier enregistrement sera mis à jour si une ligne importée correspondante est trouvée.
+              ligne importée correspondante est trouvée.</p>
+<p>Chaque fois que les champs de fusion sont modifiés, Grist génère un aperçu des mises à jour qui seront apportées à la table de destination et les affiche dans la table de prévisualisation.
+seront apportées à la table de destination et les affichera dans la table de prévisualisation.</p>
 <p><img alt="import-dialog-update-records-preview" src="../images/import-dialog-update-records-preview.png" /></p>
-<p>Changes are highlighted as follows:</p>
+<p>Les changements sont mis en évidence comme suit :</p>
 <ul>
-<li>New records have all of their fields highlighted in green.</li>
-<li>Updated records have red and green highlighting for any changed fields: red (with a
-   strikethrough) for existing values from the destination, and green for new
-   values from the imported file.</li>
-<li>Unchanged records have no highlighting. Field values that exist in the destination table,
-   but are blank in the imported file, are distinguished by a light gray font color.</li>
+<li>Les nouveaux enregistrements ont tous leurs champs surlignés en vert.</li>
+<li>Les enregistrements mis à jour sont surlignés en rouge et en vert pour tous les champs modifiés : en rouge (avec un
+   rouge (barré) pour les valeurs existantes de la destination, et vert pour les nouvelles
+   les nouvelles valeurs du fichier importé.</li>
+<li>Les enregistrements inchangés ne sont pas mis en évidence. Les valeurs des rubriques qui existent dans la table de destination,
+   mais qui sont vides dans le fichier importé, sont distinguées par une couleur de police gris clair.</li>
 </ul>
 
   <br>
