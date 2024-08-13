@@ -1073,32 +1073,32 @@
 </ul>
 <h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h2>
 <h3 id="applyuseractions">applyUserActions<a class="headerlink" href="#applyuseractions" title="Permanent link">#</a></h3>
-<p>▸ <strong>applyUserActions</strong>(<code>actions</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>></p>
+<p>▸ <strong>applyUserActions</strong>(<code>actions</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>&gt;</p>
 <p>Applies an array of user actions.</p>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>actions</code></td>
-<td align="left"><code>any</code>[][]</td>
+<td style="text-align: left;"><code>actions</code></td>
+<td style="text-align: left;"><code>any</code>[][]</td>
 </tr>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><code>any</code></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><code>any</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>any</code>></p>
+<p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <hr />
 <h3 id="fetchtable">fetchTable<a class="headerlink" href="#fetchtable" title="Permanent link">#</a></h3>
-<p>▸ <strong>fetchTable</strong>(<code>tableId</code>): <code>Promise</code>&lt;<code>any</code>></p>
+<p>▸ <strong>fetchTable</strong>(<code>tableId</code>): <code>Promise</code>&lt;<code>any</code>&gt;</p>
 <p>Returns a complete table of data as <a href="../GristData.RowRecords/">GristData.RowRecords</a>, including the
 &lsquo;id&rsquo; column. Do not modify the returned arrays in-place, especially if used
 directly (not over RPC).</p>
@@ -1106,52 +1106,52 @@ directly (not over RPC).</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>tableId</code></td>
-<td align="left"><code>string</code></td>
+<td style="text-align: left;"><code>tableId</code></td>
+<td style="text-align: left;"><code>string</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>any</code>></p>
+<p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <hr />
 <h3 id="getaccesstoken">getAccessToken<a class="headerlink" href="#getaccesstoken" title="Permanent link">#</a></h3>
-<p>▸ <strong>getAccessToken</strong>(<code>options</code>): <code>Promise</code>&lt;<a href="../grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>></p>
+<p>▸ <strong>getAccessToken</strong>(<code>options</code>): <code>Promise</code>&lt;<a href="../grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>&gt;</p>
 <p>Get a token for out-of-band access to the document.</p>
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>options</code></td>
-<td align="left"><a href="../grist_plugin_api.AccessTokenOptions/"><code>AccessTokenOptions</code></a></td>
+<td style="text-align: left;"><code>options</code></td>
+<td style="text-align: left;"><a href="../grist_plugin_api.AccessTokenOptions/"><code>AccessTokenOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<a href="../grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>></p>
+<p><code>Promise</code>&lt;<a href="../grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>&gt;</p>
 <hr />
 <h3 id="getdocname">getDocName<a class="headerlink" href="#getdocname" title="Permanent link">#</a></h3>
-<p>▸ <strong>getDocName</strong>(): <code>Promise</code>&lt;<code>string</code>></p>
+<p>▸ <strong>getDocName</strong>(): <code>Promise</code>&lt;<code>string</code>&gt;</p>
 <p>Returns an identifier for the document.</p>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>string</code>></p>
+<p><code>Promise</code>&lt;<code>string</code>&gt;</p>
 <hr />
 <h3 id="listtables">listTables<a class="headerlink" href="#listtables" title="Permanent link">#</a></h3>
-<p>▸ <strong>listTables</strong>(): <code>Promise</code>&lt;<code>string</code>[]></p>
+<p>▸ <strong>listTables</strong>(): <code>Promise</code>&lt;<code>string</code>[]&gt;</p>
 <p>Returns a sorted list of table IDs.</p>
 <h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>string</code>[]></p>
+<p><code>Promise</code>&lt;<code>string</code>[]&gt;</p>
 
   <br>
 </div>

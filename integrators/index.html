@@ -1211,9 +1211,8 @@ readiness column.</p>
 <p>For example, if you only want to activate a trigger when columns
 called <code>Name</code> and <code>Email</code> are not empty, your readiness column can
 have the following formula:</p>
-<pre><code class="python">bool($Name and $Email)
+<pre><code class="language-python">bool($Name and $Email)
 </code></pre>
-
 <p>You would make the column take effect by supplying it in the
 <code>Readiness column</code> option described in the
 <a href="./#example-sending-email-alerts">email alert example</a>.</p>

@@ -1158,13 +1158,11 @@ which is consistent between versions (<code>9 // 2</code> is <code>4</code> for 
 <p>For example the <a href="https://templates.getgrist.com/2YwYBWpREY2a/General-Ledger">General Ledger</a>
 template had a Python 2 formula for computing the quarter from a date (so a <code>Date</code> of
 <code>2021-08-15</code> gave a <code>Quarter</code> of <code>2021 Q3</code>) as follows:</p>
-<pre><code class="py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) / 3)
+<pre><code class="language-py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) / 3)
 </code></pre>
-
 <p>when switching to Python 3, this needed correcting to:</p>
-<pre><code class="py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) // 3)
+<pre><code class="language-py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) // 3)
 </code></pre>
-
 <p>Otherwise Quarters became fractional!</p>
 <h3 id="some-imports-are-reorganized">Some imports are reorganized<a class="headerlink" href="#some-imports-are-reorganized" title="Permanent link">#</a></h3>
 <p>Python has a useful standard library, but some parts of it were
@@ -1180,11 +1178,9 @@ Gmail:</p>
 <pre><code>from urllib import quote_plus
 &quot;Gmail search https://mail.google.com/mail/u/0/#search/%s&quot; % quote_plus($Email)
 </code></pre>
-
 <p>In Python 3, the import line needed changing to:</p>
 <pre><code>from urllib.parse import quote_plus
 </code></pre>
-
 <h3 id="subtle-change-in-rounding">Subtle change in rounding<a class="headerlink" href="#subtle-change-in-rounding" title="Permanent link">#</a></h3>
 <p>Python 3 switches the built-in function <code>round()</code> from rounding the way many people learned in school
 (where when rounding <code>.5</code>, you always round up)
@@ -1197,11 +1193,9 @@ document.</p>
 <code>round</code> function with the Excel-compatible <a href="../functions/#round">ROUND</a> function. For example:</p>
 <pre><code>round($val, 2)
 </code></pre>
-
 <p>would be replaced with:</p>
 <pre><code>ROUND($val, 2)
 </code></pre>
-
 <h3 id="unicode-text-handling">Unicode text handling<a class="headerlink" href="#unicode-text-handling" title="Permanent link">#</a></h3>
 <p>Python 2 does not shine at handling international text and emojis.
 We have mitigated many problems by setting the default encoding
@@ -1211,7 +1205,6 @@ to generate a one-way hash of an email address:</p>
 <pre><code>import hashlib
 hashlib.sha256($Email).hexdigest()
 </code></pre>
-
 <p>In Python 3 this fails with <code>TypeError: Unicode-objects must be encoded before hashing</code>,
 which can be resolved by replacing <code>$Email</code> with <code>$Email.encode()</code>:</p>
 <pre><code>import hashlib

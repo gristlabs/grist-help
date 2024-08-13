@@ -1185,7 +1185,6 @@ changes, and make sure the invoice gets access to everything it needs.
 Make a column named <code>References</code> and give it this formula:</p>
 <pre><code>= RECORD(rec, expand_refs=1)
 </code></pre>
-
 <p>That says &ldquo;take the current record, and package it up, including
 everything it references directly&rdquo;.  Since Grist is a spreadsheet, it
 also implies &ldquo;update everything that depends on this column if
@@ -1220,7 +1219,7 @@ column, and make it a reference to the <code>Businesses</code> table or a separa
 However, if you will always be using the same name and address for
 your business, you could skip setting up a reference by entering a formula like this into the
 <code>Invoicer</code> column (start typing with <code class="keys"><strong>=</strong></code> to make it a formula):</p>
-<pre><code class="python">{
+<pre><code class="language-python">{
   &quot;Name&quot;: &quot;Thunderous Applause&quot;,
   &quot;Street1&quot;: &quot;6502 Automated Rd&quot;,
   &quot;City&quot;: &quot;New York&quot;,
@@ -1231,7 +1230,6 @@ your business, you could skip setting up a reference by entering a formula like 
   &quot;Website&quot;: &quot;applause.com&quot;
 }
 </code></pre>
-
 <p>Then set the Column Type for <code>Invoicer</code> to <code>Any</code> in the right-side panel.</p>
 <p><img alt="Invoice" src="../images/2020-08-invoices/link-invoice.png" /></p>
 <p>Notice how emails, phone numbers, and links are specially formatted by the
@@ -1280,7 +1278,6 @@ So you can just hide the <code>invoice</code> column and forget about it.</p>
 <code>Items</code> formula to be more picky:</p>
 <pre><code>Items.lookupRecords(Invoice=$id)
 </code></pre>
-
 <p><img alt="Invoice" src="../images/2020-08-invoices/items-formula.png" /></p>
 <p>With that, entering new invoices is a breeze!</p>
 <ul>

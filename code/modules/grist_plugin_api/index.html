@@ -1140,7 +1140,7 @@ and those requested by the Custom Widget.</p>
 <p>Represents the id of a row in a table. The value of the <code>id</code> column. Might be a number or &lsquo;new&rsquo; value for a new row.</p>
 <h2 id="variables_1">Variables<a class="headerlink" href="#variables_1" title="Permanent link">#</a></h2>
 <h3 id="checkers">checkers<a class="headerlink" href="#checkers" title="Permanent link">#</a></h3>
-<p>• <code>Const</code> <strong>checkers</strong>: <code>Pick</code>&lt;<code>ICheckerSuite</code>, <code>"CustomSectionAPI"</code> | <code>"ParseOptions"</code> | <code>"ParseFileResult"</code> | <code>"FileSource"</code> | <code>"ParseOptionSchema"</code> | <code>"GristTables"</code> | <code>"EditOptionsAPI"</code> | <code>"ParseFileAPI"</code> | <code>"RenderTarget"</code> | <code>"RenderOptions"</code> | <code>"ComponentKind"</code> | <code>"GristAPI"</code> | <code>"GristDocAPI"</code> | <code>"GristView"</code> | <code>"GristColumn"</code> | <code>"GristTable"</code> | <code>"ImportSourceAPI"</code> | <code>"ImportProcessorAPI"</code> | <code>"ImportSource"</code> | <code>"FileContent"</code> | <code>"FileListItem"</code> | <code>"URL"</code> | <code>"InternalImportSourceAPI"</code> | <code>"Storage"</code> | <code>"WidgetAPI"</code>></p>
+<p>• <code>Const</code> <strong>checkers</strong>: <code>Pick</code>&lt;<code>ICheckerSuite</code>, <code>"CustomSectionAPI"</code> | <code>"ParseOptions"</code> | <code>"ParseFileResult"</code> | <code>"FileSource"</code> | <code>"ParseOptionSchema"</code> | <code>"GristTables"</code> | <code>"EditOptionsAPI"</code> | <code>"ParseFileAPI"</code> | <code>"RenderTarget"</code> | <code>"RenderOptions"</code> | <code>"ComponentKind"</code> | <code>"GristAPI"</code> | <code>"GristDocAPI"</code> | <code>"GristView"</code> | <code>"GristColumn"</code> | <code>"GristTable"</code> | <code>"ImportSourceAPI"</code> | <code>"ImportProcessorAPI"</code> | <code>"ImportSource"</code> | <code>"FileContent"</code> | <code>"FileListItem"</code> | <code>"URL"</code> | <code>"InternalImportSourceAPI"</code> | <code>"Storage"</code> | <code>"WidgetAPI"</code>&gt;</p>
 <p>We also create and export a global checker object that includes all of the types above.</p>
 <hr />
 <h3 id="docapi">docApi<a class="headerlink" href="#docapi" title="Permanent link">#</a></h3>
@@ -1166,75 +1166,75 @@ overridden to decode data by default.</p>
 <p>Interface for the state of a custom widget.</p>
 <h2 id="functions_1">Functions<a class="headerlink" href="#functions_1" title="Permanent link">#</a></h2>
 <h3 id="allowselectby">allowSelectBy<a class="headerlink" href="#allowselectby" title="Permanent link">#</a></h3>
-<p>▸ <strong>allowSelectBy</strong>(): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>allowSelectBy</strong>(): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Deprecated now. It was used for filtering selected table by <code>setSelectedRows</code> method.
 Now the preferred way it to use ready message.</p>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="clearoptions">clearOptions<a class="headerlink" href="#clearoptions" title="Permanent link">#</a></h3>
-<p>▸ <strong>clearOptions</strong>(): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>clearOptions</strong>(): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Clears all the options.</p>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="fetchselectedrecord">fetchSelectedRecord<a class="headerlink" href="#fetchselectedrecord" title="Permanent link">#</a></h3>
-<p>▸ <strong>fetchSelectedRecord</strong>(<code>rowId</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>></p>
+<p>▸ <strong>fetchSelectedRecord</strong>(<code>rowId</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>&gt;</p>
 <p>Same as <a href="../../interfaces/grist_plugin_api.GristView/#fetchselectedrecord">GristView.fetchSelectedRecord</a>,
 but the option <code>keepEncoded</code> is <code>false</code> by default.</p>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>rowId</code></td>
-<td align="left"><code>number</code></td>
+<td style="text-align: left;"><code>rowId</code></td>
+<td style="text-align: left;"><code>number</code></td>
 </tr>
 <tr>
-<td align="left"><code>options</code></td>
-<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
+<td style="text-align: left;"><code>options</code></td>
+<td style="text-align: left;"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>any</code>></p>
+<p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <hr />
 <h3 id="fetchselectedtable">fetchSelectedTable<a class="headerlink" href="#fetchselectedtable" title="Permanent link">#</a></h3>
-<p>▸ <strong>fetchSelectedTable</strong>(<code>options?</code>): <code>Promise</code>&lt;<code>any</code>></p>
+<p>▸ <strong>fetchSelectedTable</strong>(<code>options?</code>): <code>Promise</code>&lt;<code>any</code>&gt;</p>
 <p>Same as <a href="../../interfaces/grist_plugin_api.GristView/#fetchselectedtable">GristView.fetchSelectedTable</a>,
 but the option <code>keepEncoded</code> is <code>false</code> by default.</p>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>options</code></td>
-<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
+<td style="text-align: left;"><code>options</code></td>
+<td style="text-align: left;"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>any</code>></p>
+<p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <hr />
 <h3 id="getaccesstoken">getAccessToken<a class="headerlink" href="#getaccesstoken" title="Permanent link">#</a></h3>
-<p>▸ <strong>getAccessToken</strong>(<code>options?</code>): <code>Promise</code>&lt;<a href="../../interfaces/grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>></p>
+<p>▸ <strong>getAccessToken</strong>(<code>options?</code>): <code>Promise</code>&lt;<a href="../../interfaces/grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>&gt;</p>
 <p>Get an access token, for making API calls outside of the custom widget
 API. There is no caching of tokens. The returned token can
 be used to authorize regular REST API calls that access the content of the
 document. For example, in a custom widget for a table with a <code>Photos</code> column
 containing attachments, the following code will update the <code>src</code> of an
 image with id <code>the_image</code> to show the attachment:</p>
-<pre><code class="js">grist.onRecord(async (record) =&gt; {
+<pre><code class="language-js">grist.onRecord(async (record) =&gt; {
   const tokenInfo = await grist.docApi.getAccessToken({readOnly: true});
   const img = document.getElementById('the_image');
   const id = record.Photos[0];  // get an id of an attachment - there could be several
@@ -1243,51 +1243,50 @@ image with id <code>the_image</code> to show the attachment:</p>
   img.setAttribute('src', src);
 });
 </code></pre>
-
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><a href="../../interfaces/grist_plugin_api.AccessTokenOptions/"><code>AccessTokenOptions</code></a></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><a href="../../interfaces/grist_plugin_api.AccessTokenOptions/"><code>AccessTokenOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<a href="../../interfaces/grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>></p>
+<p><code>Promise</code>&lt;<a href="../../interfaces/grist_plugin_api.AccessTokenResult/"><code>AccessTokenResult</code></a>&gt;</p>
 <hr />
 <h3 id="getoption">getOption<a class="headerlink" href="#getoption" title="Permanent link">#</a></h3>
-<p>▸ <strong>getOption</strong>(<code>key</code>): <code>Promise</code>&lt;<code>any</code>></p>
+<p>▸ <strong>getOption</strong>(<code>key</code>): <code>Promise</code>&lt;<code>any</code>&gt;</p>
 <p>Get single value from Widget options object.</p>
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>key</code></td>
-<td align="left"><code>string</code></td>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>any</code>></p>
+<p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <hr />
 <h3 id="getoptions">getOptions<a class="headerlink" href="#getoptions" title="Permanent link">#</a></h3>
-<p>▸ <strong>getOptions</strong>(): <code>Promise</code>&lt;<code>null</code> | <code>object</code>></p>
+<p>▸ <strong>getOptions</strong>(): <code>Promise</code>&lt;<code>null</code> | <code>object</code>&gt;</p>
 <p>Gets all options stored by the widget. Options are stored as plain JSON object.</p>
 <h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>null</code> | <code>object</code>></p>
+<p><code>Promise</code>&lt;<code>null</code> | <code>object</code>&gt;</p>
 <hr />
 <h3 id="gettable">getTable<a class="headerlink" href="#gettable" title="Permanent link">#</a></h3>
 <p>▸ <strong>getTable</strong>(<code>tableId?</code>): <a href="../../interfaces/TableOperations.TableOperations/"><code>TableOperations</code></a></p>
@@ -1299,14 +1298,14 @@ on the table is attempted.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>tableId?</code></td>
-<td align="left"><code>string</code></td>
+<td style="text-align: left;"><code>tableId?</code></td>
+<td style="text-align: left;"><code>string</code></td>
 </tr>
 </tbody>
 </table>
@@ -1322,30 +1321,30 @@ custom column mapping.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>data</code></td>
-<td align="left"><code>any</code></td>
+<td style="text-align: left;"><code>data</code></td>
+<td style="text-align: left;"><code>any</code></td>
 </tr>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><code>Object</code></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><code>Object</code></td>
 </tr>
 <tr>
-<td align="left"><code>options.columns?</code></td>
-<td align="left"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
+<td style="text-align: left;"><code>options.columns?</code></td>
+<td style="text-align: left;"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
 </tr>
 <tr>
-<td align="left"><code>options.mappings?</code></td>
-<td align="left"><code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a></td>
+<td style="text-align: left;"><code>options.mappings?</code></td>
+<td style="text-align: left;"><code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a></td>
 </tr>
 <tr>
-<td align="left"><code>options.reverse?</code></td>
-<td align="left"><code>boolean</code></td>
+<td style="text-align: left;"><code>options.reverse?</code></td>
+<td style="text-align: left;"><code>boolean</code></td>
 </tr>
 </tbody>
 </table>
@@ -1362,26 +1361,26 @@ we don&rsquo;t attempt to do these transformations automatically.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>data</code></td>
-<td align="left"><code>any</code></td>
+<td style="text-align: left;"><code>data</code></td>
+<td style="text-align: left;"><code>any</code></td>
 </tr>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><code>Object</code></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><code>Object</code></td>
 </tr>
 <tr>
-<td align="left"><code>options.columns?</code></td>
-<td align="left"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
+<td style="text-align: left;"><code>options.columns?</code></td>
+<td style="text-align: left;"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
 </tr>
 <tr>
-<td align="left"><code>options.mappings?</code></td>
-<td align="left"><code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a></td>
+<td style="text-align: left;"><code>options.mappings?</code></td>
+<td style="text-align: left;"><code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1394,15 +1393,14 @@ we don&rsquo;t attempt to do these transformations automatically.</p>
 event named <code>eventName</code>. No checks are made to see if the <code>listener</code> has
 already been added. Multiple calls passing the same combination of <code>eventName</code>and <code>listener</code> will result in the <code>listener</code> being added, and called, multiple
 times.</p>
-<pre><code class="js">server.on('connection', (stream) =&gt; {
+<pre><code class="language-js">server.on('connection', (stream) =&gt; {
   console.log('someone connected!');
 });
 </code></pre>
-
 <p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p>
 <p>By default, event listeners are invoked in the order they are added. The<code>emitter.prependListener()</code> method can be used as an alternative to add the
 event listener to the beginning of the listeners array.</p>
-<pre><code class="js">const myEE = new EventEmitter();
+<pre><code class="language-js">const myEE = new EventEmitter();
 myEE.on('foo', () =&gt; console.log('a'));
 myEE.prependListener('foo', () =&gt; console.log('b'));
 myEE.emit('foo');
@@ -1410,28 +1408,27 @@ myEE.emit('foo');
 //   b
 //   a
 </code></pre>
-
 <p><strong><code>Since</code></strong></p>
 <p>v0.1.101</p>
 <h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>eventName</code></td>
-<td align="left"><code>string</code> | <code>symbol</code></td>
-<td align="left">The name of the event.</td>
+<td style="text-align: left;"><code>eventName</code></td>
+<td style="text-align: left;"><code>string</code> | <code>symbol</code></td>
+<td style="text-align: left;">The name of the event.</td>
 </tr>
 <tr>
-<td align="left"><code>listener</code></td>
-<td align="left">(&hellip;<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
-<td align="left">The callback function</td>
+<td style="text-align: left;"><code>listener</code></td>
+<td style="text-align: left;">(&hellip;<code>args</code>: <code>any</code>[]) =&gt; <code>void</code></td>
+<td style="text-align: left;">The callback function</td>
 </tr>
 </tbody>
 </table>
@@ -1446,14 +1443,14 @@ new (blank) row is selected.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>callback</code></td>
-<td align="left">(<code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
+<td style="text-align: left;"><code>callback</code></td>
+<td style="text-align: left;">(<code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
 </tr>
 </tbody>
 </table>
@@ -1471,14 +1468,14 @@ the document that contains it.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>callback</code></td>
-<td align="left">(<code>options</code>: <code>any</code>, <code>settings</code>: <a href="../../interfaces/grist_plugin_api.InteractionOptions/"><code>InteractionOptions</code></a>) =&gt; <code>unknown</code></td>
+<td style="text-align: left;"><code>callback</code></td>
+<td style="text-align: left;">(<code>options</code>: <code>any</code>, <code>settings</code>: <a href="../../interfaces/grist_plugin_api.InteractionOptions/"><code>InteractionOptions</code></a>) =&gt; <code>unknown</code></td>
 </tr>
 </tbody>
 </table>
@@ -1497,18 +1494,18 @@ By default, <code>options.keepEncoded</code> is <code>false</code>.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>callback</code></td>
-<td align="left">(<code>data</code>: <code>null</code> | <a href="../../interfaces/GristData.RowRecord/"><code>RowRecord</code></a>, <code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
+<td style="text-align: left;"><code>callback</code></td>
+<td style="text-align: left;">(<code>data</code>: <code>null</code> | <a href="../../interfaces/GristData.RowRecord/"><code>RowRecord</code></a>, <code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
 </tr>
 <tr>
-<td align="left"><code>options</code></td>
-<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
+<td style="text-align: left;"><code>options</code></td>
+<td style="text-align: left;"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1524,18 +1521,18 @@ By default, <code>options.format</code> is <code>'rows'</code> and <code>options
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>callback</code></td>
-<td align="left">(<code>data</code>: <a href="../../interfaces/GristData.RowRecord/"><code>RowRecord</code></a>[], <code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
+<td style="text-align: left;"><code>callback</code></td>
+<td style="text-align: left;">(<code>data</code>: <a href="../../interfaces/GristData.RowRecord/"><code>RowRecord</code></a>[], <code>mappings</code>: <code>null</code> | <a href="../../interfaces/grist_plugin_api.WidgetColumnMap/"><code>WidgetColumnMap</code></a>) =&gt; <code>unknown</code></td>
 </tr>
 <tr>
-<td align="left"><code>options</code></td>
-<td align="left"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
+<td style="text-align: left;"><code>options</code></td>
+<td style="text-align: left;"><a href="../../interfaces/grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1550,14 +1547,14 @@ Grist will not attempt to communicate with it until this method is called.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>settings?</code></td>
-<td align="left"><a href="../../interfaces/grist_plugin_api.ReadyPayload/"><code>ReadyPayload</code></a></td>
+<td style="text-align: left;"><code>settings?</code></td>
+<td style="text-align: left;"><a href="../../interfaces/grist_plugin_api.ReadyPayload/"><code>ReadyPayload</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1565,92 +1562,92 @@ Grist will not attempt to communicate with it until this method is called.</p>
 <p><code>void</code></p>
 <hr />
 <h3 id="setcursorpos">setCursorPos<a class="headerlink" href="#setcursorpos" title="Permanent link">#</a></h3>
-<p>▸ <strong>setCursorPos</strong>(<code>pos</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>setCursorPos</strong>(<code>pos</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Sets the cursor position to a specific row and field. <code>sectionId</code> is ignored. Used for widget linking.</p>
 <h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>pos</code></td>
-<td align="left"><a href="../../interfaces/grist_plugin_api.CursorPos/"><code>CursorPos</code></a></td>
+<td style="text-align: left;"><code>pos</code></td>
+<td style="text-align: left;"><a href="../../interfaces/grist_plugin_api.CursorPos/"><code>CursorPos</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="setoption">setOption<a class="headerlink" href="#setoption" title="Permanent link">#</a></h3>
-<p>▸ <strong>setOption</strong>(<code>key</code>, <code>value</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>setOption</strong>(<code>key</code>, <code>value</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Store single value in the Widget options object (and create it if necessary).</p>
 <h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>key</code></td>
-<td align="left"><code>string</code></td>
+<td style="text-align: left;"><code>key</code></td>
+<td style="text-align: left;"><code>string</code></td>
 </tr>
 <tr>
-<td align="left"><code>value</code></td>
-<td align="left"><code>any</code></td>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>any</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="setoptions">setOptions<a class="headerlink" href="#setoptions" title="Permanent link">#</a></h3>
-<p>▸ <strong>setOptions</strong>(<code>options</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>setOptions</strong>(<code>options</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Replaces all options stored by the widget.</p>
 <h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>options</code></td>
-<td align="left"><code>Object</code></td>
+<td style="text-align: left;"><code>options</code></td>
+<td style="text-align: left;"><code>Object</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="setselectedrows">setSelectedRows<a class="headerlink" href="#setselectedrows" title="Permanent link">#</a></h3>
-<p>▸ <strong>setSelectedRows</strong>(<code>rowIds</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>setSelectedRows</strong>(<code>rowIds</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Set the list of selected rows to be used against any linked widget.</p>
 <h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>rowIds</code></td>
-<td align="left"><code>null</code> | <code>number</code>[]</td>
+<td style="text-align: left;"><code>rowIds</code></td>
+<td style="text-align: left;"><code>null</code> | <code>number</code>[]</td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 
   <br>
 </div>

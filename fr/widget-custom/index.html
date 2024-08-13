@@ -996,7 +996,7 @@ appropriate.</p>
 </blockquote>
 <p>It is stripped down to the essentials.  Here is the full source code of the
 <code>onRecord</code> widget that shows one row of data:</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -1014,7 +1014,6 @@ appropriate.</p>
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-
 <p>The &ldquo;Grist&rdquo; parts of this are:</p>
 <ul>
 <li>Including <code>https://docs.getgrist.com/grist-plugin-api.js</code> to get the Grist API.</li>
@@ -1069,23 +1068,21 @@ any way.</p>
 <p>If you are writing your own custom widget you can specify what access level it needs as
 part of the initial <strong>ready</strong> message. Possible values are: <code>none</code>, <code>read table</code> and
 <code>full</code>.</p>
-<pre><code class="html">&lt;script&gt;
+<pre><code class="language-html">&lt;script&gt;
   grist.ready({
     requiredAccess: 'read table'
   });
 &lt;/script&gt;
 </code></pre>
-
 <p>This directs Grist to request the desired access level from the user. Your widget will be
 reloaded with the appropriate access level if the user approves the request.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_access_prompt.png" /></em></span></p>
 <p>If you wish to get notified of the access level, you can subscribe to the <code>onOptions</code>
 event that is sent to the widget after it tells Grist it is ready:</p>
-<pre><code class="javascript">grist.onOptions(function(options, interaction) {
+<pre><code class="language-javascript">grist.onOptions(function(options, interaction) {
   console.log(interaction.access_level);
 });
 </code></pre>
-
 <p>For now, just skip the <code>options</code> parameter (it will be described in
 <a href="./#widget-options">Widget options</a> section). The current access level is part of
 the second parameter, which describes how Grist will interact with your widget.</p>
@@ -1109,7 +1106,7 @@ The invoice widget is hosted at:</p>
 <p>As you saw, writing a simple widget that uses data from a table is very easy. First, you
 need to tell Grist that you are ready and then subscribe to one of the available events:
 <code>onRecord</code>, <code>onRecords</code> or <code>onOptions</code>.</p>
-<pre><code class="javascript">grist.ready();
+<pre><code class="language-javascript">grist.ready();
 grist.onRecord(function (record) {
   // Cursor has moved.
 });
@@ -1120,13 +1117,12 @@ grist.onOptions(function (options, interaction) {
   // Configuration has changed.
 });
 </code></pre>
-
 <p>Let&rsquo;s say you want to build a custom widget that will show an image from a URL and
 optionally a single line of text below as the image title. You will need to
 read two values from two columns: <code>Link</code> and <code>Title</code>.</p>
 <p>You could access those columns directly using literal column names in your
 script. Here is a complete example of widget source code that will do the job:</p>
-<pre><code class="html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
 &lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
 &lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -1137,7 +1133,6 @@ script. Here is a complete example of widget source code that will do the job:</
   });
 &lt;/script&gt;
 </code></pre>
-
 <p>When getting started, this is a good approach, but it has two significant drawbacks. Every
 time you rename a column, you will also have to change your widget&rsquo;s source. Moreover,
 using this widget on a different table or sharing it with your friends can be difficult as
@@ -1146,16 +1141,15 @@ column names might be different. To help with this, Grist offers the column mapp
 <p>Instead of using column names directly, you can ask the user to pick which column to use
 as a <code>Link</code> and <code>Title</code>. The list of expected columns can be sent to Grist as part of the
 ready call:</p>
-<pre><code class="js">grist.ready({columns: ['Link', 'Title']});
+<pre><code class="language-js">grist.ready({columns: ['Link', 'Title']});
 </code></pre>
-
 <p>Using this information, in the creator panel, Grist will hide the regular &ldquo;Visible&rdquo;
 columns section and display specialized column pickers.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_pick_columns.png" /></em></span></p>
 <p>Your widget will receive this mapping configuration as part of <code>onRecord</code> or <code>onRecords</code>
 event in the second parameter. You can use this configuration to do the mappings yourself
 or use the <code>mapColumnNames</code> helper function to do it for you.</p>
-<pre><code class="html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
 &lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
 &lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -1175,14 +1169,13 @@ grist.onRecord(function (record, mappings) {
 });
 &lt;/script&gt;
 </code></pre>
-
 <p>Now, if you rename one of the columns, the widget will still work. You can also use this
 widget in any other table or share with a friend, as it doesn&rsquo;t depend on your table
 structure and can be easily configured.</p>
 <p>In the configuration used above, we told Grist that all the columns are required, and the
 user can pick any column even if the column doesn&rsquo;t contain a text value. To be more
 precise, we can include more options in the request. For example:</p>
-<pre><code class="javascript">grist.ready({columns: [
+<pre><code class="language-javascript">grist.ready({columns: [
   {
     name: &quot;Link&quot;, // What field we will read.
     title: &quot;Image link&quot;, // Friendly field name.
@@ -1193,7 +1186,6 @@ precise, we can include more options in the request. For example:</p>
   }
 ]});
 </code></pre>
-
 <p>The <code>optional</code> setting is important for correct operation of the <code>mapColumnNames</code> helper.
 This helper will return a mapped record only when all required (not optional) columns are
 picked.</p>
@@ -1220,7 +1212,7 @@ from the mapping.</p>
 <p>If your widget needs to store some options, Grist offers a simple key-value storage API
 for you to use. Here are some JavaScript code snippets that show how to interact with
 this API:</p>
-<pre><code class="js">// Store a simple text value .
+<pre><code class="language-js">// Store a simple text value .
 await grist.setOption('color', '#FF0000');
 
 // Store complex objects as JSON.
@@ -1236,7 +1228,6 @@ await grist.clearOptions();
 await grist.getOptions();
 await grist.setOptions({...});
 </code></pre>
-
 <p>You can experiment with this yourself. Here is a test widget that demonstrates how to use
 this API:</p>
 <blockquote>
@@ -1256,7 +1247,7 @@ others. Using this menu, you can also clear all options to revert the widget to 
 initial state. To do this, press the little trash icon and then <code>Save</code>.</p>
 <p>Grist will also trigger an event, every time the options are changed (or cleared). Here is
 how you can subscribe to this event.</p>
-<pre><code class="javascript">grist.onOptions(function(options, interaction) {
+<pre><code class="language-javascript">grist.onOptions(function(options, interaction) {
   if (options) {
     console.log('Current color', options.color);
   } else {
@@ -1264,7 +1255,6 @@ how you can subscribe to this event.</p>
   }
 });
 </code></pre>
-
 <p>If you are building your own widget, you generally should not read options directly (using
 <code>grist.widgetApi.getOption()</code>). A better pattern is to apply them all when they are
 changed. Using the <code>onOptions</code> handler will make your widget easier to change and
@@ -1275,13 +1265,12 @@ the user can use to show it. This additional UI element will likely be rarely us
 or your collaborators, so it doesn&rsquo;t make sense to show it all the time. To help with
 this, Grist offers an additional interaction option you can send as part of the ready
 message:</p>
-<pre><code class="javascript">grist.ready({
+<pre><code class="language-javascript">grist.ready({
   onEditOptions: function() {
     // Your custom logic to open the custom configuration screen.
   }
 });
 </code></pre>
-
 <p>This will tell Grist to display an additional button <code>Open configuration</code> in the creator
 panel and the section menu. When clicked, it will trigger your handler, which you can use
 to show your own custom configuration screen.</p>
@@ -1290,21 +1279,19 @@ to show your own custom configuration screen.</p>
 <p>Custom widgets can also be used as a source of linking (see <a href="../linking-widgets/">Linking widgets</a>).
 All you need to do is inform Grist that your widget supports linking by passing an additional
 option to the <code>ready</code> call (see <a href="../code/modules/grist_plugin_api/#ready">Widget API</a>):</p>
-<pre><code class="javascript">grist.ready({
+<pre><code class="language-javascript">grist.ready({
   allowSelectBy: true
 });
 </code></pre>
-
 <p>This will enable the <code>Select By</code> option in the widget configuration panel. Now you can use your
 widget to control the cursor position in linked widgets. To do this, you need to call the
 <code>setCursorPos</code> function:</p>
-<pre><code class="javascript">// Inform Grist that the cursor should be moved to the row with id 20.
+<pre><code class="language-javascript">// Inform Grist that the cursor should be moved to the row with id 20.
 grist.setCursorPos({rowId: 20});
 
 // or inform that your widget is creating a new row.
 grist.setCursorPos({rowId: 'new'});
 </code></pre>
-
 <h2 id="premade-custom-widgets">Premade Custom Widgets<a class="headerlink" href="#premade-custom-widgets" title="Permanent link">#</a></h2>
 <p>All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="premade-widgets" src="../images/widget-custom/premade-widgets.png" /></em></span></p>

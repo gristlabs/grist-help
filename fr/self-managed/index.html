@@ -953,7 +953,7 @@
 <li><a href="#how-do-i-set-up-a-team">How do I set up a team?</a></li>
 <li><a href="#how-do-i-set-up-authentication">How do I set up authentication?</a></li>
 <li><a href="#are-there-other-authentication-methods">Are there other authentication methods?</a></li>
-<li><a href="#how-do-i-activate-grist-enterprise">How do I activate Grist Enterprise?</a></li>
+<li><a href="#how-do-i-enable-grist-enterprise">How do I enable Grist Enterprise?</a></li>
 </ul>
 </li>
 <li><a href="#customization">Customization</a><ul>
@@ -1020,23 +1020,22 @@ and get support.</p>
 describe how using <a href="https://www.docker.com/">Docker</a>,
 but there are many other tools and services for running
 containers.</p>
-<p>To try Grist out using Docker, make an empty directory for Grist to store material in (say <code>~/grist</code>) and then for Grist Core you can do:</p>
+<p>To try Grist out using Docker, make an empty directory for Grist to store material in (say <code>~/grist</code>) and then you can do:</p>
 <pre><code>docker run -p 8484:8484 \
   -v ~/grist:/persist \
   -e GRIST_SESSION_SECRET=invent-a-secret-here \
   -it gristlabs/grist
 </code></pre>
-
-<p>For Grist Enterprise use <code>gristlabs/grist-ee</code> instead of
-<code>gristlabs/grist</code>.</p>
 <p>You should then be able to visit <code>http://localhost:8484</code> in
 your browser. Already you will be able to create and edit Grist
 documents, and to open and edit documents downloaded from another
 Grist installation (such as our SaaS).</p>
 <p>If using some other tool or service, here are the important points:</p>
 <ul>
-<li>The container name is <code>gristlabs/grist</code> or <code>gristlabs/grist-ee</code>
-   (for some tools, you may need to prefix these names with <code>docker.io/</code>).</li>
+<li>The main image name is <code>gristlabs/grist</code>, which is our combined Core and Enterprise docker image.
+   The image <code>gristlabs/grist-oss</code> also exists, which uses only free and open source code. This image uses only Grist
+   Core, and has no enterprise features available.
+   (For some tools such as Podman, you may need to prefix these image names with <code>docker.io/</code>.)</li>
 <li>A volume (or mount, or directory) needs to be available at location
    <code>/persist</code> within the container. It can be initially empty - Grist
    will populate it. Without this volume, nothing you do will be stored long-term.</li>
@@ -1071,23 +1070,20 @@ from the network.</p>
   -e GRIST_SANDBOX_FLAVOR=gvisor \
   ...
 </code></pre>
-
 <p>To sanity-check that formulas are being evaluated within a sandbox,
 you can create a document and then check that this formula
 gives an empty result:</p>
 <pre><code>import glob
 glob.glob('/etc/*')
 </code></pre>
-
 <p>Here are some reasons why <code>gvisor</code> sandboxing, as configured for
 Grist, may fail, and what you can do to diagnose the problem.</p>
 <h4 id="xsave-not-available">XSAVE not available<a class="headerlink" href="#xsave-not-available" title="Permanent link">#</a></h4>
 <p>Your processor may not be supported. On <code>x86_64</code>, Sandy Bridge
 or later is needed. Check that the <code>XSAVE</code> processor flag is set.
 Here&rsquo;s a quick way to test that:</p>
-<pre><code class="sh">grep -q '\bxsave\b' /proc/cpuinfo &amp;&amp; echo &quot;XSAVE enabled&quot; || echo &quot;XSAVE missing&quot;
+<pre><code class="language-sh">grep -q '\bxsave\b' /proc/cpuinfo &amp;&amp; echo &quot;XSAVE enabled&quot; || echo &quot;XSAVE missing&quot;
 </code></pre>
-
 <h4 id="ptrace-not-available">PTRACE not available<a class="headerlink" href="#ptrace-not-available" title="Permanent link">#</a></h4>
 <p>The <code>SYS_PTRACE</code> capability may not be available. If running
 in docker, you could try explicitly granting it, if you are
@@ -1096,7 +1092,6 @@ comfortable with making it available:</p>
   --cap-add=SYS_PTRACE
   ...
 </code></pre>
-
 <p>In some cloud environments such as AWS ECS, you may need to
 explicitly list this capability in your container configuration.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-run-grist-on-a-server">How do I run Grist on a server?<a class="headerlink" href="#how-do-i-run-grist-on-a-server" title="Permanent link">#</a></h3>
@@ -1111,7 +1106,6 @@ this:</p>
   -e APP_HOME_URL=&quot;https://grist.example.com&quot; \
   ...
 </code></pre>
-
 <p>You will need to place a &ldquo;reverse proxy&rdquo; in front of Grist to
 handle &ldquo;SSL termination&rdquo; (decrypting encypted traffic) using
 a certificate that establishes ownership of the site. If you don&rsquo;t
@@ -1149,7 +1143,6 @@ a possible choice for reverse proxy.</p>
     }
 }
 </code></pre>
-
 <p>This configuration will handle basic HTTP traffic and websockets. It
 still requires additional SSL/TLS configuration. A simple option for
 self-hosting on a small scale is to use <a href="https://certbot.eff.org/"><code>certbot</code> by the
@@ -1168,7 +1161,6 @@ is a synonym for team):</p>
 <pre><code>docker run ...
   -e GRIST_SINGLE_ORG=cool-beans
 </code></pre>
-
 <p>The name of the team should use only the lower-case characters a-z, the digits
 0-9, and the hyphen (<code>-</code>).  You may also want to look into
 <a href="./#how-do-i-customize-styling">Custom styling</a> to hide any UI elements
@@ -1199,11 +1191,15 @@ or Enterprise.</p>
 <p>If users on your site login via WordPress, or via a custom mechanism
 you developed, you may want to consider
 <a href="../install/grist-connect/">GristConnect</a>, available for Grist Enterprise.</p>
-<h3 class="tag-ee" id="how-do-i-activate-grist-enterprise">How do I activate Grist Enterprise?<a class="headerlink" href="#how-do-i-activate-grist-enterprise" title="Permanent link">#</a></h3>
+<h3 class="tag-ee" id="how-do-i-enable-grist-enterprise">How do I enable Grist Enterprise?<a class="headerlink" href="#how-do-i-enable-grist-enterprise" title="Permanent link">#</a></h3>
+<p>Grist Enterprise can be enabled by visiting the Admin Panel and clicking the &lsquo;Enable Grist Enterprise Features&rsquo; toggle.
+This will cause Grist to automatically restart.</p>
+<p><img alt="Enterprise toggle on the admin panel" src="../images/admin-panel/enterprise-toggle.png" /></p>
+<p>You should now have an unactivated version of Grist Enterprise, with a 30 day trial period.</p>
 <p>Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
 Get an activation key by <a href="https://www.getgrist.com/pricing">signing up for Grist Enterprise</a>.
-You don&rsquo;t need an activation key to run Grist Core.</p>
+You don&rsquo;t need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the Admin Panel.</p>
 <p>Place the contents of your activation key in an environment variable called
 <code>GRIST_ACTIVATION</code>, or place it in a directory available to Grist and
 provide the full path to the file with the environment variable
@@ -1213,9 +1209,8 @@ this banner will go away. Replacing the activation key will require
 restarting Grist.</p>
 <pre><code>docker run ...
   -e GRIST_ACTIVATION=&lt;activation-key-goes-here&gt; \
-  -it gristlabs/grist-ee
+  -it gristlabs/grist
 </code></pre>
-
 <hr />
 <h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">#</a></h2>
 <h3 class="tag-core tag-ee" id="how-do-i-customize-styling">How do I customize styling?<a class="headerlink" href="#how-do-i-customize-styling" title="Permanent link">#</a></h3>
@@ -1231,7 +1226,6 @@ The UI elements present are also affected by whether <code>GRIST_SINGLE_ORG</cod
   -e GRIST_HIDE_UI_ELEMENTS=helpCenter,billing,templates,multiSite,multiAccounts \
   ...
 </code></pre>
-
 <p>By default pages of the Grist UI have <code>- Grist</code> added to their title. You can
 change this by setting <code>GRIST_PAGE_TITLE_SUFFIX</code>:</p>
 <pre><code>docker run
@@ -1239,7 +1233,6 @@ change this by setting <code>GRIST_PAGE_TITLE_SUFFIX</code>:</p>
   -e GRIST_PAGE_TITLE_SUFFIX=&quot; - Cool Beans&quot; \
   ...
 </code></pre>
-
 <p>You can set the suffix to <code>"_blank"</code> to entirely remove it.</p>
 <p>You can also override the CSS styling of the site if you set
 <code>APP_STATIC_INCLUDE_CUSTOM_CSS</code> to <code>true</code>.</p>
@@ -1248,7 +1241,6 @@ change this by setting <code>GRIST_PAGE_TITLE_SUFFIX</code>:</p>
   -e APP_STATIC_INCLUDE_CUSTOM_CSS=true \
   ...
 </code></pre>
-
 <p>This will load an extra <code>custom.css</code> file. You can find
 an example of such a file in the
 <a href="https://github.com/gristlabs/grist-core/blob/main/static/custom.css">Grist Core repository</a>.</p>
@@ -1267,7 +1259,6 @@ do:</p>
   -v $PWD/custom.css:/grist/static/custom.css
   ...
 </code></pre>
-
 <p>It is possible to direct Grist to load static resources from a CDN by
 setting <code>APP_STATIC_URL</code>. If you do so, and you are using custom CSS,
 you&rsquo;ll need to ensure the custom CSS is available from that base URL.</p>
@@ -1280,7 +1271,6 @@ setting the following:</p>
   -e GRIST_WIDGET_LIST_URL=&quot;https://github.com/gristlabs/grist-widget/releases/download/latest/manifest.json&quot; \
   ...
 </code></pre>
-
 <p>This is optional. If you leave the variable unset, documents with
 custom widgets will still work fine, but you&rsquo;ll need to enter a full
 URL when adding custom widgets rather than picking an option from a
@@ -1300,7 +1290,6 @@ not yet an equivalent in Grist Core.</p>
   -e SENDGRID_API_KEY=SG.XXXXXXX.XXXXX \
   ...
 </code></pre>
-
 <p>You will need to make a file <code>config.json</code> available in the
 root of the volume mapped to <code>/persist</code>. Its contents should be
 as follows:</p>
@@ -1335,7 +1324,6 @@ as follows:</p>
   }
 }
 </code></pre>
-
 <p>Here are the meanings of the keys in this file:</p>
 <ul>
 <li><code>sendgrid.api</code> - Values should remain unchanged from what’s
@@ -1383,20 +1371,18 @@ Formulas using custom python packages will give errors when those packages are u
 </div>
 <p>Create an empty directory, and add the following into it, in a file called
 <code>Dockerfile</code>:</p>
-<pre><code>FROM gristlabs/grist  # or grist-ee, or grist-omnibus
+<pre><code>FROM gristlabs/grist  # or grist-oss or grist-omnibus
 
 RUN \
   apt update &amp;&amp; apt install -y openssl &amp;&amp; \
   python3 -m pip install phonenumbers
 </code></pre>
-
 <p>Replace <code>phonenumbers</code> with the python package or packages you want
 to install. You can now build your custom Grist image by running a
 <code>docker build</code> in the directory with <code>Dockerfile</code> in it:</p>
-<pre><code class="sh"># replace &quot;custom&quot; with a username or organization name.
+<pre><code class="language-sh"># replace &quot;custom&quot; with a username or organization name.
 docker build -t custom/grist .
 </code></pre>
-
 <p>Once done, you can use <code>custom/grist</code> in place of <code>gristlabs/grist(-ee)</code> in
 <a href="./#how-do-i-install-grist">How do I install Grist</a>,
 and your python library will now be available to import in formalas.</p>
@@ -1525,14 +1511,13 @@ support, and recommended for snapshot support. To use, just set <code>REDIS_URL<
   -e REDIS_URL=&quot;redis://hostname/N&quot;
   ...
 </code></pre>
-
 <h3 class="tag-core tag-ee" id="how-do-i-set-up-snapshots">How do I set up snapshots?<a class="headerlink" href="#how-do-i-set-up-snapshots" title="Permanent link">#</a></h3>
 <p>Grist&rsquo;s cloud storage feature allows automatic syncing of Grist
 documents and document versions to an S3-compatible bucket
 (available for all Grist versions) or to Azure storage (in Enterprise Grist).</p>
 <p>Here is an example of running Grist locally, with snapshots stored
 in a test MinIO instance:</p>
-<pre><code class="sh"># Make a network
+<pre><code class="language-sh"># Make a network
 docker network create grist
 
 # Start Redis in our network (recommended for snapshots)
@@ -1559,7 +1544,6 @@ docker run --rm --network grist \
   -e REDIS_URL=redis://redis \
   -v /tmp/grist:/persist -p 8484:8484 -it gristlabs/grist
 </code></pre>
-
 <p>Here are flags to make Grist talk to an AWS S3 bucket using the MinIO
 client:</p>
 <pre><code>  ...
@@ -1569,7 +1553,6 @@ client:</p>
   -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
   ...
 </code></pre>
-
 <p>As per <a href="https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1">MinIO specs</a>.), the default bucket region is <code>us-east-1</code>. This default region can be overwritten using the <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> flag.</p>
 <p>For details, and other options, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
 <h3 class="tag-core" id="how-do-i-control-telemetry">How do I control telemetry?<a class="headerlink" href="#how-do-i-control-telemetry" title="Permanent link">#</a></h3>

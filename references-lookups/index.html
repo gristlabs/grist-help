@@ -1143,12 +1143,10 @@ references the records on our Staff page. </p>
 <p>You can lookup a record in the sponsors table by email address by using a lookupOne formula. The Sponsor column in the All Registrations table does just that using this formula:</p>
 <pre><code>Sponsors.lookupOne(Contact_Email=$Registration_Email)
 </code></pre>
-
 <p>This formula is looking to see if a Contact Email from the Sponsors table matches a Registration Email from the All Registrations table. </p>
 <p>The general format for a lookupOne formula is: </p>
 <pre><code>[Table_Name].lookupOne([A]=$[B])
 </code></pre>
-
 <p><code>[Table_Name]</code> is the name of the table you want to lookup data in. <code>[A]</code> is the column in the table being looked up (named at the beginning of the formula) and <code>[B]</code> is the column in the current table / the table you are entering the formula in.</p>
 <p><span class="screenshot-large"><em><img alt="sponsors-lookupone-text" src="../images/references-lookups/sponsors-lookupone-text.png" /></em></span></p>
 <p>Such a formula returns a reference. In the screenshot above, you can see the lookup result returns <code>Sponsors[#]</code>. The number it returns between square brackets is the record ID of the lookup result. Where it returns <code>Sponsors[0]</code>, no match was found. </p>
@@ -1194,13 +1192,11 @@ references the records on our Staff page. </p>
 <p>The formula for lookupRecords follows this format:</p>
 <pre><code>[Table_Name].lookupRecords([A]=$[B])
 </code></pre>
-
 <p><code>[Table_Name]</code> is the name of the table you want to lookup data in. <code>[A]</code> is the column in the table being looked up (named at the beginning of the formula) and <code>[B]</code> is the column in the current table / the table you are entering the formula in.</p>
 <p>Suppose we want a list of the events attended by each person in our <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/4">Email List</a> table. We can use lookupRecords to do this. First, we need to lookup records where the email listed in the All Registrations table matches an email in this list. Then, find the event associated with each of those records. </p>
 <p>Following the format above, our initial formula is:</p>
 <pre><code>All_Registrations.lookupRecords(Registration_Email=$Email)
 </code></pre>
-
 <p><span class="screenshot-large"><em><img alt="lookup-records" src="../images/references-lookups/lookup-records.png" /></em></span></p>
 <p><code>All_Registrations.lookupRecords(Registration_Email=$Email)</code> returns a list of record IDs for each record in the All Registrations table where the Registration Email matches the Email in this row of the Email List table. Next, we need to find the Event associated with each of these records. To do this, we can use dot notation.</p>
 <p><code>All_Registrations.lookupRecords(Registration_Email=$Email).Event</code> will return the value from the Event column for each record found.</p>
@@ -1223,41 +1219,33 @@ references the records on our Staff page. </p>
 <p><code>SUM()</code> can be useful to find a sum of all numbers in a list of records. Once you find your list of records using the lookupRecords function and dot notation, you can use <code>SUM()</code> to sum all values returned, like you see in this formula:</p>
 <pre><code>SUM(Table.lookupRecords(Column_A=$Column_B).Column_C)
 </code></pre>
-
 <p>You can also do this on a reference list because a reference list is the same thing, a list of records.</p>
 <pre><code>SUM($RefList.Column)
 </code></pre>
-
 <p>In the <a href="#reference-lists-and-dot-notation">Reference lists and dot notation</a> section, we used the Registrants column and dot notation to find the balance for each person in our list of Registrants. We can use <code>SUM()</code> with our prior formula to find the total balance.</p>
 <pre><code>SUM($Registrants.Balance)
 </code></pre>
-
 <p><span class="screenshot-large"><em><img alt="registrants-balance-sum" src="../images/references-lookups/registrants-balance-sum.png" /></em></span></p>
 <p>We can also use lookupRecords to get the list of references, rather than using a reference list column, then find the sum of the balance for all registrants. This method is used in the Ticket Revenue column of the <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3">Events</a> table using the following formula:</p>
 <pre><code>SUM(All_Registrations.lookupRecords(Event=$id).Balance)
 </code></pre>
-
 <p><code>All_Registrations.lookupRecords(Event=$id).Balance</code> finds all records in the All Registrations table where the Event column matches the ID of the row in this table, Events. Using dot notation, we find the Balance for each of the records found. Then <code>SUM()</code> sums the balances of all records found.</p>
 <p><span class="screenshot-large"><em><img alt="lookup-records-registrants-balance-sum" src="../images/references-lookups/lookup-records-registrants-balance-sum.png" /></em></span></p>
 <p>You can also iterate through a Reference List using a Python <code>for</code> loop. An example of this can be seen in the Balance (&lsquo;for&rsquo; loop) column in the Events table. When iterating, each element is a Reference so dot-notation can be used here as well. To find the sum of the balance for all registrants, we use the following formula:</p>
 <pre><code>SUM(person.Balance for person in $Registrants)
 </code></pre>
-
 <p>This does the same thing as our lookupRecords formula we saw above. <code>$Registrants</code> is our reference list. For each record (<code>person</code>) in our list of Registrants, we find the Balance. Then, sum all balances together. In this formula, <code>person</code> is a variable that represents each element in our list and could be replaced with any other variable.</p>
 <p><span class="screenshot-large"><em><img alt="reference-list-for-loop-sum" src="../images/references-lookups/reference-list-for-loop-sum.png" /></em></span></p>
 <p>If you’d like to learn more about <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">Data Structures and List Comprehension</a> in Python 3, <a href="http://python.org/">Python.org</a> is a great resource.</p>
 <p><code>len()</code> can be useful to get the number of items within a list. Once you find your list of records using the lookupRecords function, you can use <code>len()</code> to count the number of records returned, like you see in this formula:</p>
 <pre><code>len(Table.lookupRecords(Column_A=$Column_B))
 </code></pre>
-
 <p>You can also do this on a reference list.</p>
 <pre><code>len($RefList)
 </code></pre>
-
 <p>We want to see how many events our Sponsors have attended. We can use lookupRecords to do this. The following formula is used in the Events Attended column of the <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/2">Sponsors</a> table.</p>
 <pre><code>len(All_Registrations.lookupRecords(Sponsor=$id))
 </code></pre>
-
 <p><span class="screenshot-large"><em><img alt="attendees-lookuprecords" src="../images/references-lookups/attendees-lookuprecords.png" /></em></span></p>
 <p>Let&rsquo;s break down the two parts of this formula, working from the inside out.</p>
 <p><code>All_Registrations.lookupRecords(Sponsor=$id)</code> is looking for matches where the record in the Sponsor column of the All Registrations table has the same ID as the record in this row of the Sponsors table. All records in the All Registrations table that match are added to a list of records. Try writing the formula without <code>len()</code> to see what Grist returns. It should look something like this.</p>
@@ -1268,7 +1256,6 @@ references the records on our Staff page. </p>
 <p>We can also include multiple arguments in a lookupRecords formula. An example of this can be found in the Count column of the Classes table of the <a href="https://public.getgrist.com/doc/eW4nqWfK1k3K~8iDuMy8ApPXvzhcemSiYsS~14207/p/6">Class Enrollment</a> template. This column shows us how many students are enrolled in each class. The formula used here is:</p>
 <pre><code>len(Enrollments.lookupRecords(Class=$id, Status=&quot;Confirmed&quot;))
 </code></pre>
-
 <p><span class="screenshot-large"><em><img alt="lookup-records-multiple" src="../images/references-lookups/lookup-records-multiple.png" /></em></span></p>
 <p>This lookup uses two fields. It will look for records in the Enrollment table where Status is “Confirmed” and the Class column matches the ID of the row in this table. Because the Class column is referencing the Classes table, we use the record ID <code>$id</code> in the lookup.</p>
 <p>Finally, <code>len()</code> counts the items in the list returned by <code>Enrollments.lookupRecords(Class=$id, Status="Confirmed")</code>.</p>

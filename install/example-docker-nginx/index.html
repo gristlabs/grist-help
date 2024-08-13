@@ -1044,15 +1044,14 @@
 <h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
 <p>You need to have the most recent Docker distribution including the <code>docker compose</code> extension installed.</p>
 <p>To prepare the host environment, create an empty directory, and within it do:</p>
-<pre><code class="bash">sudo -u &quot;$(id -un 1000):$(id -un 1000)&quot; mkdir -p ./config/nginx/site-confs ./data ./database/data
+<pre><code class="language-bash">sudo -u &quot;$(id -un 1000):$(id -un 1000)&quot; mkdir -p ./config/nginx/site-confs ./data ./database/data
 </code></pre>
-
 <h3 id="nginx-reverse-proxy-with-automatic-https">NGINX Reverse Proxy with automatic HTTPS<a class="headerlink" href="#nginx-reverse-proxy-with-automatic-https" title="Permanent link">#</a></h3>
 <p>For automatic HTTPS to work, you first need to setup proper DNS entries for the server you are running this reverse proxy on.</p>
 <p>This reverse proxy is decoupled from Grist, in a separate <code>docker-compose.yml</code>, so you may conveniently provide additional backends to which it can route traffic - for example, Authelia for authentication.
 This setup uses SWAG, a Docker image that bundles the NGINX reverse proxy with useful services including TLS certificate generation and renewal.</p>
 <p>This is the <code>docker-compose.yml</code> file managing the NGINX instance.</p>
-<pre><code class="docker">version: &quot;3.9&quot;
+<pre><code class="language-docker">version: &quot;3.9&quot;
 services:
   letsencrypt:
     image: lscr.io/linuxserver/swag # NGINX with automatic HTTPS
@@ -1072,10 +1071,9 @@ services:
       - ./config:/config
     restart: unless-stopped
 </code></pre>
-
 <h4 id="nginx-configuration">NGINX Configuration<a class="headerlink" href="#nginx-configuration" title="Permanent link">#</a></h4>
 <p>The following configuration is to be placed in <code>./config/nginx/site-confs/grist.conf</code>, to make the NGINX instance route to Grist properly.</p>
-<pre><code class="nginx">server {
+<pre><code class="language-nginx">server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
@@ -1102,11 +1100,10 @@ services:
     }
 }
 </code></pre>
-
 <h3 id="grist">Grist<a class="headerlink" href="#grist" title="Permanent link">#</a></h3>
 <p>This is the <code>docker-compose.yml</code> for the Grist backend.
 It contains the Grist app deployment, which is accompanied by a PostgreSQL database.</p>
-<pre><code class="docker"># https://github.com/gristlabs/grist-core#using-grist
+<pre><code class="language-docker"># https://github.com/gristlabs/grist-core#using-grist
 
 version: &quot;3.9&quot;
 
@@ -1133,7 +1130,6 @@ services:
     volumes:
       - ./database/data:/var/lib/postgresql/data
 </code></pre>
-
 <h3 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">#</a></h3>
 <p>The following <code>.env</code> files must be located in the same folder as the Grist <code>docker-compose.yml</code>.</p>
 <h3 id="gristenv"><code>grist.env</code><a class="headerlink" href="#gristenv" title="Permanent link">#</a></h3>
@@ -1167,7 +1163,6 @@ TYPEORM_PASSWORD=mysupersecretpassword CHANGE THIS!!!!
 TYPEORM_PORT=5432
 TYPEORM_TYPE=postgres
 </code></pre>
-
 <h3 id="grist_dbenv"><code>grist_db.env</code><a class="headerlink" href="#grist_dbenv" title="Permanent link">#</a></h3>
 <pre><code># https://hub.docker.com/_/postgres
 

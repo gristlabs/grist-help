@@ -1252,10 +1252,9 @@ column of data. To enter a formula, click on a cell in the &ldquo;Due&rdquo; col
 <p><img alt="formula-start" src="../images/lightweight-crm/formula-start.png" /></p>
 <p>In this formula, we want to look up all Interactions for the current Contact whose Type is
 &ldquo;To-Do&rdquo;, then select the one with the earliest Date. Using Python syntax, the formula is:</p>
-<pre><code class="python">items = Interactions.lookupRecords(Contact=$id, Type=&quot;To-Do&quot;)
+<pre><code class="language-python">items = Interactions.lookupRecords(Contact=$id, Type=&quot;To-Do&quot;)
 return min(items.Date) if items else None
 </code></pre>
-
 <p>Paste it in, or type in. When typing in multi-line formulas, use <code>Shift+Enter</code> to add new lines, and
 <code>Enter</code> to save.</p>
 <p>It&rsquo;s also a good time to change the column type to &ldquo;Date&rdquo;. Open Column Options, and select
@@ -1264,10 +1263,9 @@ return min(items.Date) if items else None
 <p>For the &ldquo;To-Do Items&rdquo;, enter a formula similarly. In case of multiple To-Do items, this formula
 will concatenate them, separated by line breaks. Click into the &ldquo;To-Do Items&rdquo; column, hit &ldquo;=&rdquo; to
 start typing the formula, and enter</p>
-<pre><code class="python">items = Interactions.lookupRecords(Contact=$id, Type=&quot;To-Do&quot;)
+<pre><code class="language-python">items = Interactions.lookupRecords(Contact=$id, Type=&quot;To-Do&quot;)
 return &quot;\n&quot;.join(items.Notes)
 </code></pre>
-
 <p>Now the To-Do item we entered earlier is visible in the main Contacts table.</p>
 <p>Note that the values in these columns are read-only, since they are calculated. To change the due
 date, find the To-Do item in the Interactions table where you created it.</p>

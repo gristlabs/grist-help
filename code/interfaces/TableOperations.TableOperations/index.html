@@ -1073,106 +1073,106 @@
 </ul>
 <h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">#</a></h3>
-<p>▸ <strong>create</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;<a href="../DocApiTypes.MinimalRecord/"><code>MinimalRecord</code></a>></p>
+<p>▸ <strong>create</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;<a href="../DocApiTypes.MinimalRecord/"><code>MinimalRecord</code></a>&gt;</p>
 <p>Create a record or records.</p>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>records</code></td>
-<td align="left"><a href="../DocApiTypes.NewRecord/"><code>NewRecord</code></a></td>
+<td style="text-align: left;"><code>records</code></td>
+<td style="text-align: left;"><a href="../DocApiTypes.NewRecord/"><code>NewRecord</code></a></td>
 </tr>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><a href="../TableOperations.OpOptions/"><code>OpOptions</code></a></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><a href="../TableOperations.OpOptions/"><code>OpOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<a href="../DocApiTypes.MinimalRecord/"><code>MinimalRecord</code></a>></p>
+<p><code>Promise</code>&lt;<a href="../DocApiTypes.MinimalRecord/"><code>MinimalRecord</code></a>&gt;</p>
 <hr />
 <h3 id="destroy">destroy<a class="headerlink" href="#destroy" title="Permanent link">#</a></h3>
-<p>▸ <strong>destroy</strong>(<code>recordIds</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>destroy</strong>(<code>recordIds</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Delete a record or records.</p>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>recordIds</code></td>
-<td align="left"><code>number</code> | <code>number</code>[]</td>
+<td style="text-align: left;"><code>recordIds</code></td>
+<td style="text-align: left;"><code>number</code> | <code>number</code>[]</td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="gettableid">getTableId<a class="headerlink" href="#gettableid" title="Permanent link">#</a></h3>
-<p>▸ <strong>getTableId</strong>(): <code>Promise</code>&lt;<code>string</code>></p>
+<p>▸ <strong>getTableId</strong>(): <code>Promise</code>&lt;<code>string</code>&gt;</p>
 <p>Determine the tableId of the table.</p>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>string</code>></p>
+<p><code>Promise</code>&lt;<code>string</code>&gt;</p>
 <hr />
 <h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">#</a></h3>
-<p>▸ <strong>update</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>update</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Update a record or records.</p>
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>records</code></td>
-<td align="left"><a href="../DocApiTypes.Record/"><code>Record</code></a> | <a href="../DocApiTypes.Record/"><code>Record</code></a>[]</td>
+<td style="text-align: left;"><code>records</code></td>
+<td style="text-align: left;"><a href="../DocApiTypes.Record/"><code>Record</code></a> | <a href="../DocApiTypes.Record/"><code>Record</code></a>[]</td>
 </tr>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><a href="../TableOperations.OpOptions/"><code>OpOptions</code></a></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><a href="../TableOperations.OpOptions/"><code>OpOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="upsert">upsert<a class="headerlink" href="#upsert" title="Permanent link">#</a></h3>
-<p>▸ <strong>upsert</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>upsert</strong>(<code>records</code>, <code>options?</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Add or update a record or records.</p>
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>records</code></td>
-<td align="left"><a href="../DocApiTypes.AddOrUpdateRecord/"><code>AddOrUpdateRecord</code></a> | <a href="../DocApiTypes.AddOrUpdateRecord/"><code>AddOrUpdateRecord</code></a>[]</td>
+<td style="text-align: left;"><code>records</code></td>
+<td style="text-align: left;"><a href="../DocApiTypes.AddOrUpdateRecord/"><code>AddOrUpdateRecord</code></a> | <a href="../DocApiTypes.AddOrUpdateRecord/"><code>AddOrUpdateRecord</code></a>[]</td>
 </tr>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><a href="../TableOperations.UpsertOptions/"><code>UpsertOptions</code></a></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><a href="../TableOperations.UpsertOptions/"><code>UpsertOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 
   <br>
 </div>

@@ -1023,7 +1023,7 @@ without needing to configure a proxy.</p>
 <p>When a webhook is triggered, the rows that matched the webhook&rsquo;s
 conditions will generate a JSON array as the webhook&rsquo;s payload. Here
 is an example payload.</p>
-<pre><code class="json">[
+<pre><code class="language-json">[
   {
     &quot;id&quot;: 29,
     &quot;manualSort&quot;: 29,
@@ -1050,7 +1050,6 @@ is an example payload.</p>
   }
 ]
 </code></pre>
-
 <p>Multiple rows can simultaneously trigger the same webhook. In that
 case, those rows will be sent together in the same payload. The &lsquo;Ready
 Column&rsquo; in the webhook&rsquo;s configuration can be useful for gating which

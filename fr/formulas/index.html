@@ -1063,40 +1063,35 @@ this (see <a href="../page-widgets/">Page widgets</a> for details):</p>
 of the structure of the Materials table.  For example, if we wanted
 to count how many products there are in that table, we could use this
 formula:</p>
-<pre><code class="py">len(Materials.all)
+<pre><code class="language-py">len(Materials.all)
 </code></pre>
-
 <p>Every table in your document is available by its name in formulas,
 as a <a href="../functions/#usertable">UserTable</a>.  This formula uses
 the <a href="../functions/#all">all</a> method to access the rows of the table, but
 doesn&rsquo;t do anything with them but count them.</p>
 <p>Here&rsquo;s a formula to compute the average price, using the Excel-like function
 <a href="../functions/#average">AVERAGE</a>:</p>
-<pre><code class="py">AVERAGE(Materials.all.Price)
+<pre><code class="language-py">AVERAGE(Materials.all.Price)
 </code></pre>
-
 <p>The <a href="../functions/#all">all</a> method returns a <a href="../functions/#recordset">RecordSet</a>,
 which supports iterating over individual columns this way.  Equivalently,
 we could use a Python <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a>:</p>
-<pre><code class="py">AVERAGE(material.Price for material in Materials.all)
+<pre><code class="language-py">AVERAGE(material.Price for material in Materials.all)
 </code></pre>
-
 <p>If you are not familiar with Python, it is worth following
 a tutorial.  There are thousands online, including this
 <a href="https://docs.python.org/3/tutorial/index.html">official one</a>.
 Python will be useful to you for all sorts of data work, not just Grist.</p>
 <p>List comprehension is useful once we&rsquo;re doing anything nuanced.  For example,
 here&rsquo;s a formula to list the names of products with a quantity greater than 80:</p>
-<pre><code class="py">[m.Product for m in Materials.all if m.Quantity &gt; 80]
+<pre><code class="language-py">[m.Product for m in Materials.all if m.Quantity &gt; 80]
 </code></pre>
-
 <p>This is a list comprehension, but now with a conditional.  The result is a list,
 which is rendered as text in a cell.</p>
 <p>Python can help in other ways in your search for rows.  For example, here&rsquo;s a formula
 to find the name of the product with the highest quantity:</p>
-<pre><code class="py">max(Materials.all, key=lambda m: m.Quantity).Product
+<pre><code class="language-py">max(Materials.all, key=lambda m: m.Quantity).Product
 </code></pre>
-
 <p>Formulas are case-sensitive, with Excel-like functions being all-caps (<code>MAX</code>), and
 regular Python generally all lowercase (<code>max</code>).</p>
 <p>For exact matches, there is a shortcut to avoid iteration called
@@ -1105,9 +1100,8 @@ regular Python generally all lowercase (<code>max</code>).</p>
 Just pass the the values of columns you require to be matched.
 For example, here is a formula to look up the product name of a material
 with a quantity of 52:</p>
-<pre><code class="py">Materials.lookupOne(Quantity=52).Product
+<pre><code class="language-py">Materials.lookupOne(Quantity=52).Product
 </code></pre>
-
 <p>For very large tables, it is wise to use lookups as much as you can, rather
 than iterating through rows.</p>
 <p>Returning to our example document, you can now see how we calculated the
@@ -1151,7 +1145,6 @@ in &ldquo;(Sample)&rdquo;:</p>
 else:
   return $Quantity * $Unit_Price
 </code></pre>
-
 <h2 id="code-viewer">Code viewer<a class="headerlink" href="#code-viewer" title="Permanent link">#</a></h2>
 <p>Once you have a lot of formulas, or if you have been invited to a document
 and want to get an overview of its formulas, there is a code viewer
@@ -1204,9 +1197,8 @@ to match.  For example, <code class="formula">Materials.lookupRecords(Category='
 for details of how to add a new field to a card.  If you care about the order
 of results, <code>lookupRecords</code> takes an optional <code>sort_by</code> parameter.  For example,
 we could use this formula to sort by the product name itself:</p>
-<pre><code class="py">Materials.lookupRecords(Category='Ship', sort_by='Product').Product
+<pre><code class="language-py">Materials.lookupRecords(Category='Ship', sort_by='Product').Product
 </code></pre>
-
 <p>If you want to sort by multiple columns, remember that you can create a hidden
 formula column that combines data in any way you like, and then sort by that.</p>
 <p>The order of records returned by <code>lookupRecords</code> may not match the order of rows
@@ -1221,10 +1213,9 @@ what you are looking for.</p>
 <p>Lookups are handy for recursive formulas.  Suppose we have a table counting how many
 events we have per day, and want to add a cumulative sum of those event counts.
 One way to do that is with a formula like this:</p>
-<pre><code class="py">yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
+<pre><code class="language-py">yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
 $events + (yesterday.cumulative or 0)
 </code></pre>
-
 <p><img alt="formulas-recursion" src="../images/formulas/formulas-recursion.png" /></p>
 <p>For clarity, we&rsquo;ve split this formula into two lines.  The first line
 makes a variable pointing to the row of the day before.  The second

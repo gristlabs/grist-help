@@ -1073,39 +1073,39 @@
 </ul>
 <h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">#</a></h2>
 <h3 id="allowselectby">allowSelectBy<a class="headerlink" href="#allowselectby" title="Permanent link">#</a></h3>
-<p>▸ <strong>allowSelectBy</strong>(): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>allowSelectBy</strong>(): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Deprecated now. It was used for filtering selected table by <code>setSelectedRows</code> method.
 Now the preferred way it to use ready message.</p>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="fetchselectedrecord">fetchSelectedRecord<a class="headerlink" href="#fetchselectedrecord" title="Permanent link">#</a></h3>
-<p>▸ <strong>fetchSelectedRecord</strong>(<code>rowId</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>></p>
+<p>▸ <strong>fetchSelectedRecord</strong>(<code>rowId</code>, <code>options?</code>): <code>Promise</code>&lt;<code>any</code>&gt;</p>
 <p>Fetches selected record by its <code>rowId</code>. By default, <code>options.keepEncoded</code> is <code>true</code>.</p>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>rowId</code></td>
-<td align="left"><code>number</code></td>
+<td style="text-align: left;"><code>rowId</code></td>
+<td style="text-align: left;"><code>number</code></td>
 </tr>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><a href="../grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><a href="../grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>any</code>></p>
+<p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <hr />
 <h3 id="fetchselectedtable">fetchSelectedTable<a class="headerlink" href="#fetchselectedtable" title="Permanent link">#</a></h3>
-<p>▸ <strong>fetchSelectedTable</strong>(<code>options?</code>): <code>Promise</code>&lt;<code>any</code>></p>
+<p>▸ <strong>fetchSelectedTable</strong>(<code>options?</code>): <code>Promise</code>&lt;<code>any</code>&gt;</p>
 <p>Like <a href="../grist_plugin_api.GristDocAPI/#fetchtable">GristDocAPI.fetchTable</a>,
 but gets data for the custom section specifically, if there is any.
 By default, <code>options.keepEncoded</code> is <code>true</code> and <code>format</code> is <code>columns</code>.</p>
@@ -1113,61 +1113,61 @@ By default, <code>options.keepEncoded</code> is <code>true</code> and <code>form
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>options?</code></td>
-<td align="left"><a href="../grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
+<td style="text-align: left;"><code>options?</code></td>
+<td style="text-align: left;"><a href="../grist_plugin_api.FetchSelectedOptions/"><code>FetchSelectedOptions</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>any</code>></p>
+<p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <hr />
 <h3 id="setcursorpos">setCursorPos<a class="headerlink" href="#setcursorpos" title="Permanent link">#</a></h3>
-<p>▸ <strong>setCursorPos</strong>(<code>pos</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>setCursorPos</strong>(<code>pos</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Sets the cursor position to a specific row and field. <code>sectionId</code> is ignored. Used for widget linking.</p>
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>pos</code></td>
-<td align="left"><a href="../grist_plugin_api.CursorPos/"><code>CursorPos</code></a></td>
+<td style="text-align: left;"><code>pos</code></td>
+<td style="text-align: left;"><a href="../grist_plugin_api.CursorPos/"><code>CursorPos</code></a></td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 <hr />
 <h3 id="setselectedrows">setSelectedRows<a class="headerlink" href="#setselectedrows" title="Permanent link">#</a></h3>
-<p>▸ <strong>setSelectedRows</strong>(<code>rowIds</code>): <code>Promise</code>&lt;<code>void</code>></p>
+<p>▸ <strong>setSelectedRows</strong>(<code>rowIds</code>): <code>Promise</code>&lt;<code>void</code>&gt;</p>
 <p>Set the list of selected rows to be used against any linked widget.</p>
 <h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>rowIds</code></td>
-<td align="left"><code>null</code> | <code>number</code>[]</td>
+<td style="text-align: left;"><code>rowIds</code></td>
+<td style="text-align: left;"><code>null</code> | <code>number</code>[]</td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">#</a></h4>
-<p><code>Promise</code>&lt;<code>void</code>></p>
+<p><code>Promise</code>&lt;<code>void</code>&gt;</p>
 
   <br>
 </div>

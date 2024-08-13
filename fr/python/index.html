@@ -377,7 +377,7 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#tester-leffet-du-changement-de-version-de-python">
-              Tester l'effet du changement de version de Python
+              Tester l&rsquo;effet du changement de version de Python
             </a>
           </li>
         
@@ -398,7 +398,7 @@
             </li>
             <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#changement-subtil-dans-larrondi">
-                Changement subtil dans l'arrondi
+                Changement subtil dans l&rsquo;arrondi
               </a>
             </li>
             <li class="wm-toc-li">
@@ -1020,13 +1020,11 @@ qui est cohérent entre les versions (<code>9 // 2</code> est <code>4</code> pou
 <p>Par exemple, le modèle <a href="https://templates.getgrist.com/2YwYBWpREY2a/General-Ledger">General Ledger</a>
 avait une formule Python 2 pour calculer le trimestre à partir d&rsquo;une date (ainsi une <code>Date</code> de
 <code>2021-08-15</code> donne un <code>Trimestre</code> de <code>2021 Q3</code>) comme suit :</p>
-<pre><code class="py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) / 3)
+<pre><code class="language-py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) / 3)
 </code></pre>
-
 <p>lors du passage à Python 3, il fallait le corriger :</p>
-<pre><code class="py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) // 3)
+<pre><code class="language-py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) // 3)
 </code></pre>
-
 <p>Dans le cas contraire, les quarts sont devenus des fractions !</p>
 <h3 id="certaines-importations-sont-reorganisees">Certaines importations sont réorganisées<a class="headerlink" href="#certaines-importations-sont-reorganisees" title="Permanent link">#</a></h3>
 <p>Python dispose d&rsquo;une bibliothèque standard utile, mais certaines parties ont été déplacées entre Python 2 et 3.
@@ -1042,11 +1040,9 @@ Gmail :</p>
 <pre><code>from urllib import quote_plus
 &quot;Recherche Gmail https://mail.google.com/mail/u/0/#search/%s&quot; % quote_plus($Email)
 </code></pre>
-
 <p>Dans Python 3, la ligne d&rsquo;importation a dû être modifiée en :</p>
 <pre><code>from urllib.parse import quote_plus
 </code></pre>
-
 <h3 id="changement-subtil-dans-larrondi">Changement subtil dans l&rsquo;arrondi<a class="headerlink" href="#changement-subtil-dans-larrondi" title="Permanent link">#</a></h3>
 <p>Python 3 change la fonction intégrée <code>round()</code> qui arrondit comme beaucoup de gens l&rsquo;ont appris à l&rsquo;école
 (quand on arrondit <code>.5</code>, on arrondit toujours vers le haut)
@@ -1058,11 +1054,9 @@ document établi.</p>
 <p>Si vous avez vraiment besoin de l&rsquo;arrondi de Python 2, remplacez tous les appels à la fonction Python <code>round</code> par la fonction <a href="../functions/#round">ROUND</a> compatible avec Excel.</p>
 <pre><code>round($val, 2)
 </code></pre>
-
 <p>serait remplacée par :</p>
 <pre><code>ROUND($val, 2)
 </code></pre>
-
 <h3 id="gestion-du-texte-unicode">Gestion du texte Unicode<a class="headerlink" href="#gestion-du-texte-unicode" title="Permanent link">#</a></h3>
 <p>Python 2 ne brille pas par sa capacité à gérer les textes internationaux et les emojis.
 Nous avons atténué de nombreux problèmes en fixant l&rsquo;encodage par défaut à <code>utf8</code> pour tous les documents.
@@ -1072,7 +1066,6 @@ pour générer un hachage à sens unique d&rsquo;une adresse électronique :</p>
 <pre><code>import hashlib
 hashlib.sha256($Email).hexdigest()
 </code></pre>
-
 <p>Dans Python 3, cela échoue avec <code>TypeError : Les objets Unicode doivent être encodés avant le hachage</code>,
 ce qui peut être résolu en remplaçant <code>$Email</code> par <code>$Email.encode()</code> :</p>
 <pre><code>import hashlib
