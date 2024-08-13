@@ -71,8 +71,9 @@ Grist installation (such as our SaaS).
 If using some other tool or service, here are the important points:
 
  * The main image name is `gristlabs/grist`, which is our combined Core and Enterprise docker image.
-   The image `gristlabs/grist-oss` also exists, which contains only Apache licensed code and only supports Grist Core.
-   (For some tools, you may need to prefix these image names with `docker.io/`.)
+   The image `gristlabs/grist-oss` also exists, which uses only free and open source code. This image uses only Grist
+   Core, and has no enterprise features available.
+   (For some tools such as Podman, you may need to prefix these image names with `docker.io/`.)
  * A volume (or mount, or directory) needs to be available at location
    `/persist` within the container. It can be initially empty - Grist
    will populate it. Without this volume, nothing you do will be stored long-term.
