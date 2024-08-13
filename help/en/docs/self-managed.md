@@ -267,7 +267,7 @@ you developed, you may want to consider
 
 ### How do I enable Grist Enterprise? {: .tag-ee }
 
-Grist Enterprise can be enabled by visiting the Admin Panel and clicking the "Enable Grist Enterprise Features" toggle.
+Grist Enterprise can be enabled by visiting the Admin Panel and clicking the 'Enable Grist Enterprise Features' toggle.
 This will cause Grist to automatically restart.
 
 ![Enterprise toggle on the admin panel](images/admin-panel/enterprise-toggle.png)
