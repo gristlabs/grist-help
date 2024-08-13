@@ -1936,7 +1936,19 @@ components:
         type:
           type: string
           description: "Column type, by default Any. Ref, RefList and DateTime types requires a postfix, e.g. <code>DateTime:America/New_York</code>, <code>Ref:Users</code>"
-          enum: [Any, Text, Numeric, Int, Bool, Date, DateTime:<timezone>, Choice, ChoiceList, Ref:<tableId>, RefList:<tableId>, Attachments]
+          enum:
+            - Any
+            - Text
+            - Numeric
+            - Int
+            - Bool
+            - Date
+            - DateTime:<timezone>
+            - Choice
+            - ChoiceList
+            - Ref:<tableId>
+            - RefList:<tableId>
+            - Attachments
         label:
           type: string
           description: Column label.
