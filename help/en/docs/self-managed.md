@@ -54,7 +54,7 @@ describe how using [Docker](https://www.docker.com/),
 but there are many other tools and services for running
 containers.
 
-To try Grist out using Docker, make an empty directory for Grist to store material in (say `~/grist`) and then for Grist Core you can do:
+To try Grist out using Docker, make an empty directory for Grist to store material in (say `~/grist`) and then you can do:
 
 ```
 docker run -p 8484:8484 \
@@ -63,9 +63,6 @@ docker run -p 8484:8484 \
   -it gristlabs/grist
 ```
 
-For Grist Enterprise use `gristlabs/grist-ee` instead of
-`gristlabs/grist`.
-
 You should then be able to visit `http://localhost:8484` in
 your browser. Already you will be able to create and edit Grist
 documents, and to open and edit documents downloaded from another
@@ -73,8 +70,10 @@ Grist installation (such as our SaaS).
 
 If using some other tool or service, here are the important points:
 
- * The container name is `gristlabs/grist` or `gristlabs/grist-ee`
-   (for some tools, you may need to prefix these names with `docker.io/`).
+ * The main image name is `gristlabs/grist`, which is our combined Core and Enterprise docker image.
+   The image `gristlabs/grist-oss` also exists, which uses only free and open source code. This image uses only Grist
+   Core, and has no enterprise features available.
+   (For some tools such as Podman, you may need to prefix these image names with `docker.io/`.)
  * A volume (or mount, or directory) needs to be available at location
    `/persist` within the container. It can be initially empty - Grist
    will populate it. Without this volume, nothing you do will be stored long-term.
@@ -267,12 +266,19 @@ If users on your site login via WordPress, or via a custom mechanism
 you developed, you may want to consider
 [GristConnect](install/grist-connect.md), available for Grist Enterprise.
 
-### How do I activate Grist Enterprise? {: .tag-ee }
+### How do I enable Grist Enterprise? {: .tag-ee }
+
+Grist Enterprise can be enabled by visiting the Admin Panel and clicking the 'Enable Grist Enterprise Features' toggle.
+This will cause Grist to automatically restart.
+
+![Enterprise toggle on the admin panel](images/admin-panel/enterprise-toggle.png)
+
+You should now have an unactivated version of Grist Enterprise, with a 30 day trial period.
 
 Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
 Get an activation key by [signing up for Grist Enterprise](https://www.getgrist.com/pricing).
-You don't need an activation key to run Grist Core.
+You don't need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the Admin Panel.
 
 Place the contents of your activation key in an environment variable called
 `GRIST_ACTIVATION`, or place it in a directory available to Grist and
@@ -285,7 +291,7 @@ restarting Grist.
 ```
 docker run ...
   -e GRIST_ACTIVATION=<activation-key-goes-here> \
-  -it gristlabs/grist-ee
+  -it gristlabs/grist
 ```
 
 ---
@@ -488,7 +494,7 @@ Create an empty directory, and add the following into it, in a file called
 `Dockerfile`:
 
 ```
-FROM gristlabs/grist  # or grist-ee, or grist-omnibus
+FROM gristlabs/grist  # or grist-oss or grist-omnibus
 
 RUN \
   apt update && apt install -y openssl && \
