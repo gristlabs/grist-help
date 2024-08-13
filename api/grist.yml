@@ -929,7 +929,95 @@ paths:
       responses:
         200:
           description: Success
-
+  /docs/{docId}/apikey:
+    post:
+      operationId: "createDocApiKey"
+      tags:
+        - document API key
+      summary: "Create a document API key"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: >
+          A Share object.
+          The linkId must be unique for the document.
+          In options the apiKey flag set to true is mandatory.
+          In options access can be set to editors or viewers.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateDocApiKey"
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+  /docs/{docId}/apikey/{linkId}:
+    get:
+      operationId: "readDocApiKey"
+      tags:
+        - document API key
+      summary: "Read a document API key"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/linkIdPathParam'
+      responses:
+        200:
+          description: Success
+    patch:
+      operationId: "updateDocApiKey"
+      tags:
+        - document API key
+      summary: "Update a document API key"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/linkIdPathParam'
+      requestBody:
+        description: >
+          A Share object.
+          The linkId must be unique for the document.
+          In options the apiKey flag set to true is mandatory.
+          In options access can be set to editors or viewers.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateDocApiKey"
+        required: true
+      responses:
+        200:
+          description: Success
+    delete:
+      operationId: "deleteDocApiKey"
+      tags:
+        - document API key
+      summary: "Delete a document API key"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/linkIdPathParam'
+      responses:
+        200:
+          description: Success
+  /docs/{docId}/apikeys:
+    get:
+      operationId: "readDocApiKeys"
+      tags:
+        - document API key
+      summary: "Read all API keys of a document"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Success
+    delete:
+      operationId: "deleteDocApiKeys"
+      tags:
+        - document API key
+      summary: "Delete all API keys of a document"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Success
   /docs/{docId}/webhooks:
     get:
       tags:
@@ -1696,7 +1784,41 @@ components:
               - id: popularity
                 fields:
                   label: "Popularity ❤"
-
+    DocApiKeyOptions:
+      type: object
+      properties:
+        apikey:
+          type: boolean
+          enum: true
+          example: true
+        access:
+          type: string
+          enum:
+            -editors
+            -viewers
+          example: editors
+    CreateDocApiKey:
+      type: object
+      properties:
+        docId:
+          type: string
+          example: XXXXXXXXXXX
+        linkId:
+          type: string
+          example: YYYYYYYYYYY
+        options:
+          $ref: "#/components/schemas/DocApiKeyOptions"
+    UpdateDocApiKey:
+      type: object
+      properties:
+        docId:
+          type: string
+          example: XXXXXXXXXXX
+        linkId:
+          type: string
+          example: YYYYYYYYYYY
+        options:
+          $ref: "#/components/schemas/DocApiKeyOptions"
     ColumnsList:
       type: object
       properties:
@@ -2162,6 +2284,13 @@ components:
       schema:
         type: integer
       description: A user id
+      required: true
+    linkIdPathParam:
+      in: path
+      name: linkId
+      schema:
+        type: string
+      description: A string id (UUID)
       required: true
     noparseQueryParam:
       in: query
