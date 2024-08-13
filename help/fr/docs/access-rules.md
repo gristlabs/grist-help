@@ -57,13 +57,13 @@ Nous pouvons restreindre l'accès d'un collaborateur aux colonnes. Dans notre ex
 
 Cliquez sur `Add Table Rules` et sélectionnez `Orders` pour créer un groupe de règles pour la table `Ordres`. Maintenant, dans le groupe `Règles pour la table Commandes`, cliquez sur l'icône à trois points (...), et sélectionnez `Add Column Rule` :
 
-![Règles d'accès](images/access-rules/access-rules-limite-colonnes-règles.png)
+![Règles d'accès](images/access-rules/column-rule.png)
 
 Dans la zone `Columns` nous avons un nouveau menu déroulant `[Add Column]` pour ajouter toutes les colonnes auxquelles nous voulons que la règle s'applique (dans notre cas, `Email` et `Piece`).
 Pour la condition, nous pourrions utiliser `user.Email == 'kiwi@getgrist.com'`. Cela permet de vérifier l'adresse électronique de Kimberly, notre spécialiste fictif de la livraison.
 Nous pourrions également vérifier par nom ou par identifiant numérique. Nous désactivons toutes les permissions disponibles pour cet utilisateur sur ces colonnes :
 
-![Permissions avancées](images/access-rules/access-rules-limite-colonnes-full-rules.png)
+![Permissions avancées](images/access-rules/access-rules-limit-columns-full-rules.png)
 
 Maintenant que les règles sont prêtes, cliquez sur "Sauvegarder".
 
@@ -138,7 +138,7 @@ d'exprimer des règles qui dépendent du contenu d'un enregistrement particulier
 nous vérifions si la colonne `Stage` d'un enregistrement correspond au rôle de l'utilisateur. Si c'est le cas, nous
 autorisons `R` l'accès en lecture :
 
-![Permissions avancées](images/access-rules/access-rules-stage-rules.png)
+![Permissions avancées](images/access-rules/table-wide-rule-big.png)
 
 Voici à quoi ressemble la table de Kimberly (en train de faire des livraisons) :
 
@@ -151,7 +151,7 @@ Et voici à quoi ressemble le tableau avec Charon (qui fait du sourcing) :
 Kimberly et Charon ont désormais un accès en lecture seule au tableau. Les propriétaires ont toujours
 l'accès en écriture à toutes les lignes et colonnes.
 
-! !! note "Comprendre les colonnes de référence dans les permissions avancées" Vous pouvez limiter l'accès des membres de l'équipe de données aux seules lignes pertinentes pour leur travail.
+!!! note "Comprendre les colonnes de référence dans les permissions avancées" Vous pouvez limiter l'accès des membres de l'équipe de données aux seules lignes pertinentes pour leur travail.
 l'accès des membres de l'équipe de données aux seules lignes pertinentes pour leur travail. Une façon de le faire est de relier tous les enregistrements de toutes les tables aux membres de l'équipe concernés.
 Une façon de le faire est de relier tous les enregistrements de toutes les tables à leurs membres d'équipe respectifs.
 Par exemple, les enregistrements de prospects et de ventes peuvent faire référence au commercial responsable de ces enregistrements.
@@ -225,7 +225,7 @@ nouveaux enregistrements :
 A ce stade, nous avons un code solide et difficile à deviner pour chaque commande dans la colonne `UUID`
 qui sera créée au fur et à mesure que nous ajouterons de nouvelles commandes. Il peut être pratique à ce stade
 de construire des liens vers le document avec ce code intégré. Grist dispose d'une aide
-pour cela, appelé [`SELF_HYPERLINK`] (functions.md#self_hyperlink). Pour ajouter une clé de lien
+pour cela, appelé [`SELF_HYPERLINK`](functions.md#self_hyperlink). Pour ajouter une clé de lien
 pour ajouter une clé de lien appelée `<NAME>`, il suffit d'utiliser cette fonction avec l'argument `LinkKey_<NAME>`.
 comme argument. Dans notre cas, nous passons `LinkKey_UUID=$UID` pour intégrer la valeur de la colonne
 `UUID` dans l'URL. Nous avons également défini `label=$Ref` pour contrôler l'étiquette texte du lien dans la feuille de calcul.
@@ -235,7 +235,7 @@ du lien dans la feuille de calcul. Pour afficher le lien, nous définissons le t
 ![Permissions avancées](images/access-rules/access-rules-linkkey-link.png)
 
 Une fois que nous avons ces liens, nous pouvons faire un peu de ménage en cachant les colonnes `UUID` et `Ref`
-(voir [Opérations sur les colonnes](widget-table.md#opérations sur les colonnes) pour une
+(voir [Opérations sur les colonnes](widget-table.md#column-operations) pour une
 pour un rappel sur la façon de procéder) :
 
 ![Permissions avancées](images/access-rules/access-rules-linkkey-prune.png)
@@ -255,7 +255,7 @@ URL :
 Ce n'est que le début des possibilités. Les clés de lien peuvent donner accès à
 à plusieurs lignes dans plusieurs tables. Elles peuvent être utilisées dans les [Tables d'appairage utilisateur](#user-attribute-tables). Et les données auxquelles elles donnent accès peuvent se trouver dans des tableaux, des cartes, des listes de cartes, des graphiques et des vues personnalisées.
 
-Consultez [un autre exemple] (https://support.getgrist.com/examples/2021-04-link-keys/) pour approfondir pour approfondir votre compréhension des clés de lien.
+Consultez [un autre exemple](https://support.getgrist.com/examples/2021-04-link-keys/) pour approfondir pour approfondir votre compréhension des clés de lien.
 
 ## Conditions de la règle d'accès
 
@@ -300,7 +300,7 @@ Les règles de colonnes n'ont pas les permissions `C` create et `D` delete, qui 
 
 **Note:** L'autorisation `S` est très puissante. Elle permet d'écrire des formules qui peuvent accéder à n'importe quelle donnée du document sans tenir compte des règles. Puisque la permission `S` est activée par défaut pour les éditeurs et les propriétaires, n'importe quel utilisateur sera en mesure de modifier une formule et de récupérer n'importe quelle donnée.
 
-En d'autres termes, le fait d'avoir la permission `S` permet de contourner d'autres règles qui empêchent l'accès aux données. Pour cette raison, la désactiver -- comme décrit ci-dessus dans [Verrouiller la structure](#verrouillerlastructure) -- est une première étape importante pour limiter l'accès aux données.
+En d'autres termes, le fait d'avoir la permission `S` permet de contourner d'autres règles qui empêchent l'accès aux données. Pour cette raison, la désactiver -- comme décrit ci-dessus dans [Verrouiller la structure](#lock-down-structure) -- est une première étape importante pour limiter l'accès aux données.
 
 
 ## Mémos de règles d'accès
