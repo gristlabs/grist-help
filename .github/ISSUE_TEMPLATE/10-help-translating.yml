@@ -1,0 +1,35 @@
+name: 🗺️ I would like to help translating
+description: Use this template to signify your desire to help translating
+title: "[GitLocalize] Please invite me to the translation team"
+assignees:
+ - fflorent
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You're willing to help us translating the documentation? Thank you! ✨
+        Please follow the few steps detailed below and we'll integrate you in the translation team as soon as possible
+  - type: checkboxes
+    id: git-localize-account-created
+    attributes:
+      label: GitLocalize account creation
+      description: Before submitting this issue, you should create an account on [GitLocalize](https://gitlocalize.com/) ([direct link to create an account](https://gitlocalize.com/auth/grant))
+      options:
+        - label: My account is created, you can invite me
+          required: true
+  - type: dropdown
+    id: languages
+    attributes:
+      label: languages you would like help translating
+      multiple: true
+      options:
+        - French
+        - Others (please detail below)
+    validations:
+      required: true
+  - type: input
+    id: other_languages
+    attributes:
+      label: Other languages (optional)
+      description: Is there languages non listed above for which you would like to translate the doc?
