@@ -148,7 +148,7 @@ def get_doc_text(docitems):
     output.append('### ' + category)
     for d in items:
       css_class = 'class="unimplemented"' if d.is_unimplemented else ""
-      output.append('<details id="%s"><summary %s>' % (d.anchor, css_class))
+      output.append('<details id="%s" markdown><summary %s>' % (d.anchor, css_class))
       output.append('#### %s' % d.names[0])
       output.append('<code>%s</code>' % (d.usage,))
       output.append('<a class="headerlink" href="#%s" title="Permanent link">#</a>' % d.anchor)
