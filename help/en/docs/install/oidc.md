@@ -30,6 +30,13 @@ Expected environment variables:
   * `GRIST_OIDC_SP_PROFILE_NAME_ATTR` (optional) - The key of the attribute to use for the user's name. If omitted,
     the name will be the concatenation of `given_name` + `family_name` if they are provided or the `name` attribute otherwise.
   * `GRIST_OIDC_SP_PROFILE_EMAIL_ATTR` (optional) - The key of the attribute to use for the user's email. Defaults to "email".
+  * `GRIST_OIDC_IDP_ENABLED_PROTECTIONS` (optional) - A comma-separated list of protections to enable. Supported values are `PKCE`, `STATE`, `NONCE`.
+    Defaults to `PKCE,STATE`, which is the recommended settings. It's highly recommended that you enable `STATE`,
+    and at least one of `PKCE` or `NONCE,` depending on what your OIDC provider requires/supports.
+  * `GRIST_OIDC_IDP_ACR_VALUES` (optional) - A space-separated list of ACR values to request from the IdP.
+  * `GRIST_OIDC_IDP_EXTRA_CLIENT_METADATA` (optional) - A JSON object with extra client metadata to pass to openid-client.
+    Be aware that setting this object may override any other values passed to the openid client.
+    More info: https://github.com/panva/node-openid-client/tree/main/docs#new-clientmetadata-jwks-options
 
 ## Example: Gitlab
 
