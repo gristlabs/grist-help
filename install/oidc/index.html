@@ -1095,6 +1095,13 @@ A good informative overview of OIDC is at <a href="https://developer.okta.com/bl
 <li><code>GRIST_OIDC_SP_PROFILE_NAME_ATTR</code> (optional) - The key of the attribute to use for the user&rsquo;s name. If omitted,
     the name will be the concatenation of <code>given_name</code> + <code>family_name</code> if they are provided or the <code>name</code> attribute otherwise.</li>
 <li><code>GRIST_OIDC_SP_PROFILE_EMAIL_ATTR</code> (optional) - The key of the attribute to use for the user&rsquo;s email. Defaults to &ldquo;email&rdquo;.</li>
+<li><code>GRIST_OIDC_IDP_ENABLED_PROTECTIONS</code> (optional) - A comma-separated list of protections to enable. Supported values are <code>PKCE</code>, <code>STATE</code>, <code>NONCE</code>.
+    Defaults to <code>PKCE,STATE</code>, which is the recommended settings. It&rsquo;s highly recommended that you enable <code>STATE</code>,
+    and at least one of <code>PKCE</code> or <code>NONCE,</code> depending on what your OIDC provider requires/supports.</li>
+<li><code>GRIST_OIDC_IDP_ACR_VALUES</code> (optional) - A space-separated list of ACR values to request from the IdP.</li>
+<li><code>GRIST_OIDC_IDP_EXTRA_CLIENT_METADATA</code> (optional) - A JSON object with extra client metadata to pass to openid-client.
+    Be aware that setting this object may override any other values passed to the openid client.
+    More info: https://github.com/panva/node-openid-client/tree/main/docs#new-clientmetadata-jwks-options</li>
 </ul>
 <h2 id="example-gitlab">Example: Gitlab<a class="headerlink" href="#example-gitlab" title="Permanent link">#</a></h2>
 <p>See <a href="https://docs.gitlab.com/ee/integration/oauth_provider.html">how to create an OAuth2 application in Gitlab in this documentation</a>. While creating the application, set the redirect URI to <code>https://&lt;grist-domain&gt;/oauth2/callback</code> (or <code>http://localhost:8484/oauth2/callback</code> if tested locally, change <code>8484</code> to the port you listen on) and select the scopes you will specify in <code>GRIST_OIDC_IDP_SCOPES</code>.</p>
