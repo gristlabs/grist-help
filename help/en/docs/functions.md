@@ -35,7 +35,7 @@ Python (see [Python documentation](https://docs.python.org/3.11/)). Here are som
 
 <!-- BEGIN mkpydocs docs -->
 ### Grist
-<details id="record"><summary >
+<details id="record" markdown><summary >
 #### Record
 <code>class __Record__</code>
 <a class="headerlink" href="#record" title="Permanent link">#</a>
@@ -55,14 +55,14 @@ def Name_Length(rec, table):
   return len(rec.Full_Name)
 ```
 </details>
-<details id="_field"><summary >
+<details id="_field" markdown><summary >
 #### $Field
 <code>__$__*Field* or __rec__*.Field*</code>
 <a class="headerlink" href="#_field" title="Permanent link">#</a>
 </summary>
 Access the field named "Field" of the current record. E.g. `$First_Name` or `rec.First_Name`.
 </details>
-<details id="_group"><summary >
+<details id="_group" markdown><summary >
 #### $group
 <code>__$group__</code>
 <a class="headerlink" href="#_group" title="Permanent link">#</a>
@@ -81,7 +81,7 @@ sum(r.Amount for r in $group if r > 0)    # Sum of only the positive amounts
 sum(r.Shares * r.Price for r in $group)   # Sum of shares * price products
 ```
 </details>
-<details id="recordset"><summary >
+<details id="recordset" markdown><summary >
 #### RecordSet
 <code>class __RecordSet__</code>
 <a class="headerlink" href="#recordset" title="Permanent link">#</a>
@@ -104,7 +104,7 @@ min(Tasks.lookupRecords(Owner="Bob").DueDate)
 
 You can get the number of records in a RecordSet using `len`, e.g. `len($group)`.
 </details>
-<details id="find_"><summary >
+<details id="find_" markdown><summary >
 #### find.*
 <code>RecordSet.**find.\***(value)</code>
 <a class="headerlink" href="#find_" title="Permanent link">#</a>
@@ -152,7 +152,7 @@ return rate.Hourly_Rate
 
 Note that this is also much faster when there are many rates for the same Person and Role.
 </details>
-<details id="usertable"><summary >
+<details id="usertable" markdown><summary >
 #### UserTable
 <code>class __UserTable__</code>
 <a class="headerlink" href="#usertable" title="Permanent link">#</a>
@@ -163,7 +163,7 @@ as well as methods to look up particular records.
 
 Every table in the document is available to all formulas.
 </details>
-<details id="all"><summary >
+<details id="all" markdown><summary >
 #### all
 <code>UserTable.__all__</code>
 <a class="headerlink" href="#all" title="Permanent link">#</a>
@@ -180,7 +180,7 @@ This evaluates to the sum of the `Population` field for every record in the tabl
 sum(r.Population for r in Countries.all)
 ```
 </details>
-<details id="lookupone"><summary >
+<details id="lookupone" markdown><summary >
 #### lookupOne
 <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookupone" title="Permanent link">#</a>
@@ -211,7 +211,7 @@ Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Prio
 Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
-<details id="lookuprecords"><summary >
+<details id="lookuprecords" markdown><summary >
 #### lookupRecords
 <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookuprecords" title="Permanent link">#</a>
@@ -257,7 +257,7 @@ value.
 Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 ### Cumulative
-<details id="next"><summary >
+<details id="next" markdown><summary >
 #### NEXT
 <code>__NEXT__(rec, *, group_by=(), order_by)</code>
 <a class="headerlink" href="#next" title="Permanent link">#</a>
@@ -265,7 +265,7 @@ Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 Finds the next record in the table according to the order specified by `order_by`, and
 grouping specified by `group_by`. See [`PREVIOUS`](#previous) for details.
 </details>
-<details id="previous"><summary >
+<details id="previous" markdown><summary >
 #### PREVIOUS
 <code>__PREVIOUS__(rec, *, group_by=(), order_by)</code>
 <a class="headerlink" href="#previous" title="Permanent link">#</a>
@@ -303,7 +303,7 @@ used to match views sorted by multiple columns. For example:
 PREVIOUS(rec, group_by=("Account", "Year"), order_by=("Date", "-Amount"))
 ```
 </details>
-<details id="rank"><summary >
+<details id="rank" markdown><summary >
 #### RANK
 <code>__RANK__(rec, *, group_by=(), order_by, order='asc')</code>
 <a class="headerlink" href="#rank" title="Permanent link">#</a>
@@ -326,7 +326,7 @@ the current record (`rec`) among all the records in its table for the same year,
 decreasing score.
 </details>
 ### Date
-<details id="date"><summary >
+<details id="date" markdown><summary >
 #### DATE
 <code>__DATE__(year, month, day)</code>
 <a class="headerlink" href="#date" title="Permanent link">#</a>
@@ -375,7 +375,7 @@ If day is less than 1, subtracts that many days plus 1, from the first day of th
 datetime.date(2007, 12, 16)
 ```
 </details>
-<details id="dateadd"><summary >
+<details id="dateadd" markdown><summary >
 #### DATEADD
 <code>__DATEADD__(start_date, days=0, months=0, years=0, weeks=0)</code>
 <a class="headerlink" href="#dateadd" title="Permanent link">#</a>
@@ -408,7 +408,7 @@ datetime.date(2025, 3, 26)
 ```
 
 </details>
-<details id="datedif"><summary >
+<details id="datedif" markdown><summary >
 #### DATEDIF
 <code>__DATEDIF__(start_date, end_date, unit)</code>
 <a class="headerlink" href="#datedif" title="Permanent link">#</a>
@@ -454,7 +454,7 @@ The difference between 1 and 15, ignoring the months and the years of the dates 
 14
 ```
 </details>
-<details id="datevalue"><summary >
+<details id="datevalue" markdown><summary >
 #### DATEVALUE
 <code>__DATEVALUE__(date_string, tz=None)</code>
 <a class="headerlink" href="#datevalue" title="Permanent link">#</a>
@@ -489,7 +489,7 @@ In case of ambiguity, prefer M/D/Y format.
 datetime.datetime(2003, 1, 2, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details id="date_to_xl"><summary >
+<details id="date_to_xl" markdown><summary >
 #### DATE_TO_XL
 <code>__DATE_TO_XL__(date_value)</code>
 <a class="headerlink" href="#date_to_xl" title="Permanent link">#</a>
@@ -515,7 +515,7 @@ See XL_TO_DATE for more explanation.
 40982.0625
 ```
 </details>
-<details id="day"><summary >
+<details id="day" markdown><summary >
 #### DAY
 <code>__DAY__(date)</code>
 <a class="headerlink" href="#day" title="Permanent link">#</a>
@@ -539,7 +539,7 @@ Returns the day of a date, as an integer ranging from 1 to 31. Same as `date.day
 ```
 
 </details>
-<details id="days"><summary >
+<details id="days" markdown><summary >
 #### DAYS
 <code>__DAYS__(end_date, start_date)</code>
 <a class="headerlink" href="#days" title="Permanent link">#</a>
@@ -563,7 +563,7 @@ Returns the number of days between two dates. Same as `(end_date - start_date).d
 ```
 
 </details>
-<details id="dtime"><summary >
+<details id="dtime" markdown><summary >
 #### DTIME
 <code>__DTIME__(value, tz=None)</code>
 <a class="headerlink" href="#dtime" title="Permanent link">#</a>
@@ -608,7 +608,7 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 
 </details>
-<details id="edate"><summary >
+<details id="edate" markdown><summary >
 #### EDATE
 <code>__EDATE__(start_date, months)</code>
 <a class="headerlink" href="#edate" title="Permanent link">#</a>
@@ -644,7 +644,7 @@ datetime.date(2012, 3, 1)
 ```
 
 </details>
-<details id="eomonth"><summary >
+<details id="eomonth" markdown><summary >
 #### EOMONTH
 <code>__EOMONTH__(start_date, months)</code>
 <a class="headerlink" href="#eomonth" title="Permanent link">#</a>
@@ -675,7 +675,7 @@ datetime.date(2012, 3, 31)
 ```
 
 </details>
-<details id="hour"><summary >
+<details id="hour" markdown><summary >
 #### HOUR
 <code>__HOUR__(time)</code>
 <a class="headerlink" href="#hour" title="Permanent link">#</a>
@@ -699,7 +699,7 @@ Same as `time.hour`.
 ```
 
 </details>
-<details id="isoweeknum"><summary >
+<details id="isoweeknum" markdown><summary >
 #### ISOWEEKNUM
 <code>__ISOWEEKNUM__(date)</code>
 <a class="headerlink" href="#isoweeknum" title="Permanent link">#</a>
@@ -718,7 +718,7 @@ Returns the ISO week number of the year for a given date.
 ```
 
 </details>
-<details id="minute"><summary >
+<details id="minute" markdown><summary >
 #### MINUTE
 <code>__MINUTE__(time)</code>
 <a class="headerlink" href="#minute" title="Permanent link">#</a>
@@ -748,7 +748,7 @@ Same as `time.minute`.
 ```
 
 </details>
-<details id="month"><summary >
+<details id="month" markdown><summary >
 #### MONTH
 <code>__MONTH__(date)</code>
 <a class="headerlink" href="#month" title="Permanent link">#</a>
@@ -773,7 +773,7 @@ Same as `date.month`.
 ```
 
 </details>
-<details id="moonphase"><summary >
+<details id="moonphase" markdown><summary >
 #### MOONPHASE
 <code>__MOONPHASE__(date, output='emoji')</code>
 <a class="headerlink" href="#moonphase" title="Permanent link">#</a>
@@ -824,14 +824,14 @@ True
 ```
 
 </details>
-<details id="now"><summary >
+<details id="now" markdown><summary >
 #### NOW
 <code>__NOW__(tz=None)</code>
 <a class="headerlink" href="#now" title="Permanent link">#</a>
 </summary>
 Returns the `datetime` object for the current time.
 </details>
-<details id="second"><summary >
+<details id="second" markdown><summary >
 #### SECOND
 <code>__SECOND__(time)</code>
 <a class="headerlink" href="#second" title="Permanent link">#</a>
@@ -856,14 +856,14 @@ Same as `time.second`.
 ```
 
 </details>
-<details id="today"><summary >
+<details id="today" markdown><summary >
 #### TODAY
 <code>__TODAY__(tz=None)</code>
 <a class="headerlink" href="#today" title="Permanent link">#</a>
 </summary>
 Returns the `date` object for the current date.
 </details>
-<details id="weekday"><summary >
+<details id="weekday" markdown><summary >
 #### WEEKDAY
 <code>__WEEKDAY__(date, return_type=1)</code>
 <a class="headerlink" href="#weekday" title="Permanent link">#</a>
@@ -910,7 +910,7 @@ Return_type determines the type of the returned value.
 3
 ```
 </details>
-<details id="weeknum"><summary >
+<details id="weeknum" markdown><summary >
 #### WEEKNUM
 <code>__WEEKNUM__(date, return_type=1)</code>
 <a class="headerlink" href="#weeknum" title="Permanent link">#</a>
@@ -953,7 +953,7 @@ Return_type determines which week is considered the first week of the year.
 5
 ```
 </details>
-<details id="xl_to_date"><summary >
+<details id="xl_to_date" markdown><summary >
 #### XL_TO_DATE
 <code>__XL_TO_DATE__(value, tz=None)</code>
 <a class="headerlink" href="#xl_to_date" title="Permanent link">#</a>
@@ -984,7 +984,7 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 datetime.datetime(2012, 3, 14, 1, 30, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details id="year"><summary >
+<details id="year" markdown><summary >
 #### YEAR
 <code>__YEAR__(date)</code>
 <a class="headerlink" href="#year" title="Permanent link">#</a>
@@ -1009,7 +1009,7 @@ Same as `date.year`.
 ```
 
 </details>
-<details id="yearfrac"><summary >
+<details id="yearfrac" markdown><summary >
 #### YEARFRAC
 <code>__YEARFRAC__(start_date, end_date, basis=0)</code>
 <a class="headerlink" href="#yearfrac" title="Permanent link">#</a>
@@ -1060,7 +1060,7 @@ Fraction between same dates, using the Actual/365 basis argument. Uses a 365 day
 ```
 </details>
 ### Info
-<details id="cell"><summary class="unimplemented">
+<details id="cell" markdown><summary class="unimplemented">
 #### CELL
 <code>__CELL__(info_type, reference)</code>
 <a class="headerlink" href="#cell" title="Permanent link">#</a>
@@ -1069,7 +1069,7 @@ Returns the requested information about the specified cell. This is not implemen
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="isblank"><summary class="unimplemented">
+<details id="isblank" markdown><summary class="unimplemented">
 #### ISBLANK
 <code>__ISBLANK__(value)</code>
 <a class="headerlink" href="#isblank" title="Permanent link">#</a>
@@ -1079,7 +1079,7 @@ empty string, use `value == ""`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="isemail"><summary >
+<details id="isemail" markdown><summary >
 #### ISEMAIL
 <code>__ISEMAIL__(value)</code>
 <a class="headerlink" href="#isemail" title="Permanent link">#</a>
@@ -1111,7 +1111,7 @@ False
 False
 ```
 </details>
-<details id="iserr"><summary >
+<details id="iserr" markdown><summary >
 #### ISERR
 <code>__ISERR__(value)</code>
 <a class="headerlink" href="#iserr" title="Permanent link">#</a>
@@ -1137,7 +1137,7 @@ For example:
 False
 ```
 </details>
-<details id="iserror"><summary >
+<details id="iserror" markdown><summary >
 #### ISERROR
 <code>__ISERROR__(value)</code>
 <a class="headerlink" href="#iserror" title="Permanent link">#</a>
@@ -1163,7 +1163,7 @@ True
 True
 ```
 </details>
-<details id="islogical"><summary >
+<details id="islogical" markdown><summary >
 #### ISLOGICAL
 <code>__ISLOGICAL__(value)</code>
 <a class="headerlink" href="#islogical" title="Permanent link">#</a>
@@ -1197,7 +1197,7 @@ False
 ```
 
 </details>
-<details id="isna"><summary >
+<details id="isna" markdown><summary >
 #### ISNA
 <code>__ISNA__(value)</code>
 <a class="headerlink" href="#isna" title="Permanent link">#</a>
@@ -1226,7 +1226,7 @@ False
 ```
 
 </details>
-<details id="isnontext"><summary >
+<details id="isnontext" markdown><summary >
 #### ISNONTEXT
 <code>__ISNONTEXT__(value)</code>
 <a class="headerlink" href="#isnontext" title="Permanent link">#</a>
@@ -1265,7 +1265,7 @@ True
 ```
 
 </details>
-<details id="isnumber"><summary >
+<details id="isnumber" markdown><summary >
 #### ISNUMBER
 <code>__ISNUMBER__(value)</code>
 <a class="headerlink" href="#isnumber" title="Permanent link">#</a>
@@ -1313,7 +1313,7 @@ False
 False
 ```
 </details>
-<details id="isref"><summary >
+<details id="isref" markdown><summary >
 #### ISREF
 <code>__ISREF__(value)</code>
 <a class="headerlink" href="#isref" title="Permanent link">#</a>
@@ -1337,7 +1337,7 @@ False
 ```
 
 </details>
-<details id="isreflist"><summary >
+<details id="isreflist" markdown><summary >
 #### ISREFLIST
 <code>__ISREFLIST__(value)</code>
 <a class="headerlink" href="#isreflist" title="Permanent link">#</a>
@@ -1362,7 +1362,7 @@ False
 ```
 
 </details>
-<details id="istext"><summary >
+<details id="istext" markdown><summary >
 #### ISTEXT
 <code>__ISTEXT__(value)</code>
 <a class="headerlink" href="#istext" title="Permanent link">#</a>
@@ -1401,7 +1401,7 @@ False
 ```
 
 </details>
-<details id="isurl"><summary >
+<details id="isurl" markdown><summary >
 #### ISURL
 <code>__ISURL__(value)</code>
 <a class="headerlink" href="#isurl" title="Permanent link">#</a>
@@ -1433,7 +1433,7 @@ True
 False
 ```
 </details>
-<details id="n"><summary >
+<details id="n" markdown><summary >
 #### N
 <code>__N__(value)</code>
 <a class="headerlink" href="#n" title="Permanent link">#</a>
@@ -1473,7 +1473,7 @@ Excel-style serial number of the date. Anything else is converted to 0.
 ```
 
 </details>
-<details id="na"><summary >
+<details id="na" markdown><summary >
 #### NA
 <code>__NA__()</code>
 <a class="headerlink" href="#na" title="Permanent link">#</a>
@@ -1487,7 +1487,7 @@ True
 ```
 
 </details>
-<details id="peek"><summary >
+<details id="peek" markdown><summary >
 #### PEEK
 <code>__PEEK__(func)</code>
 <a class="headerlink" href="#peek" title="Permanent link">#</a>
@@ -1502,7 +1502,7 @@ calculated before the other. But if `A` uses `PEEK($B)` then it will simply get 
 already stored in `$B` without requiring that `$B` is first calculated to the latest value.
 Therefore `A` will be calculated first, and `B` can use `$A` without problems.
 </details>
-<details id="record_2"><summary >
+<details id="record_2" markdown><summary >
 #### RECORD
 <code>__RECORD__(record_or_list, dates_as_iso=False, expand_refs=0)</code>
 <a class="headerlink" href="#record_2" title="Permanent link">#</a>
@@ -1531,7 +1531,7 @@ RECORD(People.lookupOne(First_Name="Alice"))
 RECORD(People.lookupRecords(Department="HR"))
 ```
 </details>
-<details id="request"><summary class="unimplemented">
+<details id="request" markdown><summary class="unimplemented">
 #### REQUEST
 <code>__REQUEST__(url, params=None, headers=None, method='GET', data=None, json=None)</code>
 <a class="headerlink" href="#request" title="Permanent link">#</a>
@@ -1539,7 +1539,7 @@ RECORD(People.lookupRecords(Department="HR"))
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="type"><summary class="unimplemented">
+<details id="type" markdown><summary class="unimplemented">
 #### TYPE
 <code>__TYPE__(value)</code>
 <a class="headerlink" href="#type" title="Permanent link">#</a>
@@ -1550,7 +1550,7 @@ implemented in Grist. Use `isinstance(value, type)` or `type(value)`.
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 ### Logical
-<details id="and"><summary >
+<details id="and" markdown><summary >
 #### AND
 <code>__AND__(logical_expression, *logical_expressions)</code>
 <a class="headerlink" href="#and" title="Permanent link">#</a>
@@ -1585,7 +1585,7 @@ False
 ```
 
 </details>
-<details id="false"><summary >
+<details id="false" markdown><summary >
 #### FALSE
 <code>__FALSE__()</code>
 <a class="headerlink" href="#false" title="Permanent link">#</a>
@@ -1600,7 +1600,7 @@ False
 ```
 
 </details>
-<details id="if"><summary >
+<details id="if" markdown><summary >
 #### IF
 <code>__IF__(logical_expression, value_if_true, value_if_false)</code>
 <a class="headerlink" href="#if" title="Permanent link">#</a>
@@ -1645,7 +1645,7 @@ to evaluate to `1` rather than raise an exception.
 0.0
 ```
 </details>
-<details id="iferror"><summary >
+<details id="iferror" markdown><summary >
 #### IFERROR
 <code>__IFERROR__(value, value_if_error='')</code>
 <a class="headerlink" href="#iferror" title="Permanent link">#</a>
@@ -1676,7 +1676,7 @@ NOTE: Grist handles values that raise an exception by wrapping them to use lazy 
 ''
 ```
 </details>
-<details id="not"><summary >
+<details id="not" markdown><summary >
 #### NOT
 <code>__NOT__(logical_expression)</code>
 <a class="headerlink" href="#not" title="Permanent link">#</a>
@@ -1695,7 +1695,7 @@ True
 ```
 
 </details>
-<details id="or"><summary >
+<details id="or" markdown><summary >
 #### OR
 <code>__OR__(logical_expression, *logical_expressions)</code>
 <a class="headerlink" href="#or" title="Permanent link">#</a>
@@ -1741,7 +1741,7 @@ True
 ```
 
 </details>
-<details id="true"><summary >
+<details id="true" markdown><summary >
 #### TRUE
 <code>__TRUE__()</code>
 <a class="headerlink" href="#true" title="Permanent link">#</a>
@@ -1757,7 +1757,7 @@ True
 
 </details>
 ### Lookup
-<details id="lookupone_2"><summary >
+<details id="lookupone_2" markdown><summary >
 #### lookupOne
 <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookupone_2" title="Permanent link">#</a>
@@ -1788,7 +1788,7 @@ Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Prio
 Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
-<details id="lookuprecords_2"><summary >
+<details id="lookuprecords_2" markdown><summary >
 #### lookupRecords
 <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code>
 <a class="headerlink" href="#lookuprecords_2" title="Permanent link">#</a>
@@ -1833,7 +1833,7 @@ value.
 
 Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
-<details id="address"><summary class="unimplemented">
+<details id="address" markdown><summary class="unimplemented">
 #### ADDRESS
 <code>__ADDRESS__(row, column, absolute_relative_mode, use_a1_notation, sheet)</code>
 <a class="headerlink" href="#address" title="Permanent link">#</a>
@@ -1842,7 +1842,7 @@ Returns a cell reference as a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="choose"><summary class="unimplemented">
+<details id="choose" markdown><summary class="unimplemented">
 #### CHOOSE
 <code>__CHOOSE__(index, choice1, choice2)</code>
 <a class="headerlink" href="#choose" title="Permanent link">#</a>
@@ -1851,7 +1851,7 @@ Returns an element from a list of choices based on index.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="column"><summary class="unimplemented">
+<details id="column" markdown><summary class="unimplemented">
 #### COLUMN
 <code>__COLUMN__(cell_reference=None)</code>
 <a class="headerlink" href="#column" title="Permanent link">#</a>
@@ -1860,7 +1860,7 @@ Returns the column number of a specified cell, with `A=1`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="columns"><summary class="unimplemented">
+<details id="columns" markdown><summary class="unimplemented">
 #### COLUMNS
 <code>__COLUMNS__(range)</code>
 <a class="headerlink" href="#columns" title="Permanent link">#</a>
@@ -1869,7 +1869,7 @@ Returns the number of columns in a specified array or range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="contains"><summary >
+<details id="contains" markdown><summary >
 #### CONTAINS
 <code>__CONTAINS__(value, match_empty=no_match_empty)</code>
 <a class="headerlink" href="#contains" title="Permanent link">#</a>
@@ -1901,7 +1901,7 @@ For example, given this formula:
 If `g` is `''` (i.e. equal to `match_empty`) then the column `genre` in the returned records
 will either be an empty list (or other container) or a list containing `g` as usual.
 </details>
-<details id="getpivotdata"><summary class="unimplemented">
+<details id="getpivotdata" markdown><summary class="unimplemented">
 #### GETPIVOTDATA
 <code>__GETPIVOTDATA__(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code>
 <a class="headerlink" href="#getpivotdata" title="Permanent link">#</a>
@@ -1910,7 +1910,7 @@ Extracts an aggregated value from a pivot table that corresponds to the specifie
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="hlookup"><summary class="unimplemented">
+<details id="hlookup" markdown><summary class="unimplemented">
 #### HLOOKUP
 <code>__HLOOKUP__(search_key, range, index, is_sorted)</code>
 <a class="headerlink" href="#hlookup" title="Permanent link">#</a>
@@ -1919,7 +1919,7 @@ Horizontal lookup. Searches across the first row of a range for a key and return
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="hyperlink"><summary class="unimplemented">
+<details id="hyperlink" markdown><summary class="unimplemented">
 #### HYPERLINK
 <code>__HYPERLINK__(url, link_label)</code>
 <a class="headerlink" href="#hyperlink" title="Permanent link">#</a>
@@ -1928,7 +1928,7 @@ Creates a hyperlink inside a cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="index"><summary class="unimplemented">
+<details id="index" markdown><summary class="unimplemented">
 #### INDEX
 <code>__INDEX__(reference, row, column)</code>
 <a class="headerlink" href="#index" title="Permanent link">#</a>
@@ -1937,7 +1937,7 @@ Returns the content of a cell, specified by row and column offset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="indirect"><summary class="unimplemented">
+<details id="indirect" markdown><summary class="unimplemented">
 #### INDIRECT
 <code>__INDIRECT__(cell_reference_as_string)</code>
 <a class="headerlink" href="#indirect" title="Permanent link">#</a>
@@ -1946,7 +1946,7 @@ Returns a cell reference specified by a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="lookup"><summary class="unimplemented">
+<details id="lookup" markdown><summary class="unimplemented">
 #### LOOKUP
 <code>__LOOKUP__(search_key, search_range_or_search_result_array, result_range=None)</code>
 <a class="headerlink" href="#lookup" title="Permanent link">#</a>
@@ -1955,7 +1955,7 @@ Looks through a row or column for a key and returns the value of the cell in a r
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="match"><summary class="unimplemented">
+<details id="match" markdown><summary class="unimplemented">
 #### MATCH
 <code>__MATCH__(search_key, range, search_type)</code>
 <a class="headerlink" href="#match" title="Permanent link">#</a>
@@ -1964,7 +1964,7 @@ Returns the relative position of an item in a range that matches a specified val
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="offset"><summary class="unimplemented">
+<details id="offset" markdown><summary class="unimplemented">
 #### OFFSET
 <code>__OFFSET__(cell_reference, offset_rows, offset_columns, height, width)</code>
 <a class="headerlink" href="#offset" title="Permanent link">#</a>
@@ -1973,7 +1973,7 @@ Returns a range reference shifted a specified number of rows and columns from a 
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="row"><summary class="unimplemented">
+<details id="row" markdown><summary class="unimplemented">
 #### ROW
 <code>__ROW__(cell_reference)</code>
 <a class="headerlink" href="#row" title="Permanent link">#</a>
@@ -1982,7 +1982,7 @@ Returns the row number of a specified cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rows"><summary class="unimplemented">
+<details id="rows" markdown><summary class="unimplemented">
 #### ROWS
 <code>__ROWS__(range)</code>
 <a class="headerlink" href="#rows" title="Permanent link">#</a>
@@ -1991,7 +1991,7 @@ Returns the number of rows in a specified array or range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="self_hyperlink"><summary >
+<details id="self_hyperlink" markdown><summary >
 #### SELF_HYPERLINK
 <code>__SELF_HYPERLINK__(label=None, page=None, **kwargs)</code>
 <a class="headerlink" href="#self_hyperlink" title="Permanent link">#</a>
@@ -2044,7 +2044,7 @@ TypeError: unexpected keyword argument 'Linky_Link' (not of form LinkKey_NAME)
 ```
 
 </details>
-<details id="vlookup"><summary >
+<details id="vlookup" markdown><summary >
 #### VLOOKUP
 <code>__VLOOKUP__(table, **field_value_pairs)</code>
 <a class="headerlink" href="#vlookup" title="Permanent link">#</a>
@@ -2069,7 +2069,7 @@ VLOOKUP(People, First_Name="Lewis", Last_Name="Carroll").Age
 ```
 </details>
 ### Math
-<details id="abs"><summary >
+<details id="abs" markdown><summary >
 #### ABS
 <code>__ABS__(value)</code>
 <a class="headerlink" href="#abs" title="Permanent link">#</a>
@@ -2093,7 +2093,7 @@ Returns the absolute value of a number.
 ```
 
 </details>
-<details id="acos"><summary >
+<details id="acos" markdown><summary >
 #### ACOS
 <code>__ACOS__(value)</code>
 <a class="headerlink" href="#acos" title="Permanent link">#</a>
@@ -2112,7 +2112,7 @@ Returns the inverse cosine of a value, in radians.
 ```
 
 </details>
-<details id="acosh"><summary >
+<details id="acosh" markdown><summary >
 #### ACOSH
 <code>__ACOSH__(value)</code>
 <a class="headerlink" href="#acosh" title="Permanent link">#</a>
@@ -2131,7 +2131,7 @@ Returns the inverse hyperbolic cosine of a number.
 ```
 
 </details>
-<details id="arabic"><summary >
+<details id="arabic" markdown><summary >
 #### ARABIC
 <code>__ARABIC__(roman_numeral)</code>
 <a class="headerlink" href="#arabic" title="Permanent link">#</a>
@@ -2150,7 +2150,7 @@ Computes the value of a Roman numeral.
 ```
 
 </details>
-<details id="asin"><summary >
+<details id="asin" markdown><summary >
 #### ASIN
 <code>__ASIN__(value)</code>
 <a class="headerlink" href="#asin" title="Permanent link">#</a>
@@ -2174,7 +2174,7 @@ Returns the inverse sine of a value, in radians.
 ```
 
 </details>
-<details id="asinh"><summary >
+<details id="asinh" markdown><summary >
 #### ASINH
 <code>__ASINH__(value)</code>
 <a class="headerlink" href="#asinh" title="Permanent link">#</a>
@@ -2193,7 +2193,7 @@ Returns the inverse hyperbolic sine of a number.
 ```
 
 </details>
-<details id="atan"><summary >
+<details id="atan" markdown><summary >
 #### ATAN
 <code>__ATAN__(value)</code>
 <a class="headerlink" href="#atan" title="Permanent link">#</a>
@@ -2217,7 +2217,7 @@ Returns the inverse tangent of a value, in radians.
 ```
 
 </details>
-<details id="atan2"><summary >
+<details id="atan2" markdown><summary >
 #### ATAN2
 <code>__ATAN2__(x, y)</code>
 <a class="headerlink" href="#atan2" title="Permanent link">#</a>
@@ -2252,7 +2252,7 @@ coordinate pair (`x`,`y`), in radians.
 ```
 
 </details>
-<details id="atanh"><summary >
+<details id="atanh" markdown><summary >
 #### ATANH
 <code>__ATANH__(value)</code>
 <a class="headerlink" href="#atanh" title="Permanent link">#</a>
@@ -2271,7 +2271,7 @@ Returns the inverse hyperbolic tangent of a number.
 ```
 
 </details>
-<details id="ceiling"><summary >
+<details id="ceiling" markdown><summary >
 #### CEILING
 <code>__CEILING__(value, factor=1)</code>
 <a class="headerlink" href="#ceiling" title="Permanent link">#</a>
@@ -2306,7 +2306,7 @@ omitted or 1.
 ```
 
 </details>
-<details id="combin"><summary >
+<details id="combin" markdown><summary >
 #### COMBIN
 <code>__COMBIN__(n, k)</code>
 <a class="headerlink" href="#combin" title="Permanent link">#</a>
@@ -2331,7 +2331,7 @@ objects.
 ```
 
 </details>
-<details id="cos"><summary >
+<details id="cos" markdown><summary >
 #### COS
 <code>__COS__(angle)</code>
 <a class="headerlink" href="#cos" title="Permanent link">#</a>
@@ -2355,7 +2355,7 @@ Returns the cosine of an angle provided in radians.
 ```
 
 </details>
-<details id="cosh"><summary >
+<details id="cosh" markdown><summary >
 #### COSH
 <code>__COSH__(value)</code>
 <a class="headerlink" href="#cosh" title="Permanent link">#</a>
@@ -2374,7 +2374,7 @@ Returns the hyperbolic cosine of any real number.
 ```
 
 </details>
-<details id="degrees"><summary >
+<details id="degrees" markdown><summary >
 #### DEGREES
 <code>__DEGREES__(angle)</code>
 <a class="headerlink" href="#degrees" title="Permanent link">#</a>
@@ -2393,7 +2393,7 @@ Converts an angle value in radians to degrees.
 ```
 
 </details>
-<details id="even"><summary >
+<details id="even" markdown><summary >
 #### EVEN
 <code>__EVEN__(value)</code>
 <a class="headerlink" href="#even" title="Permanent link">#</a>
@@ -2422,7 +2422,7 @@ Rounds a number up to the nearest even integer, rounding away from zero.
 ```
 
 </details>
-<details id="exp"><summary >
+<details id="exp" markdown><summary >
 #### EXP
 <code>__EXP__(exponent)</code>
 <a class="headerlink" href="#exp" title="Permanent link">#</a>
@@ -2441,7 +2441,7 @@ Returns Euler's number, e (~2.718) raised to a power.
 ```
 
 </details>
-<details id="fact"><summary >
+<details id="fact" markdown><summary >
 #### FACT
 <code>__FACT__(value)</code>
 <a class="headerlink" href="#fact" title="Permanent link">#</a>
@@ -2477,7 +2477,7 @@ ValueError: factorial() not defined for negative values
 ```
 
 </details>
-<details id="factdouble"><summary >
+<details id="factdouble" markdown><summary >
 #### FACTDOUBLE
 <code>__FACTDOUBLE__(value)</code>
 <a class="headerlink" href="#factdouble" title="Permanent link">#</a>
@@ -2506,7 +2506,7 @@ Returns the "double factorial" of a number.
 ```
 
 </details>
-<details id="floor"><summary >
+<details id="floor" markdown><summary >
 #### FLOOR
 <code>__FLOOR__(value, factor=1)</code>
 <a class="headerlink" href="#floor" title="Permanent link">#</a>
@@ -2542,7 +2542,7 @@ ValueError: factor argument invalid
 ```
 
 </details>
-<details id="gcd"><summary >
+<details id="gcd" markdown><summary >
 #### GCD
 <code>__GCD__(value1, *more_values)</code>
 <a class="headerlink" href="#gcd" title="Permanent link">#</a>
@@ -2586,7 +2586,7 @@ Returns the greatest common divisor of one or more integers.
 ```
 
 </details>
-<details id="int"><summary >
+<details id="int" markdown><summary >
 #### INT
 <code>__INT__(value)</code>
 <a class="headerlink" href="#int" title="Permanent link">#</a>
@@ -2610,7 +2610,7 @@ Rounds a number down to the nearest integer that is less than or equal to it.
 ```
 
 </details>
-<details id="lcm"><summary >
+<details id="lcm" markdown><summary >
 #### LCM
 <code>__LCM__(value1, *more_values)</code>
 <a class="headerlink" href="#lcm" title="Permanent link">#</a>
@@ -2654,7 +2654,7 @@ Returns the least common multiple of one or more integers.
 ```
 
 </details>
-<details id="ln"><summary >
+<details id="ln" markdown><summary >
 #### LN
 <code>__LN__(value)</code>
 <a class="headerlink" href="#ln" title="Permanent link">#</a>
@@ -2678,7 +2678,7 @@ Returns the the logarithm of a number, base e (Euler's number).
 ```
 
 </details>
-<details id="log"><summary >
+<details id="log" markdown><summary >
 #### LOG
 <code>__LOG__(value, base=10)</code>
 <a class="headerlink" href="#log" title="Permanent link">#</a>
@@ -2702,7 +2702,7 @@ Returns the the logarithm of a number given a base.
 ```
 
 </details>
-<details id="log10"><summary >
+<details id="log10" markdown><summary >
 #### LOG10
 <code>__LOG10__(value)</code>
 <a class="headerlink" href="#log10" title="Permanent link">#</a>
@@ -2731,7 +2731,7 @@ Returns the the logarithm of a number, base 10.
 ```
 
 </details>
-<details id="mod"><summary >
+<details id="mod" markdown><summary >
 #### MOD
 <code>__MOD__(dividend, divisor)</code>
 <a class="headerlink" href="#mod" title="Permanent link">#</a>
@@ -2760,7 +2760,7 @@ Returns the result of the modulo operator, the remainder after a division operat
 ```
 
 </details>
-<details id="mround"><summary >
+<details id="mround" markdown><summary >
 #### MROUND
 <code>__MROUND__(value, factor)</code>
 <a class="headerlink" href="#mround" title="Permanent link">#</a>
@@ -2791,7 +2791,7 @@ ValueError: factor argument invalid
 ```
 
 </details>
-<details id="multinomial"><summary >
+<details id="multinomial" markdown><summary >
 #### MULTINOMIAL
 <code>__MULTINOMIAL__(value1, *more_values)</code>
 <a class="headerlink" href="#multinomial" title="Permanent link">#</a>
@@ -2820,7 +2820,7 @@ Returns the factorial of the sum of values divided by the product of the values'
 ```
 
 </details>
-<details id="num"><summary >
+<details id="num" markdown><summary >
 #### NUM
 <code>__NUM__(value)</code>
 <a class="headerlink" href="#num" title="Permanent link">#</a>
@@ -2851,7 +2851,7 @@ Numeric Grist column (represented as floats), but when int values are actually e
 ```
 
 </details>
-<details id="odd"><summary >
+<details id="odd" markdown><summary >
 #### ODD
 <code>__ODD__(value)</code>
 <a class="headerlink" href="#odd" title="Permanent link">#</a>
@@ -2885,7 +2885,7 @@ Rounds a number up to the nearest odd integer.
 ```
 
 </details>
-<details id="pi"><summary >
+<details id="pi" markdown><summary >
 #### PI
 <code>__PI__()</code>
 <a class="headerlink" href="#pi" title="Permanent link">#</a>
@@ -2909,7 +2909,7 @@ Returns the value of Pi to 14 decimal places.
 ```
 
 </details>
-<details id="power"><summary >
+<details id="power" markdown><summary >
 #### POWER
 <code>__POWER__(base, exponent)</code>
 <a class="headerlink" href="#power" title="Permanent link">#</a>
@@ -2933,7 +2933,7 @@ Returns a number raised to a power.
 ```
 
 </details>
-<details id="product"><summary >
+<details id="product" markdown><summary >
 #### PRODUCT
 <code>__PRODUCT__(factor1, *more_factors)</code>
 <a class="headerlink" href="#product" title="Permanent link">#</a>
@@ -2957,7 +2957,7 @@ an array.
 4500
 ```
 </details>
-<details id="quotient"><summary >
+<details id="quotient" markdown><summary >
 #### QUOTIENT
 <code>__QUOTIENT__(dividend, divisor)</code>
 <a class="headerlink" href="#quotient" title="Permanent link">#</a>
@@ -2981,7 +2981,7 @@ Returns one number divided by another, without the remainder.
 ```
 
 </details>
-<details id="radians"><summary >
+<details id="radians" markdown><summary >
 #### RADIANS
 <code>__RADIANS__(angle)</code>
 <a class="headerlink" href="#radians" title="Permanent link">#</a>
@@ -2995,21 +2995,21 @@ Converts an angle value in degrees to radians.
 ```
 
 </details>
-<details id="rand"><summary >
+<details id="rand" markdown><summary >
 #### RAND
 <code>__RAND__()</code>
 <a class="headerlink" href="#rand" title="Permanent link">#</a>
 </summary>
 Returns a random number between 0 inclusive and 1 exclusive.
 </details>
-<details id="randbetween"><summary >
+<details id="randbetween" markdown><summary >
 #### RANDBETWEEN
 <code>__RANDBETWEEN__(low, high)</code>
 <a class="headerlink" href="#randbetween" title="Permanent link">#</a>
 </summary>
 Returns a uniformly random integer between two values, inclusive.
 </details>
-<details id="roman"><summary >
+<details id="roman" markdown><summary >
 #### ROMAN
 <code>__ROMAN__(number, form_unused=None)</code>
 <a class="headerlink" href="#roman" title="Permanent link">#</a>
@@ -3038,7 +3038,7 @@ Formats a number in Roman numerals. The second argument is ignored in this imple
 ```
 
 </details>
-<details id="round"><summary >
+<details id="round" markdown><summary >
 #### ROUND
 <code>__ROUND__(value, places=0)</code>
 <a class="headerlink" href="#round" title="Permanent link">#</a>
@@ -3106,7 +3106,7 @@ in the case of a tie, i.e. when the last digit is 5.
 ```
 
 </details>
-<details id="rounddown"><summary >
+<details id="rounddown" markdown><summary >
 #### ROUNDDOWN
 <code>__ROUNDDOWN__(value, places=0)</code>
 <a class="headerlink" href="#rounddown" title="Permanent link">#</a>
@@ -3140,7 +3140,7 @@ Rounds a number to a certain number of decimal places, always rounding down towa
 ```
 
 </details>
-<details id="roundup"><summary >
+<details id="roundup" markdown><summary >
 #### ROUNDUP
 <code>__ROUNDUP__(value, places=0)</code>
 <a class="headerlink" href="#roundup" title="Permanent link">#</a>
@@ -3174,7 +3174,7 @@ Rounds a number to a certain number of decimal places, always rounding up away f
 ```
 
 </details>
-<details id="seriessum"><summary >
+<details id="seriessum" markdown><summary >
 #### SERIESSUM
 <code>__SERIESSUM__(x, n, m, a)</code>
 <a class="headerlink" href="#seriessum" title="Permanent link">#</a>
@@ -3204,7 +3204,7 @@ Given parameters x, n, m, and a, returns the power series sum a_1*x^n + a_2*x^(n
 ```
 
 </details>
-<details id="sign"><summary >
+<details id="sign" markdown><summary >
 #### SIGN
 <code>__SIGN__(value)</code>
 <a class="headerlink" href="#sign" title="Permanent link">#</a>
@@ -3228,7 +3228,7 @@ Given an input number, returns `-1` if it is negative, `1` if positive, and `0` 
 ```
 
 </details>
-<details id="sin"><summary >
+<details id="sin" markdown><summary >
 #### SIN
 <code>__SIN__(angle)</code>
 <a class="headerlink" href="#sin" title="Permanent link">#</a>
@@ -3257,7 +3257,7 @@ Returns the sine of an angle provided in radians.
 ```
 
 </details>
-<details id="sinh"><summary >
+<details id="sinh" markdown><summary >
 #### SINH
 <code>__SINH__(value)</code>
 <a class="headerlink" href="#sinh" title="Permanent link">#</a>
@@ -3271,7 +3271,7 @@ Returns the hyperbolic sine of any real number.
 ```
 
 </details>
-<details id="sqrt"><summary >
+<details id="sqrt" markdown><summary >
 #### SQRT
 <code>__SQRT__(value)</code>
 <a class="headerlink" href="#sqrt" title="Permanent link">#</a>
@@ -3297,7 +3297,7 @@ ValueError: math domain error
 ```
 
 </details>
-<details id="sqrtpi"><summary >
+<details id="sqrtpi" markdown><summary >
 #### SQRTPI
 <code>__SQRTPI__(value)</code>
 <a class="headerlink" href="#sqrtpi" title="Permanent link">#</a>
@@ -3316,7 +3316,7 @@ Returns the positive square root of the product of Pi and the given positive num
 ```
 
 </details>
-<details id="subtotal"><summary class="unimplemented">
+<details id="subtotal" markdown><summary class="unimplemented">
 #### SUBTOTAL
 <code>__SUBTOTAL__(function_code, range1, range2)</code>
 <a class="headerlink" href="#subtotal" title="Permanent link">#</a>
@@ -3325,7 +3325,7 @@ Returns a subtotal for a vertical range of cells using a specified aggregation f
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="sum"><summary >
+<details id="sum" markdown><summary >
 #### SUM
 <code>__SUM__(value1, *more_values)</code>
 <a class="headerlink" href="#sum" title="Permanent link">#</a>
@@ -3349,7 +3349,7 @@ Non-numeric values are ignored.
 52
 ```
 </details>
-<details id="sumif"><summary class="unimplemented">
+<details id="sumif" markdown><summary class="unimplemented">
 #### SUMIF
 <code>__SUMIF__(records, criterion, sum_range)</code>
 <a class="headerlink" href="#sumif" title="Permanent link">#</a>
@@ -3358,7 +3358,7 @@ Returns a conditional sum across a range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="sumifs"><summary class="unimplemented">
+<details id="sumifs" markdown><summary class="unimplemented">
 #### SUMIFS
 <code>__SUMIFS__(sum_range, criteria_range1, criterion1, *args)</code>
 <a class="headerlink" href="#sumifs" title="Permanent link">#</a>
@@ -3367,7 +3367,7 @@ Returns the sum of a range depending on multiple criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="sumproduct"><summary >
+<details id="sumproduct" markdown><summary >
 #### SUMPRODUCT
 <code>__SUMPRODUCT__(array1, *more_arrays)</code>
 <a class="headerlink" href="#sumproduct" title="Permanent link">#</a>
@@ -3397,7 +3397,7 @@ and returns the sum of those products.
 ```
 
 </details>
-<details id="sumsq"><summary class="unimplemented">
+<details id="sumsq" markdown><summary class="unimplemented">
 #### SUMSQ
 <code>__SUMSQ__(value1, value2)</code>
 <a class="headerlink" href="#sumsq" title="Permanent link">#</a>
@@ -3406,7 +3406,7 @@ Returns the sum of the squares of a series of numbers and/or cells.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="tan"><summary >
+<details id="tan" markdown><summary >
 #### TAN
 <code>__TAN__(angle)</code>
 <a class="headerlink" href="#tan" title="Permanent link">#</a>
@@ -3430,7 +3430,7 @@ Returns the tangent of an angle provided in radians.
 ```
 
 </details>
-<details id="tanh"><summary >
+<details id="tanh" markdown><summary >
 #### TANH
 <code>__TANH__(value)</code>
 <a class="headerlink" href="#tanh" title="Permanent link">#</a>
@@ -3454,7 +3454,7 @@ Returns the hyperbolic tangent of any real number.
 ```
 
 </details>
-<details id="trunc"><summary >
+<details id="trunc" markdown><summary >
 #### TRUNC
 <code>__TRUNC__(value, places=0)</code>
 <a class="headerlink" href="#trunc" title="Permanent link">#</a>
@@ -3479,7 +3479,7 @@ digits.
 ```
 
 </details>
-<details id="uuid"><summary >
+<details id="uuid" markdown><summary >
 #### UUID
 <code>__UUID__()</code>
 <a class="headerlink" href="#uuid" title="Permanent link">#</a>
@@ -3493,7 +3493,7 @@ formula may get recalculated any time the document is reloaded, producing a diff
 UUID() each time.
 </details>
 ### Schedule
-<details id="schedule"><summary >
+<details id="schedule" markdown><summary >
 #### SCHEDULE
 <code>__SCHEDULE__(schedule, start=None, count=10, end=None)</code>
 <a class="headerlink" href="#schedule" title="Permanent link">#</a>
@@ -3618,7 +3618,7 @@ The time zone of `start` determines the time zone of the generated times.
 
 </details>
 ### Stats
-<details id="avedev"><summary class="unimplemented">
+<details id="avedev" markdown><summary class="unimplemented">
 #### AVEDEV
 <code>__AVEDEV__(value1, value2)</code>
 <a class="headerlink" href="#avedev" title="Permanent link">#</a>
@@ -3627,7 +3627,7 @@ Calculates the average of the magnitudes of deviations of data from a dataset's 
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="average"><summary >
+<details id="average" markdown><summary >
 #### AVERAGE
 <code>__AVERAGE__(value, *more_values)</code>
 <a class="headerlink" href="#average" title="Permanent link">#</a>
@@ -3661,7 +3661,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details id="averagea"><summary >
+<details id="averagea" markdown><summary >
 #### AVERAGEA
 <code>__AVERAGEA__(value, *more_values)</code>
 <a class="headerlink" href="#averagea" title="Permanent link">#</a>
@@ -3694,7 +3694,7 @@ False as 0.
 ```
 
 </details>
-<details id="averageif"><summary class="unimplemented">
+<details id="averageif" markdown><summary class="unimplemented">
 #### AVERAGEIF
 <code>__AVERAGEIF__(criteria_range, criterion, average_range=None)</code>
 <a class="headerlink" href="#averageif" title="Permanent link">#</a>
@@ -3703,7 +3703,7 @@ Returns the average of a range depending on criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="averageifs"><summary class="unimplemented">
+<details id="averageifs" markdown><summary class="unimplemented">
 #### AVERAGEIFS
 <code>__AVERAGEIFS__(average_range, criteria_range1, criterion1, *args)</code>
 <a class="headerlink" href="#averageifs" title="Permanent link">#</a>
@@ -3712,7 +3712,7 @@ Returns the average of a range depending on multiple criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="average_weighted"><summary >
+<details id="average_weighted" markdown><summary >
 #### AVERAGE_WEIGHTED
 <code>__AVERAGE_WEIGHTED__(pairs)</code>
 <a class="headerlink" href="#average_weighted" title="Permanent link">#</a>
@@ -3740,7 +3740,7 @@ list of pairs.
 ```
 
 </details>
-<details id="binomdist"><summary class="unimplemented">
+<details id="binomdist" markdown><summary class="unimplemented">
 #### BINOMDIST
 <code>__BINOMDIST__(num_successes, num_trials, prob_success, cumulative)</code>
 <a class="headerlink" href="#binomdist" title="Permanent link">#</a>
@@ -3751,7 +3751,7 @@ certain number of successes, with replacement of draws.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="confidence"><summary class="unimplemented">
+<details id="confidence" markdown><summary class="unimplemented">
 #### CONFIDENCE
 <code>__CONFIDENCE__(alpha, standard_deviation, pop_size)</code>
 <a class="headerlink" href="#confidence" title="Permanent link">#</a>
@@ -3760,7 +3760,7 @@ Calculates the width of half the confidence interval for a normal distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="correl"><summary class="unimplemented">
+<details id="correl" markdown><summary class="unimplemented">
 #### CORREL
 <code>__CORREL__(data_y, data_x)</code>
 <a class="headerlink" href="#correl" title="Permanent link">#</a>
@@ -3769,7 +3769,7 @@ Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="count"><summary >
+<details id="count" markdown><summary >
 #### COUNT
 <code>__COUNT__(value, *more_values)</code>
 <a class="headerlink" href="#count" title="Permanent link">#</a>
@@ -3807,7 +3807,7 @@ and blank values, and text representations of numbers, are ignored.
 ```
 
 </details>
-<details id="counta"><summary >
+<details id="counta" markdown><summary >
 #### COUNTA
 <code>__COUNTA__(value, *more_values)</code>
 <a class="headerlink" href="#counta" title="Permanent link">#</a>
@@ -3838,7 +3838,7 @@ Each argument may be a value or an array.
 ```
 
 </details>
-<details id="covar"><summary class="unimplemented">
+<details id="covar" markdown><summary class="unimplemented">
 #### COVAR
 <code>__COVAR__(data_y, data_x)</code>
 <a class="headerlink" href="#covar" title="Permanent link">#</a>
@@ -3847,7 +3847,7 @@ Calculates the covariance of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="critbinom"><summary class="unimplemented">
+<details id="critbinom" markdown><summary class="unimplemented">
 #### CRITBINOM
 <code>__CRITBINOM__(num_trials, prob_success, target_prob)</code>
 <a class="headerlink" href="#critbinom" title="Permanent link">#</a>
@@ -3856,7 +3856,7 @@ Calculates the smallest value for which the cumulative binomial distribution is 
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="devsq"><summary class="unimplemented">
+<details id="devsq" markdown><summary class="unimplemented">
 #### DEVSQ
 <code>__DEVSQ__(value1, value2)</code>
 <a class="headerlink" href="#devsq" title="Permanent link">#</a>
@@ -3865,7 +3865,7 @@ Calculates the sum of squares of deviations based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="expondist"><summary class="unimplemented">
+<details id="expondist" markdown><summary class="unimplemented">
 #### EXPONDIST
 <code>__EXPONDIST__(x, lambda_, cumulative)</code>
 <a class="headerlink" href="#expondist" title="Permanent link">#</a>
@@ -3874,7 +3874,7 @@ Returns the value of the exponential distribution function with a specified lamb
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="fdist"><summary class="unimplemented">
+<details id="fdist" markdown><summary class="unimplemented">
 #### FDIST
 <code>__FDIST__(x, degrees_freedom1, degrees_freedom2)</code>
 <a class="headerlink" href="#fdist" title="Permanent link">#</a>
@@ -3885,7 +3885,7 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="fisher"><summary class="unimplemented">
+<details id="fisher" markdown><summary class="unimplemented">
 #### FISHER
 <code>__FISHER__(value)</code>
 <a class="headerlink" href="#fisher" title="Permanent link">#</a>
@@ -3894,7 +3894,7 @@ Returns the Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="fisherinv"><summary class="unimplemented">
+<details id="fisherinv" markdown><summary class="unimplemented">
 #### FISHERINV
 <code>__FISHERINV__(value)</code>
 <a class="headerlink" href="#fisherinv" title="Permanent link">#</a>
@@ -3903,7 +3903,7 @@ Returns the inverse Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="forecast"><summary class="unimplemented">
+<details id="forecast" markdown><summary class="unimplemented">
 #### FORECAST
 <code>__FORECAST__(x, data_y, data_x)</code>
 <a class="headerlink" href="#forecast" title="Permanent link">#</a>
@@ -3912,7 +3912,7 @@ Calculates the expected y-value for a specified x based on a linear regression o
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="f_dist"><summary class="unimplemented">
+<details id="f_dist" markdown><summary class="unimplemented">
 #### F_DIST
 <code>__F_DIST__(x, degrees_freedom1, degrees_freedom2, cumulative)</code>
 <a class="headerlink" href="#f_dist" title="Permanent link">#</a>
@@ -3923,7 +3923,7 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="f_dist_rt"><summary class="unimplemented">
+<details id="f_dist_rt" markdown><summary class="unimplemented">
 #### F_DIST_RT
 <code>__F_DIST_RT__(x, degrees_freedom1, degrees_freedom2)</code>
 <a class="headerlink" href="#f_dist_rt" title="Permanent link">#</a>
@@ -3934,7 +3934,7 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="geomean"><summary class="unimplemented">
+<details id="geomean" markdown><summary class="unimplemented">
 #### GEOMEAN
 <code>__GEOMEAN__(value1, value2)</code>
 <a class="headerlink" href="#geomean" title="Permanent link">#</a>
@@ -3943,7 +3943,7 @@ Calculates the geometric mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="harmean"><summary class="unimplemented">
+<details id="harmean" markdown><summary class="unimplemented">
 #### HARMEAN
 <code>__HARMEAN__(value1, value2)</code>
 <a class="headerlink" href="#harmean" title="Permanent link">#</a>
@@ -3952,7 +3952,7 @@ Calculates the harmonic mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="hypgeomdist"><summary class="unimplemented">
+<details id="hypgeomdist" markdown><summary class="unimplemented">
 #### HYPGEOMDIST
 <code>__HYPGEOMDIST__(num_successes, num_draws, successes_in_pop, pop_size)</code>
 <a class="headerlink" href="#hypgeomdist" title="Permanent link">#</a>
@@ -3961,7 +3961,7 @@ Calculates the probability of drawing a certain number of successes in a certain
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="intercept"><summary class="unimplemented">
+<details id="intercept" markdown><summary class="unimplemented">
 #### INTERCEPT
 <code>__INTERCEPT__(data_y, data_x)</code>
 <a class="headerlink" href="#intercept" title="Permanent link">#</a>
@@ -3970,7 +3970,7 @@ Calculates the y-value at which the line resulting from linear regression of a d
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="kurt"><summary class="unimplemented">
+<details id="kurt" markdown><summary class="unimplemented">
 #### KURT
 <code>__KURT__(value1, value2)</code>
 <a class="headerlink" href="#kurt" title="Permanent link">#</a>
@@ -3979,7 +3979,7 @@ Calculates the kurtosis of a dataset, which describes the shape, and in particul
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="large"><summary class="unimplemented">
+<details id="large" markdown><summary class="unimplemented">
 #### LARGE
 <code>__LARGE__(data, n)</code>
 <a class="headerlink" href="#large" title="Permanent link">#</a>
@@ -3988,7 +3988,7 @@ Returns the nth largest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="loginv"><summary class="unimplemented">
+<details id="loginv" markdown><summary class="unimplemented">
 #### LOGINV
 <code>__LOGINV__(x, mean, standard_deviation)</code>
 <a class="headerlink" href="#loginv" title="Permanent link">#</a>
@@ -3997,7 +3997,7 @@ Returns the value of the inverse log-normal cumulative distribution with given m
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="lognormdist"><summary class="unimplemented">
+<details id="lognormdist" markdown><summary class="unimplemented">
 #### LOGNORMDIST
 <code>__LOGNORMDIST__(x, mean, standard_deviation)</code>
 <a class="headerlink" href="#lognormdist" title="Permanent link">#</a>
@@ -4006,7 +4006,7 @@ Returns the value of the log-normal cumulative distribution with given mean and 
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="max"><summary >
+<details id="max" markdown><summary >
 #### MAX
 <code>__MAX__(value, *more_values)</code>
 <a class="headerlink" href="#max" title="Permanent link">#</a>
@@ -4059,7 +4059,7 @@ datetime.date(2015, 1, 2)
 ```
 
 </details>
-<details id="maxa"><summary >
+<details id="maxa" markdown><summary >
 #### MAXA
 <code>__MAXA__(value, *more_values)</code>
 <a class="headerlink" href="#maxa" title="Permanent link">#</a>
@@ -4097,7 +4097,7 @@ False as 0. Returns 0 if the arguments contain no numbers.
 ```
 
 </details>
-<details id="median"><summary >
+<details id="median" markdown><summary >
 #### MEDIAN
 <code>__MEDIAN__(value, *more_values)</code>
 <a class="headerlink" href="#median" title="Permanent link">#</a>
@@ -4142,7 +4142,7 @@ ValueError: MEDIAN requires at least one number
 ```
 
 </details>
-<details id="min"><summary >
+<details id="min" markdown><summary >
 #### MIN
 <code>__MIN__(value, *more_values)</code>
 <a class="headerlink" href="#min" title="Permanent link">#</a>
@@ -4195,7 +4195,7 @@ datetime.datetime(2015, 1, 1, 12, 34, 56)
 ```
 
 </details>
-<details id="mina"><summary >
+<details id="mina" markdown><summary >
 #### MINA
 <code>__MINA__(value, *more_values)</code>
 <a class="headerlink" href="#mina" title="Permanent link">#</a>
@@ -4233,7 +4233,7 @@ False as 0. Returns 0 if the arguments contain no numbers.
 ```
 
 </details>
-<details id="mode"><summary class="unimplemented">
+<details id="mode" markdown><summary class="unimplemented">
 #### MODE
 <code>__MODE__(value1, value2)</code>
 <a class="headerlink" href="#mode" title="Permanent link">#</a>
@@ -4242,7 +4242,7 @@ Returns the most commonly occurring value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="negbinomdist"><summary class="unimplemented">
+<details id="negbinomdist" markdown><summary class="unimplemented">
 #### NEGBINOMDIST
 <code>__NEGBINOMDIST__(num_failures, num_successes, prob_success)</code>
 <a class="headerlink" href="#negbinomdist" title="Permanent link">#</a>
@@ -4251,7 +4251,7 @@ Calculates the probability of drawing a certain number of failures before a cert
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="normdist"><summary class="unimplemented">
+<details id="normdist" markdown><summary class="unimplemented">
 #### NORMDIST
 <code>__NORMDIST__(x, mean, standard_deviation, cumulative)</code>
 <a class="headerlink" href="#normdist" title="Permanent link">#</a>
@@ -4261,7 +4261,7 @@ function) for a specified value, mean, and standard deviation.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="norminv"><summary class="unimplemented">
+<details id="norminv" markdown><summary class="unimplemented">
 #### NORMINV
 <code>__NORMINV__(x, mean, standard_deviation)</code>
 <a class="headerlink" href="#norminv" title="Permanent link">#</a>
@@ -4270,7 +4270,7 @@ Returns the value of the inverse normal distribution function for a specified va
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="normsdist"><summary class="unimplemented">
+<details id="normsdist" markdown><summary class="unimplemented">
 #### NORMSDIST
 <code>__NORMSDIST__(x)</code>
 <a class="headerlink" href="#normsdist" title="Permanent link">#</a>
@@ -4279,7 +4279,7 @@ Returns the value of the standard normal cumulative distribution function for a 
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="normsinv"><summary class="unimplemented">
+<details id="normsinv" markdown><summary class="unimplemented">
 #### NORMSINV
 <code>__NORMSINV__(x)</code>
 <a class="headerlink" href="#normsinv" title="Permanent link">#</a>
@@ -4288,7 +4288,7 @@ Returns the value of the inverse standard normal distribution function for a spe
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="pearson"><summary class="unimplemented">
+<details id="pearson" markdown><summary class="unimplemented">
 #### PEARSON
 <code>__PEARSON__(data_y, data_x)</code>
 <a class="headerlink" href="#pearson" title="Permanent link">#</a>
@@ -4297,7 +4297,7 @@ Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentile"><summary class="unimplemented">
+<details id="percentile" markdown><summary class="unimplemented">
 #### PERCENTILE
 <code>__PERCENTILE__(data, percentile)</code>
 <a class="headerlink" href="#percentile" title="Permanent link">#</a>
@@ -4306,7 +4306,7 @@ Returns the value at a given percentile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentrank"><summary class="unimplemented">
+<details id="percentrank" markdown><summary class="unimplemented">
 #### PERCENTRANK
 <code>__PERCENTRANK__(data, value, significant_digits=None)</code>
 <a class="headerlink" href="#percentrank" title="Permanent link">#</a>
@@ -4315,7 +4315,7 @@ Returns the percentage rank (percentile) of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentrank_exc"><summary class="unimplemented">
+<details id="percentrank_exc" markdown><summary class="unimplemented">
 #### PERCENTRANK_EXC
 <code>__PERCENTRANK_EXC__(data, value, significant_digits=None)</code>
 <a class="headerlink" href="#percentrank_exc" title="Permanent link">#</a>
@@ -4324,7 +4324,7 @@ Returns the percentage rank (percentile) from 0 to 1 exclusive of a specified va
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentrank_inc"><summary class="unimplemented">
+<details id="percentrank_inc" markdown><summary class="unimplemented">
 #### PERCENTRANK_INC
 <code>__PERCENTRANK_INC__(data, value, significant_digits=None)</code>
 <a class="headerlink" href="#percentrank_inc" title="Permanent link">#</a>
@@ -4333,7 +4333,7 @@ Returns the percentage rank (percentile) from 0 to 1 inclusive of a specified va
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="permut"><summary class="unimplemented">
+<details id="permut" markdown><summary class="unimplemented">
 #### PERMUT
 <code>__PERMUT__(n, k)</code>
 <a class="headerlink" href="#permut" title="Permanent link">#</a>
@@ -4342,7 +4342,7 @@ Returns the number of ways to choose some number of objects from a pool of a giv
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="poisson"><summary class="unimplemented">
+<details id="poisson" markdown><summary class="unimplemented">
 #### POISSON
 <code>__POISSON__(x, mean, cumulative)</code>
 <a class="headerlink" href="#poisson" title="Permanent link">#</a>
@@ -4352,7 +4352,7 @@ function) for a specified value and mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="prob"><summary class="unimplemented">
+<details id="prob" markdown><summary class="unimplemented">
 #### PROB
 <code>__PROB__(data, probabilities, low_limit, high_limit=None)</code>
 <a class="headerlink" href="#prob" title="Permanent link">#</a>
@@ -4361,7 +4361,7 @@ Given a set of values and corresponding probabilities, calculates the probabilit
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="quartile"><summary class="unimplemented">
+<details id="quartile" markdown><summary class="unimplemented">
 #### QUARTILE
 <code>__QUARTILE__(data, quartile_number)</code>
 <a class="headerlink" href="#quartile" title="Permanent link">#</a>
@@ -4370,7 +4370,7 @@ Returns a value nearest to a specified quartile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rank_avg"><summary class="unimplemented">
+<details id="rank_avg" markdown><summary class="unimplemented">
 #### RANK_AVG
 <code>__RANK_AVG__(value, data, is_ascending=None)</code>
 <a class="headerlink" href="#rank_avg" title="Permanent link">#</a>
@@ -4379,7 +4379,7 @@ Returns the rank of a specified value in a dataset. If there is more than one en
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rank_eq"><summary class="unimplemented">
+<details id="rank_eq" markdown><summary class="unimplemented">
 #### RANK_EQ
 <code>__RANK_EQ__(value, data, is_ascending=None)</code>
 <a class="headerlink" href="#rank_eq" title="Permanent link">#</a>
@@ -4388,7 +4388,7 @@ Returns the rank of a specified value in a dataset. If there is more than one en
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rsq"><summary class="unimplemented">
+<details id="rsq" markdown><summary class="unimplemented">
 #### RSQ
 <code>__RSQ__(data_y, data_x)</code>
 <a class="headerlink" href="#rsq" title="Permanent link">#</a>
@@ -4397,7 +4397,7 @@ Calculates the square of r, the Pearson product-moment correlation coefficient o
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="skew"><summary class="unimplemented">
+<details id="skew" markdown><summary class="unimplemented">
 #### SKEW
 <code>__SKEW__(value1, value2)</code>
 <a class="headerlink" href="#skew" title="Permanent link">#</a>
@@ -4406,7 +4406,7 @@ Calculates the skewness of a dataset, which describes the symmetry of that datas
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="slope"><summary class="unimplemented">
+<details id="slope" markdown><summary class="unimplemented">
 #### SLOPE
 <code>__SLOPE__(data_y, data_x)</code>
 <a class="headerlink" href="#slope" title="Permanent link">#</a>
@@ -4415,7 +4415,7 @@ Calculates the slope of the line resulting from linear regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="small"><summary class="unimplemented">
+<details id="small" markdown><summary class="unimplemented">
 #### SMALL
 <code>__SMALL__(data, n)</code>
 <a class="headerlink" href="#small" title="Permanent link">#</a>
@@ -4424,7 +4424,7 @@ Returns the nth smallest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="standardize"><summary class="unimplemented">
+<details id="standardize" markdown><summary class="unimplemented">
 #### STANDARDIZE
 <code>__STANDARDIZE__(value, mean, standard_deviation)</code>
 <a class="headerlink" href="#standardize" title="Permanent link">#</a>
@@ -4433,7 +4433,7 @@ Calculates the normalized equivalent of a random variable given mean and standar
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="stdev"><summary >
+<details id="stdev" markdown><summary >
 #### STDEV
 <code>__STDEV__(value, *more_values)</code>
 <a class="headerlink" href="#stdev" title="Permanent link">#</a>
@@ -4469,7 +4469,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details id="stdeva"><summary >
+<details id="stdeva" markdown><summary >
 #### STDEVA
 <code>__STDEVA__(value, *more_values)</code>
 <a class="headerlink" href="#stdeva" title="Permanent link">#</a>
@@ -4505,7 +4505,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details id="stdevp"><summary >
+<details id="stdevp" markdown><summary >
 #### STDEVP
 <code>__STDEVP__(value, *more_values)</code>
 <a class="headerlink" href="#stdevp" title="Permanent link">#</a>
@@ -4539,7 +4539,7 @@ Calculates the standard deviation based on an entire population, ignoring non-nu
 ```
 
 </details>
-<details id="stdevpa"><summary >
+<details id="stdevpa" markdown><summary >
 #### STDEVPA
 <code>__STDEVPA__(value, *more_values)</code>
 <a class="headerlink" href="#stdevpa" title="Permanent link">#</a>
@@ -4573,7 +4573,7 @@ Calculates the standard deviation based on an entire population, setting text to
 ```
 
 </details>
-<details id="steyx"><summary class="unimplemented">
+<details id="steyx" markdown><summary class="unimplemented">
 #### STEYX
 <code>__STEYX__(data_y, data_x)</code>
 <a class="headerlink" href="#steyx" title="Permanent link">#</a>
@@ -4582,7 +4582,7 @@ Calculates the standard error of the predicted y-value for each x in the regress
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="tdist"><summary class="unimplemented">
+<details id="tdist" markdown><summary class="unimplemented">
 #### TDIST
 <code>__TDIST__(x, degrees_freedom, tails)</code>
 <a class="headerlink" href="#tdist" title="Permanent link">#</a>
@@ -4591,7 +4591,7 @@ Calculates the probability for Student's t-distribution with a given input (x).
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="tinv"><summary class="unimplemented">
+<details id="tinv" markdown><summary class="unimplemented">
 #### TINV
 <code>__TINV__(probability, degrees_freedom)</code>
 <a class="headerlink" href="#tinv" title="Permanent link">#</a>
@@ -4600,7 +4600,7 @@ Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="trimmean"><summary class="unimplemented">
+<details id="trimmean" markdown><summary class="unimplemented">
 #### TRIMMEAN
 <code>__TRIMMEAN__(data, exclude_proportion)</code>
 <a class="headerlink" href="#trimmean" title="Permanent link">#</a>
@@ -4609,7 +4609,7 @@ Calculates the mean of a dataset excluding some proportion of data from the high
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="ttest"><summary class="unimplemented">
+<details id="ttest" markdown><summary class="unimplemented">
 #### TTEST
 <code>__TTEST__(range1, range2, tails, type)</code>
 <a class="headerlink" href="#ttest" title="Permanent link">#</a>
@@ -4618,7 +4618,7 @@ Returns the probability associated with t-test. Determines whether two samples a
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="t_inv"><summary class="unimplemented">
+<details id="t_inv" markdown><summary class="unimplemented">
 #### T_INV
 <code>__T_INV__(probability, degrees_freedom)</code>
 <a class="headerlink" href="#t_inv" title="Permanent link">#</a>
@@ -4627,7 +4627,7 @@ Calculates the negative inverse of the one-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="t_inv_2t"><summary class="unimplemented">
+<details id="t_inv_2t" markdown><summary class="unimplemented">
 #### T_INV_2T
 <code>__T_INV_2T__(probability, degrees_freedom)</code>
 <a class="headerlink" href="#t_inv_2t" title="Permanent link">#</a>
@@ -4636,7 +4636,7 @@ Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="var"><summary class="unimplemented">
+<details id="var" markdown><summary class="unimplemented">
 #### VAR
 <code>__VAR__(value1, value2)</code>
 <a class="headerlink" href="#var" title="Permanent link">#</a>
@@ -4645,7 +4645,7 @@ Calculates the variance based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="vara"><summary class="unimplemented">
+<details id="vara" markdown><summary class="unimplemented">
 #### VARA
 <code>__VARA__(value1, value2)</code>
 <a class="headerlink" href="#vara" title="Permanent link">#</a>
@@ -4654,7 +4654,7 @@ Calculates an estimate of variance based on a sample, setting text to the value 
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="varp"><summary class="unimplemented">
+<details id="varp" markdown><summary class="unimplemented">
 #### VARP
 <code>__VARP__(value1, value2)</code>
 <a class="headerlink" href="#varp" title="Permanent link">#</a>
@@ -4663,7 +4663,7 @@ Calculates the variance based on an entire population.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="varpa"><summary class="unimplemented">
+<details id="varpa" markdown><summary class="unimplemented">
 #### VARPA
 <code>__VARPA__(value1, value2)</code>
 <a class="headerlink" href="#varpa" title="Permanent link">#</a>
@@ -4672,7 +4672,7 @@ Calculates the variance based on an entire population, setting text to the value
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="weibull"><summary class="unimplemented">
+<details id="weibull" markdown><summary class="unimplemented">
 #### WEIBULL
 <code>__WEIBULL__(x, shape, scale, cumulative)</code>
 <a class="headerlink" href="#weibull" title="Permanent link">#</a>
@@ -4682,7 +4682,7 @@ function) for a specified shape and scale.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="ztest"><summary class="unimplemented">
+<details id="ztest" markdown><summary class="unimplemented">
 #### ZTEST
 <code>__ZTEST__(data, value, standard_deviation)</code>
 <a class="headerlink" href="#ztest" title="Permanent link">#</a>
@@ -4692,7 +4692,7 @@ Returns the two-tailed P-value of a Z-test with standard distribution.
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 ### Text
-<details id="char"><summary >
+<details id="char" markdown><summary >
 #### CHAR
 <code>__CHAR__(table_number)</code>
 <a class="headerlink" href="#char" title="Permanent link">#</a>
@@ -4712,7 +4712,7 @@ u'!'
 ```
 
 </details>
-<details id="clean"><summary >
+<details id="clean" markdown><summary >
 #### CLEAN
 <code>__CLEAN__(text)</code>
 <a class="headerlink" href="#clean" title="Permanent link">#</a>
@@ -4729,7 +4729,7 @@ u'Monthly report'
 ```
 
 </details>
-<details id="code"><summary >
+<details id="code" markdown><summary >
 #### CODE
 <code>__CODE__(string)</code>
 <a class="headerlink" href="#code" title="Permanent link">#</a>
@@ -4754,7 +4754,7 @@ Same as `ord(string[0])`.
 ```
 
 </details>
-<details id="concat"><summary >
+<details id="concat" markdown><summary >
 #### CONCAT
 <code>__CONCAT__(string, *more_strings)</code>
 <a class="headerlink" href="#concat" title="Permanent link">#</a>
@@ -4789,7 +4789,7 @@ u'0abc'
 ```
 
 </details>
-<details id="concatenate"><summary >
+<details id="concatenate" markdown><summary >
 #### CONCATENATE
 <code>__CONCATENATE__(string, *more_strings)</code>
 <a class="headerlink" href="#concatenate" title="Permanent link">#</a>
@@ -4834,7 +4834,7 @@ u'0abc'
 ```
 
 </details>
-<details id="dollar"><summary >
+<details id="dollar" markdown><summary >
 #### DOLLAR
 <code>__DOLLAR__(number, decimals=2)</code>
 <a class="headerlink" href="#dollar" title="Permanent link">#</a>
@@ -4879,7 +4879,7 @@ If decimals value is omitted, it defaults to 2.
 ```
 
 </details>
-<details id="exact"><summary >
+<details id="exact" markdown><summary >
 #### EXACT
 <code>__EXACT__(string1, string2)</code>
 <a class="headerlink" href="#exact" title="Permanent link">#</a>
@@ -4903,7 +4903,7 @@ False
 ```
 
 </details>
-<details id="find"><summary >
+<details id="find" markdown><summary >
 #### FIND
 <code>__FIND__(find_text, within_text, start_num=1)</code>
 <a class="headerlink" href="#find" title="Permanent link">#</a>
@@ -4962,7 +4962,7 @@ ValueError: substring not found
 ```
 
 </details>
-<details id="fixed"><summary >
+<details id="fixed" markdown><summary >
 #### FIXED
 <code>__FIXED__(number, decimals=2, no_commas=False)</code>
 <a class="headerlink" href="#fixed" title="Permanent link">#</a>
@@ -5012,7 +5012,7 @@ If no_commas is True, then omits the commas.
 ```
 
 </details>
-<details id="left"><summary >
+<details id="left" markdown><summary >
 #### LEFT
 <code>__LEFT__(string, num_chars=1)</code>
 <a class="headerlink" href="#left" title="Permanent link">#</a>
@@ -5039,7 +5039,7 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details id="len"><summary >
+<details id="len" markdown><summary >
 #### LEN
 <code>__LEN__(text)</code>
 <a class="headerlink" href="#len" title="Permanent link">#</a>
@@ -5065,7 +5065,7 @@ See [Record Set](#recordset) for an example of using `len` on a list of records.
 ```
 
 </details>
-<details id="lower"><summary >
+<details id="lower" markdown><summary >
 #### LOWER
 <code>__LOWER__(text)</code>
 <a class="headerlink" href="#lower" title="Permanent link">#</a>
@@ -5084,7 +5084,7 @@ Converts a specified string to lowercase. Same as `text.lower()`.
 ```
 
 </details>
-<details id="mid"><summary >
+<details id="mid" markdown><summary >
 #### MID
 <code>__MID__(text, start_num, num_chars)</code>
 <a class="headerlink" href="#mid" title="Permanent link">#</a>
@@ -5116,7 +5116,7 @@ ValueError: start_num invalid
 ```
 
 </details>
-<details id="phone_format"><summary >
+<details id="phone_format" markdown><summary >
 #### PHONE_FORMAT
 <code>__PHONE_FORMAT__(value, country=None, format=None)</code>
 <a class="headerlink" href="#phone_format" title="Permanent link">#</a>
@@ -5222,7 +5222,7 @@ TypeError: Phone number must be a text value. If formatting a value from a Numer
 ```
 
 </details>
-<details id="proper"><summary >
+<details id="proper" markdown><summary >
 #### PROPER
 <code>__PROPER__(text)</code>
 <a class="headerlink" href="#proper" title="Permanent link">#</a>
@@ -5247,7 +5247,7 @@ uppercase, and all other letters to lowercase. Same as `text.title()`.
 ```
 
 </details>
-<details id="regexextract"><summary >
+<details id="regexextract" markdown><summary >
 #### REGEXEXTRACT
 <code>__REGEXEXTRACT__(text, regular_expression)</code>
 <a class="headerlink" href="#regexextract" title="Permanent link">#</a>
@@ -5280,7 +5280,7 @@ ValueError: REGEXEXTRACT text does not match
 ```
 
 </details>
-<details id="regexmatch"><summary >
+<details id="regexmatch" markdown><summary >
 #### REGEXMATCH
 <code>__REGEXMATCH__(text, regular_expression)</code>
 <a class="headerlink" href="#regexmatch" title="Permanent link">#</a>
@@ -5314,7 +5314,7 @@ False
 ```
 
 </details>
-<details id="regexreplace"><summary >
+<details id="regexreplace" markdown><summary >
 #### REGEXREPLACE
 <code>__REGEXREPLACE__(text, regular_expression, replacement)</code>
 <a class="headerlink" href="#regexreplace" title="Permanent link">#</a>
@@ -5348,7 +5348,7 @@ Replaces all parts of text matching the given regular expression with replacemen
 ```
 
 </details>
-<details id="replace"><summary >
+<details id="replace" markdown><summary >
 #### REPLACE
 <code>__REPLACE__(text, position, length, new_text)</code>
 <a class="headerlink" href="#replace" title="Permanent link">#</a>
@@ -5384,7 +5384,7 @@ ValueError: position invalid
 ```
 
 </details>
-<details id="rept"><summary >
+<details id="rept" markdown><summary >
 #### REPT
 <code>__REPT__(text, number_times)</code>
 <a class="headerlink" href="#rept" title="Permanent link">#</a>
@@ -5430,7 +5430,7 @@ ValueError: number_times invalid
 ```
 
 </details>
-<details id="right"><summary >
+<details id="right" markdown><summary >
 #### RIGHT
 <code>__RIGHT__(string, num_chars=1)</code>
 <a class="headerlink" href="#right" title="Permanent link">#</a>
@@ -5462,7 +5462,7 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details id="search"><summary >
+<details id="search" markdown><summary >
 #### SEARCH
 <code>__SEARCH__(find_text, within_text, start_num=1)</code>
 <a class="headerlink" href="#search" title="Permanent link">#</a>
@@ -5506,7 +5506,7 @@ If find_text is not found, or start_num is invalid, raises ValueError.
 ```
 
 </details>
-<details id="substitute"><summary >
+<details id="substitute" markdown><summary >
 #### SUBSTITUTE
 <code>__SUBSTITUTE__(text, old_text, new_text, instance_num=None)</code>
 <a class="headerlink" href="#substitute" title="Permanent link">#</a>
@@ -5535,7 +5535,7 @@ u'Quarter 2, 2008'
 u'Quarter 1, 2012'
 ```
 </details>
-<details id="t"><summary >
+<details id="t" markdown><summary >
 #### T
 <code>__T__(value)</code>
 <a class="headerlink" href="#t" title="Permanent link">#</a>
@@ -5579,7 +5579,7 @@ u''
 ```
 
 </details>
-<details id="tasteme"><summary >
+<details id="tasteme" markdown><summary >
 #### TASTEME
 <code>__TASTEME__(food)</code>
 <a class="headerlink" href="#tasteme" title="Permanent link">#</a>
@@ -5602,7 +5602,7 @@ False
 ```
 
 </details>
-<details id="text"><summary class="unimplemented">
+<details id="text" markdown><summary class="unimplemented">
 #### TEXT
 <code>__TEXT__(number, format_type)</code>
 <a class="headerlink" href="#text" title="Permanent link">#</a>
@@ -5613,7 +5613,7 @@ optionally format() to specify the number format.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="trim"><summary >
+<details id="trim" markdown><summary >
 #### TRIM
 <code>__TRIM__(text)</code>
 <a class="headerlink" href="#trim" title="Permanent link">#</a>
@@ -5633,7 +5633,7 @@ remove other whitespace such as tab or newline characters.
 ```
 
 </details>
-<details id="upper"><summary >
+<details id="upper" markdown><summary >
 #### UPPER
 <code>__UPPER__(text)</code>
 <a class="headerlink" href="#upper" title="Permanent link">#</a>
@@ -5652,7 +5652,7 @@ Converts a specified string to uppercase. Same as `text.upper()`.
 ```
 
 </details>
-<details id="value"><summary >
+<details id="value" markdown><summary >
 #### VALUE
 <code>__VALUE__(text)</code>
 <a class="headerlink" href="#value" title="Permanent link">#</a>
