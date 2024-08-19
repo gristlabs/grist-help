@@ -73,7 +73,7 @@ courantes sont disponibles sous forme de boutons d'action verts en bas, et d'aut
 disponibles dans le menu de comportement. Selon le comportement actuel de la colonne, celles-ci sont :
 
 - L'action `Définir une formule` convertit une colonne vide en colonne de formule.
-- L'action `Définir une formule de déclenchement` ou `Convertir en formule de déclenchement` définit un déclencheur sur une colonne
+- L'action `Définir une formule d'initialisation` ou `Convertir en formule d'initialisation` définit un déclencheur sur une colonne
 (plus de détails sur les déclencheurs dans la section suivante [Formules de déclenchement](formulas.md#trigger-formulas) ).
 - L'action `Transformer en colonne de données` convertit une colonne vide en colonne de données régulière.
 - `Convertir la colonne en données` convertit une colonne de formule en colonne de données régulière (vous pouvez en lire
@@ -252,7 +252,7 @@ changent.
 
 La formule originale est sauvegardée mais reste inactive. Elle peut être utile
 à nouveau si vous souhaitez reconvertir la colonne en colonne de formule, ou
-l'utiliser comme une [Formule de Déclenchement](formulas.md#trigger-formulas).
+l'utiliser comme une [formule d'initialisation](formulas.md#trigger-formulas).
 
 Le panneau latéral a beaucoup d'autres paramètres pratiques, tels que le formatage des cellules
 (nombre de chiffres après la virgule, couleur, etc.). Les options s'appliquent

@@ -103,7 +103,7 @@ L'ordre dans lequel les lignes d'une table sont affichées est appelé l'ordre d
 
 ## Formules de Déclenchement
 
-Une [formule de déclenchement](formulas.md#trigger-formulas) est une formule qui recalcule vos données en fonction d'un ensemble de conditions que vous décidez. Elles permettent également de nettoyer les données lorsqu'une nouvelle valeur est entrée ([regarder le webinaire](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s){: target="\_blank"}), de fournir une [valeur par défaut](formula-cheat-sheet.md#setting-default-values-for-new-records) sensée pour une colonne ou de [créer des tampons de temps et d'auteur](formula-cheat-sheet.md#automatic-date-time-and-author-stamps).
+Une [formule d'initialisation](formulas.md#trigger-formulas) est une formule qui recalcule vos données en fonction d'un ensemble de conditions que vous décidez. Elles permettent également de nettoyer les données lorsqu'une nouvelle valeur est entrée ([regarder le webinaire](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s){: target="\_blank"}), de fournir une [valeur par défaut](formula-cheat-sheet.md#setting-default-values-for-new-records) sensée pour une colonne ou de [créer des tampons de temps et d'auteur](formula-cheat-sheet.md#automatic-date-time-and-author-stamps).
 
 ## Menu Utilisateur
 
