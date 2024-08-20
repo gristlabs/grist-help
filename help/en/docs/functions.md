@@ -43,7 +43,7 @@ Python (see [Python documentation](https://docs.python.org/3.11/)). Here are som
 
 <!-- BEGIN mkpydocs docs -->
 ### Grist
-<details id="record" markdown><summary >
+<details markdown><summary >
 #### <code>class __Record__</code> {: #record }
 </summary>
 A Record represents a record of data. It is the primary means of accessing values in formulas. A
@@ -61,12 +61,12 @@ def Name_Length(rec, table):
   return len(rec.Full_Name)
 ```
 </details>
-<details id="_field" markdown><summary >
+<details markdown><summary >
 #### <code>__$__*Field* or __rec__*.Field*</code> {: #_field }
 </summary>
 Access the field named "Field" of the current record. E.g. `$First_Name` or `rec.First_Name`.
 </details>
-<details id="_group" markdown><summary >
+<details markdown><summary >
 #### <code>__$group__</code> {: #_group }
 </summary>
 In a [summary table](summary-tables.md), `$group` is a special field
@@ -83,7 +83,7 @@ sum(r.Amount for r in $group if r > 0)    # Sum of only the positive amounts
 sum(r.Shares * r.Price for r in $group)   # Sum of shares * price products
 ```
 </details>
-<details id="recordset" markdown><summary >
+<details markdown><summary >
 #### <code>class __RecordSet__</code> {: #recordset }
 </summary>
 A RecordSet represents a collection of records, as returned by `Table.lookupRecords()` or
@@ -104,7 +104,7 @@ min(Tasks.lookupRecords(Owner="Bob").DueDate)
 
 You can get the number of records in a RecordSet using `len`, e.g. `len($group)`.
 </details>
-<details id="find_" markdown><summary >
+<details markdown><summary >
 #### <code>RecordSet.**find.\***(value)</code> {: #find_ }
 </summary>
 A set of methods for finding values in sorted sets of records, as returned by
@@ -150,7 +150,7 @@ return rate.Hourly_Rate
 
 Note that this is also much faster when there are many rates for the same Person and Role.
 </details>
-<details id="usertable" markdown><summary >
+<details markdown><summary >
 #### <code>class __UserTable__</code> {: #usertable }
 </summary>
 Each data table in the document is represented in the code by an instance of `UserTable` class.
@@ -159,7 +159,7 @@ as well as methods to look up particular records.
 
 Every table in the document is available to all formulas.
 </details>
-<details id="all" markdown><summary >
+<details markdown><summary >
 #### <code>UserTable.__all__</code> {: #all }
 </summary>
 The list of all the records in this table.
@@ -174,7 +174,7 @@ This evaluates to the sum of the `Population` field for every record in the tabl
 sum(r.Population for r in Countries.all)
 ```
 </details>
-<details id="lookupone" markdown><summary >
+<details markdown><summary >
 #### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone }
 </summary>
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
@@ -203,7 +203,7 @@ Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Prio
 Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
-<details id="lookuprecords" markdown><summary >
+<details markdown><summary >
 #### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords }
 </summary>
 Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
@@ -247,13 +247,13 @@ value.
 Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 ### Cumulative
-<details id="next" markdown><summary >
+<details markdown><summary >
 #### <code>__NEXT__(rec, *, group_by=(), order_by)</code> {: #next }
 </summary>
 Finds the next record in the table according to the order specified by `order_by`, and
 grouping specified by `group_by`. See [`PREVIOUS`](#previous) for details.
 </details>
-<details id="previous" markdown><summary >
+<details markdown><summary >
 #### <code>__PREVIOUS__(rec, *, group_by=(), order_by)</code> {: #previous }
 </summary>
 Finds the previous record in the table according to the order specified by `order_by`, and
@@ -289,7 +289,7 @@ used to match views sorted by multiple columns. For example:
 PREVIOUS(rec, group_by=("Account", "Year"), order_by=("Date", "-Amount"))
 ```
 </details>
-<details id="rank" markdown><summary >
+<details markdown><summary >
 #### <code>__RANK__(rec, *, group_by=(), order_by, order='asc')</code> {: #rank }
 </summary>
 Returns the rank (or position) of this record in the table according to the order specified by
@@ -310,7 +310,7 @@ the current record (`rec`) among all the records in its table for the same year,
 decreasing score.
 </details>
 ### Date
-<details id="date" markdown><summary >
+<details markdown><summary >
 #### <code>__DATE__(year, month, day)</code> {: #date }
 </summary>
 Returns the `datetime.datetime` object that represents a particular date.
@@ -357,7 +357,7 @@ If day is less than 1, subtracts that many days plus 1, from the first day of th
 datetime.date(2007, 12, 16)
 ```
 </details>
-<details id="dateadd" markdown><summary >
+<details markdown><summary >
 #### <code>__DATEADD__(start_date, days=0, months=0, years=0, weeks=0)</code> {: #dateadd }
 </summary>
 Returns the date a given number of days, months, years, or weeks away from `start_date`. You may
@@ -388,7 +388,7 @@ datetime.date(2025, 3, 26)
 ```
 
 </details>
-<details id="datedif" markdown><summary >
+<details markdown><summary >
 #### <code>__DATEDIF__(start_date, end_date, unit)</code> {: #datedif }
 </summary>
 Calculates the number of days, months, or years between two dates.
@@ -432,7 +432,7 @@ The difference between 1 and 15, ignoring the months and the years of the dates 
 14
 ```
 </details>
-<details id="datevalue" markdown><summary >
+<details markdown><summary >
 #### <code>__DATEVALUE__(date_string, tz=None)</code> {: #datevalue }
 </summary>
 Converts a date that is stored as text to a `datetime` object.
@@ -465,7 +465,7 @@ In case of ambiguity, prefer M/D/Y format.
 datetime.datetime(2003, 1, 2, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details id="date_to_xl" markdown><summary >
+<details markdown><summary >
 #### <code>__DATE_TO_XL__(date_value)</code> {: #date_to_xl }
 </summary>
 Converts a Python `date` or `datetime` object to the serial number as used by
@@ -489,7 +489,7 @@ See XL_TO_DATE for more explanation.
 40982.0625
 ```
 </details>
-<details id="day" markdown><summary >
+<details markdown><summary >
 #### <code>__DAY__(date)</code> {: #day }
 </summary>
 Returns the day of a date, as an integer ranging from 1 to 31. Same as `date.day`.
@@ -511,7 +511,7 @@ Returns the day of a date, as an integer ranging from 1 to 31. Same as `date.day
 ```
 
 </details>
-<details id="days" markdown><summary >
+<details markdown><summary >
 #### <code>__DAYS__(end_date, start_date)</code> {: #days }
 </summary>
 Returns the number of days between two dates. Same as `(end_date - start_date).days`.
@@ -533,7 +533,7 @@ Returns the number of days between two dates. Same as `(end_date - start_date).d
 ```
 
 </details>
-<details id="dtime" markdown><summary >
+<details markdown><summary >
 #### <code>__DTIME__(value, tz=None)</code> {: #dtime }
 </summary>
 Returns the value converted to a python `datetime` object. The value may be a
@@ -576,7 +576,7 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 
 </details>
-<details id="edate" markdown><summary >
+<details markdown><summary >
 #### <code>__EDATE__(start_date, months)</code> {: #edate }
 </summary>
 Returns the date that is the given number of months before or after `start_date`. Use
@@ -610,7 +610,7 @@ datetime.date(2012, 3, 1)
 ```
 
 </details>
-<details id="eomonth" markdown><summary >
+<details markdown><summary >
 #### <code>__EOMONTH__(start_date, months)</code> {: #eomonth }
 </summary>
 Returns the date for the last day of the month that is the indicated number of months before or
@@ -639,7 +639,7 @@ datetime.date(2012, 3, 31)
 ```
 
 </details>
-<details id="hour" markdown><summary >
+<details markdown><summary >
 #### <code>__HOUR__(time)</code> {: #hour }
 </summary>
 Same as `time.hour`.
@@ -661,7 +661,7 @@ Same as `time.hour`.
 ```
 
 </details>
-<details id="isoweeknum" markdown><summary >
+<details markdown><summary >
 #### <code>__ISOWEEKNUM__(date)</code> {: #isoweeknum }
 </summary>
 Returns the ISO week number of the year for a given date.
@@ -678,7 +678,7 @@ Returns the ISO week number of the year for a given date.
 ```
 
 </details>
-<details id="minute" markdown><summary >
+<details markdown><summary >
 #### <code>__MINUTE__(time)</code> {: #minute }
 </summary>
 Returns the minutes of `datetime`, as an integer from 0 to 59.
@@ -706,7 +706,7 @@ Same as `time.minute`.
 ```
 
 </details>
-<details id="month" markdown><summary >
+<details markdown><summary >
 #### <code>__MONTH__(date)</code> {: #month }
 </summary>
 Returns the month of a date represented, as an integer from from 1 (January) to 12 (December).
@@ -729,7 +729,7 @@ Same as `date.month`.
 ```
 
 </details>
-<details id="moonphase" markdown><summary >
+<details markdown><summary >
 #### <code>__MOONPHASE__(date, output='emoji')</code> {: #moonphase }
 </summary>
 Returns the phase of the moon on the given date. The output defaults to a moon-phase emoji.
@@ -778,12 +778,12 @@ True
 ```
 
 </details>
-<details id="now" markdown><summary >
+<details markdown><summary >
 #### <code>__NOW__(tz=None)</code> {: #now }
 </summary>
 Returns the `datetime` object for the current time.
 </details>
-<details id="second" markdown><summary >
+<details markdown><summary >
 #### <code>__SECOND__(time)</code> {: #second }
 </summary>
 Returns the seconds of `datetime`, as an integer from 0 to 59.
@@ -806,12 +806,12 @@ Same as `time.second`.
 ```
 
 </details>
-<details id="today" markdown><summary >
+<details markdown><summary >
 #### <code>__TODAY__(tz=None)</code> {: #today }
 </summary>
 Returns the `date` object for the current date.
 </details>
-<details id="weekday" markdown><summary >
+<details markdown><summary >
 #### <code>__WEEKDAY__(date, return_type=1)</code> {: #weekday }
 </summary>
 Returns the day of the week corresponding to a date. The day is given as an integer, ranging
@@ -856,7 +856,7 @@ Return_type determines the type of the returned value.
 3
 ```
 </details>
-<details id="weeknum" markdown><summary >
+<details markdown><summary >
 #### <code>__WEEKNUM__(date, return_type=1)</code> {: #weeknum }
 </summary>
 Returns the week number of a specific date. For example, the week containing January 1 is the
@@ -897,7 +897,7 @@ Return_type determines which week is considered the first week of the year.
 5
 ```
 </details>
-<details id="xl_to_date" markdown><summary >
+<details markdown><summary >
 #### <code>__XL_TO_DATE__(value, tz=None)</code> {: #xl_to_date }
 </summary>
 Converts a provided Excel serial number representing a date into a `datetime` object.
@@ -926,7 +926,7 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 datetime.datetime(2012, 3, 14, 1, 30, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details id="year" markdown><summary >
+<details markdown><summary >
 #### <code>__YEAR__(date)</code> {: #year }
 </summary>
 Returns the year corresponding to a date as an integer.
@@ -949,7 +949,7 @@ Same as `date.year`.
 ```
 
 </details>
-<details id="yearfrac" markdown><summary >
+<details markdown><summary >
 #### <code>__YEARFRAC__(start_date, end_date, basis=0)</code> {: #yearfrac }
 </summary>
 Calculates the fraction of the year represented by the number of whole days between two dates.
@@ -998,14 +998,14 @@ Fraction between same dates, using the Actual/365 basis argument. Uses a 365 day
 ```
 </details>
 ### Info
-<details id="cell" markdown><summary class="unimplemented">
+<details>
 #### <code>__CELL__(info_type, reference)</code> {: #cell }
 </summary>
 Returns the requested information about the specified cell. This is not implemented in Grist
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="isblank" markdown><summary class="unimplemented">
+<details>
 #### <code>__ISBLANK__(value)</code> {: #isblank }
 </summary>
 Returns whether a value refers to an empty cell. It isn't implemented in Grist. To check for an
@@ -1013,7 +1013,7 @@ empty string, use `value == ""`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="isemail" markdown><summary >
+<details markdown><summary >
 #### <code>__ISEMAIL__(value)</code> {: #isemail }
 </summary>
 Returns whether a value is a valid email address.
@@ -1043,7 +1043,7 @@ False
 False
 ```
 </details>
-<details id="iserr" markdown><summary >
+<details markdown><summary >
 #### <code>__ISERR__(value)</code> {: #iserr }
 </summary>
 Checks whether a value is an error. In other words, it returns true
@@ -1067,7 +1067,7 @@ For example:
 False
 ```
 </details>
-<details id="iserror" markdown><summary >
+<details markdown><summary >
 #### <code>__ISERROR__(value)</code> {: #iserror }
 </summary>
 Checks whether a value is an error or an invalid value. It is similar to `ISERR`, but also
@@ -1091,7 +1091,7 @@ True
 True
 ```
 </details>
-<details id="islogical" markdown><summary >
+<details markdown><summary >
 #### <code>__ISLOGICAL__(value)</code> {: #islogical }
 </summary>
 Checks whether a value is `True` or `False`.
@@ -1123,7 +1123,7 @@ False
 ```
 
 </details>
-<details id="isna" markdown><summary >
+<details markdown><summary >
 #### <code>__ISNA__(value)</code> {: #isna }
 </summary>
 Checks whether a value is the error `#N/A`.
@@ -1150,7 +1150,7 @@ False
 ```
 
 </details>
-<details id="isnontext" markdown><summary >
+<details markdown><summary >
 #### <code>__ISNONTEXT__(value)</code> {: #isnontext }
 </summary>
 Checks whether a value is non-textual.
@@ -1187,7 +1187,7 @@ True
 ```
 
 </details>
-<details id="isnumber" markdown><summary >
+<details markdown><summary >
 #### <code>__ISNUMBER__(value)</code> {: #isnumber }
 </summary>
 Checks whether a value is a number.
@@ -1233,7 +1233,7 @@ False
 False
 ```
 </details>
-<details id="isref" markdown><summary >
+<details markdown><summary >
 #### <code>__ISREF__(value)</code> {: #isref }
 </summary>
 Checks whether a value is a table record.
@@ -1255,7 +1255,7 @@ False
 ```
 
 </details>
-<details id="isreflist" markdown><summary >
+<details markdown><summary >
 #### <code>__ISREFLIST__(value)</code> {: #isreflist }
 </summary>
 Checks whether a value is a [`RecordSet`](#recordset),
@@ -1278,7 +1278,7 @@ False
 ```
 
 </details>
-<details id="istext" markdown><summary >
+<details markdown><summary >
 #### <code>__ISTEXT__(value)</code> {: #istext }
 </summary>
 Checks whether a value is text.
@@ -1315,7 +1315,7 @@ False
 ```
 
 </details>
-<details id="isurl" markdown><summary >
+<details markdown><summary >
 #### <code>__ISURL__(value)</code> {: #isurl }
 </summary>
 Checks whether a value is a valid URL. It does not need to be fully qualified, or to include
@@ -1345,7 +1345,7 @@ True
 False
 ```
 </details>
-<details id="n" markdown><summary >
+<details markdown><summary >
 #### <code>__N__(value)</code> {: #n }
 </summary>
 Returns the value converted to a number. True/False are converted to 1/0. A date is converted to
@@ -1383,7 +1383,7 @@ Excel-style serial number of the date. Anything else is converted to 0.
 ```
 
 </details>
-<details id="na" markdown><summary >
+<details markdown><summary >
 #### <code>__NA__()</code> {: #na }
 </summary>
 Returns the "value not available" error, `#N/A`.
@@ -1395,7 +1395,7 @@ True
 ```
 
 </details>
-<details id="peek" markdown><summary >
+<details markdown><summary >
 #### <code>__PEEK__(func)</code> {: #peek }
 </summary>
 Evaluates the given expression without creating dependencies
@@ -1408,7 +1408,7 @@ calculated before the other. But if `A` uses `PEEK($B)` then it will simply get 
 already stored in `$B` without requiring that `$B` is first calculated to the latest value.
 Therefore `A` will be calculated first, and `B` can use `$A` without problems.
 </details>
-<details id="record_2" markdown><summary >
+<details markdown><summary >
 #### <code>__RECORD__(record_or_list, dates_as_iso=False, expand_refs=0)</code> {: #record }
 </summary>
 Returns a Python dictionary with all fields in the given record. If a list of records is given,
@@ -1435,13 +1435,13 @@ RECORD(People.lookupOne(First_Name="Alice"))
 RECORD(People.lookupRecords(Department="HR"))
 ```
 </details>
-<details id="request" markdown><summary class="unimplemented">
+<details>
 #### <code>__REQUEST__(url, params=None, headers=None, method='GET', data=None, json=None)</code> {: #request }
 </summary>
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="type" markdown><summary class="unimplemented">
+<details>
 #### <code>__TYPE__(value)</code> {: #type }
 </summary>
 Returns a number associated with the type of data passed into the function. This is not
@@ -1450,7 +1450,7 @@ implemented in Grist. Use `isinstance(value, type)` or `type(value)`.
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 ### Logical
-<details id="and" markdown><summary >
+<details markdown><summary >
 #### <code>__AND__(logical_expression, *logical_expressions)</code> {: #and }
 </summary>
 Returns True if all of the arguments are logically true, and False if any are false.
@@ -1483,7 +1483,7 @@ False
 ```
 
 </details>
-<details id="false" markdown><summary >
+<details markdown><summary >
 #### <code>__FALSE__()</code> {: #false }
 </summary>
 Returns the logical value `False`. You may also use the value `False` directly. This
@@ -1496,7 +1496,7 @@ False
 ```
 
 </details>
-<details id="if" markdown><summary >
+<details markdown><summary >
 #### <code>__IF__(logical_expression, value_if_true, value_if_false)</code> {: #if }
 </summary>
 Returns one value if a logical expression is `True` and another if it is `False`.
@@ -1539,7 +1539,7 @@ to evaluate to `1` rather than raise an exception.
 0.0
 ```
 </details>
-<details id="iferror" markdown><summary >
+<details markdown><summary >
 #### <code>__IFERROR__(value, value_if_error='')</code> {: #iferror }
 </summary>
 Returns the first argument if it is not an error value, otherwise returns the second argument if
@@ -1568,7 +1568,7 @@ NOTE: Grist handles values that raise an exception by wrapping them to use lazy 
 ''
 ```
 </details>
-<details id="not" markdown><summary >
+<details markdown><summary >
 #### <code>__NOT__(logical_expression)</code> {: #not }
 </summary>
 `True`. Same as `not logical_expression`.
@@ -1585,7 +1585,7 @@ True
 ```
 
 </details>
-<details id="or" markdown><summary >
+<details markdown><summary >
 #### <code>__OR__(logical_expression, *logical_expressions)</code> {: #or }
 </summary>
 Returns True if any of the arguments is logically true, and false if all of the
@@ -1629,7 +1629,7 @@ True
 ```
 
 </details>
-<details id="true" markdown><summary >
+<details markdown><summary >
 #### <code>__TRUE__()</code> {: #true }
 </summary>
 Returns the logical value `True`. You may also use the value `True` directly. This
@@ -1643,7 +1643,7 @@ True
 
 </details>
 ### Lookup
-<details id="lookupone_2" markdown><summary >
+<details markdown><summary >
 #### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone }
 </summary>
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
@@ -1672,7 +1672,7 @@ Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Prio
 Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
-<details id="lookuprecords_2" markdown><summary >
+<details markdown><summary >
 #### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords }
 </summary>
 Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
@@ -1715,35 +1715,35 @@ value.
 
 Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
-<details id="address" markdown><summary class="unimplemented">
+<details>
 #### <code>__ADDRESS__(row, column, absolute_relative_mode, use_a1_notation, sheet)</code> {: #address }
 </summary>
 Returns a cell reference as a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="choose" markdown><summary class="unimplemented">
+<details>
 #### <code>__CHOOSE__(index, choice1, choice2)</code> {: #choose }
 </summary>
 Returns an element from a list of choices based on index.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="column" markdown><summary class="unimplemented">
+<details>
 #### <code>__COLUMN__(cell_reference=None)</code> {: #column }
 </summary>
 Returns the column number of a specified cell, with `A=1`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="columns" markdown><summary class="unimplemented">
+<details>
 #### <code>__COLUMNS__(range)</code> {: #columns }
 </summary>
 Returns the number of columns in a specified array or range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="contains" markdown><summary >
+<details markdown><summary >
 #### <code>__CONTAINS__(value, match_empty=no_match_empty)</code> {: #contains }
 </summary>
 Use this marker with [UserTable.lookupRecords](#lookuprecords) to find records
@@ -1773,77 +1773,77 @@ For example, given this formula:
 If `g` is `''` (i.e. equal to `match_empty`) then the column `genre` in the returned records
 will either be an empty list (or other container) or a list containing `g` as usual.
 </details>
-<details id="getpivotdata" markdown><summary class="unimplemented">
+<details>
 #### <code>__GETPIVOTDATA__(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code> {: #getpivotdata }
 </summary>
 Extracts an aggregated value from a pivot table that corresponds to the specified row and column headings.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="hlookup" markdown><summary class="unimplemented">
+<details>
 #### <code>__HLOOKUP__(search_key, range, index, is_sorted)</code> {: #hlookup }
 </summary>
 Horizontal lookup. Searches across the first row of a range for a key and returns the value of a specified cell in the column found.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="hyperlink" markdown><summary class="unimplemented">
+<details>
 #### <code>__HYPERLINK__(url, link_label)</code> {: #hyperlink }
 </summary>
 Creates a hyperlink inside a cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="index" markdown><summary class="unimplemented">
+<details>
 #### <code>__INDEX__(reference, row, column)</code> {: #index }
 </summary>
 Returns the content of a cell, specified by row and column offset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="indirect" markdown><summary class="unimplemented">
+<details>
 #### <code>__INDIRECT__(cell_reference_as_string)</code> {: #indirect }
 </summary>
 Returns a cell reference specified by a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="lookup" markdown><summary class="unimplemented">
+<details>
 #### <code>__LOOKUP__(search_key, search_range_or_search_result_array, result_range=None)</code> {: #lookup }
 </summary>
 Looks through a row or column for a key and returns the value of the cell in a result range located in the same position as the search row or column.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="match" markdown><summary class="unimplemented">
+<details>
 #### <code>__MATCH__(search_key, range, search_type)</code> {: #match }
 </summary>
 Returns the relative position of an item in a range that matches a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="offset" markdown><summary class="unimplemented">
+<details>
 #### <code>__OFFSET__(cell_reference, offset_rows, offset_columns, height, width)</code> {: #offset }
 </summary>
 Returns a range reference shifted a specified number of rows and columns from a starting cell reference.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="row" markdown><summary class="unimplemented">
+<details>
 #### <code>__ROW__(cell_reference)</code> {: #row }
 </summary>
 Returns the row number of a specified cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rows" markdown><summary class="unimplemented">
+<details>
 #### <code>__ROWS__(range)</code> {: #rows }
 </summary>
 Returns the number of rows in a specified array or range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="self_hyperlink" markdown><summary >
+<details markdown><summary >
 #### <code>__SELF_HYPERLINK__(label=None, page=None, **kwargs)</code> {: #self_hyperlink }
 </summary>
 Creates a link to the current document.  All parameters are optional.
@@ -1894,7 +1894,7 @@ TypeError: unexpected keyword argument 'Linky_Link' (not of form LinkKey_NAME)
 ```
 
 </details>
-<details id="vlookup" markdown><summary >
+<details markdown><summary >
 #### <code>__VLOOKUP__(table, **field_value_pairs)</code> {: #vlookup }
 </summary>
 Vertical lookup. Searches the given table for a record matching the given `field=value`
@@ -1917,7 +1917,7 @@ VLOOKUP(People, First_Name="Lewis", Last_Name="Carroll").Age
 ```
 </details>
 ### Math
-<details id="abs" markdown><summary >
+<details markdown><summary >
 #### <code>__ABS__(value)</code> {: #abs }
 </summary>
 Returns the absolute value of a number.
@@ -1939,7 +1939,7 @@ Returns the absolute value of a number.
 ```
 
 </details>
-<details id="acos" markdown><summary >
+<details markdown><summary >
 #### <code>__ACOS__(value)</code> {: #acos }
 </summary>
 Returns the inverse cosine of a value, in radians.
@@ -1956,7 +1956,7 @@ Returns the inverse cosine of a value, in radians.
 ```
 
 </details>
-<details id="acosh" markdown><summary >
+<details markdown><summary >
 #### <code>__ACOSH__(value)</code> {: #acosh }
 </summary>
 Returns the inverse hyperbolic cosine of a number.
@@ -1973,7 +1973,7 @@ Returns the inverse hyperbolic cosine of a number.
 ```
 
 </details>
-<details id="arabic" markdown><summary >
+<details markdown><summary >
 #### <code>__ARABIC__(roman_numeral)</code> {: #arabic }
 </summary>
 Computes the value of a Roman numeral.
@@ -1990,7 +1990,7 @@ Computes the value of a Roman numeral.
 ```
 
 </details>
-<details id="asin" markdown><summary >
+<details markdown><summary >
 #### <code>__ASIN__(value)</code> {: #asin }
 </summary>
 Returns the inverse sine of a value, in radians.
@@ -2012,7 +2012,7 @@ Returns the inverse sine of a value, in radians.
 ```
 
 </details>
-<details id="asinh" markdown><summary >
+<details markdown><summary >
 #### <code>__ASINH__(value)</code> {: #asinh }
 </summary>
 Returns the inverse hyperbolic sine of a number.
@@ -2029,7 +2029,7 @@ Returns the inverse hyperbolic sine of a number.
 ```
 
 </details>
-<details id="atan" markdown><summary >
+<details markdown><summary >
 #### <code>__ATAN__(value)</code> {: #atan }
 </summary>
 Returns the inverse tangent of a value, in radians.
@@ -2051,7 +2051,7 @@ Returns the inverse tangent of a value, in radians.
 ```
 
 </details>
-<details id="atan2" markdown><summary >
+<details markdown><summary >
 #### <code>__ATAN2__(x, y)</code> {: #atan2 }
 </summary>
 Returns the angle between the x-axis and a line segment from the origin (0,0) to specified
@@ -2084,7 +2084,7 @@ coordinate pair (`x`,`y`), in radians.
 ```
 
 </details>
-<details id="atanh" markdown><summary >
+<details markdown><summary >
 #### <code>__ATANH__(value)</code> {: #atanh }
 </summary>
 Returns the inverse hyperbolic tangent of a number.
@@ -2101,7 +2101,7 @@ Returns the inverse hyperbolic tangent of a number.
 ```
 
 </details>
-<details id="ceiling" markdown><summary >
+<details markdown><summary >
 #### <code>__CEILING__(value, factor=1)</code> {: #ceiling }
 </summary>
 Rounds a number up to the nearest multiple of factor, or the nearest integer if the factor is
@@ -2134,7 +2134,7 @@ omitted or 1.
 ```
 
 </details>
-<details id="combin" markdown><summary >
+<details markdown><summary >
 #### <code>__COMBIN__(n, k)</code> {: #combin }
 </summary>
 Returns the number of ways to choose some number of objects from a pool of a given size of
@@ -2157,7 +2157,7 @@ objects.
 ```
 
 </details>
-<details id="cos" markdown><summary >
+<details markdown><summary >
 #### <code>__COS__(angle)</code> {: #cos }
 </summary>
 Returns the cosine of an angle provided in radians.
@@ -2179,7 +2179,7 @@ Returns the cosine of an angle provided in radians.
 ```
 
 </details>
-<details id="cosh" markdown><summary >
+<details markdown><summary >
 #### <code>__COSH__(value)</code> {: #cosh }
 </summary>
 Returns the hyperbolic cosine of any real number.
@@ -2196,7 +2196,7 @@ Returns the hyperbolic cosine of any real number.
 ```
 
 </details>
-<details id="degrees" markdown><summary >
+<details markdown><summary >
 #### <code>__DEGREES__(angle)</code> {: #degrees }
 </summary>
 Converts an angle value in radians to degrees.
@@ -2213,7 +2213,7 @@ Converts an angle value in radians to degrees.
 ```
 
 </details>
-<details id="even" markdown><summary >
+<details markdown><summary >
 #### <code>__EVEN__(value)</code> {: #even }
 </summary>
 Rounds a number up to the nearest even integer, rounding away from zero.
@@ -2240,7 +2240,7 @@ Rounds a number up to the nearest even integer, rounding away from zero.
 ```
 
 </details>
-<details id="exp" markdown><summary >
+<details markdown><summary >
 #### <code>__EXP__(exponent)</code> {: #exp }
 </summary>
 Returns Euler's number, e (~2.718) raised to a power.
@@ -2257,7 +2257,7 @@ Returns Euler's number, e (~2.718) raised to a power.
 ```
 
 </details>
-<details id="fact" markdown><summary >
+<details markdown><summary >
 #### <code>__FACT__(value)</code> {: #fact }
 </summary>
 Returns the factorial of a number.
@@ -2291,7 +2291,7 @@ ValueError: factorial() not defined for negative values
 ```
 
 </details>
-<details id="factdouble" markdown><summary >
+<details markdown><summary >
 #### <code>__FACTDOUBLE__(value)</code> {: #factdouble }
 </summary>
 Returns the "double factorial" of a number.
@@ -2318,7 +2318,7 @@ Returns the "double factorial" of a number.
 ```
 
 </details>
-<details id="floor" markdown><summary >
+<details markdown><summary >
 #### <code>__FLOOR__(value, factor=1)</code> {: #floor }
 </summary>
 Rounds a number down to the nearest integer multiple of specified significance.
@@ -2352,7 +2352,7 @@ ValueError: factor argument invalid
 ```
 
 </details>
-<details id="gcd" markdown><summary >
+<details markdown><summary >
 #### <code>__GCD__(value1, *more_values)</code> {: #gcd }
 </summary>
 Returns the greatest common divisor of one or more integers.
@@ -2394,7 +2394,7 @@ Returns the greatest common divisor of one or more integers.
 ```
 
 </details>
-<details id="int" markdown><summary >
+<details markdown><summary >
 #### <code>__INT__(value)</code> {: #int }
 </summary>
 Rounds a number down to the nearest integer that is less than or equal to it.
@@ -2416,7 +2416,7 @@ Rounds a number down to the nearest integer that is less than or equal to it.
 ```
 
 </details>
-<details id="lcm" markdown><summary >
+<details markdown><summary >
 #### <code>__LCM__(value1, *more_values)</code> {: #lcm }
 </summary>
 Returns the least common multiple of one or more integers.
@@ -2458,7 +2458,7 @@ Returns the least common multiple of one or more integers.
 ```
 
 </details>
-<details id="ln" markdown><summary >
+<details markdown><summary >
 #### <code>__LN__(value)</code> {: #ln }
 </summary>
 Returns the the logarithm of a number, base e (Euler's number).
@@ -2480,7 +2480,7 @@ Returns the the logarithm of a number, base e (Euler's number).
 ```
 
 </details>
-<details id="log" markdown><summary >
+<details markdown><summary >
 #### <code>__LOG__(value, base=10)</code> {: #log }
 </summary>
 Returns the the logarithm of a number given a base.
@@ -2502,7 +2502,7 @@ Returns the the logarithm of a number given a base.
 ```
 
 </details>
-<details id="log10" markdown><summary >
+<details markdown><summary >
 #### <code>__LOG10__(value)</code> {: #log10 }
 </summary>
 Returns the the logarithm of a number, base 10.
@@ -2529,7 +2529,7 @@ Returns the the logarithm of a number, base 10.
 ```
 
 </details>
-<details id="mod" markdown><summary >
+<details markdown><summary >
 #### <code>__MOD__(dividend, divisor)</code> {: #mod }
 </summary>
 Returns the result of the modulo operator, the remainder after a division operation.
@@ -2556,7 +2556,7 @@ Returns the result of the modulo operator, the remainder after a division operat
 ```
 
 </details>
-<details id="mround" markdown><summary >
+<details markdown><summary >
 #### <code>__MROUND__(value, factor)</code> {: #mround }
 </summary>
 Rounds one number to the nearest integer multiple of another.
@@ -2585,7 +2585,7 @@ ValueError: factor argument invalid
 ```
 
 </details>
-<details id="multinomial" markdown><summary >
+<details markdown><summary >
 #### <code>__MULTINOMIAL__(value1, *more_values)</code> {: #multinomial }
 </summary>
 Returns the factorial of the sum of values divided by the product of the values' factorials.
@@ -2612,7 +2612,7 @@ Returns the factorial of the sum of values divided by the product of the values'
 ```
 
 </details>
-<details id="num" markdown><summary >
+<details markdown><summary >
 #### <code>__NUM__(value)</code> {: #num }
 </summary>
 For a Python floating-point value that's actually an integer, returns a Python integer type.
@@ -2641,7 +2641,7 @@ Numeric Grist column (represented as floats), but when int values are actually e
 ```
 
 </details>
-<details id="odd" markdown><summary >
+<details markdown><summary >
 #### <code>__ODD__(value)</code> {: #odd }
 </summary>
 Rounds a number up to the nearest odd integer.
@@ -2673,7 +2673,7 @@ Rounds a number up to the nearest odd integer.
 ```
 
 </details>
-<details id="pi" markdown><summary >
+<details markdown><summary >
 #### <code>__PI__()</code> {: #pi }
 </summary>
 Returns the value of Pi to 14 decimal places.
@@ -2695,7 +2695,7 @@ Returns the value of Pi to 14 decimal places.
 ```
 
 </details>
-<details id="power" markdown><summary >
+<details markdown><summary >
 #### <code>__POWER__(base, exponent)</code> {: #power }
 </summary>
 Returns a number raised to a power.
@@ -2717,7 +2717,7 @@ Returns a number raised to a power.
 ```
 
 </details>
-<details id="product" markdown><summary >
+<details markdown><summary >
 #### <code>__PRODUCT__(factor1, *more_factors)</code> {: #product }
 </summary>
 Returns the result of multiplying a series of numbers together. Each argument may be a number or
@@ -2739,7 +2739,7 @@ an array.
 4500
 ```
 </details>
-<details id="quotient" markdown><summary >
+<details markdown><summary >
 #### <code>__QUOTIENT__(dividend, divisor)</code> {: #quotient }
 </summary>
 Returns one number divided by another, without the remainder.
@@ -2761,7 +2761,7 @@ Returns one number divided by another, without the remainder.
 ```
 
 </details>
-<details id="radians" markdown><summary >
+<details markdown><summary >
 #### <code>__RADIANS__(angle)</code> {: #radians }
 </summary>
 Converts an angle value in degrees to radians.
@@ -2773,17 +2773,17 @@ Converts an angle value in degrees to radians.
 ```
 
 </details>
-<details id="rand" markdown><summary >
+<details markdown><summary >
 #### <code>__RAND__()</code> {: #rand }
 </summary>
 Returns a random number between 0 inclusive and 1 exclusive.
 </details>
-<details id="randbetween" markdown><summary >
+<details markdown><summary >
 #### <code>__RANDBETWEEN__(low, high)</code> {: #randbetween }
 </summary>
 Returns a uniformly random integer between two values, inclusive.
 </details>
-<details id="roman" markdown><summary >
+<details markdown><summary >
 #### <code>__ROMAN__(number, form_unused=None)</code> {: #roman }
 </summary>
 Formats a number in Roman numerals. The second argument is ignored in this implementation.
@@ -2810,7 +2810,7 @@ Formats a number in Roman numerals. The second argument is ignored in this imple
 ```
 
 </details>
-<details id="round" markdown><summary >
+<details markdown><summary >
 #### <code>__ROUND__(value, places=0)</code> {: #round }
 </summary>
 Rounds a number to a certain number of decimal places,
@@ -2876,7 +2876,7 @@ in the case of a tie, i.e. when the last digit is 5.
 ```
 
 </details>
-<details id="rounddown" markdown><summary >
+<details markdown><summary >
 #### <code>__ROUNDDOWN__(value, places=0)</code> {: #rounddown }
 </summary>
 Rounds a number to a certain number of decimal places, always rounding down towards zero.
@@ -2908,7 +2908,7 @@ Rounds a number to a certain number of decimal places, always rounding down towa
 ```
 
 </details>
-<details id="roundup" markdown><summary >
+<details markdown><summary >
 #### <code>__ROUNDUP__(value, places=0)</code> {: #roundup }
 </summary>
 Rounds a number to a certain number of decimal places, always rounding up away from zero.
@@ -2940,7 +2940,7 @@ Rounds a number to a certain number of decimal places, always rounding up away f
 ```
 
 </details>
-<details id="seriessum" markdown><summary >
+<details markdown><summary >
 #### <code>__SERIESSUM__(x, n, m, a)</code> {: #seriessum }
 </summary>
 Given parameters x, n, m, and a, returns the power series sum a_1*x^n + a_2*x^(n+m)
@@ -2968,7 +2968,7 @@ Given parameters x, n, m, and a, returns the power series sum a_1*x^n + a_2*x^(n
 ```
 
 </details>
-<details id="sign" markdown><summary >
+<details markdown><summary >
 #### <code>__SIGN__(value)</code> {: #sign }
 </summary>
 Given an input number, returns `-1` if it is negative, `1` if positive, and `0` if it is zero.
@@ -2990,7 +2990,7 @@ Given an input number, returns `-1` if it is negative, `1` if positive, and `0` 
 ```
 
 </details>
-<details id="sin" markdown><summary >
+<details markdown><summary >
 #### <code>__SIN__(angle)</code> {: #sin }
 </summary>
 Returns the sine of an angle provided in radians.
@@ -3017,7 +3017,7 @@ Returns the sine of an angle provided in radians.
 ```
 
 </details>
-<details id="sinh" markdown><summary >
+<details markdown><summary >
 #### <code>__SINH__(value)</code> {: #sinh }
 </summary>
 Returns the hyperbolic sine of any real number.
@@ -3029,7 +3029,7 @@ Returns the hyperbolic sine of any real number.
 ```
 
 </details>
-<details id="sqrt" markdown><summary >
+<details markdown><summary >
 #### <code>__SQRT__(value)</code> {: #sqrt }
 </summary>
 Returns the positive square root of a positive number.
@@ -3053,7 +3053,7 @@ ValueError: math domain error
 ```
 
 </details>
-<details id="sqrtpi" markdown><summary >
+<details markdown><summary >
 #### <code>__SQRTPI__(value)</code> {: #sqrtpi }
 </summary>
 Returns the positive square root of the product of Pi and the given positive number.
@@ -3070,14 +3070,14 @@ Returns the positive square root of the product of Pi and the given positive num
 ```
 
 </details>
-<details id="subtotal" markdown><summary class="unimplemented">
+<details>
 #### <code>__SUBTOTAL__(function_code, range1, range2)</code> {: #subtotal }
 </summary>
 Returns a subtotal for a vertical range of cells using a specified aggregation function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="sum" markdown><summary >
+<details markdown><summary >
 #### <code>__SUM__(value1, *more_values)</code> {: #sum }
 </summary>
 Returns the sum of a series of numbers. Each argument may be a number or an array.
@@ -3099,21 +3099,21 @@ Non-numeric values are ignored.
 52
 ```
 </details>
-<details id="sumif" markdown><summary class="unimplemented">
+<details>
 #### <code>__SUMIF__(records, criterion, sum_range)</code> {: #sumif }
 </summary>
 Returns a conditional sum across a range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="sumifs" markdown><summary class="unimplemented">
+<details>
 #### <code>__SUMIFS__(sum_range, criteria_range1, criterion1, *args)</code> {: #sumifs }
 </summary>
 Returns the sum of a range depending on multiple criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="sumproduct" markdown><summary >
+<details markdown><summary >
 #### <code>__SUMPRODUCT__(array1, *more_arrays)</code> {: #sumproduct }
 </summary>
 Multiplies corresponding components in two equally-sized arrays,
@@ -3141,14 +3141,14 @@ and returns the sum of those products.
 ```
 
 </details>
-<details id="sumsq" markdown><summary class="unimplemented">
+<details>
 #### <code>__SUMSQ__(value1, value2)</code> {: #sumsq }
 </summary>
 Returns the sum of the squares of a series of numbers and/or cells.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="tan" markdown><summary >
+<details markdown><summary >
 #### <code>__TAN__(angle)</code> {: #tan }
 </summary>
 Returns the tangent of an angle provided in radians.
@@ -3170,7 +3170,7 @@ Returns the tangent of an angle provided in radians.
 ```
 
 </details>
-<details id="tanh" markdown><summary >
+<details markdown><summary >
 #### <code>__TANH__(value)</code> {: #tanh }
 </summary>
 Returns the hyperbolic tangent of any real number.
@@ -3192,7 +3192,7 @@ Returns the hyperbolic tangent of any real number.
 ```
 
 </details>
-<details id="trunc" markdown><summary >
+<details markdown><summary >
 #### <code>__TRUNC__(value, places=0)</code> {: #trunc }
 </summary>
 Truncates a number to a certain number of significant digits by omitting less significant
@@ -3215,7 +3215,7 @@ digits.
 ```
 
 </details>
-<details id="uuid" markdown><summary >
+<details markdown><summary >
 #### <code>__UUID__()</code> {: #uuid }
 </summary>
 Generate a random UUID-formatted string identifier.
@@ -3227,7 +3227,7 @@ formula may get recalculated any time the document is reloaded, producing a diff
 UUID() each time.
 </details>
 ### Schedule
-<details id="schedule" markdown><summary >
+<details markdown><summary >
 #### <code>__SCHEDULE__(schedule, start=None, count=10, end=None)</code> {: #schedule }
 </summary>
 Returns the list of `datetime` objects generated according to the `schedule` string. Starts at
@@ -3350,14 +3350,14 @@ The time zone of `start` determines the time zone of the generated times.
 
 </details>
 ### Stats
-<details id="avedev" markdown><summary class="unimplemented">
+<details>
 #### <code>__AVEDEV__(value1, value2)</code> {: #avedev }
 </summary>
 Calculates the average of the magnitudes of deviations of data from a dataset's mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="average" markdown><summary >
+<details markdown><summary >
 #### <code>__AVERAGE__(value, *more_values)</code> {: #average }
 </summary>
 Returns the numerical average value in a dataset, ignoring non-numerical values.
@@ -3389,7 +3389,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details id="averagea" markdown><summary >
+<details markdown><summary >
 #### <code>__AVERAGEA__(value, *more_values)</code> {: #averagea }
 </summary>
 Returns the numerical average value in a dataset, counting non-numerical values as 0.
@@ -3420,21 +3420,21 @@ False as 0.
 ```
 
 </details>
-<details id="averageif" markdown><summary class="unimplemented">
+<details>
 #### <code>__AVERAGEIF__(criteria_range, criterion, average_range=None)</code> {: #averageif }
 </summary>
 Returns the average of a range depending on criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="averageifs" markdown><summary class="unimplemented">
+<details>
 #### <code>__AVERAGEIFS__(average_range, criteria_range1, criterion1, *args)</code> {: #averageifs }
 </summary>
 Returns the average of a range depending on multiple criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="average_weighted" markdown><summary >
+<details markdown><summary >
 #### <code>__AVERAGE_WEIGHTED__(pairs)</code> {: #average_weighted }
 </summary>
 Given a list of (value, weight) pairs, finds the average of the values weighted by the
@@ -3460,7 +3460,7 @@ list of pairs.
 ```
 
 </details>
-<details id="binomdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__BINOMDIST__(num_successes, num_trials, prob_success, cumulative)</code> {: #binomdist }
 </summary>
 Calculates the probability of drawing a certain number of successes (or a maximum number of
@@ -3469,21 +3469,21 @@ certain number of successes, with replacement of draws.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="confidence" markdown><summary class="unimplemented">
+<details>
 #### <code>__CONFIDENCE__(alpha, standard_deviation, pop_size)</code> {: #confidence }
 </summary>
 Calculates the width of half the confidence interval for a normal distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="correl" markdown><summary class="unimplemented">
+<details>
 #### <code>__CORREL__(data_y, data_x)</code> {: #correl }
 </summary>
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="count" markdown><summary >
+<details markdown><summary >
 #### <code>__COUNT__(value, *more_values)</code> {: #count }
 </summary>
 Returns the count of numerical and date/datetime values in a dataset,
@@ -3519,7 +3519,7 @@ and blank values, and text representations of numbers, are ignored.
 ```
 
 </details>
-<details id="counta" markdown><summary >
+<details markdown><summary >
 #### <code>__COUNTA__(value, *more_values)</code> {: #counta }
 </summary>
 Returns the count of all values in a dataset, including non-numerical values.
@@ -3548,35 +3548,35 @@ Each argument may be a value or an array.
 ```
 
 </details>
-<details id="covar" markdown><summary class="unimplemented">
+<details>
 #### <code>__COVAR__(data_y, data_x)</code> {: #covar }
 </summary>
 Calculates the covariance of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="critbinom" markdown><summary class="unimplemented">
+<details>
 #### <code>__CRITBINOM__(num_trials, prob_success, target_prob)</code> {: #critbinom }
 </summary>
 Calculates the smallest value for which the cumulative binomial distribution is greater than or equal to a specified criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="devsq" markdown><summary class="unimplemented">
+<details>
 #### <code>__DEVSQ__(value1, value2)</code> {: #devsq }
 </summary>
 Calculates the sum of squares of deviations based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="expondist" markdown><summary class="unimplemented">
+<details>
 #### <code>__EXPONDIST__(x, lambda_, cumulative)</code> {: #expondist }
 </summary>
 Returns the value of the exponential distribution function with a specified lambda at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="fdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__FDIST__(x, degrees_freedom1, degrees_freedom2)</code> {: #fdist }
 </summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
@@ -3585,28 +3585,28 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="fisher" markdown><summary class="unimplemented">
+<details>
 #### <code>__FISHER__(value)</code> {: #fisher }
 </summary>
 Returns the Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="fisherinv" markdown><summary class="unimplemented">
+<details>
 #### <code>__FISHERINV__(value)</code> {: #fisherinv }
 </summary>
 Returns the inverse Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="forecast" markdown><summary class="unimplemented">
+<details>
 #### <code>__FORECAST__(x, data_y, data_x)</code> {: #forecast }
 </summary>
 Calculates the expected y-value for a specified x based on a linear regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="f_dist" markdown><summary class="unimplemented">
+<details>
 #### <code>__F_DIST__(x, degrees_freedom1, degrees_freedom2, cumulative)</code> {: #f_dist }
 </summary>
 Calculates the left-tailed F probability distribution (degree of diversity) for two data sets
@@ -3615,7 +3615,7 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="f_dist_rt" markdown><summary class="unimplemented">
+<details>
 #### <code>__F_DIST_RT__(x, degrees_freedom1, degrees_freedom2)</code> {: #f_dist_rt }
 </summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
@@ -3624,63 +3624,63 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="geomean" markdown><summary class="unimplemented">
+<details>
 #### <code>__GEOMEAN__(value1, value2)</code> {: #geomean }
 </summary>
 Calculates the geometric mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="harmean" markdown><summary class="unimplemented">
+<details>
 #### <code>__HARMEAN__(value1, value2)</code> {: #harmean }
 </summary>
 Calculates the harmonic mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="hypgeomdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__HYPGEOMDIST__(num_successes, num_draws, successes_in_pop, pop_size)</code> {: #hypgeomdist }
 </summary>
 Calculates the probability of drawing a certain number of successes in a certain number of tries given a population of a certain size containing a certain number of successes, without replacement of draws.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="intercept" markdown><summary class="unimplemented">
+<details>
 #### <code>__INTERCEPT__(data_y, data_x)</code> {: #intercept }
 </summary>
 Calculates the y-value at which the line resulting from linear regression of a dataset will intersect the y-axis (x=0).
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="kurt" markdown><summary class="unimplemented">
+<details>
 #### <code>__KURT__(value1, value2)</code> {: #kurt }
 </summary>
 Calculates the kurtosis of a dataset, which describes the shape, and in particular the "peakedness" of that dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="large" markdown><summary class="unimplemented">
+<details>
 #### <code>__LARGE__(data, n)</code> {: #large }
 </summary>
 Returns the nth largest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="loginv" markdown><summary class="unimplemented">
+<details>
 #### <code>__LOGINV__(x, mean, standard_deviation)</code> {: #loginv }
 </summary>
 Returns the value of the inverse log-normal cumulative distribution with given mean and standard deviation at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="lognormdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__LOGNORMDIST__(x, mean, standard_deviation)</code> {: #lognormdist }
 </summary>
 Returns the value of the log-normal cumulative distribution with given mean and standard deviation at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="max" markdown><summary >
+<details markdown><summary >
 #### <code>__MAX__(value, *more_values)</code> {: #max }
 </summary>
 Returns the maximum value in a dataset, ignoring values other than numbers and dates/datetimes.
@@ -3731,7 +3731,7 @@ datetime.date(2015, 1, 2)
 ```
 
 </details>
-<details id="maxa" markdown><summary >
+<details markdown><summary >
 #### <code>__MAXA__(value, *more_values)</code> {: #maxa }
 </summary>
 Returns the maximum numeric value in a dataset.
@@ -3767,7 +3767,7 @@ False as 0. Returns 0 if the arguments contain no numbers.
 ```
 
 </details>
-<details id="median" markdown><summary >
+<details markdown><summary >
 #### <code>__MEDIAN__(value, *more_values)</code> {: #median }
 </summary>
 Returns the median value in a numeric dataset, ignoring non-numerical values.
@@ -3810,7 +3810,7 @@ ValueError: MEDIAN requires at least one number
 ```
 
 </details>
-<details id="min" markdown><summary >
+<details markdown><summary >
 #### <code>__MIN__(value, *more_values)</code> {: #min }
 </summary>
 Returns the minimum value in a dataset, ignoring values other than numbers and dates/datetimes.
@@ -3861,7 +3861,7 @@ datetime.datetime(2015, 1, 1, 12, 34, 56)
 ```
 
 </details>
-<details id="mina" markdown><summary >
+<details markdown><summary >
 #### <code>__MINA__(value, *more_values)</code> {: #mina }
 </summary>
 Returns the minimum numeric value in a dataset.
@@ -3897,21 +3897,21 @@ False as 0. Returns 0 if the arguments contain no numbers.
 ```
 
 </details>
-<details id="mode" markdown><summary class="unimplemented">
+<details>
 #### <code>__MODE__(value1, value2)</code> {: #mode }
 </summary>
 Returns the most commonly occurring value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="negbinomdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__NEGBINOMDIST__(num_failures, num_successes, prob_success)</code> {: #negbinomdist }
 </summary>
 Calculates the probability of drawing a certain number of failures before a certain number of successes given a probability of success in independent trials.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="normdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__NORMDIST__(x, mean, standard_deviation, cumulative)</code> {: #normdist }
 </summary>
 Returns the value of the normal distribution function (or normal cumulative distribution
@@ -3919,70 +3919,70 @@ function) for a specified value, mean, and standard deviation.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="norminv" markdown><summary class="unimplemented">
+<details>
 #### <code>__NORMINV__(x, mean, standard_deviation)</code> {: #norminv }
 </summary>
 Returns the value of the inverse normal distribution function for a specified value, mean, and standard deviation.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="normsdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__NORMSDIST__(x)</code> {: #normsdist }
 </summary>
 Returns the value of the standard normal cumulative distribution function for a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="normsinv" markdown><summary class="unimplemented">
+<details>
 #### <code>__NORMSINV__(x)</code> {: #normsinv }
 </summary>
 Returns the value of the inverse standard normal distribution function for a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="pearson" markdown><summary class="unimplemented">
+<details>
 #### <code>__PEARSON__(data_y, data_x)</code> {: #pearson }
 </summary>
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentile" markdown><summary class="unimplemented">
+<details>
 #### <code>__PERCENTILE__(data, percentile)</code> {: #percentile }
 </summary>
 Returns the value at a given percentile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentrank" markdown><summary class="unimplemented">
+<details>
 #### <code>__PERCENTRANK__(data, value, significant_digits=None)</code> {: #percentrank }
 </summary>
 Returns the percentage rank (percentile) of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentrank_exc" markdown><summary class="unimplemented">
+<details>
 #### <code>__PERCENTRANK_EXC__(data, value, significant_digits=None)</code> {: #percentrank_exc }
 </summary>
 Returns the percentage rank (percentile) from 0 to 1 exclusive of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="percentrank_inc" markdown><summary class="unimplemented">
+<details>
 #### <code>__PERCENTRANK_INC__(data, value, significant_digits=None)</code> {: #percentrank_inc }
 </summary>
 Returns the percentage rank (percentile) from 0 to 1 inclusive of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="permut" markdown><summary class="unimplemented">
+<details>
 #### <code>__PERMUT__(n, k)</code> {: #permut }
 </summary>
 Returns the number of ways to choose some number of objects from a pool of a given size of objects, considering order.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="poisson" markdown><summary class="unimplemented">
+<details>
 #### <code>__POISSON__(x, mean, cumulative)</code> {: #poisson }
 </summary>
 Returns the value of the Poisson distribution function (or Poisson cumulative distribution
@@ -3990,70 +3990,70 @@ function) for a specified value and mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="prob" markdown><summary class="unimplemented">
+<details>
 #### <code>__PROB__(data, probabilities, low_limit, high_limit=None)</code> {: #prob }
 </summary>
 Given a set of values and corresponding probabilities, calculates the probability that a value chosen at random falls between two limits.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="quartile" markdown><summary class="unimplemented">
+<details>
 #### <code>__QUARTILE__(data, quartile_number)</code> {: #quartile }
 </summary>
 Returns a value nearest to a specified quartile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rank_avg" markdown><summary class="unimplemented">
+<details>
 #### <code>__RANK_AVG__(value, data, is_ascending=None)</code> {: #rank_avg }
 </summary>
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the average rank of the entries will be returned.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rank_eq" markdown><summary class="unimplemented">
+<details>
 #### <code>__RANK_EQ__(value, data, is_ascending=None)</code> {: #rank_eq }
 </summary>
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the top rank of the entries will be returned.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="rsq" markdown><summary class="unimplemented">
+<details>
 #### <code>__RSQ__(data_y, data_x)</code> {: #rsq }
 </summary>
 Calculates the square of r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="skew" markdown><summary class="unimplemented">
+<details>
 #### <code>__SKEW__(value1, value2)</code> {: #skew }
 </summary>
 Calculates the skewness of a dataset, which describes the symmetry of that dataset about the mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="slope" markdown><summary class="unimplemented">
+<details>
 #### <code>__SLOPE__(data_y, data_x)</code> {: #slope }
 </summary>
 Calculates the slope of the line resulting from linear regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="small" markdown><summary class="unimplemented">
+<details>
 #### <code>__SMALL__(data, n)</code> {: #small }
 </summary>
 Returns the nth smallest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="standardize" markdown><summary class="unimplemented">
+<details>
 #### <code>__STANDARDIZE__(value, mean, standard_deviation)</code> {: #standardize }
 </summary>
 Calculates the normalized equivalent of a random variable given mean and standard deviation of the distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="stdev" markdown><summary >
+<details markdown><summary >
 #### <code>__STDEV__(value, *more_values)</code> {: #stdev }
 </summary>
 Calculates the standard deviation based on a sample, ignoring non-numerical values.
@@ -4087,7 +4087,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details id="stdeva" markdown><summary >
+<details markdown><summary >
 #### <code>__STDEVA__(value, *more_values)</code> {: #stdeva }
 </summary>
 Calculates the standard deviation based on a sample, setting text to the value `0`.
@@ -4121,7 +4121,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details id="stdevp" markdown><summary >
+<details markdown><summary >
 #### <code>__STDEVP__(value, *more_values)</code> {: #stdevp }
 </summary>
 Calculates the standard deviation based on an entire population, ignoring non-numerical values.
@@ -4153,7 +4153,7 @@ Calculates the standard deviation based on an entire population, ignoring non-nu
 ```
 
 </details>
-<details id="stdevpa" markdown><summary >
+<details markdown><summary >
 #### <code>__STDEVPA__(value, *more_values)</code> {: #stdevpa }
 </summary>
 Calculates the standard deviation based on an entire population, setting text to the value `0`.
@@ -4185,84 +4185,84 @@ Calculates the standard deviation based on an entire population, setting text to
 ```
 
 </details>
-<details id="steyx" markdown><summary class="unimplemented">
+<details>
 #### <code>__STEYX__(data_y, data_x)</code> {: #steyx }
 </summary>
 Calculates the standard error of the predicted y-value for each x in the regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="tdist" markdown><summary class="unimplemented">
+<details>
 #### <code>__TDIST__(x, degrees_freedom, tails)</code> {: #tdist }
 </summary>
 Calculates the probability for Student's t-distribution with a given input (x).
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="tinv" markdown><summary class="unimplemented">
+<details>
 #### <code>__TINV__(probability, degrees_freedom)</code> {: #tinv }
 </summary>
 Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="trimmean" markdown><summary class="unimplemented">
+<details>
 #### <code>__TRIMMEAN__(data, exclude_proportion)</code> {: #trimmean }
 </summary>
 Calculates the mean of a dataset excluding some proportion of data from the high and low ends of the dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="ttest" markdown><summary class="unimplemented">
+<details>
 #### <code>__TTEST__(range1, range2, tails, type)</code> {: #ttest }
 </summary>
 Returns the probability associated with t-test. Determines whether two samples are likely to have come from the same two underlying populations that have the same mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="t_inv" markdown><summary class="unimplemented">
+<details>
 #### <code>__T_INV__(probability, degrees_freedom)</code> {: #t_inv }
 </summary>
 Calculates the negative inverse of the one-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="t_inv_2t" markdown><summary class="unimplemented">
+<details>
 #### <code>__T_INV_2T__(probability, degrees_freedom)</code> {: #t_inv_2t }
 </summary>
 Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="var" markdown><summary class="unimplemented">
+<details>
 #### <code>__VAR__(value1, value2)</code> {: #var }
 </summary>
 Calculates the variance based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="vara" markdown><summary class="unimplemented">
+<details>
 #### <code>__VARA__(value1, value2)</code> {: #vara }
 </summary>
 Calculates an estimate of variance based on a sample, setting text to the value `0`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="varp" markdown><summary class="unimplemented">
+<details>
 #### <code>__VARP__(value1, value2)</code> {: #varp }
 </summary>
 Calculates the variance based on an entire population.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="varpa" markdown><summary class="unimplemented">
+<details>
 #### <code>__VARPA__(value1, value2)</code> {: #varpa }
 </summary>
 Calculates the variance based on an entire population, setting text to the value `0`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="weibull" markdown><summary class="unimplemented">
+<details>
 #### <code>__WEIBULL__(x, shape, scale, cumulative)</code> {: #weibull }
 </summary>
 Returns the value of the Weibull distribution function (or Weibull cumulative distribution
@@ -4270,7 +4270,7 @@ function) for a specified shape and scale.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="ztest" markdown><summary class="unimplemented">
+<details>
 #### <code>__ZTEST__(data, value, standard_deviation)</code> {: #ztest }
 </summary>
 Returns the two-tailed P-value of a Z-test with standard distribution.
@@ -4278,7 +4278,7 @@ Returns the two-tailed P-value of a Z-test with standard distribution.
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 ### Text
-<details id="char" markdown><summary >
+<details markdown><summary >
 #### <code>__CHAR__(table_number)</code> {: #char }
 </summary>
 Convert a number into a character according to the current Unicode table.
@@ -4296,7 +4296,7 @@ u'!'
 ```
 
 </details>
-<details id="clean" markdown><summary >
+<details markdown><summary >
 #### <code>__CLEAN__(text)</code> {: #clean }
 </summary>
 Returns the text with the non-printable characters removed.
@@ -4311,7 +4311,7 @@ u'Monthly report'
 ```
 
 </details>
-<details id="code" markdown><summary >
+<details markdown><summary >
 #### <code>__CODE__(string)</code> {: #code }
 </summary>
 Returns the numeric Unicode map value of the first character in the string provided.
@@ -4334,7 +4334,7 @@ Same as `ord(string[0])`.
 ```
 
 </details>
-<details id="concat" markdown><summary >
+<details markdown><summary >
 #### <code>__CONCAT__(string, *more_strings)</code> {: #concat }
 </summary>
 Joins together any number of text strings into one string. Also available under the name
@@ -4367,7 +4367,7 @@ u'0abc'
 ```
 
 </details>
-<details id="concatenate" markdown><summary >
+<details markdown><summary >
 #### <code>__CONCATENATE__(string, *more_strings)</code> {: #concatenate }
 </summary>
 Joins together any number of text strings into one string. Also available under the name
@@ -4410,7 +4410,7 @@ u'0abc'
 ```
 
 </details>
-<details id="dollar" markdown><summary >
+<details markdown><summary >
 #### <code>__DOLLAR__(number, decimals=2)</code> {: #dollar }
 </summary>
 Formats a number into a formatted dollar amount, with decimals rounded to the specified place (.
@@ -4453,7 +4453,7 @@ If decimals value is omitted, it defaults to 2.
 ```
 
 </details>
-<details id="exact" markdown><summary >
+<details markdown><summary >
 #### <code>__EXACT__(string1, string2)</code> {: #exact }
 </summary>
 Tests whether two strings are identical. Same as `string2 == string2`.
@@ -4475,7 +4475,7 @@ False
 ```
 
 </details>
-<details id="find" markdown><summary >
+<details markdown><summary >
 #### <code>__FIND__(find_text, within_text, start_num=1)</code> {: #find }
 </summary>
 Returns the position at which a string is first found within text.
@@ -4532,7 +4532,7 @@ ValueError: substring not found
 ```
 
 </details>
-<details id="fixed" markdown><summary >
+<details markdown><summary >
 #### <code>__FIXED__(number, decimals=2, no_commas=False)</code> {: #fixed }
 </summary>
 Formats a number with a fixed number of decimal places (2 by default), and commas.
@@ -4580,7 +4580,7 @@ If no_commas is True, then omits the commas.
 ```
 
 </details>
-<details id="left" markdown><summary >
+<details markdown><summary >
 #### <code>__LEFT__(string, num_chars=1)</code> {: #left }
 </summary>
 Returns a substring of length num_chars from the beginning of the given string. If num_chars is
@@ -4605,7 +4605,7 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details id="len" markdown><summary >
+<details markdown><summary >
 #### <code>__LEN__(text)</code> {: #len }
 </summary>
 Returns the number of characters in a text string, or the number of items in a list. Same as
@@ -4629,7 +4629,7 @@ See [Record Set](#recordset) for an example of using `len` on a list of records.
 ```
 
 </details>
-<details id="lower" markdown><summary >
+<details markdown><summary >
 #### <code>__LOWER__(text)</code> {: #lower }
 </summary>
 Converts a specified string to lowercase. Same as `text.lower()`.
@@ -4646,7 +4646,7 @@ Converts a specified string to lowercase. Same as `text.lower()`.
 ```
 
 </details>
-<details id="mid" markdown><summary >
+<details markdown><summary >
 #### <code>__MID__(text, start_num, num_chars)</code> {: #mid }
 </summary>
 Returns a segment of a string, starting at start_num. The first character in text has
@@ -4676,7 +4676,7 @@ ValueError: start_num invalid
 ```
 
 </details>
-<details id="phone_format" markdown><summary >
+<details markdown><summary >
 #### <code>__PHONE_FORMAT__(value, country=None, format=None)</code> {: #phone_format }
 </summary>
 Formats a phone number.
@@ -4780,7 +4780,7 @@ TypeError: Phone number must be a text value. If formatting a value from a Numer
 ```
 
 </details>
-<details id="proper" markdown><summary >
+<details markdown><summary >
 #### <code>__PROPER__(text)</code> {: #proper }
 </summary>
 Capitalizes each word in a specified string. It converts the first letter of each word to
@@ -4803,7 +4803,7 @@ uppercase, and all other letters to lowercase. Same as `text.title()`.
 ```
 
 </details>
-<details id="regexextract" markdown><summary >
+<details markdown><summary >
 #### <code>__REGEXEXTRACT__(text, regular_expression)</code> {: #regexextract }
 </summary>
 Extracts the first part of text that matches regular_expression.
@@ -4834,7 +4834,7 @@ ValueError: REGEXEXTRACT text does not match
 ```
 
 </details>
-<details id="regexmatch" markdown><summary >
+<details markdown><summary >
 #### <code>__REGEXMATCH__(text, regular_expression)</code> {: #regexmatch }
 </summary>
 Returns whether a piece of text matches a regular expression.
@@ -4866,7 +4866,7 @@ False
 ```
 
 </details>
-<details id="regexreplace" markdown><summary >
+<details markdown><summary >
 #### <code>__REGEXREPLACE__(text, regular_expression, replacement)</code> {: #regexreplace }
 </summary>
 Replaces all parts of text matching the given regular expression with replacement text.
@@ -4898,7 +4898,7 @@ Replaces all parts of text matching the given regular expression with replacemen
 ```
 
 </details>
-<details id="replace" markdown><summary >
+<details markdown><summary >
 #### <code>__REPLACE__(text, position, length, new_text)</code> {: #replace }
 </summary>
 Replaces part of a text string with a different text string. Position is counted from 1.
@@ -4932,7 +4932,7 @@ ValueError: position invalid
 ```
 
 </details>
-<details id="rept" markdown><summary >
+<details markdown><summary >
 #### <code>__REPT__(text, number_times)</code> {: #rept }
 </summary>
 Returns specified text repeated a number of times. Same as `text * number_times`.
@@ -4976,7 +4976,7 @@ ValueError: number_times invalid
 ```
 
 </details>
-<details id="right" markdown><summary >
+<details markdown><summary >
 #### <code>__RIGHT__(string, num_chars=1)</code> {: #right }
 </summary>
 Returns a substring of length num_chars from the end of a specified string. If num_chars is
@@ -5006,7 +5006,7 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details id="search" markdown><summary >
+<details markdown><summary >
 #### <code>__SEARCH__(find_text, within_text, start_num=1)</code> {: #search }
 </summary>
 Returns the position at which a string is first found within text, ignoring case.
@@ -5048,7 +5048,7 @@ If find_text is not found, or start_num is invalid, raises ValueError.
 ```
 
 </details>
-<details id="substitute" markdown><summary >
+<details markdown><summary >
 #### <code>__SUBSTITUTE__(text, old_text, new_text, instance_num=None)</code> {: #substitute }
 </summary>
 Replaces existing text with new text in a string. It is useful when you know the substring of
@@ -5075,7 +5075,7 @@ u'Quarter 2, 2008'
 u'Quarter 1, 2012'
 ```
 </details>
-<details id="t" markdown><summary >
+<details markdown><summary >
 #### <code>__T__(value)</code> {: #t }
 </summary>
 Returns value if value is text, or the empty string when value is not text.
@@ -5117,7 +5117,7 @@ u''
 ```
 
 </details>
-<details id="tasteme" markdown><summary >
+<details markdown><summary >
 #### <code>__TASTEME__(food)</code> {: #tasteme }
 </summary>
 For any given piece of text, decides if it is tasty or not.
@@ -5138,7 +5138,7 @@ False
 ```
 
 </details>
-<details id="text" markdown><summary class="unimplemented">
+<details>
 #### <code>__TEXT__(number, format_type)</code> {: #text }
 </summary>
 Converts a number into text according to a specified format. It is not yet implemented in
@@ -5147,7 +5147,7 @@ optionally format() to specify the number format.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details id="trim" markdown><summary >
+<details markdown><summary >
 #### <code>__TRIM__(text)</code> {: #trim }
 </summary>
 Removes all spaces from text except for single spaces between words. Note that TRIM does not
@@ -5165,7 +5165,7 @@ remove other whitespace such as tab or newline characters.
 ```
 
 </details>
-<details id="upper" markdown><summary >
+<details markdown><summary >
 #### <code>__UPPER__(text)</code> {: #upper }
 </summary>
 Converts a specified string to uppercase. Same as `text.upper()`.
@@ -5182,7 +5182,7 @@ Converts a specified string to uppercase. Same as `text.upper()`.
 ```
 
 </details>
-<details id="value" markdown><summary >
+<details markdown><summary >
 #### <code>__VALUE__(text)</code> {: #value }
 </summary>
 Converts a string in accepted date, time or number formats into a number or date.
