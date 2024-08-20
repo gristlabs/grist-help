@@ -319,10 +319,10 @@ body {
  * We want headers for the sake of searching, but don't want to see the huge padding and
  * surrounding empty paragraphs.
  */
-.wm-page-content summary h4,
-.wm-page-content summary p {
+.wm-page-content summary h4 + p:empty {
   display: none;
 }
+
 /* The <code> block that serves as a function header annoyingly gets auto-wrapped in a <p> */
 .wm-page-content summary p:not(:first-child) {
   display: inline-block;
