@@ -214,6 +214,7 @@ markdown_extensions:
   smarty: {}
   extra: {}
   meta: {}
+  attr_list: {}
 
 hooks:
 - ../../mkdocs-utils/hooks.py
