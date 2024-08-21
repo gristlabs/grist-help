@@ -32,4 +32,4 @@ body:
     id: other_languages
     attributes:
       label: Other languages (optional)
-      description: Is there languages non listed above for which you would like to translate the doc?
+      description: Are there languages non listed above for which you would like to translate the doc?
