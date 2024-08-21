@@ -6,23 +6,14 @@
 function expandSelected() {
   var hash = window.location.hash.split('/').slice(-1)[0];
   var elem = hash ? document.querySelector(hash) : null;
-  var elemToTest = elem;
-  // Find an expandable parent node.
-  while (elemToTest) {
-    if (elemToTest && elemToTest.tagName === 'DETAILS') {
-      break;
-    }
-    elemToTest = elemToTest.parentElement;
-  }
+  var closestExpandableElem = elem.closest('details');
 
-  if (!elemToTest) {
+  if (!closestExpandableElem) {
     return;
   }
 
-  var elemToExpand = elemToTest;
-
   for (var el of document.querySelectorAll('details')) {
-    el.open = (el === elemToExpand);
+    el.open = (el === closestExpandableElem);
   }
 
   // After collapsing other details, the scroll position may be off, so fix it now.
