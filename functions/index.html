@@ -1099,7 +1099,15 @@
 
     
 
-    <h1 id="function-reference">Function Reference<a class="headerlink" href="#function-reference" title="Permanent link">#</a></h1>
+    <style>
+    /* Makes headers for functions in-line with the "expand" arrow */
+    .wm-page-content summary h4 {
+      display: inline-block;
+      font-size: 14px;
+    }
+</style>
+
+<h1 id="function-reference">Function Reference<a class="headerlink" href="#function-reference" title="Permanent link">#</a></h1>
 <p>Grist formulas support most Excel functions, as well as the Python programming language.</p>
 <p>The table below lists Grist-specific functions, and the suite of the included Excel-like functions.
 In addition, the entire <a href="https://docs.python.org/3/library/">Python standard library</a> is
@@ -1171,12 +1179,10 @@ Python (see <a href="https://docs.python.org/3.11/">Python documentation</a>). H
 
 <!-- BEGIN mkpydocs docs -->
 <h3 id="grist">Grist<a class="headerlink" href="#grist" title="Permanent link">#</a></h3>
-<details id="record">
+<details>
 <summary >
-<h4 id="record_1">Record<a class="headerlink" href="#record_1" title="Permanent link">#</a></h4>
-<p><code>class <strong>Record</strong></code>
-<a class="headerlink" href="#record" title="Permanent link">#</a>
-</summary>
+<h4 id="record"><code>class <strong>Record</strong></code><a class="headerlink" href="#record" title="Permanent link">#</a></h4>
+<p></summary>
 A Record represents a record of data. It is the primary means of accessing values in formulas. A
 Record for a particular table has a property for each data and formula column in the table.</p>
 <p>In a formula, <code>$field</code> is translated to <code>rec.field</code>, where <code>rec</code> is the Record for which the
@@ -1189,20 +1195,16 @@ def Name_Length(rec, table):
   return len(rec.Full_Name)
 </code></pre>
 </details>
-<details id="_field">
+<details>
 <summary >
-<h4 id="field">$Field<a class="headerlink" href="#field" title="Permanent link">#</a></h4>
-<p><code><strong>$</strong><em>Field</em> or <strong>rec</strong><em>.Field</em></code>
-<a class="headerlink" href="#_field" title="Permanent link">#</a>
-</summary>
+<h4 id="_field"><code><strong>$</strong><em>Field</em> or <strong>rec</strong><em>.Field</em></code><a class="headerlink" href="#_field" title="Permanent link">#</a></h4>
+<p></summary>
 Access the field named &ldquo;Field&rdquo; of the current record. E.g. <code>$First_Name</code> or <code>rec.First_Name</code>.</p>
 </details>
-<details id="_group">
+<details>
 <summary >
-<h4 id="group">$group<a class="headerlink" href="#group" title="Permanent link">#</a></h4>
-<p><code><strong>$group</strong></code>
-<a class="headerlink" href="#_group" title="Permanent link">#</a>
-</summary>
+<h4 id="_group"><code><strong>$group</strong></code><a class="headerlink" href="#_group" title="Permanent link">#</a></h4>
+<p></summary>
 In a <a href="../summary-tables/">summary table</a>, <code>$group</code> is a special field
 containing the list of Records that are summarized by the current summary line.  E.g. the
 formula <code>len($group)</code> counts the number of those records being summarized in each row.</p>
@@ -1214,12 +1216,10 @@ sum(r.Amount for r in $group if r &gt; 0)    # Sum of only the positive amounts
 sum(r.Shares * r.Price for r in $group)   # Sum of shares * price products
 </code></pre>
 </details>
-<details id="recordset">
+<details>
 <summary >
-<h4 id="recordset_1">RecordSet<a class="headerlink" href="#recordset_1" title="Permanent link">#</a></h4>
-<p><code>class <strong>RecordSet</strong></code>
-<a class="headerlink" href="#recordset" title="Permanent link">#</a>
-</summary>
+<h4 id="recordset"><code>class <strong>RecordSet</strong></code><a class="headerlink" href="#recordset" title="Permanent link">#</a></h4>
+<p></summary>
 A RecordSet represents a collection of records, as returned by <code>Table.lookupRecords()</code> or
 <code>$group</code> property in summary views.</p>
 <p>A RecordSet allows iterating through the records:</p>
@@ -1233,12 +1233,10 @@ min(Tasks.lookupRecords(Owner=&quot;Bob&quot;).DueDate)
 </code></pre>
 <p>You can get the number of records in a RecordSet using <code>len</code>, e.g. <code>len($group)</code>.</p>
 </details>
-<details id="find_">
+<details>
 <summary >
-<h4 id="find_1">find.*<a class="headerlink" href="#find_1" title="Permanent link">#</a></h4>
-<p><code>RecordSet.<strong>find.*</strong>(value)</code>
-<a class="headerlink" href="#find_" title="Permanent link">#</a>
-</summary>
+<h4 id="find_"><code>RecordSet.<strong>find.*</strong>(value)</code><a class="headerlink" href="#find_" title="Permanent link">#</a></h4>
+<p></summary>
 A set of methods for finding values in sorted sets of records, as returned by
 <a href="#lookuprecords"><code>lookupRecords</code></a>. For example:</p>
 <pre><code>Transactions.lookupRecords(..., order_by=&quot;Date&quot;).find.lt($Date)
@@ -1275,23 +1273,19 @@ return rate.Hourly_Rate
 </code></pre>
 <p>Note that this is also much faster when there are many rates for the same Person and Role.</p>
 </details>
-<details id="usertable">
+<details>
 <summary >
-<h4 id="usertable_1">UserTable<a class="headerlink" href="#usertable_1" title="Permanent link">#</a></h4>
-<p><code>class <strong>UserTable</strong></code>
-<a class="headerlink" href="#usertable" title="Permanent link">#</a>
-</summary>
+<h4 id="usertable"><code>class <strong>UserTable</strong></code><a class="headerlink" href="#usertable" title="Permanent link">#</a></h4>
+<p></summary>
 Each data table in the document is represented in the code by an instance of <code>UserTable</code> class.
 These names are always capitalized. A UserTable provides access to all the records in the table,
 as well as methods to look up particular records.</p>
 <p>Every table in the document is available to all formulas.</p>
 </details>
-<details id="all">
+<details>
 <summary >
-<h4 id="all_1">all<a class="headerlink" href="#all_1" title="Permanent link">#</a></h4>
-<p><code>UserTable.<strong>all</strong></code>
-<a class="headerlink" href="#all" title="Permanent link">#</a>
-</summary>
+<h4 id="all"><code>UserTable.<strong>all</strong></code><a class="headerlink" href="#all" title="Permanent link">#</a></h4>
+<p></summary>
 The list of all the records in this table.</p>
 <p>For example, this evaluates to the number of records in the table <code>Students</code>.</p>
 <pre><code>len(Students.all)
@@ -1300,12 +1294,10 @@ The list of all the records in this table.</p>
 <pre><code>sum(r.Population for r in Countries.all)
 </code></pre>
 </details>
-<details id="lookupone">
+<details>
 <summary >
-<h4 id="lookupone_1">lookupOne<a class="headerlink" href="#lookupone_1" title="Permanent link">#</a></h4>
-<p><code>UserTable.<strong>lookupOne</strong>(Field_In_Lookup_Table=value, &hellip;)</code>
-<a class="headerlink" href="#lookupone" title="Permanent link">#</a>
-</summary>
+<h4 id="lookupone"><code>UserTable.<strong>lookupOne</strong>(Field_In_Lookup_Table=value, &hellip;)</code><a class="headerlink" href="#lookupone" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a <a href="#record">Record</a> matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
@@ -1325,12 +1317,10 @@ returned as the first one. By default, the record with the lowest row ID is retu
 Rates.lookupOne(Person=$id, order_by=&quot;-Date&quot;)      # Rate with the latest Date.
 </code></pre>
 </details>
-<details id="lookuprecords">
+<details>
 <summary >
-<h4 id="lookuprecords_1">lookupRecords<a class="headerlink" href="#lookuprecords_1" title="Permanent link">#</a></h4>
-<p><code>UserTable.<strong>lookupRecords</strong>(Field_In_Lookup_Table=value, &hellip;)</code>
-<a class="headerlink" href="#lookuprecords" title="Permanent link">#</a>
-</summary>
+<h4 id="lookuprecords"><code>UserTable.<strong>lookupRecords</strong>(Field_In_Lookup_Table=value, &hellip;)</code><a class="headerlink" href="#lookuprecords" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a <a href="#recordset">RecordSet</a> matching the given field=value arguments. The value may be
 any expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
@@ -1361,21 +1351,17 @@ value.</p>
 <p>Learn more about <a href="../references-lookups/#lookuprecords">lookupRecords</a>.</p>
 </details>
 <h3 id="cumulative">Cumulative<a class="headerlink" href="#cumulative" title="Permanent link">#</a></h3>
-<details id="next">
+<details>
 <summary >
-<h4 id="next_1">NEXT<a class="headerlink" href="#next_1" title="Permanent link">#</a></h4>
-<p><code><strong>NEXT</strong>(rec, *, group_by=(), order_by)</code>
-<a class="headerlink" href="#next" title="Permanent link">#</a>
-</summary>
+<h4 id="next"><code><strong>NEXT</strong>(rec, *, group_by=(), order_by)</code><a class="headerlink" href="#next" title="Permanent link">#</a></h4>
+<p></summary>
 Finds the next record in the table according to the order specified by <code>order_by</code>, and
 grouping specified by <code>group_by</code>. See <a href="#previous"><code>PREVIOUS</code></a> for details.</p>
 </details>
-<details id="previous">
+<details>
 <summary >
-<h4 id="previous_1">PREVIOUS<a class="headerlink" href="#previous_1" title="Permanent link">#</a></h4>
-<p><code><strong>PREVIOUS</strong>(rec, *, group_by=(), order_by)</code>
-<a class="headerlink" href="#previous" title="Permanent link">#</a>
-</summary>
+<h4 id="previous"><code><strong>PREVIOUS</strong>(rec, *, group_by=(), order_by)</code><a class="headerlink" href="#previous" title="Permanent link">#</a></h4>
+<p></summary>
 Finds the previous record in the table according to the order specified by <code>order_by</code>, and
 grouping specified by <code>group_by</code>. Each of these arguments may be a column ID or a tuple of
 column IDs, and <code>order_by</code> allows column IDs to be prefixed with &ldquo;-&rdquo; to reverse sort order.</p>
@@ -1400,12 +1386,10 @@ used to match views sorted by multiple columns. For example:</p>
 <pre><code class="language-python">PREVIOUS(rec, group_by=(&quot;Account&quot;, &quot;Year&quot;), order_by=(&quot;Date&quot;, &quot;-Amount&quot;))
 </code></pre>
 </details>
-<details id="rank">
+<details>
 <summary >
-<h4 id="rank_1">RANK<a class="headerlink" href="#rank_1" title="Permanent link">#</a></h4>
-<p><code><strong>RANK</strong>(rec, *, group_by=(), order_by, order=&rsquo;asc&rsquo;)</code>
-<a class="headerlink" href="#rank" title="Permanent link">#</a>
-</summary>
+<h4 id="rank"><code><strong>RANK</strong>(rec, *, group_by=(), order_by, order=&rsquo;asc&rsquo;)</code><a class="headerlink" href="#rank" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the rank (or position) of this record in the table according to the order specified by
 <code>order_by</code>, and grouping specified by <code>group_by</code>. See <a href="#previous"><code>PREVIOUS</code></a> for details of
 these parameters.</p>
@@ -1420,12 +1404,10 @@ the current record (<code>rec</code>) among all the records in its table for the
 decreasing score.</p>
 </details>
 <h3 id="date_1">Date<a class="headerlink" href="#date_1" title="Permanent link">#</a></h3>
-<details id="date">
+<details>
 <summary >
-<h4 id="date_2">DATE<a class="headerlink" href="#date_2" title="Permanent link">#</a></h4>
-<p><code><strong>DATE</strong>(year, month, day)</code>
-<a class="headerlink" href="#date" title="Permanent link">#</a>
-</summary>
+<h4 id="date"><code><strong>DATE</strong>(year, month, day)</code><a class="headerlink" href="#date" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the <code>datetime.datetime</code> object that represents a particular date.
 The DATE function is most useful in formulas where year, month, and day are formulas, not
 constants.</p>
@@ -1453,12 +1435,10 @@ datetime.date(2008, 2, 4)
 datetime.date(2007, 12, 16)
 </code></pre>
 </details>
-<details id="dateadd">
+<details>
 <summary >
-<h4 id="dateadd_1">DATEADD<a class="headerlink" href="#dateadd_1" title="Permanent link">#</a></h4>
-<p><code><strong>DATEADD</strong>(start_date, days=0, months=0, years=0, weeks=0)</code>
-<a class="headerlink" href="#dateadd" title="Permanent link">#</a>
-</summary>
+<h4 id="dateadd"><code><strong>DATEADD</strong>(start_date, days=0, months=0, years=0, weeks=0)</code><a class="headerlink" href="#dateadd" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the date a given number of days, months, years, or weeks away from <code>start_date</code>. You may
 specify arguments in any order if you specify argument names. Use negative values to subtract.</p>
 <p>For example, <code>DATEADD(date, 1)</code> is the same as <code>DATEADD(date, days=1)</code>, ands adds one day to
@@ -1476,12 +1456,10 @@ datetime.date(2009, 3, 4)
 datetime.date(2025, 3, 26)
 </code></pre>
 </details>
-<details id="datedif">
+<details>
 <summary >
-<h4 id="datedif_1">DATEDIF<a class="headerlink" href="#datedif_1" title="Permanent link">#</a></h4>
-<p><code><strong>DATEDIF</strong>(start_date, end_date, unit)</code>
-<a class="headerlink" href="#datedif" title="Permanent link">#</a>
-</summary>
+<h4 id="datedif"><code><strong>DATEDIF</strong>(start_date, end_date, unit)</code><a class="headerlink" href="#datedif" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the number of days, months, or years between two dates.
 Unit indicates the type of information that you want returned:</p>
 <ul>
@@ -1512,12 +1490,10 @@ Unit indicates the type of information that you want returned:</p>
 14
 </code></pre>
 </details>
-<details id="datevalue">
+<details>
 <summary >
-<h4 id="datevalue_1">DATEVALUE<a class="headerlink" href="#datevalue_1" title="Permanent link">#</a></h4>
-<p><code><strong>DATEVALUE</strong>(date_string, tz=None)</code>
-<a class="headerlink" href="#datevalue" title="Permanent link">#</a>
-</summary>
+<h4 id="datevalue"><code><strong>DATEVALUE</strong>(date_string, tz=None)</code><a class="headerlink" href="#datevalue" title="Permanent link">#</a></h4>
+<p></summary>
 Converts a date that is stored as text to a <code>datetime</code> object.</p>
 <pre><code class="language-python">&gt;&gt;&gt; DATEVALUE(&quot;1/1/2008&quot;)
 datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
@@ -1536,12 +1512,10 @@ datetime.datetime(2000, 7, 5, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 datetime.datetime(2003, 1, 2, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 </code></pre>
 </details>
-<details id="date_to_xl">
+<details>
 <summary >
-<h4 id="date_to_xl_1">DATE_TO_XL<a class="headerlink" href="#date_to_xl_1" title="Permanent link">#</a></h4>
-<p><code><strong>DATE_TO_XL</strong>(date_value)</code>
-<a class="headerlink" href="#date_to_xl" title="Permanent link">#</a>
-</summary>
+<h4 id="date_to_xl"><code><strong>DATE_TO_XL</strong>(date_value)</code><a class="headerlink" href="#date_to_xl" title="Permanent link">#</a></h4>
+<p></summary>
 Converts a Python <code>date</code> or <code>datetime</code> object to the serial number as used by
 Excel, with December 30, 1899 as serial number 1.</p>
 <p>See XL_TO_DATE for more explanation.</p>
@@ -1555,12 +1529,10 @@ Excel, with December 30, 1899 as serial number 1.</p>
 40982.0625
 </code></pre>
 </details>
-<details id="day">
+<details>
 <summary >
-<h4 id="day_1">DAY<a class="headerlink" href="#day_1" title="Permanent link">#</a></h4>
-<p><code><strong>DAY</strong>(date)</code>
-<a class="headerlink" href="#day" title="Permanent link">#</a>
-</summary>
+<h4 id="day"><code><strong>DAY</strong>(date)</code><a class="headerlink" href="#day" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the day of a date, as an integer ranging from 1 to 31. Same as <code>date.day</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; DAY(DATE(2011, 4, 15))
 15
@@ -1572,12 +1544,10 @@ Returns the day of a date, as an integer ranging from 1 to 31. Same as <code>dat
 1
 </code></pre>
 </details>
-<details id="days">
+<details>
 <summary >
-<h4 id="days_1">DAYS<a class="headerlink" href="#days_1" title="Permanent link">#</a></h4>
-<p><code><strong>DAYS</strong>(end_date, start_date)</code>
-<a class="headerlink" href="#days" title="Permanent link">#</a>
-</summary>
+<h4 id="days"><code><strong>DAYS</strong>(end_date, start_date)</code><a class="headerlink" href="#days" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the number of days between two dates. Same as <code>(end_date - start_date).days</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; DAYS(&quot;3/15/11&quot;,&quot;2/1/11&quot;)
 42
@@ -1589,12 +1559,10 @@ Returns the number of days between two dates. Same as <code>(end_date - start_da
 -42
 </code></pre>
 </details>
-<details id="dtime">
+<details>
 <summary >
-<h4 id="dtime_1">DTIME<a class="headerlink" href="#dtime_1" title="Permanent link">#</a></h4>
-<p><code><strong>DTIME</strong>(value, tz=None)</code>
-<a class="headerlink" href="#dtime" title="Permanent link">#</a>
-</summary>
+<h4 id="dtime"><code><strong>DTIME</strong>(value, tz=None)</code><a class="headerlink" href="#dtime" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value converted to a python <code>datetime</code> object. The value may be a
 <code>string</code>, <code>date</code> (interpreted as midnight on that day), <code>time</code> (interpreted as a
 time-of-day today), or an existing <code>datetime</code>.</p>
@@ -1620,12 +1588,10 @@ datetime.datetime(2017, 1, 1, 0, 0, tzinfo=moment.tzinfo('UTC'))
 datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 </code></pre>
 </details>
-<details id="edate">
+<details>
 <summary >
-<h4 id="edate_1">EDATE<a class="headerlink" href="#edate_1" title="Permanent link">#</a></h4>
-<p><code><strong>EDATE</strong>(start_date, months)</code>
-<a class="headerlink" href="#edate" title="Permanent link">#</a>
-</summary>
+<h4 id="edate"><code><strong>EDATE</strong>(start_date, months)</code><a class="headerlink" href="#edate" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the date that is the given number of months before or after <code>start_date</code>. Use
 EDATE to calculate maturity dates or due dates that fall on the same day of the month as the
 date of issue.</p>
@@ -1645,12 +1611,10 @@ datetime.date(2013, 1, 1)
 datetime.date(2012, 3, 1)
 </code></pre>
 </details>
-<details id="eomonth">
+<details>
 <summary >
-<h4 id="eomonth_1">EOMONTH<a class="headerlink" href="#eomonth_1" title="Permanent link">#</a></h4>
-<p><code><strong>EOMONTH</strong>(start_date, months)</code>
-<a class="headerlink" href="#eomonth" title="Permanent link">#</a>
-</summary>
+<h4 id="eomonth"><code><strong>EOMONTH</strong>(start_date, months)</code><a class="headerlink" href="#eomonth" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the date for the last day of the month that is the indicated number of months before or
 after start_date. Use EOMONTH to calculate maturity dates or due dates that fall on the last day
 of the month.</p>
@@ -1667,12 +1631,10 @@ datetime.date(2013, 1, 31)
 datetime.date(2012, 3, 31)
 </code></pre>
 </details>
-<details id="hour">
+<details>
 <summary >
-<h4 id="hour_1">HOUR<a class="headerlink" href="#hour_1" title="Permanent link">#</a></h4>
-<p><code><strong>HOUR</strong>(time)</code>
-<a class="headerlink" href="#hour" title="Permanent link">#</a>
-</summary>
+<h4 id="hour"><code><strong>HOUR</strong>(time)</code><a class="headerlink" href="#hour" title="Permanent link">#</a></h4>
+<p></summary>
 Same as <code>time.hour</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; HOUR(XL_TO_DATE(0.75))
 18
@@ -1684,12 +1646,10 @@ Same as <code>time.hour</code>.</p>
 0
 </code></pre>
 </details>
-<details id="isoweeknum">
+<details>
 <summary >
-<h4 id="isoweeknum_1">ISOWEEKNUM<a class="headerlink" href="#isoweeknum_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISOWEEKNUM</strong>(date)</code>
-<a class="headerlink" href="#isoweeknum" title="Permanent link">#</a>
-</summary>
+<h4 id="isoweeknum"><code><strong>ISOWEEKNUM</strong>(date)</code><a class="headerlink" href="#isoweeknum" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the ISO week number of the year for a given date.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ISOWEEKNUM(&quot;3/9/2012&quot;)
 10
@@ -1698,12 +1658,10 @@ Returns the ISO week number of the year for a given date.</p>
 [52, 1, 1, 1, 1, 53, 52, 1, 1]
 </code></pre>
 </details>
-<details id="minute">
+<details>
 <summary >
-<h4 id="minute_1">MINUTE<a class="headerlink" href="#minute_1" title="Permanent link">#</a></h4>
-<p><code><strong>MINUTE</strong>(time)</code>
-<a class="headerlink" href="#minute" title="Permanent link">#</a>
-</summary>
+<h4 id="minute"><code><strong>MINUTE</strong>(time)</code><a class="headerlink" href="#minute" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the minutes of <code>datetime</code>, as an integer from 0 to 59.
 Same as <code>time.minute</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; MINUTE(XL_TO_DATE(0.75))
@@ -1719,12 +1677,10 @@ Same as <code>time.minute</code>.</p>
 58
 </code></pre>
 </details>
-<details id="month">
+<details>
 <summary >
-<h4 id="month_1">MONTH<a class="headerlink" href="#month_1" title="Permanent link">#</a></h4>
-<p><code><strong>MONTH</strong>(date)</code>
-<a class="headerlink" href="#month" title="Permanent link">#</a>
-</summary>
+<h4 id="month"><code><strong>MONTH</strong>(date)</code><a class="headerlink" href="#month" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the month of a date represented, as an integer from from 1 (January) to 12 (December).
 Same as <code>date.month</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; MONTH(DATE(2011, 4, 15))
@@ -1737,12 +1693,10 @@ Same as <code>date.month</code>.</p>
 1
 </code></pre>
 </details>
-<details id="moonphase">
+<details>
 <summary >
-<h4 id="moonphase_1">MOONPHASE<a class="headerlink" href="#moonphase_1" title="Permanent link">#</a></h4>
-<p><code><strong>MOONPHASE</strong>(date, output=&rsquo;emoji&rsquo;)</code>
-<a class="headerlink" href="#moonphase" title="Permanent link">#</a>
-</summary>
+<h4 id="moonphase"><code><strong>MOONPHASE</strong>(date, output=&rsquo;emoji&rsquo;)</code><a class="headerlink" href="#moonphase" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the phase of the moon on the given date. The output defaults to a moon-phase emoji.</p>
 <ul>
 <li>With <code>output="days"</code>, the output is the age of the moon in days (new moon being 0).</li>
@@ -1772,20 +1726,16 @@ True
 [10.4, 14.4, 18.4, 22.4, 26.4, 0.9, 4.9, 8.9]
 </code></pre>
 </details>
-<details id="now">
+<details>
 <summary >
-<h4 id="now_1">NOW<a class="headerlink" href="#now_1" title="Permanent link">#</a></h4>
-<p><code><strong>NOW</strong>(tz=None)</code>
-<a class="headerlink" href="#now" title="Permanent link">#</a>
-</summary>
+<h4 id="now"><code><strong>NOW</strong>(tz=None)</code><a class="headerlink" href="#now" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the <code>datetime</code> object for the current time.</p>
 </details>
-<details id="second">
+<details>
 <summary >
-<h4 id="second_1">SECOND<a class="headerlink" href="#second_1" title="Permanent link">#</a></h4>
-<p><code><strong>SECOND</strong>(time)</code>
-<a class="headerlink" href="#second" title="Permanent link">#</a>
-</summary>
+<h4 id="second"><code><strong>SECOND</strong>(time)</code><a class="headerlink" href="#second" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the seconds of <code>datetime</code>, as an integer from 0 to 59.
 Same as <code>time.second</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; SECOND(XL_TO_DATE(0.75))
@@ -1798,20 +1748,16 @@ Same as <code>time.second</code>.</p>
 59
 </code></pre>
 </details>
-<details id="today">
+<details>
 <summary >
-<h4 id="today_1">TODAY<a class="headerlink" href="#today_1" title="Permanent link">#</a></h4>
-<p><code><strong>TODAY</strong>(tz=None)</code>
-<a class="headerlink" href="#today" title="Permanent link">#</a>
-</summary>
+<h4 id="today"><code><strong>TODAY</strong>(tz=None)</code><a class="headerlink" href="#today" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the <code>date</code> object for the current date.</p>
 </details>
-<details id="weekday">
+<details>
 <summary >
-<h4 id="weekday_1">WEEKDAY<a class="headerlink" href="#weekday_1" title="Permanent link">#</a></h4>
-<p><code><strong>WEEKDAY</strong>(date, return_type=1)</code>
-<a class="headerlink" href="#weekday" title="Permanent link">#</a>
-</summary>
+<h4 id="weekday"><code><strong>WEEKDAY</strong>(date, return_type=1)</code><a class="headerlink" href="#weekday" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the day of the week corresponding to a date. The day is given as an integer, ranging
 from 1 (Sunday) to 7 (Saturday), by default.</p>
 <p>Return_type determines the type of the returned value.</p>
@@ -1843,12 +1789,10 @@ from 1 (Sunday) to 7 (Saturday), by default.</p>
 3
 </code></pre>
 </details>
-<details id="weeknum">
+<details>
 <summary >
-<h4 id="weeknum_1">WEEKNUM<a class="headerlink" href="#weeknum_1" title="Permanent link">#</a></h4>
-<p><code><strong>WEEKNUM</strong>(date, return_type=1)</code>
-<a class="headerlink" href="#weeknum" title="Permanent link">#</a>
-</summary>
+<h4 id="weeknum"><code><strong>WEEKNUM</strong>(date, return_type=1)</code><a class="headerlink" href="#weeknum" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the week number of a specific date. For example, the week containing January 1 is the
 first week of the year, and is numbered week 1.</p>
 <p>Return_type determines which week is considered the first week of the year.</p>
@@ -1878,12 +1822,10 @@ first week of the year, and is numbered week 1.</p>
 5
 </code></pre>
 </details>
-<details id="xl_to_date">
+<details>
 <summary >
-<h4 id="xl_to_date_1">XL_TO_DATE<a class="headerlink" href="#xl_to_date_1" title="Permanent link">#</a></h4>
-<p><code><strong>XL_TO_DATE</strong>(value, tz=None)</code>
-<a class="headerlink" href="#xl_to_date" title="Permanent link">#</a>
-</summary>
+<h4 id="xl_to_date"><code><strong>XL_TO_DATE</strong>(value, tz=None)</code><a class="headerlink" href="#xl_to_date" title="Permanent link">#</a></h4>
+<p></summary>
 Converts a provided Excel serial number representing a date into a <code>datetime</code> object.
 Value is interpreted as the number of days since December 30, 1899.</p>
 <p>(This corresponds to Google Sheets interpretation. Excel starts with Dec. 31, 1899 but wrongly
@@ -1901,12 +1843,10 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 datetime.datetime(2012, 3, 14, 1, 30, tzinfo=moment.tzinfo('America/New_York'))
 </code></pre>
 </details>
-<details id="year">
+<details>
 <summary >
-<h4 id="year_1">YEAR<a class="headerlink" href="#year_1" title="Permanent link">#</a></h4>
-<p><code><strong>YEAR</strong>(date)</code>
-<a class="headerlink" href="#year" title="Permanent link">#</a>
-</summary>
+<h4 id="year"><code><strong>YEAR</strong>(date)</code><a class="headerlink" href="#year" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the year corresponding to a date as an integer.
 Same as <code>date.year</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; YEAR(DATE(2011, 4, 15))
@@ -1919,12 +1859,10 @@ Same as <code>date.year</code>.</p>
 1900
 </code></pre>
 </details>
-<details id="yearfrac">
+<details>
 <summary >
-<h4 id="yearfrac_1">YEARFRAC<a class="headerlink" href="#yearfrac_1" title="Permanent link">#</a></h4>
-<p><code><strong>YEARFRAC</strong>(start_date, end_date, basis=0)</code>
-<a class="headerlink" href="#yearfrac" title="Permanent link">#</a>
-</summary>
+<h4 id="yearfrac"><code><strong>YEARFRAC</strong>(start_date, end_date, basis=0)</code><a class="headerlink" href="#yearfrac" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the fraction of the year represented by the number of whole days between two dates.</p>
 <p>Basis is the type of day count basis to use.</p>
 <ul>
@@ -1959,31 +1897,25 @@ year, it has a 366 day basis.</p>
 </code></pre>
 </details>
 <h3 id="info">Info<a class="headerlink" href="#info" title="Permanent link">#</a></h3>
-<details id="cell">
+<details>
 <summary class="unimplemented">
-<h4 id="cell_1">CELL<a class="headerlink" href="#cell_1" title="Permanent link">#</a></h4>
-<p><code><strong>CELL</strong>(info_type, reference)</code>
-<a class="headerlink" href="#cell" title="Permanent link">#</a>
-</summary>
+<h4 id="cell"><code><strong>CELL</strong>(info_type, reference)</code><a class="headerlink" href="#cell" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the requested information about the specified cell. This is not implemented in Grist</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="isblank">
+<details>
 <summary class="unimplemented">
-<h4 id="isblank_1">ISBLANK<a class="headerlink" href="#isblank_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISBLANK</strong>(value)</code>
-<a class="headerlink" href="#isblank" title="Permanent link">#</a>
-</summary>
+<h4 id="isblank"><code><strong>ISBLANK</strong>(value)</code><a class="headerlink" href="#isblank" title="Permanent link">#</a></h4>
+<p></summary>
 Returns whether a value refers to an empty cell. It isn&rsquo;t implemented in Grist. To check for an
 empty string, use <code>value == ""</code>.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="isemail">
+<details>
 <summary >
-<h4 id="isemail_1">ISEMAIL<a class="headerlink" href="#isemail_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISEMAIL</strong>(value)</code>
-<a class="headerlink" href="#isemail" title="Permanent link">#</a>
-</summary>
+<h4 id="isemail"><code><strong>ISEMAIL</strong>(value)</code><a class="headerlink" href="#isemail" title="Permanent link">#</a></h4>
+<p></summary>
 Returns whether a value is a valid email address.</p>
 <p>Note that checking email validity is not an exact science. The technical standard considers many
 email addresses valid that are not used in practice, and would not be considered valid by most
@@ -2001,12 +1933,10 @@ False
 False
 </code></pre>
 </details>
-<details id="iserr">
+<details>
 <summary >
-<h4 id="iserr_1">ISERR<a class="headerlink" href="#iserr_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISERR</strong>(value)</code>
-<a class="headerlink" href="#iserr" title="Permanent link">#</a>
-</summary>
+<h4 id="iserr"><code><strong>ISERR</strong>(value)</code><a class="headerlink" href="#iserr" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is an error. In other words, it returns true
 if using <code>value</code> directly would raise an exception.</p>
 <p>NOTE: Grist implements this by automatically wrapping the argument to use lazy evaluation.</p>
@@ -2021,12 +1951,10 @@ except Exception, err:
 False
 </code></pre>
 </details>
-<details id="iserror">
+<details>
 <summary >
-<h4 id="iserror_1">ISERROR<a class="headerlink" href="#iserror_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISERROR</strong>(value)</code>
-<a class="headerlink" href="#iserror" title="Permanent link">#</a>
-</summary>
+<h4 id="iserror"><code><strong>ISERROR</strong>(value)</code><a class="headerlink" href="#iserror" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is an error or an invalid value. It is similar to <code>ISERR</code>, but also
 returns true for an invalid value such as NaN or a text value in a Numeric column.</p>
 <p>NOTE: Grist implements this by automatically wrapping the argument to use lazy evaluation.</p>
@@ -2040,12 +1968,10 @@ True
 True
 </code></pre>
 </details>
-<details id="islogical">
+<details>
 <summary >
-<h4 id="islogical_1">ISLOGICAL<a class="headerlink" href="#islogical_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISLOGICAL</strong>(value)</code>
-<a class="headerlink" href="#islogical" title="Permanent link">#</a>
-</summary>
+<h4 id="islogical"><code><strong>ISLOGICAL</strong>(value)</code><a class="headerlink" href="#islogical" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is <code>True</code> or <code>False</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ISLOGICAL(True)
 True
@@ -2063,12 +1989,10 @@ False
 False
 </code></pre>
 </details>
-<details id="isna">
+<details>
 <summary >
-<h4 id="isna_1">ISNA<a class="headerlink" href="#isna_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISNA</strong>(value)</code>
-<a class="headerlink" href="#isna" title="Permanent link">#</a>
-</summary>
+<h4 id="isna"><code><strong>ISNA</strong>(value)</code><a class="headerlink" href="#isna" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is the error <code>#N/A</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ISNA(float('nan'))
 True
@@ -2083,12 +2007,10 @@ False
 False
 </code></pre>
 </details>
-<details id="isnontext">
+<details>
 <summary >
-<h4 id="isnontext_1">ISNONTEXT<a class="headerlink" href="#isnontext_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISNONTEXT</strong>(value)</code>
-<a class="headerlink" href="#isnontext" title="Permanent link">#</a>
-</summary>
+<h4 id="isnontext"><code><strong>ISNONTEXT</strong>(value)</code><a class="headerlink" href="#isnontext" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is non-textual.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ISNONTEXT(&quot;asdf&quot;)
 False
@@ -2109,12 +2031,10 @@ True
 True
 </code></pre>
 </details>
-<details id="isnumber">
+<details>
 <summary >
-<h4 id="isnumber_1">ISNUMBER<a class="headerlink" href="#isnumber_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISNUMBER</strong>(value)</code>
-<a class="headerlink" href="#isnumber" title="Permanent link">#</a>
-</summary>
+<h4 id="isnumber"><code><strong>ISNUMBER</strong>(value)</code><a class="headerlink" href="#isnumber" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is a number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ISNUMBER(17)
 True
@@ -2141,12 +2061,10 @@ False
 False
 </code></pre>
 </details>
-<details id="isref">
+<details>
 <summary >
-<h4 id="isref_1">ISREF<a class="headerlink" href="#isref_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISREF</strong>(value)</code>
-<a class="headerlink" href="#isref" title="Permanent link">#</a>
-</summary>
+<h4 id="isref"><code><strong>ISREF</strong>(value)</code><a class="headerlink" href="#isref" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is a table record.</p>
 <p>For example, if a column <code>person</code> is of type Reference to the <code>People</code> table,
 then <code>ISREF($person)</code> is <code>True</code>.
@@ -2159,12 +2077,10 @@ False
 False
 </code></pre>
 </details>
-<details id="isreflist">
+<details>
 <summary >
-<h4 id="isreflist_1">ISREFLIST<a class="headerlink" href="#isreflist_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISREFLIST</strong>(value)</code>
-<a class="headerlink" href="#isreflist" title="Permanent link">#</a>
-</summary>
+<h4 id="isreflist"><code><strong>ISREFLIST</strong>(value)</code><a class="headerlink" href="#isreflist" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is a <a href="#recordset"><code>RecordSet</code></a>,
 the type of values in Reference List columns.</p>
 <p>For example, if a column <code>people</code> is of type Reference List to the <code>People</code> table,
@@ -2178,12 +2094,10 @@ False
 False
 </code></pre>
 </details>
-<details id="istext">
+<details>
 <summary >
-<h4 id="istext_1">ISTEXT<a class="headerlink" href="#istext_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISTEXT</strong>(value)</code>
-<a class="headerlink" href="#istext" title="Permanent link">#</a>
-</summary>
+<h4 id="istext"><code><strong>ISTEXT</strong>(value)</code><a class="headerlink" href="#istext" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is text.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ISTEXT(&quot;asdf&quot;)
 True
@@ -2204,12 +2118,10 @@ False
 False
 </code></pre>
 </details>
-<details id="isurl">
+<details>
 <summary >
-<h4 id="isurl_1">ISURL<a class="headerlink" href="#isurl_1" title="Permanent link">#</a></h4>
-<p><code><strong>ISURL</strong>(value)</code>
-<a class="headerlink" href="#isurl" title="Permanent link">#</a>
-</summary>
+<h4 id="isurl"><code><strong>ISURL</strong>(value)</code><a class="headerlink" href="#isurl" title="Permanent link">#</a></h4>
+<p></summary>
 Checks whether a value is a valid URL. It does not need to be fully qualified, or to include
 &ldquo;http://&rdquo; and &ldquo;www&rdquo;. It does not follow a standard, but attempts to work similarly to ISURL in
 Google Sheets, and to return True for text that is likely a URL.</p>
@@ -2227,12 +2139,10 @@ True
 False
 </code></pre>
 </details>
-<details id="n">
+<details>
 <summary >
-<h4 id="n_1">N<a class="headerlink" href="#n_1" title="Permanent link">#</a></h4>
-<p><code><strong>N</strong>(value)</code>
-<a class="headerlink" href="#n" title="Permanent link">#</a>
-</summary>
+<h4 id="n"><code><strong>N</strong>(value)</code><a class="headerlink" href="#n" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value converted to a number. True/False are converted to 1/0. A date is converted to
 Excel-style serial number of the date. Anything else is converted to 0.</p>
 <pre><code class="language-python">&gt;&gt;&gt; N(7)
@@ -2254,23 +2164,19 @@ Excel-style serial number of the date. Anything else is converted to 0.</p>
 40650.0
 </code></pre>
 </details>
-<details id="na">
+<details>
 <summary >
-<h4 id="na_1">NA<a class="headerlink" href="#na_1" title="Permanent link">#</a></h4>
-<p><code><strong>NA</strong>()</code>
-<a class="headerlink" href="#na" title="Permanent link">#</a>
-</summary>
+<h4 id="na"><code><strong>NA</strong>()</code><a class="headerlink" href="#na" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the &ldquo;value not available&rdquo; error, <code>#N/A</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; math.isnan(NA())
 True
 </code></pre>
 </details>
-<details id="peek">
+<details>
 <summary >
-<h4 id="peek_1">PEEK<a class="headerlink" href="#peek_1" title="Permanent link">#</a></h4>
-<p><code><strong>PEEK</strong>(func)</code>
-<a class="headerlink" href="#peek" title="Permanent link">#</a>
-</summary>
+<h4 id="peek"><code><strong>PEEK</strong>(func)</code><a class="headerlink" href="#peek" title="Permanent link">#</a></h4>
+<p></summary>
 Evaluates the given expression without creating dependencies
 or requiring that referenced values are up to date, using whatever value it finds in a cell.
 This is useful for preventing circular reference errors, particularly in trigger formulas.</p>
@@ -2280,12 +2186,10 @@ calculated before the other. But if <code>A</code> uses <code>PEEK($B)</code> th
 already stored in <code>$B</code> without requiring that <code>$B</code> is first calculated to the latest value.
 Therefore <code>A</code> will be calculated first, and <code>B</code> can use <code>$A</code> without problems.</p>
 </details>
-<details id="record_2">
+<details>
 <summary >
-<h4 id="record_3">RECORD<a class="headerlink" href="#record_3" title="Permanent link">#</a></h4>
-<p><code><strong>RECORD</strong>(record_or_list, dates_as_iso=False, expand_refs=0)</code>
-<a class="headerlink" href="#record_2" title="Permanent link">#</a>
-</summary>
+<h4 id="record_2"><code><strong>RECORD</strong>(record_or_list, dates_as_iso=False, expand_refs=0)</code><a class="headerlink" href="#record_2" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a Python dictionary with all fields in the given record. If a list of records is given,
 returns a list of corresponding Python dictionaries.</p>
 <p>If dates_as_iso is set, Date and DateTime values are converted to string using ISO 8601 format.</p>
@@ -2304,31 +2208,25 @@ RECORD(People.lookupOne(First_Name=&quot;Alice&quot;))
 RECORD(People.lookupRecords(Department=&quot;HR&quot;))
 </code></pre>
 </details>
-<details id="request">
+<details>
 <summary class="unimplemented">
-<h4 id="request_1">REQUEST<a class="headerlink" href="#request_1" title="Permanent link">#</a></h4>
-<p><code><strong>REQUEST</strong>(url, params=None, headers=None, method=&rsquo;GET&rsquo;, data=None, json=None)</code>
-<a class="headerlink" href="#request" title="Permanent link">#</a>
-</summary></p>
+<h4 id="request"><code><strong>REQUEST</strong>(url, params=None, headers=None, method=&rsquo;GET&rsquo;, data=None, json=None)</code><a class="headerlink" href="#request" title="Permanent link">#</a></h4>
+</summary>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="type">
+<details>
 <summary class="unimplemented">
-<h4 id="type_1">TYPE<a class="headerlink" href="#type_1" title="Permanent link">#</a></h4>
-<p><code><strong>TYPE</strong>(value)</code>
-<a class="headerlink" href="#type" title="Permanent link">#</a>
-</summary>
+<h4 id="type"><code><strong>TYPE</strong>(value)</code><a class="headerlink" href="#type" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a number associated with the type of data passed into the function. This is not
 implemented in Grist. Use <code>isinstance(value, type)</code> or <code>type(value)</code>.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
 <h3 id="logical">Logical<a class="headerlink" href="#logical" title="Permanent link">#</a></h3>
-<details id="and">
+<details>
 <summary >
-<h4 id="and_1">AND<a class="headerlink" href="#and_1" title="Permanent link">#</a></h4>
-<p><code><strong>AND</strong>(logical_expression, *logical_expressions)</code>
-<a class="headerlink" href="#and" title="Permanent link">#</a>
-</summary>
+<h4 id="and"><code><strong>AND</strong>(logical_expression, *logical_expressions)</code><a class="headerlink" href="#and" title="Permanent link">#</a></h4>
+<p></summary>
 Returns True if all of the arguments are logically true, and False if any are false.
 Same as <code>all([value1, value2, ...])</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; AND(1)
@@ -2347,24 +2245,20 @@ True
 False
 </code></pre>
 </details>
-<details id="false">
+<details>
 <summary >
-<h4 id="false_1">FALSE<a class="headerlink" href="#false_1" title="Permanent link">#</a></h4>
-<p><code><strong>FALSE</strong>()</code>
-<a class="headerlink" href="#false" title="Permanent link">#</a>
-</summary>
+<h4 id="false"><code><strong>FALSE</strong>()</code><a class="headerlink" href="#false" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the logical value <code>False</code>. You may also use the value <code>False</code> directly. This
 function is provided primarily for compatibility with other spreadsheet programs.</p>
 <pre><code class="language-python">&gt;&gt;&gt; FALSE()
 False
 </code></pre>
 </details>
-<details id="if">
+<details>
 <summary >
-<h4 id="if_1">IF<a class="headerlink" href="#if_1" title="Permanent link">#</a></h4>
-<p><code><strong>IF</strong>(logical_expression, value_if_true, value_if_false)</code>
-<a class="headerlink" href="#if" title="Permanent link">#</a>
-</summary>
+<h4 id="if"><code><strong>IF</strong>(logical_expression, value_if_true, value_if_false)</code><a class="headerlink" href="#if" title="Permanent link">#</a></h4>
+<p></summary>
 Returns one value if a logical expression is <code>True</code> and another if it is <code>False</code>.</p>
 <p>The equivalent Python expression is:</p>
 <pre><code>value_if_true if logical_expression else value_if_false
@@ -2391,12 +2285,10 @@ to evaluate to <code>1</code> rather than raise an exception.</p>
 0.0
 </code></pre>
 </details>
-<details id="iferror">
+<details>
 <summary >
-<h4 id="iferror_1">IFERROR<a class="headerlink" href="#iferror_1" title="Permanent link">#</a></h4>
-<p><code><strong>IFERROR</strong>(value, value_if_error=&rsquo;&lsquo;)</code>
-<a class="headerlink" href="#iferror" title="Permanent link">#</a>
-</summary>
+<h4 id="iferror"><code><strong>IFERROR</strong>(value, value_if_error=&rsquo;&lsquo;)</code><a class="headerlink" href="#iferror" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the first argument if it is not an error value, otherwise returns the second argument if
 present, or a blank if the second argument is absent.</p>
 <p>NOTE: Grist handles values that raise an exception by wrapping them to use lazy evaluation.</p>
@@ -2413,12 +2305,10 @@ present, or a blank if the second argument is absent.</p>
 ''
 </code></pre>
 </details>
-<details id="not">
+<details>
 <summary >
-<h4 id="not_1">NOT<a class="headerlink" href="#not_1" title="Permanent link">#</a></h4>
-<p><code><strong>NOT</strong>(logical_expression)</code>
-<a class="headerlink" href="#not" title="Permanent link">#</a>
-</summary>
+<h4 id="not"><code><strong>NOT</strong>(logical_expression)</code><a class="headerlink" href="#not" title="Permanent link">#</a></h4>
+<p></summary>
 <code>True</code>. Same as <code>not logical_expression</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; NOT(123)
 False
@@ -2427,12 +2317,10 @@ False
 True
 </code></pre>
 </details>
-<details id="or">
+<details>
 <summary >
-<h4 id="or_1">OR<a class="headerlink" href="#or_1" title="Permanent link">#</a></h4>
-<p><code><strong>OR</strong>(logical_expression, *logical_expressions)</code>
-<a class="headerlink" href="#or" title="Permanent link">#</a>
-</summary>
+<h4 id="or"><code><strong>OR</strong>(logical_expression, *logical_expressions)</code><a class="headerlink" href="#or" title="Permanent link">#</a></h4>
+<p></summary>
 Returns True if any of the arguments is logically true, and false if all of the
 arguments are false.
 Same as <code>any([value1, value2, ...])</code>.</p>
@@ -2458,12 +2346,10 @@ False
 True
 </code></pre>
 </details>
-<details id="true">
+<details>
 <summary >
-<h4 id="true_1">TRUE<a class="headerlink" href="#true_1" title="Permanent link">#</a></h4>
-<p><code><strong>TRUE</strong>()</code>
-<a class="headerlink" href="#true" title="Permanent link">#</a>
-</summary>
+<h4 id="true"><code><strong>TRUE</strong>()</code><a class="headerlink" href="#true" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the logical value <code>True</code>. You may also use the value <code>True</code> directly. This
 function is provided primarily for compatibility with other spreadsheet programs.</p>
 <pre><code class="language-python">&gt;&gt;&gt; TRUE()
@@ -2471,12 +2357,10 @@ True
 </code></pre>
 </details>
 <h3 id="lookup_1">Lookup<a class="headerlink" href="#lookup_1" title="Permanent link">#</a></h3>
-<details id="lookupone_2">
+<details>
 <summary >
-<h4 id="lookupone_3">lookupOne<a class="headerlink" href="#lookupone_3" title="Permanent link">#</a></h4>
-<p><code>UserTable.<strong>lookupOne</strong>(Field_In_Lookup_Table=value, &hellip;)</code>
-<a class="headerlink" href="#lookupone_2" title="Permanent link">#</a>
-</summary>
+<h4 id="lookupone_2"><code>UserTable.<strong>lookupOne</strong>(Field_In_Lookup_Table=value, &hellip;)</code><a class="headerlink" href="#lookupone_2" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a <a href="#record">Record</a> matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
@@ -2496,12 +2380,10 @@ returned as the first one. By default, the record with the lowest row ID is retu
 Rates.lookupOne(Person=$id, order_by=&quot;-Date&quot;)      # Rate with the latest Date.
 </code></pre>
 </details>
-<details id="lookuprecords_2">
+<details>
 <summary >
-<h4 id="lookuprecords_3">lookupRecords<a class="headerlink" href="#lookuprecords_3" title="Permanent link">#</a></h4>
-<p><code>UserTable.<strong>lookupRecords</strong>(Field_In_Lookup_Table=value, &hellip;)</code>
-<a class="headerlink" href="#lookuprecords_2" title="Permanent link">#</a>
-</summary>
+<h4 id="lookuprecords_2"><code>UserTable.<strong>lookupRecords</strong>(Field_In_Lookup_Table=value, &hellip;)</code><a class="headerlink" href="#lookuprecords_2" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a <a href="#recordset">RecordSet</a> matching the given field=value arguments. The value may be
 any expression,
 most commonly a field in the current row (e.g. <code>$SomeField</code>) or a constant (e.g. a quoted string
@@ -2531,48 +2413,38 @@ where a field of a list type (such as <code>Choice List</code> or <code>Referenc
 value.</p>
 <p>Learn more about <a href="../references-lookups/#lookuprecords">lookupRecords</a>.</p>
 </details>
-<details id="address">
+<details>
 <summary class="unimplemented">
-<h4 id="address_1">ADDRESS<a class="headerlink" href="#address_1" title="Permanent link">#</a></h4>
-<p><code><strong>ADDRESS</strong>(row, column, absolute_relative_mode, use_a1_notation, sheet)</code>
-<a class="headerlink" href="#address" title="Permanent link">#</a>
-</summary>
+<h4 id="address"><code><strong>ADDRESS</strong>(row, column, absolute_relative_mode, use_a1_notation, sheet)</code><a class="headerlink" href="#address" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a cell reference as a string.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="choose">
+<details>
 <summary class="unimplemented">
-<h4 id="choose_1">CHOOSE<a class="headerlink" href="#choose_1" title="Permanent link">#</a></h4>
-<p><code><strong>CHOOSE</strong>(index, choice1, choice2)</code>
-<a class="headerlink" href="#choose" title="Permanent link">#</a>
-</summary>
+<h4 id="choose"><code><strong>CHOOSE</strong>(index, choice1, choice2)</code><a class="headerlink" href="#choose" title="Permanent link">#</a></h4>
+<p></summary>
 Returns an element from a list of choices based on index.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="column">
+<details>
 <summary class="unimplemented">
-<h4 id="column_1">COLUMN<a class="headerlink" href="#column_1" title="Permanent link">#</a></h4>
-<p><code><strong>COLUMN</strong>(cell_reference=None)</code>
-<a class="headerlink" href="#column" title="Permanent link">#</a>
-</summary>
+<h4 id="column"><code><strong>COLUMN</strong>(cell_reference=None)</code><a class="headerlink" href="#column" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the column number of a specified cell, with <code>A=1</code>.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="columns">
+<details>
 <summary class="unimplemented">
-<h4 id="columns_1">COLUMNS<a class="headerlink" href="#columns_1" title="Permanent link">#</a></h4>
-<p><code><strong>COLUMNS</strong>(range)</code>
-<a class="headerlink" href="#columns" title="Permanent link">#</a>
-</summary>
+<h4 id="columns"><code><strong>COLUMNS</strong>(range)</code><a class="headerlink" href="#columns" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the number of columns in a specified array or range.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="contains">
+<details>
 <summary >
-<h4 id="contains_1">CONTAINS<a class="headerlink" href="#contains_1" title="Permanent link">#</a></h4>
-<p><code><strong>CONTAINS</strong>(value, match_empty=no_match_empty)</code>
-<a class="headerlink" href="#contains" title="Permanent link">#</a>
-</summary>
+<h4 id="contains"><code><strong>CONTAINS</strong>(value, match_empty=no_match_empty)</code><a class="headerlink" href="#contains" title="Permanent link">#</a></h4>
+<p></summary>
 Use this marker with <a href="#lookuprecords">UserTable.lookupRecords</a> to find records
 where a field of a list type (such as <code>Choice List</code> or <code>Reference List</code>) contains the given value.</p>
 <p>For example:</p>
@@ -2594,102 +2466,80 @@ should be matched against empty lists in the looked up column.</p>
 <p>If <code>g</code> is <code>''</code> (i.e. equal to <code>match_empty</code>) then the column <code>genre</code> in the returned records
 will either be an empty list (or other container) or a list containing <code>g</code> as usual.</p>
 </details>
-<details id="getpivotdata">
+<details>
 <summary class="unimplemented">
-<h4 id="getpivotdata_1">GETPIVOTDATA<a class="headerlink" href="#getpivotdata_1" title="Permanent link">#</a></h4>
-<p><code><strong>GETPIVOTDATA</strong>(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code>
-<a class="headerlink" href="#getpivotdata" title="Permanent link">#</a>
-</summary>
+<h4 id="getpivotdata"><code><strong>GETPIVOTDATA</strong>(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code><a class="headerlink" href="#getpivotdata" title="Permanent link">#</a></h4>
+<p></summary>
 Extracts an aggregated value from a pivot table that corresponds to the specified row and column headings.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="hlookup">
+<details>
 <summary class="unimplemented">
-<h4 id="hlookup_1">HLOOKUP<a class="headerlink" href="#hlookup_1" title="Permanent link">#</a></h4>
-<p><code><strong>HLOOKUP</strong>(search_key, range, index, is_sorted)</code>
-<a class="headerlink" href="#hlookup" title="Permanent link">#</a>
-</summary>
+<h4 id="hlookup"><code><strong>HLOOKUP</strong>(search_key, range, index, is_sorted)</code><a class="headerlink" href="#hlookup" title="Permanent link">#</a></h4>
+<p></summary>
 Horizontal lookup. Searches across the first row of a range for a key and returns the value of a specified cell in the column found.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="hyperlink">
+<details>
 <summary class="unimplemented">
-<h4 id="hyperlink_1">HYPERLINK<a class="headerlink" href="#hyperlink_1" title="Permanent link">#</a></h4>
-<p><code><strong>HYPERLINK</strong>(url, link_label)</code>
-<a class="headerlink" href="#hyperlink" title="Permanent link">#</a>
-</summary>
+<h4 id="hyperlink"><code><strong>HYPERLINK</strong>(url, link_label)</code><a class="headerlink" href="#hyperlink" title="Permanent link">#</a></h4>
+<p></summary>
 Creates a hyperlink inside a cell.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="index">
+<details>
 <summary class="unimplemented">
-<h4 id="index_1">INDEX<a class="headerlink" href="#index_1" title="Permanent link">#</a></h4>
-<p><code><strong>INDEX</strong>(reference, row, column)</code>
-<a class="headerlink" href="#index" title="Permanent link">#</a>
-</summary>
+<h4 id="index"><code><strong>INDEX</strong>(reference, row, column)</code><a class="headerlink" href="#index" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the content of a cell, specified by row and column offset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="indirect">
+<details>
 <summary class="unimplemented">
-<h4 id="indirect_1">INDIRECT<a class="headerlink" href="#indirect_1" title="Permanent link">#</a></h4>
-<p><code><strong>INDIRECT</strong>(cell_reference_as_string)</code>
-<a class="headerlink" href="#indirect" title="Permanent link">#</a>
-</summary>
+<h4 id="indirect"><code><strong>INDIRECT</strong>(cell_reference_as_string)</code><a class="headerlink" href="#indirect" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a cell reference specified by a string.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="lookup">
+<details>
 <summary class="unimplemented">
-<h4 id="lookup_2">LOOKUP<a class="headerlink" href="#lookup_2" title="Permanent link">#</a></h4>
-<p><code><strong>LOOKUP</strong>(search_key, search_range_or_search_result_array, result_range=None)</code>
-<a class="headerlink" href="#lookup" title="Permanent link">#</a>
-</summary>
+<h4 id="lookup"><code><strong>LOOKUP</strong>(search_key, search_range_or_search_result_array, result_range=None)</code><a class="headerlink" href="#lookup" title="Permanent link">#</a></h4>
+<p></summary>
 Looks through a row or column for a key and returns the value of the cell in a result range located in the same position as the search row or column.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="match">
+<details>
 <summary class="unimplemented">
-<h4 id="match_1">MATCH<a class="headerlink" href="#match_1" title="Permanent link">#</a></h4>
-<p><code><strong>MATCH</strong>(search_key, range, search_type)</code>
-<a class="headerlink" href="#match" title="Permanent link">#</a>
-</summary>
+<h4 id="match"><code><strong>MATCH</strong>(search_key, range, search_type)</code><a class="headerlink" href="#match" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the relative position of an item in a range that matches a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="offset">
+<details>
 <summary class="unimplemented">
-<h4 id="offset_1">OFFSET<a class="headerlink" href="#offset_1" title="Permanent link">#</a></h4>
-<p><code><strong>OFFSET</strong>(cell_reference, offset_rows, offset_columns, height, width)</code>
-<a class="headerlink" href="#offset" title="Permanent link">#</a>
-</summary>
+<h4 id="offset"><code><strong>OFFSET</strong>(cell_reference, offset_rows, offset_columns, height, width)</code><a class="headerlink" href="#offset" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a range reference shifted a specified number of rows and columns from a starting cell reference.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="row">
+<details>
 <summary class="unimplemented">
-<h4 id="row_1">ROW<a class="headerlink" href="#row_1" title="Permanent link">#</a></h4>
-<p><code><strong>ROW</strong>(cell_reference)</code>
-<a class="headerlink" href="#row" title="Permanent link">#</a>
-</summary>
+<h4 id="row"><code><strong>ROW</strong>(cell_reference)</code><a class="headerlink" href="#row" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the row number of a specified cell.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="rows">
+<details>
 <summary class="unimplemented">
-<h4 id="rows_1">ROWS<a class="headerlink" href="#rows_1" title="Permanent link">#</a></h4>
-<p><code><strong>ROWS</strong>(range)</code>
-<a class="headerlink" href="#rows" title="Permanent link">#</a>
-</summary>
+<h4 id="rows"><code><strong>ROWS</strong>(range)</code><a class="headerlink" href="#rows" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the number of rows in a specified array or range.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="self_hyperlink">
+<details>
 <summary >
-<h4 id="self_hyperlink_1">SELF_HYPERLINK<a class="headerlink" href="#self_hyperlink_1" title="Permanent link">#</a></h4>
-<p><code><strong>SELF_HYPERLINK</strong>(label=None, page=None, **kwargs)</code>
-<a class="headerlink" href="#self_hyperlink" title="Permanent link">#</a>
-</summary>
+<h4 id="self_hyperlink"><code><strong>SELF_HYPERLINK</strong>(label=None, page=None, **kwargs)</code><a class="headerlink" href="#self_hyperlink" title="Permanent link">#</a></h4>
+<p></summary>
 Creates a link to the current document.  All parameters are optional.</p>
 <p>The returned string is in URL format, optionally preceded by a label and a space
 (the format expected for Grist Text columns with the HyperLink option enabled).</p>
@@ -2721,12 +2571,10 @@ Traceback (most recent call last):
 TypeError: unexpected keyword argument 'Linky_Link' (not of form LinkKey_NAME)
 </code></pre>
 </details>
-<details id="vlookup">
+<details>
 <summary >
-<h4 id="vlookup_1">VLOOKUP<a class="headerlink" href="#vlookup_1" title="Permanent link">#</a></h4>
-<p><code><strong>VLOOKUP</strong>(table, **field_value_pairs)</code>
-<a class="headerlink" href="#vlookup" title="Permanent link">#</a>
-</summary>
+<h4 id="vlookup"><code><strong>VLOOKUP</strong>(table, **field_value_pairs)</code><a class="headerlink" href="#vlookup" title="Permanent link">#</a></h4>
+<p></summary>
 Vertical lookup. Searches the given table for a record matching the given <code>field=value</code>
 arguments. If multiple records match, returns one of them. If none match, returns the special
 empty record.</p>
@@ -2742,12 +2590,10 @@ VLOOKUP(People, First_Name=&quot;Lewis&quot;, Last_Name=&quot;Carroll&quot;).Age
 </code></pre>
 </details>
 <h3 id="math">Math<a class="headerlink" href="#math" title="Permanent link">#</a></h3>
-<details id="abs">
+<details>
 <summary >
-<h4 id="abs_1">ABS<a class="headerlink" href="#abs_1" title="Permanent link">#</a></h4>
-<p><code><strong>ABS</strong>(value)</code>
-<a class="headerlink" href="#abs" title="Permanent link">#</a>
-</summary>
+<h4 id="abs"><code><strong>ABS</strong>(value)</code><a class="headerlink" href="#abs" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the absolute value of a number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ABS(2)
 2
@@ -2759,12 +2605,10 @@ Returns the absolute value of a number.</p>
 4
 </code></pre>
 </details>
-<details id="acos">
+<details>
 <summary >
-<h4 id="acos_1">ACOS<a class="headerlink" href="#acos_1" title="Permanent link">#</a></h4>
-<p><code><strong>ACOS</strong>(value)</code>
-<a class="headerlink" href="#acos" title="Permanent link">#</a>
-</summary>
+<h4 id="acos"><code><strong>ACOS</strong>(value)</code><a class="headerlink" href="#acos" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the inverse cosine of a value, in radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(ACOS(-0.5), 9)
 2.094395102
@@ -2773,12 +2617,10 @@ Returns the inverse cosine of a value, in radians.</p>
 120.0
 </code></pre>
 </details>
-<details id="acosh">
+<details>
 <summary >
-<h4 id="acosh_1">ACOSH<a class="headerlink" href="#acosh_1" title="Permanent link">#</a></h4>
-<p><code><strong>ACOSH</strong>(value)</code>
-<a class="headerlink" href="#acosh" title="Permanent link">#</a>
-</summary>
+<h4 id="acosh"><code><strong>ACOSH</strong>(value)</code><a class="headerlink" href="#acosh" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the inverse hyperbolic cosine of a number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ACOSH(1)
 0.0
@@ -2787,12 +2629,10 @@ Returns the inverse hyperbolic cosine of a number.</p>
 2.9932228
 </code></pre>
 </details>
-<details id="arabic">
+<details>
 <summary >
-<h4 id="arabic_1">ARABIC<a class="headerlink" href="#arabic_1" title="Permanent link">#</a></h4>
-<p><code><strong>ARABIC</strong>(roman_numeral)</code>
-<a class="headerlink" href="#arabic" title="Permanent link">#</a>
-</summary>
+<h4 id="arabic"><code><strong>ARABIC</strong>(roman_numeral)</code><a class="headerlink" href="#arabic" title="Permanent link">#</a></h4>
+<p></summary>
 Computes the value of a Roman numeral.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ARABIC(&quot;LVII&quot;)
 57
@@ -2801,12 +2641,10 @@ Computes the value of a Roman numeral.</p>
 1912
 </code></pre>
 </details>
-<details id="asin">
+<details>
 <summary >
-<h4 id="asin_1">ASIN<a class="headerlink" href="#asin_1" title="Permanent link">#</a></h4>
-<p><code><strong>ASIN</strong>(value)</code>
-<a class="headerlink" href="#asin" title="Permanent link">#</a>
-</summary>
+<h4 id="asin"><code><strong>ASIN</strong>(value)</code><a class="headerlink" href="#asin" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the inverse sine of a value, in radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(ASIN(-0.5), 9)
 -0.523598776
@@ -2818,12 +2656,10 @@ Returns the inverse sine of a value, in radians.</p>
 -30.0
 </code></pre>
 </details>
-<details id="asinh">
+<details>
 <summary >
-<h4 id="asinh_1">ASINH<a class="headerlink" href="#asinh_1" title="Permanent link">#</a></h4>
-<p><code><strong>ASINH</strong>(value)</code>
-<a class="headerlink" href="#asinh" title="Permanent link">#</a>
-</summary>
+<h4 id="asinh"><code><strong>ASINH</strong>(value)</code><a class="headerlink" href="#asinh" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the inverse hyperbolic sine of a number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(ASINH(-2.5), 9)
 -1.647231146
@@ -2832,12 +2668,10 @@ Returns the inverse hyperbolic sine of a number.</p>
 2.99822295
 </code></pre>
 </details>
-<details id="atan">
+<details>
 <summary >
-<h4 id="atan_1">ATAN<a class="headerlink" href="#atan_1" title="Permanent link">#</a></h4>
-<p><code><strong>ATAN</strong>(value)</code>
-<a class="headerlink" href="#atan" title="Permanent link">#</a>
-</summary>
+<h4 id="atan"><code><strong>ATAN</strong>(value)</code><a class="headerlink" href="#atan" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the inverse tangent of a value, in radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(ATAN(1), 9)
 0.785398163
@@ -2849,12 +2683,10 @@ Returns the inverse tangent of a value, in radians.</p>
 45.0
 </code></pre>
 </details>
-<details id="atan2">
+<details>
 <summary >
-<h4 id="atan2_1">ATAN2<a class="headerlink" href="#atan2_1" title="Permanent link">#</a></h4>
-<p><code><strong>ATAN2</strong>(x, y)</code>
-<a class="headerlink" href="#atan2" title="Permanent link">#</a>
-</summary>
+<h4 id="atan2"><code><strong>ATAN2</strong>(x, y)</code><a class="headerlink" href="#atan2" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the angle between the x-axis and a line segment from the origin (0,0) to specified
 coordinate pair (<code>x</code>,<code>y</code>), in radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(ATAN2(1, 1), 9)
@@ -2873,12 +2705,10 @@ coordinate pair (<code>x</code>,<code>y</code>), in radians.</p>
 1.107148718
 </code></pre>
 </details>
-<details id="atanh">
+<details>
 <summary >
-<h4 id="atanh_1">ATANH<a class="headerlink" href="#atanh_1" title="Permanent link">#</a></h4>
-<p><code><strong>ATANH</strong>(value)</code>
-<a class="headerlink" href="#atanh" title="Permanent link">#</a>
-</summary>
+<h4 id="atanh"><code><strong>ATANH</strong>(value)</code><a class="headerlink" href="#atanh" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the inverse hyperbolic tangent of a number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(ATANH(0.76159416), 9)
 1.00000001
@@ -2887,12 +2717,10 @@ Returns the inverse hyperbolic tangent of a number.</p>
 -0.100335348
 </code></pre>
 </details>
-<details id="ceiling">
+<details>
 <summary >
-<h4 id="ceiling_1">CEILING<a class="headerlink" href="#ceiling_1" title="Permanent link">#</a></h4>
-<p><code><strong>CEILING</strong>(value, factor=1)</code>
-<a class="headerlink" href="#ceiling" title="Permanent link">#</a>
-</summary>
+<h4 id="ceiling"><code><strong>CEILING</strong>(value, factor=1)</code><a class="headerlink" href="#ceiling" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number up to the nearest multiple of factor, or the nearest integer if the factor is
 omitted or 1.</p>
 <pre><code class="language-python">&gt;&gt;&gt; CEILING(2.5, 1)
@@ -2911,12 +2739,10 @@ omitted or 1.</p>
 0.24
 </code></pre>
 </details>
-<details id="combin">
+<details>
 <summary >
-<h4 id="combin_1">COMBIN<a class="headerlink" href="#combin_1" title="Permanent link">#</a></h4>
-<p><code><strong>COMBIN</strong>(n, k)</code>
-<a class="headerlink" href="#combin" title="Permanent link">#</a>
-</summary>
+<h4 id="combin"><code><strong>COMBIN</strong>(n, k)</code><a class="headerlink" href="#combin" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the number of ways to choose some number of objects from a pool of a given size of
 objects.</p>
 <pre><code class="language-python">&gt;&gt;&gt; COMBIN(8,2)
@@ -2929,12 +2755,10 @@ objects.</p>
 120
 </code></pre>
 </details>
-<details id="cos">
+<details>
 <summary >
-<h4 id="cos_1">COS<a class="headerlink" href="#cos_1" title="Permanent link">#</a></h4>
-<p><code><strong>COS</strong>(angle)</code>
-<a class="headerlink" href="#cos" title="Permanent link">#</a>
-</summary>
+<h4 id="cos"><code><strong>COS</strong>(angle)</code><a class="headerlink" href="#cos" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the cosine of an angle provided in radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(COS(1.047), 7)
 0.5001711
@@ -2946,12 +2770,10 @@ Returns the cosine of an angle provided in radians.</p>
 0.5
 </code></pre>
 </details>
-<details id="cosh">
+<details>
 <summary >
-<h4 id="cosh_1">COSH<a class="headerlink" href="#cosh_1" title="Permanent link">#</a></h4>
-<p><code><strong>COSH</strong>(value)</code>
-<a class="headerlink" href="#cosh" title="Permanent link">#</a>
-</summary>
+<h4 id="cosh"><code><strong>COSH</strong>(value)</code><a class="headerlink" href="#cosh" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the hyperbolic cosine of any real number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(COSH(4), 6)
 27.308233
@@ -2960,12 +2782,10 @@ Returns the hyperbolic cosine of any real number.</p>
 7.6101251
 </code></pre>
 </details>
-<details id="degrees">
+<details>
 <summary >
-<h4 id="degrees_1">DEGREES<a class="headerlink" href="#degrees_1" title="Permanent link">#</a></h4>
-<p><code><strong>DEGREES</strong>(angle)</code>
-<a class="headerlink" href="#degrees" title="Permanent link">#</a>
-</summary>
+<h4 id="degrees"><code><strong>DEGREES</strong>(angle)</code><a class="headerlink" href="#degrees" title="Permanent link">#</a></h4>
+<p></summary>
 Converts an angle value in radians to degrees.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(DEGREES(ACOS(-0.5)), 10)
 120.0
@@ -2974,12 +2794,10 @@ Converts an angle value in radians to degrees.</p>
 180.0
 </code></pre>
 </details>
-<details id="even">
+<details>
 <summary >
-<h4 id="even_1">EVEN<a class="headerlink" href="#even_1" title="Permanent link">#</a></h4>
-<p><code><strong>EVEN</strong>(value)</code>
-<a class="headerlink" href="#even" title="Permanent link">#</a>
-</summary>
+<h4 id="even"><code><strong>EVEN</strong>(value)</code><a class="headerlink" href="#even" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number up to the nearest even integer, rounding away from zero.</p>
 <pre><code class="language-python">&gt;&gt;&gt; EVEN(1.5)
 2
@@ -2994,12 +2812,10 @@ Rounds a number up to the nearest even integer, rounding away from zero.</p>
 -2
 </code></pre>
 </details>
-<details id="exp">
+<details>
 <summary >
-<h4 id="exp_1">EXP<a class="headerlink" href="#exp_1" title="Permanent link">#</a></h4>
-<p><code><strong>EXP</strong>(exponent)</code>
-<a class="headerlink" href="#exp" title="Permanent link">#</a>
-</summary>
+<h4 id="exp"><code><strong>EXP</strong>(exponent)</code><a class="headerlink" href="#exp" title="Permanent link">#</a></h4>
+<p></summary>
 Returns Euler&rsquo;s number, e (~2.718) raised to a power.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(EXP(1), 8)
 2.71828183
@@ -3008,12 +2824,10 @@ Returns Euler&rsquo;s number, e (~2.718) raised to a power.</p>
 7.3890561
 </code></pre>
 </details>
-<details id="fact">
+<details>
 <summary >
-<h4 id="fact_1">FACT<a class="headerlink" href="#fact_1" title="Permanent link">#</a></h4>
-<p><code><strong>FACT</strong>(value)</code>
-<a class="headerlink" href="#fact" title="Permanent link">#</a>
-</summary>
+<h4 id="fact"><code><strong>FACT</strong>(value)</code><a class="headerlink" href="#fact" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the factorial of a number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; FACT(5)
 120
@@ -3033,12 +2847,10 @@ Traceback (most recent call last):
 ValueError: factorial() not defined for negative values
 </code></pre>
 </details>
-<details id="factdouble">
+<details>
 <summary >
-<h4 id="factdouble_1">FACTDOUBLE<a class="headerlink" href="#factdouble_1" title="Permanent link">#</a></h4>
-<p><code><strong>FACTDOUBLE</strong>(value)</code>
-<a class="headerlink" href="#factdouble" title="Permanent link">#</a>
-</summary>
+<h4 id="factdouble"><code><strong>FACTDOUBLE</strong>(value)</code><a class="headerlink" href="#factdouble" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the &ldquo;double factorial&rdquo; of a number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; FACTDOUBLE(6)
 48
@@ -3053,12 +2865,10 @@ Returns the &ldquo;double factorial&rdquo; of a number.</p>
 8
 </code></pre>
 </details>
-<details id="floor">
+<details>
 <summary >
-<h4 id="floor_1">FLOOR<a class="headerlink" href="#floor_1" title="Permanent link">#</a></h4>
-<p><code><strong>FLOOR</strong>(value, factor=1)</code>
-<a class="headerlink" href="#floor" title="Permanent link">#</a>
-</summary>
+<h4 id="floor"><code><strong>FLOOR</strong>(value, factor=1)</code><a class="headerlink" href="#floor" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number down to the nearest integer multiple of specified significance.</p>
 <pre><code class="language-python">&gt;&gt;&gt; FLOOR(3.7,2)
 2
@@ -3078,12 +2888,10 @@ ValueError: factor argument invalid
 0.23
 </code></pre>
 </details>
-<details id="gcd">
+<details>
 <summary >
-<h4 id="gcd_1">GCD<a class="headerlink" href="#gcd_1" title="Permanent link">#</a></h4>
-<p><code><strong>GCD</strong>(value1, *more_values)</code>
-<a class="headerlink" href="#gcd" title="Permanent link">#</a>
-</summary>
+<h4 id="gcd"><code><strong>GCD</strong>(value1, *more_values)</code><a class="headerlink" href="#gcd" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the greatest common divisor of one or more integers.</p>
 <pre><code class="language-python">&gt;&gt;&gt; GCD(5, 2)
 1
@@ -3107,12 +2915,10 @@ Returns the greatest common divisor of one or more integers.</p>
 7
 </code></pre>
 </details>
-<details id="int">
+<details>
 <summary >
-<h4 id="int_1">INT<a class="headerlink" href="#int_1" title="Permanent link">#</a></h4>
-<p><code><strong>INT</strong>(value)</code>
-<a class="headerlink" href="#int" title="Permanent link">#</a>
-</summary>
+<h4 id="int"><code><strong>INT</strong>(value)</code><a class="headerlink" href="#int" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number down to the nearest integer that is less than or equal to it.</p>
 <pre><code class="language-python">&gt;&gt;&gt; INT(8.9)
 8
@@ -3124,12 +2930,10 @@ Rounds a number down to the nearest integer that is less than or equal to it.</p
 0.5
 </code></pre>
 </details>
-<details id="lcm">
+<details>
 <summary >
-<h4 id="lcm_1">LCM<a class="headerlink" href="#lcm_1" title="Permanent link">#</a></h4>
-<p><code><strong>LCM</strong>(value1, *more_values)</code>
-<a class="headerlink" href="#lcm" title="Permanent link">#</a>
-</summary>
+<h4 id="lcm"><code><strong>LCM</strong>(value1, *more_values)</code><a class="headerlink" href="#lcm" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the least common multiple of one or more integers.</p>
 <pre><code class="language-python">&gt;&gt;&gt; LCM(5, 2)
 10
@@ -3153,12 +2957,10 @@ Returns the least common multiple of one or more integers.</p>
 72
 </code></pre>
 </details>
-<details id="ln">
+<details>
 <summary >
-<h4 id="ln_1">LN<a class="headerlink" href="#ln_1" title="Permanent link">#</a></h4>
-<p><code><strong>LN</strong>(value)</code>
-<a class="headerlink" href="#ln" title="Permanent link">#</a>
-</summary>
+<h4 id="ln"><code><strong>LN</strong>(value)</code><a class="headerlink" href="#ln" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the the logarithm of a number, base e (Euler&rsquo;s number).</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(LN(86), 7)
 4.4543473
@@ -3170,12 +2972,10 @@ Returns the the logarithm of a number, base e (Euler&rsquo;s number).</p>
 3.0
 </code></pre>
 </details>
-<details id="log">
+<details>
 <summary >
-<h4 id="log_1">LOG<a class="headerlink" href="#log_1" title="Permanent link">#</a></h4>
-<p><code><strong>LOG</strong>(value, base=10)</code>
-<a class="headerlink" href="#log" title="Permanent link">#</a>
-</summary>
+<h4 id="log"><code><strong>LOG</strong>(value, base=10)</code><a class="headerlink" href="#log" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the the logarithm of a number given a base.</p>
 <pre><code class="language-python">&gt;&gt;&gt; LOG(10)
 1.0
@@ -3187,12 +2987,10 @@ Returns the the logarithm of a number given a base.</p>
 4.4543473
 </code></pre>
 </details>
-<details id="log10">
+<details>
 <summary >
-<h4 id="log10_1">LOG10<a class="headerlink" href="#log10_1" title="Permanent link">#</a></h4>
-<p><code><strong>LOG10</strong>(value)</code>
-<a class="headerlink" href="#log10" title="Permanent link">#</a>
-</summary>
+<h4 id="log10"><code><strong>LOG10</strong>(value)</code><a class="headerlink" href="#log10" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the the logarithm of a number, base 10.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(LOG10(86), 9)
 1.934498451
@@ -3207,12 +3005,10 @@ Returns the the logarithm of a number, base 10.</p>
 5.0
 </code></pre>
 </details>
-<details id="mod">
+<details>
 <summary >
-<h4 id="mod_1">MOD<a class="headerlink" href="#mod_1" title="Permanent link">#</a></h4>
-<p><code><strong>MOD</strong>(dividend, divisor)</code>
-<a class="headerlink" href="#mod" title="Permanent link">#</a>
-</summary>
+<h4 id="mod"><code><strong>MOD</strong>(dividend, divisor)</code><a class="headerlink" href="#mod" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the result of the modulo operator, the remainder after a division operation.</p>
 <pre><code class="language-python">&gt;&gt;&gt; MOD(3, 2)
 1
@@ -3227,12 +3023,10 @@ Returns the result of the modulo operator, the remainder after a division operat
 -1
 </code></pre>
 </details>
-<details id="mround">
+<details>
 <summary >
-<h4 id="mround_1">MROUND<a class="headerlink" href="#mround_1" title="Permanent link">#</a></h4>
-<p><code><strong>MROUND</strong>(value, factor)</code>
-<a class="headerlink" href="#mround" title="Permanent link">#</a>
-</summary>
+<h4 id="mround"><code><strong>MROUND</strong>(value, factor)</code><a class="headerlink" href="#mround" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds one number to the nearest integer multiple of another.</p>
 <pre><code class="language-python">&gt;&gt;&gt; MROUND(10, 3)
 9
@@ -3249,12 +3043,10 @@ Traceback (most recent call last):
 ValueError: factor argument invalid
 </code></pre>
 </details>
-<details id="multinomial">
+<details>
 <summary >
-<h4 id="multinomial_1">MULTINOMIAL<a class="headerlink" href="#multinomial_1" title="Permanent link">#</a></h4>
-<p><code><strong>MULTINOMIAL</strong>(value1, *more_values)</code>
-<a class="headerlink" href="#multinomial" title="Permanent link">#</a>
-</summary>
+<h4 id="multinomial"><code><strong>MULTINOMIAL</strong>(value1, *more_values)</code><a class="headerlink" href="#multinomial" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the factorial of the sum of values divided by the product of the values&rsquo; factorials.</p>
 <pre><code class="language-python">&gt;&gt;&gt; MULTINOMIAL(2, 3, 4)
 1260
@@ -3269,12 +3061,10 @@ Returns the factorial of the sum of values divided by the product of the values&
 13860
 </code></pre>
 </details>
-<details id="num">
+<details>
 <summary >
-<h4 id="num_1">NUM<a class="headerlink" href="#num_1" title="Permanent link">#</a></h4>
-<p><code><strong>NUM</strong>(value)</code>
-<a class="headerlink" href="#num" title="Permanent link">#</a>
-</summary>
+<h4 id="num"><code><strong>NUM</strong>(value)</code><a class="headerlink" href="#num" title="Permanent link">#</a></h4>
+<p></summary>
 For a Python floating-point value that&rsquo;s actually an integer, returns a Python integer type.
 Otherwise, returns the value unchanged. This is helpful sometimes when a value comes from a
 Numeric Grist column (represented as floats), but when int values are actually expected.</p>
@@ -3291,12 +3081,10 @@ Numeric Grist column (represented as floats), but when int values are actually e
 'NA'
 </code></pre>
 </details>
-<details id="odd">
+<details>
 <summary >
-<h4 id="odd_1">ODD<a class="headerlink" href="#odd_1" title="Permanent link">#</a></h4>
-<p><code><strong>ODD</strong>(value)</code>
-<a class="headerlink" href="#odd" title="Permanent link">#</a>
-</summary>
+<h4 id="odd"><code><strong>ODD</strong>(value)</code><a class="headerlink" href="#odd" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number up to the nearest odd integer.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ODD(1.5)
 3
@@ -3314,12 +3102,10 @@ Rounds a number up to the nearest odd integer.</p>
 -3
 </code></pre>
 </details>
-<details id="pi">
+<details>
 <summary >
-<h4 id="pi_1">PI<a class="headerlink" href="#pi_1" title="Permanent link">#</a></h4>
-<p><code><strong>PI</strong>()</code>
-<a class="headerlink" href="#pi" title="Permanent link">#</a>
-</summary>
+<h4 id="pi"><code><strong>PI</strong>()</code><a class="headerlink" href="#pi" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of Pi to 14 decimal places.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(PI(), 9)
 3.141592654
@@ -3331,12 +3117,10 @@ Returns the value of Pi to 14 decimal places.</p>
 28.27433388
 </code></pre>
 </details>
-<details id="power">
+<details>
 <summary >
-<h4 id="power_1">POWER<a class="headerlink" href="#power_1" title="Permanent link">#</a></h4>
-<p><code><strong>POWER</strong>(base, exponent)</code>
-<a class="headerlink" href="#power" title="Permanent link">#</a>
-</summary>
+<h4 id="power"><code><strong>POWER</strong>(base, exponent)</code><a class="headerlink" href="#power" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a number raised to a power.</p>
 <pre><code class="language-python">&gt;&gt;&gt; POWER(5,2)
 25.0
@@ -3348,12 +3132,10 @@ Returns a number raised to a power.</p>
 5.656854249
 </code></pre>
 </details>
-<details id="product">
+<details>
 <summary >
-<h4 id="product_1">PRODUCT<a class="headerlink" href="#product_1" title="Permanent link">#</a></h4>
-<p><code><strong>PRODUCT</strong>(factor1, *more_factors)</code>
-<a class="headerlink" href="#product" title="Permanent link">#</a>
-</summary>
+<h4 id="product"><code><strong>PRODUCT</strong>(factor1, *more_factors)</code><a class="headerlink" href="#product" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the result of multiplying a series of numbers together. Each argument may be a number or
 an array.</p>
 <pre><code class="language-python">&gt;&gt;&gt; PRODUCT([5,15,30])
@@ -3366,12 +3148,10 @@ an array.</p>
 4500
 </code></pre>
 </details>
-<details id="quotient">
+<details>
 <summary >
-<h4 id="quotient_1">QUOTIENT<a class="headerlink" href="#quotient_1" title="Permanent link">#</a></h4>
-<p><code><strong>QUOTIENT</strong>(dividend, divisor)</code>
-<a class="headerlink" href="#quotient" title="Permanent link">#</a>
-</summary>
+<h4 id="quotient"><code><strong>QUOTIENT</strong>(dividend, divisor)</code><a class="headerlink" href="#quotient" title="Permanent link">#</a></h4>
+<p></summary>
 Returns one number divided by another, without the remainder.</p>
 <pre><code class="language-python">&gt;&gt;&gt; QUOTIENT(5, 2)
 2
@@ -3383,39 +3163,31 @@ Returns one number divided by another, without the remainder.</p>
 -3
 </code></pre>
 </details>
-<details id="radians">
+<details>
 <summary >
-<h4 id="radians_1">RADIANS<a class="headerlink" href="#radians_1" title="Permanent link">#</a></h4>
-<p><code><strong>RADIANS</strong>(angle)</code>
-<a class="headerlink" href="#radians" title="Permanent link">#</a>
-</summary>
+<h4 id="radians"><code><strong>RADIANS</strong>(angle)</code><a class="headerlink" href="#radians" title="Permanent link">#</a></h4>
+<p></summary>
 Converts an angle value in degrees to radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(RADIANS(270), 6)
 4.712389
 </code></pre>
 </details>
-<details id="rand">
+<details>
 <summary >
-<h4 id="rand_1">RAND<a class="headerlink" href="#rand_1" title="Permanent link">#</a></h4>
-<p><code><strong>RAND</strong>()</code>
-<a class="headerlink" href="#rand" title="Permanent link">#</a>
-</summary>
+<h4 id="rand"><code><strong>RAND</strong>()</code><a class="headerlink" href="#rand" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a random number between 0 inclusive and 1 exclusive.</p>
 </details>
-<details id="randbetween">
+<details>
 <summary >
-<h4 id="randbetween_1">RANDBETWEEN<a class="headerlink" href="#randbetween_1" title="Permanent link">#</a></h4>
-<p><code><strong>RANDBETWEEN</strong>(low, high)</code>
-<a class="headerlink" href="#randbetween" title="Permanent link">#</a>
-</summary>
+<h4 id="randbetween"><code><strong>RANDBETWEEN</strong>(low, high)</code><a class="headerlink" href="#randbetween" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a uniformly random integer between two values, inclusive.</p>
 </details>
-<details id="roman">
+<details>
 <summary >
-<h4 id="roman_1">ROMAN<a class="headerlink" href="#roman_1" title="Permanent link">#</a></h4>
-<p><code><strong>ROMAN</strong>(number, form_unused=None)</code>
-<a class="headerlink" href="#roman" title="Permanent link">#</a>
-</summary>
+<h4 id="roman"><code><strong>ROMAN</strong>(number, form_unused=None)</code><a class="headerlink" href="#roman" title="Permanent link">#</a></h4>
+<p></summary>
 Formats a number in Roman numerals. The second argument is ignored in this implementation.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ROMAN(499,0)
 'CDXCIX'
@@ -3430,12 +3202,10 @@ Formats a number in Roman numerals. The second argument is ignored in this imple
 'MCMXII'
 </code></pre>
 </details>
-<details id="round">
+<details>
 <summary >
-<h4 id="round_1">ROUND<a class="headerlink" href="#round_1" title="Permanent link">#</a></h4>
-<p><code><strong>ROUND</strong>(value, places=0)</code>
-<a class="headerlink" href="#round" title="Permanent link">#</a>
-</summary>
+<h4 id="round"><code><strong>ROUND</strong>(value, places=0)</code><a class="headerlink" href="#round" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number to a certain number of decimal places,
 by default to the nearest whole number if the number of places is not given.</p>
 <p>Rounds away from zero (&lsquo;up&rsquo; for positive numbers)
@@ -3474,12 +3244,10 @@ in the case of a tie, i.e. when the last digit is 5.</p>
 0.0
 </code></pre>
 </details>
-<details id="rounddown">
+<details>
 <summary >
-<h4 id="rounddown_1">ROUNDDOWN<a class="headerlink" href="#rounddown_1" title="Permanent link">#</a></h4>
-<p><code><strong>ROUNDDOWN</strong>(value, places=0)</code>
-<a class="headerlink" href="#rounddown" title="Permanent link">#</a>
-</summary>
+<h4 id="rounddown"><code><strong>ROUNDDOWN</strong>(value, places=0)</code><a class="headerlink" href="#rounddown" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number to a certain number of decimal places, always rounding down towards zero.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ROUNDDOWN(3.2, 0)
 3
@@ -3497,12 +3265,10 @@ Rounds a number to a certain number of decimal places, always rounding down towa
 31400
 </code></pre>
 </details>
-<details id="roundup">
+<details>
 <summary >
-<h4 id="roundup_1">ROUNDUP<a class="headerlink" href="#roundup_1" title="Permanent link">#</a></h4>
-<p><code><strong>ROUNDUP</strong>(value, places=0)</code>
-<a class="headerlink" href="#roundup" title="Permanent link">#</a>
-</summary>
+<h4 id="roundup"><code><strong>ROUNDUP</strong>(value, places=0)</code><a class="headerlink" href="#roundup" title="Permanent link">#</a></h4>
+<p></summary>
 Rounds a number to a certain number of decimal places, always rounding up away from zero.</p>
 <pre><code class="language-python">&gt;&gt;&gt; ROUNDUP(3.2,0)
 4
@@ -3520,12 +3286,10 @@ Rounds a number to a certain number of decimal places, always rounding up away f
 31500
 </code></pre>
 </details>
-<details id="seriessum">
+<details>
 <summary >
-<h4 id="seriessum_1">SERIESSUM<a class="headerlink" href="#seriessum_1" title="Permanent link">#</a></h4>
-<p><code><strong>SERIESSUM</strong>(x, n, m, a)</code>
-<a class="headerlink" href="#seriessum" title="Permanent link">#</a>
-</summary>
+<h4 id="seriessum"><code><strong>SERIESSUM</strong>(x, n, m, a)</code><a class="headerlink" href="#seriessum" title="Permanent link">#</a></h4>
+<p></summary>
 Given parameters x, n, m, and a, returns the power series sum a_1<em>x^n + a_2</em>x^(n+m)
 + &hellip; + a_i*x^(n+(i-1)m), where i is the number of entries in range <code>a</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; SERIESSUM(1,0,1,1)
@@ -3541,12 +3305,10 @@ Given parameters x, n, m, and a, returns the power series sum a_1<em>x^n + a_2</
 0.707103
 </code></pre>
 </details>
-<details id="sign">
+<details>
 <summary >
-<h4 id="sign_1">SIGN<a class="headerlink" href="#sign_1" title="Permanent link">#</a></h4>
-<p><code><strong>SIGN</strong>(value)</code>
-<a class="headerlink" href="#sign" title="Permanent link">#</a>
-</summary>
+<h4 id="sign"><code><strong>SIGN</strong>(value)</code><a class="headerlink" href="#sign" title="Permanent link">#</a></h4>
+<p></summary>
 Given an input number, returns <code>-1</code> if it is negative, <code>1</code> if positive, and <code>0</code> if it is zero.</p>
 <pre><code class="language-python">&gt;&gt;&gt; SIGN(10)
 1
@@ -3558,12 +3320,10 @@ Given an input number, returns <code>-1</code> if it is negative, <code>1</code>
 -1
 </code></pre>
 </details>
-<details id="sin">
+<details>
 <summary >
-<h4 id="sin_1">SIN<a class="headerlink" href="#sin_1" title="Permanent link">#</a></h4>
-<p><code><strong>SIN</strong>(angle)</code>
-<a class="headerlink" href="#sin" title="Permanent link">#</a>
-</summary>
+<h4 id="sin"><code><strong>SIN</strong>(angle)</code><a class="headerlink" href="#sin" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the sine of an angle provided in radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(SIN(PI()), 10)
 0.0
@@ -3578,23 +3338,19 @@ Returns the sine of an angle provided in radians.</p>
 0.5
 </code></pre>
 </details>
-<details id="sinh">
+<details>
 <summary >
-<h4 id="sinh_1">SINH<a class="headerlink" href="#sinh_1" title="Permanent link">#</a></h4>
-<p><code><strong>SINH</strong>(value)</code>
-<a class="headerlink" href="#sinh" title="Permanent link">#</a>
-</summary>
+<h4 id="sinh"><code><strong>SINH</strong>(value)</code><a class="headerlink" href="#sinh" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the hyperbolic sine of any real number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(2.868*SINH(0.0342*1.03), 7)
 0.1010491
 </code></pre>
 </details>
-<details id="sqrt">
+<details>
 <summary >
-<h4 id="sqrt_1">SQRT<a class="headerlink" href="#sqrt_1" title="Permanent link">#</a></h4>
-<p><code><strong>SQRT</strong>(value)</code>
-<a class="headerlink" href="#sqrt" title="Permanent link">#</a>
-</summary>
+<h4 id="sqrt"><code><strong>SQRT</strong>(value)</code><a class="headerlink" href="#sqrt" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the positive square root of a positive number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; SQRT(16)
 4.0
@@ -3608,12 +3364,10 @@ ValueError: math domain error
 4.0
 </code></pre>
 </details>
-<details id="sqrtpi">
+<details>
 <summary >
-<h4 id="sqrtpi_1">SQRTPI<a class="headerlink" href="#sqrtpi_1" title="Permanent link">#</a></h4>
-<p><code><strong>SQRTPI</strong>(value)</code>
-<a class="headerlink" href="#sqrtpi" title="Permanent link">#</a>
-</summary>
+<h4 id="sqrtpi"><code><strong>SQRTPI</strong>(value)</code><a class="headerlink" href="#sqrtpi" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the positive square root of the product of Pi and the given positive number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(SQRTPI(1), 6)
 1.772454
@@ -3622,21 +3376,17 @@ Returns the positive square root of the product of Pi and the given positive num
 2.506628
 </code></pre>
 </details>
-<details id="subtotal">
+<details>
 <summary class="unimplemented">
-<h4 id="subtotal_1">SUBTOTAL<a class="headerlink" href="#subtotal_1" title="Permanent link">#</a></h4>
-<p><code><strong>SUBTOTAL</strong>(function_code, range1, range2)</code>
-<a class="headerlink" href="#subtotal" title="Permanent link">#</a>
-</summary>
+<h4 id="subtotal"><code><strong>SUBTOTAL</strong>(function_code, range1, range2)</code><a class="headerlink" href="#subtotal" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a subtotal for a vertical range of cells using a specified aggregation function.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="sum">
+<details>
 <summary >
-<h4 id="sum_1">SUM<a class="headerlink" href="#sum_1" title="Permanent link">#</a></h4>
-<p><code><strong>SUM</strong>(value1, *more_values)</code>
-<a class="headerlink" href="#sum" title="Permanent link">#</a>
-</summary>
+<h4 id="sum"><code><strong>SUM</strong>(value1, *more_values)</code><a class="headerlink" href="#sum" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the sum of a series of numbers. Each argument may be a number or an array.
 Non-numeric values are ignored.</p>
 <pre><code class="language-python">&gt;&gt;&gt; SUM([5,15,30])
@@ -3649,30 +3399,24 @@ Non-numeric values are ignored.</p>
 52
 </code></pre>
 </details>
-<details id="sumif">
+<details>
 <summary class="unimplemented">
-<h4 id="sumif_1">SUMIF<a class="headerlink" href="#sumif_1" title="Permanent link">#</a></h4>
-<p><code><strong>SUMIF</strong>(records, criterion, sum_range)</code>
-<a class="headerlink" href="#sumif" title="Permanent link">#</a>
-</summary>
+<h4 id="sumif"><code><strong>SUMIF</strong>(records, criterion, sum_range)</code><a class="headerlink" href="#sumif" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a conditional sum across a range.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="sumifs">
+<details>
 <summary class="unimplemented">
-<h4 id="sumifs_1">SUMIFS<a class="headerlink" href="#sumifs_1" title="Permanent link">#</a></h4>
-<p><code><strong>SUMIFS</strong>(sum_range, criteria_range1, criterion1, *args)</code>
-<a class="headerlink" href="#sumifs" title="Permanent link">#</a>
-</summary>
+<h4 id="sumifs"><code><strong>SUMIFS</strong>(sum_range, criteria_range1, criterion1, *args)</code><a class="headerlink" href="#sumifs" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the sum of a range depending on multiple criteria.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="sumproduct">
+<details>
 <summary >
-<h4 id="sumproduct_1">SUMPRODUCT<a class="headerlink" href="#sumproduct_1" title="Permanent link">#</a></h4>
-<p><code><strong>SUMPRODUCT</strong>(array1, *more_arrays)</code>
-<a class="headerlink" href="#sumproduct" title="Permanent link">#</a>
-</summary>
+<h4 id="sumproduct"><code><strong>SUMPRODUCT</strong>(array1, *more_arrays)</code><a class="headerlink" href="#sumproduct" title="Permanent link">#</a></h4>
+<p></summary>
 Multiplies corresponding components in two equally-sized arrays,
 and returns the sum of those products.</p>
 <pre><code class="language-python">&gt;&gt;&gt; SUMPRODUCT([3,8,1,4,6,9], [2,6,5,7,7,3])
@@ -3688,21 +3432,17 @@ and returns the sum of those products.</p>
 -3.0
 </code></pre>
 </details>
-<details id="sumsq">
+<details>
 <summary class="unimplemented">
-<h4 id="sumsq_1">SUMSQ<a class="headerlink" href="#sumsq_1" title="Permanent link">#</a></h4>
-<p><code><strong>SUMSQ</strong>(value1, value2)</code>
-<a class="headerlink" href="#sumsq" title="Permanent link">#</a>
-</summary>
+<h4 id="sumsq"><code><strong>SUMSQ</strong>(value1, value2)</code><a class="headerlink" href="#sumsq" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the sum of the squares of a series of numbers and/or cells.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="tan">
+<details>
 <summary >
-<h4 id="tan_1">TAN<a class="headerlink" href="#tan_1" title="Permanent link">#</a></h4>
-<p><code><strong>TAN</strong>(angle)</code>
-<a class="headerlink" href="#tan" title="Permanent link">#</a>
-</summary>
+<h4 id="tan"><code><strong>TAN</strong>(angle)</code><a class="headerlink" href="#tan" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the tangent of an angle provided in radians.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(TAN(0.785), 8)
 0.99920399
@@ -3714,12 +3454,10 @@ Returns the tangent of an angle provided in radians.</p>
 1.0
 </code></pre>
 </details>
-<details id="tanh">
+<details>
 <summary >
-<h4 id="tanh_1">TANH<a class="headerlink" href="#tanh_1" title="Permanent link">#</a></h4>
-<p><code><strong>TANH</strong>(value)</code>
-<a class="headerlink" href="#tanh" title="Permanent link">#</a>
-</summary>
+<h4 id="tanh"><code><strong>TANH</strong>(value)</code><a class="headerlink" href="#tanh" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the hyperbolic tangent of any real number.</p>
 <pre><code class="language-python">&gt;&gt;&gt; round(TANH(-2), 6)
 -0.964028
@@ -3731,12 +3469,10 @@ Returns the hyperbolic tangent of any real number.</p>
 0.462117
 </code></pre>
 </details>
-<details id="trunc">
+<details>
 <summary >
-<h4 id="trunc_1">TRUNC<a class="headerlink" href="#trunc_1" title="Permanent link">#</a></h4>
-<p><code><strong>TRUNC</strong>(value, places=0)</code>
-<a class="headerlink" href="#trunc" title="Permanent link">#</a>
-</summary>
+<h4 id="trunc"><code><strong>TRUNC</strong>(value, places=0)</code><a class="headerlink" href="#trunc" title="Permanent link">#</a></h4>
+<p></summary>
 Truncates a number to a certain number of significant digits by omitting less significant
 digits.</p>
 <pre><code class="language-python">&gt;&gt;&gt; TRUNC(8.9)
@@ -3749,12 +3485,10 @@ digits.</p>
 0
 </code></pre>
 </details>
-<details id="uuid">
+<details>
 <summary >
-<h4 id="uuid_1">UUID<a class="headerlink" href="#uuid_1" title="Permanent link">#</a></h4>
-<p><code><strong>UUID</strong>()</code>
-<a class="headerlink" href="#uuid" title="Permanent link">#</a>
-</summary>
+<h4 id="uuid"><code><strong>UUID</strong>()</code><a class="headerlink" href="#uuid" title="Permanent link">#</a></h4>
+<p></summary>
 Generate a random UUID-formatted string identifier.</p>
 <p>Since UUID() produces a different value each time it&rsquo;s called, it is best to use it in
 <a href="../formulas/#trigger-formulas">trigger formula</a> for new records.
@@ -3763,12 +3497,10 @@ formula may get recalculated any time the document is reloaded, producing a diff
 UUID() each time.</p>
 </details>
 <h3 id="schedule_1">Schedule<a class="headerlink" href="#schedule_1" title="Permanent link">#</a></h3>
-<details id="schedule">
+<details>
 <summary >
-<h4 id="schedule_2">SCHEDULE<a class="headerlink" href="#schedule_2" title="Permanent link">#</a></h4>
-<p><code><strong>SCHEDULE</strong>(schedule, start=None, count=10, end=None)</code>
-<a class="headerlink" href="#schedule" title="Permanent link">#</a>
-</summary>
+<h4 id="schedule"><code><strong>SCHEDULE</strong>(schedule, start=None, count=10, end=None)</code><a class="headerlink" href="#schedule" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the list of <code>datetime</code> objects generated according to the <code>schedule</code> string. Starts at
 <code>start</code>, which defaults to NOW(). Generates at most <code>count</code> results (10 by default). If <code>end</code> is
 given, stops there.</p>
@@ -3846,21 +3578,17 @@ starts with the first top-of-the-hour after <code>start</code> (not with midnigh
 </code></pre>
 </details>
 <h3 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">#</a></h3>
-<details id="avedev">
+<details>
 <summary class="unimplemented">
-<h4 id="avedev_1">AVEDEV<a class="headerlink" href="#avedev_1" title="Permanent link">#</a></h4>
-<p><code><strong>AVEDEV</strong>(value1, value2)</code>
-<a class="headerlink" href="#avedev" title="Permanent link">#</a>
-</summary>
+<h4 id="avedev"><code><strong>AVEDEV</strong>(value1, value2)</code><a class="headerlink" href="#avedev" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the average of the magnitudes of deviations of data from a dataset&rsquo;s mean.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="average">
+<details>
 <summary >
-<h4 id="average_1">AVERAGE<a class="headerlink" href="#average_1" title="Permanent link">#</a></h4>
-<p><code><strong>AVERAGE</strong>(value, *more_values)</code>
-<a class="headerlink" href="#average" title="Permanent link">#</a>
-</summary>
+<h4 id="average"><code><strong>AVERAGE</strong>(value, *more_values)</code><a class="headerlink" href="#average" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the numerical average value in a dataset, ignoring non-numerical values.</p>
 <p>Each argument may be a value or an array. Values that are not numbers, including logical
 and blank values, and text representations of numbers, are ignored.</p>
@@ -3879,12 +3607,10 @@ Traceback (most recent call last):
 ZeroDivisionError: float division by zero
 </code></pre>
 </details>
-<details id="averagea">
+<details>
 <summary >
-<h4 id="averagea_1">AVERAGEA<a class="headerlink" href="#averagea_1" title="Permanent link">#</a></h4>
-<p><code><strong>AVERAGEA</strong>(value, *more_values)</code>
-<a class="headerlink" href="#averagea" title="Permanent link">#</a>
-</summary>
+<h4 id="averagea"><code><strong>AVERAGEA</strong>(value, *more_values)</code><a class="headerlink" href="#averagea" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the numerical average value in a dataset, counting non-numerical values as 0.</p>
 <p>Each argument may be a value of an array. Values that are not numbers, including dates and text
 representations of numbers, are counted as 0 (zero). Logical value of True is counted as 1, and
@@ -3902,30 +3628,24 @@ False as 0.</p>
 0.5
 </code></pre>
 </details>
-<details id="averageif">
+<details>
 <summary class="unimplemented">
-<h4 id="averageif_1">AVERAGEIF<a class="headerlink" href="#averageif_1" title="Permanent link">#</a></h4>
-<p><code><strong>AVERAGEIF</strong>(criteria_range, criterion, average_range=None)</code>
-<a class="headerlink" href="#averageif" title="Permanent link">#</a>
-</summary>
+<h4 id="averageif"><code><strong>AVERAGEIF</strong>(criteria_range, criterion, average_range=None)</code><a class="headerlink" href="#averageif" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the average of a range depending on criteria.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="averageifs">
+<details>
 <summary class="unimplemented">
-<h4 id="averageifs_1">AVERAGEIFS<a class="headerlink" href="#averageifs_1" title="Permanent link">#</a></h4>
-<p><code><strong>AVERAGEIFS</strong>(average_range, criteria_range1, criterion1, *args)</code>
-<a class="headerlink" href="#averageifs" title="Permanent link">#</a>
-</summary>
+<h4 id="averageifs"><code><strong>AVERAGEIFS</strong>(average_range, criteria_range1, criterion1, *args)</code><a class="headerlink" href="#averageifs" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the average of a range depending on multiple criteria.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="average_weighted">
+<details>
 <summary >
-<h4 id="average_weighted_1">AVERAGE_WEIGHTED<a class="headerlink" href="#average_weighted_1" title="Permanent link">#</a></h4>
-<p><code><strong>AVERAGE_WEIGHTED</strong>(pairs)</code>
-<a class="headerlink" href="#average_weighted" title="Permanent link">#</a>
-</summary>
+<h4 id="average_weighted"><code><strong>AVERAGE_WEIGHTED</strong>(pairs)</code><a class="headerlink" href="#average_weighted" title="Permanent link">#</a></h4>
+<p></summary>
 Given a list of (value, weight) pairs, finds the average of the values weighted by the
 corresponding weights. Ignores any pairs with a non-numerical value or weight.</p>
 <p>If you have two lists, of values and weights, use the Python built-in zip() function to create a
@@ -3940,41 +3660,33 @@ list of pairs.</p>
 87.7
 </code></pre>
 </details>
-<details id="binomdist">
+<details>
 <summary class="unimplemented">
-<h4 id="binomdist_1">BINOMDIST<a class="headerlink" href="#binomdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>BINOMDIST</strong>(num_successes, num_trials, prob_success, cumulative)</code>
-<a class="headerlink" href="#binomdist" title="Permanent link">#</a>
-</summary>
+<h4 id="binomdist"><code><strong>BINOMDIST</strong>(num_successes, num_trials, prob_success, cumulative)</code><a class="headerlink" href="#binomdist" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the probability of drawing a certain number of successes (or a maximum number of
 successes) in a certain number of tries given a population of a certain size containing a
 certain number of successes, with replacement of draws.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="confidence">
+<details>
 <summary class="unimplemented">
-<h4 id="confidence_1">CONFIDENCE<a class="headerlink" href="#confidence_1" title="Permanent link">#</a></h4>
-<p><code><strong>CONFIDENCE</strong>(alpha, standard_deviation, pop_size)</code>
-<a class="headerlink" href="#confidence" title="Permanent link">#</a>
-</summary>
+<h4 id="confidence"><code><strong>CONFIDENCE</strong>(alpha, standard_deviation, pop_size)</code><a class="headerlink" href="#confidence" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the width of half the confidence interval for a normal distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="correl">
+<details>
 <summary class="unimplemented">
-<h4 id="correl_1">CORREL<a class="headerlink" href="#correl_1" title="Permanent link">#</a></h4>
-<p><code><strong>CORREL</strong>(data_y, data_x)</code>
-<a class="headerlink" href="#correl" title="Permanent link">#</a>
-</summary>
+<h4 id="correl"><code><strong>CORREL</strong>(data_y, data_x)</code><a class="headerlink" href="#correl" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="count">
+<details>
 <summary >
-<h4 id="count_1">COUNT<a class="headerlink" href="#count_1" title="Permanent link">#</a></h4>
-<p><code><strong>COUNT</strong>(value, *more_values)</code>
-<a class="headerlink" href="#count" title="Permanent link">#</a>
-</summary>
+<h4 id="count"><code><strong>COUNT</strong>(value, *more_values)</code><a class="headerlink" href="#count" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the count of numerical and date/datetime values in a dataset,
 ignoring other types of values.</p>
 <p>Each argument may be a value or an array. Values that are not numbers or dates, including logical
@@ -3995,12 +3707,10 @@ and blank values, and text representations of numbers, are ignored.</p>
 0
 </code></pre>
 </details>
-<details id="counta">
+<details>
 <summary >
-<h4 id="counta_1">COUNTA<a class="headerlink" href="#counta_1" title="Permanent link">#</a></h4>
-<p><code><strong>COUNTA</strong>(value, *more_values)</code>
-<a class="headerlink" href="#counta" title="Permanent link">#</a>
-</summary>
+<h4 id="counta"><code><strong>COUNTA</strong>(value, *more_values)</code><a class="headerlink" href="#counta" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the count of all values in a dataset, including non-numerical values.</p>
 <p>Each argument may be a value or an array.</p>
 <pre><code class="language-python">&gt;&gt;&gt; COUNTA([2, -1.0, 11])
@@ -4016,180 +3726,142 @@ Returns the count of all values in a dataset, including non-numerical values.</p
 2
 </code></pre>
 </details>
-<details id="covar">
+<details>
 <summary class="unimplemented">
-<h4 id="covar_1">COVAR<a class="headerlink" href="#covar_1" title="Permanent link">#</a></h4>
-<p><code><strong>COVAR</strong>(data_y, data_x)</code>
-<a class="headerlink" href="#covar" title="Permanent link">#</a>
-</summary>
+<h4 id="covar"><code><strong>COVAR</strong>(data_y, data_x)</code><a class="headerlink" href="#covar" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the covariance of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="critbinom">
+<details>
 <summary class="unimplemented">
-<h4 id="critbinom_1">CRITBINOM<a class="headerlink" href="#critbinom_1" title="Permanent link">#</a></h4>
-<p><code><strong>CRITBINOM</strong>(num_trials, prob_success, target_prob)</code>
-<a class="headerlink" href="#critbinom" title="Permanent link">#</a>
-</summary>
+<h4 id="critbinom"><code><strong>CRITBINOM</strong>(num_trials, prob_success, target_prob)</code><a class="headerlink" href="#critbinom" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the smallest value for which the cumulative binomial distribution is greater than or equal to a specified criteria.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="devsq">
+<details>
 <summary class="unimplemented">
-<h4 id="devsq_1">DEVSQ<a class="headerlink" href="#devsq_1" title="Permanent link">#</a></h4>
-<p><code><strong>DEVSQ</strong>(value1, value2)</code>
-<a class="headerlink" href="#devsq" title="Permanent link">#</a>
-</summary>
+<h4 id="devsq"><code><strong>DEVSQ</strong>(value1, value2)</code><a class="headerlink" href="#devsq" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the sum of squares of deviations based on a sample.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="expondist">
+<details>
 <summary class="unimplemented">
-<h4 id="expondist_1">EXPONDIST<a class="headerlink" href="#expondist_1" title="Permanent link">#</a></h4>
-<p><code><strong>EXPONDIST</strong>(x, lambda_, cumulative)</code>
-<a class="headerlink" href="#expondist" title="Permanent link">#</a>
-</summary>
+<h4 id="expondist"><code><strong>EXPONDIST</strong>(x, lambda_, cumulative)</code><a class="headerlink" href="#expondist" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the exponential distribution function with a specified lambda at a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="fdist">
+<details>
 <summary class="unimplemented">
-<h4 id="fdist_1">FDIST<a class="headerlink" href="#fdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>FDIST</strong>(x, degrees_freedom1, degrees_freedom2)</code>
-<a class="headerlink" href="#fdist" title="Permanent link">#</a>
-</summary>
+<h4 id="fdist"><code><strong>FDIST</strong>(x, degrees_freedom1, degrees_freedom2)</code><a class="headerlink" href="#fdist" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
 with given input x. Alternately called Fisher-Snedecor distribution or Snedecor&rsquo;s F
 distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="fisher">
+<details>
 <summary class="unimplemented">
-<h4 id="fisher_1">FISHER<a class="headerlink" href="#fisher_1" title="Permanent link">#</a></h4>
-<p><code><strong>FISHER</strong>(value)</code>
-<a class="headerlink" href="#fisher" title="Permanent link">#</a>
-</summary>
+<h4 id="fisher"><code><strong>FISHER</strong>(value)</code><a class="headerlink" href="#fisher" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the Fisher transformation of a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="fisherinv">
+<details>
 <summary class="unimplemented">
-<h4 id="fisherinv_1">FISHERINV<a class="headerlink" href="#fisherinv_1" title="Permanent link">#</a></h4>
-<p><code><strong>FISHERINV</strong>(value)</code>
-<a class="headerlink" href="#fisherinv" title="Permanent link">#</a>
-</summary>
+<h4 id="fisherinv"><code><strong>FISHERINV</strong>(value)</code><a class="headerlink" href="#fisherinv" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the inverse Fisher transformation of a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="forecast">
+<details>
 <summary class="unimplemented">
-<h4 id="forecast_1">FORECAST<a class="headerlink" href="#forecast_1" title="Permanent link">#</a></h4>
-<p><code><strong>FORECAST</strong>(x, data_y, data_x)</code>
-<a class="headerlink" href="#forecast" title="Permanent link">#</a>
-</summary>
+<h4 id="forecast"><code><strong>FORECAST</strong>(x, data_y, data_x)</code><a class="headerlink" href="#forecast" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the expected y-value for a specified x based on a linear regression of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="f_dist">
+<details>
 <summary class="unimplemented">
-<h4 id="f_dist_1">F_DIST<a class="headerlink" href="#f_dist_1" title="Permanent link">#</a></h4>
-<p><code><strong>F_DIST</strong>(x, degrees_freedom1, degrees_freedom2, cumulative)</code>
-<a class="headerlink" href="#f_dist" title="Permanent link">#</a>
-</summary>
+<h4 id="f_dist"><code><strong>F_DIST</strong>(x, degrees_freedom1, degrees_freedom2, cumulative)</code><a class="headerlink" href="#f_dist" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the left-tailed F probability distribution (degree of diversity) for two data sets
 with given input x. Alternately called Fisher-Snedecor distribution or Snedecor&rsquo;s F
 distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="f_dist_rt">
+<details>
 <summary class="unimplemented">
-<h4 id="f_dist_rt_1">F_DIST_RT<a class="headerlink" href="#f_dist_rt_1" title="Permanent link">#</a></h4>
-<p><code><strong>F_DIST_RT</strong>(x, degrees_freedom1, degrees_freedom2)</code>
-<a class="headerlink" href="#f_dist_rt" title="Permanent link">#</a>
-</summary>
+<h4 id="f_dist_rt"><code><strong>F_DIST_RT</strong>(x, degrees_freedom1, degrees_freedom2)</code><a class="headerlink" href="#f_dist_rt" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
 with given input x. Alternately called Fisher-Snedecor distribution or Snedecor&rsquo;s F
 distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="geomean">
+<details>
 <summary class="unimplemented">
-<h4 id="geomean_1">GEOMEAN<a class="headerlink" href="#geomean_1" title="Permanent link">#</a></h4>
-<p><code><strong>GEOMEAN</strong>(value1, value2)</code>
-<a class="headerlink" href="#geomean" title="Permanent link">#</a>
-</summary>
+<h4 id="geomean"><code><strong>GEOMEAN</strong>(value1, value2)</code><a class="headerlink" href="#geomean" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the geometric mean of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="harmean">
+<details>
 <summary class="unimplemented">
-<h4 id="harmean_1">HARMEAN<a class="headerlink" href="#harmean_1" title="Permanent link">#</a></h4>
-<p><code><strong>HARMEAN</strong>(value1, value2)</code>
-<a class="headerlink" href="#harmean" title="Permanent link">#</a>
-</summary>
+<h4 id="harmean"><code><strong>HARMEAN</strong>(value1, value2)</code><a class="headerlink" href="#harmean" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the harmonic mean of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="hypgeomdist">
+<details>
 <summary class="unimplemented">
-<h4 id="hypgeomdist_1">HYPGEOMDIST<a class="headerlink" href="#hypgeomdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>HYPGEOMDIST</strong>(num_successes, num_draws, successes_in_pop, pop_size)</code>
-<a class="headerlink" href="#hypgeomdist" title="Permanent link">#</a>
-</summary>
+<h4 id="hypgeomdist"><code><strong>HYPGEOMDIST</strong>(num_successes, num_draws, successes_in_pop, pop_size)</code><a class="headerlink" href="#hypgeomdist" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the probability of drawing a certain number of successes in a certain number of tries given a population of a certain size containing a certain number of successes, without replacement of draws.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="intercept">
+<details>
 <summary class="unimplemented">
-<h4 id="intercept_1">INTERCEPT<a class="headerlink" href="#intercept_1" title="Permanent link">#</a></h4>
-<p><code><strong>INTERCEPT</strong>(data_y, data_x)</code>
-<a class="headerlink" href="#intercept" title="Permanent link">#</a>
-</summary>
+<h4 id="intercept"><code><strong>INTERCEPT</strong>(data_y, data_x)</code><a class="headerlink" href="#intercept" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the y-value at which the line resulting from linear regression of a dataset will intersect the y-axis (x=0).</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="kurt">
+<details>
 <summary class="unimplemented">
-<h4 id="kurt_1">KURT<a class="headerlink" href="#kurt_1" title="Permanent link">#</a></h4>
-<p><code><strong>KURT</strong>(value1, value2)</code>
-<a class="headerlink" href="#kurt" title="Permanent link">#</a>
-</summary>
+<h4 id="kurt"><code><strong>KURT</strong>(value1, value2)</code><a class="headerlink" href="#kurt" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the kurtosis of a dataset, which describes the shape, and in particular the &ldquo;peakedness&rdquo; of that dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="large">
+<details>
 <summary class="unimplemented">
-<h4 id="large_1">LARGE<a class="headerlink" href="#large_1" title="Permanent link">#</a></h4>
-<p><code><strong>LARGE</strong>(data, n)</code>
-<a class="headerlink" href="#large" title="Permanent link">#</a>
-</summary>
+<h4 id="large"><code><strong>LARGE</strong>(data, n)</code><a class="headerlink" href="#large" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the nth largest element from a data set, where n is user-defined.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="loginv">
+<details>
 <summary class="unimplemented">
-<h4 id="loginv_1">LOGINV<a class="headerlink" href="#loginv_1" title="Permanent link">#</a></h4>
-<p><code><strong>LOGINV</strong>(x, mean, standard_deviation)</code>
-<a class="headerlink" href="#loginv" title="Permanent link">#</a>
-</summary>
+<h4 id="loginv"><code><strong>LOGINV</strong>(x, mean, standard_deviation)</code><a class="headerlink" href="#loginv" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the inverse log-normal cumulative distribution with given mean and standard deviation at a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="lognormdist">
+<details>
 <summary class="unimplemented">
-<h4 id="lognormdist_1">LOGNORMDIST<a class="headerlink" href="#lognormdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>LOGNORMDIST</strong>(x, mean, standard_deviation)</code>
-<a class="headerlink" href="#lognormdist" title="Permanent link">#</a>
-</summary>
+<h4 id="lognormdist"><code><strong>LOGNORMDIST</strong>(x, mean, standard_deviation)</code><a class="headerlink" href="#lognormdist" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the log-normal cumulative distribution with given mean and standard deviation at a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="max">
+<details>
 <summary >
-<h4 id="max_1">MAX<a class="headerlink" href="#max_1" title="Permanent link">#</a></h4>
-<p><code><strong>MAX</strong>(value, *more_values)</code>
-<a class="headerlink" href="#max" title="Permanent link">#</a>
-</summary>
+<h4 id="max"><code><strong>MAX</strong>(value, *more_values)</code><a class="headerlink" href="#max" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the maximum value in a dataset, ignoring values other than numbers and dates/datetimes.</p>
 <p>Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored. Returns 0 if the arguments
@@ -4219,12 +3891,10 @@ datetime.datetime(2015, 1, 1, 12, 34, 56)
 datetime.date(2015, 1, 2)
 </code></pre>
 </details>
-<details id="maxa">
+<details>
 <summary >
-<h4 id="maxa_1">MAXA<a class="headerlink" href="#maxa_1" title="Permanent link">#</a></h4>
-<p><code><strong>MAXA</strong>(value, *more_values)</code>
-<a class="headerlink" href="#maxa" title="Permanent link">#</a>
-</summary>
+<h4 id="maxa"><code><strong>MAXA</strong>(value, *more_values)</code><a class="headerlink" href="#maxa" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the maximum numeric value in a dataset.</p>
 <p>Each argument may be a value of an array. Values that are not numbers, including dates and text
 representations of numbers, are counted as 0 (zero). Logical value of True is counted as 1, and
@@ -4245,12 +3915,10 @@ False as 0. Returns 0 if the arguments contain no numbers.</p>
 0
 </code></pre>
 </details>
-<details id="median">
+<details>
 <summary >
-<h4 id="median_1">MEDIAN<a class="headerlink" href="#median_1" title="Permanent link">#</a></h4>
-<p><code><strong>MEDIAN</strong>(value, *more_values)</code>
-<a class="headerlink" href="#median" title="Permanent link">#</a>
-</summary>
+<h4 id="median"><code><strong>MEDIAN</strong>(value, *more_values)</code><a class="headerlink" href="#median" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the median value in a numeric dataset, ignoring non-numerical values.</p>
 <p>Each argument may be a value or an array. Values that are not numbers, including logical
 and blank values, and text representations of numbers, are ignored.</p>
@@ -4276,12 +3944,10 @@ Traceback (most recent call last):
 ValueError: MEDIAN requires at least one number
 </code></pre>
 </details>
-<details id="min">
+<details>
 <summary >
-<h4 id="min_1">MIN<a class="headerlink" href="#min_1" title="Permanent link">#</a></h4>
-<p><code><strong>MIN</strong>(value, *more_values)</code>
-<a class="headerlink" href="#min" title="Permanent link">#</a>
-</summary>
+<h4 id="min"><code><strong>MIN</strong>(value, *more_values)</code><a class="headerlink" href="#min" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the minimum value in a dataset, ignoring values other than numbers and dates/datetimes.</p>
 <p>Each argument may be a value or an array. Values that are not numbers or dates, including logical
 and blank values, and text representations of numbers, are ignored. Returns 0 if the arguments
@@ -4311,12 +3977,10 @@ datetime.date(2015, 1, 1)
 datetime.datetime(2015, 1, 1, 12, 34, 56)
 </code></pre>
 </details>
-<details id="mina">
+<details>
 <summary >
-<h4 id="mina_1">MINA<a class="headerlink" href="#mina_1" title="Permanent link">#</a></h4>
-<p><code><strong>MINA</strong>(value, *more_values)</code>
-<a class="headerlink" href="#mina" title="Permanent link">#</a>
-</summary>
+<h4 id="mina"><code><strong>MINA</strong>(value, *more_values)</code><a class="headerlink" href="#mina" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the minimum numeric value in a dataset.</p>
 <p>Each argument may be a value of an array. Values that are not numbers, including dates and text
 representations of numbers, are counted as 0 (zero). Logical value of True is counted as 1, and
@@ -4337,212 +4001,166 @@ False as 0. Returns 0 if the arguments contain no numbers.</p>
 0
 </code></pre>
 </details>
-<details id="mode">
+<details>
 <summary class="unimplemented">
-<h4 id="mode_1">MODE<a class="headerlink" href="#mode_1" title="Permanent link">#</a></h4>
-<p><code><strong>MODE</strong>(value1, value2)</code>
-<a class="headerlink" href="#mode" title="Permanent link">#</a>
-</summary>
+<h4 id="mode"><code><strong>MODE</strong>(value1, value2)</code><a class="headerlink" href="#mode" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the most commonly occurring value in a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="negbinomdist">
+<details>
 <summary class="unimplemented">
-<h4 id="negbinomdist_1">NEGBINOMDIST<a class="headerlink" href="#negbinomdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>NEGBINOMDIST</strong>(num_failures, num_successes, prob_success)</code>
-<a class="headerlink" href="#negbinomdist" title="Permanent link">#</a>
-</summary>
+<h4 id="negbinomdist"><code><strong>NEGBINOMDIST</strong>(num_failures, num_successes, prob_success)</code><a class="headerlink" href="#negbinomdist" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the probability of drawing a certain number of failures before a certain number of successes given a probability of success in independent trials.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="normdist">
+<details>
 <summary class="unimplemented">
-<h4 id="normdist_1">NORMDIST<a class="headerlink" href="#normdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>NORMDIST</strong>(x, mean, standard_deviation, cumulative)</code>
-<a class="headerlink" href="#normdist" title="Permanent link">#</a>
-</summary>
+<h4 id="normdist"><code><strong>NORMDIST</strong>(x, mean, standard_deviation, cumulative)</code><a class="headerlink" href="#normdist" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the normal distribution function (or normal cumulative distribution
 function) for a specified value, mean, and standard deviation.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="norminv">
+<details>
 <summary class="unimplemented">
-<h4 id="norminv_1">NORMINV<a class="headerlink" href="#norminv_1" title="Permanent link">#</a></h4>
-<p><code><strong>NORMINV</strong>(x, mean, standard_deviation)</code>
-<a class="headerlink" href="#norminv" title="Permanent link">#</a>
-</summary>
+<h4 id="norminv"><code><strong>NORMINV</strong>(x, mean, standard_deviation)</code><a class="headerlink" href="#norminv" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the inverse normal distribution function for a specified value, mean, and standard deviation.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="normsdist">
+<details>
 <summary class="unimplemented">
-<h4 id="normsdist_1">NORMSDIST<a class="headerlink" href="#normsdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>NORMSDIST</strong>(x)</code>
-<a class="headerlink" href="#normsdist" title="Permanent link">#</a>
-</summary>
+<h4 id="normsdist"><code><strong>NORMSDIST</strong>(x)</code><a class="headerlink" href="#normsdist" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the standard normal cumulative distribution function for a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="normsinv">
+<details>
 <summary class="unimplemented">
-<h4 id="normsinv_1">NORMSINV<a class="headerlink" href="#normsinv_1" title="Permanent link">#</a></h4>
-<p><code><strong>NORMSINV</strong>(x)</code>
-<a class="headerlink" href="#normsinv" title="Permanent link">#</a>
-</summary>
+<h4 id="normsinv"><code><strong>NORMSINV</strong>(x)</code><a class="headerlink" href="#normsinv" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the inverse standard normal distribution function for a specified value.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="pearson">
+<details>
 <summary class="unimplemented">
-<h4 id="pearson_1">PEARSON<a class="headerlink" href="#pearson_1" title="Permanent link">#</a></h4>
-<p><code><strong>PEARSON</strong>(data_y, data_x)</code>
-<a class="headerlink" href="#pearson" title="Permanent link">#</a>
-</summary>
+<h4 id="pearson"><code><strong>PEARSON</strong>(data_y, data_x)</code><a class="headerlink" href="#pearson" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="percentile">
+<details>
 <summary class="unimplemented">
-<h4 id="percentile_1">PERCENTILE<a class="headerlink" href="#percentile_1" title="Permanent link">#</a></h4>
-<p><code><strong>PERCENTILE</strong>(data, percentile)</code>
-<a class="headerlink" href="#percentile" title="Permanent link">#</a>
-</summary>
+<h4 id="percentile"><code><strong>PERCENTILE</strong>(data, percentile)</code><a class="headerlink" href="#percentile" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value at a given percentile of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="percentrank">
+<details>
 <summary class="unimplemented">
-<h4 id="percentrank_1">PERCENTRANK<a class="headerlink" href="#percentrank_1" title="Permanent link">#</a></h4>
-<p><code><strong>PERCENTRANK</strong>(data, value, significant_digits=None)</code>
-<a class="headerlink" href="#percentrank" title="Permanent link">#</a>
-</summary>
+<h4 id="percentrank"><code><strong>PERCENTRANK</strong>(data, value, significant_digits=None)</code><a class="headerlink" href="#percentrank" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the percentage rank (percentile) of a specified value in a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="percentrank_exc">
+<details>
 <summary class="unimplemented">
-<h4 id="percentrank_exc_1">PERCENTRANK_EXC<a class="headerlink" href="#percentrank_exc_1" title="Permanent link">#</a></h4>
-<p><code><strong>PERCENTRANK_EXC</strong>(data, value, significant_digits=None)</code>
-<a class="headerlink" href="#percentrank_exc" title="Permanent link">#</a>
-</summary>
+<h4 id="percentrank_exc"><code><strong>PERCENTRANK_EXC</strong>(data, value, significant_digits=None)</code><a class="headerlink" href="#percentrank_exc" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the percentage rank (percentile) from 0 to 1 exclusive of a specified value in a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="percentrank_inc">
+<details>
 <summary class="unimplemented">
-<h4 id="percentrank_inc_1">PERCENTRANK_INC<a class="headerlink" href="#percentrank_inc_1" title="Permanent link">#</a></h4>
-<p><code><strong>PERCENTRANK_INC</strong>(data, value, significant_digits=None)</code>
-<a class="headerlink" href="#percentrank_inc" title="Permanent link">#</a>
-</summary>
+<h4 id="percentrank_inc"><code><strong>PERCENTRANK_INC</strong>(data, value, significant_digits=None)</code><a class="headerlink" href="#percentrank_inc" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the percentage rank (percentile) from 0 to 1 inclusive of a specified value in a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="permut">
+<details>
 <summary class="unimplemented">
-<h4 id="permut_1">PERMUT<a class="headerlink" href="#permut_1" title="Permanent link">#</a></h4>
-<p><code><strong>PERMUT</strong>(n, k)</code>
-<a class="headerlink" href="#permut" title="Permanent link">#</a>
-</summary>
+<h4 id="permut"><code><strong>PERMUT</strong>(n, k)</code><a class="headerlink" href="#permut" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the number of ways to choose some number of objects from a pool of a given size of objects, considering order.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="poisson">
+<details>
 <summary class="unimplemented">
-<h4 id="poisson_1">POISSON<a class="headerlink" href="#poisson_1" title="Permanent link">#</a></h4>
-<p><code><strong>POISSON</strong>(x, mean, cumulative)</code>
-<a class="headerlink" href="#poisson" title="Permanent link">#</a>
-</summary>
+<h4 id="poisson"><code><strong>POISSON</strong>(x, mean, cumulative)</code><a class="headerlink" href="#poisson" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the Poisson distribution function (or Poisson cumulative distribution
 function) for a specified value and mean.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="prob">
+<details>
 <summary class="unimplemented">
-<h4 id="prob_1">PROB<a class="headerlink" href="#prob_1" title="Permanent link">#</a></h4>
-<p><code><strong>PROB</strong>(data, probabilities, low_limit, high_limit=None)</code>
-<a class="headerlink" href="#prob" title="Permanent link">#</a>
-</summary>
+<h4 id="prob"><code><strong>PROB</strong>(data, probabilities, low_limit, high_limit=None)</code><a class="headerlink" href="#prob" title="Permanent link">#</a></h4>
+<p></summary>
 Given a set of values and corresponding probabilities, calculates the probability that a value chosen at random falls between two limits.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="quartile">
+<details>
 <summary class="unimplemented">
-<h4 id="quartile_1">QUARTILE<a class="headerlink" href="#quartile_1" title="Permanent link">#</a></h4>
-<p><code><strong>QUARTILE</strong>(data, quartile_number)</code>
-<a class="headerlink" href="#quartile" title="Permanent link">#</a>
-</summary>
+<h4 id="quartile"><code><strong>QUARTILE</strong>(data, quartile_number)</code><a class="headerlink" href="#quartile" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a value nearest to a specified quartile of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="rank_avg">
+<details>
 <summary class="unimplemented">
-<h4 id="rank_avg_1">RANK_AVG<a class="headerlink" href="#rank_avg_1" title="Permanent link">#</a></h4>
-<p><code><strong>RANK_AVG</strong>(value, data, is_ascending=None)</code>
-<a class="headerlink" href="#rank_avg" title="Permanent link">#</a>
-</summary>
+<h4 id="rank_avg"><code><strong>RANK_AVG</strong>(value, data, is_ascending=None)</code><a class="headerlink" href="#rank_avg" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the average rank of the entries will be returned.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="rank_eq">
+<details>
 <summary class="unimplemented">
-<h4 id="rank_eq_1">RANK_EQ<a class="headerlink" href="#rank_eq_1" title="Permanent link">#</a></h4>
-<p><code><strong>RANK_EQ</strong>(value, data, is_ascending=None)</code>
-<a class="headerlink" href="#rank_eq" title="Permanent link">#</a>
-</summary>
+<h4 id="rank_eq"><code><strong>RANK_EQ</strong>(value, data, is_ascending=None)</code><a class="headerlink" href="#rank_eq" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the top rank of the entries will be returned.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="rsq">
+<details>
 <summary class="unimplemented">
-<h4 id="rsq_1">RSQ<a class="headerlink" href="#rsq_1" title="Permanent link">#</a></h4>
-<p><code><strong>RSQ</strong>(data_y, data_x)</code>
-<a class="headerlink" href="#rsq" title="Permanent link">#</a>
-</summary>
+<h4 id="rsq"><code><strong>RSQ</strong>(data_y, data_x)</code><a class="headerlink" href="#rsq" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the square of r, the Pearson product-moment correlation coefficient of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="skew">
+<details>
 <summary class="unimplemented">
-<h4 id="skew_1">SKEW<a class="headerlink" href="#skew_1" title="Permanent link">#</a></h4>
-<p><code><strong>SKEW</strong>(value1, value2)</code>
-<a class="headerlink" href="#skew" title="Permanent link">#</a>
-</summary>
+<h4 id="skew"><code><strong>SKEW</strong>(value1, value2)</code><a class="headerlink" href="#skew" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the skewness of a dataset, which describes the symmetry of that dataset about the mean.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="slope">
+<details>
 <summary class="unimplemented">
-<h4 id="slope_1">SLOPE<a class="headerlink" href="#slope_1" title="Permanent link">#</a></h4>
-<p><code><strong>SLOPE</strong>(data_y, data_x)</code>
-<a class="headerlink" href="#slope" title="Permanent link">#</a>
-</summary>
+<h4 id="slope"><code><strong>SLOPE</strong>(data_y, data_x)</code><a class="headerlink" href="#slope" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the slope of the line resulting from linear regression of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="small">
+<details>
 <summary class="unimplemented">
-<h4 id="small_1">SMALL<a class="headerlink" href="#small_1" title="Permanent link">#</a></h4>
-<p><code><strong>SMALL</strong>(data, n)</code>
-<a class="headerlink" href="#small" title="Permanent link">#</a>
-</summary>
+<h4 id="small"><code><strong>SMALL</strong>(data, n)</code><a class="headerlink" href="#small" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the nth smallest element from a data set, where n is user-defined.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="standardize">
+<details>
 <summary class="unimplemented">
-<h4 id="standardize_1">STANDARDIZE<a class="headerlink" href="#standardize_1" title="Permanent link">#</a></h4>
-<p><code><strong>STANDARDIZE</strong>(value, mean, standard_deviation)</code>
-<a class="headerlink" href="#standardize" title="Permanent link">#</a>
-</summary>
+<h4 id="standardize"><code><strong>STANDARDIZE</strong>(value, mean, standard_deviation)</code><a class="headerlink" href="#standardize" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the normalized equivalent of a random variable given mean and standard deviation of the distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="stdev">
+<details>
 <summary >
-<h4 id="stdev_1">STDEV<a class="headerlink" href="#stdev_1" title="Permanent link">#</a></h4>
-<p><code><strong>STDEV</strong>(value, *more_values)</code>
-<a class="headerlink" href="#stdev" title="Permanent link">#</a>
-</summary>
+<h4 id="stdev"><code><strong>STDEV</strong>(value, *more_values)</code><a class="headerlink" href="#stdev" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the standard deviation based on a sample, ignoring non-numerical values.</p>
 <pre><code class="language-python">&gt;&gt;&gt; STDEV([2, 5, 8, 13, 10])
 4.277849927241488
@@ -4562,12 +4180,10 @@ Traceback (most recent call last):
 ZeroDivisionError: float division by zero
 </code></pre>
 </details>
-<details id="stdeva">
+<details>
 <summary >
-<h4 id="stdeva_1">STDEVA<a class="headerlink" href="#stdeva_1" title="Permanent link">#</a></h4>
-<p><code><strong>STDEVA</strong>(value, *more_values)</code>
-<a class="headerlink" href="#stdeva" title="Permanent link">#</a>
-</summary>
+<h4 id="stdeva"><code><strong>STDEVA</strong>(value, *more_values)</code><a class="headerlink" href="#stdeva" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the standard deviation based on a sample, setting text to the value <code>0</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; STDEVA([2, 5, 8, 13, 10])
 4.277849927241488
@@ -4587,12 +4203,10 @@ Traceback (most recent call last):
 ZeroDivisionError: float division by zero
 </code></pre>
 </details>
-<details id="stdevp">
+<details>
 <summary >
-<h4 id="stdevp_1">STDEVP<a class="headerlink" href="#stdevp_1" title="Permanent link">#</a></h4>
-<p><code><strong>STDEVP</strong>(value, *more_values)</code>
-<a class="headerlink" href="#stdevp" title="Permanent link">#</a>
-</summary>
+<h4 id="stdevp"><code><strong>STDEVP</strong>(value, *more_values)</code><a class="headerlink" href="#stdevp" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the standard deviation based on an entire population, ignoring non-numerical values.</p>
 <pre><code class="language-python">&gt;&gt;&gt; STDEVP([2, 5, 8, 13, 10])
 3.8262252939417984
@@ -4610,12 +4224,10 @@ Calculates the standard deviation based on an entire population, ignoring non-nu
 0.0
 </code></pre>
 </details>
-<details id="stdevpa">
+<details>
 <summary >
-<h4 id="stdevpa_1">STDEVPA<a class="headerlink" href="#stdevpa_1" title="Permanent link">#</a></h4>
-<p><code><strong>STDEVPA</strong>(value, *more_values)</code>
-<a class="headerlink" href="#stdevpa" title="Permanent link">#</a>
-</summary>
+<h4 id="stdevpa"><code><strong>STDEVPA</strong>(value, *more_values)</code><a class="headerlink" href="#stdevpa" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the standard deviation based on an entire population, setting text to the value <code>0</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; STDEVPA([2, 5, 8, 13, 10])
 3.8262252939417984
@@ -4633,131 +4245,103 @@ Calculates the standard deviation based on an entire population, setting text to
 0.0
 </code></pre>
 </details>
-<details id="steyx">
+<details>
 <summary class="unimplemented">
-<h4 id="steyx_1">STEYX<a class="headerlink" href="#steyx_1" title="Permanent link">#</a></h4>
-<p><code><strong>STEYX</strong>(data_y, data_x)</code>
-<a class="headerlink" href="#steyx" title="Permanent link">#</a>
-</summary>
+<h4 id="steyx"><code><strong>STEYX</strong>(data_y, data_x)</code><a class="headerlink" href="#steyx" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the standard error of the predicted y-value for each x in the regression of a dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="tdist">
+<details>
 <summary class="unimplemented">
-<h4 id="tdist_1">TDIST<a class="headerlink" href="#tdist_1" title="Permanent link">#</a></h4>
-<p><code><strong>TDIST</strong>(x, degrees_freedom, tails)</code>
-<a class="headerlink" href="#tdist" title="Permanent link">#</a>
-</summary>
+<h4 id="tdist"><code><strong>TDIST</strong>(x, degrees_freedom, tails)</code><a class="headerlink" href="#tdist" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the probability for Student&rsquo;s t-distribution with a given input (x).</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="tinv">
+<details>
 <summary class="unimplemented">
-<h4 id="tinv_1">TINV<a class="headerlink" href="#tinv_1" title="Permanent link">#</a></h4>
-<p><code><strong>TINV</strong>(probability, degrees_freedom)</code>
-<a class="headerlink" href="#tinv" title="Permanent link">#</a>
-</summary>
+<h4 id="tinv"><code><strong>TINV</strong>(probability, degrees_freedom)</code><a class="headerlink" href="#tinv" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the inverse of the two-tailed TDIST function.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="trimmean">
+<details>
 <summary class="unimplemented">
-<h4 id="trimmean_1">TRIMMEAN<a class="headerlink" href="#trimmean_1" title="Permanent link">#</a></h4>
-<p><code><strong>TRIMMEAN</strong>(data, exclude_proportion)</code>
-<a class="headerlink" href="#trimmean" title="Permanent link">#</a>
-</summary>
+<h4 id="trimmean"><code><strong>TRIMMEAN</strong>(data, exclude_proportion)</code><a class="headerlink" href="#trimmean" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the mean of a dataset excluding some proportion of data from the high and low ends of the dataset.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="ttest">
+<details>
 <summary class="unimplemented">
-<h4 id="ttest_1">TTEST<a class="headerlink" href="#ttest_1" title="Permanent link">#</a></h4>
-<p><code><strong>TTEST</strong>(range1, range2, tails, type)</code>
-<a class="headerlink" href="#ttest" title="Permanent link">#</a>
-</summary>
+<h4 id="ttest"><code><strong>TTEST</strong>(range1, range2, tails, type)</code><a class="headerlink" href="#ttest" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the probability associated with t-test. Determines whether two samples are likely to have come from the same two underlying populations that have the same mean.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="t_inv">
+<details>
 <summary class="unimplemented">
-<h4 id="t_inv_1">T_INV<a class="headerlink" href="#t_inv_1" title="Permanent link">#</a></h4>
-<p><code><strong>T_INV</strong>(probability, degrees_freedom)</code>
-<a class="headerlink" href="#t_inv" title="Permanent link">#</a>
-</summary>
+<h4 id="t_inv"><code><strong>T_INV</strong>(probability, degrees_freedom)</code><a class="headerlink" href="#t_inv" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the negative inverse of the one-tailed TDIST function.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="t_inv_2t">
+<details>
 <summary class="unimplemented">
-<h4 id="t_inv_2t_1">T_INV_2T<a class="headerlink" href="#t_inv_2t_1" title="Permanent link">#</a></h4>
-<p><code><strong>T_INV_2T</strong>(probability, degrees_freedom)</code>
-<a class="headerlink" href="#t_inv_2t" title="Permanent link">#</a>
-</summary>
+<h4 id="t_inv_2t"><code><strong>T_INV_2T</strong>(probability, degrees_freedom)</code><a class="headerlink" href="#t_inv_2t" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the inverse of the two-tailed TDIST function.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="var">
+<details>
 <summary class="unimplemented">
-<h4 id="var_1">VAR<a class="headerlink" href="#var_1" title="Permanent link">#</a></h4>
-<p><code><strong>VAR</strong>(value1, value2)</code>
-<a class="headerlink" href="#var" title="Permanent link">#</a>
-</summary>
+<h4 id="var"><code><strong>VAR</strong>(value1, value2)</code><a class="headerlink" href="#var" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the variance based on a sample.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="vara">
+<details>
 <summary class="unimplemented">
-<h4 id="vara_1">VARA<a class="headerlink" href="#vara_1" title="Permanent link">#</a></h4>
-<p><code><strong>VARA</strong>(value1, value2)</code>
-<a class="headerlink" href="#vara" title="Permanent link">#</a>
-</summary>
+<h4 id="vara"><code><strong>VARA</strong>(value1, value2)</code><a class="headerlink" href="#vara" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates an estimate of variance based on a sample, setting text to the value <code>0</code>.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="varp">
+<details>
 <summary class="unimplemented">
-<h4 id="varp_1">VARP<a class="headerlink" href="#varp_1" title="Permanent link">#</a></h4>
-<p><code><strong>VARP</strong>(value1, value2)</code>
-<a class="headerlink" href="#varp" title="Permanent link">#</a>
-</summary>
+<h4 id="varp"><code><strong>VARP</strong>(value1, value2)</code><a class="headerlink" href="#varp" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the variance based on an entire population.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="varpa">
+<details>
 <summary class="unimplemented">
-<h4 id="varpa_1">VARPA<a class="headerlink" href="#varpa_1" title="Permanent link">#</a></h4>
-<p><code><strong>VARPA</strong>(value1, value2)</code>
-<a class="headerlink" href="#varpa" title="Permanent link">#</a>
-</summary>
+<h4 id="varpa"><code><strong>VARPA</strong>(value1, value2)</code><a class="headerlink" href="#varpa" title="Permanent link">#</a></h4>
+<p></summary>
 Calculates the variance based on an entire population, setting text to the value <code>0</code>.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="weibull">
+<details>
 <summary class="unimplemented">
-<h4 id="weibull_1">WEIBULL<a class="headerlink" href="#weibull_1" title="Permanent link">#</a></h4>
-<p><code><strong>WEIBULL</strong>(x, shape, scale, cumulative)</code>
-<a class="headerlink" href="#weibull" title="Permanent link">#</a>
-</summary>
+<h4 id="weibull"><code><strong>WEIBULL</strong>(x, shape, scale, cumulative)</code><a class="headerlink" href="#weibull" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the value of the Weibull distribution function (or Weibull cumulative distribution
 function) for a specified shape and scale.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="ztest">
+<details>
 <summary class="unimplemented">
-<h4 id="ztest_1">ZTEST<a class="headerlink" href="#ztest_1" title="Permanent link">#</a></h4>
-<p><code><strong>ZTEST</strong>(data, value, standard_deviation)</code>
-<a class="headerlink" href="#ztest" title="Permanent link">#</a>
-</summary>
+<h4 id="ztest"><code><strong>ZTEST</strong>(data, value, standard_deviation)</code><a class="headerlink" href="#ztest" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the two-tailed P-value of a Z-test with standard distribution.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
 <h3 id="text_1">Text<a class="headerlink" href="#text_1" title="Permanent link">#</a></h3>
-<details id="char">
+<details>
 <summary >
-<h4 id="char_1">CHAR<a class="headerlink" href="#char_1" title="Permanent link">#</a></h4>
-<p><code><strong>CHAR</strong>(table_number)</code>
-<a class="headerlink" href="#char" title="Permanent link">#</a>
-</summary>
+<h4 id="char"><code><strong>CHAR</strong>(table_number)</code><a class="headerlink" href="#char" title="Permanent link">#</a></h4>
+<p></summary>
 Convert a number into a character according to the current Unicode table.
 Same as <code>unichr(number)</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; CHAR(65)
@@ -4767,12 +4351,10 @@ u'A'
 u'!'
 </code></pre>
 </details>
-<details id="clean">
+<details>
 <summary >
-<h4 id="clean_1">CLEAN<a class="headerlink" href="#clean_1" title="Permanent link">#</a></h4>
-<p><code><strong>CLEAN</strong>(text)</code>
-<a class="headerlink" href="#clean" title="Permanent link">#</a>
-</summary>
+<h4 id="clean"><code><strong>CLEAN</strong>(text)</code><a class="headerlink" href="#clean" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the text with the non-printable characters removed.</p>
 <p>This removes both characters with values 0 through 31, and other Unicode characters in the
 &ldquo;control characters&rdquo; category.</p>
@@ -4780,12 +4362,10 @@ Returns the text with the non-printable characters removed.</p>
 u'Monthly report'
 </code></pre>
 </details>
-<details id="code">
+<details>
 <summary >
-<h4 id="code_1">CODE<a class="headerlink" href="#code_1" title="Permanent link">#</a></h4>
-<p><code><strong>CODE</strong>(string)</code>
-<a class="headerlink" href="#code" title="Permanent link">#</a>
-</summary>
+<h4 id="code"><code><strong>CODE</strong>(string)</code><a class="headerlink" href="#code" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the numeric Unicode map value of the first character in the string provided.
 Same as <code>ord(string[0])</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; CODE(&quot;A&quot;)
@@ -4798,12 +4378,10 @@ Same as <code>ord(string[0])</code>.</p>
 33
 </code></pre>
 </details>
-<details id="concat">
+<details>
 <summary >
-<h4 id="concat_1">CONCAT<a class="headerlink" href="#concat_1" title="Permanent link">#</a></h4>
-<p><code><strong>CONCAT</strong>(string, *more_strings)</code>
-<a class="headerlink" href="#concat" title="Permanent link">#</a>
-</summary>
+<h4 id="concat"><code><strong>CONCAT</strong>(string, *more_strings)</code><a class="headerlink" href="#concat" title="Permanent link">#</a></h4>
+<p></summary>
 Joins together any number of text strings into one string. Also available under the name
 <code>CONCATENATE</code>. Similar to the Python expression <code>"".join(array_of_strings)</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; CONCAT(&quot;Stream population for &quot;, &quot;trout&quot;, &quot; &quot;, &quot;species&quot;, &quot; is &quot;, 32, &quot;/mile.&quot;)
@@ -4822,12 +4400,10 @@ u'0abc'
 
 </code></pre>
 </details>
-<details id="concatenate">
+<details>
 <summary >
-<h4 id="concatenate_1">CONCATENATE<a class="headerlink" href="#concatenate_1" title="Permanent link">#</a></h4>
-<p><code><strong>CONCATENATE</strong>(string, *more_strings)</code>
-<a class="headerlink" href="#concatenate" title="Permanent link">#</a>
-</summary>
+<h4 id="concatenate"><code><strong>CONCATENATE</strong>(string, *more_strings)</code><a class="headerlink" href="#concatenate" title="Permanent link">#</a></h4>
+<p></summary>
 Joins together any number of text strings into one string. Also available under the name
 <code>CONCAT</code>. Similar to the Python expression <code>"".join(array_of_strings)</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; CONCATENATE(&quot;Stream population for &quot;, &quot;trout&quot;, &quot; &quot;, &quot;species&quot;, &quot; is &quot;, 32, &quot;/mile.&quot;)
@@ -4852,12 +4428,10 @@ u'0abc'
 
 </code></pre>
 </details>
-<details id="dollar">
+<details>
 <summary >
-<h4 id="dollar_1">DOLLAR<a class="headerlink" href="#dollar_1" title="Permanent link">#</a></h4>
-<p><code><strong>DOLLAR</strong>(number, decimals=2)</code>
-<a class="headerlink" href="#dollar" title="Permanent link">#</a>
-</summary>
+<h4 id="dollar"><code><strong>DOLLAR</strong>(number, decimals=2)</code><a class="headerlink" href="#dollar" title="Permanent link">#</a></h4>
+<p></summary>
 Formats a number into a formatted dollar amount, with decimals rounded to the specified place (.
 If decimals value is omitted, it defaults to 2.</p>
 <pre><code class="language-python">&gt;&gt;&gt; DOLLAR(1234.567)
@@ -4882,12 +4456,10 @@ If decimals value is omitted, it defaults to 2.</p>
 '$10'
 </code></pre>
 </details>
-<details id="exact">
+<details>
 <summary >
-<h4 id="exact_1">EXACT<a class="headerlink" href="#exact_1" title="Permanent link">#</a></h4>
-<p><code><strong>EXACT</strong>(string1, string2)</code>
-<a class="headerlink" href="#exact" title="Permanent link">#</a>
-</summary>
+<h4 id="exact"><code><strong>EXACT</strong>(string1, string2)</code><a class="headerlink" href="#exact" title="Permanent link">#</a></h4>
+<p></summary>
 Tests whether two strings are identical. Same as <code>string2 == string2</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; EXACT(&quot;word&quot;, &quot;word&quot;)
 True
@@ -4899,12 +4471,10 @@ False
 False
 </code></pre>
 </details>
-<details id="find">
+<details>
 <summary >
-<h4 id="find_2">FIND<a class="headerlink" href="#find_2" title="Permanent link">#</a></h4>
-<p><code><strong>FIND</strong>(find_text, within_text, start_num=1)</code>
-<a class="headerlink" href="#find" title="Permanent link">#</a>
-</summary>
+<h4 id="find"><code><strong>FIND</strong>(find_text, within_text, start_num=1)</code><a class="headerlink" href="#find" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the position at which a string is first found within text.</p>
 <p>Find is case-sensitive. The returned position is 1 if within_text starts with find_text.
 Start_num specifies the character at which to start the search, defaulting to 1 (the first
@@ -4939,12 +4509,10 @@ Traceback (most recent call last):
 ValueError: substring not found
 </code></pre>
 </details>
-<details id="fixed">
+<details>
 <summary >
-<h4 id="fixed_1">FIXED<a class="headerlink" href="#fixed_1" title="Permanent link">#</a></h4>
-<p><code><strong>FIXED</strong>(number, decimals=2, no_commas=False)</code>
-<a class="headerlink" href="#fixed" title="Permanent link">#</a>
-</summary>
+<h4 id="fixed"><code><strong>FIXED</strong>(number, decimals=2, no_commas=False)</code><a class="headerlink" href="#fixed" title="Permanent link">#</a></h4>
+<p></summary>
 Formats a number with a fixed number of decimal places (2 by default), and commas.
 If no_commas is True, then omits the commas.</p>
 <pre><code class="language-python">&gt;&gt;&gt; FIXED(1234.567, 1)
@@ -4972,12 +4540,10 @@ If no_commas is True, then omits the commas.</p>
 '3500'
 </code></pre>
 </details>
-<details id="left">
+<details>
 <summary >
-<h4 id="left_1">LEFT<a class="headerlink" href="#left_1" title="Permanent link">#</a></h4>
-<p><code><strong>LEFT</strong>(string, num_chars=1)</code>
-<a class="headerlink" href="#left" title="Permanent link">#</a>
-</summary>
+<h4 id="left"><code><strong>LEFT</strong>(string, num_chars=1)</code><a class="headerlink" href="#left" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a substring of length num_chars from the beginning of the given string. If num_chars is
 omitted, it is assumed to be 1. Same as <code>string[:num_chars]</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; LEFT(&quot;Sale Price&quot;, 4)
@@ -4992,12 +4558,10 @@ Traceback (most recent call last):
 ValueError: num_chars invalid
 </code></pre>
 </details>
-<details id="len">
+<details>
 <summary >
-<h4 id="len_1">LEN<a class="headerlink" href="#len_1" title="Permanent link">#</a></h4>
-<p><code><strong>LEN</strong>(text)</code>
-<a class="headerlink" href="#len" title="Permanent link">#</a>
-</summary>
+<h4 id="len"><code><strong>LEN</strong>(text)</code><a class="headerlink" href="#len" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the number of characters in a text string, or the number of items in a list. Same as
 <a href="https://docs.python.org/3/library/functions.html#len"><code>len</code></a> in python.
 See <a href="#recordset">Record Set</a> for an example of using <code>len</code> on a list of records.</p>
@@ -5011,12 +4575,10 @@ See <a href="#recordset">Record Set</a> for an example of using <code>len</code>
 11
 </code></pre>
 </details>
-<details id="lower">
+<details>
 <summary >
-<h4 id="lower_1">LOWER<a class="headerlink" href="#lower_1" title="Permanent link">#</a></h4>
-<p><code><strong>LOWER</strong>(text)</code>
-<a class="headerlink" href="#lower" title="Permanent link">#</a>
-</summary>
+<h4 id="lower"><code><strong>LOWER</strong>(text)</code><a class="headerlink" href="#lower" title="Permanent link">#</a></h4>
+<p></summary>
 Converts a specified string to lowercase. Same as <code>text.lower()</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; LOWER(&quot;E. E. Cummings&quot;)
 'e. e. cummings'
@@ -5025,12 +4587,10 @@ Converts a specified string to lowercase. Same as <code>text.lower()</code>.</p>
 'apt. 2b'
 </code></pre>
 </details>
-<details id="mid">
+<details>
 <summary >
-<h4 id="mid_1">MID<a class="headerlink" href="#mid_1" title="Permanent link">#</a></h4>
-<p><code><strong>MID</strong>(text, start_num, num_chars)</code>
-<a class="headerlink" href="#mid" title="Permanent link">#</a>
-</summary>
+<h4 id="mid"><code><strong>MID</strong>(text, start_num, num_chars)</code><a class="headerlink" href="#mid" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a segment of a string, starting at start_num. The first character in text has
 start_num 1.</p>
 <pre><code class="language-python">&gt;&gt;&gt; MID(&quot;Fluid Flow&quot;, 1, 5)
@@ -5048,12 +4608,10 @@ Traceback (most recent call last):
 ValueError: start_num invalid
 </code></pre>
 </details>
-<details id="phone_format">
+<details>
 <summary >
-<h4 id="phone_format_1">PHONE_FORMAT<a class="headerlink" href="#phone_format_1" title="Permanent link">#</a></h4>
-<p><code><strong>PHONE_FORMAT</strong>(value, country=None, format=None)</code>
-<a class="headerlink" href="#phone_format" title="Permanent link">#</a>
-</summary>
+<h4 id="phone_format"><code><strong>PHONE_FORMAT</strong>(value, country=None, format=None)</code><a class="headerlink" href="#phone_format" title="Permanent link">#</a></h4>
+<p></summary>
 Formats a phone number.</p>
 <p>With no optional arguments, the number must start with &ldquo;+&rdquo; and the international dialing prefix,
 and will be formatted as an international number, e.g. <code>+12345678901</code> becomes <code>+1 234-567-8901</code>.</p>
@@ -5123,12 +4681,10 @@ Traceback (most recent call last):
 TypeError: Phone number must be a text value. If formatting a value from a Numeric column, convert that column to Text first.
 </code></pre>
 </details>
-<details id="proper">
+<details>
 <summary >
-<h4 id="proper_1">PROPER<a class="headerlink" href="#proper_1" title="Permanent link">#</a></h4>
-<p><code><strong>PROPER</strong>(text)</code>
-<a class="headerlink" href="#proper" title="Permanent link">#</a>
-</summary>
+<h4 id="proper"><code><strong>PROPER</strong>(text)</code><a class="headerlink" href="#proper" title="Permanent link">#</a></h4>
+<p></summary>
 Capitalizes each word in a specified string. It converts the first letter of each word to
 uppercase, and all other letters to lowercase. Same as <code>text.title()</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; PROPER('this is a TITLE')
@@ -5141,12 +4697,10 @@ uppercase, and all other letters to lowercase. Same as <code>text.title()</code>
 '76Budget'
 </code></pre>
 </details>
-<details id="regexextract">
+<details>
 <summary >
-<h4 id="regexextract_1">REGEXEXTRACT<a class="headerlink" href="#regexextract_1" title="Permanent link">#</a></h4>
-<p><code><strong>REGEXEXTRACT</strong>(text, regular_expression)</code>
-<a class="headerlink" href="#regexextract" title="Permanent link">#</a>
-</summary>
+<h4 id="regexextract"><code><strong>REGEXEXTRACT</strong>(text, regular_expression)</code><a class="headerlink" href="#regexextract" title="Permanent link">#</a></h4>
+<p></summary>
 Extracts the first part of text that matches regular_expression.</p>
 <pre><code class="language-python">&gt;&gt;&gt; REGEXEXTRACT(&quot;Google Doc 101&quot;, &quot;[0-9]+&quot;)
 '101'
@@ -5164,12 +4718,10 @@ Traceback (most recent call last):
 ValueError: REGEXEXTRACT text does not match
 </code></pre>
 </details>
-<details id="regexmatch">
+<details>
 <summary >
-<h4 id="regexmatch_1">REGEXMATCH<a class="headerlink" href="#regexmatch_1" title="Permanent link">#</a></h4>
-<p><code><strong>REGEXMATCH</strong>(text, regular_expression)</code>
-<a class="headerlink" href="#regexmatch" title="Permanent link">#</a>
-</summary>
+<h4 id="regexmatch"><code><strong>REGEXMATCH</strong>(text, regular_expression)</code><a class="headerlink" href="#regexmatch" title="Permanent link">#</a></h4>
+<p></summary>
 Returns whether a piece of text matches a regular expression.</p>
 <pre><code class="language-python">&gt;&gt;&gt; REGEXMATCH(&quot;Google Doc 101&quot;, &quot;[0-9]+&quot;)
 True
@@ -5187,12 +4739,10 @@ True
 False
 </code></pre>
 </details>
-<details id="regexreplace">
+<details>
 <summary >
-<h4 id="regexreplace_1">REGEXREPLACE<a class="headerlink" href="#regexreplace_1" title="Permanent link">#</a></h4>
-<p><code><strong>REGEXREPLACE</strong>(text, regular_expression, replacement)</code>
-<a class="headerlink" href="#regexreplace" title="Permanent link">#</a>
-</summary>
+<h4 id="regexreplace"><code><strong>REGEXREPLACE</strong>(text, regular_expression, replacement)</code><a class="headerlink" href="#regexreplace" title="Permanent link">#</a></h4>
+<p></summary>
 Replaces all parts of text matching the given regular expression with replacement text.</p>
 <pre><code class="language-python">&gt;&gt;&gt; REGEXREPLACE(&quot;Google Doc 101&quot;, &quot;[0-9]+&quot;, &quot;777&quot;)
 'Google Doc 777'
@@ -5210,12 +4760,10 @@ Replaces all parts of text matching the given regular expression with replacemen
 'Foo'
 </code></pre>
 </details>
-<details id="replace">
+<details>
 <summary >
-<h4 id="replace_1">REPLACE<a class="headerlink" href="#replace_1" title="Permanent link">#</a></h4>
-<p><code><strong>REPLACE</strong>(text, position, length, new_text)</code>
-<a class="headerlink" href="#replace" title="Permanent link">#</a>
-</summary>
+<h4 id="replace"><code><strong>REPLACE</strong>(text, position, length, new_text)</code><a class="headerlink" href="#replace" title="Permanent link">#</a></h4>
+<p></summary>
 Replaces part of a text string with a different text string. Position is counted from 1.</p>
 <pre><code class="language-python">&gt;&gt;&gt; REPLACE(&quot;abcdefghijk&quot;, 6, 5, &quot;*&quot;)
 'abcde*k'
@@ -5235,12 +4783,10 @@ Traceback (most recent call last):
 ValueError: position invalid
 </code></pre>
 </details>
-<details id="rept">
+<details>
 <summary >
-<h4 id="rept_1">REPT<a class="headerlink" href="#rept_1" title="Permanent link">#</a></h4>
-<p><code><strong>REPT</strong>(text, number_times)</code>
-<a class="headerlink" href="#rept" title="Permanent link">#</a>
-</summary>
+<h4 id="rept"><code><strong>REPT</strong>(text, number_times)</code><a class="headerlink" href="#rept" title="Permanent link">#</a></h4>
+<p></summary>
 Returns specified text repeated a number of times. Same as <code>text * number_times</code>.</p>
 <p>The result of the REPT function cannot be longer than 32767 characters, or it raises a
 ValueError.</p>
@@ -5267,12 +4813,10 @@ Traceback (most recent call last):
 ValueError: number_times invalid
 </code></pre>
 </details>
-<details id="right">
+<details>
 <summary >
-<h4 id="right_1">RIGHT<a class="headerlink" href="#right_1" title="Permanent link">#</a></h4>
-<p><code><strong>RIGHT</strong>(string, num_chars=1)</code>
-<a class="headerlink" href="#right" title="Permanent link">#</a>
-</summary>
+<h4 id="right"><code><strong>RIGHT</strong>(string, num_chars=1)</code><a class="headerlink" href="#right" title="Permanent link">#</a></h4>
+<p></summary>
 Returns a substring of length num_chars from the end of a specified string. If num_chars is
 omitted, it is assumed to be 1. Same as <code>string[-num_chars:]</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; RIGHT(&quot;Sale Price&quot;, 5)
@@ -5290,12 +4834,10 @@ Traceback (most recent call last):
 ValueError: num_chars invalid
 </code></pre>
 </details>
-<details id="search">
+<details>
 <summary >
-<h4 id="search_1">SEARCH<a class="headerlink" href="#search_1" title="Permanent link">#</a></h4>
-<p><code><strong>SEARCH</strong>(find_text, within_text, start_num=1)</code>
-<a class="headerlink" href="#search" title="Permanent link">#</a>
-</summary>
+<h4 id="search"><code><strong>SEARCH</strong>(find_text, within_text, start_num=1)</code><a class="headerlink" href="#search" title="Permanent link">#</a></h4>
+<p></summary>
 Returns the position at which a string is first found within text, ignoring case.</p>
 <p>Find is case-sensitive. The returned position is 1 if within_text starts with find_text.
 Start_num specifies the character at which to start the search, defaulting to 1 (the first
@@ -5320,12 +4862,10 @@ character of within_text).</p>
 4
 </code></pre>
 </details>
-<details id="substitute">
+<details>
 <summary >
-<h4 id="substitute_1">SUBSTITUTE<a class="headerlink" href="#substitute_1" title="Permanent link">#</a></h4>
-<p><code><strong>SUBSTITUTE</strong>(text, old_text, new_text, instance_num=None)</code>
-<a class="headerlink" href="#substitute" title="Permanent link">#</a>
-</summary>
+<h4 id="substitute"><code><strong>SUBSTITUTE</strong>(text, old_text, new_text, instance_num=None)</code><a class="headerlink" href="#substitute" title="Permanent link">#</a></h4>
+<p></summary>
 Replaces existing text with new text in a string. It is useful when you know the substring of
 text to replace. Use REPLACE when you know the position of text to replace.</p>
 <p>If instance_num is given, it specifies which occurrence of old_text to replace. If omitted, all
@@ -5341,12 +4881,10 @@ u'Quarter 2, 2008'
 u'Quarter 1, 2012'
 </code></pre>
 </details>
-<details id="t">
+<details>
 <summary >
-<h4 id="t_1">T<a class="headerlink" href="#t_1" title="Permanent link">#</a></h4>
-<p><code><strong>T</strong>(value)</code>
-<a class="headerlink" href="#t" title="Permanent link">#</a>
-</summary>
+<h4 id="t"><code><strong>T</strong>(value)</code><a class="headerlink" href="#t" title="Permanent link">#</a></h4>
+<p></summary>
 Returns value if value is text, or the empty string when value is not text.</p>
 <pre><code class="language-python">&gt;&gt;&gt; T('Text')
 u'Text'
@@ -5370,12 +4908,10 @@ u'Text'
 u''
 </code></pre>
 </details>
-<details id="tasteme">
+<details>
 <summary >
-<h4 id="tasteme_1">TASTEME<a class="headerlink" href="#tasteme_1" title="Permanent link">#</a></h4>
-<p><code><strong>TASTEME</strong>(food)</code>
-<a class="headerlink" href="#tasteme" title="Permanent link">#</a>
-</summary>
+<h4 id="tasteme"><code><strong>TASTEME</strong>(food)</code><a class="headerlink" href="#tasteme" title="Permanent link">#</a></h4>
+<p></summary>
 For any given piece of text, decides if it is tasty or not.</p>
 <p>This is not serious. It appeared as an Easter egg, and is kept as such. It is in fact a puzzle
 to figure out the underlying simple rule. It has been surprisingly rarely cracked, even after
@@ -5387,23 +4923,19 @@ True
 False
 </code></pre>
 </details>
-<details id="text">
+<details>
 <summary class="unimplemented">
-<h4 id="text_2">TEXT<a class="headerlink" href="#text_2" title="Permanent link">#</a></h4>
-<p><code><strong>TEXT</strong>(number, format_type)</code>
-<a class="headerlink" href="#text" title="Permanent link">#</a>
-</summary>
+<h4 id="text"><code><strong>TEXT</strong>(number, format_type)</code><a class="headerlink" href="#text" title="Permanent link">#</a></h4>
+<p></summary>
 Converts a number into text according to a specified format. It is not yet implemented in
 Grist. You can use the similar Python functions str() to convert numbers into strings, and
 optionally format() to specify the number format.</p>
 <p><span class="grist-tip">Note</span>This function is not currently implemented in Grist.</p>
 </details>
-<details id="trim">
+<details>
 <summary >
-<h4 id="trim_1">TRIM<a class="headerlink" href="#trim_1" title="Permanent link">#</a></h4>
-<p><code><strong>TRIM</strong>(text)</code>
-<a class="headerlink" href="#trim" title="Permanent link">#</a>
-</summary>
+<h4 id="trim"><code><strong>TRIM</strong>(text)</code><a class="headerlink" href="#trim" title="Permanent link">#</a></h4>
+<p></summary>
 Removes all spaces from text except for single spaces between words. Note that TRIM does not
 remove other whitespace such as tab or newline characters.</p>
 <pre><code class="language-python">&gt;&gt;&gt; TRIM(&quot; First Quarter\n    Earnings     &quot;)
@@ -5413,12 +4945,10 @@ remove other whitespace such as tab or newline characters.</p>
 ''
 </code></pre>
 </details>
-<details id="upper">
+<details>
 <summary >
-<h4 id="upper_1">UPPER<a class="headerlink" href="#upper_1" title="Permanent link">#</a></h4>
-<p><code><strong>UPPER</strong>(text)</code>
-<a class="headerlink" href="#upper" title="Permanent link">#</a>
-</summary>
+<h4 id="upper"><code><strong>UPPER</strong>(text)</code><a class="headerlink" href="#upper" title="Permanent link">#</a></h4>
+<p></summary>
 Converts a specified string to uppercase. Same as <code>text.upper()</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; UPPER(&quot;e. e. cummings&quot;)
 'E. E. CUMMINGS'
@@ -5427,12 +4957,10 @@ Converts a specified string to uppercase. Same as <code>text.upper()</code>.</p>
 'APT. 2B'
 </code></pre>
 </details>
-<details id="value">
+<details>
 <summary >
-<h4 id="value_1">VALUE<a class="headerlink" href="#value_1" title="Permanent link">#</a></h4>
-<p><code><strong>VALUE</strong>(text)</code>
-<a class="headerlink" href="#value" title="Permanent link">#</a>
-</summary>
+<h4 id="value"><code><strong>VALUE</strong>(text)</code><a class="headerlink" href="#value" title="Permanent link">#</a></h4>
+<p></summary>
 Converts a string in accepted date, time or number formats into a number or date.</p>
 <pre><code class="language-python">&gt;&gt;&gt; VALUE(&quot;$1,000&quot;)
 1000
