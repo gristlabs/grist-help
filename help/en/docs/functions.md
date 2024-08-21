@@ -44,7 +44,7 @@ Python (see [Python documentation](https://docs.python.org/3.11/)). Here are som
 <!-- BEGIN mkpydocs docs -->
 ### Grist
 <details markdown><summary >
-#### <code>class __Record__</code> {: #record }
+#### <code>class __Record__</code> {: #record data-toc-label="Record" }
 </summary>
 A Record represents a record of data. It is the primary means of accessing values in formulas. A
 Record for a particular table has a property for each data and formula column in the table.
@@ -67,7 +67,7 @@ def Name_Length(rec, table):
 Access the field named "Field" of the current record. E.g. `$First_Name` or `rec.First_Name`.
 </details>
 <details markdown><summary >
-#### <code>__$group__</code> {: #_group }
+#### <code>__$group__</code> {: #_group data-toc-label="$group" }
 </summary>
 In a [summary table](summary-tables.md), `$group` is a special field
 containing the list of Records that are summarized by the current summary line.  E.g. the
@@ -84,7 +84,7 @@ sum(r.Shares * r.Price for r in $group)   # Sum of shares * price products
 ```
 </details>
 <details markdown><summary >
-#### <code>class __RecordSet__</code> {: #recordset }
+#### <code>class __RecordSet__</code> {: #recordset data-toc-label="RecordSet" }
 </summary>
 A RecordSet represents a collection of records, as returned by `Table.lookupRecords()` or
 `$group` property in summary views.
@@ -105,7 +105,7 @@ min(Tasks.lookupRecords(Owner="Bob").DueDate)
 You can get the number of records in a RecordSet using `len`, e.g. `len($group)`.
 </details>
 <details markdown><summary >
-#### <code>RecordSet.**find.\***(value)</code> {: #find_ data-toc-label="RecordSet.find" }
+#### <code>RecordSet.**find.\***(value)</code> {: #find_ data-toc-label="find.*" }
 </summary>
 A set of methods for finding values in sorted sets of records, as returned by
 [`lookupRecords`](#lookuprecords). For example:
@@ -151,7 +151,7 @@ return rate.Hourly_Rate
 Note that this is also much faster when there are many rates for the same Person and Role.
 </details>
 <details markdown><summary >
-#### <code>class __UserTable__</code> {: #usertable }
+#### <code>class __UserTable__</code> {: #usertable data-toc-label="UserTable" }
 </summary>
 Each data table in the document is represented in the code by an instance of `UserTable` class.
 These names are always capitalized. A UserTable provides access to all the records in the table,
@@ -160,7 +160,7 @@ as well as methods to look up particular records.
 Every table in the document is available to all formulas.
 </details>
 <details markdown><summary >
-#### <code>UserTable.__all__</code> {: #all }
+#### <code>UserTable.__all__</code> {: #all data-toc-label="all" }
 </summary>
 The list of all the records in this table.
 
@@ -175,7 +175,7 @@ sum(r.Population for r in Countries.all)
 ```
 </details>
 <details markdown><summary >
-#### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone data-toc-label="UserTable.lookupOne" }
+#### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone data-toc-label="lookupOne" }
 </summary>
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
 expression,
@@ -204,7 +204,7 @@ Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
 <details markdown><summary >
-#### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords_2 data-toc-label="UserTable.lookupRecords" }
+#### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords data-toc-label="lookupRecords" }
 </summary>
 Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
 any expression,
@@ -998,14 +998,14 @@ Fraction between same dates, using the Actual/365 basis argument. Uses a 365 day
 ```
 </details>
 ### Info
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__CELL__(info_type, reference)</code> {: #cell data-toc-label="CELL" }
 </summary>
 Returns the requested information about the specified cell. This is not implemented in Grist
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__ISBLANK__(value)</code> {: #isblank data-toc-label="ISBLANK" }
 </summary>
 Returns whether a value refers to an empty cell. It isn't implemented in Grist. To check for an
@@ -1435,13 +1435,13 @@ RECORD(People.lookupOne(First_Name="Alice"))
 RECORD(People.lookupRecords(Department="HR"))
 ```
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__REQUEST__(url, params=None, headers=None, method='GET', data=None, json=None)</code> {: #request data-toc-label="REQUEST" }
 </summary>
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__TYPE__(value)</code> {: #type data-toc-label="TYPE" }
 </summary>
 Returns a number associated with the type of data passed into the function. This is not
@@ -1644,7 +1644,7 @@ True
 </details>
 ### Lookup
 <details markdown><summary >
-#### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone_2 data-toc-label="UserTable.lookupOne" }
+#### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone_2 data-toc-label="lookupOne" }
 </summary>
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
 expression,
@@ -1673,7 +1673,7 @@ Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
 <details markdown><summary >
-#### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords data-toc-label="UserTable.lookupRecords" }
+#### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords_2 data-toc-label="lookupRecords" }
 </summary>
 Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
 any expression,
@@ -1715,28 +1715,28 @@ value.
 
 Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__ADDRESS__(row, column, absolute_relative_mode, use_a1_notation, sheet)</code> {: #address data-toc-label="ADDRESS" }
 </summary>
 Returns a cell reference as a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__CHOOSE__(index, choice1, choice2)</code> {: #choose data-toc-label="CHOOSE" }
 </summary>
 Returns an element from a list of choices based on index.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__COLUMN__(cell_reference=None)</code> {: #column data-toc-label="COLUMN" }
 </summary>
 Returns the column number of a specified cell, with `A=1`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__COLUMNS__(range)</code> {: #columns data-toc-label="COLUMNS" }
 </summary>
 Returns the number of columns in a specified array or range.
@@ -1773,70 +1773,70 @@ For example, given this formula:
 If `g` is `''` (i.e. equal to `match_empty`) then the column `genre` in the returned records
 will either be an empty list (or other container) or a list containing `g` as usual.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__GETPIVOTDATA__(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code> {: #getpivotdata data-toc-label="GETPIVOTDATA" }
 </summary>
 Extracts an aggregated value from a pivot table that corresponds to the specified row and column headings.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__HLOOKUP__(search_key, range, index, is_sorted)</code> {: #hlookup data-toc-label="HLOOKUP" }
 </summary>
 Horizontal lookup. Searches across the first row of a range for a key and returns the value of a specified cell in the column found.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__HYPERLINK__(url, link_label)</code> {: #hyperlink data-toc-label="HYPERLINK" }
 </summary>
 Creates a hyperlink inside a cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__INDEX__(reference, row, column)</code> {: #index data-toc-label="INDEX" }
 </summary>
 Returns the content of a cell, specified by row and column offset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__INDIRECT__(cell_reference_as_string)</code> {: #indirect data-toc-label="INDIRECT" }
 </summary>
 Returns a cell reference specified by a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__LOOKUP__(search_key, search_range_or_search_result_array, result_range=None)</code> {: #lookup data-toc-label="LOOKUP" }
 </summary>
 Looks through a row or column for a key and returns the value of the cell in a result range located in the same position as the search row or column.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__MATCH__(search_key, range, search_type)</code> {: #match data-toc-label="MATCH" }
 </summary>
 Returns the relative position of an item in a range that matches a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__OFFSET__(cell_reference, offset_rows, offset_columns, height, width)</code> {: #offset data-toc-label="OFFSET" }
 </summary>
 Returns a range reference shifted a specified number of rows and columns from a starting cell reference.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__ROW__(cell_reference)</code> {: #row data-toc-label="ROW" }
 </summary>
 Returns the row number of a specified cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__ROWS__(range)</code> {: #rows data-toc-label="ROWS" }
 </summary>
 Returns the number of rows in a specified array or range.
@@ -3070,7 +3070,7 @@ Returns the positive square root of the product of Pi and the given positive num
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__SUBTOTAL__(function_code, range1, range2)</code> {: #subtotal data-toc-label="SUBTOTAL" }
 </summary>
 Returns a subtotal for a vertical range of cells using a specified aggregation function.
@@ -3099,14 +3099,14 @@ Non-numeric values are ignored.
 52
 ```
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__SUMIF__(records, criterion, sum_range)</code> {: #sumif data-toc-label="SUMIF" }
 </summary>
 Returns a conditional sum across a range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__SUMIFS__(sum_range, criteria_range1, criterion1, *args)</code> {: #sumifs data-toc-label="SUMIFS" }
 </summary>
 Returns the sum of a range depending on multiple criteria.
@@ -3141,7 +3141,7 @@ and returns the sum of those products.
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__SUMSQ__(value1, value2)</code> {: #sumsq data-toc-label="SUMSQ" }
 </summary>
 Returns the sum of the squares of a series of numbers and/or cells.
@@ -3350,7 +3350,7 @@ The time zone of `start` determines the time zone of the generated times.
 
 </details>
 ### Stats
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__AVEDEV__(value1, value2)</code> {: #avedev data-toc-label="AVEDEV" }
 </summary>
 Calculates the average of the magnitudes of deviations of data from a dataset's mean.
@@ -3420,14 +3420,14 @@ False as 0.
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__AVERAGEIF__(criteria_range, criterion, average_range=None)</code> {: #averageif data-toc-label="AVERAGEIF" }
 </summary>
 Returns the average of a range depending on criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__AVERAGEIFS__(average_range, criteria_range1, criterion1, *args)</code> {: #averageifs data-toc-label="AVERAGEIFS" }
 </summary>
 Returns the average of a range depending on multiple criteria.
@@ -3460,7 +3460,7 @@ list of pairs.
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__BINOMDIST__(num_successes, num_trials, prob_success, cumulative)</code> {: #binomdist data-toc-label="BINOMDIST" }
 </summary>
 Calculates the probability of drawing a certain number of successes (or a maximum number of
@@ -3469,14 +3469,14 @@ certain number of successes, with replacement of draws.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__CONFIDENCE__(alpha, standard_deviation, pop_size)</code> {: #confidence data-toc-label="CONFIDENCE" }
 </summary>
 Calculates the width of half the confidence interval for a normal distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__CORREL__(data_y, data_x)</code> {: #correl data-toc-label="CORREL" }
 </summary>
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.
@@ -3548,35 +3548,35 @@ Each argument may be a value or an array.
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__COVAR__(data_y, data_x)</code> {: #covar data-toc-label="COVAR" }
 </summary>
 Calculates the covariance of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__CRITBINOM__(num_trials, prob_success, target_prob)</code> {: #critbinom data-toc-label="CRITBINOM" }
 </summary>
 Calculates the smallest value for which the cumulative binomial distribution is greater than or equal to a specified criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__DEVSQ__(value1, value2)</code> {: #devsq data-toc-label="DEVSQ" }
 </summary>
 Calculates the sum of squares of deviations based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__EXPONDIST__(x, lambda_, cumulative)</code> {: #expondist data-toc-label="EXPONDIST" }
 </summary>
 Returns the value of the exponential distribution function with a specified lambda at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__FDIST__(x, degrees_freedom1, degrees_freedom2)</code> {: #fdist data-toc-label="FDIST" }
 </summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
@@ -3585,28 +3585,28 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__FISHER__(value)</code> {: #fisher data-toc-label="FISHER" }
 </summary>
 Returns the Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__FISHERINV__(value)</code> {: #fisherinv data-toc-label="FISHERINV" }
 </summary>
 Returns the inverse Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__FORECAST__(x, data_y, data_x)</code> {: #forecast data-toc-label="FORECAST" }
 </summary>
 Calculates the expected y-value for a specified x based on a linear regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__F_DIST__(x, degrees_freedom1, degrees_freedom2, cumulative)</code> {: #f_dist data-toc-label="F_DIST" }
 </summary>
 Calculates the left-tailed F probability distribution (degree of diversity) for two data sets
@@ -3615,7 +3615,7 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__F_DIST_RT__(x, degrees_freedom1, degrees_freedom2)</code> {: #f_dist_rt data-toc-label="F_DIST_RT" }
 </summary>
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
@@ -3624,56 +3624,56 @@ distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__GEOMEAN__(value1, value2)</code> {: #geomean data-toc-label="GEOMEAN" }
 </summary>
 Calculates the geometric mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__HARMEAN__(value1, value2)</code> {: #harmean data-toc-label="HARMEAN" }
 </summary>
 Calculates the harmonic mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__HYPGEOMDIST__(num_successes, num_draws, successes_in_pop, pop_size)</code> {: #hypgeomdist data-toc-label="HYPGEOMDIST" }
 </summary>
 Calculates the probability of drawing a certain number of successes in a certain number of tries given a population of a certain size containing a certain number of successes, without replacement of draws.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__INTERCEPT__(data_y, data_x)</code> {: #intercept data-toc-label="INTERCEPT" }
 </summary>
 Calculates the y-value at which the line resulting from linear regression of a dataset will intersect the y-axis (x=0).
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__KURT__(value1, value2)</code> {: #kurt data-toc-label="KURT" }
 </summary>
 Calculates the kurtosis of a dataset, which describes the shape, and in particular the "peakedness" of that dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__LARGE__(data, n)</code> {: #large data-toc-label="LARGE" }
 </summary>
 Returns the nth largest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__LOGINV__(x, mean, standard_deviation)</code> {: #loginv data-toc-label="LOGINV" }
 </summary>
 Returns the value of the inverse log-normal cumulative distribution with given mean and standard deviation at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__LOGNORMDIST__(x, mean, standard_deviation)</code> {: #lognormdist data-toc-label="LOGNORMDIST" }
 </summary>
 Returns the value of the log-normal cumulative distribution with given mean and standard deviation at a specified value.
@@ -3897,21 +3897,21 @@ False as 0. Returns 0 if the arguments contain no numbers.
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__MODE__(value1, value2)</code> {: #mode data-toc-label="MODE" }
 </summary>
 Returns the most commonly occurring value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__NEGBINOMDIST__(num_failures, num_successes, prob_success)</code> {: #negbinomdist data-toc-label="NEGBINOMDIST" }
 </summary>
 Calculates the probability of drawing a certain number of failures before a certain number of successes given a probability of success in independent trials.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__NORMDIST__(x, mean, standard_deviation, cumulative)</code> {: #normdist data-toc-label="NORMDIST" }
 </summary>
 Returns the value of the normal distribution function (or normal cumulative distribution
@@ -3919,70 +3919,70 @@ function) for a specified value, mean, and standard deviation.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__NORMINV__(x, mean, standard_deviation)</code> {: #norminv data-toc-label="NORMINV" }
 </summary>
 Returns the value of the inverse normal distribution function for a specified value, mean, and standard deviation.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__NORMSDIST__(x)</code> {: #normsdist data-toc-label="NORMSDIST" }
 </summary>
 Returns the value of the standard normal cumulative distribution function for a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__NORMSINV__(x)</code> {: #normsinv data-toc-label="NORMSINV" }
 </summary>
 Returns the value of the inverse standard normal distribution function for a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__PEARSON__(data_y, data_x)</code> {: #pearson data-toc-label="PEARSON" }
 </summary>
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__PERCENTILE__(data, percentile)</code> {: #percentile data-toc-label="PERCENTILE" }
 </summary>
 Returns the value at a given percentile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__PERCENTRANK__(data, value, significant_digits=None)</code> {: #percentrank data-toc-label="PERCENTRANK" }
 </summary>
 Returns the percentage rank (percentile) of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__PERCENTRANK_EXC__(data, value, significant_digits=None)</code> {: #percentrank_exc data-toc-label="PERCENTRANK_EXC" }
 </summary>
 Returns the percentage rank (percentile) from 0 to 1 exclusive of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__PERCENTRANK_INC__(data, value, significant_digits=None)</code> {: #percentrank_inc data-toc-label="PERCENTRANK_INC" }
 </summary>
 Returns the percentage rank (percentile) from 0 to 1 inclusive of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__PERMUT__(n, k)</code> {: #permut data-toc-label="PERMUT" }
 </summary>
 Returns the number of ways to choose some number of objects from a pool of a given size of objects, considering order.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__POISSON__(x, mean, cumulative)</code> {: #poisson data-toc-label="POISSON" }
 </summary>
 Returns the value of the Poisson distribution function (or Poisson cumulative distribution
@@ -3990,63 +3990,63 @@ function) for a specified value and mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__PROB__(data, probabilities, low_limit, high_limit=None)</code> {: #prob data-toc-label="PROB" }
 </summary>
 Given a set of values and corresponding probabilities, calculates the probability that a value chosen at random falls between two limits.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__QUARTILE__(data, quartile_number)</code> {: #quartile data-toc-label="QUARTILE" }
 </summary>
 Returns a value nearest to a specified quartile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__RANK_AVG__(value, data, is_ascending=None)</code> {: #rank_avg data-toc-label="RANK_AVG" }
 </summary>
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the average rank of the entries will be returned.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__RANK_EQ__(value, data, is_ascending=None)</code> {: #rank_eq data-toc-label="RANK_EQ" }
 </summary>
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the top rank of the entries will be returned.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__RSQ__(data_y, data_x)</code> {: #rsq data-toc-label="RSQ" }
 </summary>
 Calculates the square of r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__SKEW__(value1, value2)</code> {: #skew data-toc-label="SKEW" }
 </summary>
 Calculates the skewness of a dataset, which describes the symmetry of that dataset about the mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__SLOPE__(data_y, data_x)</code> {: #slope data-toc-label="SLOPE" }
 </summary>
 Calculates the slope of the line resulting from linear regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__SMALL__(data, n)</code> {: #small data-toc-label="SMALL" }
 </summary>
 Returns the nth smallest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__STANDARDIZE__(value, mean, standard_deviation)</code> {: #standardize data-toc-label="STANDARDIZE" }
 </summary>
 Calculates the normalized equivalent of a random variable given mean and standard deviation of the distribution.
@@ -4185,84 +4185,84 @@ Calculates the standard deviation based on an entire population, setting text to
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__STEYX__(data_y, data_x)</code> {: #steyx data-toc-label="STEYX" }
 </summary>
 Calculates the standard error of the predicted y-value for each x in the regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__TDIST__(x, degrees_freedom, tails)</code> {: #tdist data-toc-label="TDIST" }
 </summary>
 Calculates the probability for Student's t-distribution with a given input (x).
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__TINV__(probability, degrees_freedom)</code> {: #tinv data-toc-label="TINV" }
 </summary>
 Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__TRIMMEAN__(data, exclude_proportion)</code> {: #trimmean data-toc-label="TRIMMEAN" }
 </summary>
 Calculates the mean of a dataset excluding some proportion of data from the high and low ends of the dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__TTEST__(range1, range2, tails, type)</code> {: #ttest data-toc-label="TTEST" }
 </summary>
 Returns the probability associated with t-test. Determines whether two samples are likely to have come from the same two underlying populations that have the same mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__T_INV__(probability, degrees_freedom)</code> {: #t_inv data-toc-label="T_INV" }
 </summary>
 Calculates the negative inverse of the one-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__T_INV_2T__(probability, degrees_freedom)</code> {: #t_inv_2t data-toc-label="T_INV_2T" }
 </summary>
 Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__VAR__(value1, value2)</code> {: #var data-toc-label="VAR" }
 </summary>
 Calculates the variance based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__VARA__(value1, value2)</code> {: #vara data-toc-label="VARA" }
 </summary>
 Calculates an estimate of variance based on a sample, setting text to the value `0`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__VARP__(value1, value2)</code> {: #varp data-toc-label="VARP" }
 </summary>
 Calculates the variance based on an entire population.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__VARPA__(value1, value2)</code> {: #varpa data-toc-label="VARPA" }
 </summary>
 Calculates the variance based on an entire population, setting text to the value `0`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__WEIBULL__(x, shape, scale, cumulative)</code> {: #weibull data-toc-label="WEIBULL" }
 </summary>
 Returns the value of the Weibull distribution function (or Weibull cumulative distribution
@@ -4270,7 +4270,7 @@ function) for a specified shape and scale.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__ZTEST__(data, value, standard_deviation)</code> {: #ztest data-toc-label="ZTEST" }
 </summary>
 Returns the two-tailed P-value of a Z-test with standard distribution.
@@ -5138,7 +5138,7 @@ False
 ```
 
 </details>
-<details>
+<details markdown><summary class="unimplemented">
 #### <code>__TEXT__(number, format_type)</code> {: #text data-toc-label="TEXT" }
 </summary>
 Converts a number into text according to a specified format. It is not yet implemented in
