@@ -633,8 +633,23 @@ and set the following variables:
 * TYPEORM_HOST - set to hostname of database, e.g. grist.mumble.rds.amazonaws.com
 * TYPEORM_PORT - set to port number of database if not the default for PostgreSQL
 
-Grist is known to work with PostgreSQL from versions 10 through 14 (later versions
-are likely to work also, but have not been specifically tested at the time of writing).
+Grist is known to work with PostgreSQL from versions 10 through 16.
+Recent versions, however, have enabled by default a JIT compiler that
+is known to cause problems with Grist, which expresses itself as every
+cell operation taking a few noticeable seconds. In case this happens,
+PostgreSQL's JIT compiler should be disabled for Grist with the
+command-line argument `-c jit=off` or via [other methods of changing
+the PostgreSQL
+configuration](https://www.postgresql.org/docs/current/config-setting.html#CONFIG-SETTING-CONFIGURATION-FILE).
+In a `docker-compose.yaml` file, for example, the JIT compiler can be
+disabled like this:
+
+```yaml
+  postgres:
+    image: postgres:latest
+    command: -c jit=off
+  # other config follows...
+```
 
 ### What is a state store? {: .tag-core .tag-ee }
 
