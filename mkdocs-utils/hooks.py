@@ -4,6 +4,8 @@
 # Original Author: Sebastián Ramírez and contributors
 
 import glob
+import yaml
+import urllib.parse
 from functools import lru_cache
 from pathlib import Path
 from textwrap import indent
@@ -21,17 +23,28 @@ MISSING_TRANSLATION_FILENAME = "MISSING-TRANSLATION.md"
 MACHINE_TRANSLATION_FILENAME = "MACHINE-TRANSLATION.md"
 
 def _get_warning_file_content(docs_dir: str, filename: str):
-  missing_translation_file_path = Path(docs_dir).parent / filename
-  missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
-  return "!!!warning\n\n" + indent(missing_translation_content, "    ")
+  warning_file_path = Path(docs_dir).parent / filename
+  wanrning_content = warning_file_path.read_text(encoding="utf-8")
+  return "!!!warning\n\n" + indent(wanrning_content, "    ")
+
+@lru_cache
+def _get_issue_url_for_translation_commitment():
+  template_path = Path(__file__).parent.parent / ".github/ISSUE_TEMPLATE/10-help-translating.yml"
+  template = template_path.read_text(encoding="utf-8")
+  parsedTemplate = yaml.safe_load(template)
+  uriEncodedTitle = urllib.parse.quote_plus(parsedTemplate['title'])
+  uriEncodedTemplate = urllib.parse.quote_plus(template_path.name)
+  return "https://github.com/gristlabs/grist-help/issues/new?template=%s&title=%s" % (uriEncodedTemplate, uriEncodedTitle)
 
 @lru_cache
 def get_missing_translation_content(docs_dir: str) -> str:
-  return _get_warning_file_content(docs_dir, MISSING_TRANSLATION_FILENAME)
+  content = _get_warning_file_content(docs_dir, MISSING_TRANSLATION_FILENAME)
+  return content.replace('__ISSUE_URL__', _get_issue_url_for_translation_commitment())
 
 @lru_cache
 def get_automated_translation_content(docs_dir: str) -> str:
-  return _get_warning_file_content(docs_dir, MACHINE_TRANSLATION_FILENAME)
+  content = _get_warning_file_content(docs_dir, MACHINE_TRANSLATION_FILENAME)
+  return content.replace('__ISSUE_URL__', _get_issue_url_for_translation_commitment())
 
 
 class EnFile(File):
