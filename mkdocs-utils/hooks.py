@@ -4,6 +4,8 @@
 # Original Author: Sebastián Ramírez and contributors
 
 import glob
+import yaml
+import urllib.parse
 from functools import lru_cache
 from pathlib import Path
 from textwrap import indent
@@ -17,11 +19,32 @@ from mkdocs.utils.yaml import yaml_load
 non_translated_sections = [] # Add the sections that are not translated here
 
 
+MISSING_TRANSLATION_FILENAME = "MISSING-TRANSLATION.md"
+MACHINE_TRANSLATION_FILENAME = "MACHINE-TRANSLATION.md"
+
+def _get_warning_file_content(docs_dir: str, filename: str):
+  warning_file_path = Path(docs_dir).parent / filename
+  wanrning_content = warning_file_path.read_text(encoding="utf-8")
+  return "!!!warning\n\n" + indent(wanrning_content, "    ")
+
+@lru_cache
+def _get_issue_url_for_translation_commitment():
+  template_path = Path(__file__).parent.parent / ".github/ISSUE_TEMPLATE/10-help-translating.yml"
+  template = template_path.read_text(encoding="utf-8")
+  parsedTemplate = yaml.safe_load(template)
+  uriEncodedTitle = urllib.parse.quote_plus(parsedTemplate['title'])
+  uriEncodedTemplate = urllib.parse.quote_plus(template_path.name)
+  return "https://github.com/gristlabs/grist-help/issues/new?template=%s&title=%s" % (uriEncodedTemplate, uriEncodedTitle)
+
 @lru_cache
 def get_missing_translation_content(docs_dir: str) -> str:
-  missing_translation_file_path = Path(docs_dir).parent / "MISSING-TRANSLATION.md"
-  missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
-  return "!!!warning\n\n" + indent(missing_translation_content, "    ")
+  content = _get_warning_file_content(docs_dir, MISSING_TRANSLATION_FILENAME)
+  return content.replace('__ISSUE_URL__', _get_issue_url_for_translation_commitment())
+
+@lru_cache
+def get_automated_translation_content(docs_dir: str) -> str:
+  content = _get_warning_file_content(docs_dir, MACHINE_TRANSLATION_FILENAME)
+  return content.replace('__ISSUE_URL__', _get_issue_url_for_translation_commitment())
 
 
 class EnFile(File):
@@ -86,17 +109,24 @@ def on_files(files: Files, *, config: MkDocsConfig) -> Files:
   resolve_files(items=config.extra_javascript, files=files, config=config)
   return files
 
+def _inject_warning(markdown: str, warning: str, page: Page):
+  for excluded_section in non_translated_sections:
+    if page.file.src_path.startswith(excluded_section):
+      return markdown
+  missing_translation_content = warning
+  header = ""
+  body = markdown
+  if markdown.startswith("#"):
+    header, _, body = markdown.partition("\n\n")
+  return f"{header}\n\n{missing_translation_content}\n\n{body}"
+
 def on_page_markdown(
   markdown: str, *, page: Page, config: MkDocsConfig, **_: Any
 ) -> str:
+  docs_dir=Path(config.docs_dir)
   if isinstance(page.file, EnFile):
-    for excluded_section in non_translated_sections:
-      if page.file.src_path.startswith(excluded_section):
-        return markdown
-    missing_translation_content = get_missing_translation_content(config.docs_dir)
-    header = ""
-    body = markdown
-    if markdown.startswith("#"):
-      header, _, body = markdown.partition("\n\n")
-    return f"{header}\n\n{missing_translation_content}\n\n{body}"
+    return _inject_warning(markdown=markdown, page=page, warning=get_missing_translation_content(config.docs_dir))
+  elif docs_dir.parent.name != 'en' and (docs_dir.parent / MACHINE_TRANSLATION_FILENAME).exists():
+    return _inject_warning(markdown=markdown, page=page, warning=get_automated_translation_content(config.docs_dir))
+
   return markdown

@@ -4,7 +4,7 @@
 
     Nous affichons des pages traduites partiellement de sorte de suivre l'avancement.
 
-    Cette page n'est pas encore traduite. Mais la bonne nouvelle est que [vous pouvez rejoindre la communauté de traduction pour nous aider 👋](https://hosted.weblate.org/engage/grist-help/){.internal-link target=_blank}.
+    Cette page n'est pas encore traduite. Mais la bonne nouvelle est que [vous pouvez rejoindre la communauté de traduction pour nous aider 👋](https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml){.internal-link target=_blank}.
 
 
 
