@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="This feature allows automatic syncing of Grist documents and document
-versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
-      <meta property="og:description" content="This feature allows automatic syncing of Grist documents and document
-versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
+      <meta name="description" content="Cette fonctionnalité permet la synchronisation automatique des documents Grist et des versions de documents vers des magasins compatibles S3 tels que MinIO (ou AWS S3 lui-même).">
+      <meta property="og:description" content="Cette fonctionnalité permet la synchronisation automatique des documents Grist et des versions de documents vers des magasins compatibles S3 tels que MinIO (ou AWS S3 lui-même).">
     
     
     <link rel="canonical" href="https://support.getgrist.com/install/cloud-storage/">
@@ -485,12 +483,12 @@ versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Cloud Storage
+              Stockage Cloud
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#s3-compatible-stores-via-minio-client">
-                S3-compatible stores via MinIO client
+              <a class="wm-article-link wm-page-toc-text" href="#magasins-compatibles-s3-via-le-client-minio">
+                Magasins compatibles S3 via le client MinIO
               </a>
             </li>
             <li class="wm-toc-li">
@@ -499,13 +497,13 @@ versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#s3-with-native-aws-client">
-                S3 with native AWS client
+              <a class="wm-article-link wm-page-toc-text" href="#s3-avec-le-client-aws-natif">
+                S3 avec le client AWS natif
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#usage-once-configured">
-                Usage once configured
+              <a class="wm-article-link wm-page-toc-text" href="#utilisation-une-fois-configure">
+                Utilisation une fois configuré
               </a>
             </li>
         
@@ -937,61 +935,48 @@ versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 class="tag-core tag-ee" id="cloud-storage">Cloud Storage<a class="headerlink" href="#cloud-storage" title="Permanent link">#</a></h1>
-<p>This feature allows automatic syncing of Grist documents and document
-versions to S3-compatible stores such as MinIO (or AWS S3 itself).</p>
-<p>Grist Enterprise has native support for Azure storage accounts, and
-for AWS S3 using AWS&rsquo;s official client.</p>
-<p>It is advisable to have <a href="../../self-managed/#what-is-a-state-store">Redis enabled</a> when using cloud storage, since this is the best-tested configuration.</p>
-<p>Enabling snapshotting results in a big change in how documents are stored, and is best done prior to creating documents. Back up your work before changing this configuration.</p>
-<h2 class="tag-core tag-ee" id="s3-compatible-stores-via-minio-client">S3-compatible stores via MinIO client<a class="headerlink" href="#s3-compatible-stores-via-minio-client" title="Permanent link">#</a></h2>
-<p>Turn this on by setting the following environment variables:</p>
+<h1 class="tag-core tag-ee" id="stockage-cloud">Stockage Cloud<a class="headerlink" href="#stockage-cloud" title="Permanent link">#</a></h1>
+<p>Cette fonctionnalité permet la synchronisation automatique des documents Grist et des versions de documents vers des magasins compatibles S3 tels que MinIO (ou AWS S3 lui-même).</p>
+<p>Grist Enterprise prend en charge nativement les comptes de stockage Azure et AWS S3 en utilisant le client officiel d&rsquo;AWS.</p>
+<p>Il est conseillé d&rsquo;avoir <a href="../../self-managed/#what-is-a-state-store">Redis activé</a> lors de l&rsquo;utilisation du stockage cloud, car c&rsquo;est la configuration la mieux testée.</p>
+<p>Activer la création de snapshots entraîne un grand changement dans la façon dont les documents sont stockés, et il est préférable de le faire avant de créer des documents. Sauvegardez votre travail avant de modifier cette configuration.</p>
+<h2 class="tag-core tag-ee" id="magasins-compatibles-s3-via-le-client-minio">Magasins compatibles S3 via le client MinIO<a class="headerlink" href="#magasins-compatibles-s3-via-le-client-minio" title="Permanent link">#</a></h2>
+<p>Activez cette option en définissant les variables d&rsquo;environnement suivantes :</p>
 <ul>
-<li>Set <code>GRIST_DOCS_MINIO_ACCESS_KEY</code> and <code>GRIST_DOCS_MINIO_SECRET_KEY</code>.</li>
-<li>Set <code>GRIST_DOCS_MINIO_BUCKET</code> to the name of a versioned bucket you have created. It is important that the bucket have versioning enabled.</li>
-<li>Set <code>GRIST_DOCS_MINIO_ENDPOINT</code> to the appropriate hostname - no protocol, no port.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_USE_SSL</code> to <code>1</code> to use <code>https</code> protocol (default) or <code>0</code> for <code>http</code>.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_PORT</code> to the port to use, if the default for the protocol (80/443) isn&rsquo;t right.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_PREFIX</code> to the prefix for your documents, defaults to &ldquo;docs/&rdquo;.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> to the region for your bucket, defaults to &ldquo;us-east-1&rdquo;.</li>
+<li>Définissez <code>GRIST_DOCS_MINIO_ACCESS_KEY</code> et <code>GRIST_DOCS_MINIO_SECRET_KEY</code>.</li>
+<li>Définissez <code>GRIST_DOCS_MINIO_BUCKET</code> sur le nom d&rsquo;un bucket versionné que vous avez créé. Il est important que le bucket ait la versioning activée.</li>
+<li>Définissez <code>GRIST_DOCS_MINIO_ENDPOINT</code> sur le nom d&rsquo;hôte approprié - sans protocole, sans port.</li>
+<li>(Optionnel) Définissez <code>GRIST_DOCS_MINIO_USE_SSL</code> sur <code>1</code> pour utiliser le protocole <code>https</code> (par défaut) ou <code>0</code> pour <code>http</code>.</li>
+<li>(Optionnel) Définissez <code>GRIST_DOCS_MINIO_PORT</code> sur le port à utiliser, si le port par défaut pour le protocole (80/443) n&rsquo;est pas correct.</li>
+<li>(Optionnel) Définissez <code>GRIST_DOCS_MINIO_PREFIX</code> sur le préfixe de vos documents, par défaut &ldquo;docs/&rdquo;.</li>
+<li>(Optionnel) Définissez <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> sur la région de votre bucket, par défaut &ldquo;us-east-1&rdquo;.</li>
 </ul>
-<p>If using AWS S3, the endpoint to use is <code>s3.amazonaws.com</code>, and
-there&rsquo;s no need to set a port number or SSL flag. The access and
-secret keys are your <code>AWS_ACCESS_KEY_ID</code> and
-<code>AWS_SECRET_ACCESS_KEY</code>. Make sure to create a versioned bucket in
-advance.</p>
+<p>Si vous utilisez AWS S3, le point de terminaison à utiliser est <code>s3.amazonaws.com</code>, et il n&rsquo;est pas nécessaire de définir un numéro de port ou un indicateur SSL. Les clés d&rsquo;accès et secrètes sont vos <code>AWS_ACCESS_KEY_ID</code> et <code>AWS_SECRET_ACCESS_KEY</code>. Assurez-vous de créer un bucket versionné à l&rsquo;avance.</p>
 <h2 class="tag-ee" id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">#</a></h2>
-<p>For Azure:</p>
+<p>Pour Azure :</p>
 <ul>
-<li>Create a storage account in the Azure portal.</li>
-<li>For the storage account’s blob service, make sure that versioning is enabled.</li>
-<li>Get a connection string from the storage account’s Access Keys section. It may look something like <code>DefaultEndpointsProtocol=https;AccountName=...</code>.</li>
-<li>Place the connection string in an environment variable called <code>AZURE_STORAGE_CONNECTION_STRING</code>. </li>
-<li>Set the name of an Azure storage container in an environment variable called <code>GRIST_AZURE_CONTAINER</code>. An example of a container name is <code>my-grist-docs</code>.</li>
-<li>Set a prefix such as <code>v1/</code> in an environment variable called <code>GRIST_AZURE_PREFIX</code>.</li>
+<li>Créez un compte de stockage dans le portail Azure.</li>
+<li>Pour le service blob du compte de stockage, assurez-vous que la versioning est activée.</li>
+<li>Obtenez une chaîne de connexion à partir de la section Clés d&rsquo;accès du compte de stockage. Elle peut ressembler à <code>DefaultEndpointsProtocol=https;AccountName=...</code>.</li>
+<li>Placez la chaîne de connexion dans une variable d&rsquo;environnement appelée <code>AZURE_STORAGE_CONNECTION_STRING</code>. </li>
+<li>Définissez le nom d&rsquo;un conteneur de stockage Azure dans une variable d&rsquo;environnement appelée <code>GRIST_AZURE_CONTAINER</code>. Un exemple de nom de conteneur est <code>my-grist-docs</code>.</li>
+<li>Définissez un préfixe tel que <code>v1/</code> dans une variable d&rsquo;environnement appelée <code>GRIST_AZURE_PREFIX</code>.</li>
 </ul>
-<h2 class="tag-ee" id="s3-with-native-aws-client">S3 with native AWS client<a class="headerlink" href="#s3-with-native-aws-client" title="Permanent link">#</a></h2>
-<p>For S3:</p>
+<h2 class="tag-ee" id="s3-avec-le-client-aws-natif">S3 avec le client AWS natif<a class="headerlink" href="#s3-avec-le-client-aws-natif" title="Permanent link">#</a></h2>
+<p>Pour S3 :</p>
 <ul>
-<li>Set the name of the S3 bucket in an environment variable called <code>GRIST_DOCS_S3_BUCKET</code>. An example of a bucket name is <code>my-grist-docs</code>.</li>
-<li>Set a prefix such as <code>v1/</code> in an environment variable called <code>GRIST_DOCS_S3_PREFIX</code>.</li>
-<li>Arrange for access using AWS&rsquo;s many options; if nothing else, you can set <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> variables.</li>
+<li>Définissez le nom du bucket S3 dans une variable d&rsquo;environnement appelée <code>GRIST_DOCS_S3_BUCKET</code>. Un exemple de nom de bucket est <code>my-grist-docs</code>.</li>
+<li>Définissez un préfixe tel que <code>v1/</code> dans une variable d&rsquo;environnement appelée <code>GRIST_DOCS_S3_PREFIX</code>.</li>
+<li>Organisez l&rsquo;accès en utilisant les nombreuses options d&rsquo;AWS ; sinon, vous pouvez définir les variables <code>AWS_ACCESS_KEY_ID</code> et <code>AWS_SECRET_ACCESS_KEY</code>.</li>
 </ul>
-<h2 class="tag-core tag-ee" id="usage-once-configured">Usage once configured<a class="headerlink" href="#usage-once-configured" title="Permanent link">#</a></h2>
-<p>Once the external storage configuration is in place, start Grist as normal
-for self-managed Grist. Upon startup, there should be a line like:</p>
+<h2 class="tag-core tag-ee" id="utilisation-une-fois-configure">Utilisation une fois configuré<a class="headerlink" href="#utilisation-une-fois-configure" title="Permanent link">#</a></h2>
+<p>Une fois la configuration du stockage externe en place, démarrez Grist normalement pour Grist autogéré. Au démarrage, il devrait y avoir une ligne comme :</p>
 <p><code>info: == grist.externalStorage.[s3|azure|minio].active: true</code></p>
-<p>All documents will be read from and saved to the corresponding S3 bucket or
-Azure container. Configuration is simplest on a fresh Grist install
-without any preexisting Grist documents.</p>
-<p>Once up and running, it is a good idea to configure the storage
-account&rsquo;s &ldquo;lifecycle management&rdquo; to place any bounds you want on how
-long versions are retained. Grist has no requirements here, this is
-strictly to your taste.</p>
+<p>Tous les documents seront lus et enregistrés dans le bucket S3 ou le conteneur Azure correspondant. La configuration est la plus simple sur une nouvelle installation de Grist sans aucun document Grist préexistant.</p>
+<p>Une fois en fonctionnement, il est conseillé de configurer la &ldquo;gestion du cycle de vie&rdquo; du compte de stockage pour définir les limites souhaitées sur la durée de conservation des versions. Grist n&rsquo;a aucune exigence à ce sujet, c&rsquo;est strictement selon vos préférences.</p>
 
   <br>
 </div>

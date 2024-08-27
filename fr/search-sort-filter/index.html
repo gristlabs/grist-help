@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist offers several ways to search within your data, or to organize data to be at your
-fingertips.">
-      <meta property="og:description" content="Grist offers several ways to search within your data, or to organize data to be at your
-fingertips.">
+      <meta name="description" content="Grist offre plusieurs façons de rechercher dans vos données, ou d’organiser les données pour les avoir à portée de main.">
+      <meta property="og:description" content="Grist offre plusieurs façons de rechercher dans vos données, ou d’organiser les données pour les avoir à portée de main.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/search-sort-filter/">
@@ -265,27 +263,27 @@ fingertips.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Search, Sort, and Filter
+              Recherche, Tri et Filtrage
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#searching">
-                Searching
+              <a class="wm-article-link wm-page-toc-text" href="#recherche">
+                Recherche
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#sorting">
-                Sorting
+              <a class="wm-article-link wm-page-toc-text" href="#tri">
+                Tri
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#filtering">
-                Filtering
+              <a class="wm-article-link wm-page-toc-text" href="#filtrage">
+                Filtrage
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#range-filtering">
-                Range Filtering
+              <a class="wm-article-link wm-page-toc-text" href="#filtrage-par-intervalle">
+                Filtrage par Intervalle
               </a>
             </li>
         
@@ -935,132 +933,93 @@ fingertips.">
 
     
 
-    <h1 id="search-sort-and-filter">Search, Sort, and Filter<a class="headerlink" href="#search-sort-and-filter" title="Permanent link">#</a></h1>
+    <h1 id="recherche-tri-et-filtrage">Recherche, Tri et Filtrage<a class="headerlink" href="#recherche-tri-et-filtrage" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Grist offers several ways to search within your data, or to organize data to be at your
-fingertips.</p>
-<h2 id="searching">Searching<a class="headerlink" href="#searching" title="Permanent link">#</a></h2>
-<p>At the top of the document screen, you&rsquo;ll see a magnifying glass icon
+<p>Grist offre plusieurs façons de rechercher dans vos données, ou d&rsquo;organiser les données pour les avoir à portée de main.</p>
+<h2 id="recherche">Recherche<a class="headerlink" href="#recherche" title="Permanent link">#</a></h2>
+<p>En haut de l&rsquo;écran du document, vous verrez une icône de loupe
 (<span class="grist-icon" style="--icon: var(--icon-Search)"></span>)
-which opens a spreadsheet-like search.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Search Textbox" src="../images/search-sort-filter/search-box.png" /></em></span></p>
-<p>You can also start searching using the keyboard shortcut
-<code class="keys"><em>⌘</em> <em>F</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>F</em></code> (Windows).</p>
-<p>As you type into the search textbox, Grist will move the cursor to the next cell containing your
-search text. If there are no more matches in the current widget or page, the cursor will move to
-the next widget or switch to the next page.</p>
-<h2 id="sorting">Sorting<a class="headerlink" href="#sorting" title="Permanent link">#</a></h2>
-<p>It&rsquo;s easy to find a word in a dictionary, but it wouldn&rsquo;t be if the words weren&rsquo;t sorted!
-Grist offers flexible and convenient sorting options, which are quite different from a traditional
-spreadsheet.</p>
-<p>To sort a table in Grist by a column, open the menu from the column&rsquo;s header and select &ldquo;Sort&rdquo;:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Column Menu Sort" src="../images/search-sort-filter/column-menu-sort.png" /></em></span></p>
-<p>In the same menu item, you can choose to sort in ascending or descending order.</p>
-<p><strong>Difference from Excel</strong>:
-Importantly, sorting does not change any formula calculations, it only changes the order in which
-you see the records. This is different from spreadsheets like Excel.</p>
-<p>Another difference is that the sort setting is &ldquo;active&rdquo;: if you add a record, or change a cell
-that&rsquo;s used for sorting, the record will jump into its correct position in the sort order. See
-<a href="#saving-row-positions">Saving Row Positions</a> below for an option more similar to Excel&rsquo;s behavior.</p>
-<h3 id="multiple-columns">Multiple Columns<a class="headerlink" href="#multiple-columns" title="Permanent link">#</a></h3>
-<p>When a table is sorted, you can click another column to add it to the sort:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Add to Sort" src="../images/search-sort-filter/column-menu-add-sort.png" /></em></span></p>
-<p>The second column determines the order of records whose values in the first column are the same.
-You can add more columns to the sort. For example, you could:</p>
+qui ouvre une recherche de type tableur.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Zone de texte de recherche" src="../images/search-sort-filter/search-box.png" /></em></span></p>
+<p>Vous pouvez également commencer à rechercher en utilisant le raccourci clavier
+<code class="keys"><em>⌘</em> <em>F</em></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>F</em></code> (Windows).</p>
+<p>Lorsque vous tapez dans la zone de texte de recherche, Grist déplacera le curseur vers la cellule suivante contenant votre texte de recherche. S&rsquo;il n&rsquo;y a plus de correspondances dans la vue ou la page actuelle, le curseur se déplacera vers la vue suivante ou passera à la page suivante.</p>
+<h2 id="tri">Tri<a class="headerlink" href="#tri" title="Permanent link">#</a></h2>
+<p>Il est facile de trouver un mot dans un dictionnaire, mais ce ne serait pas le cas si les mots n&rsquo;étaient pas triés ! Grist offre des options de tri flexibles et pratiques, qui sont assez différentes d&rsquo;un tableur traditionnel.</p>
+<p>Pour trier une table dans Grist par une colonne, ouvrez le menu à partir de l&rsquo;en-tête de la colonne et sélectionnez &ldquo;Trier&rdquo;:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu de colonne Trier" src="../images/search-sort-filter/column-menu-sort.png" /></em></span></p>
+<p>Dans le même élément de menu, vous pouvez choisir de trier par ordre croissant ou décroissant.</p>
+<p><strong>Différence par rapport à Excel</strong> :
+Il est important de noter que le tri ne change aucun calcul de formule, il ne change que l&rsquo;ordre dans lequel vous voyez les enregistrements. Cela est différent des tableurs comme Excel.</p>
+<p>Une autre différence est que le paramètre de tri est &ldquo;actif&rdquo; : si vous ajoutez un enregistrement ou modifiez une cellule utilisée pour le tri, l&rsquo;enregistrement se déplacera à sa position correcte dans l&rsquo;ordre de tri. Voir <a href="#saving-row-positions">Enregistrer les positions des lignes</a> ci-dessous pour une option plus similaire au comportement d&rsquo;Excel.</p>
+<h3 id="colonnes-multiples">Colonnes Multiples<a class="headerlink" href="#colonnes-multiples" title="Permanent link">#</a></h3>
+<p>Lorsque vous triez une table, vous pouvez cliquer sur une autre colonne pour l&rsquo;ajouter au tri :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ajouter au tri" src="../images/search-sort-filter/column-menu-add-sort.png" /></em></span></p>
+<p>La deuxième colonne détermine l&rsquo;ordre des enregistrements dont les valeurs dans la première colonne sont les mêmes. Vous pouvez ajouter plus de colonnes au tri. Par exemple, vous pourriez :</p>
 <ul>
-<li>Sort employees first by Department, then by Last Name, then by First Name.</li>
-<li>Sort transactions first by Date, then by Amount.</li>
-<li>Sort tasks first by &lsquo;Is Completed&rsquo; column, then by Priority.</li>
+<li>Trier les employés d&rsquo;abord par Département, puis par Nom de famille, puis par Prénom.</li>
+<li>Trier les transactions d&rsquo;abord par Date, puis par Montant.</li>
+<li>Trier les tâches d&rsquo;abord par la colonne &lsquo;Est Complété&rsquo;, puis par Priorité.</li>
 </ul>
-<h3 id="saving-sort-settings">Saving Sort Settings<a class="headerlink" href="#saving-sort-settings" title="Permanent link">#</a></h3>
-<p>Because sorting only affects your view of data, you can sort data in a Grist document even if you
-do not have edit access to it. If you <em>can</em> write to a document, then you can also save sort
-settings.</p>
-<p>When you change sorting on a table, the icon on top of it gets highlighted in green. Click it to
-see the currently active setting, as well as the options to manipulate them (e.g. remove a column
-from the sort), to save the setting, or to revert your changes:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Widget Menu" src="../images/search-sort-filter/widget-menu-sort.png" /></em></span></p>
-<p>When you save sort settings, they will apply to the widget any time this page is opened, either by
-you or other collaborators.</p>
-<p><strong>Multiple Views</strong>:
-Just like you can create multiple pages showing data from the same table, you can have different
-sort settings on each view of the data. E.g. you could have one view showing credit card
-transactions sorted by date, and another showing them sorted by amount.</p>
-<h3 id="sorting-from-side-panel">Sorting from Side Panel<a class="headerlink" href="#sorting-from-side-panel" title="Permanent link">#</a></h3>
-<p>You can sort widgets other than Table, such as Card List or Chart, using the &ldquo;Sort &amp; Filter&rdquo;
-subtab in the side panel:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Side Panel Sort" src="../images/search-sort-filter/side-panel-sort.png" /></em></span></p>
-<p>You can add one or more columns, save or revert settings and use advanced
-sorting options.</p>
-<h3 id="advance-sorting-options">Advance sorting options<a class="headerlink" href="#advance-sorting-options" title="Permanent link">#</a></h3>
-<p>The &ldquo;Sort &amp; Filter&rdquo; subtab exposes additional sorting options that might be useful for
-various column types:</p>
+<h3 id="enregistrer-les-parametres-de-tri">Enregistrer les Paramètres de Tri<a class="headerlink" href="#enregistrer-les-parametres-de-tri" title="Permanent link">#</a></h3>
+<p>Comme le tri n&rsquo;affecte que votre vue des données, vous pouvez trier les données dans un document Grist même si vous n&rsquo;avez pas accès en écriture à celui-ci. Si vous <em>pouvez</em> écrire dans un document, vous pouvez également enregistrer les paramètres de tri.</p>
+<p>Lorsque vous modifiez le tri sur une table, l&rsquo;icône en haut de celle-ci devient verte. Cliquez dessus pour voir le paramètre actuellement actif, ainsi que les options pour les manipuler (par exemple, supprimer une colonne du tri), enregistrer le paramètre ou annuler vos modifications :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu de vue" src="../images/search-sort-filter/widget-menu-sort.png" /></em></span></p>
+<p>Lorsque vous enregistrez les paramètres de tri, ils s&rsquo;appliqueront à la vue chaque fois que cette page sera ouverte, que ce soit par vous ou d&rsquo;autres collaborateurs.</p>
+<p><strong>Vues Multiples</strong> :
+Tout comme vous pouvez créer plusieurs pages affichant les données de la même table, vous pouvez avoir différents paramètres de tri sur chaque vue des données. Par exemple, vous pourriez avoir une vue affichant les transactions de carte de crédit triées par date, et une autre les affichant triées par montant.</p>
+<h3 id="tri-a-partir-du-panneau-lateral">Tri à partir du Panneau Latéral<a class="headerlink" href="#tri-a-partir-du-panneau-lateral" title="Permanent link">#</a></h3>
+<p>Vous pouvez trier des vues autres que la Table, telles que la Liste de Fiches ou le Graphique, en utilisant l&rsquo;onglet &ldquo;Trier &amp; Filtrer&rdquo; dans le panneau latéral :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Tri du panneau latéral" src="../images/search-sort-filter/side-panel-sort.png" /></em></span></p>
+<p>Vous pouvez ajouter une ou plusieurs colonnes, enregistrer ou annuler les paramètres et utiliser des options de tri avancées.</p>
+<h3 id="options-de-tri-avancees">Options de tri avancées<a class="headerlink" href="#options-de-tri-avancees" title="Permanent link">#</a></h3>
+<p>L&rsquo;onglet &ldquo;Trier &amp; Filtrer&rdquo; expose des options de tri supplémentaires qui peuvent être utiles pour divers types de colonnes :</p>
 <ul>
-<li><code>Use choice position</code> &ndash; available on <a href="../col-types/#choice-columns">Choice</a> column, sorts records using the configured
-order of choice items, rather then their names.</li>
-<li><code>Empty values last</code> &ndash; in alphabetical order empty values are shown first by default, use
-this option to put them at the end.</li>
-<li><code>Natural sort</code> &ndash; for Text column will treat multi-digit numbers in strings as if they were
-a single character, allowing more human-friendly ordering. For example, using
-<code>natural sort</code>, <em>Product10</em> will be positioned after <em>Product2</em>.</li>
+<li><code>Utiliser la position des choix</code> &ndash; disponible sur les colonnes <a href="../col-types/#choice-columns">Choix</a>, trie les enregistrements en utilisant l&rsquo;ordre configuré des éléments de choix, plutôt que leurs noms.</li>
+<li><code>Valeurs vides en dernier</code> &ndash; dans l&rsquo;ordre alphabétique, les valeurs vides sont affichées en premier par défaut, utilisez cette option pour les mettre à la fin.</li>
+<li><code>Tri naturel</code> &ndash; pour la colonne Texte, traitera les nombres à plusieurs chiffres dans les chaînes comme s&rsquo;ils étaient un seul caractère, permettant un ordre plus convivial. Par exemple, en utilisant le <code>tri naturel</code>, <em>Produit10</em> sera positionné après <em>Produit2</em>.</li>
 </ul>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Side Panel Sorting Options" src="../images/search-sort-filter/side-panel-sorting-options.png" /></em></span></p>
-<h3 id="saving-row-positions">Saving Row Positions<a class="headerlink" href="#saving-row-positions" title="Permanent link">#</a></h3>
-<p>When you use the side panel, you&rsquo;ll notice one extra button: &ldquo;Update Data&rdquo;. If you click it, the
-current position of the records relative to each other is saved, and the active sort by your
-selected columns is turned off.</p>
-<p>In other words, rows will no longer jump into place according to values in certain columns, but
-will remain in the place they are in. You will also be able to reorder rows manually by dragging
-them.</p>
-<h2 id="filtering">Filtering<a class="headerlink" href="#filtering" title="Permanent link">#</a></h2>
-<p>You can choose to see only a subset of data in a table by filtering for certain values in a
-column. Open the column menu from any column&rsquo;s header, and click &ldquo;Filter Data&rdquo;. You&rsquo;ll see a
-dialog listing the values in the column:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Filter Menu" src="../images/search-sort-filter/filter-menu.png" /></em></span></p>
-<p>Uncheck the values you don&rsquo;t want to see, or click &ldquo;None&rdquo; and then check only the values
-you do want to see. The search bar at the top of the dialog lets you find values of
-interest if the list is long.</p>
-<p>Click &ldquo;Apply&rdquo; to apply your setting.</p>
-<p>You can filter by more than one column. Only those rows will appear which match all of the
-filters.</p>
-<p>As with sorting, you can save filters to the view. Click the highlighted &ldquo;Sort &amp; Filter&rdquo; icon on
-top of the table:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Widget Menu" src="../images/search-sort-filter/widget-menu-filter.png" /></em></span></p>
-<p>You&rsquo;ll see the columns for which there are active filters, and options to save the filter, or to
-revert to saved settings.</p>
-<p>As with sorting, you can create different widgets or pages showing the same table with different
-filter settings. For example, you could have one page showing event attendees with status
-&ldquo;Confirmed&rdquo; and another one showing those with status &ldquo;Pending&rdquo;.</p>
-<h2 id="range-filtering">Range Filtering<a class="headerlink" href="#range-filtering" title="Permanent link">#</a></h2>
-<p>Certain column types allow for filtering within a range of values.</p>
-<p>When filtering a numeric or integer type column, you have the option to filter within a range of numbers. For example, if you only want to see high-value purchases in a <a href="https://templates.getgrist.com/2i9WoHs2oRzK/Credit-Card-Activity-Template-AmEx/p/1">table of credit card transactions</a>, you could add a filter for the amount column and enter a minimum value of $500. The table would be filtered to show any transactions with an amount of $500 or greater.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="range-filtering-numeric" src="../images/search-sort-filter/range-filtering-numeric.png" /></em></span></p>
-<p>When filtering a date or datetime type column, you have the option to filter within a specified date range. The range can be entered into the &ldquo;Start&rdquo; and &ldquo;End&rdquo; fields, or selected on a calendar.</p>
-<p>Perhaps you went on vacation and want to see all transactions during that time. We could add a filter to the Date column to see all transactions within the date range of the trip.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="range-filtering-date" src="../images/search-sort-filter/range-filtering-date.png" /></em></span></p>
-<p>You can also filter date and datetime type columns by a relative range, which is a range relative to today&rsquo;s date. For example, you might want to filter for tasks due in the next 14 days. That filter would update each day so that it is always filtering by 14 days into the future, relative to today&rsquo;s date. </p>
-<p>When filtering a date or datetime column, there are several relative ranges suggested as a shortcut, as seen in the image below.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="range-filtering-date-dynamic" src="../images/search-sort-filter/range-filtering-date-dynamic.png" /></em></span></p>
-<p>If you use the calendar to select a range of dates, you can also convert each absolute date into a relative date by selecting from the list of relative dates available.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="range-filtering-relative-date" src="../images/search-sort-filter/range-filtering-relative-date.png" /></em></span></p>
-<h3 id="pinning-filters">Pinning Filters<a class="headerlink" href="#pinning-filters" title="Permanent link">#</a></h3>
-<p>Filters can be pinned at the top of a table for quick filtering. By default, filters will be pinned when first applied to a table. To unpin a filter, click the filter button then click the pin icon. If you unpin a filter button, any saved filters will still be applied but the button will no longer be visible.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="pinning-filters" src="../images/search-sort-filter/pinning-filters.png" /></em></span></p>
-<p>It may be useful to save the buttons without any filtering to create a quick filter toolbar.</p>
-<p>If you do save settings with filters applied, that saves it for future sessions and other team members will see the same thing.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Filter Button Filter Selection" src="../images/search-sort-filter/filter-button-filter-selection.png" /></em></span></p>
-<h3 id="complex-filters">Complex Filters<a class="headerlink" href="#complex-filters" title="Permanent link">#</a></h3>
-<p>To filter for more complex conditions, create a new formula column and filter this column for
-values of &ldquo;true&rdquo;.</p>
-<p>For example, to filter for &ldquo;Persons with salary over $100,000 or a position of &lsquo;Board Member&rsquo;&ldquo;,
-you can use a formula like this:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Options de tri du panneau latéral" src="../images/search-sort-filter/side-panel-sorting-options.png" /></em></span></p>
+<h3 id="enregistrer-les-positions-des-lignes">Enregistrer les Positions des Lignes<a class="headerlink" href="#enregistrer-les-positions-des-lignes" title="Permanent link">#</a></h3>
+<p>Lorsque vous utilisez le panneau latéral, vous remarquerez un bouton supplémentaire : &ldquo;Mettre à jour les données&rdquo;. Si vous cliquez dessus, la position actuelle des enregistrements les uns par rapport aux autres est enregistrée, et le tri actif par vos colonnes sélectionnées est désactivé.</p>
+<p>En d&rsquo;autres termes, les lignes ne sauteront plus en place selon les valeurs de certaines colonnes, mais resteront à leur place. Vous pourrez également réorganiser les lignes manuellement en les faisant glisser.</p>
+<h2 id="filtrage">Filtrage<a class="headerlink" href="#filtrage" title="Permanent link">#</a></h2>
+<p>Vous pouvez choisir de voir seulement un sous-ensemble de données dans une table en filtrant pour certaines valeurs dans une colonne. Ouvrez le menu de la colonne à partir de l&rsquo;en-tête de la colonne et cliquez sur &ldquo;Filtrer les données&rdquo;. Vous verrez une boîte de dialogue listant les valeurs dans la colonne :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu de filtrage" src="../images/search-sort-filter/filter-menu.png" /></em></span></p>
+<p>Décochez les valeurs que vous ne voulez pas voir, ou cliquez sur &ldquo;Aucune&rdquo; puis cochez seulement les valeurs que vous voulez voir. La barre de recherche en haut de la boîte de dialogue vous permet de trouver des valeurs d&rsquo;intérêt si la liste est longue.</p>
+<p>Cliquez sur &ldquo;Appliquer&rdquo; pour appliquer votre paramètre.</p>
+<p>Vous pouvez filtrer par plus d&rsquo;une colonne. Seules les lignes correspondant à tous les filtres apparaîtront.</p>
+<p>Comme pour le tri, vous pouvez enregistrer les filtres dans la vue. Cliquez sur l&rsquo;icône &ldquo;Trier &amp; Filtrer&rdquo; en surbrillance en haut de la table :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu de vue" src="../images/search-sort-filter/widget-menu-filter.png" /></em></span></p>
+<p>Vous verrez les colonnes pour lesquelles il y a des filtres actifs, et des options pour enregistrer le filtre ou revenir aux paramètres enregistrés.</p>
+<p>Comme pour le tri, vous pouvez créer différentes vues ou pages affichant la même table avec des paramètres de filtre différents. Par exemple, vous pourriez avoir une page affichant les participants à un événement avec le statut &ldquo;Confirmé&rdquo; et une autre affichant ceux avec le statut &ldquo;En attente&rdquo;.</p>
+<h2 id="filtrage-par-intervalle">Filtrage par Intervalle<a class="headerlink" href="#filtrage-par-intervalle" title="Permanent link">#</a></h2>
+<p>Certains types de colonnes permettent de filtrer dans un intervalle de valeurs.</p>
+<p>Lors du filtrage d&rsquo;une colonne de type numérique ou entier, vous avez la possibilité de filtrer dans un intervalle de nombres. Par exemple, si vous ne voulez voir que les achats de grande valeur dans une <a href="https://templates.getgrist.com/2i9WoHs2oRzK/Credit-Card-Activity-Template-AmEx/p/1">table des transactions par carte de crédit</a>, vous pouvez ajouter un filtre pour la colonne montant et entrer une valeur minimale de 500 $. La table sera filtrée pour afficher toutes les transactions avec un montant de 500 $ ou plus.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="filtrage par intervalle numérique" src="../images/search-sort-filter/range-filtering-numeric.png" /></em></span></p>
+<p>Lors du filtrage d&rsquo;une colonne de type date ou datetime, vous avez la possibilité de filtrer dans un intervalle de dates spécifié. L&rsquo;intervalle peut être entré dans les champs &ldquo;Début&rdquo; et &ldquo;Fin&rdquo;, ou sélectionné sur un calendrier.</p>
+<p>Peut-être êtes-vous parti en vacances et souhaitez voir toutes les transactions pendant cette période. Nous pourrions ajouter un filtre à la colonne Date pour voir toutes les transactions dans l&rsquo;intervalle de dates du voyage.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="filtrage par intervalle de dates" src="../images/search-sort-filter/range-filtering-date.png" /></em></span></p>
+<p>Vous pouvez également filtrer les colonnes de type date et datetime par un intervalle relatif, qui est un intervalle relatif à la date d&rsquo;aujourd&rsquo;hui. Par exemple, vous pourriez vouloir filtrer les tâches à réaliser dans les 14 prochains jours. Ce filtre se mettra à jour chaque jour de sorte qu&rsquo;il filtre toujours sur 14 jours dans le futur, par rapport à la date d&rsquo;aujourd&rsquo;hui.</p>
+<p>Lors du filtrage d&rsquo;une colonne de type date ou datetime, plusieurs intervalles relatifs sont suggérés comme raccourci, comme le montre l&rsquo;image ci-dessous.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="filtrage par intervalle de dates dynamique" src="../images/search-sort-filter/range-filtering-date-dynamic.png" /></em></span></p>
+<p>Si vous utilisez le calendrier pour sélectionner un intervalle de dates, vous pouvez également convertir chaque date absolue en une date relative en sélectionnant dans la liste des dates relatives disponibles.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="filtrage par intervalle de dates relatives" src="../images/search-sort-filter/range-filtering-relative-date.png" /></em></span></p>
+<h3 id="epingler-les-filtres">Épingler les Filtres<a class="headerlink" href="#epingler-les-filtres" title="Permanent link">#</a></h3>
+<p>Les filtres peuvent être épinglés en haut d&rsquo;une table pour un filtrage rapide. Par défaut, les filtres seront épinglés lorsqu&rsquo;ils sont appliqués pour la première fois à une table. Pour désépingler un filtre, cliquez sur le bouton de filtre puis cliquez sur l&rsquo;icône d&rsquo;épingle. Si vous désépingler un bouton de filtre, tous les filtres enregistrés seront toujours appliqués mais le bouton ne sera plus visible.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="épingler les filtres" src="../images/search-sort-filter/pinning-filters.png" /></em></span></p>
+<p>Il peut être utile d&rsquo;enregistrer les boutons sans aucun filtrage pour créer une barre d&rsquo;outils de filtrage rapide.</p>
+<p>Si vous enregistrez les paramètres avec des filtres appliqués, cela les enregistre pour les sessions futures et les autres membres de l&rsquo;équipe verront la même chose.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Sélection de filtre par bouton de filtre" src="../images/search-sort-filter/filter-button-filter-selection.png" /></em></span></p>
+<h3 id="filtres-complexes">Filtres Complexes<a class="headerlink" href="#filtres-complexes" title="Permanent link">#</a></h3>
+<p>Pour filtrer des conditions plus complexes, créez une nouvelle colonne de formule et filtrez cette colonne pour les valeurs &ldquo;true&rdquo;.</p>
+<p>Par exemple, pour filtrer &ldquo;Personnes avec un salaire supérieur à 100 000 $ ou un poste de &lsquo;Membre du Conseil&rsquo;&ldquo;, vous pouvez utiliser une formule comme celle-ci :</p>
 <p><code class="formula">$Salary &gt; 100000 or $Position == 'Board Member'</code></p>
-<p>This will produce a column of true and false values, which you can filter for the value <code>true</code>.</p>
+<p>Cela produira une colonne de valeurs vraies et fausses, que vous pouvez filtrer pour la valeur <code>true</code>.</p>
 
   <br>
 </div>

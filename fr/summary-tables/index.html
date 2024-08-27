@@ -7,12 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Summary tables are the workhorse of data analysis in Grist. They are similar to “pivot tables” in
-spreadsheets, and to GROUP BY clauses in databases. They let you get table-wide totals or any
-subtotals.">
-      <meta property="og:description" content="Summary tables are the workhorse of data analysis in Grist. They are similar to “pivot tables” in
-spreadsheets, and to GROUP BY clauses in databases. They let you get table-wide totals or any
-subtotals.">
+      <meta name="description" content="Les tables de synthèse sont l’outil principal de l’analyse de données dans Grist. Elles sont similaires aux “tableaux croisés dynamiques” dans les feuilles de calcul, et aux clauses GROUP BY dans les bases de données. Elles vous permettent d’obtenir des totaux pour l’ensemble de la table ou des sous-totaux.">
+      <meta property="og:description" content="Les tables de synthèse sont l’outil principal de l’analyse de données dans Grist. Elles sont similaires aux “tableaux croisés dynamiques” dans les feuilles de calcul, et aux clauses GROUP BY dans les bases de données. Elles vous permettent d’obtenir des totaux pour l’ensemble de la table ou des sous-totaux.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/summary-tables/">
@@ -307,37 +303,37 @@ subtotals.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Summary Tables
+              Tables de synthèse
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#adding-summaries">
-                Adding summaries
+              <a class="wm-article-link wm-page-toc-text" href="#ajouter-des-syntheses">
+                Ajouter des synthèses
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#summary-formulas">
-                Summary formulas
+              <a class="wm-article-link wm-page-toc-text" href="#formules-de-synthese">
+                Formules de synthèse
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#changing-summary-columns">
-                Changing summary columns
+              <a class="wm-article-link wm-page-toc-text" href="#changer-les-colonnes-de-synthese">
+                Changer les colonnes de synthèse
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#linking-summary-tables">
-                Linking summary tables
+              <a class="wm-article-link wm-page-toc-text" href="#lier-des-tables-de-synthese">
+                Lier des tables de synthèse
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#charting-summarized-data">
-                Charting summarized data
+              <a class="wm-article-link wm-page-toc-text" href="#graphiques-des-donnees-resumees">
+                Graphiques des données résumées
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#detaching-summary-tables">
-                Detaching summary tables
+              <a class="wm-article-link wm-page-toc-text" href="#detacher-des-tables-de-synthese">
+                Détacher des tables de synthèse
               </a>
             </li>
         
@@ -947,160 +943,102 @@ subtotals.">
 
     
 
-    <h1 id="summary-tables">Summary Tables<a class="headerlink" href="#summary-tables" title="Permanent link">#</a></h1>
+    <h1 id="tables-de-synthese">Tables de synthèse<a class="headerlink" href="#tables-de-synthese" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Summary tables are the workhorse of data analysis in Grist. They are similar to &ldquo;pivot tables&rdquo; in
-spreadsheets, and to <code>GROUP BY</code> clauses in databases. They let you get table-wide totals or any
-subtotals.</p>
-<p>Summary tables have many uses:</p>
+<p>Les tables de synthèse sont l&rsquo;outil principal de l&rsquo;analyse de données dans Grist. Elles sont similaires aux &ldquo;tableaux croisés dynamiques&rdquo; dans les feuilles de calcul, et aux clauses <code>GROUP BY</code> dans les bases de données. Elles vous permettent d&rsquo;obtenir des totaux pour l&rsquo;ensemble de la table ou des sous-totaux.</p>
+<p>Les tables de synthèse ont de nombreuses utilisations :</p>
 <ul>
-<li>Group projects by status, or by priority.</li>
-<li>Summarize bank transactions by year, or quarter, or by category.</li>
-<li>Group employees by position, or gender, or department.</li>
-<li>Summarize by any combination, such as position <em>and</em> gender <em>and</em> department.</li>
-<li>Group all records to calculate table-wide totals and statistics.</li>
+<li>Grouper les projets par statut ou par priorité.</li>
+<li>Résumer les transactions bancaires par année, par trimestre ou par catégorie.</li>
+<li>Grouper les employés par poste, par genre ou par département.</li>
+<li>Résumer par n&rsquo;importe quelle combinaison, telle que poste <em>et</em> genre <em>et</em> département.</li>
+<li>Grouper tous les enregistrements pour calculer des totaux et des statistiques pour l&rsquo;ensemble de la table.</li>
 </ul>
-<h2 id="adding-summaries">Adding summaries<a class="headerlink" href="#adding-summaries" title="Permanent link">#</a></h2>
-<p>Click &ldquo;Add New&rdquo; button and select &ldquo;Add Page&rdquo; or &ldquo;Add Widget to Page&rdquo;. In
-the widget picker, click the summation icon
-(<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) next to the table you&rsquo;d like
-to summarize.</p>
+<h2 id="ajouter-des-syntheses">Ajouter des synthèses<a class="headerlink" href="#ajouter-des-syntheses" title="Permanent link">#</a></h2>
+<p>Cliquez sur le bouton &ldquo;Ajouter&rdquo; et sélectionnez &ldquo;Ajouter une page&rdquo; ou &ldquo;Ajouter une vue à la page&rdquo;. Dans le sélecteur de vues, cliquez sur l&rsquo;icône de sommation (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) à côté de la table que vous souhaitez résumer.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-picker" src="../images/summary-picker.png" /></em></span></p>
-<p>When creating a summary table, you choose a field or a combination of fields by which data should
-be grouped. These are called the &ldquo;Group by&rdquo; fields. The summary table will contain one row for
-each group-by value. For instance, if &ldquo;Position&rdquo; is selected as a group-by field, the summary
-table will contain one row for each job position.</p>
-<p>Grist&rsquo;s powerful formulas then allow arbitrary calculations on the matching subsets of the
-underlying data.</p>
-<p>Keep in mind that the group-by fields determine <em>which</em> groups should exist in the summary table.
-Do not select values you&rsquo;d like to calculate (e.g. for average salary) as group-by fields; these will
-be created using formulas in the next step.</p>
+<p>Lors de la création d&rsquo;une table de synthèse, vous choisissez un champ ou une combinaison de champs par lesquels les données doivent être groupées. Ceux-ci sont appelés les champs &ldquo;Grouper par&rdquo;. La table de synthèse contiendra une ligne pour chaque valeur de regroupement. Par exemple, si &ldquo;Poste&rdquo; est sélectionné comme champ de regroupement, la table de synthèse contiendra une ligne pour chaque poste.</p>
+<p>Les formules puissantes de Grist permettent ensuite des calculs arbitraires sur les sous-ensembles correspondants des données sous-jacentes.</p>
+<p>Gardez à l&rsquo;esprit que les champs de regroupement déterminent <em>quels</em> groupes doivent exister dans la table de synthèse. Ne sélectionnez pas les valeurs que vous souhaitez calculer (par exemple, pour le salaire moyen) comme champs de regroupement ; celles-ci seront créées à l&rsquo;aide de formules à l&rsquo;étape suivante.</p>
 <div class="admonition tip">
-<p><strong>Tip:</strong> You can think of rows in a summary table as buckets into which your records will be
-placed. Group-by fields determine the labels for these buckets. For instance, a summary of
-projects grouped by status (e.g. &ldquo;Active&rdquo;, &ldquo;Completed&rdquo;, &ldquo;NotStarted&rdquo;) will have three such
-buckets, one for each status. Every project goes into one of these three buckets. You can then
-easily calculate info for each folder, such as a count of projects or the total of their costs.</p>
+<p><strong>Astuce :</strong> Vous pouvez considérer les lignes d&rsquo;une table de synthèse comme des compartiments dans lesquels vos enregistrements seront placés. Les champs de regroupement déterminent les étiquettes de ces compartiments. Par exemple, un résumé des projets groupés par statut (par exemple, &ldquo;Actif&rdquo;, &ldquo;Terminé&rdquo;, &ldquo;Non commencé&rdquo;) aura trois compartiments, un pour chaque statut. Chaque projet va dans l&rsquo;un de ces trois compartiments. Vous pouvez ensuite facilement calculer des informations pour chaque dossier, comme un décompte des projets ou le total de leurs coûts.</p>
 </div>
-<h2 id="summary-formulas">Summary formulas<a class="headerlink" href="#summary-formulas" title="Permanent link">#</a></h2>
-<p>When you add a summary table, each of the selected group-by fields becomes a column in the new
-table. <em>Everything</em> else in the summary table is calculated using formula columns. Some of these
-columns are created automatically, as a convenience.</p>
-<p>Specifically, a column <code>count</code> will be added to show the number of records in the group
-represented by the current summary row. And for any numerical column in the original data, the
-summary table will contain a same-named column with the total. For instance, the summary of
-Employees grouped by Position would look like this:</p>
+<h2 id="formules-de-synthese">Formules de synthèse<a class="headerlink" href="#formules-de-synthese" title="Permanent link">#</a></h2>
+<p>Lorsque vous ajoutez une table de synthèse, chacun des champs de regroupement sélectionnés devient une colonne dans la nouvelle table. <em>Tout</em> le reste dans la table de synthèse est calculé à l&rsquo;aide de colonnes de formule. Certaines de ces colonnes sont créées automatiquement, par commodité.</p>
+<p>Plus précisément, une colonne <code>count</code> sera ajoutée pour montrer le nombre d&rsquo;enregistrements dans le groupe représenté par la ligne de synthèse actuelle. Et pour toute colonne numérique dans les données d&rsquo;origine, la table de synthèse contiendra une colonne du même nom avec le total. Par exemple, le résumé des Employés groupés par Poste ressemblerait à ceci :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-result1" src="../images/summary-result1.png" /></em></span></p>
 <div class="admonition tip">
-<p><strong>Tip:</strong> A summary widget will have a header like &ldquo;EMPLOYEES [by Position]&rdquo;, to
-indicate that it&rsquo;s showing summary data for the <code>Employees</code> table, grouped by &ldquo;Position&rdquo;. You
-can click the title to rename it.</p>
+<p><strong>Astuce :</strong> Une vue de synthèse aura un en-tête comme &ldquo;EMPLOYÉS [par Poste]&rdquo;, pour indiquer qu&rsquo;elle montre les données de synthèse pour la table <code>Employés</code>, groupées par &ldquo;Poste&rdquo;. Vous pouvez cliquer sur le titre pour le renommer.</p>
 </div>
-<p>If you select a cell in a column like <code>count</code> or <code>AnnualPay</code> and hit <code
-class="keys"><em>Enter</em></code>, you&rsquo;ll see the formulas that calculate them:</p>
+<p>Si vous sélectionnez une cellule dans une colonne comme <code>count</code> ou <code>AnnualPay</code> et appuyez sur <code class="keys"><em>Entrée</em></code>, vous verrez les formules qui les calculent :</p>
 <ul>
-<li><code>count</code> is <code>len($group)</code></li>
-<li><code>AnnualPay</code> is <code>SUM($group.AnnualPay)</code></li>
+<li><code>count</code> est <code>len($group)</code></li>
+<li><code>AnnualPay</code> est <code>SUM($group.AnnualPay)</code></li>
 </ul>
-<p>The mysterious <code>$group</code> is simply another column, hidden by default (but you may unhide it). It contains for each cell the group of records represented by this summary row.</p>
+<p>Le mystérieux <code>$group</code> est simplement une autre colonne, masquée par défaut (mais vous pouvez la rendre visible). Elle contient pour chaque cellule le groupe d&rsquo;enregistrements représenté par cette ligne de synthèse.</p>
 <div class="admonition tip">
-<p><strong>Side note for Python fans.</strong>
-<code>$group</code> is a special Python object. It’s an iterable collection of records. Using an
-attribute like <code>$group.A</code> is a shorthand for the list of values in the <code>A</code> column of all the
-records in the group, similar to <code>[r.A for r in $group]</code>.</p>
-<p>If you unhide this column, it will show as a python list of numeric row IDs which identify the
-records in the group.</p>
+<p><strong>Note pour les fans de Python.</strong>
+<code>$group</code> est un objet Python spécial. C&rsquo;est une collection itérable d&rsquo;enregistrements. L&rsquo;utilisation d&rsquo;un attribut comme <code>$group.A</code> est un raccourci pour la liste des valeurs dans la colonne <code>A</code> de tous les enregistrements du groupe, similaire à <code>[r.A for r in $group]</code>.</p>
+<p>Si vous rendez cette colonne visible, elle apparaîtra comme une liste Python d&rsquo;ID de lignes numériques qui identifient les enregistrements dans le groupe.</p>
 </div>
-<p>Sometimes the automatically created columns don&rsquo;t make sense. For instance, the sum of <code>PayRate</code>
-isn&rsquo;t very meaningful. Simply delete such columns, either using the column menu or
-using the <code class="keys"><em>Alt</em> + <em>Minus</em></code> keyboard shortcut.</p>
-<p>You are free to change formulas for the automatically created columns, or to add new formula
-columns. Note that summary tables do not allow adding <em>non</em>-formula columns.</p>
-<p>For instance, you might want to change the formula for <code>PayRate</code> from <code>SUM($group.PayRate)</code> to
-<code>AVERAGE($group.PayRate)</code>, which would be a more interesting value.</p>
+<p>Parfois, les colonnes créées automatiquement n&rsquo;ont pas de sens. Par exemple, la somme de <code>PayRate</code> n&rsquo;est pas très significative. Supprimez simplement ces colonnes, soit en utilisant le menu de la colonne, soit en utilisant le raccourci clavier <code class="keys"><em>Alt</em> + <em>Moins</em></code>.</p>
+<p>Vous êtes libre de changer les formules pour les colonnes créées automatiquement, ou d&rsquo;ajouter de nouvelles colonnes de formule. Notez que les tables de synthèse ne permettent pas d&rsquo;ajouter des colonnes <em>non</em>-formule.</p>
+<p>Par exemple, vous pourriez vouloir changer la formule pour <code>PayRate</code> de <code>SUM($group.PayRate)</code> à <code>AVERAGE($group.PayRate)</code>, ce qui serait une valeur plus intéressante.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-formula" src="../images/summary-formula.png" /></em></span></p>
-<p>Here are some useful recipes of formulas in summary tables:</p>
+<p>Voici quelques recettes utiles de formules dans les tables de synthèse :</p>
 <ul>
-<li><strong>Average</strong>:<br />
-<code>AVERAGE($group.PayRate)</code> or <code>SUM($group.PayRate) / $count</code></li>
-<li><strong>Standard deviation</strong>:<br />
+<li><strong>Moyenne</strong> :<br />
+<code>AVERAGE($group.PayRate)</code> ou <code>SUM($group.PayRate) / $count</code></li>
+<li><strong>Écart type</strong> :<br />
 <code>STDEV($group.PayRate)</code></li>
-<li><strong>Maximum or minimum</strong>:<br />
+<li><strong>Maximum ou minimum</strong> :<br />
 <code>MAX($group.PayRate)</code>, <code>MIN($group.PayRate)</code></li>
-<li><strong>Sum over a subset of records</strong>:<br />
+<li><strong>Somme sur un sous-ensemble d&rsquo;enregistrements</strong> :<br />
 <code>SUM(r.AnnualPay for r in $group if r.EmploymentStatus == "Active")</code></li>
-<li><strong>Weighted average</strong>:<br />
+<li><strong>Moyenne pondérée</strong> :<br />
 <code>AVERAGE_WEIGHTED(zip($group.Life_Expectancy, $group.Population))</code></li>
 </ul>
-<p>In fact, you may use the full power of Python to calculate what you&rsquo;d like. As for any table, your
-formula may refer to any of the columns in the summary table, not only <code>$group</code>.</p>
-<h2 id="changing-summary-columns">Changing summary columns<a class="headerlink" href="#changing-summary-columns" title="Permanent link">#</a></h2>
-<p>The group-by columns in a summary table are created when you add the widget. It&rsquo;s not possible to
-modify the values in them, or to modify their settings, such as type. The settings and values of
-the group-by columns reflect those in the underlying table. When new values appear in the
-underlying table for the group-by columns, the summary tables will also get new rows
-automatically.</p>
-<p>What you may change is which columns the table is grouped by. Click the three dots on the top
-right of the summary table, and click &ldquo;Data selection&rdquo;:</p>
+<p>En fait, vous pouvez utiliser toute la puissance de Python pour calculer ce que vous souhaitez. Comme pour toute table, votre formule peut se référer à n&rsquo;importe laquelle des colonnes de la table de synthèse, pas seulement à <code>$group</code>.</p>
+<h2 id="changer-les-colonnes-de-synthese">Changer les colonnes de synthèse<a class="headerlink" href="#changer-les-colonnes-de-synthese" title="Permanent link">#</a></h2>
+<p>Les colonnes de regroupement dans une table de synthèse sont créées lorsque vous ajoutez la vue. Il n&rsquo;est pas possible de modifier les valeurs dans celles-ci, ni de modifier leurs paramètres, tels que le type. Les paramètres et les valeurs des colonnes de regroupement reflètent ceux de la table sous-jacente. Lorsque de nouvelles valeurs apparaissent dans la table sous-jacente pour les colonnes de regroupement, les tables de synthèse obtiendront également de nouvelles lignes automatiquement.</p>
+<p>Ce que vous pouvez changer, c&rsquo;est les colonnes par lesquelles la table est groupée. Cliquez sur les trois points en haut à droite de la table de synthèse, et cliquez sur &ldquo;Sélection des données&rdquo; :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-widget-menu" src="../images/summary-widget-menu.png" /></em></span></p>
-<p>The settings in the side pane tell you which data is shown and how it&rsquo;s grouped:</p>
+<p>Les paramètres dans le panneau latéral vous indiquent quelles données sont affichées et comment elles sont groupées :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-settings" src="../images/summary-settings.png" /></em></span></p>
-<p>You can click &ldquo;Edit Data Selection&rdquo; button to open the same widget picker that you used to add the
-summary table. You can now deselect some &ldquo;Group by&rdquo; fields and select others, and click &ldquo;Save&rdquo; to
-update the summary table.</p>
-<h2 id="linking-summary-tables">Linking summary tables<a class="headerlink" href="#linking-summary-tables" title="Permanent link">#</a></h2>
-<p>You can link summary tables to other widgets. If you have a summary table on a
-page, it can be used as a selector for a table of underlying data, or for a more detailed summary.</p>
-<p>For example, if you have a summary of <code>Employees</code> by &ldquo;Position&rdquo;, it will be available as a &ldquo;SELECT
-BY&rdquo; option when adding an unsummarized table of <code>Employees</code>:</p>
+<p>Vous pouvez cliquer sur le bouton &ldquo;Modifier la sélection des données&rdquo; pour ouvrir le même sélecteur de vues que vous avez utilisé pour ajouter la table de synthèse. Vous pouvez maintenant désélectionner certains champs &ldquo;Grouper par&rdquo; et en sélectionner d&rsquo;autres, puis cliquer sur &ldquo;Enregistrer&rdquo; pour mettre à jour la table de synthèse.</p>
+<h2 id="lier-des-tables-de-synthese">Lier des tables de synthèse<a class="headerlink" href="#lier-des-tables-de-synthese" title="Permanent link">#</a></h2>
+<p>Vous pouvez lier des tables de synthèse à d&rsquo;autres vues. Si vous avez une table de synthèse sur une page, elle peut être utilisée comme sélecteur pour une table de données sous-jacentes, ou pour une synthèse plus détaillée.</p>
+<p>Par exemple, si vous avez un résumé des <code>Employés</code> par &ldquo;Poste&rdquo;, il sera disponible comme option &ldquo;SÉLECTIONNER PAR&rdquo; lors de l&rsquo;ajout d&rsquo;une table non résumée des <code>Employés</code> :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link1" src="../images/summary-link1.png" /></em></span></p>
-<p>The result is that you can select a position in the summary table, and see all employees in that
-position.</p>
+<p>Le résultat est que vous pouvez sélectionner un poste dans la table de synthèse, et voir tous les employés dans ce poste.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link1-res" src="../images/summary-link1-res.png" /></em></span></p>
-<p>You could similarly link a summary of <code>Employees</code> grouped by &ldquo;Position&rdquo; and &ldquo;Gender&rdquo; to the first widget:</p>
+<p>Vous pourriez de même lier un résumé des <code>Employés</code> groupés par &ldquo;Poste&rdquo; et &ldquo;Genre&rdquo; à la première vue :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link2" src="../images/summary-link2.png" /></em></span></p>
-<p>You can then select a position in the &ldquo;Employees [by Position]&rdquo; widget, and see a breakdown by
-gender among the employees in that position.</p>
+<p>Vous pouvez alors sélectionner un poste dans la vue &ldquo;Employés [par Poste]&rdquo;, et voir une répartition par genre parmi les employés dans ce poste.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-link2-res" src="../images/summary-link2-res.png" /></em></span></p>
-<p>Note that such linking requires the new widget to include both &ldquo;Position&rdquo; <em>and</em> &ldquo;Gender&rdquo; in its
-group-by columns.</p>
-<p>For more about linking, see <a href="../linking-widgets/">Linking widgets</a>.</p>
-<h2 id="charting-summarized-data">Charting summarized data<a class="headerlink" href="#charting-summarized-data" title="Permanent link">#</a></h2>
-<p>Summary tables are a great source of data for charts, including dynamic charts. In the example
-above, we could add another widget showing <code>Employees</code> grouped by &ldquo;Position&rdquo; and &ldquo;Gender&rdquo;, but
-this time in a Chart widget.</p>
+<p>Notez que ce type de liaison nécessite que la nouvelle vue inclue à la fois &ldquo;Poste&rdquo; <em>et</em> &ldquo;Genre&rdquo; dans ses colonnes de regroupement.</p>
+<p>Pour en savoir plus sur la liaison, voir <a href="../linking-widgets/">Lier des vues</a>.</p>
+<h2 id="graphiques-des-donnees-resumees">Graphiques des données résumées<a class="headerlink" href="#graphiques-des-donnees-resumees" title="Permanent link">#</a></h2>
+<p>Les tables de synthèse sont une excellente source de données pour les graphiques, y compris les graphiques dynamiques. Dans l&rsquo;exemple ci-dessus, nous pourrions ajouter une autre vue montrant les <code>Employés</code> groupés par &ldquo;Poste&rdquo; et &ldquo;Genre&rdquo;, mais cette fois dans une vue graphique.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-add-chart" src="../images/summary-add-chart.png" /></em></span></p>
-<p>Select &ldquo;Bar Chart&rdquo; for the chart type, and select &ldquo;Gender&rdquo; and &ldquo;AnnualPay&rdquo; as Visible Series. You
-can now click on a position, and see visually the gender difference in average salary for this
-position.</p>
+<p>Sélectionnez &ldquo;Diagramme à barres&rdquo; pour le type de graphique, et sélectionnez &ldquo;Genre&rdquo; et &ldquo;AnnualPay&rdquo; comme séries visibles. Vous pouvez maintenant cliquer sur un poste, et voir visuellement la différence de salaire moyen par genre pour ce poste.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-chart-res" src="../images/summary-chart-res.png" /></em></span></p>
-<p>The <a href="../investment-research/#dynamic-charts">Analyze and visualize</a> tutorial shows other examples
-of charts based on summary tables.</p>
-<h2 id="detaching-summary-tables">Detaching summary tables<a class="headerlink" href="#detaching-summary-tables" title="Permanent link">#</a></h2>
-<p>Summary tables are computed from underlying data. Sometimes, however, its useful to <em>&ldquo;detach&rdquo;</em> a
-summary table and turn it into an independent data table.</p>
-<p>For example, we&rsquo;ve seen how to summarize a table of <code>Employees</code>, grouping it by the column
-&ldquo;Position&rdquo;. Let&rsquo;s say you want to associate some data with each position, such as a job
-description, or a workers compensation insurance code. Such data belongs in its own table,
-with one row for each position, and a few columns.</p>
-<p>Summary tables provide an easy way to create such a table. Add a page with a summary of
-<code>Employees</code> grouped by &ldquo;Position&rdquo;.</p>
+<p>Le tutoriel <a href="../investment-research/#dynamic-charts">Analyser et visualiser</a> montre d&rsquo;autres exemples de graphiques basés sur des tables de synthèse.</p>
+<h2 id="detacher-des-tables-de-synthese">Détacher des tables de synthèse<a class="headerlink" href="#detacher-des-tables-de-synthese" title="Permanent link">#</a></h2>
+<p>Les tables de synthèse sont calculées à partir des données sous-jacentes. Parfois, cependant, il est utile de <em>&ldquo;détacher&rdquo;</em> une table de synthèse et de la transformer en une table de données indépendante.</p>
+<p>Par exemple, nous avons vu comment résumer une table des <code>Employés</code>, en la groupant par la colonne &ldquo;Poste&rdquo;. Disons que vous voulez associer des données à chaque poste, telles qu&rsquo;une description de poste ou un code d&rsquo;assurance pour les accidents du travail. Ces données appartiennent à leur propre table, avec une ligne pour chaque poste, et quelques colonnes.</p>
+<p>Les tables de synthèse fournissent un moyen facile de créer une telle table. Ajoutez une page avec un résumé des <code>Employés</code> groupés par &ldquo;Poste&rdquo;.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-detach1" src="../images/summary-detach1.png" /></em></span></p>
-<p>Now, in the right panel&rsquo;s &ldquo;Data&rdquo; tab, click the &ldquo;Detach&rdquo; button.</p>
+<p>Maintenant, dans l&rsquo;onglet &ldquo;Données&rdquo; du panneau de droite, cliquez sur le bouton &ldquo;Détacher&rdquo;.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-detach2" src="../images/summary-detach2.png" /></em></span></p>
-<p>Your summary table just got turned into a brand new table with the same rows and an auto-generated
-name, like &ldquo;Table1&rdquo;. You can rename it to &ldquo;Positions&rdquo;, and add the columns you need:</p>
+<p>Votre table de synthèse vient d&rsquo;être transformée en une toute nouvelle table avec les mêmes lignes et un nom généré automatiquement, comme &ldquo;Table1&rdquo;. Vous pouvez la renommer en &ldquo;Postes&rdquo;, et ajouter les colonnes dont vous avez besoin :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="summary-detach3" src="../images/summary-detach3.png" /></em></span></p>
-<p>The calculated columns remain. In fact, anything you could calculate about each position in the
-&ldquo;Employees [by Position]&rdquo; summary table, you may still calculate in the new &ldquo;Positions&rdquo; table.</p>
-<p>One difference is that new values will not get added to the detached table automatically. In other
-words, if a never-before-seen position (perhaps &ldquo;Chief Troublemaker&rdquo;) appears in the underlying
-data, a summary table would update automatically to include it, but a detached table will not.</p>
+<p>Les colonnes calculées restent. En fait, tout ce que vous pourriez calculer sur chaque poste dans la table de synthèse &ldquo;Employés [par Poste]&rdquo;, vous pouvez toujours le calculer dans la nouvelle table &ldquo;Postes&rdquo;.</p>
+<p>Une différence est que de nouvelles valeurs ne seront pas ajoutées automatiquement à la table détachée. En d&rsquo;autres termes, si un poste jamais vu auparavant (peut-être &ldquo;Responsable des troubles&rdquo;) apparaît dans les données sous-jacentes, une table de synthèse se mettrait à jour automatiquement pour l&rsquo;inclure, mais une table détachée ne le fera pas.</p>
 
   <br>
 </div>

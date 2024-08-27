@@ -433,23 +433,23 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Embedding Grist
+              Intégrer Grist
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#parameters">
-              Parameters
+            <a class="wm-article-link wm-page-toc-text" href="#parametres">
+              Paramètres
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#read-only-vs-editable">
-                Read-Only vs. Editable
+              <a class="wm-article-link wm-page-toc-text" href="#lecture-seule-vs-editable">
+                Lecture seule vs. Éditable
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#appearance">
-                Appearance
+              <a class="wm-article-link wm-page-toc-text" href="#apparence">
+                Apparence
               </a>
             </li>
         
@@ -929,46 +929,44 @@
 
     
 
-    <h2 id="embedding-grist">Embedding Grist<a class="headerlink" href="#embedding-grist" title="Permanent link">#</a></h2>
+    <h2 id="integrer-grist">Intégrer Grist<a class="headerlink" href="#integrer-grist" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Perhaps you&rsquo;d like to list your product, prices and quantities on your website,
-or you want to display a pie chart of voting results that updates live. With
-<a href="../sharing/#public-access-and-link-sharing">public access</a> turned on, you may embed your
-Grist document on your own site.</p>
-<p>To do that, you first need to make it <a href="../sharing/#public-access-and-link-sharing">public</a> and have
-access to your website&rsquo;s code in order to place some HTML code in the desired location.</p>
-<p>If your site is hosted on some popular cloud CMS platform (like Blogger or WordPress),
-you may find HTML code blocks in your theme editor, or may need to use a
-<a href="https://wordpress.org/plugins/wp-coder/">plugin</a> to access your site&rsquo;s code.
-If you have any problems editing your site, feel free to ask us or post a question
-on our <a href="https://community.getgrist.com/">Community Forum</a>.</p>
-<p>Once you have decided where to embed your document, paste this code snippet in your HTML file:</p>
+<p>Peut-être souhaitez-vous lister vos produits, prix et quantités sur votre site web,
+ou vous voulez afficher un graphique en camembert des résultats de vote qui se met à jour en direct. Avec
+<a href="../sharing/#public-access-and-link-sharing">l&rsquo;accès public</a> activé, vous pouvez intégrer votre
+document Grist sur votre propre site.</p>
+<p>Pour ce faire, vous devez d&rsquo;abord le rendre <a href="../sharing/#public-access-and-link-sharing">public</a> et avoir
+accès au code de votre site web afin de placer du code HTML à l&rsquo;emplacement souhaité.</p>
+<p>Si votre site est hébergé sur une plateforme CMS cloud populaire (comme Blogger ou WordPress),
+vous pouvez trouver des blocs de code HTML dans l&rsquo;éditeur de thème, ou vous devrez peut-être utiliser un
+<a href="https://wordpress.org/plugins/wp-coder/">plugin</a> pour accéder au code de votre site.
+Si vous avez des problèmes pour modifier votre site, n&rsquo;hésitez pas à nous demander ou à poser une question
+sur notre <a href="https://community.getgrist.com/">Forum Communautaire</a>.</p>
+<p>Une fois que vous avez décidé où intégrer votre document, collez cet extrait de code dans votre fichier HTML :</p>
 <pre><code class="language-html">&lt;iframe src=&quot;https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&quot; 
         height=&quot;250px&quot; width=&quot;100%&quot; frameborder=&quot;0&quot;&gt;
 &lt;/iframe&gt;
 </code></pre>
-<p>The <code>src</code> attribute points to the URL of the page you want to embed. To get the <code>URL</code>
-for your document, simply navigate to the page you want to share and
-copy the URL from the browser&rsquo;s address bar. Appending the <code>?embed=true</code> parameter at the end
-tells Grist that it should show only the content of your page, removing any elements that
-are not necessary for the embedded version. You may wish to adjust <code>height</code> and <code>width</code> attributes
-to make it look better on your site.</p>
-<p>Since this Help Center document is a regular HTML file, we can try it right away!
-Below you should be able to see an embedded live table (not a screenshot) from one of our
-<a href="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6">examples</a>:</p>
-<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&themeAppearance=light&themeSyncWithOs=false" 
-        height="250px" width="100%" frameborder="0">
+<p>L&rsquo;attribut <code>src</code> pointe vers l&rsquo;URL de la page que vous souhaitez intégrer. Pour obtenir l&rsquo;<code>URL</code>
+de votre document, naviguez simplement vers la page que vous souhaitez partager et
+copiez l&rsquo;URL depuis la barre d&rsquo;adresse du navigateur. Ajouter le paramètre <code>?embed=true</code> à la fin
+indique à Grist qu&rsquo;il doit afficher uniquement le contenu de votre page, en supprimant tous les éléments qui
+ne sont pas nécessaires pour la version intégrée. Vous pouvez ajuster les attributs <code>height</code> et <code>width</code>
+pour améliorer l&rsquo;apparence sur votre site.</p>
+<p>Puisque ce document du Centre d&rsquo;Aide est un fichier HTML ordinaire, nous pouvons l&rsquo;essayer tout de suite !
+Vous devriez voir ci-dessous une table en direct intégrée (et non une capture d&rsquo;écran) provenant de l&rsquo;un de nos
+<a href="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6">exemples</a> :</p>
+<iframe src="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&themeAppearance=light&themeSyncWithOs=false" height="250px" width="100%" frameborder="0">
 </iframe>
 
-<p>This is a live, read-only view of the Grist page and it gets updated as soon as 
-someone edits it. You can, of course, embed any page you wish, including card view, charts
-and any page with multiple sections.</p>
-<p>Here are two more examples with a chart and a card list view:</p>
+<p>Ceci est une vue en direct et en lecture seule de la page Grist et elle se met à jour dès que
+quelqu&rsquo;un la modifie. Vous pouvez, bien sûr, intégrer n&rsquo;importe quelle page que vous souhaitez, y compris la vue fiche, les graphiques
+et toute page avec plusieurs sections.</p>
+<p>Voici deux autres exemples avec un graphique et une vue liste de fiches :</p>
 <iframe src="https://public.getgrist.com/42dAvZXMFewH/Funding-Pipeline/p/13?embed=true&themeAppearance=light&themeSyncWithOs=false" 
         height="300px" width="100%" frameborder="0">
 </iframe>
@@ -977,19 +975,19 @@ and any page with multiple sections.</p>
         height="300px" width="100%" frameborder="0">
 </iframe>
 
-<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
-<h4 id="read-only-vs-editable">Read-Only vs. Editable<a class="headerlink" href="#read-only-vs-editable" title="Permanent link">#</a></h4>
-<p>Appending a URL with <code>?embed=true</code> shares the page as read-only while <code>?style=singlePage</code> can be edited and follows <a href="../access-rules/">access rules</a>.</p>
+<h2 id="parametres">Paramètres<a class="headerlink" href="#parametres" title="Permanent link">#</a></h2>
+<h4 id="lecture-seule-vs-editable">Lecture seule vs. Éditable<a class="headerlink" href="#lecture-seule-vs-editable" title="Permanent link">#</a></h4>
+<p>Ajouter <code>?embed=true</code> à une URL partage la page en lecture seule tandis que <code>?style=singlePage</code> peut être éditée et suit les <a href="../access-rules/">permissions avancées</a>.</p>
 <div class="admonition note">
-<p class="admonition-title">Sharing an Embedded Style View</p>
-<p>Adding <code>?embed=true</code> or <code>?style=singlePage</code> to the end of a document&rsquo;s page URL renders the document without the toolbar on top, the page menu on the left or creator panel on the right. To learn more about link sharing, see <a href="../sharing/#public-access-and-link-sharing">Public access and link sharing</a>.</p>
+<p class="admonition-title">Partager une Vue Intégrée</p>
+<p>Ajouter <code>?embed=true</code> ou <code>?style=singlePage</code> à la fin de l&rsquo;URL d&rsquo;une page de document rend le document sans la barre d&rsquo;outils en haut, le menu de page à gauche ou le panneau de créateur à droite. Pour en savoir plus sur le partage de lien, consultez <a href="../sharing/#public-access-and-link-sharing">Accès public et partage de lien</a>.</p>
 </div>
-<h4 id="appearance">Appearance<a class="headerlink" href="#appearance" title="Permanent link">#</a></h4>
-<p>Control how an embedded iframe appears by assigning a theme appearance by appending <code>?themeAppearance=light</code> for light mode or <code>?themeAppearance=dark</code> for dark mode to your URL.</p>
-<p>You can also override the operating system&rsquo;s default using <code>?themeSyncWithOs=false</code>.</p>
+<h4 id="apparence">Apparence<a class="headerlink" href="#apparence" title="Permanent link">#</a></h4>
+<p>Contrôlez l&rsquo;apparence d&rsquo;un iframe intégré en assignant une apparence de thème en ajoutant <code>?themeAppearance=light</code> pour le mode clair ou <code>?themeAppearance=dark</code> pour le mode sombre à votre URL.</p>
+<p>Vous pouvez également remplacer le paramètre par défaut du système d&rsquo;exploitation en utilisant <code>?themeSyncWithOs=false</code>.</p>
 <div class="admonition note">
-<p class="admonition-title">Chaining Parameters</p>
-<p>When adding parameters to the end of your URL, the first always leads with <code>?</code>. Any additional parameters lead with <code>&amp;</code>. For example, <a href="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&amp;themeAppearance=dark&amp;themeSyncWithOs=false">https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&amp;themeAppearance=dark&amp;themeSyncWithOs=false</a> creates an embedded-style, read-only view and forces dark mode, regardless of your OS settings.</p>
+<p class="admonition-title">Chaînage des Paramètres</p>
+<p>Lors de l&rsquo;ajout de paramètres à la fin de votre URL, le premier commence toujours par <code>?</code>. Tous les paramètres supplémentaires commencent par <code>&amp;</code>. Par exemple, <a href="https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&amp;themeAppearance=dark&amp;themeSyncWithOs=false">https://templates.getgrist.com/6D8E2h2DQNwS/Task-Management/p/6?embed=true&amp;themeAppearance=dark&amp;themeSyncWithOs=false</a> crée une vue intégrée, en lecture seule et force le mode sombre, indépendamment des paramètres de votre système d&rsquo;exploitation.</p>
 </div>
 
   <br>

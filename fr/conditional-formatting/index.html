@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Le style des cellules peut être modifié en fonction de règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s’appliquer à une ligne entière ou aux cellules d’une colonne.">
-      <meta property="og:description" content="Le style des cellules peut être modifié en fonction de règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s’appliquer à une ligne entière ou aux cellules d’une colonne.">
+      <meta name="description" content="Le style des cellules peut changer en fonction des règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s’appliquer à une ligne entière ou aux cellules d’une colonne.">
+      <meta property="og:description" content="Le style des cellules peut changer en fonction des règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s’appliquer à une ligne entière ou aux cellules d’une colonne.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/conditional-formatting/">
@@ -924,21 +924,21 @@
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 id="mise-en-forme-conditionnelle">Mise en forme conditionnelle<a class="headerlink" href="#mise-en-forme-conditionnelle" title="Permanent link">#</a></h1>
-<p>Le style des cellules peut être modifié en fonction de règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s&rsquo;appliquer à une ligne entière ou aux cellules d&rsquo;une colonne.</p>
-<p>Pour ajouter une mise en forme conditionnelle à une colonne particulière, sélectionnez la colonne, allez dans la section <code>CELL STYLE</code> du <a href="../glossary/#creator-panel">creator panel</a> sous l&rsquo;onglet <code>Column</code>, et cliquez sur <code>Add conditional style</code>.</p>
+<p>Le style des cellules peut changer en fonction des règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s&rsquo;appliquer à une ligne entière ou aux cellules d&rsquo;une colonne.</p>
+<p>Pour ajouter une mise en forme conditionnelle à une colonne particulière, sélectionnez la colonne, allez à la section <code>STYLE DE CELLULE</code> du <a href="../glossary/#creator-panel">panneau de création</a> sous l&rsquo;onglet <code>Colonne</code>, et cliquez sur <code>Ajouter un style conditionnel</code>.</p>
 <p class="screenshot-half"><em><img alt="Ajouter un style conditionnel" src="../images/columns/add-conditional-style.png" /></em></p>
-<p>Dans cet exemple, nous disposons d&rsquo;une liste d&rsquo;éleveurs de chiens qui ont élevé des pur-sang champions. Appliquons une mise en forme conditionnelle à la colonne Éleveur en fonction du nombre de chiens champions. Nous souhaitons mettre en évidence en or les éleveurs ayant plus de deux champions.</p>
-<p><img alt="Rédaction de règles conditionnelles" src="../images/columns/first-conditional-rule.png" /></p>
+<p>Dans cet exemple, nous avons une liste d&rsquo;éleveurs de chiens qui ont élevé des pur-sang champions. Appliquons une mise en forme conditionnelle à la colonne Éleveur en fonction du nombre de chiens champions. Nous aimerions mettre en surbrillance en or les éleveurs ayant plus de 2 champions.</p>
+<p><img alt="Écrire des règles conditionnelles" src="../images/columns/first-conditional-rule.png" /></p>
 <p>Ici, la formule conditionnelle est <code class="formula">$Number_of_Champions &gt; 2</code>.</p>
-<p>Nous aimerions également mettre en évidence les éleveurs ayant 1 ou 2 chiens champions en bleu, et 0 chien champion en marron. Cliquez sur &ldquo;Ajouter une autre règle&rdquo; pour ajouter d&rsquo;autres styles conditionnels.</p>
+<p>Nous aimerions également mettre en surbrillance les éleveurs ayant 1 ou 2 chiens champions en bleu, et ceux ayant 0 chien champion en marron. Cliquez sur <code>Ajouter une autre règle</code> pour ajouter plus de styles conditionnels.</p>
 <p><img alt="Règles conditionnelles multiples" src="../images/columns/multiple-conditional-rules.PNG" /></p>
-<p>Pour ajouter un formatage conditionnel aux lignes, allez dans la section <code>ROW STYLE</code> du <a href="../glossary/#creator-panel">creator panel</a> sous l&rsquo;onglet <code>Table &gt; Widget</code>, et cliquez sur <code>Add conditional style</code>.</p>
-<p><img alt="Styles de lignes conditionnelles" src="../images/newsletters/2022-08/conditional-row.png" /></p>
+<p>Pour ajouter une mise en forme conditionnelle aux lignes, allez à la section <code>STYLE DE LIGNE</code> du <a href="../glossary/#creator-panel">panneau de création</a> sous l&rsquo;onglet <code>Table &gt; Vue</code>, et cliquez sur <code>Ajouter un style conditionnel</code>.</p>
+<p><img alt="Styles de ligne conditionnels" src="../images/newsletters/2022-08/conditional-row.png" /></p>
 <h2 id="ordre-des-regles">Ordre des règles<a class="headerlink" href="#ordre-des-regles" title="Permanent link">#</a></h2>
-<p>Notez que Grist applique les règles dans l&rsquo;ordre. Les styles appliqués par les règles ultérieures remplaceront ceux appliqués par les règles antérieures.</p>
-<p>Que se passerait-il si nous intervertissions les deux dernières règles dans l&rsquo;exemple ci-dessus ?</p>
+<p>Notez que Grist applique les règles dans l&rsquo;ordre. Les styles appliqués par des règles ultérieures remplaceront ceux appliqués par des règles antérieures.</p>
+<p>Que se passerait-il si nous échangions les deux dernières règles dans l&rsquo;exemple ci-dessus ?</p>
 <p><img alt="Ordre des règles conditionnelles" src="../images/columns/conditional-rules-order.PNG" /></p>
-<p>Remarquez que Gen Hamamoto, qui a 0 chien champion, n&rsquo;est pas surligné en marron. En effet, après avoir appliqué le deuxième style conditionnel, <code class="formula">$Nombre_de_Champions == 0</code>, Grist a appliqué le troisième, <code class="formula">$Nombre_de_Champions &lt;= 2</code>, qui s&rsquo;applique également à Gen Hamamoto et le colore en bleu.</p>
+<p>Remarquez que Gen Hamamoto, qui a 0 chien champion, n&rsquo;est pas mis en surbrillance en marron. C&rsquo;est parce qu&rsquo;après avoir appliqué le deuxième style conditionnel, <code class="formula">$Number_of_Champions == 0</code>, Grist a appliqué le troisième, <code class="formula">$Number_of_Champions &lt;= 2</code>, qui s&rsquo;applique également à Gen Hamamoto et le colore en bleu.</p>
 
   <br>
 </div>

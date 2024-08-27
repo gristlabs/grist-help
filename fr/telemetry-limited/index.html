@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="This is a telemetry level appropriate for self-hosting instances of Grist.
-Data is transmitted to Grist Labs.">
-      <meta property="og:description" content="This is a telemetry level appropriate for self-hosting instances of Grist.
-Data is transmitted to Grist Labs.">
+      <meta name="description" content="Il s’agit d’un niveau de télémétrie approprié pour les instances auto-hébergées de Grist.
+Les données sont transmises à Grist Labs.">
+      <meta property="og:description" content="Il s’agit d’un niveau de télémétrie approprié pour les instances auto-hébergées de Grist.
+Les données sont transmises à Grist Labs.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/telemetry-limited/">
@@ -505,7 +505,7 @@ Data is transmitted to Grist Labs.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Telemetry level: limited
+              Niveau de télémétrie : limité
             </a>
           </li>
             <li class="wm-toc-li">
@@ -950,21 +950,20 @@ Data is transmitted to Grist Labs.">
 
     
 
-    <h1 id="telemetry-level-limited">Telemetry level: limited<a class="headerlink" href="#telemetry-level-limited" title="Permanent link">#</a></h1>
-<p>This is a telemetry level appropriate for self-hosting instances of Grist.
-Data is transmitted to Grist Labs.</p>
+    <h1 id="niveau-de-telemetrie-limite">Niveau de télémétrie : limité<a class="headerlink" href="#niveau-de-telemetrie-limite" title="Permanent link">#</a></h1>
+<p>Il s&rsquo;agit d&rsquo;un niveau de télémétrie approprié pour les instances auto-hébergées de Grist.
+Les données sont transmises à Grist Labs.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h2 id="documentforked">documentForked<a class="headerlink" href="#documentforked" title="Permanent link">#</a></h2>
-<p>Triggered when a document is forked.</p>
+<p>Déclenché lorsqu&rsquo;un document est dupliqué.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -973,46 +972,46 @@ Data is transmitted to Grist Labs.</p>
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hachage de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>forkIdDigest</td>
 <td>string</td>
-<td>A hash of the fork id.</td>
+<td>Un hachage de l&rsquo;identifiant de la duplication.</td>
 </tr>
 <tr>
 <td>forkDocIdDigest</td>
 <td>string</td>
-<td>A hash of the full id of the fork, including the trunk id and fork id.</td>
+<td>Un hachage de l&rsquo;identifiant complet de la duplication, incluant l&rsquo;identifiant du tronc et l&rsquo;identifiant de la duplication.</td>
 </tr>
 <tr>
 <td>trunkIdDigest</td>
 <td>string</td>
-<td>A hash of the trunk id.</td>
+<td>Un hachage de l&rsquo;identifiant du tronc.</td>
 </tr>
 <tr>
 <td>isTemplate</td>
 <td>boolean</td>
-<td>Whether the trunk is a template.</td>
+<td>Indique si le tronc est un modèle.</td>
 </tr>
 <tr>
 <td>lastActivity</td>
 <td>date</td>
-<td>Timestamp of the last update to the trunk document.</td>
+<td>Horodatage de la dernière mise à jour du document tronc.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="documentopened">documentOpened<a class="headerlink" href="#documentopened" title="Permanent link">#</a></h2>
-<p>Triggered when a public document or template is opened.</p>
+<p>Déclenché lorsqu&rsquo;un document public ou un modèle est ouvert.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1021,41 +1020,41 @@ Data is transmitted to Grist Labs.</p>
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hachage de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>isPublic</td>
 <td>boolean</td>
-<td>Whether the document is public.</td>
+<td>Indique si le document est public.</td>
 </tr>
 <tr>
 <td>isSnapshot</td>
 <td>boolean</td>
-<td>Whether a snapshot was opened.</td>
+<td>Indique si une capture instantanée a été ouverte.</td>
 </tr>
 <tr>
 <td>isTemplate</td>
 <td>boolean</td>
-<td>Whether the document is a template.</td>
+<td>Indique si le document est un modèle.</td>
 </tr>
 <tr>
 <td>lastUpdated</td>
 <td>date</td>
-<td>Timestamp of when the document was last updated.</td>
+<td>Horodatage de la dernière mise à jour du document.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="documentusage">documentUsage<a class="headerlink" href="#documentusage" title="Permanent link">#</a></h2>
-<p>Triggered on doc open and close, as well as hourly while a document is open.</p>
+<p>Déclenché à l&rsquo;ouverture et à la fermeture d&rsquo;un document, ainsi qu&rsquo;à chaque heure pendant qu&rsquo;un document est ouvert.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1064,146 +1063,146 @@ Data is transmitted to Grist Labs.</p>
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hachage de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>triggeredBy</td>
 <td>string</td>
-<td>What caused this event to trigger. May be either &ldquo;docOpen&rdquo;, &ldquo;interval&rdquo;, or &ldquo;docClose&rdquo;.</td>
+<td>Ce qui a causé le déclenchement de cet événement. Peut être soit &ldquo;docOpen&rdquo;, &ldquo;interval&rdquo;, ou &ldquo;docClose&rdquo;.</td>
 </tr>
 <tr>
 <td>isPublic</td>
 <td>boolean</td>
-<td>Whether the document is public.</td>
+<td>Indique si le document est public.</td>
 </tr>
 <tr>
 <td>rowCount</td>
 <td>number</td>
-<td>The number of rows in the document.</td>
+<td>Le nombre de lignes dans le document.</td>
 </tr>
 <tr>
 <td>dataSizeBytes</td>
 <td>number</td>
-<td>The total size of all data in the document, excluding attachments.</td>
+<td>La taille totale de toutes les données dans le document, à l&rsquo;exclusion des pièces jointes.</td>
 </tr>
 <tr>
 <td>attachmentsSize</td>
 <td>number</td>
-<td>The total size of all attachments in the document.</td>
+<td>La taille totale de toutes les pièces jointes dans le document.</td>
 </tr>
 <tr>
 <td>numAccessRules</td>
 <td>number</td>
-<td>The number of access rules in the document.</td>
+<td>Le nombre de permissions avancées dans le document.</td>
 </tr>
 <tr>
 <td>numUserAttributes</td>
 <td>number</td>
-<td>The number of user attributes in the document.</td>
+<td>Le nombre de propriétés d&rsquo;utilisateur dans le document.</td>
 </tr>
 <tr>
 <td>numAttachments</td>
 <td>number</td>
-<td>The number of attachments in the document.</td>
+<td>Le nombre de pièces jointes dans le document.</td>
 </tr>
 <tr>
 <td>attachmentTypes</td>
 <td>string[]</td>
-<td>A list of unique file extensions compiled from all of the document&rsquo;s attachments.</td>
+<td>Une liste des extensions de fichiers uniques compilées à partir de toutes les pièces jointes du document.</td>
 </tr>
 <tr>
 <td>numCharts</td>
 <td>number</td>
-<td>The number of charts in the document.</td>
+<td>Le nombre de graphiques dans le document.</td>
 </tr>
 <tr>
 <td>chartTypes</td>
 <td>string[]</td>
-<td>A list of chart types of every chart in the document.</td>
+<td>Une liste des types de graphiques de chaque graphique dans le document.</td>
 </tr>
 <tr>
 <td>numLinkedCharts</td>
 <td>number</td>
-<td>The number of linked charts in the document.</td>
+<td>Le nombre de graphiques liés dans le document.</td>
 </tr>
 <tr>
 <td>numLinkedWidgets</td>
 <td>number</td>
-<td>The number of linked widgets in the document.</td>
+<td>Le nombre de vues liées dans le document.</td>
 </tr>
 <tr>
 <td>numColumns</td>
 <td>number</td>
-<td>The number of columns in the document.</td>
+<td>Le nombre de colonnes dans le document.</td>
 </tr>
 <tr>
 <td>numColumnsWithConditionalFormatting</td>
 <td>number</td>
-<td>The number of columns with conditional formatting in the document.</td>
+<td>Le nombre de colonnes avec mise en forme conditionnelle dans le document.</td>
 </tr>
 <tr>
 <td>numFormulaColumns</td>
 <td>number</td>
-<td>The number of formula columns in the document.</td>
+<td>Le nombre de colonnes de formules dans le document.</td>
 </tr>
 <tr>
 <td>numTriggerFormulaColumns</td>
 <td>number</td>
-<td>The number of trigger formula columns in the document.</td>
+<td>Le nombre de colonnes de formules déclencheuses dans le document.</td>
 </tr>
 <tr>
 <td>numSummaryFormulaColumns</td>
 <td>number</td>
-<td>The number of summary formula columns in the document.</td>
+<td>Le nombre de colonnes de formules récapitulatives dans le document.</td>
 </tr>
 <tr>
 <td>numFieldsWithConditionalFormatting</td>
 <td>number</td>
-<td>The number of fields with conditional formatting in the document.</td>
+<td>Le nombre de champs avec mise en forme conditionnelle dans le document.</td>
 </tr>
 <tr>
 <td>numTables</td>
 <td>number</td>
-<td>The number of tables in the document.</td>
+<td>Le nombre de tables dans le document.</td>
 </tr>
 <tr>
 <td>numOnDemandTables</td>
 <td>number</td>
-<td>The number of on-demand tables in the document.</td>
+<td>Le nombre de tables à la demande dans le document.</td>
 </tr>
 <tr>
 <td>numTablesWithConditionalFormatting</td>
 <td>number</td>
-<td>The number of tables with conditional formatting in the document.</td>
+<td>Le nombre de tables avec mise en forme conditionnelle dans le document.</td>
 </tr>
 <tr>
 <td>numSummaryTables</td>
 <td>number</td>
-<td>The number of summary tables in the document.</td>
+<td>Le nombre de tables récapitulatives dans le document.</td>
 </tr>
 <tr>
 <td>numCustomWidgets</td>
 <td>number</td>
-<td>The number of custom widgets in the document.</td>
+<td>Le nombre de vues personnalisées dans le document.</td>
 </tr>
 <tr>
 <td>customWidgetIds</td>
 <td>string[]</td>
-<td>A list of plugin ids for every custom widget in the document. The ids of widgets not created by Grist Labs are replaced with &ldquo;externalId&rdquo;.</td>
+<td>Une liste des identifiants de plugins pour chaque vue personnalisée dans le document. Les identifiants des vues non créées par Grist Labs sont remplacés par &ldquo;externalId&rdquo;.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="sendingwebhooks">sendingWebhooks<a class="headerlink" href="#sendingwebhooks" title="Permanent link">#</a></h2>
-<p>Triggered when sending webhooks.</p>
+<p>Déclenché lors de l&rsquo;envoi de webhooks.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1212,26 +1211,26 @@ Data is transmitted to Grist Labs.</p>
 <tr>
 <td>numEvents</td>
 <td>number</td>
-<td>The number of events in the batch of webhooks being sent.</td>
+<td>Le nombre d&rsquo;événements dans le lot de webhooks envoyés.</td>
 </tr>
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hachage de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="sitemembership">siteMembership<a class="headerlink" href="#sitemembership" title="Permanent link">#</a></h2>
-<p>Triggered daily.</p>
+<p>Déclenché quotidiennement.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1240,36 +1239,36 @@ Data is transmitted to Grist Labs.</p>
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type de site.</td>
 </tr>
 <tr>
 <td>numOwners</td>
 <td>number</td>
-<td>The number of users with an owner role in this site.</td>
+<td>Le nombre d&rsquo;utilisateurs avec un rôle de propriétaire dans ce site.</td>
 </tr>
 <tr>
 <td>numEditors</td>
 <td>number</td>
-<td>The number of users with an editor role in this site.</td>
+<td>Le nombre d&rsquo;utilisateurs avec un rôle d&rsquo;éditeur dans ce site.</td>
 </tr>
 <tr>
 <td>numViewers</td>
 <td>number</td>
-<td>The number of users with a viewer role in this site.</td>
+<td>Le nombre d&rsquo;utilisateurs avec un rôle de visionneur dans ce site.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="siteusage">siteUsage<a class="headerlink" href="#siteusage" title="Permanent link">#</a></h2>
-<p>Triggered daily.</p>
+<p>Déclenché quotidiennement.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1278,46 +1277,46 @@ Data is transmitted to Grist Labs.</p>
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type de site.</td>
 </tr>
 <tr>
 <td>inGoodStanding</td>
 <td>boolean</td>
-<td>Whether the site&rsquo;s subscription is in good standing.</td>
+<td>Indique si l&rsquo;abonnement du site est en règle.</td>
 </tr>
 <tr>
 <td>numDocs</td>
 <td>number</td>
-<td>The number of docs in this site.</td>
+<td>Le nombre de documents dans ce site.</td>
 </tr>
 <tr>
 <td>numWorkspaces</td>
 <td>number</td>
-<td>The number of workspaces in this site.</td>
+<td>Le nombre d&rsquo;espaces de travail dans ce site.</td>
 </tr>
 <tr>
 <td>numMembers</td>
 <td>number</td>
-<td>The number of site members.</td>
+<td>Le nombre de membres du site.</td>
 </tr>
 <tr>
 <td>lastActivity</td>
 <td>date</td>
-<td>A timestamp of the most recent update made to a site document.</td>
+<td>Un horodatage de la mise à jour la plus récente effectuée sur un document du site.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="watchedvideotour">watchedVideoTour<a class="headerlink" href="#watchedvideotour" title="Permanent link">#</a></h2>
-<p>Triggered when the video tour is closed.</p>
+<p>Déclenché lorsque la visite vidéo est fermée.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1326,7 +1325,7 @@ Data is transmitted to Grist Labs.</p>
 <tr>
 <td>watchTimeSeconds</td>
 <td>number</td>
-<td>The number of seconds elapsed in the video player.</td>
+<td>Le nombre de secondes écoulées dans le lecteur vidéo.</td>
 </tr>
 </tbody>
 </table>

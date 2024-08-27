@@ -7,28 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Discourse is popular forum software made to be integrated with many sites
-(including our own).  It is annoying
-if users need a login for a forum that is separate to their login on
-the rest of a site. The protocol Discourse created for solving this
-is quite well done and is called 
-DiscourseConnect.
-We decided to have Grist support the same protocol, so any software
-that has plugins for letting Discourse use its logins (such as WordPress)
-can also let Grist use its logins. This isn’t an official standard so
-we called our implementation of it “GristConnect” rather than
-“DiscourseConnect”.">
-      <meta property="og:description" content="Discourse is popular forum software made to be integrated with many sites
-(including our own).  It is annoying
-if users need a login for a forum that is separate to their login on
-the rest of a site. The protocol Discourse created for solving this
-is quite well done and is called 
-DiscourseConnect.
-We decided to have Grist support the same protocol, so any software
-that has plugins for letting Discourse use its logins (such as WordPress)
-can also let Grist use its logins. This isn’t an official standard so
-we called our implementation of it “GristConnect” rather than
-“DiscourseConnect”.">
+      <meta name="description" content="Discourse est un logiciel de forum populaire conçu pour être intégré à de nombreux sites (y compris le nôtre). Il est ennuyeux si les utilisateurs ont besoin d’un identifiant pour un forum séparé de leur identifiant sur le reste d’un site. Le protocole créé par Discourse pour résoudre ce problème est bien fait et s’appelle DiscourseConnect. Nous avons décidé de faire en sorte que Grist prenne en charge le même protocole, de sorte que tout logiciel disposant de plugins permettant à Discourse d’utiliser ses identifiants (comme WordPress) puisse également permettre à Grist d’utiliser ses identifiants. Ce n’est pas une norme officielle, nous avons donc appelé notre implémentation “GristConnect” plutôt que “DiscourseConnect”.">
+      <meta property="og:description" content="Discourse est un logiciel de forum populaire conçu pour être intégré à de nombreux sites (y compris le nôtre). Il est ennuyeux si les utilisateurs ont besoin d’un identifiant pour un forum séparé de leur identifiant sur le reste d’un site. Le protocole créé par Discourse pour résoudre ce problème est bien fait et s’appelle DiscourseConnect. Nous avons décidé de faire en sorte que Grist prenne en charge le même protocole, de sorte que tout logiciel disposant de plugins permettant à Discourse d’utiliser ses identifiants (comme WordPress) puisse également permettre à Grist d’utiliser ses identifiants. Ce n’est pas une norme officielle, nous avons donc appelé notre implémentation “GristConnect” plutôt que “DiscourseConnect”.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/install/grist-connect/">
@@ -935,54 +915,40 @@ we called our implementation of it “GristConnect” rather than
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 class="tag-ee" id="gristconnect">GristConnect<a class="headerlink" href="#gristconnect" title="Permanent link">#</a></h1>
-<p>Discourse is popular forum software made to be integrated with many sites
-(including <a href="https://community.getgrist.com">our own</a>).  It is annoying
-if users need a login for a forum that is separate to their login on
-the rest of a site. The protocol Discourse created for solving this
-is quite well done and is called 
-<a href="https://meta.discourse.org/t/discourseconnect-official-single-sign-on-for-discourse-sso/13045">DiscourseConnect</a>.
-We decided to have Grist support the same protocol, so any software
-that has plugins for letting Discourse use its logins (such as WordPress)
-can also let Grist use its logins. This isn&rsquo;t an official standard so
-we called our implementation of it &ldquo;GristConnect&rdquo; rather than
-&ldquo;DiscourseConnect&rdquo;.</p>
-<p>Setting up GristConnect requires some settings for Grist, and a plugin or
-custom coding for your site or SSO. The Grist settings are as follows:</p>
+<p>Discourse est un logiciel de forum populaire conçu pour être intégré à de nombreux sites (y compris <a href="https://community.getgrist.com">le nôtre</a>). Il est ennuyeux si les utilisateurs ont besoin d&rsquo;un identifiant pour un forum séparé de leur identifiant sur le reste d&rsquo;un site. Le protocole créé par Discourse pour résoudre ce problème est bien fait et s&rsquo;appelle <a href="https://meta.discourse.org/t/discourseconnect-official-single-sign-on-for-discourse-sso/13045">DiscourseConnect</a>. Nous avons décidé de faire en sorte que Grist prenne en charge le même protocole, de sorte que tout logiciel disposant de plugins permettant à Discourse d&rsquo;utiliser ses identifiants (comme WordPress) puisse également permettre à Grist d&rsquo;utiliser ses identifiants. Ce n&rsquo;est pas une norme officielle, nous avons donc appelé notre implémentation &ldquo;GristConnect&rdquo; plutôt que &ldquo;DiscourseConnect&rdquo;.</p>
+<p>La configuration de GristConnect nécessite quelques réglages pour Grist, ainsi qu&rsquo;un plugin ou un codage personnalisé pour votre site ou SSO. Les paramètres Grist sont les suivants :</p>
 <ul>
-<li><code>GRIST_CONNECT_URL</code>: setting this environment variable will enable GristConnect. It should be an URL address of an external site where users will be redirected on login/signup request.</li>
-<li><code>GRIST_CONNECT_SECRET</code>: (required) a secret key, used to sign (hash) query parameters in URLs used during login flow. </li>
-<li><code>GRIST_CONNECT_LOGOUT_URL</code>: (optional) an URL address users will be redirected to after signing out. By default - Grist&rsquo;s existing sign-out page.</li>
-<li><code>GRIST_CONNECT_ENDPOINT</code>: (optional) a callback endpoint exposed by Grist where users should be redirected to after a successful login attempt in the external Identity Provider site (default value: <code>/connect/login</code>).</li>
+<li><code>GRIST_CONNECT_URL</code> : définir cette variable d&rsquo;environnement activera GristConnect. Il doit s&rsquo;agir d&rsquo;une adresse URL d&rsquo;un site externe vers lequel les utilisateurs seront redirigés lors d&rsquo;une demande de connexion/inscription.</li>
+<li><code>GRIST_CONNECT_SECRET</code> : (obligatoire) une clé secrète, utilisée pour signer (hacher) les paramètres de requête dans les URL utilisées pendant le flux de connexion.</li>
+<li><code>GRIST_CONNECT_LOGOUT_URL</code> : (optionnel) une adresse URL vers laquelle les utilisateurs seront redirigés après s&rsquo;être déconnectés. Par défaut - la page de déconnexion existante de Grist.</li>
+<li><code>GRIST_CONNECT_ENDPOINT</code> : (optionnel) un point de terminaison de rappel exposé par Grist où les utilisateurs doivent être redirigés après une tentative de connexion réussie sur le site du fournisseur d&rsquo;identité externe (valeur par défaut : <code>/connect/login</code>).</li>
 </ul>
-<p>For your site or SSO, you may find that the software you use supports
-DiscourseConnect, in which case you can enable that and coordinate with the
-Grist settings. Otherwise, here are the exact details of what needs to happen:</p>
+<p>Pour votre site ou SSO, vous pouvez constater que le logiciel que vous utilisez prend en charge DiscourseConnect, auquel cas vous pouvez l&rsquo;activer et le coordonner avec les paramètres Grist. Sinon, voici les détails exacts de ce qui doit se passer :</p>
 <ul>
-<li>When users try to login into Grist, they are redirected to a <code>GRIST_CONNECT_URL</code> with signed query parameters, for example, <code>https://auth-provider.example.com?sso=PAYLOADBASE64&amp;sig=cAlculateDHash</code></li>
-<li>The payload is a Base64 encoded query string containing:<ul>
-<li><code>nonce</code> - a one time token generated by Grist</li>
-<li><code>return_url</code> - a URL to redirect the user to after successful login - this always will be set to the full Grist URL for <code>GRIST_CONNECT_ENDPOINT</code>.</li>
+<li>Lorsque les utilisateurs essaient de se connecter à Grist, ils sont redirigés vers une <code>GRIST_CONNECT_URL</code> avec des paramètres de requête signés, par exemple, <code>https://auth-provider.example.com?sso=PAYLOADBASE64&amp;sig=cAlculateDHash</code></li>
+<li>La charge utile est une chaîne de requête encodée en Base64 contenant :<ul>
+<li><code>nonce</code> - un jeton unique généré par Grist</li>
+<li><code>return_url</code> - une URL pour rediriger l&rsquo;utilisateur après une connexion réussie - cela sera toujours défini sur l&rsquo;URL complète de Grist pour <code>GRIST_CONNECT_ENDPOINT</code>.</li>
 </ul>
 </li>
-<li>User should sign in using the <code>GRIST_CONNECT_URL</code> login screen.</li>
-<li>An external provider should create a new url-encoded payload with the following parameters<ul>
-<li><code>nonce</code> - (required) a token that was sent from Grist</li>
-<li><code>external_id</code> - (required) any string that is unique to the user and will never change</li>
-<li><code>email</code> - (required) a valid user email</li>
-<li><code>name</code> - (required) a user name</li>
-<li><code>avatar_url</code> - (optional) an URL to user’s profile photo. Note that Grist will also accept <code>picture</code> parameter for the same purpose.</li>
-<li>This payload should be base64 encoded and properly escaped to be a valid query string.</li>
+<li>L&rsquo;utilisateur doit se connecter en utilisant l&rsquo;écran de connexion de <code>GRIST_CONNECT_URL</code>.</li>
+<li>Un fournisseur externe doit créer une nouvelle charge utile encodée en URL avec les paramètres suivants :<ul>
+<li><code>nonce</code> - (obligatoire) un jeton envoyé par Grist</li>
+<li><code>external_id</code> - (obligatoire) toute chaîne unique à l&rsquo;utilisateur et qui ne changera jamais</li>
+<li><code>email</code> - (obligatoire) un email utilisateur valide</li>
+<li><code>name</code> - (obligatoire) un nom d&rsquo;utilisateur</li>
+<li><code>avatar_url</code> - (optionnel) une URL vers la photo de profil de l&rsquo;utilisateur. Notez que Grist acceptera également le paramètre <code>picture</code> pour le même objectif.</li>
+<li>Cette charge utile doit être encodée en base64 et correctement échappée pour être une chaîne de requête valide.</li>
 </ul>
 </li>
-<li>A provider should calculate a HMAC_SHA256 hash of a payload.</li>
-<li>A user should redirect to the <code>GRIST_CONNECT_ENDPOINT</code> endpoint with a signed query string parameters, for example, <code>https://grist.customhost.com/connect/login?sso=ENCODEDPAYLOD&amp;sig=HASH</code></li>
-<li>Grist will create a new user or update an existing one. Users will be identified by <em>external_id</em> parameter.</li>
-<li>The user will be signed into Grist.</li>
+<li>Un fournisseur doit calculer un hachage HMAC_SHA256 de la charge utile.</li>
+<li>Un utilisateur doit rediriger vers le point de terminaison <code>GRIST_CONNECT_ENDPOINT</code> avec des paramètres de chaîne de requête signés, par exemple, <code>https://grist.customhost.com/connect/login?sso=ENCODEDPAYLOD&amp;sig=HASH</code></li>
+<li>Grist créera un nouvel utilisateur ou mettra à jour un utilisateur existant. Les utilisateurs seront identifiés par le paramètre <em>external_id</em>.</li>
+<li>L&rsquo;utilisateur sera connecté à Grist.</li>
 </ul>
 
   <br>

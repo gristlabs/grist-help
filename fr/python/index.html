@@ -370,14 +370,14 @@
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#versions-de-python-prises-en-charge">
-              Versions de Python prises en charge
+            <a class="wm-article-link wm-page-toc-text" href="#versions-de-python-supportees">
+              Versions de Python supportées
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#tester-leffet-du-changement-de-version-de-python">
-              Tester l&rsquo;effet du changement de version de Python
+            <a class="wm-article-link wm-page-toc-text" href="#tester-leffet-du-changement-de-versions-de-python">
+              Tester l&rsquo;effet du changement de versions de Python
             </a>
           </li>
         
@@ -387,13 +387,13 @@
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#division-de-nombres-entiers">
-                Division de nombres entiers
+              <a class="wm-article-link wm-page-toc-text" href="#division-des-nombres-entiers">
+                Division des nombres entiers
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#certaines-importations-sont-reorganisees">
-                Certaines importations sont réorganisées
+              <a class="wm-article-link wm-page-toc-text" href="#certains-imports-sont-reorganises">
+                Certains imports sont réorganisés
               </a>
             </li>
             <li class="wm-toc-li">
@@ -957,121 +957,115 @@
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h2>
-<p>Les formules de Grist sont écrites en Python, le langage le plus populaire pour la science des données.
-L&rsquo;intégralité de la <a href="https://docs.python.org/3/library/">bibliothèque standard de Python</a> est à votre disposition.
-à votre disposition. Pour ceux qui ont une expérience des tableurs, nous avons également ajouté une suite de fonctions de type Excel, avec des noms en majuscules.
-avec des noms en majuscules. Voici la <a href="../functions/">liste complète des fonctions</a>.
-Les formules Python sont évaluées dans un sandbox, sans accès à l&rsquo;internet, ni à un
-système de fichiers persistant.</p>
-<h2 id="versions-de-python-prises-en-charge">Versions de Python prises en charge<a class="headerlink" href="#versions-de-python-prises-en-charge" title="Permanent link">#</a></h2>
+<p>Les formules Grist sont écrites en Python, le langage le plus populaire pour la science des données.
+L&rsquo;intégralité de la <a href="https://docs.python.org/3/library/">bibliothèque standard de Python</a> est disponible
+pour vous. Pour ceux ayant une expérience avec les tableurs, nous avons également ajouté une suite de fonctions similaires à Excel, avec des noms en majuscules. Voici la <a href="../functions/">liste complète des fonctions</a>.
+Les formules Python sont évaluées dans un sandbox, sans accès à Internet, et sans système de fichiers persistant.</p>
+<h2 id="versions-de-python-supportees">Versions de Python supportées<a class="headerlink" href="#versions-de-python-supportees" title="Permanent link">#</a></h2>
 <p>Nous supportons actuellement deux versions de Python :</p>
 <ul>
-<li>Python 3 (spécifiquement 3.11 au moment de la rédaction)</li>
+<li>Python 3 (spécifiquement 3.11 au moment de l&rsquo;écriture)</li>
 <li>Python 2 (spécifiquement 2.7)</li>
 </ul>
-<p>Les documents nouvellement créés sur notre service hébergé utilisent Python 3 par défaut, tandis que les documents plus anciens (créés avant novembre 2021 environ) utilisent Python 2 par défaut.
-(créés avant novembre 2021 environ) utilisent Python 2 par défaut. Pour savoir quelle version de Python
-un document spécifique utilise, regardez ses <a href="../creating-doc/#document-settings">Paramètres du document</a>.
+<p>Les documents nouvellement créés sur notre service hébergé utilisent Python 3 par défaut, tandis que les documents plus anciens (créés avant environ novembre 2021) utilisent Python 2 par défaut. Pour savoir quelle version de Python un document spécifique utilise, regardez ses <a href="../creating-doc/#document-settings">Paramètres du document</a>.
 Le paramètre <code>Engine</code> peut être <code>python2</code>, <code>python3</code>, ou vide.
 Un paramètre vide implique <code>python2</code>.</p>
-<p>Si vous avez des droits d&rsquo;édition sur un document, vous pouvez modifier le paramètre <code>Engine</code>,
-et le document sera alors rechargé avec toutes les formules interprétées en utilisant la version de Python que vous avez spécifiée.
-version de Python que vous avez spécifiée. Nous vous recommandons d&rsquo;être prudent.
-Une formule qui fonctionne comme prévu dans une version de Python peut produire des erreurs dans une autre, ou (pire) donner des résultats erronés dans une autre version.
-dans une autre, ou (pire) donner des résultats erronés.</p>
-<p>! !! avertissement &ldquo;Warning&rdquo;
-    <strong>Certaines formules peuvent échouer ou donner des résultats erronés si elles sont utilisées avec une version de Python différente de celle pour laquelle elles ont été écrites.
-    différente de celle pour laquelle elles ont été écrites.</strong></p>
-<p>Python 2 a atteint sa fin de vie en janvier 2020, donc si vous cherchez en ligne de l&rsquo;aide sur Python,
-les réponses que vous trouverez sont de plus en plus susceptibles d&rsquo;être pour Python 3. Si vous avez un document
-qui utilise Python 2 et que vous souhaitez passer à Python 3, nous vous recommandons de lire le document suivant
-<a href="./#testing-the-effect-of-changing-python-versions">Tester l&rsquo;effet d&rsquo;un changement de version de Python</a>
+<p>Si vous avez des droits d&rsquo;édition sur un document, vous pouvez changer le paramètre <code>Engine</code>,
+et le document se rechargera alors avec toutes les formules maintenant interprétées en utilisant la
+version de Python que vous avez spécifiée. Nous recommandons la prudence en le faisant.
+Une formule qui fonctionne comme prévu dans une version de Python peut donner des erreurs
+dans une autre, ou (pire) donner de mauvais résultats.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p><strong>Certaines formules peuvent échouer ou donner de mauvais résultats si elles sont utilisées avec une version de Python différente de celle pour laquelle elles ont été écrites.</strong></p>
+</div>
+<p>Python 2 a atteint sa fin de vie en janvier 2020, donc si vous cherchez de l&rsquo;aide en ligne pour Python,
+les réponses que vous trouvez sont de plus en plus susceptibles d&rsquo;être pour Python 3. Si vous avez un document
+qui utilise Python 2, et que vous souhaitez le passer à Python 3, nous vous recommandons de lire
+<a href="./#testing-the-effect-of-changing-python-versions">Tester l&rsquo;effet du changement de versions de Python</a>
 et <a href="./#differences-between-python-versions">Différences entre les versions de Python</a>.
-Veillez à vérifier tous les tableaux et toutes les colonnes, ainsi que les formalismes ordinaires et les formules de déclenchement.
-Nous serions heureux de connaître votre expérience et de vous aider en cas de problème,
+Assurez-vous de vérifier toutes les tables et colonnes, ainsi que les formules régulières et les formules de déclenchement.
+Nous serions intéressés d&rsquo;entendre votre expérience, et de vous aider avec tout problème,
 sur le <a href="https://community.getgrist.com/">forum communautaire</a>.</p>
-<p>Grist auto-hébergé peut utiliser n&rsquo;importe quelle version de Python avec laquelle vous le configurez, mais gardez à l&rsquo;esprit que nous ne testons activement que les versions prises en charge.
-que nous ne testons activement que les versions supportées.</p>
-<h2 id="tester-leffet-du-changement-de-version-de-python">Tester l&rsquo;effet du changement de version de Python<a class="headerlink" href="#tester-leffet-du-changement-de-version-de-python" title="Permanent link">#</a></h2>
-<p>Grist possède des fonctionnalités qui peuvent vous aider à évaluer les conséquences d&rsquo;un changement de la version de Python utilisée par un document.
-version de Python utilisée par un document.</p>
+<p>Grist auto-hébergé peut utiliser n&rsquo;importe quelle version de Python avec laquelle vous le configurez, mais gardez à l&rsquo;esprit que nous testons activement uniquement les versions supportées.</p>
+<h2 id="tester-leffet-du-changement-de-versions-de-python">Tester l&rsquo;effet du changement de versions de Python<a class="headerlink" href="#tester-leffet-du-changement-de-versions-de-python" title="Permanent link">#</a></h2>
+<p>Grist dispose de certaines fonctionnalités qui peuvent vous aider à évaluer les conséquences du changement de la version de Python utilisée par un document.</p>
 <ul>
 <li>La fonctionnalité <a href="../copying-docs/#trying-out-changes">Travailler sur une copie</a> est utile pour
-   expérimenter la modification de la version de Python sans affecter votre document jusqu&rsquo;à ce que vous soyez prêt.
-   jusqu&rsquo;à ce que vous soyez prêt. L&rsquo;option &ldquo;Comparer avec l&rsquo;original&rdquo; vous permet de visualiser les cellules modifiées, le cas échéant.
-   visualiser les cellules qui ont été modifiées, le cas échéant. Veillez à examiner tous les tableaux et toutes les colonnes.</li>
-<li>L&rsquo;onglet <a href="../document-history/#activity">Activité de l&rsquo;historique du document</a>
-   (avec l&rsquo;option &ldquo;Tous les tableaux&rdquo; sélectionnée) vous permet d&rsquo;examiner plus en détail ce qui a été modifié.
+   expérimenter le changement de version de Python sans affecter votre document jusqu&rsquo;à ce que
+   vous soyez prêt. Il y a une option &ldquo;Comparer avec l&rsquo;original&rdquo; qui vous permettra
+   de visualiser quelles cellules ont changé, le cas échéant. Assurez-vous de vérifier toutes les tables et colonnes.</li>
+<li>L&rsquo;<a href="../document-history/#activity">onglet Activité de l&rsquo;Historique du document</a>
+   (avec &ldquo;Toutes les tables&rdquo; sélectionné) vous permet de revoir plus en détail ce qui a
    changé.</li>
-<li>Veillez à tester toutes les <a href="../formulas/#trigger-formulas">formules de déclenchement</a> que vous pourriez avoir, car le code Python n&rsquo;est pas disponible pour toutes les formules de déclenchement.
-   car le code Python qu&rsquo;elles contiennent ne sera pas exercé tant que vous n&rsquo;aurez pas spécifiquement
-   déclencher ces formules.</li>
-<li>Vous pouvez utiliser le <a href="../formulas/#code-viewer">visualisateur de code</a> pour vous rappeler rapidement toutes les formules d&rsquo;un document.
-   vous rappeler rapidement toutes les formules d&rsquo;un document, afin de les vérifier systématiquement.</li>
+<li>Soyez prudent pour tester toutes les <a href="../formulas/#trigger-formulas">formules de déclenchement</a> que vous pourriez
+   avoir, car le code Python qu&rsquo;elles contiennent ne sera pas exécuté tant que vous ne déclencherez pas spécifiquement ces formules.</li>
+<li>Vous pouvez utiliser le <a href="../formulas/#code-viewer">visualiseur de code</a> pour vous rappeler rapidement
+   de toutes les formules dans un document, afin de pouvoir les vérifier systématiquement.</li>
 </ul>
 <h2 id="differences-entre-les-versions-de-python">Différences entre les versions de Python<a class="headerlink" href="#differences-entre-les-versions-de-python" title="Permanent link">#</a></h2>
-<p>Il existe des différences importantes entre Python 2 et 3. Il se peut que les formules doivent
-être modifiées afin d&rsquo;obtenir les mêmes résultats lors du passage d&rsquo;une version de Python à l&rsquo;autre.
-et les versions de Python. Il existe de nombreuses ressources en ligne telles que celle-ci
-<a href="https://python-future.org/compatible_idioms.html">feuille de contrôle de compatibilité</a>
-qui peuvent vous aider à déterminer le problème lorsque vous rencontrez une différence, et
-des idées sur la manière de le résoudre. Nous énumérons ici les cas les plus courants que nous avons
-dans les formules Grist.</p>
-<h3 id="division-de-nombres-entiers">Division de nombres entiers<a class="headerlink" href="#division-de-nombres-entiers" title="Permanent link">#</a></h3>
-<p>Dans Python 2, diviser des nombres entiers donne un nombre entier, donc <code>9 / 2</code> est <code>4</code>.
-Dans Python 3, c&rsquo;est <code>4.5</code>. Pour une feuille de calcul, c&rsquo;est une réponse beaucoup plus sensée,
-mais si vous comptez sur le comportement de Python 2, nous vous suggérons de passer à l&rsquo;opérateur <code>//</code>, qui est cohérent entre les versions (<code>//</code>).
+<p>Il existe des différences importantes entre Python 2 et 3. Les formules peuvent nécessiter
+d&rsquo;être modifiées pour donner les mêmes résultats lors du passage entre les versions de Python. Il existe de nombreuses ressources en ligne telles que cette
+<a href="https://python-future.org/compatible_idioms.html">feuille de triche de compatibilité</a>
+qui peuvent aider à comprendre quel est le problème lorsque vous rencontrez une différence, et
+donner des idées sur la façon de le résoudre. Ici, nous listons des cas courants que nous avons
+vus dans les formules Grist.</p>
+<h3 id="division-des-nombres-entiers">Division des nombres entiers<a class="headerlink" href="#division-des-nombres-entiers" title="Permanent link">#</a></h3>
+<p>En Python 2, diviser des nombres entiers donne un nombre entier, donc <code>9 / 2</code> est <code>4</code>.
+En Python 3, c&rsquo;est <code>4.5</code>. Pour un tableur, c&rsquo;est une réponse beaucoup plus sensée,
+mais si vous comptez sur le comportement de Python 2, nous vous suggérons de passer à l&rsquo;opérateur <code>//</code>
 qui est cohérent entre les versions (<code>9 // 2</code> est <code>4</code> pour les deux).</p>
-<p>Par exemple, le modèle <a href="https://templates.getgrist.com/2YwYBWpREY2a/General-Ledger">General Ledger</a>
-avait une formule Python 2 pour calculer le trimestre à partir d&rsquo;une date (ainsi une <code>Date</code> de
-<code>2021-08-15</code> donne un <code>Trimestre</code> de <code>2021 Q3</code>) comme suit :</p>
-<pre><code class="language-py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) / 3)
+<p>Par exemple, le modèle <a href="https://templates.getgrist.com/2YwYBWpREY2a/General-Ledger">Grand Livre</a>
+avait une formule Python 2 pour calculer le trimestre à partir d&rsquo;une date (donc une <code>Date</code> de
+<code>2021-08-15</code> donnait un <code>Trimestre</code> de <code>2021 T3</code>) comme suit :</p>
+<pre><code class="language-py">&quot;%s T%s&quot; % ($Date.year, CEILING($Date.month, 3) / 3)
 </code></pre>
-<p>lors du passage à Python 3, il fallait le corriger :</p>
-<pre><code class="language-py">&quot;%s Q%s&quot; % ($Date.year, CEILING($Date.month, 3) // 3)
+<p>lors du passage à Python 3, cela devait être corrigé en :</p>
+<pre><code class="language-py">&quot;%s T%s&quot; % ($Date.year, CEILING($Date.month, 3) // 3)
 </code></pre>
-<p>Dans le cas contraire, les quarts sont devenus des fractions !</p>
-<h3 id="certaines-importations-sont-reorganisees">Certaines importations sont réorganisées<a class="headerlink" href="#certaines-importations-sont-reorganisees" title="Permanent link">#</a></h3>
-<p>Python dispose d&rsquo;une bibliothèque standard utile, mais certaines parties ont été déplacées entre Python 2 et 3.
+<p>Sinon, les trimestres devenaient fractionnels !</p>
+<h3 id="certains-imports-sont-reorganises">Certains imports sont réorganisés<a class="headerlink" href="#certains-imports-sont-reorganises" title="Permanent link">#</a></h3>
+<p>Python a une bibliothèque standard utile, mais certaines parties ont été
 déplacées entre Python 2 et 3.
-Par exemple, plusieurs de nos modèles contiennent des formules pour construire des URL,
+Par exemple, plusieurs de nos modèles ont des formules pour construire des URL,
 pour ouvrir des recherches personnalisées par exemple, ou pour ouvrir un email pré-rempli
-avec les valeurs calculées <code>To</code>, <code>CC</code>, et <code>Subject</code>.
-Python dispose d&rsquo;aides pratiques pour la construction d&rsquo;URL,
-mais ils ont un peu changé d&rsquo;une version de Python à l&rsquo;autre.
-Notre exemple <a href="https://templates.getgrist.com/doc/lightweight-crm">Lightweight CRM</a>
+avec des valeurs calculées pour <code>To</code>, <code>CC</code>, et <code>Subject</code>.
+Python a des assistants pratiques pour construire des URL,
+mais ils ont été déplacés un peu entre les versions de Python.
+Notre exemple <a href="https://templates.getgrist.com/doc/lightweight-crm">CRM léger</a>
 avait une formule Python 2 comme celle-ci pour lancer une recherche d&rsquo;emails dans
 Gmail :</p>
 <pre><code>from urllib import quote_plus
-&quot;Recherche Gmail https://mail.google.com/mail/u/0/#search/%s&quot; % quote_plus($Email)
+&quot;Gmail search https://mail.google.com/mail/u/0/#search/%s&quot; % quote_plus($Email)
 </code></pre>
-<p>Dans Python 3, la ligne d&rsquo;importation a dû être modifiée en :</p>
+<p>En Python 3, la ligne d&rsquo;importation devait être changée en :</p>
 <pre><code>from urllib.parse import quote_plus
 </code></pre>
 <h3 id="changement-subtil-dans-larrondi">Changement subtil dans l&rsquo;arrondi<a class="headerlink" href="#changement-subtil-dans-larrondi" title="Permanent link">#</a></h3>
-<p>Python 3 change la fonction intégrée <code>round()</code> qui arrondit comme beaucoup de gens l&rsquo;ont appris à l&rsquo;école
-(quand on arrondit <code>.5</code>, on arrondit toujours vers le haut)
-à ce que l&rsquo;on appelle &ldquo;l&rsquo;arrondi du banquier&rdquo; (où l&rsquo;on arrondit de <code>.5</code> au nombre pair le plus proche).
-au nombre pair le plus proche). Cette méthode est généralement considérée comme une amélioration, car elle permet d&rsquo;atténuer
-un biais en faveur des grands nombres qui peut devenir significatif à l&rsquo;échelle.
-Mais il peut être surprenant de voir les chiffres changer de cette manière dans un document établi.
+<p>Python 3 change la fonction intégrée <code>round()</code> de l&rsquo;arrondi tel que beaucoup de gens l&rsquo;ont appris à l&rsquo;école
+(où lors de l&rsquo;arrondi de <code>.5</code>, vous arrondissez toujours vers le haut)
+à ce qui est appelé &ldquo;l&rsquo;arrondi bancaire&rdquo; (où vous arrondissez de <code>.5</code> au
+nombre pair le plus proche). Cela est généralement accepté comme une amélioration, atténuant
+un biais vers des nombres plus grands qui peut devenir significatif à grande échelle.
+Mais cela pourrait être une surprise de voir les nombres changer ainsi dans un
 document établi.</p>
-<p>Si vous avez vraiment besoin de l&rsquo;arrondi de Python 2, remplacez tous les appels à la fonction Python <code>round</code> par la fonction <a href="../functions/#round">ROUND</a> compatible avec Excel.</p>
+<p>Si vous avez vraiment besoin de l&rsquo;arrondi de Python 2, remplacez tous les appels à la fonction
+<code>round</code> de Python par la fonction compatible Excel <a href="../functions/#round">ROUND</a>. Par exemple :</p>
 <pre><code>round($val, 2)
 </code></pre>
-<p>serait remplacée par :</p>
+<p>serait remplacé par :</p>
 <pre><code>ROUND($val, 2)
 </code></pre>
 <h3 id="gestion-du-texte-unicode">Gestion du texte Unicode<a class="headerlink" href="#gestion-du-texte-unicode" title="Permanent link">#</a></h3>
-<p>Python 2 ne brille pas par sa capacité à gérer les textes internationaux et les emojis.
-Nous avons atténué de nombreux problèmes en fixant l&rsquo;encodage par défaut à <code>utf8</code> pour tous les documents.
-à <code>utf8</code> pour tous les documents. Néanmoins, lorsque vous passez de Python 2 à
-Python 3, vous pouvez constater des changements de type ou des erreurs. Considérons cette formule de Python 2
-pour générer un hachage à sens unique d&rsquo;une adresse électronique :</p>
+<p>Python 2 n&rsquo;excelle pas dans la gestion du texte international et des emojis.
+Nous avons atténué de nombreux problèmes en définissant l&rsquo;encodage par défaut
+à <code>utf8</code> pour tous les documents. Néanmoins, lors du passage de Python 2 à
+Python 3, vous pouvez voir des changements de type ou des erreurs. Considérez cette formule Python 2
+pour générer un hachage à sens unique d&rsquo;une adresse email :</p>
 <pre><code>import hashlib
 hashlib.sha256($Email).hexdigest()
 </code></pre>
-<p>Dans Python 3, cela échoue avec <code>TypeError : Les objets Unicode doivent être encodés avant le hachage</code>,
+<p>En Python 3, cela échoue avec <code>TypeError: Unicode-objects must be encoded before hashing</code>,
 ce qui peut être résolu en remplaçant <code>$Email</code> par <code>$Email.encode()</code> :</p>
 <pre><code>import hashlib
 hashlib.sha256($Email.encode()).hexdigest()

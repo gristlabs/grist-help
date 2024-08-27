@@ -7,8 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Chaque document Grist peut être partagé avec d’autres en utilisant l’option « Gérer les utilisateurs » dans le menu Partager (). Les utilisateurs peuvent être invités en tant que spectateurs (lecture seule), éditeurs ou propriétaires (voir Partager un document pour un rappel sur ces rôles). Un document peut également être partagé publiquement avec des permissions en lecture ou écriture. Parfois, il est nécessaire d’aller plus loin et préciser qui peut voir ou modifier certaines parties d’un document. Les permissions avancées nous donnent ce pouvoir.">
-      <meta property="og:description" content="Chaque document Grist peut être partagé avec d’autres en utilisant l’option « Gérer les utilisateurs » dans le menu Partager (). Les utilisateurs peuvent être invités en tant que spectateurs (lecture seule), éditeurs ou propriétaires (voir Partager un document pour un rappel sur ces rôles). Un document peut également être partagé publiquement avec des permissions en lecture ou écriture. Parfois, il est nécessaire d’aller plus loin et préciser qui peut voir ou modifier certaines parties d’un document. Les permissions avancées nous donnent ce pouvoir.">
+      <meta name="description" content="Chaque document Grist peut être partagé avec d’autres 
+en utilisant l’option Gérer les utilisateurs dans le menu de partage
+().
+Les utilisateurs peuvent être invités en tant que Visiteurs, Éditeurs ou Propriétaires (voir 
+ Partage d’un document pour un rappel sur ces rôles), ou un document peut être partagé publiquement avec des permissions de lecture ou d’édition.
+Parfois, vous avez besoin de plus de nuances sur qui peut voir ou éditer des
+parties individuelles d’un document. Les règles d’accès nous donnent ce pouvoir.">
+      <meta property="og:description" content="Chaque document Grist peut être partagé avec d’autres 
+en utilisant l’option Gérer les utilisateurs dans le menu de partage
+().
+Les utilisateurs peuvent être invités en tant que Visiteurs, Éditeurs ou Propriétaires (voir 
+ Partage d’un document pour un rappel sur ces rôles), ou un document peut être partagé publiquement avec des permissions de lecture ou d’édition.
+Parfois, vous avez besoin de plus de nuances sur qui peut voir ou éditer des
+parties individuelles d’un document. Les règles d’accès nous donnent ce pouvoir.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/access-rules/">
@@ -410,7 +422,7 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Permissions avancées
+              Règles d&rsquo;accès
             </a>
           </li>
             <li class="wm-toc-li">
@@ -439,18 +451,18 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#voir-comme-un-autre-utilisateur">
-                Voir comme un autre utilisateur
+              <a class="wm-article-link wm-page-toc-text" href="#voir-en-tant-quautre-utilisateur">
+                Voir en tant qu&rsquo;autre utilisateur
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#tables-dappairage-utilisateur">
-                Tables d&rsquo;appairage utilisateur
+              <a class="wm-article-link wm-page-toc-text" href="#tables-dattributs-dutilisateur">
+                Tables d&rsquo;attributs d&rsquo;utilisateur
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#controle-dacces-au-niveau-de-la-ligne">
-                Contrôle d&rsquo;accès au niveau de la ligne
+              <a class="wm-article-link wm-page-toc-text" href="#controle-dacces-au-niveau-des-lignes">
+                Contrôle d&rsquo;accès au niveau des lignes
               </a>
             </li>
             <li class="wm-toc-li">
@@ -459,13 +471,13 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#cles-de-liaison">
-                Clés de liaison
+              <a class="wm-article-link wm-page-toc-text" href="#cles-de-lien">
+                Clés de lien
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#conditions-de-la-regle-dacces">
-                Conditions de la règle d&rsquo;accès
+              <a class="wm-article-link wm-page-toc-text" href="#conditions-des-regles-dacces">
+                Conditions des règles d&rsquo;accès
               </a>
             </li>
             <li class="wm-toc-li">
@@ -474,8 +486,8 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#memos-de-regles-dacces">
-                Mémos de règles d&rsquo;accès
+              <a class="wm-article-link wm-page-toc-text" href="#memos-des-regles-dacces">
+                Mémos des règles d&rsquo;accès
               </a>
             </li>
             <li class="wm-toc-li">
@@ -988,229 +1000,325 @@
 <p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 id="permissions-avancees">Permissions avancées<a class="headerlink" href="#permissions-avancees" title="Permanent link">#</a></h1>
-<p>Chaque document Grist peut être <a href="../sharing/">partagé avec d&rsquo;autres</a> en utilisant l&rsquo;option « Gérer les utilisateurs » dans le menu Partager (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>). Les utilisateurs peuvent être invités en tant que spectateurs (lecture seule), éditeurs ou propriétaires (voir <a href="../sharing/">Partager un document</a> pour un rappel sur ces rôles). Un document peut également être <a href="../sharing/#public-access-and-link-sharing">partagé publiquement</a> avec des permissions en lecture ou écriture. Parfois, il est nécessaire d&rsquo;aller plus loin et préciser qui peut voir ou modifier certaines parties d&rsquo;un document. Les permissions avancées nous donnent ce pouvoir.</p>
-<p>Seuls les propriétaires d&rsquo;un document peuvent modifier les permissions avancées. A l&rsquo;ouverture du document, les propriétaires voient un outil appelé <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Permissions Avancées</span> dans la barre latérale gauche. Cliquez sur cet outil pour visualiser et modifier les permissions avancées. Les règles sont également accessibles via l&rsquo;option <code>Gérer les utilisateurs</code> du menu de partage <span class="grist-icon" style="--icon: var(--icon-Share)"></span> avec le bouton <code>Ouvrir les règles d'accès</code> (disponible uniquement pour les propriétaires du document).</p>
-<p>Imaginons que nous dirigeons une petite entreprise, dont l&rsquo;activité est la distribution et la livraison d&rsquo;objets peu insolites. L&rsquo;entreprise est gérée à l&rsquo;aide d&rsquo;un document avec deux tables, <code>Orders</code> (commandes) et <code>Financials</code> (finances). Nous recrutons de nouveaux employés et souhaitons partager le document avec eux tout en limitant leur accès à ce dont ils ont besoin.</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-example.png" /></p>
+<h1 id="regles-dacces">Règles d&rsquo;accès<a class="headerlink" href="#regles-dacces" title="Permanent link">#</a></h1>
+<p>Chaque document Grist peut être <a href="../sharing/">partagé avec d&rsquo;autres</a> 
+en utilisant l&rsquo;option <code>Gérer les utilisateurs</code> dans le menu de partage
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
+Les utilisateurs peuvent être invités en tant que Visiteurs, Éditeurs ou Propriétaires (voir 
+ <a href="../sharing/">Partage d&rsquo;un document</a> pour un rappel sur ces rôles), ou un document peut être <a href="../sharing/#public-access-and-link-sharing">partagé publiquement</a> avec des permissions de lecture ou d&rsquo;édition.
+Parfois, vous avez besoin de plus de nuances sur qui peut voir ou éditer des
+parties individuelles d&rsquo;un document. Les règles d&rsquo;accès nous donnent ce pouvoir.</p>
+<p>Seuls les propriétaires d&rsquo;un document peuvent modifier ses règles d&rsquo;accès.
+Lorsqu&rsquo;un document est chargé, les propriétaires voient un outil appelé 
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Règles d&rsquo;accès</span>
+dans la barre latérale gauche. Cliquez dessus pour voir et modifier
+les règles d&rsquo;accès. Les règles sont également accessibles via l&rsquo;option <code>Gérer les utilisateurs</code>
+du menu de partage <span class="grist-icon" style="--icon: var(--icon-Share)"></span>
+avec le bouton <code>Ouvrir les règles d'accès</code> (disponible uniquement pour les Propriétaires du document).</p>
+<p>Supposons que nous gérons une petite entreprise de sourcing et de livraison d&rsquo;objets inhabituels,
+organisée à l&rsquo;aide d&rsquo;un document avec deux tables, <code>Commandes</code> et <code>Finances</code>.
+Nous prenons maintenant plus d&rsquo;employés et voulons partager le document avec eux tout en
+limitant leur accès à ce dont ils ont besoin.</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-example.png" /></p>
 <h2 id="regles-par-defaut">Règles par défaut<a class="headerlink" href="#regles-par-defaut" title="Permanent link">#</a></h2>
-<p>Pour voir les permissions avancées pour un document, visitez sa page de permissions avancées en cliquant sur <span class="app-menu-item"><span class="grist-icon" style="--icon : var(--icon-EyeShow)"></span> Règles d&rsquo;accès</span> dans la barre latérale gauche. Si aucune règle personnalisée n&rsquo;a encore été créée n&rsquo;a été créée, la page des permissions avancées contient les <code>Règles par défaut</code> pour notre document :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-page.png" /></p>
-<p>Ces règles stipulent, en résumé, que les propriétaires et les éditeurs peuvent faire tout ce qu&rsquo;ils veulent dans le document, que les spectateurs ne peuvent que lire le document et que tous les autres ont le droit d&rsquo;y accéder. document, que les spectateurs ne peuvent que lire le document, et que tous les autres sont l&rsquo;accès est interdit à tous les autres. Ces règles ne peuvent pas être modifiées, mais elles peuvent être mais elles peuvent être outrepassées. Pour savoir si un groupe de règles autorise une certaine permission (<a href="./#access-rule-permissions">Lire, Mettre à jour, Créer, Supprimer ou Structure</a>), lisez les règles de haut en bas, et trouver la première règle applicable qui autorise (vert) ou refuse (rouge) cette permission. Nous verrons de nombreux exemples au fur et à mesure que nous avancerons.</p>
+<p>Pour voir les règles d&rsquo;accès d&rsquo;un document, visitez sa page de règles d&rsquo;accès en
+cliquant sur
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Règles d&rsquo;accès</span>
+dans la barre latérale gauche. Lorsque aucune règle personnalisée n&rsquo;a encore été créée,
+la page des règles d&rsquo;accès contient les <code>Règles par défaut</code> pour notre document :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-page.png" /></p>
+<p>Ces règles disent, en résumé, que les Propriétaires et Éditeurs peuvent faire tout ce qu&rsquo;ils veulent dans
+le document, que les Visiteurs ne peuvent que lire le document, et que tout le monde
+d&rsquo;autre est interdit d&rsquo;accès. Ces règles ne peuvent pas être modifiées, mais elles
+peuvent être remplacées. Pour comprendre si un groupe de règles permet une
+certaines permissions (<a href="./#access-rule-permissions">Lire, Mettre à jour, Créer, Supprimer ou Structure</a>), lisez
+les règles de haut en bas, et trouvez la première règle applicable
+qui permet (vert) ou refuse (rouge) cette permission.
+Nous verrons de nombreux exemples au fur et à mesure.</p>
 <h2 id="verrouiller-la-structure">Verrouiller la structure<a class="headerlink" href="#verrouiller-la-structure" title="Permanent link">#</a></h2>
-<p>Par défaut, les propriétaires et les éditeurs ont les mêmes pouvoirs au sein d&rsquo;un document. de créer ou de supprimer des tableaux ou des colonnes, d&rsquo;écrire des formules, de réorganiser des pages, etc,
-et ainsi de suite.</p>
-<p>Supposons que nous souhaitions que seuls les propriétaires initiaux du document soient autorisés à en modifier sa structure, car nous prévoyons d&rsquo;inviter d&rsquo;autres collaborateurs spécialisés en tant qu&rsquo;éditeurs.
-Pour ce faire, décochez la case de la première règle répertoriée sous &ldquo;Règles avancées&rdquo; afin d&rsquo;empêcher les éditeurs de modifier la structure.</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-lock-structure.png" /></p>
-<p>Une fois les modifications apportées, le bouton &ldquo;Sauvegarder&rdquo; devient d&rsquo;un vert invitant. Nous cliquons sur <code>SAVE</code> pour que la règle prenne effet.</p>
-<p><strong>Important.</strong> Il s&rsquo;agit d&rsquo;une première étape importante pour tout document dans lequel vous avez l&rsquo;intention de bloquer l&rsquo;accès aux éditeurs. 
-Sans leur refuser l&rsquo;autorisation de structure (<code>S</code>), toute personne ayant un accès d&rsquo;édition pourra créer ou modifier des formules. Puisque les calculs de formules ne sont pas limités par des permissions avancées, un utilisateur déterminé pourrait les utiliser pour récupérer n&rsquo;importe quelle donnée d&rsquo;un document. Pour se prémunir contre cela, il faut refuser l&rsquo;autorisation de structure aux utilisateurs dont l&rsquo;accès doit être limité.</p>
+<p>Par défaut, les Propriétaires et Éditeurs ont le même pouvoir dans un document, avec la capacité de créer
+ou de supprimer des tables ou des colonnes, d&rsquo;écrire des formules, de réorganiser des pages, et ainsi de suite.</p>
+<p>Supposons que nous voulons que seuls les Propriétaires d&rsquo;origine du document soient autorisés à modifier
+sa structure, car nous prévoyons d&rsquo;inviter d&rsquo;autres collaborateurs spécialisés en tant qu&rsquo;Éditeurs.
+Pour ce faire, décochez la case de la première règle listée sous &lsquo;Règles avancées&rsquo; pour 
+interdire aux éditeurs de modifier la structure. </p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-lock-structure.png" /></p>
+<p>Une fois que nous avons apporté des modifications, le bouton <code>ENREGISTRER</code> devient vert et invitant. Nous
+cliquons sur <code>ENREGISTRER</code> pour que la règle prenne effet. </p>
+<p><strong>Important.</strong> C&rsquo;est une première étape importante pour tout document où vous avez l&rsquo;intention de bloquer tout accès aux Éditeurs.
+Sans leur refuser la permission de structure (<code>S</code>), quiconque ayant accès à l&rsquo;édition pourra
+créer ou modifier des formules. Étant donné que les calculs de formules ne sont pas limités par les règles de contrôle d&rsquo;accès,
+un utilisateur déterminé pourrait les utiliser pour récupérer des données de n&rsquo;importe quel document. Pour se protéger contre
+cela, refusez la permission de structure aux utilisateurs dont l&rsquo;accès doit être limité.</p>
 <h2 id="creer-une-table-privee">Créer une table privée<a class="headerlink" href="#creer-une-table-privee" title="Permanent link">#</a></h2>
-<p>Pour s&rsquo;assurer que seuls les Propriétaires peuvent accéder à une table, comme la table <code>Financials</code> dans notre exemple, nous cliquons sur <code>Add Table Rules</code> et sélectionnons le nom de la table, <code>Financials</code>.
-Cela crée un nouveau groupe de règles vide appelé <code>Règles pour la table Financials</code>.
-Ensuite, nous ajoutons une condition pour tout utilisateur qui n&rsquo;est pas un Propriétaire (<code>user.Access != OWNER</code>), avec toutes les permissions refusées. En sélectionnant <code>Deny All</code> dans la liste déroulante à côté de <code>R</code> <code>U</code> <code>C</code> <code>D</code> est un moyen rapide de refuser toutes les permissions, ou vous pouvez cliquer sur chaque permission individuellement pour les désactiver. vous pouvez cliquer sur chaque permission individuellement pour les mettre en rouge. <code>R</code> est Lecture (<em>Read</em>), <code>U</code> est Mise à jour (&ldquo;Update&rdquo;), <code>C</code> est Création (<em>Create</em>) et <code>D</code> est Suppression (<em>Delete</em>) (voir <a href="./#access-rule-permissions">Access rule
-permissions</a>). Structure (<code>S</code>) ne sont pas disponibles au niveau de la table. Une fois que vous avez terminé, cliquez sur <code>SAVE</code>.</p>
+<p>Pour garantir que seuls les Propriétaires peuvent accéder à une table, comme la table <code>Finances</code> dans notre exemple,
+nous cliquons sur <code>Ajouter des règles de table</code> et sélectionnons le nom de la table, <code>Finances</code>. Cela crée un nouveau groupe de règles vide appelé <code>Règles pour la table Finances</code>.
+Ensuite, nous ajoutons une condition pour tout utilisateur qui n&rsquo;est pas un Propriétaire (<code>user.Access != OWNER</code>), avec toutes
+les permissions refusées. Sélectionner <code>Refuser tout</code> dans le menu déroulant à côté de <code>R</code> <code>U</code> <code>C</code> <code>D</code> est un moyen rapide
+de définir toutes les permissions sur refusées, ou vous pouvez cliquer sur chaque permission individuellement pour les mettre en rouge. <code>R</code> est Lire, <code>U</code> est Mettre à jour, <code>C</code> est Créer, et <code>D</code> est Supprimer
+(voir <a href="./#access-rule-permissions">Permissions de règle d&rsquo;accès</a>).
+Les permissions de structure (<code>S</code>) ne sont pas disponibles au niveau de la table.
+Une fois que vous avez terminé, cliquez sur <code>ENREGISTRER</code>.</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-private-table.png" /></p>
-<p>Nous pouvons maintenant partager le document avec un membre de l&rsquo;équipe spécialisé dans les livraisons, par exemple. Nous <a href="../sharing/">partageons le document</a> avec eux en tant que afin que les restrictions que nous avons mises en place s&rsquo;appliquent à eux. Ils ne verront pas le document dans la barre latérale de gauche, et les tentatives d&rsquo;ouverture seront refusées :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-private-table-is-hidden.png" /></p>
+<p>Maintenant, nous pourrions aller de l&rsquo;avant et partager le document avec un membre de l&rsquo;équipe
+spécialisé dans les livraisons, par exemple. Nous <a href="../sharing/">partageons le
+document</a> avec eux en tant qu&rsquo;Éditeur afin que les restrictions
+que nous avons mises en place s&rsquo;appliquent à eux. Ils ne verront pas la table <code>Finances</code> dans la
+barre latérale gauche, et les tentatives de l&rsquo;ouvrir seront refusées :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-private-table-is-hidden.png" /></p>
 <h2 id="regles-par-defaut_1">Règles par défaut<a class="headerlink" href="#regles-par-defaut_1" title="Permanent link">#</a></h2>
-<p>Lors de la rédaction de règles d&rsquo;accès pour des tables spécifiques, il est assez courant de répéter la même règle pour de nombreuses tables - par exemple, toujours accorder aux propriétaires les en lecture et en écriture. Pour ajouter automatiquement un ensemble de règles à toutes les nouvelles règles de table, vous pouvez écrire des &ldquo;règles par défaut&rdquo;. Il existe une case à cocher au-dessus des règles par défaut qui facilite le cas courant en un seul clic. Cliquez dessus pour rédiger une règle par défaut qui accorde automatiquement aux propriétaires un accès complet chaque fois que des règles de table sont ajoutées. Cliquez sur l&rsquo;icône <code>&gt;</code> pour décompresser le tableau des règles par défaut afin de modifier les règles par défaut.</p>
+<p>Lors de l&rsquo;écriture des règles d&rsquo;accès pour des tables spécifiques, il est assez courant de répéter la même règle dans de nombreuses tables — 
+par exemple, toujours accorder aux propriétaires des permissions de lecture et d&rsquo;écriture complètes. Pour ajouter automatiquement un ensemble de règles à toutes 
+les nouvelles règles de table, vous pouvez écrire des &ldquo;règles par défaut&rdquo;. Il y a une case à cocher au-dessus des règles par défaut qui facilite le cas commun 
+avec un seul clic. Cliquez dessus pour écrire une règle par défaut qui accordera automatiquement aux propriétaires un accès complet 
+chaque fois que des règles de table sont ajoutées. Cliquez sur l&rsquo;icône <code>&gt;</code> pour déplier la table des règles par défaut afin de modifier les règles par défaut.</p>
 <p><img alt="access-rules-default-owner-access" src="../images/access-rules/access-rules-default-owner-access.png" /></p>
 <h2 id="restreindre-lacces-aux-colonnes">Restreindre l&rsquo;accès aux colonnes<a class="headerlink" href="#restreindre-lacces-aux-colonnes" title="Permanent link">#</a></h2>
-<p>Nous pouvons restreindre l&rsquo;accès d&rsquo;un collaborateur aux colonnes. Dans notre exemple, nous pourrions souhaiter donner à un spécialiste des livraisons un accès plus limité à la table <code>Ordres</code>. Peut-être qu&rsquo;il n&rsquo;a pas besoin de voir la colonne <code>Orders</code>. Peut-être n&rsquo;a-t-il pas besoin de voir la colonne <code>Email</code>, ou la colonne <code>Piece</code> avec les détails du détails sur le contenu du colis.</p>
-<p>Cliquez sur <code>Add Table Rules</code> et sélectionnez <code>Orders</code> pour créer un groupe de règles pour la table <code>Ordres</code>. Maintenant, dans le groupe <code>Règles pour la table Commandes</code>, cliquez sur l&rsquo;icône à trois points (&hellip;), et sélectionnez <code>Add Column Rule</code> :</p>
+<p>Nous pouvons restreindre l&rsquo;accès d&rsquo;un collaborateur aux colonnes. Dans notre exemple, nous pourrions
+souhaiter donner à un spécialiste des livraisons un accès plus limité à
+la table <code>Commandes</code>. Peut-être qu&rsquo;ils n&rsquo;ont pas besoin de voir une colonne <code>Email</code>,
+ou une colonne <code>Pièce</code> avec des détails sur ce qu&rsquo;il y a dans le colis.</p>
+<p>Cliquez sur <code>Ajouter des règles de table</code> et sélectionnez <code>Commandes</code> pour créer un groupe de règles pour la table <code>Commandes</code>.
+Maintenant, dans le groupe <code>Règles pour la table Commandes</code>, cliquez sur l&rsquo;icône à trois points (&hellip;), et
+sélectionnez <code>Ajouter une règle de colonne</code> :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/column-rule.png" /></p>
-<p>Dans la zone <code>Columns</code> nous avons un nouveau menu déroulant <code>[Add Column]</code> pour ajouter toutes les colonnes auxquelles nous voulons que la règle s&rsquo;applique (dans notre cas, <code>Email</code> et <code>Piece</code>).
-Pour la condition, nous pourrions utiliser <code>user.Email == 'kiwi@getgrist.com'</code>. Cela permet de vérifier l&rsquo;adresse électronique de Kimberly, notre spécialiste fictif de la livraison.
-Nous pourrions également vérifier par nom ou par identifiant numérique. Nous désactivons toutes les permissions disponibles pour cet utilisateur sur ces colonnes :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-limit-columns-full-rules.png" /></p>
-<p>Maintenant que les règles sont prêtes, cliquez sur &ldquo;Sauvegarder&rdquo;.</p>
-<p>Si nous avons un autre employé spécialisé dans la recherche d&rsquo;objets et qui a besoin de voir un ensemble différent de colonnes, nous pouvons le faire. Par exemple, nous ajoutons ici une règle pour ne pas montrer les colonnes <code>Address</code> et <code>Phone</code> à l&rsquo;utilisateur <code>Charon</code> :</p>
+<p>Dans la zone <code>Colonnes</code>, nous avons un nouveau menu déroulant <code>[Ajouter une colonne]</code> pour ajouter toutes les colonnes
+auxquelles nous voulons que la règle s&rsquo;applique (dans notre cas <code>Email</code> et <code>Pièce</code>).
+Pour la condition, nous pourrions utiliser <code>user.Email == 'kiwi@getgrist.com'</code>. Cela vérifie
+l&rsquo;adresse e-mail de Kimberly, notre spécialiste des livraisons fictif ; nous
+pourrions également vérifier par nom ou par un ID numérique. Nous désactivons toutes les permissions disponibles pour
+cet utilisateur sur ces colonnes :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-limit-columns-full-rules.png" /></p>
+<p>Maintenant que les règles sont prêtes, cliquez sur <code>Enregistrer</code>.</p>
+<p>Si nous avons un autre employé qui se spécialise dans le sourcing d&rsquo;objets, et qui a besoin de
+voir un ensemble différent de colonnes, nous pouvons le faire. Par exemple ici, nous ajoutons une
+règle pour retirer les colonnes <code>Adresse</code> et <code>Téléphone</code> de l&rsquo;utilisateur <code>Charon</code> :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-sourcing-single.png" /></p>
-<h2 id="voir-comme-un-autre-utilisateur">Voir comme un autre utilisateur<a class="headerlink" href="#voir-comme-un-autre-utilisateur" title="Permanent link">#</a></h2>
-<p>Un moyen pratique de vérifier si les permissions avancées fonctionnent comme prévu est d&rsquo;utiliser la fonction &ldquo;Voir en tant que&rdquo;, disponible dans le menu déroulant &ldquo;Voir en tant que&rdquo;. Cela permet à un propriétaire d&rsquo;ouvrir le document comme s&rsquo;il était l&rsquo;une des personnes avec lesquelles le document est partagé, afin de voir ce que son collègue verrait. Le propriétaire ne &ldquo;devient&rdquo; pas ce collègue, modifications qu&rsquo;il apporte seront enregistrées comme provenant de lui-même et non du collègue. mais il voit le document du point de vue de son collègue.</p>
+<h2 id="voir-en-tant-quautre-utilisateur">Voir en tant qu&rsquo;autre utilisateur<a class="headerlink" href="#voir-en-tant-quautre-utilisateur" title="Permanent link">#</a></h2>
+<p>Un moyen pratique de vérifier si les règles d&rsquo;accès fonctionnent comme prévu est la fonction <code>Voir en tant que</code>, 
+disponible dans le menu déroulant <code>Voir en tant que</code>. Cela permet à un Propriétaire
+d&rsquo;ouvrir le document comme s&rsquo;il était l&rsquo;une des personnes avec qui il est partagé,
+pour voir ce que son collègue verrait. Le Propriétaire ne
+&ldquo;deviendra&rdquo; pas ce collègue - tout changement qu&rsquo;il effectue sera enregistré comme
+provenant de lui-même et non du collègue - mais il voit le
+document du point de vue du collègue.</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-view-as.png" /></p>
-<p>Dans notre exemple, nous pourrions sélectionner Kiwi, et le document s&rsquo;ouvrirait à nouveau, avec une grande bannière indiquant que nous le visualisons en tant que Kiwi. Les colonnes <code>Piece</code> et <code>Email</code> sont manquantes, et la table <code>Financials</code> est supprimée :</p>
+<p>Dans notre exemple, nous pourrions sélectionner Kiwi, et le
+document se rouvre, avec une grande bannière indiquant que nous le visualisons
+comme Kiwi. Les colonnes <code>Pièce</code> et <code>Email</code> sont manquantes,
+et la table <code>Finances</code> est supprimée :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-view-as-kiwi.png" /></p>
-<p>Vous pouvez également vérifier les données brutes pour confirmer que seuls les tableaux, les colonnes et les lignes prévus sont exposées.</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-view-as-kiwi-raw-data.png" /></p>
-<p>Lorsque nous sommes convaincus que tout se passe comme prévu, nous cliquons sur le bouton vert <code>View as Yourself</code> pour fermer cette prévisualisation, et le document se rechargera.</p>
-<h2 id="tables-dappairage-utilisateur">Tables d&rsquo;appairage utilisateur<a class="headerlink" href="#tables-dappairage-utilisateur" title="Permanent link">#</a></h2>
-<p>Si nous réussissons et que nous recrutons de nombreux fournisseurs et livreurs, il serait fastidieux de les ajouter un par un aux règles serait fastidieux. Une solution consiste à utiliser des &ldquo;tables d&rsquo;appairage d&rsquo;utilisateurs&rdquo;. Vous pouvez ajouter à votre document une table qui classe les utilisateurs comme vous le souhaitez, puis utiliser ces classes dans vos règles d&rsquo;accès.
-Vous pouvez ajouter une table à votre document qui classe les utilisateurs comme vous le souhaitez, puis utiliser ces classes dans vos permissions avancées. Par exemple, nous pouvons
-créer une table appelée &ldquo;Équipe&rdquo; et lui donner deux colonnes, &ldquo;Courriel&rdquo; et &ldquo;Rôle&rdquo;, où &ldquo;Rôle&rdquo; est un choix d&rsquo;utilisateur.
-<code>Rôle</code> est un choix entre <code>Sourcing</code> et <code>Delivery</code>.</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-team-table.png" /></p>
-<p>Maintenant, nous pouvons dire à Grist de rendre les informations de cette table disponibles pour les règles d&rsquo;accès, en cliquant sur <code>Add User Attributes</code>.
-en cliquant sur <code>Add User Attributes</code>. Donnez à l&rsquo;attribut le nom de votre choix (c&rsquo;est ainsi que nous nous y référerons dans les formules), comme par exemple
-nom que vous voulez (c&rsquo;est ainsi que nous nous y référerons dans les formules), comme <code>Team</code>. Choisissez la table
-à lire (ici aussi <code>Team</code>). Donnez une propriété à l&rsquo;utilisateur pour qu&rsquo;il la compare aux lignes de cette table.
-lignes de cette table - dans notre cas, nous utiliserons <code>user.Email</code>. Et la colonne à comparer avec
-la colonne <code>Email</code>.</p>
+<p>Vous pouvez également vérifier dans les Données sources pour confirmer que seules les tables, colonnes et lignes attendues sont exposées.</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-view-as-kiwi-raw-data.png" /></p>
+<p>Lorsque vous êtes satisfait que tout semble comme prévu, cliquez sur le bouton vert <code>Voir en tant que vous-même</code> 
+pour fermer cet aperçu, et le document se rechargera.</p>
+<h2 id="tables-dattributs-dutilisateur">Tables d&rsquo;attributs d&rsquo;utilisateur<a class="headerlink" href="#tables-dattributs-dutilisateur" title="Permanent link">#</a></h2>
+<p>Si nous réussissons et embauchons de nombreuses personnes pour le sourcing et la livraison,
+ajouter chacune d&rsquo;elles une par une aux règles serait fastidieux. Une solution
+est d&rsquo;utiliser des &ldquo;tables d&rsquo;attributs d&rsquo;utilisateur.&rdquo; Vous pouvez ajouter une table à votre document
+qui classe les utilisateurs comme vous le souhaitez, puis utiliser ces classes dans vos
+règles d&rsquo;accès. Par exemple, nous pouvons créer une table appelée <code>Équipe</code>, et lui donner deux
+colonnes, <code>Email</code> et <code>Rôle</code>, où <code>Rôle</code> est un choix entre
+<code>Sourcing</code> et <code>Livraison</code>.</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-team-table.png" /></p>
+<p>Maintenant, nous pouvons dire à Grist de rendre les informations de cette table disponibles
+pour les règles d&rsquo;accès, en cliquant sur <code>Ajouter des attributs d'utilisateur</code>.
+Donnez à l&rsquo;attribut n&rsquo;importe quel nom que vous aimez (c&rsquo;est ainsi que nous nous y référerons
+dans les formules), comme <code>Équipe</code>. Choisissez la table à lire (<code>Équipe</code> également
+dans ce cas). Donnez une propriété utilisateur à comparer
+avec les lignes de cette table - dans notre cas, nous utiliserons <code>user.Email</code>. Et la
+colonne à comparer, <code>Email</code>.</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-team-attribute.png" /></p>
-<p>Sauvegardez cela. Nous pouvons maintenant mettre à jour nos règles pour qu&rsquo;elles soient plus générales. Nous constatons avec l&rsquo;autocomplétion que nous avons une nouvelle variable
-autocomplete que nous avons une nouvelle variable <code>user.Team</code> disponible dans les condtions. Cette variable
-Elle rend les colonnes de <code>Team</code> disponibles, comme <code>user.Team.Role</code>. Maintenant, nous pouvons
-vérifier si l&rsquo;utilisateur a un rôle particulier, et appliquer les permissions qui vont avec
-qui vont avec :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-team-rules.png" /></p>
-<p>C&rsquo;est très bien ! En effectuant une vérification ponctuelle, Charon voit les colonnes attendues pour quelqu&rsquo;un qui travaille dans le domaine du
-Sourcing. Et si nous recrutons quelqu&rsquo;un d&rsquo;autre pour travailler avec eux, nous pouvons simplement les ajouter dans le tableau &ldquo;Équipe&rdquo;, sans avoir à modifier les règles.
-dans la table <code>Team</code>, sans changer les règles.</p>
+<p>Enregistrez cela. Maintenant, nous pouvons mettre à jour nos règles pour être plus générales. Nous découvrons avec
+l&rsquo;autocomplétion que nous avons une nouvelle variable <code>user.Team</code> disponible dans
+les conditions. Cela rend les colonnes de l&rsquo;<code>Équipe</code> disponibles, comme <code>user.Team.Role</code>.
+Maintenant, nous pouvons vérifier si l&rsquo;utilisateur a un rôle particulier et appliquer les permissions
+qui y sont associées :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-team-rules.png" /></p>
+<p>Super ! En faisant un contrôle aléatoire, Charon voit les colonnes attendues pour quelqu&rsquo;un dans
+le Sourcing. Et si nous recrutons quelqu&rsquo;un d&rsquo;autre pour travailler avec eux, nous pouvons simplement les ajouter
+dans la table <code>Équipe</code>, sans besoin de modifier les règles.</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-view-as-charon.png" /></p>
-<h2 id="controle-dacces-au-niveau-de-la-ligne">Contrôle d&rsquo;accès au niveau de la ligne<a class="headerlink" href="#controle-dacces-au-niveau-de-la-ligne" title="Permanent link">#</a></h2>
-<p>Dans notre exemple, au fur et à mesure que les commandes sont traitées, elles passent de la phase d&rsquo;approvisionnement à la phase de livraison.
-à la livraison. Il n&rsquo;est donc pas nécessaire que les deux groupes voient toutes les commandes en même temps.
-en même temps. Ajoutons une colonne appelée <code>Stage</code> qui peut être définie comme <code>Sourcing</code> ou
-<code>Delivery</code>, afin que nous puissions mettre à jour les permissions avancées pour n&rsquo;afficher que les commandes pertinentes.</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-stage-column.png" /></p>
-<p>Dans le groupe <code>Règles pour les commandes de table</code>, cliquez sur l&rsquo;icône à trois points (&hellip;), et sélectionnez <code>Ajouter une règle par défaut</code> pour ajouter une règle qui n&rsquo;est pas limitée à des colonnes spécifiques.
-sélectionnez <code>Ajouter une règle par défaut</code> pour ajouter une règle qui n&rsquo;est pas limitée à des colonnes spécifiques.
-Pour commencer, refusons l&rsquo;accès à toutes les lignes pour les non-propriétaires, puis rajoutons celles que nous voulons.
-celles que nous voulons. Nous pouvons faire cela avec la condition <code>user.Access != OWNER</code>
-avec les permissions <code>Deny All</code>. Ensuite, nous ajoutons une autre règle par défaut en cliquant sur <code>+</code>,
-et ajoutons la condition <code>user.Team.Role == rec.Stage</code>. La variable <code>rec</code> nous permet
-d&rsquo;exprimer des règles qui dépendent du contenu d&rsquo;un enregistrement particulier. Ici,
-nous vérifions si la colonne <code>Stage</code> d&rsquo;un enregistrement correspond au rôle de l&rsquo;utilisateur. Si c&rsquo;est le cas, nous
-autorisons <code>R</code> l&rsquo;accès en lecture :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/table-wide-rule-big.png" /></p>
-<p>Voici à quoi ressemble la table de Kimberly (en train de faire des livraisons) :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-stage-kiwi.png" /></p>
-<p>Et voici à quoi ressemble le tableau avec Charon (qui fait du sourcing) :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-stage-charon.png" /></p>
-<p>Kimberly et Charon ont désormais un accès en lecture seule au tableau. Les propriétaires ont toujours
-l&rsquo;accès en écriture à toutes les lignes et colonnes.</p>
-<p>!!! note &ldquo;Comprendre les colonnes de référence dans les permissions avancées&rdquo; Vous pouvez limiter l&rsquo;accès des membres de l&rsquo;équipe de données aux seules lignes pertinentes pour leur travail.
-l&rsquo;accès des membres de l&rsquo;équipe de données aux seules lignes pertinentes pour leur travail. Une façon de le faire est de relier tous les enregistrements de toutes les tables aux membres de l&rsquo;équipe concernés.
-Une façon de le faire est de relier tous les enregistrements de toutes les tables à leurs membres d&rsquo;équipe respectifs.
-Par exemple, les enregistrements de prospects et de ventes peuvent faire référence au commercial responsable de ces enregistrements.
-responsable de ces enregistrements. Cette brève vidéo explique comment procéder.</p>
-<pre><code>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ZL3rHdAZzfY?rel=0" frameborder="0" allow="accelerometer ; autoplay ; encrypted-media ; gyroscope ; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-</code></pre>
+<h2 id="controle-dacces-au-niveau-des-lignes">Contrôle d&rsquo;accès au niveau des lignes<a class="headerlink" href="#controle-dacces-au-niveau-des-lignes" title="Permanent link">#</a></h2>
+<p>Dans notre exemple, à mesure que les commandes sont traitées, elles passent des phases de sourcing aux phases de livraison.
+Il n&rsquo;est donc vraiment pas nécessaire que les deux groupes voient toutes les commandes en même temps. Ajoutons une
+colonne appelée <code>Étape</code> qui peut être définie sur <code>Sourcing</code> ou <code>Livraison</code>, afin que nous
+puissions mettre à jour les règles d&rsquo;accès pour ne montrer que les commandes pertinentes.</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-stage-column.png" /></p>
+<p>Dans le groupe <code>Règles pour la table Commandes</code>, cliquez sur l&rsquo;icône à trois points (&hellip;), et
+sélectionnez <code>Ajouter une règle à l'échelle de la table</code> pour ajouter une règle qui n&rsquo;est pas limitée à des colonnes spécifiques.
+Commençons par refuser l&rsquo;accès à toutes les lignes pour les non-Propriétaires, puis ajoutons à nouveau celles que nous voulons. Nous pouvons le faire avec la condition <code>user.Access != OWNER</code> avec
+des permissions <code>Refuser tout</code>. Ensuite, nous ajoutons une autre règle par défaut en cliquant sur <code>+</code>, et 
+ajoutons la condition <code>user.Team.Role == rec.Stage</code>. La variable <code>rec</code> nous permet d&rsquo;exprimer
+des règles qui dépendent du contenu d&rsquo;un enregistrement particulier.
+Ici, nous vérifions si la colonne <code>Étape</code> d&rsquo;un enregistrement correspond au rôle de l&rsquo;utilisateur.
+Si c&rsquo;est le cas, nous autorisons l&rsquo;accès <code>R</code> Lecture :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/table-wide-rule-big.png" /></p>
+<p>Voici à quoi ressemble la table maintenant pour Kimberly (effectuant des livraisons) :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-stage-kiwi.png" /></p>
+<p>Et voici à quoi ressemble la table pour Charon (effectuant du sourcing) :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-stage-charon.png" /></p>
+<p>Kimberly et Charon ont maintenant un accès en lecture seule à la table. Les Propriétaires ont toujours un accès complet
+en écriture à toutes les lignes et colonnes.</p>
+<div class="admonition note">
+<p class="admonition-title">Comprendre les colonnes de référence dans les règles d&rsquo;accès</p>
+<p>Vous pouvez limiter les données auxquelles les membres de l&rsquo;équipe ont accès à juste les lignes pertinentes pour leur travail. Une façon de le faire est de relier tous les enregistrements dans toutes les tables à leurs membres d&rsquo;équipe respectifs. Par exemple, les pistes et les enregistrements de ventes peuvent faire référence au représentant commercial responsable de ces enregistrements. Cette vidéo rapide explique comment. </p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZL3rHdAZzfY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+</div>
 <h2 id="verification-des-nouvelles-valeurs">Vérification des nouvelles valeurs<a class="headerlink" href="#verification-des-nouvelles-valeurs" title="Permanent link">#</a></h2>
-<p>Les permissions avancées permettent de n&rsquo;autoriser que certaines modifications du document. Supposons que
-nous voulons que les gens de <code>Delivery</code> puissent changer <code>Stage</code> de <code>Delivery</code> en <code>Done</code>, sans leur donner les droits arbitraires d&rsquo;éditer cette colonne.
-<code>Done</code>, sans leur donner le droit arbitraire d&rsquo;éditer cette colonne. Nous pouvons
-leur accorder ce droit exceptionnel de la manière suivante. Dans le groupe <code>Règles pour la table Orders</code>
-cliquez sur l&rsquo;icône à trois points (&hellip;), et sélectionnez <code>Add Column Rule</code>. Définissez <code>[Ajouter
-Column]</code> à <code>Stage</code>, et marquez la permission U/Update à accorder. Pour la condition
-utilisez ceci :</p>
-<pre><code>(user.Team.Role == 'Delivery' et
-  rec.Stage == 'Delivery' et
-  newRec.Stage == 'Done')
+<p>Les règles d&rsquo;accès peuvent être utilisées pour permettre uniquement certains changements au document.
+Supposons que nous voulons que les personnes de <code>Livraison</code>
+puissent changer <code>Étape</code> de <code>Livraison</code> à <code>Fait</code>, sans leur donner les
+droits arbitraires d&rsquo;éditer cette colonne. Nous pouvons leur accorder ce droit exceptionnel
+comme suit.
+Dans le groupe <code>Règles pour la table Commandes</code>, cliquez sur l&rsquo;icône à trois points (&hellip;), et
+sélectionnez <code>Ajouter une règle de colonne</code>. Réglez <code>[Ajouter une colonne]</code> sur <code>Étape</code>, et marquez la permission U/Mise à jour
+pour être accordée. Pour la condition, utilisez ceci :</p>
+<pre><code>(user.Team.Role == 'Livraison' and
+  rec.Stage == 'Livraison' and
+  newRec.Stage == 'Fait')
 </code></pre>
-<p>Ceci vérifie que l&rsquo;utilisateur a le rôle Livraison, que l&rsquo;enregistrement est dans l&rsquo;étape Livraison, et que l&rsquo;utilisateur essaie de changer l&rsquo;étape en <code>Done</code>.
-et que l&rsquo;utilisateur essaie de changer le stage en <code>Done</code>. La variable <code>newRec</code>
-est une variante de <code>rec</code> disponible lorsque l&rsquo;utilisateur propose de modifier un enregistrement.
-d&rsquo;un enregistrement, <code>rec</code> contenant son état avant le changement, et <code>newRec</code> son état après le changement proposé.
-état après la modification proposée.</p>
+<p>Cela vérifie si l&rsquo;utilisateur a le rôle de Livraison, que l&rsquo;enregistrement est à l&rsquo;étape de Livraison,
+et que l&rsquo;utilisateur essaie de changer l&rsquo;Étape en <code>Fait</code>. La variable <code>newRec</code> est une
+variante de <code>rec</code> disponible lorsque l&rsquo;utilisateur propose de changer un enregistrement, avec <code>rec</code>
+contenant son état avant le changement, et <code>newRec</code> son état après le changement proposé.</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-delivery-done-rule.png" /></p>
-<p>Maintenant, si nous voyons la table comme Kiwi, et que nous essayons de changer un <code>Stage</code> en <code>Sourcing</code>, nous sommes refusés :</p>
+<p>Maintenant, si nous voyons la table comme Kiwi, et essayons de changer une <code>Étape</code> en <code>Sourcing</code>, nous sommes
+refusés :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-delivery-done-forbid.png" /></p>
-<p>Si nous changeons un <code>Stage</code> en <code>Done</code>, cela fonctionne, et l&rsquo;enregistrement disparaît de la vue
-puisqu&rsquo;il n&rsquo;est plus dans l&rsquo;étape <code>Delivery</code> :</p>
+<p>Si nous changeons une <code>Étape</code> en <code>Fait</code>, cela fonctionne, et l&rsquo;enregistrement disparaît de la vue puisqu&rsquo;il n&rsquo;est plus dans l&rsquo;étape de <code>Livraison</code> :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-delivery-done-allow.png" /></p>
-<h2 id="cles-de-liaison">Clés de liaison<a class="headerlink" href="#cles-de-liaison" title="Permanent link">#</a></h2>
-<p>Il est parfois utile de donner accès à une petite partie spécifique du document,
-par exemple une seule ligne d&rsquo;un tableau. Grist propose une fonctionnalité appelée &ldquo;clés de lien&rdquo;
-qui peut être utile à cet effet. Tous les paramètres de l&rsquo;URL d&rsquo;un document Grist qui se terminent par un trait de soulignement sont mis à la disposition de l&rsquo;accès au document.
-sont mis à la disposition des permissions avancées dans une variable <code>user.LinkKey</code>. Ainsi, par exemple, si l&rsquo;URL d&rsquo;un document se termine par
-par exemple, si l&rsquo;URL d&rsquo;un document se termine par <code>....?Token_=xx-xx-xx&amp;Flavor_=vanilla</code>,
-alors <code>user.LinkKey.Token</code> sera défini à <code>xx-xx-xx-xx</code> et <code>user.LinkKey.Flavor</code> à <code>vanilla</code>.
-à <code>vanilla</code>. Travaillons sur un exemple pour voir comment cela peut être utile.</p>
-<p>Supposons que nous ayons une table de <code>Commandes</code> et que nous souhaitions occasionnellement partager avec quelqu&rsquo;un des
-des informations sur une seule commande avec quelqu&rsquo;un d&rsquo;autre. Pour ce faire, nous avons besoin d&rsquo;un code difficile à deviner pour chaque commande.
-avons besoin d&rsquo;une sorte de code difficile à deviner pour chaque commande, qui peut être utilisé pour y accéder.
-pour y accéder. Grist dispose d&rsquo;une fonction <a href="../functions/#uuid"><code>UUID()</code></a> qui donne un identifiant unique,
-unique, aléatoire et difficile à deviner, alors ajoutons une colonne <code>UUID</code> avec la formule
-<code>=UUID()</code> :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-linkkey-uuid-formula.png" /></p>
-<p>En fait, nous voulons que <code>UUID()</code> ne soit appelé qu&rsquo;une seule fois par ordre, lorsque nous le créons,
-et qu&rsquo;elle ne soit jamais recalculée (parce qu&rsquo;elle changerait alors). Ainsi, dans la barre latérale droite, nous
-convertissons la colonne de formule en colonne de données, en gelant ses valeurs :</p>
+<h2 id="cles-de-lien">Clés de lien<a class="headerlink" href="#cles-de-lien" title="Permanent link">#</a></h2>
+<p>Parfois, il est utile de donner accès à une petite
+partie spécifique du document, par exemple une seule ligne d&rsquo;une table. Grist offre
+une fonctionnalité appelée &ldquo;clés de lien&rdquo; qui peut aider avec cela. Tous les paramètres dans
+une URL de document Grist qui se terminent par un underscore sont disponibles pour
+les règles d&rsquo;accès dans une variable <code>user.LinkKey</code>. Par exemple, si une URL de document
+se termine par <code>....?Token_=xx-xx-xx-xx&amp;Flavor_=vanilla</code>, alors <code>user.LinkKey.Token</code>
+sera défini sur <code>xx-xx-xx-xx</code> et <code>user.LinkKey.Flavor</code> sur <code>vanilla</code>.
+Voyons un exemple pour voir comment cela peut être utile.</p>
+<p>Supposons que nous avons une table de <code>Commandes</code> et que nous aimerions occasionnellement
+partager des informations sur une seule commande avec quelqu&rsquo;un. Pour ce faire avec
+des clés de lien, nous avons besoin d&rsquo;un code difficile à deviner pour chaque commande,
+qui peut être utilisé pour y accéder. Grist a une fonction <a href="../functions/#uuid"><code>UUID()</code></a> qui
+donne un identifiant unique, aléatoire et difficile à deviner, donc ajoutons une colonne <code>UUID</code> avec
+la formule <code>=UUID()</code> :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-uuid-formula.png" /></p>
+<p>En fait, nous voulons que <code>UUID()</code> soit appelé une seule fois par commande, lorsque nous la créons,
+et jamais recalculé (car sinon, elle changerait). Donc dans la barre latérale droite,
+nous convertissons la colonne de formule en colonne de données, figeant ses valeurs :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-uuid-convert.png" /></p>
-<p>Cette opération convertit notre formule en une formule de déclenchement. Nous définissons la formule pour qu&rsquo;elle s&rsquo;applique aux
-nouveaux enregistrements :</p>
+<p>Cela convertit notre formule en une formule d&rsquo;initialisation. Nous définissons la formule pour s&rsquo;appliquer aux nouveaux enregistrements :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-uuid-data.png" /></p>
-<p>A ce stade, nous avons un code solide et difficile à deviner pour chaque commande dans la colonne <code>UUID</code>
-qui sera créée au fur et à mesure que nous ajouterons de nouvelles commandes. Il peut être pratique à ce stade
-de construire des liens vers le document avec ce code intégré. Grist dispose d&rsquo;une aide
-pour cela, appelé <a href="../functions/#self_hyperlink"><code>SELF_HYPERLINK</code></a>. Pour ajouter une clé de lien
-pour ajouter une clé de lien appelée <code>&lt;NAME&gt;</code>, il suffit d&rsquo;utiliser cette fonction avec l&rsquo;argument <code>LinkKey_&lt;NAME&gt;</code>.
-comme argument. Dans notre cas, nous passons <code>LinkKey_UUID=$UID</code> pour intégrer la valeur de la colonne
-<code>UUID</code> dans l&rsquo;URL. Nous avons également défini <code>label=$Ref</code> pour contrôler l&rsquo;étiquette texte du lien dans la feuille de calcul.
-du lien dans la feuille de calcul. Pour afficher le lien, nous définissons le type de colonne à
-<code>Text</code> et définissons l&rsquo;option <code>HyperLink</code> :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-linkkey-link.png" /></p>
-<p>Une fois que nous avons ces liens, nous pouvons faire un peu de ménage en cachant les colonnes <code>UUID</code> et <code>Ref</code>
-(voir <a href="../widget-table/#column-operations">Opérations sur les colonnes</a> pour une
-pour un rappel sur la façon de procéder) :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-linkkey-prune.png" /></p>
-<p>Les liens ne font rien de spécial pour l&rsquo;instant, mais nous avons tout ce qu&rsquo;il faut pour que cela se produise maintenant.
-pour que cela se produise. Voici un exemple de permissions avancées permettant à toute personne ayant un UUID
-dans leur URL de lire n&rsquo;importe quelle commande avec un UUID correspondant (dans ce cas, seuls les propriétaires peuvent lire les commandes).
-lire les commandes dans ce cas) :</p>
+<p>À ce stade, nous avons un code solide et difficile à deviner pour chaque commande dans la
+colonne <code>UUID</code>, qui sera créé à mesure que nous ajoutons de nouvelles commandes. Il peut
+être pratique à ce stade de construire des liens vers le document avec ce
+code intégré. Grist a un helper pour cela appelé
+<a href="../functions/#self_hyperlink"><code>SELF_HYPERLINK</code></a>. Pour ajouter une
+clé de lien appelée <code>&lt;NOM&gt;</code>, utilisez simplement cette fonction avec un
+argument <code>LinkKey_&lt;NOM&gt;</code>. Dans notre cas, nous passons <code>LinkKey_UUID=$UUID</code> pour
+intégrer la valeur de la colonne <code>UUID</code> dans l&rsquo;URL. Nous définissons également <code>label=$Ref</code>
+pour contrôler le texte du lien dans la feuille de calcul. Pour afficher le lien,
+nous définissons le type de colonne sur <code>Texte</code> et activons l&rsquo;option <code>HyperLink</code> :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-link.png" /></p>
+<p>Une fois que nous avons ces liens, nous pouvons faire un peu de ménage en cachant les
+colonnes <code>UUID</code> et <code>Ref</code> (voir <a href="../widget-table/#column-operations">Opérations sur les colonnes</a> pour un rappel sur la façon
+de le faire) :</p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-prune.png" /></p>
+<p>Les liens ne font encore rien de spécial, mais nous avons maintenant tout ce dont nous
+avons besoin pour que cela se produise. Voici un exemple de règles d&rsquo;accès pour
+permettre à quiconque ayant un UUID dans son URL de lire toute commande avec un
+UUID correspondant (sinon, seuls les propriétaires peuvent lire les commandes dans ce cas) :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-rule.png" /></p>
-<p>Et voici ce qu&rsquo;un non-propriétaire voit maintenant, avec l&rsquo;UUID du premier ordre dans son
+<p>Et voici ce qu&rsquo;un non-propriétaire voit maintenant, avec l&rsquo;UUID de la première commande dans son
 URL :</p>
-<p><img alt="Permissions avancées" src="../images/access-rules/access-rules-linkkey-use.png" /></p>
+<p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-use.png" /></p>
 <p>Ce n&rsquo;est que le début des possibilités. Les clés de lien peuvent donner accès à
-à plusieurs lignes dans plusieurs tables. Elles peuvent être utilisées dans les <a href="#user-attribute-tables">Tables d&rsquo;appairage utilisateur</a>. Et les données auxquelles elles donnent accès peuvent se trouver dans des tableaux, des cartes, des listes de cartes, des graphiques et des vues personnalisées.</p>
-<p>Consultez <a href="https://support.getgrist.com/examples/2021-04-link-keys/">un autre exemple</a> pour approfondir pour approfondir votre compréhension des clés de lien.</p>
-<h2 id="conditions-de-la-regle-dacces">Conditions de la règle d&rsquo;accès<a class="headerlink" href="#conditions-de-la-regle-dacces" title="Permanent link">#</a></h2>
-<p>Les conditions d&rsquo;une permission avancée contiennent une formule exprimant le moment où la règle doit s&rsquo;appliquer. Une condition vide s&rsquo;appliquera toujours. Lorsqu&rsquo;une condition s&rsquo;applique à une action, les permissions associées à la condition sont définies comme autorisées ou refusées pour cette action si aucune règle antérieure du même groupe ne les a encore définies. Lorsqu&rsquo;une condition ne s&rsquo;applique pas, aucune autorisation n&rsquo;est définie par cette règle, mais d&rsquo;autres règles peuvent les définir.</p>
-<p>Les formules sont écrites dans un sous-ensemble restreint de Python. Les variables qui peuvent être disponibles dans les permissions avancées sont <code>user</code>, <code>rec</code>, et <code>newRec</code>.</p>
+plusieurs lignes à travers de nombreuses tables. Elles peuvent être utilisées dans
+<a href="#user-attribute-tables">Tables d&rsquo;attributs d&rsquo;utilisateur</a>. Et les données auxquelles elles donnent accès
+peuvent être dans des tables, des fiches, des listes de fiches, des graphiques et des widgets personnalisés.</p>
+<p>Consultez <a href="https://support.getgrist.com/examples/2021-04-link-keys/">un autre exemple</a> pour approfondir votre compréhension des clés de lien.</p>
+<h2 id="conditions-des-regles-dacces">Conditions des règles d&rsquo;accès<a class="headerlink" href="#conditions-des-regles-dacces" title="Permanent link">#</a></h2>
+<p>Les conditions des règles d&rsquo;accès contiennent une formule exprimant quand la règle
+doit s&rsquo;appliquer. Une condition vide s&rsquo;appliquera toujours. Lorsqu&rsquo;une condition
+s&rsquo;applique à une action, les permissions associées à la condition sont
+définies comme autorisées ou refusées pour cette action si aucune règle antérieure dans le même
+groupe ne les a encore définies. Lorsqu&rsquo;une condition ne s&rsquo;applique pas, aucune
+permission n&rsquo;est définie par cette règle, mais d&rsquo;autres règles pourraient les définir.</p>
+<p>Les formules sont écrites dans un sous-ensemble restreint de Python.
+Les variables qui peuvent être disponibles dans les règles d&rsquo;accès sont <code>user</code>, <code>rec</code> et <code>newRec</code>.</p>
 <p>La variable <code>user</code> contient les membres suivants :</p>
 <ul>
-<li><code>user.Access</code> : un des <code>owners</code>, <code>editors</code>, ou <code>viewers</code>, indiquant comment le document a été partagé avec l&rsquo;utilisateur (voir <a href="../sharing/">Partager un document</a>).</li>
-<li><code>user.Email</code> : l&rsquo;adresse email de l&rsquo;utilisateur (ou <code>anon@getgrist.com</code> pour les utilisateurs qui ne sont pas connectés).</li>
-<li><code>user.UserID</code> : un identifiant numérique associé à l&rsquo;utilisateur.</li>
-<li><code>user.Name</code> : le nom de l&rsquo;utilisateur (ou <code>Anonymous</code> s&rsquo;il n&rsquo;est pas disponible).</li>
-<li><code>user.LinkKey</code> : un objet avec les paramètres de l&rsquo;URL de contrôle d&rsquo;accès. Les paramètres de contrôle d&rsquo;accès se terminent par un trait de soulignement (qui est ensuite supprimé). Uniquement
-  disponible dans le client web, pas dans l&rsquo;API.</li>
-<li><code>user.SessionID</code> : une chaîne unique assignée aux utilisateurs anonymes pour la durée de la session de l&rsquo;utilisateur. Pour les utilisateurs connectés, <code>user.SessionID</code> est toujours <code>"u"</code> l&rsquo;identifiant numérique de l&rsquo;utilisateur.</li>
+<li><code>user.Access</code>: l&rsquo;un de <code>owners</code>, <code>editors</code> ou <code>viewers</code>, indiquant comment le
+   document a été partagé avec l&rsquo;utilisateur (voir <a href="../sharing/">Partage d&rsquo;un document</a>).</li>
+<li><code>user.Email</code>: l&rsquo;adresse e-mail de l&rsquo;utilisateur (ou <code>anon@getgrist.com</code> pour les utilisateurs qui ne sont pas connectés).</li>
+<li><code>user.UserID</code>: un ID numérique associé à l&rsquo;utilisateur.</li>
+<li><code>user.Name</code>: le nom de l&rsquo;utilisateur (ou <code>Anonyme</code> si indisponible).</li>
+<li><code>user.LinkKey</code>: un objet avec tous les paramètres d&rsquo;URL de contrôle d&rsquo;accès. Les paramètres d&rsquo;URL de contrôle d&rsquo;accès se terminent par un underscore (qui est ensuite supprimé). Disponible uniquement dans le
+   client web, pas dans l&rsquo;API.</li>
+<li><code>user.SessionID</code>: une chaîne unique attribuée aux utilisateurs anonymes pendant la durée de la session de cet utilisateur. Pour les utilisateurs connectés, <code>user.SessionID</code> est toujours <code>"u"</code> + l&rsquo;ID numérique de l&rsquo;utilisateur. </li>
 </ul>
-<p>Pour un exemple d&rsquo;utilisation de la variable <code>user</code>, lisez <a href="./#default-rules">Default rules</a>.</p>
-<p>La variable <code>rec</code> contient l&rsquo;état d&rsquo;un enregistrement/rangée individuel, pour les conditions qui doivent en tenir compte. Lorsqu&rsquo;elle est utilisée, cette règle devient spécifique à une ligne. Cela permet, par exemple, de rendre certaines lignes visibles que par certains utilisateurs, ou d&rsquo;interdire la modification de certaines lignes par certains utilisateurs. Pour un exemple d&rsquo;utilisation de la variable <code>rec</code>, lisez <a href="./#row-level-access-control">Row-level access control</a>.</p>
-<p>La variable <code>newRec</code> est disponible pour la création et la mise à jour des enregistrements et des lignes, et contient l&rsquo;état d&rsquo;une ligne après une modification proposée, ce qui permet d&rsquo;autoriser ou de refuser certaines d&rsquo;autoriser ou de refuser certaines modifications. Pour un exemple d&rsquo;utilisation de la variable <code>newRec</code>, lisez <a href="./#checking-new-values">Vérification des nouvelles valeurs</a>.</p>
-<p>Les opérations prises en charge dans les formalismes de condition sont actuellement les suivantes : <code>and</code>, <code>or</code>, <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>is</code>, <code>is not</code>, <code>in</code>, <code>not in</code>.
-Les variables supportées sont : <code>user</code>, <code>rec</code>, <code>newRec</code> dont les membres sont accessibles avec <code>.</code>. Les chaînes de caractères, les nombres et les listes sont également supportés. Si une opération dont vous avez besoin n&rsquo;est pas disponible, examinez si vous pouvez faire une partie du travail dans une formule dans la table elle-même (voir <a href="./#access-rule-memos">Access rule memos</a> pour un exemple).</p>
-<p>Les commentaires sont autorisés, en utilisant <code>#</code> ou <code>"""</code>. S&rsquo;il y a un commentaire dans une règle, alors le premier commentaire d&rsquo;une règle qui aboutit à un refus d&rsquo;une action sera d&rsquo;une action sera signalé à l&rsquo;utilisateur comme une indication de la raison pour laquelle l&rsquo;action n&rsquo;a pas été autorisée. Voir <a href="./#access-rule-memos">Access rule memos</a> pour un exemple.</p>
+<p>Pour un exemple d&rsquo;utilisation de la variable <code>user</code>, lisez <a href="./#default-rules">Règles par défaut</a>.</p>
+<p>La variable <code>rec</code> contient l&rsquo;état d&rsquo;un enregistrement/ligne individuel, pour
+les conditions qui doivent en tenir compte. Lorsqu&rsquo;elle est utilisée, cette
+règle devient spécifique à la ligne. Cela permet, par exemple, de rendre certaines
+lignes visibles uniquement pour certains utilisateurs, ou d&rsquo;interdire la modification
+de certaines lignes par certains utilisateurs.
+Pour un exemple d&rsquo;utilisation de la variable <code>rec</code>, lisez <a href="./#row-level-access-control">Contrôle d&rsquo;accès au niveau des lignes</a>.</p>
+<p>La variable <code>newRec</code> est disponible pour la création et la mise à jour d&rsquo;enregistrements/ligne, et contient l&rsquo;état d&rsquo;une ligne après un changement proposé,
+vous permettant d&rsquo;autoriser ou de refuser sélectivement certains changements.
+Pour un exemple d&rsquo;utilisation de la variable <code>newRec</code>, lisez <a href="./#checking-new-values">Vérification des nouvelles valeurs</a>.</p>
+<p>Les opérations prises en charge dans les formules de condition sont actuellement : <code>and</code>, <code>or</code>,
+<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>is</code>, <code>is
+not</code>, <code>in</code>, <code>not in</code>. Les variables prises en charge sont : <code>user</code>, <code>rec</code>,
+<code>newRec</code> avec leurs membres accessibles avec <code>.</code>. Les chaînes, les nombres et
+les listes sont également pris en charge. Si une opération dont vous avez besoin n&rsquo;est pas disponible,
+considérez si vous pouvez faire une partie du travail dans une formule dans la table
+elle-même (voir <a href="./#access-rule-memos">Mémos de règle d&rsquo;accès</a> pour un exemple).</p>
+<p>Les commentaires sont autorisés, en utilisant <code>#</code> ou <code>"""</code>. S&rsquo;il y a un commentaire dans une
+règle, alors le premier commentaire dans une règle qui entraîne un refus d&rsquo;une
+action sera signalé à l&rsquo;utilisateur comme un conseil sur la raison pour laquelle l&rsquo;action n&rsquo;a pas été
+permise. Voir <a href="./#access-rule-memos">Mémos de règle d&rsquo;accès</a> pour un exemple.</p>
 <h2 id="permissions-des-regles-dacces">Permissions des règles d&rsquo;accès<a class="headerlink" href="#permissions-des-regles-dacces" title="Permanent link">#</a></h2>
-<p>Une permission détermine si un utilisateur peut effectuer un type d&rsquo;action particulier.
-Les permissions avancées de Grist traitent actuellement de 5 types d&rsquo;actions, auxquelles sont attribués des acronymes d&rsquo;une seule lettre pour des raisons de commodité :</p>
+<p>Une permission contrôle si un utilisateur peut effectuer un type d&rsquo;action particulier.
+Les règles d&rsquo;accès Grist traitent actuellement 5 types d&rsquo;actions, qui sont données
+par des acronymes à une lettre pour plus de commodité :</p>
 <ul>
-<li><code>R</code> - permission de lire les cellules.</li>
-<li><code>U</code> - permission de mettre à jour les cellules.</li>
+<li><code>R</code> - permission de lire des cellules.</li>
+<li><code>U</code> - permission de mettre à jour des cellules.</li>
 <li><code>C</code> - permission de créer des lignes.</li>
-<li><code>D</code> - permission d&rsquo;effacer des lignes.</li>
-<li><code>S</code> - permission de changer la structure du tableau.</li>
+<li><code>D</code> - permission de supprimer des lignes.</li>
+<li><code>S</code> - permission de modifier la structure de la table.</li>
 </ul>
-<p>La permission de structure <code>S</code> est disponible dans le groupe de règles d&rsquo;accès par défaut.
-Les règles de colonnes n&rsquo;ont pas les permissions <code>C</code> create et <code>D</code> delete, qui doivent être gérées dans les règles de tables par défaut.</p>
-<p><strong>Note:</strong> L&rsquo;autorisation <code>S</code> est très puissante. Elle permet d&rsquo;écrire des formules qui peuvent accéder à n&rsquo;importe quelle donnée du document sans tenir compte des règles. Puisque la permission <code>S</code> est activée par défaut pour les éditeurs et les propriétaires, n&rsquo;importe quel utilisateur sera en mesure de modifier une formule et de récupérer n&rsquo;importe quelle donnée.</p>
-<p>En d&rsquo;autres termes, le fait d&rsquo;avoir la permission <code>S</code> permet de contourner d&rsquo;autres règles qui empêchent l&rsquo;accès aux données. Pour cette raison, la désactiver &ndash; comme décrit ci-dessus dans <a href="#lock-down-structure">Verrouiller la structure</a> &ndash; est une première étape importante pour limiter l&rsquo;accès aux données.</p>
-<h2 id="memos-de-regles-dacces">Mémos de règles d&rsquo;accès<a class="headerlink" href="#memos-de-regles-dacces" title="Permanent link">#</a></h2>
-<p>Lorsqu&rsquo;un utilisateur reçoit un message d&rsquo;erreur lui refusant l&rsquo;accès en raison d&rsquo;une permissions avancées, il peut être utile de donner des détails spécifiques qui l&rsquo;aideront à comprendre le problème. Pour ce faire, vous pouvez ajouter un mémo à la condition. Tout d&rsquo;abord, cliquez sur l&rsquo;icône à droite de votre condition.</p>
+<p>La permission de structure <code>S</code> est disponible dans le groupe de règles d&rsquo;accès par défaut.  Les règles de colonne n&rsquo;ont pas les permissions <code>C</code> de création et <code>D</code> de suppression,
+qui doivent être gérées dans les règles de table par défaut.</p>
+<p><strong>Remarque :</strong> La permission <code>S</code> est très puissante. Elle permet d&rsquo;écrire des formules, qui peuvent accéder
+à toutes les données dans le document, indépendamment des règles. Étant donné que la permission <code>S</code> est activée par défaut pour
+les Éditeurs et les Propriétaires, tout utilisateur de ce type pourrait éditer une formule et ainsi récupérer n&rsquo;importe quelle donnée.</p>
+<p>En d&rsquo;autres termes, avoir la permission <code>S</code> rend possible de contourner d&rsquo;autres règles qui empêchent
+l&rsquo;accès aux données. Pour cette raison, la désactiver &ndash; comme décrit ci-dessus dans <a href="#lock-down-structure">Verrouiller la structure</a> &ndash; est une première étape importante pour limiter l&rsquo;accès aux données.</p>
+<h2 id="memos-des-regles-dacces">Mémos des règles d&rsquo;accès<a class="headerlink" href="#memos-des-regles-dacces" title="Permanent link">#</a></h2>
+<p>Lorsqu&rsquo;un utilisateur reçoit un message d&rsquo;erreur lui refusant l&rsquo;accès en raison d&rsquo;une
+règle, il peut être utile de donner des détails spécifiques qui l&rsquo;aideront à comprendre
+le problème. Vous pouvez le faire en ajoutant un mémo pour la condition. Tout d&rsquo;abord, cliquez 
+sur l&rsquo;icône de mémo à droite de votre condition.</p>
 <p><img alt="Icône de commentaire" src="../images/access-rules/access-rules-comment-icon.png" /></p>
-<p>Tapez le message d&rsquo;erreur que vous souhaitez afficher dans la zone de saisie. Veillez à enregistrer vos modifications.</p>
+<p>Tapez le message d&rsquo;erreur que vous souhaitez afficher dans la zone de saisie. Assurez-vous d&rsquo;enregistrer vos modifications.</p>
 <p><img alt="Commentaire ajouté" src="../images/access-rules/access-rules-comment-added.png" /></p>
-<p>Lorsque la règle empêche un utilisateur d&rsquo;effectuer une action, le mémo apparaît sous la forme d&rsquo;une notification.</p>
+<p>Lorsque la règle bloque un utilisateur d&rsquo;effectuer une action, le mémo apparaîtra comme une notification.</p>
 <p><img alt="Erreur de duplication" src="../images/access-rules/access-rules-dupe-forbidden.png" /></p>
-<p>Pour une explication du fonctionnement de cette règle d&rsquo;accès particulière, voir <a href="../examples/2023-01-acl-memo/">Règles d&rsquo;accès pour restreindre les doublons</a></p>
+<p>Pour une explication de la façon dont cette règle d&rsquo;accès particulière fonctionne, voir <a href="../examples/2023-01-acl-memo/">Règles d&rsquo;accès pour restreindre les enregistrements en double</a></p>
 <h2 id="exemples-de-regles-dacces">Exemples de règles d&rsquo;accès<a class="headerlink" href="#exemples-de-regles-dacces" title="Permanent link">#</a></h2>
-<p>Outre l&rsquo;exemple détaillé d&rsquo;utilisation des permissions avancées dans cette section, nous allons rassemblons ici des exemples complets de modèles de règles d&rsquo;accès et de guides.</p>
+<p>Avec l&rsquo;exemple étendu d&rsquo;utilisation des règles d&rsquo;accès dans cette section, nous allons
+collecter des exemples complets de modèles de règles d&rsquo;accès et de guides ici.</p>
 <ul>
-<li>Listes de prospects](examples/2021-03-leads.md) : Une liste très simple de pistes, attribuées à des personnes pour en assurer le suivi, le contrôle des affectations étant réservé aux propriétaires du document. </li>
-<li><a href="https://templates.getgrist.com/38Dz6nMtzvwC/Account-based-Sales-Team">Équipe de vente basée sur les comptes</a> : CRM de vente avec des affaires et des contacts assignés à des représentants commerciaux. Les représentants ne peuvent voir que contacts et les affaires qui leur sont propres, alors que les responsables peuvent tout voir.</li>
-<li><a href="https://templates.getgrist.com/vP7WpQp89hLi/Public-Giveaway">Don public</a> : Un organisateur de concours publics qui utilise des permissions avancées pour faire respecter les règles des concours sans exiger des demandeurs qu&rsquo;ils se connectent à Grist.</li>
-<li><a href="https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll">Simple Sondage</a> : Un sondage simple géré dans Grist avec des permissions avancées pour limiter une réponse par
-  visiteur.</li>
-<li><a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List">Liste communautaire</a> : Liste publique avec des permissions avancées pour permettre aux modérateurs d&rsquo;éditer presque tout, mais limitant les visiteurs à ne faire et à ne modifier que leurs propres contributions.</li>
-<li><a href="https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets">Feuille de temps</a> : Modèle pour saisir les feuilles de temps des entrepreneurs. Les permissions avancées permettent aux entrepreneurs de
-  consulter uniquement l&rsquo;historique de leurs feuilles de temps et de ne modifier que le mois en cours.</li>
-<li><a href="https://templates.getgrist.com/hifkng53AxyQ/Project-Management/">Gestion de projet</a> : Suivi des tâches par événement et signalisation des tâches à risque. Les règles d&rsquo;accès limitent les permissions par département et étendent les autorisations des responsables.</li>
+<li><a href="../examples/2021-03-leads/">Listes de leads</a> : Une liste très simple de leads, assignés à des individus pour un suivi, avec le contrôle des attributions réservé aux propriétaires du document.</li>
+<li><a href="https://templates.getgrist.com/38Dz6nMtzvwC/Account-based-Sales-Team">Équipe de vente basée sur les comptes</a> : CRM de vente avec des affaires et des contacts assignés à des représentants commerciaux. Les représentants ne peuvent voir que leurs propres contacts et affaires, mais les managers peuvent tout voir. </li>
+<li><a href="https://templates.getgrist.com/vP7WpQp89hLi/Public-Giveaway">Tirage au sort public</a> : Un organisateur de tirage au sort public qui utilise des règles d&rsquo;accès pour faire respecter les règles du tirage au sort sans exiger que les demandeurs se connectent à Grist.</li>
+<li><a href="https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll">Sondage simple</a> : Un sondage simple géré dans Grist avec des règles d&rsquo;accès pour limiter une réponse par visiteur.</li>
+<li><a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List">Liste crowdsourcée</a> : Liste crowdsourcée publique avec des règles d&rsquo;accès pour permettre aux modérateurs de modifier presque tout, mais limiter les visiteurs à ne faire et modifier que leurs propres contributions. </li>
+<li><a href="https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets">Feuilles de temps</a> : Modèle pour capturer les feuilles de temps des entrepreneurs. Les règles d&rsquo;accès permettent aux entrepreneurs de voir uniquement leurs feuilles de temps historiques et de modifier uniquement le mois actif.</li>
+<li><a href="https://templates.getgrist.com/hifkng53AxyQ/Project-Management/">Gestion de projet</a> : Suivre les tâches par événement et signaler les tâches à risque. Les règles d&rsquo;accès limitent les permissions par département et élargissent les permissions des managers. </li>
 </ul>
 
   <br>

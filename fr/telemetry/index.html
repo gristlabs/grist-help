@@ -7,16 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Le développement de Grist est guidé par la télémétrie : un ensemble de mesures
-visant à quantifier les aspects de l’utilisation de Grist. Une installation
-de Grist ne fait pas de télémétrie par défaut.
-Lorsque la télémétrie est activée, les données relatives à l’utilisation sont envoyées à un service
-maintenu par Grist Labs.">
-      <meta property="og:description" content="Le développement de Grist est guidé par la télémétrie : un ensemble de mesures
-visant à quantifier les aspects de l’utilisation de Grist. Une installation
-de Grist ne fait pas de télémétrie par défaut.
-Lorsque la télémétrie est activée, les données relatives à l’utilisation sont envoyées à un service
-maintenu par Grist Labs.">
+      <meta name="description" content="Le développement de Grist est guidé par la télémétrie : un ensemble de mesures visant à quantifier les aspects de l’utilisation de Grist. Une installation autogérée de Grist ne fait par défaut aucune télémétrie. Lorsque la télémétrie est activée, les données d’utilisation sont envoyées à un service maintenu par Grist Labs.">
+      <meta property="og:description" content="Le développement de Grist est guidé par la télémétrie : un ensemble de mesures visant à quantifier les aspects de l’utilisation de Grist. Une installation autogérée de Grist ne fait par défaut aucune télémétrie. Lorsque la télémétrie est activée, les données d’utilisation sont envoyées à un service maintenu par Grist Labs.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/telemetry/">
@@ -507,7 +499,7 @@ maintenu par Grist Labs.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Vue d&rsquo;ensemble de la télémétrie
+              Aperçu de la Télémétrie
             </a>
           </li>
         
@@ -921,49 +913,21 @@ maintenu par Grist Labs.">
 
     
 
-    <h1 id="vue-densemble-de-la-telemetrie">Vue d&rsquo;ensemble de la télémétrie<a class="headerlink" href="#vue-densemble-de-la-telemetrie" title="Permanent link">#</a></h1>
+    <h1 id="apercu-de-la-telemetrie">Aperçu de la Télémétrie<a class="headerlink" href="#apercu-de-la-telemetrie" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Le développement de Grist est guidé par la télémétrie : un ensemble de mesures
-visant à quantifier les aspects de l&rsquo;utilisation de Grist. Une installation
-de Grist ne fait pas de télémétrie par défaut.
-Lorsque la télémétrie est activée, les données relatives à l&rsquo;utilisation sont envoyées à un service
-maintenu par Grist Labs.</p>
+<p>Le développement de Grist est guidé par la télémétrie : un ensemble de mesures visant à quantifier les aspects de l&rsquo;utilisation de Grist. Une installation autogérée de Grist ne fait par défaut aucune télémétrie. Lorsque la télémétrie est activée, les données d&rsquo;utilisation sont envoyées à un service maintenu par Grist Labs.</p>
 <p>La télémétrie peut être configurée par des variables d&rsquo;environnement optionnelles :</p>
 <ul>
-<li><code>GRIST_TELEMETRY_LEVEL</code>. Cela peut être <code>off</code>, <code>limited</code>,
-    ou <code>full</code>. La valeur par défaut est <code>off</code>. Un réglage de <code>limited</code> ou
-    <code>full</code> entraîne l&rsquo;envoi de données à un service géré par
-    Grist Labs. Nous encourageons les utilisateurs à régler la télémétrie sur <code>limited</code>
-    afin que leur utilisation compte et guide le développement de Grist.
-    Nous ne recommandons le réglage <code>full</code> que si vous avez utilisé
-    <code>GRIST_TELEMETRY_URL</code> pour rediriger la télémétrie vers un service
-    que vous contrôlez. Il inclut des identifiants internes à votre installation
-    que nous préférerions ne pas connaître.</li>
-<li><code>GRIST_TELEMETRY_URL</code>. Ceci contrôle l&rsquo;endroit où la télémétrie est
-    télémétrie est envoyée. Par défaut, il s&rsquo;agit d&rsquo;un service géré par Grist Labs.
-    Si vous gérez un grand service hébergé, vous pouvez souhaiter diriger la télémétrie vers un service que vous gérez.
-    diriger la télémétrie vers un service que vous contrôlez.</li>
+<li><code>GRIST_TELEMETRY_LEVEL</code>. Cela peut être <code>off</code>, <code>limited</code> ou <code>full</code>. La valeur par défaut est <code>off</code>. Un réglage de <code>limited</code> ou <code>full</code> entraîne l&rsquo;envoi de données à un service opéré par Grist Labs. Nous encourageons les utilisateurs à régler la télémétrie sur <code>limited</code> afin que leur utilisation soit prise en compte et guide le développement de Grist. Nous ne recommandons un réglage <code>full</code> que si vous avez utilisé <code>GRIST_TELEMETRY_URL</code> pour rediriger la télémétrie vers un service que vous contrôlez. Cela inclut des identifiants internes à votre installation que nous préférerions ne pas connaître.</li>
+<li><code>GRIST_TELEMETRY_URL</code>. Cela contrôle où la télémétrie est envoyée. Par défaut, elle est envoyée à un service opéré par Grist Labs. Si vous gérez un grand service hébergé, vous pouvez souhaiter diriger la télémétrie vers un service que vous contrôlez.</li>
 </ul>
-<p>La télémétrie peut également être configurée de manière interactive par le propriétaire d&rsquo;une installation Grist.
-d&rsquo;une installation Grist, voir <a href="../self-managed/#how-do-i-control-telemetry">How do I control telemetry ?</a> pour plus de détails.</p>
-<p>Le paramètre <code>limité</code> permet d&rsquo;obtenir une télémétrie à gros grain. Ce niveau est destiné à une installation de Grist qui a opté pour la télémétrie à gros grain.
-Ce niveau est destiné à une installation de Grist qui a choisi de
-fournir de la télémétrie. L&rsquo;objectif est de comprendre comment Grist est utilisé &ldquo;dans la nature&rdquo; en termes d&rsquo;utilisation des fonctionnalités et de comptage des ressources.
-dans la nature&rdquo; en termes d&rsquo;utilisation des fonctionnalités et de comptage des ressources, sans partager de données commerciales ou d&rsquo;informations personnelles identifiables.
-sans partager de données commerciales ou d&rsquo;informations personnelles identifiables. Voir <a href="../telemetry-limited/">limité
-telemetry</a> pour plus de détails sur ce qui est envoyé.</p>
-<p>Le réglage <code>full</code> donne une télémétrie relativement fine. Ce niveau
-est destiné aux grands services hébergés, tels que celui de Grist Labs.
-Labs. Plus d&rsquo;informations sont enregistrées, pour faciliter le fonctionnement du service
-et le développement du produit. Aucune information personnelle identifiable n&rsquo;est
-n&rsquo;est incluse. Des identifiants opaques sont inclus qui, en cas de besoin (par exemple
-dans le cas d&rsquo;une panne de service), pourraient être liés à des informations
-par l&rsquo;intermédiaire de registres non télémétriques.  Voir <a href="../telemetry-full/">télémétrie complète</a> pour des
-détails sur ce qui est envoyé.</p>
+<p>La télémétrie peut également être configurée de manière interactive par le propriétaire d&rsquo;une installation Grist, voir <a href="../self-managed/#how-do-i-control-telemetry">Comment contrôler la télémétrie ?</a> pour plus de détails.</p>
+<p>Le réglage <code>limited</code> entraîne une télémétrie à gros grain. Ce niveau est destiné à une installation de Grist qui a choisi de fournir de la télémétrie. L&rsquo;objectif est de comprendre comment Grist est utilisé &ldquo;dans la nature&rdquo; en termes d&rsquo;utilisation des fonctionnalités et de comptage des ressources, sans partager de données commerciales ou d&rsquo;informations personnelles identifiables. Voir <a href="../telemetry-limited/">télémétrie limitée</a> pour les détails de ce qui est exactement envoyé.</p>
+<p>Le réglage <code>full</code> donne une télémétrie relativement fine. Ce niveau est destiné aux grands services hébergés, tels que celui géré par Grist Labs. Plus d&rsquo;informations sont enregistrées, pour faciliter la gestion du service et le développement du produit. Aucune information personnelle identifiable n&rsquo;est incluse. Des identifiants opaques sont inclus qui, en cas de besoin (par exemple en cas de panne de service), pourraient être liés à des informations personnelles via des magasins non télémétriques. Voir <a href="../telemetry-full/">télémétrie complète</a> pour les détails de ce qui est exactement envoyé.</p>
 
   <br>
 </div>

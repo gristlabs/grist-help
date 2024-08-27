@@ -713,27 +713,27 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              August 2020 Newsletter
+              Bulletin d&rsquo;août 2020
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#quick-tips">
-                Quick Tips
+              <a class="wm-article-link wm-page-toc-text" href="#conseils-rapides">
+                Conseils Rapides
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#whats-new">
-                What’s New
+              <a class="wm-article-link wm-page-toc-text" href="#quoi-de-neuf">
+                Quoi de Neuf
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#new-examples">
-                New Examples
+              <a class="wm-article-link wm-page-toc-text" href="#nouveaux-exemples">
+                Nouveaux Exemples
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#learning-grist">
-                Learning Grist
+              <a class="wm-article-link wm-page-toc-text" href="#apprendre-grist">
+                Apprendre Grist
               </a>
             </li>
         
@@ -933,12 +933,11 @@
 
     
 
-    <h1 id="august-2020-newsletter">August 2020 Newsletter<a class="headerlink" href="#august-2020-newsletter" title="Permanent link">#</a></h1>
+    <h1 id="bulletin-daout-2020">Bulletin d&rsquo;août 2020<a class="headerlink" href="#bulletin-daout-2020" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <style>
   /* restore some poorly overridden defaults */
@@ -1006,90 +1005,54 @@
       </td>
       <td class="header-top-text">
         <div class="header-title">Grist for the Mill</div>
-        <div class="header-month">August 2020
+        <div class="header-month">Août 2020
           &#8226; <a href="https://www.getgrist.com/">getgrist.com</a></div>
       </td>
     </tr></table>
     <div class="header-welcome">
-      Welcome to our monthly newsletter of updates and tips for Grist users.
+      Bienvenue dans notre bulletin mensuel de mises à jour et astuces pour les utilisateurs de Grist.
     </div>
   </td>
 </tr></table>
 </div>
 
-<h2 id="quick-tips">Quick Tips<a class="headerlink" href="#quick-tips" title="Permanent link">#</a></h2>
+<h2 id="conseils-rapides">Conseils Rapides<a class="headerlink" href="#conseils-rapides" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p><strong>Date Offsets.</strong> It is easy to get into muddles calculating
-  dates. <a href="../../functions/#dateadd">DATEADD</a> is an easy and reliable
-  way to add years, months, weeks, and days to a date.  For example,
-  to calculate three months on from a specific date, do
-  <code>DATEADD($date, months=3)</code>. For a week and a day before that, do
-  <code>DATEADD($date, months=3, weeks=-1, day=-1)</code>. Simple!</p>
+<p><strong>Décalages de Date.</strong> Il est facile de se tromper en calculant des dates. <a href="../../functions/#dateadd">DATEADD</a> est un moyen simple et fiable d&rsquo;ajouter des années, des mois, des semaines et des jours à une date. Par exemple, pour calculer trois mois à partir d&rsquo;une date spécifique, faites <code>DATEADD($date, months=3)</code>. Pour une semaine et un jour avant cela, faites <code>DATEADD($date, months=3, weeks=-1, day=-1)</code>. Simple!</p>
 </li>
 <li>
-<p><strong>Column Names.</strong> Sometimes, there is a tension between choosing a
-  column name as a verbose label to explain what it is about,
-  and choosing something short and snappy that is comfortable in
-  formulas.  You can have both! Just open the column options and
-  uncheck &ldquo;<a href="../../col-types/#renaming-columns">Use Name as ID?</a>&rdquo;.
-  Then you can set the name used as a label and the name used in
-  formulas separately.  And as always with Grist, if you change your
-  mind later you can change or relink the names and all your formulas will
-  update automatically.</p>
+<p><strong>Noms de Colonnes.</strong> Parfois, il y a une tension entre choisir un nom de colonne comme une étiquette descriptive pour expliquer de quoi il s&rsquo;agit, et choisir quelque chose de court et accrocheur qui soit confortable dans les formules. Vous pouvez avoir les deux! Il suffit d&rsquo;ouvrir les options de colonne et de décocher &ldquo;<a href="../../col-types/#renaming-columns">Utiliser le nom comme ID?</a>&rdquo;. Ensuite, vous pouvez définir le nom utilisé comme étiquette et le nom utilisé dans les formules séparément. Et comme toujours avec Grist, si vous changez d&rsquo;avis plus tard, vous pouvez changer ou relier les noms et toutes vos formules se mettront à jour automatiquement.</p>
 </li>
 </ul>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="naming columns" src="../../images/newsletters/2020-08/choose-formula-name-separately.png" /></em></span></p>
-<h2 id="whats-new">What’s New<a class="headerlink" href="#whats-new" title="Permanent link">#</a></h2>
-<p><strong>Sort your documents by modification date.</strong> You can now choose
-to order your documents so that the most recently changed ones show up first,
-using the new <code>By Name</code> / <code>By Date Modified</code> option at the top right of document lists.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlink" src="../../images/newsletters/2020-08/order-by-date-modified.png" /></em></span></p>
-<p><strong>List documents as icons.</strong> You may now also control whether documents show as
-a grid of icons or as a list of names,
-using the new grid and stack icons at the top right of document lists.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlink" src="../../images/newsletters/2020-08/show-as-icon.png" /></em></span></p>
-<p><strong>Reactive custom widgets.</strong> We have made it simple for web developers to create
-<a href="../../widget-custom/">Custom Widgets</a> that offer new reactive views of your data
-that update automatically. A developer need only call <code>grist.onRecord(s)</code> to subscribe
-to a record or a set of records linked to the widget; after that, presentation is a
-matter of preparing HTML/CSS/JS assets (no Grist-specific knowledge needed).
-The user of the widget controls data selection using regular
-<a href="../../linking-widgets/">Widget Linking</a>.
-We invite web developers to have a go at building new widgets or visualizations,
-and we&rsquo;d be excited to hear about the results (shoot us a mail at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>).</p>
-<h2 id="new-examples">New Examples<a class="headerlink" href="#new-examples" title="Permanent link">#</a></h2>
-<p>Here is an example of what you can do with Grist:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="nommer les colonnes" src="../../images/newsletters/2020-08/choose-formula-name-separately.png" /></em></span></p>
+<h2 id="quoi-de-neuf">Quoi de Neuf<a class="headerlink" href="#quoi-de-neuf" title="Permanent link">#</a></h2>
+<p><strong>Trier vos documents par date de modification.</strong> Vous pouvez maintenant choisir d&rsquo;ordonner vos documents de sorte que les plus récemment modifiés apparaissent en premier, en utilisant la nouvelle option <code>Par Nom</code> / <code>Par Date de Modification</code> en haut à droite des listes de documents.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlien" src="../../images/newsletters/2020-08/order-by-date-modified.png" /></em></span></p>
+<p><strong>Lister les documents sous forme d&rsquo;icônes.</strong> Vous pouvez maintenant également contrôler si les documents s&rsquo;affichent sous forme de grille d&rsquo;icônes ou de liste de noms, en utilisant les nouvelles icônes de grille et de pile en haut à droite des listes de documents.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlien" src="../../images/newsletters/2020-08/show-as-icon.png" /></em></span></p>
+<p><strong>Widgets personnalisés réactifs.</strong> Nous avons simplifié la création de <a href="../../widget-custom/">Widgets Personnalisés</a> pour les développeurs web, offrant de nouvelles vues réactives de vos données qui se mettent à jour automatiquement. Un développeur n&rsquo;a qu&rsquo;à appeler <code>grist.onRecord(s)</code> pour s&rsquo;abonner à un enregistrement ou un ensemble d&rsquo;enregistrements liés au widget; après cela, la présentation est une question de préparation des ressources HTML/CSS/JS (aucune connaissance spécifique de Grist n&rsquo;est nécessaire). L&rsquo;utilisateur du widget contrôle la sélection des données en utilisant le <a href="../../linking-widgets/">Lien de Widgets</a> régulier. Nous invitons les développeurs web à essayer de créer de nouveaux widgets ou visualisations, et nous serions ravis d&rsquo;entendre parler des résultats (envoyez-nous un mail à <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>).</p>
+<h2 id="nouveaux-exemples">Nouveaux Exemples<a class="headerlink" href="#nouveaux-exemples" title="Permanent link">#</a></h2>
+<p>Voici un exemple de ce que vous pouvez faire avec Grist :</p>
 <ul>
-<li><a href="../../examples/2020-08-invoices/">Preparing Invoices</a>: Preview printable invoices side
-  by side with your client and order data.  Enter billable items quickly, making use of formulas,
-  and see the invoice update immediately just like any other part of a spreadsheet.
-  This is also an example of the kind of new visualization that can be built with
-  <a href="../../widget-custom/">Custom Widgets</a>.</li>
+<li><a href="../../examples/2020-08-invoices/">Préparation des Factures</a> : Prévisualisez des factures imprimables côte à côte avec vos données clients et commandes. Entrez rapidement des éléments facturables en utilisant des formules, et voyez la facture se mettre à jour immédiatement comme toute autre partie d&rsquo;une feuille de calcul. C&rsquo;est aussi un exemple du type de nouvelle visualisation qui peut être construite avec des <a href="../../widget-custom/">Widgets Personnalisés</a>.</li>
 </ul>
-<p><img alt="invoice example" src="../examples/images/2020-08-invoices/final-invoice.png" /></p>
-<h2 id="learning-grist">Learning Grist<a class="headerlink" href="#learning-grist" title="Permanent link">#</a></h2>
+<p><img alt="exemple de facture" src="../examples/images/2020-08-invoices/final-invoice.png" /></p>
+<h2 id="apprendre-grist">Apprendre Grist<a class="headerlink" href="#apprendre-grist" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p>Get started quickly with basic Grist concepts by watching this playlist
-  of a few very short introductory videos:
-  <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Grist Video Series</a>.</p>
+<p>Commencez rapidement avec les concepts de base de Grist en regardant cette playlist de quelques très courtes vidéos d&rsquo;introduction : <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Série de Vidéos Grist</a>.</p>
 </li>
 <li>
-<p>Each of our featured <a href="https://docs.getgrist.com/p/templates">Examples &amp; Templates</a>
-  has a related tutorial that shows step-by-step how to build it
-  from scratch. Read through one to gain a deeper understanding of how
-  various features play together.</p>
+<p>Chacun de nos <a href="https://docs.getgrist.com/p/templates">Exemples &amp; Modèles</a> en vedette a un tutoriel associé qui montre étape par étape comment le construire à partir de zéro. Lisez-en un pour mieux comprendre comment diverses fonctionnalités interagissent.</p>
 </li>
 <li>
-<p>Visit our <a href="../../">Help Center</a> to
-  find all of the above, along with the full product documentation.</p>
+<p>Visitez notre <a href="../../">Centre d&rsquo;Aide</a> pour trouver tout ce qui précède, ainsi que la documentation complète du produit.</p>
 </li>
 <li>
-<p>Questions or suggestions? Click the
-  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Give Feedback</span>
-  link near the bottom left in the Grist application, or simply email
-  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<p>Des questions ou des suggestions? Cliquez sur le lien
+  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Donner votre avis</span>
+  près du bas à gauche dans l&rsquo;application Grist, ou envoyez simplement un email à <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 </li>
 </ul>
 

@@ -685,27 +685,27 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              March 2021 Newsletter
+              Bulletin de Mars 2021
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#access-rules">
-                Access rules
+              <a class="wm-article-link wm-page-toc-text" href="#permissions-avancees">
+                Permissions avancées
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#new-example">
-                New Example
+              <a class="wm-article-link wm-page-toc-text" href="#nouvel-exemple">
+                Nouvel Exemple
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#quick-tips">
-                Quick Tips
+              <a class="wm-article-link wm-page-toc-text" href="#conseils-rapides">
+                Conseils Rapides
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#learning-grist">
-                Learning Grist
+              <a class="wm-article-link wm-page-toc-text" href="#apprendre-grist">
+                Apprendre Grist
               </a>
             </li>
         
@@ -933,15 +933,14 @@
 
     
 
-    <h1 id="march-2021-newsletter">March 2021 Newsletter<a class="headerlink" href="#march-2021-newsletter" title="Permanent link">#</a></h1>
+    <h1 id="bulletin-de-mars-2021">Bulletin de Mars 2021<a class="headerlink" href="#bulletin-de-mars-2021" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <style>
-  /* restore some poorly overridden defaults */
+  /* restaurer certains paramètres par défaut mal remplacés */
   .newsletter-header .table {
     background-color: initial;
     border: initial;
@@ -963,7 +962,7 @@
     margin: initial;
   }
 
-  /* copy newsletter styles, with a prefix for sufficient specificity */
+  /* copier les styles de la newsletter, avec un préfixe pour une spécificité suffisante */
   .newsletter-header .header {
     border: none;
     padding: 0;
@@ -1005,111 +1004,72 @@
         </a>
       </td>
       <td class="header-top-text">
-        <div class="header-title">Grist for the Mill</div>
-        <div class="header-month">March 2021
+        <div class="header-title">Grist pour le Moulin</div>
+        <div class="header-month">Mars 2021
           &#8226; <a href="https://www.getgrist.com/">getgrist.com</a></div>
       </td>
     </tr></table>
     <div class="header-welcome">
-      Welcome to our monthly newsletter of updates and tips for Grist users.
+      Bienvenue dans notre bulletin mensuel de mises à jour et de conseils pour les utilisateurs de Grist.
     </div>
   </td>
 </tr></table>
 </div>
 
-<h2 id="access-rules">Access rules<a class="headerlink" href="#access-rules" title="Permanent link">#</a></h2>
-<p>Grist now offers &ldquo;access rules&rdquo; for fine-grained control of who can
-see (or edit) which parts of your document at the table, column, and
-row level. In December, we invited those interested in early access
-to try the feature out. We&rsquo;ve made a lot of improvements, and are
-now excited to open the feature to the public.</p>
-<p><img alt="Access rules page" src="../../images/newsletters/2021-03/access-rules-page.png" /></p>
-<p>Things to know about access rules:</p>
+<h2 id="permissions-avancees">Permissions avancées<a class="headerlink" href="#permissions-avancees" title="Permanent link">#</a></h2>
+<p>Grist propose désormais des &ldquo;permissions avancées&rdquo; pour un contrôle précis de qui peut voir (ou modifier) quelles parties de votre document au niveau de la table, de la colonne et de la ligne. En décembre, nous avons invité ceux qui étaient intéressés par un accès anticipé à essayer cette fonctionnalité. Nous avons apporté de nombreuses améliorations et sommes maintenant ravis d&rsquo;ouvrir cette fonctionnalité au public.</p>
+<p><img alt="Page des permissions avancées" src="../../images/newsletters/2021-03/access-rules-page.png" /></p>
+<p>Choses à savoir sur les permissions avancées :</p>
 <ul>
 <li>
-<p>Until now, everyone you shared a document with saw the same content.  Now, their
-  views can be filtered.  For example, a table or column may be visible only
-  to certain users.  Or some users may see only rows that meet a condition.</p>
+<p>Jusqu&rsquo;à présent, tous ceux avec qui vous partagiez un document voyaient le même contenu. Désormais, leurs vues peuvent être filtrées. Par exemple, une table ou une colonne peut être visible uniquement pour certains utilisateurs. Ou certains utilisateurs peuvent ne voir que les lignes qui répondent à une condition.</p>
 </li>
 <li>
-<p>Until now, all editors and owners of a document could change anything about its
-  content.  Now, document owners can control what specific editors can change.
-  For example, a table or column may be locked for certain editors.  Or some
-  editors may only update, add, or remove rows that meet a condition.</p>
+<p>Jusqu&rsquo;à présent, tous les éditeurs et propriétaires d&rsquo;un document pouvaient modifier n&rsquo;importe quel aspect de son contenu. Désormais, les propriétaires de documents peuvent contrôler ce que des éditeurs spécifiques peuvent modifier. Par exemple, une table ou une colonne peut être verrouillée pour certains éditeurs. Ou certains éditeurs peuvent uniquement mettre à jour, ajouter ou supprimer des lignes qui répondent à une condition.</p>
 </li>
 <li>
-<p>If you need it, editors can be organized into groups or teams using
-  a table within the document itself, and granted permissions
-  systematically.</p>
+<p>Si vous en avez besoin, les éditeurs peuvent être organisés en groupes ou équipes en utilisant une table au sein du document lui-même, et des permissions peuvent être accordées systématiquement.</p>
 </li>
 <li>
-<p>You can make special links to give ad-hoc view access to pieces of the document,
-  including documents shared with the public.</p>
+<p>Vous pouvez créer des liens spéciaux pour donner un accès ad-hoc à des parties du document, y compris des documents partagés avec le public.</p>
 </li>
 </ul>
-<p>Access rules are marked as a Beta feature, meaning that the design of
-access rules is likely to evolve, and sometimes that will require
-updates to documents that use them. We won’t make such changes
-lightly.</p>
-<p>Grist access rules put great power in your hands. With that power
-comes great responsibility. Take your time to <a href="../../access-rules/">read our documentation</a>,
-<a href="../../access-rules/#access-rule-examples">explore the examples</a>,
-and <a href="../../access-rules/#view-as-another-user">test the rules you create</a>. Feel free to
-reach out to consult us as well, at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>. We&rsquo;ll be
-glad to help.</p>
-<h2 id="new-example">New Example<a class="headerlink" href="#new-example" title="Permanent link">#</a></h2>
-<p>Access rules let you control how a shared document is used, and maintain
-a separation of roles and responsibilities.
-In our <a href="../../examples/2021-03-leads/">Lead List</a> example, we suppose an entrepeneur
-is using Grist as an ad-hoc lead tracker for sales and potential advisors, and
-show how they can use access rules to shape collaboration.</p>
-<p><img alt="Lead table" src="../examples/images/2021-03-leads/leads-table.png" /></p>
-<h2 id="quick-tips">Quick Tips<a class="headerlink" href="#quick-tips" title="Permanent link">#</a></h2>
+<p>Les permissions avancées sont marquées comme une fonctionnalité Beta, ce qui signifie que leur conception est susceptible d&rsquo;évoluer, et parfois cela nécessitera des mises à jour des documents qui les utilisent. Nous ne ferons pas de tels changements à la légère.</p>
+<p>Les permissions avancées de Grist vous donnent un grand pouvoir. Avec ce pouvoir vient une grande responsabilité. Prenez le temps de <a href="../../access-rules/">lire notre documentation</a>, <a href="../../access-rules/#access-rule-examples">explorer les exemples</a>, et <a href="../../access-rules/#view-as-another-user">tester les règles que vous créez</a>. N&rsquo;hésitez pas à nous consulter également à <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>. Nous serons ravis de vous aider.</p>
+<h2 id="nouvel-exemple">Nouvel Exemple<a class="headerlink" href="#nouvel-exemple" title="Permanent link">#</a></h2>
+<p>Les permissions avancées vous permettent de contrôler comment un document partagé est utilisé, et de maintenir une séparation des rôles et des responsabilités.
+Dans notre exemple <a href="../../examples/2021-03-leads/">Liste de Prospects</a>, nous supposons qu&rsquo;un entrepreneur utilise Grist comme un suivi ad-hoc des prospects pour les ventes et les conseillers potentiels, et montrons comment ils peuvent utiliser les permissions avancées pour façonner la collaboration.</p>
+<p><img alt="Table des prospects" src="../examples/images/2021-03-leads/leads-table.png" /></p>
+<h2 id="conseils-rapides">Conseils Rapides<a class="headerlink" href="#conseils-rapides" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p><strong>Cell Color</strong>.  You can add a splash of color to a column using the <code>Cell Color</code> option
-for Columns (in tables) or Fields (in cards).  The color will apply consistently
-in all views where cells from that column appear.</p>
-<p><img alt="Cell color" src="../../images/newsletters/2021-03/cell-color.png" /></p>
+<p><strong>Couleur de Cellule</strong>. Vous pouvez ajouter une touche de couleur à une colonne en utilisant l&rsquo;option <code>Couleur de Cellule</code> pour les Colonnes (dans les tables) ou les Champs (dans les fiches). La couleur s&rsquo;appliquera de manière cohérente dans toutes les vues où les cellules de cette colonne apparaissent.</p>
+<p><img alt="Couleur de cellule" src="../../images/newsletters/2021-03/cell-color.png" /></p>
 </li>
 <li>
-<p><strong>SQL Queries</strong>.  Grist documents are also downloadable SQL databases, in SQLite
-format. If you download your document
-(via the <span class="grist-icon" style="--icon: var(--icon-Share)"></span> button)
-you can query it using the standard <a href="https://sqlite.org/cli.html">sqlite3 tool</a>
-(available on the <a href="https://sqlite.org/download.html">SQLite site</a>) or from just
-about any language or database tool.  Your tables and columns in Grist will show up exactly
-as SQLite tables and columns.  Here&rsquo;s a query against the
-<a href="../../examples/2021-03-leads/">Lead List</a> example document:</p>
-<p><img alt="Leads SQL query" src="../../images/newsletters/2021-03/leads-sql.png" /></p>
-<p>You may not need to do this often, but when you do it is very handy.
-We&rsquo;ve recently improved the fit between SQLite column types and Grist column types,
-so if a database importer fails to recognize a column, try recreating the column or converting
-it to a more precise type (e.g. Integer, Text, Numeric, Date, DateTime etc).</p>
+<p><strong>Requêtes SQL</strong>. Les documents Grist sont également téléchargeables en tant que bases de données SQL, au format SQLite. Si vous téléchargez votre document
+(via le bouton <span class="grist-icon" style="--icon: var(--icon-Share)"></span>), vous pouvez le consulter en utilisant l&rsquo;outil standard <a href="https://sqlite.org/cli.html">sqlite3</a> (disponible sur le <a href="https://sqlite.org/download.html">site SQLite</a>) ou depuis presque n&rsquo;importe quel langage ou outil de base de données. Vos tables et colonnes dans Grist apparaîtront exactement comme des tables et colonnes SQLite. Voici une requête contre le document d&rsquo;exemple <a href="../../examples/2021-03-leads/">Liste de Prospects</a> :</p>
+<p><img alt="Requête SQL des prospects" src="../../images/newsletters/2021-03/leads-sql.png" /></p>
+<p>Vous n&rsquo;aurez peut-être pas besoin de faire cela souvent, mais quand vous en aurez besoin, c&rsquo;est très pratique. Nous avons récemment amélioré l&rsquo;adéquation entre les types de colonnes SQLite et les types de colonnes Grist, donc si un importateur de base de données ne parvient pas à reconnaître une colonne, essayez de recréer la colonne ou de la convertir en un type plus précis (par exemple, Integer, Text, Numeric, Date, DateTime, etc.).</p>
 </li>
 </ul>
-<h2 id="learning-grist">Learning Grist<a class="headerlink" href="#learning-grist" title="Permanent link">#</a></h2>
+<h2 id="apprendre-grist">Apprendre Grist<a class="headerlink" href="#apprendre-grist" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p>Get started quickly with basic Grist concepts by watching this playlist
-  of a few very short introductory videos:
-  <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Grist Video Series</a>.</p>
+<p>Commencez rapidement avec les concepts de base de Grist en regardant cette playlist de quelques très courtes vidéos d&rsquo;introduction :
+  <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Série Vidéo Grist</a>.</p>
 </li>
 <li>
-<p>Each of our featured <a href="https://docs.getgrist.com/p/templates">Examples &amp; Templates</a>
-  has a related tutorial that shows step-by-step how to build it
-  from scratch. Read through one to gain a deeper understanding of how
-  various features play together.</p>
+<p>Chacun de nos <a href="https://docs.getgrist.com/p/templates">Exemples &amp; Modèles</a> en vedette a un tutoriel associé qui montre étape par étape comment le construire à partir de zéro. Lisez-en un pour comprendre plus en profondeur comment diverses fonctionnalités interagissent.</p>
 </li>
 <li>
-<p>Visit our <a href="../../">Help Center</a> to
-  find all of the above, along with the full product documentation.</p>
+<p>Visitez notre <a href="../../">Centre d&rsquo;Aide</a> pour
+  trouver tout ce qui précède, ainsi que la documentation complète du produit.</p>
 </li>
 <li>
-<p>Questions or suggestions? Click the
-  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Give Feedback</span>
-  link near the bottom left in the Grist application, or simply email
-  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<p>Des questions ou des suggestions ? Cliquez sur le lien
+  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Donner un retour</span>
+  près du bas à gauche dans l&rsquo;application Grist, ou envoyez simplement un email à <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 </li>
 </ul>
 

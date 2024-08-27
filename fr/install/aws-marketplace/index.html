@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist on the AWS Marketplace has what you need to run a self-hosted Grist instance with minimal setup, and is based on grist-omnibus. Below are the complete configuration steps, including authentication via OpenID.">
-      <meta property="og:description" content="Grist on the AWS Marketplace has what you need to run a self-hosted Grist instance with minimal setup, and is based on grist-omnibus. Below are the complete configuration steps, including authentication via OpenID.">
+      <meta name="description" content="Grist sur AWS Marketplace a ce qu’il vous faut pour exécuter une instance Grist auto-hébergée avec une configuration minimale, et est basé sur grist-omnibus. Vous trouverez ci-dessous les étapes complètes de configuration, y compris l’authentification via OpenID.">
+      <meta property="og:description" content="Grist sur AWS Marketplace a ce qu’il vous faut pour exécuter une instance Grist auto-hébergée avec une configuration minimale, et est basé sur grist-omnibus. Vous trouverez ci-dessous les étapes complètes de configuration, y compris l’authentification via OpenID.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/install/aws-marketplace/">
@@ -495,33 +495,33 @@
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#first-run-setup">
-                First run setup
+              <a class="wm-article-link wm-page-toc-text" href="#configuration-de-la-premiere-execution">
+                Configuration de la première exécution
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#custom-domain-and-ssl-setup-for-https-access">
-                Custom domain and SSL setup for HTTPS access
+              <a class="wm-article-link wm-page-toc-text" href="#configuration-de-domaine-personnalise-et-ssl-pour-un-acces-https">
+                Configuration de domaine personnalisé et SSL pour un accès HTTPS
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#authentication-setup">
-                Authentication setup
+              <a class="wm-article-link wm-page-toc-text" href="#configuration-de-lauthentification">
+                Configuration de l&rsquo;authentification
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#running-grist-in-a-separate-vpc">
-                Running Grist in a separate VPC
+              <a class="wm-article-link wm-page-toc-text" href="#execution-de-grist-dans-un-vpc-separe">
+                Exécution de Grist dans un VPC séparé
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#updating-grist-omnibus">
-                Updating grist-omnibus
+              <a class="wm-article-link wm-page-toc-text" href="#mise-a-jour-de-grist-omnibus">
+                Mise à jour de grist-omnibus
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#other-important-information">
-                Other important information
+              <a class="wm-article-link wm-page-toc-text" href="#autres-informations-importantes">
+                Autres informations importantes
               </a>
             </li>
         
@@ -945,77 +945,76 @@
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 class="tag-core tag-ee" id="aws-marketplace">AWS Marketplace<a class="headerlink" href="#aws-marketplace" title="Permanent link">#</a></h1>
-<p><a href="https://aws.amazon.com/marketplace/pp/prodview-kkchmamumozhq">Grist on the AWS Marketplace</a> has what you need to run a self-hosted Grist instance with minimal setup, and is based on <a href="https://github.com/gristlabs/grist-omnibus"><code>grist-omnibus</code></a>. Below are the complete configuration steps, including authentication via OpenID.</p>
-<h2 id="first-run-setup">First run setup<a class="headerlink" href="#first-run-setup" title="Permanent link">#</a></h2>
-<p>After deploying the instance, Grist should be instantly available through the HTTP protocol on an autogenerated domain such as <code>ec2-3-94-254-105.compute-1.amazonaws.com</code> (labeled <code>Public IPv4 DNS</code> by AWS).</p>
-<p>Default credentials:</p>
+<p><a href="https://aws.amazon.com/marketplace/pp/prodview-kkchmamumozhq">Grist sur AWS Marketplace</a> a ce qu&rsquo;il vous faut pour exécuter une instance Grist auto-hébergée avec une configuration minimale, et est basé sur <a href="https://github.com/gristlabs/grist-omnibus"><code>grist-omnibus</code></a>. Vous trouverez ci-dessous les étapes complètes de configuration, y compris l&rsquo;authentification via OpenID.</p>
+<h2 id="configuration-de-la-premiere-execution">Configuration de la première exécution<a class="headerlink" href="#configuration-de-la-premiere-execution" title="Permanent link">#</a></h2>
+<p>Après le déploiement de l&rsquo;instance, Grist devrait être immédiatement disponible via le protocole HTTP sur un domaine autogénéré tel que <code>ec2-3-94-254-105.compute-1.amazonaws.com</code> (étiqueté <code>Public IPv4 DNS</code> par AWS).</p>
+<p>Identifiants par défaut :</p>
 <ul>
-<li>email: admin@example.getgrist.com</li>
-<li>password: [instance-id]*</li>
+<li>email : admin@example.getgrist.com</li>
+<li>mot de passe : [instance-id]*</li>
 </ul>
-<p>* Instance ID can be found on the EC2 page in the AWS Console:
-<img alt="AWS Instance ID screenshot" src="../../images/aws-instance.png" /></p>
-<h3 id="how-to-log-in-to-the-grist-instance">How to log in to the Grist instance<a class="headerlink" href="#how-to-log-in-to-the-grist-instance" title="Permanent link">#</a></h3>
-<p>During deployment, you should have been asked about creating or using key pairs. You can use this pair to log in via SSH from your terminal/bash. The default user for the Grist EC2 instance is named “ubuntu”, and you can log in to <code>ubuntu@[ec2-instance-public-ip]</code>.</p>
-<p><strong>Note:</strong> You need to use the <code>*.pem</code> file you received while generating key pairs on AWS. Details about connecting via SSH can be found in the following places: </p>
+<p>* L&rsquo;ID de l&rsquo;instance peut être trouvé sur la page EC2 dans la console AWS :
+<img alt="Capture d'écran de l'ID de l'instance AWS" src="../../images/aws-instance.png" /></p>
+<h3 id="comment-se-connecter-a-linstance-grist">Comment se connecter à l&rsquo;instance Grist<a class="headerlink" href="#comment-se-connecter-a-linstance-grist" title="Permanent link">#</a></h3>
+<p>Pendant le déploiement, il vous a été demandé de créer ou d&rsquo;utiliser des paires de clés. Vous pouvez utiliser cette paire pour vous connecter via SSH depuis votre terminal/bash. L&rsquo;utilisateur par défaut pour l&rsquo;instance Grist EC2 s&rsquo;appelle “ubuntu”, et vous pouvez vous connecter à <code>ubuntu@[ec2-instance-public-ip]</code>.</p>
+<p><strong>Remarque :</strong> Vous devez utiliser le fichier <code>*.pem</code> que vous avez reçu lors de la génération des paires de clés sur AWS. Les détails sur la connexion via SSH se trouvent aux endroits suivants :</p>
 <ul>
-<li>Windows: <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh</a></li>
-<li>Linux: <a href="https://www.ssh.com/academy/ssh/command">https://www.ssh.com/academy/ssh/command</a></li>
-<li>macOS: <a href="https://www.servermania.com/kb/articles/ssh-mac">https://www.servermania.com/kb/articles/ssh-mac</a></li>
+<li>Windows : <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh</a></li>
+<li>Linux : <a href="https://www.ssh.com/academy/ssh/command">https://www.ssh.com/academy/ssh/command</a></li>
+<li>macOS : <a href="https://www.servermania.com/kb/articles/ssh-mac">https://www.servermania.com/kb/articles/ssh-mac</a></li>
 </ul>
-<p>If you don’t want to connect via SSH, AWS provides the option to connect from within the AWS console using the “Connect” button:</p>
-<p><img alt="AWS Connect screenshot" src="../../images/aws-connect.png" /></p>
-<h2 id="custom-domain-and-ssl-setup-for-https-access">Custom domain and SSL setup for HTTPS access<a class="headerlink" href="#custom-domain-and-ssl-setup-for-https-access" title="Permanent link">#</a></h2>
-<p>Custom domains are required for secure access to Grist. If you already have an SSL certificate, you can use your own (as described in the <a href="https://github.com/gristlabs/grist-omnibus/"><code>grist-omnibus</code> README</a>). If not, Grist can generate a certificate from Let’s Encrypt. For that, a valid domain and email must be configured:</p>
+<p>Si vous ne souhaitez pas vous connecter via SSH, AWS offre la possibilité de se connecter depuis la console AWS en utilisant le bouton “Connect” :</p>
+<p><img alt="Capture d'écran de la connexion AWS" src="../../images/aws-connect.png" /></p>
+<h2 id="configuration-de-domaine-personnalise-et-ssl-pour-un-acces-https">Configuration de domaine personnalisé et SSL pour un accès HTTPS<a class="headerlink" href="#configuration-de-domaine-personnalise-et-ssl-pour-un-acces-https" title="Permanent link">#</a></h2>
+<p>Les domaines personnalisés sont nécessaires pour un accès sécurisé à Grist. Si vous avez déjà un certificat SSL, vous pouvez utiliser le vôtre (comme décrit dans le <a href="https://github.com/gristlabs/grist-omnibus/"><code>README de grist-omnibus</code></a>). Sinon, Grist peut générer un certificat de Let’s Encrypt. Pour cela, un domaine valide et un email doivent être configurés :</p>
 <ol>
-<li>Point the domain to the IP address of the Grist EC2 instance. If you don&rsquo;t use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP service</a>, the instance can have a different public IPv4 address each time it&rsquo;s started.</li>
-<li>Log in to the Grist EC2 instance.</li>
-<li>Set the URL parameter in the <code>grist/gristParameters</code> file. You need administrator privileges to perform this action, so you can open an editor by running <code>sudo nano grist/gristParameters</code>.</li>
-<li>Run the <code>restartGrist</code> script with <code>sudo ~/grist/restartGrist</code>.</li>
+<li>Pointez le domaine vers l&rsquo;adresse IP de l&rsquo;instance Grist EC2. Si vous n&rsquo;utilisez pas le <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">service Elastic IP</a>, l&rsquo;instance peut avoir une adresse IPv4 publique différente à chaque démarrage.</li>
+<li>Connectez-vous à l&rsquo;instance Grist EC2.</li>
+<li>Définissez le paramètre URL dans le fichier <code>grist/gristParameters</code>. Vous avez besoin des privilèges administrateur pour effectuer cette action, vous pouvez donc ouvrir un éditeur en exécutant <code>sudo nano grist/gristParameters</code>.</li>
+<li>Exécutez le script <code>restartGrist</code> avec <code>sudo ~/grist/restartGrist</code>.</li>
 </ol>
-<p>Once the above steps are completed, you should be able to access Grist on your custom domain.</p>
-<h2 id="authentication-setup">Authentication setup<a class="headerlink" href="#authentication-setup" title="Permanent link">#</a></h2>
-<p>We support Google or Microsoft as OpenID providers. For configuring other authentication providers, please refer to the <a href="https://dexidp.io/docs/getting-started/">dex documentation</a>.</p>
-<p>To configure Grist authentication with Google or Microsoft, you must have an application registered with the corresponding provider:</p>
+<p>Une fois les étapes ci-dessus terminées, vous devriez pouvoir accéder à Grist sur votre domaine personnalisé.</p>
+<h2 id="configuration-de-lauthentification">Configuration de l&rsquo;authentification<a class="headerlink" href="#configuration-de-lauthentification" title="Permanent link">#</a></h2>
+<p>Nous supportons Google ou Microsoft en tant que fournisseurs OpenID. Pour configurer d&rsquo;autres fournisseurs d&rsquo;authentification, veuillez vous référer à la <a href="https://dexidp.io/docs/getting-started/">documentation dex</a>.</p>
+<p>Pour configurer l&rsquo;authentification Grist avec Google ou Microsoft, vous devez avoir une application enregistrée auprès du fournisseur correspondant :</p>
 <ul>
-<li>Microsoft: <a href="https://learn.microsoft.com/en-us/power-pages/security/authentication/openid-settings">https://learn.microsoft.com/en-us/power-pages/security/authentication/openid-settings</a></li>
-<li>Google: <a href="https://support.google.com/cloud/answer/6158849?hl=en">https://support.google.com/cloud/answer/6158849?hl=en</a></li>
+<li>Microsoft : <a href="https://learn.microsoft.com/en-us/power-pages/security/authentication/openid-settings">https://learn.microsoft.com/en-us/power-pages/security/authentication/openid-settings</a></li>
+<li>Google : <a href="https://support.google.com/cloud/answer/6158849?hl=en">https://support.google.com/cloud/answer/6158849?hl=en</a></li>
 </ul>
-<p>Once you have your client ID and secret, you’ll need to pass them to the <code>gristParameters</code> file inside the Grist EC2 instance:</p>
+<p>Une fois que vous avez votre ID client et votre secret, vous devez les transmettre au fichier <code>gristParameters</code> à l&rsquo;intérieur de l&rsquo;instance Grist EC2 :</p>
 <ol>
-<li>Log in to the Grist EC2 instance.</li>
-<li>Open <code>~/grist/gristParameters</code>.</li>
-<li>Update the <code>CLIENT_ID</code> and <code>CLIENT_SECRET</code> sections for the relevant provider(s).<ul>
-<li>If you’re using only one provider, leave the second section commented out. </li>
+<li>Connectez-vous à l&rsquo;instance Grist EC2.</li>
+<li>Ouvrez <code>~/grist/gristParameters</code>.</li>
+<li>Mettez à jour les sections <code>CLIENT_ID</code> et <code>CLIENT_SECRET</code> pour le(s) fournisseur(s) concerné(s).<ul>
+<li>Si vous n&rsquo;utilisez qu&rsquo;un seul fournisseur, laissez la deuxième section commentée.</li>
 </ul>
 </li>
-<li>Update <code>ADMIN_EMAIL</code> in the same file. It should correspond to the email you will use to log in via your authentication provider. For example: <code>ADMIN_EMAIL=frank@your-organization.com</code><ul>
-<li>If you want to change your team’s name, update <code>TEAM_NAME</code> in the same file. </li>
+<li>Mettez à jour <code>ADMIN_EMAIL</code> dans le même fichier. Il doit correspondre à l&rsquo;email que vous utiliserez pour vous connecter via votre fournisseur d&rsquo;authentification. Par exemple : <code>ADMIN_EMAIL=frank@votre-organisation.com</code><ul>
+<li>Si vous souhaitez changer le nom de votre équipe, mettez à jour <code>TEAM_NAME</code> dans le même fichier.</li>
 </ul>
 </li>
-<li>Run <code>restartGrist</code> with the clean flag using <code>sudo ~/grist/restartGrist clean</code> to clear old login data. <strong>Important:</strong> This will delete all Grist documents!</li>
+<li>Exécutez <code>restartGrist</code> avec le flag clean en utilisant <code>sudo ~/grist/restartGrist clean</code> pour effacer les anciennes données de connexion. <strong>Important :</strong> Cela supprimera tous les documents Grist !</li>
 </ol>
-<p>Once the above has been configured, you should be able to log in with your Google/Microsoft credentials.</p>
-<h2 id="running-grist-in-a-separate-vpc">Running Grist in a separate VPC<a class="headerlink" href="#running-grist-in-a-separate-vpc" title="Permanent link">#</a></h2>
-<p><code>grist-omnibus</code> is designed to work on each account-default VPC. To make it run on a custom VPC, you’ll need to properly configure all VPC elements. For more information on this configuration, read <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">here</a>. To run Grist on a VPC, the following must be properly set up: </p>
+<p>Une fois la configuration ci-dessus effectuée, vous devriez pouvoir vous connecter avec vos identifiants Google/Microsoft.</p>
+<h2 id="execution-de-grist-dans-un-vpc-separe">Exécution de Grist dans un VPC séparé<a class="headerlink" href="#execution-de-grist-dans-un-vpc-separe" title="Permanent link">#</a></h2>
+<p><code>grist-omnibus</code> est conçu pour fonctionner sur chaque VPC par défaut du compte. Pour le faire fonctionner sur un VPC personnalisé, vous devrez configurer correctement tous les éléments du VPC. Pour plus d&rsquo;informations sur cette configuration, lisez <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">ici</a>. Pour exécuter Grist sur un VPC, les éléments suivants doivent être correctement configurés :</p>
 <ul>
-<li>Assigning a public DNS name to the Grist EC2 instance is allowed.</li>
-<li>The VPC can be accessed from the internet (allowing internet gateway and routing tables to handle traffic).</li>
-<li>A security group connection from ports 22 (SSH for configuration), 80 (HTTP connection) and 433 (HTTPS connection) is allowed.</li>
+<li>L&rsquo;attribution d&rsquo;un nom DNS public à l&rsquo;instance Grist EC2 est autorisée.</li>
+<li>Le VPC peut être accessible depuis Internet (permettant à la passerelle Internet et aux tables de routage de gérer le trafic).</li>
+<li>Une connexion de groupe de sécurité depuis les ports 22 (SSH pour la configuration), 80 (connexion HTTP) et 433 (connexion HTTPS) est autorisée.</li>
 </ul>
-<h2 id="updating-grist-omnibus">Updating <code>grist-omnibus</code><a class="headerlink" href="#updating-grist-omnibus" title="Permanent link">#</a></h2>
-<p>The packaged version of <code>grist-omnibus</code> will auto-update before each launch. To update <code>grist-omnibus</code> manually, restart the Grist EC2 instance or log in via SSH and call <code>sudo ~/grist/restartGrist</code>.</p>
-<p>There are currently no plans to support the Grist AWS Marketplace environment outside of <code>grist-omnibus</code>.</p>
-<h2 id="other-important-information">Other important information<a class="headerlink" href="#other-important-information" title="Permanent link">#</a></h2>
+<h2 id="mise-a-jour-de-grist-omnibus">Mise à jour de <code>grist-omnibus</code><a class="headerlink" href="#mise-a-jour-de-grist-omnibus" title="Permanent link">#</a></h2>
+<p>La version packagée de <code>grist-omnibus</code> se mettra à jour automatiquement avant chaque lancement. Pour mettre à jour <code>grist-omnibus</code> manuellement, redémarrez l&rsquo;instance Grist EC2 ou connectez-vous via SSH et appelez <code>sudo ~/grist/restartGrist</code>.</p>
+<p>Il n&rsquo;y a actuellement aucun plan pour supporter l&rsquo;environnement Grist AWS Marketplace en dehors de <code>grist-omnibus</code>.</p>
+<h2 id="autres-informations-importantes">Autres informations importantes<a class="headerlink" href="#autres-informations-importantes" title="Permanent link">#</a></h2>
 <ul>
-<li>The Grist EC2 instance should have the “Persistent store” option checked.</li>
-<li>Grist stores all the data in the <code>~/grist-persist</code> directory. Deleting this folder will result in a loss of all data from all documents. </li>
-<li>Do not delete <code>~/grist-persist/acme.json</code>, as it contains a private key from Let’s Encrypt. Deleting it too often can result in Let’s Encrypt denying issuing further certificates from your domain.</li>
+<li>L&rsquo;instance Grist EC2 doit avoir l&rsquo;option “Persistent store” cochée.</li>
+<li>Grist stocke toutes les données dans le répertoire <code>~/grist-persist</code>. Supprimer ce dossier entraînera la perte de toutes les données de tous les documents.</li>
+<li>Ne supprimez pas <code>~/grist-persist/acme.json</code>, car il contient une clé privée de Let’s Encrypt. Le supprimer trop souvent peut entraîner le refus de Let’s Encrypt de délivrer de nouveaux certificats pour votre domaine.</li>
 </ul>
 
   <br>

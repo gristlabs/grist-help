@@ -266,32 +266,32 @@
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#page-widgets">
-              Page widgets
+            <a class="wm-article-link wm-page-toc-text" href="#widgets-de-page">
+              Widgets de page
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#widget-picker">
-              Widget picker
+            <a class="wm-article-link wm-page-toc-text" href="#selecteur-de-widgets">
+              Sélecteur de widgets
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#changing-widget-or-its-data">
-              Changing widget or its data
+            <a class="wm-article-link wm-page-toc-text" href="#changer-le-widget-ou-ses-donnees">
+              Changer le widget ou ses données
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#renaming-widgets">
-              Renaming widgets
+            <a class="wm-article-link wm-page-toc-text" href="#renommer-les-widgets">
+              Renommer les widgets
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#configuring-field-lists">
-              Configuring field lists
+            <a class="wm-article-link wm-page-toc-text" href="#configurer-les-listes-de-champs">
+              Configurer les listes de champs
             </a>
           </li>
         
@@ -951,118 +951,81 @@
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vTfOUEFR73Y?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h2 id="pages-widgets">Pages &amp; widgets<a class="headerlink" href="#pages-widgets" title="Permanent link">#</a></h2>
-<p>Unlike traditional spreadsheets, in Grist you can create multiple views of the same data, and
-display multiple data sets on one page. This allows you to create useful dashboards and custom
-applications tailored to your needs.</p>
+<p>Contrairement aux tableurs traditionnels, dans Grist, vous pouvez créer plusieurs vues des mêmes données et afficher plusieurs ensembles de données sur une seule page. Cela vous permet de créer des tableaux de bord utiles et des applications personnalisées adaptées à vos besoins.</p>
 <h2 id="pages">Pages<a class="headerlink" href="#pages" title="Permanent link">#</a></h2>
-<p>In Grist, you organize your document into &ldquo;pages&rdquo;. These are listed in the left panel, with collapsible
-groups. You may rearrange and group pages in the left panel by dragging them to suit your needs.</p>
+<p>Dans Grist, vous organisez votre document en &ldquo;pages&rdquo;. Celles-ci sont listées dans le panneau de gauche, avec des groupes repliables. Vous pouvez réorganiser et regrouper les pages dans le panneau de gauche en les faisant glisser pour les adapter à vos besoins.</p>
 <p class="screenshot-half"><em><img alt="drag_pages" src="../images/drag_pages.png" /></em></p>
-<p>You can rename, remove, or duplicate pages using the three-dots menu next to the page name in the list. </p>
+<p>Vous pouvez renommer, supprimer ou dupliquer des pages en utilisant le menu à trois points à côté du nom de la page dans la liste.</p>
 <p class="screenshot-half"><em><img alt="Renaming Pages Menu" src="../images/rename_pages1.png" /></em></p>
 <ul>
-<li><strong>Renaming</strong> the page does not edit data tables&rsquo; names or widget titles. See <a href="./#changing-widget-or-its-data">changing widget</a> below to learn how to edit table and widget names.</li>
-<li><strong>Duplicating</strong> a page duplicates <em>views</em> of data and does not duplicate the data itself.</li>
-<li><strong>Removing</strong> a page does not delete data. When removing the last view of data, you will be asked if you want to delete only the view, but not the data itself; or if you want to delete both the page and the underlying data table(s). Learn more about your document&rsquo;s data in the <a href="../raw-data/">raw data page</a>.</li>
+<li><strong>Renommer</strong> la page ne modifie pas les noms des tables de données ou les titres des widgets. Voir <a href="./#changing-widget-or-its-data">changer le widget</a> ci-dessous pour apprendre comment modifier les noms des tables et des widgets.</li>
+<li><strong>Dupliquer</strong> une page duplique les <em>vues</em> des données et ne duplique pas les données elles-mêmes.</li>
+<li><strong>Supprimer</strong> une page ne supprime pas les données. Lors de la suppression de la dernière vue des données, il vous sera demandé si vous souhaitez supprimer uniquement la vue, mais pas les données elles-mêmes ; ou si vous souhaitez supprimer à la fois la page et la ou les tables de données sous-jacentes. En savoir plus sur les données de votre document dans la <a href="../raw-data/">page des données sources</a>.</li>
 </ul>
 <p><em><img alt="Removing Pages" src="../images/pages-delete.png" /></em></p>
-<p>Note that pages can also be renamed by clicking the page name on top of the screen. </p>
+<p>Notez que les pages peuvent également être renommées en cliquant sur le nom de la page en haut de l&rsquo;écran.</p>
 <p class="screenshot-half"><em><img alt="Renaming Pages Breadcrumbs" src="../images/rename_pages2.png" /></em></p>
-<p>Using the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>)
-near the top of the left panel, you can collapse the panel to show only the initials of each page,
-leaving more screen space to view your data.</p>
-<p>To add a new page, use the &ldquo;Add New&rdquo; button, and click &ldquo;Add Page&rdquo;. At that point, you&rsquo;ll get to
-choose the page widget to include in the new page.</p>
+<p>En utilisant l&rsquo;icône d&rsquo;ouverture (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>) près du haut du panneau de gauche, vous pouvez réduire le panneau pour n&rsquo;afficher que les initiales de chaque page, laissant plus d&rsquo;espace à l&rsquo;écran pour visualiser vos données.</p>
+<p>Pour ajouter une nouvelle page, utilisez le bouton &ldquo;Ajouter Nouveau&rdquo; et cliquez sur &ldquo;Ajouter Page&rdquo;. À ce moment-là, vous pourrez choisir le widget de page à inclure dans la nouvelle page.</p>
 <div class="admonition note">
-<p class="admonition-title">Using Emojis in Page and Widget Names</p>
-<p>You can add any emoji to a Page or Widget name. The keyboard shortcut to open the emoji keyboard is <code>Windows Logo</code> + <code>.</code> (period) on PC or <code>Command</code> + <code>Control</code> + <code>Space</code> on Mac. You can also copy/paste an online source like <a href="https://emojipedia.org/">Emojipedia</a>. </p>
-<p>When a Page name starts with an emoji, it will replace the page icon.</p>
+<p class="admonition-title">Utilisation des émojis dans les noms de pages et de widgets</p>
+<p>Vous pouvez ajouter n&rsquo;importe quel émoji à un nom de Page ou de Widget. Le raccourci clavier pour ouvrir le clavier des émojis est <code>Logo Windows</code> + <code>.</code> (point) sur PC ou <code>Commande</code> + <code>Contrôle</code> + <code>Espace</code> sur Mac. Vous pouvez également copier/coller une source en ligne comme <a href="https://emojipedia.org/">Emojipedia</a>.</p>
+<p>Lorsqu&rsquo;un nom de Page commence par un émoji, il remplacera l&rsquo;icône de la page.</p>
 <p class="screenshot-half"><em><img alt="page-emoji-icon" src="../images/page-emoji-icon.png" /></em></p>
 </div>
-<h2 id="page-widgets">Page widgets<a class="headerlink" href="#page-widgets" title="Permanent link">#</a></h2>
-<p>A page contains sections, such as tables or charts, which we call &ldquo;page widgets&rdquo;. Each page widget
-shows data from one table. A page may contain more than one page widget, and you can arrange and
-link them to create useful layouts.</p>
-<p>Here are the supported kinds of page widgets. The salient features of each one are described
-on separate pages.</p>
+<h2 id="widgets-de-page">Widgets de page<a class="headerlink" href="#widgets-de-page" title="Permanent link">#</a></h2>
+<p>Une page contient des sections, telles que des tableaux ou des graphiques, que nous appelons &ldquo;widgets de page&rdquo;. Chaque widget de page affiche des données provenant d&rsquo;une table. Une page peut contenir plus d&rsquo;un widget de page, et vous pouvez les organiser et les lier pour créer des mises en page utiles.</p>
+<p>Voici les types de widgets de page pris en charge. Les caractéristiques saillantes de chacun sont décrites sur des pages séparées.</p>
 <ul>
-<li><a href="../widget-table/">Table</a>: similar to the spreadsheet grid and a good way to see many records at once.</li>
-<li><a href="../widget-card/">Card</a>: shows a single record in a form-like layout which you can customize.</li>
-<li><a href="../widget-card/">Card List</a>: uses the same layout options as a card, displays a scrollable list of records.</li>
-<li><a href="../widget-chart/">Chart</a>: plots data on a chart with support for several different chart types.</li>
-<li><a href="../widget-calendar/">Calendar</a>: displays event data in a calendar view.</li>
-<li><a href="../widget-custom/">Custom</a>: inserts a custom webpage, optionally granting it access to the document&rsquo;s data.</li>
+<li><a href="../widget-table/">Tableau</a> : similaire à la grille de tableur et un bon moyen de voir de nombreux enregistrements à la fois.</li>
+<li><a href="../widget-card/">Fiche</a> : affiche un seul enregistrement dans une mise en page de type formulaire que vous pouvez personnaliser.</li>
+<li><a href="../widget-card/">Liste de fiches</a> : utilise les mêmes options de mise en page qu&rsquo;une fiche, affiche une liste déroulante d&rsquo;enregistrements.</li>
+<li><a href="../widget-chart/">Graphique</a> : trace des données sur un graphique avec prise en charge de plusieurs types de graphiques différents.</li>
+<li><a href="../widget-calendar/">Calendrier</a> : affiche les données d&rsquo;événements dans une vue calendrier.</li>
+<li><a href="../widget-custom/">Personnalisé</a> : insère une page web personnalisée, lui accordant éventuellement l&rsquo;accès aux données du document.</li>
 </ul>
 <p><img alt="page_widget_types" src="../images/page_widget_types.png" /></p>
-<p>There is a special page called <a href="../raw-data/">raw data</a> that lists all data tables in your document and summarizes your document&rsquo;s usage statistics. Navigate to the raw data page by clicking on the Raw Data link in the bottom left of the pages menu.</p>
+<p>Il existe une page spéciale appelée <a href="../raw-data/">données sources</a> qui répertorie toutes les tables de données de votre document et résume les statistiques d&rsquo;utilisation de votre document. Accédez à la page des données sources en cliquant sur le lien Données Sources en bas à gauche du menu des pages.</p>
 <p><img alt="Raw Data in Menu" src="../images/raw-data/raw-data-nav.png" /></p>
-<h2 id="widget-picker">Widget picker<a class="headerlink" href="#widget-picker" title="Permanent link">#</a></h2>
-<p>The menu opened by the &ldquo;Add New&rdquo; button has options &ldquo;Add Page&rdquo; and &ldquo;Add Widget to Page&rdquo;. In either
-case, you&rsquo;ll see the &ldquo;page widget picker&rdquo; where you can choose your desired widget:</p>
+<h2 id="selecteur-de-widgets">Sélecteur de widgets<a class="headerlink" href="#selecteur-de-widgets" title="Permanent link">#</a></h2>
+<p>Le menu ouvert par le bouton &ldquo;Ajouter Nouveau&rdquo; propose les options &ldquo;Ajouter Page&rdquo; et &ldquo;Ajouter Widget à la Page&rdquo;. Dans les deux cas, vous verrez le &ldquo;sélecteur de widget de page&rdquo; où vous pourrez choisir le widget souhaité :</p>
 <p><em><img alt="page_widget_picker" src="../images/page_widget_picker.png" /></em></p>
-<p>You can select the type of widget and the table of data to show (or &ldquo;New Table&rdquo; to create a new
-table). The &ldquo;summary&rdquo; icon (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>)
-allows you to <a href="../summary-tables/">summarize data</a>.</p>
-<p>When adding a widget to an <em>existing</em> page, you&rsquo;ll also see a &ldquo;Select By&rdquo; option, which allows
-linking this widget to another one already on the page. This process is described in greater
-detail in <a href="../linking-widgets/">Linking widgets</a>.</p>
-<p>Once you&rsquo;ve added widgets, they can be moved around and resized, as described in <a href="../custom-layouts/">Custom
-Layouts</a>.</p>
-<h2 id="changing-widget-or-its-data">Changing widget or its data<a class="headerlink" href="#changing-widget-or-its-data" title="Permanent link">#</a></h2>
-<p>If you&rsquo;d like to change a widget or the data it displays after it&rsquo;s added, you may do so. Click
-the three-dots button on the top right of your widget, and select &ldquo;Widget options&rdquo;. This opens the
-right-side panel. Click on &ldquo;Change Widget&rdquo;.</p>
+<p>Vous pouvez sélectionner le type de widget et la table de données à afficher (ou &ldquo;Nouvelle Table&rdquo; pour créer une nouvelle table). L&rsquo;icône &ldquo;résumé&rdquo; (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) vous permet de <a href="../summary-tables/">résumer les données</a>.</p>
+<p>Lors de l&rsquo;ajout d&rsquo;un widget à une page <em>existante</em>, vous verrez également une option &ldquo;Sélectionner Par&rdquo;, qui permet de lier ce widget à un autre déjà présent sur la page. Ce processus est décrit plus en détail dans <a href="../linking-widgets/">Lier les widgets</a>.</p>
+<p>Une fois que vous avez ajouté des widgets, ils peuvent être déplacés et redimensionnés, comme décrit dans <a href="../custom-layouts/">Mises en page personnalisées</a>.</p>
+<h2 id="changer-le-widget-ou-ses-donnees">Changer le widget ou ses données<a class="headerlink" href="#changer-le-widget-ou-ses-donnees" title="Permanent link">#</a></h2>
+<p>Si vous souhaitez changer un widget ou les données qu&rsquo;il affiche après son ajout, vous pouvez le faire. Cliquez sur le bouton à trois points en haut à droite de votre widget et sélectionnez &ldquo;Options du widget&rdquo;. Cela ouvre le panneau de droite. Cliquez sur &ldquo;Changer le widget&rdquo;.</p>
 <p class="screenshot-half"><em><img alt="change_widget" src="../images/change_widget.png" /></em></p>
-<p>You can then use the widget picker to change the widget or the data it displays. You may also edit the widget&rsquo;s title or add a description. </p>
-<h2 id="renaming-widgets">Renaming widgets<a class="headerlink" href="#renaming-widgets" title="Permanent link">#</a></h2>
-<p>You can rename widgets in several ways. We saw in the section above that you can edit a widget&rsquo;s title or add a description from the Widget tab of the Creator Panel.</p>
-<p>Another way is to click on the widget title above a widget. From here, you can edit the widget&rsquo;s title, the underlying data table&rsquo;s name or add a description. By default, the widget title is the data table&rsquo;s name. To override this, enter a new title under &lsquo;Widget Title&rsquo;. Learn more about data tables in the <a href="../raw-data/">raw data page</a>.</p>
+<p>Vous pouvez ensuite utiliser le sélecteur de widget pour changer le widget ou les données qu&rsquo;il affiche. Vous pouvez également modifier le titre du widget ou ajouter une description.</p>
+<h2 id="renommer-les-widgets">Renommer les widgets<a class="headerlink" href="#renommer-les-widgets" title="Permanent link">#</a></h2>
+<p>Vous pouvez renommer les widgets de plusieurs façons. Nous avons vu dans la section ci-dessus que vous pouvez modifier le titre d&rsquo;un widget ou ajouter une description à partir de l&rsquo;onglet Widget du panneau Créateur.</p>
+<p>Une autre façon est de cliquer sur le titre du widget au-dessus d&rsquo;un widget. À partir de là, vous pouvez modifier le titre du widget, le nom de la table de données sous-jacente ou ajouter une description. Par défaut, le titre du widget est le nom de la table de données. Pour remplacer cela, entrez un nouveau titre sous &lsquo;Titre du widget&rsquo;. En savoir plus sur les tables de données dans la <a href="../raw-data/">page des données sources</a>.</p>
 <p class="screenshot-half"><em><img alt="Renaming Widgets" src="../images/widgets-renaming.png" /></em></p>
-<h2 id="configuring-field-lists">Configuring field lists<a class="headerlink" href="#configuring-field-lists" title="Permanent link">#</a></h2>
-<p>Although different kinds of page widgets look very different, they all represent a list of
-records. Any of the widget types can be used to show the same underlying data.</p>
-<p>In a <strong>Table</strong>, each record is represented by a row, and columns represent the same kind of value
-for each record.</p>
-<p>Note that the <a href="../raw-data/">raw data page</a> lists all data tables.</p>
-<p>In a <strong>Card List</strong>, each row of the underlying data is shown as a card. Each column in the data
-corresponds to a <em>field</em> in this card. When talking about a Card widget, we&rsquo;ll use the term
-<em>&ldquo;field&rdquo;</em>, which conceptually is the same as a <em>&ldquo;column&rdquo;</em> in a Table widget.</p>
-<p>A <strong>Card</strong> is just like a Card List, but shows only one row of data at a time.</p>
-<p>In a <strong>Chart</strong>, each row of the underlying data table becomes a graphical element, such as a point
-on a line chart, a bar in a bar chart, or a slice of a pie chart. In this context, the columns of
-our data table are better known as data <em>&ldquo;series&rdquo;</em>.</p>
-<p>Click on the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelRight)"></span>) to
-open the right panel. Depending on the currently-selected widget, you might see a tab for
-configuring a Column, Field, or Series. These are not different in substance, but different terms
-make more sense for different widgets.</p>
+<h2 id="configurer-les-listes-de-champs">Configurer les listes de champs<a class="headerlink" href="#configurer-les-listes-de-champs" title="Permanent link">#</a></h2>
+<p>Bien que différents types de widgets de page aient des apparences très différentes, ils représentent tous une liste d&rsquo;enregistrements. N&rsquo;importe lequel des types de widgets peut être utilisé pour afficher les mêmes données sous-jacentes.</p>
+<p>Dans un <strong>Tableau</strong>, chaque enregistrement est représenté par une ligne, et les colonnes représentent le même type de valeur pour chaque enregistrement.</p>
+<p>Notez que la <a href="../raw-data/">page des données sources</a> répertorie toutes les tables de données.</p>
+<p>Dans une <strong>Liste de fiches</strong>, chaque ligne des données sous-jacentes est affichée comme une fiche. Chaque colonne des données correspond à un <em>champ</em> dans cette fiche. En parlant d&rsquo;un widget Fiche, nous utiliserons le terme <em>&ldquo;champ&rdquo;</em>, qui est conceptuellement le même qu&rsquo;une <em>&ldquo;colonne&rdquo;</em> dans un widget Tableau.</p>
+<p>Une <strong>Fiche</strong> est comme une Liste de fiches, mais affiche une seule ligne de données à la fois.</p>
+<p>Dans un <strong>Graphique</strong>, chaque ligne de la table de données sous-jacente devient un élément graphique, tel qu&rsquo;un point sur un graphique en ligne, une barre dans un graphique à barres ou une tranche d&rsquo;un graphique circulaire. Dans ce contexte, les colonnes de notre table de données sont mieux connues sous le nom de <em>&ldquo;séries&rdquo;</em> de données.</p>
+<p>Cliquez sur l&rsquo;icône d&rsquo;ouverture (<span class="grist-icon" style="--icon: var(--icon-PanelRight)"></span>) pour ouvrir le panneau de droite. En fonction du widget actuellement sélectionné, vous pourriez voir un onglet pour configurer une Colonne, un Champ ou une Série. Ces termes ne sont pas différents en substance, mais des termes différents ont plus de sens pour différents widgets.</p>
 <p class="screenshot-half"><em><img alt="panel_header_table" src="../images/panel_header_table.png" /></em></p>
 <p class="screenshot-half"><em><img alt="panel_header_card" src="../images/panel_header_card.png" /></em></p>
 <p class="screenshot-half"><em><img alt="panel_header_cardlist" src="../images/panel_header_cardlist.png" /></em></p>
 <p class="screenshot-half"><em><img alt="panel_header_chart" src="../images/panel_header_chart.png" /></em></p>
-<p>Clicking on the widget tab (highlighted in green in the images above), you&rsquo;ll see subtabs for
-&ldquo;Widget&rdquo;, &ldquo;Sort &amp; Filter&rdquo;, and &ldquo;Data&rdquo;. We&rsquo;ll focus on the first one: &ldquo;Widget&rdquo;. You&rsquo;ll see options
-specific to the type of the selected widget, and below that two lists: &ldquo;Visible Columns&rdquo; and
-&ldquo;Hidden Columns&rdquo;.</p>
+<p>En cliquant sur l&rsquo;onglet widget (surligné en vert dans les images ci-dessus), vous verrez des sous-onglets pour &ldquo;Widget&rdquo;, &ldquo;Trier &amp; Filtrer&rdquo; et &ldquo;Données&rdquo;. Nous nous concentrerons sur le premier : &ldquo;Widget&rdquo;. Vous verrez des options spécifiques au type de widget sélectionné, et en dessous de cela deux listes : &ldquo;Colonnes visibles&rdquo; et &ldquo;Colonnes cachées&rdquo;.</p>
 <p class="screenshot-half"><em><img alt="widget_tab" src="../images/widget_tab.png" /></em></p>
-<p>The &ldquo;Hidden Columns&rdquo; are the columns available in the data, but not shown in this widget. In a
-Card, these lists would show up as &ldquo;Visible Fields&rdquo; / &ldquo;Hidden Fields&rdquo;. In a chart, they show up as
-&ldquo;Visible Series&rdquo; / &ldquo;Hidden Series&rdquo;.</p>
-<p>These lists allow you to include, exclude, or rearrange fields in a widget. As you move your mouse
-over the items in the list, use the &ldquo;eye&rdquo; icons that pop up to show or hide them. Alternatively,
-you can select several items using the checkboxes, and hide or show them together.</p>
+<p>Les &ldquo;Colonnes cachées&rdquo; sont les colonnes disponibles dans les données, mais non affichées dans ce widget. Dans une Fiche, ces listes apparaîtraient comme &ldquo;Champs visibles&rdquo; / &ldquo;Champs cachés&rdquo;. Dans un graphique, elles apparaissent comme &ldquo;Séries visibles&rdquo; / &ldquo;Séries cachées&rdquo;.</p>
+<p>Ces listes vous permettent d&rsquo;inclure, d&rsquo;exclure ou de réorganiser les champs dans un widget. Lorsque vous déplacez votre souris sur les éléments de la liste, utilisez les icônes &ldquo;œil&rdquo; qui apparaissent pour les afficher ou les masquer. Alternativement, vous pouvez sélectionner plusieurs éléments en utilisant les cases à cocher et les masquer ou les afficher ensemble.</p>
 <p class="screenshot-half"><em><img alt="widget_tab_hide_hover" src="../images/widget_tab_hide_hover.png" /></em></p>
 <p class="screenshot-half"><em><img alt="widget_tab_hide_checkboxes" src="../images/widget_tab_hide_checkboxes.png" /></em></p>
-<p>This ordered list of fields can be used to customize any of the page widget types. It has a
-particular importance in the <a href="../widget-chart/">Chart widget</a>, where different chart types and options require you to
-place series in a certain order in the &ldquo;Visible Series&rdquo; list to ensure your data is plotted
-correctly.</p>
+<p>Cette liste ordonnée de champs peut être utilisée pour personnaliser n&rsquo;importe lequel des types de widgets de page. Elle a une importance particulière dans le <a href="../widget-chart/">widget Graphique</a>, où différents types de graphiques et options vous obligent à placer les séries dans un certain ordre dans la liste &ldquo;Séries visibles&rdquo; pour garantir que vos données sont tracées correctement.</p>
 
   <br>
 </div>

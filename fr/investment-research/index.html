@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist offre plusieurs moyens puissants d’analyser et de visualiser les données. Dans ce tutoriel, vous apprendrez à :">
-      <meta property="og:description" content="Grist offre plusieurs moyens puissants d’analyser et de visualiser les données. Dans ce tutoriel, vous apprendrez à :">
+      <meta name="description" content="Grist offre plusieurs moyens puissants d’analyser et de visualiser des données. Dans ce tutoriel, vous apprendrez à :">
+      <meta property="og:description" content="Grist offre plusieurs moyens puissants d’analyser et de visualiser des données. Dans ce tutoriel, vous apprendrez à :">
     
     
     <link rel="canonical" href="https://support.getgrist.com/investment-research/">
@@ -201,12 +201,12 @@
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#exploration-de-lexemple">
-                Exploration de l&rsquo;exemple
+              <a class="wm-article-link wm-page-toc-text" href="#explorer-lexemple">
+                Explorer l&rsquo;exemple
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#comment-puis-je-faire-ceci">
+              <a class="wm-article-link wm-page-toc-text" href="#comment-puis-je-faire-cela">
                 
               </a>
             </li>
@@ -216,8 +216,8 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#rendez-le-relationnel">
-                Rendez-le relationnel
+              <a class="wm-article-link wm-page-toc-text" href="#rendre-cela-relationnel">
+                Rendre cela relationnel
               </a>
             </li>
             <li class="wm-toc-li">
@@ -953,261 +953,152 @@
 
     
 
-    <h1 id="comment-analyser-et-visualiser-les-donnees">Comment analyser et visualiser les données<a class="headerlink" href="#comment-analyser-et-visualiser-les-donnees" title="Permanent link">#</a></h1>
+    <h1 id="comment-analyser-et-visualiser-des-donnees">Comment analyser et visualiser des données<a class="headerlink" href="#comment-analyser-et-visualiser-des-donnees" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Grist offre plusieurs moyens puissants d&rsquo;analyser et de visualiser les données. Dans ce tutoriel, vous apprendrez à :</p>
+<p>Grist offre plusieurs moyens puissants d&rsquo;analyser et de visualiser des données. Dans ce tutoriel, vous apprendrez à :</p>
 <ul>
-<li>Créer des tableaux récapitulatifs</li>
+<li>Créer des tables de synthèse</li>
 <li>Créer et configurer des graphiques</li>
 <li>Lier des graphiques de manière dynamique</li>
 </ul>
-<p>Pour expliquer ces fonctionnalités, nous utiliserons l&rsquo;exemple de document &ldquo;Recherche d&rsquo;investissement&rdquo; <sup id="fnref:doc_desc"><a class="footnote-ref" href="#fn:doc_desc">1</a></sup> qui inclut les entreprises et les investissements dans celles-ci jusqu&rsquo;en 2013.
-investissements dans celles-ci jusqu&rsquo;en 2013. Jetons un coup d&rsquo;œil à l&rsquo;exemple de document
-l&rsquo;exemple de document, puis nous verrons comment le construire afin que vous puissiez appliquer ces outils à vos propres données.
-à vos propres données.</p>
-<h2 id="exploration-de-lexemple">Exploration de l&rsquo;exemple<a class="headerlink" href="#exploration-de-lexemple" title="Permanent link">#</a></h2>
-<p>Ouvrez le document &ldquo;<a href="https://templates.getgrist.com/doc/investment-research" target="_blank">Investment Research</a>&rdquo;, que vous trouverez dans la section Exemples et modèles de votre page d&rsquo;accueil Grist.
-La première chose que vous verrez est &ldquo;Overview&rdquo;. Cette page contient deux graphiques à côté de deux tableaux.</p>
+<p>Pour expliquer ces fonctionnalités, nous utiliserons le document d&rsquo;exemple “Recherche d&rsquo;Investissement”<sup id="fnref:doc_desc"><a class="footnote-ref" href="#fn:doc_desc">1</a></sup> qui inclut des entreprises et les investissements dans celles-ci jusqu&rsquo;en 2013. Jetons un coup d&rsquo;œil au document d&rsquo;exemple, puis nous parlerons de la manière de le construire afin que vous puissiez appliquer ces outils à vos propres données.</p>
+<h2 id="explorer-lexemple">Explorer l&rsquo;exemple<a class="headerlink" href="#explorer-lexemple" title="Permanent link">#</a></h2>
+<p>Ouvrez le document “<a href="https://templates.getgrist.com/doc/investment-research" target="_blank">Recherche d&rsquo;Investissement</a>”, trouvé dans Exemples &amp; Modèles sur votre page d&rsquo;accueil Grist. La première chose que vous verrez est “Aperçu”. Cette page contient deux graphiques à côté de deux tables.</p>
 <p><img alt="1-overview-page" src="../images/investment-research/1-overview-page.png" /></p>
 <ul>
-<li>En haut à gauche, un diagramme circulaire montre la répartition des investissements par catégorie. Le tableau à côté
-  contient les mêmes données sous forme de tableau.</li>
-<li>Sous le diagramme circulaire se trouve un graphique à barres montrant le total des investissements réalisés par année. Il est également
-  Il est également accompagné des mêmes données sous forme de tableau dans le tableau voisin.</li>
+<li>En haut à gauche, il y a un graphique circulaire montrant la répartition des investissements par catégorie. La table à côté contient les mêmes données sous forme tabulaire.</li>
+<li>En dessous du graphique circulaire se trouve un graphique à barres montrant le total des investissements levés par année. Il est également accompagné des mêmes données dans la table à côté sous forme tabulaire.</li>
 </ul>
-<p>Tous ces graphiques et tableaux sont des exemples de &ldquo;tableaux récapitulatifs&rdquo;, que nous décrivons ci-dessous.</p>
-<p>La page suivante, &ldquo;Ventilations&rdquo;, contient également deux tableaux et deux graphiques, mais ceux-ci sont liés dynamiquement et offrent un aperçu beaucoup plus détaillé des données.
-dynamiques et offrent un aperçu beaucoup plus détaillé des données.</p>
+<p>Tous ces graphiques et tables sont des exemples de “tables de synthèse”, que nous décrirons ci-dessous.</p>
+<p>La page suivante, “Répartitions”, contient également deux tables et deux graphiques, mais ceux-ci sont liés de manière dynamique et offrent des informations beaucoup plus détaillées sur les données.</p>
 <p><img alt="2-breakdowns-page" src="../images/investment-research/2-breakdowns-page.png" /></p>
 <ul>
 <li>
-<p>En haut à gauche se trouve un tableau indiquant le financement total par année (le même tableau que celui de la page précédente).
-page précédente). Ce tableau sert de moteur au graphique qui se trouve à côté. Lorsque vous cliquez sur une année
-dans le tableau, le diagramme circulaire se met à jour pour montrer la répartition des investissements pour l&rsquo;année en question.</p>
+<p>En haut à gauche se trouve une table montrant le financement total par année (la même table que nous avons vue sur la page précédente). Cette table sert de moteur pour le graphique à côté. Lorsque vous cliquez sur une année dans la table, le graphique circulaire se met à jour pour montrer la répartition des investissements cette année-là.</p>
 </li>
 <li>
-<p>De même, le tableau du bas présente les investissements par catégorie. Lorsque vous cliquez sur une catégorie, le
-se met à jour pour montrer l&rsquo;historique des financements dans cette catégorie au fil des ans.</p>
+<p>De même, la table du bas montre les investissements par catégorie. Lorsque vous cliquez sur une catégorie, le graphique linéaire à côté se met à jour pour montrer l&rsquo;historique du financement dans cette catégorie au fil des ans.</p>
 </li>
 </ul>
-<p>Notez à quel point cette méthode est puissante et à quel point elle vous permet de mieux comprendre les choses. Par exemple, vous pouvez voir que la catégorie
-Par exemple, vous pouvez voir que la catégorie Publicité a reçu beaucoup d&rsquo;investissements à New York depuis 2007, mais qu&rsquo;elle a été dépassée par le commerce électronique en 2013.
-investissements à New York depuis 2007, mais elle a été dépassée par le commerce électronique en 2013,
-tandis que la catégorie Mode a connu un pic important en 2011.</p>
-<p>La page suivante, &ldquo;Détails de l&rsquo;entreprise&rdquo;, présente les données granulaires de cet ensemble de données.</p>
-<p><img alt="3-details-entreprise" src="../images/investment-research/3-company-details.png" /></p>
-<p>Ici, nous voyons une liste d&rsquo;entreprises et les catégories auxquelles elles appartiennent. Chaque entreprise présentée dispose d&rsquo;un lien
-pointant vers sa fiche sur le site Crunchbase. En sélectionnant une entreprise, une carte s&rsquo;affiche avec ses détails, ainsi qu&rsquo;une liste de tous les investissements qu&rsquo;elle a reçus.
-ainsi qu&rsquo;une liste de tous les investissements qu&rsquo;elle a reçus.</p>
-<p>C&rsquo;est ici que nous commençons à voir la puissance de Grist. L&rsquo;ensemble de données original est un tableur plat d&rsquo;entreprises et un tableur encore plus grand d&rsquo;investissements.
-d&rsquo;entreprises et une feuille de calcul encore plus grande d&rsquo;investissements. En affichant les données sous forme de graphiques, elles prennent vie, ce qui les rend puissantes et utiles.
-les données prennent vie, ce qui les rend puissantes et utiles.</p>
-<h2 id="comment-puis-je-faire-ceci">Comment puis-je faire ceci ?<a class="headerlink" href="#comment-puis-je-faire-ceci" title="Permanent link">#</a></h2>
-<p>Avec Grist, il vous suffit de quelques étapes pour présenter vos propres données sous forme de graphiques. Commençons par
-la première étape.</p>
+<p>Notez à quel point cela est puissant et combien d&rsquo;informations vous pouvez en tirer. Par exemple, vous pouvez voir que la catégorie Publicité a reçu beaucoup d&rsquo;investissements à New York depuis 2007, mais a été dépassée par le E-commerce en 2013, tandis que la catégorie Mode a connu un pic majeur en 2011.</p>
+<p>Sur la page suivante, “Détails de l&rsquo;Entreprise”, nous pouvons voir les données granulaires de cet ensemble de données.</p>
+<p><img alt="3-company-details" src="../images/investment-research/3-company-details.png" /></p>
+<p>Ici, nous voyons une liste d&rsquo;entreprises et les catégories auxquelles elles appartiennent. Chaque entreprise affichée a un lien pointant vers son inscription sur le site Crunchbase. Sélectionner une entreprise affiche une fiche avec ses détails, ainsi qu&rsquo;une liste de tous les investissements qu&rsquo;elle a reçus.</p>
+<p>C&rsquo;est ici que nous commençons à voir la puissance de Grist. L&rsquo;ensemble de données original est une feuille de calcul plate d&rsquo;entreprises, et une feuille de calcul encore plus grande d&rsquo;investissements. En affichant les données graphiquement, les données prennent vie, les rendant puissantes et utiles.</p>
+<h2 id="comment-puis-je-faire-cela">Comment puis-je faire cela ?<a class="headerlink" href="#comment-puis-je-faire-cela" title="Permanent link">#</a></h2>
+<p>Avec Grist, présenter vos propres données sous forme graphique est à quelques étapes faciles. Commençons par la première étape.</p>
 <h2 id="obtenir-les-donnees">Obtenir les données<a class="headerlink" href="#obtenir-les-donnees" title="Permanent link">#</a></h2>
-<p>Importons les données brutes. Nous importerons deux fichiers CSV, chacun devenant son propre tableau. Pour
-suivre, enregistrez les fichiers à partir de
-<a href="./unlocalized-assets/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a>
-et
-<a href="./unlocalized-assets/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>
-sur
-votre ordinateur. Ensuite, créez un document Grist en important le premier fichier à partir de la page d&rsquo;accueil.</p>
-<p><img alt="4-premier-import" src="../images/investment-research/4-first-import.png" /></p>
-<p>Ensuite, importez le deuxième tableau en utilisant le bouton &ldquo;Ajouter nouveau&rdquo; et l&rsquo;option &ldquo;Importer à partir d&rsquo;un fichier&rdquo;.</p>
+<p>Importons les données sources. Nous allons importer deux fichiers CSV, chacun devenant sa propre table. Pour suivre, enregistrez d&rsquo;abord les fichiers de <a href="./unlocalized-assets/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a> et <a href="./unlocalized-assets/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a> sur votre ordinateur. Ensuite, créez un document Grist en important le premier fichier depuis la page d&rsquo;accueil.</p>
+<p><img alt="4-first-import" src="../images/investment-research/4-first-import.png" /></p>
+<p>Ensuite, importez la deuxième table en utilisant le bouton “Ajouter Nouveau” et l&rsquo;option “Importer depuis un fichier”.</p>
 <p><img alt="5-second-import" src="../images/investment-research/5-second-import.png" /></p>
-<p>Dans la boîte de dialogue d&rsquo;importation, terminez en cliquant sur &ldquo;Importer&rdquo; en bas à gauche.</p>
-<p>Les tables que vous avez importées seront nommées &ldquo;crunchbase_companies_ny&rdquo; et
-&ldquo;crunchbase_investments_ny&rdquo;. Cliquez sur le nom en haut du tableau pour ouvrir la boîte de dialogue et renommez chacun des tableaux en &ldquo;Sociétés&rdquo; et &ldquo;Investissements&rdquo;.
-renommez chacun des tableaux en &ldquo;Sociétés&rdquo; et &ldquo;Investissements&rdquo;.</p>
+<p>Dans la boîte de dialogue d&rsquo;importation, terminez en cliquant sur “Importer” en bas à gauche.</p>
+<p>Les tables que vous avez importées seront nommées “crunchbase_companies_ny” et “crunchbase_investments_ny”. Cliquez sur le nom en haut de la table pour ouvrir la boîte de dialogue et renommer chacune des tables en “Entreprises” et “Investissements”.</p>
 <p><img alt="6-rename-page" src="../images/investment-research/6-rename-page.png" /></p>
-<h2 id="rendez-le-relationnel">Rendez-le relationnel<a class="headerlink" href="#rendez-le-relationnel" title="Permanent link">#</a></h2>
-<p>La puissance de Grist réside dans la structuration des données.</p>
-<p>Jetez un coup d&rsquo;œil au tableau &ldquo;Investissements&rdquo;. Triez par la première colonne et vous remarquerez combien il y a de répétitions : chaque ligne contient les informations complètes sur la société, ce qui duplique les données.
-répétition : chaque ligne contient les informations complètes sur l&rsquo;entreprise, ce qui fait double emploi avec les données du tableau &ldquo;Entreprises&rdquo; et se répète plusieurs fois lorsque plusieurs investissements s&rsquo;appliquent à l&rsquo;entreprise.
-dans le tableau &ldquo;Entreprises&rdquo;, et sont répétées plusieurs fois lorsque plusieurs investissements s&rsquo;appliquent à la même entreprise.
-La première colonne contient les informations complètes sur l&rsquo;entreprise.<sup id="fnref:denormalized"><a class="footnote-ref" href="#fn:denormalized">2</a></sup></p>
-<p>En réalité, chaque investissement s&rsquo;applique à une seule entreprise. Chaque ligne d&rsquo;investissement ne doit contenir qu&rsquo;une référence à une entreprise et les données spécifiques à cet investissement.
-contenir une référence à une entreprise et les données spécifiques à cet investissement.</p>
-<p>Pour ce faire, il faut trouver une colonne qui identifie une entreprise de manière unique. Dans cet ensemble de données, la première
-colonne, &ldquo;company_permalink&rdquo;, fait le mieux l&rsquo;affaire [^unique_id]. Cliquez sur la flèche dans l&rsquo;en-tête de la colonne et cliquez sur
-&ldquo;Options de la colonne&rdquo;. Cliquez sur la flèche à côté de &ldquo;Texte&rdquo; sous &ldquo;Type de colonne&rdquo; dans la boîte de dialogue à droite de l&rsquo;écran et sélectionnez &ldquo;Texte&rdquo; dans la boîte de dialogue à droite de l&rsquo;écran.
-dans la boîte de dialogue à droite de l&rsquo;écran et sélectionnez &ldquo;Référence&rdquo; dans la liste.</p>
-<p>[^unique_id] : Si vous n&rsquo;avez pas de colonne d&rsquo;identification unique, vous pouvez en construire une à l&rsquo;aide d&rsquo;une formule.</p>
-<ul>
-<li class="screenshot-half"><img alt="7-set-reference" src="../images/investment-research/7-set-reference.png" />*</li>
-</ul>
-<p>Grist suggérera automatiquement d&rsquo;en faire une &ldquo;Référence&rdquo; dans le tableau &ldquo;Entreprises&rdquo; et d&rsquo;afficher le &ldquo;permalien&rdquo; de l&rsquo;entreprise référencée.
-le &ldquo;permalien&rdquo; de l&rsquo;entreprise référencée. Cliquez sur &ldquo;Appliquer&rdquo; pour enregistrer cette conversion.</p>
-<p><img alt="8-revue-référence" src="../images/investment-research/8-preview-reference.png" /></p>
-<p>Renommons également cette colonne &ldquo;Entreprise&rdquo;.</p>
-<p>Dans Grist, les données dupliquées ne sont pas nécessaires et nous recommandons de les supprimer. L&rsquo;utilisation du raccourci <code>Option-Moins</code> (Mac)
-ou <code>Alt-Minus</code> (Windows) est un moyen rapide de supprimer des colonnes. Après avoir supprimé les colonnes de
-&ldquo;company_name&rdquo; à &ldquo;company_city&rdquo;, voici ce qu&rsquo;il reste :</p>
-<p><span class="screenshot-large"><em> <img alt="9-remove-columns" src="../images/investment-research/9-remove-columns.png" /></em></span></p>
-<p>Les données que vous avez supprimées ne sont pas perdues puisqu&rsquo;elles ont été dupliquées.
-Elles sont toujours disponibles dans la table &ldquo;Companies&rdquo; et peuvent être utilisées dans la formule d&rsquo;un enregistrement d&rsquo;investissement sous la forme, par exemple, de
-<code>$Company.company_xxx</code>.</p>
-<p>En fait, il existe un moyen pratique de créer ce type de formule. Créons-en une dont nous aurons besoin
-plus tard. Cliquez sur l&rsquo;en-tête de la colonne &ldquo;Société&rdquo;. Dans l&rsquo;onglet Colonne du panneau de droite, vous verrez une section &ldquo;Ajouter des colonnes référencées&rdquo;.
-section &ldquo;Ajouter des colonnes référencées&rdquo;. Cliquez sur &ldquo;Ajouter une colonne&rdquo; pour ajouter la colonne &ldquo;code_catégorie&rdquo;.</p>
+<h2 id="rendre-cela-relationnel">Rendre cela relationnel<a class="headerlink" href="#rendre-cela-relationnel" title="Permanent link">#</a></h2>
+<p>La puissance de Grist provient de la structuration des données.</p>
+<p>Regardez la table “Investissements”. Triez par la première colonne et vous remarquerez combien il y a de répétitions : chaque ligne contient les informations complètes de l&rsquo;entreprise, ce qui duplique les données dans la table “Entreprises” et est répété plusieurs fois lorsque plusieurs investissements s&rsquo;appliquent à la même entreprise.<sup id="fnref:denormalized"><a class="footnote-ref" href="#fn:denormalized">2</a></sup></p>
+<p>La réalité est que chaque investissement s&rsquo;applique à une seule entreprise. Chaque ligne d&rsquo;investissement n&rsquo;a besoin de contenir qu&rsquo;une référence à une entreprise, et les données spécifiques à cet investissement.</p>
+<p>Pour ce faire, trouvez une colonne qui identifie une entreprise de manière unique. Dans cet ensemble de données, la première colonne, “company_permalink”, le fait le mieux<sup id="fnref:unique_id"><a class="footnote-ref" href="#fn:unique_id">3</a></sup>. Cliquez sur la flèche dans l&rsquo;en-tête de la colonne et cliquez sur “Options de colonne”. Cliquez sur la flèche à côté de “Texte” sous le “Type de colonne” dans la boîte de dialogue à droite de l&rsquo;écran et sélectionnez “Référence” dans la liste.</p>
+<p class="screenshot-half"><em><img alt="7-set-reference" src="../images/investment-research/7-set-reference.png" /></em></p>
+<p>Grist suggérera automatiquement de le faire une “Référence” à la table “Entreprises”, et d&rsquo;afficher le “permalink” de l&rsquo;entreprise référencée. Cliquez sur “Appliquer” pour enregistrer cette conversion.</p>
+<p><img alt="8-preview-reference" src="../images/investment-research/8-preview-reference.png" /></p>
+<p>Renommons également cette colonne en “Entreprise”.</p>
+<p>Dans Grist, les données dupliquées ne sont pas nécessaires et nous recommandons de les supprimer. Utiliser le raccourci <code>Option-Minus</code> (Mac) ou <code>Alt-Minus</code> (Windows) est un moyen rapide de supprimer des colonnes. Après avoir supprimé les colonnes de “company_name” à “company_city”, voici ce qui reste :</p>
+<p><span class="screenshot-large"><em><img alt="9-remove-columns" src="../images/investment-research/9-remove-columns.png" /></em></span></p>
+<p>Les données que vous avez supprimées ne sont pas perdues puisqu&rsquo;elles étaient dupliquées – elles sont toujours disponibles dans la table “Entreprises” et peuvent être utilisées dans la formule d&rsquo;un enregistrement d&rsquo;Investissement comme, par exemple, <code>$Company.company_xxx</code>.</p>
+<p>En fait, il existe un moyen pratique de créer ce type de formule. Créons-en une dont nous aurons besoin plus tard. Cliquez sur l&rsquo;en-tête de la colonne “Entreprise”. Dans l&rsquo;onglet Colonne du panneau de droite, vous verrez une section ‘Ajouter des colonnes référencées’. Cliquez sur ‘Ajouter une colonne’ pour ajouter la colonne “category_code”.</p>
 <p><img alt="10-add-referenced1" src="../images/investment-research/10-add-referenced1.png" /></p>
-<p>Une nouvelle colonne sera ajoutée à la table avec la formule <code>$Company.category_code</code>. Pour chaque
-investissement, elle indique le &ldquo;code_catégorie&rdquo; de l&rsquo;entreprise liée à son enregistrement d&rsquo;investissement.</p>
+<p>Une nouvelle colonne sera ajoutée à la table avec la formule <code>$Company.category_code</code>. Pour chaque investissement, elle affiche le “category_code” de l&rsquo;entreprise liée à son enregistrement d&rsquo;investissement.</p>
 <p><img alt="11-add-referenced2" src="../images/investment-research/11-add-referenced2.png" /></p>
 <h2 id="resumer">Résumer<a class="headerlink" href="#resumer" title="Permanent link">#</a></h2>
-<p>La fonction la plus puissante que vous attendiez est celle qui permet de résumer les données. Les <a href="../summary-tables/">tableaux récapitulatifs</a> résument chaque colonne numérique d&rsquo;un tableau de données. Nous voulons trouver la somme pour la colonne <code>funding_total_usd</code> dans le tableau Companies. Vérifiez que le type de colonne est défini sur &lsquo;Numeric&rsquo; et formaté avec <code>$</code>.</p>
+<p>La fonctionnalité puissante que vous attendiez est celle qui résume les données. <a href="../summary-tables/">Les tables de synthèse</a> résument chaque colonne numérique dans une table de données. Nous voulons trouver la somme pour la colonne <code>funding_total_usd</code> dans la table Entreprises. Vérifiez que le type de colonne est défini sur &lsquo;Numérique&rsquo; et formaté avec <code>$</code>.</p>
 <p><img alt="11.5-set-numeric" src="../images/investment-research/11.5-set-numeric.png" /></p>
-<p>Pour l&rsquo;utiliser,
-ajoutons un tableau montrant les entreprises regroupées par &ldquo;code_catégorie&rdquo;.</p>
-<p>Dans le menu &ldquo;Ajouter nouveau&rdquo; en haut à gauche, sélectionnez &ldquo;Ajouter une page&rdquo;. Dans la boîte de dialogue, sélectionnez &ldquo;Tableau&rdquo; et &ldquo;Sociétés&rdquo;, puis utilisez l&rsquo;icône de sommation (&lt;span class=&rdquo;grist-icon&rdquo; style=&rdquo;&ndash;icon&rdquo;).
-utilisez ensuite l&rsquo;icône de sommation (<span class="grist-icon" style="--icon : var(--icon-Pivot)"></span>)
-pour sélectionner les colonnes &ldquo;Grouper par&rdquo;, c&rsquo;est-à-dire les colonnes par lesquelles résumer.
-résumer.</p>
-<p><img alt="12-résumé-début" src="../images/investment-research/12-start-summary.png" /></p>
-<p>Si vous ne sélectionnez aucune colonne, vous obtiendrez une seule ligne de totaux. Si vous récapitulez par
-&ldquo;code_catégorie&rdquo;, vous obtiendrez une ligne pour chaque valeur distincte de &ldquo;code_catégorie&rdquo;. Faisons cela et
-puis cliquons sur &ldquo;Ajouter une page&rdquo;.</p>
-<p><img alt="13-sommaire-additionné" src="../images/investment-research/13-summary-added.png" /></p>
-<p>Ce système est similaire aux tableaux croisés dynamiques d&rsquo;Excel. Chaque ligne représente le groupe d&rsquo;enregistrements du tableau source (&ldquo;Entreprises&rdquo;) qui ont une valeur particulière de &ldquo;code_catégorie&rdquo;.
-(&ldquo;Entreprises&rdquo;) qui ont une valeur particulière de &ldquo;code_catégorie&rdquo;. Le titre du tableau (&ldquo;COMPAGNIES&rdquo;) le rappelle
-dans le titre du tableau (&ldquo;ENTREPRISES [par code_catégorie]&rdquo;).</p>
-<p>Ces tableaux récapitulatifs peuvent (et doivent !) utiliser des formules. Les colonnes que vous choisissez lors de la création du tableau
-sont les identifiants des groupes. Toutes les autres colonnes sont des colonnes de formule, c&rsquo;est-à-dire qu&rsquo;elles sont calculées.
-Dans les formules, le groupe d&rsquo;enregistrements source résumé par une ligne est disponible sous la forme de la valeur &ldquo;$group&rdquo;.</p>
-<p>Par exemple, vous verrez qu&rsquo;une colonne appelée &ldquo;count&rdquo; a été créée automatiquement. Si vous appuyez sur
-&ldquo;Entrée&rdquo;, vous verrez la formule &ndash; <code>len($group)</code> &ndash; qui est juste le nombre d&rsquo;enregistrements dans ce groupe d&rsquo;enregistrements, c&rsquo;est-à-dire le nombre d&rsquo;entreprises dans cette catégorie.
-ce groupe d&rsquo;enregistrements, c&rsquo;est-à-dire le nombre d&rsquo;entreprises dans cette catégorie.</p>
-<p><img alt="14-formule-de-comptage-résumé" src="../images/investment-research/14-summary-count-formula.png" /></p>
-<p>Pour les colonnes numériques de la table source, les tableaux récapitulatifs obtiennent automatiquement une colonne numérique du même nom contenant la somme, avec une formule comme <code>SUM($group.funding_total_usd)</code>.
-portant le même nom et contenant une somme, avec une formule telle que <code>SUM($group.funding_total_usd)</code>.</p>
+<p>Pour utiliser cela, ajoutons une table montrant les entreprises regroupées par “category_code”.</p>
+<p>Dans le menu “Ajouter Nouveau” en haut à gauche, sélectionnez “Ajouter une Page”. Dans la boîte de dialogue, sélectionnez “Table” et “Entreprises”, puis utilisez l&rsquo;icône de sommation (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) pour sélectionner les colonnes “Grouper par” &ndash; c&rsquo;est-à-dire les colonnes par lesquelles résumer.</p>
+<p><img alt="12-start-summary" src="../images/investment-research/12-start-summary.png" /></p>
+<p>Si vous ne sélectionnez aucune colonne, vous obtiendrez simplement une seule ligne de totaux. Si vous résumez par “category_code”, vous obtiendrez une ligne pour chaque valeur distincte de “category_code”. Faisons cela puis cliquons sur “Ajouter Page”.</p>
+<p><img alt="13-summary-added" src="../images/investment-research/13-summary-added.png" /></p>
+<p>Ceci est similaire aux tableaux croisés dynamiques d&rsquo;Excel. Chaque ligne représente le groupe d&rsquo;enregistrements de la table source (“Entreprises”) qui ont une valeur particulière de “category_code”. Il y a un rappel de cela dans le titre de la table (“ENTREPRISES [par category_code]”).</p>
+<p>De telles tables de synthèse peuvent (et doivent !) utiliser des formules. Les colonnes que vous choisissez lors de la création de la table sont les identifiants des groupes. Toutes les autres colonnes sont des colonnes de formule &ndash; elles sont calculées. Dans les formules, le groupe d&rsquo;enregistrements source résumé par une ligne est disponible sous la valeur “$group”.</p>
+<p>Par exemple, vous verrez une colonne créée automatiquement appelée “count”. Si vous appuyez sur “Entrée”, vous verrez la formule qui s&rsquo;y trouve &ndash; <code>len($group)</code> &ndash; qui est juste le nombre d&rsquo;enregistrements dans ce groupe d&rsquo;enregistrements, c&rsquo;est-à-dire le nombre d&rsquo;entreprises dans cette catégorie.</p>
+<p><img alt="14-summary-count-formula" src="../images/investment-research/14-summary-count-formula.png" /></p>
+<p>Pour les colonnes numériques dans la table source, les tables de synthèse obtiennent automatiquement une colonne numérique du même nom contenant une somme, avec une formule telle que <code>SUM($group.funding_total_usd)</code>.</p>
 <p><img alt="15-summary-sum-formula" src="../images/investment-research/15-summary-sum-formula.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Une note pour les fans de Python</p>
-<p><code>$group</code> est un objet Python spécial. C&rsquo;est une collection itérable d&rsquo;enregistrements. L&rsquo;utilisation d&rsquo;un attribut
-comme <code>$group.A</code> est un raccourci pour la liste des valeurs de la colonne <code>A</code> de tous les enregistrements du groupe, c&rsquo;est-à-dire que c&rsquo;est à peu près équivalent à <code>[r.A for r in $group]</code>.</p>
+<p><code>$group</code> est un objet Python spécial. C&rsquo;est une collection itérable d&rsquo;enregistrements. Utiliser un attribut comme <code>$group.A</code> est un raccourci pour la liste des valeurs dans la colonne <code>A</code> de tous les enregistrements du groupe, c&rsquo;est-à-dire que c&rsquo;est à peu près équivalent à <code>[r.A for r in $group]</code>.</p>
 </div>
-<p>Parfois, l&rsquo;addition des valeurs n&rsquo;a pas de sens. Par exemple, la somme de &ldquo;founded_year&rdquo; n&rsquo;a pas de sens.
-Il est préférable de supprimer cette colonne et toutes celles dont nous n&rsquo;avons pas besoin, ce qui nous laisse la colonne &ldquo;funding_total_usd&rdquo;.
-avec la colonne &ldquo;funding_total_usd&rdquo;.</p>
-<p>Comme cette colonne contient de grands nombres, c&rsquo;est le moment de regarder la section &ldquo;Format des nombres&rdquo;.
-la section &ldquo;Format des nombres&rdquo; de sa configuration, et de cliquer sur <code>,</code> (ou peut-être <code>$</code>) pour formater les nombres afin qu&rsquo;ils soient plus lisibles.
-pour formater les nombres de façon à ce qu&rsquo;ils soient plus lisibles.</p>
-<p><img alt="16-sommaire-supprimer-colonnes" src="../images/investment-research/16-summary-remove-columns.png" /></p>
-<p>Ajoutons un deuxième tableau récapitulatif. Sélectionnez à nouveau &ldquo;Ajouter nouveau&rdquo; pour &ldquo;Ajouter un widget à la page&rdquo;. Pour obtenir un résumé
-par année, sélectionnez le tableau &ldquo;Investissements&rdquo; sous &ldquo;Sélectionner les données&rdquo;, et utilisez à nouveau le symbole de la somme (∑) pour sélectionner la colonne par laquelle le résumé doit être effectué.
-pour sélectionner la colonne par laquelle le résumé doit être effectué : &ldquo;année_financée&rdquo;, puis cliquez sur &ldquo;Ajouter à la page&rdquo;.</p>
+<p>Parfois, ajouter les valeurs n&rsquo;a pas de sens. Par exemple, la somme de “founded_year” est dénuée de sens. Il est préférable de supprimer cela et toute autre colonne dont nous n&rsquo;avons pas besoin, ce qui nous laisse avec la colonne &ldquo;funding_total_usd&rdquo;.</p>
+<p>Puisque cette colonne contient de grands nombres, il est temps de regarder la section &ldquo;Format de Nombre&rdquo; de sa configuration, et de cliquer sur <code>,</code> (ou peut-être <code>$</code>) pour formater les nombres afin qu&rsquo;ils soient plus lisibles.</p>
+<p><img alt="16-summary-remove-columns" src="../images/investment-research/16-summary-remove-columns.png" /></p>
+<p>Ajoutons une deuxième table de synthèse. Sélectionnez à nouveau “Ajouter Nouveau” pour “Ajouter un Widget à la Page”. Pour obtenir un résumé par année, sélectionnez la table “Investissements” sous “Sélectionner les Données”, et utilisez à nouveau son symbole de somme (∑) pour sélectionner la colonne par laquelle résumer : “funded_year” puis cliquez sur “Ajouter à la page”.</p>
 <p><img alt="17-add-summary2" src="../images/investment-research/17-add-summary2.png" /></p>
-<p>Cela produit un deuxième tableau récapitulatif qui présente un enregistrement pour chaque année, chacun représentant un groupe de lignes &ldquo;Investissements&rdquo; pour l&rsquo;année en question.
-groupe de lignes &ldquo;Investissements&rdquo; pour cette année. La colonne la plus utile est &ldquo;raised_amount_usd&rdquo;, qui additionne tous les investissements réalisés cette année-là.
-tous les investissements réalisés cette année-là. Supprimons les colonnes inutiles.</p>
-<p>Vous remarquerez des valeurs roses dans &ldquo;raised_amount_usd&rdquo;. C&rsquo;est parce que Grist estime que le type de colonne est un entier.
-Les sommes roses sont des cas où les nombres dépassent la capacité de Javascript à gérer de grands nombres entiers.
-les grands nombres entiers. Pour corriger cela, le type de la colonne doit être changé en &ldquo;Numeric&rdquo; (qui échange la précision contre la capacité de représenter des nombres entiers).
-Pour corriger ce problème, le type de la colonne doit être changé en &ldquo;Numérique&rdquo; (ce qui permet d&rsquo;échanger la précision contre la capacité de représenter des nombres très grands et très petits). Changez le
-à &ldquo;Numeric&rdquo; dans &ldquo;Column options&rdquo;.</p>
-<p>C&rsquo;est à nouveau le moment de choisir un format de chiffres plus convivial pour la colonne et de l&rsquo;élargir pour y faire figurer les chiffres les plus longs.
-pour les nombres plus longs.</p>
-<p><img alt="18-changement-en-numérique" src="../images/investment-research/18-change-int-to-numeric.png" /></p>
+<p>Cela produit une deuxième table de synthèse qui montre un enregistrement pour chaque année, chacun représentant un groupe de lignes “Investissements” pour cette année. La colonne la plus utile est “raised_amount_usd”, ajoutant tous les investissements réalisés cette année-là. Supprimons les colonnes non nécessaires.</p>
+<p>Vous remarquerez des valeurs roses dans “raised_amount_usd”. C&rsquo;est parce que Grist devine que le type de colonne est un entier. Les sommes roses sont des instances où les nombres dépassent la capacité de Javascript à gérer de grands entiers. Pour corriger cela, le type de la colonne doit être changé en “Numérique” (ce qui échange la précision contre la capacité à représenter des nombres très grands et très petits). Changez le type en “Numérique“ sous “Options de colonne”.</p>
+<p>C&rsquo;est encore un bon moment pour choisir un format de nombre plus convivial pour la colonne, et pour l&rsquo;élargir afin d&rsquo;adapter les nombres plus longs.</p>
+<p><img alt="18-change-int-to-numeric" src="../images/investment-research/18-change-int-to-numeric.png" /></p>
 <h2 id="graphique-diagramme-trace">Graphique, diagramme, tracé<a class="headerlink" href="#graphique-diagramme-trace" title="Permanent link">#</a></h2>
-<p>Vous pouvez créer un graphique à partir de n&rsquo;importe quelles données. Sur cette page, nous voulons ajouter une version graphique de chaque tableau de synthèse.
-tableau récapitulatif. Sélectionnez à nouveau le bouton &ldquo;Ajouter nouveau&rdquo;, choisissez &ldquo;Ajouter un widget à la page&rdquo;, sélectionnez &ldquo;Graphique&rdquo; comme widget,
-et le même tableau (Entreprises) et la même colonne de résumé (code_catégorie) que précédemment. Cliquez ensuite sur &ldquo;Ajouter à la page&rdquo;.</p>
+<p>Vous pouvez créer un graphique à partir de n&rsquo;importe quelles données. Pour cette page, nous voulons ajouter une version graphique de chaque table de synthèse. Sélectionnez à nouveau le bouton “Ajouter Nouveau”, choisissez “Ajouter un Widget à la Page”, sélectionnez “Graphique” comme widget, et la même table (Entreprises) et colonne de synthèse (category_code) qu&rsquo;auparavant. Puis cliquez sur &ldquo;Ajouter à la Page&rdquo;.</p>
 <p><img alt="19-add-chart1" src="../images/investment-research/19-add-chart1.png" /></p>
-<p>Dans le cas d&rsquo;un graphique, vous le suivrez toujours en le personnalisant.</p>
-<p>Ouvrez le panneau de droite et sélectionnez l&rsquo;onglet &ldquo;Graphique&rdquo; / le sous-onglet &ldquo;Widget&rdquo;.</p>
-<p>Pour ce premier graphique, sous &ldquo;Type de graphique&rdquo;, sélectionnez &ldquo;Graphique en camembert&rdquo;. Pour construire ce graphique, il faut d&rsquo;abord sélectionner une étiquette, puis une série à résumer dans le graphique circulaire.  Puisque nous voulons que le graphique affiche &ldquo;category_code&rdquo; comme étiquette, sélectionnez cette série dans le menu déroulant &ldquo;Étiquette&rdquo;. Nous voulons utiliser &ldquo;funding_total_usd&rdquo; comme valeurs, qui doit donc figurer en haut de la liste &ldquo;series&rdquo; dans le panneau de configuration. En déplaçant votre souris
-sur les éléments de cette liste, utilisez les doubles barres verticales qui s&rsquo;affichent pour glisser-déposer une série en haut de la liste. Vous pouvez également masquer les autres séries de la liste en cliquant sur l&rsquo;icône de la corbeille.</p>
+<p>Pour un graphique, vous devrez toujours le personnaliser par la suite.</p>
+<p>Ouvrez le panneau de droite, et sélectionnez l&rsquo;onglet “Graphique” / sous-onglet “Widget”.</p>
+<p>Pour ce premier graphique, sous “Type de Graphique&rdquo;, sélectionnez “Graphique Circulaire”. Pour construire ce graphique, sélectionnez d&rsquo;abord une étiquette, puis sélectionnez une série à résumer dans le graphique circulaire. Puisque nous voulons que le graphique montre “category_code” comme étiquettes, sélectionnez cette série dans le menu déroulant &ldquo;Étiquette&rdquo;. Nous voulons utiliser “funding_total_usd” comme valeurs, donc cela devrait être listé en haut de la liste “séries” dans le panneau de configuration. Lorsque vous déplacez votre souris sur les éléments de cette liste, utilisez les doubles barres verticales qui apparaissent pour faire glisser et déposer une série en haut de la liste. Alternativement, vous pouvez masquer les autres séries de la liste en cliquant sur l&rsquo;icône de corbeille.</p>
 <p><img alt="20-chart-vis-fields" src="../images/investment-research/20-chart-vis-fields.png" /></p>
-<p>Ajoutez maintenant un graphique montrant une tendance par année. Ajoutez un autre &ldquo;Widget to page&rdquo;, sélectionnez &ldquo;Chart&rdquo; sous &ldquo;Widget&rdquo;, sélectionnez &ldquo;Investments&rdquo; sous &ldquo;Select Data&rdquo;, cliquez sur &ldquo;Summing&rdquo;.
-&ldquo;Widget&rdquo;, sélectionnez &ldquo;Investments&rdquo; sous &ldquo;Select Data&rdquo;, cliquez sur summation
-(<span class="grist-icon" style="--icon : var(--icon-Pivot)"></span>) pour regrouper par &ldquo;année_financée&rdquo;,
-et cliquez sur &ldquo;Ajouter à la page&rdquo;.</p>
-<p>Pour personnaliser ce graphique, utilisez le type de graphique &ldquo;Diagramme à barres&rdquo;. Dans le menu déroulant &ldquo;Axe X&rdquo;, sélectionnez la colonne à utiliser pour les valeurs de l&rsquo;axe X (horizontal).
-de l&rsquo;axe X (horizontal). Sous &ldquo;Série&rdquo;, sélectionnez une deuxième colonne (et éventuellement une colonne supplémentaire) pour les valeurs de l&rsquo;axe Y (vertical).</p>
+<p>Ajoutons maintenant un graphique montrant une tendance par année. Ajoutez un autre “Widget à la page”, sélectionnez “Graphique” sous “Widget”, sélectionnez “Investissements” sous “Sélectionner les Données”, cliquez sur la sommation (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) pour grouper par “funded_year”, et cliquez sur “Ajouter à la Page”.</p>
+<p>Pour personnaliser ce graphique, restez avec le type de graphique “Graphique à Barres”. Dans le menu déroulant &ldquo;Axe X&rdquo;, sélectionnez la colonne à utiliser pour les valeurs de l&rsquo;axe X (horizontal). Sous &lsquo;Séries&rsquo;, sélectionnez une deuxième (et éventuellement d&rsquo;autres) colonne pour être les valeurs de l&rsquo;axe Y (vertical).</p>
 <p><img alt="21-add-chart2" src="../images/investment-research/21-add-chart2.png" /></p>
-<p>Vous pouvez réorganiser les sections de l&rsquo;écran selon la configuration que vous souhaitez pour un tableau de bord.
-pour un tableau de bord. Déplacez votre souris en haut à gauche de chaque section jusqu&rsquo;à ce que vous voyiez une icône de &ldquo;poignée&rdquo;.
-jusqu&rsquo;à ce que vous voyiez une icône de &ldquo;poignée de déplacement&rdquo;. Utilisez cette icône pour déplacer chaque section à l&rsquo;endroit souhaité par rapport aux autres sections.
-l&rsquo;emplacement souhaité par rapport aux autres sections. Une fois que vous avez terminé, renommez la page en survolant le nom de la page et en cliquant sur les trois points.
-puis en cliquant sur l&rsquo;icône à trois points pour ouvrir le menu. Sélectionnez &ldquo;Renommer&rdquo; et renommez la page en &ldquo;Vue d&rsquo;ensemble&rdquo;.</p>
+<p>Vous pouvez réorganiser les sections à l&rsquo;écran dans une configuration que vous aimeriez voir pour un tableau de bord. Déplacez votre souris vers le coin supérieur gauche de chaque section jusqu&rsquo;à ce que vous voyiez une icône &ldquo;poignée de tirage&rdquo;. Utilisez cette icône pour faire glisser chaque section à l&rsquo;endroit souhaité par rapport aux autres sections. Une fois que vous avez terminé, renommez la page en survolant le nom de la page, puis en cliquant sur l&rsquo;icône à trois points pour ouvrir le menu. Sélectionnez &ldquo;Renommer&rdquo; et renommez en “Aperçu”.</p>
 <p><img alt="22-rearrange-widgets" src="../images/investment-research/22-rearrange-widgets.png" /></p>
 <h2 id="graphiques-dynamiques">Graphiques dynamiques<a class="headerlink" href="#graphiques-dynamiques" title="Permanent link">#</a></h2>
-<p>Si vous avez lu nos autres tutoriels sur l&rsquo;établissement de liens entre les données, cela vous semblera naturel. Les graphiques sont simplement une
-manière différente de présenter des données, et ils peuvent être liés de la même manière que les tableaux.</p>
-<p>Pour notre exemple, nous allons ajouter une nouvelle page avec un tableau récapitulatif : sélectionnez le widget &ldquo;Tableau&rdquo;, données &ldquo;Investissements&rdquo;,
-grouper par &ldquo;année_financée&rdquo;, cliquer sur &ldquo;Ajouter une page&rdquo;.</p>
+<p>Si vous avez lu nos autres tutoriels sur le lien des données, cela viendra naturellement. Les graphiques sont simplement une autre façon de montrer des données, et ils peuvent être liés de la même manière que les tables.</p>
+<p>Pour notre exemple, nous allons ajouter une nouvelle page avec une table de synthèse : sélectionnez le widget “Table”, les données “Investissements”, groupez par “funded_year”, cliquez sur &ldquo;Ajouter Page&rdquo;.</p>
 <p><img alt="23-dynamic-start" src="../images/investment-research/23-dynamic-start.png" /></p>
-<p>Renommons cette nouvelle page &ldquo;Ventilations&rdquo;.</p>
-<p>Ensuite, ajoutez un widget à cette page, en sélectionnant le widget &ldquo;Chart&rdquo;, data &ldquo;Investments&rdquo;. Pour &ldquo;Grouper par&rdquo;, nous
-choisissons <em>deux</em> colonnes : &ldquo;Company_category_code&rdquo; et &ldquo;funded_year&rdquo;. C&rsquo;est la raison pour laquelle nous avons ajouté la colonne &ldquo;Company_category_code&rdquo; plus tôt. Nous ne pouvons regrouper les enregistrements d&rsquo;investissement par code de catégorie que si nous disposons de ce code pour chaque investissement.</p>
-<p>La liste déroulante &ldquo;Sélectionner par&rdquo; située en bas à gauche de la boîte de dialogue répertorie les vues déjà présentes à l&rsquo;écran qui peuvent contrôler la sélection des données dans le graphique que nous ajoutons.
-qui peuvent contrôler la sélection des données dans le graphique que nous ajoutons. Dans &ldquo;Select By&rdquo;, choisissez &ldquo;INVESTMENTS
-[by funded_year]&rdquo; et cliquez sur &ldquo;Ajouter à la page&rdquo;.</p>
+<p>Renommons cette nouvelle page “Répartitions”.</p>
+<p>Ensuite, ajoutez un widget à cette page, en sélectionnant le widget “Graphique”, les données “Investissements”. Pour “Grouper par”, nous choisissons <em>deux</em> colonnes : “Company_category_code” et “funded_year”. C&rsquo;est pourquoi nous avons ajouté la colonne “Company_category_code” plus tôt. Nous ne pouvons grouper les enregistrements d&rsquo;investissement par le code de catégorie que si nous avons ce code pour chaque investissement.</p>
+<p>Le menu déroulant “Sélectionner par” en bas à gauche de la boîte de dialogue répertorie les widgets déjà à l&rsquo;écran qui peuvent contrôler la sélection des données dans le graphique que nous ajoutons. Dans “Sélectionner par”, choisissez “INVESTISSEMENTS [par funded_year]”, et cliquez sur “Ajouter à la Page”.</p>
 <p><img alt="24-dynamic-chart-start" src="../images/investment-research/24-dynamic-chart-start.png" /></p>
-<div class="admonition tip">
-<p><strong>Note:</strong> Si vous avez besoin d&rsquo;apporter des modifications à une vue que vous avez déjà ajoutée, comme changer son type,
-&ldquo;Grouper par&rdquo; ou &ldquo;Sélectionner par&rdquo;, vous pouvez toujours le faire à partir du sous-onglet &ldquo;Données&rdquo; dans les paramètres du widget, en utilisant le bouton &ldquo;Modifier la sélection des données&rdquo;.
-en utilisant le bouton &ldquo;Modifier la sélection des données&rdquo;.</p>
+<div class="admonition astuce">
+<p><strong>Remarque :</strong> Si vous devez apporter des modifications à un widget que vous avez déjà ajouté, comme changer son type, ses paramètres “Grouper par” ou “Sélectionner par”, vous pouvez toujours le faire depuis l&rsquo;onglet “Données” dans les paramètres du widget, en utilisant le bouton “Modifier la Sélection de Données”.</p>
 </div>
-<p>Nous voulons pouvoir sélectionner une année, puis afficher un diagramme à secteurs pour cette année qui présente le
-total pour chaque code de catégorie. L&rsquo;option &ldquo;Sélectionner par&rdquo; que nous avons choisie garantit que seules les données de l&rsquo;année sélectionnée sont utilisées.
-l&rsquo;année sélectionnée. Il ne reste plus qu&rsquo;à changer le type de graphique en &ldquo;Diagramme circulaire&rdquo;, et à définir &ldquo;Label&rdquo; sur &ldquo;Code_catégorie_entreprise&rdquo; et &ldquo;Series&rdquo; sur &ldquo;Montant_soulevé_usd&rdquo;.</p>
-<p><img alt="25-champs-visites-dynamiques" src="../images/investment-research/25-dynamic-vis-fields.png" /></p>
-<p>Note : Les graphiques nécessitent plus d&rsquo;espace sur l&rsquo;écran, aussi nos petites captures d&rsquo;écran seront-elles plus agréables à regarder si nous fermons les panneaux latéraux en cliquant sur les icônes d&rsquo;ouverture (&gt;</span>).
-en cliquant sur les icônes d&rsquo;ouverture (<span class="grist-icon" style="--icon : var(--icon-PanelLeft)"></span>,
-<span class="grist-icon" style="--icon : var(--icon-PanelRight)"></span>).</p>
-<p>Trions également le tableau par &ldquo;année de financement&rdquo;.</p>
-<p><img alt="26-tableau-tri dynamique" src="../images/investment-research/26-dynamic-table-sort.png" /></p>
-<p>En ce qui concerne le tri, le bouton en surbrillance au-dessus du tableau vous rappelle que les paramètres de tri ne sont pas sauvegardés automatiquement.
-sauvegardés automatiquement. Cliquez sur le bouton vert et sélectionnez &ldquo;Enregistrer&rdquo; pour le faire.</p>
-<p><img alt="27-tableau-dynamique-sort-save" src="../images/investment-research/27-dynamic-table-sort-save.png" /></p>
-<p>Quel est le résultat ? Nous pouvons cliquer sur les années (ou utiliser les touches fléchées) et voir la répartition par catégorie changer.
-changement de catégorie.</p>
-<div class="admonition tip">
-<p><strong>Note:</strong> Si le fait de cliquer sur les années n&rsquo;affecte pas le graphique, celui-ci ne doit pas être lié.
-n&rsquo;est pas lié. Vous pouvez le vérifier et le corriger en utilisant le menu &ldquo;trois points&rdquo; en haut à droite du graphique,
-en cliquant sur &ldquo;Sélection des données&rdquo; et en vous assurant que le menu déroulant &ldquo;Sélectionner par&rdquo; affiche &ldquo;INVESTISSEMENTS [par
-année_financée]&rdquo;.</p>
+<p>Nous voulons pouvoir sélectionner une année, puis afficher un graphique circulaire pour cette année qui affiche le total pour chaque code de catégorie. L&rsquo;option “Sélectionner par” que nous avons choisie garantit que seules les données de l&rsquo;année sélectionnée sont utilisées. Tout ce qui reste est de changer le type de graphique en “Graphique Circulaire”, et de définir “Étiquette” sur “Company_category_code” et &ldquo;Série&rdquo; sur “raised_amount_usd”.</p>
+<p><img alt="25-dynamic-vis-fields" src="../images/investment-research/25-dynamic-vis-fields.png" /></p>
+<p>Remarque : Les graphiques ont besoin de plus d&rsquo;espace à l&rsquo;écran, donc nos petites captures d&rsquo;écran auront meilleure allure si nous fermons les panneaux latéraux en cliquant sur les icônes d&rsquo;ouverture (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>, <span class="grist-icon" style="--icon: var(--icon-PanelRight)"></span>).</p>
+<p>Ajoutons également un tri de la table par “funded_year”.</p>
+<p><img alt="26-dynamic-table-sort" src="../images/investment-research/26-dynamic-table-sort.png" /></p>
+<p>En ce qui concerne le tri, le bouton mis en surbrillance au-dessus de la table vous rappelle que les paramètres de tri ne sont pas enregistrés automatiquement. Cliquez sur le bouton vert et sélectionnez “Enregistrer” pour le faire.</p>
+<p><img alt="27-dynamic-table-sort-save" src="../images/investment-research/27-dynamic-table-sort-save.png" /></p>
+<p>Quel est le résultat ? Nous pouvons cliquer à travers les années (ou utiliser les touches fléchées), et voir la répartition par catégorie changer.</p>
+<div class="admonition astuce">
+<p><strong>Remarque :</strong> Si cliquer à travers les années n&rsquo;affecte pas le graphique, le graphique ne doit pas être lié. Vous pouvez vérifier et corriger cela en utilisant le menu &ldquo;trois points&rdquo; en haut à droite du graphique, en cliquant sur &ldquo;Sélection de données&rdquo;, et en vous assurant que le menu déroulant &ldquo;Sélectionner par&rdquo; affiche &ldquo;INVESTISSEMENTS [par funded_year]&rdquo;.</p>
 </div>
-<p>Pour compléter l&rsquo;exemple, nous ajouterons deux sections supplémentaires à cette page &ldquo;Ventilations&rdquo;.
-de la page &ldquo;Ventilations&rdquo;. L&rsquo;une d&rsquo;elles sera un tableau énumérant les catégories d&rsquo;entreprises, auquel sera lié
-un graphique montrant le montant des investissements dans cette catégorie au fil des ans.</p>
-<p>Pour ajouter le tableau des catégories, utilisez &ldquo;Ajouter un widget à la page&rdquo;, et sélectionnez le widget &ldquo;Tableau&rdquo;, données &ldquo;Investissements&rdquo;,
-regroupées par &ldquo;Code_catégorie_entreprise&rdquo;.</p>
-<p><img alt="28-tableau dynamique2" src="../images/investment-research/28-dynamic-table2.png" /></p>
-<p>La colonne &ldquo;funded_year&rdquo; dans le tableau résultant n&rsquo;a pas de sens et doit être supprimée.</p>
-<p>Pour la dernière étape, nous ajoutons un autre graphique. Nous devons nous rappeler de regrouper les données par &ldquo;Company_category_code&rdquo;, &ldquo;funded_year&rdquo; et &ldquo;Select By&rdquo;.
-&ldquo;année_financée&rdquo;, et de définir une vue &ldquo;Sélectionner par&rdquo; appropriée. Puisqu&rsquo;il y a deux
-sur cette page, vous avez le choix de celui qui alimentera les données de ce graphique. Dans ce
-Dans ce cas, choisissez la vue que nous venons d&rsquo;ajouter : &ldquo;INVESTMENTS [by Company_category_code]&rdquo;.</p>
+<p>Pour compléter l&rsquo;exemple, nous allons ajouter deux sections supplémentaires à cette page “Répartitions”. L&rsquo;une sera une table répertoriant les catégories d&rsquo;entreprises, et liée à cela sera un graphique montrant le montant de l&rsquo;investissement dans cette catégorie au fil des ans.</p>
+<p>Pour ajouter la table des catégories, utilisez &ldquo;Ajouter un Widget à la Page&rdquo;, et sélectionnez le widget &ldquo;Table&rdquo;, les données &ldquo;Investissements&rdquo;, regroupées par &ldquo;Company_category_code&rdquo;.</p>
+<p><img alt="28-dynamic-table2" src="../images/investment-research/28-dynamic-table2.png" /></p>
+<p>La colonne “funded_year” dans la table résultante est dénuée de sens et doit être supprimée.</p>
+<p>Pour la dernière étape, ajoutons un autre graphique. Nous devons nous rappeler de grouper par à la fois “Company_category_code” et “funded_year”, et de définir un widget “Sélectionner par” approprié pour cela. Puisqu&rsquo;il y a deux tables sur cette page, vous avez le choix de laquelle contrôlera les données dans ce graphique. Dans ce cas, choisissez le widget que nous venons d&rsquo;ajouter : “INVESTISSEMENTS [par Company_category_code]”.</p>
 <p><img alt="29-dynamic-chart2" src="../images/investment-research/29-dynamic-chart2.png" /></p>
-<p>Comme dans la section précédente, nous configurons le graphique en sélectionnant &ldquo;Type de graphique&rdquo; comme &ldquo;Graphique à barres&rdquo;, et
-dans la liste déroulante &ldquo;X-Axis&rdquo;, en sélectionnant &ldquo;funded_year&rdquo; et sous &ldquo;Series&rdquo;, en sélectionnant &ldquo;raised_amount_usd&rdquo; et en masquant le reste.
-&ldquo;raised_amount_usd&rdquo; et en masquant le reste.</p>
+<p>Comme dans la section précédente, nous configurons le graphique en sélectionnant “Type de Graphique” comme “Graphique à Barres”, et dans le menu déroulant “Axe X”, en sélectionnant “funded_year” et sous &ldquo;Série&rdquo;, en sélectionnant “raised_amount_usd” et en masquant le reste.</p>
 <p><img alt="30-breakdowns-page-done" src="../images/investment-research/30-breakdowns-page-done.png" /></p>
-<p>Nous pouvons maintenant cliquer sur les catégories et voir l&rsquo;historique des investissements dans chacune d&rsquo;entre elles.</p>
+<p>Nous pouvons maintenant cliquer à travers les catégories, et voir l&rsquo;historique des investissements dans chacune.</p>
 <h2 id="prochaines-etapes">Prochaines étapes<a class="headerlink" href="#prochaines-etapes" title="Permanent link">#</a></h2>
-<p>Si vous ne savez pas comment nous avons créé la page &ldquo;Détails de l&rsquo;entreprise&rdquo; présente dans l&rsquo;exemple,
-visitez l&rsquo;un de ces tutoriels antérieurs pour apprendre comment : Comment créer un CRM léger&rdquo; ou &ldquo;Gérer votre entreprise avec Grist&rdquo;.
-votre entreprise dans Grist&rdquo;.</p>
-<p>Voilà, c&rsquo;est fait ! Maintenant, allez analyser des données !</p>
+<p>Si vous n&rsquo;êtes pas familier avec la manière dont nous avons créé la page “Détails de l&rsquo;Entreprise” qui est présente dans l&rsquo;exemple, visitez l&rsquo;un de ces tutoriels précédents pour apprendre comment : ‘Comment construire un CRM léger’, ou ‘Gérer votre entreprise dans Grist’.</p>
+<p>C&rsquo;est tout ! Maintenant, allez analyser des données !</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:doc_desc">
-<p>Télécharger <a href="./unlocalized-assets/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a>
-et <a href="./unlocalized-assets/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>. L&rsquo;échantillon de données ne comprend que les données relatives aux &ldquo;entreprises&rdquo; et aux &ldquo;investissements&rdquo;, et ne comprend que les entreprises de New York afin de réduire la taille de l&rsquo;échantillon.
-L&rsquo;échantillon de données ne comprend que les données relatives aux &ldquo;entreprises&rdquo; et aux &ldquo;investissements&rdquo;, et n&rsquo;inclut que les entreprises new-yorkaises afin de rester plus petit et plus rapide. L&rsquo;ensemble de données provient
-de <a href="https://www.kaggle.com/mauriciocap/crunchbase2013">Kaggle</a>.&#160;<a class="footnote-backref" href="#fnref:doc_desc" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Téléchargez <a href="./unlocalized-assets/investment-research/crunchbase-companies-ny.csv">crunchbase_companies_ny.csv</a> et <a href="./unlocalized-assets/investment-research/crunchbase-investments-ny.csv">crunchbase_investments_ny.csv</a>. Les données d&rsquo;exemple incluent uniquement les données sur les “entreprises” et les “investissements”, et incluent uniquement des entreprises de New York pour les rendre plus petites et plus rapides. L&rsquo;ensemble de données provient de <a href="https://www.kaggle.com/mauriciocap/crunchbase2013">Kaggle</a>.&#160;<a class="footnote-backref" href="#fnref:doc_desc" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:denormalized">
-<p>Ce type de duplication est couramment observé dans les feuilles de calcul. Les données sous cette forme sont appelées
-  &ldquo;dénormalisées&rdquo;.&#160;<a class="footnote-backref" href="#fnref:denormalized" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Une telle duplication est couramment observée dans les feuilles de calcul. Les données sous cette forme sont appelées “dénormalisées”.&#160;<a class="footnote-backref" href="#fnref:denormalized" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:unique_id">
+<p>Si vous n&rsquo;avez pas de colonne d&rsquo;identification unique, vous pouvez en construire une avec une formule.&#160;<a class="footnote-backref" href="#fnref:unique_id" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

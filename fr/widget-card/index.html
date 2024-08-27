@@ -7,12 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="The Card and Card List widgets allow viewing data as a form or a record, similar to how data
-is commonly presented in a custom application. In Grist, you can choose what fields
-to show and how to lay them out.">
-      <meta property="og:description" content="The Card and Card List widgets allow viewing data as a form or a record, similar to how data
-is commonly presented in a custom application. In Grist, you can choose what fields
-to show and how to lay them out.">
+      <meta name="description" content="Les vues Fiche et Liste de Fiches permettent de visualiser les données sous forme de formulaire ou d’enregistrement, similaire à la présentation des données dans une application personnalisée. Dans Grist, vous pouvez choisir les champs à afficher et comment les disposer.">
+      <meta property="og:description" content="Les vues Fiche et Liste de Fiches permettent de visualiser les données sous forme de formulaire ou d’enregistrement, similaire à la présentation des données dans une application personnalisée. Dans Grist, vous pouvez choisir les champs à afficher et comment les disposer.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/widget-card/">
@@ -275,17 +271,17 @@ to show and how to lay them out.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Page widget: Card
+              Vue : Fiche
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#selecting-theme">
-                Selecting theme
+              <a class="wm-article-link wm-page-toc-text" href="#selection-du-theme">
+                Sélection du thème
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#editing-card-layout">
-                Editing card layout
+              <a class="wm-article-link wm-page-toc-text" href="#modifier-la-disposition-de-la-fiche">
+                Modifier la disposition de la fiche
               </a>
             </li>
         
@@ -927,69 +923,43 @@ to show and how to lay them out.">
 
     
 
-    <h1 id="page-widget-card-card-list">Page widget: Card &amp; Card List<a class="headerlink" href="#page-widget-card-card-list" title="Permanent link">#</a></h1>
+    <h1 id="vue-fiche-liste-de-fiches">Vue : Fiche &amp; Liste de Fiches<a class="headerlink" href="#vue-fiche-liste-de-fiches" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>The <strong>Card</strong> and <strong>Card List</strong> widgets allow viewing data as a form or a record, similar to how data
-is commonly presented in a custom application. In Grist, you can choose what fields
-to show and how to lay them out.</p>
-<p>A <strong>Card List</strong> shows a scrollable list of cards. A <strong>Card</strong> shows one at a time. A single
-<strong>Card</strong> is most useful when linked to
-another Table widget (see <a href="../linking-widgets/">Linking widgets</a>). It can then show the details of
-the selected record. The single Card widget may also be used on its own. In this case, you&rsquo;ll see
-navigation buttons on top to move to the next or previous record, or to add a new one.</p>
+<p>Les vues <strong>Fiche</strong> et <strong>Liste de Fiches</strong> permettent de visualiser les données sous forme de formulaire ou d&rsquo;enregistrement, similaire à la présentation des données dans une application personnalisée. Dans Grist, vous pouvez choisir les champs à afficher et comment les disposer.</p>
+<p>Une <strong>Liste de Fiches</strong> affiche une liste défilante de fiches. Une <strong>Fiche</strong> en affiche une à la fois. Une seule <strong>Fiche</strong> est particulièrement utile lorsqu&rsquo;elle est liée à une autre vue Table (voir <a href="../linking-widgets/">Lier des vues</a>). Elle peut alors afficher les détails de l&rsquo;enregistrement sélectionné. La vue Fiche unique peut également être utilisée seule. Dans ce cas, vous verrez des boutons de navigation en haut pour passer à l&rsquo;enregistrement suivant ou précédent, ou pour en ajouter un nouveau.</p>
 <p class="screenshot-half"><em><img alt="card_navigation" src="../images/card_navigation.png" /></em></p>
-<h2 id="selecting-theme">Selecting theme<a class="headerlink" href="#selecting-theme" title="Permanent link">#</a></h2>
-<p>The widget options panel allows choosing the theme, or style, for the card:</p>
+<h2 id="selection-du-theme">Sélection du thème<a class="headerlink" href="#selection-du-theme" title="Permanent link">#</a></h2>
+<p>Le panneau d&rsquo;options de la vue permet de choisir le thème, ou le style, de la fiche :</p>
 <p class="screenshot-half"><em><img alt="card_theme" src="../images/card_theme.png" /></em></p>
-<h2 id="editing-card-layout">Editing card layout<a class="headerlink" href="#editing-card-layout" title="Permanent link">#</a></h2>
-<p>To configure the layout of a card, click the green &ldquo;Edit Card Layout&rdquo; button below the theme
-selector, or click the three dots on the top right of the widget and select &ldquo;Edit Card Layout&rdquo; in the
-menu.</p>
+<h2 id="modifier-la-disposition-de-la-fiche">Modifier la disposition de la fiche<a class="headerlink" href="#modifier-la-disposition-de-la-fiche" title="Permanent link">#</a></h2>
+<p>Pour configurer la disposition d&rsquo;une fiche, cliquez sur le bouton vert &ldquo;Modifier la disposition de la fiche&rdquo; sous le sélecteur de thème, ou cliquez sur les trois points en haut à droite de la vue et sélectionnez &ldquo;Modifier la disposition de la fiche&rdquo; dans le menu.</p>
 <p class="screenshot-half"><em><img alt="card_edit_button" src="../images/card_edit_button.png" /></em></p>
 <p class="screenshot-half"><em><img alt="card_edit_menu" src="../images/card_edit_menu.png" /></em></p>
-<p>While the layout editor is active, you&rsquo;ll see a single record with draggable fields,
-and a set of buttons on top of the widget.</p>
+<p>Lorsque l&rsquo;éditeur de disposition est actif, vous verrez un seul enregistrement avec des champs déplaçables et un ensemble de boutons en haut de la vue.</p>
 <p class="screenshot-half"><em><img alt="card_layout_editor" src="../images/card_layout_editor.png" /></em></p>
-<h4 id="resizing-a-field">Resizing a field<a class="headerlink" href="#resizing-a-field" title="Permanent link">#</a></h4>
-<p>To resize a field, move the mouse to a vertical border separating two fields and drag
-the border to your desired size. Only the width of fields may be changed, while the height changes
-dynamically to fit the field contents.</p>
+<h4 id="redimensionner-un-champ">Redimensionner un champ<a class="headerlink" href="#redimensionner-un-champ" title="Permanent link">#</a></h4>
+<p>Pour redimensionner un champ, déplacez la souris vers une bordure verticale séparant deux champs et faites glisser la bordure à la taille souhaitée. Seule la largeur des champs peut être modifiée, tandis que la hauteur change dynamiquement pour s&rsquo;adapter au contenu du champ.</p>
 <p class="screenshot-half"><em><img alt="card_layout_resize" src="../images/card_layout_resize.png" /></em></p>
-<h4 id="moving-a-field">Moving a field<a class="headerlink" href="#moving-a-field" title="Permanent link">#</a></h4>
-<p>To move a field, hold down the mouse button on a field and drag it. As you move the mouse
-near the edges of other fields, you will notice boxes with dashed borders indicating possible drop points in
-relation to other fields. Release the mouse over one of these boxes to place your field into the desired
-location.</p>
+<h4 id="deplacer-un-champ">Déplacer un champ<a class="headerlink" href="#deplacer-un-champ" title="Permanent link">#</a></h4>
+<p>Pour déplacer un champ, maintenez le bouton de la souris enfoncé sur un champ et faites-le glisser. Lorsque vous déplacez la souris près des bords d&rsquo;autres champs, vous remarquerez des boîtes avec des bordures en pointillés indiquant les points de dépôt possibles par rapport aux autres champs. Relâchez la souris sur l&rsquo;une de ces boîtes pour placer votre champ à l&rsquo;emplacement souhaité.</p>
 <p class="screenshot-half"><em><img alt="card_layout_move" src="../images/card_layout_move.png" /></em></p>
-<h4 id="deleting-a-field">Deleting a field<a class="headerlink" href="#deleting-a-field" title="Permanent link">#</a></h4>
-<p>To delete a field, move the mouse over it. An &ldquo;x&rdquo; icon will appear. Click this icon to remove the
-field. This is similar to hiding a column as removing a field from a widget does not delete the
-underlying data.</p>
+<h4 id="supprimer-un-champ">Supprimer un champ<a class="headerlink" href="#supprimer-un-champ" title="Permanent link">#</a></h4>
+<p>Pour supprimer un champ, déplacez la souris dessus. Une icône &ldquo;x&rdquo; apparaîtra. Cliquez sur cette icône pour supprimer le champ. Cela est similaire à masquer une colonne, car supprimer un champ d&rsquo;une vue ne supprime pas les données sous-jacentes.</p>
 <p class="screenshot-half"><em><img alt="card_layout_delete" src="../images/card_layout_delete.png" /></em></p>
-<p>You can also delete a field by hiding it in in the &ldquo;Visible Fields&rdquo; list in the side panel, as described in
-<a href="../page-widgets/#configuring-field-lists">Configuring field list</a>. This is available even when the
-layout editor is not active.</p>
-<h4 id="adding-a-field">Adding a field<a class="headerlink" href="#adding-a-field" title="Permanent link">#</a></h4>
-<p>To add a field, click the &ldquo;Add Field&rdquo; button on top of the layout editor. In the dropdown menu,
-select &ldquo;Create New Field&rdquo; to create a new column of data, or one of the existing fields in the
-table that are not currently shown in the card.</p>
+<p>Vous pouvez également supprimer un champ en le masquant dans la liste &ldquo;Champs visibles&rdquo; du panneau latéral, comme décrit dans <a href="../page-widgets/#configuring-field-lists">Configurer la liste des champs</a>. Cela est disponible même lorsque l&rsquo;éditeur de disposition n&rsquo;est pas actif.</p>
+<h4 id="ajouter-un-champ">Ajouter un champ<a class="headerlink" href="#ajouter-un-champ" title="Permanent link">#</a></h4>
+<p>Pour ajouter un champ, cliquez sur le bouton &ldquo;Ajouter un champ&rdquo; en haut de l&rsquo;éditeur de disposition. Dans le menu déroulant, sélectionnez &ldquo;Créer un nouveau champ&rdquo; pour créer une nouvelle colonne de données, ou l&rsquo;un des champs existants dans la table qui ne sont pas actuellement affichés dans la fiche.</p>
 <p class="screenshot-half"><em><img alt="card_layout_add_menu" src="../images/card_layout_add_menu.png" /></em></p>
-<p>When you click on the field, it will be added at the bottom of the layout. You can then move it or
-resize it as described above.</p>
-<p>Any new fields you create will only be added to the data when you
-save the layout. You can rename these in the &ldquo;Field&rdquo; tab in the side panel.</p>
-<p>You can also add an existing field by making it visible using the &ldquo;Hidden Fields&rdquo; list in the side
-panel, as described in <a href="../page-widgets/#configuring-field-lists">Configuring field list</a>. This is
-available even when the layout editor is not active.</p>
-<h4 id="saving-the-layout">Saving the layout<a class="headerlink" href="#saving-the-layout" title="Permanent link">#</a></h4>
-<p>When done editing the layout, remember to click &ldquo;Save Layout&rdquo; on top of the widget, or &ldquo;Cancel&rdquo; to
-revert your changes.</p>
-<p>Once saved, the Card or Card List widget will update to show all cards in the updated layout.</p>
+<p>Lorsque vous cliquez sur le champ, il sera ajouté en bas de la disposition. Vous pouvez ensuite le déplacer ou le redimensionner comme décrit ci-dessus.</p>
+<p>Tous les nouveaux champs que vous créez ne seront ajoutés aux données que lorsque vous enregistrerez la disposition. Vous pouvez les renommer dans l&rsquo;onglet &ldquo;Champ&rdquo; du panneau latéral.</p>
+<p>Vous pouvez également ajouter un champ existant en le rendant visible à l&rsquo;aide de la liste &ldquo;Champs masqués&rdquo; dans le panneau latéral, comme décrit dans <a href="../page-widgets/#configuring-field-lists">Configurer la liste des champs</a>. Cela est disponible même lorsque l&rsquo;éditeur de disposition n&rsquo;est pas actif.</p>
+<h4 id="enregistrer-la-disposition">Enregistrer la disposition<a class="headerlink" href="#enregistrer-la-disposition" title="Permanent link">#</a></h4>
+<p>Une fois que vous avez terminé de modifier la disposition, n&rsquo;oubliez pas de cliquer sur &ldquo;Enregistrer la disposition&rdquo; en haut de la vue, ou sur &ldquo;Annuler&rdquo; pour annuler vos modifications.</p>
+<p>Une fois enregistrée, la vue Fiche ou Liste de Fiches se mettra à jour pour afficher toutes les fiches dans la disposition mise à jour.</p>
 
   <br>
 </div>

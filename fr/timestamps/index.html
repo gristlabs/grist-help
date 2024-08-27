@@ -7,12 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Sometimes it is useful to have columns that store when individual records were created
-and updated.  This is useful later, for example to sort records by age or freshness.
-Grist lets you create such columns easily.">
-      <meta property="og:description" content="Sometimes it is useful to have columns that store when individual records were created
-and updated.  This is useful later, for example to sort records by age or freshness.
-Grist lets you create such columns easily.">
+      <meta name="description" content="Il est parfois utile d’avoir des colonnes qui stockent le moment où des enregistrements individuels ont été créés et mis à jour. Cela est utile plus tard, par exemple pour trier les enregistrements par ancienneté ou fraîcheur. Grist vous permet de créer facilement de telles colonnes.">
+      <meta property="og:description" content="Il est parfois utile d’avoir des colonnes qui stockent le moment où des enregistrements individuels ont été créés et mis à jour. Cela est utile plus tard, par exemple pour trier les enregistrements par ancienneté ou fraîcheur. Grist vous permet de créer facilement de telles colonnes.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/timestamps/">
@@ -334,17 +330,17 @@ Grist lets you create such columns easily.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Timestamp columns
+              Colonnes de timestamp
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#a-created-at-column">
-                A &ldquo;Created At&rdquo; column
+              <a class="wm-article-link wm-page-toc-text" href="#une-colonne-cree-le">
+                Une colonne &ldquo;Créé le&rdquo;
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#an-updated-at-column">
-                An &ldquo;Updated At&rdquo; column
+              <a class="wm-article-link wm-page-toc-text" href="#une-colonne-mis-a-jour-le">
+                Une colonne &ldquo;Mis à jour le&rdquo;
               </a>
             </li>
         
@@ -929,54 +925,39 @@ Grist lets you create such columns easily.">
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 id="timestamp-columns">Timestamp columns<a class="headerlink" href="#timestamp-columns" title="Permanent link">#</a></h1>
-<p>Sometimes it is useful to have columns that store when individual records were created
-and updated.  This is useful later, for example to sort records by age or freshness.
-Grist lets you create such columns easily.</p>
-<h2 id="a-created-at-column">A &ldquo;Created At&rdquo; column<a class="headerlink" href="#a-created-at-column" title="Permanent link">#</a></h2>
-<p>Suppose we want a column that stores when a record was created.
-As a first step, add a column called (for example) <code>Created At</code> and enter <code class="formula">NOW()</code> as
-its formula.
-Set the column type to <code>DateTime</code> (see <a href="../dates/#making-a-datetime-column">Making a date/time column</a>)
-and choose how you&rsquo;d like the time and date to be shown.</p>
-<p><img alt="starting a Created-At column" src="../images/formulas/formulas-created-at-start.png" /></p>
-<p>What we&rsquo;d like is for the <code>Created At</code> value to stay unchanged once set, and to
-be calculated only when a record is created.  To make the values stay unchanged
-once set, we need to change column behavior from a <code>Formula Column</code> to a <code>Data Column</code>.
-Click on the <code>Column behavior</code> drop-down menu, and choose <code>Convert column to data</code>:</p>
-<p><img alt="a Created-At column" src="../images/formulas/formulas-created-at-convert.png" /></p>
-<p>Now, to calculate values when a record is created, select <code>Apply to new records</code>.
-And we&rsquo;re done! All new records will have <code>Created At</code> set with <code class="formula">NOW()</code> at the
-moment of their creation.</p>
-<p><img alt="a Created-At column" src="../images/formulas/formulas-created-at-final.png" /></p>
-<h2 id="an-updated-at-column">An &ldquo;Updated At&rdquo; column<a class="headerlink" href="#an-updated-at-column" title="Permanent link">#</a></h2>
-<p>If we want a column that stores when a record is updated (as opposed to created),
-the procedure is similar to that for <a href="./#a-created-at-column">a &ldquo;Created At&rdquo; column</a>,
-but instead of <code>Apply to new records</code>,
-select <code>Apply on record changes</code>.  Then select <code>Any field</code> (assuming you want any
-change in a record to count as an update) and press <code>OK</code>.  You can alternatively
-pick and choose which columns to &ldquo;count&rdquo; as updates and which to ignore.</p>
-<p><img alt="an Updated-At column" src="../images/formulas/formulas-updated-at.png" /></p>
+<h1 id="colonnes-de-timestamp">Colonnes de timestamp<a class="headerlink" href="#colonnes-de-timestamp" title="Permanent link">#</a></h1>
+<p>Il est parfois utile d&rsquo;avoir des colonnes qui stockent le moment où des enregistrements individuels ont été créés et mis à jour. Cela est utile plus tard, par exemple pour trier les enregistrements par ancienneté ou fraîcheur. Grist vous permet de créer facilement de telles colonnes.</p>
+<h2 id="une-colonne-cree-le">Une colonne &ldquo;Créé le&rdquo;<a class="headerlink" href="#une-colonne-cree-le" title="Permanent link">#</a></h2>
+<p>Supposons que nous voulions une colonne qui stocke le moment où un enregistrement a été créé.
+Comme première étape, ajoutez une colonne appelée (par exemple) <code>Créé le</code> et entrez <code class="formula">NOW()</code> comme formule.
+Définissez le type de colonne sur <code>DateTime</code> (voir <a href="../dates/#making-a-datetime-column">Créer une colonne date/heure</a>)
+et choisissez comment vous souhaitez que l&rsquo;heure et la date soient affichées.</p>
+<p><img alt="commencer une colonne Créé le" src="../images/formulas/formulas-created-at-start.png" /></p>
+<p>Ce que nous souhaitons, c&rsquo;est que la valeur <code>Créé le</code> reste inchangée une fois définie, et soit calculée uniquement lors de la création d&rsquo;un enregistrement. Pour que les valeurs restent inchangées une fois définies, nous devons changer le comportement de la colonne de <code>Colonne de formule</code> à <code>Colonne de données</code>.
+Cliquez sur le menu déroulant <code>Comportement de la colonne</code>, et choisissez <code>Convertir la colonne en données</code> :</p>
+<p><img alt="une colonne Créé le" src="../images/formulas/formulas-created-at-convert.png" /></p>
+<p>Maintenant, pour calculer les valeurs lors de la création d&rsquo;un enregistrement, sélectionnez <code>Appliquer aux nouveaux enregistrements</code>.
+Et voilà ! Tous les nouveaux enregistrements auront <code>Créé le</code> défini avec <code class="formula">NOW()</code> au moment de leur création.</p>
+<p><img alt="une colonne Créé le" src="../images/formulas/formulas-created-at-final.png" /></p>
+<h2 id="une-colonne-mis-a-jour-le">Une colonne &ldquo;Mis à jour le&rdquo;<a class="headerlink" href="#une-colonne-mis-a-jour-le" title="Permanent link">#</a></h2>
+<p>Si nous voulons une colonne qui stocke le moment où un enregistrement est mis à jour (par opposition à créé),
+la procédure est similaire à celle pour <a href="./#a-created-at-column">une colonne &ldquo;Créé le&rdquo;</a>,
+mais au lieu de <code>Appliquer aux nouveaux enregistrements</code>,
+sélectionnez <code>Appliquer aux modifications des enregistrements</code>. Ensuite, sélectionnez <code>N'importe quel champ</code> (en supposant que vous voulez que tout changement dans un enregistrement soit considéré comme une mise à jour) et appuyez sur <code>OK</code>. Vous pouvez alternativement choisir quelles colonnes &ldquo;compter&rdquo; comme mises à jour et lesquelles ignorer.</p>
+<p><img alt="une colonne Mis à jour le" src="../images/formulas/formulas-updated-at.png" /></p>
 <div class="admonition note">
-<p><strong>It is still possible for a user to manually edit cells in the <code>Created At</code>
-and <code>Updated At</code> columns. If you don&rsquo;t want that to be allowed, use
-<a href="../access-rules/">access rules</a> to forbid it.</strong></p>
+<p><strong>Il est toujours possible pour un utilisateur de modifier manuellement les cellules dans les colonnes <code>Créé le</code> et <code>Mis à jour le</code>. Si vous ne voulez pas que cela soit autorisé, utilisez les <a href="../access-rules/">permissions avancées</a> pour l&rsquo;interdire.</strong></p>
 </div>
-<p>Here is an example of the new columns at work. One new record was added, for
-<code>Unorthodox Delivery Methods</code>, and a created and updated time were set for it
-automatically.   Then the description of <code>Cotton Candy vs Candy Floss</code> was updated,
-and the updated time for that record was set automatically.
-It would also be straightforward to add <a href="../authorship/#a-created-by-column">Created By</a>
-and <a href="../authorship/#a-created-by-column">Updated By</a> columns.</p>
-<p><img alt="Created-At and Updated-At columns in use" src="../images/formulas/formulas-update-and-create.png" /></p>
-<p>Making the <code>Created At</code> and <code>Updated At</code> columns as we did here filled them for all
-pre-existing rows with the current date and time.  If you&rsquo;d
-rather these be left blank, simply do the <code>Convert to data column</code> step before setting a
-formula, and then set the formula in the <code>Optional Formula</code> area.</p>
+<p>Voici un exemple des nouvelles colonnes en action. Un nouvel enregistrement a été ajouté, pour
+<code>Méthodes de livraison non orthodoxes</code>, et une heure de création et de mise à jour ont été définies automatiquement. Ensuite, la description de <code>Barbe à papa vs Barbe à papa</code> a été mise à jour,
+et l&rsquo;heure de mise à jour pour cet enregistrement a été définie automatiquement.
+Il serait également simple d&rsquo;ajouter des colonnes <a href="../authorship/#a-created-by-column">Créé par</a>
+et <a href="../authorship/#a-created-by-column">Mis à jour par</a>.</p>
+<p><img alt="Colonnes Créé le et Mis à jour le en utilisation" src="../images/formulas/formulas-update-and-create.png" /></p>
+<p>Créer les colonnes <code>Créé le</code> et <code>Mis à jour le</code> comme nous l&rsquo;avons fait ici les a remplies pour toutes les lignes préexistantes avec la date et l&rsquo;heure actuelles. Si vous préférez qu&rsquo;elles soient laissées vides, faites simplement l&rsquo;étape <code>Convertir en colonne de données</code> avant de définir une formule, puis définissez la formule dans la zone <code>Formule optionnelle</code>.</p>
 
   <br>
 </div>

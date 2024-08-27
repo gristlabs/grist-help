@@ -7,12 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist supports several chart types to help you visualize your data easily. Charts may be used to plot a
-regular table of data, a linked widget (as described in Linking widgets), or
-a summary table (as described in Summary tables).">
-      <meta property="og:description" content="Grist supports several chart types to help you visualize your data easily. Charts may be used to plot a
-regular table of data, a linked widget (as described in Linking widgets), or
-a summary table (as described in Summary tables).">
+      <meta name="description" content="Grist prend en charge plusieurs types de graphiques pour vous aider à visualiser vos données facilement. Les graphiques peuvent être utilisés pour tracer un tableau de données régulier, une vue liée (comme décrit dans Lier des vues), ou un tableau récapitulatif (comme décrit dans Tableaux récapitulatifs).">
+      <meta property="og:description" content="Grist prend en charge plusieurs types de graphiques pour vous aider à visualiser vos données facilement. Les graphiques peuvent être utilisés pour tracer un tableau de données régulier, une vue liée (comme décrit dans Lier des vues), ou un tableau récapitulatif (comme décrit dans Tableaux récapitulatifs).">
     
     
     <link rel="canonical" href="https://support.getgrist.com/widget-chart/">
@@ -283,17 +279,17 @@ a summary table (as described in Summary tables).">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Page widget: Chart
+              Vue : Graphique
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#chart-types">
-                Chart types
+              <a class="wm-article-link wm-page-toc-text" href="#types-de-graphiques">
+                Types de graphiques
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#chart-options">
-                Chart options
+              <a class="wm-article-link wm-page-toc-text" href="#options-de-graphique">
+                Options de graphique
               </a>
             </li>
         
@@ -927,64 +923,48 @@ a summary table (as described in Summary tables).">
 
     
 
-    <h1 id="page-widget-chart">Page widget: Chart<a class="headerlink" href="#page-widget-chart" title="Permanent link">#</a></h1>
+    <h1 id="vue-graphique">Vue : Graphique<a class="headerlink" href="#vue-graphique" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Grist supports several chart types to help you visualize your data easily. Charts may be used to plot a
-regular table of data, a linked widget (as described in <a href="../linking-widgets/">Linking widgets</a>), or
-a summary table (as described in <a href="../summary-tables/">Summary tables</a>).</p>
-<p>The most common chart types are illustrated here:</p>
+<p>Grist prend en charge plusieurs types de graphiques pour vous aider à visualiser vos données facilement. Les graphiques peuvent être utilisés pour tracer un tableau de données régulier, une vue liée (comme décrit dans <a href="../linking-widgets/">Lier des vues</a>), ou un tableau récapitulatif (comme décrit dans <a href="../summary-tables/">Tableaux récapitulatifs</a>).</p>
+<p>Les types de graphiques les plus courants sont illustrés ici :</p>
 <p><img alt="widget_chart_examples" src="../images/widget_chart_examples.png" /></p>
-<h2 id="chart-types">Chart types<a class="headerlink" href="#chart-types" title="Permanent link">#</a></h2>
-<p>Each chart type plots one or several data series. Select the series to plot by 
-clicking the green &lsquo;Add Series&rsquo; text in the <a href="../glossary/#creator-panel">creator panel</a>. In the area above the &ldquo;Series&rdquo; section of the creator panel, you may configure the x-axis for most charts, or the labels for pie and donut charts.</p>
-<h4 id="bar-chart">Bar Chart<a class="headerlink" href="#bar-chart" title="Permanent link">#</a></h4>
-<p>Needs an x-axis and at least one series to plot along the y-axis. Additional series create 
-additional bars at each point on the x-axis. To stack series onto the same bar, select the &ldquo;Stack series&rdquo; checkbox.</p>
+<h2 id="types-de-graphiques">Types de graphiques<a class="headerlink" href="#types-de-graphiques" title="Permanent link">#</a></h2>
+<p>Chaque type de graphique trace une ou plusieurs séries de données. Sélectionnez les séries à tracer en cliquant sur le texte vert &lsquo;Ajouter une série&rsquo; dans le <a href="../glossary/#creator-panel">panneau de création</a>. Dans la zone au-dessus de la section &ldquo;Séries&rdquo; du panneau de création, vous pouvez configurer l&rsquo;axe des x pour la plupart des graphiques, ou les étiquettes pour les graphiques en secteurs et en anneaux.</p>
+<h4 id="graphique-en-barres">Graphique en barres<a class="headerlink" href="#graphique-en-barres" title="Permanent link">#</a></h4>
+<p>Nécessite un axe des x et au moins une série à tracer le long de l&rsquo;axe des y. Des séries supplémentaires créent des barres supplémentaires à chaque point sur l&rsquo;axe des x. Pour empiler les séries sur la même barre, cochez la case &ldquo;Empiler les séries&rdquo;.</p>
 <p><em><img alt="widget_chart_bar" src="../images/widget_chart_bar.png" /></em></p>
-<h4 id="line-chart">Line Chart<a class="headerlink" href="#line-chart" title="Permanent link">#</a></h4>
-<p>Needs an x-axis and at least one series to plot along the y-axis. 
-Additional series specify Y values for additional lines.</p>
+<h4 id="graphique-en-lignes">Graphique en lignes<a class="headerlink" href="#graphique-en-lignes" title="Permanent link">#</a></h4>
+<p>Nécessite un axe des x et au moins une série à tracer le long de l&rsquo;axe des y. Des séries supplémentaires spécifient les valeurs Y pour des lignes supplémentaires.</p>
 <p><em><img alt="widget_chart_line" src="../images/widget_chart_line.png" /></em></p>
-<h4 id="pie-chart">Pie Chart<a class="headerlink" href="#pie-chart" title="Permanent link">#</a></h4>
-<p>Needs pie slice labels and one series for the pie slice sizes.</p>
+<h4 id="graphique-en-secteurs">Graphique en secteurs<a class="headerlink" href="#graphique-en-secteurs" title="Permanent link">#</a></h4>
+<p>Nécessite des étiquettes de tranches et une série pour les tailles des tranches.</p>
 <p><em><img alt="widget_chart_pie" src="../images/widget_chart_pie.png" /></em></p>
-<h4 id="area-chart">Area Chart<a class="headerlink" href="#area-chart" title="Permanent link">#</a></h4>
-<p>Similar to a line chart, needs an x-axis and at least one series to plot along the y-axis. 
-Additional series specify Y values for additional lines.</p>
+<h4 id="graphique-en-aires">Graphique en aires<a class="headerlink" href="#graphique-en-aires" title="Permanent link">#</a></h4>
+<p>Similaire à un graphique en lignes, nécessite un axe des x et au moins une série à tracer le long de l&rsquo;axe des y. Des séries supplémentaires spécifient les valeurs Y pour des lignes supplémentaires.</p>
 <p><em><img alt="widget_chart_area" src="../images/widget_chart_area.png" /></em></p>
-<h4 id="scatter-plot">Scatter Plot<a class="headerlink" href="#scatter-plot" title="Permanent link">#</a></h4>
-<p>Needs a label and two or more series. The label applies to the points. The series apply the X and Y values for each point, respectively. Additional series specify Y values for additional sets of points.</p>
+<h4 id="nuage-de-points">Nuage de points<a class="headerlink" href="#nuage-de-points" title="Permanent link">#</a></h4>
+<p>Nécessite une étiquette et deux séries ou plus. L&rsquo;étiquette s&rsquo;applique aux points. Les séries appliquent les valeurs X et Y pour chaque point, respectivement. Des séries supplémentaires spécifient les valeurs Y pour des ensembles de points supplémentaires.</p>
 <p><em><img alt="widget_chart_scatter" src="../images/widget_chart_scatter.png" /></em></p>
-<h4 id="kaplan-meier-plot">Kaplan-Meier Plot<a class="headerlink" href="#kaplan-meier-plot" title="Permanent link">#</a></h4>
-<p>The <a href="https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator">Kaplan-Meier Plot</a> is useful
-for certain studies, and needs one label and one series. The label applies to the lines being plotted. The series gives a survival time or time-to-failure of that point. The plot shows the survival times on the X axis, and the number of points that survive at that time on the Y axis.</p>
+<h4 id="graphique-de-kaplan-meier">Graphique de Kaplan-Meier<a class="headerlink" href="#graphique-de-kaplan-meier" title="Permanent link">#</a></h4>
+<p>Le <a href="https://fr.wikipedia.org/wiki/Estimateur_de_Kaplan-Meier">Graphique de Kaplan-Meier</a> est utile pour certaines études, et nécessite une étiquette et une série. L&rsquo;étiquette s&rsquo;applique aux lignes tracées. La série donne un temps de survie ou un temps jusqu&rsquo;à la défaillance de ce point. Le graphique montre les temps de survie sur l&rsquo;axe des X, et le nombre de points qui survivent à ce moment sur l&rsquo;axe des Y.</p>
 <p><em><img alt="widget_chart_km" src="../images/widget_chart_km.png" /></em></p>
-<h2 id="chart-options">Chart options<a class="headerlink" href="#chart-options" title="Permanent link">#</a></h2>
-<p>A number of chart options are available, some of them specific to certain chart types.</p>
-<p><strong>Split Series</strong>: When checked, an extra series is to be selected under the &lsquo;Split Series&rsquo; dropdown. The series
-should contain a group label for each data point. All points with the same group value are plotted as a separate line.</p>
-<p>For example:</p>
+<h2 id="options-de-graphique">Options de graphique<a class="headerlink" href="#options-de-graphique" title="Permanent link">#</a></h2>
+<p>Un certain nombre d&rsquo;options de graphique sont disponibles, certaines d&rsquo;entre elles spécifiques à certains types de graphiques.</p>
+<p><strong>Diviser les séries</strong> : Lorsqu&rsquo;elle est cochée, une série supplémentaire doit être sélectionnée dans le menu déroulant &lsquo;Diviser les séries&rsquo;. La série doit contenir une étiquette de groupe pour chaque point de données. Tous les points avec la même valeur de groupe sont tracés comme une ligne séparée.</p>
+<p>Par exemple :</p>
 <p><em><img alt="widget_chart_grouped" src="../images/widget_chart_grouped.png" /></em></p>
-<p><strong>Invert Y-axis</strong>: When checked the Y axis is flipped, with smaller values above and larger values
-below.</p>
-<p><strong>Connect gaps</strong> [for Line Charts only]: When checked, gaps caused by missing values are connected
-by connecting neighboring points. The &ldquo;Show Markers&rdquo; option described next can be used to
-keep a visual cue for which points are present.</p>
-<p><strong>Show markers</strong> [for Line Charts only]: When checked, each point on the line is marked
-additionally by a small circle. See the example for Split Series above.</p>
-<p><strong>Stack series</strong> [for Line and Bar Charts]: When checked, split series will be stacked, rather than shown separately, giving a total for your selected series. In this example, we can see the total revenue for each month across all three departments. Note that &lsquo;Split series&rsquo; must be checked in order to select multiple series to stack.</p>
+<p><strong>Inverser l&rsquo;axe Y</strong> : Lorsqu&rsquo;elle est cochée, l&rsquo;axe Y est inversé, avec les valeurs plus petites en haut et les valeurs plus grandes en bas.</p>
+<p><strong>Connecter les lacunes</strong> [pour les graphiques en lignes uniquement] : Lorsqu&rsquo;elle est cochée, les lacunes causées par des valeurs manquantes sont comblées en connectant les points voisins. L&rsquo;option &ldquo;Afficher les marqueurs&rdquo; décrite ci-après peut être utilisée pour garder un indice visuel des points présents.</p>
+<p><strong>Afficher les marqueurs</strong> [pour les graphiques en lignes uniquement] : Lorsqu&rsquo;elle est cochée, chaque point sur la ligne est marqué en plus par un petit cercle. Voir l&rsquo;exemple pour Diviser les séries ci-dessus.</p>
+<p><strong>Empiler les séries</strong> [pour les graphiques en lignes et en barres] : Lorsqu&rsquo;elle est cochée, les séries divisées seront empilées, plutôt que montrées séparément, donnant un total pour vos séries sélectionnées. Dans cet exemple, nous pouvons voir le revenu total pour chaque mois dans les trois départements. Notez que &lsquo;Diviser les séries&rsquo; doit être cochée pour sélectionner plusieurs séries à empiler.</p>
 <p><em><img alt="widget_chart_stack_series" src="../images/widget_chart_stack_series.png" /></em></p>
-<p><strong>Error bars</strong> [for Line and Bar Charts]: When set to &ldquo;Symmetric&rdquo;, each Y series should be
-followed by a series for the length of the error bars to show. When set to &ldquo;Above+Below&rdquo;, each Y
-series should be followed by <em>two</em> series, one for the top error bars, and one for the bottom.</p>
+<p><strong>Barres d&rsquo;erreur</strong> [pour les graphiques en lignes et en barres] : Lorsqu&rsquo;elle est réglée sur &ldquo;Symétrique&rdquo;, chaque série Y doit être suivie d&rsquo;une série pour la longueur des barres d&rsquo;erreur à afficher. Lorsqu&rsquo;elle est réglée sur &ldquo;Au-dessus+En-dessous&rdquo;, chaque série Y doit être suivie de <em>deux</em> séries, une pour les barres d&rsquo;erreur supérieures, et une pour les inférieures.</p>
 <p><em><img alt="widget_chart_error_bars" src="../images/widget_chart_error_bars.png" /></em></p>
-<p>In the example here, &ldquo;Split Series&rdquo; is checked. So the series selected from the Split Series dropdown (&ldquo;Cell Line&rdquo;), specifies how to group the data into lines. 
-The series selected under the X-Axis dropdown (&ldquo;Log[Drug], uM&rdquo;), specifies our values along the x-axis. Our first series in the Series list (&ldquo;% Viable Cells&rdquo;), specifies our y-axis values, and the series that follows that (&ldquo;SD&rdquo;), specifies the error bars for those Y values.</p>
+<p>Dans l&rsquo;exemple ici, &ldquo;Diviser les séries&rdquo; est cochée. Donc la série sélectionnée dans le menu déroulant Diviser les séries (&ldquo;Ligne cellulaire&rdquo;), spécifie comment grouper les données en lignes. La série sélectionnée dans le menu déroulant Axe des X (&ldquo;Log[Drug], uM&rdquo;), spécifie nos valeurs le long de l&rsquo;axe des x. Notre première série dans la liste des séries (&ldquo;% Cellules viables&rdquo;), spécifie nos valeurs de l&rsquo;axe des y, et la série qui suit (&ldquo;SD&rdquo;), spécifie les barres d&rsquo;erreur pour ces valeurs Y.</p>
 
   <br>
 </div>

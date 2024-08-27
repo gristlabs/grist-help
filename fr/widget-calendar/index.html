@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="The calendar widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the calendar widget can be configured to display that data.">
-      <meta property="og:description" content="The calendar widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the calendar widget can be configured to display that data.">
+      <meta name="description" content="La vue calendrier permet de visualiser les données dans une vue calendrier. Dans Grist, les données d’événements sont stockées dans une table de données. Ensuite, la vue calendrier peut être configurée pour afficher ces données.">
+      <meta property="og:description" content="La vue calendrier permet de visualiser les données dans une vue calendrier. Dans Grist, les données d’événements sont stockées dans une table de données. Ensuite, la vue calendrier peut être configurée pour afficher ces données.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/widget-calendar/">
@@ -283,32 +283,32 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Page widget: Calendar
+              Vue : Calendrier
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#setting-up-your-data">
-                Setting up your data
+              <a class="wm-article-link wm-page-toc-text" href="#configuration-de-vos-donnees">
+                Configuration de vos données
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#configuring-the-calendar">
-                Configuring the calendar
+              <a class="wm-article-link wm-page-toc-text" href="#configuration-du-calendrier">
+                Configuration du calendrier
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#adding-a-new-event">
-                Adding a new event
+              <a class="wm-article-link wm-page-toc-text" href="#ajouter-un-nouvel-evenement">
+                Ajouter un nouvel événement
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#linking-event-details">
-                Linking event details
+              <a class="wm-article-link wm-page-toc-text" href="#lier-les-details-de-levenement">
+                Lier les détails de l&rsquo;événement
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#deleting-an-event">
-                Deleting an event
+              <a class="wm-article-link wm-page-toc-text" href="#supprimer-un-evenement">
+                Supprimer un événement
               </a>
             </li>
         
@@ -938,53 +938,53 @@
 
     
 
-    <h1 id="page-widget-calendar">Page widget: Calendar<a class="headerlink" href="#page-widget-calendar" title="Permanent link">#</a></h1>
+    <h1 id="vue-calendrier">Vue : Calendrier<a class="headerlink" href="#vue-calendrier" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>The calendar widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the calendar widget can be configured to display that data.</p>
+<p>La vue calendrier permet de visualiser les données dans une vue calendrier. Dans Grist, les données d&rsquo;événements sont stockées dans une table de données. Ensuite, la vue calendrier peut être configurée pour afficher ces données.</p>
 <p><em><img alt="widget-calendar-intro" src="../images/widget-calendar/widget-calendar-intro.png" /></em></p>
-<h2 id="setting-up-your-data">Setting up your data<a class="headerlink" href="#setting-up-your-data" title="Permanent link">#</a></h2>
-<p>In your data table, you will need two columns of data, with the option to add three additional data columns:</p>
+<h2 id="configuration-de-vos-donnees">Configuration de vos données<a class="headerlink" href="#configuration-de-vos-donnees" title="Permanent link">#</a></h2>
+<p>Dans votre table de données, vous aurez besoin de deux colonnes de données, avec la possibilité d&rsquo;ajouter trois colonnes de données supplémentaires :</p>
 <ol>
-<li><strong>Title</strong>: <a href="../col-types/#text-columns">Text</a> column, containing the title of your event.</li>
-<li><strong>Start Date</strong>: <a href="../col-types/#date-columns">Date</a> or <a href="../col-types/#datetime-columns">DateTime</a> column, containing the date, or date and time, that the event begins.</li>
-<li><em>(Optional)</em> <strong>End Date</strong>: <a href="../col-types/#date-columns">Date</a> or <a href="../col-types/#datetime-columns">DateTime</a> column, containing the date, or date and time, that the event ends.</li>
-<li><em>(Optional)</em> <strong>Is All Day?</strong>: <a href="../col-types/#toggle-columns">Toggle</a> column, noting if an event is all day long.</li>
-<li><em>(Optional)</em> <strong>Type</strong>: <a href="../col-types/#choice-columns">Choice</a> or <a href="../col-types/#choice-list-columns">Choice List</a> column, containing the event category and styling.</li>
+<li><strong>Titre</strong> : colonne <a href="../col-types/#text-columns">Texte</a>, contenant le titre de votre événement.</li>
+<li><strong>Date de début</strong> : colonne <a href="../col-types/#date-columns">Date</a> ou <a href="../col-types/#datetime-columns">DateHeure</a>, contenant la date, ou la date et l&rsquo;heure, à laquelle l&rsquo;événement commence.</li>
+<li><em>(Optionnel)</em> <strong>Date de fin</strong> : colonne <a href="../col-types/#date-columns">Date</a> ou <a href="../col-types/#datetime-columns">DateHeure</a>, contenant la date, ou la date et l&rsquo;heure, à laquelle l&rsquo;événement se termine.</li>
+<li><em>(Optionnel)</em> <strong>Toute la journée ?</strong> : colonne <a href="../col-types/#toggle-columns">Basculer</a>, indiquant si un événement dure toute la journée.</li>
+<li><em>(Optionnel)</em> <strong>Type</strong> : colonne <a href="../col-types/#choice-columns">Choix</a> ou <a href="../col-types/#choice-list-columns">Liste de choix</a>, contenant la catégorie et le style de l&rsquo;événement.</li>
 </ol>
 <p><em><img alt="widget-calendar-columns" src="../images/widget-calendar/widget-calendar-columns.png" /></em></p>
-<h2 id="configuring-the-calendar">Configuring the calendar<a class="headerlink" href="#configuring-the-calendar" title="Permanent link">#</a></h2>
-<p>Add a calendar widget from the ‘Add New’ menu. Select the table containing your event data.</p>
+<h2 id="configuration-du-calendrier">Configuration du calendrier<a class="headerlink" href="#configuration-du-calendrier" title="Permanent link">#</a></h2>
+<p>Ajoutez une vue calendrier depuis le menu ‘Ajouter Nouveau’. Sélectionnez la table contenant vos données d&rsquo;événements.</p>
 <p class="screenshot-half"><em><img alt="widget-calendar-add-widget" src="../images/widget-calendar/widget-calendar-add-widget.png" /></em></p>
-<p>Configure the widget by selecting the columns in your data table that contain Start Date, End Date (optional), Is All Day? (optional), Title and Type (optional).</p>
+<p>Configurez la vue en sélectionnant les colonnes de votre table de données qui contiennent la Date de début, la Date de fin (optionnel), Toute la journée ? (optionnel), le Titre et le Type (optionnel).</p>
 <p class="screenshot-half"><em><img alt="widget-calendar-configuration" src="../images/widget-calendar/widget-calendar-configuration.png" /></em></p>
-<h2 id="adding-a-new-event">Adding a new event<a class="headerlink" href="#adding-a-new-event" title="Permanent link">#</a></h2>
-<p>You can add a new event by double-clicking the start time for the event in the calendar widget. In the popup, you can add a title for the event and modify the start and end time. You also have the option to mark the event as &lsquo;all day&rsquo;. </p>
+<h2 id="ajouter-un-nouvel-evenement">Ajouter un nouvel événement<a class="headerlink" href="#ajouter-un-nouvel-evenement" title="Permanent link">#</a></h2>
+<p>Vous pouvez ajouter un nouvel événement en double-cliquant sur l&rsquo;heure de début de l&rsquo;événement dans la vue calendrier. Dans la fenêtre contextuelle, vous pouvez ajouter un titre pour l&rsquo;événement et modifier l&rsquo;heure de début et de fin. Vous avez également la possibilité de marquer l&rsquo;événement comme &lsquo;toute la journée&rsquo;.</p>
 <p><em><img alt="widget-calendar-new-event" src="../images/widget-calendar/widget-calendar-new-event.png" /></em></p>
-<p>You can also modify the start and end time of an event by clicking and dragging the event directly on the calendar.</p>
-<p>To modify an event’s start time, click and drag from the middle of the event. When modifying start time, the duration of the event will remain the same. </p>
+<p>Vous pouvez également modifier l&rsquo;heure de début et de fin d&rsquo;un événement en cliquant et en faisant glisser l&rsquo;événement directement sur le calendrier.</p>
+<p>Pour modifier l&rsquo;heure de début d&rsquo;un événement, cliquez et faites glisser depuis le milieu de l&rsquo;événement. Lorsque vous modifiez l&rsquo;heure de début, la durée de l&rsquo;événement restera la même.</p>
 <p class="screenshot-half"><em><img alt="widget-calendar-adjust-start" src="../images/widget-calendar/widget-calendar-adjust-start.png" /></em></p>
-<p>To modify an event&rsquo;s end time, click and drag from the bottom of the event. You’ll notice that the icon is slightly different from the icon that appears when modifying start time. </p>
+<p>Pour modifier l&rsquo;heure de fin d&rsquo;un événement, cliquez et faites glisser depuis le bas de l&rsquo;événement. Vous remarquerez que l&rsquo;icône est légèrement différente de celle qui apparaît lors de la modification de l&rsquo;heure de début.</p>
 <p class="screenshot-half"><em><img alt="widget-calendar-adjust-time" src="../images/widget-calendar/widget-calendar-adjust-time.png" /></em></p>
-<p>Any changes to start and end time will be made to the underlying data table so your data will always be consistent!</p>
-<h2 id="linking-event-details">Linking event details<a class="headerlink" href="#linking-event-details" title="Permanent link">#</a></h2>
-<p>It might be useful to see more event details in a table or card widget.</p>
-<p>This example will walk through a card widget.</p>
-<p>To create a linked view, add a new type of widget such as a table or a card, and select the same data table. Under ‘Select By’, select the calendar widget. Then, add to page.</p>
+<p>Toutes les modifications des heures de début et de fin seront apportées à la table de données sous-jacente afin que vos données soient toujours cohérentes !</p>
+<h2 id="lier-les-details-de-levenement">Lier les détails de l&rsquo;événement<a class="headerlink" href="#lier-les-details-de-levenement" title="Permanent link">#</a></h2>
+<p>Il peut être utile de voir plus de détails sur l&rsquo;événement dans une vue table ou fiche.</p>
+<p>Cet exemple vous guidera à travers une vue fiche.</p>
+<p>Pour créer une vue liée, ajoutez un nouveau type de vue tel qu&rsquo;une table ou une fiche, et sélectionnez la même table de données. Sous ‘Sélectionner par’, sélectionnez la vue calendrier. Ensuite, ajoutez à la page.</p>
 <p class="screenshot-half"><em><img alt="widget-calendar-linked-card-selectby" src="../images/widget-calendar/widget-calendar-linked-card-selectby.png" /></em></p>
-<p>Now, when you click on an event in the calendar widget, the linked widget will update to show the details for the selected event.</p>
+<p>Maintenant, lorsque vous cliquez sur un événement dans la vue calendrier, la vue liée se mettra à jour pour afficher les détails de l&rsquo;événement sélectionné.</p>
 <p><em><img alt="widget-calendar-linked-card" src="../images/widget-calendar/widget-calendar-linked-card.png" /></em></p>
 <div class="admonition note">
-<p class="admonition-title">Collapsing widgets</p>
-<p>Drag the linked widget into the attic at the top of the page to collapse. The widget will still be linked but will take up less space on the page! Simply click the box to expand and view linked record details.</p>
-<p>Read more on <a href="../custom-layouts/">Custom Layouts</a>.</p>
+<p class="admonition-title">Réduire les vues</p>
+<p>Faites glisser la vue liée dans le grenier en haut de la page pour la réduire. La vue restera liée mais prendra moins de place sur la page ! Cliquez simplement sur la boîte pour l&rsquo;agrandir et voir les détails de l&rsquo;enregistrement lié.</p>
+<p>En savoir plus sur les <a href="../custom-layouts/">Mises en page personnalisées</a>.</p>
 </div>
-<h2 id="deleting-an-event">Deleting an event<a class="headerlink" href="#deleting-an-event" title="Permanent link">#</a></h2>
-<p>To delete an event, double-click the event in the calendar then select &lsquo;delete&rsquo; in the popup.</p>
+<h2 id="supprimer-un-evenement">Supprimer un événement<a class="headerlink" href="#supprimer-un-evenement" title="Permanent link">#</a></h2>
+<p>Pour supprimer un événement, double-cliquez sur l&rsquo;événement dans le calendrier puis sélectionnez &lsquo;supprimer&rsquo; dans la</p>
+<p>popup.</p>
 <p><em><img alt="widget-calendar-delete-record" src="../images/widget-calendar/widget-calendar-delete-record.png" /></em></p>
 
   <br>

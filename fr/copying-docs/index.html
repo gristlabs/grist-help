@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="It is sometimes useful to make a copy, or clone, of a Grist document. A few scenarios are described below. In
-all cases, you would start with the “Share” menu available from the top bar of an open document:">
-      <meta property="og:description" content="It is sometimes useful to make a copy, or clone, of a Grist document. A few scenarios are described below. In
-all cases, you would start with the “Share” menu available from the top bar of an open document:">
+      <meta name="description" content="Il est parfois utile de faire une copie, ou un clone, d’un document Grist. Quelques scénarios sont décrits ci-dessous. Dans tous les cas, vous commencerez par le menu “Partager” disponible dans la barre supérieure d’un document ouvert :">
+      <meta property="og:description" content="Il est parfois utile de faire une copie, ou un clone, d’un document Grist. Quelques scénarios sont décrits ci-dessous. Dans tous les cas, vous commencerez par le menu “Partager” disponible dans la barre supérieure d’un document ouvert :">
     
     
     <link rel="canonical" href="https://support.getgrist.com/copying-docs/">
@@ -222,22 +220,22 @@ all cases, you would start with the “Share” menu available from the top bar 
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Copying Documents
+              Copier des Documents
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#trying-out-changes">
-                Trying Out Changes
+              <a class="wm-article-link wm-page-toc-text" href="#essayer-des-modifications">
+                Essayer des Modifications
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#duplicating-documents">
-                Duplicating Documents
+              <a class="wm-article-link wm-page-toc-text" href="#dupliquer-des-documents">
+                Dupliquer des Documents
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#copying-public-examples">
-                Copying Public Examples
+              <a class="wm-article-link wm-page-toc-text" href="#copier-des-exemples-publics">
+                Copier des Exemples Publics
               </a>
             </li>
         
@@ -930,78 +928,45 @@ all cases, you would start with the “Share” menu available from the top bar 
 
     
 
-    <h1 id="copying-documents">Copying Documents<a class="headerlink" href="#copying-documents" title="Permanent link">#</a></h1>
+    <h1 id="copier-des-documents">Copier des Documents<a class="headerlink" href="#copier-des-documents" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>It is sometimes useful to make a copy, or clone, of a Grist document. A few scenarios are described below. In
-all cases, you would start with the &ldquo;Share&rdquo; menu available from the top bar of an open document:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Share Menu" src="../images/copying-docs/open-share-menu.png" /></em></span></p>
-<h2 id="trying-out-changes">Trying Out Changes<a class="headerlink" href="#trying-out-changes" title="Permanent link">#</a></h2>
-<p>As your document grows in importance, it becomes riskier to make changes to its structure or
-logic. That&rsquo;s a good reason to work out such changes on a copy of the document, without fear of
-affecting the original.</p>
-<p>Open the Share menu and click the option &ldquo;Work on a Copy&rdquo;.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Work on a Copy" src="../images/copying-docs/work-on-copy.png" /></em></span></p>
-<p>You&rsquo;ll get an unsaved copy of your document. This copy is special in that it knows which original
-document it came from (you can see the original document ID included in its URL).
-You can experiment on this copy, making changes big or small, one or many.</p>
-<p>For those familiar with software development, this option is
-similar to a <a href="https://en.wikipedia.org/wiki/Branching_%28version_control%29" target="_blank">branch</a> or a
-<a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo" target="_blank">fork</a>
-as used in version control systems like <a href="https://git-scm.com/" target="_blank">Git</a>.</p>
-<p>When working on a copy, the Share menu has some new options. For example,
-you can view differences between the document copy and the original,
-using the &ldquo;Compare to Original&rdquo; menu item:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Compare Menu" src="../images/newsletters/2020-11/compare-menu.png" /></em></span></p>
-<p>New material will be highlighted in green, and old material in red.</p>
-<p><img alt="Show Differences" src="../images/newsletters/2020-11/show-diffs.png" /></p>
-<p>Once satisfied with your changes, click the option &ldquo;Replace Original&rdquo;. Your copy will replace the
-original document. Grist will warn you if the replacement risks overwriting any recent changes in
-the original.</p>
-<p>To discard your changes, simply go back to the original document using the &ldquo;Return to Original&rdquo;
-option (or the Back button in your browser). Don&rsquo;t worry about cleaning up your copy. It does not
-count against any document limits, and will get cleaned up automatically if it has been unused for
-a while.</p>
-<p>You can also save your copy under a new name using the &ldquo;Save Copy&rdquo; option.</p>
-<h3 id="access-to-unsaved-copies">Access to Unsaved Copies<a class="headerlink" href="#access-to-unsaved-copies" title="Permanent link">#</a></h3>
-<p>When you create an experimental copy as described above, it gets a unique link. The copy isn&rsquo;t
-listed anywhere, so others will not find it unless you share this link.</p>
-<p>Anyone with a link to your copy and with access to the original document is allowed to view the
-copy, but you are the only user allowed to edit it.</p>
-<p>This means that you can share a link to your copy with others, who can review your changes.</p>
-<p>It also means that you can try out changes even if you cannot edit the original! You can then
-share a link to your copy with a collaborator who has edit access, who would be able to review
-your changes and apply them to the original document.</p>
-<h2 id="duplicating-documents">Duplicating Documents<a class="headerlink" href="#duplicating-documents" title="Permanent link">#</a></h2>
-<p>You can save your document under a new name using the &ldquo;Duplicate Document&rdquo; option in the Share
-menu. Clicking it opens a dialog:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Save Copy Dialog" src="../images/copying-docs/save-copy-dialog.png" /></em></span></p>
-<p>Type in the new name. If you have access to one or more team accounts, you may have a choice of a
-destination team and a destination workspace where to save the copy. Note that on a team
-site, you would not be able to save the document outside of the team site unless you have
-owner-level access to the document.</p>
-<h3 id="copying-as-a-template">Copying as a Template<a class="headerlink" href="#copying-as-a-template" title="Permanent link">#</a></h3>
-<p>If you mark the &ldquo;As Template&rdquo; checkbox when saving a copy, you&rsquo;ll get a document which has all the
-structure, formulas, and layouts of the original, but none of the data. It makes it easy to use
-the existing structure for a new set of data.</p>
-<h3 id="copying-for-backup-purposes">Copying for Backup Purposes<a class="headerlink" href="#copying-for-backup-purposes" title="Permanent link">#</a></h3>
-<p>You can use the &ldquo;Duplicate Document&rdquo; option to save the current version of the document as a
-backup, perhaps appending today&rsquo;s date to the name of the copy. That said, Grist already makes
-automatic backups regularly, which may be sufficient for most backup needs. See <a href="../automatic-backups/">Automatic
-Backups</a>.</p>
-<h2 id="copying-public-examples">Copying Public Examples<a class="headerlink" href="#copying-public-examples" title="Permanent link">#</a></h2>
-<p>When you open a public example from the <a href="https://docs.getgrist.com/p/templates">Examples &amp; Templates page</a>,
-it will open the example in <a href="../glossary/#fiddle-mode">fiddle mode</a>.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Fiddle Mode" src="../images/copying-docs/fiddle-mode.png" /></em></span></p>
-<p>Fiddle mode is similar to working on a copy, as described above in <a href="#trying-out-changes">Trying Out Changes</a>.
-You may make changes, but they remain private to you. You can save a copy of the example under
-a new name using the &ldquo;Save Copy&rdquo; button or menu option.</p>
-<p>You can use the &ldquo;As Template&rdquo; checkbox to discard the data of the example, keeping only its
-structure. This makes it easy to start using it for your own data.</p>
+<p>Il est parfois utile de faire une copie, ou un clone, d&rsquo;un document Grist. Quelques scénarios sont décrits ci-dessous. Dans tous les cas, vous commencerez par le menu &ldquo;Partager&rdquo; disponible dans la barre supérieure d&rsquo;un document ouvert :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu Partager" src="../images/copying-docs/open-share-menu.png" /></em></span></p>
+<h2 id="essayer-des-modifications">Essayer des Modifications<a class="headerlink" href="#essayer-des-modifications" title="Permanent link">#</a></h2>
+<p>À mesure que votre document prend de l&rsquo;importance, il devient plus risqué de modifier sa structure ou sa logique. C&rsquo;est une bonne raison de tester ces modifications sur une copie du document, sans craindre d&rsquo;affecter l&rsquo;original.</p>
+<p>Ouvrez le menu Partager et cliquez sur l&rsquo;option &ldquo;Travailler sur une copie&rdquo;.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Travailler sur une copie" src="../images/copying-docs/work-on-copy.png" /></em></span></p>
+<p>Vous obtiendrez une copie non enregistrée de votre document. Cette copie est spéciale car elle sait de quel document original elle provient (vous pouvez voir l&rsquo;ID du document original inclus dans son URL). Vous pouvez expérimenter sur cette copie, en faisant des modifications grandes ou petites, une ou plusieurs.</p>
+<p>Pour ceux qui sont familiers avec le développement logiciel, cette option est similaire à une <a href="https://en.wikipedia.org/wiki/Branching_%28version_control%29" target="_blank">branche</a> ou un <a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo" target="_blank">fork</a> comme utilisé dans les systèmes de contrôle de version tels que <a href="https://git-scm.com/" target="_blank">Git</a>.</p>
+<p>Lorsque vous travaillez sur une copie, le menu Partager propose de nouvelles options. Par exemple, vous pouvez visualiser les différences entre la copie du document et l&rsquo;original, en utilisant l&rsquo;élément de menu &ldquo;Comparer à l&rsquo;original&rdquo; :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu Comparer" src="../images/newsletters/2020-11/compare-menu.png" /></em></span></p>
+<p>Les nouvelles modifications seront surlignées en vert, et les anciennes en rouge.</p>
+<p><img alt="Afficher les différences" src="../images/newsletters/2020-11/show-diffs.png" /></p>
+<p>Une fois satisfait de vos modifications, cliquez sur l&rsquo;option &ldquo;Remplacer l&rsquo;original&rdquo;. Votre copie remplacera le document original. Grist vous avertira si le remplacement risque d&rsquo;écraser des modifications récentes dans l&rsquo;original.</p>
+<p>Pour abandonner vos modifications, revenez simplement au document original en utilisant l&rsquo;option &ldquo;Retourner à l&rsquo;original&rdquo; (ou le bouton Retour de votre navigateur). Ne vous inquiétez pas de nettoyer votre copie. Elle ne compte pas dans les limites de documents et sera automatiquement nettoyée si elle n&rsquo;a pas été utilisée pendant un certain temps.</p>
+<p>Vous pouvez également enregistrer votre copie sous un nouveau nom en utilisant l&rsquo;option &ldquo;Enregistrer une copie&rdquo;.</p>
+<h3 id="acces-aux-copies-non-enregistrees">Accès aux Copies Non Enregistrées<a class="headerlink" href="#acces-aux-copies-non-enregistrees" title="Permanent link">#</a></h3>
+<p>Lorsque vous créez une copie expérimentale comme décrit ci-dessus, elle obtient un lien unique. La copie n&rsquo;est listée nulle part, donc les autres ne la trouveront pas à moins que vous ne partagiez ce lien.</p>
+<p>Toute personne ayant un lien vers votre copie et ayant accès au document original est autorisée à voir la copie, mais vous êtes le seul utilisateur autorisé à la modifier.</p>
+<p>Cela signifie que vous pouvez partager un lien vers votre copie avec d&rsquo;autres, qui peuvent examiner vos modifications.</p>
+<p>Cela signifie également que vous pouvez essayer des modifications même si vous ne pouvez pas modifier l&rsquo;original ! Vous pouvez ensuite partager un lien vers votre copie avec un collaborateur qui a un accès de modification, qui pourra examiner vos modifications et les appliquer au document original.</p>
+<h2 id="dupliquer-des-documents">Dupliquer des Documents<a class="headerlink" href="#dupliquer-des-documents" title="Permanent link">#</a></h2>
+<p>Vous pouvez enregistrer votre document sous un nouveau nom en utilisant l&rsquo;option &ldquo;Dupliquer le document&rdquo; dans le menu Partager. En cliquant dessus, une boîte de dialogue s&rsquo;ouvre :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Boîte de dialogue Enregistrer une copie" src="../images/copying-docs/save-copy-dialog.png" /></em></span></p>
+<p>Tapez le nouveau nom. Si vous avez accès à un ou plusieurs comptes d&rsquo;équipe, vous pouvez avoir le choix d&rsquo;une équipe de destination et d&rsquo;un dossier de destination où enregistrer la copie. Notez que sur un espace d&rsquo;équipe, vous ne pourrez pas enregistrer le document en dehors de l&rsquo;espace d&rsquo;équipe à moins d&rsquo;avoir un accès de niveau propriétaire au document.</p>
+<h3 id="copier-comme-modele">Copier comme Modèle<a class="headerlink" href="#copier-comme-modele" title="Permanent link">#</a></h3>
+<p>Si vous cochez la case &ldquo;Comme modèle&rdquo; lors de l&rsquo;enregistrement d&rsquo;une copie, vous obtiendrez un document qui a toute la structure, les formules et les mises en page de l&rsquo;original, mais aucune des données. Cela facilite l&rsquo;utilisation de la structure existante pour un nouvel ensemble de données.</p>
+<h3 id="copier-a-des-fins-de-sauvegarde">Copier à des Fins de Sauvegarde<a class="headerlink" href="#copier-a-des-fins-de-sauvegarde" title="Permanent link">#</a></h3>
+<p>Vous pouvez utiliser l&rsquo;option &ldquo;Dupliquer le document&rdquo; pour enregistrer la version actuelle du document comme sauvegarde, en ajoutant peut-être la date d&rsquo;aujourd&rsquo;hui au nom de la copie. Cela dit, Grist effectue déjà des sauvegardes automatiques régulièrement, ce qui peut être suffisant pour la plupart des besoins de sauvegarde. Voir <a href="../automatic-backups/">Sauvegardes Automatiques</a>.</p>
+<h2 id="copier-des-exemples-publics">Copier des Exemples Publics<a class="headerlink" href="#copier-des-exemples-publics" title="Permanent link">#</a></h2>
+<p>Lorsque vous ouvrez un exemple public depuis la <a href="https://docs.getgrist.com/p/templates">page Exemples &amp; Modèles</a>, il ouvrira l&rsquo;exemple en <a href="../glossary/#fiddle-mode">mode sandbox</a>.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Mode Sandbox" src="../images/copying-docs/fiddle-mode.png" /></em></span></p>
+<p>Le mode sandbox est similaire à travailler sur une copie, comme décrit ci-dessus dans <a href="#trying-out-changes">Essayer des Modifications</a>. Vous pouvez apporter des modifications, mais elles restent privées. Vous pouvez enregistrer une copie de l&rsquo;exemple sous un nouveau nom en utilisant le bouton ou l&rsquo;option de menu &ldquo;Enregistrer une copie&rdquo;.</p>
+<p>Vous pouvez utiliser la case à cocher &ldquo;Comme modèle&rdquo; pour supprimer les données de l&rsquo;exemple, en conservant uniquement sa structure. Cela facilite son utilisation pour vos propres données.</p>
 
   <br>
 </div>

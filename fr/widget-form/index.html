@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="The form widget allows you to collect data in a form view which populates your Grist data table upon submission.">
-      <meta property="og:description" content="The form widget allows you to collect data in a form view which populates your Grist data table upon submission.">
+      <meta name="description" content="La vue formulaire vous permet de collecter des données dans une vue formulaire qui remplit votre table de données Grist lors de la soumission.">
+      <meta property="og:description" content="La vue formulaire vous permet de collecter des données dans une vue formulaire qui remplit votre table de données Grist lors de la soumission.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/widget-form/">
@@ -275,27 +275,27 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Page widget: Form
+              Vue fiche : Formulaire
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#setting-up-your-data">
-                Setting up your data
+              <a class="wm-article-link wm-page-toc-text" href="#configurer-vos-donnees">
+                Configurer vos données
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-your-form">
-                Creating your form
+              <a class="wm-article-link wm-page-toc-text" href="#creer-votre-formulaire">
+                Créer votre formulaire
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#publishing-your-form">
-                Publishing your form
+              <a class="wm-article-link wm-page-toc-text" href="#publier-votre-formulaire">
+                Publier votre formulaire
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#form-submissions">
-                Form submissions
+              <a class="wm-article-link wm-page-toc-text" href="#soumissions-de-formulaire">
+                Soumissions de formulaire
               </a>
             </li>
         
@@ -933,67 +933,66 @@
 
     
 
-    <h1 id="page-widget-form">Page widget: Form<a class="headerlink" href="#page-widget-form" title="Permanent link">#</a></h1>
+    <h1 id="vue-fiche-formulaire">Vue fiche : Formulaire<a class="headerlink" href="#vue-fiche-formulaire" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>The form widget allows you to collect data in a form view which populates your Grist data table upon submission.</p>
+<p>La vue formulaire vous permet de collecter des données dans une vue formulaire qui remplit votre table de données Grist lors de la soumission.</p>
 <p class="screenshot-half"><em><img alt="widget-form-intro" src="../images/widget-form/widget-form-intro.png" /></em></p>
-<h2 id="setting-up-your-data">Setting up your data<a class="headerlink" href="#setting-up-your-data" title="Permanent link">#</a></h2>
-<p>Create a table containing the columns of data you wish to populate via form.</p>
+<h2 id="configurer-vos-donnees">Configurer vos données<a class="headerlink" href="#configurer-vos-donnees" title="Permanent link">#</a></h2>
+<p>Créez une table contenant les colonnes de données que vous souhaitez remplir via le formulaire.</p>
 <p><em><img alt="widget-form-data-table" src="../images/widget-form/widget-form-data-table.png" /></em></p>
-<h2 id="creating-your-form">Creating your form<a class="headerlink" href="#creating-your-form" title="Permanent link">#</a></h2>
-<p>Add a form widget from the &ldquo;Add New&rdquo; menu. Select the data table you wish to populate with form data. </p>
+<h2 id="creer-votre-formulaire">Créer votre formulaire<a class="headerlink" href="#creer-votre-formulaire" title="Permanent link">#</a></h2>
+<p>Ajoutez une vue formulaire depuis le menu &ldquo;Ajouter nouveau&rdquo;. Sélectionnez la table de données que vous souhaitez remplir avec les données du formulaire.</p>
 <p class="screenshot-half"><em><img alt="widget-form-add-widget" src="../images/widget-form/widget-form-add-widget.png" /></em></p>
-<p>Then, customize the form to your heart&rsquo;s desire!</p>
-<p>By default, the form view will include elements for headers and descriptions as well as all columns (fields) from the underlying data table. </p>
+<p>Ensuite, personnalisez le formulaire à votre guise !</p>
+<p>Par défaut, la vue formulaire inclura des éléments pour les en-têtes et les descriptions ainsi que toutes les colonnes (champs) de la table de données sous-jacente.</p>
 <p><em><img alt="widget-form-default-values" src="../images/widget-form/widget-form-default-values.png" /></em></p>
-<h3 id="adding-and-removing-elements">Adding and removing elements<a class="headerlink" href="#adding-and-removing-elements" title="Permanent link">#</a></h3>
-<p>To add additional form elements, click the + icon at the bottom of the form. From the menu, you can add the following elements:</p>
+<h3 id="ajouter-et-supprimer-des-elements">Ajouter et supprimer des éléments<a class="headerlink" href="#ajouter-et-supprimer-des-elements" title="Permanent link">#</a></h3>
+<p>Pour ajouter des éléments supplémentaires au formulaire, cliquez sur l&rsquo;icône + en bas du formulaire. Dans le menu, vous pouvez ajouter les éléments suivants :</p>
 <ol>
-<li><strong>New Question:</strong> Select a column type to create a new field. &ldquo;••• More &gt;&rdquo; will open an expanded menu listing all column types. Adding a new question will add a new column to the underlying data table.</li>
-<li><strong>Unmapped Fields:</strong> Lists any hidden fields from the underlying data table.</li>
-<li><strong>Building Blocks:</strong> Customize further by adding these additional elements!</li>
+<li><strong>Nouvelle question :</strong> Sélectionnez un type de colonne pour créer un nouveau champ. &ldquo;••• Plus &gt;&rdquo; ouvrira un menu étendu listant tous les types de colonnes. Ajouter une nouvelle question ajoutera une nouvelle colonne à la table de données sous-jacente.</li>
+<li><strong>Champs non appariés :</strong> Liste tous les champs cachés de la table de données sous-jacente.</li>
+<li><strong>Blocs de construction :</strong> Personnalisez davantage en ajoutant ces éléments supplémentaires !</li>
 </ol>
 <p><em><img alt="widget-form-elements-side" src="../images/widget-form/widget-form-elements-side.png" /></em></p>
-<p>You can remove any element from the form by hovering over the object and clicking the trash icon to delete. You can hide any uneccessary fields from the form by hovering over the object and clicking the x icon.</p>
+<p>Vous pouvez supprimer tout élément du formulaire en survolant l&rsquo;objet et en cliquant sur l&rsquo;icône de la corbeille pour supprimer. Vous pouvez masquer tout champ inutile du formulaire en survolant l&rsquo;objet et en cliquant sur l&rsquo;icône x.</p>
 <p><em><img alt="widget-form-delete" src="../images/widget-form/widget-form-delete.png" /></em></p>
-<h3 id="configuring-fields">Configuring fields<a class="headerlink" href="#configuring-fields" title="Permanent link">#</a></h3>
-<p>You can provide alternative titles for your form fields, rather than use the same column name from the underlying data table. For example, on our form, we have a toggle that is titled &ldquo;May we contact you?&rdquo;. In the data table, this column is labeled &ldquo;Ok to Contact?&rdquo;. Field titles can be configured under the &ldquo;Field&rdquo; tab of the creator panel.</p>
+<h3 id="configurer-les-champs">Configurer les champs<a class="headerlink" href="#configurer-les-champs" title="Permanent link">#</a></h3>
+<p>Vous pouvez fournir des titres alternatifs pour vos champs de formulaire, plutôt que d&rsquo;utiliser le même nom de colonne de la table de données sous-jacente. Par exemple, sur notre formulaire, nous avons un bouton bascule intitulé &ldquo;Pouvons-nous vous contacter ?&rdquo;. Dans la table de données, cette colonne est étiquetée &ldquo;Ok pour contacter ?&rdquo;. Les titres des champs peuvent être configurés sous l&rsquo;onglet &ldquo;Champ&rdquo; du panneau de création.</p>
 <p><em><img alt="widget-form-field-title" src="../images/widget-form/widget-form-field-title.png" /></em></p>
-<p>To make a form field required, check the box next to &ldquo;Required field&rdquo;.</p>
+<p>Pour rendre un champ de formulaire obligatoire, cochez la case à côté de &ldquo;Champ obligatoire&rdquo;.</p>
 <p><em><img alt="widget-form-required-field" src="../images/widget-form/widget-form-required-field.png" /></em></p>
-<p>If a user attempts to submit a form without filling in the required field, they will get an alert to fill out the field.</p>
+<p>Si un utilisateur tente de soumettre un formulaire sans remplir le champ obligatoire, il recevra une alerte pour remplir le champ.</p>
 <p class="screenshot-half"><em><img alt="widget-form-required-field-error" src="../images/widget-form/widget-form-required-field-error.png" /></em></p>
-<h3 id="configuring-building-blocks">Configuring building blocks<a class="headerlink" href="#configuring-building-blocks" title="Permanent link">#</a></h3>
-<p>Header and Paragraph building blocks can be edited either directly in the block or from the creator panel. In the creator panel, you have text alignment options available.</p>
+<h3 id="configurer-les-blocs-de-construction">Configurer les blocs de construction<a class="headerlink" href="#configurer-les-blocs-de-construction" title="Permanent link">#</a></h3>
+<p>Les blocs de construction En-tête et Paragraphe peuvent être édités soit directement dans le bloc, soit depuis le panneau de création. Dans le panneau de création, vous avez des options d&rsquo;alignement de texte disponibles.</p>
 <p><em><img alt="widget-form-block-options" src="../images/widget-form/widget-form-block-options.png" /></em></p>
-<p>For additional formatting, both elements allow the use of Markdown formatting. For help on Markdown formatting, check out the <a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide</a>.</p>
+<p>Pour un formatage supplémentaire, les deux éléments permettent l&rsquo;utilisation du formatage Markdown. Pour obtenir de l&rsquo;aide sur le formatage Markdown, consultez le <a href="https://www.markdownguide.org/basic-syntax/">Guide Markdown</a>.</p>
 <p><em><img alt="widget-form-markdown" src="../images/widget-form/widget-form-markdown.png" /></em></p>
 <div class="admonition note">
-<p class="admonition-title">HTML Formatting</p>
-<p>HTML tags can be used in Markdown-formatted text. Be sure to separate block-level HTML elements like <code>&lt;div&gt;</code> and <code>&lt;p&gt;</code> from other elements using blank lines.</p>
+<p class="admonition-title">Formatage HTML</p>
+<p>Les balises HTML peuvent être utilisées dans le texte formaté en Markdown. Assurez-vous de séparer les éléments HTML de niveau bloc comme <code>&lt;div&gt;</code> et <code>&lt;p&gt;</code> des autres éléments en utilisant des lignes vides.</p>
 </div>
-<h3 id="configuring-submission-options">Configuring submission options<a class="headerlink" href="#configuring-submission-options" title="Permanent link">#</a></h3>
-<p>You also have the option to configure different settings for the &ldquo;Submit&rdquo; button. You can change the button label, update the success text which appears after a form is submitted and choose to allow multiple form submissions. You also have the option to select a specific URL to redirect to following submission.</p>
-<p>These options are all available under the &ldquo;Form&rdquo; tab and &ldquo;Submission&rdquo; subtab of the creator panel.</p>
+<h3 id="configurer-les-options-de-soumission">Configurer les options de soumission<a class="headerlink" href="#configurer-les-options-de-soumission" title="Permanent link">#</a></h3>
+<p>Vous avez également la possibilité de configurer différents paramètres pour le bouton &ldquo;Soumettre&rdquo;. Vous pouvez changer l&rsquo;étiquette du bouton, mettre à jour le texte de succès qui apparaît après la soumission d&rsquo;un formulaire et choisir d&rsquo;autoriser plusieurs soumissions de formulaire. Vous avez également la possibilité de sélectionner une URL spécifique vers laquelle rediriger après la soumission.</p>
+<p>Ces options sont toutes disponibles sous l&rsquo;onglet &ldquo;Formulaire&rdquo; et le sous-onglet &ldquo;Soumission&rdquo; du panneau de création.</p>
 <p class="screenshot-half"><em><img alt="widget-form-submission-options" src="../images/widget-form/widget-form-submission-options.png" /></em></p>
-<h2 id="publishing-your-form">Publishing your form<a class="headerlink" href="#publishing-your-form" title="Permanent link">#</a></h2>
-<p>Once you have finished customizing your form, you have the option to preview your form, prior to publishing.</p>
+<h2 id="publier-votre-formulaire">Publier votre formulaire<a class="headerlink" href="#publier-votre-formulaire" title="Permanent link">#</a></h2>
+<p>Une fois que vous avez terminé de personnaliser votre formulaire, vous avez la possibilité de prévisualiser votre formulaire avant de le publier.</p>
 <p><em><img alt="widget-form-footer-options" src="../images/widget-form/widget-form-footer-options.png" /></em></p>
-<p>Previewing will allow you to see what your form will look like to end users, without making it available for use.</p>
-<p>After you have confirmed everything is as you wish, you can publish your form. Note that only users with &ldquo;OWNER&rdquo; access have permission to publish a form.</p>
-<p>The first time you publish a form, the following informational popup will appear, explaining the permissions a published form grants.</p>
+<p>La prévisualisation vous permettra de voir à quoi ressemblera votre formulaire pour les utilisateurs finaux, sans le rendre disponible pour l&rsquo;utilisation.</p>
+<p>Après avoir confirmé que tout est comme vous le souhaitez, vous pouvez publier votre formulaire. Notez que seuls les utilisateurs ayant un accès &ldquo;PROPRIÉTAIRE&rdquo; ont la permission de publier un formulaire.</p>
+<p>La première fois que vous publiez un formulaire, la popup d&rsquo;information suivante apparaîtra, expliquant les permissions qu&rsquo;un formulaire publié accorde.</p>
 <p><em><img alt="widget-form-publish" src="../images/widget-form/widget-form-publish.png" /></em></p>
-<p>Once a form has been published, a button will appear to copy the link to the form. Share this link with end users to fill out your form! You also have the option to unpublish your form. Note that unpublishing the form will disable the share link. Users accessing the form via that link would then see an error.</p>
+<p>Une fois qu&rsquo;un formulaire a été publié, un bouton apparaîtra pour copier le lien vers le formulaire. Partagez ce lien avec les utilisateurs finaux pour qu&rsquo;ils remplissent votre formulaire ! Vous avez également la possibilité de dépublier votre formulaire. Notez que dépublier le formulaire désactivera le lien de partage. Les utilisateurs accédant au formulaire via ce lien verront alors une erreur.</p>
 <p><em><img alt="widget-form-footer-options-published" src="../images/widget-form/widget-form-footer-options-published.png" /></em></p>
-<h2 id="form-submissions">Form submissions<a class="headerlink" href="#form-submissions" title="Permanent link">#</a></h2>
-<p>After sharing the link to your published form, end users can submit data to your Grist document via the form.</p>
+<h2 id="soumissions-de-formulaire">Soumissions de formulaire<a class="headerlink" href="#soumissions-de-formulaire" title="Permanent link">#</a></h2>
+<p>Après avoir partagé le lien vers votre formulaire publié, les utilisateurs finaux peuvent soumettre des données à votre document Grist via le formulaire.</p>
 <p><em><img alt="widget-form-submission" src="../images/widget-form/widget-form-submission.png" /></em></p>
-<p>All submitted data will appear in your underlying data table in your Grist document! Collecting data has never been so easy. 😍</p>
+<p>Toutes les données soumises apparaîtront dans votre table de données sous-jacente dans votre document Grist ! Collecter des données n&rsquo;a jamais été aussi facile. 😍</p>
 <p><em><img alt="widget-form-submission-table" src="../images/widget-form/widget-form-submission-table.png" /></em></p>
 
   <br>

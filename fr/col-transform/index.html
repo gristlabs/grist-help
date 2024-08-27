@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist offers two ways to transform all values in a column. One is to change the type of the
-column, and the other is to apply a formula-based transformation.">
-      <meta property="og:description" content="Grist offers two ways to transform all values in a column. One is to change the type of the
-column, and the other is to apply a formula-based transformation.">
+      <meta name="description" content="Grist offre deux façons de transformer toutes les valeurs d’une colonne. L’une consiste à changer le type de la colonne, et l’autre à appliquer une transformation basée sur une formule.">
+      <meta property="og:description" content="Grist offre deux façons de transformer toutes les valeurs d’une colonne. L’une consiste à changer le type de la colonne, et l’autre à appliquer une transformation basée sur une formule.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/col-transform/">
@@ -344,13 +342,13 @@ column, and the other is to apply a formula-based transformation.">
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#type-conversions">
-                Type conversions
+              <a class="wm-article-link wm-page-toc-text" href="#conversions-de-type">
+                Conversions de type
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#formula-based-transforms">
-                Formula-based transforms
+              <a class="wm-article-link wm-page-toc-text" href="#transformations-basees-sur-des-formules">
+                Transformations basées sur des formules
               </a>
             </li>
         
@@ -925,58 +923,29 @@ column, and the other is to apply a formula-based transformation.">
 
     
 
-    <h1 id="column-transformations">Column Transformations<a class="headerlink" href="#column-transformations" title="Permanent link">#</a></h1>
+    <h1 id="transformations-de-colonne">Transformations de Colonne<a class="headerlink" href="#transformations-de-colonne" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Grist offers two ways to transform all values in a column. One is to change the type of the
-column, and the other is to apply a formula-based transformation.</p>
-<h2 id="type-conversions">Type conversions<a class="headerlink" href="#type-conversions" title="Permanent link">#</a></h2>
-<p>When converting between different column types, Grist has sensible default behavior,
-but makes that behavior easy to revise. For example, suppose you have a column of integers.
-To convert that column to text, open the column options as described in
-<a href="../col-types/#specifying-a-type">Specifying a type</a>, and find the column type section.
-Change the column type to text in the dropdown.  You&rsquo;ll notice that a
-&ldquo;cancel/revise/apply&rdquo; dialog opens beside the dropdown.</p>
+<p>Grist offre deux façons de transformer toutes les valeurs d&rsquo;une colonne. L&rsquo;une consiste à changer le type de la colonne, et l&rsquo;autre à appliquer une transformation basée sur une formule.</p>
+<h2 id="conversions-de-type">Conversions de type<a class="headerlink" href="#conversions-de-type" title="Permanent link">#</a></h2>
+<p>Lors de la conversion entre différents types de colonnes, Grist adopte un comportement par défaut raisonnable, mais rend ce comportement facile à réviser. Par exemple, supposons que vous ayez une colonne d&rsquo;entiers. Pour convertir cette colonne en texte, ouvrez les options de la colonne comme décrit dans <a href="../col-types/#specifying-a-type">Spécifier un type</a>, et trouvez la section de type de colonne. Changez le type de colonne en texte dans le menu déroulant. Vous remarquerez qu&rsquo;une boîte de dialogue &ldquo;annuler/réviser/appliquer&rdquo; s&rsquo;ouvre à côté du menu déroulant.</p>
 <p class="screenshot-half"><em><img alt="Tally to text" src="../images/columns/columns-tally-convert.png" /></em></p>
-<p>To change how the conversion is done, click <code>Revise</code>.  You&rsquo;ll see
-a formula box with the default conversion method,
-<code>grist.Text.typeConvert($tally)</code>.  This means &ldquo;do default conversion
-to text for the <code>tally</code> column&rdquo;.  you can replace this with any formula you
-like.  For example:</p>
+<p>Pour changer la façon dont la conversion est effectuée, cliquez sur <code>Réviser</code>. Vous verrez une boîte de formule avec la méthode de conversion par défaut, <code>grist.Text.typeConvert($tally)</code>. Cela signifie &ldquo;faire la conversion par défaut en texte pour la colonne <code>tally</code>&rdquo;. Vous pouvez remplacer cela par n&rsquo;importe quelle formule de votre choix. Par exemple :</p>
 <p class="screenshot-half"><em><img alt="Tally to lines" src="../images/columns/columns-tally-convert-lines.png" /></em></p>
-<p>Code for converting to unicode tally lines is left as an exercise to
-the reader.  To preview the results of the conversion, click &ldquo;preview&rdquo;.
-When you are satisfied with the conversion, click &ldquo;apply&rdquo;.  To abandon
-the conversion, click &ldquo;cancel&rdquo;.</p>
-<h2 id="formula-based-transforms">Formula-based transforms<a class="headerlink" href="#formula-based-transforms" title="Permanent link">#</a></h2>
-<p>Spreadsheets are convenient tools for cleaning up data using <a href="../formulas/">formulas</a>.
-For example, imagine you had zip codes that have lost leading zeros - you can easily
-reformat them with a quick formula:</p>
+<p>Le code pour convertir en lignes unicode est laissé comme exercice au lecteur. Pour prévisualiser les résultats de la conversion, cliquez sur &ldquo;prévisualiser&rdquo;. Lorsque vous êtes satisfait de la conversion, cliquez sur &ldquo;appliquer&rdquo;. Pour abandonner la conversion, cliquez sur &ldquo;annuler&rdquo;.</p>
+<h2 id="transformations-basees-sur-des-formules">Transformations basées sur des formules<a class="headerlink" href="#transformations-basees-sur-des-formules" title="Permanent link">#</a></h2>
+<p>Les tableurs sont des outils pratiques pour nettoyer les données en utilisant des <a href="../formulas/">formules</a>. Par exemple, imaginez que vous ayez des codes postaux qui ont perdu leurs zéros initiaux - vous pouvez facilement les reformater avec une formule rapide :</p>
 <p><img alt="Motivating transformations" src="../images/columns/columns-zip-columns.png" /></p>
-<p>We could now <a href="../formulas/#freeze-a-formula-column">freeze the results</a> and delete the
-original data if we don&rsquo;t need it anymore.</p>
-<p>If you know you&rsquo;re going to throw away the original data like this,
-Grist offers column transformations as a faster way to systematically
-modify all cells of a column. Find the &ldquo;Transform&rdquo; section
-at the bottom of the column options side panel (see <a href="../col-types/">Columns</a> for
-how to open this panel).</p>
+<p>Nous pourrions maintenant <a href="../formulas/#freeze-a-formula-column">figer les résultats</a> et supprimer les données originales si nous n&rsquo;en avons plus besoin.</p>
+<p>Si vous savez que vous allez jeter les données originales comme cela, Grist offre des transformations de colonne comme un moyen plus rapide de modifier systématiquement toutes les cellules d&rsquo;une colonne.</p>
+<p>Trouvez la section &ldquo;Transformer&rdquo; en bas du panneau latéral des options de colonne (voir <a href="../col-types/">Colonnes</a> pour savoir comment ouvrir ce panneau).</p>
 <p><img alt="Column transformations" src="../images/columns/columns-transformer.png" /></p>
-<p>When you click the orange &ldquo;lightning&rdquo; button, Grist prompts you with a formula,
-<code>return $zip</code> in this case.  You can edit this formula to make some change to
-the selected column.  For example <code>return $zip + 1</code> would add one to the zip code.
-You can preview the effect your formula would have, and when you are happy, hit
-&ldquo;Apply&rdquo;.  In our case, where we want to add leading zeros, we&rsquo;ll need to first
-change our column type to be <code>Text</code> (assuming it is currently <code>Integer</code> - if it
-<code>Numeric</code> convert to <code>Integer</code> first and then to <code>Text</code> to avoid decimal points).
-Once done, we can use our formula for adding leading zeros:</p>
+<p>Lorsque vous cliquez sur le bouton orange &ldquo;éclair&rdquo;, Grist vous propose une formule, <code>return $zip</code> dans ce cas. Vous pouvez modifier cette formule pour apporter un changement à la colonne sélectionnée. Par exemple, <code>return $zip + 1</code> ajouterait un au code postal. Vous pouvez prévisualiser l&rsquo;effet de votre formule, et lorsque vous êtes satisfait, appuyez sur &ldquo;Appliquer&rdquo;. Dans notre cas, où nous voulons ajouter des zéros initiaux, nous devons d&rsquo;abord changer notre type de colonne en <code>Texte</code> (en supposant qu&rsquo;il soit actuellement <code>Entier</code> - s&rsquo;il est <code>Numérique</code>, convertissez-le d&rsquo;abord en <code>Entier</code> puis en <code>Texte</code> pour éviter les points décimaux). Une fois cela fait, nous pouvons utiliser notre formule pour ajouter des zéros initiaux :</p>
 <p><img alt="Column transformation preview" src="../images/columns/columns-transformer-preview.png" /></p>
-<p>When happy, press &ldquo;Apply&rdquo; to replace the cell values with their new versions.
-Likewise, the <code>response</code> column could be transformed with the formula into true/false
-values with <code>$response[0] == 'y'</code>, and then set as a <a href="../col-types/#toggle-columns">toggle column</a>.</p>
+<p>Lorsque vous êtes satisfait, appuyez sur &ldquo;Appliquer&rdquo; pour remplacer les valeurs des cellules par leurs nouvelles versions. De même, la colonne <code>response</code> pourrait être transformée avec la formule en valeurs vrai/faux avec <code>$response[0] == 'y'</code>, puis définie comme une <a href="../col-types/#toggle-columns">colonne à bascule</a>.</p>
 
   <br>
 </div>

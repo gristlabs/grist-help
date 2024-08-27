@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="The Table widget is a versatile spreadsheet-like grid.">
-      <meta property="og:description" content="The Table widget is a versatile spreadsheet-like grid.">
+      <meta name="description" content="La Table vue est une grille polyvalente semblable à une feuille de calcul.">
+      <meta property="og:description" content="La Table vue est une grille polyvalente semblable à une feuille de calcul.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/widget-table/">
@@ -267,27 +267,27 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Page widget: Table
+              Vue Table: Tableau
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#column-operations">
-                Column operations
+              <a class="wm-article-link wm-page-toc-text" href="#operations-sur-les-colonnes">
+                Opérations sur les colonnes
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#row-operations">
-                Row operations
+              <a class="wm-article-link wm-page-toc-text" href="#operations-sur-les-lignes">
+                Opérations sur les lignes
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#navigation-and-selection">
-                Navigation and selection
+              <a class="wm-article-link wm-page-toc-text" href="#navigation-et-selection">
+                Navigation et sélection
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#customization">
-                Customization
+              <a class="wm-article-link wm-page-toc-text" href="#personnalisation">
+                Personnalisation
               </a>
             </li>
         
@@ -933,119 +933,81 @@
 
     
 
-    <h1 id="page-widget-table">Page widget: Table<a class="headerlink" href="#page-widget-table" title="Permanent link">#</a></h1>
+    <h1 id="vue-table-tableau">Vue Table: Tableau<a class="headerlink" href="#vue-table-tableau" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>The <strong>Table</strong> widget is a versatile spreadsheet-like grid.</p>
+<p>La <strong>Table</strong> vue est une grille polyvalente semblable à une feuille de calcul.</p>
 <p><img alt="widget_table_basic" src="../images/widget_table_basic.png" /></p>
-<p>Here are some useful features to know.</p>
-<h3 id="column-operations">Column operations<a class="headerlink" href="#column-operations" title="Permanent link">#</a></h3>
+<p>Voici quelques fonctionnalités utiles à connaître.</p>
+<h3 id="operations-sur-les-colonnes">Opérations sur les colonnes<a class="headerlink" href="#operations-sur-les-colonnes" title="Permanent link">#</a></h3>
 <ul>
 <li>
-<p><strong>Resize columns</strong>: Click on the line between column headers, and drag it to resize columns.</p>
+<p><strong>Redimensionner les colonnes</strong> : Cliquez sur la ligne entre les en-têtes de colonne et faites-la glisser pour redimensionner les colonnes.</p>
 </li>
 <li>
-<p><strong>Reorder columns</strong>: With a column selected, drag its header to move it to a different place
-  relative to other columns. (You can also do this by reordering fields in the widget
-  options panel.)</p>
+<p><strong>Réorganiser les colonnes</strong> : Avec une colonne sélectionnée, faites glisser son en-tête pour la déplacer à un autre endroit par rapport aux autres colonnes. (Vous pouvez également le faire en réorganisant les champs dans le panneau d&rsquo;options de la vue.)</p>
 </li>
 <li>
-<p><strong>Rename columns</strong>: With a column selected, click its header to rename it. Hit <code class="keys"><em>Enter</em></code> to
-  save the new name.</p>
+<p><strong>Renommer les colonnes</strong> : Avec une colonne sélectionnée, cliquez sur son en-tête pour la renommer. Appuyez sur <code class="keys"><em>Entrée</em></code> pour enregistrer le nouveau nom.</p>
 </li>
 <li>
-<p><strong>Add columns</strong>: Click the &ldquo;+&rdquo; icon on the right of all the column headers to add a new column,
-  or show any of the hidden columns. The column menu also allows inserting a new column next to an
-  existing column, as do the keyboard shortcuts <code class="keys"><em>Alt</em> + <strong>+</strong></code>
-  (insert before) and <code class="keys"><em>Alt</em> + <strong>=</strong></code> (insert after).</p>
+<p><strong>Ajouter des colonnes</strong> : Cliquez sur l&rsquo;icône &ldquo;+&rdquo; à droite de tous les en-têtes de colonne pour ajouter une nouvelle colonne ou afficher l&rsquo;une des colonnes masquées. Le menu de la colonne permet également d&rsquo;insérer une nouvelle colonne à côté d&rsquo;une colonne existante, tout comme les raccourcis clavier <code class="keys"><em>Alt</em> + <strong>+</strong></code> (insérer avant) et <code class="keys"><em>Alt</em> + <strong>=</strong></code> (insérer après).</p>
 <p class="screenshot-half"><em><img alt="column_add" src="../images/column_add.png" /></em></p>
-<p>After adding a column, the column name (set by default to &ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;, etc.) is immediately
-selected and highlighted to let you quickly rename it. Just type in the new name and hit <code
-class="keys"><em>Enter</em></code>, or hit <code class="keys"><em>Escape</em></code> to keep the default name.</p>
+<p>Après avoir ajouté une colonne, le nom de la colonne (défini par défaut sur &ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;C&rdquo;, etc.) est immédiatement sélectionné et mis en surbrillance pour vous permettre de le renommer rapidement. Tapez simplement le nouveau nom et appuyez sur <code class="keys"><em>Entrée</em></code>, ou appuyez sur <code class="keys"><em>Échap</em></code> pour conserver le nom par défaut.</p>
 </li>
 <li>
-<p><strong>Hide columns</strong>: Move the mouse over the column header and click the triangle to open the
-  column menu. Click &ldquo;Hide column&rdquo; to hide the column. The column remains in the underlying data, and can be
-  shown again using the &ldquo;+&rdquo; icon on the right of the column headers, or the field list in the widget
-  options panel.</p>
+<p><strong>Masquer les colonnes</strong> : Déplacez la souris sur l&rsquo;en-tête de la colonne et cliquez sur le triangle pour ouvrir le menu de la colonne. Cliquez sur &ldquo;Masquer la colonne&rdquo; pour masquer la colonne. La colonne reste dans les données sous-jacentes et peut être affichée à nouveau en utilisant l&rsquo;icône &ldquo;+&rdquo; à droite des en-têtes de colonne, ou la liste des champs dans le panneau d&rsquo;options de la vue.</p>
 </li>
 </ul>
 <p class="screenshot-half"><em><img alt="column_menu_hide" src="../images/column_menu_hide.png" /></em></p>
 <ul>
-<li>
-<p><strong>Delete columns</strong>: Delete the actual column of data using the column menu option, or the
-  <code class="keys"><em>Alt</em> + <em>Minus</em></code> keyboard shortcut. The table is the only widget that
-  allows deleting a column.</p>
-<p><strong>Note:</strong> <em>deleting</em> and <em>hiding</em> are different. Hiding a columns removes it
-only from the current page widget, but leaves it in the data and available to formulas.
-Deleting a column removes it from everywhere. (Of course, undo still works for either
-operation!)</p>
-</li>
+<li><strong>Supprimer les colonnes</strong> : Supprimez la colonne de données réelle en utilisant l&rsquo;option du menu de la colonne ou le raccourci clavier <code class="keys"><em>Alt</em> + <em>Moins</em></code>. Le tableau est la seule vue qui permet de supprimer une colonne.</li>
 </ul>
-<h3 id="row-operations">Row operations<a class="headerlink" href="#row-operations" title="Permanent link">#</a></h3>
+<p><strong>Remarque :</strong> <em>supprimer</em> et <em>masquer</em> sont différents. Masquer une colonne la retire uniquement de la vue actuelle, mais la laisse dans les données et disponible pour les formules. Supprimer une colonne la retire de partout. (Bien sûr, la fonction d&rsquo;annulation fonctionne toujours pour l&rsquo;une ou l&rsquo;autre opération !)</p>
+<h3 id="operations-sur-les-lignes">Opérations sur les lignes<a class="headerlink" href="#operations-sur-les-lignes" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>Add rows</strong>: Type into the last row in a table, which is highlighted to indicate that it&rsquo;s a
-  placeholder for adding new records. Right click a row number to insert a blank row next to an
-  existing row, or use the keyboard shortcuts
-  <code class="keys"><em>⌘</em> <em>⇧</em> <em>=</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>=</strong></code> (Windows)
-  to insert before, and
-  <code class="keys"><em>⌘</em> <strong>=</strong></code> (Mac) or <code class="keys"><em>Ctrl</em> + <strong>=</strong></code> (Windows)
-  to insert after.</li>
+<li><strong>Ajouter des lignes</strong> : Tapez dans la dernière ligne d&rsquo;un tableau, qui est mise en surbrillance pour indiquer qu&rsquo;elle est un espace réservé pour l&rsquo;ajout de nouveaux enregistrements. Faites un clic droit sur un numéro de ligne pour insérer une ligne vide à côté d&rsquo;une ligne existante, ou utilisez les raccourcis clavier <code class="keys"><em>⌘</em> <em>⇧</em> <em>=</em></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>=</strong></code> (Windows) pour insérer avant, et <code class="keys"><em>⌘</em> <strong>=</strong></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <strong>=</strong></code> (Windows) pour insérer après.</li>
 </ul>
 <p class="screenshot-half"><em><img alt="row_menu" src="../images/row_menu.png" /></em></p>
 <ul>
 <li>
-<p><strong>Delete rows</strong>: Right click a row number and select the &ldquo;Delete&rdquo; option to delete a row, or use the
-  <code class="keys"><em>⌘</em> + <em>Minus</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Minus</em></code> (Windows)
-  shortcut. If you select a range of cells first, either of these delete actions will delete all
-  rows included in the range.</p>
+<p><strong>Supprimer des lignes</strong> : Faites un clic droit sur un numéro de ligne et sélectionnez l&rsquo;option &ldquo;Supprimer&rdquo; pour supprimer une ligne, ou utilisez le raccourci <code class="keys"><em>⌘</em> + <em>Moins</em></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>Moins</em></code> (Windows). Si vous sélectionnez une intervalle de cellules d&rsquo;abord, l&rsquo;une ou l&rsquo;autre de ces actions de suppression supprimera toutes les lignes incluses dans l&rsquo;intervalle.</p>
 </li>
 <li>
-<p><strong>Link to rows</strong>: Right click a row number and select &ldquo;Copy anchor link&rdquo; to copy a link to the
-  selected cell of that row. The link will be placed in your clipboard, ready to paste into an
-  email or an instant messaging app. The link will open only for people with access to the
-  document.</p>
+<p><strong>Lien vers des lignes</strong> : Faites un clic droit sur un numéro de ligne et sélectionnez &ldquo;Copier le lien d&rsquo;ancrage&rdquo; pour copier un lien vers la cellule sélectionnée de cette ligne. Le lien sera placé dans votre presse-papiers, prêt à être collé dans un e-mail ou une application de messagerie instantanée. Le lien ne s&rsquo;ouvrira que pour les personnes ayant accès au document.</p>
 </li>
 </ul>
 <p class="screenshot-half"><em><img alt="copy anchor link" src="../images/row_menu_link.png" /></em></p>
-<h3 id="navigation-and-selection">Navigation and selection<a class="headerlink" href="#navigation-and-selection" title="Permanent link">#</a></h3>
+<h3 id="navigation-et-selection">Navigation et sélection<a class="headerlink" href="#navigation-et-selection" title="Permanent link">#</a></h3>
 <ul>
 <li>
-<p><strong>Navigate using shortcuts</strong>: Use keyboard shortcuts to navigate the grid:</p>
+<p><strong>Naviguer en utilisant les raccourcis</strong> : Utilisez les raccourcis clavier pour naviguer dans la grille :</p>
 <p><code class="keys"><em>Tab</em></code>, <code class="keys"><em>Shift</em> + <em>Tab</em></code>
-Move to the next or previous column, saving changes if editing a cell.</p>
-<p><code class="keys"><em>⌘</em> + <em>Up</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Up</em></code> (Windows)  Move up to the first row.</p>
-<p><code class="keys"><em>⌘</em> + <em>Down</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Down</em></code> (Windows)  Move down to the last row.</p>
-<p><code class="keys"><em>Home</em></code> or <code class="keys"><em>Fn</em> + <strong>←</strong></code> (Mac)  Move to the beginning of a row.</p>
-<p><code class="keys"><em>End</em></code> or <code class="keys"><em>Fn</em> + <strong>→</strong></code> (Mac)  Move to the end of a row.</p>
-<p><code class="keys"><em>PageDown</em></code> or <code class="keys"><em>Fn</em> + <strong>↓</strong></code> (Mac)  Move down one page of rows.</p>
-<p><code class="keys"><em>PageUp</em></code> or <code class="keys"><em>Fn</em> + <strong>↑</strong></code> (Mac)  Move up one page of rows.</p>
-<p><code class="keys"><em>Alt</em> + <em>Down</em></code>, <code class="keys"><em>Alt</em> + <em>Up</em></code>  Move down or up five rows.</p>
+Déplacez-vous vers la colonne suivante ou précédente, en enregistrant les modifications si vous éditez une cellule.</p>
+<p><code class="keys"><em>⌘</em> + <em>Haut</em></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>Haut</em></code> (Windows)  Déplacez-vous vers la première ligne.</p>
+<p><code class="keys"><em>⌘</em> + <em>Bas</em></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>Bas</em></code> (Windows)  Déplacez-vous vers la dernière ligne.</p>
+<p><code class="keys"><em>Accueil</em></code> ou <code class="keys"><em>Fn</em> + <strong>←</strong></code> (Mac)  Déplacez-vous au début d&rsquo;une ligne.</p>
+<p><code class="keys"><em>Fin</em></code> ou <code class="keys"><em>Fn</em> + <strong>→</strong></code> (Mac)  Déplacez-vous à la fin d&rsquo;une ligne.</p>
+<p><code class="keys"><em>PageDown</em></code> ou <code class="keys"><em>Fn</em> + <strong>↓</strong></code> (Mac)  Déplacez-vous d&rsquo;une page de lignes vers le bas.</p>
+<p><code class="keys"><em>PageUp</em></code> ou <code class="keys"><em>Fn</em> + <strong>↑</strong></code> (Mac)  Déplacez-vous d&rsquo;une page de lignes vers le haut.</p>
+<p><code class="keys"><em>Alt</em> + <em>Bas</em></code>, <code class="keys"><em>Alt</em> + <em>Haut</em></code>  Déplacez-vous de cinq lignes vers le bas ou vers le haut.</p>
 </li>
 <li>
-<p><strong>Select ranges</strong>: Click and drag a mouse across the grid to select a range of cells to copy
-  (copy and paste using the usual
-  keyboard shortcuts for your computer). Another way to select a range is to
-  click one cell, and then hold <code class="keys"><em>Shift</em></code> while clicking another cell, or
-  while navigating with the arrow keys.</p>
+<p><strong>Sélectionner des intervalles</strong> : Cliquez et faites glisser la souris sur la grille pour sélectionner un intervalle de cellules à copier (copier et coller en utilisant les raccourcis clavier habituels pour votre ordinateur). Une autre façon de sélectionner un intervalle est de cliquer sur une cellule, puis de maintenir <code class="keys"><em>Shift</em></code> tout en cliquant sur une autre cellule, ou tout en naviguant avec les touches fléchées.</p>
 </li>
 <li>
-<p><strong>Fill down data</strong>: Select a range of cells, and hit
-  <code class="keys"><em>⌘</em> + <em>D</em></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>D</em></code> (Windows)
-  to fill the whole selected range with the values of the cells in the top row of the range.</p>
+<p><strong>Remplir les données vers le bas</strong> : Sélectionnez un intervalle de cellules et appuyez sur <code class="keys"><em>⌘</em> + <em>D</em></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>D</em></code> (Windows) pour remplir tout l&rsquo;intervalle sélectionné avec les valeurs des cellules de la première ligne de l&rsquo;intervalle.</p>
 </li>
 </ul>
-<h3 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">#</a></h3>
+<h3 id="personnalisation">Personnalisation<a class="headerlink" href="#personnalisation" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>Customize table looks</strong>: In the widget options panel, you can turn off horizontal or vertical
-  grid lines, or turn on zebra striping.</li>
+<li><strong>Personnaliser l&rsquo;apparence du tableau</strong> : Dans le panneau d&rsquo;options de la vue, vous pouvez désactiver les lignes de grille horizontales ou verticales, ou activer le zébrage.</li>
 </ul>
 <p class="screenshot-half"><em><img alt="widget_tab_table_options" src="../images/widget_tab_table_options.png" /></em></p>
-<p>For example, this lets you change the look of your grid to a list like this:
+<p>Par exemple, cela vous permet de changer l&rsquo;apparence de votre grille en une liste comme celle-ci :
   <img alt="widget_table_zebra" src="../images/widget_table_zebra.png" /></p>
 
   <br>

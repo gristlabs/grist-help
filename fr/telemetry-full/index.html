@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="This is a telemetry level appropriate for internal use by a hosted service, with
-GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service.">
-      <meta property="og:description" content="This is a telemetry level appropriate for internal use by a hosted service, with
-GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service.">
+      <meta name="description" content="Ceci est un niveau de télémétrie approprié pour une utilisation interne par un service hébergé, avec GRIST_TELEMETRY_URL défini sur un point de terminaison contrôlé par l’opérateur du service.">
+      <meta property="og:description" content="Ceci est un niveau de télémétrie approprié pour une utilisation interne par un service hébergé, avec GRIST_TELEMETRY_URL défini sur un point de terminaison contrôlé par l’opérateur du service.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/telemetry-full/">
@@ -509,7 +507,7 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Telemetry level: full
+              Niveau de télémétrie : complet
             </a>
           </li>
             <li class="wm-toc-li">
@@ -995,21 +993,19 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 
     
 
-    <h1 id="telemetry-level-full">Telemetry level: full<a class="headerlink" href="#telemetry-level-full" title="Permanent link">#</a></h1>
-<p>This is a telemetry level appropriate for internal use by a hosted service, with
-<code>GRIST_TELEMETRY_URL</code> set to an endpoint controlled by the operator of the service.</p>
+    <h1 id="niveau-de-telemetrie-complet">Niveau de télémétrie : complet<a class="headerlink" href="#niveau-de-telemetrie-complet" title="Permanent link">#</a></h1>
+<p>Ceci est un niveau de télémétrie approprié pour une utilisation interne par un service hébergé, avec <code>GRIST_TELEMETRY_URL</code> défini sur un point de terminaison contrôlé par l&rsquo;opérateur du service.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h2 id="apiusage">apiUsage<a class="headerlink" href="#apiusage" title="Permanent link">#</a></h2>
-<p>Triggered when an HTTP request with an API key is made.</p>
+<p>Déclenché lorsqu&rsquo;une requête HTTP avec une clé API est effectuée.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1018,26 +1014,26 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>method</td>
 <td>string</td>
-<td>The HTTP request method (e.g. GET, POST, PUT).</td>
+<td>La méthode de la requête HTTP (par exemple GET, POST, PUT).</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>userAgent</td>
 <td>string</td>
-<td>The User-Agent HTTP request header.</td>
+<td>L&rsquo;en-tête de la requête HTTP User-Agent.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="beaconopen">beaconOpen<a class="headerlink" href="#beaconopen" title="Permanent link">#</a></h2>
-<p>Triggered when HelpScout Beacon is opened.</p>
+<p>Déclenché lorsque HelpScout Beacon est ouvert.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1046,21 +1042,21 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="beaconarticleviewed">beaconArticleViewed<a class="headerlink" href="#beaconarticleviewed" title="Permanent link">#</a></h2>
-<p>Triggered when an article is opened in HelpScout Beacon.</p>
+<p>Déclenché lorsqu&rsquo;un article est ouvert dans HelpScout Beacon.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1069,26 +1065,26 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>articleId</td>
 <td>string</td>
-<td>The id of the article.</td>
+<td>L&rsquo;identifiant de l&rsquo;article.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="beaconemailsent">beaconEmailSent<a class="headerlink" href="#beaconemailsent" title="Permanent link">#</a></h2>
-<p>Triggered when an email is sent in HelpScout Beacon.</p>
+<p>Déclenché lorsqu&rsquo;un email est envoyé dans HelpScout Beacon.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1097,21 +1093,21 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="beaconsearch">beaconSearch<a class="headerlink" href="#beaconsearch" title="Permanent link">#</a></h2>
-<p>Triggered when a search is made in HelpScout Beacon.</p>
+<p>Déclenché lorsqu&rsquo;une recherche est effectuée dans HelpScout Beacon.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1120,26 +1116,26 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>searchQuery</td>
 <td>string</td>
-<td>The search query.</td>
+<td>La requête de recherche.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="documentforked">documentForked<a class="headerlink" href="#documentforked" title="Permanent link">#</a></h2>
-<p>Triggered when a document is forked.</p>
+<p>Déclenché lorsqu&rsquo;un document est forké.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1148,66 +1144,66 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hash de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The id of the site containing the forked document.</td>
+<td>L&rsquo;identifiant du site contenant le document forké.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The type of the site.</td>
+<td>Le type du site.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>forkIdDigest</td>
 <td>string</td>
-<td>A hash of the fork id.</td>
+<td>Un hash de l&rsquo;identifiant du fork.</td>
 </tr>
 <tr>
 <td>forkDocIdDigest</td>
 <td>string</td>
-<td>A hash of the full id of the fork, including the trunk id and fork id.</td>
+<td>Un hash de l&rsquo;identifiant complet du fork, incluant l&rsquo;identifiant du tronc et l&rsquo;identifiant du fork.</td>
 </tr>
 <tr>
 <td>trunkIdDigest</td>
 <td>string</td>
-<td>A hash of the trunk id.</td>
+<td>Un hash de l&rsquo;identifiant du tronc.</td>
 </tr>
 <tr>
 <td>isTemplate</td>
 <td>boolean</td>
-<td>Whether the trunk is a template.</td>
+<td>Si le tronc est un modèle.</td>
 </tr>
 <tr>
 <td>lastActivity</td>
 <td>date</td>
-<td>Timestamp of the last update to the trunk document.</td>
+<td>Horodatage de la dernière mise à jour du document tronc.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="documentopened">documentOpened<a class="headerlink" href="#documentopened" title="Permanent link">#</a></h2>
-<p>Triggered when a public document or template is opened.</p>
+<p>Déclenché lorsqu&rsquo;un document public ou un modèle est ouvert.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1216,61 +1212,61 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hash de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type du site.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>isPublic</td>
 <td>boolean</td>
-<td>Whether the document is public.</td>
+<td>Si le document est public.</td>
 </tr>
 <tr>
 <td>isSnapshot</td>
 <td>boolean</td>
-<td>Whether a snapshot was opened.</td>
+<td>Si un instantané a été ouvert.</td>
 </tr>
 <tr>
 <td>isTemplate</td>
 <td>boolean</td>
-<td>Whether the document is a template.</td>
+<td>Si le document est un modèle.</td>
 </tr>
 <tr>
 <td>lastUpdated</td>
 <td>date</td>
-<td>Timestamp of when the document was last updated.</td>
+<td>Horodatage de la dernière mise à jour du document.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="documentusage">documentUsage<a class="headerlink" href="#documentusage" title="Permanent link">#</a></h2>
-<p>Triggered on doc open and close, as well as hourly while a document is open.</p>
+<p>Déclenché à l&rsquo;ouverture et à la fermeture du document, ainsi qu&rsquo;à chaque heure pendant qu&rsquo;un document est ouvert.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1279,166 +1275,166 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hash de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type du site.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>triggeredBy</td>
 <td>string</td>
-<td>What caused this event to trigger. May be either &ldquo;docOpen&rdquo;, &ldquo;interval&rdquo;, or &ldquo;docClose&rdquo;.</td>
+<td>Ce qui a causé le déclenchement de cet événement. Peut être soit &ldquo;docOpen&rdquo;, &ldquo;interval&rdquo;, ou &ldquo;docClose&rdquo;.</td>
 </tr>
 <tr>
 <td>isPublic</td>
 <td>boolean</td>
-<td>Whether the document is public.</td>
+<td>Si le document est public.</td>
 </tr>
 <tr>
 <td>rowCount</td>
 <td>number</td>
-<td>The number of rows in the document.</td>
+<td>Le nombre de lignes dans le document.</td>
 </tr>
 <tr>
 <td>dataSizeBytes</td>
 <td>number</td>
-<td>The total size of all data in the document, excluding attachments.</td>
+<td>La taille totale de toutes les données dans le document, à l&rsquo;exclusion des pièces jointes.</td>
 </tr>
 <tr>
 <td>attachmentsSize</td>
 <td>number</td>
-<td>The total size of all attachments in the document.</td>
+<td>La taille totale de toutes les pièces jointes dans le document.</td>
 </tr>
 <tr>
 <td>numAccessRules</td>
 <td>number</td>
-<td>The number of access rules in the document.</td>
+<td>Le nombre de permissions avancées dans le document.</td>
 </tr>
 <tr>
 <td>numUserAttributes</td>
 <td>number</td>
-<td>The number of user attributes in the document.</td>
+<td>Le nombre de propriétés d&rsquo;utilisateur dans le document.</td>
 </tr>
 <tr>
 <td>numAttachments</td>
 <td>number</td>
-<td>The number of attachments in the document.</td>
+<td>Le nombre de pièces jointes dans le document.</td>
 </tr>
 <tr>
 <td>attachmentTypes</td>
 <td>string[]</td>
-<td>A list of unique file extensions compiled from all of the document&rsquo;s attachments.</td>
+<td>Une liste des extensions de fichiers uniques compilées à partir de toutes les pièces jointes du document.</td>
 </tr>
 <tr>
 <td>numCharts</td>
 <td>number</td>
-<td>The number of charts in the document.</td>
+<td>Le nombre de graphiques dans le document.</td>
 </tr>
 <tr>
 <td>chartTypes</td>
 <td>string[]</td>
-<td>A list of chart types of every chart in the document.</td>
+<td>Une liste des types de graphiques de chaque graphique dans le document.</td>
 </tr>
 <tr>
 <td>numLinkedCharts</td>
 <td>number</td>
-<td>The number of linked charts in the document.</td>
+<td>Le nombre de graphiques liés dans le document.</td>
 </tr>
 <tr>
 <td>numLinkedWidgets</td>
 <td>number</td>
-<td>The number of linked widgets in the document.</td>
+<td>Le nombre de vues liées dans le document.</td>
 </tr>
 <tr>
 <td>numColumns</td>
 <td>number</td>
-<td>The number of columns in the document.</td>
+<td>Le nombre de colonnes dans le document.</td>
 </tr>
 <tr>
 <td>numColumnsWithConditionalFormatting</td>
 <td>number</td>
-<td>The number of columns with conditional formatting in the document.</td>
+<td>Le nombre de colonnes avec un formatage conditionnel dans le document.</td>
 </tr>
 <tr>
 <td>numFormulaColumns</td>
 <td>number</td>
-<td>The number of formula columns in the document.</td>
+<td>Le nombre de colonnes de formules dans le document.</td>
 </tr>
 <tr>
 <td>numTriggerFormulaColumns</td>
 <td>number</td>
-<td>The number of trigger formula columns in the document.</td>
+<td>Le nombre de colonnes de formules de déclenchement dans le document.</td>
 </tr>
 <tr>
 <td>numSummaryFormulaColumns</td>
 <td>number</td>
-<td>The number of summary formula columns in the document.</td>
+<td>Le nombre de colonnes de formules de résumé dans le document.</td>
 </tr>
 <tr>
 <td>numFieldsWithConditionalFormatting</td>
 <td>number</td>
-<td>The number of fields with conditional formatting in the document.</td>
+<td>Le nombre de champs avec un formatage conditionnel dans le document.</td>
 </tr>
 <tr>
 <td>numTables</td>
 <td>number</td>
-<td>The number of tables in the document.</td>
+<td>Le nombre de tables dans le document.</td>
 </tr>
 <tr>
 <td>numOnDemandTables</td>
 <td>number</td>
-<td>The number of on-demand tables in the document.</td>
+<td>Le nombre de tables à la demande dans le document.</td>
 </tr>
 <tr>
 <td>numTablesWithConditionalFormatting</td>
 <td>number</td>
-<td>The number of tables with conditional formatting in the document.</td>
+<td>Le nombre de tables avec un formatage conditionnel dans le document.</td>
 </tr>
 <tr>
 <td>numSummaryTables</td>
 <td>number</td>
-<td>The number of summary tables in the document.</td>
+<td>Le nombre de tables de résumé dans le document.</td>
 </tr>
 <tr>
 <td>numCustomWidgets</td>
 <td>number</td>
-<td>The number of custom widgets in the document.</td>
+<td>Le nombre de vues personnalisées dans le document.</td>
 </tr>
 <tr>
 <td>customWidgetIds</td>
 <td>string[]</td>
-<td>A list of plugin ids for every custom widget in the document. The ids of widgets not created by Grist Labs are replaced with &ldquo;externalId&rdquo;.</td>
+<td>Une liste des identifiants de plugins pour chaque vue personnalisée dans le document. Les identifiants des vues non créées par Grist Labs sont remplacés par &ldquo;externalId&rdquo;.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="processmonitor">processMonitor<a class="headerlink" href="#processmonitor" title="Permanent link">#</a></h2>
-<p>Triggered every 5 seconds.</p>
+<p>Déclenché toutes les 5 secondes.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1447,31 +1443,31 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>heapUsedMB</td>
 <td>number</td>
-<td>Size of JS heap in use, in MiB.</td>
+<td>Taille du tas JS utilisé, en MiB.</td>
 </tr>
 <tr>
 <td>heapTotalMB</td>
 <td>number</td>
-<td>Total heap size, in MiB, allocated for JS by V8.</td>
+<td>Taille totale du tas, en MiB, allouée pour JS par V8.</td>
 </tr>
 <tr>
 <td>cpuAverage</td>
 <td>number</td>
-<td>Fraction (typically between 0 and 1) of CPU usage. Includes all threads, so may exceed 1.</td>
+<td>Fraction (typiquement entre 0 et 1) de l&rsquo;utilisation du CPU. Inclut tous les threads, donc peut dépasser 1.</td>
 </tr>
 <tr>
 <td>intervalMs</td>
 <td>number</td>
-<td>Interval (in milliseconds) over which <code>cpuAverage</code> is reported.</td>
+<td>Intervalle (en millisecondes) sur lequel <code>cpuAverage</code> est rapporté.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="sendingwebhooks">sendingWebhooks<a class="headerlink" href="#sendingwebhooks" title="Permanent link">#</a></h2>
-<p>Triggered when sending webhooks.</p>
+<p>Déclenché lors de l&rsquo;envoi de webhooks.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1480,46 +1476,46 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>numEvents</td>
 <td>number</td>
-<td>The number of events in the batch of webhooks being sent.</td>
+<td>Le nombre d&rsquo;événements dans le lot de webhooks envoyés.</td>
 </tr>
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hash de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type du site.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="signupverified">signupVerified<a class="headerlink" href="#signupverified" title="Permanent link">#</a></h2>
-<p>Triggered after a user successfully verifies their account during sign-up. Not triggered in grist-core.</p>
+<p>Déclenché après qu&rsquo;un utilisateur a vérifié avec succès son compte lors de l&rsquo;inscription. Non déclenché dans grist-core.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1528,21 +1524,21 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>isAnonymousTemplateSignup</td>
 <td>boolean</td>
-<td>Whether the user viewed any templates before signing up.</td>
+<td>Si l&rsquo;utilisateur a consulté des modèles avant de s&rsquo;inscrire.</td>
 </tr>
 <tr>
 <td>templateId</td>
 <td>string</td>
-<td>The doc id of the template the user last viewed before signing up, if any.</td>
+<td>L&rsquo;identifiant du modèle que l&rsquo;utilisateur a consulté en dernier avant de s&rsquo;inscrire, le cas échéant.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="sitemembership">siteMembership<a class="headerlink" href="#sitemembership" title="Permanent link">#</a></h2>
-<p>Triggered daily.</p>
+<p>Déclenché quotidiennement.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1551,36 +1547,36 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type du site.</td>
 </tr>
 <tr>
 <td>numOwners</td>
 <td>number</td>
-<td>The number of users with an owner role in this site.</td>
+<td>Le nombre d&rsquo;utilisateurs avec un rôle de propriétaire dans ce site.</td>
 </tr>
 <tr>
 <td>numEditors</td>
 <td>number</td>
-<td>The number of users with an editor role in this site.</td>
+<td>Le nombre d&rsquo;utilisateurs avec un rôle d&rsquo;éditeur dans ce site.</td>
 </tr>
 <tr>
 <td>numViewers</td>
 <td>number</td>
-<td>The number of users with a viewer role in this site.</td>
+<td>Le nombre d&rsquo;utilisateurs avec un rôle de visualiseur dans ce site.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="siteusage">siteUsage<a class="headerlink" href="#siteusage" title="Permanent link">#</a></h2>
-<p>Triggered daily.</p>
+<p>Déclenché quotidiennement.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1589,51 +1585,51 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type du site.</td>
 </tr>
 <tr>
 <td>inGoodStanding</td>
 <td>boolean</td>
-<td>Whether the site&rsquo;s subscription is in good standing.</td>
+<td>Si l&rsquo;abonnement du site est en règle.</td>
 </tr>
 <tr>
 <td>stripePlanId</td>
 <td>string</td>
-<td>The Stripe Plan id associated with this site.</td>
+<td>L&rsquo;identifiant du plan Stripe associé à ce site.</td>
 </tr>
 <tr>
 <td>numDocs</td>
 <td>number</td>
-<td>The number of docs in this site.</td>
+<td>Le nombre de documents dans ce site.</td>
 </tr>
 <tr>
 <td>numWorkspaces</td>
 <td>number</td>
-<td>The number of workspaces in this site.</td>
+<td>Le nombre d&rsquo;espaces de travail dans ce site.</td>
 </tr>
 <tr>
 <td>numMembers</td>
 <td>number</td>
-<td>The number of site members.</td>
+<td>Le nombre de membres du site.</td>
 </tr>
 <tr>
 <td>lastActivity</td>
 <td>date</td>
-<td>A timestamp of the most recent update made to a site document.</td>
+<td>Un horodatage de la mise à jour la plus récente effectuée sur un document du site.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="tutorialprogresschanged">tutorialProgressChanged<a class="headerlink" href="#tutorialprogresschanged" title="Permanent link">#</a></h2>
-<p>Triggered on changes to tutorial progress.</p>
+<p>Déclenché lors des changements de progression du tutoriel.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1642,36 +1638,36 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>tutorialForkIdDigest</td>
 <td>string</td>
-<td>A hash of the tutorial fork id.</td>
+<td>Un hash de l&rsquo;identifiant du fork du tutoriel.</td>
 </tr>
 <tr>
 <td>tutorialTrunkIdDigest</td>
 <td>string</td>
-<td>A hash of the tutorial trunk id.</td>
+<td>Un hash de l&rsquo;identifiant du tronc du tutoriel.</td>
 </tr>
 <tr>
 <td>lastSlideIndex</td>
 <td>number</td>
-<td>The 0-based index of the last tutorial slide the user had open.</td>
+<td>L&rsquo;index basé sur 0 de la dernière diapositive du tutoriel que l&rsquo;utilisateur avait ouverte.</td>
 </tr>
 <tr>
 <td>numSlides</td>
 <td>number</td>
-<td>The total number of slides in the tutorial.</td>
+<td>Le nombre total de diapositives dans le tutoriel.</td>
 </tr>
 <tr>
 <td>percentComplete</td>
 <td>number</td>
-<td>Percentage of tutorial completion.</td>
+<td>Pourcentage d&rsquo;achèvement du tutoriel.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="tutorialrestarted">tutorialRestarted<a class="headerlink" href="#tutorialrestarted" title="Permanent link">#</a></h2>
-<p>Triggered when a tutorial is restarted.</p>
+<p>Déclenché lorsqu&rsquo;un tutoriel est redémarré.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1680,51 +1676,51 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>tutorialForkIdDigest</td>
 <td>string</td>
-<td>A hash of the tutorial fork id.</td>
+<td>Un hash de l&rsquo;identifiant du fork du tutoriel.</td>
 </tr>
 <tr>
 <td>tutorialTrunkIdDigest</td>
 <td>string</td>
-<td>A hash of the tutorial trunk id.</td>
+<td>Un hash de l&rsquo;identifiant du tronc du tutoriel.</td>
 </tr>
 <tr>
 <td>docIdDigest</td>
 <td>string</td>
-<td>A hash of the doc id.</td>
+<td>Un hash de l&rsquo;identifiant du document.</td>
 </tr>
 <tr>
 <td>siteId</td>
 <td>number</td>
-<td>The site id.</td>
+<td>L&rsquo;identifiant du site.</td>
 </tr>
 <tr>
 <td>siteType</td>
 <td>string</td>
-<td>The site type.</td>
+<td>Le type du site.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>access</td>
 <td>string</td>
-<td>The document access level of the user that triggered this event.</td>
+<td>Le niveau d&rsquo;accès au document de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="watchedvideotour">watchedVideoTour<a class="headerlink" href="#watchedvideotour" title="Permanent link">#</a></h2>
-<p>Triggered when the video tour is closed.</p>
+<p>Déclenché lorsque la visite vidéo est fermée.</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Champ</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1733,17 +1729,17 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>watchTimeSeconds</td>
 <td>number</td>
-<td>The number of seconds elapsed in the video player.</td>
+<td>Le nombre de secondes écoulées dans le lecteur vidéo.</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>The id of the user that triggered this event.</td>
+<td>L&rsquo;identifiant de l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 <tr>
 <td>altSessionId</td>
 <td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
+<td>Un identifiant aléatoire basé sur la session pour l&rsquo;utilisateur qui a déclenché cet événement.</td>
 </tr>
 </tbody>
 </table>

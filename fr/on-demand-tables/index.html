@@ -7,18 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="A defining feature of spreadsheets is the ability to update cells instantly as
-data they depend on changes.  But sometimes a table is just a store of data,
-without any fancy calculations needed.  In that case, you can choose to mark
-the table as “On-Demand” in Grist.  Grist can then serve data from that table
-faster, and make certain optimizations that may be helpful as the table gets
-large and regular tables become slow.">
-      <meta property="og:description" content="A defining feature of spreadsheets is the ability to update cells instantly as
-data they depend on changes.  But sometimes a table is just a store of data,
-without any fancy calculations needed.  In that case, you can choose to mark
-the table as “On-Demand” in Grist.  Grist can then serve data from that table
-faster, and make certain optimizations that may be helpful as the table gets
-large and regular tables become slow.">
+      <meta name="description" content="Une caractéristique déterminante des tableurs est la capacité de mettre à jour instantanément les cellules lorsque les données dont elles dépendent changent. Mais parfois, une table n’est qu’un stockage de données, sans besoin de calculs sophistiqués. Dans ce cas, vous pouvez choisir de marquer la table comme “À la Demande” dans Grist. Grist peut alors servir les données de cette table plus rapidement et effectuer certaines optimisations qui peuvent être utiles lorsque la table devient grande et que les tables régulières deviennent lentes.">
+      <meta property="og:description" content="Une caractéristique déterminante des tableurs est la capacité de mettre à jour instantanément les cellules lorsque les données dont elles dépendent changent. Mais parfois, une table n’est qu’un stockage de données, sans besoin de calculs sophistiqués. Dans ce cas, vous pouvez choisir de marquer la table comme “À la Demande” dans Grist. Grist peut alors servir les données de cette table plus rapidement et effectuer certaines optimisations qui peuvent être utiles lorsque la table devient grande et que les tables régulières deviennent lentes.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/on-demand-tables/">
@@ -317,17 +307,17 @@ large and regular tables become slow.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              On-Demand Tables
+              Tables à la Demande
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#make-an-on-demand-table">
-                Make an On-Demand Table
+              <a class="wm-article-link wm-page-toc-text" href="#creer-une-table-a-la-demande">
+                Créer une Table à la Demande
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#formulas-references-and-on-demand-tables">
-                Formulas, References and On-Demand Tables
+              <a class="wm-article-link wm-page-toc-text" href="#formules-references-et-tables-a-la-demande">
+                Formules, Références et Tables à la Demande
               </a>
             </li>
         
@@ -933,85 +923,66 @@ large and regular tables become slow.">
 
     
 
-    <h1 id="on-demand-tables">On-Demand Tables<a class="headerlink" href="#on-demand-tables" title="Permanent link">#</a></h1>
+    <h1 id="tables-a-la-demande">Tables à la Demande<a class="headerlink" href="#tables-a-la-demande" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">On-demand tables are an experimental feature</p>
-<p>The design of on-demand tables may change.  For example,
-configuration options may be added, or aspects of the behavior of
-on-demand tables may be changed entirely.</p>
+<p class="admonition-title">Les tables à la demande sont une fonctionnalité expérimentale</p>
+<p>La conception des tables à la demande peut changer. Par exemple,
+des options de configuration peuvent être ajoutées, ou certains aspects du comportement des tables à la demande peuvent être entièrement modifiés.</p>
 </div>
-<p>A defining feature of spreadsheets is the ability to update cells instantly as
-data they depend on changes.  But sometimes a table is just a store of data,
-without any fancy calculations needed.  In that case, you can choose to mark
-the table as &ldquo;On-Demand&rdquo; in Grist.  Grist can then serve data from that table
-faster, and make certain optimizations that may be helpful as the table gets
-large and regular tables become slow.</p>
-<p>When a table is marked &ldquo;On-Demand&rdquo;:</p>
+<p>Une caractéristique déterminante des tableurs est la capacité de mettre à jour instantanément les cellules lorsque les données dont elles dépendent changent. Mais parfois, une table n&rsquo;est qu&rsquo;un stockage de données, sans besoin de calculs sophistiqués. Dans ce cas, vous pouvez choisir de marquer la table comme &ldquo;À la Demande&rdquo; dans Grist. Grist peut alors servir les données de cette table plus rapidement et effectuer certaines optimisations qui peuvent être utiles lorsque la table devient grande et que les tables régulières deviennent lentes.</p>
+<p>Lorsqu&rsquo;une table est marquée &ldquo;À la Demande&rdquo; :</p>
 <ul>
-<li>Data in the table will not generally be available for use in formulas.</li>
-<li>The table remains available for viewing and editing, but with
-    caveats.</li>
+<li>Les données de la table ne seront généralement pas disponibles pour une utilisation dans les formules.</li>
+<li>La table reste disponible pour la visualisation et l&rsquo;édition, mais avec des mises en garde.</li>
 </ul>
-<p>Here&rsquo;s what you need to know about viewing data:</p>
+<p>Voici ce que vous devez savoir sur la visualisation des données :</p>
 <ul>
-<li>Viewing is limited to 10000 rows at a time.</li>
-<li>Subsets of the table&rsquo;s rows can be selected by
-    <a href="../linking-widgets/">linking widgets</a>, as for regular tables.</li>
-<li>You can expect good performance of linked widgets when the
-    subset of the table&rsquo;s rows is less than 10000 rows, even if the
-    full table is much larger.</li>
+<li>La visualisation est limitée à 10000 lignes à la fois.</li>
+<li>Des sous-ensembles des lignes de la table peuvent être sélectionnés en
+    <a href="../linking-widgets/">liant des vues</a>, comme pour les tables régulières.</li>
+<li>Vous pouvez vous attendre à de bonnes performances des vues liées lorsque le
+    sous-ensemble des lignes de la table est inférieur à 10000 lignes, même si la
+    table complète est beaucoup plus grande.</li>
 </ul>
-<p>Here&rsquo;s what you need to know about editing data:</p>
+<p>Voici ce que vous devez savoir sur l&rsquo;édition des données :</p>
 <ul>
-<li>You can edit data as normal in an On-Demand table.</li>
-<li>Automatic updates of anything that depends on that data simply
-    won&rsquo;t happen.</li>
-<li>After edits, you need to reload the webpage to see everything
-    updated.</li>
+<li>Vous pouvez éditer les données normalement dans une table À la Demande.</li>
+<li>Les mises à jour automatiques de tout ce qui dépend de ces données ne se produiront tout simplement pas.</li>
+<li>Après les modifications, vous devez recharger la page web pour voir tout mis à jour.</li>
 </ul>
-<p>Here are some reasons you might make a table On-Demand:</p>
+<p>Voici quelques raisons pour lesquelles vous pourriez rendre une table À la Demande :</p>
 <ul>
-<li>You want to make summaries and charts of slices of a large
-    dataset using <a href="../linking-widgets/">linked widgets</a>.</li>
-<li>You are storing a lot of data in the table, and all you need to
-    do with it is read parts of it back out via the API.</li>
+<li>Vous souhaitez créer des résumés et des graphiques de tranches d&rsquo;un grand ensemble de données en utilisant des <a href="../linking-widgets/">vues liées</a>.</li>
+<li>Vous stockez beaucoup de données dans la table, et tout ce que vous avez besoin de faire avec est de lire des parties de celles-ci via l&rsquo;API.</li>
 </ul>
-<h2 id="make-an-on-demand-table">Make an On-Demand Table<a class="headerlink" href="#make-an-on-demand-table" title="Permanent link">#</a></h2>
-<p>To convert a table to be an &ldquo;On Demand&rdquo; table, open the right panel,
-pick the &ldquo;Table&rdquo; panel, and the &ldquo;Data&rdquo; section.  Click on &ldquo;Advanced
-Settings&rdquo; and you should see a &ldquo;Make On-Demand&rdquo; button.</p>
-<p><img alt="on-demand-button" src="../images/on-demand/on-demand-button.png" /></p>
-<p>If you change your mind, and don&rsquo;t want the table to be &ldquo;On-Demand&rdquo; anymore,
-you can find a button to undo this setting in the same place:</p>
-<p><img alt="on-demand-undo" src="../images/on-demand/on-demand-undo.png" /></p>
-<p>Changing a table to become &ldquo;On-Demand&rdquo; or to stop being &ldquo;On-Demand&rdquo; will
-force the document to reload for all users viewing it at that moment.</p>
-<h2 id="formulas-references-and-on-demand-tables">Formulas, References and On-Demand Tables<a class="headerlink" href="#formulas-references-and-on-demand-tables" title="Permanent link">#</a></h2>
-<p>In general, formulas and on-demand tables don&rsquo;t go together.  That said,
-if you&rsquo;re careful you can use the following very simple formulas:</p>
+<h2 id="creer-une-table-a-la-demande">Créer une Table à la Demande<a class="headerlink" href="#creer-une-table-a-la-demande" title="Permanent link">#</a></h2>
+<p>Pour convertir une table en table &ldquo;À la Demande&rdquo;, ouvrez le panneau de droite,
+choisissez le panneau &ldquo;Table&rdquo; et la section &ldquo;Données&rdquo;. Cliquez sur</p>
+<p>&ldquo;Paramètres Avancés&rdquo; et vous devriez voir un bouton &ldquo;Rendre À la Demande&rdquo;.</p>
+<p><img alt="bouton-à-la-demande" src="../images/on-demand/on-demand-button.png" /></p>
+<p>Si vous changez d&rsquo;avis et ne voulez plus que la table soit &ldquo;À la Demande&rdquo;,
+vous pouvez trouver un bouton pour annuler ce paramètre au même endroit :</p>
+<p><img alt="annuler-à-la-demande" src="../images/on-demand/on-demand-undo.png" /></p>
+<p>Changer une table pour devenir &ldquo;À la Demande&rdquo; ou pour cesser d&rsquo;être &ldquo;À la Demande&rdquo; forcera le document à se recharger pour tous les utilisateurs le visualisant à ce moment-là.</p>
+<h2 id="formules-references-et-tables-a-la-demande">Formules, Références et Tables à la Demande<a class="headerlink" href="#formules-references-et-tables-a-la-demande" title="Permanent link">#</a></h2>
+<p>En général, les formules et les tables à la demande ne vont pas ensemble. Cela dit,
+si vous êtes prudent, vous pouvez utiliser les formules très simples suivantes :</p>
 <ul>
-<li><code>$column</code> - where the <code>column</code> mentioned is not itself a formula.
-   This copies data from another column verbatim.</li>
-<li><code>$reference.column</code> - where <code>reference</code> is a <a href="../col-refs/">reference column</a>,
-   and <code>column</code> is not itself a formula.</li>
+<li><code>$colonne</code> - où la <code>colonne</code> mentionnée n&rsquo;est pas elle-même une formule.
+   Cela copie les données d&rsquo;une autre colonne textuellement.</li>
+<li><code>$référence.colonne</code> - où <code>référence</code> est une <a href="../col-refs/">colonne de référence</a>,
+   et <code>colonne</code> n&rsquo;est pas elle-même une formule.</li>
 </ul>
-<p>This formula support is enough to unlock Grist&rsquo;s <a href="../linking-widgets/">linking
-widgets</a> feature, which is why it is present.  In
-general, if you try using formulas and On-Demand tables, you are
-setting yourself up for sadness.  Remember, like any edit of an
-On-Demand table, when you add or change a formula column you&rsquo;ll
-generally need to reload to see cell values updated.</p>
-<p>Some type conversions, such as converting a column to be a reference,
-are not effective for On-Demand tables.  So it is important to perform
-such conversions before making a table On-Demand.</p>
-<p>From formulas in regular tables, you cannot access the content of
-on-demand tables.</p>
+<p>Ce support de formule est suffisant pour débloquer la fonctionnalité de <a href="../linking-widgets/">vues liées</a> de Grist, c&rsquo;est pourquoi elle est présente. En général, si vous essayez d&rsquo;utiliser des formules et des tables À la Demande, vous vous préparez à être déçu. Rappelez-vous, comme toute modification d&rsquo;une table À la Demande, lorsque vous ajoutez ou modifiez une colonne de formule, vous devrez généralement recharger pour voir les valeurs des cellules mises à jour.</p>
+<p>Certaines conversions de type, comme la conversion d&rsquo;une colonne en référence,
+ne sont pas efficaces pour les tables À la Demande. Il est donc important d&rsquo;effectuer
+ces conversions avant de rendre une table À la Demande.</p>
+<p>Depuis les formules dans les tables régulières, vous ne pouvez pas accéder au contenu des tables à la demande.</p>
 
   <br>
 </div>

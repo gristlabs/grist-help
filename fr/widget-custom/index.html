@@ -7,14 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="The Custom widget allows a user to insert almost
-anything in their document.  To create a custom widget currently
-requires knowledge of web development, and access to a public web
-server (for example, GitHub Pages).">
-      <meta property="og:description" content="The Custom widget allows a user to insert almost
-anything in their document.  To create a custom widget currently
-requires knowledge of web development, and access to a public web
-server (for example, GitHub Pages).">
+      <meta name="description" content="Le widget Personnalisé permet à un utilisateur d’insérer presque tout dans son document. Pour créer un widget personnalisé, il faut actuellement des connaissances en développement web et un accès à un serveur web public (par exemple, GitHub Pages).">
+      <meta property="og:description" content="Le widget Personnalisé permet à un utilisateur d’insérer presque tout dans son document. Pour créer un widget personnalisé, il faut actuellement des connaissances en développement web et un accès à un serveur web public (par exemple, GitHub Pages).">
     
     
     <link rel="canonical" href="https://support.getgrist.com/widget-custom/">
@@ -293,52 +287,52 @@ server (for example, GitHub Pages).">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Page widget: Custom
+              Widget de page : Personnalisé
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#minimal-example">
-                Minimal example
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-minimal">
+                Exemple minimal
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#adding-a-custom-widget">
-                Adding a custom widget
+              <a class="wm-article-link wm-page-toc-text" href="#ajouter-un-widget-personnalise">
+                Ajouter un widget personnalisé
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#access-level">
-                Access level
+              <a class="wm-article-link wm-page-toc-text" href="#niveau-dacces">
+                Niveau d&rsquo;accès
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#invoice-example">
-                Invoice example
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-de-facture">
+                Exemple de facture
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-a-custom-widget">
-                Creating a custom widget
+              <a class="wm-article-link wm-page-toc-text" href="#creation-dun-widget-personnalise">
+                Création d&rsquo;un widget personnalisé
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#column-mapping">
-                Column mapping
+              <a class="wm-article-link wm-page-toc-text" href="#mappage-de-colonnes">
+                Mappage de colonnes
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#widget-options">
-                Widget options
+              <a class="wm-article-link wm-page-toc-text" href="#options-de-widget">
+                Options de widget
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#custom-widget-linking">
-                Custom Widget linking
+              <a class="wm-article-link wm-page-toc-text" href="#lien-de-widget-personnalise">
+                Lien de widget personnalisé
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#premade-custom-widgets">
-                Premade Custom Widgets
+              <a class="wm-article-link wm-page-toc-text" href="#widgets-personnalises-prefabriques">
+                Widgets personnalisés préfabriqués
               </a>
             </li>
         
@@ -964,47 +958,35 @@ server (for example, GitHub Pages).">
 
     
 
-    <h1 id="page-widget-custom">Page widget: Custom<a class="headerlink" href="#page-widget-custom" title="Permanent link">#</a></h1>
+    <h1 id="widget-de-page-personnalise">Widget de page : Personnalisé<a class="headerlink" href="#widget-de-page-personnalise" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>The <strong>Custom</strong> widget allows a user to insert almost
-anything in their document.  To create a custom widget currently
-requires knowledge of web development, and access to a public web
-server (for example, GitHub Pages).</p>
-<p>A good use for custom widgets is to view records or tables in new ways.
-Using Grist as your data model and modern HTML/CSS/JS as your view is
-very powerful.</p>
-<h2 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">#</a></h2>
-<p>To demonstrate to a web developer how custom widgets work,
-there is a minimal working example at:</p>
+<p>Le widget <strong>Personnalisé</strong> permet à un utilisateur d&rsquo;insérer presque tout dans son document. Pour créer un widget personnalisé, il faut actuellement des connaissances en développement web et un accès à un serveur web public (par exemple, GitHub Pages).</p>
+<p>Une bonne utilisation des widgets personnalisés est de visualiser des enregistrements ou des tables de nouvelles manières. Utiliser Grist comme modèle de données et HTML/CSS/JS modernes comme vue est très puissant.</p>
+<h2 id="exemple-minimal">Exemple minimal<a class="headerlink" href="#exemple-minimal" title="Permanent link">#</a></h2>
+<p>Pour démontrer à un développeur web comment fonctionnent les widgets personnalisés, il existe un exemple minimal fonctionnel à :</p>
 <blockquote>
 <p><a href="https://public.getgrist.com/911KcgKA95oQ/Minimal-Custom-Widget/m/fork">https://public.getgrist.com/911KcgKA95oQ/Minimal-Custom-Widget/m/fork</a></p>
 </blockquote>
-<p>The example shows a table with some random data (names for pets), and
-two custom widgets, one showing the selected row in the table as JSON,
-and the other showing all rows of the table as JSON.  If you change
-data in the table, or move the cursor, the custom widgets update as
-appropriate.</p>
-<p><img alt="widget custom example" src="../images/widget_custom_example.png" /></p>
-<p>The source code for the widgets is at:</p>
+<p>L&rsquo;exemple montre une table avec des données aléatoires (noms d&rsquo;animaux de compagnie) et deux widgets personnalisés, l&rsquo;un montrant la ligne sélectionnée dans la table au format JSON, et l&rsquo;autre montrant toutes les lignes de la table au format JSON. Si vous modifiez des données dans la table ou déplacez le curseur, les widgets personnalisés se mettent à jour en conséquence.</p>
+<p><img alt="exemple de widget personnalisé" src="../images/widget_custom_example.png" /></p>
+<p>Le code source des widgets se trouve à :</p>
 <blockquote>
 <p><a href="https://github.com/gristlabs/grist-widget/tree/master/inspect">https://github.com/gristlabs/grist-widget/tree/master/inspect</a></p>
 </blockquote>
-<p>It is stripped down to the essentials.  Here is the full source code of the
-<code>onRecord</code> widget that shows one row of data:</p>
+<p>Il est réduit à l&rsquo;essentiel. Voici le code source complet du widget <code>onRecord</code> qui montre une ligne de données :</p>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;fr&quot;&gt;
   &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;title&gt;onRecord&lt;/title&gt;
     &lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;pre id=&quot;readout&quot;&gt;Waiting for data...&lt;/pre&gt;
+    &lt;pre id=&quot;readout&quot;&gt;En attente de données...&lt;/pre&gt;
     &lt;script&gt;
       grist.ready();
       grist.onRecord(function(record) {
@@ -1014,390 +996,303 @@ appropriate.</p>
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>The &ldquo;Grist&rdquo; parts of this are:</p>
+<p>Les parties &ldquo;Grist&rdquo; de ceci sont :</p>
 <ul>
-<li>Including <code>https://docs.getgrist.com/grist-plugin-api.js</code> to get the Grist API.</li>
-<li>Calling <code>grist.ready</code> to let Grist know the widget is ready to go.</li>
-<li>Calling <code>grist.onRecord</code> to subscribe to the current row of the table.</li>
+<li>Inclusion de <code>https://docs.getgrist.com/grist-plugin-api.js</code> pour obtenir l&rsquo;API Grist.</li>
+<li>Appel de <code>grist.ready</code> pour informer Grist que le widget est prêt à fonctionner.</li>
+<li>Appel de <code>grist.onRecord</code> pour s&rsquo;abonner à la ligne actuelle de la table.</li>
 </ul>
-<p>After that, everything else is regular HTML/CSS/JS.
-Once you have data coming in, you can render it any way you like, using React,
-Vue.js, or your favorite framework.  For example, you could render
-records as a <a href="../examples/2020-08-invoices/">printable invoice</a>, or use some
-obscure chart format that Grist doesn&rsquo;t currently support.</p>
-<h2 id="adding-a-custom-widget">Adding a custom widget<a class="headerlink" href="#adding-a-custom-widget" title="Permanent link">#</a></h2>
-<p>To add a custom widget that reads from a table, click on <code>Add New</code>,
-then <code>Add Widget to Page</code>. Then:</p>
+<p>Après cela, tout le reste est du HTML/CSS/JS classique. Une fois que vous avez des données qui arrivent, vous pouvez les rendre de la manière que vous souhaitez, en utilisant React, Vue.js ou votre framework préféré. Par exemple, vous pourriez rendre des enregistrements sous forme de <a href="../examples/2020-08-invoices/">facture imprimable</a>, ou utiliser un format de graphique obscur que Grist ne prend pas actuellement en charge.</p>
+<h2 id="ajouter-un-widget-personnalise">Ajouter un widget personnalisé<a class="headerlink" href="#ajouter-un-widget-personnalise" title="Permanent link">#</a></h2>
+<p>Pour ajouter un widget personnalisé qui lit à partir d&rsquo;une table, cliquez sur <code>Ajouter nouveau</code>, puis <code>Ajouter un widget à la page</code>. Ensuite :</p>
 <ul>
-<li>For <code>Select Widget</code> choose <code>Custom</code> to get a Custom Widget.</li>
-<li>For <code>Select Data</code> choose the table you want the widget to read data from.</li>
-<li>Optionally, choose <code>Select By</code> to control the selected data further (read <a href="../linking-widgets/">Linking Page Widgets</a> for the possibilities).</li>
+<li>Pour <code>Sélectionner un widget</code>, choisissez <code>Personnalisé</code> pour obtenir un widget personnalisé.</li>
+<li>Pour <code>Sélectionner des données</code>, choisissez la table à partir de laquelle vous souhaitez que le widget lise les données.</li>
+<li>Optionnellement, choisissez <code>Sélectionner par</code> pour contrôler davantage les données sélectionnées (lisez <a href="../linking-widgets/">Lier des widgets de page</a> pour les possibilités).</li>
 </ul>
-<p><img alt="add a custom widget" src="../images/widget_custom_add.png" /></p>
-<p>The custom widget is initially blank.  To configure it, click the three-dots button
-on the top right of the custom widget, and select &ldquo;Widget options&rdquo;.</p>
-<p><img alt="configure a custom widget" src="../images/widget_custom_example.png" /></p>
-<p>In the <code>CUSTOM</code> settings section where it says <code>Enter Custom URL</code>, put
-the link to your custom widget.  Here is a test widget to simply show table data
-in JSON:</p>
+<p><img alt="ajouter un widget personnalisé" src="../images/widget_custom_add.png" /></p>
+<p>Le widget personnalisé est initialement vide. Pour le configurer, cliquez sur le bouton à trois points en haut à droite du widget personnalisé et sélectionnez &ldquo;Options du widget&rdquo;.</p>
+<p><img alt="configurer un widget personnalisé" src="../images/widget_custom_example.png" /></p>
+<p>Dans la section des paramètres <code>PERSONNALISÉ</code> où il est indiqué <code>Entrer l'URL personnalisée</code>, mettez le lien vers votre widget personnalisé. Voici un widget de test pour simplement afficher les données de la table au format JSON :</p>
 <blockquote>
 <p><a href="https://gristlabs.github.io/grist-widget/inspect/onRecords.html">https://gristlabs.github.io/grist-widget/inspect/onRecords.html</a></p>
 </blockquote>
-<p>And here&rsquo;s one to show the selected row only (make sure &ldquo;Select By&rdquo; is set
-for the custom widget):</p>
+<p>Et voici un pour montrer uniquement la ligne sélectionnée (assurez-vous que &ldquo;Sélectionner par&rdquo; est défini pour le widget personnalisé) :</p>
 <blockquote>
 <p><a href="https://gristlabs.github.io/grist-widget/inspect/onRecord.html">https://gristlabs.github.io/grist-widget/inspect/onRecord.html</a></p>
 </blockquote>
-<h2 id="access-level">Access level<a class="headerlink" href="#access-level" title="Permanent link">#</a></h2>
-<p>When you put a link to a custom webpage it will be immediately rendered inside the section.
-Now you have the option to grant that webpage access to data in your document.  The
-following access levels are available:</p>
+<h2 id="niveau-dacces">Niveau d&rsquo;accès<a class="headerlink" href="#niveau-dacces" title="Permanent link">#</a></h2>
+<p>Lorsque vous mettez un lien vers une page web personnalisée, elle sera immédiatement rendue à l&rsquo;intérieur de la section. Vous avez maintenant la possibilité d&rsquo;accorder à cette page web l&rsquo;accès aux données de votre document. Les niveaux d&rsquo;accès suivants sont disponibles :</p>
 <ul>
-<li><em>No document access</em>: the webpage is shown in the widget, but it has no access to
-     the Grist document containing the widget.</li>
-<li><em>Read selected table</em>: the webpage is shown in the widget, and is given read access
-     to the table the widget is configured to select data from.</li>
-<li><em>Full document access</em>: the webpage is shown in the widget, and has full access to
-     read and modify the Grist document containing the widget.</li>
+<li><em>Pas d&rsquo;accès au document</em> : la page web est affichée dans le widget, mais elle n&rsquo;a pas accès au document Grist contenant le widget.</li>
+<li><em>Lire la table sélectionnée</em> : la page web est affichée dans le widget et reçoit un accès en lecture à la table que le widget est configuré pour sélectionner des données.</li>
+<li><em>Accès complet au document</em> : la page web est affichée dans le widget et a un accès complet pour lire et modifier le document Grist contenant le widget.</li>
 </ul>
-<p>The webpage should be owned and controlled by you or someone you
-trust.  With <code>Read selected table</code> permissions, a widget could send the
-data it accesses to a third party.  With <code>Full document access</code> permissions, a widget could
-send all the document data to a third party, and modify your document in
-any way.</p>
-<p>If you are writing your own custom widget you can specify what access level it needs as
-part of the initial <strong>ready</strong> message. Possible values are: <code>none</code>, <code>read table</code> and
-<code>full</code>.</p>
+<p>La page web doit être possédée et contrôlée par vous ou par quelqu&rsquo;un en qui vous avez confiance. Avec les permissions <code>Lire la table sélectionnée</code>, un widget pourrait envoyer les données auxquelles il accède à un tiers. Avec les permissions <code>Accès complet au document</code>, un widget pourrait envoyer toutes les données du document à un tiers et modifier votre document de n&rsquo;importe quelle manière.</p>
+<p>Si vous écrivez votre propre widget personnalisé, vous pouvez spécifier le niveau d&rsquo;accès dont il a besoin dans le message <strong>prêt</strong> initial. Les valeurs possibles sont : <code>none</code>, <code>read table</code> et <code>full</code>.</p>
 <pre><code class="language-html">&lt;script&gt;
   grist.ready({
     requiredAccess: 'read table'
   });
 &lt;/script&gt;
 </code></pre>
-<p>This directs Grist to request the desired access level from the user. Your widget will be
-reloaded with the appropriate access level if the user approves the request.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_access_prompt.png" /></em></span></p>
-<p>If you wish to get notified of the access level, you can subscribe to the <code>onOptions</code>
-event that is sent to the widget after it tells Grist it is ready:</p>
+<p>Cela indique à Grist de demander le niveau d&rsquo;accès souhaité à l&rsquo;utilisateur. Votre widget sera rechargé avec le niveau d&rsquo;accès approprié si l&rsquo;utilisateur approuve la demande.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="invite d'accès" src="../images/widget_custom_access_prompt.png" /></em></span></p>
+<p>Si vous souhaitez être informé du niveau d&rsquo;accès, vous pouvez vous abonner à l&rsquo;événement <code>onOptions</code> qui est envoyé au widget après qu&rsquo;il ait informé Grist qu&rsquo;il est prêt :</p>
 <pre><code class="language-javascript">grist.onOptions(function(options, interaction) {
   console.log(interaction.access_level);
 });
 </code></pre>
-<p>For now, just skip the <code>options</code> parameter (it will be described in
-<a href="./#widget-options">Widget options</a> section). The current access level is part of
-the second parameter, which describes how Grist will interact with your widget.</p>
-<h2 id="invoice-example">Invoice example<a class="headerlink" href="#invoice-example" title="Permanent link">#</a></h2>
-<p>The minimal example above showed records as plain JSON, but the widget
-can get as fancy as you like.  Here is an example of showing a record
-as a printable invoice:</p>
-<p><img alt="invoice example" src="examples/images/2020-08-invoices/final-invoice.png" /></p>
-<p>You can read the details of how to use
-this widget in our <a href="../examples/2020-08-invoices/">Invoice preparation example</a>.
-The invoice widget is hosted at:</p>
+<p>Pour l&rsquo;instant, il suffit de sauter le paramètre <code>options</code> (il sera décrit dans la section <a href="./#widget-options">Options de widget</a>). Le niveau d&rsquo;accès actuel fait partie du deuxième paramètre, qui décrit comment Grist interagira avec votre widget.</p>
+<h2 id="exemple-de-facture">Exemple de facture<a class="headerlink" href="#exemple-de-facture" title="Permanent link">#</a></h2>
+<p>L&rsquo;exemple minimal ci-dessus a montré des enregistrements au format JSON simple, mais le widget peut devenir aussi sophistiqué que vous le souhaitez. Voici un exemple montrant un enregistrement sous forme de facture imprimable :</p>
+<p><img alt="exemple de facture" src="examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p>Vous pouvez lire les détails sur la façon d&rsquo;utiliser ce widget dans notre <a href="../examples/2020-08-invoices/">exemple de préparation de facture</a>. Le widget de facture est hébergé à :</p>
 <blockquote>
 <p><a href="https://gristlabs.github.io/grist-widget/invoices/">https://gristlabs.github.io/grist-widget/invoices/</a></p>
 </blockquote>
-<p>And the source HTML/CSS/JS can be browsed at:</p>
+<p>Et le code source HTML/CSS/JS peut être consulté à :</p>
 <blockquote>
 <p><a href="https://github.com/gristlabs/grist-widget/tree/master/invoices">https://github.com/gristlabs/grist-widget/tree/master/invoices</a></p>
 </blockquote>
-<p>It uses Vue.js and <code>grist.onRecord</code>.</p>
-<h2 id="creating-a-custom-widget">Creating a custom widget<a class="headerlink" href="#creating-a-custom-widget" title="Permanent link">#</a></h2>
-<p>As you saw, writing a simple widget that uses data from a table is very easy. First, you
-need to tell Grist that you are ready and then subscribe to one of the available events:
-<code>onRecord</code>, <code>onRecords</code> or <code>onOptions</code>.</p>
+<p>Il utilise Vue.js et <code>grist.onRecord</code>.</p>
+<h2 id="creation-dun-widget-personnalise">Création d&rsquo;un widget personnalisé<a class="headerlink" href="#creation-dun-widget-personnalise" title="Permanent link">#</a></h2>
+<p>Comme vous l&rsquo;avez vu, écrire un widget simple qui utilise des données d&rsquo;une table est très facile. Tout d&rsquo;abord, vous devez informer Grist que vous êtes prêt et ensuite vous abonner à l&rsquo;un des événements disponibles : <code>onRecord</code>, <code>onRecords</code> ou <code>onOptions</code>.</p>
 <pre><code class="language-javascript">grist.ready();
 grist.onRecord(function (record) {
-  // Cursor has moved.
+  // Le curseur a été déplacé.
 });
 grist.onRecords(function (record) {
-  // Data in the table has changed.
+  // Les données dans la table ont changé.
 });
 grist.onOptions(function (options, interaction) {
-  // Configuration has changed.
+  // La configuration a changé.
 });
 </code></pre>
-<p>Let&rsquo;s say you want to build a custom widget that will show an image from a URL and
-optionally a single line of text below as the image title. You will need to
-read two values from two columns: <code>Link</code> and <code>Title</code>.</p>
-<p>You could access those columns directly using literal column names in your
-script. Here is a complete example of widget source code that will do the job:</p>
+<p>Disons que vous souhaitez créer un widget personnalisé qui affichera une image à partir d&rsquo;une URL et éventuellement une ligne de texte en dessous comme titre de l&rsquo;image. Vous devrez lire deux valeurs de deux colonnes : <code>Lien</code> et <code>Titre</code>.</p>
+<p>Vous pourriez accéder à ces colonnes directement en utilisant les noms de colonnes littéraux dans votre script. Voici un exemple complet de code source de widget qui fera le travail :</p>
 <pre><code class="language-html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
 &lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
 &lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   grist.ready({requiredAccess: 'read table'});
   grist.onRecord(function (record) {
-    document.getElementById('image').src = record.Link;
-    document.getElementById('title').innerText = record.Title;
+    document.getElementById('image').src = record.Lien;
+    document.getElementById('title').innerText = record.Titre;
   });
 &lt;/script&gt;
 </code></pre>
-<p>When getting started, this is a good approach, but it has two significant drawbacks. Every
-time you rename a column, you will also have to change your widget&rsquo;s source. Moreover,
-using this widget on a different table or sharing it with your friends can be difficult as
-column names might be different. To help with this, Grist offers the column mapping API.</p>
-<h2 id="column-mapping">Column mapping<a class="headerlink" href="#column-mapping" title="Permanent link">#</a></h2>
-<p>Instead of using column names directly, you can ask the user to pick which column to use
-as a <code>Link</code> and <code>Title</code>. The list of expected columns can be sent to Grist as part of the
-ready call:</p>
-<pre><code class="language-js">grist.ready({columns: ['Link', 'Title']});
+<p>Lorsque vous commencez, c&rsquo;est une bonne approche, mais elle présente deux inconvénients majeurs. Chaque fois que vous renommez une colonne, vous devrez également modifier le code source de votre widget. De plus, utiliser ce widget sur une table différente ou le partager avec vos amis peut être difficile car les noms de colonnes pourraient être différents. Pour aider avec cela, Grist propose l&rsquo;API de mappage de colonnes.</p>
+<h2 id="mappage-de-colonnes">Mappage de colonnes<a class="headerlink" href="#mappage-de-colonnes" title="Permanent link">#</a></h2>
+<p>Au lieu d&rsquo;utiliser directement les noms de colonnes, vous pouvez demander à l&rsquo;utilisateur de choisir quelle colonne utiliser comme <code>Lien</code> et <code>Titre</code>. La liste des colonnes attendues peut être envoyée à Grist dans l&rsquo;appel prêt :</p>
+<pre><code class="language-js">grist.ready({columns: ['Lien', 'Titre']});
 </code></pre>
-<p>Using this information, in the creator panel, Grist will hide the regular &ldquo;Visible&rdquo;
-columns section and display specialized column pickers.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_pick_columns.png" /></em></span></p>
-<p>Your widget will receive this mapping configuration as part of <code>onRecord</code> or <code>onRecords</code>
-event in the second parameter. You can use this configuration to do the mappings yourself
-or use the <code>mapColumnNames</code> helper function to do it for you.</p>
+<p>En utilisant cette information, dans le panneau de création, Grist masquera la section régulière &ldquo;Colonnes visibles&rdquo; et affichera des sélecteurs de colonnes spécialisés.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="invite d'accès" src="../images/widget_custom_pick_columns.png" /></em></span></p>
+<p>Votre widget recevra cette configuration de mappage dans le paramètre <code>onRecord</code> ou <code>onRecords</code> dans le deuxième paramètre. Vous pouvez utiliser cette configuration pour effectuer les mappages vous-même ou utiliser la fonction d&rsquo;assistance <code>mapColumnNames</code> pour le faire pour vous.</p>
 <pre><code class="language-html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
 &lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
 &lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
-grist.ready({columns: ['Link', 'Title'], requiredAccess: 'read table'});
+grist.ready({columns: ['Lien', 'Titre'], requiredAccess: 'read table'});
 grist.onRecord(function (record, mappings) {
   const mapped = grist.mapColumnNames(record);
-  // First check if all columns were mapped.
+  // D'abord, vérifiez si toutes les colonnes ont été mappées.
   if (mapped) {
-    document.getElementById('image').src = mapped.Link;
-    document.getElementById('title').innerText = mapped.Title;
-    console.log(`Using ${mappings.Link} and ${mappings.Title} columns`);
+    document.getElementById('image').src = mapped.Lien;
+    document.getElementById('title').innerText = mapped.Titre;
+    console.log(`Utilisation des colonnes ${mappings.Lien} et ${mappings.Titre}`);
   } else {
-    // Helper returned a null value. It means that not all
-    // required columns were mapped.
-    console.error(&quot;Please map all columns&quot;);
+    // L'assistant a renvoyé une valeur nulle. Cela signifie que toutes les colonnes requises n'ont pas été mappées.
+    console.error(&quot;Veuillez mapper toutes les colonnes&quot;);
   }
 });
 &lt;/script&gt;
 </code></pre>
-<p>Now, if you rename one of the columns, the widget will still work. You can also use this
-widget in any other table or share with a friend, as it doesn&rsquo;t depend on your table
-structure and can be easily configured.</p>
-<p>In the configuration used above, we told Grist that all the columns are required, and the
-user can pick any column even if the column doesn&rsquo;t contain a text value. To be more
-precise, we can include more options in the request. For example:</p>
+<p>Maintenant, si vous renommez l&rsquo;une des colonnes, le widget fonctionnera toujours. Vous pouvez également utiliser ce widget dans n&rsquo;importe quelle autre table ou le partager avec un ami, car il ne dépend pas de votre structure de table et peut être facilement configuré.</p>
+<p>Dans la configuration utilisée ci-dessus, nous avons dit à Grist que toutes les colonnes sont requises, et l&rsquo;utilisateur peut choisir n&rsquo;importe quelle colonne même si la colonne ne contient pas de valeur texte. Pour être plus précis, nous pouvons inclure plus d&rsquo;options dans la demande. Par exemple :</p>
 <pre><code class="language-javascript">grist.ready({columns: [
   {
-    name: &quot;Link&quot;, // What field we will read.
-    title: &quot;Image link&quot;, // Friendly field name.
-    optional: false, // Is this an optional field.
-    type: &quot;Text&quot; // What type of column we expect.
-    description: &quot;Some text&quot; // Description of a field.
-    allowMultiple: false // Allows multiple column assignment.
+    name: &quot;Lien&quot;, // Quel champ nous allons lire.
+    title: &quot;Lien de l'image&quot;, // Nom de champ convivial.
+    optional: false, // Est-ce un champ optionnel.
+    type: &quot;Texte&quot;, // Quel type de colonne nous attendons.
+    description: &quot;Un texte&quot; // Description d'un champ.
+    allowMultiple: false // Permet l'attribution de plusieurs colonnes.
   }
 ]});
 </code></pre>
-<p>The <code>optional</code> setting is important for correct operation of the <code>mapColumnNames</code> helper.
-This helper will return a mapped record only when all required (not optional) columns are
-picked.</p>
-<p>By default Grist will allow the user to pick any type of column. To allow only a column of
-a specific type, you need to set a <code>type</code> property. Here are all valid types:</p>
-<p><code>Int</code> (<em>Integer column</em>), <code>Numeric</code> (<em>Numeric column</em>), <code>Text</code>, <code>Date</code>, <code>DateTime</code>,
-<code>Bool</code> (<em>Toggle column</em>), <code>Choice</code>, <code>ChoiceList</code>, <code>Ref</code> (<em>Reference column</em>), <code>RefList</code>
-(<em>Reference List</em>), <code>Attachments</code>.</p>
-<p>The default value of <code>type</code> is <code>Any</code>, so Grist will allow the user to pick any column type. You
-can also specify a list of types, for example <code>Date,DateTime</code>. In that case, Grist will allow
-the user to pick any column that matches one of the types in the list.</p>
-<p>Use <code>title</code> and <code>description</code> fields to help your users understand what is the purpose of
-the column. The <code>description</code> will be displayed just below the column name, and the
-<code>title</code> will be used as a column label. Both are optional and you can put there any text
-you want.</p>
-<p>If you need to map multiple columns (for example in a custom chart widget), you can use
-<code>allowMultiple</code> option. This will allow your users to pick a set of columns that will
-be returned as list of mapped table column names. The <code>mapColumnNames</code> helper will then
-return an array of mapped column values in a single field.</p>
-<p>Suppose the user deletes a column or changes its type so that it will no longer match the
-type requested by the widget. In that case, Grist will automatically remove this column
-from the mapping.</p>
-<h2 id="widget-options">Widget options<a class="headerlink" href="#widget-options" title="Permanent link">#</a></h2>
-<p>If your widget needs to store some options, Grist offers a simple key-value storage API
-for you to use. Here are some JavaScript code snippets that show how to interact with
-this API:</p>
-<pre><code class="language-js">// Store a simple text value .
+<p>Le paramètre <code>optional</code> est important pour le bon fonctionnement de l&rsquo;assistant <code>mapColumnNames</code>. Cet assistant ne renverra un enregistrement mappé que lorsque toutes les colonnes requises (non optionnelles) seront choisies.</p>
+<p>Par défaut, Grist permettra à l&rsquo;utilisateur de choisir n&rsquo;importe quel type de colonne. Pour autoriser uniquement une colonne d&rsquo;un type spécifique, vous devez définir une propriété <code>type</code>. Voici tous les types valides :</p>
+<p><code>Int</code> (<em>Colonne entière</em>), <code>Numeric</code> (<em>Colonne numérique</em>), <code>Texte</code>, <code>Date</code>, <code>DateTime</code>, <code>Bool</code> (<em>Colonne de bascule</em>), <code>Choice</code>, <code>ChoiceList</code>, <code>Ref</code> (<em>Colonne de référence</em>), <code>RefList</code> (<em>Liste de références</em>), <code>Attachments</code>.</p>
+<p>La valeur par défaut de <code>type</code> est <code>Any</code>, donc Grist permettra à l&rsquo;utilisateur de choisir n&rsquo;importe quel type de colonne. Vous pouvez également spécifier une liste de types, par exemple <code>Date,DateTime</code>. Dans ce cas, Grist permettra à l&rsquo;utilisateur de choisir n&rsquo;importe quelle colonne qui correspond à l&rsquo;un des types de la liste.</p>
+<p>Utilisez les champs <code>title</code> et <code>description</code> pour aider vos utilisateurs à comprendre quel est le but de la colonne. La <code>description</code> sera affichée juste en dessous du nom de la colonne, et le <code>title</code> sera utilisé comme étiquette de colonne. Les deux sont optionnels et vous pouvez y mettre n&rsquo;importe quel texte que vous souhaitez.</p>
+<p>Si vous devez mapper plusieurs colonnes (par exemple dans un widget de graphique personnalisé), vous pouvez utiliser l&rsquo;option <code>allowMultiple</code>. Cela permettra à vos utilisateurs de choisir un ensemble de colonnes qui seront renvoyées sous forme de liste de noms de colonnes de table mappés. L&rsquo;assistant <code>mapColumnNames</code> renverra alors un tableau de valeurs de colonnes mappées dans un seul champ.</p>
+<p>Supposons que l&rsquo;utilisateur supprime une colonne ou change son type de sorte qu&rsquo;elle ne corresponde plus au type demandé par le widget. Dans ce cas, Grist supprimera automatiquement cette colonne du mappage.</p>
+<h2 id="options-de-widget">Options de widget<a class="headerlink" href="#options-de-widget" title="Permanent link">#</a></h2>
+<p>Si votre widget a besoin de stocker certaines options, Grist propose une API de stockage clé-valeur simple que vous pouvez utiliser. Voici quelques extraits de code JavaScript qui montrent comment interagir avec cette API :</p>
+<pre><code class="language-js">// Stocker une simple valeur de texte.
 await grist.setOption('color', '#FF0000');
 
-// Store complex objects as JSON.
+// Stocker des objets complexes sous forme de JSON.
 await grist.setOption('settings', {lines: 10, skipFirst: true});
 
-// Read previously saved option
+// Lire l'option précédemment enregistrée
 const color = await grist.getOption('color');
 
-// Clear all options.
+// Effacer toutes les options.
 await grist.clearOptions();
 
-// Get and replace all options.
+// Obtenir et remplacer toutes les options.
 await grist.getOptions();
 await grist.setOptions({...});
 </code></pre>
-<p>You can experiment with this yourself. Here is a test widget that demonstrates how to use
-this API:</p>
+<p>Vous pouvez expérimenter cela vous-même. Voici un widget de test qui démontre comment utiliser cette API :</p>
 <blockquote>
 <p><a href="https://gristlabs.github.io/grist-widget/inspect/onOptions.html">https://gristlabs.github.io/grist-widget/inspect/onOptions.html</a></p>
 </blockquote>
-<p>When your widget saves or edits some options, the icon on top of the section gets
-highlighted in green. You can either apply those options to the widget or revert that
-modification.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_unsaved_options.png" /></em></span></p>
-<p>This allows viewers (users with read-only access) or collaborators to
-configure your widget without overwriting original settings. This behavior should look
-familiar to you and others, as this works like
-<a href="../search-sort-filter/#saving-sort-settings">sorting and filtering</a> on table or card
-views.</p>
-<p>Saving current options you will apply them to the widget and make them available to
-others. Using this menu, you can also clear all options to revert the widget to its
-initial state. To do this, press the little trash icon and then <code>Save</code>.</p>
-<p>Grist will also trigger an event, every time the options are changed (or cleared). Here is
-how you can subscribe to this event.</p>
+<p>Lorsque votre widget enregistre ou modifie certaines options, l&rsquo;icône en haut de la section devient verte. Vous pouvez soit appliquer ces options au widget, soit annuler cette modification.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="options non enregistrées" src="../images/widget_custom_unsaved_options.png" /></em></span></p>
+<p>Cela permet aux visualisateurs (utilisateurs avec un accès en lecture seule) ou aux collaborateurs de configurer votre widget sans écraser les paramètres d&rsquo;origine. Ce comportement devrait vous sembler familier, car cela fonctionne comme <a href="../search-sort-filter/#saving-sort-settings">le tri et le filtrage</a> sur les vues de table ou de carte.</p>
+<p>En enregistrant les options actuelles, vous les appliquerez au widget et les rendrez disponibles pour les autres. En utilisant ce menu, vous pouvez également effacer toutes les options pour revenir à l&rsquo;état initial du widget. Pour ce faire, appuyez sur la petite icône de poubelle, puis sur <code>Enregistrer</code>.</p>
+<p>Grist déclenchera également un événement chaque fois que les options sont modifiées (ou effacées). Voici comment vous pouvez vous abonner à cet événement.</p>
 <pre><code class="language-javascript">grist.onOptions(function(options, interaction) {
   if (options) {
-    console.log('Current color', options.color);
+    console.log('Couleur actuelle', options.color);
   } else {
-    // No widget options were saved, fallback to default ones.
+    // Aucune option de widget n'a été enregistrée, retour aux options par défaut.
   }
 });
 </code></pre>
-<p>If you are building your own widget, you generally should not read options directly (using
-<code>grist.widgetApi.getOption()</code>). A better pattern is to apply them all when they are
-changed. Using the <code>onOptions</code> handler will make your widget easier to change and
-understand later.</p>
-<p>There is one more scenario to cover. Suppose your widget has some kind of custom
-configuration screen. In that case, you probably need some button or other UI element that
-the user can use to show it. This additional UI element will likely be rarely used by you
-or your collaborators, so it doesn&rsquo;t make sense to show it all the time. To help with
-this, Grist offers an additional interaction option you can send as part of the ready
-message:</p>
+<p>Si vous construisez votre propre widget, vous ne devez généralement pas lire les options directement (en utilisant <code>grist.widgetApi.getOption()</code>). Un meilleur modèle consiste à les appliquer toutes lorsqu&rsquo;elles sont modifiées. L&rsquo;utilisation du gestionnaire <code>onOptions</code> rendra votre widget plus facile à modifier et à comprendre ultérieurement.</p>
+<p>Il y a un scénario supplémentaire à couvrir. Supposons que votre widget ait une sorte d&rsquo;écran de configuration personnalisé. Dans ce cas, vous aurez probablement besoin d&rsquo;un bouton ou d&rsquo;un autre élément d&rsquo;interface utilisateur que l&rsquo;utilisateur peut utiliser pour l&rsquo;afficher. Cet élément d&rsquo;interface utilisateur supplémentaire sera probablement rarement utilisé par vous ou vos collaborateurs, donc il n&rsquo;est pas logique de l&rsquo;afficher tout le temps. Pour aider avec cela, Grist propose une option d&rsquo;interaction supplémentaire que vous pouvez envoyer dans le message prêt :</p>
 <pre><code class="language-javascript">grist.ready({
   onEditOptions: function() {
-    // Your custom logic to open the custom configuration screen.
+    // Votre logique personnalisée pour ouvrir l'écran de configuration personnalisé.
   }
 });
 </code></pre>
-<p>This will tell Grist to display an additional button <code>Open configuration</code> in the creator
-panel and the section menu. When clicked, it will trigger your handler, which you can use
-to show your own custom configuration screen.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_open_configuration.png" /></em></span></p>
-<h2 id="custom-widget-linking">Custom Widget linking<a class="headerlink" href="#custom-widget-linking" title="Permanent link">#</a></h2>
-<p>Custom widgets can also be used as a source of linking (see <a href="../linking-widgets/">Linking widgets</a>).
-All you need to do is inform Grist that your widget supports linking by passing an additional
-option to the <code>ready</code> call (see <a href="../code/modules/grist_plugin_api/#ready">Widget API</a>):</p>
+<p>Cela indiquera à Grist d&rsquo;afficher un bouton supplémentaire <code>Ouvrir la configuration</code> dans le panneau de création et le menu de section. Lorsqu&rsquo;il est cliqué, cela déclenchera votre gestionnaire, que vous pouvez utiliser pour afficher votre propre écran de configuration personnalisé.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="options non enregistrées" src="../images/widget_custom_open_configuration.png" /></em></span></p>
+<h2 id="lien-de-widget-personnalise">Lien de widget personnalisé<a class="headerlink" href="#lien-de-widget-personnalise" title="Permanent link">#</a></h2>
+<p>Les widgets personnalisés peuvent également être utilisés comme source de liaison (voir <a href="../linking-widgets/">Lier des widgets</a>). Tout ce que vous avez à faire est d&rsquo;informer Grist que votre widget prend en charge le lien en passant une option supplémentaire à l&rsquo;appel <code>ready</code> (voir <a href="../code/modules/grist_plugin_api/#ready">API de widget</a>) :</p>
 <pre><code class="language-javascript">grist.ready({
   allowSelectBy: true
 });
 </code></pre>
-<p>This will enable the <code>Select By</code> option in the widget configuration panel. Now you can use your
-widget to control the cursor position in linked widgets. To do this, you need to call the
-<code>setCursorPos</code> function:</p>
-<pre><code class="language-javascript">// Inform Grist that the cursor should be moved to the row with id 20.
+<p>Cela activera l&rsquo;option <code>Sélectionner par</code> dans le panneau de configuration du widget. Vous pouvez maintenant utiliser votre widget pour contrôler la position du curseur dans les widgets liés. Pour ce faire, vous devez appeler la fonction <code>setCursorPos</code> :</p>
+<pre><code class="language-javascript">// Informer Grist que le curseur doit être déplacé vers la ligne avec l'ID 20.
 grist.setCursorPos({rowId: 20});
 
-// or inform that your widget is creating a new row.
+// ou informer que votre widget crée une nouvelle ligne.
 grist.setCursorPos({rowId: 'new'});
 </code></pre>
-<h2 id="premade-custom-widgets">Premade Custom Widgets<a class="headerlink" href="#premade-custom-widgets" title="Permanent link">#</a></h2>
-<p>All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="premade-widgets" src="../images/widget-custom/premade-widgets.png" /></em></span></p>
-<h3 id="advanced-charts">Advanced Charts<a class="headerlink" href="#advanced-charts" title="Permanent link">#</a></h3>
-<p>The Advanced Charts custom widget gives you more power and flexibility than Grist’s built-in charts, offering a wide variety of chart types as well as increased control over styling and layout. It’s a version of Plotly’s <a href="https://chart-studio.plotly.com/">Chart Studio</a>, see their <a href="https://plotly.com/chart-studio-help/tutorials/">tutorials</a> for more detailed help.</p>
-<p>You’ll need to set the access level to “Full document access”. Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.</p>
-<p>This is what you should see:</p>
-<p><img alt="advanced-chart-blank-traces-panel" src="../images/widget-custom/advanced-chart-blank-traces-panel.png" /></p>
-<p>Click the big blue “+ Trace” button to get started. This will add a panel like the following:</p>
-<p><img alt="advanced-chart-blank-trace" src="../images/widget-custom/advanced-chart-blank-trace.png" /></p>
-<p>Click “Scatter” to choose a different chart type such as Bar or Line. Then click the “Choose data” dropdowns to select the columns you want to plot.</p>
-<p>You can add multiple traces to overlay different plots. Try different panels from the sidebar to customize the chart further. For example, go to Style &gt; Axes &gt; Titles to add a label to each axis. See the <a href="https://plotly.com/chart-studio-help/tutorials/">chart studio tutorials</a> to learn more.</p>
-<p>As you customize the widget, remember to regularly click the ‘Save’ button above the widget to keep your configuration.</p>
-<h3 id="copy-to-clipboard">Copy to clipboard<a class="headerlink" href="#copy-to-clipboard" title="Permanent link">#</a></h3>
-<p>Copy to clipboard copies a value from the specified column of the selected record. When configuring the widget, you will need to select which column you wish to copy data from.</p>
-<p><em><img alt="copy-to-clipboard" src="../images/widget-custom/copy-to-clipboard.png" /></em></p>
-<p>Note that you can also copy data from a selected cell by using the keyboard shortcut <code class="keys"><em>Ctrl</em> + <em>C</em></code> on Windows or <code class="keys"><em>⌘</em> + <em>C</em></code> on Mac. To paste, use <code class="keys"><em>Ctrl</em> + <em>V</em></code> or <code class="keys"><em>⌘</em> + <em>V</em></code>.</p>
-<p>You can find an example of the copy to clipboard button in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/4" target="_blank">Webinar 7 (Custom Widgets)</a> template. You can also watch a video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=2063s" target="_blank">Custom Widgets Webinar</a>.</p>
-<h3 id="dropbox-embedder">Dropbox Embedder<a class="headerlink" href="#dropbox-embedder" title="Permanent link">#</a></h3>
-<p>View and access files saved to dropbox.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-widget" src="../images/widget-custom/dropbox-embedder-widget.png" /></em></span></p>
-<p>To start, add a new column to your table to store your dropbox links.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the dropbox links and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-add-widget" src="../images/widget-custom/dropbox-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Dropbox Embedder&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Dropbox Link&rsquo;, select the column that contains your dropbox links.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-configuration" src="../images/widget-custom/dropbox-embedder-configuration.png" /></em></span></p>
-<p>You can create links to folders or specific files in Dropbox. Click &lsquo;Share&rsquo; then set permissions for the link. You can choose to allow anyone with the link to view or edit. Create, then copy the link. Paste this link into your Dropbox Link column in Grist. Note that users cannot edit directly in the custom widget even if edit permissions are granted. To edit, select the object in the Dropbox Embedder and it will open in a new tab where it can be edited directly in Dropbox.</p>
-<p><span class="screenshot-large"><em><img alt="dropbox-embedder-create-link" src="../images/widget-custom/dropbox-embedder-create-link.png" /></em></span></p>
-<p>You can check out an example of the Dropbox Embedder in our <a href="https://templates.getgrist.com/uXMbETLdfriM/Hurricane-Preparedness" target="_blank">Hurricane Preparedness</a> template.</p>
-<p><em><img alt="dropbox-embedder" src="../images/widget-custom/dropbox-embedder.png" /></em></p>
-<h3 id="grist-video-player">Grist Video Player<a class="headerlink" href="#grist-video-player" title="Permanent link">#</a></h3>
-<p>Embed videos from online sources like YouTube, Vimeo, Facebook Video, Google Drive and more.</p>
-<p><em><img alt="video-player" src="../images/widget-custom/video-player.png" /></em></p>
-<p>To start, add a new column to your table to store your video URLs.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the video URLs and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-add-widget" src="../images/widget-custom/video-player-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Grist Video Player&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;URL&rsquo;, select the column that contains your video URLs.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-configuration" src="../images/widget-custom/video-player-configuration.png" /></em></span></p>
-<p>For most online videos, including YouTube videos and videos stored on Google Drive, you can simply click the &lsquo;Share&rsquo; option and copy the URL.</p>
-<p><em><img alt="youtube-embed" src="../images/widget-custom/youtube-embed.png" /></em></p>
-<p>For some other videos, you may see this error:</p>
-<p><em><img alt="video-player-error" src="../images/widget-custom/video-player-error.png" /></em></p>
-<p>If this happens, you&rsquo;ll need to take the URL from the Embed code.</p>
-<p>After clicking the share option on the video, click the option to &lsquo;Embed&rsquo;.</p>
-<p><em><img alt="video-facebook-embed" src="../images/widget-custom/video-facebook-embed.png" /></em></p>
-<p>Then, click to copy the code.</p>
-<p><em><img alt="video-facebook-embed-2" src="../images/widget-custom/video-facebook-embed-2.png" /></em></p>
-<p>The code it gives you will look something like this:</p>
-<p><em><img alt="video-facebook-embed-code" src="../images/widget-custom/video-facebook-embed-code.png" /></em></p>
-<p>Copy the URL that is found between quotes following <code>src</code>. The highlighted portion in the screenshot below is what you would copy for this particular Facebook video.</p>
-<p><em><img alt="video-facebook-embed-src" src="../images/widget-custom/video-facebook-embed-src.png" /></em></p>
-<p>Paste this URL into your URL column in Grist and the video will now appear in the Grist Video Player custom widget.</p>
-<p><em><img alt="video-player-embed" src="../images/widget-custom/video-player-embed.png" /></em></p>
-<h3 id="html-viewer">HTML Viewer<a class="headerlink" href="#html-viewer" title="Permanent link">#</a></h3>
-<p>The HTML viewer displays HTML written in a cell.</p>
-<p>For text-editing widgets, check out our <a href="#markdown">Markdown</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
-<p><em><img alt="html-viewer" src="../images/widget-custom/html-viewer.png" /></em></p>
-<p>To start, add a new column to your table. This will be where you add you write HTML.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the HTML and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-add-widget" src="../images/widget-custom/html-viewer-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;HTML Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;HTML&rsquo;, select the text column that contains your HTML.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-configurationt" src="../images/widget-custom/html-viewer-configuration.png" /></em></span></p>
-<p>Your HTML will be viewable in the custom widget.</p>
-<p><em><img alt="html-viewer-final-example" src="../images/widget-custom/html-viewer-final-example.png" /></em></p>
-<p>For help on HTML formatting, check out this guide from W3 Schools: <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank">HTML Text Formatting</a></p>
-<p>You can find an example of the HTML Viewer in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/1" target="_blank">Webinar 7 (Custom Widgets)</a> template. You can also watch a video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1538s" target="_blank">Custom Widgets Webinar</a>.</p>
-<h3 id="image-viewer">Image Viewer<a class="headerlink" href="#image-viewer" title="Permanent link">#</a></h3>
-<p>View images from URL.</p>
-<p><em><img alt="image-viewer" src="../images/widget-custom/image-viewer.png" /></em></p>
-<p>To start, add a new column to your table. This will be where you add the URL for your image.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the image URL and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-add-widget" src="../images/widget-custom/image-viewer-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Image Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Image URL&rsquo;, select the column that contains the URLs for your images.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-configuration" src="../images/widget-custom/image-viewer-configuration.png" /></em></span></p>
-<p>To copy the URL for an image, right click on the photo then &lsquo;Copy image address&rsquo;. This copies the URL to your clipboard. Paste this URL into your specified column in Grist.</p>
-<p><em><img alt="image-viewer-save-image" src="../images/widget-custom/image-viewer-save-image.png" /></em></p>
-<p>Additionally, you can add multiple images for a specific record by adding multiple image URLs, separated by a space or new line, into a single cell.</p>
-<p>Please note that a comma will not work to separate the links. </p>
-<p><em><img alt="image-viewer-multiple-links" src="../images/widget-custom/image-viewer-multiple-links.png" /></em></p>
-<p>When multiple image URLs are present, the image viewer custom widget will function as a carousel. Click the arrows to view additional images.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-park-multiple" src="../images/widget-custom/image-viewer-multiple.png" /></em></span></p>
-<p>For an example of the Image Viewer widget, check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">U.S. National Park Database</a>, and add a park review while you&rsquo;re there!</p>
-<p>You can also check out our <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Meme Generator</a> template for another great example.</p>
-<p>For a video walkthrough, be sure to watch our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Custom Widgets Webinar</a>!</p>
-<h3 id="jupyterlite-notebook">JupyterLite Notebook<a class="headerlink" href="#jupyterlite-notebook" title="Permanent link">#</a></h3>
-<p>This widget lets you run custom Python code in <a href="https://jupyterlite.readthedocs.io/">JupyterLite</a>, a version of <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab</a> running entirely in the browser. You can use the full <a href="../code/modules/grist_plugin_api/">custom widget plugin API</a> and access or modify any data in the document (subject to Access Rules), unlocking nearly unlimited possibilities for advanced users.</p>
-<p>You’ll be presented with a notebook where you can enter and run Python code, e.g:</p>
-<p><img alt="jupyterlite-notebook-example-notebook" src="../images/widget-custom/jupyterlite-notebook-example-notebook.png" /></p>
-<p>After typing code in a cell, click the play button or press Shift+Enter to run that cell.</p>
-<p>Unlike formulas, code isn’t saved automatically. You must press the usual ‘Save’ button above the widget (outside the notebook) to persist the code within your Grist document. On the other hand, changes to settings within the notebook (e.g. keyboard shortcuts) are saved in your browser’s local storage, so they’re not shared with other users of the document.</p>
-<p>A special object called <code>grist</code> is automatically available to use in Python code, which mirrors many common methods of the usual <a href="../code/modules/grist_plugin_api/">JS plugin API</a>. Note that many of these methods are asynchronous, so you should use <code>await</code> before calling them.</p>
+<h2 id="widgets-personnalises-prefabriques">Widgets personnalisés préfabriqués<a class="headerlink" href="#widgets-personnalises-prefabriques" title="Permanent link">#</a></h2>
+<p>Tous les widgets personnalisés préfabriqués sont disponibles dans le panneau de configuration du widget personnalisé sur le côté droit de l&rsquo;écran sous le menu déroulant Personnalisé.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widgets préfabriqués" src="../images/widget-custom/premade-widgets.png" /></em></span></p>
+<h3 id="graphiques-avances">Graphiques avancés<a class="headerlink" href="#graphiques-avances" title="Permanent link">#</a></h3>
+<p>Le widget personnalisé Graphiques avancés vous donne plus de puissance et de flexibilité que les graphiques intégrés de Grist, offrant une grande variété de types de graphiques ainsi qu&rsquo;un contrôle accru sur le style et la mise en page. C&rsquo;est une version de <a href="https://chart-studio.plotly.com/">Chart Studio</a> de Plotly, consultez leurs <a href="https://plotly.com/chart-studio-help/tutorials/">tutoriels</a> pour une aide plus détaillée.</p>
+<p>Vous devrez définir le niveau d&rsquo;accès sur &ldquo;Accès complet au document&rdquo;. Ne vous inquiétez pas, le widget ne lit que les données de la table sélectionnée, ne les envoie à aucun serveur et ne modifie ou n&rsquo;apporte d&rsquo;autres changements à votre document.</p>
+<p>Voici ce que vous devriez voir :</p>
+<p><img alt="panneau de traces vide de graphique avancé" src="../images/widget-custom/advanced-chart-blank-traces-panel.png" /></p>
+<p>Cliquez sur le grand bouton bleu “+ Trace” pour commencer. Cela ajoutera un panneau comme suit :</p>
+<p><img alt="trace vide de graphique avancé" src="../images/widget-custom/advanced-chart-blank-trace.png" /></p>
+<p>Cliquez sur “Dispersion” pour choisir un type de graphique différent tel que Bar ou Ligne. Ensuite, cliquez sur les menus déroulants “Choisir des données” pour sélectionner les colonnes que vous souhaitez tracer.</p>
+<p>Vous pouvez ajouter plusieurs traces pour superposer différents graphiques. Essayez différents panneaux dans la barre latérale pour personnaliser davantage le graphique. Par exemple, allez dans Style &gt; Axes &gt; Titres pour ajouter une étiquette à chaque axe. Consultez les <a href="https://plotly.com/chart-studio-help/tutorials/">tutoriels de studio de graphique</a> pour en savoir plus.</p>
+<p>Au fur et à mesure que vous personnalisez le widget, n&rsquo;oubliez pas de cliquer régulièrement sur le bouton ‘Enregistrer’ au-dessus du widget pour conserver votre configuration.</p>
+<h3 id="copier-dans-le-presse-papiers">Copier dans le presse-papiers<a class="headerlink" href="#copier-dans-le-presse-papiers" title="Permanent link">#</a></h3>
+<p>Copier dans le presse-papiers copie une valeur de la colonne spécifiée de l&rsquo;enregistrement sélectionné. Lors de la configuration du widget, vous devrez sélectionner la colonne à partir de laquelle vous souhaitez copier des données.</p>
+<p><em><img alt="copier dans le presse-papiers" src="../images/widget-custom/copy-to-clipboard.png" /></em></p>
+<p>Notez que vous pouvez également copier des données d&rsquo;une cellule sélectionnée en utilisant le raccourci clavier <code class="keys"><em>Ctrl</em> + <em>C</em></code> sur Windows ou <code class="keys"><em>⌘</em> + <em>C</em></code> sur Mac. Pour coller, utilisez <code class="keys"><em>Ctrl</em> + <em>V</em></code> ou <code class="keys"><em>⌘</em> + <em>V</em></code>.</p>
+<p>Vous pouvez trouver un exemple du bouton copier dans le presse-papiers dans notre <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/4" target="_blank">Webinaire 7 (Widgets personnalisés)</a> modèle. Vous pouvez également regarder une vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=2063s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
+<h3 id="integrateur-dropbox">Intégrateur Dropbox<a class="headerlink" href="#integrateur-dropbox" title="Permanent link">#</a></h3>
+<p>Voir et accéder aux fichiers enregistrés sur Dropbox.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder-widget.png" /></em></span></p>
+<p>Pour commencer, ajoutez une nouvelle colonne à votre table pour stocker vos liens Dropbox.</p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les liens Dropbox et &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget Dropbox" src="../images/widget-custom/dropbox-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Intégrateur Dropbox&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;Lien Dropbox&rsquo;, sélectionnez la colonne qui contient vos liens Dropbox.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder-configuration.png" /></em></span></p>
+<p>Vous pouvez créer des liens vers des dossiers ou des fichiers spécifiques dans Dropbox. Cliquez sur &lsquo;Partager&rsquo;, puis définissez les permissions pour le lien. Vous pouvez choisir de permettre à quiconque ayant le lien de visualiser ou d&rsquo;éditer. Créez ensuite, puis copiez le lien. Collez ce lien dans votre colonne Lien Dropbox dans Grist. Notez que les utilisateurs ne peuvent pas modifier directement dans le widget personnalisé même si des permissions d&rsquo;édition sont accordées. Pour éditer, sélectionnez l&rsquo;objet dans l&rsquo;intégrateur Dropbox et il s&rsquo;ouvrira dans un nouvel onglet où il pourra être modifié directement dans Dropbox.</p>
+<p><span class="screenshot-large"><em><img alt="créer un lien intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder-create-link.png" /></em></span></p>
+<p>Vous pouvez consulter un exemple de l&rsquo;intégrateur Dropbox dans notre <a href="https://templates.getgrist.com/uXMbETLdfriM/Hurricane-Preparedness" target="_blank">Préparation à l&rsquo;ouragan</a> modèle.</p>
+<p><em><img alt="intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder.png" /></em></p>
+<h3 id="lecteur-video-grist">Lecteur vidéo Grist<a class="headerlink" href="#lecteur-video-grist" title="Permanent link">#</a></h3>
+<p>Intégrez des vidéos provenant de sources en ligne telles que YouTube, Vimeo, Facebook Video, Google Drive et plus encore.</p>
+<p><em><img alt="lecteur vidéo" src="../images/widget-custom/video-player.png" /></em></p>
+<p>Pour commencer, ajoutez une nouvelle colonne à votre table pour stocker vos URL vidéo.</p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les URL vidéo et &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget lecteur vidéo" src="../images/widget-custom/video-player-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Lecteur vidéo Grist&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;URL&rsquo;, sélectionnez la colonne qui contient vos URL vidéo.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration lecteur vidéo" src="../images/widget-custom/video-player-configuration.png" /></em></span></p>
+<p>Pour la plupart des vidéos en ligne, y compris les vidéos YouTube et les vidéos stockées sur Google Drive, vous pouvez simplement cliquer sur l&rsquo;option &lsquo;Partager&rsquo; et copier l&rsquo;URL.</p>
+<p><em><img alt="intégration youtube" src="../images/widget-custom/youtube-embed.png" /></em></p>
+<p>Pour certaines autres vidéos, vous pourriez voir cette erreur :</p>
+<p><em><img alt="erreur lecteur vidéo" src="../images/widget-custom/video-player-error.png" /></em></p>
+<p>Si cela se produit, vous devrez prendre l&rsquo;URL à partir du code d&rsquo;intégration.</p>
+<p>Après avoir cliqué sur l&rsquo;option de partage de la vidéo, cliquez sur l&rsquo;option &lsquo;Intégrer&rsquo;.</p>
+<p><em><img alt="intégration vidéo Facebook" src="../images/widget-custom/video-facebook-embed.png" /></em></p>
+<p>Ensuite, cliquez pour copier le code.</p>
+<p><em><img alt="code d'intégration vidéo Facebook" src="../images/widget-custom/video-facebook-embed-2.png" /></em></p>
+<p>Le code qu&rsquo;il vous donne ressemblera à ceci :</p>
+<p><em><img alt="code d'intégration vidéo Facebook" src="../images/widget-custom/video-facebook-embed-code.png" /></em></p>
+<p>Copiez l&rsquo;URL qui se trouve entre les guillemets après <code>src</code>. La portion mise en surbrillance dans la capture d&rsquo;écran ci-dessous est ce que vous copieriez pour cette vidéo Facebook particulière.</p>
+<p><em><img alt="src vidéo Facebook" src="../images/widget-custom/video-facebook-embed-src.png" /></em></p>
+<p>Collez cette URL dans votre colonne URL dans Grist et la vidéo apparaîtra maintenant dans le widget personnalisé Lecteur vidéo Grist.</p>
+<p><em><img alt="intégration lecteur vidéo" src="../images/widget-custom/video-player-embed.png" /></em></p>
+<h3 id="visionneuse-html">Visionneuse HTML<a class="headerlink" href="#visionneuse-html" title="Permanent link">#</a></h3>
+<p>La visionneuse HTML affiche du HTML écrit dans une cellule.</p>
+<p>Pour des widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#markdown">Markdown</a> et <a href="#notepad">Bloc-notes</a>.</p>
+<p><em><img alt="visionneuse html" src="../images/widget-custom/html-viewer.png" /></em></p>
+<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que vous écrirez du HTML.</p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient le HTML et &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget visionneuse HTML" src="../images/widget-custom/html-viewer-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Visionneuse HTML&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;HTML&rsquo;, sélectionnez la colonne de texte qui contient votre HTML.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration visionneuse HTML" src="../images/widget-custom/html-viewer-configuration.png" /></em></span></p>
+<p>Votre HTML sera visible dans le widget personnalisé.</p>
+<p><em><img alt="exemple final visionneuse HTML" src="../images/widget-custom/html-viewer-final-example.png" /></em></p>
+<p>Pour obtenir de l&rsquo;aide sur le formatage HTML, consultez ce guide de W3 Schools : <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank">Formatage de texte HTML</a></p>
+<p>Vous pouvez trouver un exemple de la visionneuse HTML dans notre <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/1" target="_blank">Webinaire 7 (Widgets personnalisés)</a> modèle. Vous pouvez également regarder une vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1538s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
+<h3 id="visionneuse-dimages">Visionneuse d&rsquo;images<a class="headerlink" href="#visionneuse-dimages" title="Permanent link">#</a></h3>
+<p>Voir des images à partir d&rsquo;URL.</p>
+<p><em><img alt="visionneuse d'images" src="../images/widget-custom/image-viewer.png" /></em></p>
+<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que vous ajouterez l&rsquo;URL de votre image.</p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient l&rsquo;URL de l&rsquo;image et &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget visionneuse d'images" src="../images/widget-custom/image-viewer-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Visionneuse d&rsquo;images&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;URL de l&rsquo;image&rsquo;, sélectionnez la colonne qui contient les URL de vos images.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration visionneuse d'images" src="../images/widget-custom/image-viewer-configuration.png" /></em></span></p>
+<p>Pour copier l&rsquo;URL d&rsquo;une image, faites un clic droit sur la photo puis &lsquo;Copier l&rsquo;adresse de l&rsquo;image&rsquo;. Cela copie l&rsquo;URL dans votre presse-papiers. Collez cette URL dans votre colonne spécifiée dans Grist.</p>
+<p><em><img alt="enregistrer image visionneuse" src="../images/widget-custom/image-viewer-save-image.png" /></em></p>
+<p>De plus, vous pouvez ajouter plusieurs images pour un enregistrement spécifique en ajoutant plusieurs URL d&rsquo;images, séparées par un espace ou une nouvelle ligne, dans une seule cellule.</p>
+<p>Veuillez noter qu&rsquo;une virgule ne fonctionnera pas pour séparer les liens.</p>
+<p><em><img alt="liens multiples visionneuse d'images" src="../images/widget-custom/image-viewer-multiple-links.png" /></em></p>
+<p>Lorsque plusieurs URL d&rsquo;images sont présentes, le widget personnalisé visionneuse d&rsquo;images fonctionnera comme un carrousel. Cliquez sur les flèches pour voir d&rsquo;autres images.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="visionneuse d'images parc multiples" src="../images/widget-custom/image-viewer-multiple.png" /></em></span></p>
+<p>Pour un exemple du widget visionneuse d&rsquo;images, consultez notre <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">Base de données des parcs nationaux des États-Unis</a>, et ajoutez une critique de parc pendant que vous y êtes !</p>
+<p>Vous pouvez également consulter notre modèle <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Générateur de mèmes</a> pour un autre excellent exemple.</p>
+<p>Pour une vidéo explicative, assurez-vous de regarder notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Webinaire sur les widgets personnalisés</a> !</p>
+<h3 id="notebook-jupyterlite">Notebook JupyterLite<a class="headerlink" href="#notebook-jupyterlite" title="Permanent link">#</a></h3>
+<p>Ce widget vous permet d&rsquo;exécuter du code Python personnalisé dans <a href="https://jupyterlite.readthedocs.io/">JupyterLite</a>, une version de <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab</a> fonctionnant entièrement dans le navigateur. Vous pouvez utiliser la pleine <a href="../code/modules/grist_plugin_api/">API de plugin de widget personnalisée</a> et accéder ou modifier n&rsquo;importe quelles données dans le document (sous réserve des Règles d&rsquo;accès), débloquant presque des possibilités illimitées pour les utilisateurs avancés.</p>
+<p>Vous serez présenté avec un notebook où vous pouvez entrer et exécuter du code Python, par exemple :</p>
+<p><img alt="exemple de notebook JupyterLite" src="../images/widget-custom/jupyterlite-notebook-example-notebook.png" /></p>
+<p>Après avoir tapé du code dans une cellule, cliquez sur le bouton de lecture ou appuyez sur Shift+Entrée pour exécuter cette cellule.</p>
+<p>Contrairement aux formules, le code n&rsquo;est pas enregistré automatiquement. Vous devez appuyer sur le bouton &lsquo;Enregistrer&rsquo; habituel au-dessus du widget (en dehors du notebook) pour conserver le code dans votre document Grist. D&rsquo;autre part, les modifications des paramètres dans le notebook (par exemple, les raccourcis clavier) sont enregistrées dans le stockage local de votre navigateur, donc elles ne sont pas partagées avec d&rsquo;autres utilisateurs du document.</p>
+<p>Un objet spécial appelé <code>grist</code> est automatiquement disponible pour être utilisé dans le code Python, qui reflète de nombreuses méthodes courantes de l&rsquo;API de plugin <a href="../code/modules/grist_plugin_api/">JS</a>. Notez que beaucoup de ces méthodes sont asynchrones, donc vous devriez utiliser <code>await</code> avant de les appeler.</p>
 <ul>
-<li><code>async fetch_selected_table()</code>: returns the data of the table backing the notebook widget.</li>
-<li><code>async fetch_selected_record(row_id=None)</code>: returns a record of the table backing the notebook widget. If <code>row_id</code> is specified, returns the record at that row. Otherwise, returns the record at the current cursor position in a widget linked to the notebook widget.</li>
-<li><code>async fetch_table(table_id)</code>: returns the data of the specified table. Note that this differs from <code>fetch_selected_table</code> (even for the same table) in several ways:<ul>
-<li>The widget must have full document access.</li>
-<li>All columns are included, whereas <code>fetch_selected_table</code> excludes columns that are hidden in the widget configuration.</li>
-<li>All rows are included, whereas <code>fetch_selected_table</code> takes widget filters and &lsquo;SELECT BY&rsquo; into account.</li>
-<li>The data is not sorted according to the widget&rsquo;s configuration.</li>
-<li>The data is fetched from the server, so the method may be slower.</li>
-<li>The values for reference columns are row IDs of the referenced table, whereas <code>fetch_selected_table</code> returns the values displayed based on the &lsquo;SHOW COLUMN&rsquo; configuration.</li>
+<li><code>async fetch_selected_table()</code>: renvoie les données de la table soutenant le widget notebook.</li>
+<li><code>async fetch_selected_record(row_id=None)</code>: renvoie un enregistrement de la table soutenant le widget notebook. Si <code>row_id</code> est spécifié, renvoie l&rsquo;enregistrement à cette ligne. Sinon, renvoie l&rsquo;enregistrement à la position actuelle du curseur dans un widget lié au widget notebook.</li>
+<li><code>async fetch_table(table_id)</code>: renvoie les données de la table spécifiée. Notez que cela diffère de <code>fetch_selected_table</code> (même pour la même table) de plusieurs manières :<ul>
+<li>Le widget doit avoir un accès complet au document.</li>
+<li>Toutes les colonnes sont incluses, tandis que <code>fetch_selected_table</code> exclut les colonnes qui sont cachées dans la configuration du widget.</li>
+<li>Toutes les lignes sont incluses, tandis que <code>fetch_selected_table</code> prend en compte les filtres du widget et &lsquo;SÉLECTIONNER PAR&rsquo;.</li>
+<li>Les données ne sont pas triées selon la configuration du widget.</li>
+<li>Les données sont récupérées depuis le serveur, donc la méthode peut être plus lente.</li>
+<li>Les valeurs pour les colonnes de référence sont des ID de ligne de la table référencée, tandis que <code>fetch_selected_table</code> renvoie les valeurs affichées en fonction de la configuration &lsquo;AFFICHER LA COLONNE&rsquo;.</li>
 </ul>
 </li>
-<li><code>on_record(callback)</code>: registers a callback function to run when the cursor moves in a widget linked to the notebook widget, i.e. the widget chosen from the &ldquo;SELECT BY&rdquo; dropdown in the Data section of the widget configuration. The callback function will be passed the record at the current cursor position. You can also use this as a decorator, i.e. <code>@grist.on_record</code>.</li>
-<li><code>on_records(callback)</code>: similar to <code>on_record</code>, but runs when the source data of the widget changes. The callback function will be passed the same data as returned by <code>fetch_selected_table</code>.</li>
-<li><code>get_table(table_id)</code>: returns a <code>TableOperations</code> class similar to the interface in the usual <a href="./code/interfaces/TableOperations.TableOperations.md">JS plugin API</a> for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:<ul>
+<li><code>on_record(callback)</code>: enregistre une fonction de rappel à exécuter lorsque le curseur se déplace dans un widget lié au widget notebook, c&rsquo;est-à-dire le widget choisi dans le menu déroulant &ldquo;SÉLECTIONNER PAR&rdquo; dans la section Données de la configuration du widget. La fonction de rappel recevra l&rsquo;enregistrement à la position actuelle du curseur. Vous pouvez également l&rsquo;utiliser comme décorateur, c&rsquo;est-à-dire <code>@grist.on_record</code>.</li>
+<li><code>on_records(callback)</code>: similaire à <code>on_record</code>, mais s&rsquo;exécute lorsque les données source du widget changent. La fonction de rappel recevra les mêmes données que celles renvoyées par <code>fetch_selected_table</code>.</li>
+<li><code>get_table(table_id)</code>: renvoie une classe <code>TableOperations</code> similaire à l&rsquo;interface de l&rsquo;API de plugin <a href="./code/interfaces/TableOperations.TableOperations.md">JS</a> habituelle pour effectuer des opérations de type CRUD sur une table. Voir la documentation de l&rsquo;API de plugin pour les détails sur les paramètres. La classe a les méthodes suivantes :<ul>
 <li><code>async create(records, parse_strings=True)</code></li>
 <li><code>async update(records, parse_strings=True)</code></li>
 <li><code>async upsert(records, parse_strings=True, add=True, update=True, on_many="first", allow_empty_require=False)</code></li>
@@ -1405,80 +1300,80 @@ grist.setCursorPos({rowId: 'new'});
 </ul>
 </li>
 </ul>
-<p>You can also use <code>grist.raw</code> for direct access to the plugin API, e.g. <code>await grist.raw.docApi.fetchTable(table_id)</code>. This may return raw cell values which you can decode with <code>grist.decode_cell_value(value)</code>.</p>
-<p>You can use many (but not all) third-party libraries in your notebook such as <code>pandas</code>. Many will be installed automatically when they&rsquo;re imported. Others will require running <code>%pip install &lt;package name&gt;</code> in a cell, e.g. <code>%pip install pandas</code>. Note that it&rsquo;s <code>%pip</code> and not <code>!pip</code> as in a regular Jupyter notebook.</p>
-<h3 id="map">Map<a class="headerlink" href="#map" title="Permanent link">#</a></h3>
-<p>The custom map widget allows you to display locations using latitude and longitude coordinates. If your data is an address, rather than in lat-long format, Grist can convert the address into lat-long coordinates.</p>
-<p><em><img alt="map-widget" src="../images/widget-custom/map-widget.png" /></em></p>
-<p>If using existing lat-long coordinates, you will need three columns; Name, Longitude and Latitude.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-lat-long-columns" src="../images/widget-custom/map-lat-long-columns.png" /></em></span></p>
-<p>If using an address, you will need six columns; Name, Address, Geocode, Longitude, Latitude, and Geocoded Address.</p>
-<p><em><img alt="map-address-columns" src="../images/widget-custom/map-address-columns.png" /></em></p>
-<p>Geocode is a <a href="../col-types/#toggle-columns">toggle type column</a> that should be set to true for any record you wish to convert from address to lat-long coordinates to be shown on the map.</p>
-<p>If you wish to convert all records, you can make Geocode a formula column with the formula = <code>True</code>. This will mark all records as True.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-geocode-true" src="../images/widget-custom/map-geocode-true.png" /></em></span></p>
-<p>Next, add a new custom widget to the page. Choose the data table that contains the addresses or lat-long coordinates and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-add-widget" src="../images/widget-custom/map-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Map&rsquo; from the Custom dropdown.</p>
-<p>If you already have <strong>lat-long coordinates</strong>, you can set your access level to <em>Read selected table</em>.</p>
-<p>If you are using an <strong>address</strong> and that needs to be converted into lat-long coordinates, you will need to set your access level to <em>Full document access</em> because the widget needs permission to write to your document in order to add lat-long coordinates.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-1" src="../images/widget-custom/map-configuration-1.png" /></em></span></p>
-<p>Map all required columns. Note that Name, Longitude and Latitude are labeled as required. Geocode, Address and Geocoded Address are listed as optional. If you are using addresses and need Grist to convert these to lat-long coordinates, you must map all six columns.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-2" src="../images/widget-custom/map-configuration-2.png" /></em></span></p>
-<p>After mapping the necessary columns and selecting the appropriate Access Level, the map widget will populate.</p>
-<p><em><img alt="map-final" src="../images/widget-custom/map-final.png" /></em></p>
-<p>You can configure the map to show only the selected location by clicking the &lsquo;Open Configuration&rsquo; option in the <a href="../glossary/#creator-panel">creator panel</a>. Then, uncheck &lsquo;All Locations&rsquo;. Click the green check mark at the top of the widget to save the updated configuration settings.</p>
-<p><em><img alt="map-configuration-location" src="../images/widget-custom/map-configuration-location.png" /></em></p>
-<p>Check out our <a href="https://templates.getgrist.com/pyMHqncEspfZ/Mapping-Locations" target="_blank">Mapping Locations</a> template or our <a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">Crowdsourced List</a> for two great examples!</p>
-<p>For a video walkthrough, check out our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=713s" target="_blank">Custom Widgets Webinar</a>.</p>
+<p>Vous pouvez également utiliser <code>grist.raw</code> pour un accès direct à l&rsquo;API de plugin, par exemple <code>await grist.raw.docApi.fetchTable(table_id)</code>. Cela peut renvoyer des valeurs de cellule brutes que vous pouvez décoder avec <code>grist.decode_cell_value(value)</code>.</p>
+<p>Vous pouvez utiliser de nombreuses (mais pas toutes) bibliothèques tierces dans votre notebook, comme <code>pandas</code>. Beaucoup seront installées automatiquement lorsqu&rsquo;elles seront importées. D&rsquo;autres nécessiteront d&rsquo;exécuter <code>%pip install &lt;nom du package&gt;</code> dans une cellule, par exemple <code>%pip install pandas</code>. Notez que c&rsquo;est <code>%pip</code> et non <code>!pip</code> comme dans un notebook Jupyter classique.</p>
+<h3 id="carte">Carte<a class="headerlink" href="#carte" title="Permanent link">#</a></h3>
+<p>Le widget de carte personnalisé vous permet d&rsquo;afficher des emplacements en utilisant des coordonnées de latitude et de longitude. Si vos données sont une adresse, plutôt qu&rsquo;au format lat-long, Grist peut convertir l&rsquo;adresse en coordonnées lat-long.</p>
+<p><em><img alt="widget de carte" src="../images/widget-custom/map-widget.png" /></em></p>
+<p>Si vous utilisez des coordonnées lat-long existantes, vous aurez besoin de trois colonnes : Nom, Longitude et Latitude.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="colonnes lat-long de carte" src="../images/widget-custom/map-lat-long-columns.png" /></em></span></p>
+<p>Si vous utilisez une adresse, vous aurez besoin de six colonnes : Nom, Adresse, Géocodage, Longitude, Latitude et Adresse géocodée.</p>
+<p class="screenshot-half"><em><img alt="colonnes d'adresse de carte" src="../images/widget-custom/map-address-columns.png" /></em></span></p>
+<p>Géocodage est une <a href="../col-types/#toggle-columns">colonne de type bascule</a> qui doit être définie sur vrai pour tout enregistrement que vous souhaitez convertir d&rsquo;adresse en coordonnées lat-long à afficher sur la carte.</p>
+<p>Si vous souhaitez convertir tous les enregistrements, vous pouvez faire de Géocodage une colonne de formule avec la formule = <code>True</code>. Cela marquera tous les enregistrements comme vrais.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="géocodage vrai de carte" src="../images/widget-custom/map-geocode-true.png" /></em></span></p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les adresses ou les coordonnées lat-long et &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget de carte" src="../images/widget-custom/map-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Carte&rsquo; dans le menu déroulant Personnalisé.</p>
+<p>Si vous avez déjà <strong>des coordonnées lat-long</strong>, vous pouvez définir votre niveau d&rsquo;accès sur <em>Lire la table sélectionnée</em>.</p>
+<p>Si vous utilisez une <strong>adresse</strong> et qu&rsquo;elle doit être convertie en coordonnées lat-long, vous devrez définir votre niveau d&rsquo;accès sur <em>Accès complet au document</em> car le widget a besoin de la permission d&rsquo;écrire dans votre document afin d&rsquo;ajouter des coordonnées lat-long.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration de carte 1" src="../images/widget-custom/map-configuration-1.png" /></em></span></p>
+<p>Mappez toutes les colonnes requises. Notez que Nom, Longitude et Latitude sont étiquetés comme requis. Géocodage, Adresse et Adresse géocodée sont listés comme optionnels. Si vous utilisez des adresses et que vous avez besoin que Grist les convertisse en coordonnées lat-long, vous devez mapper les six colonnes.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration de carte 2" src="../images/widget-custom/map-configuration-2.png" /></em></span></p>
+<p>Après avoir mappé les colonnes nécessaires et sélectionné le niveau d&rsquo;accès approprié, le widget de carte se remplira.</p>
+<p><em><img alt="carte finale" src="../images/widget-custom/map-final.png" /></em></p>
+<p>Vous pouvez configurer la carte pour afficher uniquement l&rsquo;emplacement sélectionné en cliquant sur l&rsquo;option &lsquo;Ouvrir la configuration&rsquo; dans le <a href="../glossary/#creator-panel">panneau de création</a>. Ensuite, décochez &lsquo;Tous les emplacements&rsquo;. Cliquez sur la coche verte en haut du widget pour enregistrer les paramètres de configuration mis à jour.</p>
+<p><em><img alt="configuration de carte emplacement" src="../images/widget-custom/map-configuration-location.png" /></em></p>
+<p>Consultez notre modèle <a href="https://templates.getgrist.com/pyMHqncEspfZ/Mapping-Locations" target="_blank">Cartographie des emplacements</a> ou notre <a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">Liste de crowdsourcing</a> pour deux excellents exemples !</p>
+<p>Pour une vidéo explicative, consultez notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=713s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
 <h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">#</a></h3>
-<p>The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget.</p>
-<p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
-<p><em><img alt="markdown-widget" src="../images/widget-custom/markdown-widget.png" /></em></p>
-<p>To start, add a new column to your table. This will be where you will add your text that will be formatted using Markdown.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the text formatted with Markdown and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-add-widget" src="../images/widget-custom/markdown-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Markdown&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
-<p>Under &lsquo;Content&rsquo;, select the text column that contains Markdown formatting.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-configuration" src="../images/widget-custom/markdown-configuration.png" /></em></span></p>
-<p>Any Markdown formatting in the specified text column will apply and be viewable and editable in the custom widget.</p>
-<p><em><img alt="markdown-final" src="../images/widget-custom/markdown-final.png" /></em></p>
-<p>To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-edit" src="../images/widget-custom/markdown-edit.png" /></em></span></p>
-<p>For help on Markdown formatting, check out the <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown Guide</a> for basic syntax. This guide is also accessible in the Markdown widget by clicking the information icon at the top of the widget. The guide will open in a new tab of your browser for easy reference.</p>
-<p>You can find an example of the Markdown editor in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result" target="_blank">Webinar 7 (Custom Widgets)</a> template and check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1339s" target="_blank">Custom Widgets Webinar</a>.</p>
-<h3 id="notepad">Notepad<a class="headerlink" href="#notepad" title="Permanent link">#</a></h3>
-<p>The Notepad custom widget allows you to format text using a rich text editor.</p>
-<p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#markdown">Markdown</a> custom widgets.</p>
-<p><em><img alt="notepad-widget" src="../images/widget-custom/notepad-widget.png" /></em></p>
-<p>To start, add a new column to your table. This will be where details for our formatted text will be stored.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the column we just added and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-add-widget" src="../images/widget-custom/notepad-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Notepad&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
-<p>Under &lsquo;Content&rsquo;, select the column created to store our formatted text.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-configuration" src="../images/widget-custom/notepad-configuration.png" /></em></span></p>
-<p>If the text column you chose under Content has existing text, that text will appear in the Notepad widget, ready to be formatted.</p>
-<p><em><img alt="notepad-saved-text" src="../images/widget-custom/notepad-saved-text.png" /></em></p>
-<p>Use any of the options shown here to format your text.</p>
-<p><em><img alt="notepad-symbols" src="../images/widget-custom/notepad-symbols.png" /></em></p>
-<p>As you can see in the screenshot below, the code for the formatted text is not useful to see in your table. You will edit text directly in the Notepad widget so you can <a href="../widget-table/#column-operations">hide</a> this column from your data table.</p>
-<p><em><img alt="notepad-edited-text-code" src="../images/widget-custom/notepad-edited-text-code.png" /></em></p>
-<p>Check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/13" target="_blank">U.S. National Park Database</a> or our <a href="https://templates.getgrist.com/cMQA7uuBbtMW/-Grocery-List-Meal-Planner/p/3" target="_blank">🛒 Grocery List + Meal Planner</a> for two great Notepad examples!</p>
-<p>You can also check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1194s" target="_blank">Custom Widgets Webinar</a>.</p>
-<h3 id="print-labels">Print Labels<a class="headerlink" href="#print-labels" title="Permanent link">#</a></h3>
-<p>The Print Labels custom widget allows you to customize and print labels directly from Grist.</p>
-<p><em><img alt="print-label" src="../images/widget-custom/print-label.png" /></em></p>
-<p>To start, add a new column to your table. This column will contain the text for the label. Optionally, you can add a second column to specify a label count, allowing you to print more than one of the same label without having to create duplicate records.</p>
-<p>Next, add a new custom widget to the page. Choose the data table that contains the label details.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-add-widget" src="../images/widget-custom/print-label-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Print Labels&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Label&rsquo;, select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-configuration" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
-<p>You can select from standard sheet sizes under the dropdown in the upper left of the widget. Be sure to save any changes by clicking the green check mark at the upper right of the widget.</p>
-<p><em><img alt="print-label-sheet-configuration" src="../images/widget-custom/print-label-sheet-configuration.png" /></em></p>
-<p>To leave any blank labels at the beginning of the sheet, click the settings icon then specify how many labels should be left blank. This is especially helpful if a portion of your label sheet has already been used. You can skip the used labels and begin printing on your first unused label.</p>
-<p><em><img alt="print-label-blanks" src="../images/widget-custom/print-label-blanks.png" /></em></p>
-<p>Check out our <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">Print Mailing Labels</a> template and our <a href="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/6" target="_blank">Treasure Hunt</a> template for two great examples!</p>
-<p>You can also check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1749s" target="_blank">Custom Widgets Webinar</a>.</p>
+<p>Le widget personnalisé Markdown vous permet de formater du texte en utilisant Markdown tout en affichant le texte formaté dans un widget modifiable.</p>
+<p>Pour d&rsquo;autres widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#html-viewer">HTML</a> et <a href="#notepad">Bloc-notes</a>.</p>
+<p><em><img alt="widget markdown" src="../images/widget-custom/markdown-widget.png" /></em></p>
+<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que vous ajouterez votre texte qui sera formaté en utilisant Markdown.</p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient le texte formaté avec Markdown et &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget markdown" src="../images/widget-custom/markdown-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Markdown&rsquo; dans le menu déroulant Personnalisé et autorisez <strong>l&rsquo;accès complet au document</strong>. Comme le widget est également un éditeur, il a besoin de la permission d&rsquo;écrire dans le document.</p>
+<p>Sous &lsquo;Contenu&rsquo;, sélectionnez la colonne de texte qui contient le formatage Markdown.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration markdown" src="../images/widget-custom/markdown-configuration.png" /></em></span></p>
+<p>Tout formatage Markdown dans la colonne de texte spécifiée s&rsquo;appliquera et sera visible et modifiable dans le widget personnalisé.</p>
+<p><em><img alt="exemple final markdown" src="../images/widget-custom/markdown-final.png" /></em></p>
+<p>Pour éditer le texte directement dans le widget, cliquez sur l&rsquo;icône d&rsquo;édition. Le texte reviendra à afficher la syntaxe Markdown qui peut être modifiée directement dans le widget. Lorsqu&rsquo;il est en mode édition, l&rsquo;icône d&rsquo;édition sera remplacée par l&rsquo;icône de sauvegarde. Assurez-vous de cliquer sur l&rsquo;icône de sauvegarde pour enregistrer les modifications et revenir à l&rsquo;affichage du texte formaté.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="édition markdown" src="../images/widget-custom/markdown-edit.png" /></em></span></p>
+<p>Pour obtenir de l&rsquo;aide sur le formatage Markdown, consultez le <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Guide Markdown</a> pour la syntaxe de base. Ce guide est également accessible dans le widget Markdown en cliquant sur l&rsquo;icône d&rsquo;information en haut du widget. Le guide s&rsquo;ouvrira dans un nouvel onglet de votre navigateur pour une référence facile.</p>
+<p>Vous pouvez trouver un exemple de l&rsquo;éditeur Markdown dans notre <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result" target="_blank">Webinaire 7 (Widgets personnalisés)</a> modèle et consulter cette vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1339s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
+<h3 id="bloc-notes">Bloc-notes<a class="headerlink" href="#bloc-notes" title="Permanent link">#</a></h3>
+<p>Le widget Bloc-notes personnalisé vous permet de formater du texte en utilisant un éditeur de texte enrichi.</p>
+<p>Pour d&rsquo;autres widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#html-viewer">HTML</a> et <a href="#markdown">Markdown</a>.</p>
+<p><em><img alt="widget bloc-notes" src="../images/widget-custom/notepad-widget.png" /></em></p>
+<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que les détails de notre texte formaté seront stockés.</p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient la colonne que nous venons d&rsquo;ajouter et &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget bloc-notes" src="../images/widget-custom/notepad-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Bloc-notes&rsquo; dans le menu déroulant Personnalisé et autorisez <strong>l&rsquo;accès complet au document</strong>. Comme le widget est également un éditeur, il a besoin de la permission d&rsquo;écrire dans le document.</p>
+<p>Sous &lsquo;Contenu&rsquo;, sélectionnez la colonne créée pour stocker notre texte formaté.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration bloc-notes" src="../images/widget-custom/notepad-configuration.png" /></em></span></p>
+<p>Si la colonne de texte que vous avez choisie sous Contenu a du texte existant, ce texte apparaîtra dans le widget Bloc-notes, prêt à être formaté.</p>
+<p><em><img alt="texte enregistré bloc-notes" src="../images/widget-custom/notepad-saved-text.png" /></em></p>
+<p>Utilisez n&rsquo;importe quelle option montrée ici pour formater votre texte.</p>
+<p><em><img alt="symboles bloc-notes" src="../images/widget-custom/notepad-symbols.png" /></em></p>
+<p>Comme vous pouvez le voir dans la capture d&rsquo;écran ci-dessous, le code pour le texte formaté n&rsquo;est pas utile à voir dans votre table. Vous éditerez le texte directement dans le widget Bloc-notes afin que vous puissiez <a href="../widget-table/#column-operations">cacher</a> cette colonne de votre table de données.</p>
+<p><em><img alt="code de texte édité bloc-notes" src="../images/widget-custom/notepad-edited-text-code.png" /></em></p>
+<p>Consultez notre <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/13" target="_blank">Base de données des parcs nationaux des États-Unis</a> ou notre <a href="https://templates.getgrist.com/cMQA7uuBbtMW/-Grocery-List-Meal-Planner/p/3" target="_blank">🛒 Liste de courses + Planificateur de repas</a> pour deux excellents exemples de Bloc-notes !</p>
+<p>Vous pouvez également consulter cette vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1194s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
+<h3 id="etiquettes-dimpression">Étiquettes d&rsquo;impression<a class="headerlink" href="#etiquettes-dimpression" title="Permanent link">#</a></h3>
+<p>Le widget personnalisé Étiquettes d&rsquo;impression vous permet de personnaliser et d&rsquo;imprimer des étiquettes directement à partir de Grist.</p>
+<p><em><img alt="impression d'étiquettes" src="../images/widget-custom/print-label.png" /></em></p>
+<p>Pour commencer, ajoutez une nouvelle colonne à votre table. Cette colonne contiendra le texte pour l&rsquo;étiquette. Optionnellement, vous pouvez ajouter une deuxième colonne pour spécifier un nombre d&rsquo;étiquettes, vous permettant d&rsquo;imprimer plus d&rsquo;une même étiquette sans avoir à créer des enregistrements en double.</p>
+<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les détails de l&rsquo;étiquette.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget impression d'étiquettes" src="../images/widget-custom/print-label-add-widget.png" /></em></span></p>
+<p>Pour configurer, sélectionnez &lsquo;Impression d&rsquo;étiquettes&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;Étiquette&rsquo;, sélectionnez la colonne qui contient le texte à inclure sur les étiquettes. Si vous souhaitez imprimer plus d&rsquo;une étiquette, sélectionnez la colonne qui contient le nombre d&rsquo;étiquettes pour chaque enregistrement que vous souhaitez imprimer.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration impression d'étiquettes" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
+<p>Vous pouvez choisir parmi des tailles de feuille standard dans le menu déroulant en haut à gauche du widget. Assurez-vous d&rsquo;enregistrer les modifications en cliquant sur la coche verte en haut à droite du widget.</p>
+<p class="screenshot-half"><em><img alt="configuration de feuille d'impression d'étiquettes" src="../images/widget-custom/print-label-sheet-configuration.png" /></em></span></p>
+<p>Pour laisser des étiquettes vides au début de la feuille, cliquez sur l&rsquo;icône de paramètres puis spécifiez combien d&rsquo;étiquettes doivent rester vides. Cela est particulièrement utile si une partie de votre feuille d&rsquo;étiquettes a déjà été utilisée. Vous pouvez sauter les étiquettes utilisées et commencer à imprimer sur votre première étiquette inutilisée.</p>
+<p class="screenshot-half"><em><img alt="étiquettes vides d'impression" src="../images/widget-custom/print-label-blanks.png" /></em></span></p>
+<p>Consultez notre modèle <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">Impression d&rsquo;étiquettes d&rsquo;expédition</a> et notre modèle <a href="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/6" target="_blank">Chasse au trésor</a> pour deux excellents exemples !</p>
+<p>Vous pouvez également consulter cette vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1749s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
 
   <br>
 </div>

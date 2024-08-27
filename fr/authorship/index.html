@@ -7,20 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Il est parfois utile d’avoir des colonnes qui enregistrent le nom de la personne
-qui a créée une nouvelle ligne ou mis à jour de la donnée. Grist permet de créer
-facilement ce type de colonnes. Grist va suivre automatiquement les
-modifications apportées au document dans l’onglet “Historique du document”, mais
-il est parfois pratique de disposer de ces informations sous forme de tableau
-pour les formules et les filtres, et les colonnes de Paternité vous permettent
-de le faire.">
-      <meta property="og:description" content="Il est parfois utile d’avoir des colonnes qui enregistrent le nom de la personne
-qui a créée une nouvelle ligne ou mis à jour de la donnée. Grist permet de créer
-facilement ce type de colonnes. Grist va suivre automatiquement les
-modifications apportées au document dans l’onglet “Historique du document”, mais
-il est parfois pratique de disposer de ces informations sous forme de tableau
-pour les formules et les filtres, et les colonnes de Paternité vous permettent
-de le faire.">
+      <meta name="description" content="Parfois, il est utile d’avoir des colonnes qui enregistrent qui a créé des enregistrements individuels et qui les a mis à jour en dernier. Grist vous permet de créer facilement de telles colonnes. Il suit également automatiquement les modifications du document dans l’onglet Activité de l’Historique du document, mais il est néanmoins pratique d’avoir ces informations sous forme tabulaire disponibles pour les formules et les filtres, et les colonnes d’auteur vous permettent de le faire.">
+      <meta property="og:description" content="Parfois, il est utile d’avoir des colonnes qui enregistrent qui a créé des enregistrements individuels et qui les a mis à jour en dernier. Grist vous permet de créer facilement de telles colonnes. Il suit également automatiquement les modifications du document dans l’onglet Activité de l’Historique du document, mais il est néanmoins pratique d’avoir ces informations sous forme tabulaire disponibles pour les formules et les filtres, et les colonnes d’auteur vous permettent de le faire.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/authorship/">
@@ -346,7 +334,7 @@ de le faire.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Les Colonnes de Paternité
+              Colonnes d&rsquo;auteur
             </a>
           </li>
             <li class="wm-toc-li">
@@ -940,53 +928,23 @@ de le faire.">
 <p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 id="les-colonnes-de-paternite">Les Colonnes de Paternité<a class="headerlink" href="#les-colonnes-de-paternite" title="Permanent link">#</a></h1>
-<p>Il est parfois utile d&rsquo;avoir des colonnes qui enregistrent le nom de la personne
-qui a créée une nouvelle ligne ou mis à jour de la donnée. Grist permet de créer
-facilement ce type de colonnes. Grist va suivre automatiquement les
-modifications apportées au document dans l&rsquo;onglet &ldquo;Historique du document&rdquo;, mais
-il est parfois pratique de disposer de ces informations sous forme de tableau
-pour les formules et les filtres, et les colonnes de Paternité vous permettent
-de le faire.</p>
+<h1 id="colonnes-dauteur">Colonnes d&rsquo;auteur<a class="headerlink" href="#colonnes-dauteur" title="Permanent link">#</a></h1>
+<p>Parfois, il est utile d&rsquo;avoir des colonnes qui enregistrent qui a créé des enregistrements individuels et qui les a mis à jour en dernier. Grist vous permet de créer facilement de telles colonnes. Il suit également automatiquement les modifications du document dans l&rsquo;onglet Activité de l&rsquo;Historique du document, mais il est néanmoins pratique d&rsquo;avoir ces informations sous forme tabulaire disponibles pour les formules et les filtres, et les colonnes d&rsquo;auteur vous permettent de le faire.</p>
 <h2 id="une-colonne-cree-par">Une colonne &ldquo;Créé par&rdquo;<a class="headerlink" href="#une-colonne-cree-par" title="Permanent link">#</a></h2>
-<p>Supposons que nous voulions remplir automatiquement une colonne avec le nom du
-créateur de chaque nouvelle ligne au fur et à mesure qu&rsquo;elles sont ajoutées.
-Pour commencer, ajouter une colonne appelée (par exemple) <code>Créé par</code>. Dans les
-options de colonne du panneau latéral (voir <a href="../col-types/">Colonnes</a> pour un
-rappel), cliquez sur l&rsquo;action <code>Définir une formule d'initialisation</code>.</p>
-<p><img alt="créer une colonne Créé Par" src="../images/formulas/formulas-created-by-convert.png" /></p>
-<p>Définissez <code :=":" class="formula">user.Name</code> comme formule de la colonne. Il existe
-d&rsquo;autres possibilités, comme <code :=":" class="formula">user.Email</code>, ou <code>user.UserID</code>{ :
-.formula}, etc. Les informations disponibles sur l&rsquo;utilisateur sont les mêmes
-que dans les <a href="../access-rules/#access-rule-conditions">Permissions Avancées</a>.
-L&rsquo;horodatage est également disponible (voir <a href="../timestamps/">Colonnes
-d&rsquo;horodatage</a>). Mais restons-en à <code :=":" class="formula">user.Name</code> pour
-l&rsquo;instant.</p>
+<p>Supposons que nous voulions remplir automatiquement une colonne avec le nom du créateur de chaque enregistrement au fur et à mesure qu&rsquo;ils sont ajoutés. Comme première étape, ajoutez une colonne appelée (par exemple) <code>Créé par</code>. Dans les options de colonne dans le panneau latéral (voir <a href="../col-types/">Colonnes</a> pour un rappel), cliquez sur l&rsquo;action <code>Définir une formule de déclenchement</code>.</p>
+<p><img alt="démarrage d'une colonne Créé par" src="../images/formulas/formulas-created-by-convert.png" /></p>
+<p>Définissez <code class="formula">user.Name</code> comme formule de la colonne. Il existe d&rsquo;autres possibilités, telles que <code class="formula">user.Email</code>, un <code class="formula">user.UserID</code> unique, et ainsi de suite. Les informations utilisateur disponibles sont les mêmes que celles des <a href="../access-rules/#access-rule-conditions">conditions de règles d&rsquo;accès</a>. Les informations temporelles sont également disponibles (voir <a href="../timestamps/">Colonnes de timestamp</a>). Mais restons-en à <code class="formula">user.Name</code> pour l&rsquo;instant.</p>
 <p><img alt="une colonne Créé par" src="../images/formulas/formulas-created-by-final.png" /></p>
-<p>Maintenant, afin de paramétrer la colonne pour chaque nouvelle ligne créée,
-assurez-vous que l&rsquo;option <code>Appliquer sur les nouvelles lignes uniquement</code> est
-cochée. Et c&rsquo;est tout! Maintenant, à chaque fois qu&rsquo;une nouvelle ligne est
-créée, la colonne <code>Créé par</code> aura le nom de l&rsquo;utilisateur qui a créé cette ligne</p>
-<p><img alt="un exemple Créé par" src="../images/formulas/formulas-created-by-autofill.png" /></p>
+<p>Maintenant, pour définir la colonne chaque fois qu&rsquo;un enregistrement est créé, assurez-vous que l&rsquo;option <code>Appliquer aux nouveaux enregistrements</code> est cochée. Et c&rsquo;est tout ! Maintenant, chaque fois qu&rsquo;un enregistrement est créé, la colonne <code>Créé le</code> sera définie avec le nom de l&rsquo;utilisateur qui le crée :</p>
+<p><img alt="un exemple de Créé par" src="../images/formulas/formulas-created-by-autofill.png" /></p>
 <h2 id="une-colonne-mis-a-jour-par">Une colonne &ldquo;Mis à jour par&rdquo;<a class="headerlink" href="#une-colonne-mis-a-jour-par" title="Permanent link">#</a></h2>
-<p>Si nous voulons une colonne qui enregistre le nom de la dernière personne qui a
-modifié une ligne (par opposition à la personne qui a créé la ligne), la
-procédure est similaire à <a href="./#a-created-by-column">une colonne &ldquo;Créé
-par&rdquo;</a>, mais au lieu de &ldquo;Appliquer sur les
-nouvelles lignes uniquement&rdquo;, sélectionnez &ldquo;Réappliquer en cas de modification
-de la ligne&rdquo;. Sélectionnez ensuite <code>N'importe quel champ</code> (en supposant que vous
-voulez que tout changement dans une ligne soit considéré comme une mise à jour)
-et appuyez sur <code>OK</code>. Par ailleurs, vous pouvez également choisir que certaines
-colonnes en particulier qui, lorsqu&rsquo;elles seront mises à jour, déclencheront la
-formule.</p>
-<p><img alt="une colonne Mise à jour par" src="../images/formulas/formulas-updated-by-setup.png" /></p>
-<p>Voici un exemple de la nouvelle colonne à l&rsquo;œuvre - lorsque <code>Cotton Candy v
-Candy Floss</code> est mise à jour, un nom d&rsquo;utilisateur apparaît pour cette ligne :</p>
-<p><img alt="une colonne Mise à jour par" src="../images/formulas/formulas-updated-by-autofill.png" /></p>
-<p>!!! note &ldquo;Il est toujours possible pour un utilisateur de modifier manuellement
-les cellules dans les colonnes <code>Créé par</code> et <code>Mis à jour par</code>. Si vous ne voulez
-pas que cela soit autorisé, utilisez les <a href="../access-rules/">Permissions Avancées</a>
-pour l&rsquo;interdire.&rdquo;</p>
+<p>Si nous voulons une colonne qui enregistre qui a modifié un enregistrement en dernier (par opposition à son créateur), la procédure est similaire à celle d&rsquo;une <a href="./#a-created-by-column">colonne &ldquo;Créé par&rdquo;</a>, mais au lieu de <code>Appliquer aux nouveaux enregistrements</code>, sélectionnez <code>Appliquer aux modifications des enregistrements</code>. Ensuite, sélectionnez <code>N'importe quel champ</code> (en supposant que vous voulez que toute modification d&rsquo;un enregistrement soit considérée comme une mise à jour) et appuyez sur <code>OK</code>. Vous pouvez alternativement choisir quelles colonnes, lorsqu&rsquo;elles sont mises à jour, déclencheront la formule.</p>
+<p><img alt="une colonne Mis à jour par" src="../images/formulas/formulas-updated-by-setup.png" /></p>
+<p>Voici un exemple de la nouvelle colonne en action - lorsque <code>Cotton Candy v Candy Floss</code> est mis à jour, un nom d&rsquo;utilisateur apparaît pour cet enregistrement :</p>
+<p><img alt="une colonne Mis à jour par" src="../images/formulas/formulas-updated-by-autofill.png" /></p>
+<div class="admonition note">
+<p><strong>Il est toujours possible pour un utilisateur de modifier manuellement les cellules dans les colonnes <code>Créé par</code> et <code>Mis à jour par</code>. Si vous ne voulez pas que cela soit autorisé, utilisez les <a href="../access-rules/">permissions avancées</a> pour l&rsquo;interdire.</strong></p>
+</div>
 
   <br>
 </div>

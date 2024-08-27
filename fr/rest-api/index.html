@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist has an API for manipulating documents, workspaces, and team sites.">
-      <meta property="og:description" content="Grist has an API for manipulating documents, workspaces, and team sites.">
+      <meta name="description" content="Grist dispose d’une API pour manipuler des documents, des espaces de travail et des espaces d’équipe.">
+      <meta property="og:description" content="Grist dispose d’une API pour manipuler des documents, des espaces de travail et des espaces d’équipe.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/rest-api/">
@@ -421,17 +421,17 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Grist API Usage
+              Utilisation de l&rsquo;API Grist
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#authentication">
-                Authentication
+              <a class="wm-article-link wm-page-toc-text" href="#authentification">
+                Authentification
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#usage">
-                Usage
+              <a class="wm-article-link wm-page-toc-text" href="#utilisation">
+                Utilisation
               </a>
             </li>
         
@@ -923,66 +923,47 @@
 
     
 
-    <h1 id="grist-api-usage">Grist API Usage<a class="headerlink" href="#grist-api-usage" title="Permanent link">#</a></h1>
+    <h1 id="utilisation-de-lapi-grist">Utilisation de l&rsquo;API Grist<a class="headerlink" href="#utilisation-de-lapi-grist" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Grist has an API for manipulating documents, workspaces, and team sites.</p>
+<p>Grist dispose d&rsquo;une API pour manipuler des documents, des espaces de travail et des espaces d&rsquo;équipe.</p>
 <ul>
-<li><a href="../api/">API Reference</a> shows documentation of all available endpoints.</li>
-<li><a href="https://docs.getgrist.com/apiconsole">Interactive API Console</a> allows you to make API calls using your Grist login.</li>
+<li><a href="../api/">Référence de l&rsquo;API</a> montre la documentation de tous les points de terminaison disponibles.</li>
+<li><a href="https://docs.getgrist.com/apiconsole">Console API interactive</a> vous permet de faire des appels API en utilisant votre connexion Grist.</li>
 </ul>
-<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
-<p>To access the Grist API, you&rsquo;ll need an API key.  An API key is owned by a single
-user, and has the same permissions as that user.  To enable API access for
-yourself, visit your <a href="https://docs.getgrist.com/account">Profile Settings</a>. You can always find
-this page by clicking your profile picture or initial on the top right of the screen to open the
-account menu.  Then select the &ldquo;Profile Settings&rdquo; option:</p>
+<h2 id="authentification">Authentification<a class="headerlink" href="#authentification" title="Permanent link">#</a></h2>
+<p>Pour accéder à l&rsquo;API Grist, vous aurez besoin d&rsquo;une clé API. Une clé API est détenue par un seul utilisateur et possède les mêmes permissions que cet utilisateur. Pour activer l&rsquo;accès à l&rsquo;API pour vous-même, visitez vos <a href="https://docs.getgrist.com/account">Paramètres de Profil</a>. Vous pouvez toujours trouver cette page en cliquant sur votre photo de profil ou initiale en haut à droite de l&rsquo;écran pour ouvrir le menu du compte. Ensuite, sélectionnez l&rsquo;option &ldquo;Paramètres de Profil&rdquo;:</p>
 <p class="screenshot-half"><em><img alt="api-profile-settings" src="../images/api/api-profile-settings.png" /></em></p>
-<p>This shows a dialog with all of your profile setting options. Scroll down to the &ldquo;API&rdquo; section.</p>
+<p>Cela affiche une boîte de dialogue avec toutes vos options de paramètres de profil. Faites défiler vers le bas jusqu&rsquo;à la section &ldquo;API&rdquo;.</p>
 <p><img alt="api-user-profile" src="../images/api/api-user-profile.png" /></p>
-<p>Click on the &ldquo;Create&rdquo; button to create an API Key.</p>
+<p>Cliquez sur le bouton &ldquo;Créer&rdquo; pour créer une clé API.</p>
 <p><img alt="api-create-api-key" src="../images/api/api-create-api-key.png" /></p>
-<p>You can now copy this key for use when making API calls.  To be
-clear, copy the key in your profile settings, not the key
-in the above screenshot, which isn&rsquo;t a real one.  You can
-revoke your API key by clicking &ldquo;Remove&rdquo; from Profile Settings at any time.
-You&rsquo;ll then have the option to create a new one if you wish.</p>
-<p>To test your api key, try this from the command-line (substituting
-your api key):</p>
-<pre><code class="language-sh">curl -H &quot;Authorization: Bearer &lt;API-KEY-GOES HERE&gt;&quot; https://docs.getgrist.com/api/orgs
+<p>Vous pouvez maintenant copier cette clé pour l&rsquo;utiliser lors de vos appels API. Pour être clair, copiez la clé dans vos paramètres de profil, pas la clé dans la capture d&rsquo;écran ci-dessus, qui n&rsquo;est pas une vraie. Vous pouvez révoquer votre clé API en cliquant sur &ldquo;Supprimer&rdquo; dans les Paramètres de Profil à tout moment. Vous aurez alors la possibilité d&rsquo;en créer une nouvelle si vous le souhaitez.</p>
+<p>Pour tester votre clé API, essayez ceci depuis la ligne de commande (en substituant votre clé API):</p>
+<pre><code class="language-sh">curl -H &quot;Authorization: Bearer &lt;API-KEY-GOES-HERE&gt;&quot; https://docs.getgrist.com/api/orgs
 </code></pre>
-<p>This should return a list of organizations, which is what the API calls
-<a href="../team-sharing/">team sites</a> and your personal site.  Your personal site
-is accessible at <code>docs.getgrist.com</code>.  Team sites are accessible at <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
-<p>To access documents on your personal site via the API, simply continue
-using the <code>docs.getgrist.com</code> domain.  To access documents and
-workspaces on a team site, use <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
-<p>For example, to list all the workspaces and documents you have access
-to on a site, do:</p>
+<p>Cela devrait renvoyer une liste d&rsquo;organisations, ce que l&rsquo;API appelle des <a href="../team-sharing/">espaces d&rsquo;équipe</a> et votre espace personnel. Votre espace personnel est accessible à <code>docs.getgrist.com</code>. Les espaces d&rsquo;équipe sont accessibles à <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
+<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">#</a></h2>
+<p>Pour accéder aux documents sur votre espace personnel via l&rsquo;API, continuez simplement à utiliser le domaine <code>docs.getgrist.com</code>. Pour accéder aux documents et aux espaces de travail sur un espace d&rsquo;équipe, utilisez <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
+<p>Par exemple, pour lister tous les espaces de travail et documents auxquels vous avez accès sur un site, faites :</p>
 <pre><code class="language-sh">curl -H &quot;Authorization: Bearer &lt;API-KEY-GOES-HERE&gt;&quot; \
   https://&lt;docs|TEAM&gt;.getgrist.com/api/orgs/current/workspaces
 </code></pre>
-<p>When making changes via the API, and passing data via the request
-body, be sure to set the <code>Content-Type</code> header to
-<code>application/json</code>. For example, to change the name of a document, you
-could do:</p>
+<p>Lorsque vous apportez des modifications via l&rsquo;API et que vous passez des données via le corps de la requête, assurez-vous de définir l&rsquo;en-tête <code>Content-Type</code> à <code>application/json</code>. Par exemple, pour changer le nom d&rsquo;un document, vous pourriez faire :</p>
 <pre><code class="language-sh">curl -XPATCH \
   -H &quot;Authorization: Bearer &lt;API-KEY-GOES-HERE&gt;&quot; \
   -H &quot;Content-Type: application/json&quot; \
-  -d '{&quot;name&quot;: &quot;Lesson Plans&quot;}' \
+  -d '{&quot;name&quot;: &quot;Plans de Leçon&quot;}' \
   https://&lt;docs|TEAM&gt;.getgrist.com/api/docs/&lt;DOC-ID-GOES-HERE&gt;
 </code></pre>
-<p>For details of the endpoints available, see our <a href="../api/">API docs</a> or the interactive
-<a href="https://docs.getgrist.com/apiconsole">API console</a>.</p>
-<p>There are also client libraries available:</p>
+<p>Pour plus de détails sur les points de terminaison disponibles, consultez notre <a href="../api/">documentation API</a> ou la <a href="https://docs.getgrist.com/apiconsole">console API interactive</a>.</p>
+<p>Des bibliothèques clientes sont également disponibles :</p>
 <ul>
-<li><a href="https://www.npmjs.com/package/grist-api">JavaScript/TypeScript client library</a></li>
-<li><a href="https://pypi.org/project/grist-api/">Python client library</a></li>
+<li><a href="https://www.npmjs.com/package/grist-api">Bibliothèque cliente JavaScript/TypeScript</a></li>
+<li><a href="https://pypi.org/project/grist-api/">Bibliothèque cliente Python</a></li>
 </ul>
 
   <br>

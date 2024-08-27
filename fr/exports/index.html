@@ -228,32 +228,32 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Exporting
+              Exportation
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#exporting-a-table">
-                Exporting a table
+              <a class="wm-article-link wm-page-toc-text" href="#exporter-une-table">
+                Exporter une table
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#exporting-a-document">
-                Exporting a document
+              <a class="wm-article-link wm-page-toc-text" href="#exporter-un-document">
+                Exporter un document
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#sending-to-google-drive">
-                Sending to Google Drive
+              <a class="wm-article-link wm-page-toc-text" href="#envoyer-vers-google-drive">
+                Envoyer vers Google Drive
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#backing-up-an-entire-document">
-                Backing up an entire document
+              <a class="wm-article-link wm-page-toc-text" href="#sauvegarder-un-document-entier">
+                Sauvegarder un document entier
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#restoring-from-backup">
-                Restoring from backup
+              <a class="wm-article-link wm-page-toc-text" href="#restaurer-a-partir-dune-sauvegarde">
+                Restaurer à partir d&rsquo;une sauvegarde
               </a>
             </li>
         
@@ -938,66 +938,59 @@
 
     
 
-    <h1 id="exporting">Exporting<a class="headerlink" href="#exporting" title="Permanent link">#</a></h1>
+    <h1 id="exportation">Exportation<a class="headerlink" href="#exportation" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h2 id="exporting-a-table">Exporting a table<a class="headerlink" href="#exporting-a-table" title="Permanent link">#</a></h2>
-<p>If you want to export a table to another spreadsheet or database,
-you can export that table as either an XLSX file or a CSV, a common interchange format for data.
-To do this, open your document to the desired table or widget. Then click the three dot menu in the top right of the widget. 
-Select either &ldquo;Download as CSV&rdquo; or &ldquo;Download as XLSX&rdquo;.</p>
-<p><center><img alt="Export Table" src="../images/exports/export-table.png" /></center></p>
-<p>Your browser will then download a file containing a header row
-naming your columns, excluding any hidden columns or filtered-out rows, followed by all the
-rows of data visible in the table.</p>
-<h2 id="exporting-a-document">Exporting a document<a class="headerlink" href="#exporting-a-document" title="Permanent link">#</a></h2>
-<p>If you want to export all tables to Excel format, click the sharing icon
+<h2 id="exporter-une-table">Exporter une table<a class="headerlink" href="#exporter-une-table" title="Permanent link">#</a></h2>
+<p>Si vous souhaitez exporter une table vers une autre feuille de calcul ou une base de données,
+vous pouvez exporter cette table soit en fichier XLSX, soit en CSV, un format d&rsquo;échange courant pour les données.
+Pour ce faire, ouvrez votre document à la table ou à la vue souhaitée. Ensuite, cliquez sur le menu à trois points en haut à droite de la vue. 
+Sélectionnez soit &ldquo;Télécharger en CSV&rdquo; soit &ldquo;Télécharger en XLSX&rdquo;.</p>
+<p><center><img alt="Exporter une Table" src="../images/exports/export-table.png" /></center></p>
+<p>Votre navigateur téléchargera alors un fichier contenant une ligne d&rsquo;en-tête
+nommant vos colonnes, à l&rsquo;exclusion de toute colonne masquée ou ligne filtrée, suivie de toutes les
+lignes de données visibles dans la table.</p>
+<h2 id="exporter-un-document">Exporter un document<a class="headerlink" href="#exporter-un-document" title="Permanent link">#</a></h2>
+<p>Si vous souhaitez exporter toutes les tables au format Excel, cliquez sur l&rsquo;icône de partage
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen and select &ldquo;Export XLSX&rdquo;.</p>
-<p><center><img alt="Export Document" src="../images/exports/export-xlsx.png" /></center></p>
-<p>Your browser will then download an Excel file, where each table is a separate sheet
-containing all rows, without any filters applied. To use this option you need to have full
-read access for all tables in a document.</p>
-<p>A note about &ldquo;Export CSV&rdquo; in the sharing menu. When on a page with multiple page widgets, &ldquo;Export CSV&rdquo; will export only the data in the
-currently-selected widget. To export all your data, use &ldquo;Export XLSX&rdquo; or the &ldquo;Download&rdquo; option which is explained below in <a href="./#backing-up-an-entire-document">backing up an entire document</a>.</p>
-<h2 id="sending-to-google-drive">Sending to Google Drive<a class="headerlink" href="#sending-to-google-drive" title="Permanent link">#</a></h2>
-<p>If you want to export a document to Google Drive as a Google Sheet file, click the
-sharing icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen and select &ldquo;Send to Google Drive&rdquo;.</p>
-<p>Grist will first ask you to log in to your Google Account (or use an account you already
-signed in) and then for permission to create a file in your Google Drive. Grist will be
-able to create new files and manage them but will not be able to access any other files in
-your drive.</p>
+en haut à droite de l&rsquo;écran et sélectionnez &ldquo;Exporter XLSX&rdquo;.</p>
+<p><center><img alt="Exporter un Document" src="../images/exports/export-xlsx.png" /></center></p>
+<p>Votre navigateur téléchargera alors un fichier Excel, où chaque table est une feuille distincte
+contenant toutes les lignes, sans aucun filtre appliqué. Pour utiliser cette option, vous devez avoir un accès complet
+en lecture pour toutes les tables d&rsquo;un document.</p>
+<p>Une note à propos de &ldquo;Exporter CSV&rdquo; dans le menu de partage. Lorsque vous êtes sur une page avec plusieurs vues, &ldquo;Exporter CSV&rdquo; n&rsquo;exportera que les données de la
+vue actuellement sélectionnée. Pour exporter toutes vos données, utilisez &ldquo;Exporter XLSX&rdquo; ou l&rsquo;option &ldquo;Télécharger&rdquo; qui est expliquée ci-dessous dans <a href="./#backing-up-an-entire-document">sauvegarder un document entier</a>.</p>
+<h2 id="envoyer-vers-google-drive">Envoyer vers Google Drive<a class="headerlink" href="#envoyer-vers-google-drive" title="Permanent link">#</a></h2>
+<p>Si vous souhaitez exporter un document vers Google Drive en tant que fichier Google Sheet, cliquez sur l&rsquo;icône de partage
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
+en haut à droite de l&rsquo;écran et sélectionnez &ldquo;Envoyer vers Google Drive&rdquo;.</p>
+<p>Grist vous demandera d&rsquo;abord de vous connecter à votre compte Google (ou d&rsquo;utiliser un compte auquel vous êtes déjà
+connecté) puis d&rsquo;autoriser la création d&rsquo;un fichier dans votre Google Drive. Grist pourra
+créer de nouveaux fichiers et les gérer, mais ne pourra pas accéder à d&rsquo;autres fichiers dans votre drive.</p>
 <p><img alt="exports-send-to-google" src="../images/exports/exports-send-to-google.png" /></p>
-<p>Once you accept the permission request, Grist will export your document to an 
-<a href="./#exporting-a-document">Excel file</a> and then save it in your Google Drive as a
-Google Sheet file. To use this option, you need to have full read access for all tables in
-a document.</p>
-<h2 id="backing-up-an-entire-document">Backing up an entire document<a class="headerlink" href="#backing-up-an-entire-document" title="Permanent link">#</a></h2>
-<p>Grist makes regular backups of documents automatically, as described in <a href="../automatic-backups/">Automatic
-Backups</a>. You can also make manual backups by <a href="../copying-docs/#copying-for-backup-purposes">saving
-copies</a> of documents in your Grist account.</p>
-<p>In addition, Grist documents can be downloaded in their entirety as an SQLite database
-file with a <code>.grist</code> extension.  SQLite is a popular database format.
-The downloaded file will contain all your tabular data, any attached
-files within those tables, metadata about your tables, pages, and
-widgets, and a history of recent modifications of the document.  It
-will not contain information about who the document is shared with.</p>
-<p>To download a Grist document, click the sharing icon
+<p>Une fois que vous acceptez la demande d&rsquo;autorisation, Grist exportera votre document en un 
+<a href="./#exporting-a-document">fichier Excel</a> puis le sauvegardera dans votre Google Drive en tant que
+fichier Google Sheet. Pour utiliser cette option, vous devez avoir un accès complet en lecture pour toutes les tables d&rsquo;un document.</p>
+<h2 id="sauvegarder-un-document-entier">Sauvegarder un document entier<a class="headerlink" href="#sauvegarder-un-document-entier" title="Permanent link">#</a></h2>
+<p>Grist effectue automatiquement des sauvegardes régulières des documents, comme décrit dans <a href="../automatic-backups/">Sauvegardes Automatiques</a>. Vous pouvez également effectuer des sauvegardes manuelles en <a href="../copying-docs/#copying-for-backup-purposes">enregistrant des copies</a> des documents dans votre compte Grist.</p>
+<p>De plus, les documents Grist peuvent être téléchargés dans leur intégralité sous forme de fichier de base de données SQLite
+avec une extension <code>.grist</code>. SQLite est un format de base de données populaire.
+Le fichier téléchargé contiendra toutes vos données tabulaires, tous les fichiers joints dans ces tables, les métadonnées sur vos tables, pages et
+vues, ainsi qu&rsquo;un historique des modifications récentes du document. Il
+ne contiendra pas d&rsquo;informations sur les personnes avec qui le document est partagé.</p>
+<p>Pour télécharger un document Grist, cliquez sur l&rsquo;icône de partage
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen, and select &ldquo;Download&rdquo;.</p>
+en haut à droite de l&rsquo;écran, et sélectionnez &ldquo;Télécharger&rdquo;.</p>
 <p><img alt="exports-download" src="../images/exports/exports-download.png" /></p>
-<h2 id="restoring-from-backup">Restoring from backup<a class="headerlink" href="#restoring-from-backup" title="Permanent link">#</a></h2>
-<p>A downloaded <code>.grist</code> file can be uploaded again to provide an exact copy of the
-original.  To upload the file, open the team or personal site where
-you want to place it, and optionally select also a workspace.
-Then click on &ldquo;Add New&rdquo; in the top left, and select &ldquo;Import document&rdquo;.</p>
+<h2 id="restaurer-a-partir-dune-sauvegarde">Restaurer à partir d&rsquo;une sauvegarde<a class="headerlink" href="#restaurer-a-partir-dune-sauvegarde" title="Permanent link">#</a></h2>
+<p>Un fichier <code>.grist</code> téléchargé peut être téléchargé à nouveau pour fournir une copie exacte de l&rsquo;original. Pour télécharger le fichier, ouvrez l&rsquo;espace d&rsquo;équipe ou l&rsquo;espace personnel où
+vous souhaitez le placer, et sélectionnez éventuellement aussi un dossier.
+Ensuite, cliquez sur &ldquo;Ajouter Nouveau&rdquo; en haut à gauche, et sélectionnez &ldquo;Importer un document&rdquo;.</p>
 <p><img alt="exports-import-document" src="../images/exports/exports-import-document.png" /></p>
-<p>You may also import CSV and Excel files as new Grist documents this way.</p>
+<p>Vous pouvez également importer des fichiers CSV et Excel comme nouveaux documents Grist de cette manière.</p>
 
   <br>
 </div>

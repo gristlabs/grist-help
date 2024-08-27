@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Configuration for OIDC, useful for organization single-sign-on logins.
-A good informative overview of OIDC is at https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc">
-      <meta property="og:description" content="Configuration for OIDC, useful for organization single-sign-on logins.
-A good informative overview of OIDC is at https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc">
+      <meta name="description" content="Configuration pour OIDC, utile pour les connexions single-sign-on des organisations.
+Un bon aperçu informatif de l’OIDC est disponible sur https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc">
+      <meta property="og:description" content="Configuration pour OIDC, utile pour les connexions single-sign-on des organisations.
+Un bon aperçu informatif de l’OIDC est disponible sur https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc">
     
     
     <link rel="canonical" href="https://support.getgrist.com/install/oidc/">
@@ -481,18 +481,18 @@ A good informative overview of OIDC is at https://developer.okta.com/blog/2019/1
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-gitlab">
-                Example: Gitlab
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-gitlab">
+                Exemple : Gitlab
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-auth0">
-                Example: Auth0
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-auth0">
+                Exemple : Auth0
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-keycloak">
-                Example: Keycloak
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-keycloak">
+                Exemple : Keycloak
               </a>
             </li>
         
@@ -932,105 +932,103 @@ A good informative overview of OIDC is at https://developer.okta.com/blog/2019/1
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 class="tag-core tag-ee" id="openid-connect">OpenID Connect<a class="headerlink" href="#openid-connect" title="Permanent link">#</a></h1>
-<p>Configuration for OIDC, useful for organization single-sign-on logins.
-A good informative overview of OIDC is at <a href="https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc">https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc</a></p>
-<p>Note:</p>
+<p>Configuration pour OIDC, utile pour les connexions single-sign-on des organisations.
+Un bon aperçu informatif de l&rsquo;OIDC est disponible sur <a href="https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc">https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc</a></p>
+<p>Remarque :</p>
 <ul>
-<li>SP is &ldquo;Service Provider&rdquo;, in our case, the Grist application.</li>
-<li>IdP is the &ldquo;Identity Provider&rdquo;, somewhere users log into, e.g. Keycloak, Authelia, &hellip;</li>
-<li>OIDC is the acronym for OpenID Connect</li>
+<li>SP est le &ldquo;Fournisseur de Services&rdquo;, dans notre cas, l&rsquo;application Grist.</li>
+<li>IdP est le &ldquo;Fournisseur d&rsquo;Identité&rdquo;, là où les utilisateurs se connectent, par exemple Keycloak, Authelia, &hellip;</li>
+<li>OIDC est l&rsquo;acronyme pour OpenID Connect</li>
 </ul>
-<p>Expected environment variables:</p>
+<p>Variables d&rsquo;environnement attendues :</p>
 <ul>
-<li><code>GRIST_OIDC_IDP_ISSUER</code> - the issuer URL for the IdP, passed to node-openid-client, see: <a href="https://github.com/panva/node-openid-client/blob/a84d022f195f82ca1c97f8f6b2567ebcef8738c3/docs/README.md#issuerdiscoverissuer">https://github.com/panva/node-openid-client/blob/a84d022f195f82ca1c97f8f6b2567ebcef8738c3/docs/README.md#issuerdiscoverissuer</a>.
-    <strong>This variable turns on the OIDC login system.</strong></li>
-<li><code>GRIST_OIDC_IDP_CLIENT_ID</code> - the client ID for the application, as registered with the IdP.</li>
-<li><code>GRIST_OIDC_IDP_CLIENT_SECRET</code> - the client secret for the application, as registered with the IdP.</li>
-<li><code>GRIST_OIDC_IDP_SCOPES</code> (optional) - the scopes to request from the IdP, as a space-separated list. Defaults to <code>"openid email profile"</code>.</li>
-<li><code>GRIST_OIDC_SP_HOST</code> (optional) - this is just the base URL of the Grist site,
-    such as <code>https://&lt;grist-domain&gt;</code> (when OIDC is active, there will
-    be a <code>/oauth2/callback</code> endpoint available here for implementing the protocol).
-    If omitted, <code>APP_HOME_URL</code> will be used.</li>
-<li><code>GRIST_OIDC_IDP_END_SESSION_ENDPOINT</code> (optional) - If set, overrides the IdP&rsquo;s <code>end_session_endpoint</code> with
-    an alternative URL to redirect user upon logout (for an IdP that has a logout endpoint but does not support
-    the OIDC RP-Initiated Logout specification).</li>
-<li><code>GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT</code> (optional) -  If set to &ldquo;true&rdquo;, on logout, there won&rsquo;t be
-    any attempt to call the IdP&rsquo;s <code>end_session_endpoint</code> (the user will remain logged in in the IdP).
-    You should only set it to &ldquo;true&rdquo; if the IdP does not provide such endpoint (for example if you use Gitlab).</li>
-<li><code>GRIST_OIDC_SP_PROFILE_NAME_ATTR</code> (optional) - The key of the attribute to use for the user&rsquo;s name. If omitted,
-    the name will be the concatenation of <code>given_name</code> + <code>family_name</code> if they are provided or the <code>name</code> attribute otherwise.</li>
-<li><code>GRIST_OIDC_SP_PROFILE_EMAIL_ATTR</code> (optional) - The key of the attribute to use for the user&rsquo;s email. Defaults to &ldquo;email&rdquo;.</li>
-<li><code>GRIST_OIDC_IDP_ENABLED_PROTECTIONS</code> (optional) - A comma-separated list of protections to enable. Supported values are <code>PKCE</code>, <code>STATE</code>, <code>NONCE</code>.
-    Defaults to <code>PKCE,STATE</code>, which is the recommended settings. It&rsquo;s highly recommended that you enable <code>STATE</code>,
-    and at least one of <code>PKCE</code> or <code>NONCE,</code> depending on what your OIDC provider requires/supports.</li>
-<li><code>GRIST_OIDC_IDP_ACR_VALUES</code> (optional) - A space-separated list of ACR values to request from the IdP.</li>
-<li><code>GRIST_OIDC_IDP_EXTRA_CLIENT_METADATA</code> (optional) - A JSON object with extra client metadata to pass to openid-client.
-    Be aware that setting this object may override any other values passed to the openid client.
-    More info: https://github.com/panva/node-openid-client/tree/main/docs#new-clientmetadata-jwks-options</li>
+<li><code>GRIST_OIDC_IDP_ISSUER</code> - l&rsquo;URL de l&rsquo;émetteur pour l&rsquo;IdP, passé à node-openid-client, voir : <a href="https://github.com/panva/node-openid-client/blob/a84d022f195f82ca1c97f8f6b2567ebcef8738c3/docs/README.md#issuerdiscoverissuer">https://github.com/panva/node-openid-client/blob/a84d022f195f82ca1c97f8f6b2567ebcef8738c3/docs/README.md#issuerdiscoverissuer</a>.
+    <strong>Cette variable active le système de connexion OIDC.</strong></li>
+<li><code>GRIST_OIDC_IDP_CLIENT_ID</code> - l&rsquo;ID client pour l&rsquo;application, tel qu&rsquo;enregistré auprès de l&rsquo;IdP.</li>
+<li><code>GRIST_OIDC_IDP_CLIENT_SECRET</code> - le secret client pour l&rsquo;application, tel qu&rsquo;enregistré auprès de l&rsquo;IdP.</li>
+<li><code>GRIST_OIDC_IDP_SCOPES</code> (optionnel) - les scopes à demander à l&rsquo;IdP, sous forme de liste séparée par des espaces. Par défaut <code>"openid email profile"</code>.</li>
+<li><code>GRIST_OIDC_SP_HOST</code> (optionnel) - il s&rsquo;agit simplement de l&rsquo;URL de base du site Grist,
+    tel que <code>https://&lt;grist-domain&gt;</code> (lorsque OIDC est actif, il y aura un point de terminaison <code>/oauth2/callback</code> disponible ici pour implémenter le protocole).
+    Si omis, <code>APP_HOME_URL</code> sera utilisé.</li>
+<li><code>GRIST_OIDC_IDP_END_SESSION_ENDPOINT</code> (optionnel) - Si défini, remplace le <code>end_session_endpoint</code> de l&rsquo;IdP par
+    une URL alternative pour rediriger l&rsquo;utilisateur lors de la déconnexion (pour un IdP qui a un point de terminaison de déconnexion mais ne supporte pas
+    la spécification OIDC RP-Initiated Logout).</li>
+<li><code>GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT</code> (optionnel) - Si défini sur &ldquo;true&rdquo;, lors de la déconnexion, il n&rsquo;y aura
+    aucune tentative d&rsquo;appeler le <code>end_session_endpoint</code> de l&rsquo;IdP (l&rsquo;utilisateur restera connecté à l&rsquo;IdP).
+    Vous ne devez le définir sur &ldquo;true&rdquo; que si l&rsquo;IdP ne fournit pas un tel point de terminaison (par exemple si vous utilisez Gitlab).</li>
+<li><code>GRIST_OIDC_SP_PROFILE_NAME_ATTR</code> (optionnel) - La clé de la propriété d&rsquo;utilisateur à utiliser pour le nom de l&rsquo;utilisateur. Si omis,
+    le nom sera la concaténation de <code>given_name</code> + <code>family_name</code> s&rsquo;ils sont fournis ou la propriété <code>name</code> sinon.</li>
+<li><code>GRIST_OIDC_SP_PROFILE_EMAIL_ATTR</code> (optionnel) - La clé de la propriété d&rsquo;utilisateur à utiliser pour l&rsquo;email de l&rsquo;utilisateur. Par défaut &ldquo;email&rdquo;.</li>
+<li><code>GRIST_OIDC_IDP_ENABLED_PROTECTIONS</code> (optionnel) - Une liste séparée par des virgules des protections à activer. Les valeurs prises en charge sont <code>PKCE</code>, <code>STATE</code>, <code>NONCE</code>.
+    Par défaut <code>PKCE,STATE</code>, qui sont les paramètres recommandés. Il est fortement recommandé d&rsquo;activer <code>STATE</code>,
+    et au moins l&rsquo;un de <code>PKCE</code> ou <code>NONCE</code>, selon ce que votre fournisseur OIDC requiert/supporte.</li>
+<li><code>GRIST_OIDC_IDP_ACR_VALUES</code> (optionnel) - Une liste séparée par des espaces des valeurs ACR à demander à l&rsquo;IdP.</li>
+<li><code>GRIST_OIDC_IDP_EXTRA_CLIENT_METADATA</code> (optionnel) - Un objet JSON avec des métadonnées client supplémentaires à passer à openid-client.
+    Sachez que la définition de cet objet peut remplacer toutes les autres valeurs passées au client openid.
+    Plus d&rsquo;infos : https://github.com/panva/node-openid-client/tree/main/docs#new-clientmetadata-jwks-options</li>
 </ul>
-<h2 id="example-gitlab">Example: Gitlab<a class="headerlink" href="#example-gitlab" title="Permanent link">#</a></h2>
-<p>See <a href="https://docs.gitlab.com/ee/integration/oauth_provider.html">how to create an OAuth2 application in Gitlab in this documentation</a>. While creating the application, set the redirect URI to <code>https://&lt;grist-domain&gt;/oauth2/callback</code> (or <code>http://localhost:8484/oauth2/callback</code> if tested locally, change <code>8484</code> to the port you listen on) and select the scopes you will specify in <code>GRIST_OIDC_IDP_SCOPES</code>.</p>
-<p>Once the application is set up, start Grist with these settings:</p>
-<pre><code class="language-shell">GRIST_OIDC_SP_HOST=https://&lt;grist-domain&gt; # or http://localhost:8484
+<h2 id="exemple-gitlab">Exemple : Gitlab<a class="headerlink" href="#exemple-gitlab" title="Permanent link">#</a></h2>
+<p>Voir <a href="https://docs.gitlab.com/ee/integration/oauth_provider.html">comment créer une application OAuth2 dans Gitlab dans cette documentation</a>. Lors de la création de l&rsquo;application, définissez l&rsquo;URI de redirection sur <code>https://&lt;grist-domain&gt;/oauth2/callback</code> (ou <code>http://localhost:8484/oauth2/callback</code> si testé localement, changez <code>8484</code> pour le port que vous écoutez) et sélectionnez les scopes que vous spécifierez dans <code>GRIST_OIDC_IDP_SCOPES</code>.</p>
+<p>Une fois l&rsquo;application configurée, démarrez Grist avec ces paramètres :</p>
+<pre><code class="language-shell">GRIST_OIDC_SP_HOST=https://&lt;grist-domain&gt; # ou http://localhost:8484
 GRIST_OIDC_IDP_ISSUER=https://gitlab.com/.well-known/openid-configuration
 GRIST_OIDC_IDP_SCOPES=openid profile email
 
-# the client ID generated by Gitlab for the application
+# l'ID client généré par Gitlab pour l'application
 GRIST_OIDC_IDP_CLIENT_ID=...
 
-# the client secret generated by Gitlab for the application
+# le secret client généré par Gitlab pour l'application
 GRIST_OIDC_IDP_CLIENT_SECRET=...
 
-# Gitlab doesn't propose `end_session_endpoint`
+# Gitlab ne propose pas `end_session_endpoint`
 GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT=true
 </code></pre>
-<p>This format is suitable for an <code>.env</code> file or similar. From a shell invocation, remember to quote values with spaces, such as <code>GRIST_OIDC_IDP_SCOPES="openid profile email"</code>.</p>
-<h2 id="example-auth0">Example: Auth0<a class="headerlink" href="#example-auth0" title="Permanent link">#</a></h2>
-<p>Create an application in Auth0 <a href="https://auth0.com/docs/get-started/auth0-overview/create-applications">as explained in this documentation</a> (you can select the app type named <code>Regular Web Applications</code>). Once the application is created, ensure to add at least the following configuration for the app:</p>
+<p>Ce format est adapté pour un fichier <code>.env</code> ou similaire. Lors d&rsquo;une invocation shell, n&rsquo;oubliez pas de citer les valeurs avec des espaces, comme <code>GRIST_OIDC_IDP_SCOPES="openid profile email"</code>.</p>
+<h2 id="exemple-auth0">Exemple : Auth0<a class="headerlink" href="#exemple-auth0" title="Permanent link">#</a></h2>
+<p>Créez une application dans Auth0 <a href="https://auth0.com/docs/get-started/auth0-overview/create-applications">comme expliqué dans cette documentation</a> (vous pouvez sélectionner le type d&rsquo;application nommé <code>Regular Web Applications</code>). Une fois l&rsquo;application créée, assurez-vous d&rsquo;ajouter au moins la configuration suivante pour l&rsquo;application :</p>
 <ul>
-<li>Allowed callback URLs: <code>https://&lt;grist-domain&gt;/oauth2/callback</code></li>
-<li>Allowed logout URLs: <code>http://&lt;grist-domain&gt;/*</code> (you can also replace the wildcard with the whole path in order to be stricter)</li>
+<li>URL de rappel autorisées : <code>https://&lt;grist-domain&gt;/oauth2/callback</code></li>
+<li>URL de déconnexion autorisées : <code>http://&lt;grist-domain&gt;/*</code> (vous pouvez également remplacer le caractère générique par le chemin complet pour être plus strict)</li>
 </ul>
-<p>Then you should be able to start Grist with the following settings:</p>
-<pre><code class="language-shell">GRIST_OIDC_SP_HOST=https://&lt;grist-domain&gt; # or http://localhost:8484
+<p>Ensuite, vous devriez pouvoir démarrer Grist avec les paramètres suivants :</p>
+<pre><code class="language-shell">GRIST_OIDC_SP_HOST=https://&lt;grist-domain&gt; # ou http://localhost:8484
 GRIST_OIDC_IDP_ISSUER=https://&lt;your-auth0-app-domain&gt;
 GRIST_OIDC_IDP_SCOPES=openid profile email
 
-# the client ID generated by Auth0 for the application
+# l'ID client généré par Auth0 pour l'application
 GRIST_OIDC_IDP_CLIENT_ID=...
 
-# the client secret generated by Auth0 for the application
+# le secret client généré par Auth0 pour l'application
 GRIST_OIDC_IDP_CLIENT_SECRET=...
 </code></pre>
-<p>This format is suitable for an <code>.env</code> file or similar. From a shell invocation, remember to quote values with spaces, such as <code>GRIST_OIDC_IDP_SCOPES="openid profile email"</code>.</p>
-<h2 id="example-keycloak">Example: Keycloak<a class="headerlink" href="#example-keycloak" title="Permanent link">#</a></h2>
-<p>First of all, set up Keycloak as explained in one of these &ldquo;Getting started&rdquo; guides: <a href="https://www.keycloak.org/guides#getting-started">https://www.keycloak.org/guides#getting-started</a>.</p>
-<p>Once keycloak is set up with a realm and a user, create a new client with the following configuration:</p>
+<p>Ce format est adapté pour un fichier <code>.env</code> ou similaire. Lors d&rsquo;une invocation shell, n&rsquo;oubliez pas de citer les valeurs avec des espaces, comme <code>GRIST_OIDC_IDP_SCOPES="openid profile email"</code>.</p>
+<h2 id="exemple-keycloak">Exemple : Keycloak<a class="headerlink" href="#exemple-keycloak" title="Permanent link">#</a></h2>
+<p>Tout d&rsquo;abord, configurez Keycloak comme expliqué dans l&rsquo;un de ces guides &ldquo;Getting started&rdquo; : <a href="https://www.keycloak.org/guides#getting-started">https://www.keycloak.org/guides#getting-started</a>.</p>
+<p>Une fois Keycloak configuré avec un domaine et un utilisateur, créez un nouveau client avec la configuration suivante :</p>
 <ul>
-<li>Client type: OpenID Connect</li>
-<li>Authentication flow: Standard Flow</li>
-<li>Root URL: <code>https://&lt;grist-domain&gt;</code></li>
-<li>Valid redirect URIs: <code>/oauth2/callback</code></li>
-<li>Valid post logout redirect URIs: <code>/*</code> (you can also replace the wildcard with the whole path in order to be stricter)</li>
+<li>Type de client : OpenID Connect</li>
+<li>Flux d&rsquo;authentification : Flux standard</li>
+<li>URL racine : <code>https://&lt;grist-domain&gt;</code></li>
+<li>URI de redirection valides : <code>/oauth2/callback</code></li>
+<li>URI de redirection post-déconnexion valides : <code>/*</code> (vous pouvez également remplacer le caractère générique par le chemin complet pour être plus strict)</li>
 </ul>
-<p>Submit your settings and go to the Credentials tab to retrieve the client secret.</p>
-<p>Then, you can start Grist with the following configuration:</p>
-<pre><code class="language-shell">GRIST_OIDC_SP_HOST=https://&lt;grist-domain&gt; # or http://localhost:8484
+<p>Soumettez vos paramètres et allez à l&rsquo;onglet Credentials pour récupérer le secret client.</p>
+<p>Ensuite, vous pouvez démarrer Grist avec la configuration suivante :</p>
+<pre><code class="language-shell">GRIST_OIDC_SP_HOST=https://&lt;grist-domain&gt; # ou http://localhost:8484
 GRIST_OIDC_IDP_ISSUER=https://&lt;keycloak-domain&gt;/realms/&lt;your-realm&gt;
 GRIST_OIDC_IDP_SCOPES=openid profile email
 
-# the ID you chose for the Keycloak client
+# l'ID que vous avez choisi pour le client Keycloak
 GRIST_OIDC_IDP_CLIENT_ID=...
 
-# the client secret generated by Keycloak retrieved earlier
+# le secret client généré par Keycloak récupéré précédemment
 GRIST_OIDC_IDP_CLIENT_SECRET=...
 </code></pre>
-<p>This format is suitable for an <code>.env</code> file or similar. From a shell invocation, remember to quote values with spaces, such as <code>GRIST_OIDC_IDP_SCOPES="openid profile email"</code>.</p>
+<p>Ce format est adapté pour un fichier <code>.env</code> ou similaire. Lors d&rsquo;une invocation shell, n&rsquo;oubliez pas de citer les valeurs avec des espaces, comme <code>GRIST_OIDC_IDP_SCOPES="openid profile email"</code>.</p>
 
   <br>
 </div>

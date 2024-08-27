@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="How to configure webhooks for some external integrations">
-      <meta property="og:description" content="How to configure webhooks for some external integrations">
+      <meta name="description" content="Comment configurer des webhooks pour certaines intégrations externes">
+      <meta property="og:description" content="Comment configurer des webhooks pour certaines intégrations externes">
     
     
     <link rel="canonical" href="https://support.getgrist.com/webhooks/">
@@ -446,18 +446,18 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#security">
-                Security
+              <a class="wm-article-link wm-page-toc-text" href="#securite">
+                Sécurité
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#payloads">
-                Payloads
+              <a class="wm-article-link wm-page-toc-text" href="#charges-utiles">
+                Charges utiles
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#error-conditions">
-                Error conditions
+              <a class="wm-article-link wm-page-toc-text" href="#conditions-derreur">
+                Conditions d&rsquo;erreur
               </a>
             </li>
         
@@ -934,95 +934,87 @@
     
 
     <h1 id="webhooks">Webhooks<a class="headerlink" href="#webhooks" title="Permanent link">#</a></h1>
-<p>Webhooks enable you to notify external services whenever rows are
-added to a table or if existing rows are modified.</p>
+<p>Les webhooks vous permettent de notifier des services externes chaque fois que des lignes sont ajoutées à une table ou si des lignes existantes sont modifiées.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>You can configure webhooks from the &lsquo;Document Settings&rsquo; page. Click &lsquo;Settings&rsquo; under the &lsquo;Tools&rsquo; menu found at the bottom of the left-hand navigation panel while viewing a document.</p>
+<p>Vous pouvez configurer des webhooks depuis la page &lsquo;Paramètres du document&rsquo;. Cliquez sur &lsquo;Paramètres&rsquo; sous le menu &lsquo;Outils&rsquo; situé en bas du panneau de navigation de gauche lors de la visualisation d&rsquo;un document.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="webhooks-settings" src="../images/webhooks/settings.png" /></em></span></p>
-<p>Under the &lsquo;API&rsquo; section of &lsquo;Document Settings&rsquo;, click on the
-&lsquo;Manage Webhooks&rsquo; button.</p>
+<p>Dans la section &lsquo;API&rsquo; des &lsquo;Paramètres du document&rsquo;, cliquez sur le
+bouton &lsquo;Gérer les webhooks&rsquo;.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="webhooks-api-settings" src="../images/webhooks/settings-webhooks.png" /></em></span></p>
-<p>This will enable you to define webhooks for your document, where each
-card in this settings page represents a webhook for your
+<p>Cela vous permettra de définir des webhooks pour votre document, où chaque
+carte de cette page de paramètres représente un webhook pour votre
 document.</p>
 <p class="screenshot-half"><img alt="webhooks-ui" src="../images/webhooks/ui.png" /></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h2>
-<p>Each webhook has several fields. Some fields are defined by the user,
-and other fields are read-only and used to record information about
-the processing of the webhook. Not all fields are required.</p>
+<p>Chaque webhook a plusieurs champs. Certains champs sont définis par l&rsquo;utilisateur,
+et d&rsquo;autres champs sont en lecture seule et utilisés pour enregistrer des informations sur
+le traitement du webhook. Tous les champs ne sont pas obligatoires.</p>
 <ul>
-<li><strong>Name</strong>: A short, descriptive name given to the webhook.</li>
-<li><strong>Memo</strong> (optional): A longer description of the webhook&rsquo;s purpose.</li>
-<li><strong>Event types</strong>: Whether adding or modifying
-  rows triggers a webhook.</li>
-<li><strong>Table</strong>: The table that will trigger this webhook.</li>
-<li><strong>Filter for changes in these columns</strong> (optional): A semicolon-separated list of
-  column IDs. If an existing row is edited, the webhook will trigger
-  only if one of the filtered columns was changed, <em>and</em> if the
-  webhook is configured to trigger on modification. If a webhook
-  triggers when adding a row, it does not matter which columns are defined
-  when the new row is added.</li>
-<li><strong>Ready column</strong> (optional): A boolean, or <a href="../col-types/#toggle-columns">Toggle</a>, column on the table that
-  determines if the row should trigger the webhook or not. When the
-  column becomes true, the corresponding row will trigger the webhook.</li>
-<li><strong>URL</strong>: The remote URL of the service that the webhook will notify
-  of added or changed rows. When self-hosting, only external services
-  listed by the <a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables"><code>ALLOWED_WEBHOOK_DOMAINS</code> environment variable</a>
-  are allowed. Note that there are security concerns with allowing any domain, as
-  internal Grist services may become vulnerable to manipulation.</li>
-<li><strong>Header Authorization</strong> (optional): Credentials to be supplied to
-  the webhook endpoint in the <code>Authorization</code> HTTP header. Not all
-  endpoints require credentials. This is a static string. A common
-  usage of this field is to provide an API token as required by the
-  webhook&rsquo;s URL.</li>
-<li><strong>Enabled</strong>: Whether the webhook should monitor its configured table
-  for changes or not. If the webhook is disabled, no changes to its
-  table will trigger it.</li>
+<li><strong>Nom</strong>: Un nom court et descriptif donné au webhook.</li>
+<li><strong>Mémo</strong> (optionnel): Une description plus longue de l&rsquo;objectif du webhook.</li>
+<li><strong>Types d&rsquo;événements</strong>: Si l&rsquo;ajout ou la modification
+  des lignes déclenche un webhook.</li>
+<li><strong>Table</strong>: La table qui déclenchera ce webhook.</li>
+<li><strong>Filtrer les modifications dans ces colonnes</strong> (optionnel): Une liste d&rsquo;ID de colonnes séparés par des points-virgules. Si une ligne existante est modifiée, le webhook se déclenchera
+  uniquement si l&rsquo;une des colonnes filtrées a été modifiée, <em>et</em> si le
+  webhook est configuré pour se déclencher lors de modifications. Si un webhook
+  se déclenche lors de l&rsquo;ajout d&rsquo;une ligne, peu importe quelles colonnes sont définies
+  lorsque la nouvelle ligne est ajoutée.</li>
+<li><strong>Colonne prête</strong> (optionnel): Une colonne booléenne, ou <a href="../col-types/#toggle-columns">Toggle</a>, sur la table qui
+  détermine si la ligne doit déclencher le webhook ou non. Lorsque la
+  colonne devient vraie, la ligne correspondante déclenchera le webhook.</li>
+<li><strong>URL</strong>: L&rsquo;URL distante du service que le webhook notifiera
+  des lignes ajoutées ou modifiées. Lors de l&rsquo;auto-hébergement, seuls les services externes
+  listés par la <a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables">variable d&rsquo;environnement <code>ALLOWED_WEBHOOK_DOMAINS</code></a>
+  sont autorisés. Notez qu&rsquo;il existe des préoccupations de sécurité en permettant n&rsquo;importe quel domaine, car
+  les services internes de Grist peuvent devenir vulnérables à la manipulation.</li>
+<li><strong>Autorisation d&rsquo;en-tête</strong> (optionnel): Les informations d&rsquo;identification à fournir à
+  l&rsquo;endpoint du webhook dans l&rsquo;en-tête HTTP <code>Authorization</code>. Tous les
+  endpoints ne nécessitent pas d&rsquo;informations d&rsquo;identification. Il s&rsquo;agit d&rsquo;une chaîne statique. Une utilisation courante
+  de ce champ est de fournir un jeton API comme requis par l&rsquo;URL du webhook.</li>
+<li><strong>Activé</strong>: Si le webhook doit surveiller sa table configurée
+  pour les modifications ou non. Si le webhook est désactivé, aucune modification de sa
+  table ne le déclenchera.</li>
 </ul>
-<p>The following fields are informational and read-only:</p>
+<p>Les champs suivants sont informatifs et en lecture seule :</p>
 <ul>
-<li><strong>Webhook id</strong>: An automatic, internally-generated unique ID for
-  the webhook.</li>
-<li><strong>Status</strong>: A JSON object that summarises the current status of the
-  webhook, as well as the results regarding the number of times it has
-  been invoked. This includes any potential error messages or statuses
-  the webhook may have received when attempting to send a payload to
-  the remote address.</li>
+<li><strong>ID du webhook</strong>: Un ID unique automatique généré en interne pour
+  le webhook.</li>
+<li><strong>Statut</strong>: Un objet JSON qui résume le statut actuel du
+  webhook, ainsi que les résultats concernant le nombre de fois où il a
+  été invoqué. Cela inclut tous les messages d&rsquo;erreur potentiels ou statuts
+  que le webhook peut avoir reçus lors de la tentative d&rsquo;envoi d&rsquo;une charge utile à
+  l&rsquo;adresse distante.</li>
 </ul>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">#</a></h2>
-<p>In untrusted <a href="../self-managed/">self-hosted environments</a>, the internal
-Grist endpoints can be exposed if any user is allowed to create
-documents and configure webhooks. There are two ways to mitigate this
-risk:</p>
+<h2 id="securite">Sécurité<a class="headerlink" href="#securite" title="Permanent link">#</a></h2>
+<p>Dans des <a href="../self-managed/">environnements auto-hébergés</a> non fiables, les endpoints
+internes de Grist peuvent être exposés si tout utilisateur est autorisé à créer
+des documents et configurer des webhooks. Il existe deux façons de réduire ce
+risque :</p>
 <ol>
 <li>
-<p>Use the <a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables"><code>ALLOWED_WEBHOOK_DOMAINS</code> environment
-   variable</a>
-   to list the allowed domains that webhooks can use.</p>
+<p>Utilisez la <a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables">variable d&rsquo;environnement <code>ALLOWED_WEBHOOK_DOMAINS</code></a>
+   pour lister les domaines autorisés que les webhooks peuvent utiliser.</p>
 </li>
 <li>
-<p>Use the <a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables"><code>GRIST_HTTPS_PROXY</code> environment
-   variable</a>
-   to restrict webhook invocations to go through that proxy, along
-   with setting <code>ALLOWED_WEBHOOK_DOMAINS=*</code>. In this way, all domains
-   are allowed, but the webhooks will send requests through the
-   configured proxy, thus safeguarding your internal Grist endpoints.
-   This is the configuration that Grist Labs uses in our cloud-hosted
-   environment.</p>
+<p>Utilisez la <a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables">variable d&rsquo;environnement <code>GRIST_HTTPS_PROXY</code></a>
+   pour restreindre les invocations de webhooks à passer par ce proxy, tout en
+   définissant <code>ALLOWED_WEBHOOK_DOMAINS=*</code>. De cette manière, tous les domaines
+   sont autorisés, mais les webhooks enverront des requêtes via le
+   proxy configuré, protégeant ainsi vos endpoints internes de Grist.
+   C&rsquo;est la configuration utilisée par Grist Labs dans notre environnement hébergé sur le cloud.</p>
 </li>
 </ol>
-<p>In a trusted environment where malicious users are not expected to
-exist, setting <code>ALLOWED_WEBHOOK_DOMAINS=*</code> alone may be sufficient
-without needing to configure a proxy.</p>
-<h2 id="payloads">Payloads<a class="headerlink" href="#payloads" title="Permanent link">#</a></h2>
-<p>When a webhook is triggered, the rows that matched the webhook&rsquo;s
-conditions will generate a JSON array as the webhook&rsquo;s payload. Here
-is an example payload.</p>
+<p>Dans un environnement de confiance où des utilisateurs malveillants ne sont pas attendus,
+la définition de <code>ALLOWED_WEBHOOK_DOMAINS=*</code> seule peut être suffisante
+sans avoir besoin de configurer un proxy.</p>
+<h2 id="charges-utiles">Charges utiles<a class="headerlink" href="#charges-utiles" title="Permanent link">#</a></h2>
+<p>Lorsqu&rsquo;un webhook est déclenché, les lignes qui correspondent aux conditions du webhook
+généreront un tableau JSON comme charge utile du webhook. Voici un exemple de charge utile.</p>
 <pre><code class="language-json">[
   {
     &quot;id&quot;: 29,
@@ -1050,23 +1042,22 @@ is an example payload.</p>
   }
 ]
 </code></pre>
-<p>Multiple rows can simultaneously trigger the same webhook. In that
-case, those rows will be sent together in the same payload. The &lsquo;Ready
-Column&rsquo; in the webhook&rsquo;s configuration can be useful for gating which
-rows should be sent together.</p>
-<h2 id="error-conditions">Error conditions<a class="headerlink" href="#error-conditions" title="Permanent link">#</a></h2>
-<p>If a webhook fails to deliver its payload to the specified URL, it
-will keep retrying periodically. The &lsquo;Status&rsquo; column in the webhook
-configuration can be useful for diagnosing any such problems, or to
-verify that the payloads were delivered successfully.</p>
-<h3 id="webhook-queue">Webhook queue<a class="headerlink" href="#webhook-queue" title="Permanent link">#</a></h3>
-<p>Webhook payloads are delivered according to a batched queue. Attempts
-to reach an endpoint are removed from the queue when a successful
-delivery happens. In case there is a problem with the webhook
-configuration, it can be helpful to purge the webhook&rsquo;s queue. The
-&lsquo;Clear Queue&rsquo; button in the webhook&rsquo;s configuration page will remove any
-pending invocations of the webhook and discard the associated
-payloads.</p>
+<p>Plusieurs lignes peuvent déclencher simultanément le même webhook. Dans ce
+cas, ces lignes seront envoyées ensemble dans la même charge utile. La &lsquo;Colonne prête&rsquo;
+dans la configuration du webhook peut être utile pour déterminer quelles
+lignes doivent être envoyées ensemble.</p>
+<h2 id="conditions-derreur">Conditions d&rsquo;erreur<a class="headerlink" href="#conditions-derreur" title="Permanent link">#</a></h2>
+<p>Si un webhook ne parvient pas à livrer sa charge utile à l&rsquo;URL spécifiée, il
+continuera à réessayer périodiquement. La colonne &lsquo;Statut&rsquo; dans la configuration du webhook
+peut être utile pour diagnostiquer de tels problèmes, ou pour
+vérifier que les charges utiles ont été livrées avec succès.</p>
+<h3 id="file-dattente-des-webhooks">File d&rsquo;attente des webhooks<a class="headerlink" href="#file-dattente-des-webhooks" title="Permanent link">#</a></h3>
+<p>Les charges utiles des webhooks sont livrées selon une file d&rsquo;attente par lots. Les tentatives
+d&rsquo;atteindre un endpoint sont supprimées de la file d&rsquo;attente lorsqu&rsquo;une livraison réussie
+se produit. En cas de problème avec la configuration du webhook,
+il peut être utile de purger la file d&rsquo;attente du webhook. Le
+bouton &lsquo;Effacer la file d&rsquo;attente&rsquo; dans la page de configuration du webhook supprimera toutes
+les invocations en attente du webhook et ignorera les charges utiles associées.</p>
 
   <br>
 </div>

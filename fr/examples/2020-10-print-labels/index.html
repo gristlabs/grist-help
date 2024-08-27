@@ -7,12 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Do you ever print mailing labels? Typically, it involves a few steps, first exporting
-addresses, then importing them into Word or other software that can lay them out for a particular
-type of label.">
-      <meta property="og:description" content="Do you ever print mailing labels? Typically, it involves a few steps, first exporting
-addresses, then importing them into Word or other software that can lay them out for a particular
-type of label.">
+      <meta name="description" content="Imprimez-vous des étiquettes d’adresse ? En général, cela implique quelques étapes : d’abord exporter les adresses, puis les importer dans Word ou un autre logiciel capable de les disposer pour un type d’étiquette particulier.">
+      <meta property="og:description" content="Imprimez-vous des étiquettes d’adresse ? En général, cela implique quelques étapes : d’abord exporter les adresses, puis les importer dans Word ou un autre logiciel capable de les disposer pour un type d’étiquette particulier.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/examples/2020-10-print-labels/">
@@ -764,27 +760,27 @@ type of label.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Printing Mailing Labels
+              Impression d&rsquo;Étiquettes d&rsquo;Adresse
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#ready-made-template">
-                Ready-made Template
+              <a class="wm-article-link wm-page-toc-text" href="#modele-pret-a-lemploi">
+                Modèle Prêt à l&rsquo;Emploi
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#adding-labels-to-your-document">
-                Adding Labels to Your Document
+              <a class="wm-article-link wm-page-toc-text" href="#ajouter-des-etiquettes-a-votre-document">
+                Ajouter des Étiquettes à Votre Document
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#printing-notes">
-                Printing Notes
+              <a class="wm-article-link wm-page-toc-text" href="#notes-dimpression">
+                Notes d&rsquo;Impression
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#further-customization">
-                Further Customization
+              <a class="wm-article-link wm-page-toc-text" href="#personnalisation-supplementaire">
+                Personnalisation Supplémentaire
               </a>
             </li>
         
@@ -937,128 +933,87 @@ type of label.">
 
     
 
-    <h1 id="printing-mailing-labels">Printing Mailing Labels<a class="headerlink" href="#printing-mailing-labels" title="Permanent link">#</a></h1>
+    <h1 id="impression-detiquettes-dadresse">Impression d&rsquo;Étiquettes d&rsquo;Adresse<a class="headerlink" href="#impression-detiquettes-dadresse" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Do you ever print mailing labels? Typically, it involves a few steps, first exporting
-addresses, then importing them into Word or other software that can lay them out for a particular
-type of label.</p>
+<p>Imprimez-vous des étiquettes d&rsquo;adresse ? En général, cela implique quelques étapes : d&rsquo;abord exporter les adresses, puis les importer dans Word ou un autre logiciel capable de les disposer pour un type d&rsquo;étiquette particulier.</p>
 <p><center>
-<img src="/examples/images/2020-10-print-labels/labels-intro.png" alt="Mailing Labels" width=329 height=276>
+<img src="/examples/images/2020-10-print-labels/labels-intro.png" alt="Étiquettes d'Adresse" width=329 height=276>
 </center></p>
-<p>If you maintain addresses in Grist &ndash; or use labels for name tags, storage containers, child
-belongings, or <a href="https://www.shutterfly.com/designs/7-creative-uses-for-address-labels">other creative uses</a>
-&ndash; you can add a custom widget to have your printable labels available
-at the click of a button.</p>
-<h2 id="ready-made-template">Ready-made Template<a class="headerlink" href="#ready-made-template" title="Permanent link">#</a></h2>
-<p>Let me first share a template. Later I&rsquo;ll describe how to add the same functionality to an
-existing document, e.g. to add mailing labels alongside <a href="../../lightweight-crm/">CRM</a> or
-<a href="../2020-09-payroll/">Payroll</a> data.</p>
-<p>The template is at: <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels</a>.</p>
-<p>You can use it right away. Simply type in your own addresses.</p>
-<p>The template shows a few variations of what you can do.</p>
-<h3 id="labels-for-a-table-of-addresses">Labels for a table of addresses<a class="headerlink" href="#labels-for-a-table-of-addresses" title="Permanent link">#</a></h3>
-<p>That&rsquo;s what you see in the first page:</p>
-<p><img alt="Address Labels Page" src="../examples/images/2020-10-print-labels/address-labels-page.png" /></p>
-<p>You can use the dropdown on top of the labels widget to select the size of the labels, depending
-on what actual label paper you are planning to print on.</p>
-<p>What&rsquo;s actually printed is a hidden column named <code>LabelText</code>. If you show this column, or find it
-in the &ldquo;Addresses&rdquo; page (where it&rsquo;s visible), you&rsquo;ll see that it&rsquo;s a formula that stitches
-together all the parts of an address. (We get into the
-<a href="#add-the-labeltext-formula">details of this formula</a> below.)</p>
-<p>To print the labels, select &ldquo;Print widget&rdquo; from the menu above the labels widget (see also
-<a href="#printing-notes">Printing Notes</a> below):</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Print Menu" src="../examples/images/2020-10-print-labels/print-menu.png" /></em></span></p>
-<h3 id="a-sheet-of-labels-for-the-same-address">A sheet of labels for the same address<a class="headerlink" href="#a-sheet-of-labels-for-the-same-address" title="Permanent link">#</a></h3>
-<p>If you need many identical labels, e.g. for a return address, add another column named
-<code>LabelCount</code>. This is illustrated in the page &ldquo;Label Sheets&rdquo;.</p>
-<p><img alt="Label Sheets Page" src="../examples/images/2020-10-print-labels/label-sheets-page.png" /></p>
-<p>If you have multiple addresses in the table, and want to print just one, simply set the count to
-zero for the addresses you don&rsquo;t want to include.</p>
-<h3 id="a-filtered-list-of-labels">A filtered list of labels<a class="headerlink" href="#a-filtered-list-of-labels" title="Permanent link">#</a></h3>
-<p>There are a few ways in which you can print out only a few labels out of a larger table, and these
-are illustrated in the linked template:</p>
+<p>Si vous maintenez des adresses dans Grist &ndash; ou utilisez des étiquettes pour des badges nominatifs, des conteneurs de stockage, des affaires d&rsquo;enfants, ou <a href="https://www.shutterfly.com/designs/7-creative-uses-for-address-labels">d&rsquo;autres utilisations créatives</a> &ndash; vous pouvez ajouter une vue personnalisée pour avoir vos étiquettes imprimables disponibles en un clic.</p>
+<h2 id="modele-pret-a-lemploi">Modèle Prêt à l&rsquo;Emploi<a class="headerlink" href="#modele-pret-a-lemploi" title="Permanent link">#</a></h2>
+<p>Laissez-moi d&rsquo;abord partager un modèle. Plus tard, je décrirai comment ajouter la même fonctionnalité à un document existant, par exemple pour ajouter des étiquettes d&rsquo;adresse à côté des données de <a href="../../lightweight-crm/">CRM</a> ou de <a href="../2020-09-payroll/">Paie</a>.</p>
+<p>Le modèle est disponible à : <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels</a>.</p>
+<p>Vous pouvez l&rsquo;utiliser immédiatement. Il suffit de taper vos propres adresses.</p>
+<p>Le modèle montre quelques variations de ce que vous pouvez faire.</p>
+<h3 id="etiquettes-pour-une-table-dadresses">Étiquettes pour une table d&rsquo;adresses<a class="headerlink" href="#etiquettes-pour-une-table-dadresses" title="Permanent link">#</a></h3>
+<p>C&rsquo;est ce que vous voyez sur la première page :</p>
+<p><img alt="Page des Étiquettes d'Adresse" src="../examples/images/2020-10-print-labels/address-labels-page.png" /></p>
+<p>Vous pouvez utiliser le menu déroulant en haut de la vue des étiquettes pour sélectionner la taille des étiquettes, en fonction du papier d&rsquo;étiquettes que vous prévoyez d&rsquo;utiliser.</p>
+<p>Ce qui est réellement imprimé est une colonne cachée nommée <code>LabelText</code>. Si vous affichez cette colonne, ou la trouvez dans la page &ldquo;Adresses&rdquo; (où elle est visible), vous verrez que c&rsquo;est une formule qui assemble toutes les parties d&rsquo;une adresse. (Nous entrerons dans les <a href="#ajouter-la-formule-labeltext">détails de cette formule</a> ci-dessous.)</p>
+<p>Pour imprimer les étiquettes, sélectionnez &ldquo;Imprimer la vue&rdquo; dans le menu au-dessus de la vue des étiquettes (voir aussi les <a href="#notes-dimpression">Notes d&rsquo;Impression</a> ci-dessous) :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu d'Impression" src="../examples/images/2020-10-print-labels/print-menu.png" /></em></span></p>
+<h3 id="une-feuille-detiquettes-pour-la-meme-adresse">Une feuille d&rsquo;étiquettes pour la même adresse<a class="headerlink" href="#une-feuille-detiquettes-pour-la-meme-adresse" title="Permanent link">#</a></h3>
+<p>Si vous avez besoin de nombreuses étiquettes identiques, par exemple pour une adresse de retour, ajoutez une autre colonne nommée <code>LabelCount</code>. Ceci est illustré dans la page &ldquo;Feuilles d&rsquo;Étiquettes&rdquo;.</p>
+<p><img alt="Page des Feuilles d'Étiquettes" src="../examples/images/2020-10-print-labels/label-sheets-page.png" /></p>
+<p>Si vous avez plusieurs adresses dans la table et que vous souhaitez n&rsquo;en imprimer qu&rsquo;une seule, il suffit de définir le compte à zéro pour les adresses que vous ne souhaitez pas inclure.</p>
+<h3 id="une-liste-filtree-detiquettes">Une liste filtrée d&rsquo;étiquettes<a class="headerlink" href="#une-liste-filtree-detiquettes" title="Permanent link">#</a></h3>
+<p>Il existe plusieurs façons d&rsquo;imprimer seulement quelques étiquettes à partir d&rsquo;une table plus grande, et celles-ci sont illustrées dans le modèle lié :</p>
 <ol>
 <li>
-<p>The &ldquo;Address Labels&rdquo; page includes a filter button for <code>State</code>, which allows simple filtering
-   by state. You can click <code>+</code> button to easily create additional filters like this:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Filter Button" src="../examples/images/2020-10-print-labels/filter-button.png" /></em></span></p>
+<p>La page &ldquo;Étiquettes d&rsquo;Adresse&rdquo; inclut un bouton de filtre pour <code>État</code>, qui permet un filtrage simple par état. Vous pouvez cliquer sur le bouton <code>+</code> pour créer facilement des filtres supplémentaires comme celui-ci :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Bouton de Filtre" src="../examples/images/2020-10-print-labels/filter-button.png" /></em></span></p>
 </li>
 <li>
-<p>To print out only a few labels out of a larger table, you can use the
-   <code>LabelCount</code> column with a formula. This formula can produce 1 for a label that should be
-   included, or 0 for a label that should not. The page &ldquo;Filtered By Formula&rdquo; shows an example,
-   with the simple formula that includes only California addresses:
-   <code class="formula">IF($State == "CA", 1, 0)</code>:</p>
-<p><img alt="Filtered Page" src="../examples/images/2020-10-print-labels/filtered-page.png" /></p>
+<p>Pour imprimer seulement quelques étiquettes à partir d&rsquo;une table plus grande, vous pouvez utiliser la colonne <code>LabelCount</code> avec une formule. Cette formule peut produire 1 pour une étiquette qui doit être incluse, ou 0 pour une étiquette qui ne doit pas l&rsquo;être. La page &ldquo;Filtré par Formule&rdquo; montre un exemple, avec la formule simple qui inclut uniquement les adresses de Californie : <code class="formula">IF($State == "CA", 1, 0)</code> :</p>
+<p><img alt="Page Filtrée" src="../examples/images/2020-10-print-labels/filtered-page.png" /></p>
 </li>
 <li>
-<p>The &ldquo;Filtered Manually&rdquo; page includes a <code>Select for Print</code> column. Click any toggle to include
-   the corresponding row into the label sheet.</p>
+<p>La page &ldquo;Filtré Manuellement&rdquo; inclut une colonne <code>Sélectionner pour Imprimer</code>. Cliquez sur n&rsquo;importe quel bouton pour inclure la ligne correspondante dans la feuille d&rsquo;étiquettes.</p>
 </li>
 </ol>
-<p class="grist-button"><a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">GO TO TEMPLATE</a></p>
+<p class="grist-button"><a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">ALLER AU MODÈLE</a></p>
 <p><br/></p>
-<h2 id="adding-labels-to-your-document">Adding Labels to Your Document<a class="headerlink" href="#adding-labels-to-your-document" title="Permanent link">#</a></h2>
-<p>If you have a document with addresses, you can add a page with mailing labels, and the
-labels will be there &ndash; up-to-date and waiting for you &ndash; any time you open it.</p>
-<p>I&rsquo;ll assume that you already have a page that shows a table with addresses. Perhaps it&rsquo;s called
-&ldquo;People&rdquo;, &ldquo;Clients&rdquo;, or &ldquo;Employees&rdquo;. Open the menu next to the page name in the left
-panel, and click &ldquo;Duplicate&rdquo;:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Duplicate Page" src="../examples/images/2020-10-print-labels/duplicate-page.png" /></em></span></p>
-<p>This gives you a new page. We&rsquo;ll add the labels here, to avoid taking up screen space in the page
-you used for other purposes.</p>
-<h3 id="add-the-labeltext-formula">Add the LabelText formula<a class="headerlink" href="#add-the-labeltext-formula" title="Permanent link">#</a></h3>
-<p>Next, add a column to the table with addresses, and name it <code>LabelText</code>. Type a formula into
-it that produces an address formatted into multiple lines. Here is an example, but you may need to
-rename, add, or remove fields depending on the names of your columns:</p>
+<h2 id="ajouter-des-etiquettes-a-votre-document">Ajouter des Étiquettes à Votre Document<a class="headerlink" href="#ajouter-des-etiquettes-a-votre-document" title="Permanent link">#</a></h2>
+<p>Si vous avez un document avec des adresses, vous pouvez ajouter une page avec des étiquettes d&rsquo;adresse, et les étiquettes seront là &ndash; à jour et prêtes pour vous &ndash; chaque fois que vous l&rsquo;ouvrez.</p>
+<p>Je vais supposer que vous avez déjà une page qui montre une table avec des adresses. Peut-être s&rsquo;appelle-t-elle &ldquo;Personnes&rdquo;, &ldquo;Clients&rdquo; ou &ldquo;Employés&rdquo;. Ouvrez le menu à côté du nom de la page dans le panneau de gauche, et cliquez sur &ldquo;Dupliquer&rdquo; :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Dupliquer la Page" src="../examples/images/2020-10-print-labels/duplicate-page.png" /></em></span></p>
+<p>Cela vous donne une nouvelle page. Nous ajouterons les étiquettes ici, pour éviter de prendre de la place sur la page que vous utilisez à d&rsquo;autres fins.</p>
+<h3 id="ajouter-la-formule-labeltext">Ajouter la formule LabelText<a class="headerlink" href="#ajouter-la-formule-labeltext" title="Permanent link">#</a></h3>
+<p>Ensuite, ajoutez une colonne à la table avec les adresses, et nommez-la <code>LabelText</code>. Tapez une formule qui produit une adresse formatée sur plusieurs lignes. Voici un exemple, mais vous devrez peut-être renommer, ajouter ou supprimer des champs en fonction des noms de vos colonnes :</p>
 <pre><code class="language-python">&quot;%s\n%s %s\n%s, %s %s&quot; % ($Name, $Street1, $Street2, $City, $State, $Zip)
 </code></pre>
-<p>Note that this is Python syntax for formatting strings. Here is a brief guide to decode this:</p>
+<p>Notez qu&rsquo;il s&rsquo;agit de la syntaxe Python pour formater des chaînes de caractères. Voici un guide bref pour décoder cela :</p>
 <ul>
-<li>Each <code>%s</code> gets replaced with the next value from the parenthesized list after <code>%</code>.</li>
-<li><code>\n</code> inserts a newline.</li>
-<li><code>$Name</code> etc. are Grist variables corresponding to fields of the current record.</li>
+<li>Chaque <code>%s</code> est remplacé par la valeur suivante de la liste entre parenthèses après <code>%</code>.</li>
+<li><code>\n</code> insère une nouvelle ligne.</li>
+<li><code>$Name</code> etc. sont des variables Grist correspondant aux champs de l&rsquo;enregistrement actuel.</li>
 </ul>
-<h3 id="add-the-custom-widget">Add the Custom Widget<a class="headerlink" href="#add-the-custom-widget" title="Permanent link">#</a></h3>
-<p>Click <code>Add New</code> button and select <code>Add Widget to Page</code>. In the dialog that appears select widget <code>Custom</code>
-and the table that contains the addresses:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Add Page" src="../examples/images/2020-10-print-labels/add-page.png" /></em></span></p>
-<p>Click <code>Add to Page</code>.</p>
-<p>Open the menu above the widget and select &ldquo;Widget Options&rdquo;:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Widget Options" src="../examples/images/2020-10-print-labels/widget-options.png" /></em></span></p>
-<p>In the right-side panel that opens, in the &ldquo;Custom&rdquo; section, enter the URL of the widget that
-implements the mailing labels functionality:</p>
+<h3 id="ajouter-la-vue-personnalisee">Ajouter la Vue Personnalisée<a class="headerlink" href="#ajouter-la-vue-personnalisee" title="Permanent link">#</a></h3>
+<p>Cliquez sur le bouton <code>Ajouter Nouveau</code> et sélectionnez <code>Ajouter une Vue à la Page</code>. Dans la boîte de dialogue qui apparaît, sélectionnez la vue <code>Personnalisée</code> et la table qui contient les adresses :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ajouter une Page" src="../examples/images/2020-10-print-labels/add-page.png" /></em></span></p>
+<p>Cliquez sur <code>Ajouter à la Page</code>.</p>
+<p>Ouvrez le menu au-dessus de la vue et sélectionnez &ldquo;Options de la Vue&rdquo; :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Options de la Vue" src="../examples/images/2020-10-print-labels/widget-options.png" /></em></span></p>
+<p>Dans le panneau de droite qui s&rsquo;ouvre, dans la section &ldquo;Personnalisé&rdquo;, entrez l&rsquo;URL de la vue qui implémente la fonctionnalité des étiquettes d&rsquo;adresse :</p>
 <p><code>https://gristlabs.github.io/grist-widget/printlabels/</code></p>
-<p>Then change the &ldquo;Access&rdquo; dropdown from <code>none</code> to <code>read table</code>.</p>
-<p>You should now see your labels! If not, check that <code>LabelText</code> is listed below under &ldquo;Visible
-Columns&rdquo;. (If it&rsquo;s under &ldquo;Hidden Columns&rdquo;, click the &ldquo;eye&rdquo; icon to make it visible to the widget.)</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Visible Columns" src="../examples/images/2020-10-print-labels/visible-columns.png" /></em></span></p>
-<p>You can add another column named <code>LabelCount</code> for printing multiple labels or omitting some
-labels. If you do, just be sure to add it to &ldquo;Visible Columns&rdquo; of the Custom Widget, as those are
-the only columns available to it.</p>
-<h3 id="set-preferred-label-size">Set Preferred Label Size<a class="headerlink" href="#set-preferred-label-size" title="Permanent link">#</a></h3>
-<p>The labels widget remembers the last label size you picked. If you&rsquo;d like it instead to open to a
-fixed size every time, you can add the preferred size in the widget URL (in the right-side panel),
-e.g.:</p>
+<p>Ensuite, changez le menu déroulant &ldquo;Accès&rdquo; de <code>aucun</code> à <code>lire la table</code>.</p>
+<p>Vous devriez maintenant voir vos étiquettes ! Si ce n&rsquo;est pas le cas, vérifiez que <code>LabelText</code> est listé ci-dessous sous &ldquo;Colonnes Visibles&rdquo;. (Si c&rsquo;est sous &ldquo;Colonnes Cachées&rdquo;, cliquez sur l&rsquo;icône &ldquo;œil&rdquo; pour le rendre visible à la vue.)</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Colonnes Visibles" src="../examples/images/2020-10-print-labels/visible-columns.png" /></em></span></p>
+<p>Vous pouvez ajouter une autre colonne nommée <code>LabelCount</code> pour imprimer plusieurs étiquettes ou en omettre certaines. Si vous le faites, assurez-vous simplement de l&rsquo;ajouter aux &ldquo;Colonnes Visibles&rdquo; de la Vue Personnalisée, car ce sont les seules colonnes disponibles pour elle.</p>
+<h3 id="definir-la-taille-preferee-des-etiquettes">Définir la Taille Préférée des Étiquettes<a class="headerlink" href="#definir-la-taille-preferee-des-etiquettes" title="Permanent link">#</a></h3>
+<p>La vue des étiquettes se souvient de la dernière taille d&rsquo;étiquette que vous avez choisie. Si vous préférez qu&rsquo;elle s&rsquo;ouvre toujours à une taille fixe, vous pouvez ajouter la taille préférée dans l&rsquo;URL de la vue (dans le panneau de droite), par exemple :</p>
 <p><code>https://gristlabs.github.io/grist-widget/printlabels/#labels10</code></p>
-<p>The available sizes are <code>labels8</code>, <code>labels10</code>, <code>labels20</code>, <code>labels30</code>, <code>labels60</code>, and <code>labels80</code>,
-each of which corresponds to a standard type of label paper (all based on US Letter paper size).</p>
-<p>In the example document, this is illustrated in the widget on the &ldquo;Filtered&rdquo; page.</p>
-<h2 id="printing-notes">Printing Notes<a class="headerlink" href="#printing-notes" title="Permanent link">#</a></h2>
-<p>The widget uses the browser for printing. To match the exact sizes of the label paper,
-double-check that you don&rsquo;t have any settings that would change the scaling, and check Print
-Preview before printing. If there is a scale set, it should be &ldquo;100%&rdquo;, and options such as &ldquo;Ignore
-Scaling and Shrink to Fit Page Width&rdquo; should be off.</p>
-<h2 id="further-customization">Further Customization<a class="headerlink" href="#further-customization" title="Permanent link">#</a></h2>
-<p>This feature is built using <a href="../../widget-custom/">Custom Widgets</a>. It allows you, or a third-party
-developer, to customize it further using HTML, CSS, and Javascript. For interested developers, the
-code for this widget is available at <a href="https://github.com/gristlabs/grist-widget/tree/master/printlabels">https://github.com/gristlabs/grist-widget/tree/master/printlabels</a>.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Enjoy Label" src="../examples/images/2020-10-print-labels/enjoy-label.png" /></em></span></p>
+<p>Les tailles disponibles sont <code>labels8</code>, <code>labels10</code>, <code>labels20</code>, <code>labels30</code>, <code>labels60</code> et <code>labels80</code>, chacune correspondant à un type standard de papier d&rsquo;étiquettes (tous basés sur le format de papier US Letter).</p>
+<p>Dans le document d&rsquo;exemple, cela est illustré dans la vue sur la page &ldquo;Filtré&rdquo;.</p>
+<h2 id="notes-dimpression">Notes d&rsquo;Impression<a class="headerlink" href="#notes-dimpression" title="Permanent link">#</a></h2>
+<p>La vue utilise le navigateur pour l&rsquo;impression. Pour correspondre exactement aux tailles du papier d&rsquo;étiquettes, vérifiez bien que vous n&rsquo;avez pas de paramètres qui changeraient l&rsquo;échelle, et vérifiez l&rsquo;Aperçu avant impression avant d&rsquo;imprimer. S&rsquo;il y a une échelle définie, elle doit être &ldquo;100%&rdquo;, et des options telles que &ldquo;Ignorer l&rsquo;Échelle et Réduire pour Adapter à la Largeur de la Page&rdquo; doivent être désactivées.</p>
+<h2 id="personnalisation-supplementaire">Personnalisation Supplémentaire<a class="headerlink" href="#personnalisation-supplementaire" title="Permanent link">#</a></h2>
+<p>Cette fonctionnalité est construite en utilisant les <a href="../../widget-custom/">Vues Personnalisées</a>. Elle vous permet, ou permet à un développeur tiers, de la personnaliser davantage en utilisant HTML, CSS et Javascript. Pour les développeurs intéressés, le code de cette vue est disponible à <a href="https://github.com/gristlabs/grist-widget/tree/master/printlabels">https://github.com/gristlabs/grist-widget/tree/master/printlabels</a>.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Profitez des Étiquettes" src="../examples/images/2020-10-print-labels/enjoy-label.png" /></em></span></p>
 
   <br>
 </div>

@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="If there’s one thing better than reading a book, it is reading with friends.
-To organize a book club is pretty simple.  The club will work best if everyone
-actually gets the book, and has opinions for what to read next time.  Grist can help
-with all that.">
-      <meta property="og:description" content="If there’s one thing better than reading a book, it is reading with friends.
-To organize a book club is pretty simple.  The club will work best if everyone
-actually gets the book, and has opinions for what to read next time.  Grist can help
-with all that.">
+      <meta name="description" content="S’il y a une chose meilleure que lire un livre, c’est lire avec des amis.
+Organiser un club de lecture est assez simple. Le club fonctionnera mieux si tout le monde
+obtient effectivement le livre et a des opinions sur ce qu’il faut lire la prochaine fois. Grist peut aider
+avec tout cela.">
+      <meta property="og:description" content="S’il y a une chose meilleure que lire un livre, c’est lire avec des amis.
+Organiser un club de lecture est assez simple. Le club fonctionnera mieux si tout le monde
+obtient effectivement le livre et a des opinions sur ce qu’il faut lire la prochaine fois. Grist peut aider
+avec tout cela.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/examples/2020-06-book-club/">
@@ -750,17 +750,17 @@ with all that.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Book Lists with Library and Store Look-ups
+              Listes de Livres avec Recherche en Bibliothèque et en Magasin
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#library-and-store-lookups">
-                Library and store lookups
+              <a class="wm-article-link wm-page-toc-text" href="#recherche-en-bibliotheque-et-en-magasin">
+                Recherche en bibliothèque et en magasin
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#ready-made-template">
-                Ready-made template
+              <a class="wm-article-link wm-page-toc-text" href="#modele-pret-a-lemploi">
+                Modèle prêt à l&rsquo;emploi
               </a>
             </li>
         
@@ -929,84 +929,83 @@ with all that.">
 
     
 
-    <h1 id="book-lists-with-library-and-store-look-ups">Book Lists with Library and Store Look-ups<a class="headerlink" href="#book-lists-with-library-and-store-look-ups" title="Permanent link">#</a></h1>
+    <h1 id="listes-de-livres-avec-recherche-en-bibliotheque-et-en-magasin">Listes de Livres avec Recherche en Bibliothèque et en Magasin<a class="headerlink" href="#listes-de-livres-avec-recherche-en-bibliotheque-et-en-magasin" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>If there&rsquo;s one thing better than reading a book, it is reading with friends.
-To organize a book club is pretty simple.  The club will work best if everyone
-actually gets the book, and has opinions for what to read next time.  Grist can help
-with all that.</p>
-<p>To nudge the book into everyone&rsquo;s hands, it helps to have links to
-borrow the book at your local library, and to buy the book from your
-local (or not-so-local) store.  And for ideas about what to read next
-time, it helps to be able to easily suggest books, and to
-learn about books others suggest via sites like GoodReads, Wikipedia, and
+<p>S&rsquo;il y a une chose meilleure que lire un livre, c&rsquo;est lire avec des amis.
+Organiser un club de lecture est assez simple. Le club fonctionnera mieux si tout le monde
+obtient effectivement le livre et a des opinions sur ce qu&rsquo;il faut lire la prochaine fois. Grist peut aider
+avec tout cela.</p>
+<p>Pour inciter tout le monde à obtenir le livre, il est utile d&rsquo;avoir des liens pour
+emprunter le livre à votre bibliothèque locale et pour acheter le livre dans votre
+magasin local (ou non local). Et pour des idées sur ce qu&rsquo;il faut lire la prochaine fois,
+il est utile de pouvoir facilement suggérer des livres et de
+découvrir les livres que d&rsquo;autres suggèrent via des sites comme GoodReads, Wikipedia et
 Amazon.</p>
-<p>Suppose we start with a simple table of books, with book titles and author names.
-To borrow or buy the book, it is best to have its unique ISBN code, so there&rsquo;s no ambiguity or
-mix-ups. One thing we can do is add a link to search for a book
-on <a href="https://isbnsearch.org">isbnsearch.org</a>
-by its title and author. To do this, add a new column, and then set it to be a
-<a href="../../col-types/#text-columns">HyperLink column</a>:</p>
-<p><img alt="Make an ISBN finder" src="../examples/images/2020-06-book-club-find-isbn.png" /></p>
-<p>What we&rsquo;re going to do is fill this column using a formula that takes the
-book title and the author&rsquo;s name, and uses them as a keyword to search on
-the <a href="https://isbnsearch.org">isbnsearch.org</a> site.  Here&rsquo;s the formula:</p>
+<p>Supposons que nous commencions par une simple table de livres, avec les titres des livres et les noms des auteurs.
+Pour emprunter ou acheter le livre, il est préférable d&rsquo;avoir son code ISBN unique, afin qu&rsquo;il n&rsquo;y ait aucune ambiguïté ou
+confusion. Une chose que nous pouvons faire est d&rsquo;ajouter un lien pour rechercher un livre
+sur <a href="https://isbnsearch.org">isbnsearch.org</a>
+par son titre et son auteur. Pour ce faire, ajoutez une nouvelle colonne, puis définissez-la comme une
+<a href="../../col-types/#text-columns">colonne HyperLink</a> :</p>
+<p><img alt="Créer un chercheur d'ISBN" src="../examples/images/2020-06-book-club-find-isbn.png" /></p>
+<p>Ce que nous allons faire, c&rsquo;est remplir cette colonne en utilisant une formule qui prend le
+titre du livre et le nom de l&rsquo;auteur, et les utilise comme mots-clés pour rechercher sur
+le site <a href="https://isbnsearch.org">isbnsearch.org</a>. Voici la formule :</p>
 <pre><code class="language-py">import urllib
 keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author or &quot;&quot;)
 &quot;[isbn] https://isbnsearch.org/search?s=&quot; + urllib.quote(keywords)
 </code></pre>
-<p>URLs with spaces or apostrophes or other odd letters you might find in
-names need special encoding, so we&rsquo;ve used the python <code>urllib</code> module to make sure
-everything gets encoded correctly.  Now we&rsquo;ve got a handy <code>[isbn]</code> link beside each book:</p>
-<p><img alt="ISBN link formula" src="../examples/images/2020-06-book-club-isbn-link.png" /></p>
-<p>We can click the arrow by <code>[isbn]</code>, locate the book, and make note of its ISBN code
-in a new column:</p>
-<p><img alt="Start" src="../examples/images/2020-06-book-club-isbn-search-result.png" /></p>
-<p>Then we can add it into our book list. Now that we have a helping hand for finding ISBNs,
-let&rsquo;s add a few more books too:</p>
-<p><img alt="Start" src="../examples/images/2020-06-book-club-all-isbn.png" /></p>
-<h2 id="library-and-store-lookups">Library and store lookups<a class="headerlink" href="#library-and-store-lookups" title="Permanent link">#</a></h2>
-<p>Once we have the ISBN, adding a link to buy the book is easy.  Here&rsquo;s a formula
-for the <a href="https://indiebound.org">indiebound.org</a> site, which in the U.S. is likely
-to have an independent book store near you as a member:</p>
+<p>Les URL avec des espaces, des apostrophes ou d&rsquo;autres lettres étranges que vous pourriez trouver dans
+les noms nécessitent un encodage spécial, nous avons donc utilisé le module python <code>urllib</code> pour nous assurer
+que tout est encodé correctement. Maintenant, nous avons un lien <code>[isbn]</code> pratique à côté de chaque livre :</p>
+<p><img alt="Formule de lien ISBN" src="../examples/images/2020-06-book-club-isbn-link.png" /></p>
+<p>Nous pouvons cliquer sur la flèche à côté de <code>[isbn]</code>, localiser le livre et noter son code ISBN
+dans une nouvelle colonne :</p>
+<p><img alt="Commencer" src="../examples/images/2020-06-book-club-isbn-search-result.png" /></p>
+<p>Ensuite, nous pouvons l&rsquo;ajouter à notre liste de livres. Maintenant que nous avons un coup de main pour trouver les ISBN,
+ajoutons quelques livres de plus :</p>
+<p><img alt="Commencer" src="../examples/images/2020-06-book-club-all-isbn.png" /></p>
+<h2 id="recherche-en-bibliotheque-et-en-magasin">Recherche en bibliothèque et en magasin<a class="headerlink" href="#recherche-en-bibliotheque-et-en-magasin" title="Permanent link">#</a></h2>
+<p>Une fois que nous avons l&rsquo;ISBN, ajouter un lien pour acheter le livre est facile. Voici une formule
+pour le site <a href="https://indiebound.org">indiebound.org</a>, qui aux États-Unis est susceptible
+d&rsquo;avoir une librairie indépendante près de chez vous en tant que membre :</p>
 <pre><code class="language-py">&quot;[buy] https://indiebound.org/book/&quot; + $ISBN
 </code></pre>
-<p>If you don&rsquo;t have a local bookstore, there&rsquo;s Amazon, or pretty much any site
-you like (just find a search page on their site, and match the pattern).</p>
-<pre><code>import urllib
+<p>Si vous n&rsquo;avez pas de librairie locale, il y a Amazon, ou à peu près n&rsquo;importe quel site
+que vous aimez (trouvez simplement une page de recherche sur leur site et faites correspondre le modèle).</p>
+<pre><code class="language-py">import urllib
 keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author or &quot;&quot;) + &quot; &quot; + ($ISBN or &quot;&quot;)
 &quot;[amazon] https://www.amazon.com/s?i=stripbooks&amp;k=&quot; + urllib.quote($keywords)
 </code></pre>
-<p>The new links look like this:</p>
-<p><img alt="Start" src="../examples/images/2020-06-book-club-buy.png" /></p>
-<p>Clicking on the <code>[buy]</code> link near a book now brings us to that book on
+<p>Les nouveaux liens ressemblent à ceci :</p>
+<p><img alt="Commencer" src="../examples/images/2020-06-book-club-buy.png" /></p>
+<p>Cliquer sur le lien <code>[buy]</code> près d&rsquo;un livre nous amène maintenant à ce livre sur
 <a href="https://indiebound.org">indiebound.org</a>.</p>
-<p><img alt="Start" src="../examples/images/2020-06-book-club-indie.png" /></p>
-<p>For your local library, the same idea is very likely to work.  For example, in
-northern New Jersey, in the US, here&rsquo;s what you want:</p>
+<p><img alt="Commencer" src="../examples/images/2020-06-book-club-indie.png" /></p>
+<p>Pour votre bibliothèque locale, la même idée est très probablement applicable. Par exemple, dans
+le nord du New Jersey, aux États-Unis, voici ce que vous voulez :</p>
 <pre><code class="language-py">import urllib
 prefix = &quot;[borrow] https://catalog.bccls.org/polaris/search/searchresults.aspx?ctx=placeholder&amp;type=Keyword&amp;by=ISBN&amp;term=&quot;
 prefix + urllib.quote($ISBN)
 </code></pre>
-<p>And here&rsquo;s how to look up Goodreads to see what people think of a book:</p>
+<p>Et voici comment consulter Goodreads pour voir ce que les gens pensent d&rsquo;un livre :</p>
 <pre><code class="language-py">&quot;[opinion] https://www.goodreads.com/search?q=&quot; + $ISBN
 </code></pre>
-<p>And Wikipedia to start a deep dive:</p>
+<p>Et Wikipedia pour commencer une plongée en profondeur :</p>
 <pre><code class="language-py">import urllib
 keywords = ($Title or &quot;&quot;) + &quot; &quot; + ($Author.Name or &quot;&quot;)
 &quot;[wikipedia] https://en.wikipedia.org/wiki/Special:Search/&quot; + urllib.quote(keywords)
 </code></pre>
-<p>Once we have all these links, it makes sense to add a <a href="../../linking-widgets/#same-record-linking">Card View</a> so we can lay them out:</p>
-<p><img alt="Start" src="../examples/images/2020-06-book-club-card.png" /></p>
-<h2 id="ready-made-template">Ready-made template<a class="headerlink" href="#ready-made-template" title="Permanent link">#</a></h2>
-<p>Here is an
-<a href="https://templates.getgrist.com/hdXy57qLiyNf/Book-Club" target="_blank">example book list</a>
-that you can play with. The actual books listed may not be your thing, of course!  Adjust to taste.</p>
+<p>Une fois que nous avons tous ces liens, il est logique d&rsquo;ajouter une <a href="../../linking-widgets/#same-record-linking">vue fiche</a> afin que nous puissions les disposer :</p>
+<p><img alt="Commencer" src="../examples/images/2020-06-book-club-card.png" /></p>
+<h2 id="modele-pret-a-lemploi">Modèle prêt à l&rsquo;emploi<a class="headerlink" href="#modele-pret-a-lemploi" title="Permanent link">#</a></h2>
+<p>Voici une
+<a href="https://templates.getgrist.com/hdXy57qLiyNf/Book-Club" target="_blank">exemple de liste de livres</a>
+avec laquelle vous pouvez jouer. Les livres répertoriés peuvent ne pas être à votre goût, bien sûr ! Ajustez selon vos préférences.</p>
 
   <br>
 </div>

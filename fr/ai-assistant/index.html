@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries.">
-      <meta property="og:description" content="Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries.">
+      <meta name="description" content="L’Assistant de Formule AI de Grist simplifie la partie la plus difficile des feuilles de calcul — les formules. L’assistant ne fait qu’une seule chose, écrire des formules en réponse à des requêtes en langage clair.">
+      <meta property="og:description" content="L’Assistant de Formule AI de Grist simplifie la partie la plus difficile des feuilles de calcul — les formules. L’assistant ne fait qu’une seule chose, écrire des formules en réponse à des requêtes en langage clair.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/ai-assistant/">
@@ -384,32 +384,32 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              AI Formula Assistant
+              Assistant de Formule AI
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#how-to-use-the-ai-assistant">
-                How To Use the AI Assistant
+              <a class="wm-article-link wm-page-toc-text" href="#comment-utiliser-lassistant-ai">
+                Comment Utiliser l&rsquo;Assistant AI
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#ai-assistant-for-self-hosters">
-                AI Assistant for Self-hosters
+              <a class="wm-article-link wm-page-toc-text" href="#assistant-ai-pour-les-auto-hebergeurs">
+                Assistant AI pour les Auto-hébergeurs
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#pricing-for-ai-assistant">
-                Pricing for AI Assistant
+              <a class="wm-article-link wm-page-toc-text" href="#tarification-de-lassistant-ai">
+                Tarification de l&rsquo;Assistant AI
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#best-practices">
-                Best Practices
+              <a class="wm-article-link wm-page-toc-text" href="#bonnes-pratiques">
+                Bonnes Pratiques
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#data-use-policy">
-                Data Use Policy
+              <a class="wm-article-link wm-page-toc-text" href="#politique-dutilisation-des-donnees">
+                Politique d&rsquo;Utilisation des Données
               </a>
             </li>
         
@@ -940,59 +940,58 @@
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 id="ai-formula-assistant">AI Formula Assistant<a class="headerlink" href="#ai-formula-assistant" title="Permanent link">#</a></h1>
-<p>Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries. </p>
-<p>When asking the assistant a question there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question and your data’s schema (in part or whole) to <a href="https://openai.com/" target="_blank">OpenAI</a> so that the assistant may better understand your document. You can view your data’s schema in <a href="../formulas/#code-viewer">code view.</a> </p>
-<p>No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about <a href="./#data-use-policy">how data is used</a>.</p>
-<h2 id="how-to-use-the-ai-assistant">How To Use the AI Assistant<a class="headerlink" href="#how-to-use-the-ai-assistant" title="Permanent link">#</a></h2>
-<p>Create a <a href="../formulas/">formula column</a> and click either the expand icon or the “use AI Assistant” link text in the cell. </p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Opening AI Assistant" src="../images/ai-assistant/formula-cell-editor.png" /></em></span></p>
-<p>This will open an expanded formula editor with the AI Assistant chat below it. Simply describe what you want the formula to do. <a href="./#best-practices">Here are some tips.</a></p>
-<p>When you apply a suggested formula, you will see the formula previewed in the column. If you are happy with the formula, click “Save”. Otherwise click “Cancel” to discard changes to the formula.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="AI Formula Assistant" src="../images/ai-assistant/ai-assistant-dialog.png" /></em></span></p>
-<h2 id="ai-assistant-for-self-hosters">AI Assistant for Self-hosters<a class="headerlink" href="#ai-assistant-for-self-hosters" title="Permanent link">#</a></h2>
-<p>For self-hosters looking to connect their Grist instance, set the <a href="https://github.com/gristlabs/grist-core#ai-formula-assistant-related-variables-all-optional" target="_blank">AI Assistant-related environment variables</a>. </p>
-<p>The above variables also enable the use of the LLaMA family of self-hostable models via <a href="https://github.com/abetlen/llama-cpp-python" target="_blank">llama2-cpp-python</a>.</p>
-<p>Learn more about <a href="../self-managed/">self-managing Grist</a>. </p>
-<h2 id="pricing-for-ai-assistant">Pricing for AI Assistant<a class="headerlink" href="#pricing-for-ai-assistant" title="Permanent link">#</a></h2>
-<p>Free personal and free team plans have 100 AI Assistant credits (or requests). For free team sites, that applies to the whole team. </p>
-<p><a href="https://www.getgrist.com/pricing/" target="_blank">Pro plans</a> include 100 AI Assistant credits per month. The credits automatically top up to 100 every billing cycle. Credits apply to the whole team. It costs one credit per chat message sent. If you need more credits, there are two upgrade options:</p>
+<h1 id="assistant-de-formule-ai">Assistant de Formule AI<a class="headerlink" href="#assistant-de-formule-ai" title="Permanent link">#</a></h1>
+<p>L&rsquo;Assistant de Formule AI de Grist simplifie la partie la plus difficile des feuilles de calcul — les formules. L&rsquo;assistant ne fait qu&rsquo;une seule chose, écrire des formules en réponse à des requêtes en langage clair.</p>
+<p>Lorsque vous posez une question à l&rsquo;assistant, il n&rsquo;est pas nécessaire de spécifier les IDs des colonnes ou d&rsquo;expliquer la structure de vos données. Lorsque vous soumettez une question à l&rsquo;assistant, Grist envoie votre question et le schéma de vos données (en partie ou en totalité) à <a href="https://openai.com/" target="_blank">OpenAI</a> afin que l&rsquo;assistant puisse mieux comprendre votre document. Vous pouvez consulter le schéma de vos données dans la <a href="../formulas/#code-viewer">vue code.</a></p>
+<p>Aucune donnée n&rsquo;est partagée avec OpenAI à moins qu&rsquo;un utilisateur ne soumette une question à l&rsquo;assistant. En savoir plus sur <a href="./#data-use-policy">l&rsquo;utilisation des données</a>.</p>
+<h2 id="comment-utiliser-lassistant-ai">Comment Utiliser l&rsquo;Assistant AI<a class="headerlink" href="#comment-utiliser-lassistant-ai" title="Permanent link">#</a></h2>
+<p>Créez une <a href="../formulas/">colonne de formule</a> et cliquez soit sur l&rsquo;icône d&rsquo;agrandissement, soit sur le lien texte “utiliser l&rsquo;Assistant AI” dans la cellule.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ouverture de l'Assistant AI" src="../images/ai-assistant/formula-cell-editor.png" /></em></span></p>
+<p>Cela ouvrira un éditeur de formule étendu avec le chat de l&rsquo;Assistant AI en dessous. Décrivez simplement ce que vous voulez que la formule fasse. <a href="./#best-practices">Voici quelques conseils.</a></p>
+<p>Lorsque vous appliquez une formule suggérée, vous verrez la formule prévisualisée dans la colonne. Si vous êtes satisfait de la formule, cliquez sur “Enregistrer”. Sinon, cliquez sur “Annuler” pour annuler les modifications apportées à la formule.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Assistant de Formule AI" src="../images/ai-assistant/ai-assistant-dialog.png" /></em></span></p>
+<h2 id="assistant-ai-pour-les-auto-hebergeurs">Assistant AI pour les Auto-hébergeurs<a class="headerlink" href="#assistant-ai-pour-les-auto-hebergeurs" title="Permanent link">#</a></h2>
+<p>Pour les auto-hébergeurs souhaitant connecter leur instance Grist, définissez les <a href="https://github.com/gristlabs/grist-core#ai-formula-assistant-related-variables-all-optional" target="_blank">variables d&rsquo;environnement liées à l&rsquo;Assistant AI</a>.</p>
+<p>Les variables ci-dessus permettent également l&rsquo;utilisation de la famille de modèles auto-hébergeables LLaMA via <a href="https://github.com/abetlen/llama-cpp-python" target="_blank">llama2-cpp-python</a>.</p>
+<p>En savoir plus sur <a href="../self-managed/">la gestion autonome de Grist</a>.</p>
+<h2 id="tarification-de-lassistant-ai">Tarification de l&rsquo;Assistant AI<a class="headerlink" href="#tarification-de-lassistant-ai" title="Permanent link">#</a></h2>
+<p>Les plans personnels gratuits et les plans d&rsquo;équipe gratuits disposent de 100 crédits d&rsquo;Assistant AI (ou requêtes). Pour les espaces d&rsquo;équipe gratuits, cela s&rsquo;applique à toute l&rsquo;équipe.</p>
+<p>Les <a href="https://www.getgrist.com/pricing/" target="_blank">plans Pro</a> incluent 100 crédits d&rsquo;Assistant AI par mois. Les crédits se rechargent automatiquement à 100 à chaque cycle de facturation. Les crédits s&rsquo;appliquent à toute l&rsquo;équipe. Chaque message de chat envoyé coûte un crédit. Si vous avez besoin de plus de crédits, il existe deux options de mise à niveau :</p>
 <ul>
-<li>500 monthly credits for $10 per month (per team, not per person)</li>
-<li>2,000 monthly credits for $29 per month (per team, not per person)</li>
+<li>500 crédits mensuels pour 10 $ par mois (par équipe, non par personne)</li>
+<li>2 000 crédits mensuels pour 29 $ par mois (par équipe, non par personne)</li>
 </ul>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">#</a></h2>
+<h2 id="bonnes-pratiques">Bonnes Pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p>It helps to understand how <a href="../formulas/">formulas</a> work in Grist, especially when compared to traditional spreadsheets. In Grist, a single formula applies to a whole column.  If you’ve worked with spreadsheets before, you may be surprised that you don’t need to specify row numbers, like <code>B1 * C1</code>. If you’re new to Grist, you might want to try something simple without the assistant to see how formulas behave, e.g. <code>$Price * $Tax</code>.  </p>
+<p>Il est utile de comprendre comment les <a href="../formulas/">formules</a> fonctionnent dans Grist, surtout par rapport aux feuilles de calcul traditionnelles. Dans Grist, une seule formule s&rsquo;applique à toute une colonne. Si vous avez déjà travaillé avec des feuilles de calcul, vous pourriez être surpris de ne pas avoir à spécifier les numéros de ligne, comme <code>B1 * C1</code>. Si vous êtes nouveau sur Grist, vous pourriez essayer quelque chose de simple sans l&rsquo;assistant pour voir comment les formules se comportent, par exemple <code>$Prix * $Taxe</code>.</p>
 </li>
 <li>
-<p>Setting a column header before submitting a question improves results. For example, “Net Profit” provides more context than a column labeled “D”.</p>
+<p>Définir un en-tête de colonne avant de soumettre une question améliore les résultats. Par exemple, “Bénéfice Net” fournit plus de contexte qu&rsquo;une colonne étiquetée “D”.</p>
 </li>
 <li>
-<p>Set the <a href="../col-types/">column type</a> of the formula column before asking the assistant for help. This helps the assistant guess what type of values you’d like returned.</p>
+<p>Définissez le <a href="../col-types/">type de colonne</a> de la colonne de formule avant de demander de l&rsquo;aide à l&rsquo;assistant. Cela aide l&rsquo;assistant à deviner quel type de valeurs vous souhaitez obtenir.</p>
 </li>
 <li>
-<p>Think about the type of value you expect to see in the formula, and frame the question with that in mind. For example, if you want a formula that returns True or False in a <a href="../col-types/#toggle-columns">Toggle column</a>, ask a yes-or-no question. Otherwise, the assistant may suggest a formula that lists all rows where something is true (and is technically correct), but you were hoping for a simple true or false per row.</p>
+<p>Pensez au type de valeur que vous vous attendez à voir dans la formule, et formulez la question en conséquence. Par exemple, si vous voulez une formule qui renvoie Vrai ou Faux dans une <a href="../col-types/#toggle-columns">colonne de bascule</a>, posez une question oui-ou-non. Sinon, l&rsquo;assistant pourrait suggérer une formule qui liste toutes les lignes où quelque chose est vrai (et est techniquement correct), mais vous espériez une simple valeur vraie ou fausse par ligne.</p>
 </li>
 <li>
-<p>The assistant is conversational. If you are not satisfied with a suggested formula, explain to the assistant where the formula fell short and ask it to make a change.</p>
+<p>L&rsquo;assistant est conversationnel. Si vous n&rsquo;êtes pas satisfait d&rsquo;une formule suggérée, expliquez à l&rsquo;assistant où la formule a échoué et demandez-lui de faire un changement.</p>
 </li>
 <li>
-<p>Sometimes the assistant gets stuck on a bad idea. If it keeps insisting on a particular formula method, consider clearing the conversation and starting over. Click the three dot menu in the AI Assistant header to clear a conversation. </p>
+<p>Parfois, l&rsquo;assistant s&rsquo;entête sur une mauvaise idée. S&rsquo;il insiste sur une méthode de formule particulière, envisagez de supprimer la conversation et de recommencer. Cliquez sur le menu à trois points dans l&rsquo;en-tête de l&rsquo;Assistant AI pour effacer une conversation.</p>
 </li>
 </ul>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Clear AI Assistant Conversation" src="../images/ai-assistant/clear-conversation.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Effacer la Conversation de l'Assistant AI" src="../images/ai-assistant/clear-conversation.png" /></em></span></p>
 <ul>
-<li>Remember that Grist formulas apply to the whole column. If you want sums of rows, you need a <a href="../summary-tables/">summary table</a>. You may add more formulas to summary tables, and ask the assistant to help you.</li>
+<li>Rappelez-vous que les formules Grist s&rsquo;appliquent à toute la colonne. Si vous voulez des sommes de lignes, vous avez besoin d&rsquo;une <a href="../summary-tables/">table de résumé</a>. Vous pouvez ajouter plus de formules aux tables de résumé et demander à l&rsquo;assistant de vous aider.</li>
 </ul>
-<h2 id="data-use-policy">Data Use Policy<a class="headerlink" href="#data-use-policy" title="Permanent link">#</a></h2>
-<p>Your query and document schema are sent to <a href="https://openai.com/" target="_blank">OpenAI</a>. Grist’s AI Formula Assistant uses the gpt-3.5-turbo model, aka ChatGPT. OpenAI’s <a href="https://openai.com/api-data-privacy" target="_blank">Privacy Policy</a> describes how OpenAI handles your data. OpenAI’s <a href="https://labs.openai.com/policies/content-policy" target="_blank">Content Policy</a>, <a href="https://openai.com/policies/usage-policies" target="_blank">Usage Policies</a> and <a href="https://openai.com/api/policies/sharing-publication/" target="_blank">Sharing and Publication Policy</a> describe how the Grist AI Assistant and its results may be used and shared. Those who violate OpenAI&rsquo;s policies may lose access to Grist&rsquo;s AI assistant.</p>
-<p>Certain Grist Labs employees may also examine logs of assistant requests (questions and document schema) to learn what is working and what is not, in order to provide a better service.</p>
+<h2 id="politique-dutilisation-des-donnees">Politique d&rsquo;Utilisation des Données<a class="headerlink" href="#politique-dutilisation-des-donnees" title="Permanent link">#</a></h2>
+<p>Votre requête et le schéma de votre document sont envoyés à <a href="https://openai.com/" target="_blank">OpenAI</a>. L&rsquo;Assistant de Formule AI de Grist utilise le modèle gpt-3.5-turbo, alias ChatGPT. La <a href="https://openai.com/api-data-privacy" target="_blank">Politique de Confidentialité</a> d&rsquo;OpenAI décrit comment OpenAI gère vos données. La <a href="https://labs.openai.com/policies/content-policy" target="_blank">Politique de Contenu</a>, les <a href="https://openai.com/policies/usage-policies" target="_blank">Politiques d&rsquo;Utilisation</a> et la <a href="https://openai.com/api/policies/sharing-publication/" target="_blank">Politique de Partage et de Publication</a> d&rsquo;OpenAI décrivent comment l&rsquo;Assistant AI de Grist et ses résultats peuvent être utilisés et partagés. Ceux qui violent les politiques d&rsquo;OpenAI peuvent perdre l&rsquo;accès à l&rsquo;assistant AI de Grist.</p>
+<p>Certains employés de Grist Labs peuvent également examiner les journaux des requêtes de l&rsquo;assistant (questions et schéma de document) pour comprendre ce qui fonctionne et ce qui ne fonctionne pas, afin de fournir un meilleur service.</p>
 
   <br>
 </div>

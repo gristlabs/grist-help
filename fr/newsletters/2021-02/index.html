@@ -689,22 +689,22 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              February 2021 Newsletter
+              Bulletin de Février 2021
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#quick-tips">
-                Quick Tips
+              <a class="wm-article-link wm-page-toc-text" href="#conseils-rapides">
+                Conseils Rapides
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#whats-new">
-                What&rsquo;s New
+              <a class="wm-article-link wm-page-toc-text" href="#quoi-de-neuf">
+                Quoi de Neuf
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#learning-grist">
-                Learning Grist
+              <a class="wm-article-link wm-page-toc-text" href="#apprendre-grist">
+                Apprendre Grist
               </a>
             </li>
         
@@ -928,12 +928,11 @@
 
     
 
-    <h1 id="february-2021-newsletter">February 2021 Newsletter<a class="headerlink" href="#february-2021-newsletter" title="Permanent link">#</a></h1>
+    <h1 id="bulletin-de-fevrier-2021">Bulletin de Février 2021<a class="headerlink" href="#bulletin-de-fevrier-2021" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <style>
   /* restore some poorly overridden defaults */
@@ -1004,86 +1003,67 @@
       </td>
       <td class="header-top-text">
         <div class="header-title">Grist for the Mill</div>
-        <div class="header-month">February 2021
+        <div class="header-month">Février 2021
           &#8226; <a href="https://www.getgrist.com/">getgrist.com</a></div>
       </td>
     </tr></table>
     <div class="header-welcome">
-      Welcome to our monthly newsletter of updates and tips for Grist users.
+      Bienvenue à notre bulletin mensuel de mises à jour et astuces pour les utilisateurs de Grist.
     </div>
   </td>
 </tr></table>
 </div>
 
-<h2 id="quick-tips">Quick Tips<a class="headerlink" href="#quick-tips" title="Permanent link">#</a></h2>
+<h2 id="conseils-rapides">Conseils Rapides<a class="headerlink" href="#conseils-rapides" title="Permanent link">#</a></h2>
 <ul>
 <li>
 <p><a name="totals"></a>
-  <strong>Totals.</strong> To compute totals of a column, spreadsheet users will often reach for the last row
-  of their table to enter a formula there. In Grist, every row is a database record, including the
-  last row. But totals are certainly available!</p>
-<p>Instead of adding a row for totals, add a one-line summary table. Click the &ldquo;Add New&rdquo; button,
-and select &ldquo;Add Widget to Page&rdquo;. In the dialog that opens, click the summation icon
-(<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) next to the table you&rsquo;d like
-totals for:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Summary Dialog" src="../../images/newsletters/2021-02/summary-picker.png" /></em></span></p>
-<p>Click &ldquo;Add to Page&rdquo;, and you&rsquo;ll see a one-line summary of your table. Use the drag handle just to
-the left of the title to move it below your table (where you normally expect totals).</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Drag Totals" src="../../images/newsletters/2021-02/drag-totals.png" /></em></span></p>
-<p>Grist creates sums of all numeric columns automatically. You can remove any you don&rsquo;t need,
-add new ones, or edit ones for which you need something other than sum (perhaps <code>AVERAGE</code>, <code>MAX</code>,
-or an entirely custom Python calculation).</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Totals Row" src="../../images/newsletters/2021-02/totals-row.png" /></em></span></p>
-<p>Read <a href="../../summary-tables/">Summary tables</a> for more on summary tables and their many uses.</p>
+  <strong>Totaux.</strong> Pour calculer les totaux d&rsquo;une colonne, les utilisateurs de tableurs ajoutent souvent une formule à la dernière ligne de leur table. Dans Grist, chaque ligne est un enregistrement de base de données, y compris la dernière ligne. Mais les totaux sont certainement disponibles !</p>
+<p>Au lieu d&rsquo;ajouter une ligne pour les totaux, ajoutez une table de résumé d&rsquo;une ligne. Cliquez sur le bouton &ldquo;Ajouter Nouveau&rdquo;, et sélectionnez &ldquo;Ajouter Vue à la Page&rdquo;. Dans la boîte de dialogue qui s&rsquo;ouvre, cliquez sur l&rsquo;icône de sommation
+(<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) à côté de la table pour laquelle vous souhaitez obtenir des totaux :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Boîte de dialogue de résumé" src="../../images/newsletters/2021-02/summary-picker.png" /></em></span></p>
+<p>Cliquez sur &ldquo;Ajouter à la Page&rdquo;, et vous verrez un résumé d&rsquo;une ligne de votre table. Utilisez la poignée de déplacement juste à gauche du titre pour le déplacer sous votre table (là où vous attendez normalement les totaux).</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Déplacer les Totaux" src="../../images/newsletters/2021-02/drag-totals.png" /></em></span></p>
+<p>Grist crée automatiquement des sommes de toutes les colonnes numériques. Vous pouvez supprimer celles dont vous n&rsquo;avez pas besoin, en ajouter de nouvelles, ou modifier celles pour lesquelles vous avez besoin de quelque chose d&rsquo;autre qu&rsquo;une somme (peut-être <code>AVERAGE</code>, <code>MAX</code>, ou un calcul Python entièrement personnalisé).</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ligne des Totaux" src="../../images/newsletters/2021-02/totals-row.png" /></em></span></p>
+<p>Lisez <a href="../../summary-tables/">Tables de résumé</a> pour en savoir plus sur les tables de résumé et leurs nombreuses utilisations.</p>
 </li>
 <li>
 <p><a name="realtime-sharing"></a>
-  <strong>Real-time Sharing.</strong> Even on the free plan, you can share a document and collaborate on it.
-  Any change that you or another editor makes will immediately show up on the other person&rsquo;s screen.</p>
-<p>To share a document, click the sharing icon
-(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>), and select &ldquo;Manage Users&rdquo;.</p>
-<p>In the dialog that opens, type in the email address of the person to invite. Change their role
-from Viewer to Editor if you&rsquo;d like to give them editing permission. Then click Confirm. Your
-collaborator now has access to your document, and Grist will send them an email with a link to
-it.</p>
-<p><img alt="sharing-add-user" src="../../images/sharing/sharing-add-user.png" /></p>
-<p>Read more at <a href="../../sharing/">Sharing</a>.</p>
+  <strong>Partage en Temps Réel.</strong> Même avec le plan gratuit, vous pouvez partager un document et collaborer dessus. Tout changement que vous ou un autre éditeur effectuez apparaîtra immédiatement sur l&rsquo;écran de l&rsquo;autre personne.</p>
+<p>Pour partager un document, cliquez sur l&rsquo;icône de partage
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>), et sélectionnez &ldquo;Gérer les Utilisateurs&rdquo;.</p>
+<p>Dans la boîte de dialogue qui s&rsquo;ouvre, tapez l&rsquo;adresse e-mail de la personne à inviter. Changez son rôle de Lecteur à Éditeur si vous souhaitez lui donner la permission de modifier. Ensuite, cliquez sur Confirmer. Votre collaborateur a maintenant accès à votre document, et Grist lui enverra un e-mail avec un lien vers celui-ci.</p>
+<p><img alt="ajouter-utilisateur-partage" src="../../images/sharing/sharing-add-user.png" /></p>
+<p>En savoir plus sur <a href="../../sharing/">Partage</a>.</p>
 </li>
 </ul>
-<h2 id="whats-new">What&rsquo;s New<a class="headerlink" href="#whats-new" title="Permanent link">#</a></h2>
-<p>Grist mobile support has come a long way recently, and we are happy to say that you can now use
-Grist quite comfortably in mobile browsers such as Chrome, Safari, and Firefox.</p>
-<p>On small screens, you can find the list of pages from the button in the bottom bar:</p>
-<p><img alt="Mobile Pages" src="../../images/newsletters/2021-02/mobile-pages.png" /></p>
-<p>For pages with multiple widgets, only the active widget is expanded. Other widgets are collapsed
-until you touch to expand them:</p>
-<p><img alt="Mobile Widgets" src="../../images/newsletters/2021-02/mobile-widgets.png" /></p>
-<p>To edit a cell, simply double-tap it.</p>
-<p>Mobile support is still a work in progress. To get back to the desktop version on a mobile device,
-open your account menu, and select &ldquo;Toggle Mobile Mode&rdquo; option:</p>
-<p class="screenshot-half"><em><img alt="toggle-mobile-mode" src="../../images/toggle-mobile-mode.png" /></em></p>
-<p>Please report any issues, and share suggestions for improvements!</p>
-<h2 id="learning-grist">Learning Grist<a class="headerlink" href="#learning-grist" title="Permanent link">#</a></h2>
+<h2 id="quoi-de-neuf">Quoi de Neuf<a class="headerlink" href="#quoi-de-neuf" title="Permanent link">#</a></h2>
+<p>Le support mobile de Grist a beaucoup progressé récemment, et nous sommes heureux de dire que vous pouvez maintenant utiliser Grist de manière assez confortable dans les navigateurs mobiles tels que Chrome, Safari et Firefox.</p>
+<p>Sur les petits écrans, vous pouvez trouver la liste des pages à partir du bouton dans la barre inférieure :</p>
+<p><img alt="Pages Mobiles" src="../../images/newsletters/2021-02/mobile-pages.png" /></p>
+<p>Pour les pages avec plusieurs vues, seule la vue active est développée. Les autres vues sont réduites jusqu&rsquo;à ce que vous les touchiez pour les développer :</p>
+<p><img alt="Vues Mobiles" src="../../images/newsletters/2021-02/mobile-widgets.png" /></p>
+<p>Pour modifier une cellule, il suffit de la toucher deux fois.</p>
+<p>Le support mobile est encore en cours de développement. Pour revenir à la version de bureau sur un appareil mobile, ouvrez le menu de votre compte et sélectionnez l&rsquo;option &ldquo;Basculer en Mode Mobile&rdquo; :</p>
+<p class="screenshot-half"><em><img alt="basculer-mode-mobile" src="../../images/toggle-mobile-mode.png" /></em></p>
+<p>Veuillez signaler tout problème et partager vos suggestions d&rsquo;améliorations !</p>
+<h2 id="apprendre-grist">Apprendre Grist<a class="headerlink" href="#apprendre-grist" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p>Get started quickly with basic Grist concepts by watching this playlist
-  of a few very short introductory videos:
-  <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Grist Video Series</a>.</p>
+<p>Commencez rapidement avec les concepts de base de Grist en regardant cette playlist de quelques très courtes vidéos d&rsquo;introduction :
+  <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Série de Vidéos Grist</a>.</p>
 </li>
 <li>
-<p>Each of our featured <a href="https://docs.getgrist.com/p/templates">Examples &amp; Templates</a>
-  has a related tutorial that shows step-by-step how to build it
-  from scratch. Read through one to gain a deeper understanding of how
-  various features play together.</p>
+<p>Chacun de nos <a href="https://docs.getgrist.com/p/templates">Exemples &amp; Modèles</a> en vedette a un tutoriel associé qui montre étape par étape comment le construire à partir de zéro. Lisez-en un pour approfondir votre compréhension de la manière dont diverses fonctionnalités interagissent.</p>
 </li>
 <li>
-<p>Visit our <a href="../../">Help Center</a> to
-  find all of the above, along with the full product documentation.</p>
+<p>Visitez notre <a href="../../">Centre d&rsquo;Aide</a> pour trouver tout ce qui précède, ainsi que la documentation complète du produit.</p>
 </li>
 <li>
-<p>Questions or suggestions? Click the
-  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Give Feedback</span>
-  link near the bottom left in the Grist application, or simply email
+<p>Des questions ou des suggestions ? Cliquez sur le lien
+  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Donner un Avis</span>
+  près du bas à gauche dans l&rsquo;application Grist, ou envoyez simplement un e-mail à
   <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 </li>
 </ul>

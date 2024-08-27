@@ -721,32 +721,32 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              June 2020 Newsletter
+              Bulletin de Juin 2020
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#quick-tips">
-                Quick Tips
+              <a class="wm-article-link wm-page-toc-text" href="#conseils-rapides">
+                Conseils Rapides
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#whats-new">
-                What’s New
+              <a class="wm-article-link wm-page-toc-text" href="#quoi-de-neuf">
+                Quoi de Neuf
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#new-examples">
-                New Examples
+              <a class="wm-article-link wm-page-toc-text" href="#nouveaux-exemples">
+                Nouveaux Exemples
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#grist-overview-demo">
-                Grist Overview Demo
+              <a class="wm-article-link wm-page-toc-text" href="#demonstration-dapercu-de-grist">
+                Démonstration d&rsquo;Aperçu de Grist
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#learning-grist">
-                Learning Grist
+              <a class="wm-article-link wm-page-toc-text" href="#apprendre-grist">
+                Apprendre Grist
               </a>
             </li>
         
@@ -938,15 +938,14 @@
 
     
 
-    <h1 id="june-2020-newsletter">June 2020 Newsletter<a class="headerlink" href="#june-2020-newsletter" title="Permanent link">#</a></h1>
+    <h1 id="bulletin-de-juin-2020">Bulletin de Juin 2020<a class="headerlink" href="#bulletin-de-juin-2020" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <style>
-  /* restore some poorly overridden defaults */
+  /* restaurer certains paramètres par défaut mal remplacés */
   .newsletter-header .table {
     background-color: initial;
     border: initial;
@@ -968,7 +967,7 @@
     margin: initial;
   }
 
-  /* copy newsletter styles, with a prefix for sufficient specificity */
+  /* copier les styles de la newsletter, avec un préfixe pour une spécificité suffisante */
   .newsletter-header .header {
     border: none;
     padding: 0;
@@ -1011,98 +1010,98 @@
       </td>
       <td class="header-top-text">
         <div class="header-title">Grist for the Mill</div>
-        <div class="header-month">June 2020
+        <div class="header-month">Juin 2020
           &#8226; <a href="https://www.getgrist.com/">getgrist.com</a></div>
       </td>
     </tr></table>
     <div class="header-welcome">
-      Welcome to our monthly newsletter of updates and tips for Grist users.
+      Bienvenue dans notre bulletin mensuel de mises à jour et de conseils pour les utilisateurs de Grist.
     </div>
   </td>
 </tr></table>
 </div>
 
-<h2 id="quick-tips">Quick Tips<a class="headerlink" href="#quick-tips" title="Permanent link">#</a></h2>
+<h2 id="conseils-rapides">Conseils Rapides<a class="headerlink" href="#conseils-rapides" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p><strong>Get the Calendar Quarter.</strong> If you have a column of type Date, you
-  can extract parts of it with Excel-like functions for
-  <a href="../../functions/#year">year</a>,
-  <a href="../../functions/#month">month</a>, and
-  <a href="../../dates/">more</a>.
-  But how to get the quarter? This formula will produce values like “2020 Q2”:</p>
-<p><code class="formula">"%s Q%s" % ($MyDate.year, CEILING($MyDate.month, 3) / 3)</code></p>
+<p><strong>Obtenez le Trimestre Calendaire.</strong> Si vous avez une colonne de type Date, vous
+  pouvez en extraire des parties avec des fonctions similaires à Excel pour
+  <a href="../../functions/#year">année</a>,
+  <a href="../../functions/#month">mois</a>, et
+  <a href="../../dates/">plus</a>.
+  Mais comment obtenir le trimestre ? Cette formule produira des valeurs comme “2020 T2” :</p>
+<p><code class="formula">"%s T%s" % ($MyDate.year, CEILING($MyDate.month, 3) / 3)</code></p>
 </li>
 <li>
-<p><strong>Make Hyperlinks.</strong> To create a column of links in Grist, set the column
-  type to Text, and click the “HyperLink” button under CELL FORMAT:</p>
+<p><strong>Créer des Hyperliens.</strong> Pour créer une colonne de liens dans Grist, définissez le type de colonne
+  sur Texte, et cliquez sur le bouton “HyperLien” sous FORMAT DE CELLULE :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="hyperlink" src="../../images/newsletters/2020-06/hyperlink.png" /></em></span></p>
-<p>Now, a value like <code>Grist Labs https://getgrist.com</code> will
-show a link to <a href="https://getgrist.com">https://getgrist.com</a>
-with “Grist Labs” as the text.
-See below for a Book Club example that uses formulas extensively to generate useful links.</p>
+<p>Maintenant, une valeur comme <code>Grist Labs https://getgrist.com</code> affichera
+un lien vers <a href="https://getgrist.com">https://getgrist.com</a>
+avec “Grist Labs” comme texte.
+Voir ci-dessous pour un exemple de Club de Lecture qui utilise des formules de manière extensive pour générer des liens utiles.</p>
 </li>
 </ul>
-<h2 id="whats-new">What’s New<a class="headerlink" href="#whats-new" title="Permanent link">#</a></h2>
-<p><b>Safely work on complex changes.</b> As your document or spreadsheet
-grows in importance, the ease of making changes may get
-overshadowed by the fear of breaking something.</p>
-<p>Grist now has a tool to help. Click “Duplicate Document”<sup id="fnref:duplicate-doc"><a class="footnote-ref" href="#fn:duplicate-doc">1</a></sup> in the Share menu:</p>
+<h2 id="quoi-de-neuf">Quoi de Neuf<a class="headerlink" href="#quoi-de-neuf" title="Permanent link">#</a></h2>
+<p><b>Travaillez en toute sécurité sur des modifications complexes.</b> À mesure que votre document ou tableur
+prend de l&rsquo;importance, la facilité de faire des modifications peut être
+éclipsée par la peur de casser quelque chose.</p>
+<p>Grist a maintenant un outil pour vous aider. Cliquez sur “Dupliquer le Document”<sup id="fnref:duplicate-doc"><a class="footnote-ref" href="#fn:duplicate-doc">1</a></sup> dans le menu Partager :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="duplicate-doc" src="../../images/newsletters/2020-06/duplicate-doc.png" /></em></span></p>
-<p>You&rsquo;ll get an unsaved copy of your document. You can experiment on it
-without fear of affecting the original.
-Make changes big or small, one or many. Once satisfied,
-open the dropdown next to “Save Copy” and click “Replace Original”:</p>
+<p>Vous obtiendrez une copie non enregistrée de votre document. Vous pouvez y expérimenter
+sans craindre d&rsquo;affecter l&rsquo;original.
+Faites des modifications grandes ou petites, une ou plusieurs. Une fois satisfait,
+ouvrez le menu déroulant à côté de “Enregistrer la Copie” et cliquez sur “Remplacer l&rsquo;Original” :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="replace-original" src="../../images/newsletters/2020-06/replace-original.png" /></em></span></p>
-<p>Grist will warn you if the replacement risks overwriting any recent changes in the original.</p>
-<p><b>Examine and restore backups.</b> Grist automatically saves backups of
-your documents as you work on them. You can now view them easily. Click
-“Document History” in the left panel, then click the “Snapshots” tab in the
-panel on the right:</p>
+<p>Grist vous avertira si le remplacement risque d&rsquo;écraser des modifications récentes dans l&rsquo;original.</p>
+<p><b>Examinez et restaurez des sauvegardes.</b> Grist enregistre automatiquement des sauvegardes de
+vos documents au fur et à mesure que vous travaillez dessus. Vous pouvez maintenant les visualiser facilement. Cliquez
+sur “Historique du Document” dans le panneau de gauche, puis cliquez sur l&rsquo;onglet “Instantanés” dans le
+panneau de droite :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="doc-history" src="../../images/newsletters/2020-06/doc-history.png" /></em></span></p>
-<p>You can open any of the listed snapshots. You can revert to an old version
-using the “Replace Original” option<sup id="fnref:snapshots"><a class="footnote-ref" href="#fn:snapshots">2</a></sup>, or save an old version as a new
+<p>Vous pouvez ouvrir n&rsquo;importe lequel des instantanés listés. Vous pouvez revenir à une ancienne version
+en utilisant l&rsquo;option “Remplacer l&rsquo;Original”<sup id="fnref:snapshots"><a class="footnote-ref" href="#fn:snapshots">2</a></sup>, ou enregistrer une ancienne version comme un nouveau
 document.</p>
-<h2 id="new-examples">New Examples<a class="headerlink" href="#new-examples" title="Permanent link">#</a></h2>
-<p>Here are some examples of what you can do with Grist:</p>
+<h2 id="nouveaux-exemples">Nouveaux Exemples<a class="headerlink" href="#nouveaux-exemples" title="Permanent link">#</a></h2>
+<p>Voici quelques exemples de ce que vous pouvez faire avec Grist :</p>
 <ul>
 <li>
-<p><a href="../../examples/2020-06-credit-card/">Slice and Dice Credit Card Expenses</a>:
-  Grist offers handy way to explore your credit card transactions quickly. American Express card
-  members can use the ready-made template in the example.</p>
+<p><a href="../../examples/2020-06-credit-card/">Analysez les Dépenses de Carte de Crédit</a> :
+  Grist offre un moyen pratique d&rsquo;explorer rapidement vos transactions par carte de crédit. Les membres de la carte American Express
+  peuvent utiliser le modèle prêt à l&rsquo;emploi dans l&rsquo;exemple.</p>
 </li>
 <li>
-<p><a href="../../examples/2020-06-book-club/">Book Lists with Library and Store Look-ups</a>:
-  Grist’s link handling and formulas can help you with your book club, by adding automatic links
-  to libraries, stores, review sites, and other references. The same ideas could work with Ikea
-  furniture, food orders, whatever you like.</p>
+<p><a href="../../examples/2020-06-book-club/">Listes de Livres avec Appairage Bibliothèque et Magasin</a> :
+  La gestion des liens et les formules de Grist peuvent vous aider avec votre club de lecture, en ajoutant des liens automatiques
+  vers des bibliothèques, des magasins, des sites de critiques et d&rsquo;autres références. Les mêmes idées pourraient fonctionner avec des meubles Ikea,
+  des commandes alimentaires, tout ce que vous aimez.</p>
 </li>
 </ul>
-<h2 id="grist-overview-demo">Grist Overview Demo<a class="headerlink" href="#grist-overview-demo" title="Permanent link">#</a></h2>
-<p>Interested in seeing an overview of Grist features on a realistic example?
-Check out our new demo video:
+<h2 id="demonstration-dapercu-de-grist">Démonstration d&rsquo;Aperçu de Grist<a class="headerlink" href="#demonstration-dapercu-de-grist" title="Permanent link">#</a></h2>
+<p>Intéressé par un aperçu des fonctionnalités de Grist sur un exemple réaliste ?
+Découvrez notre nouvelle vidéo de démonstration :
 <a href="https://www.youtube.com/watch?v=XYZ_ZGSxU00">https://www.youtube.com/watch?v=XYZ_ZGSxU00</a>.</p>
-<h2 id="learning-grist">Learning Grist<a class="headerlink" href="#learning-grist" title="Permanent link">#</a></h2>
+<h2 id="apprendre-grist">Apprendre Grist<a class="headerlink" href="#apprendre-grist" title="Permanent link">#</a></h2>
 <ul>
 <li>
-<p>Get started quickly with basic Grist concepts by watching this playlist
-  of a few very short introductory videos:
-  <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Grist Video Series</a>.</p>
+<p>Commencez rapidement avec les concepts de base de Grist en regardant cette playlist
+  de quelques très courtes vidéos d&rsquo;introduction :
+  <a href="https://www.youtube.com/playlist?list=PL3Q9Tu1JOy_4Mq8JlcjZXEMyJY69kda44">Série de Vidéos Grist</a>.</p>
 </li>
 <li>
-<p>Each of our featured <a href="https://docs.getgrist.com/p/templates">Examples &amp; Templates</a>
-  has a related tutorial that shows step-by-step how to build it
-  from scratch. Read through one to gain a deeper understanding of how
-  various features play together.</p>
+<p>Chacun de nos <a href="https://docs.getgrist.com/p/templates">Exemples &amp; Modèles</a> en vedette
+  a un tutoriel associé qui montre étape par étape comment le construire
+  à partir de zéro. Lisez-en un pour comprendre plus en profondeur comment
+  les différentes fonctionnalités interagissent.</p>
 </li>
 <li>
-<p>Visit our <a href="../../">Help Center</a> to
-  find all of the above, along with the full product documentation.</p>
+<p>Visitez notre <a href="../../">Centre d&rsquo;Aide</a> pour
+  trouver tout ce qui précède, ainsi que la documentation complète du produit.</p>
 </li>
 <li>
-<p>Questions or suggestions? Click the
-  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Give Feedback</span>
-  link near the bottom left in the Grist application, or simply email
+<p>Des questions ou des suggestions ? Cliquez sur le
+  <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-Feedback)"></span> Donner un Avis</span>
+  lien en bas à gauche dans l&rsquo;application Grist, ou envoyez simplement un email à
   <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 </li>
 </ul>
@@ -1110,11 +1109,11 @@ Check out our new demo video:
 <hr />
 <ol>
 <li id="fn:duplicate-doc">
-<p>After the July 2020 update, use the &ldquo;Work on a Copy&rdquo; option for this functionality.
-See <a href="../../copying-docs/#trying-out-changes">Copying Documents</a>.&#160;<a class="footnote-backref" href="#fnref:duplicate-doc" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Après la mise à jour de juillet 2020, utilisez l&rsquo;option &ldquo;Travailler sur une Copie&rdquo; pour cette fonctionnalité.
+Voir <a href="../../copying-docs/#trying-out-changes">Copier des Documents</a>.&#160;<a class="footnote-backref" href="#fnref:duplicate-doc" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:snapshots">
-<p>This menu was updated in July 2020, see <a href="../../automatic-backups/">Automatic Backups</a>.&#160;<a class="footnote-backref" href="#fnref:snapshots" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Ce menu a été mis à jour en juillet 2020, voir <a href="../../automatic-backups/">Sauvegardes Automatiques</a>.&#160;<a class="footnote-backref" href="#fnref:snapshots" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

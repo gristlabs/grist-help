@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist has a powerful data engine to calculate the cells of your
-tables using formulas. It even has an AI Formula Assistant to help write formulas. If you’ve used spreadsheets before, or
-database expressions, you’ll be on familiar territory - but there are
-some wrinkles you’ll want to know about, so hang around.">
-      <meta property="og:description" content="Grist has a powerful data engine to calculate the cells of your
-tables using formulas. It even has an AI Formula Assistant to help write formulas. If you’ve used spreadsheets before, or
-database expressions, you’ll be on familiar territory - but there are
-some wrinkles you’ll want to know about, so hang around.">
+      <meta name="description" content="Grist dispose d’un puissant moteur de données pour calculer les cellules de vos
+tables en utilisant des formules. Il dispose même d’un Assistant de Formule AI pour aider à rédiger des formules. Si vous avez déjà utilisé des tableurs ou
+des expressions de base de données, vous serez dans un territoire familier - mais il y a
+quelques subtilités que vous voudrez connaître, alors restez avec nous.">
+      <meta property="og:description" content="Grist dispose d’un puissant moteur de données pour calculer les cellules de vos
+tables en utilisant des formules. Il dispose même d’un Assistant de Formule AI pour aider à rédiger des formules. Si vous avez déjà utilisé des tableurs ou
+des expressions de base de données, vous serez dans un territoire familier - mais il y a
+quelques subtilités que vous voudrez connaître, alors restez avec nous.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/formulas/">
@@ -355,12 +355,12 @@ some wrinkles you’ll want to know about, so hang around.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Formulas
+              Formules
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#column-behavior">
-                Column behavior
+              <a class="wm-article-link wm-page-toc-text" href="#comportement-des-colonnes">
+                Comportement des colonnes
               </a>
             </li>
             <li class="wm-toc-li">
@@ -369,43 +369,43 @@ some wrinkles you’ll want to know about, so hang around.">
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#formulas-that-operate-over-many-rows">
-                Formulas that operate over many rows
+              <a class="wm-article-link wm-page-toc-text" href="#formules-qui-operent-sur-plusieurs-lignes">
+                Formules qui opèrent sur plusieurs lignes
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#varying-formula-by-row">
-                Varying formula by row
+              <a class="wm-article-link wm-page-toc-text" href="#varier-la-formule-par-ligne">
+                Varier la formule par ligne
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#code-viewer">
-                Code viewer
+              <a class="wm-article-link wm-page-toc-text" href="#visualiseur-de-code">
+                Visualiseur de code
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#special-values-available-in-formulas">
-                Special values available in formulas
+              <a class="wm-article-link wm-page-toc-text" href="#valeurs-speciales-disponibles-dans-les-formules">
+                Valeurs spéciales disponibles dans les formules
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#freeze-a-formula-column">
-                Freeze a formula column
+              <a class="wm-article-link wm-page-toc-text" href="#geler-une-colonne-de-formule">
+                Geler une colonne de formule
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#lookups">
-                Lookups
+              <a class="wm-article-link wm-page-toc-text" href="#recherches">
+                Recherches
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#recursion">
-                Recursion
+              <a class="wm-article-link wm-page-toc-text" href="#recursivite">
+                Récursivité
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#trigger-formulas">
-                Trigger Formulas
+              <a class="wm-article-link wm-page-toc-text" href="#formules-dinitialisation">
+                Formules d&rsquo;initialisation
               </a>
             </li>
         
@@ -971,337 +971,327 @@ some wrinkles you’ll want to know about, so hang around.">
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 id="formulas">Formulas<a class="headerlink" href="#formulas" title="Permanent link">#</a></h1>
-<p>Grist has a powerful data engine to calculate the cells of your
-tables using formulas. It even has an <a href="../ai-assistant/">AI Formula Assistant</a> to help write formulas. If you&rsquo;ve used spreadsheets before, or
-database expressions, you&rsquo;ll be on familiar territory - but there are
-some wrinkles you&rsquo;ll want to know about, so hang around.</p>
-<p>Let&rsquo;s start with a classic use of spreadsheets.  Suppose you have
-a list of products you&rsquo;ve ordered, the quantity you ordered,
-and the unit price of each.  You&rsquo;ve made a column to show
-the quantity times the unit price, but want the computer to do
-that part for you.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price" src="../images/formulas/formulas-price.png" /></em></span></p>
-<p>Just select a cell in the column you want to fill, and hit <code class="keys"><strong>=</strong></code> key to
-tell Grist you want to enter a formula, rather than a value.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-equal" src="../images/formulas/formulas-price-equal.png" /></em></span></p>
-<p>Did you notice, when you did that, the labels of the columns changed
-a little?  &ldquo;Product&rdquo; became &ldquo;$Product&rdquo;, and &ldquo;Unit Price&rdquo;
-became &ldquo;$Unit_Price&rdquo;.  This is Grist telling you how to
-refer to those columns in your formula.  Just type <code class="formula">$Quantity * $Unit_Price</code>.
-You&rsquo;ll find an auto-complete feature ready to help you.
-Or if you don&rsquo;t like typing, click on the Quantity column, type the
-multiplication symbol, and then click on the Unit Price column.
-Your formula should look like this:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-multiply" src="../images/formulas/formulas-price-multiply.png" /></em></span></p>
-<p>To control the column ID, like &ldquo;$Unit_Price&rdquo;, that&rsquo;s used in formulas, see
-<a href="../col-types/#renaming-columns">Renaming columns</a>.</p>
-<p>Press <code class="keys"><em>Enter</em></code>, and your formula is applied to all cells in the column.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-final" src="../images/formulas/formulas-price-final.png" /></em></span></p>
-<p>If you&rsquo;ve worked with spreadsheets before, you may be surprised
-that you don&rsquo;t need to specify row numbers, like <code>B1 * C1</code>.
-In Grist, a single formula applies to a whole column.
-You don&rsquo;t have to worry about filling it in for all rows,
-and can refer to values in the same row without fuss.</p>
-<p>You can format numeric columns to look better by <a href="../col-types/#specifying-a-type">setting column
-type</a> to <code>Numeric</code>, and selecting suitable formatting options:</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-final" src="../images/formulas/formulas-price-formatted.png" /></em></span></p>
-<h2 id="column-behavior">Column behavior<a class="headerlink" href="#column-behavior" title="Permanent link">#</a></h2>
-<p>When we provide a formula for a column we tell Grist to update its value on every change
-in a document. We can no longer type a value into the cell, because its value is
-determined purely by the formula.</p>
-<p>A formula column is one of three possible column behaviors, which you can control using
-the <code>COLUMN BEHAVIOR</code> section in the creator panel:</p>
+<h1 id="formules">Formules<a class="headerlink" href="#formules" title="Permanent link">#</a></h1>
+<p>Grist dispose d&rsquo;un puissant moteur de données pour calculer les cellules de vos
+tables en utilisant des formules. Il dispose même d&rsquo;un <a href="../ai-assistant/">Assistant de Formule AI</a> pour aider à rédiger des formules. Si vous avez déjà utilisé des tableurs ou
+des expressions de base de données, vous serez dans un territoire familier - mais il y a
+quelques subtilités que vous voudrez connaître, alors restez avec nous.</p>
+<p>Commençons par un usage classique des tableurs. Supposons que vous ayez
+une liste de produits que vous avez commandés, la quantité que vous avez commandée,
+et le prix unitaire de chacun. Vous avez créé une colonne pour montrer
+la quantité multipliée par le prix unitaire, mais vous voulez que l&rsquo;ordinateur s&rsquo;occupe
+de cette partie pour vous.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix" src="../images/formulas/formulas-price.png" /></em></span></p>
+<p>Il vous suffit de sélectionner une cellule dans la colonne que vous souhaitez remplir, et d&rsquo;appuyer sur la touche <code class="keys"><strong>=</strong></code> pour
+indiquer à Grist que vous souhaitez entrer une formule, plutôt qu&rsquo;une valeur.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix-égal" src="../images/formulas/formulas-price-equal.png" /></em></span></p>
+<p>Avez-vous remarqué que, lorsque vous avez fait cela, les étiquettes des colonnes ont légèrement changé ? &ldquo;Produit&rdquo; est devenu &ldquo;$Produit&rdquo;, et &ldquo;Prix Unitaire&rdquo;
+est devenu &ldquo;$Prix_Unitaire&rdquo;. C&rsquo;est Grist qui vous indique comment
+vous référer à ces colonnes dans votre formule. Il vous suffit de taper <code class="formula">$Quantité * $Prix_Unitaire</code>.
+Vous trouverez une fonction d&rsquo;auto-complétion prête à vous aider.
+Ou si vous n&rsquo;aimez pas taper, cliquez sur la colonne Quantité, tapez le
+symbole de multiplication, puis cliquez sur la colonne Prix Unitaire.
+Votre formule devrait ressembler à ceci :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix-multiplication" src="../images/formulas/formulas-price-multiply.png" /></em></span></p>
+<p>Pour contrôler l&rsquo;ID de la colonne, comme &ldquo;$Prix_Unitaire&rdquo;, qui est utilisé dans les formules, consultez
+<a href="../col-types/#renaming-columns">Renommer les colonnes</a>.</p>
+<p>Appuyez sur <code class="keys"><em>Entrée</em></code>, et votre formule est appliquée à toutes les cellules de la colonne.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix-final" src="../images/formulas/formulas-price-final.png" /></em></span></p>
+<p>Si vous avez déjà travaillé avec des tableurs, vous serez peut-être surpris
+de constater que vous n&rsquo;avez pas besoin de spécifier les numéros de ligne, comme <code>B1 * C1</code>.
+Dans Grist, une seule formule s&rsquo;applique à toute une colonne.
+Vous n&rsquo;avez pas à vous soucier de la remplir pour toutes les lignes,
+et vous pouvez vous référer à des valeurs dans la même ligne sans tracas.</p>
+<p>Vous pouvez formater les colonnes numériques pour qu&rsquo;elles aient un meilleur aspect en <a href="../col-types/#specifying-a-type">définissant le type de colonne</a> sur <code>Numérique</code>, et en sélectionnant des options de formatage appropriées :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix-final" src="../images/formulas/formulas-price-formatted.png" /></em></span></p>
+<h2 id="comportement-des-colonnes">Comportement des colonnes<a class="headerlink" href="#comportement-des-colonnes" title="Permanent link">#</a></h2>
+<p>Lorsque nous fournissons une formule pour une colonne, nous disons à Grist de mettre à jour sa valeur à chaque changement
+dans un document. Nous ne pouvons plus saisir une valeur dans la cellule, car sa valeur est
+déterminée uniquement par la formule.</p>
+<p>Une colonne de formule est l&rsquo;un des trois comportements possibles de colonne, que vous pouvez contrôler en utilisant
+la section <code>COMPORTEMENT DE COLONNE</code> dans le panneau de création :</p>
 <ul>
-<li><code>Data column</code> maintains data, which you can manually update or clear, or optionally
-calculate using <a href="./#trigger-formulas">trigger formulas</a>.</li>
-<li><code>Formula column</code> always reflects the result of formula calculation, and is kept
-up-to-date by Grist.</li>
-<li><code>Empty column</code> is a state for a new column. Typing any value into it will turn it into a
-Data Column, while typing in a formula will turn it into a Formula Column</li>
+<li><code>Colonne de données</code> maintient des données, que vous pouvez mettre à jour ou effacer manuellement, ou éventuellement
+calculer en utilisant <a href="./#trigger-formulas">formules d&rsquo;initialisation</a>.</li>
+<li><code>Colonne de formule</code> reflète toujours le résultat du calcul de la formule, et est maintenue
+à jour par Grist.</li>
+<li><code>Colonne vide</code> est un état pour une nouvelle colonne. Saisir une valeur dans celle-ci la transformera en une
+Colonne de Données, tandis que la saisie d&rsquo;une formule la transformera en une Colonne de Formule.</li>
 </ul>
-<p><img alt="formulas-column-behavior" src="../images/formulas/formulas-column-behavior.png" /></p>
-<p>Using the <code>COLUMN BEHAVIOR</code> section, you can manually change the column behavior. The most
-common options are available as green action buttons at the bottom, and other options are
-available under the behavior menu. Depending on the current column behavior, those are:</p>
+<p><img alt="formules-comportement-colonne" src="../images/formulas/formulas-column-behavior.png" /></p>
+<p>En utilisant la section <code>COMPORTEMENT DE COLONNE</code>, vous pouvez changer manuellement le comportement de la colonne. Les options les plus
+courantes sont disponibles sous forme de boutons d&rsquo;action verts en bas, et d&rsquo;autres options sont
+disponibles dans le menu de comportement. Selon le comportement actuel de la colonne, celles-ci sont :</p>
 <ul>
-<li><code>Set formula</code> action converts an empty column to a formula column.</li>
-<li><code>Set trigger formula</code> or <code>Convert to trigger formula</code> action sets a trigger on a column
-(more on triggers in the next <a href="./#trigger-formulas">Trigger formulas section</a> ).</li>
-<li><code>Make into data column</code> action converts an empty column to a regular data column.</li>
-<li><code>Convert column to data</code> converts a formula column to regular data column (you can read
-more about this feature in the 
-<a href="./#freeze-a-formula-column">Freeze a formula column section</a> ).</li>
-<li><code>Clear and make into formula</code> clears all the data in a column and converts it to a
-formula column. (We say &ldquo;clear&rdquo; as a reminder that existing data in the column will be
-lost. They&rsquo;ll be replaced by the calculation results from the formula.)</li>
-<li><code>Clear and reset</code> clears all data and completely resets the column to its initial <code>Empty
-Column</code> state.</li>
+<li>L&rsquo;action <code>Définir la formule</code> convertit une colonne vide en colonne de formule.</li>
+<li>L&rsquo;action <code>Définir la formule d'initialisation</code> ou <code>Convertir en formule d'initialisation</code> définit un déclencheur sur une colonne
+(plus d&rsquo;informations sur les déclencheurs dans la prochaine <a href="./#trigger-formulas">section Formules d&rsquo;initialisation</a>).</li>
+<li>L&rsquo;action <code>Transformer en colonne de données</code> convertit une colonne vide en colonne de données régulière.</li>
+<li><code>Convertir la colonne en données</code> convertit une colonne de formule en colonne de données régulière (vous pouvez en lire
+davantage sur cette fonctionnalité dans la 
+<a href="./#freeze-a-formula-column">section Geler une colonne de formule</a>).</li>
+<li>L&rsquo;action <code>Effacer et transformer en formule</code> efface toutes les données d&rsquo;une colonne et la convertit en une
+colonne de formule. (Nous disons &ldquo;effacer&rdquo; pour rappeler que les données existantes dans la colonne seront
+perdues. Elles seront remplacées par les résultats de calcul de la formule.)</li>
+<li>L&rsquo;action <code>Effacer et réinitialiser</code> efface toutes les données et réinitialise complètement la colonne à son état initial <code>Colonne Vide</code>.</li>
 </ul>
-<p><img alt="formulas-column-behavior-options" src="../images/formulas/formulas-column-behavior-options.png" /></p>
+<p><img alt="formules-options-comportement-colonne" src="../images/formulas/formulas-column-behavior-options.png" /></p>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h2>
-<p>Grist formulas are written in Python, the most popular language for data science.
-The entirety of <a href="https://docs.python.org/3/library/">Python&rsquo;s standard library</a> is available
-to you. For those with a spreadsheet background, we&rsquo;ve also added a suite of Excel-like
-functions, with all-uppercase names. Here&rsquo;s the <a href="../functions/">full list of functions</a>.
-Grist documents may use Python 2 or Python 3, see our <a href="../python/">Python guide</a>
-for details.</p>
-<h2 id="formulas-that-operate-over-many-rows">Formulas that operate over many rows<a class="headerlink" href="#formulas-that-operate-over-many-rows" title="Permanent link">#</a></h2>
-<p>If you are a spreadsheet user, you may find yourself wanting to have
-some special rows at the end of your table that have formulas
-different to the rest.  In Grist, we&rsquo;d like you to consider adding a
-widget to your page instead.  For common use cases, <a href="../summary-tables/">Summary
-tables</a> may be exactly what you need.  Or if you
-want to set things up yourself, you can add an extra table widget like
-this (see <a href="../page-widgets/">Page widgets</a> for details):</p>
-<p><img alt="formulas-widgets" src="../images/formulas/formulas-widgets.png" /></p>
-<p>This is just another table, giving us a place to put formulas outside
-of the structure of the Materials table.  For example, if we wanted
-to count how many products there are in that table, we could use this
-formula:</p>
+<p>Les formules Grist sont écrites en Python, le langage le plus populaire pour la science des données.
+L&rsquo;intégralité de <a href="https://docs.python.org/3/library/">la bibliothèque standard de Python</a> est à votre disposition.
+Pour ceux qui ont un passé de tableur, nous avons également ajouté une suite de fonctions similaires à Excel,
+avec des noms en majuscules. Voici la <a href="../functions/">liste complète des fonctions</a>.
+Les documents Grist peuvent utiliser Python 2 ou Python 3, consultez notre <a href="../python/">guide Python</a>
+pour plus de détails.</p>
+<h2 id="formules-qui-operent-sur-plusieurs-lignes">Formules qui opèrent sur plusieurs lignes<a class="headerlink" href="#formules-qui-operent-sur-plusieurs-lignes" title="Permanent link">#</a></h2>
+<p>Si vous êtes un utilisateur de tableur, vous pourriez vouloir avoir
+des lignes spéciales à la fin de votre table qui ont des formules
+différentes des autres. Dans Grist, nous vous encourageons à envisager d&rsquo;ajouter un
+widget à votre page à la place. Pour des cas d&rsquo;utilisation courants, les <a href="../summary-tables/">Tableaux de Résumé</a> peuvent être exactement ce dont vous avez besoin. Ou si vous
+voulez tout configurer vous-même, vous pouvez ajouter un widget de tableau supplémentaire comme
+celui-ci (voir <a href="../page-widgets/">Widgets de Page</a> pour plus de détails) :</p>
+<p><img alt="formules-widgets" src="../images/formulas/formulas-widgets.png" /></p>
+<p>C&rsquo;est juste un autre tableau, nous donnant un endroit pour mettre des formules en dehors
+de la structure de la table des Matériaux. Par exemple, si nous voulions
+compter combien de produits il y a dans ce tableau, nous pourrions utiliser cette
+formule :</p>
 <pre><code class="language-py">len(Materials.all)
 </code></pre>
-<p>Every table in your document is available by its name in formulas,
-as a <a href="../functions/#usertable">UserTable</a>.  This formula uses
-the <a href="../functions/#all">all</a> method to access the rows of the table, but
-doesn&rsquo;t do anything with them but count them.</p>
-<p>Here&rsquo;s a formula to compute the average price, using the Excel-like function
-<a href="../functions/#average">AVERAGE</a>:</p>
-<pre><code class="language-py">AVERAGE(Materials.all.Price)
+<p>Chaque tableau dans votre document est disponible par son nom dans les formules,
+en tant que <a href="../functions/#usertable">UserTable</a>. Cette formule utilise
+la méthode <a href="../functions/#all">all</a> pour accéder aux lignes du tableau, mais
+ne fait rien d&rsquo;autre que de les compter.</p>
+<p>Voici une formule pour calculer le prix moyen, en utilisant la fonction similaire à Excel
+<a href="../functions/#average">MOYENNE</a> :</p>
+<pre><code class="language-py">MOYENNE(Materials.all.Prix)
 </code></pre>
-<p>The <a href="../functions/#all">all</a> method returns a <a href="../functions/#recordset">RecordSet</a>,
-which supports iterating over individual columns this way.  Equivalently,
-we could use a Python <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a>:</p>
-<pre><code class="language-py">AVERAGE(material.Price for material in Materials.all)
+<p>La méthode <a href="../functions/#all">all</a> renvoie un <a href="../functions/#recordset">RecordSet</a>,
+qui prend en charge l&rsquo;itération sur des colonnes individuelles de cette manière. Équivalemment,
+nous pourrions utiliser une <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">compréhension de liste Python</a> :</p>
+<pre><code class="language-py">MOYENNE(matériau.Prix pour matériau dans Materials.all)
 </code></pre>
-<p>If you are not familiar with Python, it is worth following
-a tutorial.  There are thousands online, including this
-<a href="https://docs.python.org/3/tutorial/index.html">official one</a>.
-Python will be useful to you for all sorts of data work, not just Grist.</p>
-<p>List comprehension is useful once we&rsquo;re doing anything nuanced.  For example,
-here&rsquo;s a formula to list the names of products with a quantity greater than 80:</p>
-<pre><code class="language-py">[m.Product for m in Materials.all if m.Quantity &gt; 80]
+<p>Si vous n&rsquo;êtes pas familier avec Python, il vaut la peine de suivre
+un tutoriel. Il existe des milliers en ligne, y compris ce
+<a href="https://docs.python.org/3/tutorial/index.html">tutoriel officiel</a>.
+Python vous sera utile pour toutes sortes de travaux de données, pas seulement pour Grist.</p>
+<p>La compréhension de liste est utile dès que nous faisons quelque chose de nuancé. Par exemple,
+voici une formule pour lister les noms des produits avec une quantité supérieure à 80 :</p>
+<pre><code class="language-py">[m.Produit pour m dans Materials.all si m.Quantité &gt; 80]
 </code></pre>
-<p>This is a list comprehension, but now with a conditional.  The result is a list,
-which is rendered as text in a cell.</p>
-<p>Python can help in other ways in your search for rows.  For example, here&rsquo;s a formula
-to find the name of the product with the highest quantity:</p>
-<pre><code class="language-py">max(Materials.all, key=lambda m: m.Quantity).Product
+<p>C&rsquo;est une compréhension de liste, mais maintenant avec une condition. Le résultat est une liste,
+qui est rendue sous forme de texte dans une cellule.</p>
+<p>Python peut aider de plusieurs autres manières dans votre recherche de lignes. Par exemple, voici une formule
+pour trouver le nom du produit avec la plus grande quantité :</p>
+<pre><code class="language-py">max(Materials.all, key=lambda m: m.Quantité).Produit
 </code></pre>
-<p>Formulas are case-sensitive, with Excel-like functions being all-caps (<code>MAX</code>), and
-regular Python generally all lowercase (<code>max</code>).</p>
-<p>For exact matches, there is a shortcut to avoid iteration called
-<a href="../functions/#lookuprecords">lookupRecords</a>, or
-<a href="../functions/#lookupone">lookupOne</a> for single matches.
-Just pass the the values of columns you require to be matched.
-For example, here is a formula to look up the product name of a material
-with a quantity of 52:</p>
-<pre><code class="language-py">Materials.lookupOne(Quantity=52).Product
+<p>Les formules sont sensibles à la casse, les fonctions similaires à Excel étant en majuscules (<code>MAX</code>), et
+le Python régulier étant généralement en minuscules (<code>max</code>).</p>
+<p>Pour des correspondances exactes, il existe un raccourci pour éviter l&rsquo;itération appelé
+<a href="../functions/#lookuprecords">lookupRecords</a>, ou
+<a href="../functions/#lookupone">lookupOne</a> pour des correspondances uniques.
+Il suffit de passer les valeurs des colonnes que vous souhaitez faire correspondre.
+Par exemple, voici une formule pour rechercher le nom du produit d&rsquo;un matériau
+avec une quantité de 52 :</p>
+<pre><code class="language-py">Materials.lookupOne(Quantité=52).Produit
 </code></pre>
-<p>For very large tables, it is wise to use lookups as much as you can, rather
-than iterating through rows.</p>
-<p>Returning to our example document, you can now see how we calculated the
-<code>Total Spent</code>, <code>Average Quantity</code>, and <code>Most Ordered Product</code> columns:</p>
+<p>Pour des tableaux très volumineux, il est sage d&rsquo;utiliser des recherches autant que possible, plutôt que d&rsquo;itérer à travers les lignes.</p>
+<p>Revenons à notre document exemple, vous pouvez maintenant voir comment nous avons calculé les
+colonnes <code>Total Dépensé</code>, <code>Quantité Moyenne</code>, et <code>Produit le Plus Commandé</code> :</p>
 <table>
 <thead>
 <tr>
-<th>Column</th>
-<th>Formula</th>
+<th>Colonne</th>
+<th>Formule</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Total Spent</td>
-<td><code>SUM(Materials.all.Price)</code></td>
+<td>Total Dépensé</td>
+<td><code>SUM(Materials.all.Prix)</code></td>
 </tr>
 <tr>
-<td>Average Quantity</td>
-<td><code>AVERAGE(Materials.all.Quantity)</code></td>
+<td>Quantité Moyenne</td>
+<td><code>MOYENNE(Materials.all.Quantité)</code></td>
 </tr>
 <tr>
-<td>Most Ordered Product</td>
-<td><code>max(Materials.all, key=lambda m: m.Quantity).Product</code></td>
+<td>Produit le Plus Commandé</td>
+<td><code>max(Materials.all, key=lambda m: m.Quantité).Produit</code></td>
 </tr>
 </tbody>
 </table>
-<p>Separating out calculations like this from the body of your data
-can take some getting used to, but working this way can help
-keep your document more organized.  And it brings other advantages.
-For example we could switch the formatting of the summary widget
-via the side panel:</p>
-<p><img alt="formulas-widgets-card" src="../images/formulas/formulas-widgets-card.png" /></p>
-<h2 id="varying-formula-by-row">Varying formula by row<a class="headerlink" href="#varying-formula-by-row" title="Permanent link">#</a></h2>
-<p>Having a formula apply to all rows is convenient and reduces the changes of mistakes.</p>
-<p>If you need to have a column change its behavior on different rows, it is possible using a
-conditional in the formula. For example, here is a replacement for
-the <code>Materials.Price</code> formula that ignores the price and shows zero for products whose name ends
-in &ldquo;(Sample)&rdquo;:</p>
-<pre><code>if $Product.endswith(&quot;(Sample)&quot;):
+<p>Séparer les calculs de cette manière du corps de vos données
+peut prendre un certain temps pour s&rsquo;y habituer, mais travailler de cette façon peut aider
+à garder votre document plus organisé. Et cela apporte d&rsquo;autres avantages.
+Par exemple, nous pourrions changer le formatage du widget de résumé
+via le panneau latéral :</p>
+<p><img alt="formules-widgets-carte" src="../images/formulas/formulas-widgets-card.png" /></p>
+<h2 id="varier-la-formule-par-ligne">Varier la formule par ligne<a class="headerlink" href="#varier-la-formule-par-ligne" title="Permanent link">#</a></h2>
+<p>Faire appliquer une formule à toutes les lignes est pratique et réduit les risques d&rsquo;erreurs.</p>
+<p>Si vous devez faire changer le comportement d&rsquo;une colonne sur différentes lignes, c&rsquo;est possible en utilisant une
+condition dans la formule. Par exemple, voici un remplacement pour
+la formule <code>Materials.Prix</code> qui ignore le prix et affiche zéro pour les produits dont le nom se termine
+par &ldquo;(Échantillon)&rdquo; :</p>
+<pre><code>if $Produit.endswith(&quot;(Échantillon)&quot;):
   return 0
 else:
-  return $Quantity * $Unit_Price
+  return $Quantité * $Prix_Unitaire
 </code></pre>
-<h2 id="code-viewer">Code viewer<a class="headerlink" href="#code-viewer" title="Permanent link">#</a></h2>
-<p>Once you have a lot of formulas, or if you have been invited to a document
-and want to get an overview of its formulas, there is a code viewer
-available with a pure Python summary of the document.</p>
-<p><img alt="formulas-code-view" src="../images/formulas/formulas-code-view.png" /></p>
-<h2 id="special-values-available-in-formulas">Special values available in formulas<a class="headerlink" href="#special-values-available-in-formulas" title="Permanent link">#</a></h2>
-<p>For those familiar with Python, here are the extra values available to
-you in Grist:</p>
+<h2 id="visualiseur-de-code">Visualiseur de code<a class="headerlink" href="#visualiseur-de-code" title="Permanent link">#</a></h2>
+<p>Une fois que vous avez beaucoup de formules, ou si vous avez été invité à un document
+et souhaitez avoir un aperçu de ses formules, il existe un visualiseur de code
+disponible avec un résumé Python pur du document.</p>
+<p><img alt="formules-code-view" src="../images/formulas/formulas-code-view.png" /></p>
+<h2 id="valeurs-speciales-disponibles-dans-les-formules">Valeurs spéciales disponibles dans les formules<a class="headerlink" href="#valeurs-speciales-disponibles-dans-les-formules" title="Permanent link">#</a></h2>
+<p>Pour ceux qui connaissent Python, voici les valeurs supplémentaires disponibles pour
+vous dans Grist :</p>
 <ul>
-<li><code>rec</code> is the current row.  The <code>$column</code> syntax is shorthand for
-   <code>rec.column</code>.  The <code>rec</code> variable is of type <a href="../functions/#record">Record</a>.</li>
-<li><code>table</code> is the current table, and is of type <a href="../functions/#usertable">UserTable</a>.</li>
-<li>Tables in your document are available by their name, and are also of
+<li><code>rec</code> est la ligne actuelle. La syntaxe <code>$column</code> est une abréviation pour
+   <code>rec.column</code>. La variable <code>rec</code> est de type <a href="../functions/#record">Record</a>.</li>
+<li><code>table</code> est le tableau actuel, et est de type <a href="../functions/#usertable">UserTable</a>.</li>
+<li>Les tableaux dans votre document sont disponibles par leur nom, et sont également de
    type <a href="../functions/#usertable">UserTable</a>.</li>
-<li>Many extra spreadsheet functions are available, see the full
-   <a href="../functions/">function list</a>.</li>
+<li>De nombreuses fonctions de tableur supplémentaires sont disponibles, consultez la liste complète
+   <a href="../functions/">des fonctions</a>.</li>
 </ul>
-<p>If your table or column has a space in its name, or other characters
-that are awkward in Python, those characters are replaced with an
-underscore.  Auto-complete may help you if you&rsquo;re not sure.  You
-can also control the &ldquo;ids&rdquo; of columns and tables in the right side panel.</p>
-<h2 id="freeze-a-formula-column">Freeze a formula column<a class="headerlink" href="#freeze-a-formula-column" title="Permanent link">#</a></h2>
-<p>If you&rsquo;d like to save the output of your formula as plain values, you can simply change
-column behavior from <code>Formula Column</code> to <code>Data Column</code>. First open the column options in
-the side panel:</p>
-<p><img alt="formulas-column-options" src="../images/formulas/formulas-column-options.png" /></p>
-<p>Now click on the <code>Formula Column</code> and select <code>Convert column to data</code> option.</p>
-<p><img alt="formulas-action-menu" src="../images/formulas/formulas-action-menu.png" /></p>
-<p>Notice that there is no <code>=</code> sign in the column cells any more, showing that it
-is no longer a formula.  The cells will no longer change if other cells they used
-to depend on change.</p>
-<p><img alt="formulas-turn-off-formula" src="../images/formulas/formulas-turn-off-formula.png" /></p>
-<p>The original formula is saved but stays inactive. It may come useful
-again if you wish to convert the column back to a formula column, or
-use it as a 
-<a href="./#trigger-formulas">Trigger Formula</a>.</p>
-<p>The side panel has lots of other handy settings, such as cell formatting
-(number of digits after decimal point, color, etc).  The options apply
-just as much to formula columns as to regular columns.</p>
-<h2 id="lookups">Lookups<a class="headerlink" href="#lookups" title="Permanent link">#</a></h2>
-<p>Grist functions <a href="../functions/#lookupone">lookupOne</a> and
-<a href="../functions/#lookuprecords">lookupRecords</a> are useful for enumerating
-subsets of your data.  For example, suppose we added a <code>Category</code>
-column to our <code>Materials</code> table, and wished to list all products belonging
-to a specific category.  We can do this using <code>TABLE.lookupRecords</code>, where <code>TABLE</code> is the table of
-interest, and supplying it with the column values
-to match.  For example, <code class="formula">Materials.lookupRecords(Category='Ship')</code>, as here:</p>
-<p><img alt="formulas-column-options" src="../images/formulas/formulas-lookup-unsorted.png" /></p>
-<p>If you are following on, see <a href="../widget-card/#adding-a-field">Adding a field</a>
-for details of how to add a new field to a card.  If you care about the order
-of results, <code>lookupRecords</code> takes an optional <code>sort_by</code> parameter.  For example,
-we could use this formula to sort by the product name itself:</p>
-<pre><code class="language-py">Materials.lookupRecords(Category='Ship', sort_by='Product').Product
+<p>Si votre tableau ou colonne a un espace dans son nom, ou d&rsquo;autres caractères
+qui sont gênants en Python, ces caractères sont remplacés par un
+soulignement. L&rsquo;auto-complétion peut vous aider si vous n&rsquo;êtes pas sûr. Vous
+pouvez également contrôler les &ldquo;ids&rdquo; des colonnes et des tableaux dans le panneau latéral droit.</p>
+<h2 id="geler-une-colonne-de-formule">Geler une colonne de formule<a class="headerlink" href="#geler-une-colonne-de-formule" title="Permanent link">#</a></h2>
+<p>Si vous souhaitez enregistrer la sortie de votre formule en tant que valeurs simples, vous pouvez simplement changer
+le comportement de la colonne de <code>Colonne de Formule</code> à <code>Colonne de Données</code>. Ouvrez d&rsquo;abord les options de colonne dans
+le panneau latéral :</p>
+<p><img alt="formules-options-colonne" src="../images/formulas/formulas-column-options.png" /></p>
+<p>Cliquez maintenant sur la <code>Colonne de Formule</code> et sélectionnez l&rsquo;option <code>Convertir la colonne en données</code>.</p>
+<p><img alt="formules-menu-action" src="../images/formulas/formulas-action-menu.png" /></p>
+<p>Remarquez qu&rsquo;il n&rsquo;y a plus de signe <code>=</code> dans les cellules de la colonne, montrant qu&rsquo;elle
+n&rsquo;est plus une formule. Les cellules ne changeront plus si d&rsquo;autres cellules dont elles dépendaient
+changent.</p>
+<p><img alt="formules-désactiver-formule" src="../images/formulas/formulas-turn-off-formula.png" /></p>
+<p>La formule d&rsquo;origine est sauvegardée mais reste inactive. Elle peut redevenir utile
+si vous souhaitez convertir la colonne de nouveau en colonne de formule, ou
+l&rsquo;utiliser comme une 
+<a href="./#trigger-formulas">Formule d&rsquo;Initialisation</a>.</p>
+<p>Le panneau latéral a de nombreux autres paramètres pratiques, tels que le formatage des cellules
+(nombre de chiffres après la virgule, couleur, etc.). Les options s&rsquo;appliquent
+tout autant aux colonnes de formule qu&rsquo;aux colonnes régulières.</p>
+<h2 id="recherches">Recherches<a class="headerlink" href="#recherches" title="Permanent link">#</a></h2>
+<p>Les fonctions Grist <a href="../functions/#lookupone">lookupOne</a> et
+<a href="../functions/#lookuprecords">lookupRecords</a> sont utiles pour énumérer
+des sous-ensembles de vos données. Par exemple, supposons que nous ajoutions une colonne <code>Catégorie</code>
+à notre tableau <code>Matériaux</code>, et souhaitions lister tous les produits appartenant
+à une catégorie spécifique. Nous pouvons le faire en utilisant <code>TABLE.lookupRecords</code>, où <code>TABLE</code> est le tableau d&rsquo;intérêt, et en lui fournissant les valeurs de colonne
+à faire correspondre. Par exemple, <code class="formula">Materials.lookupRecords(Catégorie='Navire')</code>, comme ici :</p>
+<p><img alt="formules-options-colonne" src="../images/formulas/formulas-lookup-unsorted.png" /></p>
+<p>Si vous suivez, consultez <a href="../widget-card/#adding-a-field">Ajouter un champ</a>
+pour des détails sur la façon d&rsquo;ajouter un nouveau champ à une carte. Si vous vous souciez de l&rsquo;ordre
+des résultats, <code>lookupRecords</code> prend un paramètre optionnel <code>sort_by</code>. Par exemple,
+nous pourrions utiliser cette formule pour trier par le nom du produit lui-même :</p>
+<pre><code class="language-py">Materials.lookupRecords(Catégorie='Navire', sort_by='Produit').Produit
 </code></pre>
-<p>If you want to sort by multiple columns, remember that you can create a hidden
-formula column that combines data in any way you like, and then sort by that.</p>
-<p>The order of records returned by <code>lookupRecords</code> may not match the order of rows
-you see in a table.  To get that order, use <code>sort_by='manualSort'</code>.  This is an
-internal column that is updated with the manually established sort order
-of rows.</p>
-<p>If you find yourself doing a lot of look-ups, please consider
-whether <a href="../summary-tables/">Summary tables</a> and
-<a href="../summary-tables/#summary-formulas">Summary formulas</a> might be
-what you are looking for.</p>
-<h2 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">#</a></h2>
-<p>Lookups are handy for recursive formulas.  Suppose we have a table counting how many
-events we have per day, and want to add a cumulative sum of those event counts.
-One way to do that is with a formula like this:</p>
-<pre><code class="language-py">yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
-$events + (yesterday.cumulative or 0)
+<p>Si vous souhaitez trier par plusieurs colonnes, rappelez-vous que vous pouvez créer une colonne de formule cachée qui combine les données de la manière dont vous le souhaitez, puis trier par celle-ci.</p>
+<p>L&rsquo;ordre des enregistrements renvoyés par <code>lookupRecords</code> peut ne pas correspondre à l&rsquo;ordre des lignes
+que vous voyez dans un tableau. Pour obtenir cet ordre, utilisez <code>sort_by='manualSort'</code>. Il s&rsquo;agit d&rsquo;une
+colonne interne qui est mise à jour avec l&rsquo;ordre de tri établi manuellement
+des lignes.</p>
+<p>Si vous vous retrouvez à faire beaucoup de recherches, envisagez
+si les <a href="../summary-tables/">Tableaux de Résumé</a> et
+<a href="../summary-tables/#summary-formulas">Formules de Résumé</a> pourraient être
+ce que vous recherchez.</p>
+<h2 id="recursivite">Récursivité<a class="headerlink" href="#recursivite" title="Permanent link">#</a></h2>
+<p>Les recherches sont pratiques pour les formules récursives. Supposons que nous ayons un tableau comptant combien
+d&rsquo;événements nous avons par jour, et que nous souhaitions ajouter une somme cumulative de ces comptes d&rsquo;événements.
+Une façon de le faire est avec une formule comme celle-ci :</p>
+<pre><code class="language-py">hier = Events.lookupOne(date=$date - datetime.timedelta(days=1))
+$events + (hier.cumulative or 0)
 </code></pre>
-<p><img alt="formulas-recursion" src="../images/formulas/formulas-recursion.png" /></p>
-<p>For clarity, we&rsquo;ve split this formula into two lines.  The first line
-makes a variable pointing to the row of the day before.  The second
-line computes the value we want in the cell.  Python note: the value
-of the last line is automatically returned (you could prefix it with
-<code>return</code> if you like).</p>
-<p>Notice the <code>yesterday.cumulative or 0</code>. For the earliest row in the
-table, there will be no yesterday.  In this case, <code>lookupOne</code> returns
-a special empty record, for which <code>yesterday.cumulative</code> will be
+<p><img alt="formules-récursivité" src="../images/formulas/formulas-recursion.png" /></p>
+<p>Pour plus de clarté, nous avons divisé cette formule en deux lignes. La première ligne
+crée une variable pointant vers la ligne du jour précédent. La seconde
+ligne calcule la valeur que nous voulons dans la cellule. Note Python : la valeur
+de la dernière ligne est automatiquement renvoyée (vous pourriez la préfixer par
+<code>return</code> si vous le souhaitez).</p>
+<p>Remarquez le <code>hier.cumulative or 0</code>. Pour la première ligne du
+tableau, il n&rsquo;y aura pas de hier. Dans ce cas, <code>lookupOne</code> renvoie
+un enregistrement vide spécial, pour lequel <code>hier.cumulative</code> sera
 <code>None</code>.</p>
-<p>If you&rsquo;d like to simplify this formula, or find yourself using the
-same lookup in multiple formulas, it would be worth making
-<code>yesterday</code> a <a href="../col-refs/">reference column</a>.  Simply add
-a reference column, and give a formula for it that matches how
-we defined <code>yesterday</code> here.</p>
-<p>To actually enter this formula in a cell, you&rsquo;d use
-<code class="keys"><em>Shift</em> + <em>Enter</em></code> to divide the lines.</p>
-<h2 id="trigger-formulas">Trigger Formulas<a class="headerlink" href="#trigger-formulas" title="Permanent link">#</a></h2>
-<p>Formula columns are great for calculated values &ndash; those determined by
-other data in the document. It may also be useful to store independent 
-data in a column, but still use a formula to calculate it in some
-situations. This is exactly what Trigger Formulas offer. It is a
-very powerful feature that allows you to create a
-<a href="../timestamps/">Timestamp</a> or <a href="../authorship/">Authorship</a> column,
-recalculate your data based on
-a <a href="../examples/2021-07-auto-stamps/">set of conditions</a> that you decide
-, clean data when a new value is entered, or provide sensible default
-value for a column.</p>
-<p>To create a Trigger Formula column, you first need to open the creator panel and 
-click on the <code>Set trigger formula</code> action. If you want to convert an existing formula, use
-the <code>Convert to trigger formula</code> action available in the <code>COLUMN BEHAVIOR</code> section.</p>
-<p><img alt="formulas-column-behavior" src="../images/formulas/formulas-column-behavior.png" /></p>
-<p>To control when the formula is evaluated, use the two checkbox options 
-below:</p>
-<p><img alt="a Created-At column" src="../images/formulas/formulas-created-at-final.png" /></p>
+<p>Si vous souhaitez simplifier cette formule, ou si vous vous retrouvez à utiliser la
+même recherche dans plusieurs formules, il serait judicieux de faire de
+<code>hier</code> une <a href="../col-refs/">colonne de référence</a>. Ajoutez simplement
+une colonne de référence, et donnez-lui une formule qui correspond à la façon
+dont nous avons défini <code>hier</code> ici.</p>
+<p>Pour entrer réellement cette formule dans une cellule, vous utiliseriez
+<code class="keys"><em>Shift</em> + <em>Entrée</em></code> pour diviser les lignes.</p>
+<h2 id="formules-dinitialisation">Formules d&rsquo;initialisation<a class="headerlink" href="#formules-dinitialisation" title="Permanent link">#</a></h2>
+<p>Les colonnes de formule sont excellentes pour les valeurs calculées &ndash; celles déterminées par
+d&rsquo;autres données dans le document. Il peut également être utile de stocker des données indépendantes
+dans une colonne, mais d&rsquo;utiliser tout de même une formule pour les calculer dans certaines
+situations. C&rsquo;est exactement ce que les Formules d&rsquo;Initialisation offrent. C&rsquo;est une
+fonctionnalité très puissante qui vous permet de créer une
+<a href="../timestamps/">colonne Horodatage</a> ou <a href="../authorship/">d&rsquo;Autorité</a>,
+de recalculer vos données en fonction d&rsquo;un
+<a href="../examples/2021-07-auto-stamps/">ensemble de conditions</a> que vous décidez,
+de nettoyer les données lorsqu&rsquo;une nouvelle valeur est saisie, ou de fournir une valeur par défaut
+sensible pour une colonne.</p>
+<p>Pour créer une colonne de Formule d&rsquo;Initialisation, vous devez d&rsquo;abord ouvrir le panneau de création et
+cliquer sur l&rsquo;action <code>Définir la formule d'initialisation</code>. Si vous souhaitez convertir une formule existante, utilisez
+l&rsquo;action <code>Convertir en formule d'initialisation</code> disponible dans la section <code>COMPORTEMENT DE COLONNE</code>.</p>
+<p><img alt="formules-comportement-colonne" src="../images/formulas/formulas-column-behavior.png" /></p>
+<p>Pour contrôler quand la formule est évaluée, utilisez les deux options de case à cocher
+ci-dessous :</p>
+<p><img alt="une colonne Créée-À" src="../images/formulas/formulas-created-at-final.png" /></p>
 <ul>
-<li><code>Apply to new records</code> triggers the formula only when a new record is 
-created (a default cell value).</li>
-<li><code>Apply on record changes</code> triggers the formula when a record is updated.</li>
+<li><code>Appliquer aux nouveaux enregistrements</code> déclenche la formule uniquement lorsqu&rsquo;un nouvel enregistrement est
+créé (une valeur de cellule par défaut).</li>
+<li><code>Appliquer lors des changements d'enregistrement</code> déclenche la formule lorsqu&rsquo;un enregistrement est mis à jour.</li>
 </ul>
-<p>Applying to new records is self-explanatory, the formula will be evaluated
-only once when you add a new record. It is a perfect solution to provide 
-default values to the empty cells. Second option allows you to fine grain 
-the conditions and specify which columns, when updated, will trigger the 
-evaluation:</p>
-<p><img alt="an Updated-At column" src="../images/formulas/formulas-updated-at.png" /></p>
-<p>You probably noticed the first option <code>Current field</code>. At first glance, you
-probably wonder: &ldquo;Why would I want to trigger the column on its own 
-change?&rdquo;. This option allows you to react to a value that is being entered 
-into the column, just before it is saved!</p>
-<p>In the formula editor, you have access to two variables that are not 
-available to regular formulas:</p>
+<p>L&rsquo;application aux nouveaux enregistrements est explicite, la formule sera évaluée
+une seule fois lorsque vous ajoutez un nouvel enregistrement. C&rsquo;est une solution parfaite pour fournir
+des valeurs par défaut aux cellules vides. La seconde option vous permet de peaufiner
+les conditions et de spécifier quelles colonnes, lorsqu&rsquo;elles sont mises à jour, déclencheront l&rsquo;évaluation :</p>
+<p><img alt="une colonne Mise-À-Jour" src="../images/formulas/formulas-updated-at.png" /></p>
+<p>Vous avez probablement remarqué la première option <code>Champ actuel</code>. À première vue, vous
+vous demandez probablement : &ldquo;Pourquoi voudrais-je déclencher la colonne sur son propre
+changement ?&rdquo;. Cette option vous permet de réagir à une valeur qui est en cours de saisie
+dans la colonne, juste avant qu&rsquo;elle ne soit enregistrée !</p>
+<p>Dans l&rsquo;éditeur de formules, vous avez accès à deux variables qui ne sont pas
+disponibles pour les formules régulières :</p>
 <ul>
-<li><code>value</code> which is the value that a user wants to enter,</li>
-<li><code>user</code> which represents a user object that is making the change (you will also
-see this in the <a href="../access-rules/">Access rules</a> section).</li>
+<li><code>value</code> qui est la valeur qu&rsquo;un utilisateur souhaite entrer,</li>
+<li><code>user</code> qui représente un objet utilisateur qui effectue le changement (vous verrez également cela dans la section <a href="../access-rules/">Règles d&rsquo;accès</a>).</li>
 </ul>
-<p>This allows you to make your application even smarter, track when a record
-<a href="../timestamps/">was updated</a>, or see who made the last <a href="../authorship/">change to a row</a>.
-Simple examples:</p>
+<p>Cela vous permet de rendre votre application encore plus intelligente, de suivre quand un enregistrement
+<a href="../timestamps/">a été mis à jour</a>, ou de voir qui a effectué le dernier <a href="../authorship/">changement à une ligne</a>.
+Exemples simples :</p>
 <ol>
 <li>
-<p>Ensure that the value in a column is always written in capital letters:
-<img alt="data cleanup - uppercase" src="../images/formulas/formulas-trigger-uppercase.png" /> 
-With the trigger formula of <code class="formula">value.upper()</code>, the value typed into
-this column will be converted to upper case automatically.  </p>
+<p>Assurez-vous que la valeur d&rsquo;une colonne est toujours écrite en lettres majuscules :
+<img alt="nettoyage des données - majuscules" src="../images/formulas/formulas-trigger-uppercase.png" /> 
+Avec la formule d&rsquo;initialisation de <code class="formula">value.upper()</code>, la valeur saisie dans
+cette colonne sera automatiquement convertie en majuscules.  </p>
 </li>
 <li>
-<p>Format a value that the user enters to sanitize the data before saving:
-<img alt="data cleanup - format" src="../images/formulas/formulas-trigger-format.png" />
-With the formula like <code class="formula">value if value.startswith("SK") else "SK" + value</code>,
-the value typed into this column will always be prefixed with &ldquo;SK&rdquo;.</p>
+<p>Formatez une valeur que l&rsquo;utilisateur entre pour assainir les données avant de les enregistrer :
+<img alt="nettoyage des données - format" src="../images/formulas/formulas-trigger-format.png" />
+Avec une formule comme <code class="formula">value if value.startswith("SK") else "SK" + value</code>,
+la valeur saisie dans cette colonne sera toujours précédée de &ldquo;SK&rdquo;.</p>
 </li>
 <li>
-<p>Overwrite a default value from a referenced table:
-<img alt="data cleanup - reference" src="../images/formulas/formulas-trigger-reference.png" />
-You can use a formula like <code class="formula">value or $Client.Phone</code>, to provide a default
-value from a referenced table, but still allow the user to type a new one.</p>
+<p>Écrasez une valeur par défaut d&rsquo;une table référencée :
+<img alt="nettoyage des données - référence" src="../images/formulas/formulas-trigger-reference.png" />
+Vous pouvez utiliser une formule comme <code class="formula">value or $Client.Téléphone</code>, pour fournir une valeur par défaut
+d&rsquo;une table référencée, mais permettre tout de même à l&rsquo;utilisateur d&rsquo;en saisir une nouvelle.</p>
 </li>
 </ol>
-<p>In each of these examples, when the user tries to modify a cell, Grist (before
-updating the record) will evaluate the formula and store its result in the column
-instead of the value provided by the user. </p>
-<p>For a detailed, real-life example read our <a href="../examples/2021-07-auto-stamps/">guide</a>
-on how to create time and user stamps.</p>
-<p>For more information on formulas and trigger formulas, check out our webinar <a href="https://youtu.be/0qVDPZd2w9I">Trigger Formulas v. Formulas</a>.</p>
+<p>Dans chacun de ces exemples, lorsque l&rsquo;utilisateur essaie de modifier une cellule, Grist (avant
+de mettre à jour l&rsquo;enregistrement) évaluera la formule et stockera son résultat dans la colonne
+au lieu de la valeur fournie par l&rsquo;utilisateur. </p>
+<p>Pour un exemple détaillé et concret, consultez notre <a href="../examples/2021-07-auto-stamps/">guide</a>
+sur la façon de créer des horodatages et des utilisateurs.</p>
+<p>Pour plus d&rsquo;informations sur les formules et les formules d&rsquo;initialisation, consultez notre webinaire <a href="https://youtu.be/0qVDPZd2w9I">Formules d&rsquo;Initialisation vs. Formules</a>.</p>
 
   <br>
 </div>

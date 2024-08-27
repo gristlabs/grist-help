@@ -322,52 +322,52 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Reference and Reference Lists
+              Référence et Listes de Références
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#overview">
-                Overview
+              <a class="wm-article-link wm-page-toc-text" href="#vue-densemble">
+                Vue d&rsquo;ensemble
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-a-new-reference-column">
-                Creating a new Reference column
+              <a class="wm-article-link wm-page-toc-text" href="#creer-une-nouvelle-colonne-de-reference">
+                Créer une nouvelle colonne de Référence
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#adding-values-to-a-reference-column">
-                Adding values to a Reference column
+              <a class="wm-article-link wm-page-toc-text" href="#ajouter-des-valeurs-a-une-colonne-de-reference">
+                Ajouter des valeurs à une colonne de Référence
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#converting-text-column-to-reference">
-                Converting Text column to Reference
+              <a class="wm-article-link wm-page-toc-text" href="#convertir-une-colonne-de-texte-en-reference">
+                Convertir une colonne de Texte en Référence
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#including-multiple-fields-from-a-reference">
-                Including multiple fields from a reference
+              <a class="wm-article-link wm-page-toc-text" href="#inclure">
+                Inclure
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-a-new-reference-list-column">
-                Creating a new Reference List column
+              <a class="wm-article-link wm-page-toc-text" href="#creer-une-nouvelle-colonne-de-liste-de-references">
+                Créer une nouvelle colonne de Liste de Références
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#editing-values-in-a-reference-list-column">
-                Editing values in a Reference List column
+              <a class="wm-article-link wm-page-toc-text" href="#modifier-les-valeurs-dans-une-colonne-de-liste-de-references">
+                Modifier les valeurs dans une colonne de Liste de Références
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#understanding-reference-columns">
-                Understanding reference columns
+              <a class="wm-article-link wm-page-toc-text" href="#comprendre-les-colonnes-de-reference">
+                Comprendre les colonnes de référence
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#filtering-reference-choices-in-dropdown">
-                Filtering Reference choices in dropdown
+              <a class="wm-article-link wm-page-toc-text" href="#filtrer-les-choix-de-reference-dans-la-liste-deroulante">
+                Filtrer les choix de Référence dans la liste déroulante
               </a>
             </li>
         
@@ -960,147 +960,94 @@
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h1 id="reference-and-reference-lists">Reference and Reference Lists<a class="headerlink" href="#reference-and-reference-lists" title="Permanent link">#</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Reference and Reference List columns in Grist allow one table to create an explicit reference
-to another. In the database world this is similar to a foreign key. In the spreadsheet world
-this is similar to a <code>VLOOKUP</code>, but much more powerful and easier to use.</p>
-<p>In this guide we&rsquo;ll use the term <strong>underlying table</strong> for the table that lists all available values,
-and <strong>referencing table</strong> for the table that uses those values.</p>
-<h2 id="creating-a-new-reference-column">Creating a new Reference column<a class="headerlink" href="#creating-a-new-reference-column" title="Permanent link">#</a></h2>
-<p>Suppose we have a document with two tables, Clients and Projects.  The Clients table lists
-our clients - names, contacts, signing dates - and the Projects table lists projects we do for
-clients.</p>
-<p><img alt="Reference motivation" src="../images/columns/columns-reference-clients-projects.png" /></p>
-<p>There are all sorts of things Grist can do for us if we let it know that the Client column
-in the Projects table is referring to clients listed in the Clients table.  We can do this
-by converting the Client column to a &ldquo;reference column&rdquo;.  Open the Column Options side
-panel (see <a href="../col-types/#specifying-a-type">Specifying a type</a>) and set the &ldquo;Column Type&rdquo;
-to &ldquo;Reference&rdquo;.  Adjust the &ldquo;Data from Table&rdquo; option to be the correct table you want
-to cross-reference, and the &ldquo;Show Column&rdquo; option to match which column of that table
-you&rsquo;d like to show.  Then hit &ldquo;Apply&rdquo; when you&rsquo;re happy with the result.</p>
-<p><img alt="Reference set-up" src="../images/columns/columns-reference-link-client.png" /></p>
+<h1 id="reference-et-listes-de-references">Référence et Listes de Références<a class="headerlink" href="#reference-et-listes-de-references" title="Permanent link">#</a></h1>
+<h2 id="vue-densemble">Vue d&rsquo;ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">#</a></h2>
+<p>Les colonnes Référence et Liste de Références dans Grist permettent à une table de créer une référence explicite à une autre. Dans le monde des bases de données, cela est similaire à une clé étrangère. Dans le monde des tableurs, cela est similaire à un <code>VLOOKUP</code>, mais beaucoup plus puissant et plus facile à utiliser.</p>
+<p>Dans ce guide, nous utiliserons le terme <strong>table sous-jacente</strong> pour la table qui liste toutes les valeurs disponibles, et <strong>table de référence</strong> pour la table qui utilise ces valeurs.</p>
+<h2 id="creer-une-nouvelle-colonne-de-reference">Créer une nouvelle colonne de Référence<a class="headerlink" href="#creer-une-nouvelle-colonne-de-reference" title="Permanent link">#</a></h2>
+<p>Supposons que nous ayons un document avec deux tables, Clients et Projets. La table Clients liste nos clients - noms, contacts, dates de signature - et la table Projets liste les projets que nous réalisons pour les clients.</p>
+<p><img alt="Motivation de la référence" src="../images/columns/columns-reference-clients-projects.png" /></p>
+<p>Il y a toutes sortes de choses que Grist peut faire pour nous si nous lui indiquons que la colonne Client dans la table Projets fait référence aux clients listés dans la table Clients. Nous pouvons le faire en convertissant la colonne Client en une &ldquo;colonne de référence&rdquo;. Ouvrez le panneau latéral des Options de Colonne (voir <a href="../col-types/#specifying-a-type">Spécifier un type</a>) et définissez le &ldquo;Type de Colonne&rdquo; sur &ldquo;Référence&rdquo;. Ajustez l&rsquo;option &ldquo;Données de la Table&rdquo; pour être la table correcte que vous souhaitez croiser, et l&rsquo;option &ldquo;Afficher la Colonne&rdquo; pour correspondre à la colonne de cette table que vous souhaitez afficher. Ensuite, cliquez sur &ldquo;Appliquer&rdquo; lorsque vous êtes satisfait du résultat.</p>
+<p><img alt="Configuration de la référence" src="../images/columns/columns-reference-link-client.png" /></p>
 <div class="admonition note">
-<p class="admonition-title">Understanding the reference</p>
-<p>The column value always references the entire <strong>record</strong> in the underlying table. The displayed
-value can be any column from that record, as selected in <code>Show Column</code>. You can also include
-additional columns to display as explained later.</p>
+<p class="admonition-title">Comprendre la référence</p>
+<p>La valeur de la colonne fait toujours référence à l&rsquo;ensemble du <strong>record</strong> dans la table sous-jacente. La valeur affichée peut être n&rsquo;importe quelle colonne de ce record, comme sélectionné dans <code>Afficher la Colonne</code>. Vous pouvez également inclure des colonnes supplémentaires à afficher comme expliqué plus tard.</p>
 </div>
-<p>In our example, you can see little link icons appearing in the Client
-column cells, showing that they have been successfully cross-referenced with the Clients table.
-Once the column type is set, you can start typing into it or double-click it to see a dropdown
-list of all available values.</p>
-<p class="screenshot-half"><em><img alt="Select dropdown values" src="../images/column-ref-select-dropdown.png" /></em></p>
-<p>Note that the table <code>Clients</code> and the column <code>Client</code> are related by the column type rather than
-by name. They can be named anything.</p>
+<p>Dans notre exemple, vous pouvez voir des petites icônes de lien apparaître dans les cellules de la colonne Client, montrant qu&rsquo;elles ont été correctement croisées avec la table Clients. Une fois le type de colonne défini, vous pouvez commencer à taper dedans ou double-cliquer pour voir une liste déroulante de toutes les valeurs disponibles.</p>
+<p class="screenshot-half"><em><img alt="Sélection des valeurs déroulantes" src="../images/column-ref-select-dropdown.png" /></em></p>
+<p>Notez que la table <code>Clients</code> et la colonne <code>Client</code> sont liées par le type de colonne plutôt que par le nom. Elles peuvent être nommées comme vous le souhaitez.</p>
 <div class="admonition note">
-<p class="admonition-title">Spotting reference columns</p>
-<p>You can tell that the values in a column represent a reference by the link icon that appears
-next to the values.</p>
+<p class="admonition-title">Repérer les colonnes de référence</p>
+<p>Vous pouvez dire que les valeurs dans une colonne représentent une référence par l&rsquo;icône de lien qui apparaît à côté des valeurs.</p>
 </div>
-<p>If you accidentally type in a value that is not present in the <code>Clients</code> table, its value will be
-highlighted as invalid:</p>
-<p class="screenshot-half"><em><img alt="Invalid reference value" src="../images/column-ref-invalid.png" /></em></p>
-<h2 id="adding-values-to-a-reference-column">Adding values to a Reference column<a class="headerlink" href="#adding-values-to-a-reference-column" title="Permanent link">#</a></h2>
-<p>Sometimes it&rsquo;s useful to add a new value to the dropdown list without having to switch to the
-underlying table. Reference columns make it easy! Just type in the value you want add and select the
-<code>+</code> value in the dropdown list. Grist will automatically add a new record containing this value to
-the underlying table and insert the proper reference:</p>
-<p class="screenshot-half"><em><img alt="Add reference value" src="../images/column-ref-add-value.png" /></em></p>
-<h2 id="converting-text-column-to-reference">Converting Text column to Reference<a class="headerlink" href="#converting-text-column-to-reference" title="Permanent link">#</a></h2>
-<p>When working with existing data, it&rsquo;s common to have existing text values that should really be
-reference values. Don&rsquo;t worry, conversion is simple! Just change the column type to <code>Reference</code> and
-Grist will automatically find and substitute matching values for references. If some values are not
-found, they&rsquo;ll be shown as invalid. You can then either add them to the underlying table or select
-the proper values for them.</p>
-<p>In this example, the first three values match perfectly, but <code>Forest Labs</code> is invalid because it
-doesn&rsquo;t exist in the <code>Clients</code> table:</p>
-<p><img alt="Convert values after" src="../images/column-ref-convert-after.png" /></p>
-<h2 id="including-multiple-fields-from-a-reference">Including multiple fields from a reference<a class="headerlink" href="#including-multiple-fields-from-a-reference" title="Permanent link">#</a></h2>
-<p>A big benefit of reference columns is that they allow you to easily bring in multiple columns from
-the underlying table. In our example, if you wanted to bring in <code>$Client.Contact</code> to the <code>Projects</code>
-table, you can just select the <code>Contact</code> column from the <code>Add Referenced Columns</code> section and it will be
-automatically added to the <code>Projects</code> table:</p>
-<p><img alt="Additional columns inserted" src="../images/column-ref-other-columns.png" /></p>
-<p>If you&rsquo;re comfortable using formulas, you can see that the added column is just the formula
-<code>=$Client.Contact</code>. If you were so inclined, you could achieve the same result by manually adding
-the formula column. You can also use any other fields from <code>Clients</code> table by referencing <code>$Client</code>
-in formulas in the <code>Projects</code> table.</p>
-<p>Note that in formulas, we use the name of the reference <em>column</em> (<code>$Client</code>) to refer to a linked
-record, not the name of the table (which is <code>Clients</code> here). Don&rsquo;t let the similarity of the names
-in this example confuse you.</p>
-<p class="screenshot-half"><em><img alt="Additional columns as formulas" src="../images/column-ref-other-formula.png" /></em></p>
+<p>Si vous tapez accidentellement une valeur qui n&rsquo;est pas présente dans la table <code>Clients</code>, sa valeur sera mise en évidence comme invalide :</p>
+<p class="screenshot-half"><em><img alt="Valeur de référence invalide" src="../images/column-ref-invalid.png" /></em></p>
+<h2 id="ajouter-des-valeurs-a-une-colonne-de-reference">Ajouter des valeurs à une colonne de Référence<a class="headerlink" href="#ajouter-des-valeurs-a-une-colonne-de-reference" title="Permanent link">#</a></h2>
+<p>Parfois, il est utile d&rsquo;ajouter une nouvelle valeur à la liste déroulante sans avoir à passer à la table sous-jacente. Les colonnes de référence rendent cela facile ! Il suffit de taper la valeur que vous souhaitez ajouter et de sélectionner la valeur <code>+</code> dans la liste déroulante. Grist ajoutera automatiquement un nouveau record contenant cette valeur à la table sous-jacente et insérera la référence appropriée :</p>
+<p class="screenshot-half"><em><img alt="Ajouter une valeur de référence" src="../images/column-ref-add-value.png" /></em></p>
+<h2 id="convertir-une-colonne-de-texte-en-reference">Convertir une colonne de Texte en Référence<a class="headerlink" href="#convertir-une-colonne-de-texte-en-reference" title="Permanent link">#</a></h2>
+<p>Lorsque vous travaillez avec des données existantes, il est courant d&rsquo;avoir des valeurs textuelles existantes qui devraient vraiment être des valeurs de référence. Ne vous inquiétez pas, la conversion est simple ! Il suffit de changer le type de colonne en <code>Référence</code> et Grist trouvera et substituera automatiquement les valeurs correspondantes par des références. Si certaines valeurs ne sont pas trouvées, elles seront affichées comme invalides. Vous pouvez alors soit les ajouter à la table sous-jacente, soit sélectionner les valeurs appropriées pour elles.</p>
+<p>Dans cet exemple, les trois premières valeurs correspondent parfaitement, mais <code>Forest Labs</code> est invalide car il n&rsquo;existe pas dans la table <code>Clients</code> :</p>
+<p><img alt="Convertir les valeurs après" src="../images/column-ref-convert-after.png" /></p>
+<h2 id="inclure">Inclure<a class="headerlink" href="#inclure" title="Permanent link">#</a></h2>
+<h3 id="plusieurs-champs-dune-reference">plusieurs champs d&rsquo;une référence<a class="headerlink" href="#plusieurs-champs-dune-reference" title="Permanent link">#</a></h3>
+<p>Un grand avantage des colonnes de référence est qu&rsquo;elles vous permettent d&rsquo;intégrer facilement plusieurs colonnes de la table sous-jacente. Dans notre exemple, si vous souhaitez intégrer <code>$Client.Contact</code> à la table <code>Projets</code>, vous pouvez simplement sélectionner la colonne <code>Contact</code> dans la section <code>Ajouter des Colonnes Référencées</code> et elle sera automatiquement ajoutée à la table <code>Projets</code> :</p>
+<p><img alt="Colonnes supplémentaires insérées" src="../images/column-ref-other-columns.png" /></p>
+<p>Si vous êtes à l&rsquo;aise avec les formules, vous pouvez voir que la colonne ajoutée est simplement la formule <code>=$Client.Contact</code>. Si vous le souhaitez, vous pouvez obtenir le même résultat en ajoutant manuellement la colonne de formule. Vous pouvez également utiliser d&rsquo;autres champs de la table <code>Clients</code> en référant à <code>$Client</code> dans les formules de la table <code>Projets</code>.</p>
+<p>Notez que dans les formules, nous utilisons le nom de la <em>colonne</em> de référence (<code>$Client</code>) pour faire référence à un record lié, et non le nom de la table (qui est <code>Clients</code> ici). Ne laissez pas la similarité des noms dans cet exemple vous confondre.</p>
+<p class="screenshot-half"><em><img alt="Colonnes supplémentaires en tant que formules" src="../images/column-ref-other-formula.png" /></em></p>
 <div class="admonition note">
-<p class="admonition-title">Using references in formulas</p>
-<p>You may have noticed that the underlying table is <code>Clients</code> (plural) but the formula is
-<code>$Client.Contact</code> (singular). That&rsquo;s because the formula refers to the referencing column,
-<strong>not</strong> the underlying table. In our example, the referencing column is <code>Client</code>.</p>
+<p class="admonition-title">Utiliser des références dans les formules</p>
+<p>Vous avez peut-être remarqué que la table sous-jacente est <code>Clients</code> (pluriel) mais que la formule est <code>$Client.Contact</code> (singulier). C&rsquo;est parce que la formule se réfère à la colonne de référence, <strong>pas</strong> à la table sous-jacente. Dans notre exemple, la colonne de référence est <code>Client</code>.</p>
 </div>
-<h2 id="creating-a-new-reference-list-column">Creating a new Reference List column<a class="headerlink" href="#creating-a-new-reference-list-column" title="Permanent link">#</a></h2>
-<p>So far our example has only dealt with projects that have a single client. Suppose that
-we also have projects with multiple clients, and we&rsquo;d like to maintain references to
-them all from the <code>Client</code> column of the <code>Projects</code> table.</p>
-<p>We can let Grist know that the <code>Client</code> column contains multiple references by changing its
-type to &ldquo;Reference List&rdquo;. This column type can reference multiple records, and can also be
-thought of as a multi-select.</p>
-<p>Open the Column Options side panel (see <a href="../col-types/#specifying-a-type">Specifying a type</a>)
-and set the &ldquo;Column Type&rdquo; of <code>Client</code> to &ldquo;Reference List&rdquo;. Grist will automatically convert
-any of your existing references to reference lists. Once you&rsquo;re happy with the result, just
-hit &ldquo;Apply&rdquo; and the <code>Client</code> column will be ready to accept as many clients as your projects need.</p>
-<p><img alt="Reference List set-up" src="../images/columns/columns-reference-list-transform.png" /></p>
-<h2 id="editing-values-in-a-reference-list-column">Editing values in a Reference List column<a class="headerlink" href="#editing-values-in-a-reference-list-column" title="Permanent link">#</a></h2>
-<p>To make changes to a Reference List cell, simply double-click the cell or press the
-<code class="keys"><em>Enter</em></code> key after you have selected the cell you want to
-edit. You can also start typing after selecting a cell if you&rsquo;d like to write over
-any existing contents. Doing so will open an editor like the one in the example below.</p>
-<p class="screenshot-half"><em><img alt="Reference List editor" src="../images/columns/columns-reference-list-editor.png" /></em></p>
-<p>Like with Reference columns, the autocomplete menu will populate with suggestions
-as you type. If you type in a value that&rsquo;s not present in the referenced table, you
-can select the <code>+</code> value to add a new row to the referenced table with your value.</p>
-<p>To delete existing references, simply press the <code class="keys"><em>Backspace</em></code>
-key, or move your cursor over a reference and click the <code>X</code> icon.</p>
-<p>You can also rearrange references in the editor by dragging them with your mouse.</p>
-<p>To save your changes and close the editor, either press <code class="keys"><em>Enter</em></code>
-or <code class="keys"><em>Tab</em></code> , or click anywhere outside the editor.
-To close the editor and discard any changes you&rsquo;ve made, press
-<code class="keys"><em>Escape</em></code>.</p>
-<h2 id="understanding-reference-columns">Understanding reference columns<a class="headerlink" href="#understanding-reference-columns" title="Permanent link">#</a></h2>
-<p>Cells in a reference column always identify an <em>entire</em> record in the referenced table. For convenience, you may select which column from that record to show by setting the &ldquo;SHOW COLUMN&rdquo;. However, the cell&rsquo;s value is <em>always</em> a record&rsquo;s unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?</p>
-<p>Let&rsquo;s take a look at the <a href="https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork">Class Enrollment</a> template.</p>
-<p>In the Classes table, the Instructor column is a reference column that references data from the Staff table. Full Name is selected under &lsquo;Show Column&rsquo; and is used as a label to represent the record from the Staff table that is being referenced here.</p>
-<p><em><img alt="columns-reference-explanation" src="../images/columns/columns-reference-explanation.png" /></em></p>
-<p>We can change that label to any other value contained within the record. Let&rsquo;s change it to &lsquo;Row ID&rsquo;. </p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-reference-explanation-show-column" src="../images/columns/columns-reference-explanation-show-column.png" /></em></span></p>
-<p>The row ID is what is actually being stored within the Reference or Reference List column. With this ID, we can fetch any data associated with this record. </p>
-<p><em><img alt="columns-reference-explanation-rowid1" src="../images/columns/columns-reference-explanation-rowid1.png" /></em></p>
-<p>In the first row of the Classes table, we see <code>Staff[2]</code> as the value in the Instructor column. This represents the record in the Staff table with Row ID = <code>2</code>.</p>
-<p>We can navigate to the Staff table and see which record is assigned Row ID = <code>2</code>.</p>
-<p>To view a record&rsquo;s unique ID, add a new column with the formula = <a href="../formula-cheat-sheet/#using-a-records-unique-identifier-in-formulas"><code>$id</code></a>. </p>
-<p><em><img alt="columns-reference-explanation-rowid" src="../images/columns/columns-reference-explanation-rowid.png" /></em></p>
-<p>We can see that the value in the Full Name column for the record with Row ID =<code>2</code> is <code>Dowbakin, Daniella</code>. If we revert back to our original settings for the Instructor column of the Classes table, where <code>Full Name</code> was selected under Show Column, we see that the Full Name value associated with <code>Staff[2]</code> is <code>Dowbakin, Daniella</code>.</p>
-<p><em><img alt="columns-reference-explanation-fullname" src="../images/columns/columns-reference-explanation-fullname.png" /></em></p>
-<h2 id="filtering-reference-choices-in-dropdown">Filtering Reference choices in dropdown<a class="headerlink" href="#filtering-reference-choices-in-dropdown" title="Permanent link">#</a></h2>
-<p>When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re tracking population changes in the 1,000 most populous world cities. When entering a city into the reference column for city selection, the dropdown lists all 1,000 cities. </p>
-<p class="screenshot-half"><em><img alt="Unfiltered reference dropdown list" src="../images/filter-reference-columns/unfiltered-cities.png" /></em></p>
-<p>It would be useful if the dropdown list of city choices were filtered based on the country selected in the <code>Country</code> column.</p>
-<p>To filter a reference column’s dropdown list, select the reference column then set a “Dropdown Condition“ in the Creator Panel under the &ldquo;Column&rdquo; tab. </p>
-<p class="screenshot-half"><em><img alt="Set dropdown condition" src="../images/filter-reference-columns/set-dropdown-condition.png" /></em></p>
-<p>You can filter a dropdown’s choice by writing a condition as a formula. The attribute <code>choice</code> refers to choices in the dropdown. In this case the formula is <code>choice.Country == $Country</code>. </p>
-<p class="screenshot-half"><em><img alt="Reference dropdown filter condition" src="../images/filter-reference-columns/city-filter-condition.png" /></em></p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/filter-reference-columns/filtered-cities.png" /></em></p>
-<p>Why did that work? The city column is a reference column pointing to a <code>Cities</code> table that matches countries and cities. That table looks like this.</p>
-<p class="screenshot-half"><em><img alt="Cities reference table" src="../images/filter-reference-columns/cities-tables.png" /></em></p>
-<p>The formula condition <code>choice.Country == $Country</code> is looking up each choice’s country in the <code>Cities</code> table using a <a href="https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation">reference lookup</a>, then it compares those countries to the value entered in the <code>Country</code> column of the <code>Population Rankings</code> table. </p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/filter-reference-columns/filtered-cities-highlight.png" /></em></p>
-<p>The dropdown now lists only choices (aka cities) whose country equals the country entered in <code>Country</code> column. </p>
-<p>The <code>choice</code> attribute can also be used when setting dropdown filter conditions for <a href="../col-types/#choice-columns">Choice</a> and <a href="../col-types/#choice-list-columns">Choice List</a> columns.</p>
-<p>Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with <a href="https://support.getgrist.com/access-rules/">access rules</a> may notice similarities in how to think about writing these formulas.</p>
+<h2 id="creer-une-nouvelle-colonne-de-liste-de-references">Créer une nouvelle colonne de Liste de Références<a class="headerlink" href="#creer-une-nouvelle-colonne-de-liste-de-references" title="Permanent link">#</a></h2>
+<p>Jusqu&rsquo;à présent, notre exemple ne traitait que des projets ayant un seul client. Supposons que nous ayons également des projets avec plusieurs clients, et que nous souhaitions maintenir des références à tous depuis la colonne <code>Client</code> de la table <code>Projets</code>.</p>
+<p>Nous pouvons indiquer à Grist que la colonne <code>Client</code> contient plusieurs références en changeant son type en &ldquo;Liste de Références&rdquo;. Ce type de colonne peut référencer plusieurs records, et peut également être considéré comme une sélection multiple.</p>
+<p>Ouvrez le panneau latéral des Options de Colonne (voir <a href="../col-types/#specifying-a-type">Spécifier un type</a>) et définissez le &ldquo;Type de Colonne&rdquo; de <code>Client</code> sur &ldquo;Liste de Références&rdquo;. Grist convertira automatiquement toutes vos références existantes en listes de références. Une fois que vous êtes satisfait du résultat, cliquez simplement sur &ldquo;Appliquer&rdquo; et la colonne <code>Client</code> sera prête à accepter autant de clients que vos projets en ont besoin.</p>
+<p><img alt="Configuration de la Liste de Références" src="../images/columns/columns-reference-list-transform.png" /></p>
+<h2 id="modifier-les-valeurs-dans-une-colonne-de-liste-de-references">Modifier les valeurs dans une colonne de Liste de Références<a class="headerlink" href="#modifier-les-valeurs-dans-une-colonne-de-liste-de-references" title="Permanent link">#</a></h2>
+<p>Pour apporter des modifications à une cellule de Liste de Références, double-cliquez simplement sur la cellule ou appuyez sur la touche <code class="keys"><em>Entrée</em></code> après avoir sélectionné la cellule que vous souhaitez modifier. Vous pouvez également commencer à taper après avoir sélectionné une cellule si vous souhaitez écraser tout contenu existant. Cela ouvrira un éditeur comme celui de l&rsquo;exemple ci-dessous.</p>
+<p class="screenshot-half"><em><img alt="Éditeur de Liste de Références" src="../images/columns/columns-reference-list-editor.png" /></em></p>
+<p>Comme avec les colonnes de Référence, le menu de saisie semi-automatique se remplira de suggestions au fur et à mesure que vous tapez. Si vous tapez une valeur qui n&rsquo;est pas présente dans la table référencée, vous pouvez sélectionner la valeur <code>+</code> pour ajouter une nouvelle ligne à la table référencée avec votre valeur.</p>
+<p>Pour supprimer des références existantes, appuyez simplement sur la touche <code class="keys"><em>Retour arrière</em></code>, ou déplacez votre curseur sur une référence et cliquez sur l&rsquo;icône <code>X</code>.</p>
+<p>Vous pouvez également réorganiser les références dans l&rsquo;éditeur en les faisant glisser avec votre souris.</p>
+<p>Pour enregistrer vos modifications et fermer l&rsquo;éditeur, appuyez sur <code class="keys"><em>Entrée</em></code> ou <code class="keys"><em>Tabulation</em></code>, ou cliquez n&rsquo;importe où en dehors de l&rsquo;éditeur. Pour fermer l&rsquo;éditeur et annuler toutes les modifications que vous avez apportées, appuyez sur <code class="keys"><em>Échap</em></code>.</p>
+<h2 id="comprendre-les-colonnes-de-reference">Comprendre les colonnes de référence<a class="headerlink" href="#comprendre-les-colonnes-de-reference" title="Permanent link">#</a></h2>
+<p>Les cellules dans une colonne de référence identifient toujours un <em>record</em> entier dans la table référencée. Pour plus de commodité, vous pouvez sélectionner quelle colonne de ce record afficher en définissant &ldquo;AFFICHER LA COLONNE&rdquo;. Cependant, la valeur de la cellule est <em>toujours</em> l&rsquo;ID unique d&rsquo;un record. De même, les Listes de Références stockent une liste d&rsquo;IDs de records. Qu&rsquo;est-ce que cela signifie vraiment ?</p>
+<p>Jetons un coup d&rsquo;œil au modèle <a href="https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork">Inscription aux Cours</a>.</p>
+<p>Dans la table Classes, la colonne Instructeur est une colonne de référence qui fait référence aux données de la table Staff. Le Nom Complet est sélectionné sous &lsquo;Afficher la Colonne&rsquo; et est utilisé comme étiquette pour représenter le record de la table Staff qui est référencé ici.</p>
+<p><em><img alt="explication des colonnes de référence" src="../images/columns/columns-reference-explanation.png" /></em></p>
+<p>Nous pouvons changer cette étiquette pour n&rsquo;importe quelle autre valeur contenue dans le record. Changeons-la en &lsquo;ID de Ligne&rsquo;.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="explication des colonnes de référence - afficher la colonne" src="../images/columns/columns-reference-explanation-show-column.png" /></em></span></p>
+<p>L&rsquo;ID de ligne est ce qui est réellement stocké dans la colonne de Référence ou de Liste de Références. Avec cet ID, nous pouvons récupérer toutes les données associées à ce record.</p>
+<p><em><img alt="explication des colonnes de référence - id de ligne" src="../images/columns/columns-reference-explanation-rowid1.png" /></em></p>
+<p>Dans la première ligne de la table Classes, nous voyons <code>Staff[2]</code> comme valeur dans la colonne Instructeur. Cela représente le record dans la table Staff avec l&rsquo;ID de Ligne = <code>2</code>.</p>
+<p>Nous pouvons naviguer vers la table Staff et voir quel record est assigné à l&rsquo;ID de Ligne = <code>2</code>.</p>
+<p>Pour voir l&rsquo;ID unique d&rsquo;un record, ajoutez une nouvelle colonne avec la formule = <a href="../formula-cheat-sheet/#using-a-records-unique-identifier-in-formulas"><code>$id</code></a>.</p>
+<p><em><img alt="explication des colonnes de référence - id de ligne" src="../images/columns/columns-reference-explanation-rowid.png" /></em></p>
+<p>Nous pouvons voir que la valeur dans la colonne Nom Complet pour le record avec l&rsquo;ID de Ligne =<code>2</code> est <code>Dowbakin, Daniella</code>. Si nous revenons à nos paramètres d&rsquo;origine pour la colonne Instructeur de la table Classes, où <code>Nom Complet</code> était sélectionné sous Afficher la Colonne, nous voyons que la valeur de Nom Complet associée à <code>Staff[2]</code> est <code>Dowbakin, Daniella</code>.</p>
+<p><em><img alt="explication des colonnes de référence - nom complet" src="../images/columns/columns-reference-explanation-fullname.png" /></em></p>
+<h2 id="filtrer-les-choix-de-reference-dans-la-liste-deroulante">Filtrer les choix de Référence dans la liste déroulante<a class="headerlink" href="#filtrer-les-choix-de-reference-dans-la-liste-deroulante" title="Permanent link">#</a></h2>
+<p>Lors de la saisie de données dans une colonne de référence, vous verrez une liste déroulante de toutes les valeurs disponibles à choisir. Parfois, la liste peut devenir longue et, dans certains cas, confuse. Par exemple, disons que vous suivez les changements de population dans les 1 000 villes les plus peuplées du monde. Lors de la saisie d&rsquo;une ville dans la colonne de référence pour la sélection de la ville, la liste déroulante affiche toutes les 1 000 villes.</p>
+<p class="screenshot-half"><em><img alt="Liste déroulante de référence non filtrée" src="../images/filter-reference-columns/unfiltered-cities.png" /></em></p>
+<p>Il serait utile que la liste déroulante des choix de villes soit filtrée en fonction du pays sélectionné dans la colonne <code>Pays</code>.</p>
+<p>Pour filtrer la liste déroulante d&rsquo;une colonne de référence, sélectionnez la colonne de référence puis définissez une &ldquo;Condition de Liste Déroulante&rdquo; dans le Panneau de Création sous l&rsquo;onglet &ldquo;Colonne&rdquo;.</p>
+<p class="screenshot-half"><em><img alt="Définir la condition de liste déroulante" src="../images/filter-reference-columns/set-dropdown-condition.png" /></em></p>
+<p>Vous pouvez filtrer le choix de la liste déroulante en écrivant une condition sous forme de formule. L&rsquo;attribut <code>choice</code> fait référence aux choix dans la liste déroulante. Dans ce cas, la formule est <code>choice.Country == $Country</code>.</p>
+<p class="screenshot-half"><em><img alt="Condition de filtre de liste déroulante de référence" src="../images/filter-reference-columns/city-filter-condition.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Liste déroulante de référence filtrée" src="../images/filter-reference-columns/filtered-cities.png" /></em></p>
+<p>Pourquoi cela a-t-il fonctionné ? La colonne de ville est une colonne de référence pointant vers une table <code>Cities</code> qui correspond aux pays et aux villes. Cette table ressemble à ceci.</p>
+<p class="screenshot-half"><em><img alt="Table de référence des villes" src="../images/filter-reference-columns/cities-tables.png" /></em></p>
+<p>La condition de formule <code>choice.Country == $Country</code> recherche le pays de chaque choix dans la table <code>Cities</code> en utilisant un <a href="https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation">lookup de référence</a>, puis compare ces pays à la valeur entrée dans la colonne <code>Country</code> de la table <code>Population Rankings</code>.</p>
+<p class="screenshot-half"><em><img alt="Liste déroulante de référence filtrée mise en évidence" src="../images/filter-reference-columns/filtered-cities-highlight.png" /></em></p>
+<p>La liste déroulante affiche maintenant uniquement les choix (c&rsquo;est-à-dire les villes) dont le pays est égal au pays entré dans la colonne <code>Country</code>.</p>
+<p>L&rsquo;attribut <code>choice</code> peut également être utilisé lors de la définition des conditions de filtre de liste déroulante pour les colonnes <a href="../col-types/#choice-columns">Choice</a> et <a href="../col-types/#choice-list-columns">Choice List</a>.</p>
+<p>Notez que parce que le filtrage des listes déroulantes de référence est écrit sous forme de formules, le filtrage peut être très flexible et granulaire. Les utilisateurs expérimentés avec les <a href="https://support.getgrist.com/access-rules/">permissions avancées</a> peuvent remarquer des similitudes dans la façon de penser à l&rsquo;écriture de ces formules.</p>
 
   <br>
 </div>

@@ -357,49 +357,49 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Overview
+              Vue d&rsquo;ensemble
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#making-a-datetime-column">
-              Making a date/time column
+            <a class="wm-article-link wm-page-toc-text" href="#creation-dune-colonne-dateheure">
+              Création d&rsquo;une colonne date/heure
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#inserting-the-current-date">
-              Inserting the current date
+            <a class="wm-article-link wm-page-toc-text" href="#insertion-de-la-date-actuelle">
+              Insertion de la date actuelle
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#parsing-dates-from-strings">
-              Parsing dates from strings
+            <a class="wm-article-link wm-page-toc-text" href="#analyse-des-dates-a-partir-de-chaines">
+              Analyse des dates à partir de chaînes
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#date-arithmetic">
-              Date arithmetic
+            <a class="wm-article-link wm-page-toc-text" href="#calculs-de-dates">
+              Calculs de dates
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#getting-a-part-of-the-date">
-              Getting a part of the date
+            <a class="wm-article-link wm-page-toc-text" href="#obtenir-une-partie-de-la-date">
+              Obtenir une partie de la date
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#time-zones">
-              Time zones
+            <a class="wm-article-link wm-page-toc-text" href="#fuseaux-horaires">
+              Fuseaux horaires
             </a>
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#additional-resources">
-              Additional resources
+            <a class="wm-article-link wm-page-toc-text" href="#ressources-supplementaires">
+              Ressources supplémentaires
             </a>
           </li>
         
@@ -957,146 +957,82 @@
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Grist expresses dates and times in two ways.  The first is the
-<code>Date</code> column type, which represents a calendar date, with no time of day, and
-not associated with any particular timezone.  The second is the <code>DateTime</code>
-column type, which represents a calendar date with a time of day which
-can be linked with a timezone.
-The <code>Date</code> and <code>DateTime</code> column types support different formatting
-options. When a column
-is set to be a <code>Date</code> or a <code>DateTime</code>, a date-picker widget will let
-you select the date on a calendar when editing a cell.</p>
-<p>When working with dates in formulas, the dates are Python <a href="https://docs.python.org/3/library/datetime.html">datetime
-objects</a>. That allows
-you to do some powerful things, but can be unexpected if you&rsquo;re not
-familiar with them.</p>
-<h2 id="making-a-datetime-column">Making a date/time column<a class="headerlink" href="#making-a-datetime-column" title="Permanent link">#</a></h2>
-<p>For a general introduction to setting the type of columns,
-see <a href="../col-types/">Columns and data types</a>.
-To tell Grist that you intend to enter only date/times in a column,
-over on the header for the column, find the drop-down, and select &ldquo;Column Options&rdquo;.</p>
+<h2 id="vue-densemble">Vue d&rsquo;ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">#</a></h2>
+<p>Grist exprime les dates et les heures de deux manières. La première est le type de colonne <code>Date</code>, qui représente une date de calendrier, sans heure de la journée, et non associée à un fuseau horaire particulier. La seconde est le type de colonne <code>DateTime</code>, qui représente une date de calendrier avec une heure de la journée pouvant être liée à un fuseau horaire.
+Les types de colonnes <code>Date</code> et <code>DateTime</code> prennent en charge différentes options de formatage. Lorsqu&rsquo;une colonne est définie comme <code>Date</code> ou <code>DateTime</code>, un widget de sélection de date vous permet de choisir la date sur un calendrier lors de l&rsquo;édition d&rsquo;une cellule.</p>
+<p>Lorsque vous travaillez avec des dates dans des formules, les dates sont des <a href="https://docs.python.org/3/library/datetime.html">objets datetime</a> Python. Cela vous permet de faire des choses puissantes, mais peut être inattendu si vous n&rsquo;êtes pas familier avec eux.</p>
+<h2 id="creation-dune-colonne-dateheure">Création d&rsquo;une colonne date/heure<a class="headerlink" href="#creation-dune-colonne-dateheure" title="Permanent link">#</a></h2>
+<p>Pour une introduction générale à la définition du type de colonnes, consultez <a href="../col-types/">Colonnes et types de données</a>.
+Pour indiquer à Grist que vous avez l&rsquo;intention de saisir uniquement des dates/heures dans une colonne, allez dans l&rsquo;en-tête de la colonne, trouvez le menu déroulant et sélectionnez &ldquo;Options de colonne&rdquo;.</p>
 <p><img alt="formulas-date-column-options" src="../images/formulas/formulas-date-column-options.png" /></p>
-<p>Then in the side panel that opens on the right, pick &ldquo;Date&rdquo; from the
-&ldquo;Column Type&rdquo; drop-down.  Or, if you want dates with times, pick
-&ldquo;DateTime&rdquo;.</p>
+<p>Ensuite, dans le panneau latéral qui s&rsquo;ouvre à droite, choisissez &ldquo;Date&rdquo; dans le menu déroulant &ldquo;Type de colonne&rdquo;. Ou, si vous voulez des dates avec des heures, choisissez &ldquo;DateTime&rdquo;.</p>
 <p><img alt="formulas-date-column-type" src="../images/formulas/formulas-date-column-type.png" /></p>
-<p>Then you can choose your preferred date/time format. For the &ldquo;DateTime&rdquo; type, you can also choose
-the timezone. When you convert a column from another type, such as &ldquo;Text&rdquo;, you&rsquo;ll see a preview of
-the conversion results, and will need to click &ldquo;Apply&rdquo; to complete conversion. You can come back and
-change settings at any time.</p>
+<p>Ensuite, vous pouvez choisir votre format de date/heure préféré. Pour le type &ldquo;DateTime&rdquo;, vous pouvez également choisir le fuseau horaire. Lorsque vous convertissez une colonne d&rsquo;un autre type, tel que &ldquo;Texte&rdquo;, vous verrez un aperçu des résultats de la conversion et devrez cliquer sur &ldquo;Appliquer&rdquo; pour terminer la conversion. Vous pouvez revenir et modifier les paramètres à tout moment.</p>
 <p class="screenshot-half"><em><img alt="formulas-date-column-apply" src="../images/formulas/formulas-date-column-apply.png" /></em></p>
-<p>Now when you edit a cell in this column, you will have help for selecting dates
-and times.</p>
+<p>Maintenant, lorsque vous éditez une cellule dans cette colonne, vous aurez de l&rsquo;aide pour sélectionner les dates et les heures.</p>
 <p class="screenshot-half"><em><img alt="formulas-date-widget" src="../images/formulas/formulas-date-widget.png" /></em></p>
-<h2 id="inserting-the-current-date">Inserting the current date<a class="headerlink" href="#inserting-the-current-date" title="Permanent link">#</a></h2>
-<p>You can insert the current date in a cell using
-<code class="keys"><em>⌘</em> + <strong>;</strong> (semicolon)</code> (Mac) or <code class="keys"><em>Ctrl</em> + <strong>;</strong></code> (Windows).</p>
-<p>You can insert the current date and time using
-<code class="keys"><em>⌘</em> + <em>Shift</em> + <strong>;</strong></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>;</strong></code> (Windows).</p>
-<p>When editing a date cell, the date entry widget has a &ldquo;today&rdquo; button for today&rsquo;s date.</p>
-<h2 id="parsing-dates-from-strings">Parsing dates from strings<a class="headerlink" href="#parsing-dates-from-strings" title="Permanent link">#</a></h2>
-<p>The <a href="../functions/#datevalue">DATEVALUE</a> function converts a string that represents a date into a <code>datetime</code>
-object. It&rsquo;s simple to use and it will auto-detect different date formats:</p>
+<h2 id="insertion-de-la-date-actuelle">Insertion de la date actuelle<a class="headerlink" href="#insertion-de-la-date-actuelle" title="Permanent link">#</a></h2>
+<p>Vous pouvez insérer la date actuelle dans une cellule en utilisant
+<code class="keys"><em>⌘</em> + <strong>;</strong> (point-virgule)</code> (Mac) ou <code class="keys"><em>Ctrl</em> + <strong>;</strong></code> (Windows).</p>
+<p>Vous pouvez insérer la date et l&rsquo;heure actuelles en utilisant
+<code class="keys"><em>⌘</em> + <em>Shift</em> + <strong>;</strong></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>;</strong></code> (Windows).</p>
+<p>Lors de l&rsquo;édition d&rsquo;une cellule de date, le widget de saisie de date dispose d&rsquo;un bouton &ldquo;aujourd&rsquo;hui&rdquo; pour la date du jour.</p>
+<h2 id="analyse-des-dates-a-partir-de-chaines">Analyse des dates à partir de chaînes<a class="headerlink" href="#analyse-des-dates-a-partir-de-chaines" title="Permanent link">#</a></h2>
+<p>La fonction <a href="../functions/#datevalue">DATEVALUE</a> convertit une chaîne qui représente une date en un objet <code>datetime</code>. Elle est simple à utiliser et détectera automatiquement différents formats de date :</p>
 <p class="screenshot-half"><em><img alt="Parse date from string datevalue" src="../images/dates-parse-datevalue.png" /></em></p>
-<p>You can also use Python&rsquo;s <code>datetime</code> library, which provides two helpful functions:
-<a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strptime() and strftime()</a>.</p>
-<p>For example, let&rsquo;s say you have a table of movie sequels and their release dates (as
-strings). You&rsquo;d like to parse out the actual date to be able to sort the table properly. Here&rsquo;s how
-you would do that:</p>
+<p>Vous pouvez également utiliser la bibliothèque <code>datetime</code> de Python, qui fournit deux fonctions utiles : <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strptime() et strftime()</a>.</p>
+<p>Par exemple, disons que vous avez une table de suites de films et leurs dates de sortie (en tant que chaînes). Vous souhaitez analyser la date réelle pour pouvoir trier correctement la table. Voici comment vous feriez cela :</p>
 <p><img alt="Parse date from string formula" src="../images/dates-parse-string-formula.png" /></p>
 <ol>
-<li>First line imports the datetime library</li>
-<li>The second line splits the string into two parts and returns the second part (Python arrays are
-   zero-based).</li>
-<li>The third line uses Python&rsquo;s <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime">strptime
-   function</a> to parse
-   the date (e.g. &ldquo;May 19, 1999&rdquo;) into a datetime object. The first parameter to the function is
-   the string to parse, the second parameter is the date format that the string is in. Take a look
-   at the <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">format
-   options</a> to see if
-   the example format string <code>%B %d, %Y</code> makes sense. (Note: You could&rsquo;ve also used <code>DATEVALUE(d)</code> to
-   achieve the same result.)</li>
+<li>La première ligne importe la bibliothèque datetime</li>
+<li>La deuxième ligne divise la chaîne en deux parties et renvoie la deuxième partie (les tableaux Python sont basés sur zéro).</li>
+<li>La troisième ligne utilise la fonction <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime">strptime</a> de Python pour analyser la date (par exemple, &ldquo;19 mai 1999&rdquo;) en un objet datetime. Le premier paramètre de la fonction est la chaîne à analyser, le deuxième paramètre est le format de date dans lequel se trouve la chaîne. Consultez les <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">options de format</a> pour voir si la chaîne de format d&rsquo;exemple <code>%B %d, %Y</code> a du sens. (Remarque : Vous auriez également pu utiliser <code>DATEVALUE(d)</code> pour obtenir le même résultat.)</li>
 </ol>
-<p>The result has a true date column and can now be properly sorted chronologically, with
-&ldquo;A New Hope&rdquo; at the top.  For historical reasons, the first Star Wars movie is considered
-to be Episode 4.</p>
+<p>Le résultat a une véritable colonne de date et peut maintenant être trié correctement par ordre chronologique, avec &ldquo;Un nouvel espoir&rdquo; en haut. Pour des raisons historiques, le premier film Star Wars est considéré comme l&rsquo;épisode 4.</p>
 <p class="screenshot-half"><em><img alt="Parse date from string result" src="../images/dates-parse-string-sorted.png" /></em></p>
-<p>And, because the column type is selected as a date, you can use the &ldquo;Date Format&rdquo; in &ldquo;Column Options&rdquo;
-to select the format in which to display the date.</p>
+<p>Et, parce que le type de colonne est sélectionné comme une date, vous pouvez utiliser le &ldquo;Format de date&rdquo; dans &ldquo;Options de colonne&rdquo; pour sélectionner le format dans lequel afficher la date.</p>
 <p><img alt="Formatted parsed date" src="../images/dates-parse-string-formatted.png" /></p>
-<p>For some situations, you may wish to use the
-<a href="https://dateutil.readthedocs.io/en/latest/parser.html#dateutil.parser.parse">dateutil</a>
-python library.  For example, if you live in an area where dates typically start with the day
-and then the month, you could use this formula:</p>
+<p>Pour certaines situations, vous pouvez souhaiter utiliser la bibliothèque python <a href="https://dateutil.readthedocs.io/en/latest/parser.html#dateutil.parser.parse">dateutil</a>. Par exemple, si vous vivez dans une région où les dates commencent généralement par le jour puis le mois, vous pouvez utiliser cette formule :</p>
 <pre><code class="language-py">import dateutil
 dateutil.parser.parse($date_text, dayfirst=True)
 </code></pre>
-<h2 id="date-arithmetic">Date arithmetic<a class="headerlink" href="#date-arithmetic" title="Permanent link">#</a></h2>
-<p>Once you have a proper date column, often you&rsquo;ll want to do date arithmetic such as calculating the
-difference between two dates. The simplest way to do this is to use the <a href="../functions/#datedif">DATEDIF</a>
-function which takes two dates and the unit of information to return (Days, Months, or Years).</p>
-<p>You could also use the minus sign to subtract two dates, but you might be surprised at the result:</p>
+<h2 id="calculs-de-dates">Calculs de dates<a class="headerlink" href="#calculs-de-dates" title="Permanent link">#</a></h2>
+<p>Une fois que vous avez une colonne de date correcte, vous voudrez souvent effectuer des calculs de dates, comme calculer la différence entre deux dates. La manière la plus simple de le faire est d&rsquo;utiliser la fonction <a href="../functions/#datedif">DATEDIF</a> qui prend deux dates et l&rsquo;unité d&rsquo;information à retourner (Jours, Mois ou Années).</p>
+<p>Vous pouvez également utiliser le signe moins pour soustraire deux dates, mais vous pourriez être surpris par le résultat :</p>
 <p><img alt="Subtract a date" src="../images/dates-subtract-formula.png" /></p>
-<p>This happens because subtracting two <code>datetime</code> objects as we did in the example above, results in a
-<a href="https://docs.python.org/3/library/datetime.html#datetime.timedelta">datetime.timedelta</a> object
-which represents, &ldquo;A duration expressing the difference between two date, time, or datetime
-instances to microsecond resolution.&rdquo;</p>
-<p>In Grist (and Python) you have to be more specific above how you want to display the date
-difference. For example, to get the number of days from the returned timedelta object, use its
-<code>.days</code> property:</p>
+<p>Cela se produit parce que la soustraction de deux objets <code>datetime</code> comme nous l&rsquo;avons fait dans l&rsquo;exemple ci-dessus, donne un objet <a href="https://docs.python.org/3/library/datetime.html#datetime.timedelta">datetime.timedelta</a> qui représente &ldquo;Une durée exprimant la différence entre deux instances de date, heure ou datetime à une résolution de microseconde.&rdquo;</p>
+<p>Dans Grist (et Python), vous devez être plus précis sur la façon dont vous souhaitez afficher la différence de date. Par exemple, pour obtenir le nombre de jours à partir de l&rsquo;objet timedelta retourné, utilisez sa propriété <code>.days</code> :</p>
 <p><img alt="Timedelta formula days" src="../images/dates-timedelta-formula.png" /></p>
-<p>If you want weeks or years, just divide by 7 or by 365. (Divide by 7.0 or 365.0 to include a
-fractional part in the result.) If you want hours, multiply by 24.</p>
-<p>You can also use specific functions to get what you want. For example, <code>DAYS</code> is a common function
-in spreadsheet apps that returns the difference between two dates:</p>
+<p>Si vous voulez des semaines ou des années, divisez simplement par 7 ou par 365. (Divisez par 7.0 ou 365.0 pour inclure une partie fractionnaire dans le résultat.) Si vous voulez des heures, multipliez par 24.</p>
+<p>Vous pouvez également utiliser des fonctions spécifiques pour obtenir ce que vous voulez. Par exemple, <code>DAYS</code> est une fonction courante dans les applications de tableur qui renvoie la différence entre deux dates :</p>
 <pre><code class="language-py">DAYS($Last_day, $First_day)
 </code></pre>
 <div class="admonition note">
-<p class="admonition-title">Excel/Sheets formulas</p>
-<p>Grist supports many other common functions from other spreadsheet apps, including
-<a href="../functions/#dateadd"><code>DATEADD</code></a>, <a href="../functions/#datedif"><code>DATEDIF</code></a>, <a href="../functions/#datevalue"><code>DATEVALUE</code></a>,
-<a href="../functions/#month"><code>MONTH</code></a>, <a href="../functions/#hour"><code>HOUR</code></a>,
-and <a href="../functions/#date">many more</a>.</p>
+<p class="admonition-title">Formules Excel/Sheets</p>
+<p>Grist prend en charge de nombreuses autres fonctions courantes d&rsquo;autres applications de tableur, y compris <a href="../functions/#dateadd"><code>DATEADD</code></a>, <a href="../functions/#datedif"><code>DATEDIF</code></a>, <a href="../functions/#datevalue"><code>DATEVALUE</code></a>, <a href="../functions/#month"><code>MONTH</code></a>, <a href="../functions/#hour"><code>HOUR</code></a>, et <a href="../functions/#date">bien d&rsquo;autres</a>.</p>
 </div>
-<h2 id="getting-a-part-of-the-date">Getting a part of the date<a class="headerlink" href="#getting-a-part-of-the-date" title="Permanent link">#</a></h2>
-<p>You&rsquo;ve seen how to parse the date, display it in different formats, and do date arithmetic. But what
-if you want to get more information about a specific date, such as getting its day of the week?</p>
-<p>One option is to use the <a href="../functions/#weekday">WEEKDAY</a> function, which behaves as it does in
-Excel, returning  1-7 for Sunday-Saturday.</p>
+<h2 id="obtenir-une-partie-de-la-date">Obtenir une partie de la date<a class="headerlink" href="#obtenir-une-partie-de-la-date" title="Permanent link">#</a></h2>
+<p>Vous avez vu comment analyser la date, l&rsquo;afficher dans différents formats et effectuer des calculs de dates. Mais que faire si vous voulez obtenir plus d&rsquo;informations sur une date spécifique, comme obtenir son jour de la semaine ?</p>
+<p>Une option est d&rsquo;utiliser la fonction <a href="../functions/#weekday">WEEKDAY</a>, qui se comporte comme dans Excel, renvoyant 1-7 pour dimanche-samedi.</p>
 <p><img alt="Weekday formula" src="../images/dates-weekday-formula.png" /></p>
-<p>Alternatively, we can use the <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strftime</a> function:</p>
+<p>Alternativement, nous pouvons utiliser la fonction <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strftime</a> :</p>
 <p><img alt="Weekday format" src="../images/dates-weekday-strftime.png" /></p>
-<p>Yet another option would be to reformat the date using Date Format in Column Options
-(see the <a href="https://momentjs.com/docs/#/displaying/format/">date formatting reference</a>).</p>
-<h2 id="time-zones">Time zones<a class="headerlink" href="#time-zones" title="Permanent link">#</a></h2>
-<p>Values in <code>DateTime</code> columns represent moments in time. The same moment will look different in
-different timezones. In Grist, the timezone is set on each <code>DateTime</code> column. For instance, if the
-timezone is set to &ldquo;America/New_York&rdquo;, it will show the values in New York timezone to
-collaborators anywhere in the world.</p>
-<p>A Grist document has a global timezone setting, which serves as the default timezone for when you
-create a new column of type <code>DateTime</code>. This global timezone is set to your local timezone when
-you first create a document. You can see or change it by
-clicking on your profile picture or icon, and selecting &ldquo;Document Settings&rdquo;.</p>
-<p>If you insert the current date and time using
-<code class="keys"><em>⌘</em> + <em>Shift</em> + <strong>;</strong></code> (Mac) or <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>;</strong></code> (Windows)
-into a <code>DateTime</code> column, it will be inserted as a true timezone-aware timestamp, and shown with
-the timezone set for that column.
-If you do the same in a <code>Text</code> column, the date/time will be inserted as the text appropriate for
-the document&rsquo;s global timezone setting. Similarly, inserting the current date into a <code>Date</code> column
-will produce the current date according to the document&rsquo;s timezone.</p>
-<h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">#</a></h2>
+<p>Une autre option serait de reformater la date en utilisant le format de date dans les options de colonne (voir la <a href="https://momentjs.com/docs/#/displaying/format/">référence de formatage de date</a>).</p>
+<h2 id="fuseaux-horaires">Fuseaux horaires<a class="headerlink" href="#fuseaux-horaires" title="Permanent link">#</a></h2>
+<p>Les valeurs dans les colonnes <code>DateTime</code> représentent des moments dans le temps. Le même moment apparaîtra différemment dans différents fuseaux horaires. Dans Grist, le fuseau horaire est défini sur chaque colonne <code>DateTime</code>. Par exemple, si le fuseau horaire est défini sur &ldquo;America/New_York&rdquo;, il affichera les valeurs dans le fuseau horaire de New York aux collaborateurs du monde entier.</p>
+<p>Un document Grist a un paramètre de fuseau horaire global, qui sert de fuseau horaire par défaut lorsque vous créez une nouvelle colonne de type <code>DateTime</code>. Ce fuseau horaire global est défini sur votre fuseau horaire local lorsque vous créez un document pour la première fois. Vous pouvez le voir ou le modifier en cliquant sur votre photo de profil ou icône, et en sélectionnant &ldquo;Paramètres du document&rdquo;.</p>
+<p>Si vous insérez la date et l&rsquo;heure actuelles en utilisant
+<code class="keys"><em>⌘</em> + <em>Shift</em> + <strong>;</strong></code> (Mac) ou <code class="keys"><em>Ctrl</em> + <em>Shift</em> + <strong>;</strong></code> (Windows)
+dans une colonne <code>DateTime</code>, elle sera insérée comme un véritable horodatage conscient du fuseau horaire, et affichée avec le fuseau horaire défini pour cette colonne.
+Si vous faites de même dans une colonne <code>Texte</code>, la date/heure sera insérée comme le texte approprié pour le paramètre de fuseau horaire global du document. De même, insérer la date actuelle dans une colonne <code>Date</code> produira la date actuelle selon le fuseau horaire du document.</p>
+<h2 id="ressources-supplementaires">Ressources supplémentaires<a class="headerlink" href="#ressources-supplementaires" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="http://strftime.org">Python cheatsheet for strftime</a>, for using with <code>strftime()</code> and
-  <code>strptime()</code> in formulas.</li>
-<li><a href="https://momentjs.com/docs/#/displaying/format/">Date formatting cheatsheet</a>, for specifying the
-  date/time format in column settings.</li>
-<li><a href="https://dateutil.readthedocs.io/en/latest/index.html">dateutil library</a>, extensions to the
-  Python standard <code>datetime</code> module.</li>
+<li><a href="http://strftime.org">Cheatsheet Python pour strftime</a>, à utiliser avec <code>strftime()</code> et <code>strptime()</code> dans les formules.</li>
+<li><a href="https://momentjs.com/docs/#/displaying/format/">Cheatsheet de formatage de date</a>, pour spécifier le format date/heure dans les paramètres de colonne.</li>
+<li><a href="https://dateutil.readthedocs.io/en/latest/index.html">Bibliothèque dateutil</a>, extensions au module standard <code>datetime</code> de Python.</li>
 </ul>
 
   <br>

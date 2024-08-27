@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="It is sometimes useful to know when a record was last updated or created, and by whom. Grist makes
-it simple to create columns that stamp the time or a user’s name to a record when it is updated or
-created. This makes it possible to sort records by age, determine how long a record has
-existed, or quickly track the most recent edit to its author.">
-      <meta property="og:description" content="It is sometimes useful to know when a record was last updated or created, and by whom. Grist makes
-it simple to create columns that stamp the time or a user’s name to a record when it is updated or
-created. This makes it possible to sort records by age, determine how long a record has
-existed, or quickly track the most recent edit to its author.">
+      <meta name="description" content="Il est parfois utile de savoir quand un enregistrement a été mis à jour ou créé pour la dernière fois, et par qui. Grist rend
+simple la création de colonnes qui horodatent un enregistrement ou ajoutent le nom d’un utilisateur lorsqu’il est mis à jour ou
+créé. Cela permet de trier les enregistrements par ancienneté, de déterminer depuis combien de temps un enregistrement existe,
+ou de suivre rapidement la dernière modification jusqu’à son auteur.">
+      <meta property="og:description" content="Il est parfois utile de savoir quand un enregistrement a été mis à jour ou créé pour la dernière fois, et par qui. Grist rend
+simple la création de colonnes qui horodatent un enregistrement ou ajoutent le nom d’un utilisateur lorsqu’il est mis à jour ou
+créé. Cela permet de trier les enregistrements par ancienneté, de déterminer depuis combien de temps un enregistrement existe,
+ou de suivre rapidement la dernière modification jusqu’à son auteur.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/examples/2021-07-auto-stamps/">
@@ -798,27 +798,27 @@ existed, or quickly track the most recent edit to its author.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Automatic Time and User Stamps Guide
+              Guide des Horodatages Automatiques et des Utilisateurs
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#template-overview-grant-application-tracker">
-                Template Overview: Grant Application Tracker
+              <a class="wm-article-link wm-page-toc-text" href="#apercu-du-modele-suivi-des-demandes-de-subvention">
+                Aperçu du Modèle : Suivi des Demandes de Subvention
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-time-stamp-columns">
-                Creating Time Stamp Columns
+              <a class="wm-article-link wm-page-toc-text" href="#creation-de-colonnes-dhorodatage">
+                Création de Colonnes d&rsquo;Horodatage
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-user-stamp-columns">
-                Creating User Stamp Columns
+              <a class="wm-article-link wm-page-toc-text" href="#creation-de-colonnes-de-nom-dutilisateur">
+                Création de Colonnes de Nom d&rsquo;Utilisateur
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#dig-deeper-combining-time-and-user-stamps-using-formulas">
-                Dig Deeper: Combining time and user stamps using formulas
+              <a class="wm-article-link wm-page-toc-text" href="#approfondir-combiner-les-horodatages-et-les-noms-dutilisateur-en-utilisant-des-formules">
+                Approfondir : Combiner les horodatages et les noms d&rsquo;utilisateur en utilisant des formules
               </a>
             </li>
         
@@ -939,107 +939,96 @@ existed, or quickly track the most recent edit to its author.">
 
     
 
-    <h1 id="automatic-time-and-user-stamps-guide">Automatic Time and User Stamps Guide<a class="headerlink" href="#automatic-time-and-user-stamps-guide" title="Permanent link">#</a></h1>
+    <h1 id="guide-des-horodatages-automatiques-et-des-utilisateurs">Guide des Horodatages Automatiques et des Utilisateurs<a class="headerlink" href="#guide-des-horodatages-automatiques-et-des-utilisateurs" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>It is sometimes useful to know when a record was last updated or created, and by whom. Grist makes
-it simple to create columns that stamp the time or a user’s name to a record when it is updated or
-created. This makes it possible to sort records by age, determine how long a record has
-existed, or quickly track the most recent edit to its author.</p>
-<p>This is especially useful when working in a team. Suppose you have a document tracking sales
-opportunities. It may be useful to know the last time a sales person took action on a particular
-opportunity, and further determine for how long that opportunity has been pending.</p>
-<p>We’ve created a tutorial based on our
-<a href="https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker" target="_blank">Grant Application Tracker</a>
-template. To follow along with this guide, start with this
-<a href="https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8" target="_blank">incomplete version of the template</a>
-that is missing time and user stamp columns. We will recreate those together in this tutorial.
-Create a copy and edit the template as you follow along with this guide.</p>
-<p class="grist-button"><a href="https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8" target="_blank">Open Tutorial Template</a></p>
-<h2 id="template-overview-grant-application-tracker">Template Overview: Grant Application Tracker<a class="headerlink" href="#template-overview-grant-application-tracker" title="Permanent link">#</a></h2>
+<p>Il est parfois utile de savoir quand un enregistrement a été mis à jour ou créé pour la dernière fois, et par qui. Grist rend
+simple la création de colonnes qui horodatent un enregistrement ou ajoutent le nom d&rsquo;un utilisateur lorsqu&rsquo;il est mis à jour ou
+créé. Cela permet de trier les enregistrements par ancienneté, de déterminer depuis combien de temps un enregistrement existe,
+ou de suivre rapidement la dernière modification jusqu&rsquo;à son auteur.</p>
+<p>Ceci est particulièrement utile lorsque l&rsquo;on travaille en équipe. Supposons que vous ayez un document de suivi des opportunités
+de vente. Il peut être utile de savoir la dernière fois qu&rsquo;un commercial a agi sur une opportunité particulière, et de déterminer
+combien de temps cette opportunité est en attente.</p>
+<p>Nous avons créé un tutoriel basé sur notre
+<a href="https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker" target="_blank">Suivi des Demandes de Subvention</a>
+modèle. Pour suivre ce guide, commencez par cette
+<a href="https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8" target="_blank">version incomplète du modèle</a>
+qui manque de colonnes d&rsquo;horodatage et de nom d&rsquo;utilisateur. Nous les recréerons ensemble dans ce tutoriel.
+Créez une copie et modifiez le modèle en suivant ce guide.</p>
+<p class="grist-button"><a href="https://public.getgrist.com/kziQC7AXenxy/Automatic-Time-and-User-Stamps/p/8" target="_blank">Ouvrir le Modèle de Tutoriel</a></p>
+<h2 id="apercu-du-modele-suivi-des-demandes-de-subvention">Aperçu du Modèle : Suivi des Demandes de Subvention<a class="headerlink" href="#apercu-du-modele-suivi-des-demandes-de-subvention" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8ujW4H7FGlE?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>In this template, an NGO focused on ocean conservation projects tracks their grant applications
-submitted to marine-focused foundations. Here’s a breakdown of the document structure.</p>
+<p>Dans ce modèle, une ONG axée sur les projets de conservation des océans suit ses demandes de subvention
+soumis à des fondations axées sur la mer. Voici une répartition de la structure du document.</p>
 <ul>
-<li>The <code>Applications Dashboard</code> shows all applications, application details, foundation details, and
-  related tasks in one helpful view.</li>
-<li><code>Tasks by Staff</code> lists the NGO’s personnel, the applications they’re overseeing, and tasks
-  assigned to each team member.</li>
-<li><code>Our Programs</code> lists the programs the NGO is seeking to fund.</li>
-<li><code>Our Funding Overview</code> provides an overview of funding with two charts: (i) breakdown of funds
-  in the fundraising pipeline, and (ii) breakdown of total funding awarded to specific NGO
-  programs.</li>
-<li><code>Foundations We Work With</code> lists the foundations to which the NGO has applied for funding. This
-  page also lists related applications and tasks.</li>
+<li>Le <code>Tableau de Bord des Demandes</code> montre toutes les demandes, les détails des demandes, les détails des fondations, et
+  les tâches associées dans une vue utile.</li>
+<li><code>Tâches par Personnel</code> liste le personnel de l&rsquo;ONG, les demandes qu&rsquo;ils supervisent, et les tâches
+  assignées à chaque membre de l&rsquo;équipe.</li>
+<li><code>Nos Programmes</code> liste les programmes que l&rsquo;ONG cherche à financer.</li>
+<li><code>Vue d'ensemble de notre Financement</code> fournit une vue d&rsquo;ensemble du financement avec deux graphiques : (i) répartition des fonds
+  dans le pipeline de collecte de fonds, et (ii) répartition du financement total attribué à des programmes spécifiques de l&rsquo;ONG.</li>
+<li><code>Fondations avec lesquelles nous travaillons</code> liste les fondations auxquelles l&rsquo;ONG a demandé des financements. Cette
+  page liste également les demandes et les tâches associées.</li>
 </ul>
-<h2 id="creating-time-stamp-columns">Creating Time Stamp Columns<a class="headerlink" href="#creating-time-stamp-columns" title="Permanent link">#</a></h2>
+<h2 id="creation-de-colonnes-dhorodatage">Création de Colonnes d&rsquo;Horodatage<a class="headerlink" href="#creation-de-colonnes-dhorodatage" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZrH9BK4iDGg?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>Columns can stamp the time when a record was created or updated by using the <code class="formula">NOW()</code>
-formula. Let’s add a column to the <code>Tasks</code> table to track when a task was last updated. This can
-be accomplished in three steps.</p>
+<p>Les colonnes peuvent horodater un enregistrement lorsqu&rsquo;il est créé ou mis à jour en utilisant la formule <code class="formula">NOW()</code>.
+Ajoutons une colonne au table <code>Tâches</code> pour suivre la dernière mise à jour d&rsquo;une tâche. Cela peut être accompli en trois étapes.</p>
 <ol>
-<li>In the <code>Tasks</code> table, create a column labeled ‘Last Updated’  and in column types, select
-   <strong>DateTime</strong> to select your desired <a href="../../col-types/#datetime-columns">format for date and time</a>.</li>
-<li>Convert the column to a data column by clicking the <code>ACTIONS</code> dropdown in the creator panel.
-   This prevents the formula from triggering whenever the document loads. Once converted to a data
-   column, enter the <code class="formula">NOW()</code> formula. You will see two checkbox options below the formula.<ul>
-<li><code>Apply to new records</code> triggers the formula only when a record is created.</li>
-<li><code>Apply on record changes</code> triggers the formula when a record is updated.</li>
+<li>Dans la table <code>Tâches</code>, créez une colonne intitulée ‘Dernière Mise à Jour’ et dans les types de colonne, sélectionnez
+   <strong>DateHeure</strong> pour choisir votre <a href="../../col-types/#datetime-columns">format de date et heure</a> souhaité.</li>
+<li>Convertissez la colonne en une colonne de données en cliquant sur le menu déroulant <code>ACTIONS</code> dans le panneau de création.
+   Cela empêche la formule de se déclencher à chaque chargement du document. Une fois convertie en colonne de données, entrez la formule <code class="formula">NOW()</code>. Vous verrez deux options de case à cocher sous la formule.<ul>
+<li><code>Appliquer aux nouveaux enregistrements</code> déclenche la formule uniquement lorsqu&rsquo;un enregistrement est créé.</li>
+<li><code>Appliquer aux modifications d'enregistrement</code> déclenche la formule lorsqu&rsquo;un enregistrement est mis à jour.</li>
 </ul>
 </li>
-<li>Select <code>Apply on record changes</code> to open a submenu where you may select which fields, when
-   updated, will trigger the formula. In this case, we&rsquo;ll select <code>Any Field</code> which means that
-   updating any field in this record will trigger the time stamp formula to update.</li>
+<li>Sélectionnez <code>Appliquer aux modifications d'enregistrement</code> pour ouvrir un sous-menu où vous pouvez sélectionner quels champs, lorsqu&rsquo;ils sont mis à jour, déclencheront la formule. Dans ce cas, nous sélectionnerons <code>Tout Champ</code>, ce qui signifie que la mise à jour de n&rsquo;importe quel champ dans cet enregistrement déclenchera la mise à jour de la formule d&rsquo;horodatage.</li>
 </ol>
-<p>Great! You are now tracking when a task was last updated. Next, you may want to know who created a
-task because that person may have the most information about the task’s goals and parameters.
-That’s just as simple to create in Grist as time stamps.</p>
-<h2 id="creating-user-stamp-columns">Creating User Stamp Columns<a class="headerlink" href="#creating-user-stamp-columns" title="Permanent link">#</a></h2>
+<p>Super ! Vous suivez maintenant la dernière mise à jour d&rsquo;une tâche. Ensuite, vous voudrez peut-être savoir qui a créé une
+tâche car cette personne peut avoir le plus d&rsquo;informations sur les objectifs et les paramètres de la tâche.
+C&rsquo;est tout aussi simple à créer dans Grist que les horodatages.</p>
+<h2 id="creation-de-colonnes-de-nom-dutilisateur">Création de Colonnes de Nom d&rsquo;Utilisateur<a class="headerlink" href="#creation-de-colonnes-de-nom-dutilisateur" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OKjtvx9nGpc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>User stamps are created using the exact same steps as time stamps, expect for one detail — the
-formula is <code class="formula">user.Name</code>. Let’s add a column to the <code>Tasks</code> table to track who created a
-task.</p>
+<p>Les colonnes de nom d&rsquo;utilisateur sont créées en utilisant les mêmes étapes que les horodatages, sauf pour un détail — la
+formule est <code class="formula">user.Name</code>. Ajoutons une colonne à la table <code>Tâches</code> pour suivre qui a créé une tâche.</p>
 <ol>
-<li>In the <code>Tasks</code> table, create a column labeled ‘Created By’ and in column types, select <strong>Text</strong>
-   and <a href="../../col-types/#text-columns">modify the format</a> if you wish.</li>
-<li>Convert formula column to a data column and enter the <code class="formula">user.Name</code> formula.</li>
-<li>Select <code>Apply to new records</code> so that the formula only triggers when a new record is created.</li>
+<li>Dans la table <code>Tâches</code>, créez une colonne intitulée ‘Créé Par’ et dans les types de colonne, sélectionnez <strong>Texte</strong>
+   et <a href="../../col-types/#text-columns">modifiez le format</a> si vous le souhaitez.</li>
+<li>Convertissez la colonne de formule en une colonne de données et entrez la formule <code class="formula">user.Name</code>.</li>
+<li>Sélectionnez <code>Appliquer aux nouveaux enregistrements</code> pour que la formule ne se déclenche que lorsqu&rsquo;un nouvel enregistrement est créé.</li>
 </ol>
-<p>There are other possibilities available in addition to <code>user.Name</code> such as <code>user.Email</code> or a
-unique <code>user.UserID</code>. The user information available is the same as that in <a href="../../access-rules/#access-rule-conditions">access rule
-conditions</a>.</p>
-<p><strong>Note.</strong> It is still possible for a user to manually edit cells with time stamp or user stamp
-formulas. If you don&rsquo;t want that to be allowed, use
-<a href="../../access-rules/">access rules</a> to forbid it.</p>
-<p>And that’s it! You’ve created columns that capture user and time stamp information based on
-specific triggers, such as when a record is updated or created. Great job!</p>
-<h2 id="dig-deeper-combining-time-and-user-stamps-using-formulas">Dig Deeper: Combining time and user stamps using formulas<a class="headerlink" href="#dig-deeper-combining-time-and-user-stamps-using-formulas" title="Permanent link">#</a></h2>
-<p>Typically it is best practice to keep time and user stamp information in separate columns so that
-you may later sort and filter by those columns. However, there may be times when it would be
-useful to capture both time and user stamp information in the same column. Let’s add such a column
-to the <code>Applications</code> table.</p>
+<p>Il existe d&rsquo;autres possibilités en plus de <code>user.Name</code> telles que <code>user.Email</code> ou un <code>user.UserID</code> unique. Les informations utilisateur disponibles sont les mêmes que celles des <a href="../../access-rules/#access-rule-conditions">conditions de règle d&rsquo;accès</a>.</p>
+<p><strong>Note.</strong> Il est toujours possible pour un utilisateur de modifier manuellement les cellules avec des formules d&rsquo;horodatage ou de nom d&rsquo;utilisateur. Si vous ne voulez pas que cela soit autorisé, utilisez les
+<a href="../../access-rules/">permissions avancées</a> pour l&rsquo;interdire.</p>
+<p>Et voilà ! Vous avez créé des colonnes qui capturent les informations d&rsquo;utilisateur et d&rsquo;horodatage basées sur des
+déclencheurs spécifiques, comme lorsque un enregistrement est mis à jour ou créé. Bravo !</p>
+<h2 id="approfondir-combiner-les-horodatages-et-les-noms-dutilisateur-en-utilisant-des-formules">Approfondir : Combiner les horodatages et les noms d&rsquo;utilisateur en utilisant des formules<a class="headerlink" href="#approfondir-combiner-les-horodatages-et-les-noms-dutilisateur-en-utilisant-des-formules" title="Permanent link">#</a></h2>
+<p>En général, il est préférable de garder les informations d&rsquo;horodatage et de nom d&rsquo;utilisateur dans des colonnes séparées afin de
+pouvoir trier et filtrer par ces colonnes. Cependant, il peut y avoir des moments où il serait utile de capturer les informations
+d&rsquo;horodatage et de nom d&rsquo;utilisateur dans la même colonne. Ajoutons une telle colonne à la table <code>Demandes</code>.</p>
 <ol>
-<li>In the <code>Applications</code> table, create a column labeled ‘Created At’ and convert to a data column.
-   In column types, select Text.</li>
-<li>Enter the formula <code class="formula">"{:%b %d, %Y} by {}".format(NOW(), user.Name)</code>.<ul>
-<li>The part in quotes is a format string. Each set of curly brackets <code>{}</code> in it gets replaced
-  with the next value in parentheses after <code>.format</code>.</li>
-<li>Note that the format of the date is set within the corresponding <code>{}</code>. The format is set
-  with a colon <code>:</code> followed by the specific Python codes <code>%b</code>, <code>%d</code>, <code>%Y</code>. <a href="https://strftime.org/">Here is a table summarizing
-  all the date format options available in Python</a>.</li>
+<li>Dans la table <code>Demandes</code>, créez une colonne intitulée ‘Créé Le’ et convertissez-la en une colonne de données.
+   Dans les types de colonne, sélectionnez Texte.</li>
+<li>Entrez la formule <code class="formula">"{:%b %d, %Y} par {}".format(NOW(), user.Name)</code>.<ul>
+<li>La partie entre guillemets est une chaîne de format. Chaque ensemble d&rsquo;accolades <code>{}</code> dans celle-ci est remplacé
+  par la valeur suivante entre parenthèses après <code>.format</code>.</li>
+<li>Notez que le format de la date est défini dans les accolades correspondantes <code>{}</code>. Le format est défini
+  avec un deux-points <code>:</code> suivi des codes Python spécifiques <code>%b</code>, <code>%d</code>, <code>%Y</code>. <a href="https://strftime.org/">Voici un tableau résumant
+  toutes les options de format de date disponibles en Python</a>.</li>
 </ul>
 </li>
-<li>Select <code>Apply to new records</code> so that the formula only triggers when a new record is created.</li>
+<li>Sélectionnez <code>Appliquer aux nouveaux enregistrements</code> pour que la formule ne se déclenche que lorsqu&rsquo;un nouvel enregistrement est créé.</li>
 </ol>
-<p><strong>Need more help?</strong> Visit the <a href="https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker" target="_blank">final template</a>
-or contact us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<p><strong>Besoin de plus d&rsquo;aide ?</strong> Visitez le <a href="https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker" target="_blank">modèle final</a>
+ou contactez-nous à <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 
   <br>
 </div>

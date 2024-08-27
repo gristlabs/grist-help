@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist is available as a hosted service (“Grist SaaS”) running
-on infrastructure managed by Grist Labs. It can also be installed
-on your own infrastructure (“Self-Managed Grist”). In either case,
-we take measures to secure your data that you should know about.">
-      <meta property="og:description" content="Grist is available as a hosted service (“Grist SaaS”) running
-on infrastructure managed by Grist Labs. It can also be installed
-on your own infrastructure (“Self-Managed Grist”). In either case,
-we take measures to secure your data that you should know about.">
+      <meta name="description" content="Grist est disponible en tant que service hébergé (“Grist SaaS”) fonctionnant
+sur une infrastructure gérée par Grist Labs. Il peut également être installé
+sur votre propre infrastructure (“Grist Auto-Géré”). Dans les deux cas,
+nous prenons des mesures pour sécuriser vos données que vous devez connaître.">
+      <meta property="og:description" content="Grist est disponible en tant que service hébergé (“Grist SaaS”) fonctionnant
+sur une infrastructure gérée par Grist Labs. Il peut également être installé
+sur votre propre infrastructure (“Grist Auto-Géré”). Dans les deux cas,
+nous prenons des mesures pour sécuriser vos données que vous devez connaître.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/data-security/">
@@ -829,7 +829,7 @@ we take measures to secure your data that you should know about.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Data Security
+              Sécurité des Données
             </a>
           </li>
             <li class="wm-toc-li">
@@ -838,8 +838,8 @@ we take measures to secure your data that you should know about.">
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#self-managed-grist">
-                Self-Managed Grist
+              <a class="wm-article-link wm-page-toc-text" href="#grist-auto-gere">
+                Grist Auto-Géré
               </a>
             </li>
         
@@ -929,77 +929,76 @@ we take measures to secure your data that you should know about.">
 
     
 
-    <h1 id="data-security">Data Security<a class="headerlink" href="#data-security" title="Permanent link">#</a></h1>
+    <h1 id="securite-des-donnees">Sécurité des Données<a class="headerlink" href="#securite-des-donnees" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Grist is available as a hosted service (&ldquo;Grist SaaS&rdquo;) running
-on infrastructure managed by Grist Labs. It can also be installed
-on your own infrastructure (&ldquo;Self-Managed Grist&rdquo;). In either case,
-we take measures to secure your data that you should know about.</p>
+<p>Grist est disponible en tant que service hébergé (&ldquo;Grist SaaS&rdquo;) fonctionnant
+sur une infrastructure gérée par Grist Labs. Il peut également être installé
+sur votre propre infrastructure (&ldquo;Grist Auto-Géré&rdquo;). Dans les deux cas,
+nous prenons des mesures pour sécuriser vos données que vous devez connaître.</p>
 <h2 id="grist-saas">Grist SaaS<a class="headerlink" href="#grist-saas" title="Permanent link">#</a></h2>
-<p>Our general privacy policy and terms are at
-<a href="https://www.getgrist.com/privacy">https://www.getgrist.com/privacy</a> and
-<a href="https://www.getgrist.com/terms">https://www.getgrist.com/terms</a>. In addition, here is a summary of
-specific measures that relate to Grist documents that we host on
-your behalf:</p>
+<p>Notre politique générale de confidentialité et nos conditions sont disponibles sur
+<a href="https://www.getgrist.com/privacy">https://www.getgrist.com/privacy</a> et
+<a href="https://www.getgrist.com/terms">https://www.getgrist.com/terms</a>. De plus, voici un résumé des
+mesures spécifiques qui concernent les documents Grist que nous hébergeons
+pour vous :</p>
 <ul>
-<li>Grist servers operate in the Amazon Web Services (AWS) cloud
-    infrastructure, in the United States.</li>
-<li><a href="https://aws.amazon.com/s3/">AWS S3</a> is used for long-term
-    storage, and stores documents in encrypted form. Data is stored in
-    the United States.</li>
-<li>Grist employees never look at your data and cannot open your
-    documents. The one exception is if you choose to share a document
-    with customer support in order to get help with an issue.</li>
-<li>When being operated on, your data will by necessity exist in
-    unencrypted form in some of Grist&rsquo;s internal systems. Only select
-    key employees have full access to these systems, and policy
-    prohibits them from looking inside documents.</li>
-<li>Secure HTTPS is used for all access to Grist via public internet
-    (both website and API calls).</li>
-<li>Regular backups of Grist documents are made, and are stored in
-    encrypted form. Grist retains more frequent snapshots of recent
-    changes, and less frequent ones as you go back in time.</li>
-<li>If you delete a document, it will persist for 30 days in a Trash
-    folder under your control. At any time a &ldquo;Delete forever&rdquo; option
-    can be used to immediately purge a document in this folder. All
-    automatic backups are purged along with the document.</li>
+<li>Les serveurs Grist fonctionnent sur l&rsquo;infrastructure cloud d&rsquo;Amazon Web Services (AWS),
+    aux États-Unis.</li>
+<li><a href="https://aws.amazon.com/s3/">AWS S3</a> est utilisé pour le stockage à long terme,
+    et stocke les documents sous forme cryptée. Les données sont stockées aux
+    États-Unis.</li>
+<li>Les employés de Grist ne regardent jamais vos données et ne peuvent pas ouvrir vos
+    documents. La seule exception est si vous choisissez de partager un document
+    avec le support client afin d&rsquo;obtenir de l&rsquo;aide pour un problème.</li>
+<li>Lorsqu&rsquo;elles sont traitées, vos données existeront par nécessité sous forme
+    non cryptée dans certains des systèmes internes de Grist. Seuls certains
+    employés clés ont un accès complet à ces systèmes, et la politique
+    leur interdit de regarder à l&rsquo;intérieur des documents.</li>
+<li>Le HTTPS sécurisé est utilisé pour tout accès à Grist via Internet public
+    (à la fois pour le site web et les appels API).</li>
+<li>Des sauvegardes régulières des documents Grist sont effectuées et sont stockées sous
+    forme cryptée. Grist conserve des instantanés plus fréquents des changements récents,
+    et des instantanés moins fréquents au fur et à mesure que vous remontez dans le temps.</li>
+<li>Si vous supprimez un document, il restera pendant 30 jours dans un dossier Corbeille
+    sous votre contrôle. À tout moment, une option &ldquo;Supprimer définitivement&rdquo; peut
+    être utilisée pour purger immédiatement un document dans ce dossier. Toutes
+    les sauvegardes automatiques sont purgées avec le document.</li>
 </ul>
-<p>The hosted Grist product has not at this time gone through
-certification or auditing for SOC 2, ISO 27001, HIPAA, or GDPR
-compliance. If you need specific documentation, please contact
-customer support. You can also nudge us to prioritize certification
-over feature development at <a href="https://github.com/gristlabs/grist-core/issues/47">this issue</a>.</p>
-<h2 id="self-managed-grist">Self-Managed Grist<a class="headerlink" href="#self-managed-grist" title="Permanent link">#</a></h2>
-<p>For Self-Managed Grist, you are in complete control of where servers
-operate and where data is stored. Here are some security
-considerations to bear in mind:</p>
+<p>Le produit Grist hébergé n&rsquo;a pas encore été certifié ou audité pour la conformité
+SOC 2, ISO 27001, HIPAA ou RGPD. Si vous avez besoin de documentation spécifique,
+veuillez contacter le support client.</p>
+<p>Vous pouvez également nous encourager à prioriser la certification
+par rapport au développement de fonctionnalités sur <a href="https://github.com/gristlabs/grist-core/issues/47">ce problème</a>.</p>
+<h2 id="grist-auto-gere">Grist Auto-Géré<a class="headerlink" href="#grist-auto-gere" title="Permanent link">#</a></h2>
+<p>Pour Grist Auto-Géré, vous avez un contrôle total sur l&rsquo;emplacement des serveurs
+et le lieu de stockage des données. Voici quelques considérations de sécurité
+à garder à l&rsquo;esprit :</p>
 <ul>
-<li>Grist software is distributed via the <code>gristlabs</code> organization
-   on <a href="https://github.com/gristlabs">github</a> and
-   <a href="https://hub.docker.com/u/gristlabs">docker hub</a>. Please
-   exercise diligence if accessing software elsewhere,
-   since the software you install will have full access to your
-   data.</li>
-<li>Grist documents support powerful Python formulas. Please
-   pay attention to instructions for <a href="../self-managed/#how-do-i-sandbox-documents">configuring sandboxing</a>
-   if your team may be working with untrusted documents.</li>
-<li>Grist by default is welcoming to anonymous users, allowing
-   them to create and edit their own documents. You may wish to
-   <a href="https://support.getgrist.com/self-managed/#how-do-i-set-up-authentication">configure a stricter arrangement</a>.</li>
-<li>Grist does not make external services mandatory, since that would
-   introduce unnecessary obstacles in some scenarios. For example,
-   an individual editing a Grist document offline on their own
-   desktop shouldn&rsquo;t need to install a PostgreSQL database first.
-   But it is important to evaluate what you need in your situation rather than
-   simply sticking with the defaults. Please
-   read about <a href="https://support.getgrist.com/self-managed/#what-files-does-grist-store">the data Grist stores</a>
-   and your options for where to store it.</li>
-<li>It is important to <a href="https://support.getgrist.com/self-managed/#how-do-i-upgrade-my-installation">keep your Grist installation up to date</a>.</li>
+<li>Le logiciel Grist est distribué via l&rsquo;organisation <code>gristlabs</code>
+   sur <a href="https://github.com/gristlabs">github</a> et
+   <a href="https://hub.docker.com/u/gristlabs">docker hub</a>. Veuillez
+   faire preuve de diligence si vous accédez au logiciel ailleurs,
+   car le logiciel que vous installez aura un accès complet à vos
+   données.</li>
+<li>Les documents Grist prennent en charge des formules Python puissantes. Veuillez
+   prêter attention aux instructions pour <a href="../self-managed/#how-do-i-sandbox-documents">configurer le sandboxing</a>
+   si votre équipe peut travailler avec des documents non fiables.</li>
+<li>Par défaut, Grist est accueillant pour les utilisateurs anonymes, leur permettant
+   de créer et de modifier leurs propres documents. Vous pouvez souhaiter
+   <a href="https://support.getgrist.com/self-managed/#how-do-i-set-up-authentication">configurer une disposition plus stricte</a>.</li>
+<li>Grist ne rend pas les services externes obligatoires, car cela introduirait
+   des obstacles inutiles dans certains scénarios. Par exemple,
+   une personne éditant un document Grist hors ligne sur son propre
+   bureau ne devrait pas avoir besoin d&rsquo;installer une base de données PostgreSQL d&rsquo;abord.
+   Mais il est important d&rsquo;évaluer ce dont vous avez besoin dans votre situation plutôt que
+   de simplement vous en tenir aux paramètres par défaut. Veuillez
+   lire à propos <a href="https://support.getgrist.com/self-managed/#what-files-does-grist-store">des données que Grist stocke</a>
+   et de vos options pour savoir où les stocker.</li>
+<li>Il est important de <a href="https://support.getgrist.com/self-managed/#how-do-i-upgrade-my-installation">garder votre installation Grist à jour</a>.</li>
 </ul>
 
   <br>

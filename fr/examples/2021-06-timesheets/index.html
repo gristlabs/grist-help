@@ -788,27 +788,27 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Summary Tables Guide
+              Guide des Tables de Résumé
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#mastering-summary-tables-with-2-concepts">
-                Mastering Summary Tables with 2 Concepts
+              <a class="wm-article-link wm-page-toc-text" href="#maitriser-les-tables-de-resume-avec-2-concepts">
+                Maîtriser les Tables de Résumé avec 2 Concepts
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#using-summary-tables-to-analyze-data">
-                Using Summary Tables to Analyze Data
+              <a class="wm-article-link wm-page-toc-text" href="#utiliser-les-tables-de-resume-pour-analyser-les-donnees">
+                Utiliser les Tables de Résumé pour Analyser les Données
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#creating-summary-tables">
-                Creating Summary Tables
+              <a class="wm-article-link wm-page-toc-text" href="#creer-des-tables-de-resume">
+                Créer des Tables de Résumé
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#calculating-totals-using-summary-formulas">
-                Calculating Totals Using Summary Formulas
+              <a class="wm-article-link wm-page-toc-text" href="#calculer-les-totaux-en-utilisant-des-formules-de-resume">
+                Calculer les Totaux en Utilisant des Formules de Résumé
               </a>
             </li>
         
@@ -933,118 +933,70 @@
 
     
 
-    <h1 id="summary-tables-guide">Summary Tables Guide<a class="headerlink" href="#summary-tables-guide" title="Permanent link">#</a></h1>
+    <h1 id="guide-des-tables-de-resume">Guide des Tables de Résumé<a class="headerlink" href="#guide-des-tables-de-resume" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h2 id="mastering-summary-tables-with-2-concepts">Mastering Summary Tables with 2 Concepts<a class="headerlink" href="#mastering-summary-tables-with-2-concepts" title="Permanent link">#</a></h2>
-<p>In Grist, summary tables are the workhorse of data analysis. They are similar to pivot tables in
-spreadsheets, and group-by functions in databases. They make it possible to summarize tables by
-grouping records into specific categories. For example, if you have a table of Olympic champions,
-it may be useful to group champion records by country or by sport — or by a combination of country
-<em>and</em> sport.</p>
-<p>Once records are sorted into useful categories, you may then want to compute sums using those
-record groups. Grist makes use of a nifty special field, available in formulas as <code>$group</code>.</p>
-<p>Summary tables make it easy to build pages in which you can quickly capture useful data insights.
-You can learn to do this by learning two concepts: creating summary tables, and using <code>$group</code> in
-formulas. We’ve created a simple template
-(<a href="https://public.getgrist.com/x527ESJATWNS/Time-Sheets-Tutorial">https://public.getgrist.com/x527ESJATWNS/Time-Sheets-Tutorial</a>) that you can copy and edit as
-you follow along with this guide.</p>
-<h2 id="using-summary-tables-to-analyze-data">Using Summary Tables to Analyze Data<a class="headerlink" href="#using-summary-tables-to-analyze-data" title="Permanent link">#</a></h2>
+<h2 id="maitriser-les-tables-de-resume-avec-2-concepts">Maîtriser les Tables de Résumé avec 2 Concepts<a class="headerlink" href="#maitriser-les-tables-de-resume-avec-2-concepts" title="Permanent link">#</a></h2>
+<p>Dans Grist, les tables de résumé sont l&rsquo;outil principal de l&rsquo;analyse de données. Elles sont similaires aux tableaux croisés dynamiques dans les feuilles de calcul et aux fonctions de regroupement dans les bases de données. Elles permettent de résumer les tables en regroupant les enregistrements en catégories spécifiques. Par exemple, si vous avez une table de champions olympiques, il peut être utile de regrouper les enregistrements des champions par pays ou par sport — ou par une combinaison de pays <em>et</em> de sport.</p>
+<p>Une fois les enregistrements triés en catégories utiles, vous pouvez ensuite vouloir calculer des sommes en utilisant ces groupes d&rsquo;enregistrements. Grist utilise un champ spécial astucieux, disponible dans les formules sous la forme de <code>$group</code>.</p>
+<p>Les tables de résumé facilitent la création de pages dans lesquelles vous pouvez rapidement capturer des informations utiles sur les données. Vous pouvez apprendre à le faire en apprenant deux concepts : créer des tables de résumé et utiliser <code>$group</code> dans les formules. Nous avons créé un modèle simple (<a href="https://public.getgrist.com/x527ESJATWNS/Time-Sheets-Tutorial">https://public.getgrist.com/x527ESJATWNS/Time-Sheets-Tutorial</a>) que vous pouvez copier et éditer en suivant ce guide.</p>
+<h2 id="utiliser-les-tables-de-resume-pour-analyser-les-donnees">Utiliser les Tables de Résumé pour Analyser les Données<a class="headerlink" href="#utiliser-les-tables-de-resume-pour-analyser-les-donnees" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wSyip0KQRbI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>In our example, you work for the HR department of a candy factory that hires contractors that work
-for various departments. In the template, your team has created an advanced time sheet tracker.
-There is a page where contractors can easily add time sheets for select months. It would be useful
-to have additional pages that summarize expenses by month, by department, and by contractor. Your
-goal in this tutorial is to build those summary pages.</p>
-<h2 id="creating-summary-tables">Creating Summary Tables<a class="headerlink" href="#creating-summary-tables" title="Permanent link">#</a></h2>
+<p>Dans notre exemple, vous travaillez pour le département RH d&rsquo;une usine de bonbons qui embauche des contractuels travaillant pour divers départements. Dans le modèle, votre équipe a créé un suivi avancé des feuilles de temps. Il y a une page où les contractuels peuvent facilement ajouter des feuilles de temps pour des mois sélectionnés. Il serait utile d&rsquo;avoir des pages supplémentaires qui résument les dépenses par mois, par département et par contractuel. Votre objectif dans ce tutoriel est de construire ces pages de résumé.</p>
+<h2 id="creer-des-tables-de-resume">Créer des Tables de Résumé<a class="headerlink" href="#creer-des-tables-de-resume" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n11mamU78GY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h3 id="step-1-create-a-summary-table">Step 1: Create a summary table<a class="headerlink" href="#step-1-create-a-summary-table" title="Permanent link">#</a></h3>
-<p>Let&rsquo;s start by creating a summary table that groups records in the time sheet table by month.
-Grist makes it easy to create summary tables. Simply click on <code>Add New</code> &gt; <code>Add Page</code> &gt;
-<code>Time Sheet Entries</code> &gt; <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> &gt; <code>Months</code>.</p>
-<p>Doing so will generate a summary table with some columns. In this case we have the following three columns.</p>
+<h3 id="etape-1-creer-une-table-de-resume">Étape 1 : Créer une table de résumé<a class="headerlink" href="#etape-1-creer-une-table-de-resume" title="Permanent link">#</a></h3>
+<p>Commençons par créer une table de résumé qui regroupe les enregistrements dans la table des feuilles de temps par mois. Grist facilite la création de tables de résumé. Cliquez simplement sur <code>Ajouter Nouveau</code> &gt; <code>Ajouter Page</code> &gt; <code>Entrées de Feuille de Temps</code> &gt; <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> &gt; <code>Mois</code>.</p>
+<p>Cela générera une table de résumé avec quelques colonnes. Dans ce cas, nous avons les trois colonnes suivantes.</p>
 <ol>
-<li>First Column: List of month groups, January through June of 2021.</li>
-<li>Second Column: A count of the total number of records in each month, e.g. in January there are 12 time sheet records.</li>
-<li>Third Column: A sum of hours worked in each month, e.g. in January the total hours worked in
-   those 12 time sheet records is 81 hours.</li>
+<li>Première Colonne : Liste des groupes de mois, de janvier à juin 2021.</li>
+<li>Deuxième Colonne : Un décompte du nombre total d&rsquo;enregistrements dans chaque mois, par exemple en janvier il y a 12 enregistrements de feuilles de temps.</li>
+<li>Troisième Colonne : Une somme des heures travaillées dans chaque mois, par exemple en janvier le total des heures travaillées dans ces 12 enregistrements de feuilles de temps est de 81 heures.</li>
 </ol>
-<p>Note: Grist will automatically take any numerical columns and add them up, saving you some time.</p>
-<h3 id="step-2-create-summary-tables-with-multiple-categories">Step 2: Create summary tables with multiple categories<a class="headerlink" href="#step-2-create-summary-tables-with-multiple-categories" title="Permanent link">#</a></h3>
-<p>It may be useful to also group timesheets by a combination of categories. For example, we may want
-to know how much time and money was spent on a particular account in a particular month, or on a
-specific employee in an specific account and month.</p>
-<p>When creating a summary table, you can select multiple columns by which to group data. Let’s add
-two new summary tables. When adding these widgets, be sure to <code>Select By</code> the first widget we
-created on this page. This will link the tables so that selecting a month in the first widget will
-dynamically update records in the new widgets. Not sure why? Brush up on <a href="../../linking-widgets/">linking
-widgets</a>.</p>
+<p>Note : Grist additionnera automatiquement toutes les colonnes numériques, vous faisant gagner du temps.</p>
+<h3 id="etape-2-creer-des-tables-de-resume-avec-plusieurs-categories">Étape 2 : Créer des tables de résumé avec plusieurs catégories<a class="headerlink" href="#etape-2-creer-des-tables-de-resume-avec-plusieurs-categories" title="Permanent link">#</a></h3>
+<p>Il peut être utile de regrouper également les feuilles de temps par une combinaison de catégories. Par exemple, nous pouvons vouloir savoir combien de temps et d&rsquo;argent ont été dépensés sur un compte particulier dans un mois particulier, ou sur un employé spécifique dans un compte et un mois spécifiques.</p>
+<p>Lors de la création d&rsquo;une table de résumé, vous pouvez sélectionner plusieurs colonnes par lesquelles regrouper les données. Ajoutons deux nouvelles tables de résumé. Lors de l&rsquo;ajout de ces vues, assurez-vous de <code>Sélectionner Par</code> la première vue que nous avons créée sur cette page. Cela liera les tables de sorte que la sélection d&rsquo;un mois dans la première vue mettra à jour dynamiquement les enregistrements dans les nouvelles vues. Pas sûr de comprendre pourquoi ? Révisez <a href="../../linking-widgets/">lien des vues</a>.</p>
 <ol>
-<li><code>Add New</code> &gt; <code>Add Widget to Page</code> &gt; <code>Time Sheet Entries</code> &gt;
+<li><code>Ajouter Nouveau</code> &gt; <code>Ajouter Vue à la Page</code> &gt; <code>Entrées de Feuille de Temps</code> &gt;
    <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> &gt;
-   <code>Months</code> and <code>Account</code></li>
-<li><code>Add New</code> &gt; <code>Add Widget to Page</code> &gt; <code>Time Sheet Entries</code> &gt;
+   <code>Mois</code> et <code>Compte</code></li>
+<li><code>Ajouter Nouveau</code> &gt; <code>Ajouter Vue à la Page</code> &gt; <code>Entrées de Feuille de Temps</code> &gt;
    <span class="grist-icon-lg" style="--icon: var(--icon-Pivot)"></span> &gt;
-   <code>Months</code> and <code>Account</code> and <code>Employee</code></li>
+   <code>Mois</code> et <code>Compte</code> et <code>Employé</code></li>
 </ol>
-<p>To more easily view this data, drag and drop the new tables so that they tile vertically. You may
-also want to hide the count columns.</p>
-<p>Great! But now we want to add the total dollar spend in each of these categories. That&rsquo;s simple to
-do with summary formulas.</p>
-<h2 id="calculating-totals-using-summary-formulas">Calculating Totals Using Summary Formulas<a class="headerlink" href="#calculating-totals-using-summary-formulas" title="Permanent link">#</a></h2>
+<p>Pour visualiser plus facilement ces données, faites glisser et déposez les nouvelles tables de manière à ce qu&rsquo;elles soient disposées verticalement. Vous pouvez également vouloir masquer les colonnes de décompte.</p>
+<p>Super ! Mais maintenant nous voulons ajouter le total des dépenses en dollars dans chacune de ces catégories. C&rsquo;est simple à faire avec des formules de résumé.</p>
+<h2 id="calculer-les-totaux-en-utilisant-des-formules-de-resume">Calculer les Totaux en Utilisant des Formules de Résumé<a class="headerlink" href="#calculer-les-totaux-en-utilisant-des-formules-de-resume" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4-ihoU1m3rc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p><em>Following along with the video? Visit the <a href="https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution">tutorial
-solution</a> if you get
-stuck. Note that there are access rules in place for the tutorial solution which will prevent you
-from seeing certain pages and most data. Make a copy to become the document owner and see all data
-and pages.</em></p>
-<h3 id="step-1-understanding-group-field-in-formulas">Step 1: Understanding $group field in formulas<a class="headerlink" href="#step-1-understanding-group-field-in-formulas" title="Permanent link">#</a></h3>
-<p>In Grist, <code>$group</code> is a special Python object that represents a collection of records that are
-summarized by the current summary line.</p>
-<p>If you look at the formula in the <code>Hours Worked</code> column, you will see <code>SUM($group.Hours_Worked)</code>.
-That is taking the <strong>sum</strong> of <strong>Hours Worked</strong> in a <strong>group</strong>. In this example, in row 1, the
-group is January 2021. Thus, in that row, the formula is adding hours worked in the January 2021
-group. In row 2, the group is February 2021 and the formula sums hours worked in February.</p>
-<p>If you take a peek at the <code>count</code> column, which we hid previously, you’ll find the formula
-<code>len($group)</code>. The function <code>len</code> (which stands for length) counts all the records that belong to
-the group being summarized in a particular row.</p>
-<p>Another way to express a set of records is by scanning through the list of records in a group
-using a variable. You can name the variable as you wish; we will use <code>r</code> (for &ldquo;record&rdquo;). We can
-rewrite the formula in <code>Hours Worked</code> as <code>sum(r.Hours_Worked for r in $group)</code>.</p>
-<h3 id="step-2-using-group-in-formulas">Step 2: Using $group in formulas<a class="headerlink" href="#step-2-using-group-in-formulas" title="Permanent link">#</a></h3>
-<p>Let’s calculate the total dollar spend on hours worked in each month.</p>
-<p>The formula is <code>sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group)</code>.</p>
-<p>Since each record <code>r</code> in the group is a record in the underlying table (<code>Time Sheet Entries</code>),
-<code>r.Hours_Worked</code> refers to the field in that table.</p>
-<p>In the <code>Time Sheet Entries</code> table, the column <code>TimeSheet</code> is a reference column that is
-referencing an entire record in the <code>Time Sheets</code> table. Thus, we have to further specify which
-field from the referenced record should be included in the formula&rsquo;s calculation, which in this
-case is <code>Hourly_Rate</code>. To learn more about reference columns, visit our
-<a href="../2021-05-reference-columns/">Reference column guide</a>.</p>
-<p>We can apply the same formula to the other two summary tables on this page. In the second table,
-the <code>$group</code> function is grouping things in the same month AND account. In the third table, the
-<code>$group</code> function is grouping expenses in the same month AND account AND by the same employee.</p>
-<p>And that&rsquo;s it! You did it. You rebuilt the month summary page. See if you can apply these concepts
-to rebuild the contractor summary page.</p>
+<p><em>Suivez-vous la vidéo ? Visitez la <a href="https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution">solution du tutoriel</a> si vous êtes bloqué. Notez qu&rsquo;il y a des permissions avancées en place pour la solution du tutoriel qui vous empêcheront de voir certaines pages et la plupart des données. Faites une copie pour devenir le propriétaire du document et voir toutes les données et pages.</em></p>
+<h3 id="etape-1-comprendre-le-champ-group-dans-les-formules">Étape 1 : Comprendre le champ $group dans les formules<a class="headerlink" href="#etape-1-comprendre-le-champ-group-dans-les-formules" title="Permanent link">#</a></h3>
+<p>Dans Grist, <code>$group</code> est un objet Python spécial qui représente une collection d&rsquo;enregistrements résumés par la ligne de résumé actuelle.</p>
+<p>Si vous regardez la formule dans la colonne <code>Heures Travaillées</code>, vous verrez <code>SUM($group.Heures_Travaillées)</code>. Cela prend la <strong>somme</strong> des <strong>Heures Travaillées</strong> dans un <strong>groupe</strong>. Dans cet exemple, dans la ligne 1, le groupe est janvier 2021. Ainsi, dans cette ligne, la formule additionne les heures travaillées dans le groupe de janvier 2021. Dans la ligne 2, le groupe est février 2021 et la formule additionne les heures travaillées en février.</p>
+<p>Si vous jetez un coup d&rsquo;œil à la colonne <code>count</code>, que nous avons précédemment masquée, vous trouverez la formule <code>len($group)</code>. La fonction <code>len</code> (qui signifie longueur) compte tous les enregistrements appartenant au groupe résumé dans une ligne particulière.</p>
+<p>Une autre façon d&rsquo;exprimer un ensemble d&rsquo;enregistrements est de parcourir la liste des enregistrements dans un groupe en utilisant une variable. Vous pouvez nommer la variable comme vous le souhaitez ; nous utiliserons <code>r</code> (pour &ldquo;record&rdquo;). Nous pouvons réécrire la formule dans <code>Heures Travaillées</code> comme <code>sum(r.Heures_Travaillées for r in $group)</code>.</p>
+<h3 id="etape-2-utiliser-group-dans-les-formules">Étape 2 : Utiliser $group dans les formules<a class="headerlink" href="#etape-2-utiliser-group-dans-les-formules" title="Permanent link">#</a></h3>
+<p>Calculons le total des dépenses en dollars pour les heures travaillées dans chaque mois.</p>
+<p>La formule est <code>sum(r.Heures_Travaillées * r.FeuilleDeTemps.Taux_Horaire for r in $group)</code>.</p>
+<p>Puisque chaque enregistrement <code>r</code> dans le groupe est un enregistrement dans la table sous-jacente (<code>Entrées de Feuille de Temps</code>), <code>r.Heures_Travaillées</code> se réfère au champ dans cette table.</p>
+<p>Dans la table <code>Entrées de Feuille de Temps</code>, la colonne <code>FeuilleDeTemps</code> est une colonne de référence qui fait référence à un enregistrement entier dans la table <code>Feuilles de Temps</code>. Ainsi, nous devons spécifier davantage quel champ de l&rsquo;enregistrement référencé doit être inclus dans le calcul de la formule, qui dans ce cas est <code>Taux_Horaire</code>. Pour en savoir plus sur les colonnes de référence, visitez notre <a href="../2021-05-reference-columns/">guide des colonnes de référence</a>.</p>
+<p>Nous pouvons appliquer la même formule aux deux autres tables de résumé sur cette page. Dans la deuxième table, la fonction <code>$group</code> regroupe les éléments dans le même mois ET compte. Dans la troisième table, la fonction <code>$group</code> regroupe les dépenses dans le même mois ET compte ET par le même employé.</p>
+<p>Et c&rsquo;est tout ! Vous l&rsquo;avez fait. Vous avez reconstruit la page de résumé mensuel. Voyez si vous pouvez appliquer ces concepts pour reconstruire la page de résumé des contractuels.</p>
 <div class="admonition tip">
-<p class="admonition-title">Did you know?</p>
-<p>If needed, you can also add conditions to this formula. For example,
-<code>sum(r.Hours_Worked * r.TimeSheet.Hourly_Rate for r in $group if r.Hours_Worked &gt; 0)</code>
-will only add up records in which there is a positive value in the field <code>Hours Worked</code>.</p>
-<p>Visit our <a href="../../functions/#_group">function reference</a> to learn more.</p>
+<p class="admonition-title">Le saviez-vous ?</p>
+<p>Si nécessaire, vous pouvez également ajouter des conditions à cette formule. Par exemple,
+<code>sum(r.Heures_Travaillées * r.FeuilleDeTemps.Taux_Horaire for r in $group if r.Heures_Travaillées &gt; 0)</code>
+n&rsquo;additionnera que les enregistrements dans lesquels il y a une valeur positive dans le champ <code>Heures Travaillées</code>.</p>
+<p>Visitez notre <a href="../../functions/#_group">référence des fonctions</a> pour en savoir plus.</p>
 </div>
-<p><em>Need more help?</em> Visit the <a href="https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution">tutorial solution</a> or contact
-us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
-<p>Note that there are access rules in place for the tutorial solution which will prevent you from
-seeing certain pages and most data. Make a copy to become the document owner and see all data and
-pages.</p>
+<p><em>Besoin de plus d&rsquo;aide ?</em> Visitez la <a href="https://public.getgrist.com/uR353rDVZhmX/Time-Sheets-Template-Solution">solution du tutoriel</a> ou contactez-nous à <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<p>Notez qu&rsquo;il y a des permissions avancées en place pour la solution du tutoriel qui vous empêcheront de voir certaines pages et la plupart des données. Faites une copie pour devenir le propriétaire du document et voir toutes les données et pages.</p>
 
   <br>
 </div>

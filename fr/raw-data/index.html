@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="The raw data page is a special page that lists all data tables in your document and summarizes your document’s usage statistics.">
-      <meta property="og:description" content="The raw data page is a special page that lists all data tables in your document and summarizes your document’s usage statistics.">
+      <meta name="description" content="La page des données sources est une page spéciale qui répertorie toutes les tables de données de votre document et résume les statistiques d’utilisation de votre document.">
+      <meta property="og:description" content="La page des données sources est une page spéciale qui répertorie toutes les tables de données de votre document et résume les statistiques d’utilisation de votre document.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/raw-data/">
@@ -259,17 +259,17 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Raw data
+              Données sources
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#duplicating-data">
-                Duplicating Data
+              <a class="wm-article-link wm-page-toc-text" href="#dupliquer-des-donnees">
+                Dupliquer des Données
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#usage">
-                Usage
+              <a class="wm-article-link wm-page-toc-text" href="#utilisation">
+                Utilisation
               </a>
             </li>
         
@@ -923,30 +923,29 @@
 
     
 
-    <h1 id="raw-data">Raw data<a class="headerlink" href="#raw-data" title="Permanent link">#</a></h1>
+    <h1 id="donnees-sources">Données sources<a class="headerlink" href="#donnees-sources" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>The raw data page is a special page that lists all <a href="../glossary/#data-table">data tables</a> in your document and summarizes your document&rsquo;s usage statistics.</p>
-<p>From your document, navigate to the raw data page by clicking on the &lsquo;Raw Data&rsquo; link in the bottom left of the pages menu.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Raw Data in Menu" src="../images/raw-data/raw-data-nav.png" /></em></span></p>
-<p>Unlike other <a href="../page-widgets/">pages</a>, the layout in the raw data page cannot be customized. From the list of data tables, you can find the data table&rsquo;s name and id, and remove data. Note that removing a data table from this page <em>will</em> delete data and remove it from all pages. This is different from other pages where it is possible to remove a view of data and not delete the data itself. </p>
-<p><img alt="Raw Data List" src="../images/raw-data/raw-data-list.png" /></p>
-<p>Click on a data table to open it. Note that in the creator panel the <a href="../page-widgets/#page-widgets">widget type</a> cannot be changed. Renaming the widget also renames the data table. Because raw data is intended to show all data, columns cannot be hidden, either. However, columns can be rearranged, deleted, created, and modified. For creators, this view may make it easier to edit data structure, add <a href="../formulas/">formulas</a>, <a href="../conditional-formatting/">conditional formatting</a>, and so on.</p>
-<p><img alt="Raw Data View" src="../images/raw-data/raw-data-lightbox.png" /></p>
-<h2 id="duplicating-data">Duplicating Data<a class="headerlink" href="#duplicating-data" title="Permanent link">#</a></h2>
-<p>Tables can be duplicated from the &lsquo;Raw Data&rsquo; page. Click the three-dot icon to the right of the table you wish to duplicate then select &lsquo;Duplicate Table&rsquo; from the menu.</p>
-<p><img alt="raw-data-duplicate-table" src="../images/raw-data/raw-data-duplicate-table.png" /></p>
-<p>By default, a duplicated table will only contain the table structure, not the data. If you wish to copy all data in addition to the table structure, be sure to check the box prior to clicking &lsquo;Save&rsquo;. If the original table has any access rules, those rules <strong>will not</strong> be duplicated. Only the document&rsquo;s default rules will apply to the copied table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="raw-data-duplicate-data" src="../images/raw-data/raw-data-duplicate-data.png" /></em></span></p>
-<p>The duplicate table is a new table that is not linked to the original. Meaning, if you update data in the copy, the original table will not be updated, and vice versa.</p>
-<p>Note that instead of duplicating tables, it&rsquo;s usually better to segment data by adding a new column. Let&rsquo;s use expenses as an example. Rather than having separate tables for each month&rsquo;s expenses, it is better to include all data in a single table and create a new column called <strong>Month</strong> to segment rows into months. In general, if you have multiple tables with near identical columns, this is an indicator that the data could all be in the same table. Doing so may make data analysis easier.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
-<p>Usage statistics are summarized beneath the list of data tables. Note that usage applies to the entire document, not individual tables. Learn more about document <a href="../limits/">limits</a>.</p>
-<p><img alt="Usage" src="../images/raw-data/raw-data-usage.png" /></p>
+<p>La page des données sources est une page spéciale qui répertorie toutes les <a href="../glossary/#data-table">tables de données</a> de votre document et résume les statistiques d&rsquo;utilisation de votre document.</p>
+<p>Depuis votre document, accédez à la page des données sources en cliquant sur le lien &lsquo;Données Sources&rsquo; en bas à gauche du menu des pages.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Données Sources dans le Menu" src="../images/raw-data/raw-data-nav.png" /></em></span></p>
+<p>Contrairement aux autres <a href="../page-widgets/">pages</a>, la mise en page de la page des données sources ne peut pas être personnalisée. À partir de la liste des tables de données, vous pouvez trouver le nom et l&rsquo;identifiant de la table de données, et supprimer des données. Notez que supprimer une table de données depuis cette page <em>supprimera</em> les données et les retirera de toutes les pages. Cela diffère des autres pages où il est possible de supprimer une vue des données sans supprimer les données elles-mêmes.</p>
+<p><img alt="Liste des Données Sources" src="../images/raw-data/raw-data-list.png" /></p>
+<p>Cliquez sur une table de données pour l&rsquo;ouvrir. Notez que dans le panneau de création, le <a href="../page-widgets/#page-widgets">type de vue</a> ne peut pas être modifié. Renommer la vue renomme également la table de données. Étant donné que les données sources sont destinées à montrer toutes les données, les colonnes ne peuvent pas être masquées non plus. Cependant, les colonnes peuvent être réorganisées, supprimées, créées et modifiées. Pour les créateurs, cette vue peut faciliter la modification de la structure des données, l&rsquo;ajout de <a href="../formulas/">formules</a>, de <a href="../conditional-formatting/">mise en forme conditionnelle</a>, etc.</p>
+<p><img alt="Vue des Données Sources" src="../images/raw-data/raw-data-lightbox.png" /></p>
+<h2 id="dupliquer-des-donnees">Dupliquer des Données<a class="headerlink" href="#dupliquer-des-donnees" title="Permanent link">#</a></h2>
+<p>Les tables peuvent être dupliquées depuis la page &lsquo;Données Sources&rsquo;. Cliquez sur l&rsquo;icône à trois points à droite de la table que vous souhaitez dupliquer, puis sélectionnez &lsquo;Dupliquer la Table&rsquo; dans le menu.</p>
+<p><img alt="dupliquer-table-données-sources" src="../images/raw-data/raw-data-duplicate-table.png" /></p>
+<p>Par défaut, une table dupliquée ne contiendra que la structure de la table, pas les données. Si vous souhaitez copier toutes les données en plus de la structure de la table, assurez-vous de cocher la case avant de cliquer sur &lsquo;Enregistrer&rsquo;. Si la table d&rsquo;origine a des permissions avancées, ces règles <strong>ne seront pas</strong> dupliquées. Seules les règles par défaut du document s&rsquo;appliqueront à la table copiée.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dupliquer-données-sources" src="../images/raw-data/raw-data-duplicate-data.png" /></em></span></p>
+<p>La table dupliquée est une nouvelle table qui n&rsquo;est pas liée à l&rsquo;originale. Cela signifie que si vous mettez à jour les données dans la copie, la table originale ne sera pas mise à jour, et vice versa.</p>
+<p>Notez qu&rsquo;au lieu de dupliquer des tables, il est généralement préférable de segmenter les données en ajoutant une nouvelle colonne. Prenons l&rsquo;exemple des dépenses. Plutôt que d&rsquo;avoir des tables séparées pour les dépenses de chaque mois, il est préférable d&rsquo;inclure toutes les données dans une seule table et de créer une nouvelle colonne appelée <strong>Mois</strong> pour segmenter les lignes par mois. En général, si vous avez plusieurs tables avec des colonnes presque identiques, cela indique que les données pourraient toutes être dans la même table. Cela peut faciliter l&rsquo;analyse des données.</p>
+<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">#</a></h2>
+<p>Les statistiques d&rsquo;utilisation sont résumées sous la liste des tables de données. Notez que l&rsquo;utilisation s&rsquo;applique à l&rsquo;ensemble du document, et non aux tables individuelles. En savoir plus sur les <a href="../limits/">limites</a> du document.</p>
+<p><img alt="Utilisation" src="../images/raw-data/raw-data-usage.png" /></p>
 
   <br>
 </div>

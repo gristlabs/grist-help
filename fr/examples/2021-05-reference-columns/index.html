@@ -784,32 +784,32 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Reference Columns Guide
+              Guide des Colonnes de Référence
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#mastering-reference-columns-in-3-steps">
-                Mastering Reference Columns in 3 Steps
+              <a class="wm-article-link wm-page-toc-text" href="#maitriser-les-colonnes-de-reference-en-3-etapes">
+                Maîtriser les Colonnes de Référence en 3 Étapes
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#using-reference-columns-to-organize-related-data">
-                Using Reference Columns to Organize Related Data
+              <a class="wm-article-link wm-page-toc-text" href="#utiliser-les-colonnes-de-reference-pour-organiser-les-donnees-liees">
+                Utiliser les Colonnes de Référence pour Organiser les Données Liées
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#step-1-creating-references">
-                Step 1: Creating References
+              <a class="wm-article-link wm-page-toc-text" href="#etape-1-creer-des-references">
+                Étape 1 : Créer des Références
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#step-2-look-up-additional-data-in-the-referenced-record">
-                Step 2: Look up additional data in the referenced record
+              <a class="wm-article-link wm-page-toc-text" href="#etape-2-rechercher-des-donnees-supplementaires-dans-lenregistrement-reference">
+                Étape 2 : Rechercher des Données Supplémentaires dans l&rsquo;Enregistrement Référencé
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#step-3-create-a-highly-productive-layout-with-linked-tables">
-                Step 3: Create a Highly Productive Layout with Linked Tables
+              <a class="wm-article-link wm-page-toc-text" href="#etape-3-creer-une-mise-en-page-hautement-productive-avec-des-tables-liees">
+                Étape 3 : Créer une Mise en Page Hautement Productive avec des Tables Liées
               </a>
             </li>
         
@@ -938,112 +938,54 @@
 
     
 
-    <h1 id="reference-columns-guide">Reference Columns Guide<a class="headerlink" href="#reference-columns-guide" title="Permanent link">#</a></h1>
+    <h1 id="guide-des-colonnes-de-reference">Guide des Colonnes de Référence<a class="headerlink" href="#guide-des-colonnes-de-reference" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h2 id="mastering-reference-columns-in-3-steps">Mastering Reference Columns in 3 Steps<a class="headerlink" href="#mastering-reference-columns-in-3-steps" title="Permanent link">#</a></h2>
-<p>In Grist, reference columns are the key tool to organize relational data. Reference columns tell
-Grist that two separate tables are related, and specifies which records within those tables are
-related. For example, if you have a table of <code>Dogs</code> and a table of <code>Dog Owners</code>, you may want each
-dog’s <em>record</em> to explicitly reference their owner’s <em>record</em> in <code>Dog Owners</code>.</p>
-<p>Reference columns are a powerful tool for looking up data from a related table, and for creating
-highly productive layouts. You can learn to do this in three easy steps. <a href="https://public.getgrist.com/1ujorYjuX3xb/Job-Application-Reference-Column-Tutorial">We’ve created a simple
-template</a> you
-can copy and edit as you follow along with this guide.</p>
-<h2 id="using-reference-columns-to-organize-related-data">Using Reference Columns to Organize Related Data<a class="headerlink" href="#using-reference-columns-to-organize-related-data" title="Permanent link">#</a></h2>
-<p>In our example, you are a graphic designer applying for jobs, and you are using Grist to keep
-track of your job application process. In the template you have four tables: <code>Job Applications</code>,
-<code>Milestones</code>, <code>Tasks</code>, and <code>Contacts</code>. Your goal is to relate relevant data between tables and
-create a custom dashboard where you can easily view each job application’s status, and add new job
-applications and new milestones easily.</p>
-<p><a href="https://templates.getgrist.com/bhW5b6DhciXb/Job-Application-Tracker/">In this dashboard</a>, clicking on each job application shows only the milestones related to that job
-application. We can create this relationship using reference columns.</p>
-<p>Let&rsquo;s create this dashboard together.</p>
-<h2 id="step-1-creating-references">Step 1: Creating References<a class="headerlink" href="#step-1-creating-references" title="Permanent link">#</a></h2>
+<h2 id="maitriser-les-colonnes-de-reference-en-3-etapes">Maîtriser les Colonnes de Référence en 3 Étapes<a class="headerlink" href="#maitriser-les-colonnes-de-reference-en-3-etapes" title="Permanent link">#</a></h2>
+<p>Dans Grist, les colonnes de référence sont l&rsquo;outil clé pour organiser les données relationnelles. Les colonnes de référence indiquent à Grist que deux tables distinctes sont liées et spécifient quels enregistrements au sein de ces tables sont liés. Par exemple, si vous avez une table de <code>Chiens</code> et une table de <code>Propriétaires de Chiens</code>, vous pouvez vouloir que chaque <em>enregistrement</em> de chien fasse explicitement référence à l&rsquo;<em>enregistrement</em> de son propriétaire dans <code>Propriétaires de Chiens</code>.</p>
+<p>Les colonnes de référence sont un outil puissant pour rechercher des données à partir d&rsquo;une table liée et pour créer des mises en page hautement productives. Vous pouvez apprendre à le faire en trois étapes faciles. <a href="https://public.getgrist.com/1ujorYjuX3xb/Job-Application-Reference-Column-Tutorial">Nous avons créé un modèle simple</a> que vous pouvez copier et modifier en suivant ce guide.</p>
+<h2 id="utiliser-les-colonnes-de-reference-pour-organiser-les-donnees-liees">Utiliser les Colonnes de Référence pour Organiser les Données Liées<a class="headerlink" href="#utiliser-les-colonnes-de-reference-pour-organiser-les-donnees-liees" title="Permanent link">#</a></h2>
+<p>Dans notre exemple, vous êtes un graphiste postulant à des emplois, et vous utilisez Grist pour suivre votre processus de candidature. Dans le modèle, vous avez quatre tables : <code>Candidatures</code>, <code>Étapes</code>, <code>Tâches</code>, et <code>Contacts</code>. Votre objectif est de relier les données pertinentes entre les tables et de créer un tableau de bord personnalisé où vous pouvez facilement voir le statut de chaque candidature, et ajouter de nouvelles candidatures et de nouvelles étapes facilement.</p>
+<p><a href="https://templates.getgrist.com/bhW5b6DhciXb/Job-Application-Tracker/">Dans ce tableau de bord</a>, cliquer sur chaque candidature montre uniquement les étapes liées à cette candidature. Nous pouvons créer cette relation en utilisant des colonnes de référence.</p>
+<p>Créons ce tableau de bord ensemble.</p>
+<h2 id="etape-1-creer-des-references">Étape 1 : Créer des Références<a class="headerlink" href="#etape-1-creer-des-references" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Y0MKoz2RXEQ?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>Reference columns are a type of column available under COLUMN TYPE. It is helpful to think of the
-table with the reference column as the <strong><em>referencing table</em></strong>, and the table which is being
-referenced as the <strong><em>underlying table</em></strong>.</p>
-<h3 id="converting-columns-with-text-into-reference-columns">Converting Columns with Text into Reference Columns<a class="headerlink" href="#converting-columns-with-text-into-reference-columns" title="Permanent link">#</a></h3>
-<p>If you already have text in the selected column, set the COLUMN TYPE in the right-side panel to
-&ldquo;Reference&rdquo;. Grist will guess the underlying table and column you want to show in the reference
-column. You can review and edit this guess and set the appropriate underlying table and display
-column. DATA FROM TABLE points to the underlying table. SHOW COLUMN sets the display value in the
-reference column.</p>
-<p>For example, in the <code>Milestones</code> table, convert the <code>Role</code> column into a reference column. DATA
-FROM TABLE should point to <code>Job Applications</code>. SHOW COLUMN should be set to <code>Role</code>. Note that the
-reference column is referencing the <strong><em>entire record</em></strong> and you are choosing which column to
-display in the reference column.</p>
-<p><strong>Tip:</strong> You can easily identify reference columns by the chain link icons in the column’s cells.</p>
-<h3 id="creating-reference-columns">Creating Reference Columns<a class="headerlink" href="#creating-reference-columns" title="Permanent link">#</a></h3>
-<p>In the <code>Contacts</code> table we have a list of contacts that are not associated with any job
-application or company. Let’s create a new column called <code>Company</code>, set its type to Reference, and
-point to <code>Job Applications</code> as the underlying table with <code>Company</code> as the display in the reference
-column.</p>
-<p>Click on the empty cell to open a drop-down menu and manually select the company at which each
-contact works. Look at the email address for a hint.</p>
-<p>Note: You can always click on a Reference Column cell to open the drop-down menu and select a new
-value.</p>
-<h2 id="step-2-look-up-additional-data-in-the-referenced-record">Step 2: Look up additional data in the referenced record<a class="headerlink" href="#step-2-look-up-additional-data-in-the-referenced-record" title="Permanent link">#</a></h2>
+<p>Les colonnes de référence sont un type de colonne disponible sous TYPE DE COLONNE. Il est utile de penser à la table avec la colonne de référence comme la <strong><em>table de référence</em></strong>, et à la table qui est référencée comme la <strong><em>table sous-jacente</em></strong>.</p>
+<h3 id="convertir-des-colonnes-de-texte-en-colonnes-de-reference">Convertir des Colonnes de Texte en Colonnes de Référence<a class="headerlink" href="#convertir-des-colonnes-de-texte-en-colonnes-de-reference" title="Permanent link">#</a></h3>
+<p>Si vous avez déjà du texte dans la colonne sélectionnée, définissez le TYPE DE COLONNE dans le panneau de droite sur &ldquo;Référence&rdquo;. Grist devinera la table sous-jacente et la colonne que vous souhaitez afficher dans la colonne de référence. Vous pouvez revoir et modifier cette supposition et définir la table sous-jacente et la colonne d&rsquo;affichage appropriées. DONNÉES DE LA TABLE pointe vers la table sous-jacente. AFFICHER LA COLONNE définit la valeur d&rsquo;affichage dans la colonne de référence.</p>
+<p>Par exemple, dans la table <code>Étapes</code>, convertissez la colonne <code>Rôle</code> en une colonne de référence. DONNÉES DE LA TABLE doit pointer vers <code>Candidatures</code>. AFFICHER LA COLONNE doit être défini sur <code>Rôle</code>. Notez que la colonne de référence fait référence à l&rsquo;<strong><em>ensemble de l&rsquo;enregistrement</em></strong> et que vous choisissez quelle colonne afficher dans la colonne de référence.</p>
+<p><strong>Astuce :</strong> Vous pouvez facilement identifier les colonnes de référence par les icônes de maillon de chaîne dans les cellules de la colonne.</p>
+<h3 id="creer-des-colonnes-de-reference">Créer des Colonnes de Référence<a class="headerlink" href="#creer-des-colonnes-de-reference" title="Permanent link">#</a></h3>
+<p>Dans la table <code>Contacts</code>, nous avons une liste de contacts qui ne sont associés à aucune candidature ou entreprise. Créons une nouvelle colonne appelée <code>Entreprise</code>, définissons son type sur Référence, et pointons vers <code>Candidatures</code> comme table sous-jacente avec <code>Entreprise</code> comme affichage dans la colonne de référence.</p>
+<p>Cliquez sur la cellule vide pour ouvrir un menu déroulant et sélectionnez manuellement l&rsquo;entreprise pour laquelle chaque contact travaille. Regardez l&rsquo;adresse e-mail pour un indice.</p>
+<p>Note : Vous pouvez toujours cliquer sur une cellule de Colonne de Référence pour ouvrir le menu déroulant et sélectionner une nouvelle valeur.</p>
+<h2 id="etape-2-rechercher-des-donnees-supplementaires-dans-lenregistrement-reference">Étape 2 : Rechercher des Données Supplémentaires dans l&rsquo;Enregistrement Référencé<a class="headerlink" href="#etape-2-rechercher-des-donnees-supplementaires-dans-lenregistrement-reference" title="Permanent link">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_7KEUKnwI74?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>Recall that the reference column is referencing another table, and correlating two specific
-records. Although you see a specific column in the <strong><em>display</em></strong> of the reference column, the
-reference is being made to the <strong><em>entire record</em></strong>. This allows us to look up additional data
-fields in the related record using a simple formula. Let’s try it.</p>
-<p>In step 1, in the <code>Milestones</code> table we created a reference column called <code>Role</code>. It would be useful to
-also see for each <code>Milestone</code> record, the relevant company.  For example, in row 1 we see the
-Milestone event “Rejected!” for the role &ldquo;Head of Digital Design&rdquo;. It is not immediately apparent
-which company this is. Let’s use the <code>Role</code> reference column to easily look up the company listed in
-the &ldquo;Head of Digital Design&rdquo; record in the <code>Job Applications</code> table. To do so we create a column
-called <code>Company</code> and we use the formula <code class="formula">$Role.Company</code>.</p>
-<p>The formula structure is
-<code class="formula">$[Reference Column ID in Referencing Table].[Column ID in Underlying Table]</code>.
-Grist will also auto-complete parts of the formula as you type it.</p>
-<p>There’s an alternative way to add multiple columns from an underlying table. If you’re interested
-in learning more, visit our website’s <a href="../../col-refs/#including-multiple-fields-from-a-reference">help section on reference
-columns</a>.</p>
-<h2 id="step-3-create-a-highly-productive-layout-with-linked-tables">Step 3: Create a Highly Productive Layout with Linked Tables<a class="headerlink" href="#step-3-create-a-highly-productive-layout-with-linked-tables" title="Permanent link">#</a></h2>
-<p>One of the most powerful features of Grist is the ability to link related tables in the same page
-to create highly productive layouts. In the final dashboard shown at the start of this tutorial,
-we saw that clicking on a job application would populate a view of milestones related to that job
-application.</p>
-<p>Let’s do that now by adding <code>Milestones</code> as a widget to the <code>Job Applications</code> page. (<a href="../../page-widgets/#page-widgets">Brush up on
-widgets here</a>.) Adding the table as a
-Card List widget makes the data easier to view. Similarly, you may want to change the <code>Job
-Applications</code> table to a Card List widget.</p>
-<p>In the CARD LIST menu on the right, select DATA to set data selection rules. Under SELECT BY you
-will see the option &ldquo;JOB_APPLICATIONS Card List&rdquo;. This option is only available because in step 1
-we created a reference from the <code>Milestones</code> table to the <code>Job Applications</code> table in the <code>Role</code>
-reference column. This reference tells Grist which milestones are related to which job
-applications.</p>
+<p>Rappelez-vous que la colonne de référence fait référence à une autre table et corrèle deux enregistrements spécifiques. Bien que vous voyiez une colonne spécifique dans l&rsquo;<strong><em>affichage</em></strong> de la colonne de référence, la référence est faite à l&rsquo;<strong><em>ensemble de l&rsquo;enregistrement</em></strong>. Cela nous permet de rechercher des champs de données supplémentaires dans l&rsquo;enregistrement lié en utilisant une formule simple. Essayons cela.</p>
+<p>À l&rsquo;étape 1, dans la table <code>Étapes</code>, nous avons créé une colonne de référence appelée <code>Rôle</code>. Il serait utile de voir également pour chaque enregistrement <code>Étape</code>, l&rsquo;entreprise pertinente. Par exemple, dans la ligne 1, nous voyons l&rsquo;événement de l&rsquo;étape &ldquo;Rejeté!&rdquo; pour le rôle &ldquo;Responsable du Design Numérique&rdquo;. Il n&rsquo;est pas immédiatement apparent de quelle entreprise il s&rsquo;agit. Utilisons la colonne de référence <code>Rôle</code> pour rechercher facilement l&rsquo;entreprise listée dans l&rsquo;enregistrement &ldquo;Responsable du Design Numérique&rdquo; dans la table <code>Candidatures</code>. Pour ce faire, nous créons une colonne appelée <code>Entreprise</code> et nous utilisons la formule <code class="formula">$Role.Entreprise</code>.</p>
+<p>La structure de la formule est
+<code class="formula">$[ID de la Colonne de Référence dans la Table de Référence].[ID de la Colonne dans la Table Sous-jacente]</code>.
+Grist complétera également automatiquement des parties de la formule pendant que vous la tapez.</p>
+<p>Il y a une autre façon d&rsquo;ajouter plusieurs colonnes à partir d&rsquo;une table sous-jacente. Si vous êtes intéressé à en savoir plus, visitez la <a href="../../col-refs/#including-multiple-fields-from-a-reference">section d&rsquo;aide sur les colonnes de référence</a> de notre site web.</p>
+<h2 id="etape-3-creer-une-mise-en-page-hautement-productive-avec-des-tables-liees">Étape 3 : Créer une Mise en Page Hautement Productive avec des Tables Liées<a class="headerlink" href="#etape-3-creer-une-mise-en-page-hautement-productive-avec-des-tables-liees" title="Permanent link">#</a></h2>
+<p>L&rsquo;une des fonctionnalités les plus puissantes de Grist est la capacité de lier des tables liées sur la même page pour créer des mises en page hautement productives. Dans le tableau de bord final montré au début de ce tutoriel, nous avons vu que cliquer sur une candidature remplissait une vue des étapes liées à cette candidature.</p>
+<p>Faisons cela maintenant en ajoutant <code>Étapes</code> comme vue à la page <code>Candidatures</code>. (<a href="../../page-widgets/#page-widgets">Révisez les vues ici</a>.) Ajouter la table comme vue de Liste de Fiches rend les données plus faciles à visualiser. De même, vous pouvez vouloir changer la table <code>Candidatures</code> en une vue de Liste de Fiches.</p>
+<p>Dans le menu LISTE DE FICHES à droite, sélectionnez DONNÉES pour définir les règles de sélection des données. Sous SÉLECTIONNER PAR, vous verrez l&rsquo;option &ldquo;LISTE_DE_FICHES CANDIDATURES&rdquo;. Cette option est uniquement disponible parce qu&rsquo;à l&rsquo;étape 1, nous avons créé une référence de la table <code>Étapes</code> à la table <code>Candidatures</code> dans la colonne de référence <code>Rôle</code>. Cette référence indique à Grist quelles étapes sont liées à quelles candidatures.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZYJgPkcMhJU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>Congrats! You now know how to use reference columns to
-organize related data, give your data structure, and create linked widgets in productive layouts.
-If you’d like, compare your document to the
-<a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">tutorial solution</a>.</p>
-<h3 id="dig-deeper-combining-formulas-and-reference-columns">Dig Deeper: Combining formulas and reference columns.<a class="headerlink" href="#dig-deeper-combining-formulas-and-reference-columns" title="Permanent link">#</a></h3>
-<p>If you’re comfortable with formulas, try using formulas in reference columns to make Grist an even
-more powerful tool. In the <a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">tutorial
-solution</a>, we’ve used a formula to do more.</p>
-<p>The formula in the <code>Last Milestone</code> field in the <code>Job Applications</code> widget is looking up the most
-recent date in related records in the <code>Milestones</code> table. Thus, adding a new milestone with a more
-recent date would automatically update this field. You can learn more about <a href="../../formulas/#lookups">lookup formulas on
-our website</a>.</p>
-<p>Because <code>Last Milestone</code> is both a formula column <strong><em>and</em></strong> a reference column, we’ve also done
-the following which follows the formula described in step 2 of this tutorial.</p>
-<p>The <code>Status</code> field uses the formula <code class="formula">$Last_Milestone.Round</code> to look up the related
-milestone’s round status. The <code>Updated On</code> field uses the formula
-<code class="formula">$Last_Milestone.Date</code> to look up the related milestone&rsquo;s date.</p>
-<p>By doing this, status and date also auto-update when the <code>Last Milestone</code> field updates.</p>
-<p><strong>Still need help?</strong> Take a peek at the
-<a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">tutorial solution</a>, or contact us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
+<p>Félicitations ! Vous savez maintenant comment utiliser les colonnes de référence pour organiser des données liées, donner une structure à vos données, et créer des vues liées dans des mises en page productives. Si vous le souhaitez, comparez votre document à la <a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">solution du tutoriel</a>.</p>
+<h3 id="approfondir-combiner-des-formules-et-des-colonnes-de-reference">Approfondir : Combiner des Formules et des Colonnes de Référence<a class="headerlink" href="#approfondir-combiner-des-formules-et-des-colonnes-de-reference" title="Permanent link">#</a></h3>
+<p>Si vous êtes à l&rsquo;aise avec les formules, essayez d&rsquo;utiliser des formules dans les colonnes de référence pour rendre Grist un outil encore plus puissant. Dans la <a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">solution du tutoriel</a>, nous avons utilisé une formule pour faire plus.</p>
+<p>La formule dans le champ <code>Dernière Étape</code> dans la vue <code>Candidatures</code> recherche la date la plus récente dans les enregistrements liés dans la table <code>Étapes</code>. Ainsi, ajouter une nouvelle étape avec une date plus récente mettrait automatiquement à jour ce champ. Vous pouvez en apprendre plus sur <a href="../../formulas/#lookups">les formules de recherche sur notre site web</a>.</p>
+<p>Parce que <code>Dernière Étape</code> est à la fois une colonne de formule <strong><em>et</em></strong> une colonne de référence, nous avons également fait ce qui suit en suivant la formule décrite à l&rsquo;étape 2 de ce tutoriel.</p>
+<p>Le champ <code>Statut</code> utilise la formule <code class="formula">$Dernière_Étape.Tour</code> pour rechercher le statut du tour de l&rsquo;étape liée. Le champ <code>Mis à Jour Le</code> utilise la formule <code class="formula">$Dernière_Étape.Date</code> pour rechercher la date de l&rsquo;étape liée.</p>
+<p>En faisant cela, le statut et la date se mettent également à jour automatiquement lorsque le champ <code>Dernière Étape</code> se met à jour.</p>
+<p><strong>Besoin d&rsquo;aide supplémentaire ?</strong> Jetez un coup d&rsquo;œil à la <a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">solution du tutoriel</a>, ou contactez-nous à <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#103;&#101;&#116;&#103;&#114;&#105;&#115;&#116;&#46;&#99;&#111;&#109;</a>.</p>
 
   <br>
 </div>

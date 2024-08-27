@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Suppose we have a table listing airports, and we want to
-forbid entry of a new record with the same airport code as an existing
-one.  In the table, we can add a column named Count that counts how many
-records have the same code as each other:">
-      <meta property="og:description" content="Suppose we have a table listing airports, and we want to
-forbid entry of a new record with the same airport code as an existing
-one.  In the table, we can add a column named Count that counts how many
-records have the same code as each other:">
+      <meta name="description" content="Supposons que nous ayons une table listant les aéroports, et que nous voulions
+interdire l’entrée d’un nouvel enregistrement avec le même code d’aéroport qu’un existant.
+Dans la table, nous pouvons ajouter une colonne nommée Count qui compte combien
+d’enregistrements ont le même code :">
+      <meta property="og:description" content="Supposons que nous ayons une table listant les aéroports, et que nous voulions
+interdire l’entrée d’un nouvel enregistrement avec le même code d’aéroport qu’un existant.
+Dans la table, nous pouvons ajouter une colonne nommée Count qui compte combien
+d’enregistrements ont le même code :">
     
     
     <link rel="canonical" href="https://support.getgrist.com/examples/2023-01-acl-memo/">
@@ -802,7 +802,7 @@ records have the same code as each other:">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Access Rules to Restrict Duplicate Records
+              Règles d&rsquo;accès pour restreindre les enregistrements en double
             </a>
           </li>
         
@@ -919,30 +919,27 @@ records have the same code as each other:">
 
     
 
-    <h1 id="access-rules-to-restrict-duplicate-records">Access Rules to Restrict Duplicate Records<a class="headerlink" href="#access-rules-to-restrict-duplicate-records" title="Permanent link">#</a></h1>
+    <h1 id="regles-dacces-pour-restreindre-les-enregistrements-en-double">Règles d&rsquo;accès pour restreindre les enregistrements en double<a class="headerlink" href="#regles-dacces-pour-restreindre-les-enregistrements-en-double" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<p>Suppose we have a table listing airports, and we want to
-forbid entry of a new record with the same airport code as an existing
-one.  In the table, we can add a column named <code>Count</code> that counts how many
-records have the same code as each other:</p>
-<p><img alt="Airport table" src="images/2023-01-acl-memo/access-rules-dupe-setup.png" /></p>
-<p>To understand this formula, visit our <a href="../../formula-cheat-sheet/#finding-duplicates">formula cheat sheet</a> example for finding duplicates.</p>
-<p>Now, we can add an access rule to forbid any record update or creation that would
-result in a <code>Count</code> above one.  We can also include a memo to explain the problem:</p>
-<p><img alt="Duplicate rule" src="images/2023-01-acl-memo/access-rules-dupe-rule.png" /></p>
+<p>Supposons que nous ayons une table listant les aéroports, et que nous voulions
+interdire l&rsquo;entrée d&rsquo;un nouvel enregistrement avec le même code d&rsquo;aéroport qu&rsquo;un existant.
+Dans la table, nous pouvons ajouter une colonne nommée <code>Count</code> qui compte combien
+d&rsquo;enregistrements ont le même code :</p>
+<p><img alt="Table des aéroports" src="images/2023-01-acl-memo/access-rules-dupe-setup.png" /></p>
+<p>Pour comprendre cette formule, visitez notre <a href="../../formula-cheat-sheet/#finding-duplicates">aide-mémoire des formules</a> pour trouver des doublons.</p>
+<p>Maintenant, nous pouvons ajouter une règle d&rsquo;accès pour interdire toute mise à jour ou création d&rsquo;enregistrement qui entraînerait un <code>Count</code> supérieur à un. Nous pouvons également inclure une note pour expliquer le problème :</p>
+<p><img alt="Règle de duplication" src="images/2023-01-acl-memo/access-rules-dupe-rule.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">newRec</p>
-<p>This variable is available for record/row creation and updating, and contains the state of a row after a proposed change, allowing you to selectively allow or deny certain changes. See <a href="../../access-rules/#checking-new-values">checking new values</a> for details.</p>
+<p>Cette variable est disponible pour la création et la mise à jour des enregistrements/lignes, et contient l&rsquo;état d&rsquo;une ligne après une modification proposée, vous permettant de permettre ou de refuser sélectivement certaines modifications. Voir <a href="../../access-rules/#checking-new-values">vérification des nouvelles valeurs</a> pour plus de détails.</p>
 </div>
-<p>Now if we try to add a new row with an existing code, we get a helpful error:</p>
-<p><img alt="Duplicate error" src="images/2023-01-acl-memo/access-rules-dupe-forbidden.png" /></p>
-<p>See <a href="../../access-rules/#access-rule-conditions">Access rule conditions</a> for details
-on writing access rule conditions, and <a href="../../formulas/">Formulas</a> to learn more about using formulas in columns.</p>
+<p>Maintenant, si nous essayons d&rsquo;ajouter une nouvelle ligne avec un code existant, nous obtenons une erreur utile :</p>
+<p><img alt="Erreur de duplication" src="images/2023-01-acl-memo/access-rules-dupe-forbidden.png" /></p>
+<p>Voir <a href="../../access-rules/#access-rule-conditions">Conditions des règles d&rsquo;accès</a> pour plus de détails sur l&rsquo;écriture des conditions des règles d&rsquo;accès, et <a href="../../formulas/">Formules</a> pour en savoir plus sur l&rsquo;utilisation des formules dans les colonnes.</p>
 
   <br>
 </div>

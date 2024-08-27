@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Configuration for SAML, useful for enterprise single-sign-on logins.
-A good informative overview of SAML is at https://www.okta.com/integrate/documentation/saml/">
-      <meta property="og:description" content="Configuration for SAML, useful for enterprise single-sign-on logins.
-A good informative overview of SAML is at https://www.okta.com/integrate/documentation/saml/">
+      <meta name="description" content="Configuration pour SAML, utile pour les connexions d’entreprise à authentification unique (SSO).
+Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integrate/documentation/saml/">
+      <meta property="og:description" content="Configuration pour SAML, utile pour les connexions d’entreprise à authentification unique (SSO).
+Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integrate/documentation/saml/">
     
     
     <link rel="canonical" href="https://support.getgrist.com/install/saml/">
@@ -477,23 +477,23 @@ A good informative overview of SAML is at https://www.okta.com/integrate/documen
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-auth0">
-                Example: Auth0
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-auth0">
+                Exemple : Auth0
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-authentik">
-                Example: Authentik
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-authentik">
+                Exemple : Authentik
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-google">
-                Example: Google
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-google">
+                Exemple : Google
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#troubleshooting">
-                Troubleshooting
+              <a class="wm-article-link wm-page-toc-text" href="#depannage">
+                Dépannage
               </a>
             </li>
         
@@ -937,124 +937,119 @@ A good informative overview of SAML is at https://www.okta.com/integrate/documen
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 class="tag-core tag-ee" id="saml">SAML<a class="headerlink" href="#saml" title="Permanent link">#</a></h1>
-<p>Configuration for SAML, useful for enterprise single-sign-on logins.
-A good informative overview of SAML is at <a href="https://www.okta.com/integrate/documentation/saml/">https://www.okta.com/integrate/documentation/saml/</a></p>
-<p>Note:</p>
+<p>Configuration pour SAML, utile pour les connexions d&rsquo;entreprise à authentification unique (SSO).
+Un bon aperçu informatif de SAML est disponible sur <a href="https://www.okta.com/integrate/documentation/saml/">https://www.okta.com/integrate/documentation/saml/</a></p>
+<p>Note :</p>
 <ul>
-<li>SP is &ldquo;Service Provider&rdquo;, in our case, the Grist application.</li>
-<li>IdP is the &ldquo;Identity Provider&rdquo;, somewhere users log into, e.g. Okta or Google Apps.</li>
+<li>SP est &ldquo;Service Provider&rdquo; (Fournisseur de Service), dans notre cas, l&rsquo;application Grist.</li>
+<li>IdP est &ldquo;Identity Provider&rdquo; (Fournisseur d&rsquo;Identité), un endroit où les utilisateurs se connectent, par exemple Okta ou Google Apps.</li>
 </ul>
-<p>We will need one or more certificates from the IdP, in PEM format. This is a public
-key that Grist will use to check messages from the IdP are legit.</p>
-<p>We will need a private and public key pair for Grist to use when communicating with
-the IdP. The IdP will need to know the public key for Grist, to check messages from
-Grist are legit.</p>
-<p>Expected environment variables:</p>
+<p>Nous aurons besoin d&rsquo;un ou plusieurs certificats de l&rsquo;IdP, au format PEM. Il s&rsquo;agit d&rsquo;une clé publique que Grist utilisera pour vérifier que les messages de l&rsquo;IdP sont légitimes.</p>
+<p>Nous aurons besoin d&rsquo;une paire de clés privée et publique pour que Grist puisse communiquer avec l&rsquo;IdP. L&rsquo;IdP devra connaître la clé publique de Grist pour vérifier que les messages de Grist sont légitimes.</p>
+<p>Variables d&rsquo;environnement attendues :</p>
 <ul>
-<li><code>GRIST_SAML_SP_HOST</code> - this is just the base URL of the Grist site,
-    such as <code>https://&lt;grist-domain&gt;</code> (when SAML is active, there will
-    be a <code>/saml/assert</code> endpoint available here for implementing the protocol).</li>
-<li><code>GRIST_SAML_SP_KEY</code> - path to a file with our private key, in PEM format.
-    This is the private key of the key pair created for Grist to use with the IdP.</li>
-<li><code>GRIST_SAML_SP_CERT</code> - path to file with our public key, in PEM format.
-    This is the public key of the key pair created for Grist to use with the IdP.
-    It is not the public key/certificate of the IdP.</li>
-<li><code>GRIST_SAML_IDP_LOGIN</code> - login url to redirect user to for log-in.</li>
-<li><code>GRIST_SAML_IDP_LOGOUT</code> - logout URL to redirect user to for log-out.</li>
-<li><code>GRIST_SAML_IDP_SKIP_SLO</code> - if set and non-empty, don&rsquo;t attempt &ldquo;Single Logout&rdquo;
-    SAML flow, but simply redirect to <code>GRIST_SAML_IDP_LOGOUT</code> after clearing session.
-    Whether this flow is possible will depend on the IdP.</li>
-<li><code>GRIST_SAML_IDP_CERTS</code> - comma-separated list of paths for certificates
-    from the IdP, in PEM format. This is not the private or public key created for Grist.</li>
-<li><code>GRIST_SAML_IDP_UNENCRYPTED</code> - if set and non-empty, allow unencrypted assertions,
-    relying on https for privacy.</li>
+<li><code>GRIST_SAML_SP_HOST</code> - c&rsquo;est simplement l&rsquo;URL de base du site Grist,
+    comme <code>https://&lt;grist-domain&gt;</code> (lorsque SAML est actif, il y aura
+    une endpoint <code>/saml/assert</code> disponible ici pour implémenter le protocole).</li>
+<li><code>GRIST_SAML_SP_KEY</code> - chemin vers un fichier contenant notre clé privée, au format PEM.
+    C&rsquo;est la clé privée de la paire de clés créée pour que Grist l&rsquo;utilise avec l&rsquo;IdP.</li>
+<li><code>GRIST_SAML_SP_CERT</code> - chemin vers un fichier contenant notre clé publique, au format PEM.
+    C&rsquo;est la clé publique de la paire de clés créée pour que Grist l&rsquo;utilise avec l&rsquo;IdP.
+    Ce n&rsquo;est pas la clé publique/certificat de l&rsquo;IdP.</li>
+<li><code>GRIST_SAML_IDP_LOGIN</code> - URL de connexion pour rediriger l&rsquo;utilisateur pour la connexion.</li>
+<li><code>GRIST_SAML_IDP_LOGOUT</code> - URL de déconnexion pour rediriger l&rsquo;utilisateur pour la déconnexion.</li>
+<li><code>GRIST_SAML_IDP_SKIP_SLO</code> - si défini et non vide, ne pas tenter le flux &ldquo;Single Logout&rdquo;
+    SAML, mais simplement rediriger vers <code>GRIST_SAML_IDP_LOGOUT</code> après avoir effacé la session.
+    La possibilité de ce flux dépendra de l&rsquo;IdP.</li>
+<li><code>GRIST_SAML_IDP_CERTS</code> - liste de chemins séparés par des virgules pour les certificats
+    de l&rsquo;IdP, au format PEM. Ce n&rsquo;est pas la clé privée ou publique créée pour Grist.</li>
+<li><code>GRIST_SAML_IDP_UNENCRYPTED</code> - si défini et non vide, autoriser les assertions non chiffrées,
+    en s&rsquo;appuyant sur https pour la confidentialité.</li>
 </ul>
-<h2 id="example-auth0">Example: Auth0<a class="headerlink" href="#example-auth0" title="Permanent link">#</a></h2>
-<p>For example, when running on localhost and http, settings that work with the
-<a href="https://auth0.com/docs/protocols/saml-protocol/configure-auth0-as-saml-identity-provider">Auth0 SAML IdP</a> are:</p>
+<h2 id="exemple-auth0">Exemple : Auth0<a class="headerlink" href="#exemple-auth0" title="Permanent link">#</a></h2>
+<p>Par exemple, lors de l&rsquo;exécution en local et en http, les paramètres qui fonctionnent avec l&rsquo;<a href="https://auth0.com/docs/protocols/saml-protocol/configure-auth0-as-saml-identity-provider">IdP SAML Auth0</a> sont :</p>
 <ul>
-<li><code>GRIST_SAML_IDP_SKIP_SLO</code> not set</li>
+<li><code>GRIST_SAML_IDP_SKIP_SLO</code> non défini</li>
 <li><code>GRIST_SAML_SP_HOST</code> = <code>http://localhost:8484</code></li>
 <li><code>GRIST_SAML_IDP_UNENCRYPTED</code> = <code>1</code></li>
 <li><code>GRIST_SAML_IDP_LOGIN</code> = <code>https://...auth0.com/samlp/xxxx</code></li>
-<li><code>GRIST_SAML_IDP_LOGOUT</code> = <code>https://...auth0.com/samlp/xxxx</code>  (these are same for Auth0)</li>
-<li><code>GRIST_SAML_IDP_CERTS</code> = <code>.../auth0.pem</code> (downloaded per Auth0 instructions)</li>
-<li><code>GRIST_SAML_SP_KEY</code> = <code>.../saml.pem</code> (created)</li>
-<li><code>GRIST_SAML_SP_CERT</code> = <code>.../saml.crt</code> (created)</li>
+<li><code>GRIST_SAML_IDP_LOGOUT</code> = <code>https://...auth0.com/samlp/xxxx</code>  (ce sont les mêmes pour Auth0)</li>
+<li><code>GRIST_SAML_IDP_CERTS</code> = <code>.../auth0.pem</code> (téléchargé selon les instructions d&rsquo;Auth0)</li>
+<li><code>GRIST_SAML_SP_KEY</code> = <code>.../saml.pem</code> (créé)</li>
+<li><code>GRIST_SAML_SP_CERT</code> = <code>.../saml.crt</code> (créé)</li>
 </ul>
-<p>When used with docker, make sure that the key and certificate files are accessible
-within a shared volume. The key/cert pair were created following instructions here:</p>
+<p>Lorsqu&rsquo;il est utilisé avec docker, assurez-vous que les fichiers de clé et de certificat sont accessibles
+dans un volume partagé. La paire clé/certificat a été créée en suivant les instructions ici :</p>
 <ul>
-<li><a href="https://auth0.com/docs/authenticate/protocols/saml/saml-sso-integrations/sign-and-encrypt-saml-requests#use-a-custom-key-to-sign-requests">Auth0: use custom certificate to sign requests</a></li>
-<li><a href="https://auth0.com/docs/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests#auth0-as-the-saml-identity-provider">Auth0 as the SAML identity provider</a></li>
+<li><a href="https://auth0.com/docs/authenticate/protocols/saml/saml-sso-integrations/sign-and-encrypt-saml-requests#use-a-custom-key-to-sign-requests">Auth0 : utiliser un certificat personnalisé pour signer les requêtes</a></li>
+<li><a href="https://auth0.com/docs/protocols/saml-protocol/saml-sso-integrations/sign-and-encrypt-saml-requests#auth0-as-the-saml-identity-provider">Auth0 en tant que fournisseur d&rsquo;identité SAML</a></li>
 </ul>
-<p>In your Auth0 settings also make sure that:</p>
+<p>Dans vos paramètres Auth0, assurez-vous également que :</p>
 <ul>
-<li>The &ldquo;Application Callback URL&rdquo; is set to <code>https://&lt;grist-domain&gt;/saml/assert</code>.</li>
+<li>L&rsquo;URL de rappel de l&rsquo;application est définie sur <code>https://&lt;grist-domain&gt;/saml/assert</code>.</li>
 </ul>
-<h2 id="example-authentik">Example: Authentik<a class="headerlink" href="#example-authentik" title="Permanent link">#</a></h2>
-<p>In <a href="https://goauthentik.io/">Authentik</a>, add a Provider called <code>Grist</code> with:</p>
+<h2 id="exemple-authentik">Exemple : Authentik<a class="headerlink" href="#exemple-authentik" title="Permanent link">#</a></h2>
+<p>Dans <a href="https://goauthentik.io/">Authentik</a>, ajoutez un fournisseur appelé <code>Grist</code> avec :</p>
 <ul>
-<li>ACS URL: <code>https://&lt;grist-domain&gt;/saml/assert</code></li>
-<li>Set Service provider binding to <code>Post</code></li>
-<li>Select or add a signing certificate. You&rsquo;ll need to download this to use as <code>GRIST_SAML_IDP_CERTS</code> in Grist configuration.</li>
-<li>Add a verification certificate. This will be the public part of a key pair your create for <code>GRIST_SAML_SP_KEY</code>/<code>GRIST_SAML_SP_CERT</code> in Grist configuration.</li>
+<li>URL ACS : <code>https://&lt;grist-domain&gt;/saml/assert</code></li>
+<li>Définir la liaison du fournisseur de services sur <code>Post</code></li>
+<li>Sélectionnez ou ajoutez un certificat de signature. Vous devrez le télécharger pour l&rsquo;utiliser comme <code>GRIST_SAML_IDP_CERTS</code> dans la configuration de Grist.</li>
+<li>Ajoutez un certificat de vérification. Ce sera la partie publique d&rsquo;une paire de clés que vous créez pour <code>GRIST_SAML_SP_KEY</code>/<code>GRIST_SAML_SP_CERT</code> dans la configuration de Grist.</li>
 </ul>
-<p>Then, still in Authentik, add an Application also called <code>Grist</code> (I’m not very imaginative) that:</p>
+<p>Ensuite, toujours dans Authentik, ajoutez une application également appelée <code>Grist</code> (je ne suis pas très imaginatif) qui :</p>
 <ul>
-<li>Uses the <code>Grist</code> Provider.</li>
-<li>Has <code>Launch URL</code> set to <code>https://&lt;grist-domain&gt;</code>.</li>
+<li>Utilise le fournisseur <code>Grist</code>.</li>
+<li>A <code>Launch URL</code> défini sur <code>https://&lt;grist-domain&gt;</code>.</li>
 </ul>
-<p>The Grist settings follow the same pattern as for Auth0. The login and
-logout URLs with Authentik at the time of writing look like:</p>
+<p>Les paramètres de Grist suivent le même schéma que pour Auth0. Les URL de connexion et
+de déconnexion avec Authentik au moment de la rédaction ressemblent à :</p>
 <ul>
 <li><code>GRIST_SAML_IDP_LOGIN</code> = <code>https://...authentik.../application/saml/grist/sso/binding/redirect/</code></li>
 <li><code>GRIST_SAML_IDP_LOGOUT</code> = <code>https://...authentik.../if/session-end/grist/</code></li>
 </ul>
-<h2 id="example-google">Example: Google<a class="headerlink" href="#example-google" title="Permanent link">#</a></h2>
-<p>In <a href="https://admin.google.com/">Google Admin</a>, under the &ldquo;Apps&rdquo; section, in &ldquo;Web and Mobile Apps&rdquo;, add a new custom SAML app.</p>
-<p>Set the app name, description and icon to your liking, and click on Next.</p>
-<p>Take note of the contents of the field <code>SSO URL</code>, and download the provided certificate.</p>
-<p>Configure the app in Google Admin as follows:</p>
+<h2 id="exemple-google">Exemple : Google<a class="headerlink" href="#exemple-google" title="Permanent link">#</a></h2>
+<p>Dans <a href="https://admin.google.com/">Google Admin</a>, sous la section &ldquo;Apps&rdquo;, dans &ldquo;Web and Mobile Apps&rdquo;, ajoutez une nouvelle application SAML personnalisée.</p>
+<p>Définissez le nom de l&rsquo;application, la description et l&rsquo;icône à votre convenance, puis cliquez sur Suivant.</p>
+<p>Prenez note du contenu du champ <code>SSO URL</code>, et téléchargez le certificat fourni.</p>
+<p>Configurez l&rsquo;application dans Google Admin comme suit :</p>
 <ul>
-<li>ACS URL: <code>https://&lt;grist-domain&gt;/saml/assert</code></li>
-<li>Entity ID: <code>https://&lt;grist-domain&gt;/saml/metadata.xml</code></li>
-<li>Check the Signed Response checkbox.</li>
-<li>Leave <code>Start URL</code> empty, and the <code>Name ID</code> settings as default.</li>
+<li>URL ACS : <code>https://&lt;grist-domain&gt;/saml/assert</code></li>
+<li>ID d&rsquo;entité : <code>https://&lt;grist-domain&gt;/saml/metadata.xml</code></li>
+<li>Cochez la case Réponse signée.</li>
+<li>Laissez <code>Start URL</code> vide, et les paramètres <code>Name ID</code> par défaut.</li>
 </ul>
-<p>Click on Next, and optionally, under Attributes, add two mappings for automatic name population:</p>
+<p>Cliquez sur Suivant, et éventuellement, sous Attributs, ajoutez deux mappages pour la population automatique des noms :</p>
 <ul>
-<li>Google Directory attribute <code>First Name</code> set to App attribute <code>FirstName</code></li>
-<li>Google Directory attribute <code>Last Name</code> set to App attribute <code>LastName</code> </li>
+<li>Attribut de l&rsquo;annuaire Google <code>First Name</code> défini sur l&rsquo;attribut de l&rsquo;application <code>FirstName</code></li>
+<li>Attribut de l&rsquo;annuaire Google <code>Last Name</code> défini sur l&rsquo;attribut de l&rsquo;application <code>LastName</code> </li>
 </ul>
-<p>Then click on Finish, and configure Grist&rsquo;s settings:</p>
+<p>Puis cliquez sur Terminer, et configurez les paramètres de Grist :</p>
 <ul>
 <li><code>GRIST_SAML_IDP_SKIP_SLO</code> = <code>true</code></li>
 <li><code>GRIST_SAML_SP_HOST</code> = <code>https://&lt;grist-domain&gt;</code></li>
 <li><code>GRIST_SAML_IDP_UNENCRYPTED</code> = <code>true</code></li>
-<li><code>GRIST_SAML_IDP_LOGIN</code> = <code>https://accounts.google.com/o/saml2/idp?idpid=xxxx</code> (provided to you by Google as <code>SSO URL</code>)</li>
-<li><code>GRIST_SAML_IDP_LOGOUT</code> = <code>https://&lt;grist-domain&gt;</code> (since Google does not support Single Logout, just return the user to the homepage)</li>
-<li><code>GRIST_SAML_IDP_CERTS</code> = <code>.../google.pem</code> (provided to you by Google earlier)</li>
+<li><code>GRIST_SAML_IDP_LOGIN</code> = <code>https://accounts.google.com/o/saml2/idp?idpid=xxxx</code> (fourni par Google comme <code>SSO URL</code>)</li>
+<li><code>GRIST_SAML_IDP_LOGOUT</code> = <code>https://&lt;grist-domain&gt;</code> (puisque Google ne prend pas en charge Single Logout, renvoyez simplement l&rsquo;utilisateur à la page d&rsquo;accueil)</li>
+<li><code>GRIST_SAML_IDP_CERTS</code> = <code>.../google.pem</code> (fourni par Google plus tôt)</li>
 <li><code>GRIST_SAML_SP_KEY</code> = <code>.../saml.pem</code></li>
 <li><code>GRIST_SAML_SP_CERT</code> = <code>.../saml.crt</code></li>
 </ul>
-<p>To create the keypair used in <code>GRIST_SAML_SP_KEY</code> and <code>GRIST_SAML_SP_CERT</code>, follow the same instructions as for Auth0 and Authentik.</p>
-<p>Note: Google does not verify incoming SAML messages, so they do not allow uploading a public key for that purpose.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
-<p>We expect IdP to provide us with name_id, a unique identifier for the user.
-We also use optional attributes for the user&rsquo;s name, for which we accept any of:</p>
+<p>Pour créer la paire de clés utilisée dans <code>GRIST_SAML_SP_KEY</code> et <code>GRIST_SAML_SP_CERT</code>, suivez les mêmes instructions que pour Auth0 et Authentik.</p>
+<p>Note : Google ne vérifie pas les messages SAML entrants, ils ne permettent donc pas de télécharger une clé publique à cette fin.</p>
+<h2 id="depannage">Dépannage<a class="headerlink" href="#depannage" title="Permanent link">#</a></h2>
+<p>Nous nous attendons à ce que l&rsquo;IdP nous fournisse name_id, un identifiant unique pour l&rsquo;utilisateur.
+Nous utilisons également des attributs optionnels pour le nom de l&rsquo;utilisateur, pour lesquels nous acceptons n&rsquo;importe lequel de :</p>
 <ul>
 <li>FirstName</li>
 <li>LastName</li>
 <li>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname</li>
 <li>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname</li>
 </ul>
-<p>You may need to tweak your IdP&rsquo;s defaults to match Grist&rsquo;s expectations.</p>
+<p>Vous devrez peut-être ajuster les paramètres par défaut de votre IdP pour correspondre aux attentes de Grist.</p>
 
   <br>
 </div>

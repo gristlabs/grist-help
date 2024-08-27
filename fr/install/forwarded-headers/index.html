@@ -7,12 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="You may have a middleware that does authentication and then passes identity
-on to web applications in a header. If you do, then Grist can be configured
-to respect that header.">
-      <meta property="og:description" content="You may have a middleware that does authentication and then passes identity
-on to web applications in a header. If you do, then Grist can be configured
-to respect that header.">
+      <meta name="description" content="Vous pouvez avoir un middleware qui effectue l’authentification et transmet ensuite l’identité aux applications web dans un en-tête. Si c’est le cas, Grist peut être configuré pour respecter cet en-tête.">
+      <meta property="og:description" content="Vous pouvez avoir un middleware qui effectue l’authentification et transmet ensuite l’identité aux applications web dans un en-tête. Si c’est le cas, Grist peut être configuré pour respecter cet en-tête.">
     
     
     <link rel="canonical" href="https://support.getgrist.com/install/forwarded-headers/">
@@ -483,17 +479,17 @@ to respect that header.">
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              Forwarded Headers
+              En-têtes Transférés
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#example-traefik-forward-auth">
-                Example: traefik-forward-auth
+              <a class="wm-article-link wm-page-toc-text" href="#exemple-traefik-forward-auth">
+                Exemple : traefik-forward-auth
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#troubleshooting">
-                Troubleshooting
+              <a class="wm-article-link wm-page-toc-text" href="#depannage">
+                Dépannage
               </a>
             </li>
         
@@ -929,71 +925,41 @@ to respect that header.">
 
     <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 id="forwarded-headers">Forwarded Headers<a class="headerlink" href="#forwarded-headers" title="Permanent link">#</a></h1>
-<p>You may have a middleware that does authentication and then passes identity
-on to web applications in a header. If you do, then Grist can be configured
-to respect that header.</p>
+<h1 id="en-tetes-transferes">En-têtes Transférés<a class="headerlink" href="#en-tetes-transferes" title="Permanent link">#</a></h1>
+<p>Vous pouvez avoir un middleware qui effectue l&rsquo;authentification et transmet ensuite l&rsquo;identité aux applications web dans un en-tête. Si c&rsquo;est le cas, Grist peut être configuré pour respecter cet en-tête.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>The redirection logic for authentication using forwarded headers currently
-assumes a <a href="../../self-managed/#how-do-i-set-up-a-team">single team site</a>
-configuration, and may misbehave for multi-site configurations.</strong></p>
+<p class="admonition-title">Avertissement</p>
+<p><strong>La logique de redirection pour l&rsquo;authentification utilisant des en-têtes transférés suppose actuellement une configuration <a href="../../self-managed/#how-do-i-set-up-a-team">d&rsquo;un seul espace d&rsquo;équipe</a> et peut mal se comporter pour des configurations multi-sites.</strong></p>
 </div>
-<p>To make this work, here is what you&rsquo;ll need to do:</p>
+<p>Pour que cela fonctionne, voici ce que vous devez faire :</p>
 <ul>
-<li>Set <code>GRIST_FORWARD_AUTH_HEADER</code> to a header that will contain
-    authorized user emails, say <code>x-forwarded-user</code>. This needs to
-    match what your middleware will set.</li>
-<li>Make sure the <code>/auth/login</code> path is handled by your middleware
-    before reaching Grist.</li>
-<li>Set <code>GRIST_FORWARD_AUTH_LOGOUT_PATH</code> to a path that will trigger
-    a logout for your middleware (for example, <code>/_oauth/logout</code>).
-    Make sure that the logout path is handled by your middleware!</li>
-<li>If you want to allow anonymous access in some cases, make sure all
-    other Grist paths are free of your middleware. Grist will
-    trigger the middleware (by redirecting to <code>/auth/login</code>) as needed.
-    It&rsquo;s a good idea to strip <code>GRIST_FORWARD_AUTH_HEADER</code> from outside requests
-    on all paths that aren&rsquo;t handled by your middleware.</li>
-<li>Your middleware may allow you to specify where to forward the user to
-    after logging out. That should be <code>/signed-out</code> on the Grist site.</li>
+<li>Définissez <code>GRIST_FORWARD_AUTH_HEADER</code> sur un en-tête qui contiendra les emails des utilisateurs autorisés, par exemple <code>x-forwarded-user</code>. Cela doit correspondre à ce que votre middleware définira.</li>
+<li>Assurez-vous que le chemin <code>/auth/login</code> est géré par votre middleware avant d&rsquo;atteindre Grist.</li>
+<li>Définissez <code>GRIST_FORWARD_AUTH_LOGOUT_PATH</code> sur un chemin qui déclenchera une déconnexion pour votre middleware (par exemple, <code>/_oauth/logout</code>). Assurez-vous que le chemin de déconnexion est géré par votre middleware !</li>
+<li>Si vous souhaitez autoriser l&rsquo;accès anonyme dans certains cas, assurez-vous que tous les autres chemins de Grist sont libres de votre middleware. Grist déclenchera le middleware (en redirigeant vers <code>/auth/login</code>) si nécessaire. Il est conseillé de supprimer <code>GRIST_FORWARD_AUTH_HEADER</code> des requêtes externes sur tous les chemins qui ne sont pas gérés par votre middleware.</li>
+<li>Votre middleware peut vous permettre de spécifier où rediriger l&rsquo;utilisateur après la déconnexion. Cela devrait être <code>/signed-out</code> sur le site Grist.</li>
 </ul>
-<h2 id="example-traefik-forward-auth">Example: traefik-forward-auth<a class="headerlink" href="#example-traefik-forward-auth" title="Permanent link">#</a></h2>
+<h2 id="exemple-traefik-forward-auth">Exemple : traefik-forward-auth<a class="headerlink" href="#exemple-traefik-forward-auth" title="Permanent link">#</a></h2>
 <p><a href="https://github.com/thomseddon/traefik-forward-auth">traefik-forward-auth</a>
-is &ldquo;A minimal forward authentication service that provides OAuth/SSO
-login and authentication for the traefik reverse proxy/load balancer.&rdquo;</p>
+est &ldquo;Un service d&rsquo;authentification minimale qui fournit une connexion OAuth/SSO et une authentification pour le proxy inverse/équilibreur de charge traefik.&rdquo;</p>
 <ul>
 <li>
-<p>The <code>GRIST_FORWARD_AUTH_HEADER</code> should be <code>X-Forwarded-User</code>,
-    and this should be set in the <code>authResponseHeaders</code> settings for
-    traefik.</p>
+<p>Le <code>GRIST_FORWARD_AUTH_HEADER</code> doit être <code>X-Forwarded-User</code>, et cela doit être défini dans les paramètres <code>authResponseHeaders</code> pour traefik.</p>
 </li>
 <li>
-<p>The <code>GRIST_FORWARD_AUTH_LOGOUT_PATH</code> should be <code>/_oauth/logout</code>,
-    unless you have changed the default <code>url-path</code> setting for
-    traefik-forward-auth.</p>
+<p>Le <code>GRIST_FORWARD_AUTH_LOGOUT_PATH</code> doit être <code>/_oauth/logout</code>, sauf si vous avez modifié le paramètre <code>url-path</code> par défaut pour traefik-forward-auth.</p>
 </li>
 <li>
-<p><code>LOGOUT_REDIRECT</code> for traefik-forward-auth should be
-    <code>https://&lt;grist-site&gt;/signed-out</code>.</p>
+<p><code>LOGOUT_REDIRECT</code> pour traefik-forward-auth doit être <code>https://&lt;grist-site&gt;/signed-out</code>.</p>
 </li>
 </ul>
-<p>There are worked examples at <a href="https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856">A template for self-hosting Grist with traefik and docker compose</a> and <a href="https://github.com/gristlabs/grist-omnibus">Grist Omnibus</a>.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
-<p>For many, this method of authentication works great. A user with multiple
-web apps served by the same middleware had difficulty coordinating logouts.
-That could be resolved by applying the middleware to all Grist paths
-and setting <code>GRIST_IGNORE_SESSION=true</code> so Grist has no separate notion
-of who is signed in. But then sharing some documents with everyone
-publically (without signing in) became a problem. Note that with <code>GRIST_IGNORE_SESSION=true</code>,
-Grist will trust <code>GRIST_FORWARD_AUTH_HEADER</code> on all requests, so it is imperative that you have
-middleware that overrides or strips this header for <em>all</em> outside requests before forwarding them
-to Grist.</p>
-<p>If on the contrary you want to be sure the user must be logged in before
-using Grist in any way, you can set <code>GRIST_FORCE_LOGIN=true</code>.</p>
+<p>Il existe des exemples pratiques sur <a href="https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856">Un modèle pour l&rsquo;auto-hébergement de Grist avec traefik et docker compose</a> et <a href="https://github.com/gristlabs/grist-omnibus">Grist Omnibus</a>.</p>
+<h2 id="depannage">Dépannage<a class="headerlink" href="#depannage" title="Permanent link">#</a></h2>
+<p>Pour beaucoup, cette méthode d&rsquo;authentification fonctionne très bien. Un utilisateur avec plusieurs applications web servies par le même middleware a eu des difficultés à coordonner les déconnexions. Cela pourrait être résolu en appliquant le middleware à tous les chemins de Grist et en définissant <code>GRIST_IGNORE_SESSION=true</code> afin que Grist n&rsquo;ait aucune notion distincte de qui est connecté. Mais alors, partager certains documents avec tout le monde publiquement (sans se connecter) est devenu un problème. Notez qu&rsquo;avec <code>GRIST_IGNORE_SESSION=true</code>, Grist fera confiance à <code>GRIST_FORWARD_AUTH_HEADER</code> sur toutes les requêtes, il est donc impératif que vous ayez un middleware qui remplace ou supprime cet en-tête pour <em>toutes</em> les requêtes externes avant de les transférer à Grist.</p>
+<p>Si au contraire vous voulez être sûr que l&rsquo;utilisateur doit être connecté avant d&rsquo;utiliser Grist de quelque manière que ce soit, vous pouvez définir <code>GRIST_FORCE_LOGIN=true</code>.</p>
 
   <br>
 </div>
