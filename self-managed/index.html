@@ -1393,8 +1393,9 @@ do:</p>
 setting <code>APP_STATIC_URL</code>. If you do so, and you are using custom CSS,
 you&rsquo;ll need to ensure the custom CSS is available from that base URL.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-list-custom-widgets">How do I list custom widgets?<a class="headerlink" href="#how-do-i-list-custom-widgets" title="Permanent link">#</a></h3>
-<p>In our SaaS, Grist has a <a href="https://support.getgrist.com/newsletters/2022-02/#custom-widgets-menu">list of pre-built custom widgets</a> available in the UI.
-You can have your self-managed installation offer the same list by
+<p>In our SaaS, Grist has a list of pre-built custom widgets available in the UI.</p>
+<p><img alt="Custom widget gallery" src="../images/widget-custom/custom-widget-gallery.png" /></p>
+<p>You can have your self-managed installation offer the same list by
 setting the following:</p>
 <pre><code>docker run
   ...
@@ -1403,12 +1404,21 @@ setting the following:</p>
 </code></pre>
 <p>This is optional. If you leave the variable unset, documents with
 custom widgets will still work fine, but you&rsquo;ll need to enter a full
-URL when adding custom widgets rather than picking an option from a
-drop-down.</p>
+URL when adding custom widgets, rather than picking a widget from the
+gallery.</p>
 <p>You can make your own list of widgets available by forking
 <a href="https://github.com/gristlabs/grist-widget">github.com/gristlabs/grist-widget</a>
 or by manually preparing a <code>.json</code> file on a public server in the same
 format as our <code>manifest.json</code>.</p>
+<p>To customize the appearance of widgets in the gallery, the following
+fields may be set in the <code>manifest.json</code>:</p>
+<ul>
+<li><code>name</code>: The widget title.</li>
+<li><code>description</code>: An optional description shown below the widget title.</li>
+<li><code>authors</code>: An optional list of one or more widget authors. The
+ first author will be shown in the &ldquo;Developer&rdquo; field.</li>
+<li><code>lastUpdatedAt</code>: The date shown in the &ldquo;Last updated&rdquo; field.</li>
+</ul>
 <h3 class="tag-ee" id="how-do-i-set-up-email-notifications">How do I set up email notifications?<a class="headerlink" href="#how-do-i-set-up-email-notifications" title="Permanent link">#</a></h3>
 <p>In Grist SaaS, we send emails such as invitations to share a
 document using <a href="https://sendgrid.com/">SendGrid</a>.
