@@ -1,3 +1,7 @@
+---
+title: SAML
+---
+
 SAML {: .tag-core .tag-ee }
 ====
 

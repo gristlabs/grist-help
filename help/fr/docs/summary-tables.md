@@ -1,3 +1,7 @@
+---
+title: Summary tables
+---
+
 # Tables de synthèse
 
 Les tables de synthèse sont l'outil principal de l'analyse de données dans Grist. Elles sont similaires aux "tableaux croisés dynamiques" dans les feuilles de calcul, et aux clauses `GROUP BY` dans les bases de données. Elles vous permettent d'obtenir des totaux pour l'ensemble de la table ou des sous-totaux.

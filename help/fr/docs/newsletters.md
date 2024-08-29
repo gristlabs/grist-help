@@ -1,3 +1,7 @@
+---
+title: Newsletters
+---
+
 # Grist pour le Moulin
 
 Bienvenue dans notre bulletin mensuel de mises à jour et de conseils pour les utilisateurs de Grist. L'expression "Grist pour le moulin" signifie "expérience, matériel ou connaissance utile", reflétant parfaitement son objectif.

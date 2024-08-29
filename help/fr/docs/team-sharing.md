@@ -1,3 +1,7 @@
+---
+title: Sharing team sites
+---
+
 # Partage d'équipe
 
 Nous avons vu comment partager des documents individuels avec d'autres utilisateurs dans l'article [Partage](sharing.md). Les espaces d'équipe vous offrent un contrôle supplémentaire, vous permettant de partager les collections de documents d'un espace d'équipe en tout ou en partie avec d'autres. Vous pouvez également regrouper des documents en [espaces de travail](workspaces.md) et modifier les permissions au niveau de l'dossier.

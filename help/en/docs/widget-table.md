@@ -1,3 +1,7 @@
+---
+title: Table widget
+---
+
 # Page widget: Table
 
 The **Table** widget is a versatile spreadsheet-like grid.

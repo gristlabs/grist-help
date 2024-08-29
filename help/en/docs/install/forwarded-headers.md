@@ -1,3 +1,7 @@
+---
+title: Forwarded headers
+---
+
 Forwarded Headers
 =================
 

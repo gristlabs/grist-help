@@ -1,3 +1,7 @@
+---
+title: On-demand tables
+---
+
 # On-Demand Tables
 
 !!! warning "On-demand tables are an experimental feature"

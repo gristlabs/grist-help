@@ -1,3 +1,7 @@
+---
+title: Calendar
+---
+
 # Page widget: Calendar
 
 The calendar widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the calendar widget can be configured to display that data.

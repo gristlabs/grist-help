@@ -1,4 +1,8 @@
 ---
+title: REST API reference
+---
+
+---
 is_api: true
 comment: spaces in body are important, do not remove without checking result.
 toc:

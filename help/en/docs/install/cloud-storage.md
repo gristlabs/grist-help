@@ -1,3 +1,7 @@
+---
+title: Cloud storage
+---
+
 Cloud Storage {: .tag-core .tag-ee }
 =============
 

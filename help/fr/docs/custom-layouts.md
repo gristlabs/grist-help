@@ -1,3 +1,7 @@
+---
+title: Custom layouts
+---
+
 # Dispositions Personnalisées
 
 Vous pouvez facilement ajouter plusieurs vues à une page, comme décrit dans [Vues de page](page-widgets.md), et les lier comme décrit dans [Lier les vues](linking-widgets.md). Il est également facile de personnaliser leur agencement.

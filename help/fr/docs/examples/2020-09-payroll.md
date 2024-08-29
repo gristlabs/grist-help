@@ -1,3 +1,7 @@
+---
+title: Track payroll
+---
+
 # Suivi de la Paie
 
 Si vous avez des employés, alors vous suivez la paie. Vous utilisez peut-être un service de paie,

@@ -1,3 +1,7 @@
+---
+title: Workspaces
+---
+
 Espaces de travail
 -------------------------------
 

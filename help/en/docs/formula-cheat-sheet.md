@@ -1,3 +1,7 @@
+---
+title: Formula cheat sheet
+---
+
 Formula Cheat Sheet
 =========
 

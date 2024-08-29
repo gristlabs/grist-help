@@ -1,3 +1,7 @@
+---
+title: AWS Marketplace
+---
+
 AWS Marketplace {: .tag-core .tag-ee }
 ============
 

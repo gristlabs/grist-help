@@ -1,3 +1,7 @@
+---
+title: Function reference
+---
+
 <style>
     /* Makes headers for functions in-line with the "expand" arrow */
     .wm-page-content summary h4 {

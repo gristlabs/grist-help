@@ -1,3 +1,7 @@
+---
+title: Copying documents
+---
+
 # Copier des Documents
 
 Il est parfois utile de faire une copie, ou un clone, d'un document Grist. Quelques scénarios sont décrits ci-dessous. Dans tous les cas, vous commencerez par le menu "Partager" disponible dans la barre supérieure d'un document ouvert :

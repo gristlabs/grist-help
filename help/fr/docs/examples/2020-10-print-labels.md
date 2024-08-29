@@ -1,3 +1,7 @@
+---
+title: Print mailing labels
+---
+
 # Impression d'Étiquettes d'Adresse
 
 Imprimez-vous des étiquettes d'adresse ? En général, cela implique quelques étapes : d'abord exporter les adresses, puis les importer dans Word ou un autre logiciel capable de les disposer pour un type d'étiquette particulier.

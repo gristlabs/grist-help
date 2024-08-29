@@ -1,3 +1,7 @@
+---
+title: On-demand tables
+---
+
 # Tables à la Demande
 
 !!! warning "Les tables à la demande sont une fonctionnalité expérimentale"

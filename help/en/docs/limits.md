@@ -1,3 +1,7 @@
+---
+title: Limits
+---
+
 # Limits
 
 To help you assess whether Grist will work for a use-case you have in

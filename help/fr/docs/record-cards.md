@@ -1,3 +1,7 @@
+---
+title: Record cards
+---
+
 # Vue Fiche
 
 Les vues fiche sont un moyen rapide et facile de visualiser les détails d'un enregistrement.

@@ -1,3 +1,7 @@
+---
+title: grist-plugin-api
+---
+
 # Module: grist-plugin-api
 
 ## Table of contents

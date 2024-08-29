@@ -1,3 +1,7 @@
+---
+title: Limited telemetry
+---
+
 # Niveau de télémétrie : limité
 Il s'agit d'un niveau de télémétrie approprié pour les instances auto-hébergées de Grist.
 Les données sont transmises à Grist Labs.

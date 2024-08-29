@@ -1,3 +1,7 @@
+---
+title: References and lookups
+---
+
 Utiliser des références et des recherches dans les formules
 =========
 

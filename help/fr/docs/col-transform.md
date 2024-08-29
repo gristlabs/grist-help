@@ -1,3 +1,7 @@
+---
+title: Transformations
+---
+
 # Transformations de Colonne {: data-toc-label='' }
 
 Grist offre deux façons de transformer toutes les valeurs d'une colonne. L'une consiste à changer le type de la colonne, et l'autre à appliquer une transformation basée sur une formule.

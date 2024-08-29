@@ -1,3 +1,7 @@
+---
+title: Linking widgets
+---
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F5m_je0QKvs?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Lier des vues sur la page

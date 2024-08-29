@@ -1,3 +1,7 @@
+---
+title: Analyze and visualize
+---
+
 # Comment analyser et visualiser des données {: data-toc-label='' }
 
 Grist offre plusieurs moyens puissants d'analyser et de visualiser des données. Dans ce tutoriel, vous apprendrez à :

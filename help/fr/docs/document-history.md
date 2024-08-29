@@ -1,3 +1,7 @@
+---
+title: Document history
+---
+
 Historique du document
 -----------------------
 

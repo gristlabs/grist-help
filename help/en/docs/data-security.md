@@ -1,3 +1,7 @@
+---
+title: Data security
+---
+
 # Data Security
 
 Grist is available as a hosted service ("Grist SaaS") running

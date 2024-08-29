@@ -1,4 +1,5 @@
 ---
+title: Self-managed Grist
 description: The essentials of creating and maintaining a self-managed Grist installation.
 ---
 

@@ -1,3 +1,7 @@
+---
+title: Browser support
+---
+
 # Browser Support
 
 Grist is officially supported and regularly tested on modern Firefox and Google Chrome browsers on

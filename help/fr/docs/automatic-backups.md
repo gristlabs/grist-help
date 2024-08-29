@@ -1,3 +1,7 @@
+---
+title: Automatic backups
+---
+
 # Sauvegardes Automatiques
 
 Grist enregistre automatiquement des sauvegardes de vos documents pendant que vous travaillez dessus. Ces sauvegardes -- ou instantanés -- du document peuvent être examinées à tout moment.

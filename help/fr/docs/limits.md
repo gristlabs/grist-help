@@ -1,3 +1,7 @@
+---
+title: Limits
+---
+
 # Limites
 
 Pour vous aider à évaluer si Grist répondra à vos besoins, voici une liste des limitations qui s'appliquent à son fonctionnement.

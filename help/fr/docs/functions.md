@@ -1,3 +1,7 @@
+---
+title: Function reference
+---
+
 #   R é f é r e n c e   d e s   F o n c t i o n s   { :   d a t a - t o c - l a b e l = ' '   } 
  
  L e s   f o r m u l e s   G r i s t   p r e n n e n t   e n   c h a r g e   l a   p l u p a r t   d e s   f o n c t i o n s   E x c e l ,   a i n s i   q u e   l e   l a n g a g e   d e   p r o g r a m m a t i o n   P y t h o n . 

@@ -1,3 +1,7 @@
+---
+title: Prepare invoices
+---
+
 # Préparation des factures
 
 Si vous enregistrez qui est facturé pour quoi dans Grist, il peut être pratique de générer des factures directement à côté de ces enregistrements. Ce tutoriel vous montre comment configurer un document comme celui-ci :

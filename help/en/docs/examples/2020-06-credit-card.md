@@ -1,3 +1,7 @@
+---
+title: Credit card expenses
+---
+
 # Slicing and Dicing Expenses
 
 Grist offers a handy way to explore your credit card transactions quickly, for example if you want to see transactions by:

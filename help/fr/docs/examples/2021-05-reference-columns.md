@@ -1,3 +1,7 @@
+---
+title: Reference columns guide
+---
+
 # Guide des Colonnes de Référence
 
 ## Maîtriser les Colonnes de Référence en 3 Étapes

@@ -1,3 +1,7 @@
+---
+title: Custom
+---
+
 # Page widget: Custom
 
 The **Custom** widget allows a user to insert almost

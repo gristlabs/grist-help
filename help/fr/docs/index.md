@@ -1,3 +1,7 @@
+---
+title: Welcome to Grist
+---
+
 # Bienvenue sur Grist! {: data-toc-label='' }
 
 <div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">

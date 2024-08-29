@@ -1,3 +1,7 @@
+---
+title: Treasure hunt
+---
+
 # Planifier une Chasse au Trésor
 
 Une chasse au trésor est une activité ludique pour une fête qui se déroule ainsi :

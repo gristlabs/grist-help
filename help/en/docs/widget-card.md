@@ -1,3 +1,7 @@
+---
+title: Card & card list
+---
+
 # Page widget: Card &amp; Card List {: data-toc-label='Page widget: Card' }
 
 The **Card** and **Card List** widgets allow viewing data as a form or a record, similar to how data

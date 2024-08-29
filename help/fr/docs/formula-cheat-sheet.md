@@ -1,3 +1,7 @@
+---
+title: Formula cheat sheet
+---
+
 # Fiche de Formules
 
 Grist dispose d'un puissant moteur de données pour calculer les cellules de vos tables à l'aide de formules. Les formules Grist sont écrites en [Python](https://docs.python.org/3/library/){:target="\_blank"}, le langage le plus populaire pour la science des données. Nous avons également une suite de [fonctions](functions.md) semblables à celles d'Excel, avec des noms en majuscules. Voici quelques notes utiles :

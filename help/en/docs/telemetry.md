@@ -1,3 +1,7 @@
+---
+title: Overview of telemetry
+---
+
 # Overview of Telemetry
 
 Grist development is guided by telemetry: a set of measurements

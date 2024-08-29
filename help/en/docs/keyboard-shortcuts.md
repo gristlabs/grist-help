@@ -1,3 +1,7 @@
+---
+title: Keyboard shortcuts
+---
+
 # Grist Shortcuts
 
 <!-- START -->

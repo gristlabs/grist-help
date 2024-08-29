@@ -1,3 +1,7 @@
+---
+title: Prefill emails
+---
+
 # Préparer des Emails en Utilisant des Formules
 
 Vous savez peut-être déjà que vous pouvez ajouter des [champs de lien hypertexte](../col-types.md#hyperlinks) dans Grist. Vous savez peut-être aussi que les liens "mailto" ouvrent un programme de messagerie pour créer un nouveau message électronique.

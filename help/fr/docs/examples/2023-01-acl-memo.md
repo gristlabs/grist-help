@@ -1,3 +1,7 @@
+---
+title: Restrict duplicate records
+---
+
 # Règles d'accès pour restreindre les enregistrements en double
 
 Supposons que nous ayons une table listant les aéroports, et que nous voulions

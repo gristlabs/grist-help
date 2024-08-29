@@ -1,3 +1,7 @@
+---
+title: Entering data
+---
+
 # Saisie de données
 
 Une grille de type tableur est un excellent moyen de visualiser les données. Dans Grist, c'est la vue

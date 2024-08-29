@@ -1,3 +1,7 @@
+---
+title: Time and user stamps
+---
+
 # Automatic Time and User Stamps Guide
 
 It is sometimes useful to know when a record was last updated or created, and by whom. Grist makes

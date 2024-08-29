@@ -1,3 +1,7 @@
+---
+title: References and lookups
+---
+
 Using References and Lookups in Formulas
 =========
 

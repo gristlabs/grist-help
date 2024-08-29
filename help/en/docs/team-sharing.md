@@ -1,3 +1,7 @@
+---
+title: Sharing team sites
+---
+
 # Team Sharing
 
 We saw how to share individual documents with other users in the

@@ -1,3 +1,7 @@
+---
+title: FAQ
+---
+
 # Questions Fréquemment Posées
 
 [TOC]

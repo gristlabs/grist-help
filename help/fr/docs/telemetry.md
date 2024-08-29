@@ -1,3 +1,7 @@
+---
+title: Overview of telemetry
+---
+
 # Aperçu de la Télémétrie
 
 Le développement de Grist est guidé par la télémétrie : un ensemble de mesures visant à quantifier les aspects de l'utilisation de Grist. Une installation autogérée de Grist ne fait par défaut aucune télémétrie. Lorsque la télémétrie est activée, les données d'utilisation sont envoyées à un service maintenu par Grist Labs.

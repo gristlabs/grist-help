@@ -1,3 +1,7 @@
+---
+title: Importing more data
+---
+
 # Importing more data
 
 You can import a file to [start a new Grist document](creating-doc.md), or to

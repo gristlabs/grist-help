@@ -1,3 +1,7 @@
+---
+title: Full telemetry
+---
+
 # Niveau de télémétrie : complet
 Ceci est un niveau de télémétrie approprié pour une utilisation interne par un service hébergé, avec `GRIST_TELEMETRY_URL` défini sur un point de terminaison contrôlé par l'opérateur du service.
 

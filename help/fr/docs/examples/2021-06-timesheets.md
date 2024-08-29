@@ -1,3 +1,7 @@
+---
+title: Summary tables guide
+---
+
 # Guide des Tables de Résumé
 
 ## Maîtriser les Tables de Résumé avec 2 Concepts

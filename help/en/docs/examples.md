@@ -1,3 +1,7 @@
+---
+title: More examples
+---
+
 # More Examples
 
 Here we will post useful examples of what you can do with Grist, sometimes with

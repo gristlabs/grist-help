@@ -1,3 +1,7 @@
+---
+title: Working with dates
+---
+
 Vue d'ensemble
 ---------------
 

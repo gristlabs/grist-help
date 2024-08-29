@@ -1,3 +1,7 @@
+---
+title: Integrator services
+---
+
 # Integrator Services
 
 Grist can be connected to thousands of other services via integrators with Grist support. These

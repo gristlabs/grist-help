@@ -1,3 +1,7 @@
+---
+title: Welcome to Grist
+---
+
 # Welcome to Grist! {: data-toc-label='' }
 
 [Grist](https://www.getgrist.com) is a software product to organize, analyze, and share data.

@@ -1,3 +1,7 @@
+---
+title: Manage business data
+---
+
 # Comment gérer les données commerciales {: data-toc-label='Intro' }
 
 Grist brille lorsque vos données commerciales présentent une certaine complexité. Dans cet exemple, nous allons examiner une organisation qui propose des activités périscolaires pour les enfants.

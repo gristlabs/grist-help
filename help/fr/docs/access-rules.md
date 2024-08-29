@@ -1,3 +1,7 @@
+---
+title: Intro to access rules
+---
+
 Règles d'accès
 ==============
 
