@@ -1,0 +1,42 @@
+name: Add missing entries in sections-translations.yml files
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-languages:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m venv env
+        source env/bin/activate
+        pip install -r requirements.txt
+
+    - name: Run update-languages action
+      run: |
+        source env/bin/activate
+        ./docs.py update-languages
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v6
+      with:
+        commit-message: Add missing keys in sections-translations.yml files
+        title: Add missing keys in sections-translations.yml files
+        body: Some sections were missing in at least one sections-translations.yml file, which contain the translations for the section menus at the left. This file is then displayed in GitLocalize for the translators.
+        branch: update-sections-translations
+        base: master
+
