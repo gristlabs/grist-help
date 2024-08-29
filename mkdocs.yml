@@ -18,162 +18,162 @@ theme:
   # Disable the language selector when running in live (so for a specific language)
   disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
 nav:
-  - Welcome to Grist: index.md
-  - FAQ: FAQ.md
+  - index.md
+  - FAQ.md
   - How-to tutorials:
-    - Create your own CRM: lightweight-crm.md
-    - Analyze and visualize: investment-research.md
-    - Manage business data: afterschool-program.md
+    - lightweight-crm.md
+    - investment-research.md
+    - afterschool-program.md
   - Managing documents:
-    - Creating a document: creating-doc.md
-    - Sharing a document: sharing.md
-    - Copying documents: copying-docs.md
-    - Importing more data: imports.md
-    - Exports & backups: exports.md
-    - Automatic backups: automatic-backups.md
-    - Document history: document-history.md
-    - Workspaces: workspaces.md
+    - creating-doc.md
+    - sharing.md
+    - copying-docs.md
+    - imports.md
+    - exports.md
+    - automatic-backups.md
+    - document-history.md
+    - workspaces.md
   - Pages and tables:
-    - Entering data: enter-data.md
-    - Pages & widgets: page-widgets.md
-    - Raw data: raw-data.md
-    - Search, sort & filter: search-sort-filter.md
-    - Table widget: widget-table.md
-    - Card & card list: widget-card.md
-    - Form: widget-form.md
-    - Chart: widget-chart.md
-    - Calendar: widget-calendar.md
-    - Custom: widget-custom.md
-    - Linking widgets: linking-widgets.md
-    - Custom layouts: custom-layouts.md
-    - Record cards: record-cards.md
-    - Summary tables: summary-tables.md
-    - On-demand tables: on-demand-tables.md
+    - enter-data.md
+    - page-widgets.md
+    - raw-data.md
+    - search-sort-filter.md
+    - widget-table.md
+    - widget-card.md
+    - widget-form.md
+    - widget-chart.md
+    - widget-calendar.md
+    - widget-custom.md
+    - linking-widgets.md
+    - custom-layouts.md
+    - record-cards.md
+    - summary-tables.md
+    - on-demand-tables.md
   - Columns and data types:
-    - Columns & types: col-types.md
-    - Reference columns: col-refs.md
-    - Conditional formatting: conditional-formatting.md
-    - Timestamp columns: timestamps.md
-    - Authorship columns: authorship.md
-    - Transformations: col-transform.md
+    - col-types.md
+    - col-refs.md
+    - conditional-formatting.md
+    - timestamps.md
+    - authorship.md
+    - col-transform.md
   - Using formulas:
-    - Intro to formulas: formulas.md
-    - References and lookups: references-lookups.md
-    - Working with dates: dates.md
-    - Formula timer: formula-timer.md
-    - Python versions: python.md
-    - Function reference: functions.md
-    - Formula cheat sheet: formula-cheat-sheet.md
+    - formulas.md
+    - references-lookups.md
+    - dates.md
+    - formula-timer.md
+    - python.md
+    - functions.md
+    - formula-cheat-sheet.md
   - AI Formula Assistant:
-    - AI Formula Assistant: ai-assistant.md
+    - ai-assistant.md
   - Team sites:
-    - Creating team sites: teams.md
-    - Sharing team sites: team-sharing.md
+    - teams.md
+    - team-sharing.md
   - Access rules:
-    - Intro to access rules: access-rules.md
+    - access-rules.md
   - Integrations:
-    - REST API usage: rest-api.md
-    - REST API reference: api.md
-    - Integrator services: integrators.md
-    - Embedding: embedding.md
-    - Webhooks: webhooks.md
+    - rest-api.md
+    - api.md
+    - integrators.md
+    - embedding.md
+    - webhooks.md
     - Plugin API:
-      - Intro to Plugin API: code/README.md
-      - grist-plugin-api: code/modules/grist_plugin_api.md
+      - code/README.md
+      - code/modules/grist_plugin_api.md
       - ... | flat | **/code/interfaces/**
       - ... | flat | **/code/modules/**
   - Self-managed:
-    - Self-managed Grist: self-managed.md
-    - SAML: install/saml.md
-    - OIDC: install/oidc.md
-    - Forwarded headers: install/forwarded-headers.md
-    - Cloud storage: install/cloud-storage.md
-    - GristConnect: install/grist-connect.md
-    - AWS Marketplace: install/aws-marketplace.md
+    - self-managed.md
+    - install/saml.md
+    - install/oidc.md
+    - install/forwarded-headers.md
+    - install/cloud-storage.md
+    - install/grist-connect.md
+    - install/aws-marketplace.md
     - Telemetry:
-      - Overview of telemetry: telemetry.md
-      - Limited telemetry: telemetry-limited.md
-      - Full telemetry: telemetry-full.md
+      - telemetry.md
+      - telemetry-limited.md
+      - telemetry-full.md
   - News & updates:
-    - Newsletters: newsletters.md
-    - 2024/07: newsletters/2024-07.md
-    - 2024/06: newsletters/2024-06.md  
-    - 2024/05: newsletters/2024-05.md  
-    - 2024/04: newsletters/2024-04.md      
-    - 2024/03: newsletters/2024-03.md    
-    - 2024/02: newsletters/2024-02.md
-    - 2024/01: newsletters/2024-01.md
-    - 2023/12: newsletters/2023-12.md
-    - 2023/11: newsletters/2023-11.md
-    - 2023/10: newsletters/2023-10.md
-    - 2023/09: newsletters/2023-09.md
-    - 2023/08: newsletters/2023-08.md
-    - 2023/07: newsletters/2023-07.md
-    - 2023/06: newsletters/2023-06.md
-    - 2023/05: newsletters/2023-05.md
-    - 2023/04: newsletters/2023-04.md
-    - 2023/03: newsletters/2023-03.md
-    - 2023/02: newsletters/2023-02.md
-    - 2023/01: newsletters/2023-01.md
-    - 2022/12: newsletters/2022-12.md
-    - 2022/11: newsletters/2022-11.md
-    - 2022/10: newsletters/2022-10.md
-    - 2022/09: newsletters/2022-09.md
-    - 2022/08: newsletters/2022-08.md
-    - 2022/07: newsletters/2022-07.md
-    - 2022/06: newsletters/2022-06.md
-    - 2022/05: newsletters/2022-05.md
-    - 2022/04: newsletters/2022-04.md
-    - 2022/03: newsletters/2022-03.md
-    - 2022/02: newsletters/2022-02.md
-    - 2022/01: newsletters/2022-01.md
-    - 2021/12: newsletters/2021-12.md
-    - 2021/11: newsletters/2021-11.md
-    - 2021/10: newsletters/2021-10.md
-    - 2021/09: newsletters/2021-09.md
-    - 2021/08: newsletters/2021-08.md
-    - 2021/07: newsletters/2021-07.md
-    - 2021/06: newsletters/2021-06.md
-    - 2021/05: newsletters/2021-05.md
-    - 2021/04: newsletters/2021-04.md
-    - 2021/03: newsletters/2021-03.md
-    - 2021/02: newsletters/2021-02.md
-    - 2021/01: newsletters/2021-01.md
-    - 2020/12: newsletters/2020-12.md
-    - 2020/11: newsletters/2020-11.md
-    - 2020/10: newsletters/2020-10.md
-    - 2020/09: newsletters/2020-09.md
-    - 2020/08: newsletters/2020-08.md
-    - 2020/07: newsletters/2020-07.md
-    - 2020/06: newsletters/2020-06.md
-    - 2020/05: newsletters/2020-05.md
+    - newsletters.md
+    - newsletters/2024-07.md
+    - newsletters/2024-06.md
+    - newsletters/2024-05.md
+    - newsletters/2024-04.md
+    - newsletters/2024-03.md
+    - newsletters/2024-02.md
+    - newsletters/2024-01.md
+    - newsletters/2023-12.md
+    - newsletters/2023-11.md
+    - newsletters/2023-10.md
+    - newsletters/2023-09.md
+    - newsletters/2023-08.md
+    - newsletters/2023-07.md
+    - newsletters/2023-06.md
+    - newsletters/2023-05.md
+    - newsletters/2023-04.md
+    - newsletters/2023-03.md
+    - newsletters/2023-02.md
+    - newsletters/2023-01.md
+    - newsletters/2022-12.md
+    - newsletters/2022-11.md
+    - newsletters/2022-10.md
+    - newsletters/2022-09.md
+    - newsletters/2022-08.md
+    - newsletters/2022-07.md
+    - newsletters/2022-06.md
+    - newsletters/2022-05.md
+    - newsletters/2022-04.md
+    - newsletters/2022-03.md
+    - newsletters/2022-02.md
+    - newsletters/2022-01.md
+    - newsletters/2021-12.md
+    - newsletters/2021-11.md
+    - newsletters/2021-10.md
+    - newsletters/2021-09.md
+    - newsletters/2021-08.md
+    - newsletters/2021-07.md
+    - newsletters/2021-06.md
+    - newsletters/2021-05.md
+    - newsletters/2021-04.md
+    - newsletters/2021-03.md
+    - newsletters/2021-02.md
+    - newsletters/2021-01.md
+    - newsletters/2020-12.md
+    - newsletters/2020-11.md
+    - newsletters/2020-10.md
+    - newsletters/2020-09.md
+    - newsletters/2020-08.md
+    - newsletters/2020-07.md
+    - newsletters/2020-06.md
+    - newsletters/2020-05.md
   - More examples:
-      - More examples: examples.md
-      - Credit card expenses: examples/2020-06-credit-card.md
-      - Book club links: examples/2020-06-book-club.md
-      - Prefill emails: examples/2020-07-email-compose.md
-      - Prepare invoices: examples/2020-08-invoices.md
-      - Track payroll: examples/2020-09-payroll.md
-      - Print mailing labels: examples/2020-10-print-labels.md
-      - Treasure hunt: examples/2020-11-treasure-hunt.md
-      - Map: examples/2020-12-map.md
-      - Task management: examples/2021-01-tasks.md
-      - Lead list: examples/2021-03-leads.md
-      - Link keys guide: examples/2021-04-link-keys.md
-      - Reference columns guide: examples/2021-05-reference-columns.md
-      - Summary tables guide: examples/2021-06-timesheets.md
-      - Time and user stamps: examples/2021-07-auto-stamps.md
-      - Restrict duplicate records: examples/2023-01-acl-memo.md
-      - Proposals & contracts: examples/2023-07-proposals-contracts.md
+      - examples.md
+      - examples/2020-06-credit-card.md
+      - examples/2020-06-book-club.md
+      - examples/2020-07-email-compose.md
+      - examples/2020-08-invoices.md
+      - examples/2020-09-payroll.md
+      - examples/2020-10-print-labels.md
+      - examples/2020-11-treasure-hunt.md
+      - examples/2020-12-map.md
+      - examples/2021-01-tasks.md
+      - examples/2021-03-leads.md
+      - examples/2021-04-link-keys.md
+      - examples/2021-05-reference-columns.md
+      - examples/2021-06-timesheets.md
+      - examples/2021-07-auto-stamps.md
+      - examples/2023-01-acl-memo.md
+      - examples/2023-07-proposals-contracts.md
   - Reference:
-    - Keyboard shortcuts: keyboard-shortcuts.md
+    - keyboard-shortcuts.md
     # The function reference (functions.md) is listed above; here is an intentionally non-standard
     # link, so that only the above page item gets highlighted when the function reference is open.
-    - Function reference: /functions/
-    - Limits: limits.md
-    - Data security: data-security.md
-    - Browser support: browser-support.md
-    - Glossary: glossary.md
+    - functions.md
+    - limits.md
+    - data-security.md
+    - browser-support.md
+    - glossary.md
 
 extra:
   logo: 'images/logo.png'
