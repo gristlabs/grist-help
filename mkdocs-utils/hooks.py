@@ -113,12 +113,7 @@ def _inject_warning(markdown: str, warning: str, page: Page):
   for excluded_section in non_translated_sections:
     if page.file.src_path.startswith(excluded_section):
       return markdown
-  missing_translation_content = warning
-  header = ""
-  body = markdown
-  if markdown.startswith("#"):
-    header, _, body = markdown.partition("\n\n")
-  return f"{header}\n\n{missing_translation_content}\n\n{body}"
+  return f"{warning}\n\n{markdown}"
 
 def on_page_markdown(
   markdown: str, *, page: Page, config: MkDocsConfig, **_: Any
