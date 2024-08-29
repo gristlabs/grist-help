@@ -63,6 +63,20 @@ paths:
       responses:
         200:
           description: Success
+    delete:
+      operationId: deleteOrg
+      tags:
+        - orgs
+      summary: "Delete an org"
+      parameters:
+        - $ref: '#/components/parameters/orgIdPathParam'
+      responses:
+        200:
+          description: Success
+        403:
+          description: Access denied
+        404:
+          description: Not found
 
   /orgs/{orgId}/access:
     get:
