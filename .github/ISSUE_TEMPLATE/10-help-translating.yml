@@ -25,6 +25,7 @@ body:
       multiple: true
       options:
         - French
+        - Italian
         - Others (please detail below)
     validations:
       required: true
