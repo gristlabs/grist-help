@@ -1550,7 +1550,7 @@ True
 
 </details>
 <details markdown><summary >
-#### <code>__OR__(expression_logique, *expressions_logiques)</code> {: #or data-toc-label="OR" }
+#### <code>__OR__(logical_expression, *logical_expressions)</code> {: #or data-toc-label="OR" }
 </summary>
 Renvoie True si l'un des arguments est logiquement vrai, et faux si tous les
 arguments sont faux.
@@ -1608,7 +1608,7 @@ True
 </details>
 ### Recherche
 <details markdown><summary >
-#### <code>UserTable.__lookupOne__(Champ_Dans_Table_D_Appairage=valeur, ...)</code> {: #lookupone_2 data-toc-label="lookupOne" }
+#### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone_2 data-toc-label="lookupOne" }
 </summary>
 Renvoie un [Enregistrement](#record) correspondant aux arguments champ=valeur donnés. La valeur peut être n'importe quelle
 expression,
@@ -1637,7 +1637,7 @@ Rates.lookupOne(Person=$id, order_by="-Date")      # Taux avec la dernière date
 ```
 </details>
 <details markdown><summary >
-#### <code>UserTable.__lookupRecords__(Champ_Dans_Table_D_Appairage=valeur, ...)</code> {: #lookuprecords_2 data-toc-label="lookupRecords" }
+#### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords_2 data-toc-label="lookupRecords" }
 </summary>
 Renvoie un [Ensemble d'Enregistrements](#recordset) correspondant aux arguments champ=valeur donnés. La valeur peut être
 n'importe quelle expression,
@@ -1679,35 +1679,35 @@ où un champ d'un type de liste (tel que `Liste de Choix` ou `Liste de Référen
 En savoir plus sur [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__ADDRESS__(ligne, colonne, mode_absolu_relatif, utiliser_notation_a1, feuille)</code> {: #address data-toc-label="ADDRESS" }
+#### <code>__ADDRESS__(row, column, absolute_relative_mode, use_a1_notation, sheet)</code> {: #address data-toc-label="ADDRESS" }
 </summary>
 Renvoie une référence de cellule sous forme de chaîne.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__CHOOSE__(index, choix1, choix2)</code> {: #choose data-toc-label="CHOOSE" }
+#### <code>__CHOOSE__(index, choice1, choice2)</code> {: #choose data-toc-label="CHOOSE" }
 </summary>
 Renvoie un élément d'une liste de choix en fonction de l'index.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__COLUMN__(référence_cellule=None)</code> {: #column data-toc-label="COLUMN" }
+#### <code>__COLUMN__(cell_reference=None)</code> {: #column data-toc-label="COLUMN" }
 </summary>
 Renvoie le numéro de colonne d'une cellule spécifiée, avec `A=1`.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__COLUMNS__(intervalle)</code> {: #columns data-toc-label="COLUMNS" }
+#### <code>__COLUMNS__(range)</code> {: #columns data-toc-label="COLUMNS" }
 </summary>
 Renvoie le nombre de colonnes dans un tableau ou un intervalle spécifié.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary >
-#### <code>__CONTAINS__(valeur, correspondre_vide=no_match_empty)</code> {: #contains data-toc-label="CONTAINS" }
+#### <code>__CONTAINS__(value, match_empty=no_match_empty)</code> {: #contains data-toc-label="CONTAINS" }
 </summary>
 Utilisez ce marqueur avec [UserTable.lookupRecords](#lookuprecords) pour trouver des enregistrements
 où un champ d'un type de liste (tel que `Liste de Choix` ou `Liste de Références`) contient la valeur donnée.
@@ -1737,77 +1737,77 @@ Si `g` est `''` (c'est-à-dire égal à `match_empty`), alors la colonne `genre`
 sera soit une liste vide (ou un autre conteneur) soit une liste contenant `g` comme d'habitude.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__GETPIVOTDATA__(nom_valeur, n'importe_quel_cellule_tableau_pivot, colonne_originale_1, élément_pivot_1=None, *args)</code> {: #getpivotdata data-toc-label="GETPIVOTDATA" }
+#### <code>__GETPIVOTDATA__(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code> {: #getpivotdata data-toc-label="GETPIVOTDATA" }
 </summary>
 Extrait une valeur agrégée d'un tableau croisé dynamique qui correspond aux en-têtes de ligne et de colonne spécifiés.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__HLOOKUP__(clé_recherche, intervalle, index, est_trié)</code> {: #hlookup data-toc-label="HLOOKUP" }
+#### <code>__HLOOKUP__(search_key, range, index, is_sorted)</code> {: #hlookup data-toc-label="HLOOKUP" }
 </summary>
 Recherche horizontale. Recherche dans la première ligne d'un intervalle pour une clé et renvoie la valeur d'une cellule spécifiée dans la colonne trouvée.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__HYPERLINK__(url, étiquette_lien)</code> {: #hyperlink data-toc-label="HYPERLINK" }
+#### <code>__HYPERLINK__(url, link_label)</code> {: #hyperlink data-toc-label="HYPERLINK" }
 </summary>
 Crée un lien hypertexte à l'intérieur d'une cellule.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__INDEX__(référence, ligne, colonne)</code> {: #index data-toc-label="INDEX" }
+#### <code>__INDEX__(reference, row, column)</code> {: #index data-toc-label="INDEX" }
 </summary>
 Renvoie le contenu d'une cellule, spécifié par un décalage de ligne et de colonne.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__INDIRECT__(référence_cellule_en_chaine)</code> {: #indirect data-toc-label="INDIRECT" }
+#### <code>__INDIRECT__(cell_reference_as_string)</code> {: #indirect data-toc-label="INDIRECT" }
 </summary>
 Renvoie une référence de cellule spécifiée par une chaîne.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__LOOKUP__(clé_recherche, plage_de_recherche_ou_tableau_de_résultat_de_recherche, plage_de_résultat=None)</code> {: #lookup data-toc-label="LOOKUP" }
+#### <code>__LOOKUP__(search_key, search_range_or_search_result_array, result_range=None)</code> {: #lookup data-toc-label="LOOKUP" }
 </summary>
 Recherche dans une ligne ou une colonne pour une clé et renvoie la valeur de la cellule dans une plage de résultats située à la même position que la ligne ou la colonne de recherche.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__MATCH__(clé_recherche, intervalle, type_recherche)</code> {: #match data-toc-label="MATCH" }
+#### <code>__MATCH__(search_key, range, search_type)</code> {: #match data-toc-label="MATCH" }
 </summary>
 Renvoie la position relative d'un élément dans un intervalle qui correspond à une valeur spécifiée.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__OFFSET__(référence_cellule, décalage_lignes, décalage_colonnes, hauteur, largeur)</code> {: #offset data-toc-label="OFFSET" }
+#### <code>__OFFSET__(cell_reference, offset_rows, offset_columns, height, width)</code> {: #offset data-toc-label="OFFSET" }
 </summary>
 Renvoie une référence de plage décalée d'un nombre spécifié de lignes et de colonnes à partir d'une référence de cellule de départ.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__ROW__(référence_cellule)</code> {: #row data-toc-label="ROW" }
+#### <code>__ROW__(cell_reference)</code> {: #row data-toc-label="ROW" }
 </summary>
 Renvoie le numéro de ligne d'une cellule spécifiée.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__ROWS__(intervalle)</code> {: #rows data-toc-label="ROWS" }
+#### <code>__ROWS__(range)</code> {: #rows data-toc-label="ROWS" }
 </summary>
 Renvoie le nombre de lignes dans un tableau ou un intervalle spécifié.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary >
-#### <code>__SELF_HYPERLINK__(étiquette=None, page=None, **kwargs)</code> {: #self_hyperlink data-toc-label="SELF_HYPERLINK" }
+#### <code>__SELF_HYPERLINK__(label=None, page=None, **kwargs)</code> {: #self_hyperlink data-toc-label="SELF_HYPERLINK" }
 </summary>
 Crée un lien vers le document actuel. Tous les paramètres sont optionnels.
 
@@ -1858,7 +1858,7 @@ TypeError: unexpected keyword argument 'Linky_Link' (not of form LinkKey_NAME)
 
 </details>
 <details markdown><summary >
-#### <code>__VLOOKUP__(table, **champ_valeur_paires)</code> {: #vlookup data-toc-label="VLOOKUP" }
+#### <code>__VLOOKUP__(table, **field_value_pairs)</code> {: #vlookup data-toc-label="VLOOKUP" }
 </summary>
 Recherche verticale. Recherche dans la table donnée pour un enregistrement correspondant aux arguments `champ=valeur` donnés. Si plusieurs enregistrements correspondent, renvoie l'un d'eux. Si aucun ne correspond, renvoie l'enregistrement vide spécial.
 
@@ -1879,7 +1879,7 @@ VLOOKUP(People, First_Name="Lewis", Last_Name="Carroll").Age
 </details>
 ### Math
 <details markdown><summary >
-#### <code>__ABS__(valeur)</code> {: #abs data-toc-label="ABS" }
+#### <code>__ABS__(value)</code> {: #abs data-toc-label="ABS" }
 </summary>
 Renvoie la valeur absolue d'un nombre.
 
@@ -1901,7 +1901,7 @@ Renvoie la valeur absolue d'un nombre.
 
 </details>
 <details markdown><summary >
-#### <code>__ACOS__(valeur)</code> {: #acos data-toc-label="ACOS" }
+#### <code>__ACOS__(value)</code> {: #acos data-toc-label="ACOS" }
 </summary>
 Renvoie le cosinus inverse d'une valeur, en radians.
 
@@ -1918,7 +1918,7 @@ Renvoie le cosinus inverse d'une valeur, en radians.
 
 </details>
 <details markdown><summary >
-#### <code>__ACOSH__(valeur)</code> {: #acosh data-toc-label="ACOSH" }
+#### <code>__ACOSH__(value)</code> {: #acosh data-toc-label="ACOSH" }
 </summary>
 Renvoie le cosinus hyperbolique inverse d'un nombre.
 
@@ -1935,7 +1935,7 @@ Renvoie le cosinus hyperbolique inverse d'un nombre.
 
 </details>
 <details markdown><summary >
-#### <code>__ARABIC__(numeral_roman)</code> {: #arabic data-toc-label="ARABIC" }
+#### <code>__ARABIC__(roman_numeral)</code> {: #arabic data-toc-label="ARABIC" }
 </summary>
 Calcule la valeur d'un chiffre romain.
 
@@ -1952,7 +1952,7 @@ Calcule la valeur d'un chiffre romain.
 
 </details>
 <details markdown><summary >
-#### <code>__ASIN__(valeur)</code> {: #asin data-toc-label="ASIN" }
+#### <code>__ASIN__(value)</code> {: #asin data-toc-label="ASIN" }
 </summary>
 Renvoie le sinus inverse d'une valeur, en radians.
 
@@ -1974,7 +1974,7 @@ Renvoie le sinus inverse d'une valeur, en radians.
 
 </details>
 <details markdown><summary >
-#### <code>__ASINH__(valeur)</code> {: #asinh data-toc-label="ASINH" }
+#### <code>__ASINH__(value)</code> {: #asinh data-toc-label="ASINH" }
 </summary>
 Renvoie le sinus hyperbolique inverse d'un nombre.
 
@@ -1991,7 +1991,7 @@ Renvoie le sinus hyperbolique inverse d'un nombre.
 
 </details>
 <details markdown><summary >
-#### <code>__ATAN__(valeur)</code> {: #atan data-toc-label="ATAN" }
+#### <code>__ATAN__(value)</code> {: #atan data-toc-label="ATAN" }
 </summary>
 Renvoie l'arc tangente d'une valeur, en radians.
 
@@ -2045,7 +2045,7 @@ Renvoie l'angle entre l'axe x et un segment de ligne allant de l'origine (0,0) �
 
 </details>
 <details markdown><summary >
-#### <code>__ATANH__(valeur)</code> {: #atanh data-toc-label="ATANH" }
+#### <code>__ATANH__(value)</code> {: #atanh data-toc-label="ATANH" }
 </summary>
 Renvoie le sinus hyperbolique inverse d'un nombre.
 
@@ -2062,7 +2062,7 @@ Renvoie le sinus hyperbolique inverse d'un nombre.
 
 </details>
 <details markdown><summary >
-#### <code>__CEILING__(valeur, facteur=1)</code> {: #ceiling data-toc-label="CEILING" }
+#### <code>__CEILING__(value, factor=1)</code> {: #ceiling data-toc-label="CEILING" }
 </summary>
 Arrondit un nombre à la multiple supérieure la plus proche du facteur, ou à l'entier le plus proche si le facteur est
 ommis ou 1.
@@ -2139,7 +2139,7 @@ Renvoie le cosinus d'un angle donné en radians.
 
 </details>
 <details markdown><summary >
-#### <code>__COSH__(valeur)</code> {: #cosh data-toc-label="COSH" }
+#### <code>__COSH__(value)</code> {: #cosh data-toc-label="COSH" }
 </summary>
 Renvoie le cosinus hyperbolique de tout nombre réel.
 
@@ -2173,7 +2173,7 @@ Convertit une valeur d'angle en radians en degrés.
 
 </details>
 <details markdown><summary >
-#### <code>__EVEN__(valeur)</code> {: #even data-toc-label="EVEN" }
+#### <code>__EVEN__(value)</code> {: #even data-toc-label="EVEN" }
 </summary>
 Arrondit un nombre à l'entier pair supérieur le plus proche, en arrondissant loin de zéro.
 
@@ -2200,7 +2200,7 @@ Arrondit un nombre à l'entier pair supérieur le plus proche, en arrondissant l
 
 </details>
 <details markdown><summary >
-#### <code>__EXP__(exposant)</code> {: #exp data-toc-label="EXP" }
+#### <code>__EXP__(exponent)</code> {: #exp data-toc-label="EXP" }
 </summary>
 Renvoie le nombre d'Euler, e (~2.718) élevé à une puissance.
 
@@ -2217,7 +2217,7 @@ Renvoie le nombre d'Euler, e (~2.718) élevé à une puissance.
 
 </details>
 <details markdown><summary >
-#### <code>__FACT__(valeur)</code> {: #fact data-toc-label="FACT" }
+#### <code>__FACT__(value)</code> {: #fact data-toc-label="FACT" }
 </summary>
 Renvoie la factorielle d'un nombre.
 
@@ -2251,7 +2251,7 @@ ValueError: factorial() not defined for negative values
 
 </details>
 <details markdown><summary >
-#### <code>__FACTDOUBLE__(valeur)</code> {: #factdouble data-toc-label="FACTDOUBLE" }
+#### <code>__FACTDOUBLE__(value)</code> {: #factdouble data-toc-label="FACTDOUBLE" }
 </summary>
 Renvoie la "double factorielle" d'un nombre.
 
@@ -2278,7 +2278,7 @@ Renvoie la "double factorielle" d'un nombre.
 
 </details>
 <details markdown><summary >
-#### <code>__FLOOR__(valeur, facteur=1)</code> {: #floor data-toc-label="FLOOR" }
+#### <code>__FLOOR__(value, factor=1)</code> {: #floor data-toc-label="FLOOR" }
 </summary>
 Arrondit un nombre à l'entier multiple inférieur le plus proche de la signification spécifiée.
 
@@ -2312,7 +2312,7 @@ ValueError: facteur argument invalide
 
 </details>
 <details markdown><summary >
-#### <code>__GCD__(valeur1, *autres_valeurs)</code> {: #gcd data-toc-label="GCD" }
+#### <code>__GCD__(value1, *more_values)</code> {: #gcd data-toc-label="GCD" }
 </summary>
 Renvoie le plus grand commun diviseur de un ou plusieurs entiers.
 
@@ -2354,7 +2354,7 @@ Renvoie le plus grand commun diviseur de un ou plusieurs entiers.
 
 </details>
 <details markdown><summary >
-#### <code>__INT__(valeur)</code> {: #int data-toc-label="INT" }
+#### <code>__INT__(value)</code> {: #int data-toc-label="INT" }
 </summary>
 Arrondit un nombre à l'entier le plus proche qui est inférieur ou égal à lui.
 
@@ -2376,7 +2376,7 @@ Arrondit un nombre à l'entier le plus proche qui est inférieur ou égal à lui
 
 </details>
 <details markdown><summary >
-#### <code>__LCM__(valeur1, *autres_valeurs)</code> {: #lcm data-toc-label="LCM" }
+#### <code>__LCM__(value1, *more_values)</code> {: #lcm data-toc-label="LCM" }
 </summary>
 Renvoie le plus petit multiple commun de un ou plusieurs entiers.
 
@@ -2418,7 +2418,7 @@ Renvoie le plus petit multiple commun de un ou plusieurs entiers.
 
 </details>
 <details markdown><summary >
-#### <code>__LN__(valeur)</code> {: #ln data-toc-label="LN" }
+#### <code>__LN__(value)</code> {: #ln data-toc-label="LN" }
 </summary>
 Renvoie le logarithme d'un nombre, base e (nombre d'Euler).
 
@@ -2440,7 +2440,7 @@ Renvoie le logarithme d'un nombre, base e (nombre d'Euler).
 
 </details>
 <details markdown><summary >
-#### <code>__LOG__(valeur, base=10)</code> {: #log data-toc-label="LOG" }
+#### <code>__LOG__(value, base=10)</code> {: #log data-toc-label="LOG" }
 </summary>
 Renvoie le logarithme d'un nombre donné une base.
 
@@ -2462,7 +2462,7 @@ Renvoie le logarithme d'un nombre donné une base.
 
 </details>
 <details markdown><summary >
-#### <code>__LOG10__(valeur)</code> {: #log10 data-toc-label="LOG10" }
+#### <code>__LOG10__(value)</code> {: #log10 data-toc-label="LOG10" }
 </summary>
 Renvoie le logarithme d'un nombre, base 10.
 
@@ -2489,7 +2489,7 @@ Renvoie le logarithme d'un nombre, base 10.
 
 </details>
 <details markdown><summary >
-#### <code>__MOD__(dividende, diviseur)</code> {: #mod data-toc-label="MOD" }
+#### <code>__MOD__(dividend, divisor)</code> {: #mod data-toc-label="MOD" }
 </summary>
 Renvoie le résultat de l'opérateur modulo, le reste après une opération de division.
 
@@ -2516,7 +2516,7 @@ Renvoie le résultat de l'opérateur modulo, le reste après une opération de d
 
 </details>
 <details markdown><summary >
-#### <code>__MROUND__(valeur, facteur)</code> {: #mround data-toc-label="MROUND" }
+#### <code>__MROUND__(value, factor)</code> {: #mround data-toc-label="MROUND" }
 </summary>
 Arrondit un nombre à l'entier multiple le plus proche d'un autre.
 
@@ -2545,7 +2545,7 @@ ValueError: facteur argument invalide
 
 </details>
 <details markdown><summary >
-#### <code>__MULTINOMIAL__(valeur1, *autres_valeurs)</code> {: #multinomial data-toc-label="MULTINOMIAL" }
+#### <code>__MULTINOMIAL__(value1, *more_values)</code> {: #multinomial data-toc-label="MULTINOMIAL" }
 </summary>
 Renvoie la factorielle de la somme des valeurs divisée par le produit des factorielles des valeurs.
 
@@ -2572,7 +2572,7 @@ Renvoie la factorielle de la somme des valeurs divisée par le produit des facto
 
 </details>
 <details markdown><summary >
-#### <code>__NUM__(valeur)</code> {: #num data-toc-label="NUM" }
+#### <code>__NUM__(value)</code> {: #num data-toc-label="NUM" }
 </summary>
 Pour une valeur flottante Python qui est en fait un entier, renvoie un type entier Python.
 Sinon, renvoie la valeur inchangée. Cela est parfois utile lorsqu'une valeur provient d'une
@@ -2601,7 +2601,7 @@ colonne numérique Grist (représentée comme des flottants), mais lorsque des v
 
 </details>
 <details markdown><summary >
-#### <code>__ODD__(valeur)</code> {: #odd data-toc-label="ODD" }
+#### <code>__ODD__(value)</code> {: #odd data-toc-label="ODD" }
 </summary>
 Arrondit un nombre à l'entier impair supérieur le plus proche.
 
@@ -2655,7 +2655,7 @@ Renvoie la valeur de Pi à 14 décimales.
 
 </details>
 <details markdown><summary >
-#### <code>__POWER__(base, exposant)</code> {: #power data-toc-label="POWER" }
+#### <code>__POWER__(base, exponent)</code> {: #power data-toc-label="POWER" }
 </summary>
 Renvoie un nombre élevé à une puissance.
 
@@ -2677,7 +2677,7 @@ Renvoie un nombre élevé à une puissance.
 
 </details>
 <details markdown><summary >
-#### <code>__PRODUCT__(facteur1, *autres_facteurs)</code> {: #product data-toc-label="PRODUCT" }
+#### <code>__PRODUCT__(factor1, *more_factors)</code> {: #product data-toc-label="PRODUCT" }
 </summary>
 Renvoie le résultat de la multiplication d'une série de nombres. Chaque argument peut être un nombre ou
 un tableau.
@@ -2699,7 +2699,7 @@ un tableau.
 ```
 </details>
 <details markdown><summary >
-#### <code>__QUOTIENT__(dividende, diviseur)</code> {: #quotient data-toc-label="QUOTIENT" }
+#### <code>__QUOTIENT__(dividend, divisor)</code> {: #quotient data-toc-label="QUOTIENT" }
 </summary>
 Renvoie un nombre divisé par un autre, sans le reste.
 
@@ -2738,12 +2738,12 @@ Convertit une valeur d'angle en degrés en radians.
 Renvoie un nombre aléatoire entre 0 inclus et 1 exclus.
 </details>
 <details markdown><summary >
-#### <code>__RANDBETWEEN__(bas, haut)</code> {: #randbetween data-toc-label="RANDBETWEEN" }
+#### <code>__RANDBETWEEN__(low, high)</code> {: #randbetween data-toc-label="RANDBETWEEN" }
 </summary>
 Renvoie un entier aléatoire uniformément entre deux valeurs, inclusif.
 </details>
 <details markdown><summary >
-#### <code>__ROMAN__(nombre, form_unused=None)</code> {: #roman data-toc-label="ROMAN" }
+#### <code>__ROMAN__(number, form_unused=None)</code> {: #roman data-toc-label="ROMAN" }
 </summary>
 Formate un nombre en chiffres romains. Le deuxième argument est ignoré dans cette implémentation.
 
@@ -2770,7 +2770,7 @@ Formate un nombre en chiffres romains. Le deuxième argument est ignoré dans ce
 
 </details>
 <details markdown><summary >
-#### <code>__ROUND__(valeur, places=0)</code> {: #round data-toc-label="ROUND" }
+#### <code>__ROUND__(value, places=0)</code> {: #round data-toc-label="ROUND" }
 </summary>
 Arrondit un nombre à un certain nombre de décimales,
 par défaut au nombre entier le plus proche si le nombre de places n'est pas donné.
@@ -2836,7 +2836,7 @@ en cas d'égalité, c'est-à-dire lorsque le dernier chiffre est 5.
 
 </details>
 <details markdown><summary >
-#### <code>__ROUNDDOWN__(valeur, places=0)</code> {: #rounddown data-toc-label="ROUNDDOWN" }
+#### <code>__ROUNDDOWN__(value, places=0)</code> {: #rounddown data-toc-label="ROUNDDOWN" }
 </summary>
 Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours vers le bas vers zéro.
 
@@ -2868,7 +2868,7 @@ Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours 
 
 </details>
 <details markdown><summary >
-#### <code>__ROUNDUP__(valeur, places=0)</code> {: #roundup data-toc-label="ROUNDUP" }
+#### <code>__ROUNDUP__(value, places=0)</code> {: #roundup data-toc-label="ROUNDUP" }
 </summary>
 Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours vers le haut loin de zéro.
 
@@ -2928,7 +2928,7 @@ Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours 
 
 </details>
 <details markdown><summary >
-#### <code>__SIGN__(valeur)</code> {: #sign data-toc-label="SIGN" }
+#### <code>__SIGN__(value)</code> {: #sign data-toc-label="SIGN" }
 </summary>
 Étant donné un nombre d'entrée, renvoie `-1` s'il est négatif, `1` s'il est positif, et `0` s'il est zéro.
 
@@ -2977,7 +2977,7 @@ Renvoie le sinus d'un angle donné en radians.
 
 </details>
 <details markdown><summary >
-#### <code>__SINH__(valeur)</code> {: #sinh data-toc-label="SINH" }
+#### <code>__SINH__(value)</code> {: #sinh data-toc-label="SINH" }
 </summary>
 Renvoie le sinus hyperbolique de tout nombre réel.
 
@@ -2989,7 +2989,7 @@ Renvoie le sinus hyperbolique de tout nombre réel.
 
 </details>
 <details markdown><summary >
-#### <code>__SQRT__(valeur)</code> {: #sqrt data-toc-label="SQRT" }
+#### <code>__SQRT__(value)</code> {: #sqrt data-toc-label="SQRT" }
 </summary>
 Renvoie la racine carrée positive d'un nombre positif.
 
@@ -3013,7 +3013,7 @@ ValueError: math domain error
 
 </details>
 <details markdown><summary >
-#### <code>__SQRTPI__(valeur)</code> {: #sqrtpi data-toc-label="SQRTPI" }
+#### <code>__SQRTPI__(value)</code> {: #sqrtpi data-toc-label="SQRTPI" }
 </summary>
 Renvoie la racine carrée positive du produit de Pi et du nombre positif donné.
 
@@ -3030,14 +3030,14 @@ Renvoie la racine carrée positive du produit de Pi et du nombre positif donné.
 
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__SUBTOTAL__(code_fonction, intervalle1, intervalle2)</code> {: #subtotal data-toc-label="SUBTOTAL" }
+#### <code>__SUBTOTAL__(function_code, range1, range2)</code> {: #subtotal data-toc-label="SUBTOTAL" }
 </summary>
 Renvoie un sous-total pour une plage verticale de cellules en utilisant une fonction d'agrégation spécifiée.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary >
-#### <code>__SUM__(valeur1, *autres_valeurs)</code> {: #sum data-toc-label="SUM" }
+#### <code>__SUM__(value1, *more_values)</code> {: #sum data-toc-label="SUM" }
 </summary>
 Renvoie la somme d'une série de nombres. Chaque argument peut être un nombre ou un tableau.
 Les valeurs non numériques sont ignorées.
@@ -3059,21 +3059,21 @@ Les valeurs non numériques sont ignorées.
 ```
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__SUMIF__(enregistrements, critère, plage_somme)</code> {: #sumif data-toc-label="SUMIF" }
+#### <code>__SUMIF__(records, criterion, sum_range)</code> {: #sumif data-toc-label="SUMIF" }
 </summary>
 Renvoie une somme conditionnelle sur une plage.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__SUMIFS__(plage_somme, plage_critères1, critère1, *args)</code> {: #sumifs data-toc-label="SUMIFS" }
+#### <code>__SUMIFS__(sum_range, criteria_range1, criterion1, *args)</code> {: #sumifs data-toc-label="SUMIFS" }
 </summary>
 Renvoie la somme d'une plage en fonction de plusieurs critères.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary >
-#### <code>__SUMPRODUCT__(tableau1, *autres_tableaux)</code> {: #sumproduct data-toc-label="SUMPRODUCT" }
+#### <code>__SUMPRODUCT__(array1, *more_arrays)</code> {: #sumproduct data-toc-label="SUMPRODUCT" }
 </summary>
 Multiplie les composants correspondants dans deux tableaux de taille égale,
 et renvoie la somme de ces produits.
@@ -3101,7 +3101,7 @@ et renvoie la somme de ces produits.
 
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__SUMSQ__(valeur1, valeur2)</code> {: #sumsq data-toc-label="SUMSQ" }
+#### <code>__SUMSQ__(value1, value2)</code> {: #sumsq data-toc-label="SUMSQ" }
 </summary>
 Renvoie la somme des carrés d'une série de nombres et/ou de cellules.
 
@@ -3130,7 +3130,7 @@ Renvoie la tangente d'un angle donné en radians.
 
 </details>
 <details markdown><summary >
-#### <code>__TANH__(valeur)</code> {: #tanh data-toc-label="TANH" }
+#### <code>__TANH__(value)</code> {: #tanh data-toc-label="TANH" }
 </summary>
 Renvoie la tangente hyperbolique de tout nombre réel.
 
@@ -3152,7 +3152,7 @@ Renvoie la tangente hyperbolique de tout nombre réel.
 
 </details>
 <details markdown><summary >
-#### <code>__TRUNC__(valeur, places=0)</code> {: #trunc data-toc-label="TRUNC" }
+#### <code>__TRUNC__(value, places=0)</code> {: #trunc data-toc-label="TRUNC" }
 </summary>
 Tronque un nombre à un certain nombre de chiffres significatifs en omettant les chiffres moins significatifs.
 
@@ -3185,7 +3185,7 @@ UUID() à chaque fois.
 </details>
 ### Horaire
 <details markdown><summary >
-#### <code>__SCHEDULE__(horaire, début=None, compte=10, fin=None)</code> {: #schedule data-toc-label="SCHEDULE" }
+#### <code>__SCHEDULE__(schedule, start=None, count=10, end=None)</code> {: #schedule data-toc-label="SCHEDULE" }
 </summary>
 Renvoie la liste des objets `datetime` générés selon la chaîne `horaire`. Commence à
 `début`, qui par défaut est NOW(). Génère au maximum `compte` résultats (10 par défaut). Si `fin` est donné, s'arrête là.
@@ -3305,7 +3305,7 @@ Le fuseau horaire de `début` détermine le fuseau horaire des temps générés.
 </details>
 ### Statistiques
 <details markdown><summary class="unimplemented">
-#### <code>__AVEDEV__(valeur1, valeur2)</code> {: #avedev data-toc-label="AVEDEV" }
+#### <code>__AVEDEV__(value1, value2)</code> {: #avedev data-toc-label="AVEDEV" }
 </summary>
 Calcule la moyenne des magnitudes des écarts des données par rapport à la moyenne d'un ensemble de données.
 
@@ -3344,7 +3344,7 @@ ZeroDivisionError: float division by zero
 
 </details>
 <details markdown><summary >
-#### <code>__AVERAGEA__(valeur, *autres_valeurs)</code> {: #averagea data-toc-label="AVERAGEA" }
+#### <code>__AVERAGEA__(value, *more_values)</code> {: #averagea data-toc-label="AVERAGEA" }
 </summary>
 Renvoie la valeur moyenne numérique dans un ensemble de données, en comptant les valeurs non numériques comme 0.
 
@@ -3373,21 +3373,21 @@ Chaque argument peut être une valeur ou un tableau. Les valeurs qui ne sont pas
 
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__AVERAGEIF__(plage_critères, critère, plage_moyenne=None)</code> {: #averageif data-toc-label="AVERAGEIF" }
+#### <code>__AVERAGEIF__(criteria_range, criterion, average_range=None)</code> {: #averageif data-toc-label="AVERAGEIF" }
 </summary>
 Renvoie la moyenne d'une plage en fonction de critères.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__AVERAGEIFS__(plage_moyenne, plage_critères1, critère1, *args)</code> {: #averageifs data-toc-label="AVERAGEIFS" }
+#### <code>__AVERAGEIFS__(average_range, criteria_range1, criterion1, *args)</code> {: #averageifs data-toc-label="AVERAGEIFS" }
 </summary>
 Renvoie la moyenne d'une plage en fonction de plusieurs critères.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary >
-#### <code>__AVERAGE_WEIGHTED__(paires)</code> {: #average_weighted data-toc-label="AVERAGE_WEIGHTED" }
+#### <code>__AVERAGE_WEIGHTED__(pairs)</code> {: #average_weighted data-toc-label="AVERAGE_WEIGHTED" }
 </summary>
 Étant donné une liste de paires (valeur, poids), trouve la moyenne des valeurs pondérées par les
 poids correspondants. Ignore toutes les paires avec une valeur ou un poids non numérique.
@@ -3413,14 +3413,14 @@ liste de paires.
 
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__BINOMDIST__(nombre_succès, nombre_essais, probabilité_succès, cumulatif)</code> {: #binomdist data-toc-label="BINOMDIST" }
+#### <code>__BINOMDIST__(num_successes, num_trials, prob_success, cumulative)</code> {: #binomdist data-toc-label="BINOMDIST" }
 </summary>
 Calcule la probabilité de tirer un certain nombre de succès (ou un nombre maximum de succès) dans un certain nombre d'essais donné une population d'une certaine taille contenant un certain nombre de succès, avec remplacement des tirages.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__CONFIDENCE__(alpha, écart_type, taille_pop)</code> {: #confidence data-toc-label="CONFIDENCE" }
+#### <code>__CONFIDENCE__(alpha, standard_deviation, pop_size)</code> {: #confidence data-toc-label="CONFIDENCE" }
 </summary>
 Calcule la largeur de la moitié de l'intervalle de confiance pour une distribution normale.
 
@@ -3434,7 +3434,7 @@ Calcule r, le coefficient de corrélation de produit-moment de Pearson d'un ense
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary >
-#### <code>__COUNT__(valeur, *autres_valeurs)</code> {: #count data-toc-label="COUNT" }
+#### <code>__COUNT__(value, *more_values)</code> {: #count data-toc-label="COUNT" }
 </summary>
 Renvoie le nombre de valeurs numériques et de dates/datetime dans un ensemble de données,
 ignorant d'autres types de valeurs.
@@ -3470,7 +3470,7 @@ et vides, et les représentations textuelles de nombres, sont ignorées.
 
 </details>
 <details markdown><summary >
-#### <code>__COUNTA__(valeur, *autres_valeurs)</code> {: #counta data-toc-label="COUNTA" }
+#### <code>__COUNTA__(value, *more_values)</code> {: #counta data-toc-label="COUNTA" }
 </summary>
 Renvoie le nombre de toutes les valeurs dans un ensemble de données, y compris les valeurs non numériques.
 
@@ -3506,28 +3506,28 @@ Calcule la covariance d'un ensemble de données.
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__CRITBINOM__(nombre_essais, probabilité_succès, probabilité_cible)</code> {: #critbinom data-toc-label="CRITBINOM" }
+#### <code>__CRITBINOM__(num_trials, prob_success, target_prob)</code> {: #critbinom data-toc-label="CRITBINOM" }
 </summary>
 Calcule la plus petite valeur pour laquelle la distribution binomiale cumulative est supérieure ou égale à un critère spécifié.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__DEVSQ__(valeur1, valeur2)</code> {: #devsq data-toc-label="DEVSQ" }
+#### <code>__DEVSQ__(value1, value2)</code> {: #devsq data-toc-label="DEVSQ" }
 </summary>
 Calcule la somme des carrés des écarts basés sur un échantillon.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__EXPONDIST__(x, lambda_, cumulatif)</code> {: #expondist data-toc-label="EXPONDIST" }
+#### <code>__EXPONDIST__(x, lambda_, cumulative)</code> {: #expondist data-toc-label="EXPONDIST" }
 </summary>
 Renvoie la valeur de la fonction de distribution exponentielle avec un lambda spécifié à une valeur spécifiée.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__FDIST__(x, degrés_de_liberté1, degrés_de_liberté2)</code> {: #fdist data-toc-label="FDIST" }
+#### <code>__FDIST__(x, degrees_freedom1, degrees_freedom2)</code> {: #fdist data-toc-label="FDIST" }
 </summary>
 Calcule la distribution de probabilité F à droite (degré de diversité) pour deux ensembles de données
 avec l'entrée x donnée. Également appelée distribution de Fisher-Snedecor ou distribution F de Snedecor.
@@ -3535,14 +3535,14 @@ avec l'entrée x donnée. Également appelée distribution de Fisher-Snedecor ou
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__FISHER__(valeur)</code> {: #fisher data-toc-label="FISHER" }
+#### <code>__FISHER__(value)</code> {: #fisher data-toc-label="FISHER" }
 </summary>
 Renvoie la transformation de Fisher d'une valeur spécifiée.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__FISHERINV__(valeur)</code> {: #fisherinv data-toc-label="FISHERINV" }
+#### <code>__FISHERINV__(value)</code> {: #fisherinv data-toc-label="FISHERINV" }
 </summary>
 Renvoie la transformation inverse de Fisher d'une valeur spécifiée.
 
@@ -3556,7 +3556,7 @@ Calcule la valeur y attendue pour un x spécifié basé sur une régression lin�
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__F_DIST__(x, degrés_de_liberté1, degrés_de_liberté2, cumulatif)</code> {: #f_dist data-toc-label="F_DIST" }
+#### <code>__F_DIST__(x, degrees_freedom1, degrees_freedom2, cumulative)</code> {: #f_dist data-toc-label="F_DIST" }
 </summary>
 Calcule la distribution de probabilité F à gauche (degré de diversité) pour deux ensembles de données
 avec l'entrée x donnée. Également appelée distribution de Fisher-Snedecor ou distribution F de Snedecor.
@@ -3564,7 +3564,7 @@ avec l'entrée x donnée. Également appelée distribution de Fisher-Snedecor ou
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__F_DIST_RT__(x, degrés_de_liberté1, degrés_de_liberté2)</code> {: #f_dist_rt data-toc-label="F_DIST_RT" }
+#### <code>__F_DIST_RT__(x, degrees_freedom1, degrees_freedom2)</code> {: #f_dist_rt data-toc-label="F_DIST_RT" }
 </summary>
 Calcule la distribution de probabilité F à droite (degré de diversité) pour deux ensembles de données
 avec l'entrée x donnée. Également appelée distribution de Fisher-Snedecor ou distribution F de Snedecor.
@@ -3572,14 +3572,14 @@ avec l'entrée x donnée. Également appelée distribution de Fisher-Snedecor ou
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__GEOMEAN__(valeur1, valeur2)</code> {: #geomean data-toc-label="GEOMEAN" }
+#### <code>__GEOMEAN__(value1, value2)</code> {: #geomean data-toc-label="GEOMEAN" }
 </summary>
 Calcule la moyenne géométrique d'un ensemble de données.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 <details markdown><summary class="unimplemented">
-#### <code>__HARMEAN__(valeur1, valeur2)</code> {: #harmean data-toc-label="HARMEAN" }
+#### <code>__HARMEAN__(value1, value2)</code> {: #harmean data-toc-label="HARMEAN" }
 </summary>
 Calcule la moyenne harmonique d'un ensemble de données.
 
