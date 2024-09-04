@@ -1108,17 +1108,16 @@ this is similar to a <code>VLOOKUP</code>, but much more powerful and easier to 
 <p>In this guide we&rsquo;ll use the term <strong>underlying table</strong> for the table that lists all available values,
 and <strong>referencing table</strong> for the table that uses those values.</p>
 <h2 id="creating-a-new-reference-column">Creating a new Reference column<a class="headerlink" href="#creating-a-new-reference-column" title="Permanent link">#</a></h2>
-<p>Suppose we have a document with two tables, Clients and Projects.  The Clients table lists
-our clients - names, contacts, signing dates - and the Projects table lists projects we do for
+<p>Suppose we have a document with two tables, <em>Clients</em> and <em>Projects</em>.  The <em>Clients</em> table lists
+our clients - names, contacts, signing dates - and the <em>Projects</em> table lists projects we do for
 clients.</p>
 <p><img alt="Reference motivation" src="../images/columns/columns-reference-clients-projects.png" /></p>
-<p>There are all sorts of things Grist can do for us if we let it know that the Client column
-in the Projects table is referring to clients listed in the Clients table.  We can do this
-by converting the Client column to a &ldquo;reference column&rdquo;.  Open the Column Options side
-panel (see <a href="../col-types/#specifying-a-type">Specifying a type</a>) and set the &ldquo;Column Type&rdquo;
-to &ldquo;Reference&rdquo;.  Adjust the &ldquo;Data from Table&rdquo; option to be the correct table you want
-to cross-reference, and the &ldquo;Show Column&rdquo; option to match which column of that table
-you&rsquo;d like to show.  Then hit &ldquo;Apply&rdquo; when you&rsquo;re happy with the result.</p>
+<p>There are all sorts of things Grist can do for us if we let it know that the <strong>Client</strong> column
+in the <em>Projects</em> table is referring to clients listed in the <em>Clients</em> table.  We can do this
+by converting the <strong>Client</strong> column to a &ldquo;reference column&rdquo;.  Open the <em>creator panel</em> on the right-hand side of the page (see <a href="../col-types/#specifying-a-type">Specifying a type</a>) and set the &lsquo;Column Type&rsquo;
+to &lsquo;Reference&rsquo;.  Adjust the &lsquo;Data from Table&rsquo; option to be the correct table you want
+to cross-reference, and the &lsquo;Show Column&rsquo; option to match which column of that table
+you&rsquo;d like to show.  Then hit &lsquo;Apply&rsquo; when you&rsquo;re happy with the result.</p>
 <p><img alt="Reference set-up" src="../images/columns/columns-reference-link-client.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Understanding the reference</p>
@@ -1126,19 +1125,19 @@ you&rsquo;d like to show.  Then hit &ldquo;Apply&rdquo; when you&rsquo;re happy 
 value can be any column from that record, as selected in <code>Show Column</code>. You can also include
 additional columns to display as explained later.</p>
 </div>
-<p>In our example, you can see little link icons appearing in the Client
-column cells, showing that they have been successfully cross-referenced with the Clients table.
+<p>In our example, you can see little link icons appearing in the <strong>Client</strong>
+column cells, showing that they have been successfully cross-referenced with the <em>Clients</em> table.
 Once the column type is set, you can start typing into it or double-click it to see a dropdown
 list of all available values.</p>
 <p class="screenshot-half"><em><img alt="Select dropdown values" src="../images/column-ref-select-dropdown.png" /></em></p>
-<p>Note that the table <code>Clients</code> and the column <code>Client</code> are related by the column type rather than
+<p>Note that the table <em>Clients</em> and the column <strong>Client</strong> are related by the column type rather than
 by name. They can be named anything.</p>
 <div class="admonition note">
 <p class="admonition-title">Spotting reference columns</p>
 <p>You can tell that the values in a column represent a reference by the link icon that appears
 next to the values.</p>
 </div>
-<p>If you accidentally type in a value that is not present in the <code>Clients</code> table, its value will be
+<p>If you accidentally type in a value that is not present in the <em>Clients</em> table, its value will be
 highlighted as invalid:</p>
 <p class="screenshot-half"><em><img alt="Invalid reference value" src="../images/column-ref-invalid.png" /></em></p>
 <h2 id="adding-values-to-a-reference-column">Adding values to a Reference column<a class="headerlink" href="#adding-values-to-a-reference-column" title="Permanent link">#</a></h2>
@@ -1149,44 +1148,45 @@ the underlying table and insert the proper reference:</p>
 <p class="screenshot-half"><em><img alt="Add reference value" src="../images/column-ref-add-value.png" /></em></p>
 <h2 id="converting-text-column-to-reference">Converting Text column to Reference<a class="headerlink" href="#converting-text-column-to-reference" title="Permanent link">#</a></h2>
 <p>When working with existing data, it&rsquo;s common to have existing text values that should really be
-reference values. Don&rsquo;t worry, conversion is simple! Just change the column type to <code>Reference</code> and
+reference values. Don&rsquo;t worry, conversion is simple! Just change the column type to &lsquo;Reference&rsquo; and
 Grist will automatically find and substitute matching values for references. If some values are not
 found, they&rsquo;ll be shown as invalid. You can then either add them to the underlying table or select
 the proper values for them.</p>
 <p>In this example, the first three values match perfectly, but <code>Forest Labs</code> is invalid because it
-doesn&rsquo;t exist in the <code>Clients</code> table:</p>
+doesn&rsquo;t exist in the <em>Clients</em> table:</p>
 <p><img alt="Convert values after" src="../images/column-ref-convert-after.png" /></p>
 <h2 id="including-multiple-fields-from-a-reference">Including multiple fields from a reference<a class="headerlink" href="#including-multiple-fields-from-a-reference" title="Permanent link">#</a></h2>
 <p>A big benefit of reference columns is that they allow you to easily bring in multiple columns from
-the underlying table. In our example, if you wanted to bring in <code>$Client.Contact</code> to the <code>Projects</code>
-table, you can just select the <code>Contact</code> column from the <code>Add Referenced Columns</code> section and it will be
-automatically added to the <code>Projects</code> table:</p>
+the underlying table. In our example, if you wanted to bring in <code>$Client.Contact</code> to the <em>Projects</em>
+table, you can just select the <strong>Contact</strong> column from the &lsquo;Add Referenced Columns&rsquo; section and it will be
+automatically added to the <em>Projects</em> table:</p>
 <p><img alt="Additional columns inserted" src="../images/column-ref-other-columns.png" /></p>
 <p>If you&rsquo;re comfortable using formulas, you can see that the added column is just the formula
 <code>=$Client.Contact</code>. If you were so inclined, you could achieve the same result by manually adding
-the formula column. You can also use any other fields from <code>Clients</code> table by referencing <code>$Client</code>
-in formulas in the <code>Projects</code> table.</p>
-<p>Note that in formulas, we use the name of the reference <em>column</em> (<code>$Client</code>) to refer to a linked
-record, not the name of the table (which is <code>Clients</code> here). Don&rsquo;t let the similarity of the names
+the formula column. You can also use any other fields from <em>Clients</em> table by referencing <code>$Client</code>
+in formulas in the <em>Projects</em> table.</p>
+<p>Note that in formulas, we use the name of the reference <strong>column</strong> (<code>$Client</code>) to refer to a linked
+record, not the name of the table (which is <em>Clients</em> here). Don&rsquo;t let the similarity of the names
 in this example confuse you.</p>
 <p class="screenshot-half"><em><img alt="Additional columns as formulas" src="../images/column-ref-other-formula.png" /></em></p>
 <div class="admonition note">
 <p class="admonition-title">Using references in formulas</p>
-<p>You may have noticed that the underlying table is <code>Clients</code> (plural) but the formula is
+<p>You may have noticed that the underlying table is <em>Clients</em> (plural) but the formula is
 <code>$Client.Contact</code> (singular). That&rsquo;s because the formula refers to the referencing column,
-<strong>not</strong> the underlying table. In our example, the referencing column is <code>Client</code>.</p>
+<strong>not</strong> the underlying table. In our example, the referencing column is <strong>Client</strong>.</p>
+<p>Check out our article on <a href="../references-lookups/">References &amp; Lookups</a> to see more ways to use references in formulas.</p>
 </div>
 <h2 id="creating-a-new-reference-list-column">Creating a new Reference List column<a class="headerlink" href="#creating-a-new-reference-list-column" title="Permanent link">#</a></h2>
 <p>So far our example has only dealt with projects that have a single client. Suppose that
 we also have projects with multiple clients, and we&rsquo;d like to maintain references to
-them all from the <code>Client</code> column of the <code>Projects</code> table.</p>
-<p>We can let Grist know that the <code>Client</code> column contains multiple references by changing its
-type to &ldquo;Reference List&rdquo;. This column type can reference multiple records, and can also be
+them all from the <strong>Client</strong> column of the <em>Projects</em> table.</p>
+<p>We can let Grist know that the <strong>Client</strong> column contains multiple references by changing its
+type to &lsquo;Reference List&rsquo;. This column type can reference multiple records, and can also be
 thought of as a multi-select.</p>
-<p>Open the Column Options side panel (see <a href="../col-types/#specifying-a-type">Specifying a type</a>)
-and set the &ldquo;Column Type&rdquo; of <code>Client</code> to &ldquo;Reference List&rdquo;. Grist will automatically convert
+<p>Open the <em>creator panel</em> (see <a href="../col-types/#specifying-a-type">Specifying a type</a>)
+and set the &lsquo;Column Type&rsquo; of <strong>Client</strong> to &lsquo;Reference List&rsquo;. Grist will automatically convert
 any of your existing references to reference lists. Once you&rsquo;re happy with the result, just
-hit &ldquo;Apply&rdquo; and the <code>Client</code> column will be ready to accept as many clients as your projects need.</p>
+hit &lsquo;Apply&rsquo; and the <strong>Client</strong> column will be ready to accept as many clients as your projects need.</p>
 <p><img alt="Reference List set-up" src="../images/columns/columns-reference-list-transform.png" /></p>
 <h2 id="editing-values-in-a-reference-list-column">Editing values in a Reference List column<a class="headerlink" href="#editing-values-in-a-reference-list-column" title="Permanent link">#</a></h2>
 <p>To make changes to a Reference List cell, simply double-click the cell or press the
@@ -1194,7 +1194,7 @@ hit &ldquo;Apply&rdquo; and the <code>Client</code> column will be ready to acce
 edit. You can also start typing after selecting a cell if you&rsquo;d like to write over
 any existing contents. Doing so will open an editor like the one in the example below.</p>
 <p class="screenshot-half"><em><img alt="Reference List editor" src="../images/columns/columns-reference-list-editor.png" /></em></p>
-<p>Like with Reference columns, the autocomplete menu will populate with suggestions
+<p>Like with reference columns, the autocomplete menu will populate with suggestions
 as you type. If you type in a value that&rsquo;s not present in the referenced table, you
 can select the <code>+</code> value to add a new row to the referenced table with your value.</p>
 <p>To delete existing references, simply press the <code class="keys"><em>Backspace</em></code>
@@ -1205,36 +1205,36 @@ or <code class="keys"><em>Tab</em></code> , or click anywhere outside the editor
 To close the editor and discard any changes you&rsquo;ve made, press
 <code class="keys"><em>Escape</em></code>.</p>
 <h2 id="understanding-reference-columns">Understanding reference columns<a class="headerlink" href="#understanding-reference-columns" title="Permanent link">#</a></h2>
-<p>Cells in a reference column always identify an <em>entire</em> record in the referenced table. For convenience, you may select which column from that record to show by setting the &ldquo;SHOW COLUMN&rdquo;. However, the cell&rsquo;s value is <em>always</em> a record&rsquo;s unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?</p>
+<p>Cells in a reference column always identify an <em>entire</em> record in the referenced table. For convenience, you may select which column from that record to show by setting the &lsquo;SHOW COLUMN&rsquo;. However, the cell&rsquo;s value is <em>always</em> a record&rsquo;s unique ID. Similarly, Reference Lists store a list of record ids. What does that really mean?</p>
 <p>Let&rsquo;s take a look at the <a href="https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork">Class Enrollment</a> template.</p>
-<p>In the Classes table, the Instructor column is a reference column that references data from the Staff table. Full Name is selected under &lsquo;Show Column&rsquo; and is used as a label to represent the record from the Staff table that is being referenced here.</p>
+<p>In the <em>Classes</em> table, the <strong>Instructor</strong> column is a reference column that references data from the <em>Staff</em> table. <strong>Full Name</strong> is selected under &lsquo;Show Column&rsquo; and is used as a label to represent the record from the <em>Staff</em> table that is being referenced here.</p>
 <p><em><img alt="columns-reference-explanation" src="../images/columns/columns-reference-explanation.png" /></em></p>
 <p>We can change that label to any other value contained within the record. Let&rsquo;s change it to &lsquo;Row ID&rsquo;. </p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-reference-explanation-show-column" src="../images/columns/columns-reference-explanation-show-column.png" /></em></span></p>
-<p>The row ID is what is actually being stored within the Reference or Reference List column. With this ID, we can fetch any data associated with this record. </p>
+<p>The row ID is what is actually being stored within the reference or reference list column. With this ID, we can fetch any data associated with this record. </p>
 <p><em><img alt="columns-reference-explanation-rowid1" src="../images/columns/columns-reference-explanation-rowid1.png" /></em></p>
-<p>In the first row of the Classes table, we see <code>Staff[2]</code> as the value in the Instructor column. This represents the record in the Staff table with Row ID = <code>2</code>.</p>
-<p>We can navigate to the Staff table and see which record is assigned Row ID = <code>2</code>.</p>
+<p>In the first row of the <em>Classes</em> table, we see <code>Staff[2]</code> as the value in the <strong>Instructor</strong> column. This represents the record in the <em>Staff</em> table with Row ID = <code>2</code>.</p>
+<p>We can navigate to the <em>Staff</em> table and see which record is assigned Row ID = <code>2</code>.</p>
 <p>To view a record&rsquo;s unique ID, add a new column with the formula = <a href="../formula-cheat-sheet/#using-a-records-unique-identifier-in-formulas"><code>$id</code></a>. </p>
 <p><em><img alt="columns-reference-explanation-rowid" src="../images/columns/columns-reference-explanation-rowid.png" /></em></p>
-<p>We can see that the value in the Full Name column for the record with Row ID =<code>2</code> is <code>Dowbakin, Daniella</code>. If we revert back to our original settings for the Instructor column of the Classes table, where <code>Full Name</code> was selected under Show Column, we see that the Full Name value associated with <code>Staff[2]</code> is <code>Dowbakin, Daniella</code>.</p>
+<p>We can see that the value in the <strong>Full Name</strong> column for the record with Row ID =<code>2</code> is <code>Dowbakin, Daniella</code>. If we revert back to our original settings for the <strong>Instructor</strong> column of the <em>Classes</em> table, where <code>Full Name</code> was selected under &lsquo;Show Column&rsquo;, we see that the <strong>Full Name</strong> value associated with <code>Staff[2]</code> is <code>Dowbakin, Daniella</code>.</p>
 <p><em><img alt="columns-reference-explanation-fullname" src="../images/columns/columns-reference-explanation-fullname.png" /></em></p>
 <h2 id="filtering-reference-choices-in-dropdown">Filtering Reference choices in dropdown<a class="headerlink" href="#filtering-reference-choices-in-dropdown" title="Permanent link">#</a></h2>
-<p>When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re tracking population changes in the 1,000 most populous world cities. When entering a city into the reference column for city selection, the dropdown lists all 1,000 cities. </p>
-<p class="screenshot-half"><em><img alt="Unfiltered reference dropdown list" src="../images/filter-reference-columns/unfiltered-cities.png" /></em></p>
-<p>It would be useful if the dropdown list of city choices were filtered based on the country selected in the <code>Country</code> column.</p>
-<p>To filter a reference column’s dropdown list, select the reference column then set a “Dropdown Condition“ in the Creator Panel under the &ldquo;Column&rdquo; tab. </p>
-<p class="screenshot-half"><em><img alt="Set dropdown condition" src="../images/filter-reference-columns/set-dropdown-condition.png" /></em></p>
-<p>You can filter a dropdown’s choice by writing a condition as a formula. The attribute <code>choice</code> refers to choices in the dropdown. In this case the formula is <code>choice.Country == $Country</code>. </p>
-<p class="screenshot-half"><em><img alt="Reference dropdown filter condition" src="../images/filter-reference-columns/city-filter-condition.png" /></em></p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/filter-reference-columns/filtered-cities.png" /></em></p>
-<p>Why did that work? The city column is a reference column pointing to a <code>Cities</code> table that matches countries and cities. That table looks like this.</p>
-<p class="screenshot-half"><em><img alt="Cities reference table" src="../images/filter-reference-columns/cities-tables.png" /></em></p>
-<p>The formula condition <code>choice.Country == $Country</code> is looking up each choice’s country in the <code>Cities</code> table using a <a href="https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation">reference lookup</a>, then it compares those countries to the value entered in the <code>Country</code> column of the <code>Population Rankings</code> table. </p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/filter-reference-columns/filtered-cities-highlight.png" /></em></p>
-<p>The dropdown now lists only choices (aka cities) whose country equals the country entered in <code>Country</code> column. </p>
-<p>The <code>choice</code> attribute can also be used when setting dropdown filter conditions for <a href="../col-types/#choice-columns">Choice</a> and <a href="../col-types/#choice-list-columns">Choice List</a> columns.</p>
-<p>Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with <a href="https://support.getgrist.com/access-rules/">access rules</a> may notice similarities in how to think about writing these formulas.</p>
+<p>When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re selecting from a list of world cities, that dropdown would be unusable!</p>
+<p class="screenshot-half"><em><img alt="Unfiltered reference dropdown list" src="../images/columns/unfiltered-cities.png" /></em></p>
+<p>It would be useful if the dropdown list of city choices were filtered based on the country selected in the <strong>Filter Country</strong> column.</p>
+<p>To filter a reference column’s dropdown list, select the reference column then &lsquo;Set dropdown condition&rsquo; in the Creator Panel under the &lsquo;Column&rsquo; tab. </p>
+<p class="screenshot-half"><em><img alt="Set dropdown condition" src="../images/columns/set-dropdown-condition.png" /></em></p>
+<p>You can filter a dropdown’s choice by writing a condition as a formula. The attribute <code>choice</code> refers to choices in the dropdown. In this case the formula is <code>choice.Country == $Filter_Country</code>. </p>
+<p class="screenshot-half"><em><img alt="Reference dropdown filter condition" src="../images/columns/city-filter-condition.png" /></em></p>
+<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/columns/filtered-cities.png" /></em></p>
+<p>Why did that work? The <strong>Filtered City</strong> column is a reference column pointing to the <em>Cities</em> table that matches countries and cities. That table looks like this.</p>
+<p class="screenshot-half"><em><img alt="Cities reference table" src="../images/columns/cities-tables.png" /></em></p>
+<p>The formula condition <code>choice.Country == $Filter_Country</code> is looking up each choice’s country, listed in the <strong>Country</strong> column of  the <em>Cities</em> table using a <a href="../references-lookups/#reference-columns-and-dot-notation">reference lookup</a>, then it compares those countries to the value entered in the <strong>Filter Country</strong> column of the <em>Filtered Cities</em> table. </p>
+<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/columns/filtered-cities-highlight.png" /></em></p>
+<p>The dropdown now lists only choices (aka cities) whose country equals the country entered in <strong>Filter Country</strong> column. </p>
+<p>The <code>choice</code> attribute can also be used when setting dropdown filter conditions for <a href="../col-types/#choice-columns"><em>choice</em></a> and <a href="../col-types/#choice-list-columns"><em>choice list</em></a> columns.</p>
+<p>Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with <a href="../access-rules/">access rules</a> may notice similarities in how to think about writing these formulas.</p>
 
   <br>
 </div>
