@@ -19,7 +19,7 @@ Il y a toutes sortes de choses que Grist peut faire pour nous si nous lui indiqu
 
 ![Configuration de la référence](images/columns/columns-reference-link-client.png)
 
-!!! note "Comprendre la référence" La valeur de la colonne fait toujours référence à l'ensemble du **record** dans la table sous-jacente. La valeur affichée peut être n'importe quelle colonne de ce record, comme sélectionné dans `Afficher la Colonne`. Vous pouvez également inclure des colonnes supplémentaires à afficher comme expliqué plus tard.
+!!! note "Comprendre la référence" <br>    La valeur de la colonne fait toujours référence à l'ensemble du **record** dans la table sous-jacente. La valeur affichée peut être n'importe quelle colonne de ce record, comme sélectionné dans `Afficher la Colonne`. Vous pouvez également inclure des colonnes supplémentaires à afficher comme expliqué plus tard.
 
 Dans notre exemple, vous pouvez voir des petites icônes de lien apparaître dans les cellules de la colonne Client, montrant qu'elles ont été correctement croisées avec la table Clients. Une fois le type de colonne défini, vous pouvez commencer à taper dedans ou double-cliquer pour voir une liste déroulante de toutes les valeurs disponibles.
 
@@ -27,7 +27,7 @@ Dans notre exemple, vous pouvez voir des petites icônes de lien apparaître dan
 
 Notez que la table `Clients` et la colonne `Client` sont liées par le type de colonne plutôt que par le nom. Elles peuvent être nommées comme vous le souhaitez.
 
-!!! note "Repérer les colonnes de référence" Vous pouvez dire que les valeurs dans une colonne représentent une référence par l'icône de lien qui apparaît à côté des valeurs.
+!!! note "Repérer les colonnes de référence"<br>    Vous pouvez dire que les valeurs dans une colonne représentent une référence par l'icône de lien qui apparaît à côté des valeurs.
 
 Si vous tapez accidentellement une valeur qui n'est pas présente dans la table `Clients`, sa valeur sera mise en évidence comme invalide :
 
@@ -59,7 +59,7 @@ Notez que dans les formules, nous utilisons le nom de la *colonne* de référenc
 
 **![Colonnes supplémentaires en tant que formules](images/column-ref-other-formula.png) {: .screenshot-half }
 
-!!! note "Utiliser des références dans les formules" Vous avez peut-être remarqué que la table sous-jacente est `Clients` (pluriel) mais que la formule est `$Client.Contact` (singulier). C'est parce que la formule se réfère à la colonne de référence, **pas** à la table sous-jacente. Dans notre exemple, la colonne de référence est `Client`.
+!!! note<br>    "Utiliser des références dans les formules" Vous avez peut-être remarqué que la table sous-jacente est `Clients` (pluriel) mais que la formule est `$Client.Contact` (singulier). C'est parce que la formule se réfère à la colonne de référence, **pas** à la table sous-jacente. Dans notre exemple, la colonne de référence est `Client`.
 
 ## Créer une nouvelle colonne de Liste de Références
 
