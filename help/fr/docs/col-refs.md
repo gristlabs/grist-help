@@ -19,7 +19,7 @@ Il y a toutes sortes de choses que Grist peut faire pour nous si nous lui indiqu
 
 ![Configuration de la référence](images/columns/columns-reference-link-client.png)
 
-!!! note "Comprendre la référence" <br>    La valeur de la colonne fait toujours référence à l'ensemble du **record** dans la table sous-jacente. La valeur affichée peut être n'importe quelle colonne de ce record, comme sélectionné dans `Afficher la Colonne`. Vous pouvez également inclure des colonnes supplémentaires à afficher comme expliqué plus tard.
+!!! note "Comprendre la référence" \n    La valeur de la colonne fait toujours référence à l'ensemble du **record** dans la table sous-jacente. La valeur affichée peut être n'importe quelle colonne de ce record, comme sélectionné dans `Afficher la Colonne`. Vous pouvez également inclure des colonnes supplémentaires à afficher comme expliqué plus tard.
 
 Dans notre exemple, vous pouvez voir des petites icônes de lien apparaître dans les cellules de la colonne Client, montrant qu'elles ont été correctement croisées avec la table Clients. Une fois le type de colonne défini, vous pouvez commencer à taper dedans ou double-cliquer pour voir une liste déroulante de toutes les valeurs disponibles.
 
