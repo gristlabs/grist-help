@@ -1,0 +1,5 @@
+INHERIT: ../../mkdocs.yml
+docs_dir: './docs'
+theme:
+  custom_dir: ../../overrides
+  language: it
