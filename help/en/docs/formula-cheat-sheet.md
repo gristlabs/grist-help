@@ -413,7 +413,7 @@ Note: You can click on columns to insert them into your formulas, rather than ty
 <span></span><details><summary>
 #### Examples using Method 1
 </summary>
-**[Class Enrollment](https://templates.getgrist.com/doc/afterschool-program) template{:target="\_blank"}**
+**[Class Enrollment](https://templates.getgrist.com/doc/afterschool-program){:target="\_blank"} template**
 
 <span class="screenshot-large">*![combining-text-students](images/formula-cheat-sheet/combining-text-students.png)*</span>
 

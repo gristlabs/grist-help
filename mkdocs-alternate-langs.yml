@@ -7,3 +7,6 @@ extra:
   - link: /fr/
     name: fr - français
     code: fr
+  - link: /it/
+    name: it - italiano
+    code: it

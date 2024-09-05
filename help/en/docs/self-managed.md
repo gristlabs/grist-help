@@ -368,7 +368,10 @@ you'll need to ensure the custom CSS is available from that base URL.
 
 ### How do I list custom widgets? {: .tag-core .tag-ee }
 
-In our SaaS, Grist has a [list of pre-built custom widgets](https://support.getgrist.com/newsletters/2022-02/#custom-widgets-menu) available in the UI.
+In our SaaS, Grist has a list of pre-built custom widgets available in the UI.
+
+![Custom widget gallery](images/widget-custom/custom-widget-gallery.png)
+
 You can have your self-managed installation offer the same list by
 setting the following:
 
@@ -381,14 +384,22 @@ docker run
 
 This is optional. If you leave the variable unset, documents with
 custom widgets will still work fine, but you'll need to enter a full
-URL when adding custom widgets rather than picking an option from a
-drop-down.
+URL when adding custom widgets, rather than picking a widget from the
+gallery.
 
 You can make your own list of widgets available by forking
 [github.com/gristlabs/grist-widget](https://github.com/gristlabs/grist-widget)
 or by manually preparing a `.json` file on a public server in the same
 format as our `manifest.json`.
 
+To customize the appearance of widgets in the gallery, the following
+fields may be set in the `manifest.json`:
+
+ - `name`: The widget title.
+ - `description`: An optional description shown below the widget title.
+ - `authors`: An optional list of one or more widget authors. The
+ first author will be shown in the "Developer" field.
+ - `lastUpdatedAt`: The date shown in the "Last updated" field.
 
 ### How do I set up email notifications? {: .tag-ee }
 
