@@ -1645,8 +1645,21 @@ and set the following variables:</p>
 <li>TYPEORM_HOST - set to hostname of database, e.g. grist.mumble.rds.amazonaws.com</li>
 <li>TYPEORM_PORT - set to port number of database if not the default for PostgreSQL</li>
 </ul>
-<p>Grist is known to work with PostgreSQL from versions 10 through 14 (later versions
-are likely to work also, but have not been specifically tested at the time of writing).</p>
+<p>Grist is known to work with PostgreSQL from versions 10 through 16.
+Recent versions, however, have enabled by default a JIT compiler that
+is known to cause problems with Grist, which expresses itself as every
+cell operation taking a few noticeable seconds. In case this happens,
+PostgreSQL&rsquo;s JIT compiler should be disabled for Grist with the
+command-line argument <code>-c jit=off</code> or via <a href="https://www.postgresql.org/docs/current/config-setting.html#CONFIG-SETTING-CONFIGURATION-FILE">other methods of changing
+the PostgreSQL
+configuration</a>.
+In a <code>docker-compose.yaml</code> file, for example, the JIT compiler can be
+disabled like this:</p>
+<pre><code class="language-yaml">  postgres:
+    image: postgres:latest
+    command: -c jit=off
+  # other config follows...
+</code></pre>
 <h3 class="tag-core tag-ee" id="what-is-a-state-store">What is a state store?<a class="headerlink" href="#what-is-a-state-store" title="Permanent link">#</a></h3>
 <p>Grist can be configured to use Redis as an external state cache. For
 most Grist functionality, this is optional. It is required for webhook
