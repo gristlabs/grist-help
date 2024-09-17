@@ -183,16 +183,43 @@ Attachment     | Cells where you can place files or images.
 
 ## Text columns
 
-You can put any text you like in this type of column.  For formatting,
-you can control alignment and word-wrap, text color and background color.
+You can put any text you like in this type of column. You can control alignment and word-wrap.
+Text columns support multi-line text: you can add newlines by pressing <code class="keys">*Shift*
++ *Enter*</code>.
 
-If the column is used for storing web links, you can turn on "HyperLink"
-formatting to make links prettier and to include a clickable link icon.
+As for most column types, you can also set default cell formatting for text columns, including color,
+background color, bold, or italics.
+
+You can enable rich text formatting by selecting "Markdown" as the cell format instead of the
+default plain text. Markdown also replaces the older "HyperLink" cell format for prettier web links.
 
 <span class="screenshot-large">*![columns-format-text](images/columns/columns-format-text.png)*</span>
 {: .screenshot-half }
 
-### Hyperlinks
+### Markdown
+
+Markdown formatting allows you to add rich text elements like headings, links, or lists, as well
+as bold or italics formatting directly within a cell.
+
+Cells with Markdown are still stored as plain text, but certain elements in the text are
+interpreted as formatting. For example, `**bold**` is shown as **bold**, and
+`[my link](https://getgrist.com)` is shown as [my link](https://getgrist.com).
+
+Here is a screenshot of a cell being edited and showing raw markdown, while the cell below it
+shows this same markdown when it is rendered:
+
+<span class="screenshot-large">*![Markdown cell format](images/columns/columns-cell-markdown.png)*</span>
+{: .screenshot-half }
+
+Markdown is documented online, such as in this handy
+[markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/), or this
+[documentation of markdown syntax](https://www.markdownguide.org/basic-syntax/).
+
+The Markdown cell format in Grist supports a subset of markdown, including lists, links, headings,
+bold and italic text, code spans and code blocks, and blockquotes. It does _not_ currently support
+images or custom HTML.
+
+### Hyperlinks (deprecated)
 
 When a Text column uses "HyperLink" formatting, values get formatted like so:
 
@@ -206,6 +233,12 @@ In general, the value until the last space is used as the link text, while the l
 
 Link formatting is particularly useful when links are generated using a formula such as:  
 `$Company + " " + $Website`{: .formula}
+
+Note that the same functionality is now possible using the Markdown cell format, which offers a more
+standard option for creating links with custom text, making the Hyperlink cell format obsolete.
+For example, using the Markdown cell format, `[Grist Labs](https://getgrist.com)` will show [Grist Labs](https://getgrist.com).
+You can also generate markdown links using a formula like:  
+`f"[{$Company}]({$Website})"`{: .formula}
 
 ## Numeric columns
 
