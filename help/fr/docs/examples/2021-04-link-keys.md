@@ -1,3 +1,7 @@
+---
+title: Link keys guide
+---
+
 # Créer des Liens Uniques en 4 Étapes
 
 Dans Grist, les "clés de lien" sont des paramètres d'URL qui, lorsqu'ils sont combinés avec la variable `user.LinkKey` dans les [permissions avancées](https://support.getgrist.com/access-rules/), détermineront quelles données un destinataire de lien est autorisé à voir.

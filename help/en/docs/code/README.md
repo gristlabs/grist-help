@@ -1,3 +1,7 @@
+---
+title: Intro to Plugin API
+---
+
 # Plugin API
 
 The plugin API is used in custom widgets to interact with the document

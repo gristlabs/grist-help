@@ -1,3 +1,7 @@
+---
+title: Entering data
+---
+
 # Entering data
 
 A spreadsheet-like grid is a great way to see data. In Grist, this is the view

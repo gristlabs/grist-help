@@ -1,3 +1,7 @@
+---
+title: REST API usage
+---
+
 # Utilisation de l'API Grist
 
 Grist dispose d'une API pour manipuler des documents, des espaces de travail et des espaces d'équipe.

@@ -1,3 +1,7 @@
+---
+title: Forwarded headers
+---
+
 En-têtes Transférés
 =================
 

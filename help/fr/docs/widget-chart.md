@@ -1,3 +1,7 @@
+---
+title: Chart
+---
+
 # Vue : Graphique
 
 Grist prend en charge plusieurs types de graphiques pour vous aider à visualiser vos données facilement. Les graphiques peuvent être utilisés pour tracer un tableau de données régulier, une vue liée (comme décrit dans [Lier des vues](linking-widgets.md)), ou un tableau récapitulatif (comme décrit dans [Tableaux récapitulatifs](summary-tables.md)).

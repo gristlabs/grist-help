@@ -1,3 +1,7 @@
+---
+title: Authorship columns
+---
+
 Colonnes d'auteur
 ===================
 

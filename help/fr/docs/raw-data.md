@@ -1,3 +1,7 @@
+---
+title: Raw data
+---
+
 # Données sources
 
 La page des données sources est une page spéciale qui répertorie toutes les [tables de données](glossary.md#data-table) de votre document et résume les statistiques d'utilisation de votre document.

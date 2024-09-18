@@ -1,3 +1,7 @@
+---
+title: Transformations
+---
+
 # Column Transformations {: data-toc-label='' }
 
 Grist offers two ways to transform all values in a column. One is to change the type of the

@@ -1,3 +1,7 @@
+---
+title: Reference columns guide
+---
+
 # Reference Columns Guide
 
 ## Mastering Reference Columns in 3 Steps

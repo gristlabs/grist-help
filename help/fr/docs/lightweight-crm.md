@@ -1,3 +1,7 @@
+---
+title: Create your own CRM
+---
+
 # Comment créer un CRM personnalisé {: data-toc-label='Intro' }
 
 Grist est aussi facile à utiliser qu'un tableur, mais vous donne de nouveaux pouvoirs lorsque les données ne s'intègrent pas dans une simple grille.

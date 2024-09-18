@@ -1,3 +1,7 @@
+---
+title: Conditional formatting
+---
+
 Mise en forme conditionnelle
 ============================
 

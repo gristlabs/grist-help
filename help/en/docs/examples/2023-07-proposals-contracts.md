@@ -1,3 +1,7 @@
+---
+title: Proposals & contracts
+---
+
 # Creating Proposals
 
 If you are keeping business details and contracts in Grist, it can be convenient

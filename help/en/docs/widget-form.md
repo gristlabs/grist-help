@@ -1,3 +1,7 @@
+---
+title: Form
+---
+
 # Page widget: Form
 
 The form widget allows you to collect data in a form view which populates your Grist data table upon submission.

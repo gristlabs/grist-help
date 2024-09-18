@@ -4,16 +4,18 @@
 # Original Author: Sebastián Ramírez and contributors
 
 import glob
+from mkdocs.structure import StructureItem
 import yaml
 import urllib.parse
 from functools import lru_cache
 from pathlib import Path
 from textwrap import indent
-from typing import Any, List
+from typing import Any, List, cast
 
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import File, Files
 from mkdocs.structure.pages import Page
+from mkdocs.structure.nav import Navigation, Section
 from mkdocs.utils.yaml import yaml_load
 
 non_translated_sections = [] # Add the sections that are not translated here
@@ -108,6 +110,25 @@ def on_files(files: Files, *, config: MkDocsConfig) -> Files:
   resolve_files(items=config.extra_css, files=files, config=config)
   resolve_files(items=config.extra_javascript, files=files, config=config)
   return files
+
+def on_nav(nav: Navigation, config: MkDocsConfig, files: Files) -> Navigation:
+  # Read the sections-translations file:
+  translated_sections_file_path = Path(config.docs_dir).parent / "sections-translations.yml"
+  translated_sections = yaml_load(translated_sections_file_path.read_text(encoding="utf-8"))
+
+  # Change only the section titles recursively, leave the pages as they are
+  def change_section_titles(item: StructureItem):
+    if not isinstance(item, Section):
+      return
+    section = cast(Section, item)
+    section.title = translated_sections.get(section.title, section.title)
+    for child in section.children:
+      change_section_titles(child)
+
+  for item in nav.items:
+    change_section_titles(item)
+
+  return nav
 
 def _inject_warning(markdown: str, warning: str, page: Page):
   for excluded_section in non_translated_sections:

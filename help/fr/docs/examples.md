@@ -1,3 +1,7 @@
+---
+title: More examples
+---
+
 # Plus d'exemples
 
 Ici, nous publierons des exemples utiles de ce que vous pouvez faire avec Grist, parfois avec des modèles prêts à l'emploi.

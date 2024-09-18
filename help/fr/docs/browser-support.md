@@ -1,3 +1,7 @@
+---
+title: Browser support
+---
+
 # Support des Navigateurs
 
 Grist est officiellement pris en charge et régulièrement testé sur les navigateurs modernes Firefox et Google Chrome sur toutes les plateformes de bureau. Ils sont disponibles ici :

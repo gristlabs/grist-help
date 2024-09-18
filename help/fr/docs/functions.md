@@ -1,3 +1,6 @@
+---
+title: Function reference
+---
 <style>
     /* Aligne les en-têtes des fonctions avec la flèche "développer" */
     .wm-page-content summary h4 {

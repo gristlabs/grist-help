@@ -1,4 +1,8 @@
 ---
+title: Self-managed Grist
+---
+
+---
 description: Les éléments essentiels pour créer et maintenir une installation Grist autogérée.
 ---
 

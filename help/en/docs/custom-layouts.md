@@ -1,3 +1,7 @@
+---
+title: Custom layouts
+---
+
 # Custom Layouts
 
 You can easily add multiple widgets to one page, as described in [Page widgets](page-widgets.md),

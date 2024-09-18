@@ -1,3 +1,7 @@
+---
+title: Formula timer
+---
+
 Minuteur de formules
 =========
 

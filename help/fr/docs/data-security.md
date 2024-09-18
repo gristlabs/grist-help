@@ -1,3 +1,7 @@
+---
+title: Data security
+---
+
 # Sécurité des Données
 
 Grist est disponible en tant que service hébergé ("Grist SaaS") fonctionnant

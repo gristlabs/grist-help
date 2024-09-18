@@ -1,3 +1,7 @@
+---
+title: Embedding
+---
+
 ## Intégrer Grist
 
 Peut-être souhaitez-vous lister vos produits, prix et quantités sur votre site web,

@@ -1,3 +1,7 @@
+---
+title: OIDC
+---
+
 OpenID Connect {: .tag-core .tag-ee }
 ====
 

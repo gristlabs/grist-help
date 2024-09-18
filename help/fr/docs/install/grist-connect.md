@@ -1,3 +1,7 @@
+---
+title: GristConnect
+---
+
 GristConnect {: .tag-ee }
 ============
 

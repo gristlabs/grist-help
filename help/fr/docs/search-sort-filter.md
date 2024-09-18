@@ -1,3 +1,7 @@
+---
+title: Search, sort & filter
+---
+
 # Recherche, Tri et Filtrage
 
 Grist offre plusieurs façons de rechercher dans vos données, ou d'organiser les données pour les avoir à portée de main.

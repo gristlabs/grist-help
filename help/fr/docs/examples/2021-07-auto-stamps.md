@@ -1,3 +1,7 @@
+---
+title: Time and user stamps
+---
+
 # Guide des Horodatages Automatiques et des Utilisateurs
 
 Il est parfois utile de savoir quand un enregistrement a été mis à jour ou créé pour la dernière fois, et par qui. Grist rend

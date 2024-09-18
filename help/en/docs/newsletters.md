@@ -1,3 +1,7 @@
+---
+title: Newsletters
+---
+
 # Grist for the Mill
 
 Welcome to our monthly newsletter of updates and tips for Grist users. The phrase "Grist for the

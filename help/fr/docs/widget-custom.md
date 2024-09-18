@@ -1,3 +1,7 @@
+---
+title: Custom
+---
+
 # Widget de page : Personnalisé
 
 Le widget **Personnalisé** permet à un utilisateur d'insérer presque tout dans son document. Pour créer un widget personnalisé, il faut actuellement des connaissances en développement web et un accès à un serveur web public (par exemple, GitHub Pages).

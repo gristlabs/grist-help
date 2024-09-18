@@ -1,3 +1,7 @@
+---
+title: Manage business data
+---
+
 # How to manage business data {: data-toc-label='Intro' }
 
 Grist shines when your business data has some complexity. In this example, we’ll look at an

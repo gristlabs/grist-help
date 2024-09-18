@@ -1,3 +1,7 @@
+---
+title: Importing more data
+---
+
 # Importer plus de données
 
 Vous pouvez importer un fichier pour [créer un nouveau document Grist](creating-doc.md) ou pour ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON, tabulés et depuis [Google Drive](imports.md#import-from-google-drive).

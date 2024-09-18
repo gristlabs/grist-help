@@ -1,3 +1,7 @@
+---
+title: Limited telemetry
+---
+
 # Telemetry level: limited
 This is a telemetry level appropriate for self-hosting instances of Grist.
 Data is transmitted to Grist Labs.

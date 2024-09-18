@@ -1,3 +1,7 @@
+---
+title: Calendar
+---
+
 # Vue : Calendrier
 
 La vue calendrier permet de visualiser les données dans une vue calendrier. Dans Grist, les données d'événements sont stockées dans une table de données. Ensuite, la vue calendrier peut être configurée pour afficher ces données.

@@ -1,3 +1,7 @@
+---
+title: Full telemetry
+---
+
 # Telemetry level: full
 This is a telemetry level appropriate for internal use by a hosted service, with
 `GRIST_TELEMETRY_URL` set to an endpoint controlled by the operator of the service.

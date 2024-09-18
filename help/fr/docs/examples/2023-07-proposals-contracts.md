@@ -1,3 +1,7 @@
+---
+title: Proposals & contracts
+---
+
 # Création de Propositions
 
 Si vous conservez des détails commerciaux et des contrats dans Grist, il peut être pratique de générer des propositions et des contrats directement là, à côté de ces enregistrements. Vous pouvez utiliser le [Widget Markdown Personnalisé](../widget-custom.md#markdown) pour créer un 'formulaire' personnalisé pour les Propositions, Contrats, ou de nombreux autres types de documents. Ce tutoriel vous montre comment configurer un document comme celui-ci :

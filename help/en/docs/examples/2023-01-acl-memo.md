@@ -1,3 +1,7 @@
+---
+title: Restrict duplicate records
+---
+
 # Access Rules to Restrict Duplicate Records
 
 Suppose we have a table listing airports, and we want to

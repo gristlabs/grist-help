@@ -1,3 +1,7 @@
+---
+title: Treasure hunt
+---
+
 # Planning a Treasure Hunt
 
 A treasure hunt is a fun party diversion that goes like this:

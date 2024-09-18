@@ -1,3 +1,7 @@
+---
+title: Credit card expenses
+---
+
 # Découper et Analyser les Dépenses
 
 Grist offre un moyen pratique d'explorer rapidement vos transactions par carte de crédit, par exemple si vous souhaitez voir les transactions par :

@@ -1,3 +1,7 @@
+---
+title: AI Formula Assistant
+---
+
 Assistant de Formule AI
 ==============
 

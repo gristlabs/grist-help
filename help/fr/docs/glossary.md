@@ -1,3 +1,7 @@
+---
+title: Glossary
+---
+
 # Glossaire
 
 ## Diagramme à Barres

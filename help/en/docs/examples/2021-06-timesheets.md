@@ -1,3 +1,7 @@
+---
+title: Summary tables guide
+---
+
 # Summary Tables Guide
 
 ## Mastering Summary Tables with 2 Concepts

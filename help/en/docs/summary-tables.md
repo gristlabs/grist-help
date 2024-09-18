@@ -1,3 +1,7 @@
+---
+title: Summary tables
+---
+
 # Summary Tables
 
 Summary tables are the workhorse of data analysis in Grist. They are similar to "pivot tables" in

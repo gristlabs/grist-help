@@ -1,3 +1,7 @@
+---
+title: Create your own CRM
+---
+
 # How to create a custom CRM {: data-toc-label='Intro' }
 
 Grist is as easy to use as a spreadsheet, but gives you new powers when data doesn't fit in a

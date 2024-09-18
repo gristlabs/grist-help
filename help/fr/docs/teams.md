@@ -1,3 +1,7 @@
+---
+title: Creating team sites
+---
+
 Équipes
 =========
 

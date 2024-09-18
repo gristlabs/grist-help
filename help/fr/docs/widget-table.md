@@ -1,3 +1,7 @@
+---
+title: Table widget
+---
+
 # Vue Table: Tableau
 
 La **Table** vue est une grille polyvalente semblable à une feuille de calcul.

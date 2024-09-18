@@ -1,3 +1,7 @@
+---
+title: Form
+---
+
 # Vue fiche : Formulaire
 
 La vue formulaire vous permet de collecter des données dans une vue formulaire qui remplit votre table de données Grist lors de la soumission.

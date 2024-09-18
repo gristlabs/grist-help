@@ -1,3 +1,7 @@
+---
+title: Card & card list
+---
+
 # Vue : Fiche & Liste de Fiches {: data-toc-label='Vue : Fiche' }
 
 Les vues **Fiche** et **Liste de Fiches** permettent de visualiser les données sous forme de formulaire ou d'enregistrement, similaire à la présentation des données dans une application personnalisée. Dans Grist, vous pouvez choisir les champs à afficher et comment les disposer.
