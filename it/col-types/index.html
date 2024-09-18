@@ -1167,12 +1167,30 @@ referencing the invalid value will also display an error):</p>
 </tbody>
 </table>
 <h2 id="text-columns">Text columns<a class="headerlink" href="#text-columns" title="Permanent link">#</a></h2>
-<p>You can put any text you like in this type of column.  For formatting,
-you can control alignment and word-wrap, text color and background color.</p>
-<p>If the column is used for storing web links, you can turn on &ldquo;HyperLink&rdquo;
-formatting to make links prettier and to include a clickable link icon.</p>
+<p>You can put any text you like in this type of column. You can control alignment and word-wrap.
+Text columns support multi-line text: you can add newlines by pressing <code class="keys"><em>Shift</em>
++ <em>Enter</em></code>.</p>
+<p>As for most column types, you can also set default cell formatting for text columns, including color,
+background color, bold, or italics.</p>
+<p>You can enable rich text formatting by selecting &ldquo;Markdown&rdquo; as the cell format instead of the
+default plain text. Markdown also replaces the older &ldquo;HyperLink&rdquo; cell format for prettier web links.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-text" src="../images/columns/columns-format-text.png" /></em></span></p>
-<h3 id="hyperlinks">Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permanent link">#</a></h3>
+<h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">#</a></h3>
+<p>Markdown formatting allows you to add rich text elements like headings, links, or lists, as well
+as bold or italics formatting directly within a cell.</p>
+<p>Cells with Markdown are still stored as plain text, but certain elements in the text are
+interpreted as formatting. For example, <code>**bold**</code> is shown as <strong>bold</strong>, and
+<code>[my link](https://getgrist.com)</code> is shown as <a href="https://getgrist.com">my link</a>.</p>
+<p>Here is a screenshot of a cell being edited and showing raw markdown, while the cell below it
+shows this same markdown when it is rendered:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Markdown cell format" src="../images/columns/columns-cell-markdown.png" /></em></span></p>
+<p>Markdown is documented online, such as in this handy
+<a href="https://www.markdownguide.org/cheat-sheet/">markdown cheatsheet</a>, or this
+<a href="https://www.markdownguide.org/basic-syntax/">documentation of markdown syntax</a>.</p>
+<p>The Markdown cell format in Grist supports a subset of markdown, including lists, links, headings,
+bold and italic text, code spans and code blocks, and blockquotes. It does <em>not</em> currently support
+images or custom HTML.</p>
+<h3 id="hyperlinks-deprecated">Hyperlinks (deprecated)<a class="headerlink" href="#hyperlinks-deprecated" title="Permanent link">#</a></h3>
 <p>When a Text column uses &ldquo;HyperLink&rdquo; formatting, values get formatted like so:</p>
 <ul>
 <li><code>https://getgrist.com</code> will show <a href="https://getgrist.com">https://getgrist.com</a>.</li>
@@ -1184,6 +1202,11 @@ formatting to make links prettier and to include a clickable link icon.</p>
 <p>In general, the value until the last space is used as the link text, while the last word is used as the link destination.</p>
 <p>Link formatting is particularly useful when links are generated using a formula such as:<br />
 <code class="formula">$Company + " " + $Website</code></p>
+<p>Note that the same functionality is now possible using the Markdown cell format, which offers a more
+standard option for creating links with custom text, making the Hyperlink cell format obsolete.
+For example, using the Markdown cell format, <code>[Grist Labs](https://getgrist.com)</code> will show <a href="https://getgrist.com">Grist Labs</a>.
+You can also generate markdown links using a formula like:<br />
+<code class="formula">f"[{$Company}]({$Website})"</code></p>
 <h2 id="numeric-columns">Numeric columns<a class="headerlink" href="#numeric-columns" title="Permanent link">#</a></h2>
 <p>This type is for numbers, including floating-point numbers. In addition to controlling alignment
 and color, you can choose the number format, and the minimum and maximum number of digits to
