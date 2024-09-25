@@ -368,8 +368,8 @@
               </a>
             </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#filtering-reference-choices-in-dropdown">
-                Filtering Reference choices in dropdown
+              <a class="wm-article-link wm-page-toc-text" href="#filtering-reference-choices-in-dropdown-lists">
+                Filtering Reference choices in dropdown lists
               </a>
             </li>
         
@@ -1221,22 +1221,24 @@ To close the editor and discard any changes you&rsquo;ve made, press
 <p><em><img alt="columns-reference-explanation-rowid" src="../images/columns/columns-reference-explanation-rowid.png" /></em></p>
 <p>We can see that the value in the <strong>Full Name</strong> column for the record with Row ID =<code>2</code> is <code>Dowbakin, Daniella</code>. If we revert back to our original settings for the <strong>Instructor</strong> column of the <em>Classes</em> table, where <code>Full Name</code> was selected under &lsquo;Show Column&rsquo;, we see that the <strong>Full Name</strong> value associated with <code>Staff[2]</code> is <code>Dowbakin, Daniella</code>.</p>
 <p><em><img alt="columns-reference-explanation-fullname" src="../images/columns/columns-reference-explanation-fullname.png" /></em></p>
-<h2 id="filtering-reference-choices-in-dropdown">Filtering Reference choices in dropdown<a class="headerlink" href="#filtering-reference-choices-in-dropdown" title="Permanent link">#</a></h2>
-<p>When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re selecting from a list of world cities, that dropdown would be unusable!</p>
-<p class="screenshot-half"><em><img alt="Unfiltered reference dropdown list" src="../images/columns/unfiltered-cities.png" /></em></p>
-<p>It would be useful if the dropdown list of city choices were filtered based on the country selected in the <strong>Filter Country</strong> column.</p>
-<p>To filter a reference column’s dropdown list, select the reference column then &lsquo;Set dropdown condition&rsquo; in the Creator Panel under the &lsquo;Column&rsquo; tab. </p>
-<p class="screenshot-half"><em><img alt="Set dropdown condition" src="../images/columns/set-dropdown-condition.png" /></em></p>
-<p>You can filter a dropdown’s choice by writing a condition as a formula. The attribute <code>choice</code> refers to choices in the dropdown. In this case the formula is <code>choice.Country == $Filter_Country</code>. </p>
-<p class="screenshot-half"><em><img alt="Reference dropdown filter condition" src="../images/columns/city-filter-condition.png" /></em></p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/columns/filtered-cities.png" /></em></p>
-<p>Why did that work? The <strong>Filtered City</strong> column is a reference column pointing to the <em>Cities</em> table that matches countries and cities. That table looks like this.</p>
-<p class="screenshot-half"><em><img alt="Cities reference table" src="../images/columns/cities-tables.png" /></em></p>
-<p>The formula condition <code>choice.Country == $Filter_Country</code> is looking up each choice’s country, listed in the <strong>Country</strong> column of  the <em>Cities</em> table using a <a href="../references-lookups/#reference-columns-and-dot-notation">reference lookup</a>, then it compares those countries to the value entered in the <strong>Filter Country</strong> column of the <em>Filtered Cities</em> table. </p>
-<p class="screenshot-half"><em><img alt="Filtered reference dropdown list" src="../images/columns/filtered-cities-highlight.png" /></em></p>
-<p>The dropdown now lists only choices (aka cities) whose country equals the country entered in <strong>Filter Country</strong> column. </p>
-<p>The <code>choice</code> attribute can also be used when setting dropdown filter conditions for <a href="../col-types/#choice-columns"><em>choice</em></a> and <a href="../col-types/#choice-list-columns"><em>choice list</em></a> columns.</p>
-<p>Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with <a href="../access-rules/">access rules</a> may notice similarities in how to think about writing these formulas.</p>
+<h2 id="filtering-reference-choices-in-dropdown-lists">Filtering Reference choices in dropdown lists<a class="headerlink" href="#filtering-reference-choices-in-dropdown-lists" title="Permanent link">#</a></h2>
+<p>When entering data into a reference column, you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing.</p>
+<p>For example, say we’re creating a database of stadiums and noting their locations using a dropdown to select their respective cities from a list of world cities:</p>
+<p><em><img alt="Unfiltered reference dropdown list" src="../images/columns/unfiltered-cities.png" /></em></p>
+<p>A dropdown list that long is impractical. Instead, it would be useful if the dropdown list of cities was filtered to only show cities based on the adjacent <strong>Stadium Country</strong> column.</p>
+<p>To do this, we’ll work with three tables – <em>Countries</em>, <em>Cities</em>, and <em>Stadiums</em>. You can <a href="https://public.getgrist.com/9XHx6mHSm7y4/Reference-Filtering/m/fork" target="_blank">see this example here</a>.</p>
+<p><em><img alt="Set dropdown condition" src="../images/columns/stadiums-all-tables.png" /></em> </p>
+<p>The <em>Countries</em> table lists each <strong>Country</strong> as a unique record. The <em>Cities</em> table creates a relationship between a city and a country. Each <strong>City</strong> is its own record, assigned to its corresponding <strong>Country</strong> in the adjacent reference column. The <em>Stadiums</em> table is linked to both tables via reference columns: <strong>Stadium Country</strong> references the <em>Countries</em> table, and <strong>Stadium City</strong> references the <em>Cities</em> table.</p>
+<p>To filter a reference column’s dropdown list – here, the <strong>Stadium City</strong> column – first select the reference column, then click ‘Set dropdown condition’ in the Creator Panel under the ‘Column’ tab.</p>
+<p class="screenshot-half"><em><img alt="Reference dropdown filter condition" src="../images/columns/set-dropdown-condition.png" /></em></p>
+<p>By writing a condition as a formula, you can filter the choices found in the column’s dropdown lists. The attribute <code>choice</code> refers to the choices in the dropdown. </p>
+<p class="screenshot-half"><em><img alt="Set dropdown filter condition" src="../images/columns/dropdown-condition.png" /></em></p>
+<p>Here, the formula is <code>choice.Country == $Stadium_Country</code></p>
+<p><code>choice.Country</code> looks at the value in the <strong>Country</strong> column of the <em>Cities</em> table. If it matches the value in the <strong>Stadium Country</strong> column of the <em>Stadiums</em> table, then that record will be included in the dropdown options.</p>
+<p><em><img alt="Filtered reference dropdown list" src="../images/columns/filtered-cities-highlight.png" /></em> </p>
+<p>Now, instead of showing a list of all world cities, the dropdown list in the <strong>Stadium City</strong> column only lists choices that belong to the country entered in the <strong>Stadium Country</strong> column, making it much faster to select the appropriate choice.</p>
+<p>The <code>choice</code> attribute can also be used when setting dropdown filter conditions for <em>choice</em> and <em>choice list</em> columns.</p>
+<p>Note that because reference dropdown filtering conditions are written as formulas, these conditions can be very flexible and granular. Users experienced with access rules may notice similarities in how to think about writing these formulas.</p>
 
   <br>
 </div>
