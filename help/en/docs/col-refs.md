@@ -68,6 +68,18 @@ the underlying table and insert the proper reference:
 *![Add reference value](images/column-ref-add-value.png)*
 {: .screenshot-half }
 
+## Creating a two-way Reference
+
+By default, new reference columns are created as a one-way reference, meaning that the reference is only shown in a single column in the table you have added it in. Grist also allows you to configure a reference column as a two-way reference, meaning that the reference will be shown in the column you initially added in the source table and as a reverse reference column in the referenced table.
+
+For example, we can make the existing reference column, **Client**, a two-way reference. Under the 'Column' tab of the Creator Panel, select 'Add two-way reference'.
+
+*![two-way-ref](images/columns/two-way-ref.png)*
+
+This creates a reference column in the referenced table, *Clients*. Because there could be multiple projects for a single client, the **Projects** column is a [Reference List](col-types.md#reference-list-columns). An update made in one reference column will be reflected in the other.
+
+*![two-way-ref-2](images/columns/two-way-ref-2.png)*
+
 ## Converting Text column to Reference
 
 When working with existing data, it's common to have existing text values that should really be
