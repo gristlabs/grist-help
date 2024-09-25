@@ -188,7 +188,7 @@ For example, say we’re creating a database of stadiums and noting their locati
 
 A dropdown list that long is impractical. Instead, it would be useful if the dropdown list of cities was filtered to only show cities based on the adjacent **Stadium Country** column.
 
-To do this, we’ll work with three tables – *Countries*, which includes the column **Country**, *Cities*, which includes the columns **Country** (referencing the *Country* table) and **City**, and *Stadiums*, which includes the columns **Stadium Country** (referencing the *Country* table) and **Stadium City** (referencing the *City* table). 
+To do this, we’ll work with three tables – *Countries*, *Cities*, and *Stadiums*. You can [see this example here](https://public.getgrist.com/9XHx6mHSm7y4/Reference-Filtering/m/fork){: target="\_blank"}.
 
 *![Set dropdown condition](images/columns/stadiums-all-tables.png)* 
 
@@ -197,8 +197,14 @@ The *Countries* table lists each **Country** as a unique record. The *Cities* ta
 To filter a reference column’s dropdown list – here, the **Stadium City** column – first select the reference column, then click ‘Set dropdown condition’ in the Creator Panel under the ‘Column’ tab.
 
 *![Reference dropdown filter condition](images/columns/set-dropdown-condition.png)*
+{: .screenshot-half }
 
-By writing a condition as a formula, you can filter the choices found in the column’s dropdown lists. The attribute `choice` refers to the choices in the dropdown. Here, the formula is `choice.Country == $Stadium_Country`
+By writing a condition as a formula, you can filter the choices found in the column’s dropdown lists. The attribute `choice` refers to the choices in the dropdown. 
+
+*![Set dropdown filter condition](images/columns/dropdown-condition.png)*
+{: .screenshot-half }
+
+Here, the formula is `choice.Country == $Stadium_Country`
 
 `choice.Country` looks at the value in the **Country** column of the *Cities* table. If it matches the value in the **Stadium Country** column of the *Stadiums* table, then that record will be included in the dropdown options.
 
