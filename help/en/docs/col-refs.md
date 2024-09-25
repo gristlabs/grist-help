@@ -182,42 +182,40 @@ We can see that the value in the **Full Name** column for the record with Row ID
 
 *![columns-reference-explanation-fullname](images/columns/columns-reference-explanation-fullname.png)*
 
-## Filtering Reference choices in dropdown 
+## Filtering Reference choices in dropdown lists
 
-When entering data into a reference column you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing. For example, say you’re selecting from a list of world cities, that dropdown would be unusable!
+When entering data into a reference column, you will see a dropdown list of all available values to choose from. Sometimes the list can get long, and in some cases confusing.
+
+For example, say we’re creating a database of stadiums and noting their locations using a dropdown to select their respective cities from a list of world cities:
 
 *![Unfiltered reference dropdown list](images/columns/unfiltered-cities.png)*
-{: .screenshot-half } 
 
-It would be useful if the dropdown list of city choices were filtered based on the country selected in the **Filter Country** column.
+A dropdown list that long is impractical. Instead, it would be useful if the dropdown list of cities was filtered to only show cities based on the adjacent **Stadium Country** column.
 
-To filter a reference column’s dropdown list, select the reference column then 'Set dropdown condition' in the Creator Panel under the 'Column' tab. 
+To do this, we’ll work with three tables – *Countries*, *Cities*, and *Stadiums*. You can [see this example here](https://public.getgrist.com/9XHx6mHSm7y4/Reference-Filtering/m/fork){: target="\_blank"}.
 
-*![Set dropdown condition](images/columns/set-dropdown-condition.png)*
-{: .screenshot-half } 
+*![Set dropdown condition](images/columns/stadiums-all-tables.png)* 
 
+The *Countries* table lists each **Country** as a unique record. The *Cities* table creates a relationship between a city and a country. Each **City** is its own record, assigned to its corresponding **Country** in the adjacent reference column. The *Stadiums* table is linked to both tables via reference columns: **Stadium Country** references the *Countries* table, and **Stadium City** references the *Cities* table.
 
-You can filter a dropdown’s choice by writing a condition as a formula. The attribute `choice` refers to choices in the dropdown. In this case the formula is `choice.Country == $Filter_Country`. 
+To filter a reference column’s dropdown list – here, the **Stadium City** column – first select the reference column, then click ‘Set dropdown condition’ in the Creator Panel under the ‘Column’ tab.
 
-*![Reference dropdown filter condition](images/columns/city-filter-condition.png)*
-{: .screenshot-half } 
+*![Reference dropdown filter condition](images/columns/set-dropdown-condition.png)*
+{: .screenshot-half }
 
-*![Filtered reference dropdown list](images/columns/filtered-cities.png)*
-{: .screenshot-half } 
+By writing a condition as a formula, you can filter the choices found in the column’s dropdown lists. The attribute `choice` refers to the choices in the dropdown. 
 
+*![Set dropdown filter condition](images/columns/dropdown-condition.png)*
+{: .screenshot-half }
 
-Why did that work? The **Filtered City** column is a reference column pointing to the *Cities* table that matches countries and cities. That table looks like this.
+Here, the formula is `choice.Country == $Stadium_Country`
 
-*![Cities reference table](images/columns/cities-tables.png)*
-{: .screenshot-half } 
+`choice.Country` looks at the value in the **Country** column of the *Cities* table. If it matches the value in the **Stadium Country** column of the *Stadiums* table, then that record will be included in the dropdown options.
 
-The formula condition `choice.Country == $Filter_Country` is looking up each choice’s country, listed in the **Country** column of  the *Cities* table using a [reference lookup](references-lookups.md#reference-columns-and-dot-notation), then it compares those countries to the value entered in the **Filter Country** column of the *Filtered Cities* table. 
+*![Filtered reference dropdown list](images/columns/filtered-cities-highlight.png)* 
 
-*![Filtered reference dropdown list](images/columns/filtered-cities-highlight.png)*
-{: .screenshot-half } 
+Now, instead of showing a list of all world cities, the dropdown list in the **Stadium City** column only lists choices that belong to the country entered in the **Stadium Country** column, making it much faster to select the appropriate choice.
 
-The dropdown now lists only choices (aka cities) whose country equals the country entered in **Filter Country** column. 
+The `choice` attribute can also be used when setting dropdown filter conditions for *choice* and *choice list* columns.
 
-The `choice` attribute can also be used when setting dropdown filter conditions for [*choice*](col-types.md#choice-columns) and [*choice list*](col-types.md#choice-list-columns) columns.
-
-Note that because reference dropdown filtering is written as formulas, filtering can be very flexible and granular. Users experienced with [access rules](access-rules.md) may notice similarities in how to think about writing these formulas.
+Note that because reference dropdown filtering conditions are written as formulas, these conditions can be very flexible and granular. Users experienced with access rules may notice similarities in how to think about writing these formulas.
