@@ -70,13 +70,13 @@ the underlying table and insert the proper reference:
 
 ## Creating a two-way Reference
 
-By default, new reference columns are created as one-way references, meaning that the references are only shown in a single column in the table you have added it in. Grist also allows you to configure a reference column with two-way references, meaning that the references will be shown in the column you initially added in the source table and in a reverse reference column in the referenced table.
+By default, new reference columns are added to a table as one-way references. This means they exist only as a single column within that specific table. Grist also allows you to configure a reference column with two-way references. This creates a new column in the referenced (or target) table, meaning that references between the two will be shown in both tables and remain synchronized.
 
 For example, we can make the existing reference column, **Client**, a two-way reference. Under the 'Column' tab of the Creator Panel, select 'Add two-way reference'.
 
 *![two-way-ref](images/columns/two-way-ref.png)*
 
-This creates a reverse reference column in the referenced table, *Clients*. Because there could be multiple projects for a single client, the **Projects** column is a [Reference List](col-types.md#reference-list-columns). An update made in a reference column will be reflected in the corresponding reverse reference column.
+This creates a new reference column in the referenced table, *Clients*. Since there can be multiple projects for a single client, the automatically-created **Projects** column is a [Reference List](col-types.md#reference-list-columns). When part of a two-way reference, updates made in one column will be reflected in the other.
 
 *![two-way-ref-2](images/columns/two-way-ref-2.png)*
 
