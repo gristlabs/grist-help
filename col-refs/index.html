@@ -1109,6 +1109,15 @@
 
 <h1 id="reference-and-reference-lists">Reference and Reference Lists<a class="headerlink" href="#reference-and-reference-lists" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>In most datasets, each record shares a relationship with some other type of data. Relational databases like Grist are built on these relationships. ID numbers are assigned to people, employees are organized into departments, receipts list different products, etc.</p>
+<p><a href="https://www.getgrist.com/blog/understanding-relationships-in-relational-databases/">These relationships</a> come in four different forms:</p>
+<ol>
+<li><strong>One-to-One</strong>: An exclusive relationship between two unique records, like an individual and their birth certificate, or a company and its incorporating document. Each record can only have one counterpart, and vice versa.</li>
+<li><strong>One-to-Many</strong>: A relationship in which one record can be related to any number of corresponding records, like a department and its employees, or a person with multiple email addresses. The first record may be related to multiple other records, but each of those records can only be related to the first.</li>
+<li><strong>Many-to-One</strong>: A relationship that is the inverse of a One-to-Many relationship. Consider the previous examples, but reversed: employees and the department they are assigned to, or multiple email addresses and the person they belong to.</li>
+<li><strong>Many-to-Many</strong>: A relationship in which any number of records can be related to any number of corresponding records, like a roster of students and the different courses they are enrolled in. These relationships are the least restrictive, and can express the most complex relationships.</li>
+</ol>
+<p><img alt="relational-data-overview" src="../images/columns/relational-data-overview.png" /></p>
 <p>Reference and Reference List columns in Grist allow one table to create an explicit reference
 to another. In the database world this is similar to a foreign key. In the spreadsheet world
 this is similar to a <code>VLOOKUP</code>, but much more powerful and easier to use.</p>
