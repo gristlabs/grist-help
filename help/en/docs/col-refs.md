@@ -8,6 +8,19 @@ title: Reference columns
 
 ## Overview
 
+In most datasets, each record shares a relationship with some other type of data. Relational databases like Grist are built on these relationships. ID numbers are assigned to people, employees are organized into departments, receipts list different products, etc.
+
+Relationships come in four different forms:
+
+1. **One-to-One**: An exclusive relationship between two unique records, like an individual and their birth certificate, or a company and its incorporating document. Each record can only have one counterpart, and vice versa.
+2. **One-to-Many**: A relationship in which one record can be related to any number of corresponding records, like a department and its employees, or a person with multiple email addresses. The first record may be related to multiple other records, but each of those records can only be related to the first.
+3. **Many-to-One**: A relationship that is the inverse of a One-to-Many relationship. Consider the previous examples, but reversed: employees and the department they are assigned to, or multiple email addresses and the person they belong to.
+4. **Many-to-Many**: A relationship in which any number of records can be related to any number of corresponding records, like a roster of students and the different courses they are enrolled in. These relationships are the least restrictive, and can express the most complex relationships.
+
+![relational-data-overview](images/columns/relational-data-overview.png)
+
+Learn more about understanding and identifying relationships in your data [on our blog](https://www.getgrist.com/blog/understanding-relationships-in-relational-databases/).
+
 Reference and Reference List columns in Grist allow one table to create an explicit reference
 to another. In the database world this is similar to a foreign key. In the spreadsheet world
 this is similar to a `VLOOKUP`, but much more powerful and easier to use.
