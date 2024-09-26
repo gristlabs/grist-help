@@ -343,6 +343,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#creating-a-two-way-reference">
+                Creating a two-way Reference
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#converting-text-column-to-reference">
                 Converting Text column to Reference
               </a>
@@ -1018,6 +1023,12 @@ underlying table. Reference columns make it easy! Just type in the value you wan
 <code>+</code> value in the dropdown list. Grist will automatically add a new record containing this value to
 the underlying table and insert the proper reference:</p>
 <p class="screenshot-half"><em><img alt="Add reference value" src="../images/column-ref-add-value.png" /></em></p>
+<h2 id="creating-a-two-way-reference">Creating a two-way Reference<a class="headerlink" href="#creating-a-two-way-reference" title="Permanent link">#</a></h2>
+<p>By default, new reference columns are added to a table as one-way references. This means they exist only as a single column within that specific table. Grist also allows you to configure a reference column with two-way references. This creates a new column in the referenced (or target) table, meaning that references between the two will be shown in both tables and remain synchronized.</p>
+<p>For example, we can make the existing reference column, <strong>Client</strong>, a two-way reference. Under the &lsquo;Column&rsquo; tab of the Creator Panel, select &lsquo;Add two-way reference&rsquo;.</p>
+<p><em><img alt="two-way-ref" src="../images/columns/two-way-ref.png" /></em></p>
+<p>This creates a new reference column in the referenced table, <em>Clients</em>. Since there can be multiple projects for a single client, the automatically-created <strong>Projects</strong> column is a <a href="../col-types/#reference-list-columns">Reference List</a>. When part of a two-way reference, updates made in one column will be reflected in the other.</p>
+<p><em><img alt="two-way-ref-2" src="../images/columns/two-way-ref-2.png" /></em></p>
 <h2 id="converting-text-column-to-reference">Converting Text column to Reference<a class="headerlink" href="#converting-text-column-to-reference" title="Permanent link">#</a></h2>
 <p>When working with existing data, it&rsquo;s common to have existing text values that should really be
 reference values. Don&rsquo;t worry, conversion is simple! Just change the column type to &lsquo;Reference&rsquo; and
