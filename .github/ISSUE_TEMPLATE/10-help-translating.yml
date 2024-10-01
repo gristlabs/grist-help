@@ -26,6 +26,8 @@ body:
       options:
         - French
         - Italian
+        - Portuguese
+        - Ukrainian
         - Others (please detail below)
     validations:
       required: true
