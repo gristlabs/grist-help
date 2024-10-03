@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <meta name="description" content="Grist has a powerful data engine to calculate the cells of your
+tables using formulas. It even has an AI Formula Assistant to help write formulas. If you’ve used spreadsheets before, or
+database expressions, you’ll be on familiar territory - but there are
+some wrinkles you’ll want to know about, so hang around.">
+      <meta property="og:description" content="Grist has a powerful data engine to calculate the cells of your
+tables using formulas. It even has an AI Formula Assistant to help write formulas. If you’ve used spreadsheets before, or
+database expressions, you’ll be on familiar territory - but there are
+some wrinkles you’ll want to know about, so hang around.">
+    
+    
+    <link rel="canonical" href="https://support.getgrist.com/formulas/">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="me" href="https://fosstodon.org/@grist">
+    <meta name="thumbnail" content="https://support.getgrist.com/images/favicon.png">
+    <meta property="og:image" content="https://support.getgrist.com/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Intro to formulas - Grist Help Center</title>
+    
+  
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5FDHKQ9');</script>
+  <!-- End Google Tag Manager -->
+    <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap-3.3.7.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/elasticlunr.min.js"></script>
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+    </script>
+    <script src="/js/base.js"></script>
+      <script src="../js/grist.js"></script>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    window.Beacon('config', {display: { style: 'icon' }});
+    window.Beacon('init', 'fc61df2a-664b-4422-b24f-964bd0cb6d53');
+    window.Beacon('suggest', [
+      {url: 'https://community.getgrist.com/', text: 'Community Forum'},
+      {url: 'https://docs.getgrist.com/p/templates', text: 'Templates'},
+      {url: 'https://github.com/gristlabs/grist-core/projects/1', text: 'Roadmap'},
+    ]);
+
+    fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
+      .then(function(resp) { return resp.json(); })
+      .then(function(status) {
+        // If there's exactly two orgs, will use the team name for the non-merged personal
+        // org as the company name.  Otherwise don't worry about setting company name.
+        var org = undefined;
+        if (status.orgs.length === 2) {
+          org = status.orgs[0].owner ? status.orgs[1] : status.orgs[0];
+        }
+        // If there's one user account available, fill it in silently; otherwise use
+        // the first one and prefill fields but let user see them so they can override
+        // them.  If testing this, be aware that if 'identify' was called previously,
+        // it will be cached in local storage and used even if it is not set this time
+        // around.
+        var user = status.users[0];
+        var identifyOrPrefill = status.users.length === 1 ? 'identify' : 'prefill';
+        if (user && !user.anonymous) {
+          var userObj = {};
+          if (user.email) { userObj.email = user.email; }
+          if (user.name) { userObj.name = user.name; }
+          if (user.picture) { userObj.avatar = user.picture; }
+          if (user.helpScoutSignature) { userObj.signature = user.helpScoutSignature; }
+          if (org && org.name) { userObj.company = org.name; }
+          window.Beacon(identifyOrPrefill, userObj);
+        }
+      });
+  });
+</script> 
+</head>
+
+<body>
+  
+  
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FDHKQ9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="/search.html" method="GET">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left home-top-tool-selector" name="lang"
+      
+      >
+      
+      <option value="/" >en - English</option>
+      
+      <option value="/fr/" >fr - français</option>
+      
+      <option value="/it/" >it - italiano</option>
+      
+      <option value="/pt/" >pt - português</option>
+      
+      <option value="/uk/" selected>uk - українська мова</option>
+      
+    </select>
+
+    
+    
+
+    
+    
+      <a href="https://community.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link ">
+        <div class="wm-top-title">
+          Community
+        </div>
+      </a>
+    
+      <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link wm-small-hide">
+        <div class="wm-top-title">
+          Back to Grist
+        </div>
+      </a>
+    
+
+    
+    <a href=".." class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="../images/logo.png"/>
+      
+      <div class="wm-top-title">
+        Grist Help Center<br>
+        
+          <span class="wm-top-version">1.0.2-dev</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content">
+  
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href=".." class="wm-article-link wm-toc-text">Home</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="../FAQ/" class="wm-article-link wm-toc-text">FAQ</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-to tutorials</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../automatic-backups/" class="wm-article-link wm-toc-text">Automatic backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../document-history/" class="wm-article-link wm-toc-text">Document history</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../workspaces/" class="wm-article-link wm-toc-text">Workspaces</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../raw-data/" class="wm-article-link wm-toc-text">Raw data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-card/" class="wm-article-link wm-toc-text">Card & card list</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-form/" class="wm-article-link wm-toc-text">Form</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-calendar/" class="wm-article-link wm-toc-text">Calendar</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-custom/" class="wm-article-link wm-toc-text">Custom</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../record-cards/" class="wm-article-link wm-toc-text">Record cards</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../on-demand-tables/" class="wm-article-link wm-toc-text">On-demand tables</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Columns and data types</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-types/" class="wm-article-link wm-toc-text">Columns & types</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../conditional-formatting/" class="wm-article-link wm-toc-text">Conditional formatting</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../timestamps/" class="wm-article-link wm-toc-text">Timestamp columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../authorship/" class="wm-article-link wm-toc-text">Authorship columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Using formulas</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Formulas
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#column-behavior">
+                Column behavior
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#python">
+                Python
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#formulas-that-operate-over-many-rows">
+                Formulas that operate over many rows
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#varying-formula-by-row">
+                Varying formula by row
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#code-viewer">
+                Code viewer
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#special-values-available-in-formulas">
+                Special values available in formulas
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#freeze-a-formula-column">
+                Freeze a formula column
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#lookups">
+                Lookups
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#recursion">
+                Recursion
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#trigger-formulas">
+                Trigger Formulas
+              </a>
+            </li>
+        
+      </ul>
+    </li>
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../references-lookups/" class="wm-article-link wm-toc-text">References and lookups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formula-timer/" class="wm-article-link wm-toc-text">Formula timer</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../python/" class="wm-article-link wm-toc-text">Python versions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../functions/" class="wm-article-link wm-toc-text">None</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formula-cheat-sheet/" class="wm-article-link wm-toc-text">Formula cheat sheet</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">AI Formula Assistant</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../ai-assistant/" class="wm-article-link wm-toc-text">AI Formula Assistant</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Team sites</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../teams/" class="wm-article-link wm-toc-text">Creating team sites</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../team-sharing/" class="wm-article-link wm-toc-text">Sharing team sites</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Access rules</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../access-rules/" class="wm-article-link wm-toc-text">Intro to access rules</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../rest-api/" class="wm-article-link wm-toc-text">REST API usage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../api/" class="wm-article-link wm-toc-text">REST API reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../integrators/" class="wm-article-link wm-toc-text">Integrator services</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../embedding/" class="wm-article-link wm-toc-text">Embedding</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../webhooks/" class="wm-article-link wm-toc-text">Webhooks</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Plugin API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/" class="wm-article-link wm-toc-text">Intro to Plugin API</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/modules/grist_plugin_api/" class="wm-article-link wm-toc-text">grist-plugin-api</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="/... | flat | **/code/modules/**" class="wm-article-link wm-toc-text">AWESOME_PAGES_REST</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Self-managed</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../self-managed/" class="wm-article-link wm-toc-text">Self-managed Grist</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/saml/" class="wm-article-link wm-toc-text">SAML</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/oidc/" class="wm-article-link wm-toc-text">OIDC</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/forwarded-headers/" class="wm-article-link wm-toc-text">Forwarded headers</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/cloud-storage/" class="wm-article-link wm-toc-text">Cloud storage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/grist-connect/" class="wm-article-link wm-toc-text">GristConnect</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/aws-marketplace/" class="wm-article-link wm-toc-text">AWS Marketplace</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Telemetry</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry/" class="wm-article-link wm-toc-text">Overview of telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-limited/" class="wm-article-link wm-toc-text">Limited telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-full/" class="wm-article-link wm-toc-text">Full telemetry</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">News & updates</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-09/" class="wm-article-link wm-toc-text">2024/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-08/" class="wm-article-link wm-toc-text">2024/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-07/" class="wm-article-link wm-toc-text">2024/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-06/" class="wm-article-link wm-toc-text">2024/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-05/" class="wm-article-link wm-toc-text">2024/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-04/" class="wm-article-link wm-toc-text">2024/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-03/" class="wm-article-link wm-toc-text">2024/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-12/" class="wm-article-link wm-toc-text">2023/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-11/" class="wm-article-link wm-toc-text">2023/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-10/" class="wm-article-link wm-toc-text">2023/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-09/" class="wm-article-link wm-toc-text">2023/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-08/" class="wm-article-link wm-toc-text">2023/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-07/" class="wm-article-link wm-toc-text">2023/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-06/" class="wm-article-link wm-toc-text">2023/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-05/" class="wm-article-link wm-toc-text">2023/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-04/" class="wm-article-link wm-toc-text">2023/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-03/" class="wm-article-link wm-toc-text">2023/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-02/" class="wm-article-link wm-toc-text">2023/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-01/" class="wm-article-link wm-toc-text">2023/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-12/" class="wm-article-link wm-toc-text">2022/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-11/" class="wm-article-link wm-toc-text">2022/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-10/" class="wm-article-link wm-toc-text">2022/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-09/" class="wm-article-link wm-toc-text">2022/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-08/" class="wm-article-link wm-toc-text">2022/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-07/" class="wm-article-link wm-toc-text">2022/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-06/" class="wm-article-link wm-toc-text">2022/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-05/" class="wm-article-link wm-toc-text">2022/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-04/" class="wm-article-link wm-toc-text">2022/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-03/" class="wm-article-link wm-toc-text">2022/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-01/" class="wm-article-link wm-toc-text">2022/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-12/" class="wm-article-link wm-toc-text">2021/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-11/" class="wm-article-link wm-toc-text">2021/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-10/" class="wm-article-link wm-toc-text">2021/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-09/" class="wm-article-link wm-toc-text">2021/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-08/" class="wm-article-link wm-toc-text">2021/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-04/" class="wm-article-link wm-toc-text">2021/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-03/" class="wm-article-link wm-toc-text">2021/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">More examples</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/" class="wm-article-link wm-toc-text">More examples</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-credit-card/" class="wm-article-link wm-toc-text">Credit card expenses</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill emails</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-08-invoices/" class="wm-article-link wm-toc-text">Prepare invoices</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-09-payroll/" class="wm-article-link wm-toc-text">Track payroll</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-11-treasure-hunt/" class="wm-article-link wm-toc-text">Treasure hunt</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-12-map/" class="wm-article-link wm-toc-text">Map</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-01-tasks/" class="wm-article-link wm-toc-text">Task management</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-03-leads/" class="wm-article-link wm-toc-text">Lead list</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-04-link-keys/" class="wm-article-link wm-toc-text">Link keys guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference columns guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary tables guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-07-auto-stamps/" class="wm-article-link wm-toc-text">Time and user stamps</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2023-01-acl-memo/" class="wm-article-link wm-toc-text">Restrict duplicate records</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2023-07-proposals-contracts/" class="wm-article-link wm-toc-text">Proposals & contracts</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Reference</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../keyboard-shortcuts/" class="wm-article-link wm-toc-text">Keyboard shortcuts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../limits/" class="wm-article-link wm-toc-text">Limits</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../data-security/" class="wm-article-link wm-toc-text">Data security</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../browser-support/" class="wm-article-link wm-toc-text">Browser support</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+
+  <div class="wm-toc-quick-links">
+    <div class="wm-toc-quick-links-header"><span class="wm-toc-text">Quick Links</span></div>
+    <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://community.getgrist.com/" class="wm-quick-link wm-toc-text">Community</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://docs.getgrist.com/p/templates" class="wm-quick-link wm-toc-text">Templates</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
+      </li>
+    </ul>
+    <ul class="wm-toctree wm-toc-repo">
+      <li class="wm-toc-li wm-toc-lev2">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
+        <i class="fa fa-github"></i>
+
+        Edit on GitHub
+      </a>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+  <script>
+    // Immediately expand parent items to show the selected page.
+    $('.wm-current')
+      .parents('.wm-toc-li-nested').addClass('collapse in')
+      .prev('.wm-toc-opener').addClass('wm-toc-open');
+  </script>
+  <div class="wm-content-pane">
+    <div class="wm-article">
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../references-lookups/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../references-lookups/" class="btn btn-xs btn-link">
+        References and lookups
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../col-transform/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../col-transform/" class="btn btn-xs btn-link">
+        Transformations
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We&rsquo;re just getting started translating this language, sorry!</p>
+<p>We show partially translated languages to track progress.</p>
+<p>This page isn&rsquo;t translated yet. But the good news is that <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">you can join the translation community to help us 👋</a>.</p>
+</div>
+<h1 id="formulas">Formulas<a class="headerlink" href="#formulas" title="Permanent link">#</a></h1>
+<p>Grist has a powerful data engine to calculate the cells of your
+tables using formulas. It even has an <a href="../ai-assistant/">AI Formula Assistant</a> to help write formulas. If you&rsquo;ve used spreadsheets before, or
+database expressions, you&rsquo;ll be on familiar territory - but there are
+some wrinkles you&rsquo;ll want to know about, so hang around.</p>
+<p>Let&rsquo;s start with a classic use of spreadsheets.  Suppose you have
+a list of products you&rsquo;ve ordered, the quantity you ordered,
+and the unit price of each.  You&rsquo;ve made a column to show
+the quantity times the unit price, but want the computer to do
+that part for you.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price" src="../images/formulas/formulas-price.png" /></em></span></p>
+<p>Just select a cell in the column you want to fill, and hit <code class="keys"><strong>=</strong></code> key to
+tell Grist you want to enter a formula, rather than a value.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-equal" src="../images/formulas/formulas-price-equal.png" /></em></span></p>
+<p>Did you notice, when you did that, the labels of the columns changed
+a little?  &ldquo;Product&rdquo; became &ldquo;$Product&rdquo;, and &ldquo;Unit Price&rdquo;
+became &ldquo;$Unit_Price&rdquo;.  This is Grist telling you how to
+refer to those columns in your formula.  Just type <code class="formula">$Quantity * $Unit_Price</code>.
+You&rsquo;ll find an auto-complete feature ready to help you.
+Or if you don&rsquo;t like typing, click on the Quantity column, type the
+multiplication symbol, and then click on the Unit Price column.
+Your formula should look like this:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-multiply" src="../images/formulas/formulas-price-multiply.png" /></em></span></p>
+<p>To control the column ID, like &ldquo;$Unit_Price&rdquo;, that&rsquo;s used in formulas, see
+<a href="../col-types/#renaming-columns">Renaming columns</a>.</p>
+<p>Press <code class="keys"><em>Enter</em></code>, and your formula is applied to all cells in the column.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-final" src="../images/formulas/formulas-price-final.png" /></em></span></p>
+<p>If you&rsquo;ve worked with spreadsheets before, you may be surprised
+that you don&rsquo;t need to specify row numbers, like <code>B1 * C1</code>.
+In Grist, a single formula applies to a whole column.
+You don&rsquo;t have to worry about filling it in for all rows,
+and can refer to values in the same row without fuss.</p>
+<p>You can format numeric columns to look better by <a href="../col-types/#specifying-a-type">setting column
+type</a> to <code>Numeric</code>, and selecting suitable formatting options:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="formulas-price-final" src="../images/formulas/formulas-price-formatted.png" /></em></span></p>
+<h2 id="column-behavior">Column behavior<a class="headerlink" href="#column-behavior" title="Permanent link">#</a></h2>
+<p>When we provide a formula for a column we tell Grist to update its value on every change
+in a document. We can no longer type a value into the cell, because its value is
+determined purely by the formula.</p>
+<p>A formula column is one of three possible column behaviors, which you can control using
+the <code>COLUMN BEHAVIOR</code> section in the creator panel:</p>
+<ul>
+<li><code>Data column</code> maintains data, which you can manually update or clear, or optionally
+calculate using <a href="./#trigger-formulas">trigger formulas</a>.</li>
+<li><code>Formula column</code> always reflects the result of formula calculation, and is kept
+up-to-date by Grist.</li>
+<li><code>Empty column</code> is a state for a new column. Typing any value into it will turn it into a
+Data Column, while typing in a formula will turn it into a Formula Column</li>
+</ul>
+<p><img alt="formulas-column-behavior" src="../images/formulas/formulas-column-behavior.png" /></p>
+<p>Using the <code>COLUMN BEHAVIOR</code> section, you can manually change the column behavior. The most
+common options are available as green action buttons at the bottom, and other options are
+available under the behavior menu. Depending on the current column behavior, those are:</p>
+<ul>
+<li><code>Set formula</code> action converts an empty column to a formula column.</li>
+<li><code>Set trigger formula</code> or <code>Convert to trigger formula</code> action sets a trigger on a column
+(more on triggers in the next <a href="./#trigger-formulas">Trigger formulas section</a> ).</li>
+<li><code>Make into data column</code> action converts an empty column to a regular data column.</li>
+<li><code>Convert column to data</code> converts a formula column to regular data column (you can read
+more about this feature in the 
+<a href="./#freeze-a-formula-column">Freeze a formula column section</a> ).</li>
+<li><code>Clear and make into formula</code> clears all the data in a column and converts it to a
+formula column. (We say &ldquo;clear&rdquo; as a reminder that existing data in the column will be
+lost. They&rsquo;ll be replaced by the calculation results from the formula.)</li>
+<li><code>Clear and reset</code> clears all data and completely resets the column to its initial <code>Empty
+Column</code> state.</li>
+</ul>
+<p><img alt="formulas-column-behavior-options" src="../images/formulas/formulas-column-behavior-options.png" /></p>
+<h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h2>
+<p>Grist formulas are written in Python, the most popular language for data science.
+The entirety of <a href="https://docs.python.org/3/library/">Python&rsquo;s standard library</a> is available
+to you. For those with a spreadsheet background, we&rsquo;ve also added a suite of Excel-like
+functions, with all-uppercase names. Here&rsquo;s the <a href="../functions/">full list of functions</a>.
+Grist documents may use Python 2 or Python 3, see our <a href="../python/">Python guide</a>
+for details.</p>
+<h2 id="formulas-that-operate-over-many-rows">Formulas that operate over many rows<a class="headerlink" href="#formulas-that-operate-over-many-rows" title="Permanent link">#</a></h2>
+<p>If you are a spreadsheet user, you may find yourself wanting to have
+some special rows at the end of your table that have formulas
+different to the rest.  In Grist, we&rsquo;d like you to consider adding a
+widget to your page instead.  For common use cases, <a href="../summary-tables/">Summary
+tables</a> may be exactly what you need.  Or if you
+want to set things up yourself, you can add an extra table widget like
+this (see <a href="../page-widgets/">Page widgets</a> for details):</p>
+<p><img alt="formulas-widgets" src="../images/formulas/formulas-widgets.png" /></p>
+<p>This is just another table, giving us a place to put formulas outside
+of the structure of the Materials table.  For example, if we wanted
+to count how many products there are in that table, we could use this
+formula:</p>
+<pre><code class="language-py">len(Materials.all)
+</code></pre>
+<p>Every table in your document is available by its name in formulas,
+as a <a href="../functions/#usertable">UserTable</a>.  This formula uses
+the <a href="../functions/#all">all</a> method to access the rows of the table, but
+doesn&rsquo;t do anything with them but count them.</p>
+<p>Here&rsquo;s a formula to compute the average price, using the Excel-like function
+<a href="../functions/#average">AVERAGE</a>:</p>
+<pre><code class="language-py">AVERAGE(Materials.all.Price)
+</code></pre>
+<p>The <a href="../functions/#all">all</a> method returns a <a href="../functions/#recordset">RecordSet</a>,
+which supports iterating over individual columns this way.  Equivalently,
+we could use a Python <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a>:</p>
+<pre><code class="language-py">AVERAGE(material.Price for material in Materials.all)
+</code></pre>
+<p>If you are not familiar with Python, it is worth following
+a tutorial.  There are thousands online, including this
+<a href="https://docs.python.org/3/tutorial/index.html">official one</a>.
+Python will be useful to you for all sorts of data work, not just Grist.</p>
+<p>List comprehension is useful once we&rsquo;re doing anything nuanced.  For example,
+here&rsquo;s a formula to list the names of products with a quantity greater than 80:</p>
+<pre><code class="language-py">[m.Product for m in Materials.all if m.Quantity &gt; 80]
+</code></pre>
+<p>This is a list comprehension, but now with a conditional.  The result is a list,
+which is rendered as text in a cell.</p>
+<p>Python can help in other ways in your search for rows.  For example, here&rsquo;s a formula
+to find the name of the product with the highest quantity:</p>
+<pre><code class="language-py">max(Materials.all, key=lambda m: m.Quantity).Product
+</code></pre>
+<p>Formulas are case-sensitive, with Excel-like functions being all-caps (<code>MAX</code>), and
+regular Python generally all lowercase (<code>max</code>).</p>
+<p>For exact matches, there is a shortcut to avoid iteration called
+<a href="../functions/#lookuprecords">lookupRecords</a>, or
+<a href="../functions/#lookupone">lookupOne</a> for single matches.
+Just pass the the values of columns you require to be matched.
+For example, here is a formula to look up the product name of a material
+with a quantity of 52:</p>
+<pre><code class="language-py">Materials.lookupOne(Quantity=52).Product
+</code></pre>
+<p>For very large tables, it is wise to use lookups as much as you can, rather
+than iterating through rows.</p>
+<p>Returning to our example document, you can now see how we calculated the
+<code>Total Spent</code>, <code>Average Quantity</code>, and <code>Most Ordered Product</code> columns:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Spent</td>
+<td><code>SUM(Materials.all.Price)</code></td>
+</tr>
+<tr>
+<td>Average Quantity</td>
+<td><code>AVERAGE(Materials.all.Quantity)</code></td>
+</tr>
+<tr>
+<td>Most Ordered Product</td>
+<td><code>max(Materials.all, key=lambda m: m.Quantity).Product</code></td>
+</tr>
+</tbody>
+</table>
+<p>Separating out calculations like this from the body of your data
+can take some getting used to, but working this way can help
+keep your document more organized.  And it brings other advantages.
+For example we could switch the formatting of the summary widget
+via the side panel:</p>
+<p><img alt="formulas-widgets-card" src="../images/formulas/formulas-widgets-card.png" /></p>
+<h2 id="varying-formula-by-row">Varying formula by row<a class="headerlink" href="#varying-formula-by-row" title="Permanent link">#</a></h2>
+<p>Having a formula apply to all rows is convenient and reduces the changes of mistakes.</p>
+<p>If you need to have a column change its behavior on different rows, it is possible using a
+conditional in the formula. For example, here is a replacement for
+the <code>Materials.Price</code> formula that ignores the price and shows zero for products whose name ends
+in &ldquo;(Sample)&rdquo;:</p>
+<pre><code>if $Product.endswith(&quot;(Sample)&quot;):
+  return 0
+else:
+  return $Quantity * $Unit_Price
+</code></pre>
+<h2 id="code-viewer">Code viewer<a class="headerlink" href="#code-viewer" title="Permanent link">#</a></h2>
+<p>Once you have a lot of formulas, or if you have been invited to a document
+and want to get an overview of its formulas, there is a code viewer
+available with a pure Python summary of the document.</p>
+<p><img alt="formulas-code-view" src="../images/formulas/formulas-code-view.png" /></p>
+<h2 id="special-values-available-in-formulas">Special values available in formulas<a class="headerlink" href="#special-values-available-in-formulas" title="Permanent link">#</a></h2>
+<p>For those familiar with Python, here are the extra values available to
+you in Grist:</p>
+<ul>
+<li><code>rec</code> is the current row.  The <code>$column</code> syntax is shorthand for
+   <code>rec.column</code>.  The <code>rec</code> variable is of type <a href="../functions/#record">Record</a>.</li>
+<li><code>table</code> is the current table, and is of type <a href="../functions/#usertable">UserTable</a>.</li>
+<li>Tables in your document are available by their name, and are also of
+   type <a href="../functions/#usertable">UserTable</a>.</li>
+<li>Many extra spreadsheet functions are available, see the full
+   <a href="../functions/">function list</a>.</li>
+</ul>
+<p>If your table or column has a space in its name, or other characters
+that are awkward in Python, those characters are replaced with an
+underscore.  Auto-complete may help you if you&rsquo;re not sure.  You
+can also control the &ldquo;ids&rdquo; of columns and tables in the right side panel.</p>
+<h2 id="freeze-a-formula-column">Freeze a formula column<a class="headerlink" href="#freeze-a-formula-column" title="Permanent link">#</a></h2>
+<p>If you&rsquo;d like to save the output of your formula as plain values, you can simply change
+column behavior from <code>Formula Column</code> to <code>Data Column</code>. First open the column options in
+the side panel:</p>
+<p><img alt="formulas-column-options" src="../images/formulas/formulas-column-options.png" /></p>
+<p>Now click on the <code>Formula Column</code> and select <code>Convert column to data</code> option.</p>
+<p><img alt="formulas-action-menu" src="../images/formulas/formulas-action-menu.png" /></p>
+<p>Notice that there is no <code>=</code> sign in the column cells any more, showing that it
+is no longer a formula.  The cells will no longer change if other cells they used
+to depend on change.</p>
+<p><img alt="formulas-turn-off-formula" src="../images/formulas/formulas-turn-off-formula.png" /></p>
+<p>The original formula is saved but stays inactive. It may come useful
+again if you wish to convert the column back to a formula column, or
+use it as a 
+<a href="./#trigger-formulas">Trigger Formula</a>.</p>
+<p>The side panel has lots of other handy settings, such as cell formatting
+(number of digits after decimal point, color, etc).  The options apply
+just as much to formula columns as to regular columns.</p>
+<h2 id="lookups">Lookups<a class="headerlink" href="#lookups" title="Permanent link">#</a></h2>
+<p>Grist functions <a href="../functions/#lookupone">lookupOne</a> and
+<a href="../functions/#lookuprecords">lookupRecords</a> are useful for enumerating
+subsets of your data.  For example, suppose we added a <code>Category</code>
+column to our <code>Materials</code> table, and wished to list all products belonging
+to a specific category.  We can do this using <code>TABLE.lookupRecords</code>, where <code>TABLE</code> is the table of
+interest, and supplying it with the column values
+to match.  For example, <code class="formula">Materials.lookupRecords(Category='Ship')</code>, as here:</p>
+<p><img alt="formulas-column-options" src="../images/formulas/formulas-lookup-unsorted.png" /></p>
+<p>If you are following on, see <a href="../widget-card/#adding-a-field">Adding a field</a>
+for details of how to add a new field to a card.  If you care about the order
+of results, <code>lookupRecords</code> takes an optional <code>sort_by</code> parameter.  For example,
+we could use this formula to sort by the product name itself:</p>
+<pre><code class="language-py">Materials.lookupRecords(Category='Ship', sort_by='Product').Product
+</code></pre>
+<p>If you want to sort by multiple columns, remember that you can create a hidden
+formula column that combines data in any way you like, and then sort by that.</p>
+<p>The order of records returned by <code>lookupRecords</code> may not match the order of rows
+you see in a table.  To get that order, use <code>sort_by='manualSort'</code>.  This is an
+internal column that is updated with the manually established sort order
+of rows.</p>
+<p>If you find yourself doing a lot of look-ups, please consider
+whether <a href="../summary-tables/">Summary tables</a> and
+<a href="../summary-tables/#summary-formulas">Summary formulas</a> might be
+what you are looking for.</p>
+<h2 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">#</a></h2>
+<p>Lookups are handy for recursive formulas.  Suppose we have a table counting how many
+events we have per day, and want to add a cumulative sum of those event counts.
+One way to do that is with a formula like this:</p>
+<pre><code class="language-py">yesterday = Events.lookupOne(date=$date - datetime.timedelta(days=1))
+$events + (yesterday.cumulative or 0)
+</code></pre>
+<p><img alt="formulas-recursion" src="../images/formulas/formulas-recursion.png" /></p>
+<p>For clarity, we&rsquo;ve split this formula into two lines.  The first line
+makes a variable pointing to the row of the day before.  The second
+line computes the value we want in the cell.  Python note: the value
+of the last line is automatically returned (you could prefix it with
+<code>return</code> if you like).</p>
+<p>Notice the <code>yesterday.cumulative or 0</code>. For the earliest row in the
+table, there will be no yesterday.  In this case, <code>lookupOne</code> returns
+a special empty record, for which <code>yesterday.cumulative</code> will be
+<code>None</code>.</p>
+<p>If you&rsquo;d like to simplify this formula, or find yourself using the
+same lookup in multiple formulas, it would be worth making
+<code>yesterday</code> a <a href="../col-refs/">reference column</a>.  Simply add
+a reference column, and give a formula for it that matches how
+we defined <code>yesterday</code> here.</p>
+<p>To actually enter this formula in a cell, you&rsquo;d use
+<code class="keys"><em>Shift</em> + <em>Enter</em></code> to divide the lines.</p>
+<h2 id="trigger-formulas">Trigger Formulas<a class="headerlink" href="#trigger-formulas" title="Permanent link">#</a></h2>
+<p>Formula columns are great for calculated values &ndash; those determined by
+other data in the document. It may also be useful to store independent 
+data in a column, but still use a formula to calculate it in some
+situations. This is exactly what Trigger Formulas offer. It is a
+very powerful feature that allows you to create a
+<a href="../timestamps/">Timestamp</a> or <a href="../authorship/">Authorship</a> column,
+recalculate your data based on
+a <a href="../examples/2021-07-auto-stamps/">set of conditions</a> that you decide
+, clean data when a new value is entered, or provide sensible default
+value for a column.</p>
+<p>To create a Trigger Formula column, you first need to open the creator panel and 
+click on the <code>Set trigger formula</code> action. If you want to convert an existing formula, use
+the <code>Convert to trigger formula</code> action available in the <code>COLUMN BEHAVIOR</code> section.</p>
+<p><img alt="formulas-column-behavior" src="../images/formulas/formulas-column-behavior.png" /></p>
+<p>To control when the formula is evaluated, use the two checkbox options 
+below:</p>
+<p><img alt="a Created-At column" src="../images/formulas/formulas-created-at-final.png" /></p>
+<ul>
+<li><code>Apply to new records</code> triggers the formula only when a new record is 
+created (a default cell value).</li>
+<li><code>Apply on record changes</code> triggers the formula when a record is updated.</li>
+</ul>
+<p>Applying to new records is self-explanatory, the formula will be evaluated
+only once when you add a new record. It is a perfect solution to provide 
+default values to the empty cells. Second option allows you to fine grain 
+the conditions and specify which columns, when updated, will trigger the 
+evaluation:</p>
+<p><img alt="an Updated-At column" src="../images/formulas/formulas-updated-at.png" /></p>
+<p>You probably noticed the first option <code>Current field</code>. At first glance, you
+probably wonder: &ldquo;Why would I want to trigger the column on its own 
+change?&rdquo;. This option allows you to react to a value that is being entered 
+into the column, just before it is saved!</p>
+<p>In the formula editor, you have access to two variables that are not 
+available to regular formulas:</p>
+<ul>
+<li><code>value</code> which is the value that a user wants to enter,</li>
+<li><code>user</code> which represents a user object that is making the change (you will also
+see this in the <a href="../access-rules/">Access rules</a> section).</li>
+</ul>
+<p>This allows you to make your application even smarter, track when a record
+<a href="../timestamps/">was updated</a>, or see who made the last <a href="../authorship/">change to a row</a>.
+Simple examples:</p>
+<ol>
+<li>
+<p>Ensure that the value in a column is always written in capital letters:
+<img alt="data cleanup - uppercase" src="../images/formulas/formulas-trigger-uppercase.png" /> 
+With the trigger formula of <code class="formula">value.upper()</code>, the value typed into
+this column will be converted to upper case automatically.  </p>
+</li>
+<li>
+<p>Format a value that the user enters to sanitize the data before saving:
+<img alt="data cleanup - format" src="../images/formulas/formulas-trigger-format.png" />
+With the formula like <code class="formula">value if value.startswith("SK") else "SK" + value</code>,
+the value typed into this column will always be prefixed with &ldquo;SK&rdquo;.</p>
+</li>
+<li>
+<p>Overwrite a default value from a referenced table:
+<img alt="data cleanup - reference" src="../images/formulas/formulas-trigger-reference.png" />
+You can use a formula like <code class="formula">value or $Client.Phone</code>, to provide a default
+value from a referenced table, but still allow the user to type a new one.</p>
+</li>
+</ol>
+<p>In each of these examples, when the user tries to modify a cell, Grist (before
+updating the record) will evaluate the formula and store its result in the column
+instead of the value provided by the user. </p>
+<p>For a detailed, real-life example read our <a href="../examples/2021-07-auto-stamps/">guide</a>
+on how to create time and user stamps.</p>
+<p>For more information on formulas and trigger formulas, check out our webinar <a href="https://youtu.be/0qVDPZd2w9I">Trigger Formulas v. Formulas</a>.</p>
+
+  <br>
+</div>
+
+<div class="feedback-box">
+  <div class="feedback-box-title">Give Feedback</div>
+  <div class="feedback-box-question">Was this article helpful?</div>
+  <div class="feedback-box-buttons">
+    <button class="feedback-box-button" data-rating="thumbsUp">&#x1F44D;</button>
+    <button class="feedback-box-button" data-rating="thumbsDown">&#x1F44E;</button>
+  </div>
+  <div class="feedback-box-response">
+    Thank you for letting us know!
+  </div>
+</div>
+
+<script>
+function initFeedbackButtons() {
+  const serverUrl = "https://docs.getgrist.com";
+  const feedbackBox = document.querySelector('.feedback-box');
+  const buttons = document.querySelectorAll('.feedback-box-button');
+  document.querySelector('.feedback-box-buttons').addEventListener('click', giveFeedback);
+
+  async function giveFeedback(event) {
+    const rating = event.target.dataset.rating;
+    if (!rating) { return; }
+    buttons.forEach(b => { b.disabled = true; });
+    try {
+      console.log("Sending rating to " + serverUrl + '/api/telemetry');
+      const resp = await window.fetch(serverUrl + '/api/telemetry', makePayload(rating));
+      if (!resp.ok) { throw new Error(resp.statusText); }
+    } catch (err) {
+      console.warn('Failed to report feedback', err);
+      document.querySelector('.feedback-box-response').textContent = String(err);
+    } finally {
+      buttons.forEach(b => { b.disabled = false; });
+      feedbackBox.classList.add('feedback-submitted');
+    }
+  }
+
+  function makePayload(rating) {
+    const url = window.location.href;
+    return {
+      method: 'POST',
+      body: JSON.stringify({
+        event: 'ratedHelpCenterArticle',
+        metadata: {full: {url, rating}},
+      }),
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    };
+  }
+}
+initFeedbackButtons();
+</script><footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/formulas.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div style="position:relative; padding-bottom:56.25%; margin-top: 32px;">
+          <iframe src="" allowfullscreen style="position:absolute; left:0; top:0; width:100%; height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

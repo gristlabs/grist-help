@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <meta name="description" content="Grist has a powerful data engine to calculate the cells of your tables using formulas. Grist formulas are written
+in Python, the most popular language for data science. We also have a suite of Excel-like functions, with all-uppercase names. Here are some helpful notes:">
+      <meta property="og:description" content="Grist has a powerful data engine to calculate the cells of your tables using formulas. Grist formulas are written
+in Python, the most popular language for data science. We also have a suite of Excel-like functions, with all-uppercase names. Here are some helpful notes:">
+    
+    
+    <link rel="canonical" href="https://support.getgrist.com/formula-cheat-sheet/">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="me" href="https://fosstodon.org/@grist">
+    <meta name="thumbnail" content="https://support.getgrist.com/images/favicon.png">
+    <meta property="og:image" content="https://support.getgrist.com/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Formula cheat sheet - Grist Help Center</title>
+    
+  
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5FDHKQ9');</script>
+  <!-- End Google Tag Manager -->
+    <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap-3.3.7.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/elasticlunr.min.js"></script>
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+    </script>
+    <script src="/js/base.js"></script>
+      <script src="../js/grist.js"></script>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    window.Beacon('config', {display: { style: 'icon' }});
+    window.Beacon('init', 'fc61df2a-664b-4422-b24f-964bd0cb6d53');
+    window.Beacon('suggest', [
+      {url: 'https://community.getgrist.com/', text: 'Community Forum'},
+      {url: 'https://docs.getgrist.com/p/templates', text: 'Templates'},
+      {url: 'https://github.com/gristlabs/grist-core/projects/1', text: 'Roadmap'},
+    ]);
+
+    fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
+      .then(function(resp) { return resp.json(); })
+      .then(function(status) {
+        // If there's exactly two orgs, will use the team name for the non-merged personal
+        // org as the company name.  Otherwise don't worry about setting company name.
+        var org = undefined;
+        if (status.orgs.length === 2) {
+          org = status.orgs[0].owner ? status.orgs[1] : status.orgs[0];
+        }
+        // If there's one user account available, fill it in silently; otherwise use
+        // the first one and prefill fields but let user see them so they can override
+        // them.  If testing this, be aware that if 'identify' was called previously,
+        // it will be cached in local storage and used even if it is not set this time
+        // around.
+        var user = status.users[0];
+        var identifyOrPrefill = status.users.length === 1 ? 'identify' : 'prefill';
+        if (user && !user.anonymous) {
+          var userObj = {};
+          if (user.email) { userObj.email = user.email; }
+          if (user.name) { userObj.name = user.name; }
+          if (user.picture) { userObj.avatar = user.picture; }
+          if (user.helpScoutSignature) { userObj.signature = user.helpScoutSignature; }
+          if (org && org.name) { userObj.company = org.name; }
+          window.Beacon(identifyOrPrefill, userObj);
+        }
+      });
+  });
+</script> 
+</head>
+
+<body>
+  
+  
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FDHKQ9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="/search.html" method="GET">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left home-top-tool-selector" name="lang"
+      
+      >
+      
+      <option value="/" >en - English</option>
+      
+      <option value="/fr/" >fr - français</option>
+      
+      <option value="/it/" >it - italiano</option>
+      
+      <option value="/pt/" >pt - português</option>
+      
+      <option value="/uk/" selected>uk - українська мова</option>
+      
+    </select>
+
+    
+    
+
+    
+    
+      <a href="https://community.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link ">
+        <div class="wm-top-title">
+          Community
+        </div>
+      </a>
+    
+      <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link wm-small-hide">
+        <div class="wm-top-title">
+          Back to Grist
+        </div>
+      </a>
+    
+
+    
+    <a href=".." class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="../images/logo.png"/>
+      
+      <div class="wm-top-title">
+        Grist Help Center<br>
+        
+          <span class="wm-top-version">1.0.2-dev</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content">
+  
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href=".." class="wm-article-link wm-toc-text">Home</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="../FAQ/" class="wm-article-link wm-toc-text">FAQ</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-to tutorials</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../automatic-backups/" class="wm-article-link wm-toc-text">Automatic backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../document-history/" class="wm-article-link wm-toc-text">Document history</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../workspaces/" class="wm-article-link wm-toc-text">Workspaces</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../raw-data/" class="wm-article-link wm-toc-text">Raw data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-card/" class="wm-article-link wm-toc-text">Card & card list</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-form/" class="wm-article-link wm-toc-text">Form</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-calendar/" class="wm-article-link wm-toc-text">Calendar</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-custom/" class="wm-article-link wm-toc-text">Custom</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../record-cards/" class="wm-article-link wm-toc-text">Record cards</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../on-demand-tables/" class="wm-article-link wm-toc-text">On-demand tables</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Columns and data types</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-types/" class="wm-article-link wm-toc-text">Columns & types</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../conditional-formatting/" class="wm-article-link wm-toc-text">Conditional formatting</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../timestamps/" class="wm-article-link wm-toc-text">Timestamp columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../authorship/" class="wm-article-link wm-toc-text">Authorship columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Using formulas</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formulas/" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../references-lookups/" class="wm-article-link wm-toc-text">References and lookups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formula-timer/" class="wm-article-link wm-toc-text">Formula timer</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../python/" class="wm-article-link wm-toc-text">Python versions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../functions/" class="wm-article-link wm-toc-text">None</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Formula cheat sheet</a>
+
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Formula Cheat Sheet
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#math-functions">
+                Math Functions
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#working-with-strings">
+                Working with Strings
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#working-with-dates-and-times">
+                Working with dates and times
+              </a>
+            </li>
+        
+      </ul>
+    </li>
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">AI Formula Assistant</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../ai-assistant/" class="wm-article-link wm-toc-text">AI Formula Assistant</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Team sites</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../teams/" class="wm-article-link wm-toc-text">Creating team sites</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../team-sharing/" class="wm-article-link wm-toc-text">Sharing team sites</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Access rules</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../access-rules/" class="wm-article-link wm-toc-text">Intro to access rules</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../rest-api/" class="wm-article-link wm-toc-text">REST API usage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../api/" class="wm-article-link wm-toc-text">REST API reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../integrators/" class="wm-article-link wm-toc-text">Integrator services</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../embedding/" class="wm-article-link wm-toc-text">Embedding</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../webhooks/" class="wm-article-link wm-toc-text">Webhooks</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Plugin API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/" class="wm-article-link wm-toc-text">Intro to Plugin API</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/modules/grist_plugin_api/" class="wm-article-link wm-toc-text">grist-plugin-api</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="/... | flat | **/code/modules/**" class="wm-article-link wm-toc-text">AWESOME_PAGES_REST</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Self-managed</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../self-managed/" class="wm-article-link wm-toc-text">Self-managed Grist</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/saml/" class="wm-article-link wm-toc-text">SAML</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/oidc/" class="wm-article-link wm-toc-text">OIDC</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/forwarded-headers/" class="wm-article-link wm-toc-text">Forwarded headers</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/cloud-storage/" class="wm-article-link wm-toc-text">Cloud storage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/grist-connect/" class="wm-article-link wm-toc-text">GristConnect</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/aws-marketplace/" class="wm-article-link wm-toc-text">AWS Marketplace</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Telemetry</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry/" class="wm-article-link wm-toc-text">Overview of telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-limited/" class="wm-article-link wm-toc-text">Limited telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-full/" class="wm-article-link wm-toc-text">Full telemetry</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">News & updates</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-09/" class="wm-article-link wm-toc-text">2024/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-08/" class="wm-article-link wm-toc-text">2024/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-07/" class="wm-article-link wm-toc-text">2024/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-06/" class="wm-article-link wm-toc-text">2024/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-05/" class="wm-article-link wm-toc-text">2024/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-04/" class="wm-article-link wm-toc-text">2024/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-03/" class="wm-article-link wm-toc-text">2024/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-12/" class="wm-article-link wm-toc-text">2023/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-11/" class="wm-article-link wm-toc-text">2023/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-10/" class="wm-article-link wm-toc-text">2023/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-09/" class="wm-article-link wm-toc-text">2023/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-08/" class="wm-article-link wm-toc-text">2023/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-07/" class="wm-article-link wm-toc-text">2023/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-06/" class="wm-article-link wm-toc-text">2023/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-05/" class="wm-article-link wm-toc-text">2023/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-04/" class="wm-article-link wm-toc-text">2023/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-03/" class="wm-article-link wm-toc-text">2023/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-02/" class="wm-article-link wm-toc-text">2023/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-01/" class="wm-article-link wm-toc-text">2023/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-12/" class="wm-article-link wm-toc-text">2022/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-11/" class="wm-article-link wm-toc-text">2022/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-10/" class="wm-article-link wm-toc-text">2022/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-09/" class="wm-article-link wm-toc-text">2022/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-08/" class="wm-article-link wm-toc-text">2022/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-07/" class="wm-article-link wm-toc-text">2022/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-06/" class="wm-article-link wm-toc-text">2022/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-05/" class="wm-article-link wm-toc-text">2022/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-04/" class="wm-article-link wm-toc-text">2022/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-03/" class="wm-article-link wm-toc-text">2022/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-01/" class="wm-article-link wm-toc-text">2022/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-12/" class="wm-article-link wm-toc-text">2021/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-11/" class="wm-article-link wm-toc-text">2021/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-10/" class="wm-article-link wm-toc-text">2021/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-09/" class="wm-article-link wm-toc-text">2021/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-08/" class="wm-article-link wm-toc-text">2021/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-04/" class="wm-article-link wm-toc-text">2021/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-03/" class="wm-article-link wm-toc-text">2021/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">More examples</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/" class="wm-article-link wm-toc-text">More examples</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-credit-card/" class="wm-article-link wm-toc-text">Credit card expenses</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill emails</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-08-invoices/" class="wm-article-link wm-toc-text">Prepare invoices</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-09-payroll/" class="wm-article-link wm-toc-text">Track payroll</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-11-treasure-hunt/" class="wm-article-link wm-toc-text">Treasure hunt</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-12-map/" class="wm-article-link wm-toc-text">Map</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-01-tasks/" class="wm-article-link wm-toc-text">Task management</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-03-leads/" class="wm-article-link wm-toc-text">Lead list</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-04-link-keys/" class="wm-article-link wm-toc-text">Link keys guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference columns guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary tables guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-07-auto-stamps/" class="wm-article-link wm-toc-text">Time and user stamps</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2023-01-acl-memo/" class="wm-article-link wm-toc-text">Restrict duplicate records</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2023-07-proposals-contracts/" class="wm-article-link wm-toc-text">Proposals & contracts</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Reference</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../keyboard-shortcuts/" class="wm-article-link wm-toc-text">Keyboard shortcuts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../limits/" class="wm-article-link wm-toc-text">Limits</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../data-security/" class="wm-article-link wm-toc-text">Data security</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../browser-support/" class="wm-article-link wm-toc-text">Browser support</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+
+  <div class="wm-toc-quick-links">
+    <div class="wm-toc-quick-links-header"><span class="wm-toc-text">Quick Links</span></div>
+    <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://community.getgrist.com/" class="wm-quick-link wm-toc-text">Community</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://docs.getgrist.com/p/templates" class="wm-quick-link wm-toc-text">Templates</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
+      </li>
+    </ul>
+    <ul class="wm-toctree wm-toc-repo">
+      <li class="wm-toc-li wm-toc-lev2">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
+        <i class="fa fa-github"></i>
+
+        Edit on GitHub
+      </a>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+  <script>
+    // Immediately expand parent items to show the selected page.
+    $('.wm-current')
+      .parents('.wm-toc-li-nested').addClass('collapse in')
+      .prev('.wm-toc-opener').addClass('wm-toc-open');
+  </script>
+  <div class="wm-content-pane">
+    <div class="wm-article">
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ai-assistant/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ai-assistant/" class="btn btn-xs btn-link">
+        AI Formula Assistant
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../functions/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../functions/" class="btn btn-xs btn-link">
+        None
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We&rsquo;re just getting started translating this language, sorry!</p>
+<p>We show partially translated languages to track progress.</p>
+<p>This page isn&rsquo;t translated yet. But the good news is that <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">you can join the translation community to help us 👋</a>.</p>
+</div>
+<h1 id="formula-cheat-sheet">Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Permanent link">#</a></h1>
+<p>Grist has a powerful data engine to calculate the cells of your tables using formulas. Grist formulas are written
+in <a href="https://docs.python.org/3/library/" target="_blank">Python</a>, the most popular language for data science. We also have a suite of Excel-like <a href="../functions/">functions</a>, with all-uppercase names. Here are some helpful notes:</p>
+<ul>
+<li>Formulas apply to the entire column</li>
+<li>Fields are included in formulas as <code>$ColumnID</code>.</li>
+<li>Python is case-sensitive, including for Grist table and column names. If your column ID is <code>title</code>, the formula will use <code>$title</code>, where both are lowercase.</li>
+<li>You may write multi-line Python in formulas (use <code class="keys"><em>Shift</em> + <em>Enter</em></code> to
+  add lines), including statements, variables, imports, etc.</li>
+<li>Grist code runs in a secure sandbox, with no access to anything outside your document.</li>
+</ul>
+<p>If you don&rsquo;t see what you&rsquo;re looking for, post in the <a href="https://community.getgrist.com/">Community Forum</a> and we&rsquo;ll be able to help you out!</p>
+<h2 id="math-functions">Math Functions<a class="headerlink" href="#math-functions" title="Permanent link">#</a></h2>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="simple-math-add-subtract-multiply-divide">Simple Math (add, subtract, multiply divide)<a class="headerlink" href="#simple-math-add-subtract-multiply-divide" title="Permanent link">#</a></h4>
+<p>Uses <code>+</code> , <code>-</code> , <code>/</code> and <code>*</code> operators to complete calculations.</p>
+<p><span></span><details><summary></p>
+<h4 id="example-of-simple-math">Example of Simple Math<a class="headerlink" href="#example-of-simple-math" title="Permanent link">#</a></h4>
+</summary>
+<p>Chestwood Art Studio ships art across the country and has the option of monthly payments over the course of 12 months.</p>
+<p>We have the subtotal, the tax (based on the state it is shipping to) and Amount Due Monthly. This formula column uses addition, multiplication and division.</p>
+<p><span class="screenshot-large"><em><img alt="simple-math" src="../images/formula-cheat-sheet/simple-math.png" /></em></span></p>
+<p>The formula used here is:</p>
+<pre><code>($Subtotal + ($Subtotal*$Tax)) / 12
+</code></pre>
+<p>We add the subtotal to the calculated tax then divide this by 12 months to get our Amount Due Monthly.
+</details></p>
+<p><span></span><details><summary></p>
+<h4 id="troubleshooting-errors">Troubleshooting Errors<a class="headerlink" href="#troubleshooting-errors" title="Permanent link">#</a></h4>
+</summary>
+<p><code>#TypeError</code>: Confirm all columns used in the formula are of <a href="../col-types/#numeric-columns">Numeric</a> type.
+</details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="max-and-min">max and min<a class="headerlink" href="#max-and-min" title="Permanent link">#</a></h4>
+<p>Allows you to find the <a href="../functions/#max">max</a> or <a href="../functions/#min">min</a> values in a list. </p>
+<p><span></span><details><summary></p>
+<h4 id="examples-using-max-and-min">Examples using MAX() and MIN()<a class="headerlink" href="#examples-using-max-and-min" title="Permanent link">#</a></h4>
+<p></summary>
+<em><a href="../functions/#max">MAX()</a> and <a href="../functions/#min">MIN()</a> when capitalized are spreadsheet functions which require a specific syntax. Spreadsheet formula syntax is summarized in our <a href="../functions/">functions reference</a>. max() and min() in lowercase are Python functions.</em></p>
+<p><strong>Max</strong>: Classes table of the <a href="https://templates.getgrist.com/doc/afterschool-program" target="_blank">Class Enrollment</a> template.</p>
+<p><span class="screenshot-large"><em><img alt="max" src="../images/formula-cheat-sheet/max.png" /></em></span></p>
+<p>The formula used in the &lsquo;Spots Left&rsquo; column of the Classes table is:</p>
+<pre><code>max($Max_Students - $Count, 0) or &quot;Full&quot;
+</code></pre>
+<p>This formula shows the number of spots remaining in a class, or the text &lsquo;Full&rsquo; when the class is full or oversubscribed. </p>
+<p>We build a list between the parenthesis consisting of two items: <code>$Max_Students - $Count</code> and <code>0</code>. The formula returns whichever is greater.</p>
+<p>When <code>$Count</code> is less than <code>$Max_Students</code>, the difference <code>$Max_Students - $Count</code> is positive and represents the spots left in the class. When <code>$Count</code> exceeds <code>$Max_Students</code>, then the class is full or oversubscribed, and <code>$Max_Students - $Count</code> is negative. The maximum of a negative number and 0 will be 0, so <code>max($Max_Students - $Count, 0)</code> is 0. This represents a full class. The addition of <code>or "Full"</code> is applied when the value is falsy, which means that a 0 is replaced with the text <code>"Full"</code>.</p>
+<p><strong>Min</strong>: Contacts table of the <a href="https://templates.getgrist.com/doc/lightweight-crm" target="_blank">Lightweight CRM</a> template.</p>
+<p><span class="screenshot-large"><em><img alt="min" src="../images/formula-cheat-sheet/min.png" /></em></span></p>
+<p>The formula used in the &lsquo;Due&rsquo; column of the Contacts table is:</p>
+<pre><code>items = Interactions.lookupRecords(Contact=$id, Type=&quot;To-Do&quot;)
+return min(items.Date) if items else None
+</code></pre>
+<p>Let&rsquo;s break this down. </p>
+<p><code>Interactions.lookupRecords(Contact=$id, Type="To-Do")</code> finds all records in the Interactions table where 
+the Contacts match and the Type is To-Do. This returns a list of records that we assign to the variable <code>items</code>. </p>
+<p>Next, we use <a href="../references-lookups/#reference-columns-and-dot-notation">dot notation</a> to find all Dates assigned to the records in our <code>items</code> list. These dates are evaluated to find the minimum date. This is the value that is returned. So, we see the date of the task that is due the soonest. </p>
+<p>If there are no items in the list, nothing is returned and the field is left blank.</p>
+<p>In the MAX() example, the list has two items: <code>$Max_Students - $Count</code> and <code>0</code>, and the formula returns whichever is greater. In the min() example, the variable <code>items</code> is pulling a list of records based on the <a href="../references-lookups/#lookuprecords">lookupRecords</a> arguments, listing the dates, and returning the smallest date. Note that this is a Python function. If we had written the formula as MIN(), a spreadsheet function, the formula would not work because the spreadsheet formula requires a very <a href="../functions/#min">specific format</a>.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="sum">Sum<a class="headerlink" href="#sum" title="Permanent link">#</a></h4>
+<p>Use the <a href="../functions/#sum">SUM()</a> function when you want to sum a list of values available within a cell. If you want to sum values in a column, use <a href="../summary-tables/">Summary Tables</a>.</p>
+<p><span></span><details><summary></p>
+<h4 id="example-of-sum">Example of SUM()<a class="headerlink" href="#example-of-sum" title="Permanent link">#</a></h4>
+</summary>
+<p><strong><a href="https://templates.getgrist.com/gZmzYoGdS6b1/Custom-Product-Builder/p/6" target="_blank">Custom Product Builder</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="sum" src="../images/formula-cheat-sheet/sum-custom-product-builder.png" /></em></span></p>
+<p>The formula used in the Total Cost column of the Select or Add New Products table is:</p>
+<pre><code>SUM($Requirements.Cost)
+</code></pre>
+<p>The Requirements column is a <a href="../page-widgets/#configuring-field-lists">hidden column</a> in this table. It is a reference list column that pulls data from the Build Requirements table. </p>
+<p>Our formula uses the Requirements column to access the Build Requirements table then pulls the cost for each record in the table. </p>
+<p>We use SUM() to sum the costs from each record.</p>
+<p><strong><a href="https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager" target="_blank">Inventory Manager</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="sum" src="../images/formula-cheat-sheet/sum-inventory-manager.png" /></em></span></p>
+<p>The formula used in the Received column of the All Products table is:</p>
+<pre><code>SUM(Incoming_Order_Line_Items.lookupRecords(SKU=$id).Received_Qty)
+</code></pre>
+<p>We use the <a href="../functions/#lookuprecords">lookupRecords</a> function to find all records in the Incoming Order Line Items table where the SKU matches the SKU in this row then pull the value in the Received Qty column for each of those records. We use SUM() to find the sum of those values.</p>
+<p>The Qty on Order and Sold columns of the <a href="https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/1" target="_blank">All Products</a> table are also great examples of the SUM() function.</p>
+<p><strong>Check out another example in our Community Forum:</strong> <a href="https://community.getgrist.com/t/creating-a-sum-of-net-and-gross-profit-from-multiple-tables/668" target="_blank">Creating a Sum of Net and Gross profit from multiple tables</a>
+</details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="comparing-for-equality-and">Comparing for equality: == and !=<a class="headerlink" href="#comparing-for-equality-and" title="Permanent link">#</a></h4>
+<p>When comparing for equality in Python, we use <code>==</code> for &lsquo;equals&rsquo; and <code>!=</code> for &lsquo;does not equal&rsquo;. If <code>$A</code> is 2 and <code>$B</code> is 3, the formula <code>$A == $B</code> would return <code>False</code>, while the formula <code>$A != $B</code> would be <code>True</code>. </p>
+<p><span></span><details><summary></p>
+<h4 id="examples-using">Examples using <code>==</code><a class="headerlink" href="#examples-using" title="Permanent link">#</a></h4>
+</summary>
+<p><strong><a href="https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/10" target="_blank">Inventory Manager</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="equality-received-qty" src="../images/formula-cheat-sheet/equality-received-qty.png" /></em></span></p>
+<p>The formula used in the Received Qty column of the Incoming Order Line Items table is:</p>
+<pre><code>if $Order.Status =='Received':
+  return $Qty
+else:
+  return None
+</code></pre>
+<p>The Order column of the Incoming Order Line Items Table is a reference column that points to the Order Number column of the Incoming Orders table. <code>$Order.Status</code> uses dot notation to pull the value from the Status column of the Incoming Orders table. If the value in this column is equal to <code>Received</code>, the value from the Qty column will be returned.  If the value is not equal to <code>Received</code>, nothing is returned.</p>
+<p><span class="screenshot-large"><em><img alt="equality-date-received" src="../images/formula-cheat-sheet/equality-date-received.png" /></em></span></p>
+<p>The formula used in the Date Received column of the <a href="https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/16#a1.s35.r11.c82" target="_blank">Create New Order</a> table is:</p>
+<pre><code>if $Status == &quot;Received&quot;:
+  return NOW()
+</code></pre>
+<p>This is a <a href="../formulas/#trigger-formulas">trigger formula</a> that is triggered when a change is made to the Status column. If the value in the Status column is equal to <code>Received</code>, the current date is returned. If the values are not equal, nothing is returned.</p>
+<p></details>
+<span></span><details><summary></p>
+<h4 id="examples-using_1">Examples using <code>!=</code><a class="headerlink" href="#examples-using_1" title="Permanent link">#</a></h4>
+</summary>
+<p><strong><a href="https://templates.getgrist.com/hifkng53AxyQ/Project-Management/p/9" target="_blank">Project Management</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="inequality-missed-deadline" src="../images/formula-cheat-sheet/inequality-missed-deadline.png" /></em></span></p>
+<p>The formula used in the Missed Deadline column of the Missed Deadline table is:</p>
+<pre><code>TODAY()&gt; $Due_Date and $Status != &quot;Completed&quot;
+</code></pre>
+<p>If the current date is greater than the date given in the Due Date column <strong>and</strong> the value in the Status column is not equal to <code>Completed</code>, the formula is <code>True</code>. If either of these statements is false, the formula is <code>False</code>.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="comparing-values">Comparing Values: &lt; , &gt; , &lt;= , &gt;=<a class="headerlink" href="#comparing-values" title="Permanent link">#</a></h4>
+<p>Allows you to compare numerical values. If Sales is equal to <code>1200</code> and Running_Cost is equal to <code>1650</code>, <code>"Gains" if $Sales &gt; $Running_Cost else "Loss"</code> would return <code>Loss</code>.</p>
+<p><span></span><details><summary></p>
+<h4 id="examples-comparing-values">Examples comparing values<a class="headerlink" href="#examples-comparing-values" title="Permanent link">#</a></h4>
+</summary>
+<p><strong><a href="https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager" target="_blank">Inventory Manager</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="comparing-values-stock-alert" src="../images/formula-cheat-sheet/comparing-values-stock-alert.png" /></em></span></p>
+<p>The formula used in the Stock Alert column of the All Products table is:</p>
+<pre><code>if $In_Stock + $QTY_on_Order &gt; 5:
+  return &quot;In Stock&quot;
+if $In_Stock + $QTY_on_Order &gt; 0:
+  return &quot;Low Stock&quot;
+else:
+  return &quot;OUT OF STOCK&quot;
+</code></pre>
+<p>Here, we have two different <strong>if-return</strong> statements; if <code>x</code> is true, return <code>some_value</code>. Once a statement is true and a value is returned, the formula stops. If both are false, <code>OUT OF STOCK</code> is returned.</p>
+<p>First, if the value in the In Stock column plus the value in the Qty On Order column are greater than 5, return &ldquo;In Stock&rdquo;. </p>
+<p>Next, if the value in the In Stock column plus the value in the Qty On Order column are greater than 0, return &ldquo;Low Stock&rdquo;. It&rsquo;s implied that the value is less than or equal to 5 because the first statement would have to be false for this to be evaluated. </p>
+<p>Last, if all statements are false, return &ldquo;OUT OF STOCK&rdquo;.</p>
+<p><strong><a href="https://templates.getgrist.com/j9ZH7rPGafbH/Internal-Links-Tracker-for-SEO" target="_blank">Internal Links Tracker for SEO</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="comparing-values-orphaned" src="../images/formula-cheat-sheet/comparing-values-orphaned.png" /></em></span></p>
+<p>The formula used in the Orphaned? column of the Orphaned Pages table is:</p>
+<pre><code>len(Links.lookupRecords(To=$id))&lt;1
+</code></pre>
+<p>We use the <a href="../functions/#lookuprecords">lookupRecords</a> function to find all records in the Links table where the link in the To column matches the link listed in the Slug column of this row.</p>
+<p>We use <a href="../functions/#len">len()</a> to count the number of records found. If it&rsquo;s less than 1, the formula is evaluated to be true and the checkbox will be checked. If it&rsquo;s equal to or greater than 1, the formula is evaluated to be false.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="converting-from-string-to-float">Converting from String to Float<a class="headerlink" href="#converting-from-string-to-float" title="Permanent link">#</a></h4>
+<p><strong><a href="https://www.w3schools.com/python/python_strings.asp" target="_blank">String</a></strong>: A sequence of characters or snippets of text. In code, strings are quoted e.g. <code>'Hello'</code> or <code>"-12"</code> (those are three characters in quotes, as opposed to a negative number). See <a href="https://www.w3schools.com/python/ref_func_str.asp" target="_blank">Python str() Function</a> for converting a specified value to a string.</p>
+<p><strong><a href="https://www.w3schools.com/python/gloss_python_float.asp" target="_blank">Float</a></strong>: Real numbers that can store decimal values. Also called floating point number. See <a href="https://www.w3schools.com/python/ref_func_float.asp" target="_blank">Python float() Function</a> for converting a specified value into a floating point number.</p>
+<p><strong><a href="https://www.w3schools.com/python/python_numbers.asp" target="_blank">Integer</a></strong>: A whole number, without decimals. See <a href="https://www.w3schools.com/python/ref_func_int.asp" target="_blank">Python int() Function</a> for converting a specified value to an integer number.</p>
+<p><span></span><details><summary></p>
+<h4 id="example-converting-a-string-to-a-float">Example converting a string to a float<a class="headerlink" href="#example-converting-a-string-to-a-float" title="Permanent link">#</a></h4>
+</summary>
+<p><strong><a href="https://public.getgrist.com/fR4erkJzSpBd/Artwork-Orders/m/fork" target="_blank">Artwork Orders</a></strong></p>
+<p><span class="screenshot-large"><em><img alt="string-to-float" src="../images/formula-cheat-sheet/string-to-float.png" /></em></span></p>
+<p>The formula used in the Sale Price column is:</p>
+<pre><code>if $Appraisal_Value.endswith(&quot;k&quot;):
+  return float($Appraisal_Value.rstrip(&quot;k&quot;)) * 1000
+return float($Appraisal_Value)
+</code></pre>
+<p>In this example, the Appraisal Value column is a text column that contains alpha-numeric characters. In order to use this value in mathematical formulas, we need to convert from string to float.</p>
+<p>If the value in the Appraisal Value column ends with &ldquo;k&rdquo;, we first use <a href="https://docs.python.org/3/library/stdtypes.html#str.rstrip" target="_blank">rstrip()</a> to strip &ldquo;k&rdquo; from the string in the Appraisal Value column. </p>
+<p>Now that we only have numeric characters, we use <a href="https://docs.python.org/3/library/functions.html?highlight=float#float" target="_blank">float()</a> to convert our string to a float. </p>
+<p>Because K represents 1000 and we have removed this from the value, we multiply our float by 1000.</p>
+<p>If the value in the Appraisal Value column <strong><em>does not</em></strong> end with &ldquo;k&rdquo;, and only contains numeric characters, we can simply use <a href="https://docs.python.org/3/library/functions.html?highlight=float#float" target="_blank">float()</a> to convert our string to a float. </p>
+</details>
+<p><span></span><details><summary></p>
+<h4 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h4>
+<p></summary>
+if you are trying to use different columns with <em>numeric</em> values in a mathematical formula but seeing an error, check the column types for each of the columns used in the formula. All need to be of type <a href="../col-types/#numeric-columns">Numeric</a>.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="column-type-numeric" src="../images/formula-cheat-sheet/column-type-numeric.png" /></em></span></p>
+<p><a href="https://docs.python.org/3/library/functions.html#float" target="_blank">float()</a> is only needed when dealing with alpha-numeric values like we see in the <a href="#example-converting-a-string-to-a-float">example</a>.</p>
+<p><strong>TypeError: can&rsquo;t multiply sequence by non-int of type &lsquo;float&rsquo;</strong>
+<span class="screenshot-large"><em><img alt="multiply-non-int-float-type-error" src="../images/formula-cheat-sheet/multiply-non-int-float-type-error.png" /></em></span>
+This error occurs when a formula attempts to <strong>multiply</strong> values from multiple columns, at least one of which is not a <a href="../col-types/#numeric-columns">Numeric</a> type column. In the screenshot below, the Tax column is a <a href="../col-types/#text-columns">Text</a> column. 
+<span class="screenshot-large"><em><img alt="multiply-non-int-error-tax-text" src="../images/formula-cheat-sheet/multiply-non-int-error-tax-text.png" /></em></span>
+When we change the column type to <a href="../col-types/#numeric-columns">Numeric</a>, the error is resolved.
+<span class="screenshot-large"><em><img alt="multiply-non-int-error-tax-numeric" src="../images/formula-cheat-sheet/multiply-non-int-error-tax-numeric.png" /></em></span></p>
+<p><strong>TypeError: unsupported operand type(s) for /: &lsquo;float&rsquo; and &lsquo;str&rsquo;</strong>
+<span class="screenshot-large"><em><img alt="division-float-string-error" src="../images/formula-cheat-sheet/division-float-string-error.png" /></em></span>
+This error occurs when a formula attempts to <strong>divide</strong> values from multiple columns, at least one of which is not a <a href="../col-types/#numeric-columns">Numeric</a> type column. In the example seen above, the &lsquo;# of Payments&rsquo; column is a <a href="../col-types/#choice-columns">Choice</a> column. </p>
+<p>When we change the column type to <a href="../col-types/#numeric-columns">Numeric</a>, the error is resolved.</p>
+<p><strong>TypeError: unsupported operand type(s) for +: &lsquo;float&rsquo; and &lsquo;str&rsquo;</strong>
+<span class="screenshot-large"><em><img alt="addition-float-string-error" src="../images/formula-cheat-sheet/addition-float-string-error.png" /></em></span>
+This error occurs when a formula attempts to <strong>add</strong> values from multiple columns, at least one of which is not a <a href="../col-types/#numeric-columns">Numeric</a> type column. In the example seen above, the Tax column is a <a href="../col-types/#text-columns">Text</a> column. </p>
+<p>When we change the column type to <a href="../col-types/#numeric-columns">Numeric</a>, the error is resolved.</p>
+<p><strong>TypeError: unsupported operand type(s) for -: &lsquo;float&rsquo; and &lsquo;str&rsquo;</strong>
+<span class="screenshot-large"><em><img alt="subtraction-float-string-error" src="../images/formula-cheat-sheet/subtraction-float-string-error.png" /></em></span>
+This error occurs when a formula attempts to <strong>subtract</strong> values from multiple columns, at least one of which is not a <a href="../col-types/#numeric-columns">Numeric</a> type column. In the example seen above, the Discount column is a <a href="../col-types/#text-columns">Text</a> column. </p>
+<p>When we change the column type to <a href="../col-types/#numeric-columns">Numeric</a>, the error is resolved.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="rounding-numbers">Rounding Numbers<a class="headerlink" href="#rounding-numbers" title="Permanent link">#</a></h4>
+<p>Specify the number of decimal places to give in a result using the <a href="../functions/#round">ROUND()</a> function. If Average Temperature is equal to <code>46.5</code>, <code>ROUND($Average_Temperature)</code> would return <code>47</code></p>
+<p><span></span><details><summary></p>
+<h4 id="example-of-rounding-numbers">Example of rounding numbers<a class="headerlink" href="#example-of-rounding-numbers" title="Permanent link">#</a></h4>
+<p></summary>
+<strong><a href="https://templates.getgrist.com/5pHLanQNThxk/Payroll/p/2" target="_blank">Payroll</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="round-payment" src="../images/formula-cheat-sheet/round-payment.png" /></em></span></p>
+<p>The formula used in the Payment column is:</p>
+<pre><code>ROUND($Hours*$Per_Hour, 2)
+</code></pre>
+<p>The <a href="../functions/#round">ROUND()</a> function follows the format <code>ROUND(value, places)</code> which will round the given value to the number of places specified. Our formula finds the value for <code>$Hours*$Per_Hour</code> then rounds this value to <code>2</code> decimal places.</p>
+<p><strong><a href="https://public.getgrist.com/v4vj2PDZS4jf/Community-665/m/fork" target="_blank">Mixing Products</a></strong></p>
+<p><span class="screenshot-large"><em><img alt="round" src="../images/formula-cheat-sheet/round.png" /></em></span></p>
+<p>The formula used in the Rounded Value column is:</p>
+<pre><code>mix_list_str = $Mix_Product.Lt_per_100_Lt
+mix_list_float = [float(i) for i in mix_list_str]
+x = [Lt * $Water/100 for Lt in mix_list_float]
+round_x = [ROUND(num, 2) for num in x]
+l = $Mix_Product.Product
+' '.join('{} {}'.format(first, second) for first, second in zip(l, round_x))
+</code></pre>
+<p>Let&rsquo;s break this down.</p>
+<p><code>$Mix_Product</code> represents the Mix Product column, a reference list column that pulls data from the Product column of Table1. We can use this column as a link to Table1 to pull other data. <code>$Mix_Product.Lt_per_100_Lt</code> uses the reference list column, Mix Product, to pull values from the Lt per 100 Lt column of Table1 for the products listed in the Mix Product column of Table2 then assigns this list of values to the variable <code>mix_list_str</code>. This is the same formula used in the Lt per 100 Lt column of Table2 so you can see the value it returns in row 1 of Table2. It returns a list: <code>['0.2355', '1.2579']</code>. This list is evaluated as a string rather than numerical values. We need to convert each value in this list to a float.</p>
+<p>In our next formula, <code>[float(i) for i in mix_list_str]</code>, we iterate through the list that was assigned in the first equation to <code>mix_list_str</code> and convert each value to a floating-point number. We want to convert to a float rather than integer because not all values are whole numbers and contain decimals. <code>i</code> is a variable representing each value. So each value in <code>mix_list_str</code> is evaluated in the equation <code>float(i)</code>. <code>float(0.2355)</code> converts <code>0.2355</code> to a float and <code>float(1.2579)</code> converts <code>1.2579</code> to a float. Now, we assign our list of floats to the variable <code>mix_list_float</code>.</p>
+<p>We can now use our float values in a mathematical equation. Once again, we iterate through the list that was assigned to the variable <code>mix_list_float</code>. In our equation <code>[Lt * $Water/100 for Lt in mix_list_float]</code>, <code>Lt</code> represents each value in <code>mix_list_float</code> and <code>$Water</code> represents the value found in the Water column which is <code>1000</code>. We evaluate the equation <code>Lt * 1000/100</code> when <code>Lt = 0.2355</code> and <code>Lt = 1.2579</code> which returns the list <code>[2.355, 12.579]</code>. We assign this list to the variable <code>x</code>.</p>
+<p>To round the values in <code>x</code> to two decimal places, we need to evaluate the equation <code>ROUND(num, 2)</code> where num represents each value in our list and 2 specifies the number of decimal places we want to round to. This returns the list <code>[2.36, 12.58]</code> which we assign to the variable round_x.</p>
+<p>In the first equation, we used our reference list column, Mix Product, as our link to Table1 in order to pull data from Table1 into Table2. We use this method again in <code>$Mix_Product.Product</code> to pull data from the Product column of Table1. This returns a list of products; <code>[Prod A, Prod B]</code>. We assign this list to the variable <code>l</code>.</p>
+<p>Finally, we use the <a href="https://www.w3schools.com/python/ref_string_join.asp" target="_blank">join()</a> method to combine our two lists. <code>' '</code> is our starting (empty) string. We use Python&rsquo;s <a href="https://www.w3schools.com/python/ref_string_format.asp" target="_blank">format method</a> to format our string. <code>{}</code> is a placeholder for each variable listed in <code>.format()</code>. Last, we use Python&rsquo;s <a href="https://www.w3schools.com/python/ref_func_zip.asp" target="_blank">zip() function</a> to pair the first values from each list together and then pair the second values in each list together. <code>l</code> is assigned as our <code>first</code> list and <code>round_x</code> is assigned as our <code>second</code> list. <code>l = [Prod A, Prod B]</code> and <code>round_x = [2.36, 12.58]</code>. Zipping our lists into <code>'{} {}'.format(first, second)</code> gives us <code>Prod A 2.36</code> in our first iteration and <code>Prod B 12.58</code> in our second iteration. Our final return value is <code>Prod A 2.36 Prod B 12.58</code>.
+</details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="formatting-numbers-with-leading-zeros">Formatting numbers with leading zeros<a class="headerlink" href="#formatting-numbers-with-leading-zeros" title="Permanent link">#</a></h4>
+<p>Allows you to specify the minimum number of digits returned in a numerical column by adding leading zeros. If x = 5, <code>str(x).zfill(3)</code> or <code>'{:0&gt;3}'.format(x)</code> would return <code>005</code>.</p>
+<p><span></span><details><summary></p>
+<h4 id="formatting-numbers-with-leading-zeros_1">Formatting numbers with leading zeros<a class="headerlink" href="#formatting-numbers-with-leading-zeros_1" title="Permanent link">#</a></h4>
+</summary>
+<p><strong>Community Example: <a href="https://public.getgrist.com/p4zvsX9asVCc/2179-Using-id/p/1" target="_blank">Using Row ID</a></strong></p>
+<p><span class="screenshot-large"><em><img alt="min-digits" src="../images/formula-cheat-sheet/min-digits.png" /></em></span></p>
+<p>The formula used in the 5-digit ID column of the ID Examples table is:</p>
+<pre><code>'TCH{:0&gt;5}'.format($id)
+</code></pre>
+<p><code>'{:0&gt;5}'.format($id)</code> takes the unique row ID and formats it to be a minimum of 5 digits. We then add this to our string <code>"TCH"</code> to get our final value. If the <code>$id</code> is longer than 5 digits, the formula returns the string unmodified.</p>
+<p>We can do the same thing using the <a href="https://docs.python.org/3/library/stdtypes.html#str.zfill" target="_blank"><code>str.zfill()</code></a> method.</p>
+<p><span class="screenshot-large"><em><img alt="min-digits-zfill" src="../images/formula-cheat-sheet/min-digits-zfill.png" /></em></span></p>
+<p>The formula used in the zfill Method column of the ID Examples table is:</p>
+<pre><code>str($id).zfill(5)
+</code></pre>
+<p><code>str($id)</code> converts the row ID to a string. <code>.zfill(x)</code> returns a copy of the string with leading zeros to make a string of length <code>x</code>. In our example, it adds leading zeros to make the string 5 characters in length. Again, if the <code>$id</code> is longer than 5 digits, the formula returns the string unmodified. </p>
+</details>
+<p><span></span><details><summary></p>
+<h4 id="troubleshooting-errors_1">Troubleshooting Errors<a class="headerlink" href="#troubleshooting-errors_1" title="Permanent link">#</a></h4>
+<p></summary>
+<code>#TypeError</code>: can only concatenate str (not &ldquo;int&rdquo;) to str</p>
+<p>If you mean to combine a string and a numerical value, be sure to convert it to string using <code>str()</code>.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="string-type-error" src="../images/formula-cheat-sheet/string-type-error.png" /></em></span></p>
+<p></details>
+</section></p>
+<h2 id="working-with-strings">Working with Strings<a class="headerlink" href="#working-with-strings" title="Permanent link">#</a></h2>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="combining-text-from-multiple-columns">Combining Text From Multiple Columns<a class="headerlink" href="#combining-text-from-multiple-columns" title="Permanent link">#</a></h4>
+<p><strong>Method 1:</strong> If you have a First Name column and a Last Name column, you can combine these columns to have a Full Name column. If First Name is <code>George</code> and Last Name is <code>Washington</code>, <code>$First_Name + " " + $Last_Name</code> would return <code>George Washington</code>.</p>
+<p><strong>Method 2:</strong> If you have additional formatting, an easier way to do this would be using Python&rsquo;s <a href="https://www.w3schools.com/python/ref_string_format.asp" target="_blank">String format() method</a>. The <code>format()</code> method formats the specified value(s) and inserts them in place of the placeholder, <code>{}</code>. Using the same example as above, our formula would be <code>"{} {}".format($First_Name, $Last_Name)</code>.</p>
+<p>Note: You can click on columns to insert them into your formulas, rather than typing them in.</p>
+<p><span></span><details><summary></p>
+<h4 id="examples-using-method-1">Examples using Method 1<a class="headerlink" href="#examples-using-method-1" title="Permanent link">#</a></h4>
+<p></summary>
+<strong><a href="https://templates.getgrist.com/doc/afterschool-program" target="_blank">Class Enrollment</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="combining-text-students" src="../images/formula-cheat-sheet/combining-text-students.png" /></em></span></p>
+<p>The formula used in the Full Name column of the Students table is:</p>
+<pre><code>$Last_Name + &quot;, &quot; + $First_Name
+</code></pre>
+<p>Here, we are combining the value found in the Last Name column with a comma followed by a space followed by the value from the First Name column. When adding any extra characters or spaces, place these between double quotes, as we did in the example with <code>", "</code>. </p>
+<p>An alternative combination of these columns for Full Name could be <code>$First_Name + " " + $Last_Name</code>. For the example in row 1, First Name is <code>Brockie</code> and Last Name is <code>Raddon</code> so the value returned would be <code>Brockie Raddon</code>.</p>
+<p><strong><a href="https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager" target="_blank">Inventory Manager</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="combining-text-sku" src="../images/formula-cheat-sheet/combining-text-sku.png" /></em></span></p>
+<p>The formula used in the SKU column of the All Products table is:</p>
+<pre><code>$Brand.Brand_Code+&quot;-&quot;+$Color.Code+&quot;-&quot;+$Size
+</code></pre>
+<p>Brand is a reference column that pulls data from the Name Brand column of the Add Products table. We use this reference column in <code>$Brand.Brand_Code</code> to pull data from the Brand Code column of the Add Products table. </p>
+<p>Color is a reference column that pulls data from the Color column of the Color table. We use this reference column in <code>$Color.Code</code> to pull data from the Code column of the Color table. </p>
+<p>Each of the values found in <code>$Brand.Brand_Code</code> and <code>$Color.Code</code>are combined with the value in the Size column with a <code>-</code> between each of the three values to make up the SKU.
+</details></p>
+<p><span></span><details><summary></p>
+<h4 id="examples-using-method-2">Examples using Method 2<a class="headerlink" href="#examples-using-method-2" title="Permanent link">#</a></h4>
+<p></summary>
+<strong><a href="https://templates.getgrist.com/bReAxyLmzmEQ/Tracking-Time-Invoicing" target="_blank">Tracking Time + Invoicing</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="combining-text-project-name" src="../images/formula-cheat-sheet/combining-text-project-name.png" /></em></span></p>
+<p>The formula used in the Project Name column of the Projects table is:</p>
+<pre><code>&quot;{}: {}&quot;.format($Client.Name, $Name)
+</code></pre>
+<p>Let&rsquo;s break this down. </p>
+<p>Everything between double quotes <code>"</code> is our string. The curly brackets <code>{}</code> are placeholders for the values found using <code>.format()</code> which is Python&rsquo;s string format() method. </p>
+<p>The first set of curly brackets are replaced with the value found in <code>$Client.Name</code>. Client is a reference column that pulls data for a specific record from the Clients table. <code>$Client.Name</code> is using our reference column, Client to pull data from the Name column of the Clients table. </p>
+<p>The second set of curly brackets are replaced with the value found in the Name column of this table.</p>
+<p>Although the Client column shows the value that we want, we can&rsquo;t use <code>$Client</code> like we did <code>$Name</code>. This is because the Client column is a reference column. It is referencing the <em>entire</em> record but uses the value from the Name column of the Clients table as a visual representation of that record. Under the column configuration panel on the right hand side, we can change what column value we see for the record. In the screenshot below, &lsquo;Show Column&rsquo; was changed from Name to Email.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="reference-client-email" src="../images/formula-cheat-sheet/reference-client-email.png" /></em></span></p>
+<p>It doesn&rsquo;t change the data, it just changes the label on that data in the Client column. It&rsquo;s still pointing to the same record but now shows a different label. <code>$Client.Name</code> pulls the Name for the record that is referenced in the Client column, regardless of the label we see.</p>
+<p><strong><a href="https://templates.getgrist.com/gZmzYoGdS6b1/Custom-Product-Builder" target="_blank">Custom Product Builder</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="combining-text-components" src="../images/formula-cheat-sheet/combining-text-components.png" /></em></span></p>
+<p>The formula used in the All Components column of the CONTRACT_BUILDER Card is:</p>
+<pre><code>'\n'.join(sorted(
+  &quot;{} — {:g} {}&quot;.format(comp.Component, quantity, comp.Unit)
+  for (comp, quantity) in $Components.items()
+))
+</code></pre>
+<p>We are using the <a href="https://www.w3schools.com/python/ref_string_join.asp" target="_blank">join() method</a>, <a href="https://www.w3schools.com/python/ref_func_sorted.asp" target="_blank">sorted() function</a> and <a href="https://www.w3schools.com/python/ref_string_format.asp" target="_blank">format() method</a> method all in one!</p>
+<p><code>'\n'.join()</code> adds a new line between each item in the list.</p>
+<p><code>sorted()</code> sorts the items in the list alphabetically.</p>
+<p>This leaves us with the following:</p>
+<pre><code>&quot;{} — {:g} {}&quot;.format(comp.Component, quantity, comp.Unit)
+  for (comp, quantity) in $Components.items()
+</code></pre>
+<p>We&rsquo;ll work through this backwards. First, we need to take a look at the Components column which is a <a href="../page-widgets/#configuring-field-lists">hidden column</a> in the All Contracts table. </p>
+<p><span class="screenshot-large"><em><img alt="combining-text-components-hidden" src="../images/formula-cheat-sheet/combining-text-components-hidden.png" /></em></span></p>
+<p>This column is a list of components and their associated quantities for the contract. In the <code>for</code> loop, we assign each item in the list of components two variables, comp and quantity. For <code>Components[3]: 6.0</code>, comp = <code>Components[3]</code> and quantity = <code>6.0</code>. <code>Components[#]</code> specifies a Component in the Components table by Row ID. <code>Components[3]</code> is the component assigned <code>3</code> as it&rsquo;s row id.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="components-row-id" src="../images/formula-cheat-sheet/components-row-id.png" /></em></span></p>
+<p>Now, we run each item from the list above through the equation <code>"{} — {:g} {}".format(comp.Component, quantity, comp.Unit)</code>.</p>
+<p><code>comp.Component</code> replaces the first set of <code>{}</code>. <code>comp</code> is the variable with our component ID so <code>comp.Component</code> finds the value in the Component column associated with that row ID. For <code>Components[3]</code>, <code>comp.Component</code> is Nozzle. </p>
+<p><code>quantity</code> replaces the second set of <code>{}</code>. Again, the quantity is the second variable in our list. For <code>Components[3]: 6.0</code>, quantity is <code>6.0</code>. Our second set of <code>{}</code> are not empty. They include <code>:g</code>*. This converts the value to a floating-point number. </p>
+<p><code>comp.Unit</code> replaces the last set of <code>{}</code>. <code>comp</code> is the variable with our component ID so <code>comp.Unit</code> finds the value in the Unit column associated with that row ID. For <code>Components[3]</code>, <code>comp.Unit</code> is <code>None</code>.</p>
+<p>*Note that <code>{:g}</code> formats floating point numbers in a particular way that omit decimals when they aren&rsquo;t needed. There are many options available within placeholders for formatting numbers, dates, etc. Learn more about placeholders <a href="https://www.w3schools.com/python/ref_string_format.asp" target="_blank">here</a>.</p>
+<p><strong><a href="https://templates.getgrist.com/3HfynRQwpHPy/Email-Contacts" target="_blank">Email Contacts</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="combining-text-email" src="../images/formula-cheat-sheet/combining-text-email.png" /></em></span></p>
+<p>The formula used in the Body column of the Advanced Compose table is:</p>
+<pre><code>&quot;Dear %s,\n\nWelcome to the %s team!&quot; % ($Contact_Name_as_Plaintext, $Team)
+</code></pre>
+<p>This technique uses the <code>%</code> operator instead of the <code>format()</code> method. Format specifiers begin with <code>%</code> followed by a character that represents the data type. <code>%s</code> is a placeholder for a string. The first <code>%s</code> is replaced with the value found in the &ldquo;Contact Name as Plaintext&rdquo; column which is a <a href="../page-widgets/#configuring-field-lists">hidden column</a> and the second <code>%s</code> is replaced by the value in the Team column.</p>
+<p><code>\n</code> adds a new line.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="splitting-strings-of-text">Splitting Strings of Text<a class="headerlink" href="#splitting-strings-of-text" title="Permanent link">#</a></h4>
+<p>Split a string using Python&rsquo;s <a href="https://docs.python.org/3/library/stdtypes.html#str.split" target="_blank">split()</a> method. If Full Name is <code>George Washington</code>, <code>$Full_Name.split(" ")</code> would return <code>[George, Washington]</code>.</p>
+<p><span></span><details><summary></p>
+<h4 id="example-of-splitting-strings-of-text">Example of Splitting Strings of Text<a class="headerlink" href="#example-of-splitting-strings-of-text" title="Permanent link">#</a></h4>
+</summary>
+<p><strong>Community Example: <a href="https://public.getgrist.com/2tv3e8qxpNFP/Community-715/p/2" target="_blank">Colors</a></strong></p>
+<p><span class="screenshot-large"><em><img alt="split-hyperlink" src="../images/formula-cheat-sheet/split-hyperlink.png" /></em></span></p>
+<p>The formula in the &ldquo;Color Reference (Just URL)&rdquo; column of Table 2 is:</p>
+<pre><code>split = $Color_Reference.Color.split(&quot; &quot;)
+return split[-1]
+</code></pre>
+<p><code>$Color_Reference.Color</code> uses the reference column, &ldquo;Color Reference&rdquo; to pull data from the table it is referencing, Table 1. Specifically, it pulls the value from the Color column of Table 1. </p>
+<p>Color is a text column that contains a hyperlink with a label. We only see the label in Table 1 but as you can see in the screenshot above, the value in the &lsquo;pink&rsquo; cell is expanded to show the entire string which contains &ldquo;pink&rdquo; followed by the URL. You can also see this in the &ldquo;Color Reference&rdquo; column of Table 2. We want to get the link by itself in &ldquo;Color Reference (Just URL)&rdquo;. We can do this using Python&rsquo;s <a href="https://docs.python.org/3/library/stdtypes.html#str.split" target="_blank">split()</a> method.</p>
+<p><code>.split(" ")</code> allows us to split the string anywhere there is a space <code>(" ")</code>. In the Color column, there is a label followed by a space followed by the URL. The value from the Color column is split into a list containing two items <code>Label</code> and <code>URL</code>. This list is assigned to the variable <code>split</code>. </p>
+<p>We want to return the last item in the list <code>split</code> in order to get our <code>URL</code>. The last item in a list always has index <code>[-1]</code>. <code>return split[-1]</code> returns the last item in the list <code>split</code>. </p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="direct-link-to-gmail-history-for-a-contact">Direct Link to Gmail History for a Contact<a class="headerlink" href="#direct-link-to-gmail-history-for-a-contact" title="Permanent link">#</a></h4>
+<p>If you store contacts in Grist, and use Gmail to email them, you can create a formula that will open Gmail to a list of conversations with that contact. </p>
+<p><strong>Read about it in the Community:</strong> <a href="https://community.getgrist.com/t/pull-up-gmail-history-for-a-particular-contact/517" target="_blank">Pull up Gmail history for a particular contact</a></p>
+<p><span></span><details><summary></p>
+<h4 id="troubleshooting_1">Troubleshooting<a class="headerlink" href="#troubleshooting_1" title="Permanent link">#</a></h4>
+<p></summary>
+Is your URL still showing after you added a label? Make sure your Column Type is Text and Cell Format is Hyperlink.</p>
+<p><span class="screenshot-large"><em><img alt="text-hyperlink" src="../images/formula-cheat-sheet/text-hyperlink.png" /></em></span></p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="joining-a-list-of-strings">Joining a List of Strings<a class="headerlink" href="#joining-a-list-of-strings" title="Permanent link">#</a></h4>
+<p>When you want to join a list of strings, you can use Python&rsquo;s <a href="https://www.w3schools.com/python/ref_string_join.asp" target="_blank">join() method</a>.</p>
+<p><span></span><details><summary></p>
+<h4 id="example-of-joining-a-list">Example of Joining a List<a class="headerlink" href="#example-of-joining-a-list" title="Permanent link">#</a></h4>
+<p></summary>
+<strong>Community Example: <a href="https://public.getgrist.com/2L3J99j7zW23/join-Example/m/fork" target="_blank">.join() Example</a></strong></p>
+<p><span class="screenshot-large"><em><img alt="join-list-values-example" src="../images/formula-cheat-sheet/join-list-values-example.png" /></em></span></p>
+<p>The formula used in the Advertisement column of the 2022 Grand Openings table is:</p>
+<pre><code>&quot;Coming soon to a city near you!\n&quot; + &quot; : &quot;.join($New_Location_s_in_2022)
+</code></pre>
+<p>Here, we are joining multiple strings to create our advertisement.</p>
+<p><code>"Coming soon to a city near you!\n"</code> is returned almost exactly as we see it, minus the quotes <code>""</code> and <code>\n</code> at the end of the string. </p>
+<p>The quotes <code>""</code> specify that this is a string and <code>\n</code> is actually a newline character that can be used to specify a new line within a string.</p>
+<p><code>" : ".join($New_Location_s_in_2022)</code> is also a string but uses Python&rsquo;s <a href="https://www.w3schools.com/python/ref_string_join.asp" target="_blank">join() method</a> to join values from our <a href="../col-types/#choice-list-columns">choice list</a> column, &ldquo;New Locations in 2022&rdquo;. What we see in quotes before <code>.join</code> is what will separate each value in our list. </p>
+<p>In this example, each value is separated by a space, <code>:</code> and another space.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="finding-duplicates">Finding Duplicates<a class="headerlink" href="#finding-duplicates" title="Permanent link">#</a></h4>
+<p>You can find duplicates in a column using either conditional formatting or a helper column.</p>
+<p><strong>Read about it in the Community:</strong> <a href="https://community.getgrist.com/t/ensure-unique-values-or-detect-duplicates/76" target="_blank">Ensure unique values or detect duplicates</a></p>
+<p><span></span><details><summary></p>
+<h4 id="example-of-finding-duplicates">Example of Finding Duplicates<a class="headerlink" href="#example-of-finding-duplicates" title="Permanent link">#</a></h4>
+<p></summary>
+<strong>Community Example: <a href="https://public.getgrist.com/3CJkcpF7wu9Q/-1790/p/4" target="_blank">Finding Duplicates</a></strong></p>
+<p><span class="screenshot-large"><em><img alt="duplicates-single-column" src="../images/formula-cheat-sheet/duplicates-single-column.png" /></em></span></p>
+<p>The formula used in the Duplicate? column of the Duplicates table is:</p>
+<pre><code>len(Duplicates.lookupRecords(Grocery_List=$Grocery_List))&gt;1
+</code></pre>
+<p>Let&rsquo;s break this down, working from the inside &gt; out.</p>
+<pre><code>Duplicates.lookupRecords(Grocery_List=$Grocery_List)
+</code></pre>
+<p>This is a <a href="../functions/#lookuprecords">lookupRecords</a> function that follows the format of: </p>
+<pre><code>[Table_Name].lookupRecords([A]=$[B])
+</code></pre>
+<p>Where <code>[Table_Name]</code> is the name of the table you want to lookup data in. <code>[A]</code> is the column in the table being looked up (named at the beginning of the formula) and <code>[B]</code> is the column in the current table / the table you are entering the formula in.</p>
+<p>This formula looks up records in the Duplicates table where a record in the Grocery List column matches another record in the same column.</p>
+<p><code>len()</code> counts the number of records in our list. Since each duplicate will match with the other, it should appear twice in our list. This is why <code>len() &gt; 1</code>.</p>
+<p>if <code>len() &gt; 1</code>, the formula is true. If <code>len() &lt;= 1</code>, the formula is false.</p>
+<p>This same formula can be used in conditional formatting. This can be seen in the &lsquo;Grocery List&rsquo; column of the Duplicates table.</p>
+<p><span class="screenshot-large"><em><img alt="duplicates-single-conditional-formatting" src="../images/formula-cheat-sheet/duplicates-single-conditional-formatting.png" /></em></span></p>
+<p>If <code>len() &gt; 1</code>, our formula is true and the conditional cell color is applied to these cells. </p>
+<p>If <code>len() &lt;= 1</code>, our formula is false and the cell color is unchanged.</p>
+</details>
+</section>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="using-a-records-unique-identifier-in-formulas">Using a Record&rsquo;s Unique Identifier in Formulas<a class="headerlink" href="#using-a-records-unique-identifier-in-formulas" title="Permanent link">#</a></h4>
+<p>When a record is created, it is assigned a numeric id (available as <code>$id</code> in formulas) that is unique within that table. You can reveal the row ID by adding a formula column where the formula is <code class="formula">$id</code>.</p>
+<p><span></span><details><summary></p>
+<h4 id="examples-using-row-id-in-formulas">Examples Using Row ID in Formulas<a class="headerlink" href="#examples-using-row-id-in-formulas" title="Permanent link">#</a></h4>
+<p></summary>
+You can reveal the ID with the formula <code>$id</code></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="row-id" src="../images/formula-cheat-sheet/row-id.png" /></em></span></p>
+<p><strong><a href="https://templates.getgrist.com/gZmzYoGdS6b1/Custom-Product-Builder" target="_blank">Custom Product Builder</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="row-id-trigger" src="../images/formula-cheat-sheet/row-id-trigger.png" /></em></span></p>
+<p>The formula used in the Contract No. column of the Contract Builder table is:</p>
+<pre><code>$id + 500
+</code></pre>
+<p>Here, we are using a trigger formula to create a unique Contract Number when a record is created.</p>
+<p><strong><a href="https://templates.getgrist.com/doc/afterschool-program" target="_blank">Class Enrollment</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="id-reverse-lookup" src="../images/formula-cheat-sheet/id-reverse-lookup.png" /></em></span></p>
+<p>The formula used in the Count column of the Classes table is:</p>
+<pre><code>len(Enrollments.lookupRecords(Class=$id, Status=&quot;Confirmed&quot;))
+</code></pre>
+<p>This is refered to as a Reverse Lookup. We can use the row id to match a record in another table where a reference column is used. LookupRecords follows the format <code>[Table_Name].lookupRecords([A]=$[B])</code>. <code>[Table_Name]</code> is the name of the table you want to lookup data in. <code>[A]</code> is the column in the table being looked up (named at the beginning of the formula) and <code>[B]</code> is the column in the current table / the table you are entering the formula in. Lookup Records creates a list of records that match the criteria listed. <code>len()</code> counts how many records are in that list.</p>
+<p>Here, we are looking up records from the Enrollments table where the record called out in the Class column (our reference column) has the same row ID as the row in the table you are entering the formula. Additionally, the value in the Status column of the Enrollments table is <code>Confirmed</code>. We&rsquo;ll walk through this.</p>
+<p>The table we are looking up records in is the Enrollments table. Our criteria comes from the Class column and the Status column.The criteria for Status is straightforward; the value must be <code>Confirmed</code> in order to be included in our list of records. Class is a bit more complicated. As we see in the screenshot below, Class is a reference column that pulls data from the Classes table. Here, the Class column shows <code>2018F-Stars</code>.</p>
+<p><span class="screenshot-large"><em><img alt="id-reference-class-code" src="../images/formula-cheat-sheet/id-reference-class-code.png" /></em></span></p>
+<p>A reference column points to the <em>entire</em> record, not just the value you see here in the Class column. Using the configuration panel on the right hand side of the screen, you can pick any column from the originating table to show. For this example, the Class column shows the value from the Class Code column of the Classes table but it points to the entire record where the class code is <code>2018F-Stars</code>. </p>
+<p><span class="screenshot-large"><em><img alt="id-class-id" src="../images/formula-cheat-sheet/id-class-id.png" /></em></span></p>
+<p>As you can see in this screenshot, the Row ID for this particular record is <code>2</code> and because we are calculating the Count for the row with <code>Row ID = 2</code>, it will count all records in the Enrollment table where Class shows <code>2018F-Stars</code> and Status is <code>Confirmed</code>. </p>
+<p><strong><a href="https://templates.getgrist.com/e4gEm7dt4cgB/Restaurant-Custom-Orders" target="_blank">Restaurant Custom Orders</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="inequality-restaurant-bom" src="../images/formula-cheat-sheet/inequality-restaurant-bom.png" /></em></span></p>
+<p>The trigger formula used in the BOM # column of the Bill of Materials table is:</p>
+<pre><code>MAX(o.BOM_ for o in Bill_Of_Materials.all if o.id != $id) + 1
+</code></pre>
+<p>First, we&rsquo;ll walk through the formula inside the parenthesis then work outwards.</p>
+<p>Here, <code>o</code> is a variable representing each record in our table. <code>o.BOM_</code> represents the BOM # for each record and <code>o.id</code> represents the row ID for each record. This is a <code>for</code> loop that makes a list of the BOM # for each record in the table Bill of Materials when the record ID does not equal the ID of this row.</p>
+<p><code>MAX()</code> finds the maximum BOM # in the list then <code>+ 1</code> to get our final value. </p>
+<p>This is a trigger formula that only applies to new records. When a new record is created, the formula finds the highest BOM # in the table then adds 1 so we have a unique BOM # for the new record.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="removing-duplicates-from-a-list">Removing Duplicates From a List<a class="headerlink" href="#removing-duplicates-from-a-list" title="Permanent link">#</a></h4>
+<p>You can remove duplicates from a list with help from Python&rsquo;s <a href="https://docs.python.org/3/tutorial/datastructures.html#sets" target="_blank">set()</a> method.</p>
+<p><span></span><details><summary></p>
+<h4 id="example-of-removing-duplicates-from-a-list">Example of Removing Duplicates from a List<a class="headerlink" href="#example-of-removing-duplicates-from-a-list" title="Permanent link">#</a></h4>
+</summary>
+<p><strong>Community Example: <a href="https://public.getgrist.com/3pZUMdP2bJx6/1957/p/3" target="_blank">Removing Duplicates From a List</a></strong></p>
+<p><span class="screenshot-large"><em><img alt="removing-duplicates" src="../images/formula-cheat-sheet/removing-duplicates.png" /></em></span></p>
+<p>The formula in the All Divisions column of the Abroad Trips table is:</p>
+<pre><code>confirmed_div = $Attending_Confirmed.Role_Division.Division
+pending_div = $Attending_Pending.Role_Division.Division
+full_list = confirmed_div + pending_div
+return sorted(set(full_list))
+</code></pre>
+<p>We will walk through this one line at a time.</p>
+<p>Attending-Confirmed is a Reference List column that pulls data from the EMPLOYEES table. <code>$Attending_Confirmed.Role_Division</code> pulls the value from the Role Division column of the EMPLOYEES table. The Role Division column in the EMPLOYEES table is a reference column itself, which points to a record in the Divisions table. <a href="../references-lookups/#chaining">Chaining</a> allows us to specify what information we want from this record. In this case, we want the Division. We expand our formula to <code>$Attending_Confirmed.Role_Division.Division</code>. The Division is found for each employee listed in the Attending-Confirmed column, creating a list. We assign this list of divisions to the variable <code>confirmed_div</code>.</p>
+<p>Attending-Pending is also a Reference List column that pulls data from the EMPLOYEES table. <code>$Attending_Pending.Role_Division.Division</code> does the same as above except now we pull the division for each employee in the Attending-Pending column. We assign this list to the variable <code>pending_div</code>.</p>
+<p>We create a list of all divisions by adding the two lists together and assigning this combined list to the variable <code>full_list</code>.</p>
+<p><code>return sorted(set(full_list))</code> first uses Python&rsquo;s <a href="https://docs.python.org/3/tutorial/datastructures.html#sets" target="_blank">set()</a> method to create a list with no duplicate divisions. We then use the <a href="https://docs.python.org/3/library/functions.html#sorted" target="_blank">sorted()</a> method to return our set of divisions, sorted alphabetically.</p>
+<p>Note that the formula above can be simplified even further to:</p>
+<pre><code>sorted(
+  set($Attending_Confirmed.Role_Division.Division) |
+  set($Attending_Pending.Role_Division.Division)
+)
+</code></pre>
+<p><span class="screenshot-large"><em><img alt="removing-duplicates-simplified" src="../images/formula-cheat-sheet/removing-duplicates-simplified.png" /></em></span></p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="setting-default-values-for-new-records">Setting Default Values for New Records<a class="headerlink" href="#setting-default-values-for-new-records" title="Permanent link">#</a></h4>
+<p>You can set default values for when a new record is created and save yourself the trouble of having to fill in the same fields with the same values time after time.</p>
+<p><strong>Read about it in the Community:</strong> <a href="https://community.getgrist.com/t/default-values-on-the-widget/689/4" target="_blank">Default values on the widget</a></p>
+</section>
+<h2 id="working-with-dates-and-times">Working with dates and times<a class="headerlink" href="#working-with-dates-and-times" title="Permanent link">#</a></h2>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="automatic-date-time-and-author-stamps">Automatic Date, Time and Author Stamps<a class="headerlink" href="#automatic-date-time-and-author-stamps" title="Permanent link">#</a></h4>
+<p>You can automatically add the date or time a record was created or updated as well as who made the change.</p>
+<p><span></span><details><summary></p>
+<h4 id="examples-of-automatic-date-time-and-author-stamps">Examples of Automatic Date, Time and Author Stamps<a class="headerlink" href="#examples-of-automatic-date-time-and-author-stamps" title="Permanent link">#</a></h4>
+<p></summary>
+<strong><a href="https://templates.getgrist.com/sC5CAW41bVZU/Grant-Application-Tracker" target="_blank">Grant Application Tracker</a> template</strong></p>
+<p><span class="screenshot-large"><em><img alt="date-time-trigger-formula" src="../images/formula-cheat-sheet/date-time-trigger-formula.png" /></em></span></p>
+<p>The formula used in the Last Updated column of the Tasks table is:</p>
+<pre><code>NOW()
+</code></pre>
+<p>This is a <a href="../formulas/#trigger-formulas">trigger formula</a> that triggers when a change is made to any field for this record. When a change is made, this formula runs its calculation. <code>NOW()</code> calculates the current time and date for the <a href="../dates/#time-zones">time zone</a> selected. </p>
+<p><span class="screenshot-large"><em><img alt="created-by-trigger" src="../images/formula-cheat-sheet/created-by-trigger.png" /></em></span></p>
+<p>The formula used in the Created By column of the Tasks table is:</p>
+<pre><code>user.Name
+</code></pre>
+<p>This is a <a href="../formulas/#trigger-formulas">trigger formula</a> that triggers when a new record is created. When the record is created, this formula runs its calculation. <code>user.Name</code> looks up the user account that is logged into Grist and returns the name associated with that account. </p>
+</details>
+<p><span></span><details><summary></p>
+<h4 id="troubleshooting-errors_2">Troubleshooting Errors<a class="headerlink" href="#troubleshooting-errors_2" title="Permanent link">#</a></h4>
+<p></summary>
+If the time value in your datetime column is not calculating, check your formula. If <code>TODAY()</code> is used in DateTime, the time will always show 12:00am as you see below. <code>NOW()</code> is used for DateTime columns. <code>TODAY()</code> is used for Date.</p>
+<p><span class="screenshot-large"><em><img alt="today-vs-now-error" src="../images/formula-cheat-sheet/today-vs-now-error.png" /></em></span></p>
+<p><span></span><div class="deflist"></p>
+<ul>
+<li>
+<p><code>#AttributeError</code></p>
+<p>You have likely entered <code>user.name</code> but the formula is <code>user.Name</code>. Keep an eye on capitalization!</p>
+</li>
+<li>
+<p><code>#NameError</code></p>
+<p>You may have entered <code>username</code> or <code>userName</code>. The correct formula is <code>user.Name</code>. </p>
+</li>
+</ul>
+<p>Another possibility is that this was entered in as a Formula column rather than a trigger formula column. Convert it to a trigger formula and this should resolve the problem.</p>
+<p></details>
+</section></p>
+<p><span></span><section class="cheat-sheet"></p>
+<h4 id="filtering-data-within-a-specified-amount-of-time">Filtering Data within a Specified Amount of Time<a class="headerlink" href="#filtering-data-within-a-specified-amount-of-time" title="Permanent link">#</a></h4>
+<p>Using the <a href="../functions/#dateadd"><code>DATEADD()</code></a> function and <a href="#comparing-values">comparision operators</a>, you can determine if a date falls within a specific range then apply a filter.</p>
+<p><span></span><details><summary></p>
+<h4 id="example-filtering-data-that-falls-in-1-month-range">Example Filtering Data that &lsquo;Falls in 1 Month Range`<a class="headerlink" href="#example-filtering-data-that-falls-in-1-month-range" title="Permanent link">#</a></h4>
+</summary>
+<p><strong>Community Example:</strong> <a href="https://public.getgrist.com/4zxVeFtGNt7n/1844" target="_blank">Filtering Data Within a 1-Month Range</a></p>
+<p><span class="screenshot-large"><em><img alt="1-month-range" src="../images/formula-cheat-sheet/1-month-range.png" /></em></span>
+The formula used in the Falls in 1 Month Range? column of the Interactions table is:</p>
+<pre><code>TODAY() &gt;= $Date &gt;=  DATEADD(TODAY(),months=-1)
+</code></pre>
+<p><a href="../functions/#today"><code>TODAY()</code></a> returns the current date. </p>
+<p><code>$Date</code> is the name of a column in our table, which is a <a href="../col-types/#date-columns">Date</a> type column.</p>
+<p><a href="../functions/#dateadd"><code>DATEADD(start_date, days=0, months=0, years=0, weeks=0)</code></a> returns the date that is the given number of days, months, years, or weeks before or after the <code>start_date</code>. In this example, it returns the date that is one month prior to the start date, <code>TODAY()</code>.</p>
+<p>This formula is true if the date value in the Date column falls between <code>TODAY()</code> and our <code>DATEADD()</code> date which is one month ago. If the date value in the Date column does not fall between these two dates, the formula returns false.</p>
+<p>We can use this column to filter our data. If we only want to see interactions that fall within the 1 Month Range, we would filter to only include <code>true</code> values. If we want to see interactions that fall outside of the 1 Month Range, we would filter to only include <code>false</code> values.</p>
+<p><span class="screenshot-large"><em><img alt="add-filter" src="../images/formula-cheat-sheet/add-filter.png" /></em></span></p>
+</details>
+<p><span></span><details><summary></p>
+<h4 id="troubleshooting-errors_3">Troubleshooting Errors<a class="headerlink" href="#troubleshooting-errors_3" title="Permanent link">#</a></h4>
+</summary>
+<p><span></span><div class="deflist"></p>
+<ul>
+<li>
+<p><code>#TypeError</code>:</p>
+<p><span class="screenshot-large"><em><img alt="1-month-range-type-error" src="../images/formula-cheat-sheet/1-month-range-type-error.png" /></em></span></p>
+<p>Because <code>$Date</code> is a <a href="../col-types/#date-columns">Date</a> type column, <code>TODAY()</code> must be used in formulas comparing dates. <a href="../functions/#now"><code>NOW()</code></a> is a DateTime formula that should only be used with other DateTime values. For example, if the <code>$Date</code> column was a <a href="../col-types/#datetime-columns">DateTime</a> type column, <code>NOW()</code> would need to be used rather than <code>TODAY()</code> because it includes the time component.</p>
+<p><code>NOW()</code> is date and time. <code>TODAY()</code> is only date.
+</div></p>
+</li>
+</ul>
+</details>
+
+  <br>
+</div>
+
+<div class="feedback-box">
+  <div class="feedback-box-title">Give Feedback</div>
+  <div class="feedback-box-question">Was this article helpful?</div>
+  <div class="feedback-box-buttons">
+    <button class="feedback-box-button" data-rating="thumbsUp">&#x1F44D;</button>
+    <button class="feedback-box-button" data-rating="thumbsDown">&#x1F44E;</button>
+  </div>
+  <div class="feedback-box-response">
+    Thank you for letting us know!
+  </div>
+</div>
+
+<script>
+function initFeedbackButtons() {
+  const serverUrl = "https://docs.getgrist.com";
+  const feedbackBox = document.querySelector('.feedback-box');
+  const buttons = document.querySelectorAll('.feedback-box-button');
+  document.querySelector('.feedback-box-buttons').addEventListener('click', giveFeedback);
+
+  async function giveFeedback(event) {
+    const rating = event.target.dataset.rating;
+    if (!rating) { return; }
+    buttons.forEach(b => { b.disabled = true; });
+    try {
+      console.log("Sending rating to " + serverUrl + '/api/telemetry');
+      const resp = await window.fetch(serverUrl + '/api/telemetry', makePayload(rating));
+      if (!resp.ok) { throw new Error(resp.statusText); }
+    } catch (err) {
+      console.warn('Failed to report feedback', err);
+      document.querySelector('.feedback-box-response').textContent = String(err);
+    } finally {
+      buttons.forEach(b => { b.disabled = false; });
+      feedbackBox.classList.add('feedback-submitted');
+    }
+  }
+
+  function makePayload(rating) {
+    const url = window.location.href;
+    return {
+      method: 'POST',
+      body: JSON.stringify({
+        event: 'ratedHelpCenterArticle',
+        metadata: {full: {url, rating}},
+      }),
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    };
+  }
+}
+initFeedbackButtons();
+</script><footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/formula-cheat-sheet.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div style="position:relative; padding-bottom:56.25%; margin-top: 32px;">
+          <iframe src="" allowfullscreen style="position:absolute; left:0; top:0; width:100%; height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

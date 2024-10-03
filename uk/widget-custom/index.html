@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <meta name="description" content="The Custom widget allows a user to insert almost
+anything in their document.  To create a custom widget currently
+requires knowledge of web development, and access to a public web
+server (for example, GitHub Pages).">
+      <meta property="og:description" content="The Custom widget allows a user to insert almost
+anything in their document.  To create a custom widget currently
+requires knowledge of web development, and access to a public web
+server (for example, GitHub Pages).">
+    
+    
+    <link rel="canonical" href="https://support.getgrist.com/widget-custom/">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="me" href="https://fosstodon.org/@grist">
+    <meta name="thumbnail" content="https://support.getgrist.com/images/favicon.png">
+    <meta property="og:image" content="https://support.getgrist.com/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Custom - Grist Help Center</title>
+    
+  
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5FDHKQ9');</script>
+  <!-- End Google Tag Manager -->
+    <link href="/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link href="../css/grist.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap-3.3.7.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/elasticlunr.min.js"></script>
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+    </script>
+    <script src="/js/base.js"></script>
+      <script src="../js/grist.js"></script>
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    window.Beacon('config', {display: { style: 'icon' }});
+    window.Beacon('init', 'fc61df2a-664b-4422-b24f-964bd0cb6d53');
+    window.Beacon('suggest', [
+      {url: 'https://community.getgrist.com/', text: 'Community Forum'},
+      {url: 'https://docs.getgrist.com/p/templates', text: 'Templates'},
+      {url: 'https://github.com/gristlabs/grist-core/projects/1', text: 'Roadmap'},
+    ]);
+
+    fetch('https://api.getgrist.com/api/session/access/all', {credentials: 'include'})
+      .then(function(resp) { return resp.json(); })
+      .then(function(status) {
+        // If there's exactly two orgs, will use the team name for the non-merged personal
+        // org as the company name.  Otherwise don't worry about setting company name.
+        var org = undefined;
+        if (status.orgs.length === 2) {
+          org = status.orgs[0].owner ? status.orgs[1] : status.orgs[0];
+        }
+        // If there's one user account available, fill it in silently; otherwise use
+        // the first one and prefill fields but let user see them so they can override
+        // them.  If testing this, be aware that if 'identify' was called previously,
+        // it will be cached in local storage and used even if it is not set this time
+        // around.
+        var user = status.users[0];
+        var identifyOrPrefill = status.users.length === 1 ? 'identify' : 'prefill';
+        if (user && !user.anonymous) {
+          var userObj = {};
+          if (user.email) { userObj.email = user.email; }
+          if (user.name) { userObj.name = user.name; }
+          if (user.picture) { userObj.avatar = user.picture; }
+          if (user.helpScoutSignature) { userObj.signature = user.helpScoutSignature; }
+          if (org && org.name) { userObj.company = org.name; }
+          window.Beacon(identifyOrPrefill, userObj);
+        }
+      });
+  });
+</script> 
+</head>
+
+<body>
+  
+  
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FDHKQ9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="/search.html" method="GET">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left wm-top-toc-button">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+    <select id="wm-language-select" class="wm-top-tool wm-vcenter pull-right wm-small-left home-top-tool-selector" name="lang"
+      
+      >
+      
+      <option value="/" >en - English</option>
+      
+      <option value="/fr/" >fr - français</option>
+      
+      <option value="/it/" >it - italiano</option>
+      
+      <option value="/pt/" >pt - português</option>
+      
+      <option value="/uk/" selected>uk - українська мова</option>
+      
+    </select>
+
+    
+    
+
+    
+    
+      <a href="https://community.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link ">
+        <div class="wm-top-title">
+          Community
+        </div>
+      </a>
+    
+      <a href="https://www.getgrist.com" class="wm-top-tool wm-top-link pull-right wm-vcenter home-link wm-small-hide">
+        <div class="wm-top-title">
+          Back to Grist
+        </div>
+      </a>
+    
+
+    
+    <a href=".." class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="../images/logo.png"/>
+      
+      <div class="wm-top-title">
+        Grist Help Center<br>
+        
+          <span class="wm-top-version">1.0.2-dev</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+<div id="main-content">
+  
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href=".." class="wm-article-link wm-toc-text">Home</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="../FAQ/" class="wm-article-link wm-toc-text">FAQ</a>
+
+    
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">How-to tutorials</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../lightweight-crm/" class="wm-article-link wm-toc-text">Create your own CRM</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../investment-research/" class="wm-article-link wm-toc-text">Analyze and visualize</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../afterschool-program/" class="wm-article-link wm-toc-text">Manage business data</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Managing documents</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../creating-doc/" class="wm-article-link wm-toc-text">Creating a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../sharing/" class="wm-article-link wm-toc-text">Sharing a document</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../imports/" class="wm-article-link wm-toc-text">Importing more data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../exports/" class="wm-article-link wm-toc-text">Exports & backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../automatic-backups/" class="wm-article-link wm-toc-text">Automatic backups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../document-history/" class="wm-article-link wm-toc-text">Document history</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../workspaces/" class="wm-article-link wm-toc-text">Workspaces</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Pages and tables</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../enter-data/" class="wm-article-link wm-toc-text">Entering data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../page-widgets/" class="wm-article-link wm-toc-text">Pages & widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../raw-data/" class="wm-article-link wm-toc-text">Raw data</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../search-sort-filter/" class="wm-article-link wm-toc-text">Search, sort & filter</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-table/" class="wm-article-link wm-toc-text">Table widget</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-card/" class="wm-article-link wm-toc-text">Card & card list</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-form/" class="wm-article-link wm-toc-text">Form</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-chart/" class="wm-article-link wm-toc-text">Chart</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../widget-calendar/" class="wm-article-link wm-toc-text">Calendar</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Custom</a>
+
+    
+    
+    <li class="wm-page-toc wm-toc-li-nested collapse in">
+      <ul class="wm-toctree">
+        
+          <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#_top">
+              Page widget: Custom
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#minimal-example">
+                Minimal example
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#adding-a-custom-widget">
+                Adding a custom widget
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#access-level">
+                Access level
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#invoice-example">
+                Invoice example
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#creating-a-custom-widget">
+                Creating a custom widget
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#column-mapping">
+                Column mapping
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#widget-options">
+                Widget options
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#custom-widget-linking">
+                Custom Widget linking
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#premade-custom-widgets">
+                Premade Custom Widgets
+              </a>
+            </li>
+        
+      </ul>
+    </li>
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../linking-widgets/" class="wm-article-link wm-toc-text">Linking widgets</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../custom-layouts/" class="wm-article-link wm-toc-text">Custom layouts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../record-cards/" class="wm-article-link wm-toc-text">Record cards</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../summary-tables/" class="wm-article-link wm-toc-text">Summary tables</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../on-demand-tables/" class="wm-article-link wm-toc-text">On-demand tables</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Columns and data types</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-types/" class="wm-article-link wm-toc-text">Columns & types</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-refs/" class="wm-article-link wm-toc-text">Reference columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../conditional-formatting/" class="wm-article-link wm-toc-text">Conditional formatting</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../timestamps/" class="wm-article-link wm-toc-text">Timestamp columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../authorship/" class="wm-article-link wm-toc-text">Authorship columns</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../col-transform/" class="wm-article-link wm-toc-text">Transformations</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Using formulas</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formulas/" class="wm-article-link wm-toc-text">Intro to formulas</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../references-lookups/" class="wm-article-link wm-toc-text">References and lookups</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../dates/" class="wm-article-link wm-toc-text">Working with dates</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formula-timer/" class="wm-article-link wm-toc-text">Formula timer</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../python/" class="wm-article-link wm-toc-text">Python versions</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../functions/" class="wm-article-link wm-toc-text">None</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../formula-cheat-sheet/" class="wm-article-link wm-toc-text">Formula cheat sheet</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">AI Formula Assistant</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../ai-assistant/" class="wm-article-link wm-toc-text">AI Formula Assistant</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Team sites</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../teams/" class="wm-article-link wm-toc-text">Creating team sites</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../team-sharing/" class="wm-article-link wm-toc-text">Sharing team sites</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Access rules</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../access-rules/" class="wm-article-link wm-toc-text">Intro to access rules</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Integrations</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../rest-api/" class="wm-article-link wm-toc-text">REST API usage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../api/" class="wm-article-link wm-toc-text">REST API reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../integrators/" class="wm-article-link wm-toc-text">Integrator services</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../embedding/" class="wm-article-link wm-toc-text">Embedding</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../webhooks/" class="wm-article-link wm-toc-text">Webhooks</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Plugin API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/" class="wm-article-link wm-toc-text">Intro to Plugin API</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../code/modules/grist_plugin_api/" class="wm-article-link wm-toc-text">grist-plugin-api</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="/... | flat | **/code/modules/**" class="wm-article-link wm-toc-text">AWESOME_PAGES_REST</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Self-managed</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../self-managed/" class="wm-article-link wm-toc-text">Self-managed Grist</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/saml/" class="wm-article-link wm-toc-text">SAML</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/oidc/" class="wm-article-link wm-toc-text">OIDC</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/forwarded-headers/" class="wm-article-link wm-toc-text">Forwarded headers</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/cloud-storage/" class="wm-article-link wm-toc-text">Cloud storage</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/grist-connect/" class="wm-article-link wm-toc-text">GristConnect</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../install/aws-marketplace/" class="wm-article-link wm-toc-text">AWS Marketplace</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Telemetry</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry/" class="wm-article-link wm-toc-text">Overview of telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-limited/" class="wm-article-link wm-toc-text">Limited telemetry</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="../telemetry-full/" class="wm-article-link wm-toc-text">Full telemetry</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">News & updates</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/" class="wm-article-link wm-toc-text">Newsletters</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-09/" class="wm-article-link wm-toc-text">2024/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-08/" class="wm-article-link wm-toc-text">2024/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-07/" class="wm-article-link wm-toc-text">2024/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-06/" class="wm-article-link wm-toc-text">2024/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-05/" class="wm-article-link wm-toc-text">2024/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-04/" class="wm-article-link wm-toc-text">2024/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-03/" class="wm-article-link wm-toc-text">2024/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-02/" class="wm-article-link wm-toc-text">2024/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2024-01/" class="wm-article-link wm-toc-text">2024/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-12/" class="wm-article-link wm-toc-text">2023/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-11/" class="wm-article-link wm-toc-text">2023/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-10/" class="wm-article-link wm-toc-text">2023/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-09/" class="wm-article-link wm-toc-text">2023/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-08/" class="wm-article-link wm-toc-text">2023/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-07/" class="wm-article-link wm-toc-text">2023/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-06/" class="wm-article-link wm-toc-text">2023/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-05/" class="wm-article-link wm-toc-text">2023/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-04/" class="wm-article-link wm-toc-text">2023/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-03/" class="wm-article-link wm-toc-text">2023/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-02/" class="wm-article-link wm-toc-text">2023/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2023-01/" class="wm-article-link wm-toc-text">2023/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-12/" class="wm-article-link wm-toc-text">2022/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-11/" class="wm-article-link wm-toc-text">2022/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-10/" class="wm-article-link wm-toc-text">2022/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-09/" class="wm-article-link wm-toc-text">2022/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-08/" class="wm-article-link wm-toc-text">2022/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-07/" class="wm-article-link wm-toc-text">2022/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-06/" class="wm-article-link wm-toc-text">2022/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-05/" class="wm-article-link wm-toc-text">2022/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-04/" class="wm-article-link wm-toc-text">2022/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-03/" class="wm-article-link wm-toc-text">2022/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-02/" class="wm-article-link wm-toc-text">2022/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2022-01/" class="wm-article-link wm-toc-text">2022/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-12/" class="wm-article-link wm-toc-text">2021/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-11/" class="wm-article-link wm-toc-text">2021/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-10/" class="wm-article-link wm-toc-text">2021/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-09/" class="wm-article-link wm-toc-text">2021/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-08/" class="wm-article-link wm-toc-text">2021/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-07/" class="wm-article-link wm-toc-text">2021/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-06/" class="wm-article-link wm-toc-text">2021/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-05/" class="wm-article-link wm-toc-text">2021/05</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-04/" class="wm-article-link wm-toc-text">2021/04</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-03/" class="wm-article-link wm-toc-text">2021/03</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-02/" class="wm-article-link wm-toc-text">2021/02</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2021-01/" class="wm-article-link wm-toc-text">2021/01</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-12/" class="wm-article-link wm-toc-text">2020/12</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-11/" class="wm-article-link wm-toc-text">2020/11</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-10/" class="wm-article-link wm-toc-text">2020/10</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-09/" class="wm-article-link wm-toc-text">2020/09</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-08/" class="wm-article-link wm-toc-text">2020/08</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-07/" class="wm-article-link wm-toc-text">2020/07</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-06/" class="wm-article-link wm-toc-text">2020/06</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../newsletters/2020-05/" class="wm-article-link wm-toc-text">2020/05</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">More examples</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/" class="wm-article-link wm-toc-text">More examples</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-credit-card/" class="wm-article-link wm-toc-text">Credit card expenses</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-06-book-club/" class="wm-article-link wm-toc-text">Book club links</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-07-email-compose/" class="wm-article-link wm-toc-text">Prefill emails</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-08-invoices/" class="wm-article-link wm-toc-text">Prepare invoices</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-09-payroll/" class="wm-article-link wm-toc-text">Track payroll</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-10-print-labels/" class="wm-article-link wm-toc-text">Print mailing labels</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-11-treasure-hunt/" class="wm-article-link wm-toc-text">Treasure hunt</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2020-12-map/" class="wm-article-link wm-toc-text">Map</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-01-tasks/" class="wm-article-link wm-toc-text">Task management</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-03-leads/" class="wm-article-link wm-toc-text">Lead list</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-04-link-keys/" class="wm-article-link wm-toc-text">Link keys guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-05-reference-columns/" class="wm-article-link wm-toc-text">Reference columns guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-06-timesheets/" class="wm-article-link wm-toc-text">Summary tables guide</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2021-07-auto-stamps/" class="wm-article-link wm-toc-text">Time and user stamps</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2023-01-acl-memo/" class="wm-article-link wm-toc-text">Restrict duplicate records</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../examples/2023-07-proposals-contracts/" class="wm-article-link wm-toc-text">Proposals & contracts</a>
+
+    
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Reference</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../keyboard-shortcuts/" class="wm-article-link wm-toc-text">Keyboard shortcuts</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../functions/" class="wm-article-link wm-toc-text">Function reference</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../limits/" class="wm-article-link wm-toc-text">Limits</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../data-security/" class="wm-article-link wm-toc-text">Data security</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../browser-support/" class="wm-article-link wm-toc-text">Browser support</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../glossary/" class="wm-article-link wm-toc-text">Glossary</a>
+
+    
+</li>
+  </ul>
+</li>
+
+  </ul>
+
+  <div class="wm-toc-quick-links">
+    <div class="wm-toc-quick-links-header"><span class="wm-toc-text">Quick Links</span></div>
+    <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://community.getgrist.com/" class="wm-quick-link wm-toc-text">Community</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://docs.getgrist.com/p/templates" class="wm-quick-link wm-toc-text">Templates</a>
+      </li>
+      <li class="wm-toc-li wm-toc-lev2">
+        <a href="https://github.com/gristlabs/grist-core/projects/1" class="wm-quick-link wm-toc-text">Roadmap</a>
+      </li>
+    </ul>
+    <ul class="wm-toctree wm-toc-repo">
+      <li class="wm-toc-li wm-toc-lev2">
+      <a class="wm-quick-link wm-toc-text" href="https://github.com/gristlabs/grist-help">
+        <i class="fa fa-github"></i>
+
+        Edit on GitHub
+      </a>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+  <script>
+    // Immediately expand parent items to show the selected page.
+    $('.wm-current')
+      .parents('.wm-toc-li-nested').addClass('collapse in')
+      .prev('.wm-toc-opener').addClass('wm-toc-open');
+  </script>
+  <div class="wm-content-pane">
+    <div class="wm-article">
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../linking-widgets/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../linking-widgets/" class="btn btn-xs btn-link">
+        Linking widgets
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../widget-calendar/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../widget-calendar/" class="btn btn-xs btn-link">
+        Calendar
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We&rsquo;re just getting started translating this language, sorry!</p>
+<p>We show partially translated languages to track progress.</p>
+<p>This page isn&rsquo;t translated yet. But the good news is that <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">you can join the translation community to help us 👋</a>.</p>
+</div>
+<h1 id="page-widget-custom">Page widget: Custom<a class="headerlink" href="#page-widget-custom" title="Permanent link">#</a></h1>
+<p>The <strong>Custom</strong> widget allows a user to insert almost
+anything in their document.  To create a custom widget currently
+requires knowledge of web development, and access to a public web
+server (for example, GitHub Pages).</p>
+<p>A good use for custom widgets is to view records or tables in new ways.
+Using Grist as your data model and modern HTML/CSS/JS as your view is
+very powerful.</p>
+<h2 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">#</a></h2>
+<p>To demonstrate to a web developer how custom widgets work,
+there is a minimal working example at:</p>
+<blockquote>
+<p><a href="https://public.getgrist.com/911KcgKA95oQ/Minimal-Custom-Widget/m/fork">https://public.getgrist.com/911KcgKA95oQ/Minimal-Custom-Widget/m/fork</a></p>
+</blockquote>
+<p>The example shows a table with some random data (names for pets), and
+two custom widgets, one showing the selected row in the table as JSON,
+and the other showing all rows of the table as JSON.  If you change
+data in the table, or move the cursor, the custom widgets update as
+appropriate.</p>
+<p><img alt="widget custom example" src="../images/widget_custom_example.png" /></p>
+<p>The source code for the widgets is at:</p>
+<blockquote>
+<p><a href="https://github.com/gristlabs/grist-widget/tree/master/inspect">https://github.com/gristlabs/grist-widget/tree/master/inspect</a></p>
+</blockquote>
+<p>It is stripped down to the essentials.  Here is the full source code of the
+<code>onRecord</code> widget that shows one row of data:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;onRecord&lt;/title&gt;
+    &lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;pre id=&quot;readout&quot;&gt;Waiting for data...&lt;/pre&gt;
+    &lt;script&gt;
+      grist.ready();
+      grist.onRecord(function(record) {
+        document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The &ldquo;Grist&rdquo; parts of this are:</p>
+<ul>
+<li>Including <code>https://docs.getgrist.com/grist-plugin-api.js</code> to get the Grist API.</li>
+<li>Calling <code>grist.ready</code> to let Grist know the widget is ready to go.</li>
+<li>Calling <code>grist.onRecord</code> to subscribe to the current row of the table.</li>
+</ul>
+<p>After that, everything else is regular HTML/CSS/JS.
+Once you have data coming in, you can render it any way you like, using React,
+Vue.js, or your favorite framework.  For example, you could render
+records as a <a href="../examples/2020-08-invoices/">printable invoice</a>, or use some
+obscure chart format that Grist doesn&rsquo;t currently support.</p>
+<h2 id="adding-a-custom-widget">Adding a custom widget<a class="headerlink" href="#adding-a-custom-widget" title="Permanent link">#</a></h2>
+<p>To add a custom widget that reads from a table, click on <code>Add New</code>,
+then <code>Add Widget to Page</code>. Then:</p>
+<ul>
+<li>For <code>Select Widget</code> choose <code>Custom</code> to get a Custom Widget.</li>
+<li>For <code>Select Data</code> choose the table you want the widget to read data from.</li>
+<li>Optionally, choose <code>Select By</code> to control the selected data further (read <a href="../linking-widgets/">Linking Page Widgets</a> for the possibilities).</li>
+</ul>
+<p><img alt="add a custom widget" src="../images/widget_custom_add.png" /></p>
+<p>The custom widget is initially blank.  To configure it, click the three-dots button
+on the top right of the custom widget, and select &ldquo;Widget options&rdquo;.</p>
+<p><img alt="configure a custom widget" src="../images/widget_custom_example.png" /></p>
+<p>In the <code>CUSTOM</code> settings section where it says <code>Enter Custom URL</code>, put
+the link to your custom widget.  Here is a test widget to simply show table data
+in JSON:</p>
+<blockquote>
+<p><a href="https://gristlabs.github.io/grist-widget/inspect/onRecords.html">https://gristlabs.github.io/grist-widget/inspect/onRecords.html</a></p>
+</blockquote>
+<p>And here&rsquo;s one to show the selected row only (make sure &ldquo;Select By&rdquo; is set
+for the custom widget):</p>
+<blockquote>
+<p><a href="https://gristlabs.github.io/grist-widget/inspect/onRecord.html">https://gristlabs.github.io/grist-widget/inspect/onRecord.html</a></p>
+</blockquote>
+<h2 id="access-level">Access level<a class="headerlink" href="#access-level" title="Permanent link">#</a></h2>
+<p>When you put a link to a custom webpage it will be immediately rendered inside the section.
+Now you have the option to grant that webpage access to data in your document.  The
+following access levels are available:</p>
+<ul>
+<li><em>No document access</em>: the webpage is shown in the widget, but it has no access to
+     the Grist document containing the widget.</li>
+<li><em>Read selected table</em>: the webpage is shown in the widget, and is given read access
+     to the table the widget is configured to select data from.</li>
+<li><em>Full document access</em>: the webpage is shown in the widget, and has full access to
+     read and modify the Grist document containing the widget.</li>
+</ul>
+<p>The webpage should be owned and controlled by you or someone you
+trust.  With <code>Read selected table</code> permissions, a widget could send the
+data it accesses to a third party.  With <code>Full document access</code> permissions, a widget could
+send all the document data to a third party, and modify your document in
+any way.</p>
+<p>If you are writing your own custom widget you can specify what access level it needs as
+part of the initial <strong>ready</strong> message. Possible values are: <code>none</code>, <code>read table</code> and
+<code>full</code>.</p>
+<pre><code class="language-html">&lt;script&gt;
+  grist.ready({
+    requiredAccess: 'read table'
+  });
+&lt;/script&gt;
+</code></pre>
+<p>This directs Grist to request the desired access level from the user. Your widget will be
+reloaded with the appropriate access level if the user approves the request.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_access_prompt.png" /></em></span></p>
+<p>If you wish to get notified of the access level, you can subscribe to the <code>onOptions</code>
+event that is sent to the widget after it tells Grist it is ready:</p>
+<pre><code class="language-javascript">grist.onOptions(function(options, interaction) {
+  console.log(interaction.access_level);
+});
+</code></pre>
+<p>For now, just skip the <code>options</code> parameter (it will be described in
+<a href="./#widget-options">Widget options</a> section). The current access level is part of
+the second parameter, which describes how Grist will interact with your widget.</p>
+<h2 id="invoice-example">Invoice example<a class="headerlink" href="#invoice-example" title="Permanent link">#</a></h2>
+<p>The minimal example above showed records as plain JSON, but the widget
+can get as fancy as you like.  Here is an example of showing a record
+as a printable invoice:</p>
+<p><img alt="invoice example" src="examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p>You can read the details of how to use
+this widget in our <a href="../examples/2020-08-invoices/">Invoice preparation example</a>.
+The invoice widget is hosted at:</p>
+<blockquote>
+<p><a href="https://gristlabs.github.io/grist-widget/invoices/">https://gristlabs.github.io/grist-widget/invoices/</a></p>
+</blockquote>
+<p>And the source HTML/CSS/JS can be browsed at:</p>
+<blockquote>
+<p><a href="https://github.com/gristlabs/grist-widget/tree/master/invoices">https://github.com/gristlabs/grist-widget/tree/master/invoices</a></p>
+</blockquote>
+<p>It uses Vue.js and <code>grist.onRecord</code>.</p>
+<h2 id="creating-a-custom-widget">Creating a custom widget<a class="headerlink" href="#creating-a-custom-widget" title="Permanent link">#</a></h2>
+<p>As you saw, writing a simple widget that uses data from a table is very easy. First, you
+need to tell Grist that you are ready and then subscribe to one of the available events:
+<code>onRecord</code>, <code>onRecords</code> or <code>onOptions</code>.</p>
+<pre><code class="language-javascript">grist.ready();
+grist.onRecord(function (record) {
+  // Cursor has moved.
+});
+grist.onRecords(function (record) {
+  // Data in the table has changed.
+});
+grist.onOptions(function (options, interaction) {
+  // Configuration has changed.
+});
+</code></pre>
+<p>Let&rsquo;s say you want to build a custom widget that will show an image from a URL and
+optionally a single line of text below as the image title. You will need to
+read two values from two columns: <code>Link</code> and <code>Title</code>.</p>
+<p>You could access those columns directly using literal column names in your
+script. Here is a complete example of widget source code that will do the job:</p>
+<pre><code class="language-html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
+&lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
+&lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  grist.ready({requiredAccess: 'read table'});
+  grist.onRecord(function (record) {
+    document.getElementById('image').src = record.Link;
+    document.getElementById('title').innerText = record.Title;
+  });
+&lt;/script&gt;
+</code></pre>
+<p>When getting started, this is a good approach, but it has two significant drawbacks. Every
+time you rename a column, you will also have to change your widget&rsquo;s source. Moreover,
+using this widget on a different table or sharing it with your friends can be difficult as
+column names might be different. To help with this, Grist offers the column mapping API.</p>
+<h2 id="column-mapping">Column mapping<a class="headerlink" href="#column-mapping" title="Permanent link">#</a></h2>
+<p>Instead of using column names directly, you can ask the user to pick which column to use
+as a <code>Link</code> and <code>Title</code>. The list of expected columns can be sent to Grist as part of the
+ready call:</p>
+<pre><code class="language-js">grist.ready({columns: ['Link', 'Title']});
+</code></pre>
+<p>Using this information, in the creator panel, Grist will hide the regular &ldquo;Visible&rdquo;
+columns section and display specialized column pickers.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="access prompt" src="../images/widget_custom_pick_columns.png" /></em></span></p>
+<p>Your widget will receive this mapping configuration as part of <code>onRecord</code> or <code>onRecords</code>
+event in the second parameter. You can use this configuration to do the mappings yourself
+or use the <code>mapColumnNames</code> helper function to do it for you.</p>
+<pre><code class="language-html">&lt;script src=&quot;https://docs.getgrist.com/grist-plugin-api.js&quot;&gt;&lt;/script&gt;
+&lt;img id=&quot;image&quot; src=&quot;&quot;/&gt;
+&lt;div id=&quot;title&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+grist.ready({columns: ['Link', 'Title'], requiredAccess: 'read table'});
+grist.onRecord(function (record, mappings) {
+  const mapped = grist.mapColumnNames(record);
+  // First check if all columns were mapped.
+  if (mapped) {
+    document.getElementById('image').src = mapped.Link;
+    document.getElementById('title').innerText = mapped.Title;
+    console.log(`Using ${mappings.Link} and ${mappings.Title} columns`);
+  } else {
+    // Helper returned a null value. It means that not all
+    // required columns were mapped.
+    console.error(&quot;Please map all columns&quot;);
+  }
+});
+&lt;/script&gt;
+</code></pre>
+<p>Now, if you rename one of the columns, the widget will still work. You can also use this
+widget in any other table or share with a friend, as it doesn&rsquo;t depend on your table
+structure and can be easily configured.</p>
+<p>In the configuration used above, we told Grist that all the columns are required, and the
+user can pick any column even if the column doesn&rsquo;t contain a text value. To be more
+precise, we can include more options in the request. For example:</p>
+<pre><code class="language-javascript">grist.ready({columns: [
+  {
+    name: &quot;Link&quot;, // What field we will read.
+    title: &quot;Image link&quot;, // Friendly field name.
+    optional: false, // Is this an optional field.
+    type: &quot;Text&quot; // What type of column we expect.
+    description: &quot;Some text&quot; // Description of a field.
+    allowMultiple: false // Allows multiple column assignment.
+  }
+]});
+</code></pre>
+<p>The <code>optional</code> setting is important for correct operation of the <code>mapColumnNames</code> helper.
+This helper will return a mapped record only when all required (not optional) columns are
+picked.</p>
+<p>By default Grist will allow the user to pick any type of column. To allow only a column of
+a specific type, you need to set a <code>type</code> property. Here are all valid types:</p>
+<p><code>Int</code> (<em>Integer column</em>), <code>Numeric</code> (<em>Numeric column</em>), <code>Text</code>, <code>Date</code>, <code>DateTime</code>,
+<code>Bool</code> (<em>Toggle column</em>), <code>Choice</code>, <code>ChoiceList</code>, <code>Ref</code> (<em>Reference column</em>), <code>RefList</code>
+(<em>Reference List</em>), <code>Attachments</code>.</p>
+<p>The default value of <code>type</code> is <code>Any</code>, so Grist will allow the user to pick any column type. You
+can also specify a list of types, for example <code>Date,DateTime</code>. In that case, Grist will allow
+the user to pick any column that matches one of the types in the list.</p>
+<p>Use <code>title</code> and <code>description</code> fields to help your users understand what is the purpose of
+the column. The <code>description</code> will be displayed just below the column name, and the
+<code>title</code> will be used as a column label. Both are optional and you can put there any text
+you want.</p>
+<p>If you need to map multiple columns (for example in a custom chart widget), you can use
+<code>allowMultiple</code> option. This will allow your users to pick a set of columns that will
+be returned as list of mapped table column names. The <code>mapColumnNames</code> helper will then
+return an array of mapped column values in a single field.</p>
+<p>Suppose the user deletes a column or changes its type so that it will no longer match the
+type requested by the widget. In that case, Grist will automatically remove this column
+from the mapping.</p>
+<h2 id="widget-options">Widget options<a class="headerlink" href="#widget-options" title="Permanent link">#</a></h2>
+<p>If your widget needs to store some options, Grist offers a simple key-value storage API
+for you to use. Here are some JavaScript code snippets that show how to interact with
+this API:</p>
+<pre><code class="language-js">// Store a simple text value .
+await grist.setOption('color', '#FF0000');
+
+// Store complex objects as JSON.
+await grist.setOption('settings', {lines: 10, skipFirst: true});
+
+// Read previously saved option
+const color = await grist.getOption('color');
+
+// Clear all options.
+await grist.clearOptions();
+
+// Get and replace all options.
+await grist.getOptions();
+await grist.setOptions({...});
+</code></pre>
+<p>You can experiment with this yourself. Here is a test widget that demonstrates how to use
+this API:</p>
+<blockquote>
+<p><a href="https://gristlabs.github.io/grist-widget/inspect/onOptions.html">https://gristlabs.github.io/grist-widget/inspect/onOptions.html</a></p>
+</blockquote>
+<p>When your widget saves or edits some options, the icon on top of the section gets
+highlighted in green. You can either apply those options to the widget or revert that
+modification.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_unsaved_options.png" /></em></span></p>
+<p>This allows viewers (users with read-only access) or collaborators to
+configure your widget without overwriting original settings. This behavior should look
+familiar to you and others, as this works like
+<a href="../search-sort-filter/#saving-sort-settings">sorting and filtering</a> on table or card
+views.</p>
+<p>Saving current options you will apply them to the widget and make them available to
+others. Using this menu, you can also clear all options to revert the widget to its
+initial state. To do this, press the little trash icon and then <code>Save</code>.</p>
+<p>Grist will also trigger an event, every time the options are changed (or cleared). Here is
+how you can subscribe to this event.</p>
+<pre><code class="language-javascript">grist.onOptions(function(options, interaction) {
+  if (options) {
+    console.log('Current color', options.color);
+  } else {
+    // No widget options were saved, fallback to default ones.
+  }
+});
+</code></pre>
+<p>If you are building your own widget, you generally should not read options directly (using
+<code>grist.widgetApi.getOption()</code>). A better pattern is to apply them all when they are
+changed. Using the <code>onOptions</code> handler will make your widget easier to change and
+understand later.</p>
+<p>There is one more scenario to cover. Suppose your widget has some kind of custom
+configuration screen. In that case, you probably need some button or other UI element that
+the user can use to show it. This additional UI element will likely be rarely used by you
+or your collaborators, so it doesn&rsquo;t make sense to show it all the time. To help with
+this, Grist offers an additional interaction option you can send as part of the ready
+message:</p>
+<pre><code class="language-javascript">grist.ready({
+  onEditOptions: function() {
+    // Your custom logic to open the custom configuration screen.
+  }
+});
+</code></pre>
+<p>This will tell Grist to display an additional button <code>Open configuration</code> in the creator
+panel and the section menu. When clicked, it will trigger your handler, which you can use
+to show your own custom configuration screen.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="unsaved options" src="../images/widget_custom_open_configuration.png" /></em></span></p>
+<h2 id="custom-widget-linking">Custom Widget linking<a class="headerlink" href="#custom-widget-linking" title="Permanent link">#</a></h2>
+<p>Custom widgets can also be used as a source of linking (see <a href="../linking-widgets/">Linking widgets</a>).
+All you need to do is inform Grist that your widget supports linking by passing an additional
+option to the <code>ready</code> call (see <a href="../code/modules/grist_plugin_api/#ready">Widget API</a>):</p>
+<pre><code class="language-javascript">grist.ready({
+  allowSelectBy: true
+});
+</code></pre>
+<p>This will enable the <code>Select By</code> option in the widget configuration panel. Now you can use your
+widget to control the cursor position in linked widgets. To do this, you need to call the
+<code>setCursorPos</code> function:</p>
+<pre><code class="language-javascript">// Inform Grist that the cursor should be moved to the row with id 20.
+grist.setCursorPos({rowId: 20});
+
+// or inform that your widget is creating a new row.
+grist.setCursorPos({rowId: 'new'});
+</code></pre>
+<h2 id="premade-custom-widgets">Premade Custom Widgets<a class="headerlink" href="#premade-custom-widgets" title="Permanent link">#</a></h2>
+<p>All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="premade-widgets" src="../images/widget-custom/premade-widgets.png" /></em></span></p>
+<h3 id="advanced-charts">Advanced Charts<a class="headerlink" href="#advanced-charts" title="Permanent link">#</a></h3>
+<p>The Advanced Charts custom widget gives you more power and flexibility than Grist’s built-in charts, offering a wide variety of chart types as well as increased control over styling and layout. It’s a version of Plotly’s <a href="https://chart-studio.plotly.com/">Chart Studio</a>, see their <a href="https://plotly.com/chart-studio-help/tutorials/">tutorials</a> for more detailed help.</p>
+<p>You’ll need to set the access level to “Full document access”. Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.</p>
+<p>This is what you should see:</p>
+<p><img alt="advanced-chart-blank-traces-panel" src="../images/widget-custom/advanced-chart-blank-traces-panel.png" /></p>
+<p>Click the big blue “+ Trace” button to get started. This will add a panel like the following:</p>
+<p><img alt="advanced-chart-blank-trace" src="../images/widget-custom/advanced-chart-blank-trace.png" /></p>
+<p>Click “Scatter” to choose a different chart type such as Bar or Line. Then click the “Choose data” dropdowns to select the columns you want to plot.</p>
+<p>You can add multiple traces to overlay different plots. Try different panels from the sidebar to customize the chart further. For example, go to Style &gt; Axes &gt; Titles to add a label to each axis. See the <a href="https://plotly.com/chart-studio-help/tutorials/">chart studio tutorials</a> to learn more.</p>
+<p>As you customize the widget, remember to regularly click the ‘Save’ button above the widget to keep your configuration.</p>
+<h3 id="copy-to-clipboard">Copy to clipboard<a class="headerlink" href="#copy-to-clipboard" title="Permanent link">#</a></h3>
+<p>Copy to clipboard copies a value from the specified column of the selected record. When configuring the widget, you will need to select which column you wish to copy data from.</p>
+<p><em><img alt="copy-to-clipboard" src="../images/widget-custom/copy-to-clipboard.png" /></em></p>
+<p>Note that you can also copy data from a selected cell by using the keyboard shortcut <code class="keys"><em>Ctrl</em> + <em>C</em></code> on Windows or <code class="keys"><em>⌘</em> + <em>C</em></code> on Mac. To paste, use <code class="keys"><em>Ctrl</em> + <em>V</em></code> or <code class="keys"><em>⌘</em> + <em>V</em></code>.</p>
+<p>You can find an example of the copy to clipboard button in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/4" target="_blank">Webinar 7 (Custom Widgets)</a> template. You can also watch a video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=2063s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="dropbox-embedder">Dropbox Embedder<a class="headerlink" href="#dropbox-embedder" title="Permanent link">#</a></h3>
+<p>View and access files saved to dropbox.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-widget" src="../images/widget-custom/dropbox-embedder-widget.png" /></em></span></p>
+<p>To start, add a new column to your table to store your dropbox links.</p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the dropbox links and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-add-widget" src="../images/widget-custom/dropbox-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Dropbox Embedder&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Dropbox Link&rsquo;, select the column that contains your dropbox links.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-configuration" src="../images/widget-custom/dropbox-embedder-configuration.png" /></em></span></p>
+<p>You can create links to folders or specific files in Dropbox. Click &lsquo;Share&rsquo; then set permissions for the link. You can choose to allow anyone with the link to view or edit. Create, then copy the link. Paste this link into your Dropbox Link column in Grist. Note that users cannot edit directly in the custom widget even if edit permissions are granted. To edit, select the object in the Dropbox Embedder and it will open in a new tab where it can be edited directly in Dropbox.</p>
+<p><span class="screenshot-large"><em><img alt="dropbox-embedder-create-link" src="../images/widget-custom/dropbox-embedder-create-link.png" /></em></span></p>
+<p>You can check out an example of the Dropbox Embedder in our <a href="https://templates.getgrist.com/uXMbETLdfriM/Hurricane-Preparedness" target="_blank">Hurricane Preparedness</a> template.</p>
+<p><em><img alt="dropbox-embedder" src="../images/widget-custom/dropbox-embedder.png" /></em></p>
+<h3 id="grist-video-player">Grist Video Player<a class="headerlink" href="#grist-video-player" title="Permanent link">#</a></h3>
+<p>Embed videos from online sources like YouTube, Vimeo, Facebook Video, Google Drive and more.</p>
+<p><em><img alt="video-player" src="../images/widget-custom/video-player.png" /></em></p>
+<p>To start, add a new column to your table to store your video URLs.</p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the video URLs and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-add-widget" src="../images/widget-custom/video-player-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Grist Video Player&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;URL&rsquo;, select the column that contains your video URLs.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-configuration" src="../images/widget-custom/video-player-configuration.png" /></em></span></p>
+<p>For most online videos, including YouTube videos and videos stored on Google Drive, you can simply click the &lsquo;Share&rsquo; option and copy the URL.</p>
+<p><em><img alt="youtube-embed" src="../images/widget-custom/youtube-embed.png" /></em></p>
+<p>For some other videos, you may see this error:</p>
+<p><em><img alt="video-player-error" src="../images/widget-custom/video-player-error.png" /></em></p>
+<p>If this happens, you&rsquo;ll need to take the URL from the Embed code.</p>
+<p>After clicking the share option on the video, click the option to &lsquo;Embed&rsquo;.</p>
+<p><em><img alt="video-facebook-embed" src="../images/widget-custom/video-facebook-embed.png" /></em></p>
+<p>Then, click to copy the code.</p>
+<p><em><img alt="video-facebook-embed-2" src="../images/widget-custom/video-facebook-embed-2.png" /></em></p>
+<p>The code it gives you will look something like this:</p>
+<p><em><img alt="video-facebook-embed-code" src="../images/widget-custom/video-facebook-embed-code.png" /></em></p>
+<p>Copy the URL that is found between quotes following <code>src</code>. The highlighted portion in the screenshot below is what you would copy for this particular Facebook video.</p>
+<p><em><img alt="video-facebook-embed-src" src="../images/widget-custom/video-facebook-embed-src.png" /></em></p>
+<p>Paste this URL into your URL column in Grist and the video will now appear in the Grist Video Player custom widget.</p>
+<p><em><img alt="video-player-embed" src="../images/widget-custom/video-player-embed.png" /></em></p>
+<h3 id="html-viewer">HTML Viewer<a class="headerlink" href="#html-viewer" title="Permanent link">#</a></h3>
+<p>The HTML viewer displays HTML written in a cell.</p>
+<p>For text-editing widgets, check out our <a href="#markdown">Markdown</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
+<p><em><img alt="html-viewer" src="../images/widget-custom/html-viewer.png" /></em></p>
+<p>To start, add a new column to your table. This will be where you add you write HTML.</p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the HTML and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-add-widget" src="../images/widget-custom/html-viewer-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;HTML Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;HTML&rsquo;, select the text column that contains your HTML.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-configurationt" src="../images/widget-custom/html-viewer-configuration.png" /></em></span></p>
+<p>Your HTML will be viewable in the custom widget.</p>
+<p><em><img alt="html-viewer-final-example" src="../images/widget-custom/html-viewer-final-example.png" /></em></p>
+<p>For help on HTML formatting, check out this guide from W3 Schools: <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank">HTML Text Formatting</a></p>
+<p>You can find an example of the HTML Viewer in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/1" target="_blank">Webinar 7 (Custom Widgets)</a> template. You can also watch a video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1538s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="image-viewer">Image Viewer<a class="headerlink" href="#image-viewer" title="Permanent link">#</a></h3>
+<p>View images from URL.</p>
+<p><em><img alt="image-viewer" src="../images/widget-custom/image-viewer.png" /></em></p>
+<p>To start, add a new column to your table. This will be where you add the URL for your image.</p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the image URL and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-add-widget" src="../images/widget-custom/image-viewer-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Image Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Image URL&rsquo;, select the column that contains the URLs for your images.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-configuration" src="../images/widget-custom/image-viewer-configuration.png" /></em></span></p>
+<p>To copy the URL for an image, right click on the photo then &lsquo;Copy image address&rsquo;. This copies the URL to your clipboard. Paste this URL into your specified column in Grist.</p>
+<p><em><img alt="image-viewer-save-image" src="../images/widget-custom/image-viewer-save-image.png" /></em></p>
+<p>Additionally, you can add multiple images for a specific record by adding multiple image URLs, separated by a space or new line, into a single cell.</p>
+<p>Please note that a comma will not work to separate the links. </p>
+<p><em><img alt="image-viewer-multiple-links" src="../images/widget-custom/image-viewer-multiple-links.png" /></em></p>
+<p>When multiple image URLs are present, the image viewer custom widget will function as a carousel. Click the arrows to view additional images.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-park-multiple" src="../images/widget-custom/image-viewer-multiple.png" /></em></span></p>
+<p>For an example of the Image Viewer widget, check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">U.S. National Park Database</a>, and add a park review while you&rsquo;re there!</p>
+<p>You can also check out our <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Meme Generator</a> template for another great example.</p>
+<p>For a video walkthrough, be sure to watch our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Custom Widgets Webinar</a>!</p>
+<h3 id="jupyterlite-notebook">JupyterLite Notebook<a class="headerlink" href="#jupyterlite-notebook" title="Permanent link">#</a></h3>
+<p>This widget lets you run custom Python code in <a href="https://jupyterlite.readthedocs.io/">JupyterLite</a>, a version of <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab</a> running entirely in the browser. You can use the full <a href="../code/modules/grist_plugin_api/">custom widget plugin API</a> and access or modify any data in the document (subject to Access Rules), unlocking nearly unlimited possibilities for advanced users.</p>
+<p>You’ll be presented with a notebook where you can enter and run Python code, e.g:</p>
+<p><img alt="jupyterlite-notebook-example-notebook" src="../images/widget-custom/jupyterlite-notebook-example-notebook.png" /></p>
+<p>After typing code in a cell, click the play button or press Shift+Enter to run that cell.</p>
+<p>Unlike formulas, code isn’t saved automatically. You must press the usual ‘Save’ button above the widget (outside the notebook) to persist the code within your Grist document. On the other hand, changes to settings within the notebook (e.g. keyboard shortcuts) are saved in your browser’s local storage, so they’re not shared with other users of the document.</p>
+<p>A special object called <code>grist</code> is automatically available to use in Python code, which mirrors many common methods of the usual <a href="../code/modules/grist_plugin_api/">JS plugin API</a>. Note that many of these methods are asynchronous, so you should use <code>await</code> before calling them.</p>
+<ul>
+<li><code>async fetch_selected_table()</code>: returns the data of the table backing the notebook widget.</li>
+<li><code>async fetch_selected_record(row_id=None)</code>: returns a record of the table backing the notebook widget. If <code>row_id</code> is specified, returns the record at that row. Otherwise, returns the record at the current cursor position in a widget linked to the notebook widget.</li>
+<li><code>async fetch_table(table_id)</code>: returns the data of the specified table. Note that this differs from <code>fetch_selected_table</code> (even for the same table) in several ways:<ul>
+<li>The widget must have full document access.</li>
+<li>All columns are included, whereas <code>fetch_selected_table</code> excludes columns that are hidden in the widget configuration.</li>
+<li>All rows are included, whereas <code>fetch_selected_table</code> takes widget filters and &lsquo;SELECT BY&rsquo; into account.</li>
+<li>The data is not sorted according to the widget&rsquo;s configuration.</li>
+<li>The data is fetched from the server, so the method may be slower.</li>
+<li>The values for reference columns are row IDs of the referenced table, whereas <code>fetch_selected_table</code> returns the values displayed based on the &lsquo;SHOW COLUMN&rsquo; configuration.</li>
+</ul>
+</li>
+<li><code>on_record(callback)</code>: registers a callback function to run when the cursor moves in a widget linked to the notebook widget, i.e. the widget chosen from the &ldquo;SELECT BY&rdquo; dropdown in the Data section of the widget configuration. The callback function will be passed the record at the current cursor position. You can also use this as a decorator, i.e. <code>@grist.on_record</code>.</li>
+<li><code>on_records(callback)</code>: similar to <code>on_record</code>, but runs when the source data of the widget changes. The callback function will be passed the same data as returned by <code>fetch_selected_table</code>.</li>
+<li><code>get_table(table_id)</code>: returns a <code>TableOperations</code> class similar to the interface in the usual <a href="./code/interfaces/TableOperations.TableOperations.md">JS plugin API</a> for performing CRUD-style operations on a table. See the plugin API documentation for details on the parameters. The class has the following methods:<ul>
+<li><code>async create(records, parse_strings=True)</code></li>
+<li><code>async update(records, parse_strings=True)</code></li>
+<li><code>async upsert(records, parse_strings=True, add=True, update=True, on_many="first", allow_empty_require=False)</code></li>
+<li><code>async destroy(row_ids)</code></li>
+</ul>
+</li>
+</ul>
+<p>You can also use <code>grist.raw</code> for direct access to the plugin API, e.g. <code>await grist.raw.docApi.fetchTable(table_id)</code>. This may return raw cell values which you can decode with <code>grist.decode_cell_value(value)</code>.</p>
+<p>You can use many (but not all) third-party libraries in your notebook such as <code>pandas</code>. Many will be installed automatically when they&rsquo;re imported. Others will require running <code>%pip install &lt;package name&gt;</code> in a cell, e.g. <code>%pip install pandas</code>. Note that it&rsquo;s <code>%pip</code> and not <code>!pip</code> as in a regular Jupyter notebook.</p>
+<h3 id="map">Map<a class="headerlink" href="#map" title="Permanent link">#</a></h3>
+<p>The custom map widget allows you to display locations using latitude and longitude coordinates. If your data is an address, rather than in lat-long format, Grist can convert the address into lat-long coordinates.</p>
+<p><em><img alt="map-widget" src="../images/widget-custom/map-widget.png" /></em></p>
+<p>If using existing lat-long coordinates, you will need three columns; Name, Longitude and Latitude.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-lat-long-columns" src="../images/widget-custom/map-lat-long-columns.png" /></em></span></p>
+<p>If using an address, you will need six columns; Name, Address, Geocode, Longitude, Latitude, and Geocoded Address.</p>
+<p><em><img alt="map-address-columns" src="../images/widget-custom/map-address-columns.png" /></em></p>
+<p>Geocode is a <a href="../col-types/#toggle-columns">toggle type column</a> that should be set to true for any record you wish to convert from address to lat-long coordinates to be shown on the map.</p>
+<p>If you wish to convert all records, you can make Geocode a formula column with the formula = <code>True</code>. This will mark all records as True.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-geocode-true" src="../images/widget-custom/map-geocode-true.png" /></em></span></p>
+<p>Next, add a new custom widget to the page. Choose the data table that contains the addresses or lat-long coordinates and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-add-widget" src="../images/widget-custom/map-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Map&rsquo; from the Custom dropdown.</p>
+<p>If you already have <strong>lat-long coordinates</strong>, you can set your access level to <em>Read selected table</em>.</p>
+<p>If you are using an <strong>address</strong> and that needs to be converted into lat-long coordinates, you will need to set your access level to <em>Full document access</em> because the widget needs permission to write to your document in order to add lat-long coordinates.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-1" src="../images/widget-custom/map-configuration-1.png" /></em></span></p>
+<p>Map all required columns. Note that Name, Longitude and Latitude are labeled as required. Geocode, Address and Geocoded Address are listed as optional. If you are using addresses and need Grist to convert these to lat-long coordinates, you must map all six columns.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-2" src="../images/widget-custom/map-configuration-2.png" /></em></span></p>
+<p>After mapping the necessary columns and selecting the appropriate Access Level, the map widget will populate.</p>
+<p><em><img alt="map-final" src="../images/widget-custom/map-final.png" /></em></p>
+<p>You can configure the map to show only the selected location by clicking the &lsquo;Open Configuration&rsquo; option in the <a href="../glossary/#creator-panel">creator panel</a>. Then, uncheck &lsquo;All Locations&rsquo;. Click the green check mark at the top of the widget to save the updated configuration settings.</p>
+<p><em><img alt="map-configuration-location" src="../images/widget-custom/map-configuration-location.png" /></em></p>
+<p>Check out our <a href="https://templates.getgrist.com/pyMHqncEspfZ/Mapping-Locations" target="_blank">Mapping Locations</a> template or our <a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">Crowdsourced List</a> for two great examples!</p>
+<p>For a video walkthrough, check out our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=713s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">#</a></h3>
+<p>The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget.</p>
+<p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
+<p><em><img alt="markdown-widget" src="../images/widget-custom/markdown-widget.png" /></em></p>
+<p>To start, add a new column to your table. This will be where you will add your text that will be formatted using Markdown.</p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the text formatted with Markdown and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-add-widget" src="../images/widget-custom/markdown-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Markdown&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
+<p>Under &lsquo;Content&rsquo;, select the text column that contains Markdown formatting.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-configuration" src="../images/widget-custom/markdown-configuration.png" /></em></span></p>
+<p>Any Markdown formatting in the specified text column will apply and be viewable and editable in the custom widget.</p>
+<p><em><img alt="markdown-final" src="../images/widget-custom/markdown-final.png" /></em></p>
+<p>To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-edit" src="../images/widget-custom/markdown-edit.png" /></em></span></p>
+<p>For help on Markdown formatting, check out the <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown Guide</a> for basic syntax. This guide is also accessible in the Markdown widget by clicking the information icon at the top of the widget. The guide will open in a new tab of your browser for easy reference.</p>
+<p>You can find an example of the Markdown editor in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result" target="_blank">Webinar 7 (Custom Widgets)</a> template and check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1339s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="notepad">Notepad<a class="headerlink" href="#notepad" title="Permanent link">#</a></h3>
+<p>The Notepad custom widget allows you to format text using a rich text editor.</p>
+<p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#markdown">Markdown</a> custom widgets.</p>
+<p><em><img alt="notepad-widget" src="../images/widget-custom/notepad-widget.png" /></em></p>
+<p>To start, add a new column to your table. This will be where details for our formatted text will be stored.</p>
+<p>Then, add a new custom widget to the page. Choose the data table that contains the column we just added and &lsquo;Select By&rsquo; that same table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-add-widget" src="../images/widget-custom/notepad-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Notepad&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
+<p>Under &lsquo;Content&rsquo;, select the column created to store our formatted text.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-configuration" src="../images/widget-custom/notepad-configuration.png" /></em></span></p>
+<p>If the text column you chose under Content has existing text, that text will appear in the Notepad widget, ready to be formatted.</p>
+<p><em><img alt="notepad-saved-text" src="../images/widget-custom/notepad-saved-text.png" /></em></p>
+<p>Use any of the options shown here to format your text.</p>
+<p><em><img alt="notepad-symbols" src="../images/widget-custom/notepad-symbols.png" /></em></p>
+<p>As you can see in the screenshot below, the code for the formatted text is not useful to see in your table. You will edit text directly in the Notepad widget so you can <a href="../widget-table/#column-operations">hide</a> this column from your data table.</p>
+<p><em><img alt="notepad-edited-text-code" src="../images/widget-custom/notepad-edited-text-code.png" /></em></p>
+<p>Check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/13" target="_blank">U.S. National Park Database</a> or our <a href="https://templates.getgrist.com/cMQA7uuBbtMW/-Grocery-List-Meal-Planner/p/3" target="_blank">🛒 Grocery List + Meal Planner</a> for two great Notepad examples!</p>
+<p>You can also check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1194s" target="_blank">Custom Widgets Webinar</a>.</p>
+<h3 id="print-labels">Print Labels<a class="headerlink" href="#print-labels" title="Permanent link">#</a></h3>
+<p>The Print Labels custom widget allows you to customize and print labels directly from Grist.</p>
+<p><em><img alt="print-label" src="../images/widget-custom/print-label.png" /></em></p>
+<p>To start, add a new column to your table. This column will contain the text for the label. Optionally, you can add a second column to specify a label count, allowing you to print more than one of the same label without having to create duplicate records.</p>
+<p>Next, add a new custom widget to the page. Choose the data table that contains the label details.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-add-widget" src="../images/widget-custom/print-label-add-widget.png" /></em></span></p>
+<p>To configure, select &lsquo;Print Labels&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Label&rsquo;, select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-configuration" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
+<p>You can select from standard sheet sizes under the dropdown in the upper left of the widget. Be sure to save any changes by clicking the green check mark at the upper right of the widget.</p>
+<p><em><img alt="print-label-sheet-configuration" src="../images/widget-custom/print-label-sheet-configuration.png" /></em></p>
+<p>To leave any blank labels at the beginning of the sheet, click the settings icon then specify how many labels should be left blank. This is especially helpful if a portion of your label sheet has already been used. You can skip the used labels and begin printing on your first unused label.</p>
+<p><em><img alt="print-label-blanks" src="../images/widget-custom/print-label-blanks.png" /></em></p>
+<p>Check out our <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">Print Mailing Labels</a> template and our <a href="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/6" target="_blank">Treasure Hunt</a> template for two great examples!</p>
+<p>You can also check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1749s" target="_blank">Custom Widgets Webinar</a>.</p>
+
+  <br>
+</div>
+
+<div class="feedback-box">
+  <div class="feedback-box-title">Give Feedback</div>
+  <div class="feedback-box-question">Was this article helpful?</div>
+  <div class="feedback-box-buttons">
+    <button class="feedback-box-button" data-rating="thumbsUp">&#x1F44D;</button>
+    <button class="feedback-box-button" data-rating="thumbsDown">&#x1F44E;</button>
+  </div>
+  <div class="feedback-box-response">
+    Thank you for letting us know!
+  </div>
+</div>
+
+<script>
+function initFeedbackButtons() {
+  const serverUrl = "https://docs.getgrist.com";
+  const feedbackBox = document.querySelector('.feedback-box');
+  const buttons = document.querySelectorAll('.feedback-box-button');
+  document.querySelector('.feedback-box-buttons').addEventListener('click', giveFeedback);
+
+  async function giveFeedback(event) {
+    const rating = event.target.dataset.rating;
+    if (!rating) { return; }
+    buttons.forEach(b => { b.disabled = true; });
+    try {
+      console.log("Sending rating to " + serverUrl + '/api/telemetry');
+      const resp = await window.fetch(serverUrl + '/api/telemetry', makePayload(rating));
+      if (!resp.ok) { throw new Error(resp.statusText); }
+    } catch (err) {
+      console.warn('Failed to report feedback', err);
+      document.querySelector('.feedback-box-response').textContent = String(err);
+    } finally {
+      buttons.forEach(b => { b.disabled = false; });
+      feedbackBox.classList.add('feedback-submitted');
+    }
+  }
+
+  function makePayload(rating) {
+    const url = window.location.href;
+    return {
+      method: 'POST',
+      body: JSON.stringify({
+        event: 'ratedHelpCenterArticle',
+        metadata: {full: {url, rating}},
+      }),
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    };
+  }
+}
+initFeedbackButtons();
+</script><footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/widget-custom.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div style="position:relative; padding-bottom:56.25%; margin-top: 32px;">
+          <iframe src="" allowfullscreen style="position:absolute; left:0; top:0; width:100%; height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
