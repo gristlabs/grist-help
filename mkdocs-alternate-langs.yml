@@ -10,3 +10,9 @@ extra:
   - link: /it/
     name: it - italiano
     code: it
+  - link: /pt/
+    name: pt - português
+    code: pt
+  - link: /uk/
+    name: uk - українська мова
+    code: uk
