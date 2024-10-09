@@ -80,7 +80,7 @@ You may navigate between your [personal site](teams.md#understanding-personal-si
 
 1. Open the team site to which you want add a second owner.
 
-2. Click 'Manage Users' under the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist.
+2. Click 'Manage Team' under the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist.
 
 3. Add the new email address as Owner, and click Confirm. 
 
@@ -92,7 +92,7 @@ You may navigate between your [personal site](teams.md#understanding-personal-si
 
 4. Go to 'Billing Account' (also under the user menu) and add the new Owner as a [Billing Manager](team-sharing.md#billing-permissions).
 
-5. The new Owner should log in, open the team site, and visit 'Manage Users' and 'Billing Account' pages again to remove the original owner. This will essentially transfer the ownership of the team site to the new account.
+5. The new Owner should log in, open the team site, and visit 'Manage Team' and 'Billing Account' pages again to remove the original owner. This will essentially transfer the ownership of the team site to the new account.
 
 It is not possible to add a second owner to, or transfer ownership of, a [personal account](teams.md#understanding-personal-sites).
 
