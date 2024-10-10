@@ -48,6 +48,7 @@ the processing of the webhook. Not all fields are required.
 * **Ready column** (optional): A boolean, or [Toggle](col-types.md#toggle-columns), column on the table that
   determines if the row should trigger the webhook or not. When the
   column becomes true, the corresponding row will trigger the webhook.
+  Rows become visibile to the webhook only when "Ready column" is first set to true. For this reason, we need both "add" and "update" event types selected for it to work.
 * **URL**: The remote URL of the service that the webhook will notify
   of added or changed rows. When self-hosting, only external services
   listed by the [`ALLOWED_WEBHOOK_DOMAINS` environment variable](
