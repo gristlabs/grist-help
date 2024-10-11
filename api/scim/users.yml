@@ -35,6 +35,10 @@ paths:
             application/scim+json:
               schema:
                 $ref: "#/components/schemas/UsersListResponse"
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
         '500':
           description: Internal server error.
 
@@ -60,6 +64,10 @@ paths:
                 $ref: '#/components/schemas/UserInResponse'
         '400':
           description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
         '409':
           description: Conflict on resource (like email).
         '500':
@@ -81,6 +89,10 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/UserInResponse'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
         '404':
           description: User not found.
         '500':
@@ -88,6 +100,7 @@ paths:
 
     put:
       summary: Update a user by ID
+      description: ⚠️  this operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
       operationId: updateUserById
       tags:
         - users
@@ -108,8 +121,10 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/UserInResponse'
-        '400':
-          description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
         '404':
           description: User not found.
         '409':
@@ -165,6 +180,10 @@ paths:
                 $ref: '#/components/schemas/UserInResponse'
         '400':
           description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
         '404':
           description: User not found.
         '409':
@@ -183,6 +202,10 @@ paths:
       responses:
         '204':
           description: User deleted successfully.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
         '404':
           description: User not found.
         '500':
@@ -265,6 +288,10 @@ paths:
                       $ref: '#/components/schemas/UserInResponse'
         '400':
           description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
         '500':
           description: Internal server error.
 
@@ -365,6 +392,11 @@ components:
                 type: boolean
                 description: Whether this is the primary picture
                 example: true
+              type:
+                type: string
+                description: The picture type. Currently, we only offer pictures of type "photo".
+                enum: ["photo", "thumbnail"]
+                example: "photo"
     UserInResponse:
       allOf:
       - type: object

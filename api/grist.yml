@@ -1157,8 +1157,14 @@ paths:
     $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1{userId}"
   /scim/v2/Users/.search:
     $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1.search"
-  /scim/v2/Bulk/:
+  /scim/v2/Bulk:
     $ref: "./scim/bulk.yml#/paths/~1scim~1v2~1Bulk"
+  /scim/v2/Schemas:
+    $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1Schemas"
+  /scim/v2/ServiceProviderConfig:
+    $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1ServiceProviderConfig"
+  /scim/v2/ResourceTypes:
+    $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1ResourceTypes"
 
 tags:
   - name: orgs
