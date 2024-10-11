@@ -1,0 +1,386 @@
+paths:
+  /scim/v2/Users:
+    get:
+      summary: Retrieve list of users
+      operationId: getUsers
+      tags:
+        - users
+        - scim
+      parameters:
+        - name: startIndex
+          in: query
+          description: The starting index for pagination.
+          required: false
+          schema:
+            type: integer
+            example: 1
+        - name: count
+          in: query
+          description: The number of users to retrieve.
+          required: false
+          schema:
+            type: integer
+            example: 10
+        - name: filter
+          in: query
+          description: Filter users based on specific criteria.
+          required: false
+          schema:
+            type: string
+            example: "userName eq 'john.doe'"
+      responses:
+        '200':
+          description: Successfully retrieved list of users.
+          content:
+            application/scim+json:
+              schema:
+                $ref: "#/components/schemas/UsersListResponse"
+        '500':
+          description: Internal server error.
+
+    post:
+      summary: Create a new user
+      operationId: createUser
+      tags:
+        - users
+        - scim
+      requestBody:
+        description: Data for the user to be created.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/UserInRequest'
+      responses:
+        '201':
+          description: User created successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserInResponse'
+        '400':
+          description: Bad request.
+        '409':
+          description: Conflict on resource (like email).
+        '500':
+          description: Internal server error.
+
+  /scim/v2/Users/{userId}:
+    get:
+      summary: Retrieve user by ID
+      operationId: getUserById
+      tags:
+        - users
+        - scim
+      parameters:
+        - $ref: '#/components/parameters/userIdPathParam'
+      responses:
+        '200':
+          description: Successfully retrieved user details.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserInResponse'
+        '404':
+          description: User not found.
+        '500':
+          description: Internal server error.
+
+    put:
+      summary: Update a user by ID
+      operationId: updateUserById
+      tags:
+        - users
+        - scim
+      parameters:
+        - $ref: '#/params/userIdPathParam'
+      requestBody:
+        description: Updated data for the user.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/UserInRequest'
+      responses:
+        '200':
+          description: User updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserInResponse'
+        '400':
+          description: Bad request.
+        '404':
+          description: User not found.
+        '409':
+          description: Conflict on resource (like email).
+        '500':
+          description: Internal server error.
+
+    patch:
+      summary: Partially update a user by ID
+      operationId: patchUserById
+      tags:
+        - users
+        - scim
+      parameters:
+        - $ref: '#/params/userIdPathParam'
+      requestBody:
+        description: Data for the partial update of the user.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              type: object
+              properties:
+                schemas:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                     - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                Operations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      op:
+                        type: string
+                        description: Operation type (add, replace, remove).
+                        example: "replace"
+                      path:
+                        type: string
+                        description: The field to be updated.
+                        example: "photos.value"
+                      value:
+                        type: string
+                        description: New value for the field.
+                        example: "https://example.com/pics/john-doe.png"
+      responses:
+        '200':
+          description: User partially updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserInResponse'
+        '400':
+          description: Bad request.
+        '404':
+          description: User not found.
+        '409':
+          description: Conflict on resource (like email).
+        '500':
+          description: Internal server error.
+
+    delete:
+      summary: Delete a user by ID
+      operationId: deleteUserById
+      tags:
+        - users
+        - scim
+      parameters:
+        - $ref: '#/params/userIdPathParam'
+      responses:
+        '204':
+          description: User deleted successfully.
+        '404':
+          description: User not found.
+        '500':
+          description: Internal server error.
+
+  /scim/v2/Users/.search:
+    post:
+      summary: Search users
+      operationId: searchUsers
+      tags:
+        - users
+        - scim
+      requestBody:
+        description: Search criteria.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              type: object
+              properties:
+                schemas:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+                filter:
+                  type: string
+                  description: Filter expression for users.
+                  example: "userName eq 'john.doe'"
+                sortBy:
+                  type: string
+                  description: Field to sort by.
+                  example: "userName"
+                sortOrder:
+                  type: string
+                  description: Order of sorting (ascending or descending).
+                  example: "ascending"
+                attributes:
+                  type: array
+                  description: A multi-valued list of strings indicating the names of resource attributes to return in the response.
+                  items:
+                    type: string
+                  example: [ "id", "displayName" ]
+                excludedAttributes:
+                  type: array
+                  description: A multi-valued list of strings indicating the names of resource attributes to be removed from the default set of attributes to return.
+                  items:
+                    type: string
+                  example: [ "locale" ]
+                startIndex:
+                  description: The starting index for pagination.
+                  type: integer
+                  example: 1
+                count:
+                  description: The number of users to retrieve.
+                  type: integer
+                  example: 10
+
+      responses:
+        '200':
+          description: Users retrieved based on search criteria.
+          content:
+            application/scim+json:
+              schema:
+                type: object
+                properties:
+                  schemas:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                      - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+                  totalResults:
+                    type: integer
+                    description: Total number of users found.
+                  Resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserInResponse'
+        '400':
+          description: Bad request.
+        '500':
+          description: Internal server error.
+
+components:
+
+  params:
+    userIdPathParam:
+      in: path
+      name: userId
+      schema:
+        type: integer
+      description: A user id
+      required: true
+
+  schemas:
+    UsersListResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+            - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        totalResults:
+          type: integer
+          description: Total number of users.
+          example: 1
+        itemsPerPage:
+          type: integer
+          description: Number of users returned per page.
+          example: 20
+        startIndex:
+          type: integer
+          description: Starting index.
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserInResponse'
+
+    UserInRequest:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+            - "urn:ietf:params:scim:schemas:core:2.0:User"
+        userName:
+          type: string
+          description: The unique username.
+          example: "john.doe@example.com"
+        name:
+          type: object
+          properties:
+            formatted:
+              type: string
+              description: Full name of the user.
+              example: "John Doe"
+        emails:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: The user's email address.
+                example: "john.doe@example.com"
+              primary:
+                type: boolean
+                description: Whether this is the primary email.
+                example: true
+        displayName:
+          type: string
+          description: the display name of the user
+          example: "John Doe"
+        preferredLanguage:
+          type: string
+          description: Indicates the user's preferred written or spoken languages and is generally used for selecting a localized user interface.
+          example: "en"
+        locale:
+          type: string
+          description: Used to indicate the User's default location for purposes of localizing such items as currency, date time format, or numerical representations.
+          example: "en"
+        photos:
+          type: array
+          description: The picture of the user. It is expected to have a single item in the context of Grist.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: The picture of the user
+                example: "https://example.com/pics/john-doe.png"
+              primary:
+                type: boolean
+                description: Whether this is the primary picture
+                example: true
+    UserInResponse:
+      allOf:
+      - type: object
+        properties:
+          meta:
+            type: object
+            properties:
+              resourceType:	
+                type: string
+                enum: 
+                - "User"
+              location:
+                type: string
+                example: "/api/scim/v2/Users/1"
+          id:
+            type: string
+            description: The unique identifier of the user.
+            example: "1"
+      - $ref: '#/components/schemas/UserInRequest'

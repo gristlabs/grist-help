@@ -1,0 +1,279 @@
+paths:
+  /scim/v2/Schemas:
+    get:
+      summary: Retrieve SCIM schemas
+      operationId: getSchemas
+      tags:
+        - Schemas
+      responses:
+        '200':
+          description: Successfully retrieved schemas.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schema'
+        '500':
+          description: Internal server error.
+
+  /scim/v2/ServiceProviderConfig:
+    get:
+      summary: Retrieve service provider configuration
+      operationId: getServiceProviderConfig
+      tags:
+        - ServiceProviderConfig
+      responses:
+        '200':
+          description: Successfully retrieved service provider configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceProviderConfig'
+        '500':
+          description: Internal server error.
+
+  /scim/v2/ResourceTypes:
+    get:
+      summary: Retrieve SCIM resource types
+      operationId: getResourceTypes
+      tags:
+        - ResourceTypes
+      responses:
+        '200':
+          description: Successfully retrieved resource types.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResourceType'
+        '500':
+          description: Internal
+
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the user.
+          example: "e9e30dba-f08f-4109-8486-d5c6a331660a"
+        userName:
+          type: string
+          description: The unique username.
+          example: "john.doe@example.com"
+        name:
+          type: object
+          properties:
+            formatted:
+              type: string
+              description: Full name of the user.
+              example: "John Doe"
+        emails:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: The user's email address.
+                example: "john.doe@example.com"
+              primary:
+                type: boolean
+                description: Whether this is the primary email.
+                example: true
+
+    ResourceType:
+      type: object
+      description: Describes the SCIM resource types supported by the service provider.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the resource type.
+          example: "User"
+        name:
+          type: string
+          description: Name of the resource type.
+          example: "User"
+        description:
+          type: string
+          description: Human-readable description of the resource type.
+          example: "Top-level resource representing a user."
+        endpoint:
+          type: string
+          description: The relative URL of the resource type's endpoint.
+          example: "/scim/v2/Users"
+        schema:
+          type: string
+          description: The primary schema URI for the resource type.
+          example: "urn:ietf:params:scim:schemas:core:2.0:User"
+        schemaExtensions:
+          type: array
+          description: Optional schema extensions.
+          items:
+            type: object
+            properties:
+              schema:
+                type: string
+                description: The URI of the extended schema.
+                example: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+              required:
+                type: boolean
+                description: Whether the schema extension is required.
+                example: false
+
+    ServiceProviderConfig:
+      type: object
+      description: Represents the service provider's SCIM configuration.
+      properties:
+        documentationUri:
+          type: string
+          description: URL to the service provider’s documentation.
+          example: "https://api.example.com/scim/docs"
+        patch:
+          type: object
+          description: Configuration related to PATCH operations.
+          properties:
+            supported:
+              type: boolean
+              description: Indicates whether the PATCH operation is supported.
+              example: true
+        bulk:
+          type: object
+          description: Configuration related to bulk operations.
+          properties:
+            supported:
+              type: boolean
+              description: Indicates whether the bulk operation is supported.
+              example: true
+            maxOperations:
+              type: integer
+              description: The maximum number of operations allowed in a bulk request.
+              example: 1000
+            maxPayloadSize:
+              type: integer
+              description: The maximum payload size for a bulk request.
+              example: 1048576
+        filter:
+          type: object
+          description: Configuration related to filtering.
+          properties:
+            supported:
+              type: boolean
+              description: Indicates whether filtering is supported.
+              example: true
+            maxResults:
+              type: integer
+              description: The maximum number of results that can be returned by a single query.
+              example: 100
+        changePassword:
+          type: object
+          description: Configuration related to password changes.
+          properties:
+            supported:
+              type: boolean
+              description: Indicates whether the password change operation is supported.
+              example: false
+        sort:
+          type: object
+          description: Configuration related to sorting.
+          properties:
+            supported:
+              type: boolean
+              description: Indicates whether sorting is supported.
+              example: true
+        etag:
+          type: object
+          description: Configuration related to ETag versioning.
+          properties:
+            supported:
+              type: boolean
+              description: Indicates whether ETag versioning is supported.
+              example: false
+        authenticationSchemes:
+          type: array
+          description: Supported authentication schemes.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the authentication scheme.
+                example: "OAuth Bearer Token"
+              description:
+                type: string
+                description: Description of the authentication scheme.
+                example: "Authentication scheme using the OAuth Bearer Token."
+              specUri:
+                type: string
+                description: URI of the authentication specification.
+                example: "http://tools.ietf.org/html/rfc6750"
+              type:
+                type: string
+                description: The type of the authentication scheme.
+                example: "oauthbearertoken"
+              primary:
+                type: boolean
+                description: Indicates if this is the primary authentication scheme.
+                example: true
+
+    Schema:
+      type: object
+      description: Describes a SCIM schema resource.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the schema.
+          example: "urn:ietf:params:scim:schemas:core:2.0:User"
+        name:
+          type: string
+          description: Human-readable name of the schema.
+          example: "User"
+        description:
+          type: string
+          description: Description of the schema.
+          example: "Schema for representing a user."
+        attributes:
+          type: array
+          description: List of attributes defined in the schema.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the attribute.
+                example: "userName"
+              type:
+                type: string
+                description: Data type of the attribute.
+                example: "string"
+              multiValued:
+                type: boolean
+                description: Whether the attribute is multi-valued.
+                example: false
+              required:
+                type: boolean
+                description: Whether the attribute is required.
+                example: true
+              canonicalValues:
+                type: array
+                description: Canonical values for the attribute, if applicable.
+                items:
+                  type: string
+                  example: "admin"
+              mutability:
+                type: string
+                description: Defines whether the attribute is readOnly, readWrite, or immutable.
+                example: "readWrite"
+              returned:
+                type: string
+                description: Specifies when the attribute is returned in a response (always, never, etc.).
+                example: "default"
+              uniqueness:
+                type: string
+                description: Defines whether the attribute value must be unique.
+                example: "server"
+

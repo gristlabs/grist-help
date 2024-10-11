@@ -10,7 +10,7 @@ openapi: 3.0.0
 security:
   - ApiKey: []
 servers:
-  - url: https://{subdomain}.getgrist.com/api
+  - url: https://{gristhost}/api
     variables:
         subdomain:
             description: The team name, or `docs` for personal areas
@@ -1151,6 +1151,14 @@ paths:
           description: "The caller is not allowed to delete this account"
         404:
           description: "The user is not found"
+  /scim/v2/Users:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users"
+  /scim/v2/Users/{userId}:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1{userId}"
+  /scim/v2/Users/.search:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1.search"
+  /scim/v2/Bulk/:
+    $ref: "./scim/bulk.yml#/paths/~1scim~1v2~1Bulk"
 
 tags:
   - name: orgs
@@ -1175,6 +1183,8 @@ tags:
     description: "Sql endpoint to query data from documents."
   - name: users
     description: "Grist users."
+  - name: scim
+    description: "SCIM"
 components:
   securitySchemes:
     ApiKey:
@@ -2199,3 +2209,4 @@ components:
           - label
       description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
       required: false
+
