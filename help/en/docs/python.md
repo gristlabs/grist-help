@@ -44,8 +44,10 @@ Be sure to check all tables and columns, and both regular formalas and trigger f
 We'd be interested to hear your experience, and to help with any problems,
 on the [community forum](https://community.getgrist.com/).
 
-Self-hosted Grist may use any version of Python you configure it with, but bear in
+[Self-Managed Grist](self-managed.md) may use any version of Python you configure it with, but bear in
 mind we actively test only the supported versions.
+
+ [Grist Desktop](https://github.com/gristlabs/grist-desktop) only supports Python 3 and does not have the version switcher under [Document Settings](creating-doc.md#document-settings).
 
 ## Testing the effect of changing Python versions
 
