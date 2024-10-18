@@ -74,7 +74,7 @@ paths:
           description: Internal server error.
 
   /scim/v2/Users/{userId}:
-    get:
+    get: &get-user
       summary: Retrieve user by ID
       operationId: getUserById
       tags:
@@ -98,9 +98,9 @@ paths:
         '500':
           description: Internal server error.
 
-    put:
+    put: &put-user
       summary: Update a user by ID
-      description: ⚠️  this operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
+      description: ⚠️  This operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
       operationId: updateUserById
       tags:
         - users
@@ -132,7 +132,7 @@ paths:
         '500':
           description: Internal server error.
 
-    patch:
+    patch: &patch-user
       summary: Partially update a user by ID
       operationId: patchUserById
       tags:
@@ -191,8 +191,9 @@ paths:
         '500':
           description: Internal server error.
 
-    delete:
-      summary: Delete a user by ID
+    delete: &delete-user
+      summary: Delete a user by ID. 
+      description: ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
       operationId: deleteUserById
       tags:
         - users
@@ -294,6 +295,38 @@ paths:
           description: Unauthorized
         '500':
           description: Internal server error.
+  /scim/v2/Me:
+    get:
+      <<: *get-user
+      summary: Retrieve information about oneself
+      description: When SCIM is enabled, this endpoint is accessible by anyone authentified in Grist.
+      operationId: getMe
+      parameters: []
+    put:
+      <<: *put-user
+      summary: Update information about oneself
+      description: |
+        When SCIM is enabled, this endpoint is accessible by anyone authentified in Grist.
+
+        ⚠️  This operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
+      operationId: putMe
+      parameters: []
+    patch:
+      <<: *patch-user
+      summary: Partially update information about oneself
+      description: When SCIM is enabled, this endpoint is accessible by anyone authentified in Grist.
+      operationId: patchMe
+      parameters: []
+    delete:
+      <<: *delete-user
+      summary: Delete own account
+      description: |
+        When SCIM is enabled, this endpoint is accessible by anyone authentified in Grist.
+
+        ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
+      operationId: deleteMe
+      parameters: []
+
 
 components:
 

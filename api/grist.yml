@@ -1157,6 +1157,8 @@ paths:
     $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1{userId}"
   /scim/v2/Users/.search:
     $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1.search"
+  /scim/v2/Me:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Me"
   /scim/v2/Bulk:
     $ref: "./scim/bulk.yml#/paths/~1scim~1v2~1Bulk"
   /scim/v2/Schemas:
