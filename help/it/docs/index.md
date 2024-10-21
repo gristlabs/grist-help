@@ -1,85 +1,44 @@
-!!!warning
-
-    We're just getting started translating this language, sorry!
-
-    We show partially translated languages to track progress.
-
-    This page isn't translated yet. But the good news is that [you can join the translation community to help us 👋](__ISSUE_URL__){.internal-link target=_blank}.
-
-
 ---
-title: Welcome to Grist
+title: Benvenuto in Grist
 ---
 
-# Welcome to Grist! {: data-toc-label='' }
+# Benvenuto in Grist! {: data-toc-label='' }
 
-[Grist](https://www.getgrist.com) is a software product to organize, analyze, and share data.
+[Grist](https://www.getgrist.com) è un software per organizzare, analizzare e condividere i dati.
 
-<div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">
-  <a href="#" data-toggle="modal" data-target="#video-modal"
-    data-theVideo="https://www.youtube.com/embed/XYZ_ZGSxU00">
-  <img alt="Grist Overview Demo" src="https://img.youtube.com/vi/XYZ_ZGSxU00/0.jpg">
-  <em>Grist Overview Demo</em>
-  </a>
+<div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">   <a href="#" data-toggle="modal" data-target="#video-modal" data-thevideo="https://www.youtube.com/embed/XYZ_ZGSxU00">   <img src="https://img.youtube.com/vi/XYZ_ZGSxU00/0.jpg" alt="Grist Overview Demo">   <em>Introduzione</em>   </a> </div> Grist unisce il meglio dei fogli di calcolo e dei database. Grist ti permette di lavorare con semplici tabelle e liste, ma dà il meglio di sé quando i dati diventano più complessi.
+
+Per iscriverti e iniziare a usare Grist, vai a [https://docs.getgrist.com](https://docs.getgrist.com).
+
+Per imparare Grist, raccomandiamo di iniziare dal nostro tutorial How-To, o dai nostri video introduttivi. {: .clearfix }
+
+<div class="row" markdown="1"></div>
+<div data-md-type="block_html">
+<div class="col-md-6" markdown="1"></div>
+<h3 data-md-type="header" data-md-header-level="3">Tutorial How-To</h3>
+<p data-md-type="paragraph"><a href="lightweight-crm.md" data-md-type="link">Costruisci un CRM personalizzato</a>. Usando l'esempio del "CRM leggero", impara a collegare i dati e creare layout che aumentano la produttività.</p>
+<p data-md-type="paragraph"><a href="investment-research.md" data-md-type="link">Analizza e visualizza i dati</a>. Usa l'esempio di "Ricerca di investimento" per imparare a creare tabelle riassuntive e grafici, e collegare dinamicamente i grafici.</p>
+<p data-md-type="paragraph"><a href="afterschool-program.md" data-md-type="link">Gestire dati aziendali</a>. Usando l'esempio del "Programma doposcuola", impara a modellizzare i dati aziendali, usare formule e gestire la complessità.</p>
+<div data-md-type="block_html"></div>
 </div>
-Grist combines the best of spreadsheets and databases. Grist lets you work with simple grids and
-lists, and is at its best when data gets more complex.
-
-To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
-
-To learn Grist, we recommend starting with our How-To tutorials, or our
-Intro videos.
-{: .clearfix }
-
-<div class="row" markdown="1">
-
-<div class="col-md-6" markdown="1">
-
-### How-To Tutorials
-
-[Create a custom CRM](lightweight-crm.md). Using the "Lightweight CRM" example,
-learn to link data, and create high-productivity layouts.
-
-[Analyze and visualize data](investment-research.md). Using the "Investment
-Research" example, learn to create summary tables and charts, and link charts dynamically.
-
-[Managing business data](afterschool-program.md). Using the "Afterschool Program" example,
-learn to model business data, use formulas, and manage complexity.
-
+<div data-md-type="block_html">
+<div class="col-md-6 column-images" markdown="1"></div>
+<h3 data-md-type="header" data-md-header-level="3">Video Introduttivi</h3>
+<p data-md-type="paragraph"><a href="creating-doc.md" data-md-type="link"><img src="https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg" data-md-type="image" alt="Creating a doc"> <em data-md-type="emphasis">Creare un documento</em></a> {: .img-caption }</p>
+<p data-md-type="paragraph"><a href="page-widgets.md" data-md-type="link"><img src="https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg" data-md-type="image" alt="Pages &amp; widgets"> <em data-md-type="emphasis">Pagine e widgets</em></a> {: .img-caption }</p>
+<p data-md-type="paragraph"><a href="col-types.md" data-md-type="link"><img src="https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg" data-md-type="image" alt="Columns &amp; types"> <em data-md-type="emphasis">Colonne e tipi di dati</em></a> {: .img-caption }</p>
+<p data-md-type="paragraph"><a href="col-refs.md" data-md-type="link"><img src="https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg" data-md-type="image" alt="Reference columns"> <em data-md-type="emphasis">Colonne di riferimenti</em></a> {: .img-caption }</p>
+<p data-md-type="paragraph"><a href="linking-widgets.md" data-md-type="link"><img src="https://img.youtube.com/vi/F5m_je0QKvs/0.jpg" data-md-type="image" alt="Linking widgets"> <em data-md-type="emphasis">Collegare i widget</em></a> {: .img-caption }</p>
+<p data-md-type="paragraph"><a href="sharing.md" data-md-type="link"><img src="https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg" data-md-type="image" alt="Sharing a doc"> <em data-md-type="emphasis">Condividere un documento</em></a> {: .img-caption }</p>
+<div data-md-type="block_html"></div>
 </div>
+<div data-md-type="block_html"></div>
 
-<div class="col-md-6 column-images" markdown="1">
+## Pagine utili
 
-### Intro Videos
-
-[![Creating a doc](https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg) *Creating a doc*](creating-doc.md)
-{: .img-caption }
-
-[![Pages & widgets](https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg) *Pages & widgets*](page-widgets.md)
-{: .img-caption }
-
-[![Columns & types](https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg) *Columns & types*](col-types.md)
-{: .img-caption }
-
-[![Reference columns](https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg) *Reference&nbsp;columns*](col-refs.md)
-{: .img-caption }
-
-[![Linking widgets](https://img.youtube.com/vi/F5m_je0QKvs/0.jpg) *Linking widgets*](linking-widgets.md)
-{: .img-caption }
-
-[![Sharing a doc](https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg) *Sharing a doc*](sharing.md)
-{: .img-caption }
-
-</div>
-
-</div>
-
-## Popular shortcuts
-
-- [Frequently Asked Questions](FAQ.md)
-- [Function reference](functions.md)
-- [Keyboard shortcuts](keyboard-shortcuts.md)
-
+- [FAQ - Domande frequenti](FAQ.md)
+- [Guida di riferimento per le funzioni](functions.md)
+- [Scorciatoie da tastiera](keyboard-shortcuts.md)
 
 <!--
 
@@ -96,11 +55,9 @@ learn to model business data, use formulas, and manage complexity.
 {: .img-caption .coming-soon }
 
 -->
-## Contact us
 
-If you have questions not answered here, problem reports, or other feedback,
-please contact us!
+## Per contattarci
 
-Email: <support@getgrist.com>
+Se avete domande che qui non hanno risposta, o problemi da segnalare, o altri commenti, mettevi in contatto con noi!
 
-
+Email: [support@getgrist.com](mailto:support@getgrist.com)
