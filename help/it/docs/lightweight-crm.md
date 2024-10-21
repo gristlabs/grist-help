@@ -100,7 +100,7 @@ Che differenza c'è con un foglio di calcolo? Queste immagini mostrano il nostro
 <div data-md-type="block_html">  </div>
 </div>
 </div>
-<p data-md-type="paragraph"> </p>
+<p data-md-type="paragraph"> </p>
 <p data-md-type="paragraph">Il problema è nella storia delle annotazioni per un contatto. In una tabella bidimensionale, hai poche opzioni su come includere un numero variabile di annotazioni. Se usi colonne multiple, il foglio di calcolo diventa rapidamente ingombrante e difficile da maneggiare.</p>
 <p data-md-type="paragraph">Grist sembra più un "programma", ma è comunque versatile come un foglio di calcolo.</p>
 <p data-md-type="paragraph">L'esempio del "CRM leggero" può essere usato subito così com'è (con i dati di esempio), o come un modello (con la struttura senza i dati). Ecco alcune indicazioni su come usarlo come CRM:</p>
@@ -224,3 +224,5 @@ return "\n".join(items.Notes)
 <p data-md-type="paragraph">Per le esigenze di lavoro, avrai bisogno di più cose. I software CRM specializzati offrono moltissime funzionalità. Il loro problema è la complessità: cercare di soddisfare le esigenze di molti utenti diversi rende il prodotto difficile da usare. Il bello di Grist è che puoi iniziare da una cosa semplice, e aggiungere complessità solo quando ti serve, e non oltre.</p>
 <p data-md-type="paragraph">Gli altri tutorial mostrano come modellizzare dati più complessi, analizzare i dati e aggiungere grafici, e molto altro ancora.</p>
 </div>
+
+
