@@ -86,6 +86,7 @@ nav:
     - self-managed.md
     - install/saml.md
     - install/oidc.md
+    - install/scim.md
     - install/forwarded-headers.md
     - install/cloud-storage.md
     - install/grist-connect.md
