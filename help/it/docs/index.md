@@ -10,29 +10,34 @@ title: Benvenuto in Grist
 
 Per iscriverti e iniziare a usare Grist, vai a [https://docs.getgrist.com](https://docs.getgrist.com).
 
-Per imparare Grist, raccomandiamo di iniziare dal nostro tutorial How-To, o dai nostri video introduttivi. {: .clearfix }
+Per imparare Grist, raccomandiamo di iniziare dal nostro tutorial How-To, o dai nostri video introduttivi. 
+{: .clearfix }
 
-<div class="row" markdown="1"></div>
+<div class="row" markdown="1">
 <div data-md-type="block_html">
-<div class="col-md-6" markdown="1"></div>
+<div class="col-md-6" markdown="1">
+
 <h3 data-md-type="header" data-md-header-level="3">Tutorial How-To</h3>
 <p data-md-type="paragraph"><a href="lightweight-crm.md" data-md-type="link">Costruisci un CRM personalizzato</a>. Usando l'esempio del "CRM leggero", impara a collegare i dati e creare layout che aumentano la produttività.</p>
 <p data-md-type="paragraph"><a href="investment-research.md" data-md-type="link">Analizza e visualizza i dati</a>. Usa l'esempio di "Ricerca di investimento" per imparare a creare tabelle riassuntive e grafici, e collegare dinamicamente i grafici.</p>
 <p data-md-type="paragraph"><a href="afterschool-program.md" data-md-type="link">Gestire dati aziendali</a>. Usando l'esempio del "Programma doposcuola", impara a modellizzare i dati aziendali, usare formule e gestire la complessità.</p>
-<div data-md-type="block_html"></div>
+
 </div>
+
+</div>
+
 <div data-md-type="block_html">
-<div class="col-md-6 column-images" markdown="1"></div>
+
+<div class="col-md-6 column-images" markdown="1">
+
 <h3 data-md-type="header" data-md-header-level="3">Video Introduttivi</h3>
-<p data-md-type="paragraph"><a href="creating-doc.md" data-md-type="link"><img src="https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg" data-md-type="image" alt="Creating a doc"> <em data-md-type="emphasis">Creare un documento</em></a> {: .img-caption }</p>
-<p data-md-type="paragraph"><a href="page-widgets.md" data-md-type="link"><img src="https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg" data-md-type="image" alt="Pages &amp; widgets"> <em data-md-type="emphasis">Pagine e widgets</em></a> {: .img-caption }</p>
-<p data-md-type="paragraph"><a href="col-types.md" data-md-type="link"><img src="https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg" data-md-type="image" alt="Columns &amp; types"> <em data-md-type="emphasis">Colonne e tipi di dati</em></a> {: .img-caption }</p>
-<p data-md-type="paragraph"><a href="col-refs.md" data-md-type="link"><img src="https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg" data-md-type="image" alt="Reference columns"> <em data-md-type="emphasis">Colonne di riferimenti</em></a> {: .img-caption }</p>
-<p data-md-type="paragraph"><a href="linking-widgets.md" data-md-type="link"><img src="https://img.youtube.com/vi/F5m_je0QKvs/0.jpg" data-md-type="image" alt="Linking widgets"> <em data-md-type="emphasis">Collegare i widget</em></a> {: .img-caption }</p>
-<p data-md-type="paragraph"><a href="sharing.md" data-md-type="link"><img src="https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg" data-md-type="image" alt="Sharing a doc"> <em data-md-type="emphasis">Condividere un documento</em></a> {: .img-caption }</p>
-<div data-md-type="block_html"></div>
-</div>
-<div data-md-type="block_html"></div>
+<p class="img-caption" data-md-type="paragraph"><a href="creating-doc.md" data-md-type="link"><img src="https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg" data-md-type="image" alt="Creating a doc" > <em data-md-type="emphasis">Creare un documento</em></a></p>
+<p class="img-caption" data-md-type="paragraph"><a href="page-widgets.md" data-md-type="link"><img src="https://img.youtube.com/vi/vTfOUEFR73Y/0.jpg" data-md-type="image" alt="Pages &amp; widgets" > <em data-md-type="emphasis">Pagine e widgets</em></a></p>
+<p class="img-caption" data-md-type="paragraph"><a href="col-types.md" data-md-type="link"><img src="https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg"  data-md-type="image" alt="Columns &amp; types"> <em data-md-type="emphasis">Colonne e tipi di dati</em></a></p>
+<p class="img-caption" data-md-type="paragraph"><a href="col-refs.md" data-md-type="link"><img src="https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg"  data-md-type="image" alt="Reference columns"> <em data-md-type="emphasis">Colonne di riferimenti</em></a></p>
+<p class="img-caption" data-md-type="paragraph"><a href="linking-widgets.md" data-md-type="link"><img src="https://img.youtube.com/vi/F5m_je0QKvs/0.jpg" data-md-type="image" alt="Linking widgets" > <em data-md-type="emphasis">Collegare i widget</em></a></p>
+<p class="img-caption" data-md-type="paragraph"><a href="sharing.md" data-md-type="link"><img src="https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg"  data-md-type="image" alt="Sharing a doc"> <em data-md-type="emphasis">Condividere un documento</em></a></p>
+</div></div></div>
 
 ## Pagine utili
 
