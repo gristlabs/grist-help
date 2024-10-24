@@ -29,7 +29,7 @@ To add conditional formatting to rows, go to the `ROW STYLE` section of the [cre
 Order of Rules
 --------------
 
-Note that Grist applies the rules in order from top to bottom. Styles applied by rules that appear later in the list will override those applied by rules earlier in the list. To change the order of the rules, hover over a rule to reveal a drag handle, then click and drag the drag handle to move the rule to its new position.
+Note that Grist applies the rules in order from top to bottom. Styles applied by rules that appear later in the list will override those applied by rules earlier in the list. To change the order of the rules, hover over a rule to reveal a drag handle, then click and drag the handle to move the rule to its new position.
 
 What would happen if we swapped the last two rules in the example above?
 
