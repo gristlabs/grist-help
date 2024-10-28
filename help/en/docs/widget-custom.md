@@ -437,15 +437,21 @@ Do you have a great custom widget? Show it off in our *#showcase* category in ou
 
 The Advanced Charts custom widget gives you more power and flexibility than Grist’s built-in charts, offering a wide variety of chart types as well as increased control over styling and layout. It’s a version of Plotly’s [Chart Studio](https://chart-studio.plotly.com/), see their [tutorials](https://plotly.com/chart-studio-help/tutorials/) for more detailed help.
 
-You’ll need to set the access level to “Full document access”. Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.
+You’ll need to set the access level to “Full document access”.
+
+<span class="screenshot-large">*![custom-advanced-charts-access](images/widget-custom/custom-advanced-charts-access.png)*</span>
+{: .screenshot-half }
+
+Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.
 
 This is what you should see:
 
-![advanced-chart-blank-traces-panel](./images/widget-custom/advanced-chart-blank-traces-panel.png)
+<span class="screenshot-large">*![advanced-chart-blank-traces-panel](./images/widget-custom/advanced-chart-blank-traces-panel.png)*</span>
 
 Click the big blue “+ Trace” button to get started. This will add a panel like the following:
 
-![advanced-chart-blank-trace](./images/widget-custom/advanced-chart-blank-trace.png)
+<span class="screenshot-large">*![advanced-chart-blank-trace](./images/widget-custom/advanced-chart-blank-trace.png)*</span>
+{: .screenshot-half }
 
 Click “Scatter” to choose a different chart type such as Bar or Line. Then click the “Choose data” dropdowns to select the columns you want to plot.
 
