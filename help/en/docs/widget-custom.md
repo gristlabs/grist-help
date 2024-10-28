@@ -75,7 +75,8 @@ then `Add Widget to Page`. Then:
 
   * For `Select Widget` choose `Custom` to get a Custom Widget.
   * For `Select Data` choose the table you want the widget to read data from.
-  * Optionally, choose `Select By` to control the selected data further (read [Linking Page Widgets](linking-widgets.md) for the possibilities).
+  * Optionally, choose `Select By` to control the selected data further (read [Linking Page Widgets](linking-widgets.md) 
+  for the possibilities).
 
 ![add a custom widget](images/widget_custom_add.png)
 
@@ -416,10 +417,21 @@ grist.setCursorPos({rowId: 'new'});
 
 ## Premade Custom Widgets
 
-All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown.
+Add a custom widget to your Grist document by adding a new widget to the page and selecting 'Custom' as your widget.
 
-<span class="screenshot-large">*![premade-widgets](images/widget-custom/premade-widgets.png)*</span>
+<span class="screenshot-large">*![custom-add-widget](images/widget-custom/custom-add-widget.png)*</span>
 {: .screenshot-half }
+
+After clicking the green 'Add to Page' button, you will be prompted to select from a list of premade widgets. 
+
+<span class="screenshot-large">*![custom-choose-widget](images/widget-custom/custom-choose-widget.png)*</span>
+
+You also have the option to add your own widget using the Custom URL selection.
+
+<span class="screenshot-large">*![custom-custom-url](images/widget-custom/custom-custom-url.png)*</span>
+{: .screenshot-half }
+
+Do you have a great custom widget? Show it off in our *#showcase* category in our [Community Forum](https://community.getgrist.com/c/showcase/8)!
 
 ### Advanced Charts
 
