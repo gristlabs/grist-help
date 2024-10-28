@@ -431,11 +431,17 @@ You also have the option to add your own widget using the Custom URL selection.
 <span class="screenshot-large">*![custom-custom-url](images/widget-custom/custom-custom-url.png)*</span>
 {: .screenshot-half }
 
-Do you have a great custom widget? Show it off in our *#showcase* category in our [Community Forum](https://community.getgrist.com/c/showcase/8)!
+!!! note "Community Widget"
+    Have you created a great custom widget? Show it off in our [*#showcase*](https://community.getgrist.com/c/showcase/8) category in our [Community Forum](https://community.getgrist.com)!
 
 Many premade custom widgets will require some configuration once added to your document. Click the green vertical bar in the upper-right corner of the page to open the Creator Panel. Under the 'Custom' tab, you will configure 'Access Level' and map any necessary columns. Note that the widget will prompt you to accept the required level of access.
 
 <span>*![custom-widget-configuration](images/widget-custom/custom-widget-configuration.png)*</span>
+{: .screenshot-half }
+
+It can also be useful to link your custom widget to an existing widget on the same page so it only shows data related to a single, selected record. When adding a widget to the page, be sure to 'Select By' your selector widget. Learn more about [linking widgets](linking-widgets.md).
+
+<span>*![custom-select-by](images/widget-custom/custom-select-by.png)*</span>
 {: .screenshot-half }
 
 ### Advanced Charts
