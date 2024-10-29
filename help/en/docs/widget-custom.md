@@ -75,7 +75,8 @@ then `Add Widget to Page`. Then:
 
   * For `Select Widget` choose `Custom` to get a Custom Widget.
   * For `Select Data` choose the table you want the widget to read data from.
-  * Optionally, choose `Select By` to control the selected data further (read [Linking Page Widgets](linking-widgets.md) for the possibilities).
+  * Optionally, choose `Select By` to control the selected data further (read [Linking Page Widgets](linking-widgets.md) 
+  for the possibilities).
 
 ![add a custom widget](images/widget_custom_add.png)
 
@@ -416,26 +417,54 @@ grist.setCursorPos({rowId: 'new'});
 
 ## Premade Custom Widgets
 
-All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown.
+Add a custom widget to your Grist document by adding a new widget to the page and selecting 'Custom' as your widget.
 
-<span class="screenshot-large">*![premade-widgets](images/widget-custom/premade-widgets.png)*</span>
+<span class="screenshot-large">*![custom-add-widget](images/widget-custom/custom-add-widget.png)*</span>
+{: .screenshot-half }
+
+After clicking the green 'Add to Page' button, you will be prompted to select from a list of premade widgets. 
+
+<span class="screenshot-large">*![custom-choose-widget](images/widget-custom/custom-choose-widget.png)*</span>
+
+You also have the option to add your own widget using the Custom URL selection.
+
+<span class="screenshot-large">*![custom-custom-url](images/widget-custom/custom-custom-url.png)*</span>
+{: .screenshot-half }
+
+!!! note "Community Widget"
+    Have you created a great custom widget? Show it off in our [*#showcase*](https://community.getgrist.com/c/showcase/8) category in our [Community Forum](https://community.getgrist.com)!
+
+Many premade custom widgets will require some configuration once added to your document. Click the green vertical bar in the upper-right corner of the page to open the Creator Panel. Under the 'Custom' tab, you will configure 'Access Level' and map any necessary columns. Note that the widget will prompt you to accept the required level of access.
+
+<span>*![custom-widget-configuration](images/widget-custom/custom-widget-configuration.png)*</span>
+{: .screenshot-half }
+
+It can also be useful to link your custom widget to an existing widget on the same page so it only shows data related to a single, selected record. When adding a widget to the page, be sure to 'Select By' your selector widget. Learn more about [linking widgets](linking-widgets.md).
+
+<span>*![custom-select-by](images/widget-custom/custom-select-by.png)*</span>
 {: .screenshot-half }
 
 ### Advanced Charts
 
 The Advanced Charts custom widget gives you more power and flexibility than Grist’s built-in charts, offering a wide variety of chart types as well as increased control over styling and layout. It’s a version of Plotly’s [Chart Studio](https://chart-studio.plotly.com/), see their [tutorials](https://plotly.com/chart-studio-help/tutorials/) for more detailed help.
 
-You’ll need to set the access level to “Full document access”. Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.
+You’ll need to set the access level to 'Full document access'.
+
+<span class="screenshot-large">*![custom-advanced-charts-access](images/widget-custom/custom-advanced-charts-access.png)*</span>
+{: .screenshot-half }
+
+Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.
 
 This is what you should see:
 
-![advanced-chart-blank-traces-panel](./images/widget-custom/advanced-chart-blank-traces-panel.png)
+<span class="screenshot-large">*![advanced-chart-blank-traces-panel](./images/widget-custom/advanced-chart-blank-traces-panel.png)*</span>
 
-Click the big blue “+ Trace” button to get started. This will add a panel like the following:
+Click the big blue '+ Trace' button to get started. This will add a panel like the following:
 
-![advanced-chart-blank-trace](./images/widget-custom/advanced-chart-blank-trace.png)
+<span class="screenshot-large">*![advanced-chart-blank-trace](./images/widget-custom/advanced-chart-blank-trace.png)*</span>
+{: .screenshot-half }
 
-Click “Scatter” to choose a different chart type such as Bar or Line. Then click the “Choose data” dropdowns to select the columns you want to plot.
+Click 'Scatter' to choose a different chart type such as Bar or Line. Then click the X and Y dropdowns to select the columns you want to plot.
 
 You can add multiple traces to overlay different plots. Try different panels from the sidebar to customize the chart further. For example, go to Style > Axes > Titles to add a label to each axis. See the [chart studio tutorials](https://plotly.com/chart-studio-help/tutorials/) to learn more.
 
@@ -458,14 +487,12 @@ View and access files saved to dropbox.
 <span class="screenshot-large">*![dropbox-embedder-widget](images/widget-custom/dropbox-embedder-widget.png)*</span>
 {: .screenshot-half }
 
-To start, add a new column to your table to store your dropbox links.
-
-Then, add a new custom widget to the page. Choose the data table that contains the dropbox links and 'Select By' that same table.
+With this widget, it's useful to link it to another widget on the page. When selecting the data table that contains the dropbox links, be sure to 'Select By' that same table.
 
 <span class="screenshot-large">*![dropbox-add-widget](images/widget-custom/dropbox-add-widget.png)*</span>
 {: .screenshot-half }
 
-To configure, select 'Dropbox Embedder' from the Custom dropdown and allow access to read the selected table. Under 'Dropbox Link', select the column that contains your dropbox links.
+To configure, allow access to read the selected table. Then, under 'Dropbox Link', select the column that contains your dropbox links.
 
 <span class="screenshot-large">*![dropbox-embedder-configuration](images/widget-custom/dropbox-embedder-configuration.png)*</span>
 {: .screenshot-half }
@@ -484,14 +511,7 @@ Embed videos from online sources like YouTube, Vimeo, Facebook Video, Google Dri
 
 *![video-player](images/widget-custom/video-player.png)*
 
-To start, add a new column to your table to store your video URLs.
-
-Then, add a new custom widget to the page. Choose the data table that contains the video URLs and 'Select By' that same table.
-
-<span class="screenshot-large">*![video-player-add-widget](images/widget-custom/video-player-add-widget.png)*</span>
-{: .screenshot-half }
-
-To configure, select 'Grist Video Player' from the Custom dropdown and allow access to read the selected table. Under 'URL', select the column that contains your video URLs.
+You will need to add a new column in your table to store your video URLs. Select this column under the 'URL' dropdown when configuring your custom widget.
 
 <span class="screenshot-large">*![video-player-configuration](images/widget-custom/video-player-configuration.png)*</span>
 {: .screenshot-half }
@@ -534,14 +554,9 @@ For text-editing widgets, check out our [Markdown](#markdown) and [Notepad](#not
 
 *![html-viewer](images/widget-custom/html-viewer.png)*
 
-To start, add a new column to your table. This will be where you add you write HTML.
+You will need a text column in your table where you will write the text and HTML formatting.
 
-Then, add a new custom widget to the page. Choose the data table that contains the HTML and 'Select By' that same table.
-
-<span class="screenshot-large">*![html-viewer-add-widget](images/widget-custom/html-viewer-add-widget.png)*</span>
-{: .screenshot-half }
-
-To configure, select 'HTML Viewer' from the Custom dropdown and allow access to read the selected table. Under 'HTML', select the text column that contains your HTML.
+When configuring your custom widget, allow access to read the selected table. Under 'HTML', select the text column that contains your HTML.
 
 <span class="screenshot-large">*![html-viewer-configurationt](images/widget-custom/html-viewer-configuration.png)*</span>
 {: .screenshot-half }
@@ -556,18 +571,13 @@ You can find an example of the HTML Viewer in our [Webinar 7 (Custom Widgets)](h
 
 ### Image Viewer
 
-View images from URL.
+View images from a URL.
 
 *![image-viewer](images/widget-custom/image-viewer.png)*
 
-To start, add a new column to your table. This will be where you add the URL for your image.
+Your table will need to include a column to store the URL for your image.
 
-Then, add a new custom widget to the page. Choose the data table that contains the image URL and 'Select By' that same table.
-
-<span class="screenshot-large">*![image-viewer-add-widget](images/widget-custom/image-viewer-add-widget.png)*</span>
-{: .screenshot-half }
-
-To configure, select 'Image Viewer' from the Custom dropdown and allow access to read the selected table. Under 'Image URL', select the column that contains the URLs for your images.
+To configure, allow access to read the selected table. Under 'Image URL', select the column that contains the URLs for your images.
 
 <span class="screenshot-large">*![image-viewer-configuration](images/widget-custom/image-viewer-configuration.png)*</span>
 {: .screenshot-half }
@@ -587,7 +597,7 @@ When multiple image URLs are present, the image viewer custom widget will functi
 <span class="screenshot-large">*![image-viewer-park-multiple](images/widget-custom/image-viewer-multiple.png)*</span>
 {: .screenshot-half }
 
-For an example of the Image Viewer widget, check out our [U.S. National Park Database](https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4){:target="\_blank"}, and add a park review while you're there!
+For an example of the Image Viewer custom widget, check out our [U.S. National Park Database](https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4){:target="\_blank"}, and add a park review while you're there!
 
 You can also check out our [Meme Generator](https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator){:target="\_blank"} template for another great example.
 
@@ -650,12 +660,7 @@ If you wish to convert all records, you can make Geocode a formula column with t
 <span class="screenshot-large">*![map-geocode-true](images/widget-custom/map-geocode-true.png)*</span>
 {: .screenshot-half }
 
-Next, add a new custom widget to the page. Choose the data table that contains the addresses or lat-long coordinates and 'Select By' that same table.
-
-<span class="screenshot-large">*![map-add-widget](images/widget-custom/map-add-widget.png)*</span>
-{: .screenshot-half }
-
-To configure, select 'Map' from the Custom dropdown.
+To configure, set the appropriate access level for the widget. 
 
 If you already have **lat-long coordinates**, you can set your access level to *Read selected table*.
 
@@ -683,20 +688,15 @@ For a video walkthrough, check out our [Custom Widgets Webinar](https://www.yout
 
 ### Markdown
 
-The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget.
+The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget. 
 
 For other text-editing widgets, check out our [HTML](#html-viewer) and [Notepad](#notepad) custom widgets.
 
 *![markdown-widget](images/widget-custom/markdown-widget.png)*
 
-To start, add a new column to your table. This will be where you will add your text that will be formatted using Markdown.
+You table will need to include a text column where your Markdown-formatted text will be stored.
 
-Then, add a new custom widget to the page. Choose the data table that contains the text formatted with Markdown and 'Select By' that same table.
-
-<span class="screenshot-large">*![markdown-add-widget](images/widget-custom/markdown-add-widget.png)*</span>
-{: .screenshot-half }
-
-To configure, select 'Markdown' from the Custom dropdown and allow **Full document access**. Because the widget is also an editor, it needs permission to write to the document.
+Configure the Markdown custom widget by allowing **Full document access**. Because the widget is also an editor, it needs permission to write directly to the document.
 
 Under 'Content', select the text column that contains Markdown formatting.
 
@@ -707,7 +707,7 @@ Any Markdown formatting in the specified text column will apply and be viewable 
 
 *![markdown-final](images/widget-custom/markdown-final.png)*
 
-To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text.
+To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text. 
 
 <span class="screenshot-large">*![markdown-edit](images/widget-custom/markdown-edit.png)*</span>
 {: .screenshot-half }
@@ -715,6 +715,8 @@ To edit the text directly in the widget, click the edit icon. The text will reve
 For help on Markdown formatting, check out the [Markdown Guide](https://www.markdownguide.org/basic-syntax/){:target="\_blank"} for basic syntax. This guide is also accessible in the Markdown widget by clicking the information icon at the top of the widget. The guide will open in a new tab of your browser for easy reference.
 
 You can find an example of the Markdown editor in our [Webinar 7 (Custom Widgets)](https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result){:target="\_blank"} template and check out this video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=1339s){:target="\_blank"}.
+
+If you prefer to see your text formatted directly in the table, you can use the [Markdown cell format](col-types.md#markdown).
 
 ### Notepad
 
@@ -724,16 +726,11 @@ For other text-editing widgets, check out our [HTML](#html-viewer) and [Markdown
 
 *![notepad-widget](images/widget-custom/notepad-widget.png)*
 
-To start, add a new column to your table. This will be where details for our formatted text will be stored.
+The underlying data table will need to include a column where the formatted text will be stored.
 
-Then, add a new custom widget to the page. Choose the data table that contains the column we just added and 'Select By' that same table.
+When configuring, allow **Full document access**. Because the widget is also an editor, it needs permission to write to the document.
 
-<span class="screenshot-large">*![notepad-add-widget](images/widget-custom/notepad-add-widget.png)*</span>
-{: .screenshot-half }
-
-To configure, select 'Notepad' from the Custom dropdown and allow **Full document access**. Because the widget is also an editor, it needs permission to write to the document.
-
-Under 'Content', select the column created to store our formatted text.
+Under 'Content', select the column created to store the formatted text.
 
 <span class="screenshot-large">*![notepad-configuration](images/widget-custom/notepad-configuration.png)*</span>
 {: .screenshot-half }
@@ -760,16 +757,11 @@ The Print Labels custom widget allows you to customize and print labels directly
 
 *![print-label](images/widget-custom/print-label.png)*
 
-To start, add a new column to your table. This column will contain the text for the label. Optionally, you can add a second column to specify a label count, allowing you to print more than one of the same label without having to create duplicate records.
+Your table should include a column that will contain the text for the label. Optionally, you can add a second column to specify a label count, allowing you to print more than one of the same label without having to create duplicate records.
 
-Next, add a new custom widget to the page. Choose the data table that contains the label details.
+To configure, allow access to read the selected table. Under 'Label', select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.
 
-<span class="screenshot-large">*![print-label-add-widget](images/widget-custom/print-label-add-widget.png)*</span>
-{: .screenshot-half }
-
-To configure, select 'Print Labels' from the Custom dropdown and allow access to read the selected table. Under 'Label', select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.
-
-<span class="screenshot-large">*![print-label-configuration](images/widget-custom/print-label-configuration.png)*</span>
+<span>*![print-label-configuration](images/widget-custom/print-label-configuration.png)*</span>
 {: .screenshot-half }
 
 You can select from standard sheet sizes under the dropdown in the upper left of the widget. Be sure to save any changes by clicking the green check mark at the upper right of the widget.
