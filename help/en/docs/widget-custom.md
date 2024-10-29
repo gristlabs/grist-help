@@ -716,7 +716,7 @@ For help on Markdown formatting, check out the [Markdown Guide](https://www.mark
 
 You can find an example of the Markdown editor in our [Webinar 7 (Custom Widgets)](https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result){:target="\_blank"} template and check out this video walkthrough from our [Custom Widgets Webinar](https://www.youtube.com/watch?v=zNLHX_ezY50&t=1339s){:target="\_blank"}.
 
-If you prefer to see your text formatted directly in the table, you can use the [Markdown cell format](col-types.md#markdown)
+If you prefer to see your text formatted directly in the table, you can use the [Markdown cell format](col-types.md#markdown).
 
 ### Notepad
 
