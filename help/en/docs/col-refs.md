@@ -96,19 +96,19 @@ Two-way references will respect if a column is a Reference or Reference List. Fo
 The **Project** `Newsletter template` is already assigned to the **Client** `Prime Builders International`. What happens if we try to assign this project to `ABC Construction Company`?
 
 *![two-way-error-1](images/columns/two-way-error-1.png)*
-{: .screenshot-half }
 
 A pop-up will appear that tells us the record is already assigned. If needed, you can reassign the record to the new **Client** by checking the box.
 
 *![two-way-error-2](images/columns/two-way-error-2.png)*
 {: .screenshot-half }
 
-To delete a two-way reference, select the refernce column you wish to keep then in the Creator Panel, click the trash icon next to 'Two-Way Reference'. This will delete the reference column in the target table. For example, when the **Client** column in the *Projects* table is selected, clicking the trash icon will delete the **Projects** column in the target table, *Clients*.
+To delete a two-way reference, select the reference column you wish to keep. Then in the Creator Panel, click the trash icon next to 'Two-Way Reference'. This will delete the reference column in the target table. For example, when the **Client** column in the *Projects* table is selected, clicking the trash icon will delete the **Projects** column in the target table, *Clients*.
 
 *![two-way-delete](images/columns/two-way-delete.png)*
-{: .screenshot-half }
 
-Alternatively, you can delete a two-way reference simply by selecting the column then by either selecting 'Delete column' from the column options menu or using the <code class="keys">*Alt* + *Minus*</code> keyboard shortcut.
+Alternatively, you can delete a two-way reference by selecting the column then by either selecting 'Delete column' from the column menu or using the <code class="keys">*Alt* + *Minus*</code> keyboard shortcut.
+
+Please note that two-way references cannot be used on [Formula](formulas.md) columns.
 
 ## Converting Text column to Reference
 
