@@ -79,7 +79,7 @@ the underlying table and insert the proper reference:
 *![Add reference value](images/column-ref-add-value.png)*
 {: .screenshot-half }
 
-## Creating a two-way Reference
+## Two-way References
 
 By default, new reference columns are added to a table as one-way references. This means they exist only as a single column within that specific table. Grist also allows you to configure a reference column with two-way references. This creates a new column in the referenced (or target) table, meaning that references between the two will be shown in both tables and remain synchronized.
 
@@ -90,6 +90,25 @@ For example, we can make the existing reference column, **Client**, a two-way re
 This creates a new reference column in the referenced table, *Clients*. Since there can be multiple projects for a single client, the automatically-created **Projects** column is a [Reference List](col-types.md#reference-list-columns). When part of a two-way reference, updates made in one column will be reflected in the other.
 
 *![two-way-ref-2](images/columns/two-way-ref-2.png)*
+
+Two-way references will respect if a column is a Reference or Reference List. For example, the **Client** column in the *Projects* table is a Reference column, meaning only one **Client** can be assigned to each project.
+
+The **Project** `Newsletter template` is already assigned to the **Client** `Prime Builders International`. What happens if we try to assign this project to `ABC Construction Company`?
+
+*![two-way-error-1](images/columns/two-way-error-1.png)*
+{: .screenshot-half }
+
+A pop-up will appear that tells us the record is already assigned. If needed, you can reassign the record to the new **Client** by checking the box.
+
+*![two-way-error-2](images/columns/two-way-error-2.png)*
+{: .screenshot-half }
+
+To delete a two-way reference, select the refernce column you wish to keep then in the Creator Panel, click the trash icon next to 'Two-Way Reference'. This will delete the reference column in the target table. For example, when the **Client** column in the *Projects* table is selected, clicking the trash icon will delete the **Projects** column in the target table, *Clients*.
+
+*![two-way-delete](images/columns/two-way-delete.png)*
+{: .screenshot-half }
+
+Alternatively, you can delete a two-way reference simply by selecting the column then by either selecting 'Delete column' from the column options menu or using the <code class="keys">*Alt* + *Minus*</code> keyboard shortcut.
 
 ## Converting Text column to Reference
 
