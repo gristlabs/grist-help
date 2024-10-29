@@ -1045,7 +1045,8 @@ then <code>Add Widget to Page</code>. Then:</p>
 <ul>
 <li>For <code>Select Widget</code> choose <code>Custom</code> to get a Custom Widget.</li>
 <li>For <code>Select Data</code> choose the table you want the widget to read data from.</li>
-<li>Optionally, choose <code>Select By</code> to control the selected data further (read <a href="../linking-widgets/">Linking Page Widgets</a> for the possibilities).</li>
+<li>Optionally, choose <code>Select By</code> to control the selected data further (read <a href="../linking-widgets/">Linking Page Widgets</a> 
+  for the possibilities).</li>
 </ul>
 <p><img alt="add a custom widget" src="../images/widget_custom_add.png" /></p>
 <p>The custom widget is initially blank.  To configure it, click the three-dots button
@@ -1307,16 +1308,30 @@ grist.setCursorPos({rowId: 20});
 grist.setCursorPos({rowId: 'new'});
 </code></pre>
 <h2 id="premade-custom-widgets">Premade Custom Widgets<a class="headerlink" href="#premade-custom-widgets" title="Permanent link">#</a></h2>
-<p>All premade custom widgets are available in the Custom Widget configuration panel on the right-hand side of the screen under the Custom dropdown.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="premade-widgets" src="../images/widget-custom/premade-widgets.png" /></em></span></p>
+<p>Add a custom widget to your Grist document by adding a new widget to the page and selecting &lsquo;Custom&rsquo; as your widget.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="custom-add-widget" src="../images/widget-custom/custom-add-widget.png" /></em></span></p>
+<p>After clicking the green &lsquo;Add to Page&rsquo; button, you will be prompted to select from a list of premade widgets. </p>
+<p><span class="screenshot-large"><em><img alt="custom-choose-widget" src="../images/widget-custom/custom-choose-widget.png" /></em></span></p>
+<p>You also have the option to add your own widget using the Custom URL selection.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="custom-custom-url" src="../images/widget-custom/custom-custom-url.png" /></em></span></p>
+<div class="admonition note">
+<p class="admonition-title">Community Widget</p>
+<p>Have you created a great custom widget? Show it off in our <a href="https://community.getgrist.com/c/showcase/8"><em>#showcase</em></a> category in our <a href="https://community.getgrist.com">Community Forum</a>!</p>
+</div>
+<p>Many premade custom widgets will require some configuration once added to your document. Click the green vertical bar in the upper-right corner of the page to open the Creator Panel. Under the &lsquo;Custom&rsquo; tab, you will configure &lsquo;Access Level&rsquo; and map any necessary columns. Note that the widget will prompt you to accept the required level of access.</p>
+<p class="screenshot-half"><span><em><img alt="custom-widget-configuration" src="../images/widget-custom/custom-widget-configuration.png" /></em></span></p>
+<p>It can also be useful to link your custom widget to an existing widget on the same page so it only shows data related to a single, selected record. When adding a widget to the page, be sure to &lsquo;Select By&rsquo; your selector widget. Learn more about <a href="../linking-widgets/">linking widgets</a>.</p>
+<p class="screenshot-half"><span><em><img alt="custom-select-by" src="../images/widget-custom/custom-select-by.png" /></em></span></p>
 <h3 id="advanced-charts">Advanced Charts<a class="headerlink" href="#advanced-charts" title="Permanent link">#</a></h3>
 <p>The Advanced Charts custom widget gives you more power and flexibility than Grist’s built-in charts, offering a wide variety of chart types as well as increased control over styling and layout. It’s a version of Plotly’s <a href="https://chart-studio.plotly.com/">Chart Studio</a>, see their <a href="https://plotly.com/chart-studio-help/tutorials/">tutorials</a> for more detailed help.</p>
-<p>You’ll need to set the access level to “Full document access”. Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.</p>
+<p>You’ll need to set the access level to &lsquo;Full document access&rsquo;.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="custom-advanced-charts-access" src="../images/widget-custom/custom-advanced-charts-access.png" /></em></span></p>
+<p>Don’t worry, the widget only reads data from the selected table, doesn’t send it to any servers, and doesn’t write or otherwise make changes back to your document.</p>
 <p>This is what you should see:</p>
-<p><img alt="advanced-chart-blank-traces-panel" src="../images/widget-custom/advanced-chart-blank-traces-panel.png" /></p>
-<p>Click the big blue “+ Trace” button to get started. This will add a panel like the following:</p>
-<p><img alt="advanced-chart-blank-trace" src="../images/widget-custom/advanced-chart-blank-trace.png" /></p>
-<p>Click “Scatter” to choose a different chart type such as Bar or Line. Then click the “Choose data” dropdowns to select the columns you want to plot.</p>
+<p><span class="screenshot-large"><em><img alt="advanced-chart-blank-traces-panel" src="../images/widget-custom/advanced-chart-blank-traces-panel.png" /></em></span></p>
+<p>Click the big blue &lsquo;+ Trace&rsquo; button to get started. This will add a panel like the following:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="advanced-chart-blank-trace" src="../images/widget-custom/advanced-chart-blank-trace.png" /></em></span></p>
+<p>Click &lsquo;Scatter&rsquo; to choose a different chart type such as Bar or Line. Then click the X and Y dropdowns to select the columns you want to plot.</p>
 <p>You can add multiple traces to overlay different plots. Try different panels from the sidebar to customize the chart further. For example, go to Style &gt; Axes &gt; Titles to add a label to each axis. See the <a href="https://plotly.com/chart-studio-help/tutorials/">chart studio tutorials</a> to learn more.</p>
 <p>As you customize the widget, remember to regularly click the ‘Save’ button above the widget to keep your configuration.</p>
 <h3 id="copy-to-clipboard">Copy to clipboard<a class="headerlink" href="#copy-to-clipboard" title="Permanent link">#</a></h3>
@@ -1327,10 +1342,9 @@ grist.setCursorPos({rowId: 'new'});
 <h3 id="dropbox-embedder">Dropbox Embedder<a class="headerlink" href="#dropbox-embedder" title="Permanent link">#</a></h3>
 <p>View and access files saved to dropbox.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-widget" src="../images/widget-custom/dropbox-embedder-widget.png" /></em></span></p>
-<p>To start, add a new column to your table to store your dropbox links.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the dropbox links and &lsquo;Select By&rsquo; that same table.</p>
+<p>With this widget, it&rsquo;s useful to link it to another widget on the page. When selecting the data table that contains the dropbox links, be sure to &lsquo;Select By&rsquo; that same table.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-add-widget" src="../images/widget-custom/dropbox-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Dropbox Embedder&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Dropbox Link&rsquo;, select the column that contains your dropbox links.</p>
+<p>To configure, allow access to read the selected table. Then, under &lsquo;Dropbox Link&rsquo;, select the column that contains your dropbox links.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-configuration" src="../images/widget-custom/dropbox-embedder-configuration.png" /></em></span></p>
 <p>You can create links to folders or specific files in Dropbox. Click &lsquo;Share&rsquo; then set permissions for the link. You can choose to allow anyone with the link to view or edit. Create, then copy the link. Paste this link into your Dropbox Link column in Grist. Note that users cannot edit directly in the custom widget even if edit permissions are granted. To edit, select the object in the Dropbox Embedder and it will open in a new tab where it can be edited directly in Dropbox.</p>
 <p><span class="screenshot-large"><em><img alt="dropbox-embedder-create-link" src="../images/widget-custom/dropbox-embedder-create-link.png" /></em></span></p>
@@ -1339,10 +1353,7 @@ grist.setCursorPos({rowId: 'new'});
 <h3 id="grist-video-player">Grist Video Player<a class="headerlink" href="#grist-video-player" title="Permanent link">#</a></h3>
 <p>Embed videos from online sources like YouTube, Vimeo, Facebook Video, Google Drive and more.</p>
 <p><em><img alt="video-player" src="../images/widget-custom/video-player.png" /></em></p>
-<p>To start, add a new column to your table to store your video URLs.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the video URLs and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-add-widget" src="../images/widget-custom/video-player-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Grist Video Player&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;URL&rsquo;, select the column that contains your video URLs.</p>
+<p>You will need to add a new column in your table to store your video URLs. Select this column under the &lsquo;URL&rsquo; dropdown when configuring your custom widget.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-configuration" src="../images/widget-custom/video-player-configuration.png" /></em></span></p>
 <p>For most online videos, including YouTube videos and videos stored on Google Drive, you can simply click the &lsquo;Share&rsquo; option and copy the URL.</p>
 <p><em><img alt="youtube-embed" src="../images/widget-custom/youtube-embed.png" /></em></p>
@@ -1363,22 +1374,18 @@ grist.setCursorPos({rowId: 'new'});
 <p>The HTML viewer displays HTML written in a cell.</p>
 <p>For text-editing widgets, check out our <a href="#markdown">Markdown</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
 <p><em><img alt="html-viewer" src="../images/widget-custom/html-viewer.png" /></em></p>
-<p>To start, add a new column to your table. This will be where you add you write HTML.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the HTML and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-add-widget" src="../images/widget-custom/html-viewer-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;HTML Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;HTML&rsquo;, select the text column that contains your HTML.</p>
+<p>You will need a text column in your table where you will write the text and HTML formatting.</p>
+<p>When configuring your custom widget, allow access to read the selected table. Under &lsquo;HTML&rsquo;, select the text column that contains your HTML.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-configurationt" src="../images/widget-custom/html-viewer-configuration.png" /></em></span></p>
 <p>Your HTML will be viewable in the custom widget.</p>
 <p><em><img alt="html-viewer-final-example" src="../images/widget-custom/html-viewer-final-example.png" /></em></p>
 <p>For help on HTML formatting, check out this guide from W3 Schools: <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank">HTML Text Formatting</a></p>
 <p>You can find an example of the HTML Viewer in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/1" target="_blank">Webinar 7 (Custom Widgets)</a> template. You can also watch a video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1538s" target="_blank">Custom Widgets Webinar</a>.</p>
 <h3 id="image-viewer">Image Viewer<a class="headerlink" href="#image-viewer" title="Permanent link">#</a></h3>
-<p>View images from URL.</p>
+<p>View images from a URL.</p>
 <p><em><img alt="image-viewer" src="../images/widget-custom/image-viewer.png" /></em></p>
-<p>To start, add a new column to your table. This will be where you add the URL for your image.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the image URL and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-add-widget" src="../images/widget-custom/image-viewer-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Image Viewer&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Image URL&rsquo;, select the column that contains the URLs for your images.</p>
+<p>Your table will need to include a column to store the URL for your image.</p>
+<p>To configure, allow access to read the selected table. Under &lsquo;Image URL&rsquo;, select the column that contains the URLs for your images.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-configuration" src="../images/widget-custom/image-viewer-configuration.png" /></em></span></p>
 <p>To copy the URL for an image, right click on the photo then &lsquo;Copy image address&rsquo;. This copies the URL to your clipboard. Paste this URL into your specified column in Grist.</p>
 <p><em><img alt="image-viewer-save-image" src="../images/widget-custom/image-viewer-save-image.png" /></em></p>
@@ -1387,7 +1394,7 @@ grist.setCursorPos({rowId: 'new'});
 <p><em><img alt="image-viewer-multiple-links" src="../images/widget-custom/image-viewer-multiple-links.png" /></em></p>
 <p>When multiple image URLs are present, the image viewer custom widget will function as a carousel. Click the arrows to view additional images.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-park-multiple" src="../images/widget-custom/image-viewer-multiple.png" /></em></span></p>
-<p>For an example of the Image Viewer widget, check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">U.S. National Park Database</a>, and add a park review while you&rsquo;re there!</p>
+<p>For an example of the Image Viewer custom widget, check out our <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">U.S. National Park Database</a>, and add a park review while you&rsquo;re there!</p>
 <p>You can also check out our <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Meme Generator</a> template for another great example.</p>
 <p>For a video walkthrough, be sure to watch our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Custom Widgets Webinar</a>!</p>
 <h3 id="jupyterlite-notebook">JupyterLite Notebook<a class="headerlink" href="#jupyterlite-notebook" title="Permanent link">#</a></h3>
@@ -1431,9 +1438,7 @@ grist.setCursorPos({rowId: 'new'});
 <p>Geocode is a <a href="../col-types/#toggle-columns">toggle type column</a> that should be set to true for any record you wish to convert from address to lat-long coordinates to be shown on the map.</p>
 <p>If you wish to convert all records, you can make Geocode a formula column with the formula = <code>True</code>. This will mark all records as True.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-geocode-true" src="../images/widget-custom/map-geocode-true.png" /></em></span></p>
-<p>Next, add a new custom widget to the page. Choose the data table that contains the addresses or lat-long coordinates and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-add-widget" src="../images/widget-custom/map-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Map&rsquo; from the Custom dropdown.</p>
+<p>To configure, set the appropriate access level for the widget. </p>
 <p>If you already have <strong>lat-long coordinates</strong>, you can set your access level to <em>Read selected table</em>.</p>
 <p>If you are using an <strong>address</strong> and that needs to be converted into lat-long coordinates, you will need to set your access level to <em>Full document access</em> because the widget needs permission to write to your document in order to add lat-long coordinates.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-1" src="../images/widget-custom/map-configuration-1.png" /></em></span></p>
@@ -1446,30 +1451,27 @@ grist.setCursorPos({rowId: 'new'});
 <p>Check out our <a href="https://templates.getgrist.com/pyMHqncEspfZ/Mapping-Locations" target="_blank">Mapping Locations</a> template or our <a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">Crowdsourced List</a> for two great examples!</p>
 <p>For a video walkthrough, check out our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=713s" target="_blank">Custom Widgets Webinar</a>.</p>
 <h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">#</a></h3>
-<p>The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget.</p>
+<p>The Markdown custom widget allows you to format text using Markdown while displaying the formatted text in an editable widget. </p>
 <p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#notepad">Notepad</a> custom widgets.</p>
 <p><em><img alt="markdown-widget" src="../images/widget-custom/markdown-widget.png" /></em></p>
-<p>To start, add a new column to your table. This will be where you will add your text that will be formatted using Markdown.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the text formatted with Markdown and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-add-widget" src="../images/widget-custom/markdown-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Markdown&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
+<p>You table will need to include a text column where your Markdown-formatted text will be stored.</p>
+<p>Configure the Markdown custom widget by allowing <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write directly to the document.</p>
 <p>Under &lsquo;Content&rsquo;, select the text column that contains Markdown formatting.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-configuration" src="../images/widget-custom/markdown-configuration.png" /></em></span></p>
 <p>Any Markdown formatting in the specified text column will apply and be viewable and editable in the custom widget.</p>
 <p><em><img alt="markdown-final" src="../images/widget-custom/markdown-final.png" /></em></p>
-<p>To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text.</p>
+<p>To edit the text directly in the widget, click the edit icon. The text will revert to display Markdown syntax that can be edited directly in the widget. When in edit mode, the edit icon will be replaced with the save icon. Be sure to click the save icon to save any changes and return to viewing the formatted text. </p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-edit" src="../images/widget-custom/markdown-edit.png" /></em></span></p>
 <p>For help on Markdown formatting, check out the <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown Guide</a> for basic syntax. This guide is also accessible in the Markdown widget by clicking the information icon at the top of the widget. The guide will open in a new tab of your browser for easy reference.</p>
 <p>You can find an example of the Markdown editor in our <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result" target="_blank">Webinar 7 (Custom Widgets)</a> template and check out this video walkthrough from our <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1339s" target="_blank">Custom Widgets Webinar</a>.</p>
+<p>If you prefer to see your text formatted directly in the table, you can use the <a href="../col-types/#markdown">Markdown cell format</a>.</p>
 <h3 id="notepad">Notepad<a class="headerlink" href="#notepad" title="Permanent link">#</a></h3>
 <p>The Notepad custom widget allows you to format text using a rich text editor.</p>
 <p>For other text-editing widgets, check out our <a href="#html-viewer">HTML</a> and <a href="#markdown">Markdown</a> custom widgets.</p>
 <p><em><img alt="notepad-widget" src="../images/widget-custom/notepad-widget.png" /></em></p>
-<p>To start, add a new column to your table. This will be where details for our formatted text will be stored.</p>
-<p>Then, add a new custom widget to the page. Choose the data table that contains the column we just added and &lsquo;Select By&rsquo; that same table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-add-widget" src="../images/widget-custom/notepad-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Notepad&rsquo; from the Custom dropdown and allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
-<p>Under &lsquo;Content&rsquo;, select the column created to store our formatted text.</p>
+<p>The underlying data table will need to include a column where the formatted text will be stored.</p>
+<p>When configuring, allow <strong>Full document access</strong>. Because the widget is also an editor, it needs permission to write to the document.</p>
+<p>Under &lsquo;Content&rsquo;, select the column created to store the formatted text.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-configuration" src="../images/widget-custom/notepad-configuration.png" /></em></span></p>
 <p>If the text column you chose under Content has existing text, that text will appear in the Notepad widget, ready to be formatted.</p>
 <p><em><img alt="notepad-saved-text" src="../images/widget-custom/notepad-saved-text.png" /></em></p>
@@ -1482,11 +1484,9 @@ grist.setCursorPos({rowId: 'new'});
 <h3 id="print-labels">Print Labels<a class="headerlink" href="#print-labels" title="Permanent link">#</a></h3>
 <p>The Print Labels custom widget allows you to customize and print labels directly from Grist.</p>
 <p><em><img alt="print-label" src="../images/widget-custom/print-label.png" /></em></p>
-<p>To start, add a new column to your table. This column will contain the text for the label. Optionally, you can add a second column to specify a label count, allowing you to print more than one of the same label without having to create duplicate records.</p>
-<p>Next, add a new custom widget to the page. Choose the data table that contains the label details.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-add-widget" src="../images/widget-custom/print-label-add-widget.png" /></em></span></p>
-<p>To configure, select &lsquo;Print Labels&rsquo; from the Custom dropdown and allow access to read the selected table. Under &lsquo;Label&rsquo;, select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="print-label-configuration" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
+<p>Your table should include a column that will contain the text for the label. Optionally, you can add a second column to specify a label count, allowing you to print more than one of the same label without having to create duplicate records.</p>
+<p>To configure, allow access to read the selected table. Under &lsquo;Label&rsquo;, select the column that contains the text to include on the labels. If you wish to print more than one of any labels, select the column that contains the number of labels for each record you wish to print.</p>
+<p class="screenshot-half"><span><em><img alt="print-label-configuration" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
 <p>You can select from standard sheet sizes under the dropdown in the upper left of the widget. Be sure to save any changes by clicking the green check mark at the upper right of the widget.</p>
 <p><em><img alt="print-label-sheet-configuration" src="../images/widget-custom/print-label-sheet-configuration.png" /></em></p>
 <p>To leave any blank labels at the beginning of the sheet, click the settings icon then specify how many labels should be left blank. This is especially helpful if a portion of your label sheet has already been used. You can skip the used labels and begin printing on your first unused label.</p>
