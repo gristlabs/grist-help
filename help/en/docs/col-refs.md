@@ -93,7 +93,7 @@ This creates a new reference column in the referenced table, *Clients*. Since th
 
 Two-way references will respect if a column is a Reference or Reference List. For example, the **Client** column in the *Projects* table is a Reference column, meaning only one **Client** can be assigned to each project.
 
-The **Project** `Newsletter template` is already assigned to the **Client** `Prime Builders International`. What happens if we try to assign this project to `ABC Construction Company`?
+The **Project** "Newsletter template" is already assigned to the **Client** "Prime Builders International". What happens if we try to assign this project to "ABC Construction Company"?
 
 *![two-way-error-1](images/columns/two-way-error-1.png)*
 
