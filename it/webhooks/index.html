@@ -994,8 +994,7 @@ the processing of the webhook. Not all fields are required.</p>
   triggers when adding a row, it does not matter which columns are defined
   when the new row is added.</li>
 <li><strong>Ready column</strong> (optional): A boolean, or <a href="../col-types/#toggle-columns">Toggle</a>, column on the table that
-  determines if the row should trigger the webhook or not. When the
-  column becomes true, the corresponding row will trigger the webhook.</li>
+  determines if the row is visible to webhooks. While the toggle in the &ldquo;Ready column&rdquo; is false, changes to that row do not trigger the webhook. When the column becomes true, the row becomes visible to the webhook, and triggers the &ldquo;add&rdquo; event. While the column is true, further changes to the row trigger &ldquo;update&rdquo; events.</li>
 <li><strong>URL</strong>: The remote URL of the service that the webhook will notify
   of added or changed rows. When self-hosting, only external services
   listed by the <a href="https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables"><code>ALLOWED_WEBHOOK_DOMAINS</code> environment variable</a>
