@@ -768,6 +768,8 @@ An interactive method for controlling telemetry is only
 available for Grist Core builds currently. In all cases,
 the default is to not send telemetry.
 
+### How do I monitor audit log events? {: .tag-core .tag-ee }
+
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
 We currently release new Grist Core and Enterprise images at
