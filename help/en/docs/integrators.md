@@ -32,6 +32,8 @@ records in Grist tables.
 
 ## Example: Storing form submissions
 
+This example uses a third-party form provider to demonstrate using Zapier to send form data to Grist. Note that Grist has a built-in form feature that allows you to create native forms directly within your Grist document, making it easy to collect and manage form responses without third-party tools. For more information, see [Page widget: Form](widget-form.md).
+
 Suppose we have a form for collecting votes on the color of a proposed new bike
 shed:
 
