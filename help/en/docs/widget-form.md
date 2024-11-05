@@ -32,7 +32,7 @@ By default, the form view will include elements for headers and descriptions as 
 
 To add additional form elements, click the + icon at the bottom of the form. From the menu, you can add the following elements:
 
-1. **New Question:** Select a column type to create a new field. "••• More >" will open an expanded menu listing all column types. Adding a new question will add a new column to the underlying data table.
+1. **New Question:** Select a column type to create a new field. "••• More >" will open an expanded menu listing all column types. Adding a new question will add a new column to the underlying data table. This new column is hidden by default in existing table widgets within your document.
 2. **Unmapped Fields:** Lists any hidden fields from the underlying data table.
 3. **Building Blocks:** Customize further by adding these additional elements!
 
