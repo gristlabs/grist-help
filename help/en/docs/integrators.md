@@ -36,7 +36,7 @@ records in Grist tables.
 
     **Note:** This example uses a third-party form provider to demonstrate using Zapier to send form data to Grist.
     
-    Grist now has built-in forms built directly within your Grist document, making it easy to collect and manage form responses without third-party tools. [Learn more](widget-form.md).
+    Grist now has native forms built directly within your Grist document, making it easy to collect and manage form responses without third-party tools. [Learn more](widget-form.md).
 
 Suppose we have a form for collecting votes on the color of a proposed new bike
 shed:
