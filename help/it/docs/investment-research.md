@@ -77,7 +77,8 @@ Per ottenere questo, cerchiamo una colonna che identifichi una azienda in modo u
 
 [^unique_id]: Se non esiste una colonna che identifica univocamente, puoi costruirne una con una formula.
 
-![7-set-reference](images/investment-research/7-set-reference.png) {: .screenshot-half }
+*![7-set-reference](images/investment-research/7-set-reference.png)*
+{: .screenshot-half }
 
 Grist suggerisce subito di renderla un "Riferimento" alla tabella Companies, e mostra la colonna "Permalink" della azienda collegata. Fai click su "Applica" per salvare questa conversione.
 
@@ -87,7 +88,7 @@ Rinominiamo anche questa colonna a “Company”.
 
 In Grist, i dati duplicati non sono necessarie e raccomandiamo di eliminarli. Usando la scorciatoia `Option-Meno` (Mac) o `Alt-Meno` (Windows) si possono rimuovere le colonne rapidamente. Dopo aver cancellato le colonne da “company_name” a “company_city”, ecco che cosa resta:
 
-<span class="screenshot-large"><em><img src="images/investment-research/9-remove-columns.png" alt="9-remove-columns"></em></span>
+<span class="screenshot-large">*![9-remove-columns](images/investment-research/9-remove-columns.png)*</span>
 
 I dati eliminati non sono perduti, dal momento che erano doppi: sono sempre disponibili nella tabella Companies e possono essere utilizzati nelle formule della tabella Investment, per esempio `$Company.company_xxx`.
 

@@ -42,11 +42,13 @@ Vogliamo che la colonna *Istruttore* nella tabella `Corsi` sia un riferimento al
 
 Fai click sulla pagina "Staff" e aggiungi una colonna "Nome esteso" usando il menu delle colonne o la scorciatoia <code class="keys">*Alt* + **=**</code>, quindi scrivi "Nome esteso" nell'intestazione della nuova colonna.
 
-<span class="screenshot-large"></span>![fullname-rename](images/afterschool-program/fullname-rename.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![fullname-rename](images/afterschool-program/fullname-rename.png)
+{: .screenshot-half }
 
 Crea una formula inserendo un valore in qualsiasi cella, ma iniziando con il segno uguale (“=”). In questo caso, la formula è `$Last_Name + ", " + $First_Name`{: .formula }. Puoi usare la sintassi di Excel per ottenere lo stesso effetto: `CONCAT($Last_Name, ", ", $First_Name)`{: .formula }.
 
-<span class="screenshot-large"></span>![fullname-formula](images/afterschool-program/fullname-formula.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![fullname-formula](images/afterschool-program/fullname-formula.png)
+{: .screenshot-half }
 
 - In Grist, una formula si applica sempre a tutti i record di una tabella.
 - Grist accetta formule scritte in Python, e la maggior parte delle formule di Excel (che hanno nomi maiuscoli).
@@ -63,13 +65,15 @@ Fai click sulla pagina "Staff" e apri le "Opzioni colonna" per la colonna "Istru
 
 Nel pannello di destra, imposta il tipo di colonna a "Riferimento" (ovvero una "chiave esterna", nel lessico dei database) e la tabella collegata a "Staff". Nel menu a tendina "Mostra colonna", scegli "Nome esteso", ossia la nuova colonna che abbiamo aggiunto.
 
-<span class="screenshot-large"></span>![instructor-ref](images/afterschool-program/instructor-ref.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![instructor-ref](images/afterschool-program/instructor-ref.png)
+{: .screenshot-half }
 
 Fai click sul pulsante "Applica" per completare il cambio del tipo di colonna (se la colonna è vuota non sarà chiesta conferma).
 
 Adesso puoi assegnare un istruttore a ciascun corso. Fai click su una cella nella colonna *Istruttore*. Adesso puoi inserire <code class="keys">*Invio*</code> e scegliere tra gli istruttori disponibili nella tabella `Staff`, o iniziare a scrivere e usare l'auto-completamento.
 
-<span class="screenshot-large"></span>![instructor-autocomplete](images/afterschool-program/instructor-autocomplete.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![instructor-autocomplete](images/afterschool-program/instructor-autocomplete.png)
+{: .screenshot-half }
 
 Adesso possiamo continuare con gli studenti e le loro iscrizioni.
 
@@ -81,7 +85,8 @@ Ogni corso ha un certo numero di studenti. Quindi abbiamo bisogno di una tabella
 
 Aggiungiamo anche qui una colonna "Nome esteso" con una formula, come nella tabella "Staff". Ci tornerà utile in seguito.
 
-<span class="screenshot-large"></span>![students-fullname](images/afterschool-program/students-fullname.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![students-fullname](images/afterschool-program/students-fullname.png)
+{: .screenshot-half }
 
 ## Relazione molti-a-molti
 
@@ -93,11 +98,13 @@ Nel design dei database, questa si chiama una "relazione molti-a-molti". La tabe
 
 Questa relazione
 
-<span class="screenshot-full"></span>![many-to-many-cross](images/many-to-many-cross.png) {: .screenshot-half }
+<span class="screenshot-full"></span>![many-to-many-cross](images/many-to-many-cross.png)
+{: .screenshot-half }
 
 diventa questa:
 
-<span class="screenshot-full"></span>![many-to-many-join](images/many-to-many-join.png) {: .screenshot-half }
+<span class="screenshot-full"></span>![many-to-many-join](images/many-to-many-join.png)
+{: .screenshot-half }
 
 Dunque, aggiungiamo una nuova tabella, chiamiamola "Iscrizioni", e aggiungiamo le colonne che ci servono. Anche qui, puoi importare i dati di esempio da [Enrollments.csv](./unlocalized-assets/afterschool-program/Enrollments.csv).
 
@@ -105,11 +112,13 @@ Dunque, aggiungiamo una nuova tabella, chiamiamola "Iscrizioni", e aggiungiamo l
 
 Nelle opzioni per la colonna "Student", imposta il tipo a "Riferimento", scegli `Studenti` come tabella collegata e "Nome esteso" come colonna da mostrare.
 
-<span class="screenshot-large"></span>![enrollments-student-col](images/afterschool-program/enrollments-student-col.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![enrollments-student-col](images/afterschool-program/enrollments-student-col.png)
+{: .screenshot-half }
 
 Adesso imposta il tipo a "Riferimento" anche per la colonna "Class", scegli la tabella `Corsi` da collegare e "Class Code" come colonna da mostrare.
 
-<span class="screenshot-large"></span>![enrollments-class-col](images/afterschool-program/enrollments-class-col.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![enrollments-class-col](images/afterschool-program/enrollments-class-col.png)
+{: .screenshot-half }
 
 Per aggiungere delle registrazioni è possibile inserire dei record in questa tabella, usando l'auto-completamento nelle colonne "Student" e "Class". Ma vedremo un modo più conveniente per iscrivere gli studenti.
 
@@ -119,15 +128,18 @@ Uno degli obiettivi, nella fase di pianificazione, era di poter vedere una lista
 
 Fai click su "Aggiungi nuovo", quindi "Aggiungi pagina" per selezionare i widget. Scegli la tabella "Corsi" e fai click su "Aggiungi pagina".
 
-<span class="screenshot-large"></span>![classlist-picker1](images/afterschool-program/classlist-picker1.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![classlist-picker1](images/afterschool-program/classlist-picker1.png)
+{: .screenshot-half }
 
 La nuova pagina mostra una lista di corsi. Rinominiamola "Vista corsi".
 
-<span class="screenshot-large"></span>![classlist-renaming](images/afterschool-program/classlist-renaming.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![classlist-renaming](images/afterschool-program/classlist-renaming.png)
+{: .screenshot-half }
 
 Ora, aggiungi la tabella `Iscrizioni` collegata a quella dei corsi. Fai click su "Aggiungi pagina", poi "Aggiungi widget a pagina". Seleziona un widget per mostrare la tabella `Iscrizioni`. Come "Seleziona da" scegli "Corsi", poi "Aggiungi a pagina".
 
-<span class="screenshot-large"></span>![classlist-picker2](images/afterschool-program/classlist-picker2.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![classlist-picker2](images/afterschool-program/classlist-picker2.png)
+{: .screenshot-half }
 
 Adesso abbiamo due tabelle affiancate. Selezionare un corso mosta tutte le iscrizioni a quel corso, con lo studente collegato e altre informazioni sull'iscrizione.
 
@@ -135,11 +147,13 @@ Adesso abbiamo due tabelle affiancate. Selezionare un corso mosta tutte le iscri
 
 Facciamo un passo in più e rendiamo questa vista più conveniente. Aggiungiamo una scheda per i Corsi: fai click su "Aggiungi nuovo", poi "Aggiungi vista a pagina", poi scegli "Scheda" per i dati di `Corsi`. Come "Seleziona da" scegli "Corsi", di nuovo, quindi "Aggiungi a pagina".
 
-<span class="screenshot-large"></span>![classlist-picker3](images/afterschool-program/classlist-picker3.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![classlist-picker3](images/afterschool-program/classlist-picker3.png)
+{: .screenshot-half }
 
 Allo stesso modo, aggiungiamo una scheda per gli istruttori del corso. Di nuovo, "Aggiungi nuovo", "Aggiungi widget a pagina", seleziona "Scheda" per i dati di `Staff`. Come "Seleziona da" puoi scegliere ora "Corsi - Istruttore".
 
-<span class="screenshot-large"></span>![classlist-picker4](images/afterschool-program/classlist-picker4.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![classlist-picker4](images/afterschool-program/classlist-picker4.png)
+{: .screenshot-half }
 
 Puoi cambiare l'aspetto di queste nuove schede. Fai click sul menu con i tre puntini in alto a destra nella scheda che vuoi cambiare, quindi "Opzioni widget". Trova il menu a tendina "Tema" nel pannello di destra, quindi scegli "Compatto".
 
@@ -163,7 +177,8 @@ Aggiungiamo una pagina per questo scopo Fai click su "Aggiungi nuovo", po "Aggiu
 
 Quando selezioniamo un studente, qui vorremmo vedere tutte le iscrizioni a suo nome. Quindi fai click su "Aggiungi nuovo", poi "Aggiungi widget a pagina", e aggiungi la tabella delle "Iscrizioni". Per collegare il nuovo widget a quello degli Studenti nella stessa pagina, imposta il "Seleziona da" a "Studenti", poi fai click su "Aggiungi a pagina".
 
-<span class="screenshot-large"></span>![enrollments-picker1](images/afterschool-program/enrollments-picker1.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![enrollments-picker1](images/afterschool-program/enrollments-picker1.png)
+{: .screenshot-half }
 
 Adesso puoi fare click sul nome di uno studente a sinistra, e vedere i corsi a cui è iscritto, sulla destra. Per iscrivere uno studente, puoi semplicemente inserire il codice del corso nella riga vuota al fondo della lista delle iscrizioni. Come al solito, la colonna di riferimenti "Corso" ha la funzione di auto-completamento.
 
@@ -173,7 +188,8 @@ Puoi anche nascondere la colonna "Studente" nella tabella delle iscrizioni, dal 
 
 Se vuoi includere più informazioni sui corsi nella tabella delle iscrizioni, seleziona le Opzioni Colonna per la colonna "Corso" e fai click su "+ Aggiungi colonna" nel pannello laterale.
 
-<span class="screenshot-large"></span>*![enrollments-times](images/afterschool-program/enrollments-times.png) {: .screenshot-half }*
+<span class="screenshot-large"></span>*![enrollments-times](images/afterschool-program/enrollments-times.png)
+{: .screenshot-half }*
 
 Tutti i campi associati al corso sono disponibili. Se ispezioni le colonne che si possono aggiungere in questa maniera, vedrai che si tratta semplicemente di formule come `$Class.Times`{: .formula }.
 
@@ -201,7 +217,8 @@ Cambiamo la nostra "Vista iscrizioni" per mostrare le famiglie. In questo modo, 
 
 Nella pagina della "Vista iscrizioni", fai click su "Aggiungi nuovo", poi "Aggiungi widget a pagina", quindi seleziona la tabella `Famiglie` da mostrare.
 
-<span class="screenshot-large"></span>![enrollments-picker2](images/afterschool-program/enrollments-picker2.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![enrollments-picker2](images/afterschool-program/enrollments-picker2.png)
+{: .screenshot-half }
 
 Risistema i widget in modo da avere le famiglie sulla sinistra, e studenti e iscrizioni a destra.
 
@@ -209,11 +226,13 @@ Risistema i widget in modo da avere le famiglie sulla sinistra, e studenti e isc
 
 Adesso collega gli studenti alle famiglie: fai click sul menu con i tre puntini in alto a destra della tabella Studenti, quindi scegli "Selezione dati".
 
-<span class="screenshot-large"></span>![enrollments-menu](images/afterschool-program/enrollments-menu.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![enrollments-menu](images/afterschool-program/enrollments-menu.png)
+{: .screenshot-half }
 
 Nel pannello laterale, imposta il "Seleziona da" a "Famiglie".
 
-<span class="screenshot-large"></span>![enrollments-select-by](images/afterschool-program/enrollments-select-by.png) {: .screenshot-half }
+<span class="screenshot-large"></span>![enrollments-select-by](images/afterschool-program/enrollments-select-by.png)
+{: .screenshot-half }
 
 Infine, puoi aggiungere un widget scheda per mostrare dettagli sulla famiglia selezionata, e sullo studente, e organizzare i widget nella pagina per creare un layout ottimale quando si parla con un genitore.
 
@@ -230,6 +249,7 @@ In particolare, aggiunge un campo "Count" ai Corsi per calcolare il numero di is
 - La formula per il conteggio è `len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))`{: .formula }.
 - Per i posti rimanenti, `max($Max_Students - $Count, 0) or "Full"`{: .formula}.
 
-<span class="screenshot-full"></span>![spots-left](images/afterschool-program/spots-left.png) {: .screenshot-half }
+<span class="screenshot-full"></span>![spots-left](images/afterschool-program/spots-left.png)
+{: .screenshot-half }
 
 Questo rende più utile la pagina della Visualizzazione Corsi, dove è facile vedere subito quali corsi hanno ancora posti disponibili.

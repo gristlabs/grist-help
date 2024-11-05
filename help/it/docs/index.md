@@ -36,8 +36,8 @@ Per imparare Grist, raccomandiamo di iniziare dal nostro tutorial How-To, o dai 
 <p class="img-caption" data-md-type="paragraph"><a href="col-types.md" data-md-type="link"><img src="https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg"  data-md-type="image" alt="Columns &amp; types"> <em data-md-type="emphasis">Colonne e tipi di dati</em></a></p>
 <p class="img-caption" data-md-type="paragraph"><a href="col-refs.md" data-md-type="link"><img src="https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg"  data-md-type="image" alt="Reference columns"> <em data-md-type="emphasis">Colonne di riferimenti</em></a></p>
 <p class="img-caption" data-md-type="paragraph"><a href="linking-widgets.md" data-md-type="link"><img src="https://img.youtube.com/vi/F5m_je0QKvs/0.jpg" data-md-type="image" alt="Linking widgets" > <em data-md-type="emphasis">Collegare i widget</em></a></p>
-<p class="img-caption" data-md-type="paragraph"><a href="sharing.md" data-md-type="link"><img src="https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg"  data-md-type="image" alt="Sharing a doc"> <em data-md-type="emphasis">Condividere un documento</em></a></p>
 </div></div></div>
+<p class="img-caption" data-md-type="paragraph"><a href="sharing.md" data-md-type="link"><img src="https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg"  data-md-type="image" alt="Sharing a doc"> <em data-md-type="emphasis">Condividere un documento</em></a></p>
 
 ## Pagine utili
 
