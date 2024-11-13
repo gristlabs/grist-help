@@ -42,7 +42,7 @@ You can add a new event by double-clicking the start time for the event in the c
 
 ### Modifying events
 
-You can also modify the start and end time of an event by clicking and dragging the event directly on the calendar.
+You can modify the start and end time of an event by clicking and dragging the event directly on the calendar.
 
 To modify an event’s start time, click and drag from the middle of the event. When modifying start time, the duration of the event will remain the same. 
 
