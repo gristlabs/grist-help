@@ -56,12 +56,15 @@ To modify an event's end time, click and drag from the bottom of the event. Youâ
 
 Any changes to start and end time will be made to the underlying data table so your data will always be consistent!
 
+You can modify the details of any event from the event's record card. Double click on an event to open its record card.
+
+*![widget-calendar-open-record-card](images/widget-calendar/widget-calendar-open-record-card.png)*
+
 ### Deleting events
 
 To delete an event, double click the event on the calendar to open its record card. Open the dropdown menu from the top right corner of the record card, and select "Delete record" from the list.
 
 *![widget-calendar-delete-record](images/widget-calendar/widget-calendar-delete-record.png)*
-{: .screenshot-half }
 
 ## Linking event details
 
