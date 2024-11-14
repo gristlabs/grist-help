@@ -6,6 +6,7 @@
 function expandSelected() {
   var hash = window.location.hash.split('/').slice(-1)[0];
   var elem = hash ? document.querySelector(hash) : null;
+  if (!elem) { return; }
   var closestExpandableElem = elem.closest('details');
 
   if (!closestExpandableElem) {
