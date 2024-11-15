@@ -2,7 +2,7 @@
 title: Audit log events
 ---
 
-# Audit log events for your self-managed instance {: .tag-core .tag-ee }
+# Audit log events for your self-managed instance {: .tag-ee }
 
 !!! note
     The events on this page appear in the audit log of a [Self-Managed Grist instance](../self-managed.md). For events that appear in a [team site](../teams.md), see ["Audit log events for your team site"](../teams/audit-log-events.md).
@@ -261,6 +261,9 @@ A document was created.
 | document | `object` | The created document. |
 | document.id | `string` | The document ID. |
 | document.name | `string` | The document name. |
+| document.workspace | `object` | The document's workspace. |
+| document.workspace.id | `number` | The workspace ID. |
+| document.workspace.name | `string` | The workspace name. |
 
 #### Sample
 

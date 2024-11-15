@@ -70,7 +70,7 @@ nav:
     - teams.md
     - team-sharing.md
     - Audit logs:
-      - teams/audit-logs.md
+      - teams/audit-log-overview.md
       - teams/audit-log-streaming.md
       - teams/audit-log-events.md
   - Access rules:
@@ -95,7 +95,7 @@ nav:
     - install/grist-connect.md
     - install/aws-marketplace.md
     - Audit logs:
-      - install/audit-logs.md
+      - install/audit-log-overview.md
       - install/audit-log-streaming.md
       - install/audit-log-events.md
     - Telemetry:
