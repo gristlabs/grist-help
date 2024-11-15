@@ -10,7 +10,7 @@ will be included in the stream.
 Events are streamed in real-time. Only events that occurred after a streaming
 destination was added will be sent to that destination.
 
-**Note:** You must be an installation admin to view or modify its streaming
+**Note:** You must be an installation admin to view or modify streaming
 destinations.
 
 ## Adding streaming destinations

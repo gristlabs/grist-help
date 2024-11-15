@@ -4,9 +4,6 @@ title: Audit log events
 
 # Audit log events for your self-managed instance {: .tag-ee }
 
-!!! note
-    The events on this page appear in the audit log of a [Self-Managed Grist instance](../self-managed.md). For events that appear in a [team site](../teams.md), see ["Audit log events for your team site"](../teams/audit-log-events.md).
-
 ## config
 
 ### config.create
@@ -49,6 +46,7 @@ A configuration item was created.
   }
 }
 ```
+
 ### config.delete
 
 A configuration item was deleted.
@@ -89,6 +87,7 @@ A configuration item was deleted.
   }
 }
 ```
+
 ### config.update
 
 A configuration item was updated.
@@ -165,6 +164,7 @@ A configuration item was updated.
   }
 }
 ```
+
 ## document
 
 ### document.change_access
@@ -205,6 +205,7 @@ A document's access was changed.
   }
 }
 ```
+
 ### document.clear_all_webhook_queues
 
 A document's webhook queues were cleared.
@@ -225,6 +226,7 @@ A document's webhook queues were cleared.
   }
 }
 ```
+
 ### document.clear_webhook_queue
 
 A document's webhook queue was cleared.
@@ -250,6 +252,7 @@ A document's webhook queue was cleared.
   }
 }
 ```
+
 ### document.create
 
 A document was created.
@@ -279,6 +282,7 @@ A document was created.
   }
 }
 ```
+
 ### document.delete
 
 A document was permanently deleted.
@@ -301,6 +305,7 @@ A document was permanently deleted.
   }
 }
 ```
+
 ### document.deliver_webhook_events
 
 A document's webhook successfully delivered events.
@@ -333,6 +338,7 @@ A document's webhook successfully delivered events.
   }
 }
 ```
+
 ### document.duplicate
 
 A document was duplicated.
@@ -378,6 +384,7 @@ A document was duplicated.
   }
 }
 ```
+
 ### document.fork
 
 A document was forked.
@@ -409,6 +416,7 @@ A document was forked.
   }
 }
 ```
+
 ### document.move
 
 A document was moved to a different workspace.
@@ -458,6 +466,7 @@ A document was moved to a different workspace.
   }
 }
 ```
+
 ### document.move_to_trash
 
 A document was moved to the trash.
@@ -480,6 +489,7 @@ A document was moved to the trash.
   }
 }
 ```
+
 ### document.open
 
 A document was opened.
@@ -507,6 +517,7 @@ A document was opened.
   }
 }
 ```
+
 ### document.pin
 
 A document was pinned.
@@ -529,6 +540,7 @@ A document was pinned.
   }
 }
 ```
+
 ### document.reload
 
 A document was reloaded.
@@ -549,6 +561,7 @@ A document was reloaded.
   }
 }
 ```
+
 ### document.rename
 
 A document was renamed.
@@ -584,6 +597,7 @@ A document was renamed.
   }
 }
 ```
+
 ### document.replace
 
 A document was replaced.
@@ -611,6 +625,7 @@ A document was replaced.
   }
 }
 ```
+
 ### document.restore_from_trash
 
 A document was restored from the trash.
@@ -640,6 +655,7 @@ A document was restored from the trash.
   }
 }
 ```
+
 ### document.run_sql_query
 
 A SQL query was run against a document.
@@ -674,6 +690,7 @@ A SQL query was run against a document.
   }
 }
 ```
+
 ### document.send_to_google_drive
 
 A document was sent to Google Drive.
@@ -694,6 +711,7 @@ A document was sent to Google Drive.
   }
 }
 ```
+
 ### document.truncate_history
 
 A document's history was truncated.
@@ -719,6 +737,7 @@ A document's history was truncated.
   }
 }
 ```
+
 ### document.unpin
 
 A document was unpinned.
@@ -741,6 +760,7 @@ A document was unpinned.
   }
 }
 ```
+
 ## site
 
 ### site.change_access
@@ -779,6 +799,7 @@ A site's access was changed.
   }
 }
 ```
+
 ### site.create
 
 A site was created.
@@ -803,6 +824,7 @@ A site was created.
   }
 }
 ```
+
 ### site.delete
 
 A site was permanently deleted.
@@ -827,6 +849,7 @@ A site was permanently deleted.
   }
 }
 ```
+
 ### site.rename
 
 A site was renamed.
@@ -866,6 +889,7 @@ A site was renamed.
   }
 }
 ```
+
 ## user
 
 ### user.change_name
@@ -907,6 +931,7 @@ A user's name was changed.
   }
 }
 ```
+
 ### user.create_api_key
 
 A user API key was created.
@@ -931,6 +956,7 @@ A user API key was created.
   }
 }
 ```
+
 ### user.delete
 
 A user was permanently deleted.
@@ -955,6 +981,7 @@ A user was permanently deleted.
   }
 }
 ```
+
 ### user.delete_api_key
 
 A user API key was deleted.
@@ -979,6 +1006,7 @@ A user API key was deleted.
   }
 }
 ```
+
 ## workspace
 
 ### workspace.change_access
@@ -1017,6 +1045,7 @@ A workspace's access was changed.
   }
 }
 ```
+
 ### workspace.create
 
 A workspace was created.
@@ -1039,6 +1068,7 @@ A workspace was created.
   }
 }
 ```
+
 ### workspace.delete
 
 A workspace was permanently deleted.
@@ -1061,6 +1091,7 @@ A workspace was permanently deleted.
   }
 }
 ```
+
 ### workspace.move_to_trash
 
 A workspace was moved to the trash.
@@ -1083,6 +1114,7 @@ A workspace was moved to the trash.
   }
 }
 ```
+
 ### workspace.rename
 
 A workspace was renamed.
@@ -1118,6 +1150,7 @@ A workspace was renamed.
   }
 }
 ```
+
 ### workspace.restore_from_trash
 
 A workspace was restored from the trash.
