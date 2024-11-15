@@ -167,6 +167,8 @@ A configuration item was updated.
 ```
 ## document
 
+**Note:** At this time, events are not logged for documents that are publicly shared.
+
 ### document.change_access
 
 A document's access was changed.
