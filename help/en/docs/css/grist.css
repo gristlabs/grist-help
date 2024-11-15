@@ -604,7 +604,7 @@ footer {
   margin-left: -32px;
 }
 
-.tag-business::after, .tag-core::after, .tag-ee::after {
+.tag-core::after, .tag-ee::after {
   margin-left: 1em;
   font-size: 14px;
   background: cornsilk;
@@ -624,8 +624,4 @@ footer {
 
 .tag-core.tag-ee::after {
   content: "core, enterprise";
-}
-
-.tag-business.tag-ee::after {
-  content: "business plan, enterprise";
 }
