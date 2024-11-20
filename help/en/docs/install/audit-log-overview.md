@@ -8,13 +8,13 @@ management (SIEM) system like Splunk.
 
 Audit logs are a record of events triggered by actions performed within your
 installation that help you answer questions like "when was a workspace
-removed?" or "who invited a collaborator to a document?". Audit logs can
-can help maintain compliance and monitor misuse of organization resources.
+removed?" or "who invited a collaborator to a document?" Audit logs can
+can help maintain compliance and identify misuse of organization resources.
 
 ## About audit log events
 
 Audit log events include the action that occurred, who performed the action,
-when and where the action occured, and any additional details about the action
+when and where the action occurred, and any additional details about the action
 in question.
 
 For example, the `document.create` action occurs when a document is created
@@ -60,4 +60,4 @@ For a full list of events that may appear, see
 
 Installation admins can configure streaming of audit log events to external
 SIEM systems from the Admin Panel. For more information, see
-["Audit log streaming"](audit-log-streaming.md).
+["Audit log streaming."](audit-log-streaming.md)

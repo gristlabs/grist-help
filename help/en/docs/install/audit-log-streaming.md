@@ -1,7 +1,7 @@
 # Audit log streaming {: .tag-ee }
 
 Grist can stream audit log events from your installation to an external
-destination, like a security information and event management (SIEM) system.
+destination, such as a security information and event management (SIEM) system.
 
 You can add, update, or delete a streaming destination at any time, and stream
 to multiple destinations. Events from all team sites within your installation
@@ -10,13 +10,13 @@ will be included in the stream.
 Events are streamed in real-time. Only events that occurred after a streaming
 destination was added will be sent to that destination.
 
-**Note:** You must be an installation admin to view or modify streaming
+**Note:** You must be an installation administrator to view or modify streaming
 destinations.
 
 ## Adding streaming destinations
 
 Grist currently supports streaming to destinations with HTTP Event Collector
-(HEC) endpoints, like Splunk, or destinations that can accept structured JSON
+(HEC) endpoints, such as Splunk, or destinations that can accept structured JSON
 over HTTP. Follow the instructions for your destination:
 
 * [Splunk (HEC)](#streaming-to-splunk-hec)
@@ -24,8 +24,10 @@ over HTTP. Follow the instructions for your destination:
 
 ### Streaming to Splunk (HEC)
 
-To stream to destinations with HEC endpoints like Splunk, you need to set up
-an HEC endpoint that is reachable from your Grist installation. See
+To stream to destinations with HEC endpoints, a format used by Splunk and
+Splunk-compatible services, you need to set up an HEC endpoint that is
+reachable from your Grist installation. You can also use a tool like
+[Vector](https://vector.dev/) which support receiving HEC events. See
 [Splunk's documentation](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)
 for more information.
 
