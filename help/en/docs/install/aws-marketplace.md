@@ -5,9 +5,6 @@ title: AWS Marketplace
 AWS Marketplace {: .tag-core .tag-ee }
 ============
 
-!!! warning "Note"
-    This documentation refers to an upcoming version of Grist on the AWS Marketplace. The documentation for the soon-to-be legacy version [is available here](../aws-marketplace-legacy).
-
 
 [Grist Builder Edition](https://aws.amazon.com/marketplace/pp/prodview-tew3ygop5xxy4) on the AWS Marketplace has everything you need to run a self-hosted Grist instance with minimal setup. Below are the initial configuration steps.
 
