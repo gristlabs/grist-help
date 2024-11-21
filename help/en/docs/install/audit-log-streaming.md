@@ -27,7 +27,7 @@ over HTTP. Follow the instructions for your destination:
 To stream to destinations with HEC endpoints, a format used by Splunk and
 Splunk-compatible services, you need to set up an HEC endpoint that is
 reachable from your Grist installation. You can also use a tool like
-[Vector](https://vector.dev/) which support receiving HEC events. See
+[Vector](https://vector.dev/) which supports receiving HEC events. See
 [Splunk's documentation](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)
 for more information.
 
