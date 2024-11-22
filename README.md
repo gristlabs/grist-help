@@ -6,7 +6,7 @@ Repository for Grist documentation and tutorials.
 
 The public site is at <https://support.getgrist.com/>, served using GitHub Pages.
 
-The content is hosted at <https://github.com/dsagal/grist-help/>. On changes to master (such as
+The content is hosted at <https://github.com/gristlabs/grist-help/>. On changes to master (such as
 when a pull request is merged), the public site gets automatically republished.
 
 Previews of pull requests are automatically built by Netlify, and made available at URLs such as
@@ -14,6 +14,8 @@ Previews of pull requests are automatically built by Netlify, and made available
 Conversation tab.
 
 ## Setting up local environment
+
+N.B.: Python 3.12 isn't supported yet. Please, use Python 3.10 or 3.11 instead.
 
 ``` sh
 # initiate a python virtual environment
@@ -92,7 +94,7 @@ Once you're done, add the results to the main documentation with:
 To update `help/en/docs/functions.md` from the documentation comments in Grist, run:
 
 ```
-./build-functions.sh <path-to-grist-checkout>
+./build-functions.sh <path-to-grist-core-checkout>
 ```
 
 It replaces content between `BEGIN mkpydocs`/`END mkpydocs` markers in `help/en/docs/functions.md`. You
@@ -103,7 +105,7 @@ can edit text outside of those markers directly.
 To update `help/en/docs/code` from the documentation comments in Grist, run:
 
 ```
-./build-plugin-api.sh <path-to-grist-checkout>
+./build-plugin-api.sh <path-to-grist-core-checkout>
 ```
 
 You need to first run `yarn install` in your Grist checkout directory.
