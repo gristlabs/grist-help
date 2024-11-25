@@ -37,7 +37,7 @@ for more information.
 4. Under "Destinations", click **Start streaming** or **Add destination**.
 5. Under "Destination", click **Splunk**.
 6. Under "URL", enter the HEC endpoint to send events to.
-7. Under "Token", enter the HEC token.
+7. Under "Token", enter "Splunk " followed by the HEC token (e.g. `Splunk B5A79AAD-D822-46CC-80D1-819F80D7BFB0`).
 8. Click **Add destination**.
 
 ### Streaming to other destinations (HTTP)
