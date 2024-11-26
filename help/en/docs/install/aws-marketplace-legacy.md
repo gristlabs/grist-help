@@ -2,7 +2,7 @@ AWS Marketplace (Legacy) {: .tag-core .tag-ee }
 =============
 
 !!! warning "Note"
-    This documentation refers to the legacy version of Grist on the AWS Marketplace, based on [Grist Omnibus](https://github.com/gristlabs/grist-omnibus). You can find the documentation for the current offering [here](../aws-marketplace).
+    This documentation refers to the legacy version of Grist on the AWS Marketplace, based on [Grist Omnibus](https://github.com/gristlabs/grist-omnibus). You can find the documentation for the current offering [here](../aws-marketplace). Also consult, our [transitioning notes](../aws-marketplace-transition).
 
 ## First run setup
 
