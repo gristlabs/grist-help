@@ -61,6 +61,7 @@ To try Grist out using Docker, make an empty directory for Grist to store materi
 docker run -p 8484:8484 \
   -v ~/grist:/persist \
   -e GRIST_SESSION_SECRET=invent-a-secret-here \
+  -e GRIST_DEFAULT_EMAIL=your-email@example.com \
   -it gristlabs/grist
 ```
 
@@ -100,6 +101,22 @@ take at least the following steps:
 #### Grist on AWS
 
 You can also host Grist on AWS. Full instructions on this hosting method are available on the Grist [AWS Marketplace page](install/aws-marketplace.md).
+
+### What is the administrative account? {: .tag-core .tag-ee }
+
+On a new Grist installation, the user who logs in with the email
+defined by `GRIST_DEFAULT_EMAIL` is the administrator of this Grist
+installation. When Grist runs for the first time, it will create an
+account set to the value of `GRIST_DEFAULT_EMAIL`. Note that if this
+variable is not set, it defaults to `you@example.com`. Changing the
+value of `GRIST_DEFAULT_EMAIL` after the first admin user has been
+created will effectively revoke administrator permissions from the
+first user and assign them to the new email address.
+
+The administrative account has access to the admin panel where they
+may inspect details of the installation or toggle features such as
+[telemetry](self-managed.md#how-do-i-control-telemetry) or [Grist
+Enterprise](self-managed.md#how-do-i-enable-grist-enterprise).
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
@@ -236,6 +253,22 @@ The name of the team should use only the lower-case characters a-z, the digits
 0-9, and the hyphen (`-`).  You may also want to look into
 [Custom styling](self-managed.md#how-do-i-customize-styling) to hide any UI elements
 you don't need.
+
+
+#### Changing the value of `GRIST_DEFAULT_EMAIL`
+
+When [using
+`GRIST_SINGLE_ORG`](self-managed.md#how-do-i-set-up-a-team), the
+single org will also be created initially and owned by the user
+configured by `GRIST_DEFAULT_EMAIL`. If you change the value of
+`GRIST_DEFAULT_EMAIL`, [the
+administrator](self-managed.md#what-is-the-administrative-account) may
+temporarily lose access to the team site.
+
+In order to prevent this, before changing `GRIST_DEFAULT_EMAIL` use
+[team sharing options](../team-sharing) to add new owners to the team
+site, since apart from initial creation, administrators have no
+automatic right to team site membership.
 
 ### How do I set up authentication? {: .tag-core .tag-ee }
 
