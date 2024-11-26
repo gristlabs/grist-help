@@ -586,6 +586,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://support.getgrist.com/install/aws-marketplace-transition/</loc>
+         <lastmod>2024-11-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://support.getgrist.com/install/aws-marketplace/</loc>
          <lastmod>2024-11-26</lastmod>
          <changefreq>daily</changefreq>
