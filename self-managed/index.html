@@ -1092,13 +1092,17 @@
 <li><a href="#grist-on-aws">Grist on AWS</a></li>
 </ul>
 </li>
+<li><a href="#what-is-the-administrative-account">What is the administrative account?</a></li>
 <li><a href="#how-do-i-sandbox-documents">How do I sandbox documents?</a><ul>
 <li><a href="#xsave-not-available">XSAVE not available</a></li>
 <li><a href="#ptrace-not-available">PTRACE not available</a></li>
 </ul>
 </li>
 <li><a href="#how-do-i-run-grist-on-a-server">How do I run Grist on a server?</a></li>
-<li><a href="#how-do-i-set-up-a-team">How do I set up a team?</a></li>
+<li><a href="#how-do-i-set-up-a-team">How do I set up a team?</a><ul>
+<li><a href="#changing-the-value-of-grist_default_email">Changing the value of GRIST_DEFAULT_EMAIL</a></li>
+</ul>
+</li>
 <li><a href="#how-do-i-set-up-authentication">How do I set up authentication?</a></li>
 <li><a href="#are-there-other-authentication-methods">Are there other authentication methods?</a></li>
 <li><a href="#how-do-i-enable-grist-enterprise">How do I enable Grist Enterprise?</a></li>
@@ -1172,6 +1176,7 @@ containers.</p>
 <pre><code>docker run -p 8484:8484 \
   -v ~/grist:/persist \
   -e GRIST_SESSION_SECRET=invent-a-secret-here \
+  -e GRIST_DEFAULT_EMAIL=your-email@example.com \
   -it gristlabs/grist
 </code></pre>
 <p>You should then be able to visit <code>http://localhost:8484</code> in
@@ -1208,6 +1213,19 @@ take at least the following steps:</p>
 </ul>
 <h4 id="grist-on-aws">Grist on AWS<a class="headerlink" href="#grist-on-aws" title="Permanent link">#</a></h4>
 <p>You can also host Grist on AWS. Full instructions on this hosting method are available on the Grist <a href="../install/aws-marketplace/">AWS Marketplace page</a>.</p>
+<h3 class="tag-core tag-ee" id="what-is-the-administrative-account">What is the administrative account?<a class="headerlink" href="#what-is-the-administrative-account" title="Permanent link">#</a></h3>
+<p>On a new Grist installation, the user who logs in with the email
+defined by <code>GRIST_DEFAULT_EMAIL</code> is the administrator of this Grist
+installation. When Grist runs for the first time, it will create an
+account set to the value of <code>GRIST_DEFAULT_EMAIL</code>. Note that if this
+variable is not set, it defaults to <code>you@example.com</code>. Changing the
+value of <code>GRIST_DEFAULT_EMAIL</code> after the first admin user has been
+created will effectively revoke administrator permissions from the
+first user and assign them to the new email address.</p>
+<p>The administrative account has access to the admin panel where they
+may inspect details of the installation or toggle features such as
+<a href="./#how-do-i-control-telemetry">telemetry</a> or <a href="./#how-do-i-enable-grist-enterprise">Grist
+Enterprise</a>.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-sandbox-documents">How do I sandbox documents?<a class="headerlink" href="#how-do-i-sandbox-documents" title="Permanent link">#</a></h3>
 <p>Grist allows for very powerful formulas, using Python.  We recommend
 setting the environment variable <code>GRIST_SANDBOX_FLAVOR</code> to <code>gvisor</code> if
@@ -1313,6 +1331,18 @@ is a synonym for team):</p>
 0-9, and the hyphen (<code>-</code>).  You may also want to look into
 <a href="./#how-do-i-customize-styling">Custom styling</a> to hide any UI elements
 you don&rsquo;t need.</p>
+<h4 id="changing-the-value-of-grist_default_email">Changing the value of <code>GRIST_DEFAULT_EMAIL</code><a class="headerlink" href="#changing-the-value-of-grist_default_email" title="Permanent link">#</a></h4>
+<p>When <a href="./#how-do-i-set-up-a-team">using
+<code>GRIST_SINGLE_ORG</code></a>, the
+single org will also be created initially and owned by the user
+configured by <code>GRIST_DEFAULT_EMAIL</code>. If you change the value of
+<code>GRIST_DEFAULT_EMAIL</code>, <a href="./#what-is-the-administrative-account">the
+administrator</a> may
+temporarily lose access to the team site.</p>
+<p>In order to prevent this, before changing <code>GRIST_DEFAULT_EMAIL</code> use
+<a href="../team-sharing">team sharing options</a> to add new owners to the team
+site, since apart from initial creation, administrators have no
+automatic right to team site membership.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-set-up-authentication">How do I set up authentication?<a class="headerlink" href="#how-do-i-set-up-authentication" title="Permanent link">#</a></h3>
 <p>Authentication can be set up in many ways for Grist Core and Enterprise, using
 SAML, OpenID Connect or forwarded headers. Between the two, many popular SSOs can be hooked
