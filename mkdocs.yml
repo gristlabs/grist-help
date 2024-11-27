@@ -90,6 +90,10 @@ nav:
     - install/cloud-storage.md
     - install/grist-connect.md
     - install/aws-marketplace.md
+    - Audit logs:
+      - install/audit-log-overview.md
+      - install/audit-log-streaming.md
+      - install/audit-log-events.md
     - Telemetry:
       - telemetry.md
       - telemetry-limited.md
