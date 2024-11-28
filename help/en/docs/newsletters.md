@@ -9,6 +9,7 @@ mill" means "useful experience, material, or knowledge", perfectly reflecting it
 
 To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup).
 
+- [November 2024 Newsletter](newsletters/2024-11.md): Grist in 20+ languages, AWS self-hosting, audit logs and more!
 - [October 2024 Newsletter](newsletters/2024-10.md): Grist Paris Summit, custom widgets made easy, and community highlights.
 - [September 2024 Newsletter](newsletters/2024-09.md): Two-way references, Grist Desktop release, cool community creations.
 - [August 2024 Newsletter](newsletters/2024-08.md): Markdown in the cell, custom widget cards, and webhook documentation.
