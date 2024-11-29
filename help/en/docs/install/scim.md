@@ -44,5 +44,8 @@ Below is a list of environment variables you may use to configure SCIM:
 - `GRIST_ENABLE_SCIM`: set its value to `true` so you enable the SCIM endpoints;
 - `GRIST_SCIM_USER`: (optional) give this variable the email address of an account to give it access to the SCIM endpoints.
 
+!!! warning "🚧 Status of SCIM"
+    As of November 2024, the SCIM endpoint is experimental and in active development. Also please note that the groups management is not supported yet.
+
 !!! Note "About GRIST_SCIM_USER"
     Although instance administrators (identified by the emails set in `GRIST_DEFAULT_EMAIL` or `GRIST_SUPPORT_EMAIL`) can access SCIM endpoints, it is recommended to create a dedicated account using `GRIST_SCIM_USER` for your identity provider to interact with these endpoints. This follows the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
