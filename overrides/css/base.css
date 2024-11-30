@@ -108,6 +108,7 @@ html {
 
 #wm-language-select {
   border: none;
+  -webkit-appearance: none;
 }
 
 #wm-language-select, #wm-language-select option {
