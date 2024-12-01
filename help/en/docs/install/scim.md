@@ -7,27 +7,21 @@ SCIM {: .tag-core .tag-ee }
 
 ## Use case and difference with SSO systems 
 
-Grist supports authentication via [OIDC](oidc.md) or [SAML](saml.md) to allow users to log in securely. However, when managing large organizations with dynamic user bases, manual user management (creation, updating, and deactivation) can become complex and time-consuming. This is where SCIM becomes essential for user lifecycle management.
+Grist supports authentication via [OIDC](oidc.md) or [SAML](saml.md) to allow users to log in securely. However, when managing large organizations with dynamic user bases, manual user management (creation, updating, and deletion of accounts) can become complex and time-consuming. This is where SCIM helps managing the users lifecycle.
 
 ### **The Role of OIDC or SAML**
 
-Protocols like **OIDC** and **SAML** focus primarily on **authentication** and **authorization**, ensuring that users can securely log in and access Grist. These protocols support **Single Sign-On (SSO)**, allowing users to authenticate once and gain seamless access to multiple services, including Grist, without repeatedly entering credentials. However, while OIDC and SAML excel at verifying who a user is, they do not manage **user provisioning**, **deprovisioning**, or ongoing user lifecycle tasks such as:
+Protocols like **OIDC** and **SAML** focus primarily on **authentication** and **authorization**, ensuring that users can securely log in and access Grist. These protocols support **Single Sign-On (SSO)**, allowing users to authenticate once and gain seamless access to multiple services, including Grist. However, these protocols do not manage user lifecycle tasks such as:
 
-- Automatically creating new users when they join the organization.
-- Assigning or updating roles and permissions across Grist and other services.
-- Deactivating or deleting users when they leave the company, ensuring they no longer have access.
-
-For organizations leveraging Grist alongside other online services, manually handling these tasks—especially at scale—becomes inefficient and error-prone. This is where **SCIM** offers significant value, by providing a standardized way to automate user management across multiple platforms, including Grist, enabling consistent and efficient user provisioning and deprovisioning across the entire service ecosystem.
+- **Provision** and **deprovision** users as soon as they respectively enter or leave your organization.
+- Assigning users to groups so they are given access to resources.
+- Updating your users information.
 
 ### **Benefits of Using SCIM in Grist**
 
-1. **Automation**: SCIM automates the management of users and their roles, reducing the need for manual intervention and minimizing human error. This is crucial for large organizations where keeping track of user access and permissions is a continuous task.
+This is for all of the tasks mentioned above where **SCIM** intervene. When you operate changes on your users and your groups on an Identity Provider which includes a SCIM client, it will automatically propagate them for you on every Service Provider supporting the SCIM API (like Grist if you enable the feature, see below).
 
-2. **Consistency**: By syncing user data from a central identity provider to Grist, SCIM ensures that user profiles and permissions are consistent across systems, improving security and user experience.
-
-3. **Efficiency**: With SCIM, IT administrators can save time and effort by automating user onboarding and offboarding, especially when integrated with existing identity management solutions like Okta, Azure AD, or other identity providers that support SCIM.
-
-4. **Security**: By automatically deactivating users when they leave the organization, SCIM reduces the risk of orphaned accounts that could be exploited. This ensures that only active employees have access to the platform.
+Also because it allows you to deprovision your users as soon as they leave, it ensures that these users cannot log in anymore without waiting their sessions to expire, and is a step toward complying with the GDPR if your organization is based in Europe.
 
 ## The Standard
 
