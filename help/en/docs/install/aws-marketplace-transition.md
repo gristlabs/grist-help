@@ -9,11 +9,11 @@ Omnibus.
 It is possible to copy your Grist documents to Builder Edition.
 
 1. Take note of the `EMAIL` variable under `~/grist/gristParameters`.
-2. Start [a Grist Builder Edition instance](../aws-marketplace).
+2. Start [a Grist Builder Edition instance](aws-marketplace.md).
 3. Follow [the instructions to run the bootstrap
    script](https://github.com/gristlabs/grist-pack/tree/main/dist#quickstart),
    using the value of `EMAIL` for the `DEFAULT_EMAIL` value. See
-   [here](../../self-managed#what-is-the-administrative-account) for
+   [here](../self-managed.md#what-is-the-administrative-account) for
    more details pertaining to this variable.
    
    You do not need to run `docker compose up`, but it can be helpful
@@ -28,7 +28,7 @@ this directory:
 * The entire `~/grist-persist/docs` directory
 
 Also see ["What files does Grist
-store?"](../../self-managed#what-files-does-grist-store) for an
+store?"](../self-managed.md#what-files-does-grist-store) for an
 explanation of what these files are.
 
 There are a couple of standard methods to copy files across EC2

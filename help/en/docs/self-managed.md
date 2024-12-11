@@ -266,7 +266,7 @@ administrator](self-managed.md#what-is-the-administrative-account) may
 temporarily lose access to the team site.
 
 In order to prevent this, before changing `GRIST_DEFAULT_EMAIL` use
-[team sharing options](../team-sharing) to add new owners to the team
+[team sharing options](team-sharing.md) to add new owners to the team
 site, since apart from initial creation, administrators have no
 automatic right to team site membership.
 

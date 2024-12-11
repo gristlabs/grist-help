@@ -2,7 +2,7 @@ AWS Marketplace (Legacy) {: .tag-core .tag-ee }
 =============
 
 !!! warning "Note"
-    This documentation refers to the legacy version of Grist on the AWS Marketplace, based on [Grist Omnibus](https://github.com/gristlabs/grist-omnibus). You can find the documentation for the current offering [here](../aws-marketplace). Also consult, our [transitioning notes](../aws-marketplace-transition).
+    This documentation refers to the legacy version of Grist on the AWS Marketplace, based on [Grist Omnibus](https://github.com/gristlabs/grist-omnibus). You can find the documentation for the current offering [here](aws-marketplace.md). Also consult, our [transitioning notes](aws-marketplace-transition.md).
 
 ## First run setup
 
@@ -29,7 +29,7 @@ Once the above steps are completed, you should be able to access Grist on your c
 
 ## Authentication setup
 
-Once you have [your Microsoft or Google client ID and secret](../aws-marketplace#authentication-setup), you’ll need to pass them to the `gristParameters` file inside the Grist EC2 instance:
+Once you have [your Microsoft or Google client ID and secret](aws-marketplace.md#authentication-setup), you’ll need to pass them to the `gristParameters` file inside the Grist EC2 instance:
 
 1. Log in to the Grist EC2 instance.
 2. Open `~/grist/gristParameters`.
