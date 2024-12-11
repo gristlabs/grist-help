@@ -79,3 +79,6 @@ Then click on "Add New" in the top left, and select "Import document".
 ![exports-import-document](images/exports/exports-import-document.png)
 
 You may also import CSV and Excel files as new Grist documents this way.
+
+!!! note "Self-managed Grist"
+    For more infomration about what files are stored for self-managed Grist, check out our [self-managed documentation](self-managed.md#what-files-does-grist-store).
