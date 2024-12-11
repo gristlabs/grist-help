@@ -177,6 +177,7 @@ nav:
     - keyboard-shortcuts.md
     # The function reference (functions.md) is listed above; here is an intentionally non-standard
     # link, so that only the above page item gets highlighted when the function reference is open.
+    # TODO: this needs a special way to localize the nav entry, perhaps similar to section titles.
     - Function reference: /functions/
     - limits.md
     - data-security.md
