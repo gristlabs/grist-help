@@ -37,4 +37,4 @@ To configure Grist authentication with Google or Microsoft, you must have an app
 
 * The Grist EC2 instance should have the “Persistent store” option checked.
 * By default, Grist Builder Edition stores cryptographic authentication configuration and all data under `/home/grist/persist`. Deleting this folder will result in a loss of all data from all documents.
-* If you are using the legacy version based on [Grist Omnibus](https://github.com/gristlabs/grist-omnibus), please refer to the [legacy documentation](../aws-marketplace-legacy).
+* If you are using the legacy version based on [Grist Omnibus](https://github.com/gristlabs/grist-omnibus), please refer to the [legacy documentation](aws-marketplace-legacy.md).
