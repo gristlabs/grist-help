@@ -20,13 +20,13 @@ Protocols like OIDC and SAML focus primarily on authentication and authorization
 - Assigning users to groups so they are given access to resources.
 - Updating your users' information.
 
-### Benefits of Using SCIM in Grist
+### Benefits of using SCIM in Grist
 
 This is for all of the tasks mentioned above where SCIM intervene. For example, when you make changes to users or user groups in an identity provider, SCIM will automatically propagate those changes across every service provider (i.e. Grist) that supports the SCIM API.
 
 Also, SCIM allows you to deprovision users as soon as they leave. This ensures that they cannot log in without waiting their sessions to expire, which is a step toward complying with the GDPR if your organization is based in Europe.
 
-## The Standard
+## The standard
 
 For more details on the SCIM standard, refer to the official IETF specifications: [RFC7643](https://www.rfc-editor.org/rfc/rfc7643) and [RFC7644](https://www.rfc-editor.org/rfc/rfc7644).
 
