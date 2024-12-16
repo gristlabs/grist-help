@@ -1,0 +1,47 @@
+paths:
+  /scim/v2/Bulk:
+    post:
+      summary: Bulk operation
+      operationId: bulkOperation
+      tags:
+        - scim
+      requestBody:
+        description: Operations to be performed in bulk.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              type: object
+              properties:
+                schemas:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+                Operations:
+                  type: array
+                  description: List of operations to be executed.
+                  items:
+                    type: object
+                    properties:
+                      method:
+                        type: string
+                        description: HTTP method for the operation.
+                        example: "POST"
+                      path:
+                        type: string
+                        description: Resource path for the operation.
+                        example: "/scim/v2/Users"
+                      data:
+                        type: object
+                        description: Data for the operation.
+      responses:
+        '200':
+          description: Bulk operations executed successfully.
+        '400':
+          description: Bad request.
+        '500':
+          description: Internal server error.
+
+
