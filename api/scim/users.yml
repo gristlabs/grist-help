@@ -81,7 +81,7 @@ paths:
         - users
         - scim
       parameters:
-        - $ref: '#/components/parameters/userIdPathParam'
+        - $ref: '#/components/params/userIdPathParam'
       responses:
         '200':
           description: Successfully retrieved user details.
@@ -106,7 +106,7 @@ paths:
         - users
         - scim
       parameters:
-        - $ref: '#/params/userIdPathParam'
+        - $ref: '#/components/params/userIdPathParam'
       requestBody:
         description: Updated data for the user.
         required: true
@@ -139,7 +139,7 @@ paths:
         - users
         - scim
       parameters:
-        - $ref: '#/params/userIdPathParam'
+        - $ref: '#/components/params/userIdPathParam'
       requestBody:
         description: Data for the partial update of the user.
         required: true
@@ -199,7 +199,7 @@ paths:
         - users
         - scim
       parameters:
-        - $ref: '#/params/userIdPathParam'
+        - $ref: '#/components/params/userIdPathParam'
       responses:
         '204':
           description: User deleted successfully.
