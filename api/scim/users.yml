@@ -27,7 +27,7 @@ paths:
           required: false
           schema:
             type: string
-            example: "userName eq 'john.doe'"
+            example: "userName pr"
       responses:
         '200':
           description: Successfully retrieved list of users.
@@ -166,7 +166,7 @@ paths:
                       path:
                         type: string
                         description: The field to be updated.
-                        example: "photos.value"
+                        example: "photos[primary eq true].value"
                       value:
                         type: string
                         description: New value for the field.
@@ -236,7 +236,7 @@ paths:
                 filter:
                   type: string
                   description: Filter expression for users.
-                  example: "userName eq 'john.doe'"
+                  example: 'userName co "john.doe"'
                 sortBy:
                   type: string
                   description: Field to sort by.
