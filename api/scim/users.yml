@@ -4,7 +4,6 @@ paths:
       summary: Retrieve list of users
       operationId: getUsers
       tags:
-        - users
         - scim
       parameters:
         - name: startIndex
@@ -46,7 +45,6 @@ paths:
       summary: Create a new user
       operationId: createUser
       tags:
-        - users
         - scim
       requestBody:
         description: Data for the user to be created.
@@ -78,7 +76,6 @@ paths:
       summary: Retrieve user by ID
       operationId: getUserById
       tags:
-        - users
         - scim
       parameters:
         - $ref: '#/components/params/userIdPathParam'
@@ -103,7 +100,6 @@ paths:
       description: ⚠️  This operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
       operationId: updateUserById
       tags:
-        - users
         - scim
       parameters:
         - $ref: '#/components/params/userIdPathParam'
@@ -136,7 +132,6 @@ paths:
       summary: Partially update a user by ID
       operationId: patchUserById
       tags:
-        - users
         - scim
       parameters:
         - $ref: '#/components/params/userIdPathParam'
@@ -196,7 +191,6 @@ paths:
       description: ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
       operationId: deleteUserById
       tags:
-        - users
         - scim
       parameters:
         - $ref: '#/components/params/userIdPathParam'
@@ -217,7 +211,6 @@ paths:
       summary: Search users
       operationId: searchUsers
       tags:
-        - users
         - scim
       requestBody:
         description: Search criteria.
