@@ -32,7 +32,7 @@ For more details on the SCIM standard, refer to the official IETF specifications
 
 ## The API
 
-The SCIM implementation is documented in the [Grist Rest API reference](/api/#tag/scim).
+The SCIM implementation is documented in the [Grist REST API reference](/api/#tag/scim).
 
 ## Enabling and configuring SCIM
 
