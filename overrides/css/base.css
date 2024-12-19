@@ -106,8 +106,43 @@ html {
   margin-left: 0.5rem;
 }
 
+/* remove default browser styles from the select and manually add an arrow,
+mostly to prevent Safari adding its own glossy styles */
+#wm-language-select-container {
+  position: relative;
+  overflow: hidden;
+}
+
 #wm-language-select {
   border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 100%;
+  padding: 2px 4px;
+  padding-right: 16px;
+  /* hardcoded value trick to match the select size to the longest option (20 characters as of right now),
+  so that the arrow is positioned correctly */
+  width: calc(20ch - 8px);
+  max-width: 100%;
+}
+
+#wm-language-select-container::after {
+  content: "\25BC";
+  pointer-events: none;
+  mask-image: var(--icon-Expand);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  background-color: var(--color-light);
+  font-size: initial;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  transform: rotate(90deg);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 
 #wm-language-select, #wm-language-select option {
