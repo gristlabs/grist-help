@@ -11,6 +11,7 @@ mkdocs==1.5.3
 mkdocs-awesome-pages-plugin==2.9.2
 mkdocs-htmlproofer-plugin==0.8.0
 mkdocs-meta-descriptions-plugin==2.0.0
+mkdocs-redirects==1.2.2
 mkdocs-windmill==1.0.4
 nltk==3.5
 PyYAML>=5.3.1,<7.0.0

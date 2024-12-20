@@ -90,7 +90,7 @@ nav:
     - install/forwarded-headers.md
     - install/cloud-storage.md
     - install/grist-connect.md
-    - install/aws-marketplace.md
+    - install/grist-builder-edition.md
     - Audit logs:
       - install/audit-log-overview.md
       - install/audit-log-streaming.md
@@ -216,6 +216,9 @@ plugins:
       enabled: !ENV [HTMLPROOFER_ENABLED, false]
       validate_external_urls: false
   - meta-descriptions
+  - redirects:
+      redirect_maps:
+        'install/aws-marketplace.md': 'install/grist-builder-edition.md'
 
 markdown_extensions:
   toc:
