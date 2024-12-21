@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="uk">
 <head>
   
   
@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <meta name="description" content="Grist Builder Edition on the AWS Marketplace has everything you need to run a self-hosted Grist instance with minimal setup. Below are the initial configuration steps.">
-      <meta property="og:description" content="Grist Builder Edition on the AWS Marketplace has everything you need to run a self-hosted Grist instance with minimal setup. Below are the initial configuration steps.">
+      <meta name="description" content="Grist Builder Edition is a virtual machine image offered for certain cloud providers. It has everything you need to run a self-hosted Grist instance with minimal setup. It can be found at the following locations:">
+      <meta property="og:description" content="Grist Builder Edition is a virtual machine image offered for certain cloud providers. It has everything you need to run a self-hosted Grist instance with minimal setup. It can be found at the following locations:">
     
     
-    <link rel="canonical" href="https://support.getgrist.com/install/aws-marketplace/">
+    <link rel="canonical" href="https://support.getgrist.com/install/grist-builder-edition/">
     <link rel="shortcut icon" href="/images/favicon.png">
     <link rel="me" href="https://fosstodon.org/@grist">
     <meta name="thumbnail" content="https://support.getgrist.com/images/favicon.png">
     <meta property="og:image" content="https://support.getgrist.com/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>AWS Marketplace - Grist Help Center</title>
+    <title>Grist Builder Edition - Grist Help Center</title>
     
   
 
@@ -135,9 +135,9 @@
         
         <option value="/it/" >it - italiano</option>
         
-        <option value="/pt/" selected>pt - português</option>
+        <option value="/pt/" >pt - português</option>
         
-        <option value="/uk/" >uk - українська мова</option>
+        <option value="/uk/" selected>uk - українська мова</option>
         
       </select>
     </div>
@@ -494,7 +494,7 @@
 
     
 </li>
-      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">AWS Marketplace</a>
+      <li class="wm-toc-li wm-toc-lev2  wm-current wm-page-toc-opener wm-page-toc-open"><a href="./" class="wm-article-link wm-toc-text">Grist Builder Edition</a>
 
     
     
@@ -503,12 +503,12 @@
         
           <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#_top">
-              AWS Marketplace
+              Grist Builder Edition
             </a>
           </li>
             <li class="wm-toc-li">
-              <a class="wm-article-link wm-page-toc-text" href="#how-to-log-in-to-the-grist-instance">
-                How to log in to the Grist instance
+              <a class="wm-article-link wm-page-toc-text" href="#how-to-log-into-the-grist-instance">
+                How to log into the Grist instance
               </a>
             </li>
             <li class="wm-toc-li">
@@ -981,19 +981,32 @@
 <p>We show partially translated languages to track progress.</p>
 <p>This page isn&rsquo;t translated yet. But the good news is that <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">you can join the translation community to help us 👋</a>.</p>
 </div>
-<h1 class="tag-core tag-ee" id="aws-marketplace">AWS Marketplace<a class="headerlink" href="#aws-marketplace" title="Permanent link">#</a></h1>
-<p><a href="https://aws.amazon.com/marketplace/pp/prodview-tew3ygop5xxy4">Grist Builder Edition</a> on the AWS Marketplace has everything you need to run a self-hosted Grist instance with minimal setup. Below are the initial configuration steps.</p>
-<h3 id="how-to-log-in-to-the-grist-instance">How to log in to the Grist instance<a class="headerlink" href="#how-to-log-in-to-the-grist-instance" title="Permanent link">#</a></h3>
-<p>During deployment, you should have been asked about creating or using key pairs. You can use this pair to log in via SSH from your terminal/bash. The default user for the Grist EC2 instance is named “ubuntu”, and you can log in to <code>ubuntu@[ec2-instance-public-ip]</code>.</p>
-<p><strong>Note:</strong> You need to use the <code>*.pem</code> file you received while generating key pairs on AWS. Details about connecting via SSH can be found in the following places: </p>
+<h1 class="tag-core tag-ee" id="grist-builder-edition">Grist Builder Edition<a class="headerlink" href="#grist-builder-edition" title="Permanent link">#</a></h1>
+<p>Grist Builder Edition is a virtual machine image offered for certain cloud providers. It has everything you need to run a self-hosted Grist instance with minimal setup. It can be found at the following locations:</p>
+<ul>
+<li><a href="https://aws.amazon.com/marketplace/pp/prodview-tew3ygop5xxy4">AWS Marketplace</a></li>
+<li><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/grist.grist-builder-edition">Azure Marketplace</a></li>
+</ul>
+<p>Once you select an offering, follow the usual procedure for each cloud provider for starting a virtual machine. You will need to allow SSH access for the virtual machine, as well as HTTP and HTTPS access. This corresponds to TCP network ports 22, 80, and 443 respectively. </p>
+<h3 id="how-to-log-into-the-grist-instance">How to log into the Grist instance<a class="headerlink" href="#how-to-log-into-the-grist-instance" title="Permanent link">#</a></h3>
+<p>The Grist instance must be managed by SSH or equivalent console access. Details about connecting via SSH can be found in the following places:</p>
 <ul>
 <li>Windows: <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh</a></li>
 <li>Linux: <a href="https://www.ssh.com/academy/ssh/command">https://www.ssh.com/academy/ssh/command</a></li>
 <li>macOS: <a href="https://www.servermania.com/kb/articles/ssh-mac">https://www.servermania.com/kb/articles/ssh-mac</a></li>
 </ul>
+<p>Once you log in, follow the instructions displayed in the console.</p>
+<p>If you need some help with the initial configuration, read on below for some specific instructions for each cloud provider.</p>
+<h4 id="aws">AWS<a class="headerlink" href="#aws" title="Permanent link">#</a></h4>
+<p>During deployment, you should have been asked about creating or using key pairs. You can use this pair to log in via SSH from your terminal/bash. The default user for the Grist EC2 instance is named <code>ubuntu</code>, and you can log into <code>ubuntu@[ec2-instance-public-ip]</code>.</p>
+<p><strong>Note:</strong> You need to use the <code>*.pem</code> file you received while generating key pairs on AWS. </p>
 <p>If you don’t want to connect via SSH, AWS provides the option to connect from within the AWS console using the “Connect” button:</p>
 <p><img alt="AWS Connect screenshot" src="../../images/aws-connect.png" /></p>
-<p>Once you log in, follow the instructions displayed in the console.</p>
+<h4 id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">#</a></h4>
+<p>When deploying the virtual machine you may be asked to use SSH keys or password, as well as the default user to log in as. The default user is named <code>azureuser</code>, and you can login as <code>azureuser@[azure-vm-public-ip]</code>.</p>
+<p><strong>Note:</strong> If you choose to use default method of SSH keys, you need to use the <code>*.pem</code> file you received when Azure generated key pairs.</p>
+<p>There are other methods to connect. Click on the &ldquo;Connect&rdquo; tab in the virtual machine&rsquo;s sidebar in the Azure web portal if you need other options.</p>
+<p><img alt="Azure connect screenshot" src="../../images/azure-connect.png" /></p>
 <h2 id="authentication-setup">Authentication setup<a class="headerlink" href="#authentication-setup" title="Permanent link">#</a></h2>
 <p>In addition to username and password logins via <a href="https://www.authelia.com/">Authelia</a>, we also support Google or Microsoft as OpenID providers. For configuring other authentication providers, please refer to the <a href="https://dexidp.io/docs/getting-started/">dex documentation</a>.</p>
 <p>To configure Grist authentication with Google or Microsoft, you must have an application registered with the corresponding provider:</p>
@@ -1066,7 +1079,7 @@ function initFeedbackButtons() {
 initFeedbackButtons();
 </script><footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/install/aws-marketplace.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/gristlabs/grist-help/edit/master/docs/install/grist-builder-edition.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
