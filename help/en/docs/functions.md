@@ -122,7 +122,7 @@ If the `find` attribute is shadowed by a same-named user column, you may use `_f
 
 > :warning: In the following methods, "less" is best understood as "before"
 > and "greater" is best understood as "after".
-> For example, if you use a negative `order_by` on a simply integer colmn,
+> For example, if you use a negative `order_by` on a simple integer colmn,
 > then the meaning of less than and greater than will be flipped.
 
 The methods available are:
