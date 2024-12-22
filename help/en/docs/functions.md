@@ -130,7 +130,7 @@ The methods available are:
 - __`lt`__: (less than) find nearest (last) record with sort values < (before) the given values
 - __`le`__: (less than or equal to) find nearest record with sort values <= (last before or first equal) the given values
 - __`gt`__: (greater than) find nearest (first) record with sort values > (after) the given values
-- __`ge`__: (greater than or equal to) find nearest (first) record with sort values >= (after or equal) the given values
+- __`ge`__: (greater than or equal to) find nearest (first) record with sort values >= (equal or after) the given values
 - __`eq`__: (equal to) find nearest (first) record with sort values == the given values
 
 Example from [our Payroll template](https://templates.getgrist.com/5pHLanQNThxk/Payroll).
