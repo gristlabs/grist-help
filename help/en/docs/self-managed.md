@@ -98,9 +98,9 @@ take at least the following steps:
 	and a [special authentication method](self-managed.md#are-there-other-authentication-methods) for custom cases.
   * Consider enabling [snapshot support](self-managed.md#how-do-i-set-up-snapshots) if you want Grist to handle document backups.
 
-#### Grist on AWS
+#### Grist on AWS and Azure
 
-You can also host Grist on AWS. Full instructions on this hosting method are available on the Grist [AWS Marketplace page](install/aws-marketplace.md).
+You can also host Grist on AWS and Azure. Full instructions on these hosting methods are available on the [Grist Builder Edition page](install/grist-builder-edition.md).
 
 ### What is the administrative account? {: .tag-core .tag-ee }
 
