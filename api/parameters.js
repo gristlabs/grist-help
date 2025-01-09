@@ -13,7 +13,7 @@ const inputFilePath = process.argv[2];
 const outputFilePath = process.argv[3];
 
 if (!inputFilePath) {
-  console.error('Usage: node api-parameters.js <inputFilePath> [outputFilePath]');
+  console.error('Usage: node parameters.js <inputFilePath> [outputFilePath]');
   process.exit(1);
 }
 
