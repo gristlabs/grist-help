@@ -87,6 +87,10 @@ Once you're done, add the results to the main documentation with:
 ./api/build.sh
 ```
 
+Before editing the API take a look at `./api-parameters.js` script. Parameters for endpoints need
+to be externalized for Swagger UI (and Grist API console) to work correctly. This script explains
+it in more details and offer some help with the process.
+
 ## Updating function reference
 
 To update `help/en/docs/functions.md` from the documentation comments in Grist, run:
