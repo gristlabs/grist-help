@@ -11,7 +11,7 @@ description: The essentials of creating and maintaining a self-managed Grist ins
 
 ### What is Self-Managed Grist?
 
-There are four flavors of Grist:
+There are five flavors of Grist:
 
   * **SaaS** (Software as a Service): Grist is available as a hosted service
     at [docs.getgrist.com](https://docs.getgrist.com).
@@ -28,11 +28,19 @@ There are four flavors of Grist:
     Grist documents created with our SaaS and Enterprise offerings
 	can be opened and edited with Core, and vice versa. This establishes
 	Grist documents as a reliable format for archiving and interchange.
+  * **Grist Builder Edition**: A version of Core pre-packaged for
+    cloud providers such as [Amazon Web
+    Services](https://aws.amazon.com/marketplace/pp/prodview-tew3ygop5xxy4)
+    or [Microsoft
+    Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/grist.grist-builder-edition).
+    Read more about it
+    [here](https://support.getgrist.com/install/grist-builder-edition/).
 
-Self-Managed Grist, be it Enterprise or Core, is installed and configured in
-much the same way, as described in the following
-sections. For clarity, the sections are tagged
-with which flavor they apply to, for example:
+Self-Managed Grist, be it Enterprise or Core, is installed and
+configured in much the same way, as described in the following
+sections. Grist Builder Edition can be configured the same way, but
+includes a default configuration to get started. For clarity, the
+sections are tagged with which flavor they apply to, for example:
 {: .tag-core .tag-ee }
 
 The full source code for Grist Core is always available at
