@@ -9,7 +9,7 @@ Omnibus.
 It is possible to copy your Grist documents to Builder Edition.
 
 1. Take note of the `EMAIL` variable under `~/grist/gristParameters`.
-2. Start [a Grist Builder Edition instance](aws-marketplace.md).
+2. Start [a Grist Builder Edition instance](grist-builder-edition.md).
 3. Follow [the instructions to run the bootstrap
    script](https://github.com/gristlabs/grist-pack/tree/main/dist#quickstart),
    using the value of `EMAIL` for the `DEFAULT_EMAIL` value. See
