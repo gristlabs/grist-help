@@ -6,27 +6,9 @@ paths:
       tags:
         - scim
       parameters:
-        - name: startIndex
-          in: query
-          description: The starting index for pagination.
-          required: false
-          schema:
-            type: integer
-            example: 1
-        - name: count
-          in: query
-          description: The number of users to retrieve.
-          required: false
-          schema:
-            type: integer
-            example: 10
-        - name: filter
-          in: query
-          description: Filter users based on specific criteria.
-          required: false
-          schema:
-            type: string
-            example: "userName pr"
+        - $ref: '#/components/parameters/startIndexParam'
+        - $ref: '#/components/parameters/countParam'
+        - $ref: '#/components/parameters/filterParam'
       responses:
         '200':
           description: Successfully retrieved list of users.
@@ -417,3 +399,28 @@ components:
             description: The unique identifier of the user.
             example: "1"
       - $ref: '#/components/schemas/UserInRequest'
+  parameters:
+    startIndexParam:
+      in: query
+      name: startIndex
+      schema:
+        type: integer
+        example: 1
+      description: The starting index for pagination.
+      required: false
+    countParam:
+      in: query
+      name: count
+      schema:
+        type: integer
+        example: 10
+      description: The number of users to retrieve.
+      required: false
+    filterParam:
+      in: query
+      name: filter
+      schema:
+        type: string
+        example: userName pr
+      description: Filter users based on specific criteria.
+      required: false
