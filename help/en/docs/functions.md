@@ -120,18 +120,20 @@ Table.lookupRecords(..., order_by=("Foo", "Bar")).find.le(foo, bar)
 
 If the `find` attribute is shadowed by a same-named user column, you may use `_find` instead.
 
-> :warning: In the following methods, "less" is best understood as "before"
-> and "greater" is best understood as "after".
-> For example, if you use a negative `order_by` on a simple integer column,
-> then the meaning of less than and greater than will be flipped.
+In the following methods, "less" is best understood as "before"
+and "greater" is best understood as "after".
+For example, if you use a negative `order_by` on a simple integer column,
+then the meaning of "less than" and "greater than" will be flipped.
 
 The methods available are:
 
-- __`lt`__: (less than) find nearest (last) record with sort values < (before) the given values
-- __`le`__: (less than or equal to) find nearest record with sort values <= (last before or first equal) the given values
-- __`gt`__: (greater than) find nearest (first) record with sort values > (after) the given values
-- __`ge`__: (greater than or equal to) find nearest (first) record with sort values >= (equal or after) the given values
-- __`eq`__: (equal to) find nearest (first) record with sort values == the given values
+- __`lt`__: ("less than") find nearest (last) record with sort values before the given values
+- __`le`__: ("less than or equal to") find last record with sort values equal to or before
+  the given values
+- __`gt`__: ("greater than") find nearest (first) record with sort values after the given values
+- __`ge`__: ("greater than or equal to") find first record with sort values equal to or after
+  the given values
+- __`eq`__: ("equal to") find the first record with sort values equal to the given values
 
 Example from [our Payroll template](https://templates.getgrist.com/5pHLanQNThxk/Payroll).
 Each person has a history of pay rates, in the Rates table. To find a rate applicable on a
