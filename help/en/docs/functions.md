@@ -127,13 +127,17 @@ then the meaning of "less than" and "greater than" will be flipped.
 
 The methods available are:
 
-- __`lt`__: ("less than") find nearest (last) record with sort values before the given values
-- __`le`__: ("less than or equal to") find last record with sort values equal to or before
-  the given values
-- __`gt`__: ("greater than") find nearest (first) record with sort values after the given values
-- __`ge`__: ("greater than or equal to") find first record with sort values equal to or after
-  the given values
-- __`eq`__: ("equal to") find the first record with sort values equal to the given values
+- __`lt`__: ("less than") Finds the nearest (last) record where the sort values are **before** the
+  given values.
+- __`le`__: ("less than or equal to") Finds the last record where the sort values are **equal to
+  or before** the given values.
+- __`gt`__: ("greater than") Finds the nearest (first) record where the sort values are **after**
+  the given values.
+- __`ge`__: ("greater than or equal to") Finds the first record where the sort values are **equal
+  to or after** the given values.
+- __`eq`__: ("equal to") Finds the first record where the sort values are **equal to** the given
+  values.
+
 
 Example from [our Payroll template](https://templates.getgrist.com/5pHLanQNThxk/Payroll).
 Each person has a history of pay rates, in the Rates table. To find a rate applicable on a
