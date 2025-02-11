@@ -1298,13 +1298,22 @@ A set of methods for finding values in sorted sets of records, as returned by
 Table.lookupRecords(..., order_by=(&quot;Foo&quot;, &quot;Bar&quot;)).find.le(foo, bar)
 </code></pre>
 <p>If the <code>find</code> attribute is shadowed by a same-named user column, you may use <code>_find</code> instead.</p>
+<p>In the following methods, &ldquo;less&rdquo; is best understood as &ldquo;before&rdquo;
+and &ldquo;greater&rdquo; is best understood as &ldquo;after&rdquo;.
+For example, if you use a negative <code>order_by</code> on a simple integer column,
+then the meaning of &ldquo;less than&rdquo; and &ldquo;greater than&rdquo; will be flipped.</p>
 <p>The methods available are:</p>
 <ul>
-<li><strong><code>lt</code></strong>: (less than) find nearest record with sort values &lt; the given values</li>
-<li><strong><code>le</code></strong>: (less than or equal to) find nearest record with sort values &lt;= the given values</li>
-<li><strong><code>gt</code></strong>: (greater than) find nearest record with sort values &gt; the given values</li>
-<li><strong><code>ge</code></strong>: (greater than or equal to) find nearest record with sort values &gt;= the given values</li>
-<li><strong><code>eq</code></strong>: (equal to) find nearest record with sort values == the given values</li>
+<li><strong><code>lt</code></strong>: (&ldquo;less than&rdquo;) Finds the nearest (last) record where the sort values are <strong>before</strong> the
+  given values.</li>
+<li><strong><code>le</code></strong>: (&ldquo;less than or equal to&rdquo;) Finds the last record where the sort values are <strong>equal to
+  or before</strong> the given values.</li>
+<li><strong><code>gt</code></strong>: (&ldquo;greater than&rdquo;) Finds the nearest (first) record where the sort values are <strong>after</strong>
+  the given values.</li>
+<li><strong><code>ge</code></strong>: (&ldquo;greater than or equal to&rdquo;) Finds the first record where the sort values are <strong>equal
+  to or after</strong> the given values.</li>
+<li><strong><code>eq</code></strong>: (&ldquo;equal to&rdquo;) Finds the first record where the sort values are <strong>equal to</strong> the given
+  values.</li>
 </ul>
 <p>Example from <a href="https://templates.getgrist.com/5pHLanQNThxk/Payroll">our Payroll template</a>.
 Each person has a history of pay rates, in the Rates table. To find a rate applicable on a
