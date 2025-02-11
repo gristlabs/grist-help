@@ -26,6 +26,7 @@ nav:
     - afterschool-program.md
   - Managing documents:
     - creating-doc.md
+    - document-settings.md
     - sharing.md
     - copying-docs.md
     - imports.md
