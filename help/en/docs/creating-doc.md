@@ -50,15 +50,3 @@ document and selecting "Add New" and then one of the Import options.
 {: .screenshot-half }
 
 You can read more about importing data at [Importing more data](imports.md).
-
-## Document settings
-
-While a document is open, you can access the document's settings from the user menu or from the Tools menu in the left-hand navigation panel.
-
-*![document-settings](images/document-settings.png){: .screenshot4}*
-{: .screenshot-half }
-
-There you can find the document's ID for API use, as well as set the default timezone, locale, and currency for the document.
-
-<span class="screenshot-large">*![document-settings-details](images/document-settings-details.png)*</span>
-{: .screenshot-half }
