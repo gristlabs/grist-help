@@ -35,5 +35,11 @@ The Data Engine section provides tools to monitor and optimize document performa
 
 ### API
 
+The API section provides tools for integrating your document with external services and automating tasks. It includes:
+
+- **Document ID:** A unique identifier for API use, referred to as `doId` within our [API documentation](api.md).
+- **API Console:** A built-in web interface for testing API calls directly.
+- **Webhooks:** Allow you to notify external services when rows are added or modified in a table. See our [Webhooks documentation](webhooks.md) for setup details.
+
 <span class="screenshot-large">*![document-settings-api](images/document-settings/document-settings-api.png)*</span>
 
