@@ -22,24 +22,23 @@ will become a separate table in Grist.
 
 ## Examples and templates
 
-The "Examples &amp; Templates" list on the Grist homepage includes a number of
+The 'Templates' list on the Grist homepage includes a number of
 Grist documents that demonstrate Grist features and use cases. These are always
 accessible via a link on the bottom left of the home page.
 
 ![examples-link](images/examples-link.png)
 
-For each example, there is a corresponding How-To Tutorial in the Grist Help Center,
+For each 'Featured' template, there is a corresponding How-To Tutorial in the Grist Help Center,
 which describes how to use it or how to build such a document
 from scratch.
 
-When you open an example, you can make changes to it. You are editing a copy, and your changes are
+When you open a template, you can make changes to it. You are editing a copy, and your changes are
 private to you. You can save your changes by clicking the "Save Copy" button on the top of the
 page.
 
-You can also use any of the examples as a template for a new document, whch
-will include the structure, layout, and formulas of the example, but none of
-the sample data. Simply use the "Save Copy" button and check the "As Template" checkbox in the
-dialog that opens.
+You can create a new document using any of the templates, retaining the structure, layout, and formulas 
+from the example but exclude the sample data. Just click the "Save Copy" button and select the "As Template" 
+checkbox in the dialog that appears.
 
 ## Importing more data
 
