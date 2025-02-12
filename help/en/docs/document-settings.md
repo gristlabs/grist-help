@@ -4,7 +4,7 @@ title: Document settings
 
 ## Document settings
 
-While a document is open, you can access the document's settings from the user menu or from the Tools menu in the left-hand navigation panel.
+While a document is open, you can access the document's settings from the user menu or from the 'Tools' menu in the left-hand navigation panel.
 
 *![document-settings](images/document-settings.png){: .screenshot4}*
 {: .screenshot-half }
@@ -37,7 +37,7 @@ The Data Engine section provides tools to monitor and optimize document performa
 
 The API section provides tools for integrating your document with external services and automating tasks. It includes:
 
-- **Document ID:** A unique identifier for API use, referred to as `doId` within our [API documentation](api.md).
+- **Document ID:** A unique identifier for API use, referred to as `docId` within our [API documentation](api.md).
 - **API Console:** A built-in web interface for testing API calls directly.
 - **Webhooks:** Allow you to notify external services when rows are added or modified in a table. See our [Webhooks documentation](webhooks.md) for setup details.
 
