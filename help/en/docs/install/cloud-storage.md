@@ -78,14 +78,11 @@ snapshot metadata are pruned regularly.
 
 You can control the frequency of snapshots with the following environment variables:
 
-  * `GRIST_SNAPSHOT_TIME_CAP` - JSON string that specifies the maximum number of
-  snapshots to take per duration cycle.
-    - Example: `{"hour": 25, "day": 32, "isoWeek": 12, "month": 96, "year": 1000}`
-    - All of the following keys must be present:
-      - `hour` - The number of distinct hours to keep a snapshot for. (Default: 25)
-      - `day` - The number of distinct days to keep a snapshot for. (Default: 32)
-      - `isoWeek` - The number of distinct weeks to keep a snapshot for. (Default: 12)
-      - `month` - The number of distinct months to keep a snapshot for. (Default: 96)
-      - `year` - The number of distinct years to keep a snapshot for. (Default: 1000)
+  * `GRIST_SNAPSHOT_TIME_CAP` - JSON string in the following format: `{"hour": 25, "day": 32, "isoWeek": 12, "month": 96, "year": 1000}`:
+      * (Required) `hour` - The number of distinct hours to keep a snapshot for. (Default: 25)
+      * (Required) `day` - The number of distinct days to keep a snapshot for. (Default: 32)
+      * (Required) `isoWeek` - The number of distinct weeks to keep a snapshot for. (Default: 12)
+      * (Required) `month` - The number of distinct months to keep a snapshot for. (Default: 96)
+      * (Required) `year` - The number of distinct years to keep a snapshot for. (Default: 1000)
   * `GRIST_SNAPSHOT_KEEP` - Maximum number of recent snapshots to keep, regardless of
   `GRIST_SNAPSHOT_TIME_CAP`. (Default: 5)
