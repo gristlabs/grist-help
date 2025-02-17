@@ -43,3 +43,35 @@ The API section provides tools for integrating your document with external servi
 
 <span class="screenshot-large">*![document-settings-api](images/document-settings/document-settings-api.png)*</span>
 
+### External Attachments
+
+!!! warning "External attachments are currently only available on self-hosted Grist installations"
+    External attachments must be enabled by the administrator of your installation before they can be used.
+
+Grist can store attachments either within a document, or externally in another location (determined by the administrator of your Grist installation).
+
+Storing attachments externally can:
+
+- Help keep the Grist document small.
+- Allow large files to be used as attachments, without impacting performance.
+- Allow significantly more files to be attached, without impacting performance.
+- Speed up saving and restoring document snapshots by reducing their size.
+
+However, there are additional limitations placed on documents that use external attachments:
+
+- Any downloaded documents will have broken attachments. These will remain broken even if the document is re-uploaded.
+- Duplicating a document will be disabled. However, you will still be able to work on a copy of the document, and save the changes back to the original document.
+
+Therefore, it's advised you only use external attachments if your document is having problems due to attachments.
+
+You can switch a document between internal and external attachments at any time without restriction, however it may take some time for all attachments to be transferred from their existing location to the new one.
+
+External attachments can be enabled from the Document Settings page. If external attachments are not available on your Grist installation, the dropdown will be disabled.
+
+<span class="screenshot-large">*![attachment-storage-setting](images/document-settings/attachment-storage-setting.png)*</span>
+
+A transfer process can be started to move attachments between external and internal storage. This transfer may be paused due to document inactivity. If a transfer is paused due to document inactivity, you can safely resume it anytime from the document settings page.
+
+<span class="screenshot-large">*![attachment-storage-transfer](images/document-settings/attachment-storage-transfer.png)*</span>
+
+The transfer process may take some time, depending on the size and number of attachments. 
