@@ -62,7 +62,7 @@ However, there are additional limitations placed on documents that use external 
 - Any downloaded documents will have broken attachments. These will remain broken even if the document is re-uploaded.
 - Duplicating a document will be disabled. However, you will still be able to work on a copy of the document, and save the changes back to the original document.
 
-Therefore, it's advised you only use external attachments if your document is having problems due to attachments.
+Therefore, it's advised you only use external attachments if your document is experiencing slowness due to attachments.
 
 You can switch a document between internal and external attachments at any time without restriction, however it may take some time for all attachments to be transferred from their existing location to the new one.
 
@@ -72,6 +72,6 @@ External attachments can be enabled from the Document Settings page. If external
 
 A transfer process can be started to move attachments between external and internal storage. This transfer may be paused due to document inactivity. If a transfer is paused due to document inactivity, you can safely resume it anytime from the document settings page.
 
-<span class="screenshot-large">*![attachment-storage-transfer](images/document-settings/attachment-storage-transfer.png)*</span>
-
 The transfer process may take some time, depending on the size and number of attachments. 
+
+<span class="screenshot-large">*![attachment-storage-transfer](images/document-settings/attachment-storage-transfer.png)*</span>
