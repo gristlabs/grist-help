@@ -78,11 +78,17 @@ snapshot metadata are pruned regularly.
 
 You can control the frequency of snapshots with the following environment variables:
 
-  * `GRIST_SNAPSHOT_TIME_CAP` - JSON string formatted as: `{"hour": 25, "day": 32, "isoWeek": 12, "month": 96, "year": 1000}`:
-    * (Required) `hour` - The number of distinct hours to keep a snapshot for. (Default: 25)
-    * (Required) `day` - The number of distinct days to keep a snapshot for. (Default: 32)
-    * (Required) `isoWeek` - The number of distinct weeks to keep a snapshot for. (Default: 12)
-    * (Required) `month` - The number of distinct months to keep a snapshot for. (Default: 96)
-    * (Required) `year` - The number of distinct years to keep a snapshot for. (Default: 1000)
+  * `GRIST_SNAPSHOT_TIME_CAP` - JSON string specifying the maximum number of backups to keep
+  for each time period (e.g. hourly, daily, weekly). For example, a value of
+  `{"hour": 24, "day": 30, "isoWeek": 52, "month": 24, "year": 5}` will keep the most recent
+  backup for every hour (for the last 24 hours), day (for the last 30 days), etc.
+  Any previous backups falling outside these windows will be deleted as needed to make room
+  for newer backups. If unset, `{"hour": 25, "day": 32, "isoWeek": 12, "month": 96, "year": 1000}`
+  will be used as the default.
+    * `hour` - The last N hours to keep the most recent snapshot for.
+    * `day` - The last N days to keep the most recent snapshot for.
+    * `isoWeek` - The last N weeks to keep the most recent snapshot for.
+    * `month` - The last N months to keep the most recent snapshot for.
+    * `year` - The last N years to keep the most recent snapshot for.
   * `GRIST_SNAPSHOT_KEEP` - Maximum number of recent snapshots to keep, regardless of
   `GRIST_SNAPSHOT_TIME_CAP`. (Default: 5)
