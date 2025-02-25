@@ -1179,8 +1179,30 @@ Azure container. Configuration is simplest on a fresh Grist install
 without any preexisting Grist documents.</p>
 <p>Once up and running, it is a good idea to configure the storage
 account&rsquo;s &ldquo;lifecycle management&rdquo; to place any bounds you want on how
-long versions are retained. Grist has no requirements here, this is
-strictly to your taste.</p>
+long versions are retained.</p>
+<p>We recommend configuring a lifecycle rule to delete noncurrent versions
+of objects with the prefix <code>${PREFIX}/assets/unversioned/</code>
+(e.g. <code>v1/assets/unversioned/</code>) daily. This ensures that older versions of
+snapshot metadata are pruned regularly.</p>
+<p>You can control the frequency of snapshots with the following environment variables:</p>
+<ul>
+<li><code>GRIST_SNAPSHOT_TIME_CAP</code> - JSON string specifying the maximum number of backups to keep
+  for each time period (e.g. hourly, daily, weekly). For example, a value of
+  <code>{"hour": 24, "day": 30, "isoWeek": 52, "month": 24, "year": 5}</code> will keep the most recent
+  backup for every hour (for the last 24 hours), day (for the last 30 days), etc.
+  Any previous backups falling outside these windows will be deleted as needed to make room
+  for newer backups. If unset, <code>{"hour": 25, "day": 32, "isoWeek": 12, "month": 96, "year": 1000}</code>
+  will be used as the default.<ul>
+<li><code>hour</code> - The last N hours to keep the most recent snapshot for.</li>
+<li><code>day</code> - The last N days to keep the most recent snapshot for.</li>
+<li><code>isoWeek</code> - The last N weeks to keep the most recent snapshot for.</li>
+<li><code>month</code> - The last N months to keep the most recent snapshot for.</li>
+<li><code>year</code> - The last N years to keep the most recent snapshot for.</li>
+</ul>
+</li>
+<li><code>GRIST_SNAPSHOT_KEEP</code> - Maximum number of recent snapshots to keep, regardless of
+  <code>GRIST_SNAPSHOT_TIME_CAP</code>. (Default: 5)</li>
+</ul>
 
   <br>
 </div>
