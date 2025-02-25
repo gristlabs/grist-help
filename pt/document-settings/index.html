@@ -237,6 +237,11 @@
                 API
               </a>
             </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#external-attachments">
+                External Attachments
+              </a>
+            </li>
         
       </ul>
     </li>
@@ -1020,6 +1025,31 @@
 <li><strong>Webhooks:</strong> Allow you to notify external services when rows are added or modified in a table. See our <a href="../webhooks/">Webhooks documentation</a> for setup details.</li>
 </ul>
 <p><span class="screenshot-large"><em><img alt="document-settings-api" src="../images/document-settings/document-settings-api.png" /></em></span></p>
+<h3 id="external-attachments">External Attachments<a class="headerlink" href="#external-attachments" title="Permanent link">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">External attachments are currently only available on self-hosted Grist installations</p>
+<p>External attachments must be enabled by the administrator of your installation before they can be used.</p>
+</div>
+<p>Grist can store attachments either within a document, or externally in another location (determined by the administrator of your Grist installation).</p>
+<p>Storing attachments externally can:</p>
+<ul>
+<li>Help keep the Grist document small.</li>
+<li>Allow large files to be used as attachments, without impacting performance.</li>
+<li>Allow significantly more files to be attached, without impacting performance.</li>
+<li>Speed up saving and restoring document snapshots by reducing their size.</li>
+</ul>
+<p>However, there are additional limitations placed on documents that use external attachments:</p>
+<ul>
+<li>Any downloaded documents will have broken attachments. These will remain broken even if the document is re-uploaded.</li>
+<li>Duplicating a document will be disabled. However, you will still be able to work on a copy of the document, and save the changes back to the original document.</li>
+</ul>
+<p>Therefore, it&rsquo;s advised you only use external attachments if your document is experiencing slowness due to attachments.</p>
+<p>You can switch a document between internal and external attachments at any time without restriction, however it may take some time for all attachments to be transferred from their existing location to the new one.</p>
+<p>External attachments can be enabled from the Document Settings page. If external attachments are not available on your Grist installation, the dropdown will be disabled.</p>
+<p><span class="screenshot-large"><em><img alt="attachment-storage-setting" src="../images/document-settings/attachment-storage-setting.png" /></em></span></p>
+<p>A transfer process can be started to move attachments between external and internal storage. This transfer may be paused due to document inactivity. If a transfer is paused due to document inactivity, you can safely resume it anytime from the document settings page.</p>
+<p>The transfer process may take some time, depending on the size and number of attachments. </p>
+<p><span class="screenshot-large"><em><img alt="attachment-storage-transfer" src="../images/document-settings/attachment-storage-transfer.png" /></em></span></p>
 
   <br>
 </div>
