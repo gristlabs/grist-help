@@ -69,5 +69,26 @@ without any preexisting Grist documents.
 
 Once up and running, it is a good idea to configure the storage
 account's "lifecycle management" to place any bounds you want on how
-long versions are retained. Grist has no requirements here, this is
-strictly to your taste.
+long versions are retained.
+
+We recommend configuring a lifecycle rule to delete noncurrent versions
+of objects with the prefix `${PREFIX}/assets/unversioned/`
+(e.g. `v1/assets/unversioned/`) daily. This ensures that older versions of
+snapshot metadata are pruned regularly.
+
+You can control the frequency of snapshots with the following environment variables:
+
+  * `GRIST_SNAPSHOT_TIME_CAP` - JSON string specifying the maximum number of backups to keep
+  for each time period (e.g. hourly, daily, weekly). For example, a value of
+  `{"hour": 24, "day": 30, "isoWeek": 52, "month": 24, "year": 5}` will keep the most recent
+  backup for every hour (for the last 24 hours), day (for the last 30 days), etc.
+  Any previous backups falling outside these windows will be deleted as needed to make room
+  for newer backups. If unset, `{"hour": 25, "day": 32, "isoWeek": 12, "month": 96, "year": 1000}`
+  will be used as the default.
+    * `hour` - The last N hours to keep the most recent snapshot for.
+    * `day` - The last N days to keep the most recent snapshot for.
+    * `isoWeek` - The last N weeks to keep the most recent snapshot for.
+    * `month` - The last N months to keep the most recent snapshot for.
+    * `year` - The last N years to keep the most recent snapshot for.
+  * `GRIST_SNAPSHOT_KEEP` - Maximum number of recent snapshots to keep, regardless of
+  `GRIST_SNAPSHOT_TIME_CAP`. (Default: 5)
