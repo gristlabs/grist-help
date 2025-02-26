@@ -1550,8 +1550,8 @@ components:
                 example: 1
               fields:
                 type: object
-                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)."
-      example:
+                description: "A JSON object mapping column names to [cell values]()."
+      example:https://support.getgrist.com/code/modules/GristData/#cellvalue
         records:
           -
             id: 1
@@ -1577,7 +1577,7 @@ components:
             properties:
               fields:
                 type: object
-                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)."
+                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)."
       example:
         records:
           -
@@ -1625,14 +1625,14 @@ components:
                 type: object
                 description: >
                   keys are column identifiers, and values are
-                  [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)
+                  [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)
                   we want to have in those columns (either by matching
                   with an existing record, or creating a new record)
               fields:
                 type: object
                 description: >
                   keys are column identifiers, and values are
-                  [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)
+                  [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)
                   to place in those columns (either overwriting values in an existing
                   record, or in a new record)
       example:
