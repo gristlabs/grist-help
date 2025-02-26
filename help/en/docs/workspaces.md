@@ -31,7 +31,6 @@ the left bar, then select "Add New", then "Create empty document"
 (or "Import document").
 
 *![workspaces-add-document](images/workspaces/workspaces-add-document.png)*
-{: .screenshot-half }
 
 To move a document from one workspace to another, hover over the document,
 click on the three-dots icon to the right of the document's name, and
