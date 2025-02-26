@@ -13,6 +13,7 @@ include:
 - [KonnectzIT](https://plan.konnectzit.com/feedback/grist-integration)
 - [n8n](https://n8n.io/integrations/n8n-nodes-base.grist)
 - [Make](https://www.make.com/en/integrations/grist?utm_source=grist-app&utm_medium=partner&utm_campaign=grist-app-partner-program)
+- [albato](https://albato.com/apps/getgrist)
 
 ## Configuring Integrators
 
