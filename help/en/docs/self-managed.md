@@ -771,6 +771,14 @@ As per [MinIO specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:t
 
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
+### How do I enable external attachments {: .tag-core }
+
+Follow these steps:
+
+1. Enable snapshots as in the instructions [above](#how-do-i-set-up-snapshots)
+2. Set the [environment variable](https://github.com/gristlabs/grist-core/#environment-variables) `GRIST_EXTERNAL_ATTACHMENTS_MODE=snapshots`
+3. Follow the [instructions for enabling external attachments](document-settings.md#external-attachments) for each document that needs them.
+
 ### How do I control telemetry? {: .tag-core }
 
 By default, Grist installations do not "phone home" to any central
