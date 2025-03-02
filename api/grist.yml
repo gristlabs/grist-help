@@ -1550,8 +1550,8 @@ components:
                 example: 1
               fields:
                 type: object
-                description: "A JSON object mapping column names to [cell values]()."
-      example:https://support.getgrist.com/code/modules/GristData/#cellvalue
+                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)."
+      example:
         records:
           -
             id: 1
