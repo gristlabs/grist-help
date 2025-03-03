@@ -119,9 +119,9 @@ The entire formula would be `Sponsors.lookupOne(Contact_Email=$Registration_Emai
 
 Now, we have the Sponsor Level listed in the All Registrations table for those attendees whose emails also appear on the sponsor list.
 
-## lookupOne and sort_by ##
+## lookupOne and order_by ##
 
-When the `lookupOne` function encounters multiple matching results, it returns the first one by row ID. The optional `sort_by` parameter can be used to sort these results by another field, to determine which one would be returned as the first match. You can also prefix the column ID with "-" to reverse the order.
+When the `lookupOne` function encounters multiple matching results, it returns the first one by row ID. The optional `order_by` parameter can be used to sort these results by another field, to determine which one would be returned as the first match. You can prefix the column ID with "-" to reverse the order (e.g. `order_by="-Date"`), and you can order by a combination of columns using a tuple (e.g. `order_by=("Account", "-Date")`).
 
 For instance, consider this example from the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program){: target="\_blank"} template. This template tracks enrollment for extracurricular and other classes - logging information for students, families, and staff. 
 
@@ -136,13 +136,13 @@ Additionally, we have a Families page that outlines the parent of each student a
 
 Then, the following formula would look at the Students table, find the specific students associated with each family, sort them by their birthday, and return the one student with the earliest birthday: 
 
-`Students.lookupOne(Family=$id, sort_by="Birthday")`
+`Students.lookupOne(Family=$id, order_by="Birthday")`
 
 In this case, this would return: Raddon, Brockie. 
 
 Alternatively, if we want to find the youngest student, the formula would include "-": 
 
-`Students.lookupOne(Family=$id, sort_by="-Birthday”)`
+`Students.lookupOne(Family=$id, order_by="-Birthday”)`
 
 In this case, this would return: Raddon, Care. 
 
