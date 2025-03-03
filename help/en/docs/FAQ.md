@@ -179,6 +179,15 @@ There are many ways to share Grist data with non-team members.
 
 4. **View-only embed.** Grist [pages](page-widgets.md#pages) can be embedded into websites in an iframe. [Learn how](embedding.md).
 
+### Why do I see "Your site has too many pending invites" when inviting users to a site or document?
+
+Grist limits the number of invites you can send to emails not associated with an active Grist account. This includes emails that don't have a Grist account or have not logged in after registration.
+
+If you run into this error, you need to either wait 24 hours, or wait for the invited users to register and sign before you can invite additional users.
+
+!!! note
+    This limit only applies to the version of Grist at [getgrist.com](https://getgrist.com).
+
 ---
 
 ## Grist and your website/app

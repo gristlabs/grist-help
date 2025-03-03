@@ -49,6 +49,9 @@ Open the user menu under your user icon, and select 'Billing Account'.
 <span class="screenshot-large">*![Add billing managers](images/team-sharing/billing-page.png)*</span>
 {: .screenshot-half }
 
+!!! note
+    You can have up to 10 billing managers in the version of Grist at [getgrist.com](https://getgrist.com).
+
 ## Removing Team Members
 
 To remove a user from your team, click 'Manage Team' at the upper right of the page then click the delete icon to the right of their name. You must click the confirm button to save the change.
