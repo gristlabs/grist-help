@@ -181,9 +181,9 @@ There are many ways to share Grist data with non-team members.
 
 ### Why do I see "Your site has too many pending invites" when inviting users to a site or document?
 
-Grist limits the number of invites you can send to emails not associated with an active Grist account. This includes emails that don't have a Grist account or have not logged in after registration.
+Grist limits the number of invites you can send to emails not associated with an active Grist account. This includes emails that don't have a Grist account or have registered but not logged in.
 
-If you run into this error, you need to either wait 24 hours, or wait for the invited users to register and sign before you can invite additional users.
+If you run into this error, you need to either wait 24 hours, or wait for the invited users to register and sign in before you can invite additional users.
 
 !!! note
     This limit only applies to the version of Grist at [getgrist.com](https://getgrist.com).
