@@ -1258,16 +1258,15 @@ to match.  For example, <code class="formula">Materials.lookupRecords(Category='
 <p><img alt="formulas-column-options" src="../images/formulas/formulas-lookup-unsorted.png" /></p>
 <p>If you are following on, see <a href="../widget-card/#adding-a-field">Adding a field</a>
 for details of how to add a new field to a card.  If you care about the order
-of results, <code>lookupRecords</code> takes an optional <code>sort_by</code> parameter.  For example,
+of results, <code>lookupRecords</code> takes an optional <code>order_by</code> parameter.  For example,
 we could use this formula to sort by the product name itself:</p>
-<pre><code class="language-py">Materials.lookupRecords(Category='Ship', sort_by='Product').Product
+<pre><code class="language-py">Materials.lookupRecords(Category='Ship', order_by='Product').Product
 </code></pre>
-<p>If you want to sort by multiple columns, remember that you can create a hidden
-formula column that combines data in any way you like, and then sort by that.</p>
-<p>The order of records returned by <code>lookupRecords</code> may not match the order of rows
-you see in a table.  To get that order, use <code>sort_by='manualSort'</code>.  This is an
-internal column that is updated with the manually established sort order
-of rows.</p>
+<p>You can reverse the order by prefixing the column name with &ldquo;-&ldquo;. If you want to sort by multiple
+columns, use a tuple of columns, for example, <code>order_by=('Product', '-Date')</code>.</p>
+<p>If <code>order_by</code> is omitted, the records returned by <code>lookupRecords</code> are ordered by row ID, as if
+<code>order_by="id"</code> is specified. If you&rsquo;ve rearranged rows manually, this may not match the order of
+rows you see in a table.  To get that order, use <code>order_by=None</code>.</p>
 <p>If you find yourself doing a lot of look-ups, please consider
 whether <a href="../summary-tables/">Summary tables</a> and
 <a href="../summary-tables/#summary-formulas">Summary formulas</a> might be
