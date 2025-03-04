@@ -1037,6 +1037,7 @@
 <li><a href="#what-is-a-home-database">What is a &ldquo;home&rdquo; database?</a></li>
 <li><a href="#what-is-a-state-store">What is a state store?</a></li>
 <li><a href="#how-do-i-set-up-snapshots">How do I set up snapshots?</a></li>
+<li><a href="#how-do-i-enable-external-attachments">How do I enable external attachments</a></li>
 <li><a href="#how-do-i-control-telemetry">How do I control telemetry?</a></li>
 <li><a href="#how-do-i-upgrade-my-installation">How do I upgrade my installation?</a></li>
 <li><a href="#what-if-i-need-high-availability">What if I need high availability?</a></li>
@@ -1679,6 +1680,13 @@ client:</p>
 </code></pre>
 <p>As per <a href="https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1">MinIO specs</a>.), the default bucket region is <code>us-east-1</code>. This default region can be overwritten using the <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> flag.</p>
 <p>For details, and other options, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
+<h3 class="tag-core" id="how-do-i-enable-external-attachments">How do I enable external attachments<a class="headerlink" href="#how-do-i-enable-external-attachments" title="Permanent link">#</a></h3>
+<p>Follow these steps:</p>
+<ol>
+<li>Enable snapshots as in the instructions <a href="#how-do-i-set-up-snapshots">above</a>.</li>
+<li>Set the <a href="https://github.com/gristlabs/grist-core/#environment-variables">environment variable</a> <code>GRIST_EXTERNAL_ATTACHMENTS_MODE=snapshots</code>.</li>
+<li>Follow the <a href="../document-settings/#external-attachments">instructions for enabling external attachments</a> for each document that needs them.</li>
+</ol>
 <h3 class="tag-core" id="how-do-i-control-telemetry">How do I control telemetry?<a class="headerlink" href="#how-do-i-control-telemetry" title="Permanent link">#</a></h3>
 <p>By default, Grist installations do not &ldquo;phone home&rdquo; to any central
 service. It is useful to permit them to do so, to give Grist Labs some
