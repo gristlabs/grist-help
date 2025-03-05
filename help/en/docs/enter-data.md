@@ -36,7 +36,7 @@ types offer specialized widgets for entering data more conveniently.
 
 Here are some of the most useful ones:
 
-- **Toggle**. A "Toggle" column shows True/False values, and can show
+- [**Toggle**](col-types.md#toggle-columns). A "Toggle" column shows True/False values, and can show
   them as a "Checkbox" or as a "Switch" widget, which you can select in the
   column options. You can toggle a value in such a cell by clicking the check
   mark or the switch, or by hitting <code class="keys">*Space*</code>.
@@ -44,13 +44,13 @@ Here are some of the most useful ones:
   *![toggle-edit](images/toggle-edit.png)*
   {: .screenshot-half }
 
-- **Date** and **DateTime**. Hitting <code class="keys">*Enter*</code> on such
+- [**Date**](col-types.md#date-columns) and [**DateTime**](col-types.md#datetime-columns). Hitting <code class="keys">*Enter*</code> on such
   a cell will open a calendar to pick a date.
 
   *![date-edit](images/date-edit.png)*
   {: .screenshot-half }
 
-- **Choice** and **Reference**. Typing into a cell of one of these types will produce an
+- [**Choice**](col-types.md#choice-columns) and [**Reference**](col-types.md#reference-columns). Typing into a cell of one of these types will produce an
   auto-complete dropdown menu.
 
   *![choice-edit](images/choice-edit.png)*
