@@ -37,7 +37,7 @@ private to you. You can save your changes by clicking the "Save Copy" button on 
 page.
 
 You can create a new document using any of the templates, retaining the structure, layout, and formulas 
-from the example but exclude the sample data. Just click the "Save Copy" button and select the "As Template" 
+from the example but excluding the sample data. Just click the "Save Copy" button and select the "As Template" 
 checkbox in the dialog that appears.
 
 ## Importing more data
