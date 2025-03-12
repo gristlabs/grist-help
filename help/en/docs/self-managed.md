@@ -1,29 +1,27 @@
 ---
-title: Self-managed Grist
-description: The essentials of creating and maintaining a self-managed Grist installation.
+title: Self-hosted Grist
+description: The essentials of creating and maintaining a self-hosted Grist installation.
 ---
 
-# Self-Managed Grist
+# Self-hosted Grist
 
 [TOC]
 
 ## The essentials
 
-### What is Self-Managed Grist?
-
 There are five flavors of Grist:
 
   * **SaaS** (Software as a Service): Grist is available as a hosted service
     at [docs.getgrist.com](https://docs.getgrist.com).
-    No installation needed. Free and paid plans, with usage limits.
-  * **Desktop App**: Grist is available as a desktop application, built with Electron.
+    No installation needed. Free and paid plans, with usage limits. Plan details available on our 
+    [pricing page](https://www.getgrist.com/pricing/).
+  * **Desktop app**: Grist is available as a desktop application, built with Electron.
     It is available for download at [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases).
     This desktop application does not need internet and is not tied to any online account or service.
-  * **Self-Managed Enterprise**: Grist is available as a licensed application
-    installed by enterprises on their own infrastructure
-    with our support and backing. Contains proprietary features
-	developed for enterprises with particular needs.
-  * **Self-Managed Core**: Grist is available as a free application installed
+  * **Enterprise**: Grist is available as a licensed application that can be installed by enterprises 
+    on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. Contains 
+    proprietary features developed for enterprises with particular needs. 
+  * **Core**: Grist is available as a free application installed
     by citizen developers on their own infrastructure with community support.
     Grist documents created with our SaaS and Enterprise offerings
 	can be opened and edited with Core, and vice versa. This establishes
@@ -36,7 +34,9 @@ There are five flavors of Grist:
     Read more about it
     [here](https://support.getgrist.com/install/grist-builder-edition/).
 
-Self-Managed Grist, be it Enterprise or Core, is installed and
+### What is self-hosted Grist?
+
+Self-hosted (or self-managed) Grist, be it Enterprise or Core, is installed and
 configured in much the same way, as described in the following
 sections. Grist Builder Edition can be configured the same way, but
 includes a default configuration to get started. For clarity, the
@@ -245,7 +245,7 @@ Grist has a concept of "team sites" that are independently managed and
 named areas containing their own workspaces and documents.  Team sites
 can have distinct subdomains (as on our SaaS's [hosted team sites](teams.md)),
 or be distinguished by
-a special path prefix.  This often does not make sense for self-managed
+a special path prefix.  This often does not make sense for self-hosted
 installations, where there is a single team.  With a single domain and
 a single team, the special path prefix (which looks like `/o/<team-name>`)
 is an inelegant waste of space in URLs. So you can direct Grist to
@@ -343,7 +343,7 @@ docker run ...
 ### How do I customize styling? {: .tag-core .tag-ee }
 
 The Grist UI has many elements, some of which may not be relevant to you.
-For self-managed installations of Grist,
+For self-hosted installations of Grist,
 you can turn off many elements using `GRIST_HIDE_UI_ELEMENTS`.
 This is comma-separated list of parts of the UI to hide.
 The allowed names of parts are:
@@ -413,7 +413,7 @@ In our SaaS, Grist has a list of pre-built custom widgets available in the UI.
 
 ![Custom widget gallery](images/widget-custom/custom-widget-gallery.png)
 
-You can have your self-managed installation offer the same list by
+You can have your self-hosted installation offer the same list by
 setting the following:
 
 ```
@@ -785,7 +785,7 @@ By default, Grist installations do not "phone home" to any central
 service. It is useful to permit them to do so, to give Grist Labs some
 limited insight into your usage, through measurements called
 telemetry. This will help guide development, and draw attention to
-self-managed users as a group.
+self-hosted users as a group.
 
 The simplest way for an owner of a Grist installation to opt in to sending
 telemetry to Grist Labs is to click the "Opt in to Telemetry" button on
@@ -823,7 +823,8 @@ We currently release new Grist Core and Enterprise images at
 approximately weekly intervals. Grist handles any migrations that
 may be needed to the documents or databases it uses.
 Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
-keep your version of Grist up to date for you.
+keep your version of Grist up to date for you. We can also install and maintain self-hosted 
+Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/contact/) for more information.
 
 ### What if I need high availability? {: .tag-ee }
 

@@ -7,7 +7,7 @@ Teams
 
 Team sites are meant for regular collaboration by groups. They store documents at a subdomain of your choice such as `your-team.getgrist.com`. Team sites may be on a free or a paid plan.
 
-The difference between the Free plan and paid plans is the document limits. Documents on a Free plan can have up to 5,000 rows, and include automatic backups for 30 days. While personal sites are only available with the Free plan, team sites may be upgraded to Pro or Business plans. On paid plans, the limits are much higher. See the [pricing page](https://www.getgrist.com/pricing) for more details.
+The difference between the Free plan and paid plans is the document limits. Documents on a Free plan can have up to 5,000 rows, and include automatic backups for 30 days. Personal sites cannot be upgraded. Team sites, however, can be upgraded to one of our paid plans, which offer much higher limits. See the [pricing page](https://www.getgrist.com/pricing) for more details.
 
 If you have a team site but aren't seeing it, click in the top-left corner to open a drop-down menu of sites to which you have access.
 
@@ -51,7 +51,7 @@ That’s also where you will find personal documents shared with you by others. 
 
 ## Billing Account
 
-If you created a team site on the Pro or Business plan, or were added to it as a Billing Manager, then you may manage billing information, and edit your team site's name and subdomain from the billing account page. Open the [user menu](glossary.md#user-menu) and click on 'Billing Account' to open a menu that looks like this.
+If you created a team site on a [paid plan](https://www.getgrist.com/pricing/), or were added to one as a Billing Manager, you can manage billing information and edit your team site's name and subdomain from the billing account page. Open the [user menu](glossary.md#user-menu) and click on 'Billing Account' to open a menu that looks like this.
 
 <span class="screenshot-large">*![billing account](images/team-sharing/billing-account.png)*</span>
 
