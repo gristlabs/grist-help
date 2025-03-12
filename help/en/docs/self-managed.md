@@ -34,9 +34,9 @@ There are five flavors of Grist:
     Read more about it
     [here](https://support.getgrist.com/install/grist-builder-edition/).
 
-### What is Self-hosted Grist?
+### What is self-hosted Grist?
 
-Self-hosted Grist, be it Enterprise or Core, is installed and
+Self-hosted (or self-managed) Grist, be it Enterprise or Core, is installed and
 configured in much the same way, as described in the following
 sections. Grist Builder Edition can be configured the same way, but
 includes a default configuration to get started. For clarity, the
@@ -823,8 +823,8 @@ We currently release new Grist Core and Enterprise images at
 approximately weekly intervals. Grist handles any migrations that
 may be needed to the documents or databases it uses.
 Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
-keep your version of Grist up to date for you. We can also help support ongoing 
-maintenance of your server. [Contact us](https://www.getgrist.com/contact/) for more information.
+keep your version of Grist up to date for you. We can also install and maintain self-hosted 
+Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/contact/) for more information.
 
 ### What if I need high availability? {: .tag-ee }
 
