@@ -37,7 +37,7 @@ Learn more about [self-managing Grist](self-managed.md).
 
 Free personal and free team plans have 100 AI Assistant credits (or requests). For free team sites, that applies to the whole team. 
 
-[Pro plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 100 AI Assistant credits per month. The credits automatically top up to 100 every billing cycle. Credits apply to the whole team. It costs one credit per chat message sent. If you need more credits, there are two upgrade options:
+[Pro plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 100 AI Assistant credits per month, [Business plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 2,000 credits per month. Credits reset to the plan's monthly amount at the start of each billing cycle and are shared across the team. Each chat message costs one credit. If you need more credits, there are two upgrade options:
 
 * 500 monthly credits for $10 per month (per team, not per person)
 * 2,000 monthly credits for $29 per month (per team, not per person)
