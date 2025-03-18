@@ -264,6 +264,47 @@ paths:
         200:
           description: Success
 
+  /docs:
+    post:
+      operationId: createCopyUploadDoc
+      tags:
+        - docs
+      summary: "Create a new document"
+      requestBody:
+        description: "Creates one of: an empty unsaved document, an empty saved document, a copy of a document or an uploaded document."
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/CopyDocument'
+                - $ref: '#/components/schemas/CreateNewDocument'
+                - $ref: '#/components/schemas/CreateUnsavedDocument'
+          multipart/form-data:
+            schema:
+              type: object
+              required: [ 'file' ]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: "Must be a Grist document with the `.grist` extension"
+                workspaceId:
+                  type: integer
+                  description: "Workspace to upload the document to"
+                documentName:
+                  type: string
+                  description: "Name for the uploaded document"
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+                description: "Id of the newly created document"
+                example: "2BjUS8rPfa1Q3EwNWpsK7H"
+
+
   /docs/{docId}:
     get:
       operationId: describeDoc
@@ -284,8 +325,6 @@ paths:
       tags:
         - docs
       summary: "Modify document metadata (but not its contents)"
-      parameters:
-        - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
         description: "the changes to make"
         content:
@@ -2109,6 +2148,37 @@ components:
           $ref: https://specs.frictionlessdata.io/schemas/csv-dialect.json
         schema:
           $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
+    CopyDocument:
+      type: object
+      required: [ 'sourceDocumentId', 'workspaceId', 'documentName' ]
+      properties:
+        sourceDocumentId:
+          type: string
+          description: "Document to copy"
+          example: "2BjUS8rPfa1Q3EwNWpsK7H"
+        workspaceId:
+          type: integer
+          description: "Workspace the copied document will be put in"
+        documentName:
+          type: string
+          description: "Name for the copied document"
+          example: "My new document"
+        asTemplate:
+          type: boolean
+          description: "Copy only the document's structure, omitting data"
+    CreateNewDocument:
+      type: object
+      required: [ 'workspaceId' ]
+      properties:
+        workspaceId:
+          type: integer
+          description: "Workspace to create the new document in"
+        documentName:
+          type: string
+          description: "Name for the new document"
+          example: "My new document"
+    CreateUnsavedDocument:
+      type: object
 
   parameters:
     filterQueryParam:
