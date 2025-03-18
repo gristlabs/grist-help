@@ -659,6 +659,144 @@ paths:
       responses:
         200:
           description: Attachment contents, with suitable Content-Type.
+  /docs/{docId}/attachments/archive:
+    get:
+      operationId: downloadAttachments
+      tags:
+        - attachments
+      summary: "Download all attachments"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: format
+          schema:
+            type: string
+            enum: ['zip', 'tar']
+      responses:
+        200:
+          description: Archive of all attachments, in either .zip or .tar format.
+    post:
+      operationId: uploadMissingAttachments
+      tags:
+        - attachments
+      summary: "Upload missing attachments"
+      description: "Restores attachments which are missing from external storage."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "A .tar file downloaded from Grist, containing all the document's attachments."
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: "The .tar file. Must have `Content-Type=application/x-tar` set."
+      responses:
+        200:
+          description: Summary of attachments used
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  added:
+                    type: integer
+                    description: "Total files added to external storage."
+                  errored:
+                    type: integer
+                    description: "Total files that errored when attempting to process them."
+                  unused:
+                    type: integer
+                    description: "Total files that aren't needed, or don't match an existing attachment."
+
+  /docs/{docId}/attachments/store:
+    get:
+      operationId: getDocumentAttachmentStore
+      tags:
+        - attachments
+      summary: "Get external store"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Document's current external storage setting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentStoreSetting'
+    post:
+      operationId: setDocumentAttachmentStore
+      tags:
+        - attachments
+      summary: "Set external store"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentStoreSetting'
+      responses:
+        200:
+          description: The ID of the store the document's store
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store:
+                    $ref: '#/components/schemas/DocumentStoreId'
+
+  /docs/{docId}/attachments/stores:
+    get:
+      operationId: listAttachmentStores
+      tags:
+        - attachments
+      summary: "List external attachment stores"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Document's current external storage setting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentStoreSetting'
+
+  /api/docs/{docId}/attachments/transferAll:
+    post:
+      operationId: startAttachmentTransfer
+      tags:
+        - attachments
+      summary: "Start transferring attachments"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Transfer status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentsTransferStatus'
+
+  /api/docs/{docId}/attachments/transferStatus:
+    get:
+      operationId: getAttachmentTransferStatus
+      tags:
+        - attachments
+      summary: "Get attachment transfer status"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Transfer status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentsTransferStatus'
 
   /docs/{docId}/tables/{tableId}/records:
     get:
@@ -2109,6 +2247,43 @@ components:
           $ref: https://specs.frictionlessdata.io/schemas/csv-dialect.json
         schema:
           $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
+    DocumentStoreSetting:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'external', 'internal' ]
+    DocumentStoreId:
+      type: string
+      nullable: true
+      example: "83395209-fc3b-4d02-8934-b2619efec712-filesystem"
+    DocumentAttachmentsLocation:
+      type: string
+      description: "The current location of attachment files in the document"
+      enum:
+        - none
+        - internal
+        - mixed
+        - external
+      example: mixed
+    AttachmentsTransferStatus:
+      type: object
+      properties:
+        status:
+          type: object
+          properties:
+            pendingTransferCount:
+              type: integer
+              description: "Remaining transfers be performed"
+              example: 19
+            isRunning:
+              type: boolean
+              description: "Are files actively being transferred?"
+              example: true
+        locationSummary:
+          $ref: '#/components/schemas/DocumentAttachmentsLocation'
+
+
 
   parameters:
     filterQueryParam:
