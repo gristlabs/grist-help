@@ -40,6 +40,7 @@ Variables d'environnement attendues :
   * `GRIST_OIDC_IDP_EXTRA_CLIENT_METADATA` (optionnel) - Un objet JSON avec des métadonnées client supplémentaires à passer à openid-client.
     Sachez que la définition de cet objet peut remplacer toutes les autres valeurs passées au client openid.
     Plus d'infos : https://github.com/panva/node-openid-client/tree/main/docs#new-clientmetadata-jwks-options
+  * `GRIST_OIDC_SP_IGNORE_EMAIL_VERIFIED` (optionnel) - À définir à `true` pour désactiver la vérification des emails. Utile quand l'erreur `error: OIDC callback failed: Error: OIDCConfig: email not verified for username@example.com` survient, mais faire attention à contrôler les emails utilisés au niveau du fournisseur OIDC.
 
 ## Exemple : Gitlab
 
@@ -59,6 +60,29 @@ GRIST_OIDC_IDP_CLIENT_ID=...
 GRIST_OIDC_IDP_CLIENT_SECRET=...
 
 # Gitlab ne propose pas `end_session_endpoint`
+GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT=true
+```
+
+Ce format est adapté pour un fichier `.env` ou similaire. Lors d'une invocation shell, n'oubliez pas de citer les valeurs avec des espaces, comme `GRIST_OIDC_IDP_SCOPES="openid profile email"`.
+
+## Exemple : Gitea
+
+Dans les paramètres d'administration de l'application, au niveau des intégrations d'applications, définissez l'URI de redirection sur `https://<grist-domain>/oauth2/callback` (ou `http://localhost:8484/oauth2/callback` si testé localement, et changez `8484` pour le port que vous écoutez).
+
+Une fois l'application configurée, démarrez Grist avec ces paramètres :
+
+```shell
+GRIST_OIDC_SP_HOST=https://<grist-domain> # ou http://localhost:8484
+GRIST_OIDC_IDP_ISSUER=https://<gitea-domain> # le /.well-known/openid-configuration est ajouté automatiquement
+GRIST_OIDC_IDP_SCOPES=openid profile email
+
+# l'ID client généré par Gitea pour l'application
+GRIST_OIDC_IDP_CLIENT_ID=...
+
+# le secret client généré par Gitea pour l'application
+GRIST_OIDC_IDP_CLIENT_SECRET=...
+
+# Gitea ne propose pas `end_session_endpoint`
 GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT=true
 ```
 
