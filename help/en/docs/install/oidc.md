@@ -66,7 +66,7 @@ GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT=true
 
 This format is suitable for an `.env` file or similar. From a shell invocation, remember to quote values with spaces, such as `GRIST_OIDC_IDP_SCOPES="openid profile email"`.
 
-## Example: Gitlab
+## Example: Gitea
 
 In the application admin settings, on Integrations then Application, set the redirect URI to `https://<grist-domain>/oauth2/callback` (or `http://localhost:8484/oauth2/callback` if tested locally, and change `8484` to the port you listen on).
 
