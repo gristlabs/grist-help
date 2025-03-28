@@ -21,9 +21,8 @@ in the bottom-left of the screen, or from the user dropdown menu.
 *![Admin Panel in user menu](images/admin-controls/admin-panel-in-user-menu.png)*
 {: .screenshot-half }
 
-The Admin Panel opens to the "Installation" page with configuration options for the installation.
-Below that, the left-side panel lists "Admin Controls", with pages for Users, Orgs, Workspaces,
-and Documents.
+The Admin Panel opens to the _Installation_ page, where you can configure installation settings. The left-side panel also lists 'Admin Controls', with pages for _Users_, _Orgs_, _Workspaces_,
+and _Documents_.
 
 *![Admin area pages](images/admin-controls/admin-area-pages.png)*
 {: .screenshot-half }
