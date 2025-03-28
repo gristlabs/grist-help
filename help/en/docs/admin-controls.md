@@ -27,7 +27,7 @@ and _Documents_.
 *![Admin area pages](images/admin-controls/admin-area-pages.png)*
 {: .screenshot-half }
 
-## Users Page
+## Users page
 
 The _Users_ page lists all users in your installation. Details include:
 
@@ -48,9 +48,7 @@ resource, and details for the resource.
 
 ### Removing a user
 
-A special action available on the Users page is "Remove user". You can access it from the
-"Actions" button when details are expanded, or from the row menu or cell context menu on a user's
-row as an "Actions > Remove user" item.
+A special action available on the _Users_ page is 'Remove user'. This is available under the 'Actions' button at the upper-right of the expanded user details card, or in the row or cell context menus as an 'Actions > Remove user' item.
 
 *![remove-user-in-action-button](images/admin-controls/remove-user-in-action-button.png)*
 {: .screenshot-half }
@@ -64,8 +62,7 @@ reverted. You have to confirm the deletion by typing in the user's email address
 <span class="screenshot-large">*![delete-account](images/admin-controls/delete-account.png)*</span>
 {: .screenshot-half }
 
-If that user owns team-site resources, you'll be offered an option to pick a different user who
-will replace the deleted user on any resources that they had owner-level access to. By default,
+If the user owns team-site resources, you'll have the option to assign a different user to take over their owner-level access. By default,
 you (the installation administrator) will become an owner on all such resources.
 
 <span class="screenshot-large">*![delete-account-with-selector](images/admin-controls/delete-account-with-selector.png)*</span>
@@ -90,32 +87,30 @@ organizations whether there is one or several.
 In addition, every user by default has an associated "personal site", which is just another
 organization with a single member.
 
-The "Orgs" page lists all organizations in your installation. In addition to basic info, it shows
-the number of workspaces, documents, and users in the organization. The "Guests" column shows
+The _Orgs_ page lists all organizations in your installation. In addition to basic info, it shows
+the number of workspaces, documents, and users in the organization. The **Guests** column shows
 the count of users who are not members of the organization but have been given access to one of
-the documents inside it.
+the documents within it.
 
 ### Workspaces
 
-An organization contains workspaces, which contain Grist documents. The "Workspaces" page lists
-all workspaces across all organizations (including personal sites). In addition to basic info, it
-shows the number of documents in the workspaces, and users who have access.
+An organization consists of workspaces, which contain Grist documents. The _Workspaces_ page lists
+all workspaces across all organizations, including personal sites. Along with basic details, it shows the number of documents in each workspace and the users with access.
 
-The "Guests" column shows the count of users who are not members of the organization but have been
-given access to one of the documents inside this workspace.
+The **Guests** column displays the number of users who are not members of the organization but have been
+given access to a document within this workspace.
 
-In addition, the column "Extra Doc Users" shows the count of organization members who have not been
+In addition, the column **Extra Doc Users** displays the number of organization members who have not been
 given access to this workspace but have been given access to at least one of the documents in it.
 
 ### Documents
 
-A document is the main workhorse of Grist. The "Documents" page lists all documents across all
-organizations (including personal sites). In addition to basic info, it shows various other fields
-of interest:
+A document is the core component of Grist. The _Documents_ page lists all documents across all
+organizations, including personal sites. Along with basic details, it provides additional relevant information:
 
 - `Users`: how many organization members have access to this document.
 - `Guests`: how many users outside the organization have access to this document.
-- `Public`: is this document publicly link-shared (can be opened by anyone who has the link).
+- `Public`: is this document [publicly link-shared](sharing.md#public-access-and-link-sharing) (can be opened by anyone who has the link).
 - `Usage Rows`, `Usage Data Bytes`, `Usage Attachment Bytes`: document
   usage data, as shown in the Raw Data page (see [Usage](raw-data.md#usage)). It is not real-time,
   but is updated periodically while a document is open.
@@ -126,34 +121,29 @@ of interest:
 
 The pages for all three types of resources share common functionality.
 
-Click on the link in the "Name" column, use the "Show details" button, or press the <code
-class="keys">*Space*</code> shortcut to expand details for the selected resource.
+To view more details about a selected resource, click the link in the **Name** column, use the 'Show details' button, or press the <code
+class="keys">*Space*</code> shortcut.
 
-Details include a card with the resource information, listings of contained material, and listing
-of users with access. For an organization, details will include listings
-of workspaces and documents. For a workspaces, details will include the contained documents.
+In the expanded section, you'll find additional resource details, a list of users with access, and lists of contained material. For an organization, this includes its workspaces and documents, while for a workspace, it includes its documents.
 
-The "Users" tab shows all users who have access to the selected resource, with their access level
+The 'Users' tab displays all users with access to the selected resource, with their access level shown
 in the first column.
 
 *![orgs-with-details](images/admin-controls/orgs-with-details.png)*
 
-Note that all tables support the usual Grist functionality of sorting and filtering. You can also
-resize and reorder columns, but note that view changes do not persist.
+All tables support Grist's standard [sorting and filtering](search-sort-filter.md) features. You can also resize and reorder columns, but these view changes will not be saved.
 
-Two actions are available for each resource. These may be accessed from the "Actions" button when
-details are shown, or from the row menu or cell context menu in the main resource list.
+Two actions, 'Open document' and 'View sharing', are available for each resource. These may be accessed from the 'Actions' button when the details card is expanded, or from the row menu or cell context menu in the main resource list.
 
 *![resource-actions-in-row-menu](images/admin-controls/resource-actions-in-row-menu.png)*
 {: .screenshot-half }
 
 The action `Open organization` / `Open workspace` / `Open document` opens the given resource in a new
-page. Note that normal permissions apply. If you, signed in as the administrator, have not been
-added to this resource, you will see an "Access denied" or "Not found" page.
+page. Note that normal permissions apply. If you have not been
+added to this resource, you will see an 'Access denied' or 'Not found' page.
 
 *![resource-actions-in-action-button](images/admin-controls/resource-actions-in-action-button.png)*
 {: .screenshot-half }
 
-The action `View sharing` opens the sharing dialog for that resource in view-only mode. It does
-not allow changing access. It offers data similar to that available in the "Users" tab for the
-resource, in in an interface similar to the usual Grist sharing dialog.
+The action `View sharing` opens the sharing dialog for the resource in view-only mode. It does
+not allow access changes. It provides data similar to what is available in the 'Users' tab, presented in an interface similar to the standard Grist sharing dialog.
