@@ -29,7 +29,7 @@ and _Documents_.
 
 ## Users Page
 
-The "Users" page lists all users in your installation. Details include:
+The _Users_ page lists all users in your installation. Details include:
 
 - `Name`
 - `Email`
