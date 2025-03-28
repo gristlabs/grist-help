@@ -70,7 +70,9 @@ you (the installation administrator) will become an owner on all such resources.
 
 Note that the user's personal site (supported on some configurations), including all workspaces
 and documents in it, will be deleted entirely when a user is removed. There is no option to
-preserve personal site materials when removing a user.
+preserve personal site materials when removing a user. To preserve documents, the user to be
+removed can [transfer their documents](FAQ.md#can-i-move-documents-between-sites) to a team site
+_before_ they are removed.
 
 ## Resources
 
