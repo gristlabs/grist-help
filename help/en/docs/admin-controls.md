@@ -38,7 +38,7 @@ The _Users_ page lists all users in your installation. Details include:
 - `API Key`: whether the user created an API key (the actual API key is not shown).
 - `Orgs` / `Workspaces` / `Docs`: how many of each type of resource this user has access to.
 
-Click on the link in the Name column, or use the "Show details" button to expand details for the
+Click on the link in the **Name** column, or use the 'Show details' button to expand details for the
 selected user. You can also open details by pressing <code class="keys">*Space*</code> key. Details
 include a card with the user information, and listings of organizations, workspaces, and
 documents which this user can access. Each row shows the access level the user has to that
