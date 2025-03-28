@@ -13,7 +13,7 @@ own servers.
 Admin Controls are only available to the Grist [installation
 administrator](self-managed.md#what-is-the-administrative-account). When signed in as the
 administrator on your site, open the Admin Panel either from the 'Grist Resources' section
-in the bottom-left of the screen, or from your user dropdown menu.
+in the bottom-left of the screen, or from the user dropdown menu.
 
 *![Admin Panel in tools](images/admin-controls/admin-panel-in-tools.png)*
 {: .screenshot-half }
