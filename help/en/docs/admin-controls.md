@@ -5,7 +5,7 @@ title: Admin Controls
 # Admin Controls
 
 Grist Admin Controls provide a comprehensive view of users and resources in a Grist
-installation. It is available on Enterprise plans, whether managed by Grist Labs or hosted on your
+installation. It is available on all Enterprise plans, whether managed by Grist Labs or hosted on your
 own servers.
 
 ## Accessing Admin Controls
