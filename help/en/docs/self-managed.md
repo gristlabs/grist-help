@@ -771,7 +771,7 @@ As per [MinIO specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:t
 
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
-### How do I enable external attachments {: .tag-core }
+### How do I enable external attachments? {: .tag-core .tag-ee }
 
 Follow these steps:
 
