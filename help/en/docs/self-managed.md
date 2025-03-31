@@ -687,9 +687,9 @@ and set the following variables:
 * TYPEORM_PORT - set to port number of database if not the default for PostgreSQL
 
 Grist is known to work with PostgreSQL from versions 10 through 16.
-Recent versions, however, have enabled by default a JIT compiler that
+Versions 12 and up, however, have enabled by default a JIT compiler that
 is known to cause problems with Grist, which expresses itself as every
-cell operation taking a few noticeable seconds. In case this happens,
+cell operation taking a few noticeable seconds. For Grist versions before 1.5.0,
 PostgreSQL's JIT compiler should be disabled for Grist with the
 command-line argument `-c jit=off` or via [other methods of changing
 the PostgreSQL
@@ -703,6 +703,10 @@ disabled like this:
     command: -c jit=off
   # other config follows...
 ```
+
+As of Grist version 1.5.0, Grist will unconditionally disable JIT
+compilation when connecting to PostgreSQL, removing the need to
+disable it yourself.
 
 ### What is a state store? {: .tag-core .tag-ee }
 
