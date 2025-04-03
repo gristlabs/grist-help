@@ -185,10 +185,7 @@ Grist limits the number of invites you can send to emails that are not associate
 
 If you run into this error, you need to either wait 24 hours, or wait for the invited users to register and sign in before you can invite additional users.
 
-!!! note
-    This limit only applies to the version of Grist at [getgrist.com](https://getgrist.com).
-
----
+Enterprise and self-hosted instances may have a different limit.
 
 ## Grist and your website/app
 
