@@ -13,6 +13,8 @@ You can find a finished template here: [📝 Proposals & Contracts Template](htt
 
 If you'd like to add a proposal to an existing document, understanding this tutorial should get you there.
 
+Prefer a visual guide? Our [Markdown Widget Magic 🧙‍♂️ webinar](https://youtu.be/7zQ0KbxdBAw?si=lwoGVw_RP4ciBote&rel=0) walks through these steps in detail, making it easy to follow along.
+
 ## Setting up a Project table
 
 First of all, make a table to record project details by
