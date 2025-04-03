@@ -42,15 +42,11 @@ There are three primary roles supported by Grist for team sites:
 
 ## Billing Permissions
 
-None of these roles give access to billing information or management.
-Billing plan managers can be added via the 'Billing Account' option. 
-Open the user menu under your user icon, and select 'Billing Account'.
+None of the roles listed above provide access to billing information or management.
+You can add up to 10 billing managers on the 'Billing Account' page, which can be accessed via the user menu dropdown.
 
 <span class="screenshot-large">*![Add billing managers](images/team-sharing/billing-page.png)*</span>
 {: .screenshot-half }
-
-!!! note
-    You can have up to 10 billing managers in the version of Grist at [getgrist.com](https://getgrist.com).
 
 ## Removing Team Members
 
