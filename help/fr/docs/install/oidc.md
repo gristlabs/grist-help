@@ -84,6 +84,8 @@ GRIST_OIDC_IDP_CLIENT_SECRET=...
 
 # Gitea ne propose pas `end_session_endpoint`
 GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT=true
+# Et aussi aucune vérification des emails n'est possible:
+GRIST_OIDC_SP_IGNORE_EMAIL_VERIFIED=true
 ```
 
 Ce format est adapté pour un fichier `.env` ou similaire. Lors d'une invocation shell, n'oubliez pas de citer les valeurs avec des espaces, comme `GRIST_OIDC_IDP_SCOPES="openid profile email"`.
