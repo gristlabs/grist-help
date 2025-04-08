@@ -121,7 +121,7 @@ value of `GRIST_DEFAULT_EMAIL` after the first admin user has been
 created will effectively revoke administrator permissions from the
 first user and assign them to the new email address.
 
-The administrative account has access to the admin panel where they
+The administrative account has access to the [admin panel](admin-controls.md) where they
 may inspect details of the installation or toggle features such as
 [telemetry](self-managed.md#how-do-i-control-telemetry) or [Grist
 Enterprise](self-managed.md#how-do-i-enable-grist-enterprise).
@@ -310,7 +310,7 @@ you developed, you may want to consider
 
 ### How do I enable Grist Enterprise? {: .tag-ee }
 
-Grist Enterprise can be enabled by visiting the Admin Panel and clicking the 'Enable Grist Enterprise Features' toggle.
+Grist Enterprise can be enabled by visiting the [Admin Panel](admin-controls.md) and clicking the 'Enable Grist Enterprise Features' toggle.
 This will cause Grist to automatically restart.
 
 ![Enterprise toggle on the admin panel](images/admin-panel/enterprise-toggle.png)
