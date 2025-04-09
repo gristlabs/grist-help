@@ -19,8 +19,8 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 - [August 2024 Newsletter](newsletters/2024-08.md): Markdown in the cell, custom widget cards, and webhook documentation.
 - [July 2024 Newsletter](newsletters/2024-07.md): Cumulative functions, new kinds of lookups, improved variable syncing and a new users webinar!
 - [June 2024 Newsletter](newsletters/2024-06.md): Research templates, running rootless, and community contributions! 
-- [May 2024 Newsletter](newsletters/2024-05.md): New Grist Business plan, a formula timer utility, draggable conditionals and admin console improvements!
-- [April 2024 Newsletter](newsletters/2024-04.md): Filtering reference and choice dropdown lists, an admin console for self-hosters.
+- [May 2024 Newsletter](newsletters/2024-05.md): New Grist Business plan, a formula timer utility, draggable conditionals and Admin Panel improvements!
+- [April 2024 Newsletter](newsletters/2024-04.md): Filtering reference and choice dropdown lists, an Admin Panel for self-hosters.
 - [March 2024 Newsletter](newsletters/2024-03.md): Improvements to forms, new file formats, and a boot page for self-hosters.
 - [February 2024 Newsletter](newsletters/2024-02.md): Community spotlight: new widgets, fun experiments, and in-depth explorations.
 - [January 2024 Newsletter](newsletters/2024-01.md): Grist Forms are here! Getting data into Grist just got easier.
