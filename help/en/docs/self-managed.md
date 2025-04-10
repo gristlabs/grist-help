@@ -121,10 +121,12 @@ value of `GRIST_DEFAULT_EMAIL` after the first admin user has been
 created will effectively revoke administrator permissions from the
 first user and assign them to the new email address.
 
-The administrative account has access to the [admin panel](admin-controls.md) where they
+The administrative account has access to the [Installation](admin-panel.md#settings) page in the [Admin Panel](admin-panel.md) where they
 may inspect details of the installation or toggle features such as
 [telemetry](self-managed.md#how-do-i-control-telemetry) or [Grist
 Enterprise](self-managed.md#how-do-i-enable-grist-enterprise).
+
+If [Grist Enterprise](self-managed.md#how-do-i-enable-grist-enterprise) is enabled, the administrative account will also have access to [Admin Controls](admin-controls.md)
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
@@ -310,7 +312,7 @@ you developed, you may want to consider
 
 ### How do I enable Grist Enterprise? {: .tag-ee }
 
-Grist Enterprise can be enabled by visiting the [Admin Panel](admin-controls.md) and clicking the 'Enable Grist Enterprise Features' toggle.
+Grist Enterprise can be enabled by visiting the Installation page in the [Admin Panel](admin-panel.md) and clicking the 'Enable Grist Enterprise Features' toggle.
 This will cause Grist to automatically restart.
 
 ![Enterprise toggle on the admin panel](images/admin-panel/enterprise-toggle.png)
@@ -320,7 +322,7 @@ You should now have an unactivated version of Grist Enterprise, with a 30 day tr
 Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
 Get an activation key by [signing up for Grist Enterprise](https://www.getgrist.com/pricing).
-You don't need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the Admin Panel.
+You don't need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the [Admin Panel](admin-panel.md).
 
 Place the contents of your activation key in an environment variable called
 `GRIST_ACTIVATION`, or place it in a directory available to Grist and
@@ -829,6 +831,10 @@ may be needed to the documents or databases it uses.
 Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
 keep your version of Grist up to date for you. We can also install and maintain self-hosted 
 Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/contact/) for more information.
+
+### How do I remove a user from my site? {: .tag-ee }
+
+The [installation administrator](self-managed.md#what-is-the-administrative-account) can manage access — including [removing users](admin-controls.md#removing-a-user) — via the [Admin Controls](admin-controls.md) area in the [Admin Panel](admin-panel.md).
 
 ### What if I need high availability? {: .tag-ee }
 
