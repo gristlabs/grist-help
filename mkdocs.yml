@@ -92,6 +92,7 @@ nav:
     - install/cloud-storage.md
     - install/grist-connect.md
     - install/grist-builder-edition.md
+    - admin-panel.md
     - admin-controls.md
     - Audit logs:
       - install/audit-log-overview.md
