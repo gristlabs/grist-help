@@ -23,3 +23,5 @@ The Installation page is where you can configure installation settings including
 ## Admin Controls
 
 Grist Admin Controls provide a comprehensive view of users and resources in a Grist installation. It is available on all Enterprise plans, whether managed by Grist Labs or hosted on your own servers. Learn more about [Admin Controls](admin-controls.md).
+
+![Admin Panel Admin Controls](images/admin-panel/admin-panel-admin-controls.png)
