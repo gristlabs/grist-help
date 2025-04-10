@@ -18,6 +18,8 @@ When signed in as the administrator of your site, open the Admin Panel from eith
 
 The Installation page is where you can configure installation settings including [Telemetry](telemetry.md), Security Settings and Versioning. If you are on an Enterprise plan, you'll also have access to [Audit Logs](install/audit-log-overview.md).
 
+![Admin Panel Installation](images/admin-panel/admin-panel-installation.png)
+
 ## Admin Controls
 
 Grist Admin Controls provide a comprehensive view of users and resources in a Grist installation. It is available on all Enterprise plans, whether managed by Grist Labs or hosted on your own servers. Learn more about [Admin Controls](admin-controls.md).
