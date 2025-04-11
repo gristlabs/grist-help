@@ -832,7 +832,7 @@ Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
 keep your version of Grist up to date for you. We can also install and maintain self-hosted 
 Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/contact/) for more information.
 
-### How do I remove a user from my site? {: .tag-ee }
+### How do I completely remove a user from my instance? {: .tag-ee }
 
 The [installation administrator](self-managed.md#what-is-the-administrative-account) can manage access — including [removing users](admin-controls.md#removing-a-user) — via the [Admin Controls](admin-controls.md) area in the [Admin Panel](admin-panel.md).
 

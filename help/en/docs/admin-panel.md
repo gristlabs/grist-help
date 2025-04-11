@@ -16,7 +16,7 @@ When signed in as the administrator of your site, open the Admin Panel from eith
 
 ## Settings
 
-The Installation page is where you can configure installation settings including [Telemetry](telemetry.md), Security Settings and Versioning. If you are on an Enterprise plan, you'll also have access to [Audit Logs](install/audit-log-overview.md).
+The Installation page is where you can configure installation settings including [Telemetry](telemetry.md), Security Settings and Versioning. If you are on an Enterprise plan, you'll also be able to configure [Audit Logs](install/audit-log-overview.md).
 
 ![Admin Panel Installation](images/admin-panel/admin-panel-installation.png)
 
