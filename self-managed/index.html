@@ -666,6 +666,10 @@
 
     
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../admin-panel/" class="wm-article-link wm-toc-text">Admin Panel</a>
+
+    
+</li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../admin-controls/" class="wm-article-link wm-toc-text">Admin Controls</a>
 
     
@@ -1178,6 +1182,7 @@
 <li><a href="#how-do-i-enable-external-attachments">How do I enable external attachments?</a></li>
 <li><a href="#how-do-i-control-telemetry">How do I control telemetry?</a></li>
 <li><a href="#how-do-i-upgrade-my-installation">How do I upgrade my installation?</a></li>
+<li><a href="#how-do-i-completely-remove-a-user-from-my-instance">How do I completely remove a user from my instance?</a></li>
 <li><a href="#what-if-i-need-high-availability">What if I need high availability?</a></li>
 </ul>
 </li>
@@ -1284,10 +1289,11 @@ variable is not set, it defaults to <code>you@example.com</code>. Changing the
 value of <code>GRIST_DEFAULT_EMAIL</code> after the first admin user has been
 created will effectively revoke administrator permissions from the
 first user and assign them to the new email address.</p>
-<p>The administrative account has access to the admin panel where they
+<p>The administrative account has access to the <a href="../admin-panel/#settings">Installation</a> page in the <a href="../admin-panel/">Admin Panel</a> where they
 may inspect details of the installation or toggle features such as
 <a href="./#how-do-i-control-telemetry">telemetry</a> or <a href="./#how-do-i-enable-grist-enterprise">Grist
 Enterprise</a>.</p>
+<p>If <a href="./#how-do-i-enable-grist-enterprise">Grist Enterprise</a> is enabled, the administrative account will also have access to <a href="../admin-controls/">Admin Controls</a></p>
 <h3 class="tag-core tag-ee" id="how-do-i-sandbox-documents">How do I sandbox documents?<a class="headerlink" href="#how-do-i-sandbox-documents" title="Permanent link">#</a></h3>
 <p>Grist allows for very powerful formulas, using Python.  We recommend
 setting the environment variable <code>GRIST_SANDBOX_FLAVOR</code> to <code>gvisor</code> if
@@ -1432,14 +1438,14 @@ or Enterprise.</p>
 you developed, you may want to consider
 <a href="../install/grist-connect/">GristConnect</a>, available for Grist Enterprise.</p>
 <h3 class="tag-ee" id="how-do-i-enable-grist-enterprise">How do I enable Grist Enterprise?<a class="headerlink" href="#how-do-i-enable-grist-enterprise" title="Permanent link">#</a></h3>
-<p>Grist Enterprise can be enabled by visiting the Admin Panel and clicking the &lsquo;Enable Grist Enterprise Features&rsquo; toggle.
+<p>Grist Enterprise can be enabled by visiting the Installation page in the <a href="../admin-panel/">Admin Panel</a> and clicking the &lsquo;Enable Grist Enterprise Features&rsquo; toggle.
 This will cause Grist to automatically restart.</p>
 <p><img alt="Enterprise toggle on the admin panel" src="../images/admin-panel/enterprise-toggle.png" /></p>
 <p>You should now have an unactivated version of Grist Enterprise, with a 30 day trial period.</p>
 <p>Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
 Get an activation key by <a href="https://www.getgrist.com/pricing">signing up for Grist Enterprise</a>.
-You don&rsquo;t need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the Admin Panel.</p>
+You don&rsquo;t need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the <a href="../admin-panel/">Admin Panel</a>.</p>
 <p>Place the contents of your activation key in an environment variable called
 <code>GRIST_ACTIVATION</code>, or place it in a directory available to Grist and
 provide the full path to the file with the environment variable
@@ -1863,6 +1869,8 @@ may be needed to the documents or databases it uses.
 Utilities such as <a href="https://containrrr.dev/watchtower/">Watchtower</a> can
 keep your version of Grist up to date for you. We can also install and maintain self-hosted 
 Grist installations for Enterprise users. <a href="https://www.getgrist.com/contact/">Contact us</a> for more information.</p>
+<h3 class="tag-ee" id="how-do-i-completely-remove-a-user-from-my-instance">How do I completely remove a user from my instance?<a class="headerlink" href="#how-do-i-completely-remove-a-user-from-my-instance" title="Permanent link">#</a></h3>
+<p>The <a href="./#what-is-the-administrative-account">installation administrator</a> can manage access — including <a href="../admin-controls/#removing-a-user">removing users</a> — via the <a href="../admin-controls/">Admin Controls</a> area in the <a href="../admin-panel/">Admin Panel</a>.</p>
 <h3 class="tag-ee" id="what-if-i-need-high-availability">What if I need high availability?<a class="headerlink" href="#what-if-i-need-high-availability" title="Permanent link">#</a></h3>
 <p>We have developed expertise in hosting very busy Grist installations,
 with many users, including how to upgrade with minimal disruption,
