@@ -1,5 +1,5 @@
-We're just getting started translating this language, sorry!
+Questa traduzione al momento è... lavori in corso!
 
-We show partially translated languages to track progress.
+Mostriamo comunque le traduzioni incomplete, per mostrare i progressi fatti.
 
-This page isn't translated yet. But the good news is that [you can join the translation community to help us 👋](__ISSUE_URL__){.internal-link target=_blank}.
+Questa pagina deve ancora essere tradotta. Ma la buona notizia è che [puoi unirti alla comunità dei traduttori per darci una mano 👋](__ISSUE_URL__){.internal-link target=_blank}.
