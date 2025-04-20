@@ -405,7 +405,7 @@ components:
           meta:
             type: object
             properties:
-              resourceType:	
+              resourceType:
                 type: string
                 enum: 
                 - "User"
