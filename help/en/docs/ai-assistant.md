@@ -2,7 +2,7 @@
 title: AI Formula Assistant
 ---
 
-AI Formula Assistant
+Legacy AI Formula Assistant
 ==============
 
 Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries. 
@@ -33,15 +33,6 @@ The above variables also enable the use of the LLaMA family of self-hostable mod
 
 Learn more about [self-managing Grist](self-managed.md). 
 
-## Pricing for AI Assistant
-
-Free personal and free team plans have 100 AI Assistant credits (or requests). For free team sites, that applies to the whole team. 
-
-[Pro plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 100 AI Assistant credits per month, [Business plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 2,000 credits per month and Enterprise plans offer customizable credit limits. Credits reset to the plan's monthly amount at the start of each billing cycle and are shared across the team. Each chat message costs one credit. If you need more credits, there are two upgrade options:
-
-* 500 monthly credits for $10 per month (per team, not per person)
-* 2,000 monthly credits for $29 per month (per team, not per person)
-
 ## Best Practices
 
 * It helps to understand how [formulas](formulas.md) work in Grist, especially when compared to traditional spreadsheets. In Grist, a single formula applies to a whole column.  If you’ve worked with spreadsheets before, you may be surprised that you don’t need to specify row numbers, like `B1 * C1`. If you’re new to Grist, you might want to try something simple without the assistant to see how formulas behave, e.g. `$Price * $Tax`.  
@@ -64,6 +55,6 @@ Free personal and free team plans have 100 AI Assistant credits (or requests). F
 
 ## Data Use Policy
 
-Your query and document schema are sent to [OpenAI](https://openai.com/){:target="\_blank"}. Grist’s AI Formula Assistant uses the gpt-3.5-turbo model, aka ChatGPT. OpenAI’s [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI’s [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Grist AI Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to Grist's AI assistant.
+Your query and document schema are sent to [OpenAI](https://openai.com/){:target="\_blank"}. Grist's AI Formula Assistant uses the gpt-4o model, aka ChatGPT. OpenAI's [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI's [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Grist AI Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to Grist's AI assistant.
 
 Certain Grist Labs employees may also examine logs of assistant requests (questions and document schema) to learn what is working and what is not, in order to provide a better service.
