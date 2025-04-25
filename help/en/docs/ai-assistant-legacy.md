@@ -1,46 +1,40 @@
 ---
-title: AI Formula Assistant
+title: AI Formula Assistant (Legacy)
 ---
 
-AI Formula Assistant
+AI Formula Assistant (Legacy)
 ==============
+
+!!! warning "Note"
+    This documentation refers to the legacy AI Formula Assistant, which is only available on the [Community edition](https://github.com/gristlabs/grist-core){:target="\_blank"}. You can find the documentation for the current Assistant [here](assistant.md).
 
 Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries. 
 
 When asking the assistant a question there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question and your data’s schema (in part or whole) to [OpenAI](https://openai.com/){:target="\_blank"} so that the assistant may better understand your document. You can view your data’s schema in [code view.](formulas.md#code-viewer) 
 
-No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about [how data is used](ai-assistant.md#data-use-policy).
+No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about [how data is used](ai-assistant-legacy.md#data-use-policy).
 
-## How To Use the AI Assistant
+## How to use the AI Assistant
 
 Create a [formula column](formulas.md) and click either the expand icon or the “use AI Assistant” link text in the cell. 
 
-<span class="screenshot-large">*![Opening AI Assistant](images/ai-assistant/formula-cell-editor.png)*</span>
+<span class="screenshot-large">*![Opening AI Assistant](images/ai-assistant-legacy/formula-cell-editor.png)*</span>
 {: .screenshot-half }
 
-This will open an expanded formula editor with the AI Assistant chat below it. Simply describe what you want the formula to do. [Here are some tips.](ai-assistant.md#best-practices)
+This will open an expanded formula editor with the AI Assistant chat below it. Simply describe what you want the formula to do. [Here are some tips.](ai-assistant-legacy.md#best-practices)
 
 When you apply a suggested formula, you will see the formula previewed in the column. If you are happy with the formula, click “Save”. Otherwise click “Cancel” to discard changes to the formula.
 
-<span class="screenshot-large">*![AI Formula Assistant](images/ai-assistant/ai-assistant-dialog.png)*</span>
+<span class="screenshot-large">*![AI Formula Assistant](images/ai-assistant-legacy/ai-assistant-dialog.png)*</span>
 {: .screenshot-half }
 
-## AI Assistant for Self-hosters
+## AI Assistant for self-hosters
 
 For self-hosters looking to connect their Grist instance, set the [AI Assistant-related environment variables](https://github.com/gristlabs/grist-core#ai-formula-assistant-related-variables-all-optional){:target="\_blank"}. 
 
 The above variables also enable the use of the LLaMA family of self-hostable models via [llama2-cpp-python](https://github.com/abetlen/llama-cpp-python){:target="\_blank"}.
 
-Learn more about [self-managing Grist](self-managed.md). 
-
-## Pricing for AI Assistant
-
-Free personal and free team plans have 100 AI Assistant credits (or requests). For free team sites, that applies to the whole team. 
-
-[Pro plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 100 AI Assistant credits per month, [Business plans](https://www.getgrist.com/pricing/){:target="\_blank"} include 2,000 credits per month and Enterprise plans offer customizable credit limits. Credits reset to the plan's monthly amount at the start of each billing cycle and are shared across the team. Each chat message costs one credit. If you need more credits, there are two upgrade options:
-
-* 500 monthly credits for $10 per month (per team, not per person)
-* 2,000 monthly credits for $29 per month (per team, not per person)
+Learn more about [self-hosting Grist](self-managed.md). 
 
 ## Best Practices
 
@@ -56,7 +50,7 @@ Free personal and free team plans have 100 AI Assistant credits (or requests). F
 
 * Sometimes the assistant gets stuck on a bad idea. If it keeps insisting on a particular formula method, consider clearing the conversation and starting over. Click the three dot menu in the AI Assistant header to clear a conversation. 
 
-<span class="screenshot-large">*![Clear AI Assistant Conversation](images/ai-assistant/clear-conversation.png)*</span>
+<span class="screenshot-large">*![Clear AI Assistant Conversation](images/ai-assistant-legacy/clear-conversation.png)*</span>
 {: .screenshot-half }
 
 
@@ -64,6 +58,6 @@ Free personal and free team plans have 100 AI Assistant credits (or requests). F
 
 ## Data Use Policy
 
-Your query and document schema are sent to [OpenAI](https://openai.com/){:target="\_blank"}. Grist’s AI Formula Assistant uses the gpt-3.5-turbo model, aka ChatGPT. OpenAI’s [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI’s [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Grist AI Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to Grist's AI assistant.
+Your query and document schema are sent to [OpenAI](https://openai.com/){:target="\_blank"}. Grist's AI Formula Assistant uses the gpt-4o model, aka ChatGPT. OpenAI's [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI's [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Grist AI Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to Grist's AI assistant.
 
 Certain Grist Labs employees may also examine logs of assistant requests (questions and document schema) to learn what is working and what is not, in order to provide a better service.
