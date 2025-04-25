@@ -10,8 +10,9 @@ Grist’s AI Assistant can answer questions about your data, create or modify re
 When asking the Assistant a question, there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question, your data’s schema and the data itself to [OpenAI](https://openai.com/){:target="\_blank"} so that the assistant may better understand your document.
 
 The Assistant:
-- **Can** answer questions about your data, create or modify records, and help with formulas. It also knows which page you're viewing.
-- **Can't** create or modify tables, columns, views, or access rules. It also doesn't know if you've selected something.
+
+* **Can** answer questions about your data, create or modify records, and help with formulas. It also knows which page you're viewing.
+* **Can't** create or modify tables, columns, views, or access rules. It also doesn't know if you've selected something.
 
 No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about [how data is used](assistant.md#data-use-policy).
 
@@ -36,7 +37,7 @@ Free personal and free team plans have 200 Assistant credits (or requests). For 
 * 500 monthly credits for $10 per month (per team, not per person)
 * 2,000 monthly credits for $29 per month (per team, not per person)
 
-## Data Use Policy
+## Data use policy
 
 Your query, document schema, and data are sent to [OpenAI](https://openai.com/){:target="\_blank"}. The Assistant uses the gpt-4o model, aka ChatGPT. OpenAI's [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI's [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to the Assistant.
 
