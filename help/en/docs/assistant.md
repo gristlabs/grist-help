@@ -7,11 +7,15 @@ Assistant
 
 Grist’s AI Assistant can answer questions about your data, create or modify records, and help with formulas!
 
-When asking the Assistant a question there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question and your data’s schema (in part or whole) to [OpenAI](https://openai.com/){:target="\_blank"} so that the assistant may better understand your document. You can view your data’s schema in [code view.](formulas.md#code-viewer) 
+When asking the Assistant a question, there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question, your data’s schema and the data itself to [OpenAI](https://openai.com/){:target="\_blank"} so that the assistant may better understand your document.
+
+The Assistant:
+* **Can** answer questions about your data, create or modify records, and help with formulas. It also knows which page you're viewing.
+* **Can't** create or modify tables, columns, views, or access rules. It also doesn't know if you've selected something.
 
 No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about [how data is used](assistant.md#data-use-policy).
 
-## How To Use the Assistant
+## How to use the Assistant
 
 The Assistant is available under the 'Tools' menu in the left-hand navigation panel.
 
@@ -23,11 +27,13 @@ This opens the Assistant panel — a chat-style interface where you can ask for 
 <span class="screenshot-large">*![Assistant panel](images/assistant/assistant-popup.png)*</span>
 {: .screenshot-half }
 
-## AI Assistant for Self-hosters
+## Assistant for self-hosters
 
-Our [Legacy Formula AI Assistant](ai-assistant.md) is available to all self-hosters. The Assistant is available on [Enterprise](https://www.getgrist.com/pricing/) plans. Learn how to [enable Grist Enterprise](https://support.getgrist.com/self-managed/#how-do-i-enable-grist-enterprise).
+The Assistant is available on [Enterprise](https://www.getgrist.com/pricing/) plans. Learn how to [enable Grist Enterprise](https://support.getgrist.com/self-managed/#how-do-i-enable-grist-enterprise).
 
-Learn more about [self-managing Grist](self-managed.md). 
+Our [Legacy Formula AI Assistant](ai-assistant-legacy.md) is available to all self-hosters, though not actively supported.
+
+Learn more about [self-hosting Grist](self-managed.md). 
 
 ## Pricing for the Assistant
 
