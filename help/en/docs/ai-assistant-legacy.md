@@ -6,7 +6,7 @@ AI Formula Assistant (Legacy)
 ==============
 
 !!! warning "Note"
-    This documentation refers to the legacy AI Formula Assistant, which is no longer actively supported. You can find the documentation for the current Assistant [here](assistant.md).
+    This documentation refers to the legacy AI Formula Assistant, which is only available on the [Community edition](https://github.com/gristlabs/grist-core){:target="\_blank"}. You can find the documentation for the current Assistant [here](assistant.md).
 
 Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries. 
 
