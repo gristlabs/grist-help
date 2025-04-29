@@ -17,6 +17,20 @@ Your browser will then download a file containing a header row
 naming your columns, excluding any hidden columns or filtered-out rows, followed by all the
 rows of data visible in the table.
 
+## Exporting attachments
+
+If you want to export all the attachments from a document, click the sharing icon
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
+on the top right of the screen and select "Download attachments".
+
+<center>![Download attachments](images/exports/exports-download-attachments.png)</center>
+
+Select the desired format from the dropdown. `.tar` is recommended, as it can be used to 
+[restore external attachments](exports.md#restoring-external-attachments) in re-uploaded documents.
+However, .zip files are more commonly used and better supported by other software.
+
+Your browser will then download an archive file in the selected format containing all the document's attachments. 
+
 ## Exporting a document
 
 If you want to export all tables to Excel format, click the sharing icon
@@ -69,6 +83,9 @@ on the top right of the screen, and select "Download".
 
 ![exports-download](images/exports/exports-download.png)
 
+Grist documents that use [external attachments](document-settings.md#external-attachments) won't contain any attached
+files when downloaded. The attached files can be [downloaded separately](exports.md#exporting-attachments) and [restored later](exports.md#restoring-external-attachments).
+
 ## Restoring from backup
 
 A downloaded `.grist` file can be uploaded again to provide an exact copy of the
@@ -79,3 +96,16 @@ Then click on "Add New" in the top left, and select "Import document".
 ![exports-import-document](images/exports/exports-import-document.png)
 
 You may also import CSV and Excel files as new Grist documents this way.
+
+### Restoring external attachments
+
+When a document using [external attachments](document-settings.md#external-attachments) is restored from backup, 
+the attachments won't be present in the restored document.
+This is because the attachments aren't included in the `.grist` file.
+
+The attachments can be restored by uploading an [exported](exports.md#exporting-attachments) `.tar` file containing the attachments.
+This is done on the document's settings page, through the 'Upload missing attachments' option.
+
+Only the document's owner can restore attachments.
+
+![restoring external attachments](images/exports/exports-restore-attachments.png)
