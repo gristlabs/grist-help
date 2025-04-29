@@ -9,7 +9,7 @@ title: Exports & backups
 If you want to export a table to another spreadsheet or database,
 you can export that table as either an XLSX file or a CSV, a common interchange format for data.
 To do this, open your document to the desired table or widget. Then click the three dot menu in the top right of the widget. 
-Select either "Download as CSV" or "Download as XLSX".
+Select either 'Download as CSV' or 'Download as XLSX'.
 
 <center>![Export Table](images/exports/export-table.png)</center>
 
@@ -19,9 +19,9 @@ rows of data visible in the table.
 
 ## Exporting attachments
 
-If you want to export all the attachments from a document, click the sharing icon
+If you want to export all the attachments from a document, click the share icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen and select "Download attachments".
+on the top right of the screen and select 'Download attachments...'.
 
 <center>![Download attachments](images/exports/exports-download-attachments.png)</center>
 
@@ -29,28 +29,28 @@ Select the desired format from the dropdown. `.tar` is recommended, as it can be
 [restore external attachments](exports.md#restoring-external-attachments) in re-uploaded documents.
 However, .zip files are more commonly used and better supported by other software.
 
-Your browser will then download an archive file in the selected format containing all the document's attachments. 
+Your browser will then download an archive file in the selected format containing all of the document's attachments. 
 
 ## Exporting a document
 
-If you want to export all tables to Excel format, click the sharing icon
+If you want to export all tables to Excel format, click the share icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen and select "Export XLSX".
+on the top right of the screen and select 'Export as...' then 'Microsoft Excel (.xlsx)'.
 
 <center>![Export Document](images/exports/export-xlsx.png)</center>
 
 Your browser will then download an Excel file, where each table is a separate sheet
 containing all rows, without any filters applied. To use this option you need to have full
-read access for all tables in a document.
+read access for all tables in the document.
 
-A note about "Export CSV" in the sharing menu. When on a page with multiple page widgets, "Export CSV" will export only the data in the
-currently-selected widget. To export all your data, use "Export XLSX" or the "Download" option which is explained below in [backing up an entire document](exports.md#backing-up-an-entire-document).
+A note about 'Export CSV' in the sharing menu. When on a page with multiple page widgets, 'Export CSV' will export only the data in the
+currently-selected widget. To export all your data, use 'Export XLSX' or the 'Download' option which is explained below in [backing up an entire document](exports.md#backing-up-an-entire-document).
 
 ## Sending to Google Drive
 
 If you want to export a document to Google Drive as a Google Sheet file, click the
-sharing icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen and select "Send to Google Drive".
+share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
+on the top right of the screen and select 'Send to Google Drive'.
 
 Grist will first ask you to log in to your Google Account (or use an account you already
 signed in) and then for permission to create a file in your Google Drive. Grist will be
@@ -77,9 +77,9 @@ files within those tables, metadata about your tables, pages, and
 widgets, and a history of recent modifications of the document.  It
 will not contain information about who the document is shared with.
 
-To download a Grist document, click the sharing icon
+To download a Grist document, click the share icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen, and select "Download".
+on the top right of the screen, and select 'Download...'.
 
 ![exports-download](images/exports/exports-download.png)
 
@@ -91,7 +91,7 @@ files when downloaded. The attached files can be [downloaded separately](exports
 A downloaded `.grist` file can be uploaded again to provide an exact copy of the
 original.  To upload the file, open the team or personal site where
 you want to place it, and optionally select also a workspace.
-Then click on "Add New" in the top left, and select "Import document".
+Then click on 'Add New' in the top left, and select 'Import document'.
 
 ![exports-import-document](images/exports/exports-import-document.png)
 
