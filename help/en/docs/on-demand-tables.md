@@ -5,7 +5,7 @@ title: On-demand tables
 # On-Demand Tables
 
 !!! warning "⚠️ Deprecated Feature"
-    On-Demand Tables have been deprecated and are no longer supported in new Grist documents. Existing documents that use On-Demand Tables will continue to function.
+    On-Demand Tables have been deprecated due to lack of functionality and usability concerns.
 
 A defining feature of spreadsheets is the ability to update cells instantly as
 data they depend on changes.  But sometimes a table is just a store of data,

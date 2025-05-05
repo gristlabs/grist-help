@@ -49,7 +49,6 @@ nav:
     - custom-layouts.md
     - record-cards.md
     - summary-tables.md
-    - on-demand-tables.md
   - Columns and data types:
     - col-types.md
     - col-refs.md
