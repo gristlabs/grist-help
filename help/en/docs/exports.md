@@ -19,7 +19,7 @@ rows of data visible in the table.
 
 ## Exporting attachments
 
-If you want to export all the attachments from a document, click the share icon
+If you want to export all of the attachments from a document, click the share icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
 on the top right of the screen and select 'Download attachments...'.
 
@@ -27,7 +27,7 @@ on the top right of the screen and select 'Download attachments...'.
 
 Select the desired format from the dropdown. `.tar` is recommended, as it can be used to 
 [restore external attachments](exports.md#restoring-external-attachments) in re-uploaded documents.
-However, .zip files are more commonly used and better supported by other software.
+However, `.zip` files are more commonly used and better supported by other software.
 
 Your browser will then download an archive file in the selected format containing all of the document's attachments. 
 
@@ -104,7 +104,7 @@ the attachments won't be present in the restored document.
 This is because the attachments aren't included in the `.grist` file.
 
 The attachments can be restored by uploading an [exported](exports.md#exporting-attachments) `.tar` file containing the attachments.
-This is done on the document's settings page, through the 'Upload missing attachments' option.
+This is done on the [document's settings page](document-settings.md), through the 'Upload missing attachments' option.
 
 Only the document's owner can restore attachments.
 
