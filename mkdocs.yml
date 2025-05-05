@@ -227,6 +227,7 @@ plugins:
   - redirects:
       redirect_maps:
         'install/aws-marketplace.md': 'install/grist-builder-edition.md'
+        'ai-assistant.md': 'assistant.md'
 
 markdown_extensions:
   toc:
