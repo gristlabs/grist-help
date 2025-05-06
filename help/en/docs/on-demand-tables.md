@@ -4,10 +4,8 @@ title: On-demand tables
 
 # On-Demand Tables
 
-!!! warning "On-demand tables are an experimental feature"
-    The design of on-demand tables may change.  For example,
-    configuration options may be added, or aspects of the behavior of
-    on-demand tables may be changed entirely.
+!!! warning "⚠️ Deprecated Feature"
+    On-Demand Tables have been deprecated due to lack of functionality and usability concerns.
 
 A defining feature of spreadsheets is the ability to update cells instantly as
 data they depend on changes.  But sometimes a table is just a store of data,
