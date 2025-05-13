@@ -1,10 +1,12 @@
 ---
-title: Creating document tours
+title: Document tours
 ---
 
 ## Creating document tours in Grist
 
-Document tours in Grist can provide a step-by-step guide to help users navigate and understand how to use your document. While not a built-in feature, you can add document tours to any Grist document by creating a specially configured table named `GristDocTour`.
+![doc-tour-gif](images/document-tours/doc-tour.gif)
+
+Document tours are a beta feature in Grist that provide a step-by-step guide to help users navigate and understand how to use your document. You can add document tours to any Grist document by creating a specially configured table named `GristDocTour`.
 
 ### What is a document tour?
 
@@ -12,27 +14,30 @@ A document tour displays tooltips on specific pages or cells in your document, h
 
 ## How to create a document tour
 
-### **Step One:** Add the `GristDocTour` table
+### Step One: Add the `GristDocTour` table
 
 Create a new table in your document by clicking the green 'Add New' button then 'Add Empty Table'. Name the new table `GristDocTour`.
 
 <span class="screenshot-large">*![add-doc-tour-table](images/document-tours/add-doc-tour-table.png)*</span>
 
-### **Step Two:** Add the following columns to the `GristDocTour` table
+### Step Two: Add the following columns to the `GristDocTour` table
 
 1. **Title:** Text column for the tooltip header.
 2. **Body:** Text column for the tooltip content.
-3. **Placement:** Text column indicating tooltip position relative to the target (e.g., top, right).  [https://popper.js.org/](https://popper.js.org/){:target="\_blank"} has an interactive tool that shows how this works.
-- **Location:** Formula column with the formula `SELF_HYPERLINK() + $Location_Cell`.
+3. **Placement:** Text column indicating tooltip position relative to the target (e.g., top, right).  [https://floating-ui.com/](https://floating-ui.com/){:target="\_blank"} has an interactive tool that shows how this works.
+4. **Location:** Formula column with the formula `SELF_HYPERLINK() + $Location_Cell`.
 <span class="screenshot-large">*![location-formula](images/document-tours/location-formula.png)*</span>
-- **Location Cell:** Text column containing the [anchor link](#step-three-add-your-anchor-links) of the target cell (e.g., /p/8#a1.s21.r1.c7).
+5. **Location Cell:** Text column containing the [anchor link](#step-three-add-your-anchor-links) of the target cell (e.g., `/p/8#a1.s21.r1.c7`).
 <span class="screenshot-large">*![location-cell](images/document-tours/location-cell.png)*</span>
-- **Link URL (optional):** Text column for an additional link in the tooltip.
+6. **Link URL (optional):** Text column for an additional link in the tooltip.
 - **Link Text (optional):** Text column for the display text of the link.
 - **Link Icon (optional):** Text column specifying an icon to display before the link. Available icons are listed [here](https://github.com/gristlabs/grist-core/blob/main/app/client/ui2018/IconList.ts).
 <span class="screenshot-large">*![optional-columns](images/document-tours/optional-columns.png)*</span>
 
-### **Step Three:** Add your anchor links
+!!! note "Where did my `GristDocTour` table go?"
+    The `GristDocTour` table is hidden by default to keep the focus on your document's actual data. Since it only controls the display of tooltips, it’s treated more like metadata. You can always access it under [Raw Data](raw-data.md).
+
+### Step Three: Add your anchor links
 
 Your document tour can point to specific cells and pages using anchor links.
 
@@ -60,16 +65,13 @@ To place the document tour popup on a specific page, you can simply copy the end
 
 <span class="screenshot-large">*![anchor-link-page](images/document-tours/anchor-link-page.png)*</span>
 
-!!! note "Navigating back to the `GristDocTour` table"
-    If you click away from your table, perhaps to obtain an anchor link, it is always accessible under [Raw Data](raw-data.md).
-
-### **Step Four:** Reviewing your document tour
+### Step Four: Reviewing your document tour
 
 When initially creating your document tour, it is useful to see the popups and quickly make any changes. In a single window, that requires a lot of clicking back and forth. Open your document in two browser windows. In one window, pull up the `GristDocTour` table under [Raw Data](raw-data.md). In the other window, view your document tour on demand by clicking 'Tour of this Document' at the bottom of the left-hand navigation panel.
 
 <span class="screenshot-large">*![reviewing-doc-tour](images/document-tours/reviewing-doc-tour.png)*</span>
 
-### **Step Five:** Sharing your document tour
+### Step Five: Sharing your document tour
 
 To share your document tour, simply share your document. The document tour will start automatically the first time a user accesses the document. After that, they can access the tour at anytime by clicking 'Tour of this Document' at the bottom of the left-hand navigation panel.
 
