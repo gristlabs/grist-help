@@ -681,6 +681,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://support.getgrist.com/document-tours/</loc>
+         <lastmod>2025-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://support.getgrist.com/assistant/</loc>
          <lastmod>2025-05-13</lastmod>
          <changefreq>daily</changefreq>
