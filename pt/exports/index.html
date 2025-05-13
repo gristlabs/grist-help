@@ -249,6 +249,11 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#exporting-attachments">
+                Exporting attachments
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#exporting-a-document">
                 Exporting a document
               </a>
@@ -1024,25 +1029,34 @@
 <p>If you want to export a table to another spreadsheet or database,
 you can export that table as either an XLSX file or a CSV, a common interchange format for data.
 To do this, open your document to the desired table or widget. Then click the three dot menu in the top right of the widget. 
-Select either &ldquo;Download as CSV&rdquo; or &ldquo;Download as XLSX&rdquo;.</p>
+Select either &lsquo;Download as CSV&rsquo; or &lsquo;Download as XLSX&rsquo;.</p>
 <p><center><img alt="Export Table" src="../images/exports/export-table.png" /></center></p>
 <p>Your browser will then download a file containing a header row
 naming your columns, excluding any hidden columns or filtered-out rows, followed by all the
 rows of data visible in the table.</p>
-<h2 id="exporting-a-document">Exporting a document<a class="headerlink" href="#exporting-a-document" title="Permanent link">#</a></h2>
-<p>If you want to export all tables to Excel format, click the sharing icon
+<h2 id="exporting-attachments">Exporting attachments<a class="headerlink" href="#exporting-attachments" title="Permanent link">#</a></h2>
+<p>If you want to export all of the attachments from a document, click the share icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen and select &ldquo;Export XLSX&rdquo;.</p>
+on the top right of the screen and select &lsquo;Download attachments&hellip;&rsquo;.</p>
+<p><center><img alt="Download attachments" src="../images/exports/exports-download-attachments.png" /></center></p>
+<p>Select the desired format from the dropdown. <code>.tar</code> is recommended, as it can be used to 
+<a href="./#restoring-external-attachments">restore external attachments</a> in re-uploaded documents.
+However, <code>.zip</code> files are more commonly used and better supported by other software.</p>
+<p>Your browser will then download an archive file in the selected format containing all of the document&rsquo;s attachments. </p>
+<h2 id="exporting-a-document">Exporting a document<a class="headerlink" href="#exporting-a-document" title="Permanent link">#</a></h2>
+<p>If you want to export all tables to Excel format, click the share icon
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
+on the top right of the screen and select &lsquo;Export as&hellip;&rsquo; then &lsquo;Microsoft Excel (.xlsx)&rsquo;.</p>
 <p><center><img alt="Export Document" src="../images/exports/export-xlsx.png" /></center></p>
 <p>Your browser will then download an Excel file, where each table is a separate sheet
 containing all rows, without any filters applied. To use this option you need to have full
-read access for all tables in a document.</p>
-<p>A note about &ldquo;Export CSV&rdquo; in the sharing menu. When on a page with multiple page widgets, &ldquo;Export CSV&rdquo; will export only the data in the
-currently-selected widget. To export all your data, use &ldquo;Export XLSX&rdquo; or the &ldquo;Download&rdquo; option which is explained below in <a href="./#backing-up-an-entire-document">backing up an entire document</a>.</p>
+read access for all tables in the document.</p>
+<p>A note about &lsquo;Export CSV&rsquo; in the sharing menu. When on a page with multiple page widgets, &lsquo;Export CSV&rsquo; will export only the data in the
+currently-selected widget. To export all your data, use &lsquo;Export XLSX&rsquo; or the &lsquo;Download&rsquo; option which is explained below in <a href="./#backing-up-an-entire-document">backing up an entire document</a>.</p>
 <h2 id="sending-to-google-drive">Sending to Google Drive<a class="headerlink" href="#sending-to-google-drive" title="Permanent link">#</a></h2>
 <p>If you want to export a document to Google Drive as a Google Sheet file, click the
-sharing icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen and select &ldquo;Send to Google Drive&rdquo;.</p>
+share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
+on the top right of the screen and select &lsquo;Send to Google Drive&rsquo;.</p>
 <p>Grist will first ask you to log in to your Google Account (or use an account you already
 signed in) and then for permission to create a file in your Google Drive. Grist will be
 able to create new files and manage them but will not be able to access any other files in
@@ -1062,17 +1076,27 @@ The downloaded file will contain all your tabular data, any attached
 files within those tables, metadata about your tables, pages, and
 widgets, and a history of recent modifications of the document.  It
 will not contain information about who the document is shared with.</p>
-<p>To download a Grist document, click the sharing icon
+<p>To download a Grist document, click the share icon
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
-on the top right of the screen, and select &ldquo;Download&rdquo;.</p>
+on the top right of the screen, and select &lsquo;Download&hellip;&rsquo;.</p>
 <p><img alt="exports-download" src="../images/exports/exports-download.png" /></p>
+<p>Grist documents that use <a href="../document-settings/#external-attachments">external attachments</a> won&rsquo;t contain any attached
+files when downloaded. The attached files can be <a href="./#exporting-attachments">downloaded separately</a> and <a href="./#restoring-external-attachments">restored later</a>.</p>
 <h2 id="restoring-from-backup">Restoring from backup<a class="headerlink" href="#restoring-from-backup" title="Permanent link">#</a></h2>
 <p>A downloaded <code>.grist</code> file can be uploaded again to provide an exact copy of the
 original.  To upload the file, open the team or personal site where
 you want to place it, and optionally select also a workspace.
-Then click on &ldquo;Add New&rdquo; in the top left, and select &ldquo;Import document&rdquo;.</p>
+Then click on &lsquo;Add New&rsquo; in the top left, and select &lsquo;Import document&rsquo;.</p>
 <p><img alt="exports-import-document" src="../images/exports/exports-import-document.png" /></p>
 <p>You may also import CSV and Excel files as new Grist documents this way.</p>
+<h3 id="restoring-external-attachments">Restoring external attachments<a class="headerlink" href="#restoring-external-attachments" title="Permanent link">#</a></h3>
+<p>When a document using <a href="../document-settings/#external-attachments">external attachments</a> is restored from backup, 
+the attachments won&rsquo;t be present in the restored document.
+This is because the attachments aren&rsquo;t included in the <code>.grist</code> file.</p>
+<p>The attachments can be restored by uploading an <a href="./#exporting-attachments">exported</a> <code>.tar</code> file containing the attachments.
+This is done on the <a href="../document-settings/">document&rsquo;s settings page</a>, through the &lsquo;Upload missing attachments&rsquo; option.</p>
+<p>Only the document&rsquo;s owner can restore attachments.</p>
+<p><img alt="restoring external attachments" src="../images/exports/exports-restore-attachments.png" /></p>
 
   <br>
 </div>
