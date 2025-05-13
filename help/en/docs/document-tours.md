@@ -14,13 +14,13 @@ A document tour displays tooltips on specific pages or cells in your document, h
 
 ## How to create a document tour
 
-### Step One: Add the `GristDocTour` table
+### Adding the `GristDocTour` table
 
 Create a new table in your document by clicking the green 'Add New' button then 'Add Empty Table'. Name the new table `GristDocTour`.
 
 <span class="screenshot-large">*![add-doc-tour-table](images/document-tours/add-doc-tour-table.png)*</span>
 
-### Step Two: Add the following columns to the `GristDocTour` table
+Add the following columns to the `GristDocTour` table;
 
 1. **Title:** Text column for the tooltip header.
 2. **Body:** Text column for the tooltip content.
@@ -37,7 +37,7 @@ Create a new table in your document by clicking the green 'Add New' button then 
 !!! note "Where did my `GristDocTour` table go?"
     The `GristDocTour` table is hidden by default to keep the focus on your document's actual data. Since it only controls the display of tooltips, it’s treated more like metadata. You can always access it under [Raw Data](raw-data.md).
 
-### Step Three: Add your anchor links
+### Adding anchor links
 
 Your document tour can point to specific cells and pages using anchor links.
 
@@ -65,13 +65,13 @@ To place the document tour popup on a specific page, you can simply copy the end
 
 <span class="screenshot-large">*![anchor-link-page](images/document-tours/anchor-link-page.png)*</span>
 
-### Step Four: Reviewing your document tour
+### Reviewing your document tour
 
 When initially creating your document tour, it is useful to see the popups and quickly make any changes. In a single window, that requires a lot of clicking back and forth. Open your document in two browser windows. In one window, pull up the `GristDocTour` table under [Raw Data](raw-data.md). In the other window, view your document tour on demand by clicking 'Tour of this Document' at the bottom of the left-hand navigation panel.
 
 <span class="screenshot-large">*![reviewing-doc-tour](images/document-tours/reviewing-doc-tour.png)*</span>
 
-### Step Five: Sharing your document tour
+### Sharing your document tour
 
 To share your document tour, simply share your document. The document tour will start automatically the first time a user accesses the document. After that, they can access the tour at anytime by clicking 'Tour of this Document' at the bottom of the left-hand navigation panel.
 
