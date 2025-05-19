@@ -90,5 +90,5 @@ You can control the frequency of snapshots with the following environment variab
     * `isoWeek` - The last N weeks to keep the most recent snapshot for.
     * `month` - The last N months to keep the most recent snapshot for.
     * `year` - The last N years to keep the most recent snapshot for.
-  * `GRIST_SNAPSHOT_KEEP` - Maximum number of recent snapshots to keep, regardless of
+  * `GRIST_SNAPSHOT_KEEP` - Minimum number of recent snapshots to keep, regardless of
   `GRIST_SNAPSHOT_TIME_CAP`. (Default: 5)
