@@ -20,6 +20,7 @@ The different methods have different default values for `keepEncoded` and `forma
 - [format](grist_plugin_api.FetchSelectedOptions.md#format)
 - [includeColumns](grist_plugin_api.FetchSelectedOptions.md#includecolumns)
 - [keepEncoded](grist_plugin_api.FetchSelectedOptions.md#keepencoded)
+- [expandRefs](grist_plugin_api.FetchSelectedOptions.md#expandrefs)
 
 ## Properties
 
@@ -49,3 +50,12 @@ ___
 
 - `true`: the returned data will contain raw [CellValue](../modules/GristData.md#cellvalue)'s.
 - `false`: the values will be decoded, replacing e.g. `['D', timestamp]` with a moment date.
+
+___
+
+### expandRefs
+
+• `Optional` **expandRefs**: `boolean`
+
+- `true` (default): the returned data will show the contents of references, not their rowIds
+- `false`: the returned data will only display rowIds for references
