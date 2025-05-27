@@ -446,92 +446,39 @@ fields may be set in the `manifest.json`:
 
 ### How do I set up email notifications? {: .tag-ee }
 
-In Grist SaaS, we send emails such as invitations to share a
-document using [SendGrid](https://sendgrid.com/).
-The same mechanism is available in Grist Enterprise. There is
-not yet an equivalent in Grist Core.
+In Grist SaaS, we send emails such as invitations to share a document.
+The same mechanism is available in Grist Enterprise. There is not yet
+an equivalent in Grist Core.
 
-You will need to set a SendGrid API key:
+Grist uses [Nodemailer](https://nodemailer.com/) for this purpose.
+There are two environment variables that need to be configured to
+enable it:
+
+  * `GRIST_NODEMAILER_CONFIG`: This is a JSON configuration passed
+    verbatim to Nodemailer's `createTransport` method. Refer to [the
+    Nodemailer
+    documentation](https://nodemailer.com/usage#create-a-transporter)
+    for details on what to provide here. Note that this variable
+    should contain the JSON itself, not a path to a JSON file.
+  * `GRIST_NODEMAILER_SENDER`: This is another JSON configuration
+    string for setting the `From:` field of emails sent by Grist. It
+    takes the following form:
+
+    ```
+    {"name": "Default Name Of Sender",
+     "email": "sender.email@example.com"}
+     ```
+
+Because these two variables need to be passed in as verbatim JSON,
+they may need to be quoted if passed from a shell. For example,
 
 ```
-docker run
+docker run \ 
+  -e GRIST_NODEMAILER_CONFIG='{"host":"smtp.example.com","port":587,"auth":{"user":"username","pass":"swordfish"}}' \
+  -e GRIST_NODEMAILER_SENDER='{"name":"Grist Admin","email":"admin@example.com"}' \
+  -it gristlabs/grist
   ...
-  -e SENDGRID_API_KEY=SG.XXXXXXX.XXXXX \
-  ...
 ```
-
-You will need to make a file `config.json` available in the
-root of the volume mapped to `/persist`. Its contents should be
-as follows:
-
-```
-{
-  "sendgrid": {
-    "api": {
-      "prefix": "https://api.sendgrid.com/v3",
-      "enroll": "/marketing/contacts",
-      "search": "/marketing/contacts/search",
-      "searchByEmail": "/marketing/contacts/search/emails",
-      "listRemove": "/marketing/lists/{{id}}/contacts",
-      "send": "/mail/send"
-    },
-    "address": {
-      "from": {
-        "email": "<the-email-address@mails-should-be-from>",
-        "name": "the name to show with email"
-      }
-    },
-    "template": {
-      "invite": "d-f9.....",
-      "billingManagerInvite": "d-f9.....",
-      "memberChange": "d-b3....."
-    },
-    "list": {
-      "singleUserOnboarding": "b22..."
-    },
-    "unsubscribeGroup": {
-      "invites": 19...,
-      "billingManagers": 19....
-    }
-  }
-}
-```
-
-Here are the meanings of the keys in this file:
-
-  * `sendgrid.api` - Values should remain unchanged from what’s
-    defined in the sample. These control API versioning and
-    endpoints. Grist currently targets v3 of SendGrid's web API.
-  * `sendgrid.address` - Should be set to a verified email address and
-    name of a SendGrid sender. This controls the "From" address of all
-    emails sent via SendGrid (e.g. invites sent on behalf of Grist
-    users).
-  * `sendgrid.template` - Maps Grist actions to SendGrid email templates
-    ids. These are for transactional emails that are sent as a result
-    of some action occurring in Grist.
-  * `sendgrid.template.invite` - This is for emails sent to users that
-    are invited to documents, workspaces, or sites.
-  * `sendgrid.template.memberChange` - This is for emails sent to
-    billing managers when users are added/removed from sites.
-  * `sendgrid.list` - Maps Grist actions to SendGrid marketing list
-    ids. These are for on-going automated emails that are sent to all
-    users who are enrolled in a particular list.
-  * `sendgrid.list.singleUserOnboarding` - New Grist users are
-    automatically added to this list on first-login. This is suitable
-    for sending regular onboarding emails to users.
-  * `sendgrid.unsubscribeGroup` - Maps email types to SendGrid
-    unsubscribe group ids. These are for allowing users to unsubscribe
-    from receiving certain types of emails (via the link in the
-    email).
-  * `sendgrid.unsubscribeGrist.invites` - If set, invite emails can be
-    suppressed via the unsubscribe link in emails.
-  * `sendgrid.unsubscribeGrist.billingManagers` - If set, emails sent
-    specifically to billing managers (e.g. membership changes) can be
-    suppressed via the unsubscribe link in emails.
-
-For reference, there are example SendGrid templates in
-[example-sendgrid-templates.zip](./install/example-sendgrid-templates.zip)
-based on an export of the SendGrid templates for our SaaS.
 
 ### How do I add more python packages? {: .tag-core .tag-ee }
 
