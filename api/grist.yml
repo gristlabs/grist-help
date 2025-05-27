@@ -330,6 +330,42 @@ paths:
         200:
           description: "Success"
 
+  /docs/{docId}/copy:
+    post:
+      operationId: copyDoc
+      tags:
+        - docs
+      summary: "Copies a document to a workspace."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "the target workspace"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - workspace
+              properties:
+                workspaceId:
+                  type: integer
+                  example: 597
+                documentName:
+                  type: string
+                  example: "Example Doc"
+                asTemplate:
+                  type: boolean
+                  description: "Remove all data and history but keep the structure to use the document as a template"
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                description: "Id of created document"
+                type: string
+                example: "145"
+
   /docs/{docId}/access:
     get:
       operationId: listDocAccess
