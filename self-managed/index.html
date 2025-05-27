@@ -1540,85 +1540,35 @@ fields may be set in the <code>manifest.json</code>:</p>
 <li><code>lastUpdatedAt</code>: The date shown in the &ldquo;Last updated&rdquo; field.</li>
 </ul>
 <h3 class="tag-ee" id="how-do-i-set-up-email-notifications">How do I set up email notifications?<a class="headerlink" href="#how-do-i-set-up-email-notifications" title="Permanent link">#</a></h3>
-<p>In Grist SaaS, we send emails such as invitations to share a
-document using <a href="https://sendgrid.com/">SendGrid</a>.
-The same mechanism is available in Grist Enterprise. There is
-not yet an equivalent in Grist Core.</p>
-<p>You will need to set a SendGrid API key:</p>
-<pre><code>docker run
-  ...
-  -e SENDGRID_API_KEY=SG.XXXXXXX.XXXXX \
-  ...
-</code></pre>
-<p>You will need to make a file <code>config.json</code> available in the
-root of the volume mapped to <code>/persist</code>. Its contents should be
-as follows:</p>
-<pre><code>{
-  &quot;sendgrid&quot;: {
-    &quot;api&quot;: {
-      &quot;prefix&quot;: &quot;https://api.sendgrid.com/v3&quot;,
-      &quot;enroll&quot;: &quot;/marketing/contacts&quot;,
-      &quot;search&quot;: &quot;/marketing/contacts/search&quot;,
-      &quot;searchByEmail&quot;: &quot;/marketing/contacts/search/emails&quot;,
-      &quot;listRemove&quot;: &quot;/marketing/lists/{{id}}/contacts&quot;,
-      &quot;send&quot;: &quot;/mail/send&quot;
-    },
-    &quot;address&quot;: {
-      &quot;from&quot;: {
-        &quot;email&quot;: &quot;&lt;the-email-address@mails-should-be-from&gt;&quot;,
-        &quot;name&quot;: &quot;the name to show with email&quot;
-      }
-    },
-    &quot;template&quot;: {
-      &quot;invite&quot;: &quot;d-f9.....&quot;,
-      &quot;billingManagerInvite&quot;: &quot;d-f9.....&quot;,
-      &quot;memberChange&quot;: &quot;d-b3.....&quot;
-    },
-    &quot;list&quot;: {
-      &quot;singleUserOnboarding&quot;: &quot;b22...&quot;
-    },
-    &quot;unsubscribeGroup&quot;: {
-      &quot;invites&quot;: 19...,
-      &quot;billingManagers&quot;: 19....
-    }
-  }
-}
-</code></pre>
-<p>Here are the meanings of the keys in this file:</p>
+<p>In Grist SaaS, we send emails such as invitations to share a document.
+The same mechanism is available in Grist Enterprise. There is not yet
+an equivalent in Grist Core.</p>
+<p>Grist uses <a href="https://nodemailer.com/">Nodemailer</a> for this purpose.
+There are two environment variables that need to be configured to
+enable it:</p>
 <ul>
-<li><code>sendgrid.api</code> - Values should remain unchanged from what’s
-    defined in the sample. These control API versioning and
-    endpoints. Grist currently targets v3 of SendGrid&rsquo;s web API.</li>
-<li><code>sendgrid.address</code> - Should be set to a verified email address and
-    name of a SendGrid sender. This controls the &ldquo;From&rdquo; address of all
-    emails sent via SendGrid (e.g. invites sent on behalf of Grist
-    users).</li>
-<li><code>sendgrid.template</code> - Maps Grist actions to SendGrid email templates
-    ids. These are for transactional emails that are sent as a result
-    of some action occurring in Grist.</li>
-<li><code>sendgrid.template.invite</code> - This is for emails sent to users that
-    are invited to documents, workspaces, or sites.</li>
-<li><code>sendgrid.template.memberChange</code> - This is for emails sent to
-    billing managers when users are added/removed from sites.</li>
-<li><code>sendgrid.list</code> - Maps Grist actions to SendGrid marketing list
-    ids. These are for on-going automated emails that are sent to all
-    users who are enrolled in a particular list.</li>
-<li><code>sendgrid.list.singleUserOnboarding</code> - New Grist users are
-    automatically added to this list on first-login. This is suitable
-    for sending regular onboarding emails to users.</li>
-<li><code>sendgrid.unsubscribeGroup</code> - Maps email types to SendGrid
-    unsubscribe group ids. These are for allowing users to unsubscribe
-    from receiving certain types of emails (via the link in the
-    email).</li>
-<li><code>sendgrid.unsubscribeGrist.invites</code> - If set, invite emails can be
-    suppressed via the unsubscribe link in emails.</li>
-<li><code>sendgrid.unsubscribeGrist.billingManagers</code> - If set, emails sent
-    specifically to billing managers (e.g. membership changes) can be
-    suppressed via the unsubscribe link in emails.</li>
+<li><code>GRIST_NODEMAILER_CONFIG</code>: This is a JSON configuration passed
+    verbatim to Nodemailer&rsquo;s <code>createTransport</code> method. Refer to <a href="https://nodemailer.com/usage#create-a-transporter">the
+    Nodemailer
+    documentation</a>
+    for details on what to provide here. Note that this variable
+    should contain the JSON itself, not a path to a JSON file.</li>
+<li>
+<p><code>GRIST_NODEMAILER_SENDER</code>: This is another JSON configuration
+    string for setting the <code>From:</code> field of emails sent by Grist. It
+    takes the following form:</p>
+<p><code>{"name": "Default Name Of Sender",
+ "email": "sender.email@example.com"}</code></p>
+</li>
 </ul>
-<p>For reference, there are example SendGrid templates in
-<a href="../install/example-sendgrid-templates.zip">example-sendgrid-templates.zip</a>
-based on an export of the SendGrid templates for our SaaS.</p>
+<p>Because these two variables need to be passed in as verbatim JSON,
+they may need to be quoted if passed from a shell. For example,</p>
+<pre><code>docker run \ 
+  -e GRIST_NODEMAILER_CONFIG='{&quot;host&quot;:&quot;smtp.example.com&quot;,&quot;port&quot;:587,&quot;auth&quot;:{&quot;user&quot;:&quot;username&quot;,&quot;pass&quot;:&quot;swordfish&quot;}}' \
+  -e GRIST_NODEMAILER_SENDER='{&quot;name&quot;:&quot;Grist Admin&quot;,&quot;email&quot;:&quot;admin@example.com&quot;}' \
+  -it gristlabs/grist
+  ...
+</code></pre>
 <h3 class="tag-core tag-ee" id="how-do-i-add-more-python-packages">How do I add more python packages?<a class="headerlink" href="#how-do-i-add-more-python-packages" title="Permanent link">#</a></h3>
 <p>The set of python packages available for use in formulas is currently
 not configurable. You can add packages anyway if you are willing to
