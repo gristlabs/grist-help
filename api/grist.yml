@@ -345,7 +345,8 @@ paths:
             schema:
               type: object
               required:
-                - workspace
+                - workspaceId
+                - documentName
               properties:
                 workspaceId:
                   type: integer
@@ -358,11 +359,11 @@ paths:
                   description: "Remove all data and history but keep the structure to use the document as a template"
       responses:
         200:
-          description: "Success"
+          description: "The document id"
           content:
             application/json:
               schema:
-                description: "Id of created document"
+                description: "a unique identifier for the document"
                 type: string
                 example: "145"
 
