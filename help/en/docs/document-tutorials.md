@@ -4,82 +4,98 @@ title: Document tutorials
 
 ## Creating document tutorials in Grist
 
-![doc-tour-gif](images/document-tours/doc-tour.gif)
+Document tutorials allow you to create step-by-step guides that walk users through how to use features within your Grist document.
 
-Document tutorials allow you to create step-by-step guides that walk users through how to use features within a Grist document. You can add a tutorial to any Grist document by creating a specially configured table named `GristTutorial` and setting the document type to 'Tutorial' under [Document Settings](document-settings.md). Documents of type 'Tutorial' are treated differently when opened. Specifically, Grist will check to see if a fork exists for this tutorial document for the user, and open the fork if so. Otherwise, a new fork will be created, starting the tutorial from the beginning.
+You can convert any Grist document to become a tutorial by setting the document type to 'Tutorial' under [Document Settings](document-settings.md). Then, add a specially configured table named `GristDocTutorial`.
+
+It is important to note that documents of type 'Tutorial' are treated differently when opened. When a user first opens a tutorial, a new copy of the document will be made, specific to that user, allowing them to follow along and make changes without affecting the main document.
 
 ### What is a document tutorial?
 
-A document tutorial displays tooltips on specific pages or cells in your document, helping guide users through its layout and purpose. This can be especially helpful for onboarding new users or explaining more complex workflows. Many of the templates in our [Template Gallery](https://public.getgrist.com/p/templates) have document tours. We'll use the [Flashcards](https://templates.getgrist.com/keLK5sVeyfPk/Flashcards) template as an example as we go through the steps to build a document tour below.
+A document tutorial displays as a sidebar-style popup within your document. You can customize it to teach anything—from the basics of Grist to a complex workflow in your own template. For example, the [Grist Basics Tutorial](https://templates.getgrist.com/doc/woXtXUBmiN5TGhoXCBGSBf)l shows new users how to create references, link widgets and more!
 
 ## How to create a document tutorial
 
-### Setting document type to 'Tutorial'
+### Adding the `GristDocTutorial` table
 
-### Adding the `GristTutorial` table
-
-Create a new table in your document by clicking the green 'Add New' button then 'Add Empty Table'. Name the new table `GristTutorial`.
+Create a new table in your document by clicking the green 'Add New' button then 'Add Empty Table'. Name the new table `GristDocTutorial`.
 
 <span class="screenshot-large">*![add-doc-tour-table](images/document-tours/add-doc-tour-table.png)*</span>
 
-Add the following columns to the `GristTutorial` table;
+Add the following columns to the `GristDocTutorial` table;
 
-1. **slide_title:** Text column for the title of the slide.
-2. **slide_body:** Text column containing Markdown for the slide content. Videos and images are hosted externally and linked to via the Markdown text.
-3. **try_it_out_body:** Optional text column containing Markdown. If not blank, text here will be rendered within a shaded 'Try It Out' section below the slide body.
-4. **Location:** Formula column with the formula `SELF_HYPERLINK() + $Location_Cell`.
-<span class="screenshot-large">*![location-formula](images/document-tours/location-formula.png)*</span>
-5. **Location Cell:** Text column containing the [anchor link](#step-three-add-your-anchor-links) of the target cell (e.g., `/p/8#a1.s21.r1.c7`).
-<span class="screenshot-large">*![location-cell](images/document-tours/location-cell.png)*</span>
-6. **Link URL (optional):** Text column for an additional link in the tooltip.
-- **Link Text (optional):** Text column for the display text of the link.
-- **Link Icon (optional):** Text column specifying an icon to display before the link. Available icons are listed [here](https://github.com/gristlabs/grist-core/blob/main/app/client/ui2018/IconList.ts).
-<span class="screenshot-large">*![optional-columns](images/document-tours/optional-columns.png)*</span>
+1. **slide_content:** A text column that holds the Markdown content for each slide. You can embed images, videos, and links hosted externally.
+2. **box_content:** An optional text column that supports additional Markdown. If filled in, this content appears in a shaded box below the slide, useful for tips or extra context.
 
-!!! note "Where did my `GristTutorial` table go?"
-    The `GristTutorial` table is hidden by default to keep the focus on your document's actual data. Since it only controls the display of tooltips, it’s treated more like metadata. You can always access it under [Raw Data](raw-data.md).
+### Setting document type to 'Tutorial'
 
-### Adding anchor links
+Under 'Document Settings', update 'Template mode' to 'Tutorial'.
 
-Your document tour can point to specific cells and pages using anchor links.
+<span class="screenshot-large">*![document-settings-document-type](images/document-tutorials/document-settings-document-type.png)*</span>
 
-You can copy an anchor link to a cell by pressing <code class="keys">*⌘* *⇧* *A*</code> (Mac) or <code class="keys">*Ctrl* + *Shift* + *A*</code> (Windows) while the cell is selected. This option is also available via the [row menu](widget-table.md#row-operations) as "Copy anchor link." The link will be placed in your clipboard, ready to paste into the **Location Cell** column.
+After updating, your page will refresh and your document will open as a fork of the original. Meaning, any changes you make won't be saved to the original. You can easily override the original document by clicking the 'Share' icon then 'Replace original...'. 
 
-<span class="screenshot-large">*![copy-anchor-link](images/document-tours/copy-anchor-link.png)*</span>
-{: .screenshot-half }
+### Original vs forked document: understanding the URLs
 
-Use <code class="keys">*⌘* + *V*</code> (Mac) or <code class="keys">*Ctrl* + *V*</code> (Windows) to paste the anchor link into the **Location Cell** column of your `GristTutorial` table. You'll want to delete everything prior to `/p/`.
+When working with document tutorials, there are three types of URLs you’ll encounter. Each serves a different purpose depending on whether you're editing the original document or accessing a user-specific fork.
 
-For example, if your anchor link is:
+1. **Direct URL:** This is the main link to your document. Because the document is marked as a tutorial, visiting this URL automatically redirects users to their own fork. The format is `https://<teamsite>.getgrist.com/doc/<docID>`.
+2. **Default Mode:** This link opens the original version of the document, letting the owner edit the tutorial directly, useful for updating tutorial content. To access default mode, append the Direct URL with `/m/default`. The format is `https://<teamsite>.getgrist.com/doc/<docID>/m/default`.
+3. **Fork URL:** - This is user's unique copy of the tutorial, automatically created when they open the Direct URL for the first time. Changes made here won't affect the original. The format is `https://<teamsite>.getgrist.com/doc/<docID>~<forkID>~<userID>`
 
-`https://templates.getgrist.com/keLK5sVeyfPk/Flashcards/p/8#a1.s21.r1.c39`
+**Example**
+If your forked tutorial URL is:
+```
+https://docs.getgrist.com/doc/woXtXUBmiN5T~1eYN9joCXkuVokCD1p3EYt~12345
+```
+Then:
 
-...delete everything except
+- The **Direct URL** is:
+```
+https://docs.getgrist.com/doc/woXtXUBmiN5T
+```
 
-`/p/8#a1.s21.r1.c39`
+- The **Default Mode URL** is:
+```
+https://docs.getgrist.com/doc/woXtXUBmiN5T/m/default
+```
 
-<span class="screenshot-large">*![anchor-link-cell](images/document-tours/anchor-link-cell.png)*</span>
+If you close out of your fork of the document, you can always return to your fork by visiting the Direct URL — Grist will redirect you to your saved fork automatically.
 
-To place the document tour popup on a specific page, you can simply copy the end of the URL that contains the page number, `/p/#`, and paste this into the **Location Cell** column of your `GristTutorial` table.
-
-<span class="screenshot-large">*![url-page](images/document-tours/url-page.png)*</span>
-{: .screenshot-half }
-
-<span class="screenshot-large">*![anchor-link-page](images/document-tours/anchor-link-page.png)*</span>
+!!! note "Why is the `GristDocTutorial` visible?"
+    The `GristDocTutorial` table is visible to you, the document owner, by default. It is automatically hidden from all other users when they view the tutorial.
 
 ### Reviewing your document tour
 
-When initially creating your document tour, it is useful to see the popups and quickly make any changes. In a single window, that requires a lot of clicking back and forth. Open your document in two browser windows. In one window, pull up the `GristTutorial` table under [Raw Data](raw-data.md). In the other window, view your document tour on demand by clicking 'Tour of this Document' at the bottom of the left-hand navigation panel.
+While building your document tutorial, it’s helpful to preview the slides and make edits quickly. There are two ways to do this.
+
+**Option 1: Review and Edit in the Same Window**
+You can edit your fork and push changes back to the original document without opening a second window:
+
+1. If you're in default mode, remove `/m/default` from the URL to return to your fork of the document.
+2. Make any edits (e.g., update steps in the `GristDocTutorial` table).
+3. Click the Share icon and choose Replace original… to save your changes to the main document.
+4. Click Restart Tutorial to reload the tutorial with your updates.
+
+**⚠️ Important:** Always replace the original before restarting the tutorial. If you click Restart Tutorial first, any unsaved changes will be lost.
+
+**Option 2: Work in Two Windows**
+
+This approach prevents accidental loss of changes:
+
+1. Open two browser windows.
+2. In one window, open the document in default mode (to edit the original).
+3. In the second window, open your fork by removing `/m/default` from the URL of the first window.
+4. After making any changes, be sure to click 'Restart Tutorial' in the tutorial window to see updates.
+
+This setup allows you to make changes in one window and test the live tutorial in the other—without switching back and forth or risking unsaved changes.
 
 <span class="screenshot-large">*![reviewing-doc-tour](images/document-tours/reviewing-doc-tour.png)*</span>
 
 ### Sharing your document tour
 
-To share your document tour, simply share your document. The document tour will start automatically the first time a user accesses the document. After that, they can access the tour at anytime by clicking 'Tour of this Document' at the bottom of the left-hand navigation panel.
+To share your document tour, simply share your document. The document tutorial will start automatically when a user accesses the document. Because the fork is user-specific, their progress will be saved so they can close it and come back to it at another time. Unsaved forks are automatically deleted after 3o days if not accessed again. Only users with access to the original document can access the document tutorial. Learn more about [sharing](sharing.md) a document.
 
 <span class="screenshot-large">*![tour-of-this-document](images/document-tours/tour-of-this-document.png)*</span>
 {: .screenshot-half }
-
-!!! note "💡 Tip:"
-    When sharing a URL to your document, you can force the document tour to appear—regardless of whether the user has seen it before—by appending `#repeat-doc-tour` to the end of the URL.
 
