@@ -48,7 +48,7 @@ When working with document tutorials, there are three types of URLs you’ll enc
 
 1. **Direct URL:** This is the main link to your document. Because the document is marked as a tutorial, visiting this URL automatically redirects users to their own fork. The format is `https://<teamsite>.getgrist.com/doc/<docID>`.
 2. **Default Mode:** This link opens the original version of the document, letting the owner edit the tutorial directly, useful for updating tutorial content. To access default mode, append the Direct URL with `/m/default`. The format is `https://<teamsite>.getgrist.com/doc/<docID>/m/default`.
-3. **Fork URL:** - This is a user's unique copy of the tutorial, automatically created when they open the Direct URL for the first time. Changes made here won't affect the original. The format is `https://<teamsite>.getgrist.com/doc/<docID>~<forkID>~<userID>`
+3. **Fork URL:** This is a user's unique copy of the tutorial, automatically created when they open the Direct URL for the first time. Changes made here won't affect the original. The format is `https://<teamsite>.getgrist.com/doc/<docID>~<forkID>~<userID>`
 
 **Example**
 If your forked tutorial URL is:
@@ -83,9 +83,9 @@ You can edit your fork and push changes back to the original document without op
 2. Make any edits (e.g., update steps in the `GristDocTutorial` table). Any changes will be visible instantly in the tutorial popup.
 3. Click the Share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) and choose 'Replace original…' to save your changes to the main document.
 
-**⚠️ Important:** Clicking 'Restart' at the bottom of the tutorial popup will refresh the page, causing any unsaved changes to be lost. Be sure to save changes to the main document *prior* to clicking this.
-
 <span class="screenshot-large">*![review-option1](images/document-tutorials/review-option1.png)*</span>
+
+**⚠️ Important:** Clicking 'Restart' at the bottom of the tutorial popup will refresh the page, causing any unsaved changes to be lost. Be sure to save changes to the main document *prior* to clicking this.
 
 **Option 2: Work in Two Windows**
 
