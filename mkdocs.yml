@@ -50,6 +50,7 @@ nav:
     - record-cards.md
     - summary-tables.md
     - document-tours.md
+    - document-tutorials.md
   - Columns and data types:
     - col-types.md
     - col-refs.md
