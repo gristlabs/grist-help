@@ -4,17 +4,13 @@ title: Document tutorials
 
 ## Creating document tutorials in Grist
 
-Document tutorials let you build step-by-step guides *inside* your Grist document, helping users learn by doing.
+Document tutorials let you build step-by-step guides *inside* your Grist document, helping users learn by doing. For example, the [Grist Basics Tutorial](https://templates.getgrist.com/doc/woXtXUBmiN5TGhoXCBGSBf) shows new users how to create references, link widgets and more!
 
 <span class="screenshot-large">*![tutorial-overview](images/document-tutorials/tutorial-overview.png)*</span>
 
 Unlike [document tours](document-tours.md), which give users a quick orientation, tutorials are instruction-driven and interactive. When someone opens a tutorial, Grist automatically creates a private fork of the document—unique to that user. This allows them to follow along, make edits, and explore freely without affecting the original.
 
 You can convert any Grist document to become a tutorial by setting the document type to 'Tutorial' under [Document Settings](document-settings.md). Then, add a specially configured table named `GristDocTutorial`. These steps are covered in detail below.
-
-### What is a document tutorial?
-
-A document tutorial displays as a sidebar-style popup within your document. You can customize it to teach anything—from the basics of Grist to a complex tasks unique to your own document. For example, the [Grist Basics Tutorial](https://templates.getgrist.com/doc/woXtXUBmiN5TGhoXCBGSBf) shows new users how to create references, link widgets and more!
 
 ## How to create a document tutorial
 
@@ -37,7 +33,7 @@ Under [Document Settings](document-settings.md), update 'Template mode' to 'Tuto
 
 <span class="screenshot-large">*![document-settings-document-type](images/document-tutorials/document-settings-document-type.png)*</span>
 
-After updating, your page will refresh and your document will open as a fork of the original. Meaning, any changes you make won't be saved to the original. As document Owner, you can easily override the original document by clicking the Share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) then 'Replace Original...'. 
+After updating, your page will refresh and your document will open as a fork of the original. Meaning, any changes you make won't be saved to the original. As document owner, you can easily override the original document by clicking the Share icon (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) then 'Replace Original...'. 
 
 <span class="screenshot-large">*![replace-original](images/document-tutorials/replace-original.png)*</span>
 {: .screenshot-half }
@@ -51,6 +47,7 @@ When working with document tutorials, there are three types of URLs you’ll enc
 3. **Fork URL:** This is a user's unique copy of the tutorial, automatically created when they open the Direct URL for the first time. Changes made here won't affect the original. The format is `https://<teamsite>.getgrist.com/doc/<docID>~<forkID>~<userID>`
 
 **Example**
+
 If your forked tutorial URL is:
 ```
 https://docs.getgrist.com/doc/woXtXUBmiN5T~1eYN9joCXkuVokCD1p3EYt~12345
@@ -76,7 +73,8 @@ If you close out of your fork of the document, you can always return to it by vi
 
 While building your document tutorial, it’s helpful to preview the slides and make edits quickly. There are two ways to do this.
 
-**Option 1: Review and Edit in the Same Window**
+**Option 1: Review and edit in the same window**
+
 You can edit your fork and push changes back to the original document without opening a second window:
 
 1. If you're in default mode, remove `/m/default` from the URL to return to your fork of the document.
@@ -85,9 +83,10 @@ You can edit your fork and push changes back to the original document without op
 
 <span class="screenshot-large">*![review-option1](images/document-tutorials/review-option1.png)*</span>
 
-**⚠️ Important:** Clicking 'Restart' at the bottom of the tutorial popup will refresh the page, causing any unsaved changes to be lost. Be sure to save changes to the main document *prior* to clicking this.
+!!! warning "**⚠️ Don't lose your work!**"
+    Clicking 'Restart' at the bottom of the tutorial popup will refresh the page, causing any unsaved changes to be lost. Be sure to save changes to the main document *prior* to clicking this.
 
-**Option 2: Work in Two Windows**
+**Option 2: Work in two windows**
 
 This approach prevents accidental loss of changes:
 
@@ -100,5 +99,5 @@ This approach prevents accidental loss of changes:
 
 ### Sharing your document tutorial
 
-To share your document tutorial, simply share your document. The document tutorial will start automatically when a user accesses the document. Because the fork is user-specific, their progress will be saved so they can close it and come back to it at another time. Unsaved forks are automatically deleted after 3o days if not accessed again. Only users with access to the original document can access the document tutorial. Learn more about [sharing](sharing.md) a document.
+To share your document tutorial, simply share your document. The document tutorial will start automatically when a user accesses the document. Because the fork is user-specific, their progress will be saved so they can close it and come back to it at another time. Unsaved forks are automatically deleted after 30 days if not accessed again. Only users with access to the original document can access the document tutorial. Learn more about [sharing](sharing.md) a document.
 
