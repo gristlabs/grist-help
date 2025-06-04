@@ -20,7 +20,7 @@ Create a new table in your document by clicking the green 'Add New' button then 
 
 <span class="screenshot-large">*![add-doc-tutorial-table](images/document-tutorials/add-doc-tutorial-table.png)*</span>
 
-Add the following columns to the `GristDocTutorial` table;
+Add the following columns to the `GristDocTutorial` table:
 
 1. **slide_content:** A text column that holds the Markdown content for each slide. You can embed images, videos, and links hosted externally.
 2. **box_content:** An optional text column that supports additional Markdown. If filled in, this content appears in a shaded box below the slide, useful for tips or extra context.
