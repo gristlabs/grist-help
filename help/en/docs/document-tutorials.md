@@ -49,18 +49,18 @@ When working with document tutorials, there are three types of URLs you’ll enc
 **Example**
 
 If your forked tutorial URL is:
-```
+```text
 https://docs.getgrist.com/doc/woXtXUBmiN5T~1eYN9joCXkuVokCD1p3EYt~12345
 ```
 Then:
 
 - The **Direct URL** is:
-```
+```text
 https://docs.getgrist.com/doc/woXtXUBmiN5T
 ```
 
 - The **Default Mode URL** is:
-```
+```text
 https://docs.getgrist.com/doc/woXtXUBmiN5T/m/default
 ```
 
