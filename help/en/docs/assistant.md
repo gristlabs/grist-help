@@ -39,7 +39,7 @@ Free personal and free team plans have 200 Assistant credits (or requests). For 
 
 ## Data use policy
 
-Your query, document schema, and data are sent to [OpenAI](https://openai.com/){:target="\_blank"}. The Assistant uses the gpt-4o model, aka ChatGPT. OpenAI's [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI's [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to the Assistant.
+When you use the Assistant, your query, document schema, and data are sent to [OpenAI](https://openai.com/){:target="\_blank"}. The Assistant uses the gpt-4o model, aka ChatGPT. OpenAI's [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI's [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to the Assistant.
 
 Certain Grist Labs employees may also examine logs of assistant requests (questions, document schema, and data) to learn what is working and what is not, in order to provide a better service.
 
