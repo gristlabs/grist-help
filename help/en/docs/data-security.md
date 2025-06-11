@@ -38,6 +38,7 @@ your behalf:
     folder under your control. At any time a "Delete forever" option
     can be used to immediately purge a document in this folder. All
     automatic backups are purged along with the document.
+  * Grist includes an optional AI-powered [Assistant](assistant.md). Details on the Assistant's data use policy can be found [here](assistant.md#data-use-policy).
 
 The hosted Grist product has not at this time gone through
 certification or auditing for SOC 2, ISO 27001, HIPAA, or GDPR
