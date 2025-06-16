@@ -734,9 +734,11 @@ Follow these steps:
 
 ### How do I control telemetry? {: .tag-core }
 
-By default, Grist installations do not "phone home" to any central
-service. It is useful to permit them to do so, to give Grist Labs some
-limited insight into your usage, through measurements called
+By default, Grist installations do not send detailed information to
+any central service, [except for some version
+information](#how-do-i-control-automatic-checks-for-new-installed-versions).
+It is useful to permit Grist to send more information, to give Grist
+Labs some limited insight into your usage, through measurements called
 telemetry. This will help guide development, and draw attention to
 self-hosted users as a group.
 
@@ -769,6 +771,35 @@ of what data is sent, and [telemetry overview](telemetry.md) for further explana
 An interactive method for controlling telemetry is only
 available for Grist Core builds currently. In all cases,
 the default is to not send telemetry.
+
+### How do I control automatic checks for new installed versions?
+
+The default Docker images for Grist core and enterprise come enabled
+with a setting to weekly check for updates and inform the user of the
+administrative account if any such updates are available. This
+behavior can be disabled from the administrative panel via the
+"Auto-check weekly" toggle. At any time, it is possible to click on
+"Check now" to see if a newer Grist Docker image is available.
+
+<span class="screenshot-large">*![Automatic version
+ checking](images/admin-version-checking.png)*</span>
+
+In addition, it is also possible to disable automatic checks by
+setting the environment variable
+`GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=false` for the Docker image.
+
+On the other hand, the special `gristlabs/grist-oss` Docker image that
+only contains free and open source code has this check disabled by
+default. If desired, automatic version checking can be enabled for
+this Docker image by setting the environment variable
+`GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=true`.
+
+Automatic version check sends to a central location three pieces of
+information:
+
+1. The version number of the installation
+2. Whether it's a core or an enterprise installation
+3. A randomized identification number unique to this installation
 
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
