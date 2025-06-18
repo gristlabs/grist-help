@@ -772,14 +772,13 @@ An interactive method for controlling telemetry is only
 available for Grist Core builds currently. In all cases,
 the default is to not send telemetry.
 
-### How do I control automatic checks for new installed versions?
+### How do I control automatic version checks? {: .tag-core .tag-ee }
 
-The default Docker images for Grist core and enterprise come enabled
-with a setting to weekly check for updates and inform the user of the
-administrative account if any such updates are available. This
-behavior can be disabled from the administrative panel via the
-"Auto-check weekly" toggle. At any time, it is possible to click on
-"Check now" to see if a newer Grist Docker image is available.
+The default Docker images for Grist Core and Enterprise come enabled
+with a setting to perform weekly update checks and inform the [installation administrator](self-managed.md##what-is-the-administrative-account) if any such updates are available. This
+behavior can be disabled from the [Admin Panel](admin-panel.md) via the
+'Auto-check weekly' toggle. You can click on
+'Check now' at any time to see if a new Grist Docker image is available.  
 
 <span class="screenshot-large">*![Automatic version
  checking](images/admin-version-checking.png)*</span>
@@ -788,18 +787,18 @@ In addition, it is also possible to disable automatic checks by
 setting the environment variable
 `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=false` for the Docker image.
 
-On the other hand, the special `gristlabs/grist-oss` Docker image that
-only contains free and open source code has this check disabled by
+On the other hand, the `grist-oss` [Docker image](https://hub.docker.com/r/gristlabs/grist-oss) contains only free and open-source code, and has this check disabled by
 default. If desired, automatic version checking can be enabled for
 this Docker image by setting the environment variable
 `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=true`.
 
-Automatic version check sends to a central location three pieces of
-information:
+The automatic version check sends three pieces of information to a service maintained by Grist Labs:
 
 1. The version number of the installation
-2. Whether it's a core or an enterprise installation
-3. A randomized identification number unique to this installation
+2. Whether it's a Core or an Enterprise installation
+3. An anonymized and unique installation identification number
+
+For Grist Labs, this anonymized information helps us determine how quickly critical upgrades are being taken up by the community. It also gives an anonymized measure of Grist usage, which may help direct developer attention to supporting self-hosting. For administrators, this check can be helpful for staying up to date, especially with special security-related releases which may be issued outside of the usual release cycle.
 
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 

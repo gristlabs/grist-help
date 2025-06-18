@@ -5,8 +5,8 @@ title: Overview of telemetry
 # Overview of Telemetry
 
 Grist development is guided by telemetry: a set of measurements
-aimed at quantifying aspects of how Grist is used. A self-managed
-installation of Grist by default does no telemetry.
+aimed at quantifying aspects of how Grist is used. Aside from [an automatic version check](self-managed.md#how-do-i-control-automatic-checks-for-new-installed-versions), self-hosted
+installations of Grist by default do no telemetry.
 When telemetry is enabled, data about usage is sent to a service
 maintained by Grist Labs.
 
@@ -25,6 +25,7 @@ Telemetry may be configured by optional environment variables:
 	sent. It defaults to a service operated by Grist Labs.
 	If you are running a large hosted service, you may wish to
 	direct telemetry to a service you control.
+	* `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING`. This controls automatic version checking. It defaults to `true` in the Grist Core and Enterprise Docker images, but is `false` when building from source or using the `grist-oss` Docker image.
 
 Telemetry may also be configured interactively by the owner of
 a Grist installation, see [How do I control telemetry?](self-managed.md#how-do-i-control-telemetry) for details.
