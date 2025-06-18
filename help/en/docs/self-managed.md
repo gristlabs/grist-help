@@ -798,7 +798,7 @@ The automatic version check sends three pieces of information to a service maint
 2. Whether it's a Core or an Enterprise installation
 3. An anonymized and unique installation identification number
 
-For Grist Labs, this anonymized information helps us determine how quickly critical upgrades are being taken up by the community. It also gives an anonymized measure of Grist usage, which may help direct developer attention to supporting self-hosting. For administrators, this check can be helpful for staying up to date, especially with special security-related releases which may be issued outside of the usual release cycle.
+This anonymized information helps Grist Labs determine how quickly critical upgrades are being taken up by the community. It also gives an anonymized measure of Grist usage, which may help direct developer attention to supporting self-hosting. For administrators, this check can be helpful for staying up to date, especially with special security-related releases which may be issued outside of the usual release cycle.
 
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
