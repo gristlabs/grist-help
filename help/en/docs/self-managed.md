@@ -775,7 +775,7 @@ the default is to not send telemetry.
 ### How do I control automatic version checks? {: .tag-core .tag-ee }
 
 The default Docker images for Grist Core and Enterprise come enabled
-with a setting to perform weekly update checks and inform the [installation administrator](self-managed.md##what-is-the-administrative-account) if any such updates are available. This
+with a setting to perform weekly update checks and inform the [installation administrator](self-managed.md#what-is-the-administrative-account) if any such updates are available. This
 behavior can be disabled from the [Admin Panel](admin-panel.md) via the
 'Auto-check weekly' toggle. You can click on
 'Check now' at any time to see if a new Grist Docker image is available.  
