@@ -787,8 +787,7 @@ In addition, it is also possible to disable automatic checks by
 setting the environment variable
 `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=false` for the Docker image.
 
-On the other hand, the `gristlabs/grist-oss` [Docker image](https://hub.docker.com/r/gristlabs/grist-oss) contains only free and open-source code, and has this check disabled by
-default. If desired, automatic version checking can be enabled for
+On the other hand, the `gristlabs/grist-oss` [Docker image](https://hub.docker.com/r/gristlabs/grist-oss) image has less opinionated defaults. It contains only free and open-source code, without the option to enable Enterprise features from Grist Labs, and has this check disabled. If desired, automatic version checking can be enabled for
 this Docker image by setting the environment variable
 `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=true`.
 
