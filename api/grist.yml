@@ -226,6 +226,43 @@ paths:
                 description: a unique identifier for the document
                 example: "8b97c8db-b4df-4b34-b72c-17459e70140a"
 
+  /workspaces/{workspaceId}/import:
+    post:
+      operationId: importDoc
+      tags:
+        - docs
+      summary: "Import an existing document"
+      parameters:
+        - $ref: '#/components/parameters/workspaceIdPathParam'
+      requestBody:
+        description: "settings for the document"
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                upload:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                documentName:
+                  type: string
+                  example: "Example Doc"
+        required: true
+      responses:
+        200:
+          description: The document id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: a unique identifier for the document
+                    example: "8b97c8db-b4df-4b34-b72c-17459e70140a"
+
   /workspaces/{workspaceId}/access:
     get:
       operationId: listWorkspaceAccess
