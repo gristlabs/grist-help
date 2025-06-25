@@ -224,7 +224,43 @@ paths:
               schema:
                 type: string
                 description: a unique identifier for the document
-                example: "8b97c8db-b4df-4b34-b72c-17459e70140a"
+                example: "9PJhBDZPyCNoayZxaCwFfS"
+
+  /workspaces/{workspaceId}/import:
+    post:
+      operationId: importDoc
+      tags:
+        - docs
+      summary: "Import an existing document"
+      parameters:
+        - $ref: '#/components/parameters/workspaceIdPathParam'
+      requestBody:
+        description: "settings for the document"
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                upload:
+                  description: "Contents of a .grist file, as a standard multipart/form-data file entry"
+                  type: string
+                  format: binary
+                documentName:
+                  type: string
+                  example: "Example Doc"
+        required: true
+      responses:
+        200:
+          description: The document id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: a unique identifier for the document
+                    example: "9PJhBDZPyCNoayZxaCwFfS"
 
   /workspaces/{workspaceId}/access:
     get:
