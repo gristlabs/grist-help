@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
       <meta name="description" content="Grist development is guided by telemetry: a set of measurements
-aimed at quantifying aspects of how Grist is used. A self-managed
-installation of Grist by default does no telemetry.
+aimed at quantifying aspects of how Grist is used. Aside from an automatic version check, self-hosted
+installations of Grist by default do no telemetry.
 When telemetry is enabled, data about usage is sent to a service
 maintained by Grist Labs.">
       <meta property="og:description" content="Grist development is guided by telemetry: a set of measurements
-aimed at quantifying aspects of how Grist is used. A self-managed
-installation of Grist by default does no telemetry.
+aimed at quantifying aspects of how Grist is used. Aside from an automatic version check, self-hosted
+installations of Grist by default do no telemetry.
 When telemetry is enabled, data about usage is sent to a service
 maintained by Grist Labs.">
     
@@ -1146,8 +1146,8 @@ maintained by Grist Labs.">
 
     <h1 id="overview-of-telemetry">Overview of Telemetry<a class="headerlink" href="#overview-of-telemetry" title="Permanent link">#</a></h1>
 <p>Grist development is guided by telemetry: a set of measurements
-aimed at quantifying aspects of how Grist is used. A self-managed
-installation of Grist by default does no telemetry.
+aimed at quantifying aspects of how Grist is used. Aside from <a href="../self-managed/#how-do-i-control-automatic-version-checks">an automatic version check</a>, self-hosted
+installations of Grist by default do no telemetry.
 When telemetry is enabled, data about usage is sent to a service
 maintained by Grist Labs.</p>
 <p>Telemetry may be configured by optional environment variables:</p>
@@ -1165,6 +1165,7 @@ maintained by Grist Labs.</p>
     sent. It defaults to a service operated by Grist Labs.
     If you are running a large hosted service, you may wish to
     direct telemetry to a service you control.</li>
+<li><code>GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING</code>. This controls automatic version checking. It defaults to <code>true</code> in the Grist Core and Enterprise Docker images, but is <code>false</code> when building from source or using the <code>grist-oss</code> Docker image.</li>
 </ul>
 <p>Telemetry may also be configured interactively by the owner of
 a Grist installation, see <a href="../self-managed/#how-do-i-control-telemetry">How do I control telemetry?</a> for details.</p>
