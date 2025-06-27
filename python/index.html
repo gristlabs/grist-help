@@ -392,12 +392,6 @@
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#testing-the-effect-of-changing-python-versions">
-              Testing the effect of changing Python versions
-            </a>
-          </li>
-        
-          <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#differences-between-python-versions">
               Differences between Python versions
             </a>
@@ -1182,54 +1176,12 @@ functions, with all-uppercase names. Here&rsquo;s the <a href="../functions/">fu
 Python formulas are evaluated in a sandbox, without internet access, and without a
 persistent filesystem.</p>
 <h2 id="supported-python-versions">Supported Python versions<a class="headerlink" href="#supported-python-versions" title="Permanent link">#</a></h2>
-<p>We currently support two versions of Python:</p>
+<p>We currently support this version of Python:</p>
 <ul>
-<li>Python 3 (specifically 3.11 at the time of writing)</li>
-<li>Python 2 (specifically 2.7)</li>
+<li>Python 3 (specifically 3.11)</li>
 </ul>
-<p>Newly created documents on our hosted service use Python 3 by default, while older documents
-(created before November 2021 approximately) use Python 2 by default. To tell which version of Python
-a specific document uses, look at its <a href="../creating-doc/#document-settings">Document Settings</a>.
-The <code>Engine</code> setting may be <code>python2</code>, <code>python3</code>, or blank.
-A blank setting implies <code>python2</code>.</p>
-<p>If you have editing rights on a document, you can change the <code>Engine</code> setting,
-and the document will then reload with all formulas now interpreted using the
-version of Python you have specified. We recommend caution in doing so.
-A formula that works as intended in one version of Python may give errors
-in another, or (worse) give the wrong results.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>Some formulas may fail or give wrong results if used with a version of Python
-that is different from the one for which they were written.</strong></p>
-</div>
-<p>Python 2 reached its end of life in January 2020, so if you look online for python help,
-the answers you find are more and more likely to be for Python 3. If you have a document
-that uses Python 2, and you&rsquo;d like to switch it to use Python 3, we recommend reading
-<a href="./#testing-the-effect-of-changing-python-versions">Testing the effect of changing Python versions</a>
-and <a href="./#differences-between-python-versions">Differences between Python versions</a>.
-Be sure to check all tables and columns, and both regular formalas and trigger formulas.
-We&rsquo;d be interested to hear your experience, and to help with any problems,
-on the <a href="https://community.getgrist.com/">community forum</a>.</p>
-<p><a href="../self-managed/">Self-Managed Grist</a> may use any version of Python you configure it with, but bear in
-mind we actively test only the supported versions.</p>
-<p><a href="https://github.com/gristlabs/grist-desktop">Grist Desktop</a> only supports Python 3 and does not have the version switcher under <a href="../creating-doc/#document-settings">Document Settings</a>.</p>
-<h2 id="testing-the-effect-of-changing-python-versions">Testing the effect of changing Python versions<a class="headerlink" href="#testing-the-effect-of-changing-python-versions" title="Permanent link">#</a></h2>
-<p>Grist has some features that can help you evaluate the consequences of changing the
-Python version a document uses.</p>
-<ul>
-<li>The <a href="../copying-docs/#trying-out-changes">Work on a Copy</a> feature is useful to
-   experiment with changing the Python version without affecting your document until
-   you are ready. There is a &ldquo;Compare with original&rdquo; option that will let you
-   visualize which cells changed, if any. Be sure to look at all tables and columns.</li>
-<li>The <a href="../document-history/#activity">Activity tab of Document History</a>
-   (with &ldquo;All Tables&rdquo; selected) lets you review in more detail what has
-   changed.</li>
-<li>Be careful to test any <a href="../formulas/#trigger-formulas">trigger formulas</a> you may
-   have, since the Python code in them won&rsquo;t be exercised until you specifically
-   trigger these formulas.</li>
-<li>You can use the <a href="../formulas/#code-viewer">code viewer</a> to quickly remind yourself
-   of all formulas in a document, so you can systematically check them all.</li>
-</ul>
+<p>In the past, Grist also supported Python 2. Some notes on differences between
+the versions follow, in case you need to migrate an old document.</p>
 <h2 id="differences-between-python-versions">Differences between Python versions<a class="headerlink" href="#differences-between-python-versions" title="Permanent link">#</a></h2>
 <p>There are important differences between Python 2 and 3. Formulas may need
 to be changed in order to give the same results when switching between Python
