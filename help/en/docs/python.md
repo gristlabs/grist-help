@@ -14,58 +14,12 @@ persistent filesystem.
 
 ## Supported Python versions
 
-We currently support two versions of Python:
+We currently support this version of Python:
 
- * Python 3 (specifically 3.11 at the time of writing)
- * Python 2 (specifically 2.7)
+ * Python 3 (specifically 3.11)
 
-Newly created documents on our hosted service use Python 3 by default, while older documents
-(created before November 2021 approximately) use Python 2 by default. To tell which version of Python
-a specific document uses, look at its [Document Settings](creating-doc.md#document-settings).
-The `Engine` setting may be `python2`, `python3`, or blank.
-A blank setting implies `python2`.
-
-If you have editing rights on a document, you can change the `Engine` setting,
-and the document will then reload with all formulas now interpreted using the
-version of Python you have specified. We recommend caution in doing so.
-A formula that works as intended in one version of Python may give errors
-in another, or (worse) give the wrong results.
-
-!!! warning "Warning"
-    **Some formulas may fail or give wrong results if used with a version of Python
-    that is different from the one for which they were written.**
-
-Python 2 reached its end of life in January 2020, so if you look online for python help,
-the answers you find are more and more likely to be for Python 3. If you have a document
-that uses Python 2, and you'd like to switch it to use Python 3, we recommend reading
-[Testing the effect of changing Python versions](python.md#testing-the-effect-of-changing-python-versions)
-and [Differences between Python versions](python.md#differences-between-python-versions).
-Be sure to check all tables and columns, and both regular formalas and trigger formulas.
-We'd be interested to hear your experience, and to help with any problems,
-on the [community forum](https://community.getgrist.com/).
-
-[Self-Managed Grist](self-managed.md) may use any version of Python you configure it with, but bear in
-mind we actively test only the supported versions.
-
- [Grist Desktop](https://github.com/gristlabs/grist-desktop) only supports Python 3 and does not have the version switcher under [Document Settings](creating-doc.md#document-settings).
-
-## Testing the effect of changing Python versions
-
-Grist has some features that can help you evaluate the consequences of changing the
-Python version a document uses.
-
- * The [Work on a Copy](copying-docs.md#trying-out-changes) feature is useful to
-   experiment with changing the Python version without affecting your document until
-   you are ready. There is a "Compare with original" option that will let you
-   visualize which cells changed, if any. Be sure to look at all tables and columns.
- * The [Activity tab of Document History](document-history.md#activity)
-   (with "All Tables" selected) lets you review in more detail what has
-   changed.
- * Be careful to test any [trigger formulas](formulas.md#trigger-formulas) you may
-   have, since the Python code in them won't be exercised until you specifically
-   trigger these formulas.
- * You can use the [code viewer](formulas.md#code-viewer) to quickly remind yourself
-   of all formulas in a document, so you can systematically check them all.
+In the past, Grist also supported Python 2. Some notes on differences between
+the versions follow, in case you need to migrate an old document.
 
 ## Differences between Python versions
 
