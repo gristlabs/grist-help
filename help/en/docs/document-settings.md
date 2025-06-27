@@ -45,10 +45,7 @@ The API section provides tools for integrating your document with external servi
 
 ### External Attachments
 
-!!! warning "External attachments are only available to self-hosters and Enterprise customers"
-    External attachments must be enabled by the administrator of your installation before they can be used.
-
-Grist can store attachments either within a document, or externally in another location (determined by the administrator of your Grist installation).
+Grist can store attachments either within a document, or externally in another location (for self-hosted installations, this is determined by the administrator).
 
 Storing attachments externally can:
 
