@@ -61,6 +61,9 @@ However, there are additional limitations placed on documents that use external 
 
 Therefore, it's advised you only use external attachments if your document is experiencing slowness due to attachments.
 
+!!! note "Internal Attachment Limits"
+    Attachments plus data in a single document are limited to 1GB on all plans. You can check your document's usage under [Raw Data](raw-data.md).
+
 You can switch a document between internal and external attachments at any time without restriction, however it may take some time for all attachments to be transferred from their existing location to the new one.
 
 External attachments can be enabled from the Document Settings page. If external attachments are not available on your Grist installation, the dropdown will be disabled. Consult the instructions for [self-managed installations](self-managed.md#how-do-i-enable-external-attachments) if needed.
