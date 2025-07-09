@@ -40,8 +40,9 @@ the access rules page contains the `Default Rules` for our document:
 
 These rules say, in summary, that Owners and Editors can do anything within
 the document, that Viewers can only read the document, and everyone
-else is forbidden all access.  These rules cannot be modified, but they
-can be overridden.  To understand whether a group of rules allows a
+else is forbidden all access.  These rules cannot be modified since they reflect the underlying enforcement of basic roles.
+However, other rules can be added to restrict access in more granular ways.
+To understand whether a group of rules allows a
 certain permission ([Read, Update, Create, Delete, or Structure](access-rules.md#access-rule-permissions)), read
 the rules from top to bottom, and find the first applicable rule
 that allows (green) or denies (red) that permission.
