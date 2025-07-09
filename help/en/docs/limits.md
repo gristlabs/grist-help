@@ -47,7 +47,18 @@ There is a hard limit to a document's total data size, determined as the row lim
 
 For memory and performance reasons, there's a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in [formula timer](https://support.getgrist.com/formula-timer/).
 
-Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.
+## Attachments
+
+Attachments are counted separately from data. Each plan includes an attachment limit per document, as well as a total attachment limit across all documents within the organization.
+
+| Plan | Document Limit |  Org Limit  |
+| --- | --- | --- |
+| Free Personal | 1GB | 50GB |
+| Free Team | 1GB | 50GB |
+| Pro | 3GB | 100GB |
+| Business | 20GB | 200GB |
+| Enterprise | 100GB | 1TB (installation limit) |
+| AppSumo |  | 100GB |
 
 ## Uploads
 
