@@ -941,6 +941,11 @@ mind, here is a list of limitations that apply to its operation.">
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#attachments">
+                Attachments
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#uploads">
                 Uploads
               </a>
@@ -1084,7 +1089,49 @@ table with the product type as an extra column.</p>
 <h2 id="data-size">Data size<a class="headerlink" href="#data-size" title="Permanent link">#</a></h2>
 <p>There is a hard limit to a document&rsquo;s total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document&rsquo;s current data size on the <a href="https://support.getgrist.com/raw-data/#usage">&lsquo;Raw Data&rsquo; page</a>.</p>
 <p>For memory and performance reasons, there&rsquo;s a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in <a href="https://support.getgrist.com/formula-timer/">formula timer</a>.</p>
-<p>Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.</p>
+<h2 id="attachments">Attachments<a class="headerlink" href="#attachments" title="Permanent link">#</a></h2>
+<p>Attachments are counted separately from data. Each plan includes an attachment limit per document, as well as a total attachment limit across all documents within the organization.</p>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Document Limit</th>
+<th>Org Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free Personal</td>
+<td>1GB</td>
+<td>50GB</td>
+</tr>
+<tr>
+<td>Free Team</td>
+<td>1GB</td>
+<td>50GB</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>3GB</td>
+<td>100GB</td>
+</tr>
+<tr>
+<td>Business</td>
+<td>20GB</td>
+<td>200GB</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>100GB</td>
+<td>1TB (installation limit)</td>
+</tr>
+<tr>
+<td>AppSumo</td>
+<td></td>
+<td>100GB</td>
+</tr>
+</tbody>
+</table>
 <h2 id="uploads">Uploads<a class="headerlink" href="#uploads" title="Permanent link">#</a></h2>
 <p>Uploads are limited to 50MB, both for attachments and to import data. Note that an import within
 this limit may result in a document that exceeds the document size limit, in which case the upload
