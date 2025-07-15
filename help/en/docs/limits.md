@@ -58,7 +58,6 @@ Attachments are counted separately from data. Each plan includes an attachment l
 | Pro | 3GB | 100GB |
 | Business | 20GB | 200GB |
 | Enterprise | Custom | Custom |
-| AppSumo |  | 100GB |
 
 ## Uploads
 
