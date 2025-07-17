@@ -49,7 +49,7 @@ For memory and performance reasons, there's a recommended data size limit of 20M
 
 ## Attachments
 
-Attachments are counted separately from data. Internal attachments (i.e. default [attachment columns](col-types.md#attachment-columns)) are limited to **1GB** per document in all cases. For [external attachments](document-settings.md#external-attachments), there is a per document limit as well as a total attachment limit across all documents within an organization. Below are the limits for each Grist plan:
+Attachments are counted separately from data. Internal attachments (i.e. default [attachment columns](col-types.md#attachment-columns)) are limited to **1GB** per document in all cases. For [external attachments](document-settings.md#external-attachments), there is a per document limit that's higher on paid plans. There is also a total attachment limit across all documents within an organization. Below are the limits for each Grist plan:
 
 | Plan | Document Limit |  Organization Limit  |
 | --- | --- | --- |
