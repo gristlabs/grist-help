@@ -1217,16 +1217,16 @@ table with the product type as an extra column.</p>
 <p>On the Free plan, documents have a limit of 5,000 rows. The limit for Pro and Business plans is 100,000 and 150,000 rows, respectively.</p>
 <p>Documents are also subject to data size limits, as described below.</p>
 <h2 id="data-size">Data size<a class="headerlink" href="#data-size" title="Permanent link">#</a></h2>
-<p>There is a hard limit to a document&rsquo;s total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document&rsquo;s current data size on the <a href="https://support.getgrist.com/raw-data/#usage">&lsquo;Raw Data&rsquo; page</a>.</p>
-<p>For memory and performance reasons, there&rsquo;s a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in <a href="https://support.getgrist.com/formula-timer/">formula timer</a>.</p>
+<p>There is a hard limit to a document&rsquo;s total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document&rsquo;s current data size on the <a href="../raw-data/#usage">&lsquo;Raw Data&rsquo; page</a>.</p>
+<p>For memory and performance reasons, there&rsquo;s a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in <a href="../formula-timer/">formula timer</a>.</p>
 <h2 id="attachments">Attachments<a class="headerlink" href="#attachments" title="Permanent link">#</a></h2>
-<p>Attachments are counted separately from data. Each plan includes an attachment limit per document, as well as a total attachment limit across all documents within the organization.</p>
+<p>Attachments are counted separately from data. Internal attachments (i.e. default <a href="../col-types/#attachment-columns">attachment columns</a>) are limited to <strong>1GB</strong> per document in all cases. For <a href="../document-settings/#external-attachments">external attachments</a>, there is a per document limit that&rsquo;s higher on paid plans. There is also a total attachment limit across all documents within an organization. Below are the limits for each Grist plan:</p>
 <table>
 <thead>
 <tr>
 <th>Plan</th>
 <th>Document Limit</th>
-<th>Org Limit</th>
+<th>Organization Limit</th>
 </tr>
 </thead>
 <tbody>
@@ -1252,13 +1252,8 @@ table with the product type as an extra column.</p>
 </tr>
 <tr>
 <td>Enterprise</td>
-<td>100GB</td>
-<td>1TB (installation limit)</td>
-</tr>
-<tr>
-<td>AppSumo</td>
-<td></td>
-<td>100GB</td>
+<td>Custom</td>
+<td>Custom</td>
 </tr>
 </tbody>
 </table>
