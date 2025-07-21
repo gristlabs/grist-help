@@ -871,6 +871,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/AttachmentsTransferStatus'
 
+
+  /api/docs/{docId}/attachments/removeUnused:
+    get:
+      operationId: removeUnusedAttachments
+      tags:
+        - attachments
+      summary: "Delete unused attachments from the document"
+      description: >
+        When an uploaded attachment is no longer used in a Grist document, 
+        it's retained for a period of time in case it's needed again (e.g. to facilitate an "undo").
+        
+        This removes all of these retained attachments, reducing the amount of storage used.
+        This is particularly useful if a document has hit its attachment storage limit.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: expiredOnly
+          schema:
+            type: boolean
+            description: "Only remove attachments that haven't been used for a period of time. This duration is set by host of the Grist instance."
+      responses:
+        200:
+          description: Success
+
   /docs/{docId}/tables/{tableId}/records:
     get:
       operationId: "listRecords"
