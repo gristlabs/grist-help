@@ -173,3 +173,9 @@ This ordered list of fields can be used to customize any of the page widget type
 particular importance in the [Chart widget](widget-chart.md), where different chart types and options require you to
 place series in a certain order in the "Visible Series" list to ensure your data is plotted
 correctly.
+
+## Duplicating widgets
+
+You can duplicate any widget by clicking the three-dot icon at the upper-right of the widget and selecting 'Duplicate widget' from the dropdown menu. You will be prompted to select which page you wish to duplicate the widget to.
+
+*![Duplicating Widgets](images/duplicate-widget.png)*
