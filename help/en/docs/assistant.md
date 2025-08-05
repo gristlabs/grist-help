@@ -11,8 +11,8 @@ When asking the Assistant a question, there’s no need to specify column IDs or
 
 The Assistant:
 
-* **Can** answer questions about your data, create or modify tables, columns, or records, and help with formulas. It also knows which page you're viewing.
-* **Can't** create or modify pages, widgets, or access rules. It also doesn't know if you've selected something.
+* **Can** answer questions about your data, create or modify tables, pages and most widgets. It can link widgets and help with formulas. It also knows which page you’re viewing.
+* **Can't** create or modify charts, forms, access rules, or modify page layout. It also doesn’t know if you’ve selected something.
 
 No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about [how data is used](assistant.md#data-use-policy).
 
