@@ -74,7 +74,19 @@ curl -XPATCH \
 For details of the endpoints available, see our [API docs](api.md) or the interactive
 [API console](https://docs.getgrist.com/apiconsole).
 
-There are also client libraries available:
+## API clients
+
+There are two client libraries developed and maintained by Grist Labs:
 
  * [JavaScript/TypeScript client library](https://www.npmjs.com/package/grist-api)
  * [Python client library](https://pypi.org/project/grist-api/)
+
+There are also several community-created and maintained clients in other flavors:
+
+ * [Pygrister](https://github.com/ricpol/pygrister) - an additional Python client, including a CLI tool
+ * [grist-js](https://github.com/ben-pr-p/grist-js) - a TypeScript client
+ * [gorist](https://github.com/CoverWhale/gorist) - a Go client
+ * [GristCTL](https://github.com/Ville-Eurometropole-Strasbourg/grist-ctl) - a Grist API CLI written in Go
+ * [vrist](https://github.com/SencilloDev/vrist) - a V client
+ * [nimGristApi](https://github.com/enthus1ast/nimGristApi) - a simple REST client in Nim
+ * [grist-client-rs](https://github.com/QazCetelic/grist-client-rs) - an in-progress Rust client
