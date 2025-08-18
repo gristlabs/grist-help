@@ -39,7 +39,7 @@ Variables d'environnement attendues :
   * `GRIST_OIDC_IDP_ACR_VALUES` (optionnel) - Une liste séparée par des espaces des valeurs ACR à demander à l'IdP.
   * `GRIST_OIDC_IDP_EXTRA_CLIENT_METADATA` (optionnel) - Un objet JSON avec des métadonnées client supplémentaires à passer à openid-client.
     Sachez que la définition de cet objet peut remplacer toutes les autres valeurs passées au client openid.
-    Plus d'infos : https://github.com/panva/node-openid-client/tree/main/docs#new-clientmetadata-jwks-options
+    Plus d'infos : https://github.com/panva/openid-client/tree/v5.x/docs#new-clientmetadata-jwks-options
   * `GRIST_OIDC_SP_IGNORE_EMAIL_VERIFIED` (optionnel) - À définir à `true` pour désactiver la vérification des emails. Utile quand l'erreur `error: OIDC callback failed: Error: OIDCConfig: email not verified for username@example.com` survient, mais faire attention à contrôler les emails utilisés au niveau du fournisseur OIDC.
 
 ## Exemple : Gitlab
