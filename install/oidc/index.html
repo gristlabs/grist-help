@@ -1201,7 +1201,7 @@ A good informative overview of OIDC is at <a href="https://developer.okta.com/bl
 <li><code>GRIST_OIDC_IDP_ACR_VALUES</code> (optional) - A space-separated list of ACR values to request from the IdP.</li>
 <li><code>GRIST_OIDC_IDP_EXTRA_CLIENT_METADATA</code> (optional) - A JSON object with extra client metadata to pass to openid-client.
     Be aware that setting this object may override any other values passed to the openid client.
-    More info: https://github.com/panva/node-openid-client/tree/main/docs#new-clientmetadata-jwks-options</li>
+    More info: https://github.com/panva/openid-client/tree/v5.x/docs#new-clientmetadata-jwks-options</li>
 <li><code>GRIST_OIDC_SP_IGNORE_EMAIL_VERIFIED</code> (optional) - Set to <code>true</code> to disable the email verification. Useful when the error <code>error: OIDC callback failed: Error: OIDCConfig: email not verified for username@example.com</code> occurs, but beware to control email used on the OIDC provider.</li>
 </ul>
 <h2 id="example-gitlab">Example: Gitlab<a class="headerlink" href="#example-gitlab" title="Permanent link">#</a></h2>
