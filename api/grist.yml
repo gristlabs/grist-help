@@ -563,6 +563,45 @@ paths:
       responses:
         200:
           description: Document reloaded successfully
+  /docs/{docId}/recover:
+    post:
+      operationId: recoverDoc
+      tags:
+        - docs
+      summary: "Set recovery mode for a document"
+      description: "Controls the recovery mode of a document. Recovery mode helps in recovering from errors or corrupted states. Only document owners can control recovery mode."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "Recovery mode settings"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recoveryMode:
+                  type: boolean
+                  description: "Whether to enable recovery mode. Defaults to true if not specified."
+                  example: true
+        required: false
+      responses:
+        200:
+          description: Recovery mode set successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - recoveryMode
+                properties:
+                  recoveryMode:
+                    type: boolean
+                    description: "The current recovery mode state of the document"
+                    example: true
+        403:
+          description: Access denied - only owners can control recovery mode
+        404:
+          description: Document not found
   /docs/{docId}/tables/{tableId}/data:
     get:
       operationId: getTableData
@@ -2341,9 +2380,9 @@ components:
           type: string
           enum: ["utf-8"]
         dialect:
-          $ref: https://specs.frictionlessdata.io/schemas/csv-dialect.json
+          $ref: "https://specs.frictionlessdata.io/schemas/csv-dialect.json"
         schema:
-          $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
+          $ref: "https://specs.frictionlessdata.io/schemas/table-schema.json"
     DocumentStoreSetting:
       type: object
       properties:
