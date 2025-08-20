@@ -2380,9 +2380,9 @@ components:
           type: string
           enum: ["utf-8"]
         dialect:
-          $ref: https://specs.frictionlessdata.io/schemas/csv-dialect.json
+          $ref: "https://specs.frictionlessdata.io/schemas/csv-dialect.json"
         schema:
-          $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
+          $ref: "https://specs.frictionlessdata.io/schemas/table-schema.json"
     DocumentStoreSetting:
       type: object
       properties:
