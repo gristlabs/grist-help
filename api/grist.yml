@@ -912,7 +912,7 @@ paths:
 
 
   /api/docs/{docId}/attachments/removeUnused:
-    get:
+    post:
       operationId: removeUnusedAttachments
       tags:
         - attachments
