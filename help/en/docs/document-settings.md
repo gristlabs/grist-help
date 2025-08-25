@@ -23,6 +23,18 @@ You can also change how the document opens for users:
 - **Template:** Document automatically opens in [fiddle mode](glossary.md#fiddle-mode), allowing users to make temporary edits without saving changes to the original. If they want to keep changes, they must save a copy.
 - **Tutorial:** Document automatically opens as a user-specific copy, which they can edit freely without affecting others.
 
+### Notifications
+
+You can enable email notifications for document changes by toggling the 'Changes' option.
+
+Notifications for [Comments](sharing.md#comments) can be enabled by selecting from the following options:
+
+- **All comments**: Receive a notification for every new comment.
+- **Replies and mentions**: Only receive a notification when someone replies to your comment or mentions you.
+- **None**: Turn off comment notifications entirely.
+
+<span class="screenshot-large">*![document-settings-notifications](images/document-settings/document-settings-notifications.png)*</span>
+
 ### Data Engine
 
 The Data Engine section provides tools to monitor and optimize document performance:

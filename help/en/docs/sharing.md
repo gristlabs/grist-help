@@ -93,6 +93,26 @@ via a particular link.
 Access Rules are supported with link sharing when Public Access
 is set to "Viewer" or "Editor."
 
+## Comments
+
+Comments in Grist allow you to collaborate directly on your data by attaching notes to specific cells in data tables. This makes it easy to ask questions, provide feedback, or share context right where the data lives. Note that only users with either 'Owner' or 'Editor' can leave comments while 'Viewers' can only read comments.
+
+To leave a comment, right-click on a cell then select 'Comment' from the dropdown menu.
+
+<span class="screenshot-large">*![sharing-add-comment](images/sharing/sharing-add-comment.png)*</span>
+
+You can tag another user in your comment by typing `@` followed by the user's name.
+
+<span class="screenshot-large">*![sharing-tagging-comment](images/sharing/sharing-tagging-comment.png)*</span>
+{: .screenshot-half }
+
+Comments for a document can be viewed by clicking the 'Comments' icon at the upper-right of the page. This opens the panel on the right-hand side of the page. Click the three-dot icon at the top of the panel for filtering options.
+
+<span class="screenshot-large">*![sharing-view-comments](images/sharing/sharing-view-comments.png)*</span>
+{: .screenshot-half }
+
+Email notifications for comments can be enabled under [Document Settings](document-settings.md#notifications).
+
 ## Leaving a Document
 
 Non-owners may look up their access details to a document by clicking on the share icon 
