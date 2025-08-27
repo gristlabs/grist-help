@@ -446,7 +446,7 @@ fields may be set in the `manifest.json`:
 
 ### How do I set up email notifications? {: .tag-ee }
 
-In Grist SaaS, we send emails such as invitations to share a document.
+In Grist SaaS, we send emails when a user is invited to a document or mentioned in a comment.
 The same mechanism is available in Grist Enterprise. There is not yet
 an equivalent in Grist Core.
 
