@@ -27,7 +27,7 @@ You can also change how the document opens for users:
 
 You can enable email notifications for document changes by toggling the 'Changes' option.
 
-Notifications for [Comments](sharing.md#comments) can be enabled by selecting from the following options:
+Notifications for [comments](sharing.md#comments) can be enabled by selecting from the following options:
 
 - **All comments**: Receive a notification for every new comment.
 - **Replies and mentions**: Only receive a notification when someone replies to your comment or mentions you.
