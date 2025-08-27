@@ -95,7 +95,7 @@ is set to "Viewer" or "Editor."
 
 ## Comments
 
-Comments in Grist allow you to collaborate directly on your data by attaching notes to specific cells in data tables. This makes it easy to ask questions, provide feedback, or share context right where the data lives. Note that only users with either 'Owner' or 'Editor' can leave comments while 'Viewers' can only read comments.
+Comments in Grist allow you to collaborate directly on your data by attaching notes to specific cells in data tables. This makes it easy to ask questions, provide feedback, or share context right where the data lives. Note that only users with either 'Owner' or 'Editor' roles can leave comments, while 'Viewers' can only read comments.
 
 To leave a comment, right-click on a cell then select 'Comment' from the dropdown menu.
 
