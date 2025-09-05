@@ -35,7 +35,7 @@ Python (see [Python documentation](https://docs.python.org/3.11/)). Here are som
 | --- | --- |
 | Grist | <a  href="#record">Record</a> or <a  href="#record"> rec</a>, <a  href="#_field">$Field</a> or <a  href="#_field"> rec.Field</a>, <a  href="#_group">$group</a> or <a  href="#_group"> rec.group</a>, <a  href="#recordset">RecordSet</a>, <a  href="#find_">find.*</a>, <a  href="#usertable">UserTable</a>, <a  href="#all">all</a>, <a  href="#lookupone">lookupOne</a>, <a  href="#lookuprecords">lookupRecords</a> |
 | Cumulative | <a  href="#next">NEXT</a>, <a  href="#previous">PREVIOUS</a>, <a  href="#rank">RANK</a> |
-| Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#moonphase">MOONPHASE</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
+| Date | <a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#moonphase">MOONPHASE</a>, <a  href="#networkdays">NETWORKDAYS</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a> |
 | Info | <a class="unimplemented" href="#cell">CELL</a>, <a class="unimplemented" href="#isblank">ISBLANK</a>, <a  href="#isemail">ISEMAIL</a>, <a  href="#iserr">ISERR</a>, <a  href="#iserror">ISERROR</a>, <a  href="#islogical">ISLOGICAL</a>, <a  href="#isna">ISNA</a>, <a  href="#isnontext">ISNONTEXT</a>, <a  href="#isnumber">ISNUMBER</a>, <a  href="#isref">ISREF</a>, <a  href="#isreflist">ISREFLIST</a>, <a  href="#istext">ISTEXT</a>, <a  href="#isurl">ISURL</a>, <a  href="#n">N</a>, <a  href="#na">NA</a>, <a  href="#peek">PEEK</a>, <a  href="#record_2">RECORD</a>, <a class="unimplemented" href="#request">REQUEST</a>, <a class="unimplemented" href="#type">TYPE</a> |
 | Logical | <a  href="#and">AND</a>, <a  href="#false">FALSE</a>, <a  href="#if">IF</a>, <a  href="#iferror">IFERROR</a>, <a  href="#not">NOT</a>, <a  href="#or">OR</a>, <a  href="#true">TRUE</a> |
 | Lookup | <a  href="#lookupone_2">lookupOne</a>, <a  href="#lookuprecords_2">lookupRecords</a>, <a class="unimplemented" href="#address">ADDRESS</a>, <a class="unimplemented" href="#choose">CHOOSE</a>, <a class="unimplemented" href="#column">COLUMN</a>, <a class="unimplemented" href="#columns">COLUMNS</a>, <a  href="#contains">CONTAINS</a>, <a class="unimplemented" href="#getpivotdata">GETPIVOTDATA</a>, <a class="unimplemented" href="#hlookup">HLOOKUP</a>, <a class="unimplemented" href="#hyperlink">HYPERLINK</a>, <a class="unimplemented" href="#index">INDEX</a>, <a class="unimplemented" href="#indirect">INDIRECT</a>, <a class="unimplemented" href="#lookup">LOOKUP</a>, <a class="unimplemented" href="#match">MATCH</a>, <a class="unimplemented" href="#offset">OFFSET</a>, <a class="unimplemented" href="#row">ROW</a>, <a class="unimplemented" href="#rows">ROWS</a>, <a  href="#self_hyperlink">SELF_HYPERLINK</a>, <a  href="#vlookup">VLOOKUP</a> |
@@ -790,6 +790,84 @@ True
 ```python
 >>> [round(MOONPHASE(DATEADD(datetime.date(2023, 4, 1), days=4*n), "days"), 1) for n in range(8)]
 [10.4, 14.4, 18.4, 22.4, 26.4, 0.9, 4.9, 8.9]
+```
+
+</details>
+<details markdown><summary >
+#### <code>__NETWORKDAYS__(start_date, end_date, holidays=[])</code> {: #networkdays data-toc-label="NETWORKDAYS" }
+</summary>
+Calculates the net or number of work days between two dates.
+The work days are Monday through Friday, excluding the dates in the `holidays` list.
+
+For example, here are the first 2 weeks of January 2020:
+```
+Mo Tu We Th Fr Sa Su
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+```
+
+
+```python
+>>> NETWORKDAYS(DATE(2020, 1, 1), DATE(2020, 1, 10))
+8
+```
+
+```python
+>>> NETWORKDAYS(DATE(2020, 1, 1), DATE(2020, 1, 10), [DATE(2020, 1, 6)])
+7
+```
+
+If the holiday falls on a weekend, it is ignored:
+
+```python
+>>> NETWORKDAYS(DATE(2020, 1, 1), DATE(2020, 1, 10), [DATE(2020, 1, 5)])
+8
+```
+
+If the start date is after the end date, return a negative count of days:
+
+```python
+>>> NETWORKDAYS(DATE(2020, 1, 10), DATE(2020, 1, 1))
+-8
+```
+
+Datetime objects are also accepted:
+
+```python
+>>> NETWORKDAYS(DTIME("2020-1-1 13:00"), DTIME("2020-1-10"))
+8
+```
+
+```python
+>>> NETWORKDAYS(DTIME("2020-1-1 13:00"), DTIME("2020-1-10"), [DTIME("2020-1-7 12:00")])
+7
+```
+
+Strings are also accepted:
+
+```python
+>>> NETWORKDAYS("2020-1-1", "2020-1-10")
+8
+```
+
+```python
+>>> NETWORKDAYS("2020-1-1", "2020-1-10", ["2020-1-6"])
+7
+```
+
+```python
+>>> NETWORKDAYS("1/1/2013", "2/1/2013")
+24
+```
+
+```python
+>>> NETWORKDAYS("1/1/2013", "2/1/2013", ["1/1/2013", "1/21/2013", "2/18/2013","5/27/2013"])
+22
+```
+
+```python
+>>> NETWORKDAYS("3/1/2013", "7/1/2013", ["1/1/2013", "1/21/2013", "2/18/2013","5/27/2013"])
+86
 ```
 
 </details>
@@ -4297,7 +4375,7 @@ Returns the two-tailed P-value of a Z-test with standard distribution.
 #### <code>__CHAR__(table_number)</code> {: #char data-toc-label="CHAR" }
 </summary>
 Convert a number into a character according to the current Unicode table.
-Same as `unichr(number)`.
+Same as `chr(number)`.
 
 
 ```python
