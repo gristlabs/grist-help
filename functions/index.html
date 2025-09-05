@@ -1242,7 +1242,7 @@ Python (see <a href="https://docs.python.org/3.11/">Python documentation</a>). H
 </tr>
 <tr>
 <td>Date</td>
-<td><a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#moonphase">MOONPHASE</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a></td>
+<td><a  href="#date">DATE</a>, <a  href="#dateadd">DATEADD</a>, <a  href="#datedif">DATEDIF</a>, <a  href="#datevalue">DATEVALUE</a>, <a  href="#date_to_xl">DATE_TO_XL</a>, <a  href="#day">DAY</a>, <a  href="#days">DAYS</a>, <a  href="#dtime">DTIME</a>, <a  href="#edate">EDATE</a>, <a  href="#eomonth">EOMONTH</a>, <a  href="#hour">HOUR</a>, <a  href="#isoweeknum">ISOWEEKNUM</a>, <a  href="#minute">MINUTE</a>, <a  href="#month">MONTH</a>, <a  href="#moonphase">MOONPHASE</a>, <a  href="#networkdays">NETWORKDAYS</a>, <a  href="#now">NOW</a>, <a  href="#second">SECOND</a>, <a  href="#today">TODAY</a>, <a  href="#weekday">WEEKDAY</a>, <a  href="#weeknum">WEEKNUM</a>, <a  href="#xl_to_date">XL_TO_DATE</a>, <a  href="#year">YEAR</a>, <a  href="#yearfrac">YEARFRAC</a></td>
 </tr>
 <tr>
 <td>Info</td>
@@ -1832,6 +1832,55 @@ True
 </code></pre>
 <pre><code class="language-python">&gt;&gt;&gt; [round(MOONPHASE(DATEADD(datetime.date(2023, 4, 1), days=4*n), &quot;days&quot;), 1) for n in range(8)]
 [10.4, 14.4, 18.4, 22.4, 26.4, 0.9, 4.9, 8.9]
+</code></pre>
+</details>
+<details>
+<summary >
+<h4 id="networkdays"><code><strong>NETWORKDAYS</strong>(start_date, end_date, holidays=[])</code><a class="headerlink" href="#networkdays" title="Permanent link">#</a></h4>
+<p></summary>
+Calculates the net or number of work days between two dates.
+The work days are Monday through Friday, excluding the dates in the <code>holidays</code> list.</p>
+<p>For example, here are the first 2 weeks of January 2020:</p>
+<pre><code>Mo Tu We Th Fr Sa Su
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(DATE(2020, 1, 1), DATE(2020, 1, 10))
+8
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(DATE(2020, 1, 1), DATE(2020, 1, 10), [DATE(2020, 1, 6)])
+7
+</code></pre>
+<p>If the holiday falls on a weekend, it is ignored:</p>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(DATE(2020, 1, 1), DATE(2020, 1, 10), [DATE(2020, 1, 5)])
+8
+</code></pre>
+<p>If the start date is after the end date, return a negative count of days:</p>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(DATE(2020, 1, 10), DATE(2020, 1, 1))
+-8
+</code></pre>
+<p>Datetime objects are also accepted:</p>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(DTIME(&quot;2020-1-1 13:00&quot;), DTIME(&quot;2020-1-10&quot;))
+8
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(DTIME(&quot;2020-1-1 13:00&quot;), DTIME(&quot;2020-1-10&quot;), [DTIME(&quot;2020-1-7 12:00&quot;)])
+7
+</code></pre>
+<p>Strings are also accepted:</p>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(&quot;2020-1-1&quot;, &quot;2020-1-10&quot;)
+8
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(&quot;2020-1-1&quot;, &quot;2020-1-10&quot;, [&quot;2020-1-6&quot;])
+7
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(&quot;1/1/2013&quot;, &quot;2/1/2013&quot;)
+24
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(&quot;1/1/2013&quot;, &quot;2/1/2013&quot;, [&quot;1/1/2013&quot;, &quot;1/21/2013&quot;, &quot;2/18/2013&quot;,&quot;5/27/2013&quot;])
+22
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; NETWORKDAYS(&quot;3/1/2013&quot;, &quot;7/1/2013&quot;, [&quot;1/1/2013&quot;, &quot;1/21/2013&quot;, &quot;2/18/2013&quot;,&quot;5/27/2013&quot;])
+86
 </code></pre>
 </details>
 <details>
@@ -4451,7 +4500,7 @@ Returns the two-tailed P-value of a Z-test with standard distribution.</p>
 <h4 id="char"><code><strong>CHAR</strong>(table_number)</code><a class="headerlink" href="#char" title="Permanent link">#</a></h4>
 <p></summary>
 Convert a number into a character according to the current Unicode table.
-Same as <code>unichr(number)</code>.</p>
+Same as <code>chr(number)</code>.</p>
 <pre><code class="language-python">&gt;&gt;&gt; CHAR(65)
 u'A'
 </code></pre>
