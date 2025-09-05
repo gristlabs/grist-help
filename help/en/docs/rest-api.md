@@ -80,7 +80,6 @@ There are two client libraries developed and maintained by Grist Labs:
 
  * [JavaScript/TypeScript client library](https://www.npmjs.com/package/grist-api)
  * [Python client library](https://pypi.org/project/grist-api/)
- * [R client library](https://spyrales.github.io/gristapi/)
 
 There are also several community-created and maintained clients in other flavors:
 
@@ -91,3 +90,4 @@ There are also several community-created and maintained clients in other flavors
  * [vrist](https://github.com/SencilloDev/vrist): a V client
  * [nimGristApi](https://github.com/enthus1ast/nimGristApi): a simple REST client in Nim
  * [grist-client-rs](https://github.com/QazCetelic/grist-client-rs): an in-progress Rust client
+ * [gristapi](https://spyrales.github.io/gristapi/): an R client library
