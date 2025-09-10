@@ -417,6 +417,34 @@ A document was forked.
 }
 ```
 
+### document.modify
+
+A document was modified.
+
+#### Details
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| action | `object` | The action. |
+| action.num | `number` | The action number. |
+| action.hash | `string` or `null` | The action hash. |
+| document | `object` | The document. |
+| document.id | `string` | The document ID. |
+
+#### Sample
+
+```json
+{
+  "action": {
+    "num": 7,
+    "hash": "825f859cf9628d9df90c1b25e31c723bb1c05c061cab6d1d9ccfea340e68d638"
+  },
+  "document": {
+    "id": "mRM8ydxxLkc6Ewo56jsDGx"
+  }
+}
+```
+
 ### document.move
 
 A document was moved to a different workspace.
