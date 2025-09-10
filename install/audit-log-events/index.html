@@ -1935,9 +1935,59 @@
   }
 }
 </code></pre>
+<h3 id="documentmodify">document.modify<a class="headerlink" href="#documentmodify" title="Permanent link">#</a></h3>
+<p>A document was modified.</p>
+<h4 id="details_11">Details<a class="headerlink" href="#details_11" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td><code>object</code></td>
+<td>The action.</td>
+</tr>
+<tr>
+<td>action.num</td>
+<td><code>number</code></td>
+<td>The action number.</td>
+</tr>
+<tr>
+<td>action.hash</td>
+<td><code>string</code> or <code>null</code></td>
+<td>The action hash.</td>
+</tr>
+<tr>
+<td>document</td>
+<td><code>object</code></td>
+<td>The document.</td>
+</tr>
+<tr>
+<td>document.id</td>
+<td><code>string</code></td>
+<td>The document ID.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sample_11">Sample<a class="headerlink" href="#sample_11" title="Permanent link">#</a></h4>
+<pre><code class="language-json">{
+  &quot;action&quot;: {
+    &quot;num&quot;: 7,
+    &quot;hash&quot;: &quot;825f859cf9628d9df90c1b25e31c723bb1c05c061cab6d1d9ccfea340e68d638&quot;
+  },
+  &quot;document&quot;: {
+    &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;
+  }
+}
+</code></pre>
 <h3 id="documentmove">document.move<a class="headerlink" href="#documentmove" title="Permanent link">#</a></h3>
 <p>A document was moved to a different workspace.</p>
-<h4 id="details_11">Details<a class="headerlink" href="#details_11" title="Permanent link">#</a></h4>
+<h4 id="details_12">Details<a class="headerlink" href="#details_12" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2019,7 +2069,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_11">Sample<a class="headerlink" href="#sample_11" title="Permanent link">#</a></h4>
+<h4 id="sample_12">Sample<a class="headerlink" href="#sample_12" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;previous&quot;: {
     &quot;document&quot;: {
@@ -2045,7 +2095,7 @@
 </code></pre>
 <h3 id="documentmove_to_trash">document.move_to_trash<a class="headerlink" href="#documentmove_to_trash" title="Permanent link">#</a></h3>
 <p>A document was moved to the trash.</p>
-<h4 id="details_12">Details<a class="headerlink" href="#details_12" title="Permanent link">#</a></h4>
+<h4 id="details_13">Details<a class="headerlink" href="#details_13" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2072,7 +2122,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_12">Sample<a class="headerlink" href="#sample_12" title="Permanent link">#</a></h4>
+<h4 id="sample_13">Sample<a class="headerlink" href="#sample_13" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;,
@@ -2082,7 +2132,7 @@
 </code></pre>
 <h3 id="documentopen">document.open<a class="headerlink" href="#documentopen" title="Permanent link">#</a></h3>
 <p>A document was opened.</p>
-<h4 id="details_13">Details<a class="headerlink" href="#details_13" title="Permanent link">#</a></h4>
+<h4 id="details_14">Details<a class="headerlink" href="#details_14" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2124,7 +2174,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_13">Sample<a class="headerlink" href="#sample_13" title="Permanent link">#</a></h4>
+<h4 id="sample_14">Sample<a class="headerlink" href="#sample_14" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;,
@@ -2136,7 +2186,7 @@
 </code></pre>
 <h3 id="documentpin">document.pin<a class="headerlink" href="#documentpin" title="Permanent link">#</a></h3>
 <p>A document was pinned.</p>
-<h4 id="details_14">Details<a class="headerlink" href="#details_14" title="Permanent link">#</a></h4>
+<h4 id="details_15">Details<a class="headerlink" href="#details_15" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2163,7 +2213,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_14">Sample<a class="headerlink" href="#sample_14" title="Permanent link">#</a></h4>
+<h4 id="sample_15">Sample<a class="headerlink" href="#sample_15" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;,
@@ -2173,7 +2223,7 @@
 </code></pre>
 <h3 id="documentreload">document.reload<a class="headerlink" href="#documentreload" title="Permanent link">#</a></h3>
 <p>A document was reloaded.</p>
-<h4 id="details_15">Details<a class="headerlink" href="#details_15" title="Permanent link">#</a></h4>
+<h4 id="details_16">Details<a class="headerlink" href="#details_16" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2195,7 +2245,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_15">Sample<a class="headerlink" href="#sample_15" title="Permanent link">#</a></h4>
+<h4 id="sample_16">Sample<a class="headerlink" href="#sample_16" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;
@@ -2204,7 +2254,7 @@
 </code></pre>
 <h3 id="documentrename">document.rename<a class="headerlink" href="#documentrename" title="Permanent link">#</a></h3>
 <p>A document was renamed.</p>
-<h4 id="details_16">Details<a class="headerlink" href="#details_16" title="Permanent link">#</a></h4>
+<h4 id="details_17">Details<a class="headerlink" href="#details_17" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2256,7 +2306,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_16">Sample<a class="headerlink" href="#sample_16" title="Permanent link">#</a></h4>
+<h4 id="sample_17">Sample<a class="headerlink" href="#sample_17" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;previous&quot;: {
     &quot;document&quot;: {
@@ -2274,7 +2324,7 @@
 </code></pre>
 <h3 id="documentreplace">document.replace<a class="headerlink" href="#documentreplace" title="Permanent link">#</a></h3>
 <p>A document was replaced.</p>
-<h4 id="details_17">Details<a class="headerlink" href="#details_17" title="Permanent link">#</a></h4>
+<h4 id="details_18">Details<a class="headerlink" href="#details_18" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2316,7 +2366,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_17">Sample<a class="headerlink" href="#sample_17" title="Permanent link">#</a></h4>
+<h4 id="sample_18">Sample<a class="headerlink" href="#sample_18" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;
@@ -2328,7 +2378,7 @@
 </code></pre>
 <h3 id="documentrestore_from_trash">document.restore_from_trash<a class="headerlink" href="#documentrestore_from_trash" title="Permanent link">#</a></h3>
 <p>A document was restored from the trash.</p>
-<h4 id="details_18">Details<a class="headerlink" href="#details_18" title="Permanent link">#</a></h4>
+<h4 id="details_19">Details<a class="headerlink" href="#details_19" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2370,7 +2420,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_18">Sample<a class="headerlink" href="#sample_18" title="Permanent link">#</a></h4>
+<h4 id="sample_19">Sample<a class="headerlink" href="#sample_19" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;,
@@ -2384,7 +2434,7 @@
 </code></pre>
 <h3 id="documentrun_sql_query">document.run_sql_query<a class="headerlink" href="#documentrun_sql_query" title="Permanent link">#</a></h3>
 <p>A SQL query was run against a document.</p>
-<h4 id="details_19">Details<a class="headerlink" href="#details_19" title="Permanent link">#</a></h4>
+<h4 id="details_20">Details<a class="headerlink" href="#details_20" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2431,7 +2481,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_19">Sample<a class="headerlink" href="#sample_19" title="Permanent link">#</a></h4>
+<h4 id="sample_20">Sample<a class="headerlink" href="#sample_20" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;
@@ -2449,7 +2499,7 @@
 </code></pre>
 <h3 id="documentsend_to_google_drive">document.send_to_google_drive<a class="headerlink" href="#documentsend_to_google_drive" title="Permanent link">#</a></h3>
 <p>A document was sent to Google Drive.</p>
-<h4 id="details_20">Details<a class="headerlink" href="#details_20" title="Permanent link">#</a></h4>
+<h4 id="details_21">Details<a class="headerlink" href="#details_21" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2471,7 +2521,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_20">Sample<a class="headerlink" href="#sample_20" title="Permanent link">#</a></h4>
+<h4 id="sample_21">Sample<a class="headerlink" href="#sample_21" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;
@@ -2480,7 +2530,7 @@
 </code></pre>
 <h3 id="documenttruncate_history">document.truncate_history<a class="headerlink" href="#documenttruncate_history" title="Permanent link">#</a></h3>
 <p>A document&rsquo;s history was truncated.</p>
-<h4 id="details_21">Details<a class="headerlink" href="#details_21" title="Permanent link">#</a></h4>
+<h4 id="details_22">Details<a class="headerlink" href="#details_22" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2512,7 +2562,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_21">Sample<a class="headerlink" href="#sample_21" title="Permanent link">#</a></h4>
+<h4 id="sample_22">Sample<a class="headerlink" href="#sample_22" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;
@@ -2524,7 +2574,7 @@
 </code></pre>
 <h3 id="documentunpin">document.unpin<a class="headerlink" href="#documentunpin" title="Permanent link">#</a></h3>
 <p>A document was unpinned.</p>
-<h4 id="details_22">Details<a class="headerlink" href="#details_22" title="Permanent link">#</a></h4>
+<h4 id="details_23">Details<a class="headerlink" href="#details_23" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2551,7 +2601,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_22">Sample<a class="headerlink" href="#sample_22" title="Permanent link">#</a></h4>
+<h4 id="sample_23">Sample<a class="headerlink" href="#sample_23" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;document&quot;: {
     &quot;id&quot;: &quot;mRM8ydxxLkc6Ewo56jsDGx&quot;,
@@ -2562,7 +2612,7 @@
 <h2 id="site">site<a class="headerlink" href="#site" title="Permanent link">#</a></h2>
 <h3 id="sitechange_access">site.change_access<a class="headerlink" href="#sitechange_access" title="Permanent link">#</a></h3>
 <p>A site&rsquo;s access was changed.</p>
-<h4 id="details_23">Details<a class="headerlink" href="#details_23" title="Permanent link">#</a></h4>
+<h4 id="details_24">Details<a class="headerlink" href="#details_24" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2604,7 +2654,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_23">Sample<a class="headerlink" href="#sample_23" title="Permanent link">#</a></h4>
+<h4 id="sample_24">Sample<a class="headerlink" href="#sample_24" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;site&quot;: {
     &quot;id&quot;: 42,
@@ -2625,7 +2675,7 @@
 </code></pre>
 <h3 id="sitecreate">site.create<a class="headerlink" href="#sitecreate" title="Permanent link">#</a></h3>
 <p>A site was created.</p>
-<h4 id="details_24">Details<a class="headerlink" href="#details_24" title="Permanent link">#</a></h4>
+<h4 id="details_25">Details<a class="headerlink" href="#details_25" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2657,7 +2707,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_24">Sample<a class="headerlink" href="#sample_24" title="Permanent link">#</a></h4>
+<h4 id="sample_25">Sample<a class="headerlink" href="#sample_25" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;site&quot;: {
     &quot;id&quot;: 42,
@@ -2668,7 +2718,7 @@
 </code></pre>
 <h3 id="sitedelete">site.delete<a class="headerlink" href="#sitedelete" title="Permanent link">#</a></h3>
 <p>A site was permanently deleted.</p>
-<h4 id="details_25">Details<a class="headerlink" href="#details_25" title="Permanent link">#</a></h4>
+<h4 id="details_26">Details<a class="headerlink" href="#details_26" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2700,7 +2750,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_25">Sample<a class="headerlink" href="#sample_25" title="Permanent link">#</a></h4>
+<h4 id="sample_26">Sample<a class="headerlink" href="#sample_26" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;site&quot;: {
     &quot;id&quot;: 42,
@@ -2711,7 +2761,7 @@
 </code></pre>
 <h3 id="siterename">site.rename<a class="headerlink" href="#siterename" title="Permanent link">#</a></h3>
 <p>A site was renamed.</p>
-<h4 id="details_26">Details<a class="headerlink" href="#details_26" title="Permanent link">#</a></h4>
+<h4 id="details_27">Details<a class="headerlink" href="#details_27" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2773,7 +2823,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_26">Sample<a class="headerlink" href="#sample_26" title="Permanent link">#</a></h4>
+<h4 id="sample_27">Sample<a class="headerlink" href="#sample_27" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;previous&quot;: {
     &quot;site&quot;: {
@@ -2794,7 +2844,7 @@
 <h2 id="user">user<a class="headerlink" href="#user" title="Permanent link">#</a></h2>
 <h3 id="userchange_name">user.change_name<a class="headerlink" href="#userchange_name" title="Permanent link">#</a></h3>
 <p>A user&rsquo;s name was changed.</p>
-<h4 id="details_27">Details<a class="headerlink" href="#details_27" title="Permanent link">#</a></h4>
+<h4 id="details_28">Details<a class="headerlink" href="#details_28" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -2856,7 +2906,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_27">Sample<a class="headerlink" href="#sample_27" title="Permanent link">#</a></h4>
+<h4 id="sample_28">Sample<a class="headerlink" href="#sample_28" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;previous&quot;: {
     &quot;user&quot;: {
@@ -2876,49 +2926,6 @@
 </code></pre>
 <h3 id="usercreate_api_key">user.create_api_key<a class="headerlink" href="#usercreate_api_key" title="Permanent link">#</a></h3>
 <p>A user API key was created.</p>
-<h4 id="details_28">Details<a class="headerlink" href="#details_28" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>user</td>
-<td><code>object</code></td>
-<td>The user.</td>
-</tr>
-<tr>
-<td>user.id</td>
-<td><code>number</code></td>
-<td>The user ID.</td>
-</tr>
-<tr>
-<td>user.name</td>
-<td><code>string</code></td>
-<td>The user&rsquo;s name.</td>
-</tr>
-<tr>
-<td>user.email <em>(optional)</em></td>
-<td><code>string</code></td>
-<td>The user&rsquo;s email.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="sample_28">Sample<a class="headerlink" href="#sample_28" title="Permanent link">#</a></h4>
-<pre><code class="language-json">{
-  &quot;user&quot;: {
-    &quot;id&quot;: 146,
-    &quot;name&quot;: &quot;Flapjack Waffleflap&quot;,
-    &quot;email&quot;: &quot;flapjack@example.com&quot;
-  }
-}
-</code></pre>
-<h3 id="userdelete">user.delete<a class="headerlink" href="#userdelete" title="Permanent link">#</a></h3>
-<p>A user was permanently deleted.</p>
 <h4 id="details_29">Details<a class="headerlink" href="#details_29" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -2960,8 +2967,8 @@
   }
 }
 </code></pre>
-<h3 id="userdelete_api_key">user.delete_api_key<a class="headerlink" href="#userdelete_api_key" title="Permanent link">#</a></h3>
-<p>A user API key was deleted.</p>
+<h3 id="userdelete">user.delete<a class="headerlink" href="#userdelete" title="Permanent link">#</a></h3>
+<p>A user was permanently deleted.</p>
 <h4 id="details_30">Details<a class="headerlink" href="#details_30" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -3003,10 +3010,53 @@
   }
 }
 </code></pre>
+<h3 id="userdelete_api_key">user.delete_api_key<a class="headerlink" href="#userdelete_api_key" title="Permanent link">#</a></h3>
+<p>A user API key was deleted.</p>
+<h4 id="details_31">Details<a class="headerlink" href="#details_31" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td><code>object</code></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>user.id</td>
+<td><code>number</code></td>
+<td>The user ID.</td>
+</tr>
+<tr>
+<td>user.name</td>
+<td><code>string</code></td>
+<td>The user&rsquo;s name.</td>
+</tr>
+<tr>
+<td>user.email <em>(optional)</em></td>
+<td><code>string</code></td>
+<td>The user&rsquo;s email.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sample_31">Sample<a class="headerlink" href="#sample_31" title="Permanent link">#</a></h4>
+<pre><code class="language-json">{
+  &quot;user&quot;: {
+    &quot;id&quot;: 146,
+    &quot;name&quot;: &quot;Flapjack Waffleflap&quot;,
+    &quot;email&quot;: &quot;flapjack@example.com&quot;
+  }
+}
+</code></pre>
 <h2 id="workspace">workspace<a class="headerlink" href="#workspace" title="Permanent link">#</a></h2>
 <h3 id="workspacechange_access">workspace.change_access<a class="headerlink" href="#workspacechange_access" title="Permanent link">#</a></h3>
 <p>A workspace&rsquo;s access was changed.</p>
-<h4 id="details_31">Details<a class="headerlink" href="#details_31" title="Permanent link">#</a></h4>
+<h4 id="details_32">Details<a class="headerlink" href="#details_32" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -3048,7 +3098,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_31">Sample<a class="headerlink" href="#sample_31" title="Permanent link">#</a></h4>
+<h4 id="sample_32">Sample<a class="headerlink" href="#sample_32" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;workspace&quot;: {
     &quot;id&quot;: 97,
@@ -3069,7 +3119,7 @@
 </code></pre>
 <h3 id="workspacecreate">workspace.create<a class="headerlink" href="#workspacecreate" title="Permanent link">#</a></h3>
 <p>A workspace was created.</p>
-<h4 id="details_32">Details<a class="headerlink" href="#details_32" title="Permanent link">#</a></h4>
+<h4 id="details_33">Details<a class="headerlink" href="#details_33" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -3096,7 +3146,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_32">Sample<a class="headerlink" href="#sample_32" title="Permanent link">#</a></h4>
+<h4 id="sample_33">Sample<a class="headerlink" href="#sample_33" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;workspace&quot;: {
     &quot;id&quot;: 97,
@@ -3106,7 +3156,7 @@
 </code></pre>
 <h3 id="workspacedelete">workspace.delete<a class="headerlink" href="#workspacedelete" title="Permanent link">#</a></h3>
 <p>A workspace was permanently deleted.</p>
-<h4 id="details_33">Details<a class="headerlink" href="#details_33" title="Permanent link">#</a></h4>
+<h4 id="details_34">Details<a class="headerlink" href="#details_34" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -3133,7 +3183,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_33">Sample<a class="headerlink" href="#sample_33" title="Permanent link">#</a></h4>
+<h4 id="sample_34">Sample<a class="headerlink" href="#sample_34" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;workspace&quot;: {
     &quot;id&quot;: 97,
@@ -3143,7 +3193,7 @@
 </code></pre>
 <h3 id="workspacemove_to_trash">workspace.move_to_trash<a class="headerlink" href="#workspacemove_to_trash" title="Permanent link">#</a></h3>
 <p>A workspace was moved to the trash.</p>
-<h4 id="details_34">Details<a class="headerlink" href="#details_34" title="Permanent link">#</a></h4>
+<h4 id="details_35">Details<a class="headerlink" href="#details_35" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -3170,7 +3220,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_34">Sample<a class="headerlink" href="#sample_34" title="Permanent link">#</a></h4>
+<h4 id="sample_35">Sample<a class="headerlink" href="#sample_35" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;workspace&quot;: {
     &quot;id&quot;: 97,
@@ -3180,7 +3230,7 @@
 </code></pre>
 <h3 id="workspacerename">workspace.rename<a class="headerlink" href="#workspacerename" title="Permanent link">#</a></h3>
 <p>A workspace was renamed.</p>
-<h4 id="details_35">Details<a class="headerlink" href="#details_35" title="Permanent link">#</a></h4>
+<h4 id="details_36">Details<a class="headerlink" href="#details_36" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -3232,7 +3282,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_35">Sample<a class="headerlink" href="#sample_35" title="Permanent link">#</a></h4>
+<h4 id="sample_36">Sample<a class="headerlink" href="#sample_36" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;previous&quot;: {
     &quot;workspace&quot;: {
@@ -3250,7 +3300,7 @@
 </code></pre>
 <h3 id="workspacerestore_from_trash">workspace.restore_from_trash<a class="headerlink" href="#workspacerestore_from_trash" title="Permanent link">#</a></h3>
 <p>A workspace was restored from the trash.</p>
-<h4 id="details_36">Details<a class="headerlink" href="#details_36" title="Permanent link">#</a></h4>
+<h4 id="details_37">Details<a class="headerlink" href="#details_37" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -3277,7 +3327,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="sample_36">Sample<a class="headerlink" href="#sample_36" title="Permanent link">#</a></h4>
+<h4 id="sample_37">Sample<a class="headerlink" href="#sample_37" title="Permanent link">#</a></h4>
 <pre><code class="language-json">{
   &quot;workspace&quot;: {
     &quot;id&quot;: 97,
