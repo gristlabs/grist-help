@@ -27,10 +27,17 @@ You can also change how the document opens for users:
 
 You can enable email notifications for document changes by toggling the 'Changes' option.
 
+If you enable notifications for changes, you will receive an email when someone adds, deletes, or
+updates any data in the document. If the document includes a form, form submissions also count as changes.
+For creators (i.e. owners or editors who can [edit structure](access-rules.md#lock-down-structure)),
+notifications also include changes to the document's structure (e.g. adding columns), formulas,
+layouts, formatting, access rules, and other settings.
+
 Notifications for [comments](sharing.md#comments) can be enabled by selecting from the following options:
 
 - **All comments**: Receive a notification for every new comment.
 - **Replies and mentions**: Only receive a notification when someone replies to your comment or mentions you.
+  (This is the default setting.)
 - **None**: Turn off comment notifications entirely.
 
 <span class="screenshot-large">*![document-settings-notifications](images/document-settings/document-settings-notifications.png)*</span>
