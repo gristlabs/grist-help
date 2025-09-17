@@ -808,7 +808,7 @@ Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
 keep your version of Grist up to date for you. We can also install and maintain self-hosted 
 Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/contact/) for more information.
 
-### What is the installation ID? Will it change if I upgrade or move the container? {: .tag-ee }
+### What is the installation ID? Will it change if I upgrade or move the container? {: .tag-ee #installation-id }
 
 Activation keys used for Grist Enterprise are normally tied to a particular installation ID,
 which is a randomly-generated unique identifier for your instance. You can find your
