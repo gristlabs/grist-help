@@ -30,8 +30,8 @@ You can enable email notifications for document changes by toggling the 'Changes
 If you enable notifications for changes, you will receive an email when someone adds, deletes, or
 updates any data in the document. If a document includes a form, form submissions also count as changes.
 For creators (i.e. owners or editors who can [edit structure](access-rules.md#lock-down-structure)),
-notifications also include changes to the document's structure or logic (such as adding columns or
-editing formulas), layouts, formatting, access rules, and other settings.
+notifications also include changes to the document's structure (e.g. adding columns), formulas,
+layouts, formatting, access rules, and other settings.
 
 Notifications for [comments](sharing.md#comments) can be enabled by selecting from the following options:
 
