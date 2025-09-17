@@ -1207,6 +1207,7 @@
 <li><a href="#how-do-i-control-telemetry">How do I control telemetry?</a></li>
 <li><a href="#how-do-i-control-automatic-version-checks">How do I control automatic version checks?</a></li>
 <li><a href="#how-do-i-upgrade-my-installation">How do I upgrade my installation?</a></li>
+<li><a href="#installation-id">What is the installation ID? Will it change if I upgrade or move the container?</a></li>
 <li><a href="#how-do-i-completely-remove-a-user-from-my-instance">How do I completely remove a user from my instance?</a></li>
 <li><a href="#what-if-i-need-high-availability">What if I need high availability?</a></li>
 </ul>
@@ -1867,6 +1868,18 @@ may be needed to the documents or databases it uses.
 Utilities such as <a href="https://containrrr.dev/watchtower/">Watchtower</a> can
 keep your version of Grist up to date for you. We can also install and maintain self-hosted 
 Grist installations for Enterprise users. <a href="https://www.getgrist.com/contact/">Contact us</a> for more information.</p>
+<h3 class="tag-ee" id="installation-id">What is the installation ID? Will it change if I upgrade or move the container?<a class="headerlink" href="#installation-id" title="Permanent link">#</a></h3>
+<p>Activation keys used for Grist Enterprise are normally tied to a particular installation ID,
+which is a randomly-generated unique identifier for your instance. You can find your
+installation ID in the &ldquo;Version&rdquo; section of the <a href="../admin-panel/">Admin Panel</a>:</p>
+<p><img alt="Installation ID in the admin panel" src="../images/admin-panel/installation-id.png" /></p>
+<p>The installation ID is tied to the <a href="#what-is-a-home-database">home database</a> rather than to the
+host machine or container. It will not change if you upgrade the container or move it to another
+machine, as long as the application&rsquo;s database remains the same. If the database is Postgres, the
+installation ID is preserved across any transition that preserves the data contained by that
+database (e.g. backup and restore from backup). If the database is the default SQLite in a persistent
+volume, the installation ID is preserved across any transition that preserves the content of that
+volume.</p>
 <h3 class="tag-ee" id="how-do-i-completely-remove-a-user-from-my-instance">How do I completely remove a user from my instance?<a class="headerlink" href="#how-do-i-completely-remove-a-user-from-my-instance" title="Permanent link">#</a></h3>
 <p>The <a href="./#what-is-the-administrative-account">installation administrator</a> can manage access — including <a href="../admin-controls/#removing-a-user">removing users</a> — via the <a href="../admin-controls/">Admin Controls</a> area in the <a href="../admin-panel/">Admin Panel</a>.</p>
 <h3 class="tag-ee" id="what-if-i-need-high-availability">What if I need high availability?<a class="headerlink" href="#what-if-i-need-high-availability" title="Permanent link">#</a></h3>
