@@ -808,6 +808,23 @@ Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
 keep your version of Grist up to date for you. We can also install and maintain self-hosted 
 Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/contact/) for more information.
 
+### What is the installation ID? Will it change if I upgrade or move the container? {: .tag-ee #installation-id }
+
+Activation keys used for Grist Enterprise are normally tied to a particular installation ID,
+which is a randomly-generated unique identifier for your instance. You can find your
+installation ID in the "Version" section of the [Admin Panel](admin-panel.md):
+
+![Installation ID in the admin panel](images/admin-panel/installation-id.png)
+
+The installation ID is tied to the [home database](#what-is-a-home-database) rather than to the
+host machine or container. It will not change if you upgrade the container or move it to another
+machine, as long as the application's database remains the same. If the database is Postgres, the
+installation ID is preserved across any transition that preserves the data contained by that
+database (e.g. backup and restore from backup). If the database is the default SQLite in a persistent
+volume, the installation ID is preserved across any transition that preserves the content of that
+volume.
+
+
 ### How do I completely remove a user from my instance? {: .tag-ee }
 
 The [installation administrator](self-managed.md#what-is-the-administrative-account) can manage access — including [removing users](admin-controls.md#removing-a-user) — via the [Admin Controls](admin-controls.md) area in the [Admin Panel](admin-panel.md).
