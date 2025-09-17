@@ -821,7 +821,7 @@ host machine or container. It will not change if you upgrade the container or mo
 machine, as long as the application's database remains the same. If the database is Postgres, the
 installation ID is preserved across any transition that preserves the data contained by that
 database (e.g. backup and restore from backup). If the database is the default SQLite in a persistent
-volume, the installation ID is preserved across any transition that preserved the content of that
+volume, the installation ID is preserved across any transition that preserves the content of that
 volume.
 
 
