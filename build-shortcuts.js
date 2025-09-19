@@ -26,6 +26,9 @@ const KEY_MAP_MAC = {
   Right: '→',
   Up: '↑',
   Down: '↓',
+  Del: 'Delete',
+  // For the shortcuts in use, it's more helpful not to distinguish Backspace from Delete on Mac
+  Backspace: 'Delete',
 };
 
 const KEY_MAP_WIN = {
@@ -34,6 +37,7 @@ const KEY_MAP_WIN = {
   Right: '→',
   Up: '↑',
   Down: '↓',
+  Del: 'Delete',
 };
 
 function getHumanKey(key, isMac) {
@@ -48,6 +52,14 @@ function getHumanKey(key, isMac) {
   return keys.join(isMac ? ' ' : ' + ');
 }
 
+function unique(strings) {
+  return [...new Set(strings)];
+}
+
+function getMarkupForKeys(keys, isMac) {
+  return unique(keys.map((key) => `<code class="keys">${getHumanKey(key, isMac)}</code>`)).join(',');
+}
+
 function dumpKeys(groups) {
 
   let content = '';
@@ -58,8 +70,8 @@ function dumpKeys(groups) {
     let tableContent =  '';
     group.commands.forEach((cmd) => {
       if (!cmd.keys || !cmd.keys.length || !cmd.desc) { return; }
-      const macHumanKeys = cmd.keys.map((key) => `<code class="keys">${getHumanKey(key, true)}</code>`).join(',');
-      const winHumanKeys = cmd.keys.map((key) => `<code class="keys">${getHumanKey(key, false)}</code>`).join(',');
+      const macHumanKeys = getMarkupForKeys(cmd.keys, true);
+      const winHumanKeys = getMarkupForKeys(cmd.keys, false);
       tableContent += `| ${macHumanKeys} | ${winHumanKeys} | ${cmd.desc} |\n`;
     });
 
@@ -80,6 +92,22 @@ function dumpKeys(groups) {
 
 function main() {
   const argv = process.argv.slice(2);
+  if (process.argv.length <= 2) {
+    console.log(`\
+Builds the keyboard shortcuts help page.
+
+  node build-shortcuts.js [-i] grist-root
+
+Reads the grist shortcuts from the grist source tree specified by \`grist-root\` and generates a
+formatted content, which is then inserted into the target file (\`help/en/docs/keyboard-shortcuts.md\`)
+in-between the two markers \`<!-- START -->\` and \`<!-- END -->\`. Logs the resulting page to
+standard output, or save to the target file if \`-i\` (the edit in place option) is passed.
+
+What's actually looked up is '<grist-root>/_build/core/app/client/components/commandList', i.e.
+Grist should be built in that directory.
+`);
+    process.exit(1);
+  }
   let i = 0;
   let editInPlace = false;
   let gristAppRoot;
@@ -97,7 +125,7 @@ function main() {
   }
 
   // loads commands from grist app source tree.
-  const {groups} = require(path.join(gristAppRoot, 'app/client/components/commandList'));
+  const {groups} = require(path.join(gristAppRoot, '_build/core/app/client/components/commandList'));
 
   let content = '';
   content += dumpKeys(groups);
