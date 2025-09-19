@@ -1044,6 +1044,7 @@
 <p>This page isn&rsquo;t translated yet. But the good news is that <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">you can join the translation community to help us 👋</a>.</p>
 </div>
 <h1 id="grist-shortcuts">Grist Shortcuts<a class="headerlink" href="#grist-shortcuts" title="Permanent link">#</a></h1>
+<!-- The content below is generated from Grist code using ./build-shortcuts.js. -->
 <!-- START -->
 <h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">#</a></h3>
 <table>
@@ -1170,17 +1171,22 @@
 <tr>
 <td><code class="keys"><em>⌘</em> <em>O</em></code></td>
 <td><code class="keys"><em>Ctrl</em> + <em>O</em></code></td>
-<td>Activate next page widget</td>
+<td>Focus next page panel or widget</td>
 </tr>
 <tr>
 <td><code class="keys"><em>⌘</em> <em>⇧</em> <em>O</em></code></td>
 <td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>O</em></code></td>
-<td>Activate previous page widget</td>
+<td>Focus previous page panel or widget</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>⌥</em> <em>O</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>Alt</em> + <em>O</em></code></td>
+<td>Toggle creator panel keyboard focus</td>
 </tr>
 <tr>
 <td><code class="keys"><em>Space</em></code></td>
 <td><code class="keys"><em>Space</em></code></td>
-<td>Opens a record card in a table widget</td>
+<td>Show the record card widget of the selected record</td>
 </tr>
 </tbody>
 </table>
@@ -1215,29 +1221,29 @@
 <td>Adds the element to the left of the cursor to the selected range</td>
 </tr>
 <tr>
+<td><code class="keys"><em>⌘</em> <em>⇧</em> <em>↓</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>↓</em></code></td>
+<td>Adds all elements below the cursor to the selected range</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>⇧</em> <em>↑</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>↑</em></code></td>
+<td>Adds all elements above the cursor to the selected range</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>⇧</em> <em>→</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>→</em></code></td>
+<td>Adds all elements to the right of the cursor to the selected range</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>⇧</em> <em>←</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>←</em></code></td>
+<td>Adds all elements to the left of the cursor to the selected range</td>
+</tr>
+<tr>
 <td><code class="keys"><em>⌘</em> <em>A</em></code></td>
 <td><code class="keys"><em>Ctrl</em> + <em>A</em></code></td>
 <td>Selects all currently displayed cells</td>
-</tr>
-<tr>
-<td><code class="keys"><em>⌘</em> <em>Shift</em> <em>↑</em></code></td>
-<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>↑</em></code></td>
-<td>Selects cells above the selected cell in the same column</td>
-</tr>
-<tr>
-<td><code class="keys"><em>⌘</em> <em>Shift</em> <em>↓</em></code></td>
-<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>↓</em></code></td>
-<td>Selects cells below the selected cell in the same column</td>
-</tr>
-<tr>
-<td><code class="keys"><em>⌘</em> <em>Shift</em> <em>→</em></code></td>
-<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>→</em></code></td>
-<td>Selects cells to the right of the selected cell in the same row</td>
-</tr>
-<tr>
-<td><code class="keys"><em>⌘</em> <em>Shift</em> <em>←</em></code></td>
-<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>←</em></code></td>
-<td>Selects cells to the left of the selected cell in the same row</td>
 </tr>
 <tr>
 <td><code class="keys"><em>⌘</em> <em>⇧</em> <em>A</em></code></td>
@@ -1267,9 +1273,29 @@
 <td>Finish editing a cell, saving the value</td>
 </tr>
 <tr>
+<td><code class="keys"><em>Enter</em></code></td>
+<td><code class="keys"><em>Enter</em></code></td>
+<td>Toggle the currently selected checkbox or switch cell</td>
+</tr>
+<tr>
 <td><code class="keys"><em>Escape</em></code></td>
 <td><code class="keys"><em>Escape</em></code></td>
 <td>Discard changes to a cell value</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>C</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>C</em></code></td>
+<td>Copy current selection to clipboard</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>X</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>X</em></code></td>
+<td>Cut current selection to clipboard</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>V</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>V</em></code></td>
+<td>Paste clipboard contents at cursor</td>
 </tr>
 <tr>
 <td><code class="keys"><em>⌘</em> <em>D</em></code></td>
@@ -1280,11 +1306,6 @@
 <td><code class="keys"><em>Delete</em></code></td>
 <td><code class="keys"><em>Backspace</em></code>,<code class="keys"><em>Delete</em></code></td>
 <td>Clears the currently selected cells</td>
-</tr>
-<tr>
-<td><code class="keys"><em>Enter</em></code></td>
-<td><code class="keys"><em>Enter</em></code></td>
-<td>Toggles the value of checkbox cells</td>
 </tr>
 <tr>
 <td><code class="keys"><em>=</em></code></td>
@@ -1300,6 +1321,11 @@
 <td><code class="keys"><em>⌘</em> <em>⇧</em> <em>;</em></code></td>
 <td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>;</em></code></td>
 <td>Insert the current date and time</td>
+</tr>
+<tr>
+<td><code class="keys"><em>⌘</em> <em>⌥</em> <em>M</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>Alt</em> + <em>M</em></code></td>
+<td>Open comment thread</td>
 </tr>
 </tbody>
 </table>
@@ -1344,6 +1370,11 @@
 <td>Insert a new column, after the currently selected one</td>
 </tr>
 <tr>
+<td><code class="keys"><em>⌘</em> <em>⇧</em> <em>H</em></code></td>
+<td><code class="keys"><em>Ctrl</em> + <em>Shift</em> + <em>H</em></code></td>
+<td>Use the currently selected row as table headers</td>
+</tr>
+<tr>
 <td><code class="keys"><em>⌃</em> <em>M</em></code></td>
 <td><code class="keys"><em>Ctrl</em> + <em>M</em></code></td>
 <td>Rename the currently selected column</td>
@@ -1351,7 +1382,7 @@
 <tr>
 <td><code class="keys"><em>⌥</em> <em>⇧</em> <em>-</em></code></td>
 <td><code class="keys"><em>Alt</em> + <em>Shift</em> + <em>-</em></code></td>
-<td>Hide the currently selected column</td>
+<td>Hide the currently selected columns</td>
 </tr>
 <tr>
 <td><code class="keys"><em>⌥</em> <em>-</em></code></td>
