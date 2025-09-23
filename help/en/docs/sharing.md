@@ -93,6 +93,31 @@ via a particular link.
 Access Rules are supported with link sharing when Public Access
 is set to "Viewer" or "Editor."
 
+## Real-time user presence
+
+When multiple people work in the same Grist document, changes appear in real time. You’ll also see
+who else has the document open, shown as icons in the toolbar:
+
+<span class="screenshot-large">*![user-presence](images/sharing/user-presence.png)*</span>
+{: .screenshot-half }
+
+For documents that are not shared publicly, users with the **owner** or **editor** role see the
+presence of others (including viewers), while users with only the **viewer** role do not.
+
+For a document that's [shared publicly](#public-access-and-link-sharing) (that is, made available
+through link-sharing), Grist makes a distinction between _listed users_ (those shown in the
+"Manage Users" dialog) and _public users_ (everyone else, whether signed in or not). For privacy
+reasons, the display of user presence is subject to the following rules:
+
+- **Listed owners and editors**: see the presence of others. Listed users appear with their names and
+  emails, while public users appear as "Anonymous User", even if signed in.
+- **Listed viewers**: do not see others' presence.
+- **Public users**: do not see others' presence.
+
+This means that you will be visible to others when you visit a document to which you have been
+explicitly added, but not when you visit a document that you only have access to through
+link-sharing.
+
 ## Comments
 
 Comments in Grist allow you to collaborate directly on your data by attaching notes to specific cells in data tables. This makes it easy to ask questions, provide feedback, or share context right where the data lives. Note that only users with either 'Owner' or 'Editor' roles can leave comments, while 'Viewers' can only read comments.
