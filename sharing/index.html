@@ -245,6 +245,12 @@
           </li>
         
           <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#real-time-user-presence">
+              Real-time user presence
+            </a>
+          </li>
+        
+          <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#comments">
               Comments
             </a>
@@ -1244,6 +1250,25 @@ limit which parts of your data users may see when accessing your document
 via a particular link.</p>
 <p>Access Rules are supported with link sharing when Public Access
 is set to &ldquo;Viewer&rdquo; or &ldquo;Editor.&rdquo;</p>
+<h2 id="real-time-user-presence">Real-time user presence<a class="headerlink" href="#real-time-user-presence" title="Permanent link">#</a></h2>
+<p>When multiple people work in the same Grist document, changes appear in real time. You’ll also see
+who else has the document open, shown as icons in the toolbar:</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="user-presence" src="../images/sharing/user-presence.png" /></em></span></p>
+<p>For documents that are not shared publicly, users with the <strong>owner</strong> or <strong>editor</strong> role see the
+presence of others (including viewers), while users with only the <strong>viewer</strong> role do not.</p>
+<p>For a document that&rsquo;s <a href="#public-access-and-link-sharing">shared publicly</a> (that is, made available
+through link-sharing), Grist makes a distinction between <em>listed users</em> (those shown in the
+&ldquo;Manage Users&rdquo; dialog) and <em>public users</em> (everyone else, whether signed in or not). For privacy
+reasons, the display of user presence is subject to the following rules:</p>
+<ul>
+<li><strong>Listed owners and editors</strong>: see the presence of others. Listed users appear with their names and
+  emails, while public users appear as &ldquo;Anonymous User&rdquo;, even if signed in.</li>
+<li><strong>Listed viewers</strong>: do not see others&rsquo; presence.</li>
+<li><strong>Public users</strong>: do not see others&rsquo; presence.</li>
+</ul>
+<p>This means that you will be visible to others when you visit a document to which you have been
+explicitly added, but not when you visit a document that you only have access to through
+link-sharing.</p>
 <h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">#</a></h2>
 <p>Comments in Grist allow you to collaborate directly on your data by attaching notes to specific cells in data tables. This makes it easy to ask questions, provide feedback, or share context right where the data lives. Note that only users with either &lsquo;Owner&rsquo; or &lsquo;Editor&rsquo; roles can leave comments, while &lsquo;Viewers&rsquo; can only read comments.</p>
 <p>To leave a comment, right-click on a cell then select &lsquo;Comment&rsquo; from the dropdown menu.</p>
