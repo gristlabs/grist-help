@@ -63,16 +63,33 @@ paths:
       responses:
         200:
           description: Success
+  /orgs/{orgId}/{name}:
     delete:
       operationId: deleteOrg
       tags:
         - orgs
       summary: "Delete an org"
+      description: |
+        Permanently deletes an organization and all its workspaces and documents.
+        This is a breaking change from the previous API - the endpoint now requires
+        a name parameter for safety. Set `GRIST_ALLOW_DEPRECATED_BARE_ORG_DELETE=1` 
+        to enable the old behavior temporarily.
       parameters:
         - $ref: '#/components/parameters/orgIdPathParam'
+        - in: path
+          name: name
+          schema:
+            type: string
+          required: true
+          description: |
+            Must match either the organization name, organization domain, or the
+            literal string "force-delete". This is a safety mechanism to prevent
+            accidental deletions.
       responses:
         200:
           description: Success
+        400:
+          description: Name does not match organization
         403:
           description: Access denied
         404:
