@@ -1139,9 +1139,10 @@ GRIST_OIDC_IDP_CLIENT_SECRET=...
 <p>This format is suitable for an <code>.env</code> file or similar. From a shell invocation, remember to quote values with spaces, such as <code>GRIST_OIDC_IDP_SCOPES="openid profile email"</code>.</p>
 <h2 id="example-keycloak">Example: Keycloak<a class="headerlink" href="#example-keycloak" title="Permanent link">#</a></h2>
 <p>First of all, set up Keycloak as explained in one of these &ldquo;Getting started&rdquo; guides: <a href="https://www.keycloak.org/guides#getting-started">https://www.keycloak.org/guides#getting-started</a>.</p>
-<p>Once keycloak is set up with a realm and a user, create a new client with the following configuration:</p>
+<p>Once keycloak is set up with a realm and a user, <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#proc-creating-oidc-client_server_administration_guide">create a new client</a> with the following configuration:</p>
 <ul>
 <li>Client type: OpenID Connect</li>
+<li>Client authentication: ON</li>
 <li>Authentication flow: Standard Flow</li>
 <li>Root URL: <code>https://&lt;grist-domain&gt;</code></li>
 <li>Valid redirect URIs: <code>/oauth2/callback</code></li>
