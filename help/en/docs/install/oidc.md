@@ -119,9 +119,10 @@ This format is suitable for an `.env` file or similar. From a shell invocation, 
 
 First of all, set up Keycloak as explained in one of these "Getting started" guides: <https://www.keycloak.org/guides#getting-started>.
 
-Once keycloak is set up with a realm and a user, create a new client with the following configuration:
+Once keycloak is set up with a realm and a user, [create a new client](https://www.keycloak.org/docs/latest/server_admin/index.html#proc-creating-oidc-client_server_administration_guide) with the following configuration:
 
  - Client type: OpenID Connect
+ - Client authentication: ON
  - Authentication flow: Standard Flow
  - Root URL: `https://<grist-domain>`
  - Valid redirect URIs: `/oauth2/callback`
