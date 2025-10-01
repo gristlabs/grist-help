@@ -35,7 +35,7 @@ ASSISTANT_API_KEY=your_openrouter_api_key_here
 You may then specify the model to use by setting `ASSISTANT_MODEL`:
 
 ```sh
-ASSISTANT_MODEL=anthropic/claude-3.7-sonnet
+ASSISTANT_MODEL=openai/gpt-4o-2024-08-06
 ```
 
 ## Environment variables
