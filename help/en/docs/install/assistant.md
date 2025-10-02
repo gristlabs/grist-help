@@ -35,8 +35,15 @@ ASSISTANT_API_KEY=your_openrouter_api_key_here
 You may then specify the model to use by setting `ASSISTANT_MODEL`:
 
 ```sh
-ASSISTANT_MODEL=openai/gpt-4o-2024-08-06
+ASSISTANT_MODEL=anthropic/claude-sonnet-4.5
 ```
+
+The Assistant is know to work with the following OpenRouter models:
+
+ * `openai/gpt-4o-2024-08-06` (last tested: 10-02-2025)
+ * `anthropic/claude-sonnet-4.5` (last tested: 10-02-2025)
+
+If a model you don't see has worked for you, you may [open a pull request](https://github.com/gristlabs/grist-help/edit/master/help/en/docs/install/assistant.md) and add it to the list.
 
 ## Environment variables
 
@@ -45,4 +52,3 @@ ASSISTANT_MODEL=openai/gpt-4o-2024-08-06
  * `ASSISTANT_MODEL`: the value of the `model` parameter for the chat completion endpoint (default: `gpt-4o-2024-08-06`)
  * `ASSISTANT_LONGER_CONTEXT_MODEL`: if set, retry requests that exceed context limits with this model
  * `ASSISTANT_MAX_TOOL_CALLS`: the maximum number of tool calls allowed in a single request (default: `10`)
-
