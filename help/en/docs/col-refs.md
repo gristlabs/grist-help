@@ -126,11 +126,13 @@ doesn't exist in the *Clients* table:
 ## Including multiple fields from a reference
 
 A big benefit of reference columns is that they allow you to easily bring in multiple columns from
-the underlying table. In our example, if you wanted to bring in `$Client.Contact` to the *Projects*
-table, you can just select the **Contact** column from the 'Add Referenced Columns' section and it will be
-automatically added to the *Projects* table:
+the underlying table. In our example, we want to bring in `$Client.Contact` to the *Projects*
+table. There are two ways to do this. 
 
-![Additional columns inserted](images/column-ref-other-columns.png)
+1. Click the `+` icon at the far right of the table as if you are adding a new column. Under 'Lookups', hover over the table you want to pull data from. In our example, we want to pull data from the *Clients* table. This expands the menu to show all columns from that table. Select the column you wish to pull data from. In our example, we want to bring in data from the **Contact** column.
+![Additional columns inserted](images/column-ref-other-columns1.png)
+2. You can click into the the reference column, **Client**, to select it. Then, in the Column tab of the Creator Panel, click the green 'Add Column' text under the 'Add Referenced Columns' section. Select the **Contact** column from the list and it will be automatically added to the *Projects* table:
+![Additional columns inserted](images/column-ref-other-columns2.png)
 
 If you're comfortable using formulas, you can see that the added column is just the formula
 `=$Client.Contact`. If you were so inclined, you could achieve the same result by manually adding
