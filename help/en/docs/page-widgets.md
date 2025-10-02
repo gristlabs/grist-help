@@ -30,7 +30,7 @@ Note that pages can also be renamed by clicking the page name at the top of the 
 *![Renaming Pages Breadcrumbs](images/rename_pages2.png)*
 {: .screenshot-half }
 
-Pages can be rearranged by clicking the two verticle bars to the right of the page name then dragging to a new position. A green line will appear to show where the page will be placed. A green box will appear to show when a page will be nested under another.
+Pages can be rearranged by clicking the two vertical bars to the right of the page name, then dragging to a new position. A green line will appear to show where the page will be placed. A green box will appear to show when a page will be nested under another.
 
 *![rearrange_pages](images/page-widgets/rearranging-pages.gif)*
 {: .screenshot-half }
