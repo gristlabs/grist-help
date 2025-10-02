@@ -12,11 +12,7 @@ applications tailored to your needs.
 
 ## Pages
 
-In Grist, you organize your document into 'pages'. These are listed in the left panel, with collapsible
-groups. You may rearrange and group pages in the left panel by dragging them to suit your needs.
-
-*![drag_pages](images/drag_pages.png)*
-{: .screenshot-half }
+In Grist, you organize your document into 'pages'. These are listed in the left-hand navigation panel.
 
 You can rename, remove, or duplicate pages using the three-dots menu next to the page name in the list. 
 
@@ -34,6 +30,15 @@ Note that pages can also be renamed by clicking the page name at the top of the 
 *![Renaming Pages Breadcrumbs](images/rename_pages2.png)*
 {: .screenshot-half }
 
+Pages can be rearranged by clicking the two verticle bars to the right of the page name then dragging to a new position. A green line will appear to show where the page will be placed. A green box will appear to show when a page will be nested under another.
+
+*![rearrange_pages](images/page-widgets/rearranging-pages.gif)*
+{: .screenshot-half }
+
+By default, nested pages will be expanded when a document is opened. You can change the default state by clicking the three-dot icon to the right of the parent page and selecting 'Set default: Collapse'. 
+
+*![page-set-default-state](images/page-widgets/page-set-default-state.png)*
+{: .screenshot-half }
 
 Using the opener icon (<span class="grist-icon" style="--icon: var(--icon-PanelLeft)"></span>)
 near the top of the left panel, you can collapse the panel to show only the initials of each page,
@@ -41,6 +46,9 @@ leaving more screen space to view your data.
 
 To add a new page, use the 'Add New' button, and click 'Add Page'. At that point, you'll get to
 choose the widget to include in the new page.
+
+*![add-new-page](images/page-widgets/add-new-page.png)*
+{: .screenshot-half }
 
 !!! note "Using emojis in page and widget names"
     You can add any emoji to a Page or Widget name. The keyboard shortcut to open the emoji keyboard is `Windows Logo` + `.` (period) on PC or `Command` + `Control` + `Space` on Mac. You can also copy/paste from an online source like [Emojipedia](https://emojipedia.org/). 
@@ -71,7 +79,8 @@ on separate pages.
 
 There is a special page called [raw data](raw-data.md) that lists all data tables in your document and summarizes your document's usage statistics. Navigate to the raw data page by clicking on the 'Raw Data' link in the bottom left of the pages menu.
 
-![Raw Data in Menu](images/raw-data/raw-data-nav.png)
+*![Raw Data in Menu](images/raw-data/raw-data-nav.png)*
+{: .screenshot-half }
 
 ## Widget picker
 
