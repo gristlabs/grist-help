@@ -12,9 +12,7 @@ applications tailored to your needs.
 
 ## Pages
 
-In Grist, you organize your document into 'pages'. These are listed in the left-hand navigation panel.
-
-You can rename, remove, or duplicate pages using the three-dots menu next to the page name in the list. 
+In Grist, you organize your document into 'pages'. These are listed in the left-hand navigation panel. You can rename, remove, or duplicate pages using the three-dots menu next to the page name in the list. 
 
 *![Renaming Pages Menu](images/rename_pages1.png)*
 {: .screenshot-half }
