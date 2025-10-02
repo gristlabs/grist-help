@@ -95,6 +95,7 @@ nav:
     - install/grist-builder-edition.md
     - admin-panel.md
     - admin-controls.md
+    - install/assistant.md
     - Audit logs:
       - install/audit-log-overview.md
       - install/audit-log-streaming.md
