@@ -1285,10 +1285,14 @@ doesn&rsquo;t exist in the <em>Clients</em> table:</p>
 <p><img alt="Convert values after" src="../images/column-ref-convert-after.png" /></p>
 <h2 id="including-multiple-fields-from-a-reference">Including multiple fields from a reference<a class="headerlink" href="#including-multiple-fields-from-a-reference" title="Permanent link">#</a></h2>
 <p>A big benefit of reference columns is that they allow you to easily bring in multiple columns from
-the underlying table. In our example, if you wanted to bring in <code>$Client.Contact</code> to the <em>Projects</em>
-table, you can just select the <strong>Contact</strong> column from the &lsquo;Add Referenced Columns&rsquo; section and it will be
-automatically added to the <em>Projects</em> table:</p>
-<p><img alt="Additional columns inserted" src="../images/column-ref-other-columns.png" /></p>
+the underlying table. In our example, we want to bring in <code>$Client.Contact</code> to the <em>Projects</em>
+table. There are two ways to do this. </p>
+<ol>
+<li>Click the <code>+</code> icon at the far right of the table as if you are adding a new column. Under &lsquo;Lookups&rsquo;, hover over the table you want to pull data from. In our example, we want to pull data from the <em>Clients</em> table. This expands the menu to show all columns from that table. Select the column you wish to pull data from. In our example, we want to bring in data from the <strong>Contact</strong> column.
+<img alt="Additional columns inserted" src="../images/column-ref-other-columns1.png" /></li>
+<li>You can click into the the reference column, <strong>Client</strong>, to select it. Then, in the Column tab of the Creator Panel, click the green &lsquo;Add Column&rsquo; text under the &lsquo;Add Referenced Columns&rsquo; section. Select the <strong>Contact</strong> column from the list and it will be automatically added to the <em>Projects</em> table:
+<img alt="Additional columns inserted" src="../images/column-ref-other-columns2.png" /></li>
+</ol>
 <p>If you&rsquo;re comfortable using formulas, you can see that the added column is just the formula
 <code>=$Client.Contact</code>. If you were so inclined, you could achieve the same result by manually adding
 the formula column. You can also use any other fields from <em>Clients</em> table by referencing <code>$Client</code>
