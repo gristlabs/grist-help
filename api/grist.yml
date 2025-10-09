@@ -2546,4 +2546,3 @@ components:
       description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
       required: false
 
-# temp
