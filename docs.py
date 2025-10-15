@@ -268,7 +268,7 @@ def live(
   lang_path: Path = docs_path / lang
   os.chdir(lang_path)
   os.environ["DISABLE_LANGUAGE_SELECTOR"] = "true"
-  mkdocs.commands.serve.serve(dev_addr="127.0.0.1:8000")
+  mkdocs.commands.serve.serve(dev_addr="127.0.0.1:8000", watch_theme=True)
 
 
 def get_updated_alternate_lang_config_content() -> Dict[str, Any]:
