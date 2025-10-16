@@ -62,7 +62,6 @@ def get_mkdocs_yaml_for_lang(lang: str) -> str:
   INHERIT: ../../{mkdocs_config_name}
   docs_dir: './docs'
   theme:
-    custom_dir: ../../overrides
     language: {lang}
   """).lstrip()
 

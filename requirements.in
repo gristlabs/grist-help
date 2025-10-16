@@ -1,0 +1,6 @@
+mkdocs-awesome-pages-plugin
+mkdocs-htmlproofer-plugin
+mkdocs-material
+mkdocs-meta-descriptions-plugin
+mkdocs-redirects
+typer==0.19.2
