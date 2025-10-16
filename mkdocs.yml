@@ -12,11 +12,11 @@ use_directory_urls: !ENV [HTMLPROOFER_OVERRIDE_USE_DIRECTORY_URLS, true]
 
 docs_dir: './help/en/docs' # Add localization folder here for now, we'll handle i18n later
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
-#theme:
-#  name: windmill
-#  custom_dir: overrides
-#  # Disable the language selector when running in live (so for a specific language)
-#  disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
+theme:
+  name: material
+  #custom_dir: overrides
+  # Disable the language selector when running in live (so for a specific language)
+  disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
 nav:
   - index.md
   - FAQ.md
