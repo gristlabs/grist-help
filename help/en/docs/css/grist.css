@@ -1,3 +1,15 @@
+.md-header {
+  background-color: unset;
+  box-shadow: none;
+  border-bottom: 1px solid var(--color-medium-grey);
+  padding: 10px;
+  color: var(--color-dark);
+}
+
+/*****************************************
+ OLD STUFF BELOW
+ *****************************************/
+
 .grist-icon {
   mask-image: var(--icon);
   -webkit-mask-image: var(--icon);
