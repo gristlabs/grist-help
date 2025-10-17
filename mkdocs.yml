@@ -16,6 +16,8 @@ theme:
   palette:
     primary: custom
     accent: custom
+  features:
+    - navigation.tabs
   custom_dir: ./../../overrides-material
   # Disable the language selector when running in live (so for a specific language)
   disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
@@ -23,92 +25,121 @@ theme:
   logo: images/logo.png
   favicon: images/favicon.png
 nav:
-  - index.md
-  - FAQ.md
-  - How-to tutorials:
-    - lightweight-crm.md
-    - investment-research.md
-    - afterschool-program.md
-  - Managing documents:
-    - creating-doc.md
-    - document-settings.md
-    - sharing.md
-    - copying-docs.md
-    - imports.md
-    - exports.md
-    - automatic-backups.md
-    - document-history.md
-    - workspaces.md
-  - Pages and tables:
-    - enter-data.md
-    - page-widgets.md
-    - raw-data.md
-    - search-sort-filter.md
-    - widget-table.md
-    - widget-card.md
-    - widget-form.md
-    - widget-chart.md
-    - widget-calendar.md
-    - widget-custom.md
-    - linking-widgets.md
-    - custom-layouts.md
-    - record-cards.md
-    - summary-tables.md
-    - document-tours.md
-    - document-tutorials.md
-  - Columns and data types:
-    - col-types.md
-    - col-refs.md
-    - conditional-formatting.md
-    - timestamps.md
-    - authorship.md
-    - col-transform.md
-  - Using formulas:
-    - formulas.md
-    - references-lookups.md
-    - dates.md
-    - formula-timer.md
-    - python.md
-    - functions.md
-    - formula-cheat-sheet.md
-  - AI Assistant:
-    - assistant.md
-  - Team sites:
-    - teams.md
-    - team-sharing.md
-  - Access rules:
-    - access-rules.md
-  - Integrations:
-    - rest-api.md
-    - api.md
-    - integrators.md
-    - embedding.md
-    - webhooks.md
-    - Plugin API:
-      - code/README.md
-      - code/modules/grist_plugin_api.md
-      - ... | flat | **/code/interfaces/**
-      - ... | flat | **/code/modules/**
-  - Self-managed:
-    - self-managed.md
-    - install/saml.md
-    - install/oidc.md
-    - install/scim.md
-    - install/forwarded-headers.md
-    - install/cloud-storage.md
-    - install/grist-connect.md
-    - install/grist-builder-edition.md
-    - admin-panel.md
-    - admin-controls.md
-    - install/assistant.md
-    - Audit logs:
-      - install/audit-log-overview.md
-      - install/audit-log-streaming.md
-      - install/audit-log-events.md
-    - Telemetry:
-      - telemetry.md
-      - telemetry-limited.md
-      - telemetry-full.md
+  - Getting started: index.md
+  - Tutorials & Guides:
+    - How-to tutorials:
+      - lightweight-crm.md
+      - investment-research.md
+      - afterschool-program.md
+    - More examples:
+      - examples.md
+      - examples/2020-06-credit-card.md
+      - examples/2020-06-book-club.md
+      - examples/2020-07-email-compose.md
+      - examples/2020-08-invoices.md
+      - examples/2020-09-payroll.md
+      - examples/2020-10-print-labels.md
+      - examples/2020-11-treasure-hunt.md
+      - examples/2020-12-map.md
+      - examples/2021-01-tasks.md
+      - examples/2021-03-leads.md
+      - examples/2021-04-link-keys.md
+      - examples/2021-05-reference-columns.md
+      - examples/2021-06-timesheets.md
+      - examples/2021-07-auto-stamps.md
+      - examples/2023-01-acl-memo.md
+      - examples/2023-07-proposals-contracts.md
+  - Support Docs:
+    - Managing documents:
+      - creating-doc.md
+      - document-settings.md
+      - sharing.md
+      - copying-docs.md
+      - imports.md
+      - exports.md
+      - automatic-backups.md
+      - document-history.md
+      - workspaces.md
+    - Pages and tables:
+      - enter-data.md
+      - page-widgets.md
+      - raw-data.md
+      - search-sort-filter.md
+      - widget-table.md
+      - widget-card.md
+      - widget-form.md
+      - widget-chart.md
+      - widget-calendar.md
+      - widget-custom.md
+      - linking-widgets.md
+      - custom-layouts.md
+      - record-cards.md
+      - summary-tables.md
+      - document-tours.md
+      - document-tutorials.md
+    - Columns and data types:
+      - col-types.md
+      - col-refs.md
+      - conditional-formatting.md
+      - timestamps.md
+      - authorship.md
+      - col-transform.md
+    - Using formulas:
+      - formulas.md
+      - references-lookups.md
+      - dates.md
+      - formula-timer.md
+      - python.md
+      - functions.md
+      - formula-cheat-sheet.md
+    - AI Assistant: assistant.md
+    - Team sites:
+      - teams.md
+      - team-sharing.md
+    - Access rules:
+      - access-rules.md
+    - Reference:
+      - keyboard-shortcuts.md
+      # The function reference (functions.md) is listed above; here is an intentionally non-standard
+      # link, so that only the above page item gets highlighted when the function reference is open.
+      # TODO: this needs a special way to localize the nav entry, perhaps similar to section titles.
+      - Function reference: /functions/
+      - limits.md
+      - data-security.md
+      - browser-support.md
+      - glossary.md
+  - Technical Docs:
+    - Integrations:
+      - rest-api.md
+      - api.md
+      - integrators.md
+      - embedding.md
+      - webhooks.md
+      - Plugin API:
+        - code/README.md
+        - code/modules/grist_plugin_api.md
+        - ... | flat | **/code/interfaces/**
+        - ... | flat | **/code/modules/**
+    - Self-managed:
+      - self-managed.md
+      - install/saml.md
+      - install/oidc.md
+      - install/scim.md
+      - install/forwarded-headers.md
+      - install/cloud-storage.md
+      - install/grist-connect.md
+      - install/grist-builder-edition.md
+      - admin-panel.md
+      - admin-controls.md
+      - install/assistant.md
+      - Audit logs:
+        - install/audit-log-overview.md
+        - install/audit-log-streaming.md
+        - install/audit-log-events.md
+      - Telemetry:
+        - telemetry.md
+        - telemetry-limited.md
+        - telemetry-full.md
   - News & updates:
     - newsletters.md
     - newsletters/2025-10.md
@@ -177,35 +208,7 @@ nav:
     - newsletters/2020-07.md
     - newsletters/2020-06.md
     - newsletters/2020-05.md
-  - More examples:
-      - examples.md
-      - examples/2020-06-credit-card.md
-      - examples/2020-06-book-club.md
-      - examples/2020-07-email-compose.md
-      - examples/2020-08-invoices.md
-      - examples/2020-09-payroll.md
-      - examples/2020-10-print-labels.md
-      - examples/2020-11-treasure-hunt.md
-      - examples/2020-12-map.md
-      - examples/2021-01-tasks.md
-      - examples/2021-03-leads.md
-      - examples/2021-04-link-keys.md
-      - examples/2021-05-reference-columns.md
-      - examples/2021-06-timesheets.md
-      - examples/2021-07-auto-stamps.md
-      - examples/2023-01-acl-memo.md
-      - examples/2023-07-proposals-contracts.md
-  - Reference:
-    - keyboard-shortcuts.md
-    # The function reference (functions.md) is listed above; here is an intentionally non-standard
-    # link, so that only the above page item gets highlighted when the function reference is open.
-    # TODO: this needs a special way to localize the nav entry, perhaps similar to section titles.
-    - Function reference: /functions/
-    - limits.md
-    - data-security.md
-    - browser-support.md
-    - glossary.md
-
+  - FAQ.md
 extra:
   logo: 'images/logo.png'
   palette:
