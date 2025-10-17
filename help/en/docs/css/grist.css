@@ -11,6 +11,14 @@
   font-weight: 500;
 }
 
+.md-nav {
+  font-size: 0.75rem;
+}
+
+.md-nav__link {
+  margin-top: 0.6rem;
+}
+
 .md-nav__link--active {
   font-weight: 700;
 }
