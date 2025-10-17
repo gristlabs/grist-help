@@ -6,6 +6,11 @@
   --md-accent-fg-color--transparent: #0f7b51aa;
 }
 
+.md-header__topic:first-child,
+.md-tabs__item--active {
+  font-weight: 500;
+}
+
 .md-nav__link--active {
   font-weight: 700;
 }
