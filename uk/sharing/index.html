@@ -257,6 +257,22 @@
           </li>
         
           <li class="wm-toc-li">
+            <a class="wm-article-link wm-page-toc-text" href="#suggestions">
+              Suggestions
+            </a>
+          </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#limitations">
+                Limitations
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#enabling-suggestions">
+                Enabling suggestions
+              </a>
+            </li>
+        
+          <li class="wm-toc-li">
             <a class="wm-article-link wm-page-toc-text" href="#leaving-a-document">
               Leaving a Document
             </a>
@@ -267,6 +283,10 @@
     
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="../copying-docs/" class="wm-article-link wm-toc-text">Copying documents</a>
+
+    
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="../suggestions.md" class="wm-article-link wm-toc-text">None</a>
 
     
 </li>
@@ -1156,6 +1176,23 @@ link-sharing.</p>
 <p>Comments for a document can be viewed by clicking the &lsquo;Comments&rsquo; icon at the upper-right of the page. This opens the panel on the right-hand side of the page. Click the three-dot icon at the top of the panel for filtering options.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="sharing-view-comments" src="../images/sharing/sharing-view-comments.png" /></em></span></p>
 <p>Email notifications for comments can be enabled under <a href="../document-settings/#notifications">Document Settings</a>.</p>
+<h2 id="suggestions">Suggestions<a class="headerlink" href="#suggestions" title="Permanent link">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+<p>Suggestions are experimental and have many limitations in their current form. They are also subject to change and withdrawal.</p>
+</div>
+<p>Previously, making changes to data in a Grist document was either in real time, or done by copying a document and replacing the original with the new version. If you enable suggestions, you can now manage collaborative changes with a workflow similar to <a href="https://en.wikipedia.org/wiki/Version_control" target="_blank">version control</a> in computer science. </p>
+<p>A user makes changes in a personal copy without modifying the original document, then submits these suggestions to be reviewed by the document owner prior to integration. This workflow can be useful in more sensitive contexts, or for crowdsourcing data easily with additional quality control. </p>
+<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h3>
+<p>In their current experimental state, suggestions have the following limitations:</p>
+<ul>
+<li>They only track changes to data (not structure, views, widgets, formulas, or other metadata).</li>
+<li>They only work for documents <strong>without</strong> access rules.</li>
+<li>They only work for documents <strong>without</strong> forms.</li>
+<li>They need to be enabled on a per-document basis.</li>
+</ul>
+<h3 id="enabling-suggestions">Enabling suggestions<a class="headerlink" href="#enabling-suggestions" title="Permanent link">#</a></h3>
+<p>To enable suggestions, go to &lsquo;Document Settings&rsquo; and check the toggle &lsquo;Enable suggestions&rsquo;. Once this is enabled, all users (signed-in and guests) will be able to make suggestions. </p>
 <h2 id="leaving-a-document">Leaving a Document<a class="headerlink" href="#leaving-a-document" title="Permanent link">#</a></h2>
 <p>Non-owners may look up their access details to a document by clicking on the share icon 
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top right of the
