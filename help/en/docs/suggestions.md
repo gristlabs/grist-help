@@ -15,7 +15,7 @@ A user makes changes in a personal copy without modifying the original document,
 
 In their current experimental state, suggestions have the following limitations:
 
-* They only track changes to data (not structre, views, widgets, formulas, or other metadata).
+* They only track changes to data (not structure, views, widgets, formulas, or other metadata).
 * They only work for documents **without** access rules.
 * They only work for documents **without** forms.
 * They need to be enabled on a per-document basis.
