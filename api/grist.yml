@@ -878,7 +878,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DocumentStoreSetting'
 
-  /api/docs/{docId}/attachments/transferAll:
+  /docs/{docId}/attachments/transferAll:
     post:
       operationId: startAttachmentTransfer
       tags:
@@ -894,7 +894,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AttachmentsTransferStatus'
 
-  /api/docs/{docId}/attachments/transferStatus:
+  /docs/{docId}/attachments/transferStatus:
     get:
       operationId: getAttachmentTransferStatus
       tags:
@@ -911,7 +911,7 @@ paths:
                 $ref: '#/components/schemas/AttachmentsTransferStatus'
 
 
-  /api/docs/{docId}/attachments/removeUnused:
+  /docs/{docId}/attachments/removeUnused:
     post:
       operationId: removeUnusedAttachments
       tags:
