@@ -76,8 +76,8 @@ configuration.
 Allow the default value for this field to be taken from the URL. To
 construct prefilled URLs, add
 [URL parameters](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL#parameters)
-to the URL in the form `key=value`, where `key` is the column ID shown under the checkbox, and
-`value` is the value you'd like to prefill.
+to the URL in the form `COLUMN_ID=VALUE`, where `COLUMN_ID` is the one shown under the checkbox, and
+`VALUE` is the value you'd like to prefill.
 
 Parameters are separated from the form URL by `?`, and from each other by `&`. If your values
 include special characeters, they should be
