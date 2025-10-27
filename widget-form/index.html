@@ -305,6 +305,26 @@
               </a>
             </li>
             <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#adding-elements">
+                Adding elements
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#configuring-fields">
+                Configuring fields
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#other-building-blocks">
+                Other building blocks
+              </a>
+            </li>
+            <li class="wm-toc-li">
+              <a class="wm-article-link wm-page-toc-text" href="#submission-options">
+                Submission options
+              </a>
+            </li>
+            <li class="wm-toc-li">
               <a class="wm-article-link wm-page-toc-text" href="#publishing-your-form">
                 Publishing your form
               </a>
@@ -1192,7 +1212,7 @@
 <p>Then, customize the form to your heart&rsquo;s desire!</p>
 <p>By default, the form view will include elements for headers and descriptions as well as all columns (fields) from the underlying data table. </p>
 <p><em><img alt="widget-form-default-values" src="../images/widget-form/widget-form-default-values.png" /></em></p>
-<h3 id="adding-and-removing-elements">Adding and removing elements<a class="headerlink" href="#adding-and-removing-elements" title="Permanent link">#</a></h3>
+<h2 id="adding-elements">Adding elements<a class="headerlink" href="#adding-elements" title="Permanent link">#</a></h2>
 <p>To add additional form elements, click the + icon at the bottom of the form. From the menu, you can add the following elements:</p>
 <ol>
 <li><strong>New Question:</strong> Select a column type to create a new field. &ldquo;••• More &gt;&rdquo; will open an expanded menu listing all column types. Adding a new question will add a new column to the underlying data table. This new column is hidden by default in existing table widgets within your document.</li>
@@ -1202,14 +1222,37 @@
 <p><em><img alt="widget-form-elements-side" src="../images/widget-form/widget-form-elements-side.png" /></em></p>
 <p>You can remove any element from the form by hovering over the object and clicking the trash icon to delete. You can hide any uneccessary fields from the form by hovering over the object and clicking the x icon.</p>
 <p><em><img alt="widget-form-delete" src="../images/widget-form/widget-form-delete.png" /></em></p>
-<h3 id="configuring-fields">Configuring fields<a class="headerlink" href="#configuring-fields" title="Permanent link">#</a></h3>
+<h2 id="configuring-fields">Configuring fields<a class="headerlink" href="#configuring-fields" title="Permanent link">#</a></h2>
 <p>You can provide alternative titles for your form fields, rather than use the same column name from the underlying data table. For example, on our form, we have a toggle that is titled &ldquo;May we contact you?&rdquo;. In the data table, this column is labeled &ldquo;Ok to Contact?&rdquo;. Field titles can be configured under the &ldquo;Field&rdquo; tab of the creator panel.</p>
 <p><em><img alt="widget-form-field-title" src="../images/widget-form/widget-form-field-title.png" /></em></p>
-<p>To make a form field required, check the box next to &ldquo;Required field&rdquo;.</p>
-<p><em><img alt="widget-form-required-field" src="../images/widget-form/widget-form-required-field.png" /></em></p>
-<p>If a user attempts to submit a form without filling in the required field, they will get an alert to fill out the field.</p>
+<p>The types of form fields correspond to Grist <a href="../col-types/#specifying-a-type">column types</a>, but
+forms offer different options for some types. For example, Choice and Reference types allow
+choosing between &ldquo;Select&rdquo; (or dropdown) and &ldquo;Radio&rdquo; formats, while Choice List columns are shown as
+checkboxes.</p>
+<p>All fields also support several options or rules:</p>
+<p class="screenshot-half"><em><img alt="widget-form-required-field" src="../images/widget-form/widget-form-field-rules.png" /></em></p>
+<h4 id="required-field">Required field<a class="headerlink" href="#required-field" title="Permanent link">#</a></h4>
+<p>Makes the field required. If a user attempts to submit a form without filling in the required field, they will get an alert to fill out the field.</p>
 <p class="screenshot-half"><em><img alt="widget-form-required-field-error" src="../images/widget-form/widget-form-required-field-error.png" /></em></p>
-<h3 id="configuring-building-blocks">Configuring building blocks<a class="headerlink" href="#configuring-building-blocks" title="Permanent link">#</a></h3>
+<h4 id="hidden-field">Hidden field<a class="headerlink" href="#hidden-field" title="Permanent link">#</a></h4>
+<p>This field will not be shown to users. This is often useful in combination with the next option
+(&ldquo;Accept value from URL&rdquo;), or may be used to hide a field temporarily without losing its
+configuration.</p>
+<h4 id="accept-value-from-url">Accept value from URL<a class="headerlink" href="#accept-value-from-url" title="Permanent link">#</a></h4>
+<p>Allow the default value for this field to be taken from the URL. To
+construct prefilled URLs, add
+<a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL#parameters">URL parameters</a>
+to the URL in the form <code>COLUMN_ID=VALUE</code>, where <code>COLUMN_ID</code> is the one shown under the checkbox, and
+<code>VALUE</code> is the value you&rsquo;d like to prefill.</p>
+<p>Parameters are separated from the form URL by <code>?</code>, and from each other by <code>&amp;</code>. If your values
+include special characeters, they should be
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding">encoded</a>.
+Space may be encoded as <code>+</code>.</p>
+<p>Example: <code>https://public.getgrist.com/forms/n2x1dCRpqF14ymCQqpkCS7/4?<strong>Company_Name</strong>=Grist+Labs&amp;<strong>Role</strong>=Reviewer</code></p>
+<p>For Choice List and Reference List types, you may
+include the same column ID multiple times to set multiple checkboxes by default.</p>
+<p>Example: <code>&hellip;?<strong>Interest</strong>=newsletter&amp;<strong>Interest</strong>=surveys</code>.</p>
+<h2 id="other-building-blocks">Other building blocks<a class="headerlink" href="#other-building-blocks" title="Permanent link">#</a></h2>
 <p>Header and Paragraph building blocks can be edited either directly in the block or from the creator panel. In the creator panel, you have text alignment options available.</p>
 <p><em><img alt="widget-form-block-options" src="../images/widget-form/widget-form-block-options.png" /></em></p>
 <p>For additional formatting, both elements allow the use of Markdown formatting. For help on Markdown formatting, check out the <a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide</a>.</p>
@@ -1218,7 +1261,7 @@
 <p class="admonition-title">HTML Formatting</p>
 <p>HTML tags can be used in Markdown-formatted text. Be sure to separate block-level HTML elements like <code>&lt;div&gt;</code> and <code>&lt;p&gt;</code> from other elements using blank lines.</p>
 </div>
-<h3 id="configuring-submission-options">Configuring submission options<a class="headerlink" href="#configuring-submission-options" title="Permanent link">#</a></h3>
+<h2 id="submission-options">Submission options<a class="headerlink" href="#submission-options" title="Permanent link">#</a></h2>
 <p>You also have the option to configure different settings for the &ldquo;Submit&rdquo; button. You can change the button label, update the success text which appears after a form is submitted and choose to allow multiple form submissions. You also have the option to select a specific URL to redirect to following submission.</p>
 <p>These options are all available under the &ldquo;Form&rdquo; tab and &ldquo;Submission&rdquo; subtab of the creator panel.</p>
 <p class="screenshot-half"><em><img alt="widget-form-submission-options" src="../images/widget-form/widget-form-submission-options.png" /></em></p>
