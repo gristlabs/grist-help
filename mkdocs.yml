@@ -20,6 +20,7 @@ theme:
     accent: custom
   features:
     - navigation.tabs
+    - content.tooltips
   custom_dir: ./../../overrides-material
   # Disable the language selector when running in live (so for a specific language)
   disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
