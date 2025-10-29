@@ -6,7 +6,18 @@
   --md-accent-fg-color--transparent: #0f7b51aa;
 }
 
-.md-header__topic:first-child,
+/* Render a custom website heading with CSS;
+this allows us to avoid overriding the whole mkdocs-material header partial just for this. */
+.md-header__title:not(.md-header__title--active) .md-header__topic .md-ellipsis {
+  visibility: hidden;
+}
+.md-header__title:not(.md-header__title--active) .md-header__topic {
+  background-image: url('../images/heading.svg');
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 144px 24px;
+}
+
 .md-tabs__item--active {
   font-weight: 500;
 }
