@@ -1,25 +1,38 @@
 :root > * {
-  --grist-green: #0f7b51;
+  /* Colors matching names from Grist Figma designs */
+
+  /* Note: Figma color used for `green` is hsla(157, 78%, 39%, 1),
+  but it doesn't match required WCAG ratios. Using a darker shade as base for now. */
+  --grist-green: hsla(156.7, 78.3%, 27.1%, 1);
+  --grist-green-transparent: hsla(156.7, 78.3%, 27.1%, 0.67);
+  --grist-selection-opaque: hsla(158, 52%, 91%, 1);
+  --grist-dark-bg: hsla(240, 15%, 17%, 1);
+  --grist-dark-text: hsla(0, 0%, 29%, 1);
+  --grist-light-text: hsl(240, 2.5%, 47.5%); /* 4.5 WCAG ratio on white bg (minimum required for texts) */
+  --grist-slate: hsla(240, 3%, 59%, 1); /* 3.0 WCAG ratio on white bg (minimum required for important UI elements like input borders) */
+  --grist-medium-gray-opaque: hsla(0, 0%, 91%, 1);
+
   --md-primary-fg-color: var(--grist-green);
-  --md-primary-fg-color--light: #61c99e;
-  --md-primary-fg-color--dark: #007a4d;
+  --md-primary-fg-color--light: hsla(157, 78%, 39%, 1);
+  --md-primary-fg-color--dark: hsla(153.3, 62.4%, 26.1%, 1);
   --md-accent-fg-color: var(--grist-green);
-  --md-accent-fg-color--transparent: #0f7b51aa;
-  --md-default-fg-color: hsla(240, 15%, 17%, 1);
-  --md-default-fg-color--light: hsla(0, 0%, 29%, 1);
-  --md-default-fg-color--lighter: hsl(240, 2.5%, 47.5%);
-  --md-default-fg-color--lightest: hsla(240, 3%, 59%, 1);
+  --md-accent-fg-color--transparent: var(--grist-green-transparent);
+  --md-default-fg-color: var(--grist-dark-bg);
+  --md-default-fg-color--light: var(--grist-dark-text);
+  --md-default-fg-color--lighter: var(--grist-light-text);
+  --md-default-fg-color--lightest: var(--grist-medium-gray-opaque);
   --md-typeset-color: var(--md-default-fg-color--light);
 }
 
 .md-header,
 .md-tabs {
-  --md-primary-fg-color: #fff;
-  --md-primary-bg-color: var(--md-default-fg-color);
+  /* expose variables to allow easy customization if needed */
+  --md-primary-fg-color: var(--overrides-heading-fg-color, #fff);
+  --md-primary-bg-color: var(--overrides-heading-bg-color, var(--md-default-fg-color));
 }
 
 .md-main {
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid var(--grist-medium-gray-opaque);
 }
 
 /* Render a custom website heading with CSS;
@@ -52,7 +65,7 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
 }
 
 .md-nav__link {
-  margin-top: 0.6rem;
+  margin-top: 0.8rem;
 }
 
 .md-nav__link--active {
@@ -78,7 +91,7 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
 }
 
 .md-search__input {
-  border: 1px solid var(--md-default-fg-color--lightest);
+  border: 1px solid var(--overrides-border-color, var(--grist-slate));
   border-radius: 3px;
 }
 
