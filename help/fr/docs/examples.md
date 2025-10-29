@@ -1,5 +1,5 @@
 ---
-title: More examples
+title: Plus d'exemples
 ---
 
 # Plus d'exemples

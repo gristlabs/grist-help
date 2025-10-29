@@ -218,7 +218,7 @@ def update_translatable_nav_sections() -> None:
           cur_localized_nav_sections.get(en_section_name) or en_section_name
 
     localized_nav_sections_path.write_text(
-        yaml.dump(updated_localized_nav_sections), encoding='utf-8')
+        yaml.dump(updated_localized_nav_sections, allow_unicode=True), encoding='utf-8')
 
 
 @app.command()

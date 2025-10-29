@@ -1,5 +1,5 @@
 ---
-title: Assistant
+title: AI Assistant
 ---
 
 Assistant
