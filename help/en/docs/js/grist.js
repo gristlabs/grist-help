@@ -24,12 +24,16 @@ function expandSelected() {
 // Function to get and auto play YouTube video from data tag.
 // From https://stackoverflow.com/a/23629470/328565
 function autoPlayYouTubeModal(){
-  $('body').on('click', '[data-toggle="modal"][data-theVideo]', function() {
-    var theModal = $(this).data("target");
-    var videoSRC = $(this).attr("data-theVideo");
-    $(theModal).find('iframe').attr('src', videoSRC + "?rel=0&autoplay=1");
-    $(theModal).on('hidden.bs.modal', function(e) {
-      $(theModal).find('iframe').attr('src', '');
+  document.body.addEventListener('click', function(event) {
+    const trigger = event.target.closest('[data-toggle="modal"][data-theVideo]');
+    if (!trigger) return;
+    const theModal = trigger.dataset.target;
+    const videoSRC = trigger.dataset.theVideo;
+    const iframe = document.querySelector(`${theModal} iframe`);
+    if (!iframe) return;
+    iframe.src = videoSRC + "?rel=0&autoplay=1";
+    iframe.addEventListener('hidden.bs.modal', function(e) {
+      iframe.src = '';
     });
   });
 }
