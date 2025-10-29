@@ -1,5 +1,8 @@
 ---
 title: Welcome to Grist
+hide:
+  - navigation
+  - toc
 ---
 
 # Welcome to Grist! {: data-toc-label='' }
