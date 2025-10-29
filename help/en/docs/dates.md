@@ -148,7 +148,7 @@ DAYS($Last_day, $First_day)
     [`MONTH`](functions.md#month), [`HOUR`](functions.md#hour),
     and [many more](functions.md#date).
 
-## Getting a part of the date
+## Displaying days, weeks, years and intervals
 
 You’ve learned how to parse dates, format them, and do date math. But what if you want more details, like the day of the week? You can find this (and much more) in the 'Add Column' menu. Click the `+` icon at the far right of a table, hover over 'Date helpers…', then choose a date column. In the next menu, pick an option such as 'Day of week' to add a new formula column.
 
