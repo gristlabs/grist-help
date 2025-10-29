@@ -1,4 +1,0 @@
-INHERIT: ../../mkdocs.yml
-docs_dir: './docs'
-theme:
-  language: uk
