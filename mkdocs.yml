@@ -23,6 +23,8 @@ theme:
   disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
   # Material settings
   logo: images/logo.png
+  logo_width: 24
+  logo_height: 24
   favicon: images/favicon.png
 nav:
   - Getting started: index.md

@@ -1,0 +1,11 @@
+{% if config.theme.logo %}
+  <img
+    src="{{ config.theme.logo | url }}"
+    alt=""
+    {% if config.theme.logo_width %}width="{{ config.theme.logo_width }}"{% endif %}
+    {% if config.theme.logo_height %}height="{{ config.theme.logo_height }}"{% endif %}
+  >
+{% else %}
+  {% set icon = config.theme.icon.logo or "material/library" %}
+  {% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}
