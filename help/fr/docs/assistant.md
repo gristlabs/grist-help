@@ -1,5 +1,5 @@
 ---
-title: AI Formula Assistant
+title: Assistant IA
 ---
 
 Assistant de Formule AI

@@ -30,7 +30,7 @@ theme:
   logo_height: 24
   favicon: images/favicon.png
 nav:
-  - Getting started: getting-started.md
+  - getting-started.md
   - Tutorials & Guides:
     - How-to tutorials:
       - lightweight-crm.md
@@ -97,7 +97,7 @@ nav:
       - python.md
       - functions.md
       - formula-cheat-sheet.md
-    - AI Assistant: assistant.md
+    - assistant.md
     - Team sites:
       - teams.md
       - team-sharing.md

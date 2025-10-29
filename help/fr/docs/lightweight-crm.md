@@ -1,5 +1,5 @@
 ---
-title: Create your own CRM
+title: Créer son propre CRM
 ---
 
 # Comment créer un CRM personnalisé {: data-toc-label='Intro' }

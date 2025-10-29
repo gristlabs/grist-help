@@ -1,5 +1,5 @@
 ---
-title: Manage business data
+title: Gérer des données business
 ---
 
 # Comment gérer les données commerciales {: data-toc-label='Intro' }

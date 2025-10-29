@@ -1,5 +1,5 @@
 ---
-title: Welcome to Grist
+title: Getting started
 hide:
   - navigation
   - toc
