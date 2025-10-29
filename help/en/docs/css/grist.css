@@ -1,9 +1,25 @@
-:root  > * {
-  --md-primary-fg-color:        #0f7b51;
+:root > * {
+  --grist-green: #0f7b51;
+  --md-primary-fg-color: var(--grist-green);
   --md-primary-fg-color--light: #61c99e;
-  --md-primary-fg-color--dark:  #007a4d;
-  --md-accent-fg-color: #0f7b51;
+  --md-primary-fg-color--dark: #007a4d;
+  --md-accent-fg-color: var(--grist-green);
   --md-accent-fg-color--transparent: #0f7b51aa;
+  --md-default-fg-color: hsla(240, 15%, 17%, 1);
+  --md-default-fg-color--light: hsla(0, 0%, 29%, 1);
+  --md-default-fg-color--lighter: hsl(240, 2.5%, 47.5%);
+  --md-default-fg-color--lightest: hsla(240, 3%, 59%, 1);
+  --md-typeset-color: var(--md-default-fg-color--light);
+}
+
+.md-header,
+.md-tabs {
+  --md-primary-fg-color: #fff;
+  --md-primary-bg-color: var(--md-default-fg-color);
+}
+
+.md-main {
+  border-top: 1px solid #e8e8e8;
 }
 
 /* Render a custom website heading with CSS;
@@ -20,6 +36,15 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
 
 .md-tabs__item--active {
   font-weight: 500;
+}
+
+.md-tabs__item--active {
+  border-bottom: 2px solid var(--grist-green);
+}
+
+.md-tabs__link {
+  opacity: 0.85;
+  height: 100%;
 }
 
 .md-nav {
@@ -47,9 +72,23 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3 {
-  color: inherit;
-  font-weight: 700;
+  color: var(--md-default-fg-color);
+  font-weight: 500;
   letter-spacing: 0;
+}
+
+.md-search__input {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form {
+    background-color: var(--md-default-bg-color);
+  }
+  .md-search__input::placeholder {
+    color: var(--md-default-fg-color--lighter);
+  }
 }
 
 /*****************************************
