@@ -1,0 +1,358 @@
+/*****************************************
+ Material theme customizations
+ *****************************************/
+
+ :root > * {
+  /*
+   Colors from our Figma design, names try to match the ones in the figma file
+   but we abstract some notions (green is 'primary' for example, allowing for easier customization)
+  */
+  --grist-primary: #0f7b51; /* Note: Figma color used for `green` is hsla(157, 78%, 39%, 1),
+  but it doesn't match required WCAG ratios. Using a darker shade as base for now. */
+  --grist-primary-transparent: #0f7b51ab;
+  --grist-primary-light: #16b176;
+  --grist-primary-dark: #196c47;
+  --grist-selection-opaque: #dcf4eb;
+  --grist-dark-bg: #252532;
+  --grist-dark-text: #4a4a4a;
+  --grist-light-text: #76767c; /* this correctly has a 4.5 WCAG ratio on white bg (minimum required for texts) */
+  --grist-slate: #93939a; /* this correctly has a 3.0 WCAG ratio on white bg (minimum required for important UI elements like input borders) */
+  --grist-medium-grey: #e8e8e8;
+  --grist-light-grey: #f7f7f7;
+  --grist-light: #ffffff;
+
+  --grist-input-border-color: var(--grist-slate);
+
+  /*
+   Material theme variables
+  */
+  --md-primary-fg-color: var(--grist-primary);
+  --md-primary-fg-color--light: var(--grist-primary-light);
+  --md-primary-fg-color--dark: var(--grist-primary-dark);
+  --md-accent-fg-color: var(--grist-primary);
+  --md-accent-fg-color--transparent: var(--grist-primary-transparent);
+  --md-default-fg-color: var(--grist-dark-bg);
+  --md-default-fg-color--light: var(--grist-dark-text);
+  --md-default-fg-color--lighter: var(--grist-light-text);
+  --md-default-fg-color--lightest: var(--grist-medium-grey);
+  --md-typeset-color: var(--md-default-fg-color--light);
+}
+
+.md-header,
+.md-tabs {
+  /* expose variables to allow easy customization if needed */
+  --md-primary-fg-color: var(--overrides-heading-fg-color, var(--grist-light));
+  --md-primary-bg-color: var(--overrides-heading-bg-color, var(--md-default-fg-color));
+}
+
+.md-main {
+  border-top: 1px solid var(--grist-medium-grey);
+}
+
+/* Render a custom website heading with CSS;
+this allows us to avoid overriding the whole mkdocs-material header partial just for this. */
+.md-header__title:not(.md-header__title--active) .md-header__topic .md-ellipsis {
+  visibility: hidden;
+}
+.md-header__title:not(.md-header__title--active) .md-header__topic {
+  background-image: url('../images/heading.svg');
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 144px 24px;
+}
+
+.md-tabs__item--active {
+  font-weight: 500;
+}
+
+.md-tabs__item--active {
+  border-bottom: 2px solid var(--grist-primary);
+}
+
+.md-tabs__link {
+  opacity: 0.85;
+  height: 100%;
+}
+
+.md-nav {
+  font-size: 0.75rem;
+}
+
+.md-nav__link {
+  margin-top: 0.8rem;
+}
+
+.md-nav__link--active {
+  font-weight: 700;
+}
+
+.md-search__input {
+  border: 1px solid var(--grist-input-border-color);
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form {
+    background-color: var(--md-default-bg-color);
+  }
+  .md-search__input::placeholder {
+    color: var(--md-default-fg-color--lighter);
+  }
+}
+
+.md-main__inner:has(.g-home-container) {
+  margin-top: 0;
+  max-width: 100%;
+}
+
+.md-content__inner > .admonition:first-child {
+  margin-top: 0;
+}
+
+/*****************************************
+ Markdown content overrides
+ *****************************************/
+
+.md-typeset a,
+.md-typeset a:active {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.md-typeset a:hover {
+  text-decoration: none;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: var(--md-default-fg-color);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/**
+ * Make good-looking lists to help step-by-step instructions stand out.
+ */
+ .md-typeset ol:not(.carousel-indicators) {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  counter-reset: step-counter;
+}
+
+.md-typeset ol:not(.carousel-indicators) > li {
+  position: relative;
+
+  counter-increment: step-counter;
+
+  margin-left: 48px;
+  margin-bottom: 14px;
+}
+
+.md-typeset ol:not(.carousel-indicators) > li::before {
+  position: absolute;
+  left: -40px;
+
+  content: counter(step-counter);
+
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  border-radius: 14px;
+
+  border: 1px solid var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+  font-weight: 400;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+ * Adjust properties of collapsible per-function documentation and contained code samples.
+ *
+ * Note: material theme heavily styles the details/summary tags by default (unfortunately it seems
+ * the pymdownx.details styles are loaded even when the extension is disabled), so we must undo
+ * a lot of them. This is why some selectors target the body dir tag.
+ */
+.md-typeset details {
+  display: block;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+  box-shadow: none;
+  margin: 4px 8px;
+  padding: 2px 8px;
+}
+
+.md-typeset details[open] {
+  background-color: #fff;
+}
+
+body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary {
+  margin: 0.5rem 0 0.5rem -2rem;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  padding-left: 1.2rem;
+  border: 0;
+  font-weight: inherit;
+  display: block;
+  border-radius: 0;
+}
+
+.md-typeset summary:not(:focus-visible) {
+  outline: 0;
+}
+
+body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::before {
+  content: "";
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-mask-image: var(--icon-Expand);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  display: inline-block;
+  background-color: var(--grist-light-text);
+  position: relative;
+  font-size: initial;
+  width: 16px;
+  height: 16px;
+  top: 3px;
+  left: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
+  display: none;
+}
+
+.md-typeset details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+/*
+ * Hide the empty paragraphs that are generated around headers in the expanding sections.
+ */
+.md-typeset summary p:empty {
+  display: none;
+}
+
+/*
+ * Clean up any extra space used by paragraphs in the header.
+ */
+.md-typeset summary p {
+  margin: 0;
+}
+
+.md-typeset summary:hover .headerlink {
+  display: inline-block;
+}
+
+
+/*****************************************
+ Homepage specific template classes
+
+ the "g-" prefix makes it explicit these are "grist template" classes
+ *****************************************/
+.g-home-container {
+  width: 100%;
+}
+
+.g-home-container :is(h1, h2, h3, h4) {
+  margin-top: 0;
+}
+
+.g-home-cards-items {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.g-home-cards-items > * {
+  flex: 1;
+}
+
+.g-home-cards-title,
+.g-home-cards-description {
+  text-align: center;
+}
+
+.g-home-hero,
+.g-home-heading-cards {
+  background-color: var(--grist-primary);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.g-home-heading-cards {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 2rem;
+}
+
+.g-home-heading-cards-second-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background-color: #f7f7f7;
+  height: 50%;
+}
+
+.g-home-heading-cards-items {
+  position: relative;
+  z-index: 15;
+}
+
+.g-home-heading-card {
+  background-color: #fff;
+  color: black;
+  padding: 1rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+
+
+
+
+
+
+
+/*
+ * This makes code samples look more like 'readthedocs' theme.
+ */
+.wm-page-content details pre {
+  background-color: #eeffcc;
+}
+
+.wm-page-content details code {
+  background: transparent;
+}
+
+.wm-page-content .unimplemented {
+  opacity: 0.5;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: unset;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n + 1) {
+  background-color: unset;
+}

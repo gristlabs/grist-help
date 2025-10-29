@@ -72,22 +72,6 @@ apprenez à modéliser des données commerciales, à utiliser des formules et à
 - [Référence des fonctions](functions.md)
 - [Raccourcis clavier](keyboard-shortcuts.md)
 
-
-<!--
-
-![Créer un document](https://img.youtube.com/vi/TODO/0.jpg) *Trier & filtrer*
-{: .img-caption .coming-soon }
-
-![Créer un document](https://img.youtube.com/vi/TODO/0.jpg) *Écrire des formules*
-{: .img-caption .coming-soon }
-
-![Créer un document](https://img.youtube.com/vi/TODO/0.jpg) *Résumer des données*
-{: .img-caption .coming-soon }
-
-![Créer un document](https://img.youtube.com/vi/TODO/0.jpg) *Équipes et espaces de travail*
-{: .img-caption .coming-soon }
-
--->
 ## Contactez-nous
 
 Si vous avez des questions non répondues ici, des rapports de problèmes ou d'autres commentaires,

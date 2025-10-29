@@ -234,7 +234,9 @@ extra:
       hide_on_small_screen: true
   google_tag_manager: 'GTM-5FDHKQ9'
 extra_css:
-  - css/grist.css
+  - css/theme.css
+  - css/icons.css
+  - css/content-helpers.css
 extra_javascript:
   - js/grist.js
 

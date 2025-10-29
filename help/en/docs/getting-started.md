@@ -74,22 +74,6 @@ learn to model business data, use formulas, and manage complexity.
 - [Function reference](functions.md)
 - [Keyboard shortcuts](keyboard-shortcuts.md)
 
-
-<!--
-
-![Creating a doc](https://img.youtube.com/vi/TODO/0.jpg) *Sorting & filtering*
-{: .img-caption .coming-soon }
-
-![Creating a doc](https://img.youtube.com/vi/TODO/0.jpg) *Writing formulas*
-{: .img-caption .coming-soon }
-
-![Creating a doc](https://img.youtube.com/vi/TODO/0.jpg) *Summarizing data*
-{: .img-caption .coming-soon }
-
-![Creating a doc](https://img.youtube.com/vi/TODO/0.jpg) *Teams and workspaces*
-{: .img-caption .coming-soon }
-
--->
 ## Contact us
 
 If you have questions not answered here, problem reports, or other feedback,

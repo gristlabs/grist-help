@@ -1,0 +1,261 @@
+/*****************************************
+ Custom content styling
+ Classes mostly used in markdown files.
+ *****************************************/
+
+.grist-icon {
+  mask-image: var(--icon);
+  -webkit-mask-image: var(--icon);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  background-color: var(--md-primary-fg-color);
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.grist-icon-lg {
+  mask-image: var(--icon);
+  -webkit-mask-image: var(--icon);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  background-color: var(--md-primary-fg-color);
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.img-caption {
+  display: inline-block;
+  width: 128px;
+  margin: 8px;
+}
+
+.img-caption img {
+  margin: 0;
+}
+
+.img-caption em {
+  font-style: normal;
+  display: block;
+  text-align: center;
+}
+
+.wide-img-caption {
+  text-align: center;
+}
+.wide-img-caption img {
+  margin-bottom: 0;
+}
+.wide-img-caption em {
+  display: block;
+  text-align: center;
+}
+
+.grist-button {
+  display: flex;
+  justify-content: center;
+  margin: 32px;
+}
+.grist-button a {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--md-primary-fg-color);
+  color: white !important;
+}
+.grist-button-tight {
+  margin: -15px 0 32px 0 !important;
+}
+
+.column-images h3 {
+  width: 100%;
+  height: 32px;
+}
+.column-images {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: start;
+}
+
+.keys {
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin: 0px 2px;
+  border: 1px solid var(--grist-slate);
+  color: var(--grist-slate);
+  font-family: inherit;
+  font-style: normal;
+  white-space: nowrap;
+}
+.keys > em, .keys > strong {
+  font-style: normal;
+  font-family: inherit;
+  color: var(--md-primary-fg-color);
+}
+
+.app-menu-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px 0 8px;
+  background-color: var(--grist-medium-grey);
+  border-radius: 3px;
+}
+
+.app-menu-item .grist-icon {
+  background-color: currentColor;
+  margin-right: 8px;
+}
+
+/* a way to size images to half if intrinsic size; see https://stackoverflow.com/a/25026615/328565 */
+.screenshot-half {
+  text-align: center;
+  overflow: hidden;
+}
+.screenshot-half .screenshot-large {
+  display: block;
+  width: 150%;
+  margin-left: -25%;
+}
+.screenshot-half .screenshot-full {
+  display: block;
+  width: 200%;
+  margin-left: -50%;
+}
+.screenshot-half em {
+  display: inline-block;
+}
+.screenshot-half em > img {
+  width: 50%;
+  margin: 0;
+}
+.screenshot-half .caption {
+  display: block;
+  text-align: center;
+}
+
+.carousel-indicators li {
+  border: 1px solid var(--md-primary-fg-color);
+}
+.carousel-indicators .active {
+  background-color: var(--md-primary-fg-color);
+}
+.carousel-inner > .item {
+  transition: none;
+}
+
+.formula {
+  --md-code-bg-color: var(--grist-light);
+  color: #333333;
+  font-family: Monaco, Menlo, monospace, sans-serif;
+  font-size: 12px;
+  border: 1px solid var(--grist-input-border-color);
+}
+.formula:before {
+  content: "=";
+  position: relative;
+  display: inline-block;
+  margin-right: 4px;
+  top: -1px;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  line-height: 12px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: var(--grist-slate);
+}
+
+/**
+ * Add formating for tips.
+ */
+.grist-tip {
+  padding: 4px 8px;
+  margin-right: 8px;
+  background-color: var(--md-primary-fg-color);
+  color: #fff;
+  font-weight: 600;
+}
+
+.cheat-sheet {
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 4px;
+  margin: 16px 0;
+  padding: 0 16px;
+  overflow: hidden;
+}
+
+.cheat-sheet > p:first-child {
+  display: none;
+}
+
+.cheat-sheet > h4 {
+  background-color: var(--grist-medium-grey);
+  margin: 0 -16px 8px -16px;
+  padding: 8px 16px;
+}
+
+.cheat-sheet details {
+  margin: 16px 0 16px 16px;
+  padding: 0;
+}
+
+.cheat-sheet summary {
+  margin: 0 0 0 -16px;
+  padding: 2px 8px;
+  background-color: var(--grist-light-grey);
+  border-radius: 4px;
+}
+
+.cheat-sheet summary > h4 {
+  display: inline;
+  font-size: inherit;
+}
+
+.cheat-sheet summary:hover {
+  background-color: var(--grist-medium-grey);
+}
+
+.cheat-sheet details[open] > summary {
+  background-color: var(--grist-medium-grey);
+  margin-bottom: 16px;
+}
+
+.cheat-sheet .deflist ul {
+  list-style-type: none;
+  padding-left: 32px;
+}
+.cheat-sheet .deflist li > p:first-child {
+  margin-left: -32px;
+}
+
+.tag-core::after,
+.tag-ee::after {
+  margin-left: 1em;
+  font-size: 14px;
+  background: cornsilk;
+  padding: 0.1em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  border-radius: 0.25em;
+}
+
+.tag-core::after {
+  content: "core";
+}
+
+.tag-ee::after {
+  content: "enterprise";
+}
+
+.tag-core.tag-ee::after {
+  content: "core, enterprise";
+}

@@ -2,14 +2,6 @@
 title: Function reference
 ---
 
-<style>
-    /* Makes headers for functions in-line with the "expand" arrow */
-    .wm-page-content summary h4 {
-      display: inline-block;
-      font-size: 14px;
-    }
-</style>
-
 # Function Reference {: data-toc-label='' }
 
 Grist formulas support most Excel functions, as well as the Python programming language.
