@@ -222,7 +222,7 @@ extra:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  homepage: '/help'
+  homepage: '/'
   version: '1.0.2-dev'
   article_nav_bottom: false
   history_buttons: false
