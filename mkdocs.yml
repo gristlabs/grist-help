@@ -12,7 +12,9 @@ docs_dir: './help/en/docs' # Add localization folder here for now, we'll handle 
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
 theme:
   name: material
-  font: false
+  font:
+    text: 'Rubik'
+    text_variants: '400,400i,500,600'
   palette:
     primary: custom
     accent: custom
