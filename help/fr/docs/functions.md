@@ -1,13 +1,6 @@
 ---
 title: Function reference
 ---
-<style>
-    /* Aligne les en-têtes des fonctions avec la flèche "développer" */
-    .wm-page-content summary h4 {
-      display: inline-block;
-      font-size: 14px;
-    }
-</style>
 
 # Référence des Fonctions {: data-toc-label='' }
 
