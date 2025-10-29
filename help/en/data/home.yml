@@ -1,0 +1,56 @@
+heading: Welcome! How can we help you?
+intro: Explore tutorials, docs, guides, videos, and more to learn how to get the most out of Grist.
+heading_cards:
+  items:
+    - title: Get Started
+      icon: play
+      palette: blue
+      description: New to Grist? Start here with our step-by-step intro to all of the essentials
+      url: /
+    - title: Learn More
+      icon: bulb
+      palette: yellow
+      description: Explore tutorials, videos, and more to see Grist at its most powerful
+      url: /
+    - title: Support Doc
+      icon: headset
+      palette: cyan
+      description: Learn more about Grist’s powerful features with our support docs
+      url: /
+    - title: Technical Doc
+      icon: cloud
+      palette: purple
+      description: Take Grist to the next level with APIs and self-hosted instances
+      url: /
+featured_cards:
+  heading: Featured Tutorials
+  intro: Start building fast with these step-by-step tutorials.
+  items:
+    - title: Create your own CRM
+      description: Explore Grist’s powerful database capabilities and learn how linking records can help you create high-productivity layouts to streamline your business operations
+      image: images/tutorials/create-your-own-crm.png
+      url: /
+    - title: Managing Business data
+      description: Tell the story behind your data with summary tables, widgets, dynamic charts, and more
+      image: images/tutorials/managing-business-data.png
+      url: /
+    - title: Analyze and visualize data
+      description: Turn today’s data into tomorrow’s profits with formulas for modeling data and tools to help cut through the noise
+      image: images/tutorials/analyze-and-visualize-data.png
+      url: /
+more_info_cards:
+  heading: More Support Ressources
+  intro: Looking for more help? Connect with Grist’s supportive user community, or contact our team.
+  items:
+    - title: Join the community
+      description: Connect with other members of the Grist community and our team
+      icon: community
+      url: /
+    - title: Chat on Discord
+      description: Connect with other members of the Grist community and our team
+      icon: discord
+      url: /
+    - title: Contact Support
+      description: Connect with other members of the Grist community and our team
+      icon: mail
+      url: /

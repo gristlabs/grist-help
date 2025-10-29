@@ -29,7 +29,7 @@ theme:
   logo_height: 24
   favicon: images/favicon.png
 nav:
-  - Getting started: index.md
+  - Getting started: getting-started.md
   - Tutorials & Guides:
     - How-to tutorials:
       - lightweight-crm.md
@@ -240,6 +240,8 @@ extra_javascript:
 plugins:
   - search
   - awesome-pages
+  - macros
+  - data
   - htmlproofer:
       enabled: !ENV [HTMLPROOFER_ENABLED, false]
       validate_external_urls: false

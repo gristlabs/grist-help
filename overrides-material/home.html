@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block container %}
+  <div class="g-home-container">
+    <div class="g-home-hero">
+      <div class="md-grid">
+        <h1>{{ data.home.heading }}</h1>
+        <p>{{ data.home.intro }}</p>
+      </div>
+    </div>
+    <div class="g-home-cards g-home-heading-cards">
+      <div class="md-grid">
+        <div class="g-home-cards-items g-home-heading-cards-items">
+          {% for card in data.home.heading_cards['items'] %}
+            <div class="g-home-heading-card">
+              <h2>{{ card.title }}</h2>
+              <p>{{ card.description }}</p>
+              <a href="{{ card.url }}">Learn more</a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="g-home-heading-cards-second-bg"></div>
+    </div>
+    <div class="g-home-cards g-home-featured-cards">
+      <div class="md-grid">
+        <h2 class="g-home-cards-title">{{ data.home.featured_cards.heading }}</h2>
+        <p class="g-home-cards-description">{{ data.home.featured_cards.intro }}</p>
+        <div class="g-home-cards-items g-home-featured-cards-items">
+          {% for card in data.home.featured_cards['items'] %}
+            <div class="g-home-featured-card">
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.description }}</p>
+              <img src="{{ card.image }}" alt="">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="g-home-cards g-home-info-cards">
+      <div class="md-grid">
+        <h2 class="g-home-cards-title">{{ data.home.more_info_cards.heading }}</h2>
+        <p class="g-home-cards-description">{{ data.home.more_info_cards.intro }}</p>
+        <div class="g-home-cards-items g-home-info-cards-items">
+          {% for card in data.home.more_info_cards['items'] %}
+            <div class="g-home-info-card">
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.description }}</p>
+              <a href="{{ card.url }}">Learn more</a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
