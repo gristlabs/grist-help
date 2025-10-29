@@ -90,7 +90,25 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+function addHeaderLink() {
+  const headerLink = document.querySelector('.md-header__button.md-logo')?.href;
+  if (!headerLink) {
+    return;
+  }
+  const headerTitleWrapper = document.querySelector('.md-header__topic');
+  if (!headerTitleWrapper) {
+    return;
+  }
+  // Hide this anchor from assistive tools: we already have an anchor on the logo.
+  // This trick is done mostly to have a better "mouse UX" so that the whole heading is clickable,
+  // but we don't need this with keyboard/assistive tools UX.
+  // And it's easier to use a <a> tag and hide it from assistive tools, than adding click handlers on a div
+  // (as this automatically handles ctrl+click, middle mouse click, etc.).
+  headerTitleWrapper.outerHTML = `<a aria-hidden="true" tabindex="-1" class="md-header__topic" href="${headerLink}">${headerTitleWrapper.innerHTML}</a>`;
+}
+
 window.onload = function() {
+  addHeaderLink();
   expandSelected();
   autoPlayYouTubeModal();
   maybeSetUpYouTubeAPI();
