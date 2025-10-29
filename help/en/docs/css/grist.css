@@ -91,6 +91,71 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
   }
 }
 
+.md-main__inner:has(.g-home-container) {
+  margin-top: 0;
+  max-width: 100%;
+}
+
+.g-home-container {
+  width: 100%;
+}
+
+.g-home-container :is(h1, h2, h3, h4) {
+  margin-top: 0;
+}
+
+.g-home-cards-items {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.g-home-cards-items > * {
+  flex: 1;
+}
+
+.g-home-cards-title,
+.g-home-cards-description {
+  text-align: center;
+}
+
+.g-home-hero,
+.g-home-heading-cards {
+  background-color: var(--grist-green);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.g-home-heading-cards {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 2rem;
+}
+
+.g-home-heading-cards-second-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background-color: #f7f7f7;
+  height: 50%;
+}
+
+.g-home-heading-cards-items {
+  position: relative;
+  z-index: 15;
+}
+
+.g-home-heading-card {
+  background-color: #fff;
+  color: black;
+  padding: 1rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
 /*****************************************
  OLD STUFF BELOW
  *****************************************/
