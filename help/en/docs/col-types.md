@@ -54,11 +54,13 @@ The third option, "Add formula column", will add a new formula column with the f
 
 Learn more about each shortcut option at the links below:
 
-- [Timestamp](formula-cheat-sheet.md#examples-of-automatic-date-time-and-author-stamps)
+- [Timestamp](timestamps.md)
 
-- [Authorship](formula-cheat-sheet.md#examples-of-automatic-date-time-and-author-stamps)
+- [Authorship](authorship.md)
 
 - [Detect Duplicates in...](formula-cheat-sheet.md#finding-duplicates)
+
+- [Date helpers...](dates.md#getting-a-part-of-the-date)
 
 - [UUID](access-rules.md#link-keys)
 
