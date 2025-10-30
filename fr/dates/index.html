@@ -1128,9 +1128,9 @@ dateutil.parser.parse($date_text, dayfirst=True)
 <h2 id="obtenir-une-partie-de-la-date">Obtenir une partie de la date<a class="headerlink" href="#obtenir-une-partie-de-la-date" title="Permanent link">#</a></h2>
 <p>Vous avez vu comment analyser la date, l&rsquo;afficher dans différents formats et effectuer des calculs de dates. Mais que faire si vous voulez obtenir plus d&rsquo;informations sur une date spécifique, comme obtenir son jour de la semaine ?</p>
 <p>Une option est d&rsquo;utiliser la fonction <a href="../functions/#weekday">WEEKDAY</a>, qui se comporte comme dans Excel, renvoyant 1-7 pour dimanche-samedi.</p>
-<p><img alt="Weekday formula" src="../images/dates-weekday-formula.png" /></p>
+<p><img alt="Weekday formula" src="images/dates-weekday-formula.png" /></p>
 <p>Alternativement, nous pouvons utiliser la fonction <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strftime</a> :</p>
-<p><img alt="Weekday format" src="../images/dates-weekday-strftime.png" /></p>
+<p><img alt="Weekday format" src="images/dates-weekday-strftime.png" /></p>
 <p>Une autre option serait de reformater la date en utilisant le format de date dans les options de colonne (voir la <a href="https://momentjs.com/docs/#/displaying/format/">référence de formatage de date</a>).</p>
 <h2 id="fuseaux-horaires">Fuseaux horaires<a class="headerlink" href="#fuseaux-horaires" title="Permanent link">#</a></h2>
 <p>Les valeurs dans les colonnes <code>DateTime</code> représentent des moments dans le temps. Le même moment apparaîtra différemment dans différents fuseaux horaires. Dans Grist, le fuseau horaire est défini sur chaque colonne <code>DateTime</code>. Par exemple, si le fuseau horaire est défini sur &ldquo;America/New_York&rdquo;, il affichera les valeurs dans le fuseau horaire de New York aux collaborateurs du monde entier.</p>

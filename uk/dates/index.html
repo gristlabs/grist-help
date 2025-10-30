@@ -406,8 +406,8 @@
           </li>
         
           <li class="wm-toc-li">
-            <a class="wm-article-link wm-page-toc-text" href="#getting-a-part-of-the-date">
-              Getting a part of the date
+            <a class="wm-article-link wm-page-toc-text" href="#displaying-days-weeks-years-and-intervals">
+              Displaying days, weeks, years and intervals
             </a>
           </li>
         
@@ -1174,14 +1174,13 @@ in spreadsheet apps that returns the difference between two dates:</p>
 <a href="../functions/#month"><code>MONTH</code></a>, <a href="../functions/#hour"><code>HOUR</code></a>,
 and <a href="../functions/#date">many more</a>.</p>
 </div>
-<h2 id="getting-a-part-of-the-date">Getting a part of the date<a class="headerlink" href="#getting-a-part-of-the-date" title="Permanent link">#</a></h2>
-<p>You&rsquo;ve seen how to parse the date, display it in different formats, and do date arithmetic. But what
-if you want to get more information about a specific date, such as getting its day of the week?</p>
-<p>One option is to use the <a href="../functions/#weekday">WEEKDAY</a> function, which behaves as it does in
-Excel, returning  1-7 for Sunday-Saturday.</p>
-<p><img alt="Weekday formula" src="../images/dates-weekday-formula.png" /></p>
-<p>Alternatively, we can use the <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strftime</a> function:</p>
-<p><img alt="Weekday format" src="../images/dates-weekday-strftime.png" /></p>
+<h2 id="displaying-days-weeks-years-and-intervals">Displaying days, weeks, years and intervals<a class="headerlink" href="#displaying-days-weeks-years-and-intervals" title="Permanent link">#</a></h2>
+<p>You’ve learned how to parse dates, format them, and do date math. But what if you want more details, like the day of the week? You can find this (and much more) in the &lsquo;Add Column&rsquo; menu. Click the <code>+</code> icon at the far right of a table, hover over &lsquo;Date helpers…&rsquo;, then choose a date column. In the next menu, pick an option such as &lsquo;Day of week&rsquo; to add a new formula column.</p>
+<p><img alt="Date Helpers" src="../images/dates/date_helpers.png" /></p>
+<p>This built-in option uses the <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior">strftime</a> function:</p>
+<p><img alt="Weekday format" src="../images/dates/dates-weekday-strftime.png" /></p>
+<p>Of course, you can always write your own function to get the same information. For example, you could use the <a href="../functions/#weekday">WEEKDAY</a> function, which behaves as it does in Excel, returning  1-7 for Sunday-Saturday.</p>
+<p><img alt="Weekday formula" src="../images/dates/dates-weekday-formula.png" /></p>
 <p>Yet another option would be to reformat the date using Date Format in Column Options
 (see the <a href="https://momentjs.com/docs/#/displaying/format/">date formatting reference</a>).</p>
 <h2 id="time-zones">Time zones<a class="headerlink" href="#time-zones" title="Permanent link">#</a></h2>
