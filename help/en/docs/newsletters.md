@@ -7,8 +7,9 @@ title: Newsletters
 Welcome to our monthly newsletter of updates and tips for Grist users. The phrase "Grist for the
 mill" means "useful experience, material, or knowledge", perfectly reflecting its purpose.
 
-To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup).
+To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup) or sign up for [just the newsletter](https://www.getgrist.com/newsletter/).
 
+- [October 2025 Newsletter](newsletters/2025-10.md): Try our experimental suggestions feature and learn about Grist’s accessibility.
 - [September 2025 Newsletter](newsletters/2025-09.md): Scenario simulation, firewood ordering, and GristCon recordings. 
 - [August 2025 Newsletter](newsletters/2025-08.md): Comments are here! Email notifications are here! More GristCon sessions! 
 - [July 2025 Newsletter](newsletters/2025-07.md): GristCon sessions announced, duplicating widgets and Assistant upgrades.
