@@ -476,9 +476,13 @@ they may need to be quoted if passed from a shell. For example,
 docker run \ 
   -e GRIST_NODEMAILER_CONFIG='{"host":"smtp.example.com","port":587,"auth":{"user":"username","pass":"swordfish"}}' \
   -e GRIST_NODEMAILER_SENDER='{"name":"Grist Admin","email":"admin@example.com"}' \
+  -e REDIS_URL="redis://hostname/N"
   -it gristlabs/grist
   ...
 ```
+
+Note that a [state store](self-managed.md#what-is-a-state-store) is
+also required for email notifications, supplied above via `REDIS_URL`.
 
 ### How do I add more python packages? {: .tag-core .tag-ee }
 
@@ -660,8 +664,8 @@ disable it yourself.
 ### What is a state store? {: .tag-core .tag-ee }
 
 Grist can be configured to use Redis as an external state cache. For
-most Grist functionality, this is optional. It is required for webhook
-support, and recommended for snapshot support. To use, just set `REDIS_URL` to something like
+most Grist functionality, this is optional. It is required for webhook and notifications
+support. It is also recommended for snapshot support. To use, just set `REDIS_URL` to something like
 `redis://hostname/N` where `N` is a redis database number.
 
 ```
