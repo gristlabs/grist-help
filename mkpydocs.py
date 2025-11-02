@@ -148,7 +148,7 @@ def get_doc_text(docitems):
     output.append('### ' + category)
     for d in items:
       css_class = 'class="unimplemented"' if d.is_unimplemented else ""
-      output.append(f'<details markdown><summary {css_class}>')
+      output.append(f'<details markdown><summary {css_class} markdown="block">')
       output.append(f'#### <code>{d.usage}</code> {{: #{d.anchor} data-toc-label="{d.names[0]}" }}')
       output.append('</summary>')
       output.extend(d.format_doc())

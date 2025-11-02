@@ -191,7 +191,7 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
   color: inherit;
   box-shadow: none;
   margin: 4px 8px;
-  padding: 2px 8px;
+  padding: 2px 8px 2px 24px;
 }
 
 .md-typeset details[open] {
@@ -199,11 +199,10 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
 }
 
 body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary {
-  margin: 0.5rem 0 0.5rem -2rem;
+  margin: 0.5rem 0 0.5rem -16px;
   cursor: pointer;
   background-color: transparent;
   padding: 0;
-  padding-left: 1.2rem;
   border: 0;
   font-weight: inherit;
   display: block;
@@ -243,6 +242,11 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   transform: rotate(90deg);
 }
 
+.md-typeset summary h4 {
+  display: inline-block;
+  margin: 0;
+}
+
 /*
  * Hide the empty paragraphs that are generated around headers in the expanding sections.
  */
@@ -259,6 +263,10 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 .md-typeset summary:hover .headerlink {
   display: inline-block;
+}
+
+.md-typeset .unimplemented {
+  opacity: 0.5;
 }
 
 
@@ -343,10 +351,6 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 .wm-page-content details code {
   background: transparent;
-}
-
-.wm-page-content .unimplemented {
-  opacity: 0.5;
 }
 
 .table-hover > tbody > tr:hover {
