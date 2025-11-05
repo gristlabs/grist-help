@@ -90,6 +90,10 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+/**
+ * This adds an anchor tag on the header title text.
+ * This is done in JS to avoid overriding the whole mkdocs-material header partial just for this.
+ */
 function addHeaderLink() {
   const headerLink = document.querySelector('.md-header__button.md-logo')?.href;
   if (!headerLink) {

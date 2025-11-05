@@ -40,9 +40,8 @@
 
 .md-header,
 .md-tabs {
-  /* expose variables to allow easy customization if needed */
-  --md-primary-fg-color: var(--overrides-heading-fg-color, var(--grist-light));
-  --md-primary-bg-color: var(--overrides-heading-bg-color, var(--md-default-fg-color));
+  --md-primary-fg-color: var(--grist-light);
+  --md-primary-bg-color: var(--md-default-fg-color);
 }
 
 .md-main {
@@ -61,6 +60,7 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
   background-size: 144px 24px;
 }
 
+/* fine-tune the material theme "tabs", which are the nav items in the header */
 .md-tabs__item--active {
   font-weight: 500;
 }
@@ -74,18 +74,8 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
   height: 100%;
 }
 
-.md-nav {
-  font-size: 0.75rem;
-}
-
-.md-nav__link {
-  margin-top: 0.8rem;
-}
-
-.md-nav__link--active {
-  font-weight: 700;
-}
-
+/* make the search bar in the header blend more into it (with a less pronounced background),
+but make sure the borders have WCAG-compliant contrast ratio */
 .md-search__input {
   border: 1px solid var(--grist-input-border-color);
   border-radius: 3px;
@@ -100,26 +90,126 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
   }
 }
 
-.md-main__inner:has(.g-home-container) {
-  margin-top: 0;
-  max-width: 100%;
+/* this targets links in both sidebars (left and right) */
+.md-nav {
+  font-size: 0.75rem;
 }
 
-.md-content__inner > .admonition:first-child {
+.md-nav__link {
+  margin-top: 0.8rem;
+}
+
+.md-nav__link--active {
+  font-weight: 700;
+}
+
+/* fine-tune the left sidebar nav (section-based navigation) */
+
+/* section name */
+.md-nav--primary .md-nav__item--section > .md-nav__link {
+  font-size: 1rem;
+  /* align with the current page content heading */
+  margin-top: 0.4rem !important;
+  box-shadow: none;
+  background-color: transparent;
+  margin-bottom: 8px;
+  color: var(--md-default-fg-color) !important;
+}
+
+
+/* section dropdown item (level 0 item that has children) */
+.md-nav--primary .md-nav__item--section .md-nav__item--nested > .md-nav__link {
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+}
+
+/* section dropdown item that is open */
+.md-nav--primary .md-nav__item--section .md-nav__item--nested .md-nav__toggle:checked ~ .md-nav__link {
+  color: var(--md-accent-fg-color);
+  margin-bottom: 0.6rem;
+}
+
+.md-nav--primary .md-nav__item .md-nav__link--active {
+  color: inherit;
+}
+
+/* fine-tune the right sidebar nav (table of contents) */
+.md-nav--secondary {
+  padding: 24px 16px calc(24px - 0.3rem);
+  border-radius: 8px;
+  background-color: var(--grist-light-grey);
+}
+
+.md-nav--secondary > .md-nav__title {
+  box-shadow: none;
+  background-color: transparent;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 8px;
+}
+
+.md-nav--secondary > .md-nav__list {
+  padding-left: 0;
+}
+
+.md-nav--secondary .md-nav__list {
+  padding-bottom: 0.35rem;
+}
+
+/* both left and right normal nav items have same styling */
+.md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link,
+.md-nav--secondary .md-nav__link {
+  font-size: 0.65rem;
+  margin-right: 0 !important;
+  padding: 4px 8px;
+  border-radius: 4px;
   margin-top: 0;
+  line-height: 1.5;
+}
+
+.md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link:is([for], [href]):is(:hover, :focus),
+.md-nav--secondary .md-nav__link:is([for], [href]):is(:hover, :focus) {
+  color: var(--md-default-fg-color);
+}
+
+.md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link--active,
+.md-nav--secondary .md-nav__link--active {
+  background-color: var(--grist-medium-grey);
+  color: var(--grist-dark-text);
+  font-weight: 500;
+}
+
+/* main nav level 0 items that are page links (not section name, not dropdown) */
+.md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
+  padding-left: 0;
+  margin-top: 0.8rem;
+  font-size: 0.75rem;
+}
+
+.md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link--active {
+  padding-left: 8px;
 }
 
 /*****************************************
  Markdown content overrides
  *****************************************/
 
-.md-typeset a,
-.md-typeset a:active {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+/* make sure content beginning with alert boxes dont begin with extra margin on the top */
+.md-content__inner > .admonition:first-child {
+  margin-top: 0;
+}
+
+.md-typeset a {
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .md-typeset a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.md-typeset a:active {
   text-decoration: none;
 }
 
@@ -275,6 +365,11 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
  the "g-" prefix makes it explicit these are "grist template" classes
  *****************************************/
+.md-main__inner:has(.g-home-container) {
+  margin-top: 0;
+  max-width: 100%;
+}
+
 .g-home-container {
   width: 100%;
 }
