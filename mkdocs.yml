@@ -250,6 +250,7 @@ extra:
       icon: /images/home/cloud.svg
       bg_color: "#efe9fd"
   google_tag_manager: 'GTM-5FDHKQ9'
+  generator: false
 extra_css:
   - css/theme.css
   - css/icons.css
