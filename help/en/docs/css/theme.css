@@ -1,8 +1,21 @@
 /*****************************************
+ * Helper classes
+ *****************************************/
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+}
+
+/*****************************************
  Material theme customizations
  *****************************************/
 
- :root > * {
+:root > * {
   /*
    Colors from our Figma design, names try to match the ones in the figma file
    but we abstract some notions (green is 'primary' for example, allowing for easier customization)
@@ -74,12 +87,19 @@ this allows us to avoid overriding the whole mkdocs-material header partial just
   height: 100%;
 }
 
+/* make the header z-index higher than our custom code for homepage (it was very low, making it difficult to add some
+custom code relying on z-indexes) */
+.md-header {
+  z-index: 20;
+}
+
 /* make the search bar in the header blend more into it (with a less pronounced background),
 but make sure the borders have WCAG-compliant contrast ratio */
 .md-search__input {
   border: 1px solid var(--grist-input-border-color);
   border-radius: 3px;
 }
+
 
 @media screen and (min-width: 60em) {
   .md-search__form {
@@ -100,7 +120,7 @@ but make sure the borders have WCAG-compliant contrast ratio */
 }
 
 .md-nav__link--active {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* fine-tune the left sidebar nav (section-based navigation) */
@@ -372,21 +392,100 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 .g-home-container {
   width: 100%;
+  padding-bottom: 2rem;
 }
 
-.g-home-container :is(h1, h2, h3, h4) {
+.g-home-container .md-grid {
+  padding-left: .8rem;
+  padding-right: .8rem;
+  max-width: 48rem;
+}
+
+.g-home-container :is(h1, h2, h3, h4, p) {
   margin-top: 0;
+  margin-bottom: 0;
+}
+
+.g-home-container p {
+  font-size: 0.6rem;
+  line-height: 1.5;
+}
+
+.g-home-hero .md-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.g-home-hero-image {
+  max-width: 40%;
+}
+
+.g-home-hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.g-home-hero h1 {
+  font-size: 1.33rem;
+  font-weight: normal;
+  margin-bottom: 16px;
+}
+
+.g-home-hero p {
+  font-size: 0.75rem;
+  margin-top: 32px;
+}
+
+.g-home-hero button {
+  cursor: pointer;
+  color: inherit;
+  font-size: 0.75rem;
+  font-family: inherit;
+  background-color: var(--grist-light);
+  color: var(--grist-dark-text);
+  border-radius: 8px;
+  border: none;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.g-home-hero button:hover {
+  color: var(--grist-dark-bg);
 }
 
 .g-home-cards-items {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   width: 100%;
   justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 60em) {
+  .g-home-cards-items {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.666rem;
+  }
 }
 
 .g-home-cards-items > * {
   flex: 1;
+  width: 340px;
+  max-width: 100%;
+}
+
+.g-home-cards-title {
+  font-weight: 500;
+}
+
+.g-home-cards-items :is(h2, h3) {
+  font-weight: 600;
 }
 
 .g-home-cards-title,
@@ -394,17 +493,26 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   text-align: center;
 }
 
+.g-home-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
 .g-home-hero,
 .g-home-heading-cards {
   background-color: var(--grist-primary);
   color: #fff;
-  padding: 1rem 0;
+  padding: 3rem 0 1rem;
 }
 
 .g-home-heading-cards {
+  padding-top: 0;
   position: relative;
   z-index: 10;
   padding-bottom: 2rem;
+  text-align: center;
 }
 
 .g-home-heading-cards-second-bg {
@@ -426,11 +534,113 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   background-color: #fff;
   color: black;
   padding: 1rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s ease-in-out;
   border-radius: 0.5rem;
+  align-items: center;
 }
 
+.g-home-heading-card:hover {
+  box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.15);
+}
 
+.g-home-heading-card h2 {
+  font-size: 0.8333rem;
+}
+
+.g-home-heading-card-icon {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.g-home-heading-card-icon img {
+  width: 80px;
+  height: auto;
+}
+
+.g-home-featured-cards,
+.g-home-info-cards {
+  padding: 2rem 0;
+}
+
+.g-home-featured-cards .g-home-cards-title,
+.g-home-info-cards .g-home-cards-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.g-home-featured-card h3 {
+  font-size: 0.75rem;
+}
+
+.g-home-featured-cards .g-home-cards-description,
+.g-home-info-cards .g-home-cards-description {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.g-home-featured-card-text,
+.g-home-info-card {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--grist-light-grey);
+  color: var(--grist-dark-text);
+}
+
+.g-home-featured-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.g-home-featured-card-text {
+  position: relative;
+  z-index: 10;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  box-shadow: 2px 2px 6px #00000026;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.g-home-featured-card-text:hover {
+  box-shadow: 4px 4px 6px #00000026;
+}
+
+.g-home-featured-card img {
+  position: relative;
+  z-index: 5;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 11;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.g-home-info-card {
+  gap: 4px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.g-home-info-card:hover {
+  box-shadow: 2px 2px 6px #00000026;
+}
+
+.g-home-info-card h3 {
+  font-size: 0.68rem;
+}
 
 
 

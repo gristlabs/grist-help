@@ -111,10 +111,26 @@ function addHeaderLink() {
   headerTitleWrapper.outerHTML = `<a aria-hidden="true" tabindex="-1" class="md-header__topic" href="${headerLink}">${headerTitleWrapper.innerHTML}</a>`;
 }
 
+function enableHomeSearchButton() {
+  const searchButton = document.querySelector('.g-home-hero button');
+  if (!searchButton) {
+    return;
+  }
+  // simulate click on .md-search__input
+  searchButton.addEventListener('click', function() {
+    const searchInput = document.querySelector('.md-search__input');
+    if (!searchInput) {
+      return;
+    }
+    searchInput.focus();
+  });
+}
+
 window.onload = function() {
   addHeaderLink();
   expandSelected();
   autoPlayYouTubeModal();
   maybeSetUpYouTubeAPI();
+  enableHomeSearchButton();
 };
 window.addEventListener('popstate', expandSelected);

@@ -1,56 +1,57 @@
 heading: Welcome! How can we help you?
 intro: Explore tutorials, docs, guides, videos, and more to learn how to get the most out of Grist.
+search_button: Search our library of docs, tutorials, videos, and more
 heading_cards:
   items:
     - title: Get Started
-      icon: play
-      palette: blue
+      icon: /images/home/play.svg
+      palette: "#e0f0ff"
       description: New to Grist? Start here with our step-by-step intro to all of the essentials
-      url: /
+      url: /getting-started/
     - title: Learn More
-      icon: bulb
-      palette: yellow
+      icon: /images/home/bulb.svg
+      palette: "#ffeed0"
       description: Explore tutorials, videos, and more to see Grist at its most powerful
-      url: /
+      url: /lightweight-crm/
     - title: Support Doc
-      icon: headset
-      palette: cyan
+      icon: /images/home/headset.svg
+      palette: "#dff6f7"
       description: Learn more about Grist’s powerful features with our support docs
-      url: /
+      url: /creating-doc/
     - title: Technical Doc
-      icon: cloud
-      palette: purple
+      icon: /images/home/cloud.svg
+      palette: "#efe9fd"
       description: Take Grist to the next level with APIs and self-hosted instances
-      url: /
+      url: /rest-api/
 featured_cards:
   heading: Featured Tutorials
   intro: Start building fast with these step-by-step tutorials.
   items:
     - title: Create your own CRM
       description: Explore Grist’s powerful database capabilities and learn how linking records can help you create high-productivity layouts to streamline your business operations
-      image: images/tutorials/create-your-own-crm.png
-      url: /
+      image: /images/home/custom-crm.jpg
+      url: /lightweight-crm/
     - title: Managing Business data
       description: Tell the story behind your data with summary tables, widgets, dynamic charts, and more
-      image: images/tutorials/managing-business-data.png
-      url: /
+      image: /images/home/business-data.jpg
+      url: /afterschool-program/
     - title: Analyze and visualize data
       description: Turn today’s data into tomorrow’s profits with formulas for modeling data and tools to help cut through the noise
-      image: images/tutorials/analyze-and-visualize-data.png
-      url: /
+      image: /images/home/analyze-data.jpg
+      url: /investment-research/
 more_info_cards:
   heading: More Support Ressources
   intro: Looking for more help? Connect with Grist’s supportive user community, or contact our team.
   items:
     - title: Join the community
       description: Connect with other members of the Grist community and our team
-      icon: community
-      url: /
+      icon: /images/home/community.svg
+      url: https://community.getgrist.com/
     - title: Chat on Discord
       description: Connect with other members of the Grist community and our team
-      icon: discord
-      url: /
+      icon: /images/home/discord.svg
+      url: https://discord.gg/MYKpYQ3fbP
     - title: Contact Support
       description: Connect with other members of the Grist community and our team
-      icon: mail
-      url: /
+      icon: /images/home/mail.svg
+      url: mailto:support@getgrist.com
