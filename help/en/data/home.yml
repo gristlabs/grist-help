@@ -1,26 +1,23 @@
 heading: Welcome! How can we help you?
 intro: Explore tutorials, docs, guides, videos, and more to learn how to get the most out of Grist.
 search_button: Search our library of docs, tutorials, videos, and more
+# Heading cards are meant to target "sections" described in `mkdocs.yml` extra.section_icons to correctly show their icon and color
 heading_cards:
   items:
     - title: Get Started
-      icon: /images/home/play.svg
-      palette: "#e0f0ff"
+      section: getting-started.md
       description: New to Grist? Start here with our step-by-step intro to all of the essentials
       url: /getting-started/
     - title: Learn More
-      icon: /images/home/bulb.svg
-      palette: "#ffeed0"
+      section: Tutorials & Guides
       description: Explore tutorials, videos, and more to see Grist at its most powerful
       url: /lightweight-crm/
-    - title: Support Doc
-      icon: /images/home/headset.svg
-      palette: "#dff6f7"
+    - title: Support Docs
+      section: Support Docs
       description: Learn more about Grist’s powerful features with our support docs
       url: /creating-doc/
-    - title: Technical Doc
-      icon: /images/home/cloud.svg
-      palette: "#efe9fd"
+    - title: Technical Docs
+      section: Technical Docs
       description: Take Grist to the next level with APIs and self-hosted instances
       url: /rest-api/
 featured_cards:

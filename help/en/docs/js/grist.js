@@ -111,6 +111,8 @@ function addHeaderLink() {
   headerTitleWrapper.outerHTML = `<a aria-hidden="true" tabindex="-1" class="md-header__topic" href="${headerLink}">${headerTitleWrapper.innerHTML}</a>`;
 }
 
+/* we currently don't have an actual search page. But the home page shows a search button.
+ As a middleground for now, this button just opens the functional search input shown in the header. */
 function enableHomeSearchButton() {
   const searchButton = document.querySelector('.g-home-hero button');
   if (!searchButton) {

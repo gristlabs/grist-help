@@ -482,6 +482,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 .g-home-cards-title {
   font-weight: 500;
+  color: var(--grist-dark-bg);
 }
 
 .g-home-cards-items :is(h2, h3) {

@@ -24,7 +24,12 @@
         <div class="g-home-cards-items g-home-heading-cards-items">
           {% for card in data.home.heading_cards['items'] %}
             <div class="g-home-card g-home-heading-card">
-              <div class="g-home-heading-card-icon" style="background-color: {{ card.palette }}"><img src="{{ card.icon }}" alt=""></div>
+              <div
+                class="g-home-heading-card-icon"
+                style="background-color: {{ config.extra.section_icons[card.section].bg_color }}"
+              >
+                <img src="{{ config.extra.section_icons[card.section].icon }}" alt="">
+              </div>
               <h2><a class="stretched-link" href="{{ card.url }}">{{ card.title }}</a></h2>
               <p>{{ card.description }}</p>
             </div>

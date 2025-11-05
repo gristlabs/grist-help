@@ -232,6 +232,23 @@ extra:
     - href: https://www.getgrist.com
       text: 'Back to Grist'
       hide_on_small_screen: true
+  # each section matches a first-level item in the mkdocs.yml `nav`
+  # this data is used:
+  #  - in the homepage template to automatically show the correct icon and color in each "hero card"
+  #  - in the nav sidebar to automatically show the correct icon and color in each section
+  section_icons:
+    getting-started.md:
+      icon: /images/home/play.svg
+      bg_color: "#e0f0ff"
+    Tutorials & Guides:
+      icon: /images/home/bulb.svg
+      bg_color: "#ffeed0"
+    Support Docs:
+      icon: /images/home/headset.svg
+      bg_color: "#dff6f7"
+    Technical Docs:
+      icon: /images/home/cloud.svg
+      bg_color: "#efe9fd"
   google_tag_manager: 'GTM-5FDHKQ9'
 extra_css:
   - css/theme.css
