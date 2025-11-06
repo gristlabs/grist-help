@@ -1474,9 +1474,12 @@ they may need to be quoted if passed from a shell. For example,</p>
 <pre><code>docker run \ 
   -e GRIST_NODEMAILER_CONFIG='{&quot;host&quot;:&quot;smtp.example.com&quot;,&quot;port&quot;:587,&quot;auth&quot;:{&quot;user&quot;:&quot;username&quot;,&quot;pass&quot;:&quot;swordfish&quot;}}' \
   -e GRIST_NODEMAILER_SENDER='{&quot;name&quot;:&quot;Grist Admin&quot;,&quot;email&quot;:&quot;admin@example.com&quot;}' \
+  -e REDIS_URL=&quot;redis://hostname/N&quot;
   -it gristlabs/grist
   ...
 </code></pre>
+<p>Note that a <a href="./#what-is-a-state-store">state store</a> is
+also required for email notifications, supplied above via <code>REDIS_URL</code>.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-add-more-python-packages">How do I add more python packages?<a class="headerlink" href="#how-do-i-add-more-python-packages" title="Permanent link">#</a></h3>
 <p>The set of python packages available for use in formulas is currently
 not configurable. You can add packages anyway if you are willing to
@@ -1637,8 +1640,8 @@ compilation when connecting to PostgreSQL, removing the need to
 disable it yourself.</p>
 <h3 class="tag-core tag-ee" id="what-is-a-state-store">What is a state store?<a class="headerlink" href="#what-is-a-state-store" title="Permanent link">#</a></h3>
 <p>Grist can be configured to use Redis as an external state cache. For
-most Grist functionality, this is optional. It is required for webhook
-support, and recommended for snapshot support. To use, just set <code>REDIS_URL</code> to something like
+most Grist functionality, this is optional. It is required for webhook and notifications
+support. It is also recommended for snapshot support. To use, just set <code>REDIS_URL</code> to something like
 <code>redis://hostname/N</code> where <code>N</code> is a redis database number.</p>
 <pre><code>docker run
   ...
