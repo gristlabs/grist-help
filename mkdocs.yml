@@ -232,6 +232,16 @@ extra:
     - href: https://www.getgrist.com
       text: 'Back to Grist'
       hide_on_small_screen: true
+  quick_links:
+    - text: 'FAQ'
+      href: /FAQ
+      icon: /images/quick-links/bookmark.svg
+    - text: 'Community'
+      href: https://community.getgrist.com
+      icon: /images/quick-links/users-outline.svg
+    - text: 'Templates'
+      href: https://docs.getgrist.com/p/templates
+      icon: /images/quick-links/board.svg
   # each section matches a first-level item in the mkdocs.yml `nav`
   # this data is used:
   #  - in the homepage template to automatically show the correct icon and color in each "hero card"

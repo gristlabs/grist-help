@@ -397,6 +397,49 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 
 /*****************************************
+ Nav addition: quick links
+ the "g-" prefix makes it explicit these are "grist template" classes
+ *****************************************/
+.md-sidebar__inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.md-sidebar__inner > .md-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.g-quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+.g-quick-links-header {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+  margin: 0;
+}
+.g-quick-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.g-quick-link-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.6rem;
+}
+
+/*****************************************
  Homepage specific template classes
 
  the "g-" prefix makes it explicit these are "grist template" classes
