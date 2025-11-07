@@ -20,12 +20,12 @@ options="--options.theme.spacing.sectionVertical=2 \
 if [[ "$1" = "" ]]; then
   set -x
   $cli build api/grist.yml -t api/body.hbs --output=help/en/docs/api.md $options
-  $cli build api/grist.yml -t api/head.hbs --output=overrides/api-head-tmp.html $options
+  $cli build api/grist.yml -t api/head.hbs --output=overrides-material/api-head-tmp.html $options
   # There is some javascript for loading yaml files that has a special character in it
   # that Jinja's "raw" mode actually modifies for some reason.  I don't think we need this
   # code?  So this line just brutally removes this character.
-  tr -d -c '[:print:][:blank:]\r\n' < overrides/api-head-tmp.html > overrides/api-head.html
-  rm -f overrides/api-head-tmp.html
+  tr -d -c '[:print:][:blank:]\r\n' < overrides-material/api-head-tmp.html > overrides-material/api-head.html
+  rm -f overrides-material/api-head-tmp.html
 else
   $cli "$@"
 fi

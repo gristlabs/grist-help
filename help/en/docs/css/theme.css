@@ -702,7 +702,13 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   font-size: 0.68rem;
 }
 
-
+/* API specific overrides */
+.md-main__inner:has(#api-content) {
+  max-width: none;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
 
 

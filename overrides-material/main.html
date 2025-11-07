@@ -27,6 +27,10 @@
     })(window,document,'script','dataLayer','{{ gtm_id }}');</script>
     <!-- End Google Tag Manager -->
   {%- endif %}
+
+  {%- if page and page.meta and page.meta.is_api %}
+    {% include 'api-head.html' %}
+  {%- endif %}
 {% endblock %}
 
 {% block scripts %}
