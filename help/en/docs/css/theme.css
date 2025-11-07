@@ -127,7 +127,7 @@ but make sure the borders have WCAG-compliant contrast ratio */
 
 /* section name */
 .md-nav--primary .md-nav__item--section > .md-nav__link {
-  font-size: 1rem;
+  font-size: 0.9rem;
   /* align with the current page content heading */
   margin-top: 0.4rem !important;
   box-shadow: none;
@@ -136,11 +136,27 @@ but make sure the borders have WCAG-compliant contrast ratio */
   color: var(--md-default-fg-color) !important;
 }
 
+.md-nav--primary .md-nav__item--section > .md-nav__link:has(.g-nav-icon) {
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+  /* align with the current page content heading */
+  margin-top: 0.165rem !important;
+}
+
+.g-nav-icon {
+  line-height: 1;
+  border-radius: 4px;
+  padding: 4px;
+  width: 46px;
+  height: 46px;
+}
 
 /* section dropdown item (level 0 item that has children) */
 .md-nav--primary .md-nav__item--section .md-nav__item--nested > .md-nav__link {
   font-weight: 500;
   color: var(--md-default-fg-color);
+  font-size: 0.7rem;
 }
 
 /* section dropdown item that is open */
