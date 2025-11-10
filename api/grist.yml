@@ -681,6 +681,7 @@ paths:
       tags:
         - data
       summary: "Delete rows of a table"
+      deprecated: true
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/tableIdPathParam'
