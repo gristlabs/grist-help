@@ -3,6 +3,8 @@
 
 // When loading a page with #hash in the URL, if #hash refers to a <detail> element, expand the
 // detail, and collapse other details.
+// Note: the "expand the detail" part doesn't seem necessary to code at first (I guess the browser
+// or the material theme does it?), but we keep it mostly to correctly scroll into view.
 function expandSelected() {
   var hash = window.location.hash.split('/').slice(-1)[0];
   var elem = hash ? document.querySelector(hash) : null;

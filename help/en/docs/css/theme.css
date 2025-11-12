@@ -324,6 +324,11 @@ but make sure the borders have WCAG-compliant contrast ratio */
   background-color: #fff;
 }
 
+/* when we have a hash on a detail element, highlight it like when we focus something in it */
+.md-typeset details:has(:target) {
+  box-shadow: 0 0 0 .2rem #448aff1a;
+}
+
 body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary {
   margin: 0.5rem 0 0.5rem -16px;
   cursor: pointer;
