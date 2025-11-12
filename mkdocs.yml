@@ -226,6 +226,7 @@ extra:
   version: '1.0.2-dev'
   article_nav_bottom: false
   history_buttons: false
+  meta_me_url: https://fosstodon.org/@grist
   home_links:
     - href: https://community.getgrist.com
       text: 'Community'

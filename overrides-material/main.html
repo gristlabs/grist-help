@@ -16,6 +16,10 @@
 {% endblock %}
 
 {% block extrahead %}
+  {% if config.extra.meta_me_url %}
+    <link rel="me" href="{{ config.extra.meta_me_url }}">
+  {% endif %}
+
   {%- if config.extra.google_tag_manager %}
     {% set gtm_id = config.extra.google_tag_manager %}
 
@@ -31,6 +35,8 @@
   {%- if page and page.meta and page.meta.is_api %}
     {% include 'api-head.html' %}
   {%- endif %}
+
+  {% include 'partials/beacon.html' %}
 {% endblock %}
 
 {% block scripts %}
