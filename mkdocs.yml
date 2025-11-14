@@ -22,6 +22,7 @@ theme:
     - navigation.tabs
     - content.tooltips
     - navigation.footer
+    - navigation.top
   custom_dir: ./../../overrides-material
   # Disable the language selector when running in live (so for a specific language)
   disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
