@@ -29,7 +29,7 @@
     <link rel="me" href="{{ config.extra.meta_me_url }}">
   {% endif %}
 
-  {%- if config.extra.google_tag_manager %}
+  {%- if config.extra.google_tag_manager and build_mode == 'prod' %}
     {% set gtm_id = config.extra.google_tag_manager %}
 
     <!-- Google Tag Manager -->
@@ -61,7 +61,7 @@
   {% endcall %}
 
   {{ super() }}
-  {%- if config.extra.google_tag_manager %}
+  {%- if config.extra.google_tag_manager and build_mode == 'prod' %}
     {% set gtm_id = config.extra.google_tag_manager %}
 
     <!-- Google Tag Manager (noscript) -->
