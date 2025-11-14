@@ -105,6 +105,13 @@ custom code relying on z-indexes) */
 .md-header {
   z-index: 20;
 }
+/* make sure the sidebar panel on mobile is rendered above the header now */
+/* Note: the max-width value is the same as the one in mkdocs material for the mobile menu breakpoint */
+@media screen and (max-width: 76.2344em) {
+  .md-sidebar--primary {
+    z-index: 25;
+  }
+}
 
 /* make the search bar in the header blend more into it (with a less pronounced background),
 but make sure the borders have WCAG-compliant contrast ratio */
@@ -137,109 +144,125 @@ but make sure the borders have WCAG-compliant contrast ratio */
 }
 
 /* fine-tune the left sidebar nav (section-based navigation) */
-
-/* section name */
-.md-nav--primary .md-nav__item--section > .md-nav__link {
-  font-size: 0.9rem;
-  /* align with the current page content heading */
-  margin-top: 0.4rem !important;
-  box-shadow: none;
-  background-color: transparent;
-  margin-bottom: 8px;
-  color: var(--md-default-fg-color) !important;
-}
-
-.md-nav--primary .md-nav__item--section > .md-nav__link:has(.g-nav-icon) {
-  align-items: center;
-  gap: 16px;
-  font-size: 0.8rem;
-  /* align with the current page content heading */
-  margin-top: 0.165rem !important;
-}
-
+/* do this only on desktop: just use material theme default styles on mobile */
 .g-nav-icon {
-  line-height: 1;
-  border-radius: 4px;
-  padding: 4px;
-  width: 46px;
-  height: 46px;
+  display: none;
 }
-
-/* section dropdown item (level 0 item that has children) */
-.md-nav--primary .md-nav__item--section .md-nav__item--nested > .md-nav__link {
-  font-weight: 500;
-  color: var(--md-default-fg-color);
-  font-size: 0.7rem;
+@media screen and (max-width: 76.2344em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background-color: var(--grist-light);
+    color: var(--grist-dark-text);
+  }
+  .md-nav__title .md-nav__button.md-logo img,
+  .md-nav__title .md-nav__button.md-logo svg {
+    height: 2rem;
+  }
 }
+@media screen and (min-width: 76.25em) {
+  /* section name */
+  .md-nav--primary .md-nav__item--section > .md-nav__link {
+    font-size: 0.9rem;
+    /* align with the current page content heading */
+    margin-top: 0.4rem !important;
+    box-shadow: none;
+    background-color: transparent;
+    margin-bottom: 8px;
+    color: var(--md-default-fg-color) !important;
+  }
 
-/* section dropdown item that is open */
-.md-nav--primary .md-nav__item--section .md-nav__item--nested .md-nav__toggle:checked ~ .md-nav__link {
-  color: var(--md-accent-fg-color);
-  margin-bottom: 0.6rem;
-}
+  .md-nav--primary .md-nav__item--section > .md-nav__link:has(.g-nav-icon) {
+    align-items: center;
+    gap: 16px;
+    font-size: 0.8rem;
+    /* align with the current page content heading */
+    margin-top: 0.165rem !important;
+  }
 
-.md-nav--primary .md-nav__item .md-nav__link--active {
-  color: inherit;
-}
+  .g-nav-icon {
+    display: block;
+    line-height: 1;
+    border-radius: 4px;
+    padding: 4px;
+    width: 46px;
+    height: 46px;
+  }
 
-/* fine-tune the right sidebar nav (table of contents) */
-/* Note: the "has" selector here is made to prevent rendering a background
-on an empty table of contents. It seems the theme renders the block with empty spaces
-in it if no toc is there, making the :empty selector not work */
-.md-nav--secondary:has(label.md-nav__title) {
-  padding: 24px 16px calc(24px - 0.3rem);
-  border-radius: 8px;
-  background-color: var(--grist-light-grey);
-}
+  /* section dropdown item (level 0 item that has children) */
+  .md-nav--primary .md-nav__item--section .md-nav__item--nested > .md-nav__link {
+    font-weight: 500;
+    color: var(--md-default-fg-color);
+    font-size: 0.7rem;
+  }
 
-.md-nav--secondary > .md-nav__title {
-  box-shadow: none;
-  background-color: transparent;
-  padding-left: 8px;
-  padding-right: 8px;
-  margin-bottom: 8px;
-}
+  /* section dropdown item that is open */
+  .md-nav--primary .md-nav__item--section .md-nav__item--nested .md-nav__toggle:checked ~ .md-nav__link {
+    color: var(--md-accent-fg-color);
+    margin-bottom: 0.6rem;
+  }
 
-.md-nav--secondary > .md-nav__list {
-  padding-left: 0;
-}
+  .md-nav--primary .md-nav__item .md-nav__link--active {
+    color: inherit;
+  }
 
-.md-nav--secondary .md-nav__list {
-  padding-bottom: 0.35rem;
-}
+  /* fine-tune the right sidebar nav (table of contents) */
+  /* Note: the "has" selector here is made to prevent rendering a background
+  on an empty table of contents. It seems the theme renders the block with empty spaces
+  in it if no toc is there, making the :empty selector not work */
+  .md-nav--secondary:has(label.md-nav__title) {
+    padding: 24px 16px calc(24px - 0.3rem);
+    border-radius: 8px;
+    background-color: var(--grist-light-grey);
+  }
 
-/* both left and right normal nav items have same styling */
-.md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link,
-.md-nav--secondary .md-nav__link {
-  font-size: 0.65rem;
-  margin-right: 0 !important;
-  padding: 4px 8px;
-  border-radius: 4px;
-  margin-top: 0;
-  line-height: 1.5;
-}
+  .md-nav--secondary > .md-nav__title {
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 8px;
+  }
 
-.md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link:is([for], [href]):is(:hover, :focus),
-.md-nav--secondary .md-nav__link:is([for], [href]):is(:hover, :focus) {
-  color: var(--md-default-fg-color);
-}
+  .md-nav--secondary > .md-nav__list {
+    padding-left: 0;
+  }
 
-.md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link--active,
-.md-nav--secondary .md-nav__link--active {
-  background-color: var(--grist-medium-grey);
-  color: var(--grist-dark-text);
-  font-weight: 500;
-}
+  .md-nav--secondary .md-nav__list {
+    padding-bottom: 0.35rem;
+  }
 
-/* main nav level 0 items that are page links (not section name, not dropdown) */
-.md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
-  padding-left: 0;
-  margin-top: 0.8rem;
-  font-size: 0.75rem;
-}
+  /* both left and right normal nav items have same styling */
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link,
+  .md-nav--secondary .md-nav__link {
+    font-size: 0.65rem;
+    margin-right: 0 !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 0;
+    line-height: 1.5;
+  }
 
-.md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link--active {
-  padding-left: 8px;
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link:is([for], [href]):is(:hover, :focus),
+  .md-nav--secondary .md-nav__link:is([for], [href]):is(:hover, :focus) {
+    color: var(--md-default-fg-color);
+  }
+
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link--active,
+  .md-nav--secondary .md-nav__link--active {
+    background-color: var(--grist-medium-grey);
+    color: var(--grist-dark-text);
+    font-weight: 500;
+  }
+
+  /* main nav level 0 items that are page links (not section name, not dropdown) */
+  .md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
+    padding-left: 0;
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link--active {
+    padding-left: 8px;
+  }
 }
 
 /* breadcrumbs changes */
@@ -451,18 +474,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
  Nav addition: quick links
  the "g-" prefix makes it explicit these are "grist template" classes
  *****************************************/
-.md-sidebar--primary .md-sidebar__inner {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-.md-sidebar--primary .md-sidebar__inner > .md-nav {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-.g-quick-links {
+ .g-quick-links {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -483,11 +495,34 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   margin: 0;
   list-style: none;
 }
-.g-quick-link-text {
+.g-quick-link {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 0.6rem;
+}
+@media screen and (max-width: 76.2344em) {
+  .g-quick-links-header {
+    padding-left: .8rem;
+    padding-right: .8rem;
+    margin-bottom: 0.2rem;
+  }
+  .g-quick-link {
+    padding: 0.2rem 0.8rem;
+  }
+}
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-sidebar__inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .md-sidebar--primary .md-sidebar__inner > .md-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /*****************************************

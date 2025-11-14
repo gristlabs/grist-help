@@ -32,8 +32,8 @@
     <p class="g-quick-links-header" id="quick-links-header">Quick Links</p>
     <ul class="g-quick-links-list">
       {% for quick_link in config.extra.quick_links %}
-        <li class="g-quick-link">
-          <a href="{{ quick_link.href }}" class="g-quick-link-text">
+        <li>
+          <a href="{{ quick_link.href }}" class="g-quick-link">
             <img src="{{ quick_link.icon }}" alt="" width="24" height="24" class="g-quick-link-icon">
             <span class="g-quick-link-text">{{ quick_link.text }}</span>
           </a>
