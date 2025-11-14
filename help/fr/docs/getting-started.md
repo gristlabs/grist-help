@@ -10,11 +10,11 @@ hide:
 [Grist](https://www.getgrist.com) est un logiciel permettant d'organiser, d'analyser et de partager des données.
 
 <div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">
-  <a href="#" data-toggle="modal" data-target="#video-modal"
+  <button type="button" data-dialog-open="video-modal"
     data-theVideo="https://www.youtube.com/embed/XYZ_ZGSxU00">
   <img alt="Démonstration de Grist" src="https://img.youtube.com/vi/XYZ_ZGSxU00/0.jpg">
   <em>Démonstration de Grist</em>
-  </a>
+  </button>
 </div>
 Grist combine le meilleur des tableurs et des bases de données. Grist vous permet de travailler avec des grilles et des listes simples, et est à son meilleur lorsque les données deviennent plus complexes.
 

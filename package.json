@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dsagal/grist-help#readme",
   "dependencies": {
+    "a11y-dialog": "^8.1.4",
     "redoc-cli": "^0.13.20"
   },
   "devDependencies": {

@@ -11,6 +11,18 @@
   content: "";
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /*****************************************
  Material theme customizations
  *****************************************/
@@ -442,6 +454,99 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   align-items: center;
   gap: 8px;
   font-size: 0.6rem;
+}
+
+/*****************************************
+ Dialog component
+ *****************************************/
+
+.g-dialog-container,
+.g-dialog-overlay {
+  position: fixed;
+  inset: 0;
+}
+
+.g-dialog-container {
+  z-index: 100;
+  display: flex;
+}
+
+.g-dialog-container[aria-hidden='true'] {
+  display: none;
+}
+
+.g-dialog-overlay {
+  background-color: rgb(43 46 56 / 0.9);
+}
+
+.g-dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.g-dialog-close svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.g-dialog-close:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.g-dialog-content {
+  margin: 60px 16px auto;
+  z-index: 2;
+  position: relative;
+  background-color: white;
+  overflow: auto;
+  max-height: 90vh;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px #00000080;
+}
+
+@media (min-width: 32em) {
+  .g-dialog-content {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 41em) {
+  .g-dialog-content {
+    max-width: 900px;
+  }
+}
+
+@keyframes g-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes g-slide-up {
+  from {
+    transform: translateY(10%);
+  }
+}
+
+.g-dialog-overlay {
+  animation: g-fade-in 200ms both;
+}
+
+.g-dialog-content {
+  animation: g-fade-in 300ms 200ms both, g-slide-up 300ms 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-dialog-overlay,
+  .g-dialog-content {
+    animation: none;
+  }
 }
 
 /*****************************************

@@ -1,6 +1,15 @@
 "use strict";
 /* global window, document */
 
+import { initDialog } from './modules/dialog';
+
+function initDialogs() {
+  const dialogTriggers = document.querySelectorAll('[data-dialog-open]');
+  dialogTriggers.forEach(trigger => {
+    initDialog(trigger.getAttribute('data-dialog-open'));
+  });
+}
+
 // When loading a page with #hash in the URL, if #hash refers to a <detail> element, expand the
 // detail, and collapse other details.
 // Note: the "expand the detail" part doesn't seem necessary to code at first (I guess the browser
@@ -27,10 +36,10 @@ function expandSelected() {
 // From https://stackoverflow.com/a/23629470/328565
 function autoPlayYouTubeModal(){
   document.body.addEventListener('click', function(event) {
-    const trigger = event.target.closest('[data-toggle="modal"][data-theVideo]');
+    const trigger = event.target.closest('[data-dialog-open][data-theVideo]');
     if (!trigger) return;
-    const theModal = trigger.dataset.target;
-    const videoSRC = trigger.dataset.theVideo;
+    const theModal = `#${trigger.getAttribute('data-dialog-open')}`;
+    const videoSRC = trigger.getAttribute('data-theVideo');
     const iframe = document.querySelector(`${theModal} iframe`);
     if (!iframe) return;
     iframe.src = videoSRC + "?rel=0&autoplay=1";
@@ -131,6 +140,7 @@ function enableHomeSearchButton() {
 }
 
 window.onload = function() {
+  initDialogs();
   addHeaderLink();
   expandSelected();
   autoPlayYouTubeModal();
