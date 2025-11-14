@@ -3,6 +3,10 @@
 /hscout/site
 /env
 
+# Vite build output
+/help/en/docs/js/build
+/help/*/docs/js/build
+
 # API key for HelpScout
 .helpscout
 

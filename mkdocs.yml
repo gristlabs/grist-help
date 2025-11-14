@@ -266,8 +266,6 @@ extra_css:
   - css/theme.css
   - css/icons.css
   - css/content-helpers.css
-extra_javascript:
-  - js/grist.js
 
 plugins:
   - search

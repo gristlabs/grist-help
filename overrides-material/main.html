@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
+{# add our vite setup #}
+{% block libs %}
+  {{ super() }}
+  {% if build_mode == 'dev' %}
+    <script type="module" src="http://localhost:8001/@vite/client"></script>
+  {% endif %}
+  <script type="module" src="{{ vite_asset('help/en/docs/js/grist.js') }}"></script>
+{% endblock %}
+
 {# replace the material fonts block with our own that uses bunnyfonts and allows to specify the font variants #}
 {% block fonts %}
   {% if config.theme.font != false %}
