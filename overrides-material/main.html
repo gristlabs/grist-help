@@ -45,7 +45,9 @@
     {% include 'api-head.html' %}
   {%- endif %}
 
-  {% include 'partials/beacon.html' %}
+  {% if build_mode == 'prod' %}
+    {% include 'partials/beacon.html' %}
+  {% endif %}
 {% endblock %}
 
 {% block scripts %}
