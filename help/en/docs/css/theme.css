@@ -251,6 +251,13 @@ but make sure the borders have WCAG-compliant contrast ratio */
   font-size: inherit;
 }
 
+.md-typeset img {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+}
+
 .md-typeset a {
   text-decoration: none;
   font-weight: 500;
