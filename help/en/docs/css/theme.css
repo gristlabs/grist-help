@@ -290,6 +290,7 @@ in it if no toc is there, making the :empty selector not work */
 
 .md-typeset code {
   border: 1px solid var(--grist-slate);
+  color: inherit;
 }
 
 /**
