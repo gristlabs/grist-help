@@ -839,18 +839,6 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 
 
-
-/*
- * This makes code samples look more like 'readthedocs' theme.
- */
-.wm-page-content details pre {
-  background-color: #eeffcc;
-}
-
-.wm-page-content details code {
-  background: transparent;
-}
-
 .table-hover > tbody > tr:hover {
   background-color: unset;
 }

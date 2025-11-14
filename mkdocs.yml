@@ -289,6 +289,9 @@ markdown_extensions:
   extra: {}
   meta: {}
   attr_list: {}
+  pymdownx.highlight:
+    use_pygments: true
+  pymdownx.superfences: {}
 
 hooks:
 - ../../mkdocs-utils/hooks.py
