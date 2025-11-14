@@ -183,7 +183,10 @@ but make sure the borders have WCAG-compliant contrast ratio */
 }
 
 /* fine-tune the right sidebar nav (table of contents) */
-.md-nav--secondary {
+/* Note: the "has" selector here is made to prevent rendering a background
+on an empty table of contents. It seems the theme renders the block with empty spaces
+in it if no toc is there, making the :empty selector not work */
+.md-nav--secondary:has(label.md-nav__title) {
   padding: 24px 16px calc(24px - 0.3rem);
   border-radius: 8px;
   background-color: var(--grist-light-grey);
@@ -434,12 +437,12 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
  Nav addition: quick links
  the "g-" prefix makes it explicit these are "grist template" classes
  *****************************************/
-.md-sidebar__inner {
+.md-sidebar--primary .md-sidebar__inner {
   display: flex;
   width: 100%;
   height: 100%;
 }
-.md-sidebar__inner > .md-nav {
+.md-sidebar--primary .md-sidebar__inner > .md-nav {
   display: flex;
   flex-direction: column;
   width: 100%;
