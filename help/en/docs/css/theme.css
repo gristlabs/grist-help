@@ -61,6 +61,7 @@
   --md-default-fg-color--lighter: var(--grist-light-text);
   --md-default-fg-color--lightest: var(--grist-medium-grey);
   --md-typeset-color: var(--md-default-fg-color--light);
+  --md-code-bg-color: var(--grist-light);
 }
 
 .md-header,
@@ -281,6 +282,11 @@ but make sure the borders have WCAG-compliant contrast ratio */
   color: var(--md-default-fg-color);
   font-weight: 500;
   letter-spacing: 0;
+}
+
+
+.md-typeset code {
+  border: 1px solid var(--grist-slate);
 }
 
 /**
