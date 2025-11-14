@@ -242,6 +242,19 @@ in it if no toc is there, making the :empty selector not work */
   padding-left: 8px;
 }
 
+/* breadcrumbs changes */
+.md-path {
+  font-size: 0.6rem;
+}
+
+.md-path__link {
+  color: var(--grist-light-text);
+}
+
+.md-path__item:last-child .md-path__link {
+  color: var(--grist-dark-text);
+}
+
 /*****************************************
  Markdown content overrides
  *****************************************/

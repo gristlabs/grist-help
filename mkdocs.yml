@@ -21,6 +21,7 @@ theme:
   features:
     - navigation.tabs
     - content.tooltips
+    - navigation.path
     - navigation.footer
     - navigation.top
   custom_dir: ./../../overrides-material
