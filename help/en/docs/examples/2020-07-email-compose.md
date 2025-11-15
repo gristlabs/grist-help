@@ -1,3 +1,7 @@
+---
+title: Prefill emails
+---
+
 # Prepare Emails using Formulas
 
 You may already know that you can add [hyperlink fields](../col-types.md#hyperlinks) in Grist. You

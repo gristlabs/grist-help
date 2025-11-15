@@ -1,3 +1,7 @@
+---
+title: Authorship columns
+---
+
 Authorship columns
 ===================
 

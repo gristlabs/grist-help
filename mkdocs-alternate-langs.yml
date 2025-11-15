@@ -7,3 +7,12 @@ extra:
   - link: /fr/
     name: fr - français
     code: fr
+  - link: /it/
+    name: it - italiano
+    code: it
+  - link: /pt/
+    name: pt - português
+    code: pt
+  - link: /uk/
+    name: uk - українська мова
+    code: uk

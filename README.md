@@ -108,6 +108,17 @@ To update `help/en/docs/code` from the documentation comments in Grist, run:
 
 You need to first run `yarn install` in your Grist checkout directory.
 
+## Updating audit log and telemetry events
+
+To update `audit-log-events.md`, `telemetry-limited.md`, and `telemetry-full.md` from Grist, run:
+
+```
+./build-audit-logs.sh <path-to-grist-checkout>
+./build-telemetry.sh <path-to-grist-checkout>
+```
+
+You need to first run `yarn install` in your Grist checkout directory.
+
 ## License
 
 This work is licensed under a

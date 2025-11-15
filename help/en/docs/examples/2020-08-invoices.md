@@ -1,3 +1,7 @@
+---
+title: Prepare invoices
+---
+
 # Preparing invoices
 
 If you are keeping records of who is charged what in Grist, it can be convenient

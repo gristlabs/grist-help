@@ -1,477 +1,433 @@
-Permissions avancées
+---
+title: Intro to access rules
+---
+
+Règles d'accès
 ==============
 
-Chaque document Grist peut être [partagé avec d'autres](sharing.md) en utilisant
-l'option « Gérer les utilisateurs » dans le menu Partager
-(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>). Les
-utilisateurs peuvent être invités en tant que spectateurs (lecture seule),
-éditeurs ou propriétaires (voir [Partager un document](sharing.md) pour un
-rappel sur ces rôles). Un document peut également être [partagé
-publiquement](sharing.md#public-access-and-link-sharing) avec des permissions en
-lecture ou écriture. Parfois, il est nécessaire d'aller plus loin et préciser
-qui peut voir ou modifier certaines parties d'un document. Les permissions
-avancées nous donnent ce pouvoir.
+Chaque document Grist peut être [partagé avec d'autres](sharing.md) 
+en utilisant l'option `Gérer les utilisateurs` dans le menu de partage
+(<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
+Les utilisateurs peuvent être invités en tant que Visiteurs, Éditeurs ou Propriétaires (voir 
+ [Partage d'un document](sharing.md) pour un rappel sur ces rôles), ou un document peut être [partagé publiquement](sharing.md#public-access-and-link-sharing) avec des permissions de lecture ou d'édition.
+Parfois, vous avez besoin de plus de nuances sur qui peut voir ou éditer des
+parties individuelles d'un document. Les règles d'accès nous donnent ce pouvoir.
 
-Seuls les propriétaires d'un document peuvent modifier les permissions avancées.
-A l'ouverture du document, les propriétaires voient un outil appelé
-<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span>
-Permissions Avancées</span> dans la barre latérale gauche. Cliquez sur cet outil
-pour visualiser et modifier les permissions avancées. Les règles sont également
-accessibles via l'option `Gérer les utilisateurs` du menu de partage
-<span class="grist-icon" style="--icon: var(--icon-Share)"></span> avec le
-bouton `Ouvrir les règles d'accès` (disponible uniquement pour les propriétaires
-du document).
+Seuls les propriétaires d'un document peuvent modifier ses règles d'accès.
+Lorsqu'un document est chargé, les propriétaires voient un outil appelé 
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Règles d'accès</span>
+dans la barre latérale gauche. Cliquez dessus pour voir et modifier
+les règles d'accès. Les règles sont également accessibles via l'option `Gérer les utilisateurs`
+du menu de partage <span class="grist-icon" style="--icon: var(--icon-Share)"></span>
+avec le bouton `Ouvrir les règles d'accès` (disponible uniquement pour les Propriétaires du document).
 
-Imaginons que nous dirigeons une petite entreprise, dont l'activité est la
-distribution et la livraison d'objets peu insolites. L'entreprise est gérée à
-l'aide d'un document avec deux tables, `Orders` (commandes) et `Financials`
-(finances). Nous recrutons de nouveaux employés et souhaitons partager le
-document avec eux tout en limitant leur accès à ce dont ils ont besoin.
+Supposons que nous gérons une petite entreprise de sourcing et de livraison d'objets inhabituels,
+organisée à l'aide d'un document avec deux tables, `Commandes` et `Finances`.
+Nous prenons maintenant plus d'employés et voulons partager le document avec eux tout en
+limitant leur accès à ce dont ils ont besoin.
 
-![Access rules](images/access-rules/access-rules-example.png)
+![Règles d'accès](images/access-rules/access-rules-example.png)
 
-## Default rules
+## Règles par défaut
 
-To see the access rules for a document, visit its access rules page by clicking
-<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span>
-Access Rules</span> in the left sidebar. When no custom rules have been created
-yet, the access rules page contains the `Default Rules` for our document:
+Pour voir les règles d'accès d'un document, visitez sa page de règles d'accès en
+cliquant sur
+<span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Règles d'accès</span>
+dans la barre latérale gauche. Lorsque aucune règle personnalisée n'a encore été créée,
+la page des règles d'accès contient les `Règles par défaut` pour notre document :
 
-![Access rules](images/access-rules/access-rules-page.png)
+![Règles d'accès](images/access-rules/access-rules-page.png)
 
-These rules say, in summary, that Owners and Editors can do anything within the
-document, that Viewers can only read the document, and everyone else is
-forbidden all access. These rules cannot be modified, but they can be
-overridden. To understand whether a group of rules allows a certain permission
-([Read, Update, Create, Delete, or
-Structure](access-rules.md#access-rule-permissions)), read the rules from top to
-bottom, and find the first applicable rule that allows (green) or denies (red)
-that permission. We'll see plenty of examples as we go.
+Ces règles disent, en résumé, que les Propriétaires et Éditeurs peuvent faire tout ce qu'ils veulent dans
+le document, que les Visiteurs ne peuvent que lire le document, et que tout le monde
+d'autre est interdit d'accès. Ces règles ne peuvent pas être modifiées, mais elles
+peuvent être remplacées. Pour comprendre si un groupe de règles permet une
+certaines permissions ([Lire, Mettre à jour, Créer, Supprimer ou Structure](access-rules.md#access-rule-permissions)), lisez
+les règles de haut en bas, et trouvez la première règle applicable
+qui permet (vert) ou refuse (rouge) cette permission.
+Nous verrons de nombreux exemples au fur et à mesure.
 
-## Lock down structure
+## Verrouiller la structure
 
-By default Owners and Editors are equally powerful within a document, with the
-ability to create or delete tables or columns, write formulas, reorganize pages,
-and so on.
+Par défaut, les Propriétaires et Éditeurs ont le même pouvoir dans un document, avec la capacité de créer
+ou de supprimer des tables ou des colonnes, d'écrire des formules, de réorganiser des pages, et ainsi de suite.
 
-Suppose we want only the original Owners of the document to be allowed to change
-its structure, as we plan to invite other specialized collaborators as Editors.
-To do this, uncheck the box for the first rule listed under 'Special Rules' to
-disallow editors from editing structure.
+Supposons que nous voulons que seuls les Propriétaires d'origine du document soient autorisés à modifier
+sa structure, car nous prévoyons d'inviter d'autres collaborateurs spécialisés en tant qu'Éditeurs.
+Pour ce faire, décochez la case de la première règle listée sous 'Règles avancées' pour 
+interdire aux éditeurs de modifier la structure. 
 
-![Access rules](images/access-rules/access-rules-lock-structure.png)
+![Règles d'accès](images/access-rules/access-rules-lock-structure.png)
 
-Once we've made changes, the `SAVE` button becomes an inviting green. We click
-`SAVE` for the rule to take effect.
+Une fois que nous avons apporté des modifications, le bouton `ENREGISTRER` devient vert et invitant. Nous
+cliquons sur `ENREGISTRER` pour que la règle prenne effet. 
 
-**Important.** This is an important first step for any document where you intend
-to block any access to Editors. Without denying them the structure permission
-(`S`), anyone with edit access will be able to create or change formulas. Since
-formula calculations are not limited by access control rules, a determined user
-could use them to retrieve any data from a document. To protect against that,
-deny structure permission to users whose access should be limited.
+**Important.** C'est une première étape importante pour tout document où vous avez l'intention de bloquer tout accès aux Éditeurs.
+Sans leur refuser la permission de structure (`S`), quiconque ayant accès à l'édition pourra
+créer ou modifier des formules. Étant donné que les calculs de formules ne sont pas limités par les règles de contrôle d'accès,
+un utilisateur déterminé pourrait les utiliser pour récupérer des données de n'importe quel document. Pour se protéger contre
+cela, refusez la permission de structure aux utilisateurs dont l'accès doit être limité.
 
-## Make a private table
+## Créer une table privée
 
-To ensure that only Owners can access a table, such as the `Financials` table in
-our example, we click `Add Table Rules` and select the table name, `Financials`.
-This creates a new empty group of rules called `Rules for table Financials`.
-Then we add a condition for any user who is not an Owner (`user.Access !=
-OWNER`), with all permissions denied. Selecting `Deny All` from the drop-down
-beside `R` `U` `C` `D` is a fast way to set all permissions to denied, or you
-can click each permission individually to turn them red. `R` is Read, `U` is
-Update, `C` is Create, and `D` is Delete (see [Access rule
-permissions](access-rules.md#access-rule-permissions)). Structure (`S`)
-permissions are not available at the table level. Once you are done, click
-`SAVE`.
+Pour garantir que seuls les Propriétaires peuvent accéder à une table, comme la table `Finances` dans notre exemple,
+nous cliquons sur `Ajouter des règles de table` et sélectionnons le nom de la table, `Finances`. Cela crée un nouveau groupe de règles vide appelé `Règles pour la table Finances`.
+Ensuite, nous ajoutons une condition pour tout utilisateur qui n'est pas un Propriétaire (`user.Access != OWNER`), avec toutes
+les permissions refusées. Sélectionner `Refuser tout` dans le menu déroulant à côté de `R` `U` `C` `D` est un moyen rapide
+de définir toutes les permissions sur refusées, ou vous pouvez cliquer sur chaque permission individuellement pour les mettre en rouge. `R` est Lire, `U` est Mettre à jour, `C` est Créer, et `D` est Supprimer
+(voir [Permissions de règle d'accès](access-rules.md#access-rule-permissions)).
+Les permissions de structure (`S`) ne sont pas disponibles au niveau de la table.
+Une fois que vous avez terminé, cliquez sur `ENREGISTRER`.
 
-![Access rules](images/access-rules/access-rules-private-table.png)
+![Règles d'accès](images/access-rules/access-rules-private-table.png)
 
-Now we could go ahead and share the document with a team member specialized in
-deliveries, for example. We [share the document](sharing.md) with them as an
-Editor so that the restrictions we've set up apply to them. They won't see the
-`Financials` table in the left side bar, and attempts to open it will be denied:
+Maintenant, nous pourrions aller de l'avant et partager le document avec un membre de l'équipe
+spécialisé dans les livraisons, par exemple. Nous [partageons le
+document](sharing.md) avec eux en tant qu'Éditeur afin que les restrictions
+que nous avons mises en place s'appliquent à eux. Ils ne verront pas la table `Finances` dans la
+barre latérale gauche, et les tentatives de l'ouvrir seront refusées :
 
-![Access rules](images/access-rules/access-rules-private-table-is-hidden.png)
+![Règles d'accès](images/access-rules/access-rules-private-table-is-hidden.png)
 
-## Seed Rules
+## Règles par défaut
 
-When writing access rules for specific tables, it is fairly common to repeat the
-same rule across many tables — for example, always grant owners full read and
-write permissions. To automatically add a set of rules to all new table rules,
-you can write "seed rules." There is a checkbox above default rules that makes
-the common case easier with one click. Click it to write a seed rule that will
-automatically grant owners full access whenever table rules are added. Click the
-`>` icon to uncollapse the seed rules table to modify seed rules.
+Lors de l'écriture des règles d'accès pour des tables spécifiques, il est assez courant de répéter la même règle dans de nombreuses tables — 
+par exemple, toujours accorder aux propriétaires des permissions de lecture et d'écriture complètes. Pour ajouter automatiquement un ensemble de règles à toutes 
+les nouvelles règles de table, vous pouvez écrire des "règles par défaut". Il y a une case à cocher au-dessus des règles par défaut qui facilite le cas commun 
+avec un seul clic. Cliquez dessus pour écrire une règle par défaut qui accordera automatiquement aux propriétaires un accès complet 
+chaque fois que des règles de table sont ajoutées. Cliquez sur l'icône `>` pour déplier la table des règles par défaut afin de modifier les règles par défaut.
 
 ![access-rules-default-owner-access](images/access-rules/access-rules-default-owner-access.png)
 
-## Restrict access to columns
+## Restreindre l'accès aux colonnes
 
-We can restrict a collaborator's access to columns. In our eample, we might wish
-to give a delivery specialist more limited access to the `Orders` table. Perhaps
-they don't need to see an `Email` column, or a `Piece` column with details of
-what is in the parcel.
+Nous pouvons restreindre l'accès d'un collaborateur aux colonnes. Dans notre exemple, nous pourrions
+souhaiter donner à un spécialiste des livraisons un accès plus limité à
+la table `Commandes`. Peut-être qu'ils n'ont pas besoin de voir une colonne `Email`,
+ou une colonne `Pièce` avec des détails sur ce qu'il y a dans le colis.
 
-Click `Add Table Rules` and select `Orders` to create a rule group for the
-`Orders` table. Now, in the `Rules for table Orders` group, click the three-dot
-icon (...), and select `Add Column Rule`:
+Cliquez sur `Ajouter des règles de table` et sélectionnez `Commandes` pour créer un groupe de règles pour la table `Commandes`.
+Maintenant, dans le groupe `Règles pour la table Commandes`, cliquez sur l'icône à trois points (...), et
+sélectionnez `Ajouter une règle de colonne` :
 
-![Access rules](images/access-rules/access-rules-limit-columns-rules.png)
+![Règles d'accès](images/access-rules/column-rule.png)
 
-In the `Columns` area we have a new `[Add Column]` dropdown to add all the
-columns to which we want the rule to apply (in our case `Email` and `Piece`).
-For the condition, we could use `user.Email == 'kiwi@getgrist.com'`. This checks
-for the email address of Kimberly, our fictional delivery specialist; we could
-also check by name or a numeric ID. We turn all available permissions off for
-this user on these columns:
+Dans la zone `Colonnes`, nous avons un nouveau menu déroulant `[Ajouter une colonne]` pour ajouter toutes les colonnes
+auxquelles nous voulons que la règle s'applique (dans notre cas `Email` et `Pièce`).
+Pour la condition, nous pourrions utiliser `user.Email == 'kiwi@getgrist.com'`. Cela vérifie
+l'adresse e-mail de Kimberly, notre spécialiste des livraisons fictif ; nous
+pourrions également vérifier par nom ou par un ID numérique. Nous désactivons toutes les permissions disponibles pour
+cet utilisateur sur ces colonnes :
 
-![Access rules](images/access-rules/access-rules-limit-columns-full-rules.png)
+![Règles d'accès](images/access-rules/access-rules-limit-columns-full-rules.png)
 
-Now that the rules are ready, click `Save`.
+Maintenant que les règles sont prêtes, cliquez sur `Enregistrer`.
 
-If we have another employee who specializes in sourcing objects, and who needs
-to see a different set of columns, we can do that. For example here we add a
-rule to withhold `Address` and `Phone` columns from user `Charon`:
+Si nous avons un autre employé qui se spécialise dans le sourcing d'objets, et qui a besoin de
+voir un ensemble différent de colonnes, nous pouvons le faire. Par exemple ici, nous ajoutons une
+règle pour retirer les colonnes `Adresse` et `Téléphone` de l'utilisateur `Charon` :
 
-![Access rules](images/access-rules/access-rules-sourcing-single.png)
+![Règles d'accès](images/access-rules/access-rules-sourcing-single.png)
 
-## View as another user
+## Voir en tant qu'autre utilisateur
 
-A convenient way to check if access rules work as expected is with the `View As`
-feature, available in the `View As` dropdown. This allows an Owner to open the
-document as if they were one of the people it is shared with, to see what their
-colleague would see. The Owner does not "become" that colleague - any changes
-they make will be recorded as coming from themselves and not the colleague - but
-they do see the document from the colleague's perspective.
+Un moyen pratique de vérifier si les règles d'accès fonctionnent comme prévu est la fonction `Voir en tant que`, 
+disponible dans le menu déroulant `Voir en tant que`. Cela permet à un Propriétaire
+d'ouvrir le document comme s'il était l'une des personnes avec qui il est partagé,
+pour voir ce que son collègue verrait. Le Propriétaire ne
+"deviendra" pas ce collègue - tout changement qu'il effectue sera enregistré comme
+provenant de lui-même et non du collègue - mais il voit le
+document du point de vue du collègue.
 
-![Access rules](images/access-rules/access-rules-view-as.png)
+![Règles d'accès](images/access-rules/access-rules-view-as.png)
 
-In our example, we could select Kiwi, and the document reopens, with a large
-banner stating that we are viewing it as Kiwi. The `Piece` and `Email` columns
-are missing, and the `Financials` table is surpressed:
+Dans notre exemple, nous pourrions sélectionner Kiwi, et le
+document se rouvre, avec une grande bannière indiquant que nous le visualisons
+comme Kiwi. Les colonnes `Pièce` et `Email` sont manquantes,
+et la table `Finances` est supprimée :
 
-![Access rules](images/access-rules/access-rules-view-as-kiwi.png)
+![Règles d'accès](images/access-rules/access-rules-view-as-kiwi.png)
 
-You can also check in Raw Data to confirm only the expected tables, columns, and
-rows are exposed.
+Vous pouvez également vérifier dans les Données sources pour confirmer que seules les tables, colonnes et lignes attendues sont exposées.
 
-![Access rules](images/access-rules/access-rules-view-as-kiwi-raw-data.png)
+![Règles d'accès](images/access-rules/access-rules-view-as-kiwi-raw-data.png)
 
-When satisfied that everything looks as expected, we click the green `View as
-Yourself` button to close this preview, and the document will reload.
+Lorsque vous êtes satisfait que tout semble comme prévu, cliquez sur le bouton vert `Voir en tant que vous-même` 
+pour fermer cet aperçu, et le document se rechargera.
 
-## User attribute tables
+## Tables d'attributs d'utilisateur
 
-If we are successful and hire many sourcing and delivery people, then adding
-them one by one to rules would be tedious. One solution is to use "user
-attribute tables." You can add a table to your document that classifies users as
-you like, and then use those classes in your access rules. For example, we can
-make a table called `Team`, and give it two columns, `Email` and `Role`, where
-`Role` is a choice between `Sourcing` and `Delivery`.
+Si nous réussissons et embauchons de nombreuses personnes pour le sourcing et la livraison,
+ajouter chacune d'elles une par une aux règles serait fastidieux. Une solution
+est d'utiliser des "tables d'attributs d'utilisateur." Vous pouvez ajouter une table à votre document
+qui classe les utilisateurs comme vous le souhaitez, puis utiliser ces classes dans vos
+règles d'accès. Par exemple, nous pouvons créer une table appelée `Équipe`, et lui donner deux
+colonnes, `Email` et `Rôle`, où `Rôle` est un choix entre
+`Sourcing` et `Livraison`.
 
-![Access rules](images/access-rules/access-rules-team-table.png)
+![Règles d'accès](images/access-rules/access-rules-team-table.png)
 
-Now we can tell Grist to make information from this table available for access
-rules, by clicking on `Add User Attributes`. Give the attribute any name you
-like (this will be how we refer to it in formulas), such as `Team`. Pick the
-table to read (`Team` also in this case). Give a user property to match against
-rows in this table - in our case we'll use `user.Email`. And the column to match
-against, `Email`.
+Maintenant, nous pouvons dire à Grist de rendre les informations de cette table disponibles
+pour les règles d'accès, en cliquant sur `Ajouter des attributs d'utilisateur`.
+Donnez à l'attribut n'importe quel nom que vous aimez (c'est ainsi que nous nous y référerons
+dans les formules), comme `Équipe`. Choisissez la table à lire (`Équipe` également
+dans ce cas). Donnez une propriété utilisateur à comparer
+avec les lignes de cette table - dans notre cas, nous utiliserons `user.Email`. Et la
+colonne à comparer, `Email`.
 
-![Access rules](images/access-rules/access-rules-team-attribute.png)
+![Règles d'accès](images/access-rules/access-rules-team-attribute.png)
 
-Save that. Now we can update our rules to be more general. We find with
-autocomplete that we have a new `user.Team` variable available in condtions. It
-makes columns from the `Team` available, such as `user.Team.Role`. Now we can
-check if the user has a particular role, and apply the permissions that go with
-that:
+Enregistrez cela. Maintenant, nous pouvons mettre à jour nos règles pour être plus générales. Nous découvrons avec
+l'autocomplétion que nous avons une nouvelle variable `user.Team` disponible dans
+les conditions. Cela rend les colonnes de l'`Équipe` disponibles, comme `user.Team.Role`.
+Maintenant, nous pouvons vérifier si l'utilisateur a un rôle particulier et appliquer les permissions
+qui y sont associées :
 
-![Access rules](images/access-rules/access-rules-team-rules.png)
+![Règles d'accès](images/access-rules/access-rules-team-rules.png)
 
-Great! Doing a spot check, Charon sees the expected columns for someone in
-Sourcing. And if we recruit someone else to work with them, we can just add them
-in the `Team` table, no rule changes needed.
+Super ! En faisant un contrôle aléatoire, Charon voit les colonnes attendues pour quelqu'un dans
+le Sourcing. Et si nous recrutons quelqu'un d'autre pour travailler avec eux, nous pouvons simplement les ajouter
+dans la table `Équipe`, sans besoin de modifier les règles.
 
-![Access rules](images/access-rules/access-rules-view-as-charon.png)
+![Règles d'accès](images/access-rules/access-rules-view-as-charon.png)
 
-## Row-level access control
+## Contrôle d'accès au niveau des lignes
 
-In our example, as orders are processed, they move from sourcing to delivery
-phases. So there's really no need for the two groups to see all the orders at
-once. Let's add a column called `Stage` that can be set to `Sourcing` or
-`Delivery`, so that we can update access rules to show only the relevant orders.
+Dans notre exemple, à mesure que les commandes sont traitées, elles passent des phases de sourcing aux phases de livraison.
+Il n'est donc vraiment pas nécessaire que les deux groupes voient toutes les commandes en même temps. Ajoutons une
+colonne appelée `Étape` qui peut être définie sur `Sourcing` ou `Livraison`, afin que nous
+puissions mettre à jour les règles d'accès pour ne montrer que les commandes pertinentes.
 
-![Access rules](images/access-rules/access-rules-stage-column.png)
+![Règles d'accès](images/access-rules/access-rules-stage-column.png)
 
-In the `Rules for table Orders` group, click the three-dot icon (...), and
-select `Add Default Rule` to add a rule that isn't limited to specific columns.
-Let's deny access to all rows for non-Owners as a starting point, then add back
-in the ones we want. We can do that with the condition `user.Access != OWNER`
-with `Deny All` permissions. Then, we add another default rule by clicking `+`,
-and add the condition `user.Team.Role == rec.Stage`. The `rec` variable allows
-us to express rules that depend on the content within a particular record. Here,
-we check if the `Stage` column of a record matches the user's role. If it is, we
-allow `R` Read access:
+Dans le groupe `Règles pour la table Commandes`, cliquez sur l'icône à trois points (...), et
+sélectionnez `Ajouter une règle à l'échelle de la table` pour ajouter une règle qui n'est pas limitée à des colonnes spécifiques.
+Commençons par refuser l'accès à toutes les lignes pour les non-Propriétaires, puis ajoutons à nouveau celles que nous voulons. Nous pouvons le faire avec la condition `user.Access != OWNER` avec
+des permissions `Refuser tout`. Ensuite, nous ajoutons une autre règle par défaut en cliquant sur `+`, et 
+ajoutons la condition `user.Team.Role == rec.Stage`. La variable `rec` nous permet d'exprimer
+des règles qui dépendent du contenu d'un enregistrement particulier.
+Ici, nous vérifions si la colonne `Étape` d'un enregistrement correspond au rôle de l'utilisateur.
+Si c'est le cas, nous autorisons l'accès `R` Lecture :
 
-![Access rules](images/access-rules/access-rules-stage-rules.png)
+![Règles d'accès](images/access-rules/table-wide-rule-big.png)
 
-Here's how the table looks now as Kimberly (doing deliveries):
+Voici à quoi ressemble la table maintenant pour Kimberly (effectuant des livraisons) :
 
-![Access rules](images/access-rules/access-rules-stage-kiwi.png)
+![Règles d'accès](images/access-rules/access-rules-stage-kiwi.png)
 
-And here's how the table looks as Charon (doing sourcing):
+Et voici à quoi ressemble la table pour Charon (effectuant du sourcing) :
 
-![Access rules](images/access-rules/access-rules-stage-charon.png)
+![Règles d'accès](images/access-rules/access-rules-stage-charon.png)
 
-Kimberly and Charon now have read-only access to the table. Owners still have
-full write access to all rows and columns.
+Kimberly et Charon ont maintenant un accès en lecture seule à la table. Les Propriétaires ont toujours un accès complet
+en écriture à toutes les lignes et colonnes.
 
-!!! note "Understanding reference columns in access rules" You can limit the
-data team members access to just those rows pertinent to their work. One way to
-do so is to relate all records in all tables to their respective team members.
-For example, leads and sales records can reference the sales rep responsible for
-those records. This quick video explains how.
-
+!!! note "Comprendre les colonnes de référence dans les règles d'accès" 
+    Vous pouvez limiter les données auxquelles les membres de l'équipe ont accès à juste les lignes pertinentes pour leur travail. Une façon de le faire est de relier tous les enregistrements dans toutes les tables à leurs membres d'équipe respectifs. Par exemple, les pistes et les enregistrements de ventes peuvent faire référence au représentant commercial responsable de ces enregistrements. Cette vidéo rapide explique comment. 
+    
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ZL3rHdAZzfY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Checking new values
+## Vérification des nouvelles valeurs
 
-Access rules can be used to permit only certain changes to the document. Suppose
-we want `Delivery` people to be able to change `Stage` from `Delivery` to
-`Done`, without giving them the arbitrary rights to edit that column. We can
-grant them that exceptional right as follows. In the `Rules for table Orders`
-group, click the three-dot icon (...), and select `Add Column Rule`. Set `[Add
-Column]` to `Stage`, and mark the U/Update permission to be granted. For the
-condition, use this:
+Les règles d'accès peuvent être utilisées pour permettre uniquement certains changements au document.
+Supposons que nous voulons que les personnes de `Livraison`
+puissent changer `Étape` de `Livraison` à `Fait`, sans leur donner les
+droits arbitraires d'éditer cette colonne. Nous pouvons leur accorder ce droit exceptionnel
+comme suit.
+Dans le groupe `Règles pour la table Commandes`, cliquez sur l'icône à trois points (...), et
+sélectionnez `Ajouter une règle de colonne`. Réglez `[Ajouter une colonne]` sur `Étape`, et marquez la permission U/Mise à jour
+pour être accordée. Pour la condition, utilisez ceci :
 
 ```
-(user.Team.Role == 'Delivery' and
-  rec.Stage == 'Delivery' and
-  newRec.Stage == 'Done')
+(user.Team.Role == 'Livraison' and
+  rec.Stage == 'Livraison' and
+  newRec.Stage == 'Fait')
 ```
 
-This checks if the user has the Delivery role, and the record is in the Delivery
-stage, and that the user is trying to change the Stage to `Done`. The `newRec`
-variable is a variant of `rec` available when the user is proposing to change a
-record, with `rec` containing its state before the change, and `newRec` its
-state after the proposed change.
+Cela vérifie si l'utilisateur a le rôle de Livraison, que l'enregistrement est à l'étape de Livraison,
+et que l'utilisateur essaie de changer l'Étape en `Fait`. La variable `newRec` est une
+variante de `rec` disponible lorsque l'utilisateur propose de changer un enregistrement, avec `rec`
+contenant son état avant le changement, et `newRec` son état après le changement proposé.
 
-![Access rules](images/access-rules/access-rules-delivery-done-rule.png)
+![Règles d'accès](images/access-rules/access-rules-delivery-done-rule.png)
 
-Now, if we view the table as Kiwi, and try to change a `Stage` to `Sourcing`, we
-are denied:
+Maintenant, si nous voyons la table comme Kiwi, et essayons de changer une `Étape` en `Sourcing`, nous sommes
+refusés :
 
-![Access rules](images/access-rules/access-rules-delivery-done-forbid.png)
+![Règles d'accès](images/access-rules/access-rules-delivery-done-forbid.png)
 
-If we change a `Stage` to `Done`, it works, and the record disappears from view
-since it is no longer in the `Delivery` stage:
+Si nous changeons une `Étape` en `Fait`, cela fonctionne, et l'enregistrement disparaît de la vue puisqu'il n'est plus dans l'étape de `Livraison` :
 
-![Access rules](images/access-rules/access-rules-delivery-done-allow.png)
+![Règles d'accès](images/access-rules/access-rules-delivery-done-allow.png)
 
-## Link keys
+## Clés de lien
 
-Sometimes it is useful to give access to a specific small slice of the document,
-for example a single row of a table. Grist offers a feature called "link keys"
-that can help with that. Any parameters in a Grist document URL that end in an
-underscore are made available to access rules in a `user.LinkKey` variable. So
-for example if a document URL ends in `....?Token_=xx-xx-xx-xx&Flavor_=vanilla`,
-then `user.LinkKey.Token` will be set to `xx-xx-xx-xx` and `user.LinkKey.Flavor`
-to `vanilla`. Let's work through an example to see how that can be helpful.
+Parfois, il est utile de donner accès à une petite
+partie spécifique du document, par exemple une seule ligne d'une table. Grist offre
+une fonctionnalité appelée "clés de lien" qui peut aider avec cela. Tous les paramètres dans
+une URL de document Grist qui se terminent par un underscore sont disponibles pour
+les règles d'accès dans une variable `user.LinkKey`. Par exemple, si une URL de document
+se termine par `....?Token_=xx-xx-xx-xx&Flavor_=vanilla`, alors `user.LinkKey.Token`
+sera défini sur `xx-xx-xx-xx` et `user.LinkKey.Flavor` sur `vanilla`.
+Voyons un exemple pour voir comment cela peut être utile.
 
-Suppose we have a table of `Orders` and we'd like to occasionally share
-information about a single order with someone. To do that with link keys, we
-need some kind of hard-to-guess code for each order, which can be used to access
-it. Grist has a [`UUID()`](functions.md#uuid) function that gives a unique,
-random, and hard-to-guess identifier, so let's add a `UUID` column with formula
-`=UUID()`:
+Supposons que nous avons une table de `Commandes` et que nous aimerions occasionnellement
+partager des informations sur une seule commande avec quelqu'un. Pour ce faire avec
+des clés de lien, nous avons besoin d'un code difficile à deviner pour chaque commande,
+qui peut être utilisé pour y accéder. Grist a une fonction [`UUID()`](functions.md#uuid) qui
+donne un identifiant unique, aléatoire et difficile à deviner, donc ajoutons une colonne `UUID` avec
+la formule `=UUID()` :
 
-![Access rules](images/access-rules/access-rules-linkkey-uuid-formula.png)
+![Règles d'accès](images/access-rules/access-rules-linkkey-uuid-formula.png)
 
-In fact we want `UUID()` to be called just once per order, when we create it,
-and never recomputed (because then it would change). So in the right sidebar we
-convert the formula column to a data column, freezing its values:
+En fait, nous voulons que `UUID()` soit appelé une seule fois par commande, lorsque nous la créons,
+et jamais recalculé (car sinon, elle changerait). Donc dans la barre latérale droite,
+nous convertissons la colonne de formule en colonne de données, figeant ses valeurs :
 
-![Access rules](images/access-rules/access-rules-linkkey-uuid-convert.png)
+![Règles d'accès](images/access-rules/access-rules-linkkey-uuid-convert.png)
 
-This converts our formula to a trigger formula. We set the formula to apply to
-new records:
+Cela convertit notre formule en une formule d'initialisation. Nous définissons la formule pour s'appliquer aux nouveaux enregistrements :
 
-![Access rules](images/access-rules/access-rules-linkkey-uuid-data.png)
+![Règles d'accès](images/access-rules/access-rules-linkkey-uuid-data.png)
 
-At this point we have a solid hard-to-guess code for each order in the `UUID`
-column, that will be created as we add new orders. It can be handy at this point
-to construct links to the document with that code embedded in them. Grist has a
-helper for this called [`SELF_HYPERLINK`](functions.md#self_hyperlink). To add a
-link key called `<NAME>`, just use this function with a `LinkKey_<NAME>`
-argument. In our case, we pass `LinkKey_UUID=$UUID` to embed the value of the
-`UUID` column into the URL. We also set `label=$Ref` to control the text label
-of the link in the spreadsheet. To show the link, we set the column type to
-`Text` and set the `HyperLink` option:
+À ce stade, nous avons un code solide et difficile à deviner pour chaque commande dans la
+colonne `UUID`, qui sera créé à mesure que nous ajoutons de nouvelles commandes. Il peut
+être pratique à ce stade de construire des liens vers le document avec ce
+code intégré. Grist a un helper pour cela appelé
+[`SELF_HYPERLINK`](functions.md#self_hyperlink). Pour ajouter une
+clé de lien appelée `<NOM>`, utilisez simplement cette fonction avec un
+argument `LinkKey_<NOM>`. Dans notre cas, nous passons `LinkKey_UUID=$UUID` pour
+intégrer la valeur de la colonne `UUID` dans l'URL. Nous définissons également `label=$Ref`
+pour contrôler le texte du lien dans la feuille de calcul. Pour afficher le lien,
+nous définissons le type de colonne sur `Texte` et activons l'option `HyperLink` :
 
-![Access rules](images/access-rules/access-rules-linkkey-link.png)
+![Règles d'accès](images/access-rules/access-rules-linkkey-link.png)
 
-Once we have these links, we can tidy up a little by hiding the `UUID` and `Ref`
-columns (see [Column operations](widget-table.md#column-operations) for a
-refresher on how to do this):
+Une fois que nous avons ces liens, nous pouvons faire un peu de ménage en cachant les
+colonnes `UUID` et `Ref` (voir [Opérations sur les colonnes](widget-table.md#column-operations) pour un rappel sur la façon
+de le faire) :
 
-![Access rules](images/access-rules/access-rules-linkkey-prune.png)
+![Règles d'accès](images/access-rules/access-rules-linkkey-prune.png)
 
-The links don't do anything special yet, but we have everything we need to make
-that happen now. Here is an example of access rules to allow anyone with a UUID
-in their URL to read any order with a matching UUID (otherwise only owners can
-read orders in this case):
+Les liens ne font encore rien de spécial, mais nous avons maintenant tout ce dont nous
+avons besoin pour que cela se produise. Voici un exemple de règles d'accès pour
+permettre à quiconque ayant un UUID dans son URL de lire toute commande avec un
+UUID correspondant (sinon, seuls les propriétaires peuvent lire les commandes dans ce cas) :
 
-![Access rules](images/access-rules/access-rules-linkkey-rule.png)
+![Règles d'accès](images/access-rules/access-rules-linkkey-rule.png)
 
-And here is what a non-owner now sees, with the UUID of the first order in their
-URL:
+Et voici ce qu'un non-propriétaire voit maintenant, avec l'UUID de la première commande dans son
+URL :
 
-![Access rules](images/access-rules/access-rules-linkkey-use.png)
+![Règles d'accès](images/access-rules/access-rules-linkkey-use.png)
 
-This is just the beginning of the possibilities. Link keys can give access to
-multiple rows across many tables. They can be used in [User attribute
-tables](#user-attribute-tables). And the data they give access to can be within
-tables, cards, card lists, charts, and custom widgets.
+Ce n'est que le début des possibilités. Les clés de lien peuvent donner accès à
+plusieurs lignes à travers de nombreuses tables. Elles peuvent être utilisées dans
+[Tables d'attributs d'utilisateur](#user-attribute-tables). Et les données auxquelles elles donnent accès
+peuvent être dans des tables, des fiches, des listes de fiches, des graphiques et des widgets personnalisés.
 
-Check out [another
-example](https://support.getgrist.com/examples/2021-04-link-keys/) to deepen
-your understanding of link keys even more.
+Consultez [un autre exemple](https://support.getgrist.com/examples/2021-04-link-keys/) pour approfondir votre compréhension des clés de lien.
 
-## Access rule conditions
+## Conditions des règles d'accès
 
-Access rule conditions contain a formula expressing when the rule should apply.
-A blank condition will always apply. When a condition applies for an action, the
-permissions associated with the condition are set to allowed or denied for that
-action if no earlier rule in the same group has yet set them. When a condition
-does not apply, no permissions are set by that rule, but other rules could set
-them.
+Les conditions des règles d'accès contiennent une formule exprimant quand la règle
+doit s'appliquer. Une condition vide s'appliquera toujours. Lorsqu'une condition
+s'applique à une action, les permissions associées à la condition sont
+définies comme autorisées ou refusées pour cette action si aucune règle antérieure dans le même
+groupe ne les a encore définies. Lorsqu'une condition ne s'applique pas, aucune
+permission n'est définie par cette règle, mais d'autres règles pourraient les définir.
 
-Formulas are written in a restricted subset of Python. Variables that may be
-available in access rules are `user`, `rec`, and `newRec`.
+Les formules sont écrites dans un sous-ensemble restreint de Python.
+Les variables qui peuvent être disponibles dans les règles d'accès sont `user`, `rec` et `newRec`.
 
-The `user` variable contains the following members:
+La variable `user` contient les membres suivants :
 
-* `user.Access`: one of `owners`, `editors`, or `viewers`, giving how the
-  document was shared with the user (see [Sharing a document](sharing.md)).
-* `user.Email`: the email address of the user (or `anon@getgrist.com` for users
-  who are not logged in).
-* `user.UserID`: a numeric ID that is associated with the user.
-* `user.Name`: the user's name (or `Anonymous` if unavailable).
-* `user.LinkKey`: an object with any access control URL parameters. Access
-  control URL parameters end in an underscore (which is then stripped). Only
-  available in the web client, not the API.
-* `user.Origin`: The content of the Origin request header. Only available in the
-  API, not the web client.
-* `user.SessionID`: a unique string assigned to anonymous users for the duration
-  of that user's session. For logged in users, `user.SessionID` is always `"u"`
-  + the user's numeric id.
+ * `user.Access`: l'un de `owners`, `editors` ou `viewers`, indiquant comment le
+   document a été partagé avec l'utilisateur (voir [Partage d'un document](sharing.md)).
+ * `user.Email`: l'adresse e-mail de l'utilisateur (ou `anon@getgrist.com` pour les utilisateurs qui ne sont pas connectés).
+ * `user.UserID`: un ID numérique associé à l'utilisateur.
+ * `user.Name`: le nom de l'utilisateur (ou `Anonyme` si indisponible).
+ * `user.LinkKey`: un objet avec tous les paramètres d'URL de contrôle d'accès. Les paramètres d'URL de contrôle d'accès se terminent par un underscore (qui est ensuite supprimé). Disponible uniquement dans le
+   client web, pas dans l'API.
+ * `user.SessionID`: une chaîne unique attribuée aux utilisateurs anonymes pendant la durée de la session de cet utilisateur. Pour les utilisateurs connectés, `user.SessionID` est toujours `"u"` + l'ID numérique de l'utilisateur. 
 
-For an example of using the `user` variable, read [Default
-rules](access-rules.md#default-rules).
+Pour un exemple d'utilisation de la variable `user`, lisez [Règles par défaut](access-rules.md#default-rules).
 
-The `rec` variable contains the state of an individual record/row, for
-conditions that need to take that into account. When it is used, that rule
-becomes row-specific. That allows, for example, to make certain rows visible
-only to certain users, or to prohibit modification of certain rows by certain
-users. For an example of using the `rec` variable, read [Row-level access
-control](access-rules.md#row-level-access-control).
+La variable `rec` contient l'état d'un enregistrement/ligne individuel, pour
+les conditions qui doivent en tenir compte. Lorsqu'elle est utilisée, cette
+règle devient spécifique à la ligne. Cela permet, par exemple, de rendre certaines
+lignes visibles uniquement pour certains utilisateurs, ou d'interdire la modification
+de certaines lignes par certains utilisateurs.
+Pour un exemple d'utilisation de la variable `rec`, lisez [Contrôle d'accès au niveau des lignes](access-rules.md#row-level-access-control).
 
-The `newRec` variable is available for record/row creation and updating, and
-contains the state of a row after a proposed change, allowing you to selectively
-allow or deny certain changes. For an example of using the `newRec` variable,
-read [Checking new values](access-rules.md#checking-new-values).
+La variable `newRec` est disponible pour la création et la mise à jour d'enregistrements/ligne, et contient l'état d'une ligne après un changement proposé,
+vous permettant d'autoriser ou de refuser sélectivement certains changements.
+Pour un exemple d'utilisation de la variable `newRec`, lisez [Vérification des nouvelles valeurs](access-rules.md#checking-new-values).
 
-Supported operations in condition formalas are currently: `and`, `or`, `+`, `-`,
-`*`, `/`, `%`, `==`, `!=`, `<`, `<=`, `>`, `>=`, `is`, `is not`, `in`, `not in`.
-Supported variables are: `user`, `rec`, `newRec` with their members accessed
-with `.`. Strings, numbers, and lists are also supported. If an operation you
-need is not available, consider whether you can do part of the work in a formula
-in the table itself (see [Access rule memos](access-rules.md#access-rule-memos)
-for an example).
+Les opérations prises en charge dans les formules de condition sont actuellement : `and`, `or`,
+`+`, `-`, `*`, `/`, `%`, `==`, `!=`, `<`, `<=`, `>`, `>=`, `is`, `is
+not`, `in`, `not in`. Les variables prises en charge sont : `user`, `rec`,
+`newRec` avec leurs membres accessibles avec `.`. Les chaînes, les nombres et
+les listes sont également pris en charge. Si une opération dont vous avez besoin n'est pas disponible,
+considérez si vous pouvez faire une partie du travail dans une formule dans la table
+elle-même (voir [Mémos de règle d'accès](access-rules.md#access-rule-memos) pour un exemple).
 
-Comments are allowed, using `#` or `"""`. If there is a comment in a rule, then
-the first comment in a rule that results in a denial of an action will be
-reported to the user as a tip for why the action was not permitted. See [Access
-rule memos](access-rules.md#access-rule-memos) for an example.
+Les commentaires sont autorisés, en utilisant `#` ou `"""`. S'il y a un commentaire dans une
+règle, alors le premier commentaire dans une règle qui entraîne un refus d'une
+action sera signalé à l'utilisateur comme un conseil sur la raison pour laquelle l'action n'a pas été
+permise. Voir [Mémos de règle d'accès](access-rules.md#access-rule-memos) pour un exemple.
 
-## Access rule permissions
+## Permissions des règles d'accès
 
-A permission controls whether a user can perform a particalar kind of action.
-Grist access rules currently deal with 5 kinds of action, which are given single
-letter acronyms for convenience:
+Une permission contrôle si un utilisateur peut effectuer un type d'action particulier.
+Les règles d'accès Grist traitent actuellement 5 types d'actions, qui sont données
+par des acronymes à une lettre pour plus de commodité :
 
-* `R` - permission to read cells.
-* `U` - permission to update cells.
-* `C` - permission to create rows.
-* `D` - permission to delete rows.
-* `S` - permission to change table structure.
+ * `R` - permission de lire des cellules.
+ * `U` - permission de mettre à jour des cellules.
+ * `C` - permission de créer des lignes.
+ * `D` - permission de supprimer des lignes.
+ * `S` - permission de modifier la structure de la table.
 
-The `S` structure permission is available in the default access rule group.
-Column rules lack the `C` create and `D` delete permissions, which should be
-handled in default table rules.
+La permission de structure `S` est disponible dans le groupe de règles d'accès par défaut.  Les règles de colonne n'ont pas les permissions `C` de création et `D` de suppression,
+qui doivent être gérées dans les règles de table par défaut.
 
-**Note:** The `S` permission is very powerful. It allows writing formulas, which
-can access any data in the document regardless of rules. Since the `S`
-permission is on by default for Editors and Owners, any such user would be able
-to edit a formula and so retrieve any data.
+**Remarque :** La permission `S` est très puissante. Elle permet d'écrire des formules, qui peuvent accéder
+à toutes les données dans le document, indépendamment des règles. Étant donné que la permission `S` est activée par défaut pour
+les Éditeurs et les Propriétaires, tout utilisateur de ce type pourrait éditer une formule et ainsi récupérer n'importe quelle donnée.
 
-In other words, having the `S` permission makes it possible to circumvent other
-rules that prevent access to data. For this reason, turning it off -- as
-described above in [Locking down structure](#lock-down-structure) -- is an
-important first step in limiting data access.
+En d'autres termes, avoir la permission `S` rend possible de contourner d'autres règles qui empêchent
+l'accès aux données. Pour cette raison, la désactiver -- comme décrit ci-dessus dans [Verrouiller la structure](#lock-down-structure) -- est une première étape importante pour limiter l'accès aux données.
 
 
-## Access rule memos
+## Mémos des règles d'accès
 
-When a user receives an error message denying them access because of a rule, it
-can be helpful to give specific details that will help them understand the
-problem. You can do this by adding a memo for the condition. First, click the
-memo icon to the right of your condition.
+Lorsqu'un utilisateur reçoit un message d'erreur lui refusant l'accès en raison d'une
+règle, il peut être utile de donner des détails spécifiques qui l'aideront à comprendre
+le problème. Vous pouvez le faire en ajoutant un mémo pour la condition. Tout d'abord, cliquez 
+sur l'icône de mémo à droite de votre condition.
 
-![Comment Icon](images/access-rules/access-rules-comment-icon.png)
+![Icône de commentaire](images/access-rules/access-rules-comment-icon.png)
 
-Type the error message you wish to display into the entry box. Be sure to save
-your changes.
+Tapez le message d'erreur que vous souhaitez afficher dans la zone de saisie. Assurez-vous d'enregistrer vos modifications.
 
-![Comment Added](images/access-rules/access-rules-comment-added.png)
+![Commentaire ajouté](images/access-rules/access-rules-comment-added.png)
 
-When the rule blocks a user from performing an action, the memo will appear as a
-notification.
+Lorsque la règle bloque un utilisateur d'effectuer une action, le mémo apparaîtra comme une notification.
 
-![Duplicate error](images/access-rules/access-rules-dupe-forbidden.png)
+![Erreur de duplication](images/access-rules/access-rules-dupe-forbidden.png)
 
-For an explanation of how this particular Access Rule works, see [Access Rules
-to Restrict Duplicate Records](examples/2023-01-acl-memo.md)
+Pour une explication de la façon dont cette règle d'accès particulière fonctionne, voir [Règles d'accès pour restreindre les enregistrements en double](examples/2023-01-acl-memo.md)
 
-## Access rule examples
+## Exemples de règles d'accès
 
-Along with the extended example of using access rules in this section, we will
-collect complete examples of access rule templates and guides here.
+Avec l'exemple étendu d'utilisation des règles d'accès dans cette section, nous allons
+collecter des exemples complets de modèles de règles d'accès et de guides ici.
 
-- [Lead lists](examples/2021-03-leads.md): A very simple list of leads, assigned
-  to individuals to follow up, with control of assignments reserved for document
-  owners.
-- [Account-based Sales
-  Team](https://templates.getgrist.com/38Dz6nMtzvwC/Account-based-Sales-Team):
-  Sales CRM with deals and contacts assigned to sales reps. Reps can only see
-  their own contacts and deals, but managers can see everything.
-- [Public
-  Giveaway](https://templates.getgrist.com/vP7WpQp89hLi/Public-Giveaway): A
-  public giveaway organizer that uses access rules to enforce giveaway rules
-  without requiring claimants to log into Grist.
-- [Simple Poll](https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll): A
-  simple poll managed in Grist with access rules to limit one response per
-  visitor.
-- [Crowdsourced
-  List](https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List): Publicly
-  crowdsourced list with access rules to empower moderators to edit almost
-  anything, but limit visitors to only making and editing their own
-  contributions.
-- [Time Sheets](https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets):
-  Template to capture contractor timesheets. Access rules permit contractors to
-  view only their historical time sheets, and edit only the active month.
-- [Project
-  Management](https://templates.getgrist.com/hifkng53AxyQ/Project-Management/):
-  Track tasks by event and flag tasks at risk. Access rules limit permissions by
-  department, and expand managers' permissions.
+ - [Listes de leads](examples/2021-03-leads.md) : Une liste très simple de leads, assignés à des individus pour un suivi, avec le contrôle des attributions réservé aux propriétaires du document.
+- [Équipe de vente basée sur les comptes](https://templates.getgrist.com/38Dz6nMtzvwC/Account-based-Sales-Team) : CRM de vente avec des affaires et des contacts assignés à des représentants commerciaux. Les représentants ne peuvent voir que leurs propres contacts et affaires, mais les managers peuvent tout voir. 
+- [Tirage au sort public](https://templates.getgrist.com/vP7WpQp89hLi/Public-Giveaway) : Un organisateur de tirage au sort public qui utilise des règles d'accès pour faire respecter les règles du tirage au sort sans exiger que les demandeurs se connectent à Grist.
+- [Sondage simple](https://templates.getgrist.com/jd234iH1zDsL/Simple-Poll) : Un sondage simple géré dans Grist avec des règles d'accès pour limiter une réponse par visiteur.
+- [Liste crowdsourcée](https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List) : Liste crowdsourcée publique avec des règles d'accès pour permettre aux modérateurs de modifier presque tout, mais limiter les visiteurs à ne faire et modifier que leurs propres contributions. 
+- [Feuilles de temps](https://templates.getgrist.com/oGxD8EnzeVs6/Time-Sheets) : Modèle pour capturer les feuilles de temps des entrepreneurs. Les règles d'accès permettent aux entrepreneurs de voir uniquement leurs feuilles de temps historiques et de modifier uniquement le mois actif.
+- [Gestion de projet](https://templates.getgrist.com/hifkng53AxyQ/Project-Management/) : Suivre les tâches par événement et signaler les tâches à risque. Les règles d'accès limitent les permissions par département et élargissent les permissions des managers. 

@@ -1,3 +1,7 @@
+---
+title: Sharing a document
+---
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vJpcC3-FHF8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Sharing
@@ -88,6 +92,73 @@ via a particular link.
 
 Access Rules are supported with link sharing when Public Access
 is set to "Viewer" or "Editor."
+
+## Real-time user presence
+
+When multiple people work in the same Grist document, changes appear in real time. You’ll also see
+who else has the document open, shown as icons in the toolbar:
+
+<span class="screenshot-large">*![user-presence](images/sharing/user-presence.png)*</span>
+{: .screenshot-half }
+
+For documents that are not shared publicly, users with the **owner** or **editor** role see the
+presence of others (including viewers), while users with only the **viewer** role do not.
+
+For a document that's [shared publicly](#public-access-and-link-sharing) (that is, made available
+through link-sharing), Grist makes a distinction between _listed users_ (those shown in the
+"Manage Users" dialog) and _public users_ (everyone else, whether signed in or not). For privacy
+reasons, the display of user presence is subject to the following rules:
+
+- **Listed owners and editors**: see the presence of others. Listed users appear with their names and
+  emails, while public users appear as "Anonymous User", even if signed in.
+- **Listed viewers**: do not see others' presence.
+- **Public users**: do not see others' presence.
+
+This means that you will be visible to others when you visit a document to which you have been
+explicitly added, but not when you visit a document that you only have access to through
+link-sharing.
+
+## Comments
+
+Comments in Grist allow you to collaborate directly on your data by attaching notes to specific cells in data tables. This makes it easy to ask questions, provide feedback, or share context right where the data lives. Note that only users with either 'Owner' or 'Editor' roles can leave comments, while 'Viewers' can only read comments.
+
+To leave a comment, right-click on a cell then select 'Comment' from the dropdown menu.
+
+<span class="screenshot-large">*![sharing-add-comment](images/sharing/sharing-add-comment.png)*</span>
+
+You can tag another user in your comment by typing `@` followed by the user's name.
+
+<span class="screenshot-large">*![sharing-tagging-comment](images/sharing/sharing-tagging-comment.png)*</span>
+{: .screenshot-half }
+
+Comments for a document can be viewed by clicking the 'Comments' icon at the upper-right of the page. This opens the panel on the right-hand side of the page. Click the three-dot icon at the top of the panel for filtering options.
+
+<span class="screenshot-large">*![sharing-view-comments](images/sharing/sharing-view-comments.png)*</span>
+{: .screenshot-half }
+
+Email notifications for comments can be enabled under [Document Settings](document-settings.md#notifications).
+
+## Suggestions
+
+!!! warning "Note"
+    Suggestions are experimental and have many limitations in their current form. They are also subject to change and withdrawal.
+
+Previously, making changes to data in a Grist document was either in real time, or done by copying a document and replacing the original with the new version. If you enable suggestions, you can now manage collaborative changes with a workflow similar to [version control](https://en.wikipedia.org/wiki/Version_control){:target="\_blank"} in computer science. 
+
+A user makes changes in a personal copy without modifying the original document, then submits these suggestions to be reviewed by the document owner prior to integration. This workflow can be useful in more sensitive contexts, or for crowdsourcing data easily with additional quality control. 
+
+### Limitations
+
+In their current experimental state, suggestions have the following limitations:
+
+* They only track changes to data (not structure, views, widgets, formulas, or other metadata).
+* They only work for documents **without** access rules.
+* They only work for documents **without** forms.
+* They need to be enabled on a per-document basis.
+
+### Enabling suggestions
+
+To enable suggestions, go to 'Document Settings' and check the toggle 'Enable suggestions'. Once this is enabled, all users (signed-in and guests) will be able to make suggestions. 
 
 ## Leaving a Document
 

@@ -1,8 +1,12 @@
+---
+title: Intro to formulas
+---
+
 Formulas
 =========
 
 Grist has a powerful data engine to calculate the cells of your
-tables using formulas. It even has an [AI Formula Assistant](ai-assistant.md) to help write formulas. If you've used spreadsheets before, or
+tables using formulas. It even has an [AI Formula Assistant](assistant.md) to help write formulas. If you've used spreadsheets before, or
 database expressions, you'll be on familiar territory - but there are
 some wrinkles you'll want to know about, so hang around.
 
@@ -97,8 +101,6 @@ Grist formulas are written in Python, the most popular language for data science
 The entirety of [Python's standard library](https://docs.python.org/3/library/) is available
 to you. For those with a spreadsheet background, we've also added a suite of Excel-like
 functions, with all-uppercase names. Here's the [full list of functions](functions.md).
-Grist documents may use Python 2 or Python 3, see our [Python guide](python.md)
-for details.
 
 ## Formulas that operate over many rows
 
@@ -280,20 +282,19 @@ to match.  For example, `Materials.lookupRecords(Category='Ship')`{: .formula}, 
 
 If you are following on, see [Adding a field](widget-card.md#adding-a-field)
 for details of how to add a new field to a card.  If you care about the order
-of results, `lookupRecords` takes an optional `sort_by` parameter.  For example,
+of results, `lookupRecords` takes an optional `order_by` parameter.  For example,
 we could use this formula to sort by the product name itself:
 
 ```py
-Materials.lookupRecords(Category='Ship', sort_by='Product').Product
+Materials.lookupRecords(Category='Ship', order_by='Product').Product
 ```
 
-If you want to sort by multiple columns, remember that you can create a hidden
-formula column that combines data in any way you like, and then sort by that.
+You can reverse the order by prefixing the column name with "-". If you want to sort by multiple
+columns, use a tuple of columns, for example, `order_by=('Product', '-Date')`.
 
-The order of records returned by `lookupRecords` may not match the order of rows
-you see in a table.  To get that order, use `sort_by='manualSort'`.  This is an
-internal column that is updated with the manually established sort order
-of rows.
+If `order_by` is omitted, the records returned by `lookupRecords` are ordered by row ID, as if
+`order_by="id"` is specified. If you've rearranged rows manually, this may not match the order of
+rows you see in a table.  To get that order, use `order_by=None`.
 
 If you find yourself doing a lot of look-ups, please consider
 whether [Summary tables](summary-tables.md) and

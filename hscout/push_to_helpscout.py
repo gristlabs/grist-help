@@ -276,6 +276,8 @@ class DesiredArticle:
       # If it's an H1 tag, remove it, since HelpScout already adds the article's name on top.
       if title.name == 'h1':
         title.decompose()
+    if not self.name:
+      raise ValueError("Article missing name in h1 or h2 tag: %s" % self.filepath)
 
   def translateLinks(self, path_to_url_map):
     for link in self.parsed_html.find_all('a', href=True):

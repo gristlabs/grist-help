@@ -1,3 +1,7 @@
+---
+title: Table widget
+---
+
 # Page widget: Table
 
 The **Table** widget is a versatile spreadsheet-like grid.
@@ -113,3 +117,13 @@ Here are some useful features to know.
 
   For example, this lets you change the look of your grid to a list like this:
   ![widget_table_zebra](images/widget_table_zebra.png)
+
+- **Customize row height**: In the widget options panel, you can set a max row height which sets a maximum number of lines for multi-line text. Additionally, you can choose to 'Expand all rows to this height' and set a consistent row height throughout your table.
+
+*![max-row-height](images/max-row-height.png)*
+{: .screenshot-half }
+
+- **Add conditional styles**: In the widget options panel, you can add [conditional formatting](conditional-formatting.md) for rows. When added under 'Row Style', the conditional styling will apply across the entire row.
+
+*![conditional-styling-rows](images/conditional-styling-rows.png)*
+{: .screenshot-half }

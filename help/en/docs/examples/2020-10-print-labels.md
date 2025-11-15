@@ -1,3 +1,7 @@
+---
+title: Print mailing labels
+---
+
 # Printing Mailing Labels
 
 Do you ever print mailing labels? Typically, it involves a few steps, first exporting

@@ -1,3 +1,7 @@
+---
+title: Limits
+---
+
 # Limits
 
 To help you assess whether Grist will work for a use-case you have in
@@ -39,11 +43,21 @@ Documents are also subject to data size limits, as described below.
 
 ## Data size
 
-There is a hard limit to a document's total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document's current data size on the ['Raw Data' page](https://support.getgrist.com/raw-data/#usage).
+There is a hard limit to a document's total data size, determined as the row limit multiplied by 2KB. This means that documents on the Free plan have a data size limit of 10MB, with Pro and Business plan documents having limits of 200MB and 300MB, respectively. This value corresponds approximately to the size of the data in CSV format. You can see a document's current data size on the ['Raw Data' page](raw-data.md#usage).
 
-For memory and performance reasons, there's a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in [formula timer](https://support.getgrist.com/formula-timer/).
+For memory and performance reasons, there's a recommended data size limit of 20MB. Documents beyond 20MB may slow down or run into memory limits depending on their complexity. As an example, a document with 100,000 rows and 24 numeric columns would reach this recommended limit. To help optimize formulas on large documents, you can use the built-in [formula timer](formula-timer.md).
 
-Attachments are counted separately. Attachments plus data in a single document are limited to 1GB on all plans.
+## Attachments
+
+Attachments are counted separately from data. Internal attachments (i.e. default [attachment columns](col-types.md#attachment-columns)) are limited to **1GB** per document in all cases. For [external attachments](document-settings.md#external-attachments), there is a per document limit that's higher on paid plans. There is also a total attachment limit across all documents within an organization. Below are the limits for each Grist plan:
+
+| Plan | Document Limit |  Organization Limit  |
+| --- | --- | --- |
+| Free Personal | 1GB | 50GB |
+| Free Team | 1GB | 50GB |
+| Pro | 3GB | 100GB |
+| Business | 20GB | 200GB |
+| Enterprise | Custom | Custom |
 
 ## Uploads
 

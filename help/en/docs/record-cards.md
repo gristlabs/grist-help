@@ -1,3 +1,7 @@
+---
+title: Record cards
+---
+
 # Record Cards
 
 Record Cards are a quick, easy way to view a record's details. 

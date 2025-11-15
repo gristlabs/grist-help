@@ -1,3 +1,7 @@
+---
+title: FAQ
+---
+
 # Frequently Asked Questions
 
 [TOC]
@@ -76,7 +80,7 @@ You may navigate between your [personal site](teams.md#understanding-personal-si
 
 1. Open the team site to which you want add a second owner.
 
-2. Click 'Manage Users' under the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist.
+2. Click 'Manage Team' under the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist.
 
 3. Add the new email address as Owner, and click Confirm. 
 
@@ -88,7 +92,7 @@ You may navigate between your [personal site](teams.md#understanding-personal-si
 
 4. Go to 'Billing Account' (also under the user menu) and add the new Owner as a [Billing Manager](team-sharing.md#billing-permissions).
 
-5. The new Owner should log in, open the team site, and visit 'Manage Users' and 'Billing Account' pages again to remove the original owner. This will essentially transfer the ownership of the team site to the new account.
+5. The new Owner should log in, open the team site, and visit 'Manage Team' and 'Billing Account' pages again to remove the original owner. This will essentially transfer the ownership of the team site to the new account.
 
 It is not possible to add a second owner to, or transfer ownership of, a [personal account](teams.md#understanding-personal-sites).
 
@@ -175,7 +179,13 @@ There are many ways to share Grist data with non-team members.
 
 4. **View-only embed.** Grist [pages](page-widgets.md#pages) can be embedded into websites in an iframe. [Learn how](embedding.md).
 
----
+### Why do I see "Your site has too many pending invites" when inviting users to a site or document?
+
+Grist limits the number of invites you can send to emails that are not associated with an existing Grist user.
+
+If you run into this error, you need to either wait 24 hours, or wait for the invited users to register and sign in before you can invite additional users.
+
+Enterprise and self-hosted instances may have a different limit.
 
 ## Grist and your website/app
 

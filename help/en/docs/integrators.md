@@ -1,3 +1,7 @@
+---
+title: Integrator services
+---
+
 # Integrator Services
 
 Grist can be connected to thousands of other services via integrators with Grist support. These
@@ -26,7 +30,13 @@ in a table, leading to action in another service.  Conversely,
 workflows triggered by other services can consult, add, or update
 records in Grist tables.
 
-## Example: Storing form submissions
+## Example: Storing third-party form submissions
+
+!!! note ""
+
+    **Note:** This example uses a third-party form provider to demonstrate using Zapier to send form data to Grist.
+    
+    Grist now has native forms built directly within your Grist document, making it easy to collect and manage form responses without third-party tools. [Learn more](widget-form.md).
 
 Suppose we have a form for collecting votes on the color of a proposed new bike
 shed:

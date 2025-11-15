@@ -1,37 +1,46 @@
 ---
-description: The essentials of creating and maintaining a self-managed Grist installation.
+title: Self-hosted Grist
+description: The essentials of creating and maintaining a self-hosted Grist installation.
 ---
 
-# Self-Managed Grist
+# Self-hosted Grist
 
 [TOC]
 
 ## The essentials
 
-### What is Self-Managed Grist?
-
-There are four flavors of Grist:
+There are five flavors of Grist:
 
   * **SaaS** (Software as a Service): Grist is available as a hosted service
     at [docs.getgrist.com](https://docs.getgrist.com).
-    No installation needed. Free and paid plans, with usage limits.
-  * **Desktop App**: Grist is available as a desktop application, built with Electron.
+    No installation needed. Free and paid plans, with usage limits. Plan details available on our 
+    [pricing page](https://www.getgrist.com/pricing/).
+  * **Desktop app**: Grist is available as a desktop application, built with Electron.
     It is available for download at [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases).
     This desktop application does not need internet and is not tied to any online account or service.
-  * **Self-Managed Enterprise**: Grist is available as a licensed application
-    installed by enterprises on their own infrastructure
-    with our support and backing. Contains proprietary features
-	developed for enterprises with particular needs.
-  * **Self-Managed Core**: Grist is available as a free application installed
+  * **Enterprise**: Grist is available as a licensed application that can be installed by enterprises 
+    on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. Contains 
+    proprietary features developed for enterprises with particular needs. 
+  * **Core**: Grist is available as a free application installed
     by citizen developers on their own infrastructure with community support.
     Grist documents created with our SaaS and Enterprise offerings
 	can be opened and edited with Core, and vice versa. This establishes
 	Grist documents as a reliable format for archiving and interchange.
+  * **Grist Builder Edition**: A version of Core pre-packaged for
+    cloud providers such as [Amazon Web
+    Services](https://aws.amazon.com/marketplace/pp/prodview-tew3ygop5xxy4)
+    or [Microsoft
+    Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/grist.grist-builder-edition).
+    Read more about it
+    [here](https://support.getgrist.com/install/grist-builder-edition/).
 
-Self-Managed Grist, be it Enterprise or Core, is installed and configured in
-much the same way, as described in the following
-sections. For clarity, the sections are tagged
-with which flavor they apply to, for example:
+### What is self-hosted Grist?
+
+Self-hosted (or self-managed) Grist, be it Enterprise or Core, is installed and
+configured in much the same way, as described in the following
+sections. Grist Builder Edition can be configured the same way, but
+includes a default configuration to get started. For clarity, the
+sections are tagged with which flavor they apply to, for example:
 {: .tag-core .tag-ee }
 
 The full source code for Grist Core is always available at
@@ -54,17 +63,15 @@ describe how using [Docker](https://www.docker.com/),
 but there are many other tools and services for running
 containers.
 
-To try Grist out using Docker, make an empty directory for Grist to store material in (say `~/grist`) and then for Grist Core you can do:
+To try Grist out using Docker, make an empty directory for Grist to store material in (say `~/grist`) and then you can do:
 
 ```
 docker run -p 8484:8484 \
   -v ~/grist:/persist \
   -e GRIST_SESSION_SECRET=invent-a-secret-here \
+  -e GRIST_DEFAULT_EMAIL=your-email@example.com \
   -it gristlabs/grist
 ```
-
-For Grist Enterprise use `gristlabs/grist-ee` instead of
-`gristlabs/grist`.
 
 You should then be able to visit `http://localhost:8484` in
 your browser. Already you will be able to create and edit Grist
@@ -73,8 +80,10 @@ Grist installation (such as our SaaS).
 
 If using some other tool or service, here are the important points:
 
- * The container name is `gristlabs/grist` or `gristlabs/grist-ee`
-   (for some tools, you may need to prefix these names with `docker.io/`).
+ * The main image name is `gristlabs/grist`, which is our combined Core and Enterprise docker image.
+   The image `gristlabs/grist-oss` also exists, which uses only free and open source code. This image uses only Grist
+   Core, and has no enterprise features available.
+   (For some tools such as Podman, you may need to prefix these image names with `docker.io/`.)
  * A volume (or mount, or directory) needs to be available at location
    `/persist` within the container. It can be initially empty - Grist
    will populate it. Without this volume, nothing you do will be stored long-term.
@@ -97,9 +106,27 @@ take at least the following steps:
 	and a [special authentication method](self-managed.md#are-there-other-authentication-methods) for custom cases.
   * Consider enabling [snapshot support](self-managed.md#how-do-i-set-up-snapshots) if you want Grist to handle document backups.
 
-#### Grist on AWS
+#### Grist on AWS and Azure
 
-You can also host Grist on AWS. Full instructions on this hosting method are available on the Grist [AWS Marketplace page](install/aws-marketplace.md).
+You can also host Grist on AWS and Azure. Full instructions on these hosting methods are available on the [Grist Builder Edition page](install/grist-builder-edition.md).
+
+### What is the administrative account? {: .tag-core .tag-ee }
+
+On a new Grist installation, the user who logs in with the email
+defined by `GRIST_DEFAULT_EMAIL` is the administrator of this Grist
+installation. When Grist runs for the first time, it will create an
+account set to the value of `GRIST_DEFAULT_EMAIL`. Note that if this
+variable is not set, it defaults to `you@example.com`. Changing the
+value of `GRIST_DEFAULT_EMAIL` after the first admin user has been
+created will effectively revoke administrator permissions from the
+first user and assign them to the new email address.
+
+The administrative account has access to the [Installation](admin-panel.md#settings) page in the [Admin Panel](admin-panel.md) where they
+may inspect details of the installation or toggle features such as
+[telemetry](self-managed.md#how-do-i-control-telemetry) or [Grist
+Enterprise](self-managed.md#how-do-i-enable-grist-enterprise).
+
+If [Grist Enterprise](self-managed.md#how-do-i-enable-grist-enterprise) is enabled, the administrative account will also have access to [Admin Controls](admin-controls.md)
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
@@ -220,7 +247,7 @@ Grist has a concept of "team sites" that are independently managed and
 named areas containing their own workspaces and documents.  Team sites
 can have distinct subdomains (as on our SaaS's [hosted team sites](teams.md)),
 or be distinguished by
-a special path prefix.  This often does not make sense for self-managed
+a special path prefix.  This often does not make sense for self-hosted
 installations, where there is a single team.  With a single domain and
 a single team, the special path prefix (which looks like `/o/<team-name>`)
 is an inelegant waste of space in URLs. So you can direct Grist to
@@ -236,6 +263,22 @@ The name of the team should use only the lower-case characters a-z, the digits
 0-9, and the hyphen (`-`).  You may also want to look into
 [Custom styling](self-managed.md#how-do-i-customize-styling) to hide any UI elements
 you don't need.
+
+
+#### Changing the value of `GRIST_DEFAULT_EMAIL`
+
+When [using
+`GRIST_SINGLE_ORG`](self-managed.md#how-do-i-set-up-a-team), the
+single org will also be created initially and owned by the user
+configured by `GRIST_DEFAULT_EMAIL`. If you change the value of
+`GRIST_DEFAULT_EMAIL`, [the
+administrator](self-managed.md#what-is-the-administrative-account) may
+temporarily lose access to the team site.
+
+In order to prevent this, before changing `GRIST_DEFAULT_EMAIL` use
+[team sharing options](team-sharing.md) to add new owners to the team
+site, since apart from initial creation, administrators have no
+automatic right to team site membership.
 
 ### How do I set up authentication? {: .tag-core .tag-ee }
 
@@ -267,12 +310,19 @@ If users on your site login via WordPress, or via a custom mechanism
 you developed, you may want to consider
 [GristConnect](install/grist-connect.md), available for Grist Enterprise.
 
-### How do I activate Grist Enterprise? {: .tag-ee }
+### How do I enable Grist Enterprise? {: .tag-ee }
+
+Grist Enterprise can be enabled by visiting the Installation page in the [Admin Panel](admin-panel.md) and clicking the 'Enable Grist Enterprise Features' toggle.
+This will cause Grist to automatically restart.
+
+![Enterprise toggle on the admin panel](images/admin-panel/enterprise-toggle.png)
+
+You should now have an unactivated version of Grist Enterprise, with a 30 day trial period.
 
 Activation keys are used to run Grist Enterprise after a trial period
 of 30 days has expired.
 Get an activation key by [signing up for Grist Enterprise](https://www.getgrist.com/pricing).
-You don't need an activation key to run Grist Core.
+You don't need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the [Admin Panel](admin-panel.md).
 
 Place the contents of your activation key in an environment variable called
 `GRIST_ACTIVATION`, or place it in a directory available to Grist and
@@ -285,7 +335,7 @@ restarting Grist.
 ```
 docker run ...
   -e GRIST_ACTIVATION=<activation-key-goes-here> \
-  -it gristlabs/grist-ee
+  -it gristlabs/grist
 ```
 
 ---
@@ -295,7 +345,7 @@ docker run ...
 ### How do I customize styling? {: .tag-core .tag-ee }
 
 The Grist UI has many elements, some of which may not be relevant to you.
-For self-managed installations of Grist,
+For self-hosted installations of Grist,
 you can turn off many elements using `GRIST_HIDE_UI_ELEMENTS`.
 This is comma-separated list of parts of the UI to hide.
 The allowed names of parts are:
@@ -361,8 +411,11 @@ you'll need to ensure the custom CSS is available from that base URL.
 
 ### How do I list custom widgets? {: .tag-core .tag-ee }
 
-In our SaaS, Grist has a [list of pre-built custom widgets](https://support.getgrist.com/newsletters/2022-02/#custom-widgets-menu) available in the UI.
-You can have your self-managed installation offer the same list by
+In our SaaS, Grist has a list of pre-built custom widgets available in the UI.
+
+![Custom widget gallery](images/widget-custom/custom-widget-gallery.png)
+
+You can have your self-hosted installation offer the same list by
 setting the following:
 
 ```
@@ -374,103 +427,62 @@ docker run
 
 This is optional. If you leave the variable unset, documents with
 custom widgets will still work fine, but you'll need to enter a full
-URL when adding custom widgets rather than picking an option from a
-drop-down.
+URL when adding custom widgets, rather than picking a widget from the
+gallery.
 
 You can make your own list of widgets available by forking
 [github.com/gristlabs/grist-widget](https://github.com/gristlabs/grist-widget)
 or by manually preparing a `.json` file on a public server in the same
 format as our `manifest.json`.
 
+To customize the appearance of widgets in the gallery, the following
+fields may be set in the `manifest.json`:
+
+ - `name`: The widget title.
+ - `description`: An optional description shown below the widget title.
+ - `authors`: An optional list of one or more widget authors. The
+ first author will be shown in the "Developer" field.
+ - `lastUpdatedAt`: The date shown in the "Last updated" field.
 
 ### How do I set up email notifications? {: .tag-ee }
 
-In Grist SaaS, we send emails such as invitations to share a
-document using [SendGrid](https://sendgrid.com/).
-The same mechanism is available in Grist Enterprise. There is
-not yet an equivalent in Grist Core.
+In Grist SaaS, we send emails when a user is invited to a document or receives a document notification (comment mentions, document changes, etc.).
+The same mechanism is available in Grist Enterprise. There is not yet
+an equivalent in Grist Core.
 
-You will need to set a SendGrid API key:
+Grist uses [Nodemailer](https://nodemailer.com/) for this purpose.
+There are two environment variables that need to be configured to
+enable it:
+
+  * `GRIST_NODEMAILER_CONFIG`: This is a JSON configuration passed
+    verbatim to Nodemailer's `createTransport` method. Refer to [the
+    Nodemailer
+    documentation](https://nodemailer.com/usage#create-a-transporter)
+    for details on what to provide here. Note that this variable
+    should contain the JSON itself, not a path to a JSON file.
+  * `GRIST_NODEMAILER_SENDER`: This is another JSON configuration
+    string for setting the `From:` field of emails sent by Grist. It
+    takes the following form:
+
+    ```
+    {"name": "Default Name Of Sender",
+     "email": "sender.email@example.com"}
+     ```
+
+Because these two variables need to be passed in as verbatim JSON,
+they may need to be quoted if passed from a shell. For example,
 
 ```
-docker run
+docker run \ 
+  -e GRIST_NODEMAILER_CONFIG='{"host":"smtp.example.com","port":587,"auth":{"user":"username","pass":"swordfish"}}' \
+  -e GRIST_NODEMAILER_SENDER='{"name":"Grist Admin","email":"admin@example.com"}' \
+  -e REDIS_URL="redis://hostname/N"
+  -it gristlabs/grist
   ...
-  -e SENDGRID_API_KEY=SG.XXXXXXX.XXXXX \
-  ...
 ```
 
-You will need to make a file `config.json` available in the
-root of the volume mapped to `/persist`. Its contents should be
-as follows:
-
-```
-{
-  "sendgrid": {
-    "api": {
-      "prefix": "https://api.sendgrid.com/v3",
-      "enroll": "/marketing/contacts",
-      "search": "/marketing/contacts/search",
-      "searchByEmail": "/marketing/contacts/search/emails",
-      "listRemove": "/marketing/lists/{{id}}/contacts",
-      "send": "/mail/send"
-    },
-    "address": {
-      "from": {
-        "email": "<the-email-address@mails-should-be-from>",
-        "name": "the name to show with email"
-      }
-    },
-    "template": {
-      "invite": "d-f9.....",
-      "billingManagerInvite": "d-f9.....",
-      "memberChange": "d-b3....."
-    },
-    "list": {
-      "singleUserOnboarding": "b22..."
-    },
-    "unsubscribeGroup": {
-      "invites": 19...,
-      "billingManagers": 19....
-    }
-  }
-}
-```
-
-Here are the meanings of the keys in this file:
-
-  * `sendgrid.api` - Values should remain unchanged from what’s
-    defined in the sample. These control API versioning and
-    endpoints. Grist currently targets v3 of SendGrid's web API.
-  * `sendgrid.address` - Should be set to a verified email address and
-    name of a SendGrid sender. This controls the "From" address of all
-    emails sent via SendGrid (e.g. invites sent on behalf of Grist
-    users).
-  * `sendgrid.template` - Maps Grist actions to SendGrid email templates
-    ids. These are for transactional emails that are sent as a result
-    of some action occurring in Grist.
-  * `sendgrid.template.invite` - This is for emails sent to users that
-    are invited to documents, workspaces, or sites.
-  * `sendgrid.template.memberChange` - This is for emails sent to
-    billing managers when users are added/removed from sites.
-  * `sendgrid.list` - Maps Grist actions to SendGrid marketing list
-    ids. These are for on-going automated emails that are sent to all
-    users who are enrolled in a particular list.
-  * `sendgrid.list.singleUserOnboarding` - New Grist users are
-    automatically added to this list on first-login. This is suitable
-    for sending regular onboarding emails to users.
-  * `sendgrid.unsubscribeGroup` - Maps email types to SendGrid
-    unsubscribe group ids. These are for allowing users to unsubscribe
-    from receiving certain types of emails (via the link in the
-    email).
-  * `sendgrid.unsubscribeGrist.invites` - If set, invite emails can be
-    suppressed via the unsubscribe link in emails.
-  * `sendgrid.unsubscribeGrist.billingManagers` - If set, emails sent
-    specifically to billing managers (e.g. membership changes) can be
-    suppressed via the unsubscribe link in emails.
-
-For reference, there are example SendGrid templates in
-[example-sendgrid-templates.zip](./install/example-sendgrid-templates.zip)
-based on an export of the SendGrid templates for our SaaS.
+Note that a [state store](self-managed.md#what-is-a-state-store) is
+also required for email notifications, supplied above via `REDIS_URL`.
 
 ### How do I add more python packages? {: .tag-core .tag-ee }
 
@@ -488,7 +500,7 @@ Create an empty directory, and add the following into it, in a file called
 `Dockerfile`:
 
 ```
-FROM gristlabs/grist  # or grist-ee, or grist-omnibus
+FROM gristlabs/grist  # or grist-oss or grist-omnibus
 
 RUN \
   apt update && apt install -y openssl && \
@@ -627,14 +639,33 @@ and set the following variables:
 * TYPEORM_HOST - set to hostname of database, e.g. grist.mumble.rds.amazonaws.com
 * TYPEORM_PORT - set to port number of database if not the default for PostgreSQL
 
-Grist is known to work with PostgreSQL from versions 10 through 14 (later versions
-are likely to work also, but have not been specifically tested at the time of writing).
+Grist is known to work with PostgreSQL from versions 10 through 16.
+Versions 12 and up, however, have enabled by default a JIT compiler that
+is known to cause problems with Grist, which expresses itself as every
+cell operation taking a few noticeable seconds. For Grist versions before 1.5.0,
+PostgreSQL's JIT compiler should be disabled for Grist with the
+command-line argument `-c jit=off` or via [other methods of changing
+the PostgreSQL
+configuration](https://www.postgresql.org/docs/current/config-setting.html#CONFIG-SETTING-CONFIGURATION-FILE).
+In a `docker-compose.yaml` file, for example, the JIT compiler can be
+disabled like this:
+
+```yaml
+  postgres:
+    image: postgres:latest
+    command: -c jit=off
+  # other config follows...
+```
+
+As of Grist version 1.5.0, Grist will unconditionally disable JIT
+compilation when connecting to PostgreSQL, removing the need to
+disable it yourself.
 
 ### What is a state store? {: .tag-core .tag-ee }
 
 Grist can be configured to use Redis as an external state cache. For
-most Grist functionality, this is optional. It is required for webhook
-support, and recommended for snapshot support. To use, just set `REDIS_URL` to something like
+most Grist functionality, this is optional. It is required for webhook and notifications
+support. It is also recommended for snapshot support. To use, just set `REDIS_URL` to something like
 `redis://hostname/N` where `N` is a redis database number.
 
 ```
@@ -697,13 +728,23 @@ As per [MinIO specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:t
 
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
+### How do I enable external attachments? {: .tag-core .tag-ee }
+
+Follow these steps:
+
+1. Enable snapshots as in the instructions [above](#how-do-i-set-up-snapshots).
+2. Set the [environment variable](https://github.com/gristlabs/grist-core/#environment-variables) `GRIST_EXTERNAL_ATTACHMENTS_MODE=snapshots`.
+3. Follow the [instructions for enabling external attachments](document-settings.md#external-attachments) for each document that needs them.
+
 ### How do I control telemetry? {: .tag-core }
 
-By default, Grist installations do not "phone home" to any central
-service. It is useful to permit them to do so, to give Grist Labs some
-limited insight into your usage, through measurements called
+By default, Grist installations do not send detailed information to
+any central service, [except for some version
+information](#how-do-i-control-automatic-checks-for-new-installed-versions).
+It is useful to permit Grist to send more information, to give Grist
+Labs some limited insight into your usage, through measurements called
 telemetry. This will help guide development, and draw attention to
-self-managed users as a group.
+self-hosted users as a group.
 
 The simplest way for an owner of a Grist installation to opt in to sending
 telemetry to Grist Labs is to click the "Opt in to Telemetry" button on
@@ -735,13 +776,62 @@ An interactive method for controlling telemetry is only
 available for Grist Core builds currently. In all cases,
 the default is to not send telemetry.
 
+### How do I control automatic version checks? {: .tag-core .tag-ee }
+
+The default Docker images for Grist Core and Enterprise come enabled
+with a setting to perform weekly update checks and inform the [installation administrator](self-managed.md#what-is-the-administrative-account) if any such updates are available. This
+behavior can be disabled from the [Admin Panel](admin-panel.md) via the
+'Auto-check weekly' toggle. You can click on
+'Check now' at any time to see if a new Grist Docker image is available.  
+
+<span class="screenshot-large">*![Automatic version
+ checking](images/admin-version-checking.png)*</span>
+
+In addition, it is also possible to disable automatic checks by
+setting the environment variable
+`GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=false` for the Docker image.
+
+On the other hand, the `gristlabs/grist-oss` [Docker image](https://hub.docker.com/r/gristlabs/grist-oss) image has less opinionated defaults. It contains only free and open-source code, without the option to enable Enterprise features from Grist Labs, and has this check disabled. If desired, automatic version checking can be enabled for
+this Docker image by setting the environment variable
+`GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=true`.
+
+The automatic version check sends three pieces of information to a service maintained by Grist Labs:
+
+1. The version number of the installation
+2. Whether it's a Core or an Enterprise installation
+3. An anonymized and unique installation identification number
+
+This anonymized information helps Grist Labs determine how quickly critical upgrades are being taken up by the community. It also gives an anonymized measure of Grist usage, which may help direct developer attention to supporting self-hosting. For administrators, this check can be helpful for staying up to date, especially with special security-related releases which may be issued outside of the usual release cycle.
+
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
 We currently release new Grist Core and Enterprise images at
 approximately weekly intervals. Grist handles any migrations that
 may be needed to the documents or databases it uses.
 Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
-keep your version of Grist up to date for you.
+keep your version of Grist up to date for you. We can also install and maintain self-hosted 
+Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/contact/) for more information.
+
+### What is the installation ID? Will it change if I upgrade or move the container? {: .tag-ee #installation-id }
+
+Activation keys used for Grist Enterprise are normally tied to a particular installation ID,
+which is a randomly-generated unique identifier for your instance. You can find your
+installation ID in the "Version" section of the [Admin Panel](admin-panel.md):
+
+![Installation ID in the admin panel](images/admin-panel/installation-id.png)
+
+The installation ID is tied to the [home database](#what-is-a-home-database) rather than to the
+host machine or container. It will not change if you upgrade the container or move it to another
+machine, as long as the application's database remains the same. If the database is Postgres, the
+installation ID is preserved across any transition that preserves the data contained by that
+database (e.g. backup and restore from backup). If the database is the default SQLite in a persistent
+volume, the installation ID is preserved across any transition that preserves the content of that
+volume.
+
+
+### How do I completely remove a user from my instance? {: .tag-ee }
+
+The [installation administrator](self-managed.md#what-is-the-administrative-account) can manage access — including [removing users](admin-controls.md#removing-a-user) — via the [Admin Controls](admin-controls.md) area in the [Admin Panel](admin-panel.md).
 
 ### What if I need high availability? {: .tag-ee }
 

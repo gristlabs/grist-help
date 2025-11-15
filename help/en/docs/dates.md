@@ -1,3 +1,7 @@
+---
+title: Working with dates
+---
+
 Overview
 --------
 
@@ -144,19 +148,19 @@ DAYS($Last_day, $First_day)
     [`MONTH`](functions.md#month), [`HOUR`](functions.md#hour),
     and [many more](functions.md#date).
 
-## Getting a part of the date
+## Displaying days, weeks, years and intervals
 
-You've seen how to parse the date, display it in different formats, and do date arithmetic. But what
-if you want to get more information about a specific date, such as getting its day of the week?
+You’ve learned how to parse dates, format them, and do date math. But what if you want more details, like the day of the week? You can find this (and much more) in the 'Add Column' menu. Click the `+` icon at the far right of a table, hover over 'Date helpers…', then choose a date column. In the next menu, pick an option such as 'Day of week' to add a new formula column.
 
-One option is to use the [WEEKDAY](functions.md#weekday) function, which behaves as it does in
-Excel, returning  1-7 for Sunday-Saturday.
+![Date Helpers](images/dates/date_helpers.png)
 
-![Weekday formula](images/dates-weekday-formula.png)
+This built-in option uses the [strftime](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior) function:
 
-Alternatively, we can use the [strftime](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior) function:
+![Weekday format](images/dates/dates-weekday-strftime.png)
 
-![Weekday format](images/dates-weekday-strftime.png)
+Of course, you can always write your own function to get the same information. For example, you could use the [WEEKDAY](functions.md#weekday) function, which behaves as it does in Excel, returning  1-7 for Sunday-Saturday.
+
+![Weekday formula](images/dates/dates-weekday-formula.png)
 
 Yet another option would be to reformat the date using Date Format in Column Options
 (see the [date formatting reference](https://momentjs.com/docs/#/displaying/format/)).

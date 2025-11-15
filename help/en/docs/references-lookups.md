@@ -1,8 +1,12 @@
+---
+title: References and lookups
+---
+
 Using References and Lookups in Formulas
 =========
 
 [Reference and Reference List columns](col-refs.md) in Grist allow one table to create an explicit reference to another. 
-A common example of this is seen in the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program) template.
+A common example of this is seen in the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program){: target="\_blank"} template.
 
 On the Staff page, we have a list of staff members. On the classes page, we have a reference column labeled Instructor that 
 references the records on our Staff page. 
@@ -15,7 +19,7 @@ Keep in mind, it’s not just referencing the Full Name column but the entire re
 
 Using a Reference column within a formula can make it easy to get any data from the referenced record. To do this, we use dot notation. It uses the format `$A.B` where `A` is the name of the reference column and `B` is the name of the column in the referenced table that we want to pull data from.
 
-Let’s see this in action on the [Enrollment View](https://templates.getgrist.com/doc/afterschool-program/p/7) page of the Class Enrollment template. Dot notation is used in the Class_Times column of the ENROLLMENTS table, found at the bottom right of the Enrollment View page.
+Let’s see this in action on the [Enrollment View](https://templates.getgrist.com/doc/afterschool-program/p/7){: target="\_blank"} page of the Class Enrollment template. Dot notation is used in the Class_Times column of the ENROLLMENTS table, found at the bottom right of the Enrollment View page.
 
 <span class="screenshot-large">*![class-times](images/references-lookups/class-times.png)*</span>
 
@@ -62,9 +66,9 @@ Another way to see the name is to chain the dot-notation, as we did for phone: `
 
 ## lookupOne
 
-Another way to point to a record is using `Table.lookupOne(...)` function. [lookupOne](https://support.getgrist.com/functions/#lookupone) allows you to look up a record by some fields, similar to Excel's VLOOKUP. In fact, Grist's version of VLOOKUP is merely an alias for lookupOne. lookupOne is rarely useful in Grist, because using a Reference type column is usually the preferred solution to connect records. However, on some occasions, lookupOne can be useful. 
+Another way to point to a record is using `Table.lookupOne(...)` function. [lookupOne](functions.md#lookupone) allows you to look up a record by some fields, similar to Excel's VLOOKUP. In fact, Grist's version of VLOOKUP is merely an alias for lookupOne. lookupOne is rarely useful in Grist, because using a Reference type column is usually the preferred solution to connect records. However, on some occasions, lookupOne can be useful. 
 
-One situation is when you have two sets of data which overlap even though they represent something different and perhaps come from different sources. An example of this can be found in our [Event Sponsors + Attendees (References and Lookups)](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/m/fork) document which is a modified version of the Event Sponsors + Attendees template, available in our [template gallery](https://public.getgrist.com/p/templates). 
+One situation is when you have two sets of data which overlap even though they represent something different and perhaps come from different sources. An example of this can be found in our [Event Sponsors + Attendees (References and Lookups)](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/m/fork){: target="\_blank"} document which is a modified version of the Event Sponsors + Attendees template, available in our [template gallery](https://public.getgrist.com/p/templates){: target="\_blank"}. 
 
 Let's say that you run an event and have a list of registered attendees, as well as Sponsors. Registered attendees are stored in the All Registrations table, perhaps populated via a form integration. 
 
@@ -103,7 +107,7 @@ It's often a good idea to create a column for the lookup result and change its t
 
 Because lookupOne is creating a reference to a record, we can use dot notation to look up additional fields in that record.
 
-In the [example](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/1) above, `Sponsors.lookupOne(Contact_Email=$Registration_Email)` is checking if a Contact Email from the Sponsors table matches a Registration Email from the All Registrations table.
+In the [example](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/1){: target="\_blank"} above, `Sponsors.lookupOne(Contact_Email=$Registration_Email)` is checking if a Contact Email from the Sponsors table matches a Registration Email from the All Registrations table.
 
 What if we also wanted to look up the sponsor level?
 
@@ -115,11 +119,11 @@ The entire formula would be `Sponsors.lookupOne(Contact_Email=$Registration_Emai
 
 Now, we have the Sponsor Level listed in the All Registrations table for those attendees whose emails also appear on the sponsor list.
 
-## lookupOne and sort_by ##
+## lookupOne and order_by ##
 
-When the `lookupOne` function encounters multiple matching results, it returns the first one by row ID. The optional `sort_by` parameter can be used to sort these results by another field, to determine which one would be returned as the first match. You can also prefix the column ID with "-" to reverse the order.
+When the `lookupOne` function encounters multiple matching results, it returns the first one by row ID. The optional `order_by` parameter can be used to sort these results by another field, to determine which one would be returned as the first match. You can prefix the column ID with "-" to reverse the order (e.g. `order_by="-Date"`), and you can order by a combination of columns using a tuple (e.g. `order_by=("Account", "-Date")`).
 
-For instance, consider this example from the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program) template. This template tracks enrollment for extracurricular and other classes - logging information for students, families, and staff. 
+For instance, consider this example from the [Class Enrollment](https://templates.getgrist.com/doc/afterschool-program){: target="\_blank"} template. This template tracks enrollment for extracurricular and other classes - logging information for students, families, and staff. 
 
 On this page, we have a list of students and their respective information.
 
@@ -132,13 +136,13 @@ Additionally, we have a Families page that outlines the parent of each student a
 
 Then, the following formula would look at the Students table, find the specific students associated with each family, sort them by their birthday, and return the one student with the earliest birthday: 
 
-`Students.lookupOne(Family=$id, sort_by="Birthday")`
+`Students.lookupOne(Family=$id, order_by="Birthday")`
 
 In this case, this would return: Raddon, Brockie. 
 
 Alternatively, if we want to find the youngest student, the formula would include "-": 
 
-`Students.lookupOne(Family=$id, sort_by="-Birthday”)`
+`Students.lookupOne(Family=$id, order_by="-Birthday”)`
 
 In this case, this would return: Raddon, Care. 
 
@@ -146,7 +150,7 @@ In this case, this would return: Raddon, Care.
 
 Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. 
 
-A great example of this is seen on the [Habit Tracker](https://templates.getgrist.com/1BR9vm6GPTGX/Habit-Tracker) template. 
+A great example of this is seen on the [Habit Tracker](https://templates.getgrist.com/1BR9vm6GPTGX/Habit-Tracker){: target="\_blank"} template. 
 
 On the Habits + Goals page, we have a list of habits and a goal for how often we wish to complete that habit. On the Habit Tracker page, we have a Reference List column labeled Habits Completed that references the records on our Habits + Goals page. 
 
@@ -158,7 +162,7 @@ The only difference between a Reference column and a Reference List column is th
 
 Similar to references, you can use Dot Notation with reference lists. 
 
-Building on our prior [example](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3) of attendees at a conference, suppose we have a list of registrants for an event and want to find the balance for each registrant. To do this, we can use dot notation.
+Building on our prior [example](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3){: target="\_blank"} of attendees at a conference, suppose we have a list of registrants for an event and want to find the balance for each registrant. To do this, we can use dot notation.
 
 Here, `$Registrants` is a reference list. Our Great Outdoors Expo has 4 registrants. We can see the list of registrants in the Registrants column. This list is a reference to the Name column of the All Registrants table. 
 
@@ -172,7 +176,7 @@ With a reference list, dot-notation returns a list of all the selected field;
 
 ## lookupRecords
 
-You can also get a list of references using [lookupRecords](https://support.getgrist.com/functions/#lookuprecords).
+You can also get a list of references using [lookupRecords](functions.md#lookuprecords).
 
 The formula for lookupRecords follows this format:
 
@@ -182,7 +186,7 @@ The formula for lookupRecords follows this format:
 
 `[Table_Name]` is the name of the table you want to lookup data in. `[A]` is the column in the table being looked up (named at the beginning of the formula) and `[B]` is the column in the current table / the table you are entering the formula in.
 
-Suppose we want a list of the events attended by each person in our [Email List](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/4) table. We can use lookupRecords to do this. First, we need to lookup records where the email listed in the All Registrations table matches an email in this list. Then, find the event associated with each of those records. 
+Suppose we want a list of the events attended by each person in our [Email List](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/4){: target="\_blank"} table. We can use lookupRecords to do this. First, we need to lookup records where the email listed in the All Registrations table matches an email in this list. Then, find the event associated with each of those records. 
 
 Following the format above, our initial formula is:
 ```
@@ -210,7 +214,7 @@ Every row has a numeric id (available as `$id` in formulas) that is unique withi
 <span class="screenshot-large">*![row-id](images/references-lookups/row-id.png)*</span>
 {: .screenshot-half }
 
-Let's take a look at the Registrants column of the [Events](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3) table. 
+Let's take a look at the Registrants column of the [Events](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3){: target="\_blank"} table. 
 
 <span class="screenshot-large">*![lookup-records-id](images/references-lookups/lookup-records-id.png)*</span>
 
@@ -222,7 +226,7 @@ We use the existing reference, just in reverse - hence the name, Reverse Lookup.
 
 <span class="screenshot-large">*![reverse-lookup](images/references-lookups/reverse-lookup.png)*</span>
 
-If you’d like a video walkthrough of a reverse lookup, we have an example in our [Build with Grist Webinar - Trigger Formulas v. Formulas](https://www.youtube.com/watch?v=0qVDPZd2w9I&t=788s).
+If you’d like a video walkthrough of a reverse lookup, we have an example in our [Build with Grist Webinar - Trigger Formulas v. Formulas](https://www.youtube.com/watch?v=0qVDPZd2w9I&t=788s){: target="\_blank"}.
 
 ## Working with record sets
 
@@ -246,7 +250,7 @@ SUM($Registrants.Balance)
 ```
 <span class="screenshot-large">*![registrants-balance-sum](images/references-lookups/registrants-balance-sum.png)*</span>
 
-We can also use lookupRecords to get the list of references, rather than using a reference list column, then find the sum of the balance for all registrants. This method is used in the Ticket Revenue column of the [Events](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3) table using the following formula:
+We can also use lookupRecords to get the list of references, rather than using a reference list column, then find the sum of the balance for all registrants. This method is used in the Ticket Revenue column of the [Events](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3){: target="\_blank"} table using the following formula:
 
 ```
 SUM(All_Registrations.lookupRecords(Event=$id).Balance)
@@ -265,7 +269,7 @@ This does the same thing as our lookupRecords formula we saw above. `$Registrant
 
 <span class="screenshot-large">*![reference-list-for-loop-sum](images/references-lookups/reference-list-for-loop-sum.png)*</span>
 
-If you’d like to learn more about [Data Structures and List Comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) in Python 3, [Python.org](http://python.org/) is a great resource.
+If you’d like to learn more about [Data Structures and List Comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions){: target="\_blank"} in Python 3, [Python.org](http://python.org/){: target="\_blank"} is a great resource.
 
 `len()` can be useful to get the number of items within a list. Once you find your list of records using the lookupRecords function, you can use `len()` to count the number of records returned, like you see in this formula:
 
@@ -279,7 +283,7 @@ You can also do this on a reference list.
 len($RefList)
 ```
 
-We want to see how many events our Sponsors have attended. We can use lookupRecords to do this. The following formula is used in the Events Attended column of the [Sponsors](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/2) table.
+We want to see how many events our Sponsors have attended. We can use lookupRecords to do this. The following formula is used in the Events Attended column of the [Sponsors](https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/2){: target="\_blank"} table.
 
 ```
 len(All_Registrations.lookupRecords(Sponsor=$id))
@@ -301,7 +305,7 @@ That's a list of records.
 <span class="screenshot-large">*![len](images/references-lookups/len.png)*</span>
 {: .screenshot-half }
 
-We can also include multiple arguments in a lookupRecords formula. An example of this can be found in the Count column of the Classes table of the [Class Enrollment](https://public.getgrist.com/doc/eW4nqWfK1k3K~8iDuMy8ApPXvzhcemSiYsS~14207/p/6) template. This column shows us how many students are enrolled in each class. The formula used here is:
+We can also include multiple arguments in a lookupRecords formula. An example of this can be found in the Count column of the Classes table of the [Class Enrollment](https://public.getgrist.com/doc/eW4nqWfK1k3K~8iDuMy8ApPXvzhcemSiYsS~14207/p/6){: target="\_blank"} template. This column shows us how many students are enrolled in each class. The formula used here is:
 
 ```
 len(Enrollments.lookupRecords(Class=$id, Status="Confirmed"))

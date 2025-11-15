@@ -5,3 +5,8 @@ markdown_extensions:
     permalink: False
 hooks:
 - ../mkdocs-utils/hooks.py
+
+# Override plugins to leave in only those that might matter.
+plugins:
+  - awesome-pages
+  - meta-descriptions

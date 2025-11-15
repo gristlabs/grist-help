@@ -1,14 +1,33 @@
+---
+title: Newsletters
+---
+
 # Grist for the Mill
 
 Welcome to our monthly newsletter of updates and tips for Grist users. The phrase "Grist for the
 mill" means "useful experience, material, or knowledge", perfectly reflecting its purpose.
 
-To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup).
+To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup) or sign up for [just the newsletter](https://www.getgrist.com/newsletter/).
 
+- [October 2025 Newsletter](newsletters/2025-10.md): Try our experimental suggestions feature and learn about Grist’s accessibility.
+- [September 2025 Newsletter](newsletters/2025-09.md): Scenario simulation, firewood ordering, and GristCon recordings. 
+- [August 2025 Newsletter](newsletters/2025-08.md): Comments are here! Email notifications are here! More GristCon sessions! 
+- [July 2025 Newsletter](newsletters/2025-07.md): GristCon sessions announced, duplicating widgets and Assistant upgrades.
+- [June 2025 Newsletter](newsletters/2025-06.md): GristCon announcement, AI Assistant updates, and community widgets.
+- [May 2025 Newsletter](newsletters/2025-05.md): So many custom widgets! Also: introducing the Grist Partner program.
+- [April 2025 Newsletter](newsletters/2025-04.md): The new AI Assistant is here! Also: some very cool community widgets.
+- [March 2025 Newsletter](newsletters/2025-03.md): Focus mode, Enterprise admin controls, and more spreadsheet makeovers.
+- [February 2025 Newsletter](newsletters/2025-02.md): External attachments, spreadsheet makeovers, and new community widgets.
+- [January 2025 Newsletter](newsletters/2025-01.md): Dedicated servers, document list refresh, and Grist on a national scale.
+- [December 2024 Newsletter](newsletters/2024-12.md): 2024 year in review, Grist on Azure, and custom widgets galore.
+- [November 2024 Newsletter](newsletters/2024-11.md): Grist in 20+ languages, AWS self-hosting, audit logs and more!
+- [October 2024 Newsletter](newsletters/2024-10.md): Grist Paris Summit, custom widgets made easy, and community highlights.
+- [September 2024 Newsletter](newsletters/2024-09.md): Two-way references, Grist Desktop release, cool community creations.
+- [August 2024 Newsletter](newsletters/2024-08.md): Markdown in the cell, custom widget cards, and webhook documentation.
 - [July 2024 Newsletter](newsletters/2024-07.md): Cumulative functions, new kinds of lookups, improved variable syncing and a new users webinar!
 - [June 2024 Newsletter](newsletters/2024-06.md): Research templates, running rootless, and community contributions! 
-- [May 2024 Newsletter](newsletters/2024-05.md): New Grist Business plan, a formula timer utility, draggable conditionals and admin console improvements!
-- [April 2024 Newsletter](newsletters/2024-04.md): Filtering reference and choice dropdown lists, an admin console for self-hosters.
+- [May 2024 Newsletter](newsletters/2024-05.md): New Grist Business plan, a formula timer utility, draggable conditionals and Admin Panel improvements!
+- [April 2024 Newsletter](newsletters/2024-04.md): Filtering reference and choice dropdown lists, an Admin Panel for self-hosters.
 - [March 2024 Newsletter](newsletters/2024-03.md): Improvements to forms, new file formats, and a boot page for self-hosters.
 - [February 2024 Newsletter](newsletters/2024-02.md): Community spotlight: new widgets, fun experiments, and in-depth explorations.
 - [January 2024 Newsletter](newsletters/2024-01.md): Grist Forms are here! Getting data into Grist just got easier.

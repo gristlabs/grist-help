@@ -1,3 +1,7 @@
+---
+title: Calendar
+---
+
 # Page widget: Calendar
 
 The calendar widget allows viewing data in a calendar view. In Grist, event data is stored in a data table. Then, the calendar widget can be configured to display that data.
@@ -28,13 +32,17 @@ Configure the widget by selecting the columns in your data table that contain St
 *![widget-calendar-configuration](images/widget-calendar/widget-calendar-configuration.png)*
 {: .screenshot-half }
 
-## Adding a new event
+## Adding, modifying, and deleting events
+
+### Adding events
 
 You can add a new event by double-clicking the start time for the event in the calendar widget. In the popup, you can add a title for the event and modify the start and end time. You also have the option to mark the event as 'all day'. 
 
 *![widget-calendar-new-event](images/widget-calendar/widget-calendar-new-event.png)*
 
-You can also modify the start and end time of an event by clicking and dragging the event directly on the calendar.
+### Modifying events
+
+You can modify the start and end time of an event by clicking and dragging the event directly on the calendar.
 
 To modify an eventâ€™s start time, click and drag from the middle of the event. When modifying start time, the duration of the event will remain the same. 
 
@@ -47,6 +55,16 @@ To modify an event's end time, click and drag from the bottom of the event. Youâ
 {: .screenshot-half }
 
 Any changes to start and end time will be made to the underlying data table so your data will always be consistent!
+
+You can modify the details of any event from the event's record card. Double click on an event to open its record card.
+
+*![widget-calendar-open-record-card](images/widget-calendar/widget-calendar-open-record-card.png)*
+
+### Deleting events
+
+To delete an event, double click the event on the calendar to open its record card. Open the dropdown menu from the top right corner of the record card, and select "Delete record" from the list.
+
+*![widget-calendar-delete-record](images/widget-calendar/widget-calendar-delete-record.png)*
 
 ## Linking event details
 
@@ -67,8 +85,3 @@ Now, when you click on an event in the calendar widget, the linked widget will u
     Drag the linked widget into the attic at the top of the page to collapse. The widget will still be linked but will take up less space on the page! Simply click the box to expand and view linked record details.
 
     Read more on [Custom Layouts](custom-layouts.md).
-
-## Deleting an event
-To delete an event, double-click the event in the calendar then select 'delete' in the popup.
-
-*![widget-calendar-delete-record](images/widget-calendar/widget-calendar-delete-record.png)*

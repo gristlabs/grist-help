@@ -1,3 +1,7 @@
+---
+title: Automatic backups
+---
+
 # Automatic Backups
 
 Grist automatically saves backups of your documents as you work on them. These backups -- or

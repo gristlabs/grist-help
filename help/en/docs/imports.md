@@ -1,3 +1,7 @@
+---
+title: Importing more data
+---
+
 # Importing more data
 
 You can import a file to [start a new Grist document](creating-doc.md), or to
@@ -66,6 +70,8 @@ drive — just the single file you choose to import.
 Once the file has been chosen, the rest of the process is the same as importing 
 from an Excel file. In the [import dialog](imports.md#the-import-dialog) 
 you may configure what data to import, and which destination table to add it to.
+
+## Import from URL
 
 If you have an URL to a file or a spreadsheet stored on your Google Drive or a file that
 is publicly accessible, you can import it directly using the "Import from URL" option from

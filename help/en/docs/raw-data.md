@@ -1,3 +1,7 @@
+---
+title: Raw data
+---
+
 # Raw data
 
 The raw data page is a special page that lists all [data tables](glossary.md#data-table) in your document and summarizes your document's usage statistics.

@@ -1,3 +1,7 @@
+---
+title: Conditional formatting
+---
+
 Conditional Formatting
 ======================
 
@@ -25,10 +29,13 @@ To add conditional formatting to rows, go to the `ROW STYLE` section of the [cre
 Order of Rules
 --------------
 
-Note that Grist applies the rules in order. Styles applied by later rules will override those applied by earlier rules.
+Note that Grist applies the rules in order from top to bottom. Styles applied by rules that appear later in the list will override those applied by rules earlier in the list. To change the order of the rules, hover over a rule to reveal a drag handle, then click and drag the handle to move the rule to its new position.
 
 What would happen if we swapped the last two rules in the example above?
 
 ![Conditional rules order](images/columns/conditional-rules-order.PNG)
 
-Notice that Gen Hamamoto, who has 0 champion dogs, is not highlighted in brown. This is because after applying the second conditional style, `$Number_of_Champions == 0`{: .formula}, Grist applied the third, `$Number_of_Champions <= 2`{: .formula}, which applies to Gen Hamamoto as well and shades him blue.
+Notice that Gen Hamamoto, who has 0 champion dogs, is not highlighted in brown. This is because after applying the second conditional style, `$Number_of_Champions == 0`{: .formula}, Grist applied the third, `$Number_of_Champions <= 2`{: .formula}, which applies to Gen Hamamoto as well and shades him blue. When we change the order of the rules so that the second and third conditional styles switch positions, Gen Hamamoto will be highlighted in brown.
+
+![Reorder conditional rules](images/columns/reorder-conditional-rules.gif)
+{: .screenshot-half}

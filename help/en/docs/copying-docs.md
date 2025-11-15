@@ -1,3 +1,7 @@
+---
+title: Copying documents
+---
+
 # Copying Documents
 
 It is sometimes useful to make a copy, or clone, of a Grist document. A few scenarios are described below. In

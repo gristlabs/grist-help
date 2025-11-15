@@ -1,0 +1,42 @@
+paths:
+  /scim/v2/Schemas:
+    get:
+      summary: Retrieve SCIM schemas
+      operationId: getSchemas
+      tags:
+        - scim
+      responses:
+        '200':
+          description: Successfully retrieved schemas.
+        '401':
+          description: Unauthenticated
+        '500':
+          description: Internal server error.
+
+  /scim/v2/ServiceProviderConfig:
+    get:
+      summary: Retrieve service provider configuration
+      operationId: getServiceProviderConfig
+      tags:
+        - scim
+      responses:
+        '200':
+          description: Successfully retrieved service provider configuration.
+        '401':
+          description: Unauthenticated
+        '500':
+          description: Internal server error.
+
+  /scim/v2/ResourceTypes:
+    get:
+      summary: Retrieve SCIM resource types
+      operationId: getResourceTypes
+      tags:
+        - scim
+      responses:
+        '200':
+          description: Successfully retrieved resource types.
+        '401':
+          description: Unauthenticated
+        '500':
+          description: Internal server error.

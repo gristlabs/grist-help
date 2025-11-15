@@ -1,3 +1,7 @@
+---
+title: Search, sort & filter
+---
+
 # Search, Sort, and Filter
 
 Grist offers several ways to search within your data, or to organize data to be at your

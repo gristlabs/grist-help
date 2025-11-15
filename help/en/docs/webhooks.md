@@ -1,4 +1,8 @@
 ---
+title: Webhooks
+---
+
+---
 description: How to configure webhooks for some external integrations
 ---
 
@@ -42,8 +46,7 @@ the processing of the webhook. Not all fields are required.
   triggers when adding a row, it does not matter which columns are defined
   when the new row is added.
 * **Ready column** (optional): A boolean, or [Toggle](col-types.md#toggle-columns), column on the table that
-  determines if the row should trigger the webhook or not. When the
-  column becomes true, the corresponding row will trigger the webhook.
+  determines if the row is visible to webhooks. While the toggle in the "Ready column" is false, changes to that row do not trigger the webhook. When the column becomes true, the row becomes visible to the webhook, and triggers the "add" event. While the column is true, further changes to the row trigger "update" events.
 * **URL**: The remote URL of the service that the webhook will notify
   of added or changed rows. When self-hosting, only external services
   listed by the [`ALLOWED_WEBHOOK_DOMAINS` environment variable](

@@ -5,12 +5,13 @@
 # Source: https://github.com/tiangolo/fastapi/blob/master/scripts/docs.py
 # Original Author: Sebastián Ramírez and contributors
 
+from functools import lru_cache
 import json
 import logging
 import os
 import shutil
 import subprocess
-import requests
+from mkdocs.utils.yaml import yaml_load
 from getpass import getpass
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from multiprocessing import Pool
@@ -44,8 +45,13 @@ def language_docs_dir(lang: str) -> Path:
   return docs_path / lang / "docs"
 
 
+def global_config_path() -> Path:
+  return Path(__file__).parent / mkdocs_config_name
+
+
 def get_missing_translation_path(lang: str) -> Path:
   return Path(docs_path) / lang / MISSING_TRANSLATION_FILENAME
+
 
 def get_missing_translation_snippet() -> str:
   missing_translation_file_path = get_missing_translation_path("en")
@@ -55,14 +61,15 @@ def get_missing_translation_snippet() -> str:
 
 def get_mkdocs_yaml_for_lang(lang: str) -> str:
   return dedent(f"""
-  INHERIT: ../../mkdocs.yml
+  INHERIT: ../../{mkdocs_config_name}
   docs_dir: './docs'
   theme:
-   custom_dir: ../../overrides
-   language: {lang}
+    custom_dir: ../../overrides
+    language: {lang}
   """).lstrip()
 
 
+@lru_cache
 def get_alternate_langs_config() -> Dict[str, Any]:
   return mkdocs.utils.yaml_load(alternate_langs_config_path.read_text(encoding="utf-8"))
 
@@ -118,8 +125,6 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
 
   typer.secho(f"Successfully initialized: {new_path}", color=typer.colors.GREEN)
   update_languages()
-  typer.echo("If you are the owner of the weblate project, " +
-    "you may also run './docs.py update-languages --update-weblate' to update the allowed languages. If not, you may just go on and open a PR.", bold=True)
 
 @app.command()
 def build_lang(
@@ -170,61 +175,54 @@ def build_all() -> None:
   with Pool(process_pool_size) as p:
     p.map(build_lang, langs)
 
+def update_translatable_nav_sections() -> None:
+  def extract_nav_sections_keys(nav):
+    """
+    Extract the nav sections keys from the nav list.
+    """
+    en_nav_sections_keys = []
+    for nav_item in nav:
+      # Nav_items dicts (objects) maybe either be pages, represented this way: {"Welcome to Grist": "index.md"}
+      # or sections, represented this way:
+      # {'How-to tutorials': [{'Create your own CRM': 'lightweight-crm.md'}, {'Analyze and visualize': 'investment-research.md'}, ...]}
+      if isinstance(nav_item, dict):
+        first_key = list(nav_item.keys())[0]
+        # If the value is a list, it's a section, so we recurse into it.
+        # Otherwise, it's a single page, so we just skip.
+        if isinstance(nav_item[first_key], list):
+          # Append the current key
+          en_nav_sections_keys.append(first_key)
+          # Use recursion to seek for other sections.
+          en_nav_sections_keys += extract_nav_sections_keys(nav_item[first_key])
+    return en_nav_sections_keys
+
+  """
+  Extract the nav sections from the en docs and add these sections to the dedicated yaml file so they can be translated.
+  """
+  global_config = yaml_load(global_config_path().read_text(encoding="utf-8"))
+  en_nav = global_config.get("nav", [])
+
+  en_nav_sections = extract_nav_sections_keys(en_nav)
+
+
+  for lang in get_alternate_langs_config()['extra']['alternate']:
+    localized_nav_sections_path = Path('help') / lang.get('code') / 'sections-translations.yml'
+    cur_localized_nav_sections = yaml_load((localized_nav_sections_path).read_text(encoding="utf-8")) if localized_nav_sections_path.exists() else {}
+    updated_localized_nav_sections = {}
+
+    for en_section_name in en_nav_sections:
+      updated_localized_nav_sections[en_section_name] = cur_localized_nav_sections.get(en_section_name) or en_section_name
+
+    localized_nav_sections_path.write_text(yaml.dump(updated_localized_nav_sections), encoding='utf-8')
+
 
 @app.command()
 def update_languages() -> None:
   """
   Update the mkdocs.yml file Languages section including all the available languages.
   """
-  update_config()
-
-@app.command()
-def update_weblate_filters() -> None:
-  """
-  Update the language filters (`language_regex` property), so only languages matching the regex can be added.
-  Therefore no language can be added in Weblate unless they are present in the alternate langs.
-
-  Also see:
-   - https://github.com/WeblateOrg/weblate/discussions/9703
-   - https://docs.weblate.org/en/latest/admin/projects.html#component-language-regex
-  """
-
-  api_key = os.environ.get("WEBLATE_API_KEY")
-  grist_help_project_slug = 'grist-help'
-  if not api_key:
-    api_key = getpass("Enter Weblate API Key (or set WEBLATE_API_KEY in environment): ")
-
-  s = requests.Session()
-  s.headers.update({
-    "Authorization": f"Token {api_key}",
-    "Accept": "application/json"
-  })
-  retries = Retry(total=3,
-                backoff_factor=0.1,
-                status_forcelist=[ 500, 502, 503, 504 ])
-  s.mount('https://', HTTPAdapter(max_retries=retries))
-
-  base_api_url = 'https://hosted.weblate.org/api'
-  resp = s.get(f'{base_api_url}/projects/{grist_help_project_slug}/components/?page_size=1000')
-  resp.raise_for_status()
-
-  slugs = [item['slug'] for item in resp.json().get('results')]
-  if len(slugs) == 1000:
-    raise typer.Abort('The number of components returned is more than 1000, the code should be updated to handle pagination')
-
-  config = get_alternate_langs_config()
-  languages = [item['code'] for item in config['extra']['alternate']]
-  language_filter=f'^({"|".join(languages)})$'
-
-  for slug in slugs:
-    component_url = f'{base_api_url}/components/{grist_help_project_slug}/{slug}/'
-    res = s.patch(component_url, json = { "language_regex": language_filter })
-    res.raise_for_status()
-    typer.echo(typer.style("SUCCESS:", fg=typer.colors.GREEN, bold=True) +
-      f" languages updated succesfully for {slug}")
-
-  typer.secho('ALL DONE for Weblate! Please note that weblate users will only be suggested to add allowed translations once the "Add missing translation" job has run (every 24h)', fg=typer
-.colors.GREEN, bold=True)
+  update_alternate_lang_config()
+  update_translatable_nav_sections()
 
 @app.command()
 def serve() -> None:
@@ -270,10 +268,10 @@ def live(
   lang_path: Path = docs_path / lang
   os.chdir(lang_path)
   os.environ["DISABLE_LANGUAGE_SELECTOR"] = "true"
-  mkdocs.commands.serve.serve(dev_addr="127.0.0.1:8000")
+  mkdocs.commands.serve.serve(dev_addr="127.0.0.1:8000", watch_theme=True)
 
 
-def get_updated_config_content() -> Dict[str, Any]:
+def get_updated_alternate_lang_config_content() -> Dict[str, Any]:
   config = get_alternate_langs_config()
   languages = [{"en": "/"}]
   new_alternate: List[Dict[str, str]] = []
@@ -303,8 +301,8 @@ def get_updated_config_content() -> Dict[str, Any]:
   return config
 
 
-def update_config() -> None:
-  config = get_updated_config_content()
+def update_alternate_lang_config() -> None:
+  config = get_updated_alternate_lang_config_content()
   alternate_langs_config_path.write_text(
     "# WARNING: this file is auto-generated by ./docs.py\n" +
     yaml.dump(config, sort_keys=False, width=200, allow_unicode=True),
@@ -319,7 +317,7 @@ def verify_config() -> None:
   """
   typer.echo("Verifying mkdocs-alternate-lang.yml")
   config = get_alternate_langs_config()
-  updated_config = get_updated_config_content()
+  updated_config = get_updated_alternate_lang_config_content()
   if config != updated_config:
     typer.secho(
       f"./mkdocs-alternate-lang.yml outdated from {docs_folder_name}/language_names.yml, "

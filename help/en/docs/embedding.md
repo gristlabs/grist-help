@@ -1,3 +1,7 @@
+---
+title: Embedding
+---
+
 ## Embedding Grist
 
 Perhaps you'd like to list your product, prices and quantities on your website,

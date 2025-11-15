@@ -10,7 +10,7 @@ openapi: 3.0.0
 security:
   - ApiKey: []
 servers:
-  - url: https://{subdomain}.getgrist.com/api
+  - url: https://{gristhost}/api
     variables:
         subdomain:
             description: The team name, or `docs` for personal areas
@@ -63,6 +63,20 @@ paths:
       responses:
         200:
           description: Success
+    delete:
+      operationId: deleteOrg
+      tags:
+        - orgs
+      summary: "Delete an org"
+      parameters:
+        - $ref: '#/components/parameters/orgIdPathParam'
+      responses:
+        200:
+          description: Success
+        403:
+          description: Access denied
+        404:
+          description: Not found
 
   /orgs/{orgId}/access:
     get:
@@ -210,7 +224,43 @@ paths:
               schema:
                 type: string
                 description: a unique identifier for the document
-                example: "8b97c8db-b4df-4b34-b72c-17459e70140a"
+                example: "9PJhBDZPyCNoayZxaCwFfS"
+
+  /workspaces/{workspaceId}/import:
+    post:
+      operationId: importDoc
+      tags:
+        - docs
+      summary: "Import an existing document"
+      parameters:
+        - $ref: '#/components/parameters/workspaceIdPathParam'
+      requestBody:
+        description: "settings for the document"
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                upload:
+                  description: "Contents of a .grist file, as a standard multipart/form-data file entry"
+                  type: string
+                  format: binary
+                documentName:
+                  type: string
+                  example: "Example Doc"
+        required: true
+      responses:
+        200:
+          description: The document id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: a unique identifier for the document
+                    example: "9PJhBDZPyCNoayZxaCwFfS"
 
   /workspaces/{workspaceId}/access:
     get:
@@ -315,6 +365,43 @@ paths:
       responses:
         200:
           description: "Success"
+
+  /docs/{docId}/copy:
+    post:
+      operationId: copyDoc
+      tags:
+        - docs
+      summary: "Copies a document to a workspace."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "the target workspace"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - workspaceId
+                - documentName
+              properties:
+                workspaceId:
+                  type: integer
+                  example: 597
+                documentName:
+                  type: string
+                  example: "Example Doc"
+                asTemplate:
+                  type: boolean
+                  description: "Remove all data and history but keep the structure to use the document as a template"
+      responses:
+        200:
+          description: "The document id"
+          content:
+            application/json:
+              schema:
+                description: "a unique identifier for the document"
+                type: string
+                example: "145"
 
   /docs/{docId}/access:
     get:
@@ -476,6 +563,45 @@ paths:
       responses:
         200:
           description: Document reloaded successfully
+  /docs/{docId}/recover:
+    post:
+      operationId: recoverDoc
+      tags:
+        - docs
+      summary: "Set recovery mode for a document"
+      description: "Controls the recovery mode of a document. Recovery mode helps in recovering from errors or corrupted states. Only document owners can control recovery mode."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "Recovery mode settings"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recoveryMode:
+                  type: boolean
+                  description: "Whether to enable recovery mode. Defaults to true if not specified."
+                  example: true
+        required: false
+      responses:
+        200:
+          description: Recovery mode set successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - recoveryMode
+                properties:
+                  recoveryMode:
+                    type: boolean
+                    description: "The current recovery mode state of the document"
+                    example: true
+        403:
+          description: Access denied - only owners can control recovery mode
+        404:
+          description: Document not found
   /docs/{docId}/tables/{tableId}/data:
     get:
       operationId: getTableData
@@ -645,6 +771,168 @@ paths:
       responses:
         200:
           description: Attachment contents, with suitable Content-Type.
+  /docs/{docId}/attachments/archive:
+    get:
+      operationId: downloadAttachments
+      tags:
+        - attachments
+      summary: "Download all attachments"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: format
+          schema:
+            type: string
+            enum: ['zip', 'tar']
+      responses:
+        200:
+          description: Archive of all attachments, in either .zip or .tar format.
+    post:
+      operationId: uploadMissingAttachments
+      tags:
+        - attachments
+      summary: "Upload missing attachments"
+      description: "Restores attachments which are missing from external storage."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        description: "A .tar file downloaded from Grist, containing all the document's attachments."
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: "The .tar file. Must have `Content-Type=application/x-tar` set."
+      responses:
+        200:
+          description: Summary of attachments used
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  added:
+                    type: integer
+                    description: "Total files added to external storage."
+                  errored:
+                    type: integer
+                    description: "Total files that errored when attempting to process them."
+                  unused:
+                    type: integer
+                    description: "Total files that aren't needed, or don't match an existing attachment."
+
+  /docs/{docId}/attachments/store:
+    get:
+      operationId: getDocumentAttachmentStore
+      tags:
+        - attachments
+      summary: "Get external store"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Document's current external storage setting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentStoreSetting'
+    post:
+      operationId: setDocumentAttachmentStore
+      tags:
+        - attachments
+      summary: "Set external store"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentStoreSetting'
+      responses:
+        200:
+          description: The ID of the store the document's store
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  store:
+                    $ref: '#/components/schemas/DocumentStoreId'
+
+  /docs/{docId}/attachments/stores:
+    get:
+      operationId: listAttachmentStores
+      tags:
+        - attachments
+      summary: "List external attachment stores"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Document's current external storage setting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentStoreSetting'
+
+  /docs/{docId}/attachments/transferAll:
+    post:
+      operationId: startAttachmentTransfer
+      tags:
+        - attachments
+      summary: "Start transferring attachments"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Transfer status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentsTransferStatus'
+
+  /docs/{docId}/attachments/transferStatus:
+    get:
+      operationId: getAttachmentTransferStatus
+      tags:
+        - attachments
+      summary: "Get attachment transfer status"
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Transfer status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentsTransferStatus'
+
+
+  /docs/{docId}/attachments/removeUnused:
+    post:
+      operationId: removeUnusedAttachments
+      tags:
+        - attachments
+      summary: "Delete unused attachments from the document"
+      description: >
+        When an uploaded attachment is no longer used in a Grist document, 
+        it's retained for a period of time in case it's needed again (e.g. to facilitate an "undo").
+        
+        This removes all of these retained attachments, reducing the amount of storage used.
+        This is particularly useful if a document has hit its attachment storage limit.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: expiredOnly
+          schema:
+            type: boolean
+            description: "Only remove attachments that haven't been used for a period of time. This duration is set by host of the Grist instance."
+      responses:
+        200:
+          description: Success
 
   /docs/{docId}/tables/{tableId}/records:
     get:
@@ -1301,6 +1589,22 @@ paths:
           description: "The caller is not allowed to delete this api key"
         404:
           description: "Can't delete api key of non existing service account"
+  /scim/v2/Users:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users"
+  /scim/v2/Users/{userId}:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1{userId}"
+  /scim/v2/Users/.search:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users~1.search"
+  /scim/v2/Me:
+    $ref: "./scim/users.yml#/paths/~1scim~1v2~1Me"
+  /scim/v2/Bulk:
+    $ref: "./scim/bulk.yml#/paths/~1scim~1v2~1Bulk"
+  /scim/v2/Schemas:
+    $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1Schemas"
+  /scim/v2/ServiceProviderConfig:
+    $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1ServiceProviderConfig"
+  /scim/v2/ResourceTypes:
+    $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1ResourceTypes"
 
 tags:
   - name: orgs
@@ -1327,6 +1631,8 @@ tags:
     description: "Grist users."
   - name: service accounts
     description: "Impersonations to handle grist ressources at API level without compromising real users API keys."
+  - name: scim
+    description: "SCIM"
 components:
   securitySchemes:
     ApiKey:
@@ -1684,7 +1990,7 @@ components:
                 example: 1
               fields:
                 type: object
-                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)."
+                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)."
       example:
         records:
           -
@@ -1711,7 +2017,7 @@ components:
             properties:
               fields:
                 type: object
-                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)."
+                description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)."
       example:
         records:
           -
@@ -1759,14 +2065,14 @@ components:
                 type: object
                 description: >
                   keys are column identifiers, and values are
-                  [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)
+                  [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)
                   we want to have in those columns (either by matching
                   with an existing record, or creating a new record)
               fields:
                 type: object
                 description: >
                   keys are column identifiers, and values are
-                  [cell values](https://support.getgrist.com/code/interfaces/grist_plugin_api.rowrecord/#cellvalues)
+                  [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)
                   to place in those columns (either overwriting values in an existing
                   record, or in a new record)
       example:
@@ -2240,7 +2546,7 @@ components:
           type: string
           enum: ["utf-8"]
         dialect:
-          $ref: https://specs.frictionlessdata.io/schemas/csv-dialect.json
+          $ref: "https://specs.frictionlessdata.io/schemas/csv-dialect.json"
         schema:
           $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
     ServiceAccountResult:
@@ -2278,6 +2584,44 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/ServiceAccountResult"
+          $ref: "https://specs.frictionlessdata.io/schemas/table-schema.json"
+    DocumentStoreSetting:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ 'external', 'internal' ]
+    DocumentStoreId:
+      type: string
+      nullable: true
+      example: "83395209-fc3b-4d02-8934-b2619efec712-filesystem"
+    DocumentAttachmentsLocation:
+      type: string
+      description: "The current location of attachment files in the document"
+      enum:
+        - none
+        - internal
+        - mixed
+        - external
+      example: mixed
+    AttachmentsTransferStatus:
+      type: object
+      properties:
+        status:
+          type: object
+          properties:
+            pendingTransferCount:
+              type: integer
+              description: "Remaining transfers be performed"
+              example: 19
+            isRunning:
+              type: boolean
+              description: "Are files actively being transferred?"
+              example: true
+        locationSummary:
+          $ref: '#/components/schemas/DocumentAttachmentsLocation'
+
+
 
   parameters:
     filterQueryParam:
@@ -2386,10 +2730,3 @@ components:
           - label
       description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
       required: false
-    saIdPathParam:
-      in: path
-      name: saId
-      schema:
-        type: integer
-      description: A service account id
-      required: true

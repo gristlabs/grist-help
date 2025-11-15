@@ -1,6 +1,21 @@
+---
+title: Limited telemetry
+---
+
 # Telemetry level: limited
 This is a telemetry level appropriate for self-hosting instances of Grist.
 Data is transmitted to Grist Labs.
+
+## documentCreated
+Triggered when a document is created.
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| docIdDigest | string | A hash of the id of the created document. |
+| sourceDocIdDigest | string | A hash of the id of the source document, if the document was duplicated from an existing document. |
+| isImport | boolean | Whether the document was created by import. |
+| isSaved | boolean | Whether the document was saved to a workspace. |
+| fileType | string | If the document was created by import, the file extension of the file that was imported. |
 
 ## documentForked
 Triggered when a document is forked.
@@ -92,6 +107,7 @@ Triggered daily.
 | numWorkspaces | number | The number of workspaces in this site. |
 | numMembers | number | The number of site members. |
 | lastActivity | date | A timestamp of the most recent update made to a site document. |
+| earliestDocCreatedAt | date | A timestamp of the earliest non-deleted document creation time. |
 
 ## watchedVideoTour
 Triggered when the video tour is closed.
@@ -99,4 +115,12 @@ Triggered when the video tour is closed.
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | watchTimeSeconds | number | The number of seconds elapsed in the video player. |
+
+## checkedUpdateAPI
+Triggered when the app checks for updates.
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| deploymentId | string | The installation id of the client. |
+| deploymentType | string | The deployment type of the client. |
 

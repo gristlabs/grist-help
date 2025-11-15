@@ -1,3 +1,7 @@
+---
+title: Form
+---
+
 # Page widget: Form
 
 The form widget allows you to collect data in a form view which populates your Grist data table upon submission.
@@ -24,11 +28,11 @@ By default, the form view will include elements for headers and descriptions as 
 
 *![widget-form-default-values](images/widget-form/widget-form-default-values.png)*
 
-### Adding and removing elements
+## Adding elements
 
 To add additional form elements, click the + icon at the bottom of the form. From the menu, you can add the following elements:
 
-1. **New Question:** Select a column type to create a new field. "••• More >" will open an expanded menu listing all column types. Adding a new question will add a new column to the underlying data table.
+1. **New Question:** Select a column type to create a new field. "••• More >" will open an expanded menu listing all column types. Adding a new question will add a new column to the underlying data table. This new column is hidden by default in existing table widgets within your document.
 2. **Unmapped Fields:** Lists any hidden fields from the underlying data table.
 3. **Building Blocks:** Customize further by adding these additional elements!
 
@@ -38,22 +42,57 @@ You can remove any element from the form by hovering over the object and clickin
 
 *![widget-form-delete](images/widget-form/widget-form-delete.png)*
 
-### Configuring fields
+## Configuring fields
 
 You can provide alternative titles for your form fields, rather than use the same column name from the underlying data table. For example, on our form, we have a toggle that is titled "May we contact you?". In the data table, this column is labeled "Ok to Contact?". Field titles can be configured under the "Field" tab of the creator panel.
 
 *![widget-form-field-title](images/widget-form/widget-form-field-title.png)*
 
-To make a form field required, check the box next to "Required field".
+The types of form fields correspond to Grist [column types](col-types.md#specifying-a-type), but
+forms offer different options for some types. For example, Choice and Reference types allow
+choosing between "Select" (or dropdown) and "Radio" formats, while Choice List columns are shown as
+checkboxes.
 
-*![widget-form-required-field](images/widget-form/widget-form-required-field.png)*
+All fields also support several options or rules:
 
-If a user attempts to submit a form without filling in the required field, they will get an alert to fill out the field.
-
-*![widget-form-required-field-error](images/widget-form/widget-form-required-field-error.png)*
+*![widget-form-required-field](images/widget-form/widget-form-field-rules.png)*
 {: .screenshot-half }
 
-### Configuring building blocks
+#### Required field
+
+Makes the field required. If a user attempts to submit a form without filling in the required field, they will get an alert to fill out the field.
+
+  *![widget-form-required-field-error](images/widget-form/widget-form-required-field-error.png)*
+  {: .screenshot-half }
+
+#### Hidden field
+
+This field will not be shown to users. This is often useful in combination with the next option
+("Accept value from URL"), or may be used to hide a field temporarily without losing its
+configuration.
+
+#### Accept value from URL
+
+Allow the default value for this field to be taken from the URL. To
+construct prefilled URLs, add
+[URL parameters](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL#parameters)
+to the URL in the form `COLUMN_ID=VALUE`, where `COLUMN_ID` is the one shown under the checkbox, and
+`VALUE` is the value you'd like to prefill.
+
+Parameters are separated from the form URL by `?`, and from each other by `&`. If your values
+include special characeters, they should be
+[encoded](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding).
+Space may be encoded as `+`.
+
+Example: <code>https://public.getgrist.com/forms/n2x1dCRpqF14ymCQqpkCS7/4?**Company_Name**=Grist+Labs&**Role**=Reviewer</code>
+
+For Choice List and Reference List types, you may
+include the same column ID multiple times to set multiple checkboxes by default.
+
+Example: <code>...?**Interest**=newsletter&**Interest**=surveys</code>.
+
+
+## Other building blocks
 
 Header and Paragraph building blocks can be edited either directly in the block or from the creator panel. In the creator panel, you have text alignment options available.
 
@@ -66,7 +105,7 @@ For additional formatting, both elements allow the use of Markdown formatting. F
 !!! note "HTML Formatting"
     HTML tags can be used in Markdown-formatted text. Be sure to separate block-level HTML elements like `<div>` and `<p>` from other elements using blank lines.
 
-### Configuring submission options
+## Submission options
 
 You also have the option to configure different settings for the "Submit" button. You can change the button label, update the success text which appears after a form is submitted and choose to allow multiple form submissions. You also have the option to select a specific URL to redirect to following submission.
 

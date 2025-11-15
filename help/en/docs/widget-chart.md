@@ -1,3 +1,7 @@
+---
+title: Chart
+---
+
 # Page widget: Chart
 
 Grist supports several chart types to help you visualize your data easily. Charts may be used to plot a

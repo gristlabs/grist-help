@@ -1,3 +1,7 @@
+---
+title: Link keys guide
+---
+
 # Create Unique Links in 4 Steps
 
 In Grist, “link keys” are URL parameters that when combined with the `user.LinkKey` variable in
