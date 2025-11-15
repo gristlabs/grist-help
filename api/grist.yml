@@ -1137,6 +1137,170 @@ paths:
           description: "The caller is not allowed to delete this account"
         404:
           description: "The user is not found"
+  /service-accounts:
+    get:
+      tags:
+        - service accounts
+      summary: "Get all your service accounts"
+      description: |
+        This list all your service accounts with their details.
+      responses:
+        200:
+          description: "Get an array of your service accounts"
+          content:
+            application/json:
+              schema:
+                type:
+                  oneOf:
+                    - $ref: "#/components/schemas/ServiceAccountsResult"
+        403:
+          description: "The caller is not allowed to access this ressource"
+    post:
+      tags:
+        - service accounts
+      summary: "Create a service accounts"
+      description: |
+        This creates a new service account with a new apikey.
+        If no info is given label and description will be empty,
+        ExpiresAt date will be today at midnight so the generated api key will be expired at its creation.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              properties:
+                label:
+                  type: string
+                  description: "The service account's display name"
+                  example: "n8n"
+                description:
+                  type: string
+                  description: "Description of service account's purpose"
+                  example: "For data update workflow"
+                expiresAt:
+                  type: string
+                  description: "The service account's expiration date"
+                  example: "2042-10-10"
+      responses:
+        200:
+          description: "Creates a new service account"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceAccountResult"
+        403:
+          description: "The caller is not allowed to create service accounts"
+  /services-accounts/{saId}:
+    get:
+      tags:
+        - service accounts
+      summary: "Get a service account details"
+      parameters:
+        - $ref: '#/components/parameters/saIdPathParam'
+      description: |
+        This list a service account details.
+      responses:
+        200:
+          description: "Get a service account details"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceAccountResult"
+        403:
+          description: "The caller is not allowed to create service accounts"
+        404:
+          description: "No such service account"
+    patch:
+      tags:
+        - service accounts
+      summary: "Modify a service account"
+      parameters:
+        - $ref: '#/components/parameters/saIdPathParam'
+      description: |
+        This update a service account's label, description or expiration date.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              properties:
+                label:
+                  type: string
+                  description: "The service account's display name"
+                  example: "n8n"
+                description:
+                  type: string
+                  description: "Description of service account's purpose"
+                  example: "For data update workflow"
+                expiresAt:
+                  type: string
+                  description: "The service account's expiration date"
+                  example: "2042-10-10"
+      responses:
+        200:
+          description: "The service account has been patched"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceAccountResult"
+        403:
+          description: "The caller is not allowed to modify this service accounts"
+        404:
+          description: "No such service account"
+    delete:
+      tags:
+        - service accounts
+      summary: "Delete a service account"
+      parameters:
+        - $ref: '#/components/parameters/saIdPathParam'
+      description: |
+        This deletes a given service account.
+        The underlying user is soft deleted in cascade.
+      responses:
+        200:
+          description: "Deletes a service account"
+        403:
+          description: "The caller is not allowed to delete this service accounts"
+        404:
+          description: "No such service account"
+  /services-accounts/{saId}/apikey:
+    post:
+      tags:
+        - service accounts
+      summary: "Generate a new service account's api key"
+      parameters:
+        - $ref: '#/components/parameters/saIdPathParam'
+      description: |
+        This renews an api key of a given service account.
+        Useful if an api key has leak and must be changed.
+      responses:
+        200:
+          description: "Generate a new apikey"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceAccountResult"
+        403:
+          description: "The caller is not allowed to regenerate this api key"
+        404:
+          description: "Can't regenerate api key of non existing service account"
+    delete:
+      tags:
+        - service accounts
+      summary: "Deletes service account's api key"
+      parameters:
+        - $ref: '#/components/parameters/saIdPathParam'
+      description: |
+        This deletes the api key of a given service account.
+      responses:
+        200:
+          description: "Deletes the api key of a service account"
+        403:
+          description: "The caller is not allowed to delete this api key"
+        404:
+          description: "Can't delete api key of non existing service account"
 
 tags:
   - name: orgs
@@ -1161,6 +1325,8 @@ tags:
     description: "Sql endpoint to query data from documents."
   - name: users
     description: "Grist users."
+  - name: service accounts
+    description: "Impersonations to handle grist ressources at API level without compromising real users API keys."
 components:
   securitySchemes:
     ApiKey:
@@ -2077,6 +2243,41 @@ components:
           $ref: https://specs.frictionlessdata.io/schemas/csv-dialect.json
         schema:
           $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
+    ServiceAccountResult:
+      type: object
+      required:
+        - id
+        - login
+        - label
+        - description
+        - expiresAt
+        - hasValidKey
+      properties:
+        id:
+          type: number
+          example: 42
+        login:
+          type: string
+          example: "aa52e4c7-e451-409a-8140-4eb17844e8b9@serviceaccounts.invalid"
+        label:
+          type: string
+          example: "n8n"
+        description:
+          type: string
+          example: "For data import workflow"
+        expiresAt:
+          type: date
+          example: "2042-10-10T00:00:00.000Z"
+        hasValidKey:
+          type: boolean
+          example: true
+        apikey:
+          type: string
+          example: "1234567890abcdef"
+    ServiceAccountsResult:
+      type: array
+      items:
+        $ref: "#/components/schemas/ServiceAccountResult"
 
   parameters:
     filterQueryParam:
@@ -2185,3 +2386,10 @@ components:
           - label
       description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
       required: false
+    saIdPathParam:
+      in: path
+      name: saId
+      schema:
+        type: integer
+      description: A service account id
+      required: true
