@@ -1480,7 +1480,7 @@ paths:
         403:
           description: Access denied
         404:
-          description: "No such service account"
+          description: "Service account not found"
     patch:
       tags:
         - service accounts
@@ -1504,7 +1504,7 @@ paths:
         403:
           description: "The caller is not allowed to modify this service accounts"
         404:
-          description: "No such service account"
+          description: "Service account not found"
     delete:
       tags:
         - service accounts
@@ -1520,7 +1520,7 @@ paths:
         403:
           description: "The caller is not allowed to delete this service accounts"
         404:
-          description: "No such service account"
+          description: "Service account not found"
   /service-accounts/{saId}/apikey:
     post:
       tags:
