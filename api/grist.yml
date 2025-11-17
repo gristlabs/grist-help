@@ -2723,3 +2723,9 @@ components:
           - label
       description: "Format for headers. Labels tend to be more human-friendly while colIds are more normalized."
       required: false
+    saIdPathParam:
+      in: path
+      name: saId
+      schema:
+        type: integer
+      description: A service account id
