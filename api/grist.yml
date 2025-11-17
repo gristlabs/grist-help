@@ -1434,7 +1434,7 @@ paths:
         This lists all your service accounts with their details.
       responses:
         200:
-          description: "Get an array of your service accounts"
+          description: "Array of your service accounts"
           content:
             application/json:
               schema:
