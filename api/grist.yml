@@ -1490,7 +1490,7 @@ paths:
         This lists a service account details.
       responses:
         200:
-          description: "Get a service account details"
+          description: "Details of the service account"
           content:
             application/json:
               schema:
