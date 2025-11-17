@@ -1431,7 +1431,7 @@ paths:
         - service accounts
       summary: "Get all your service accounts"
       description: |
-        This list all your service accounts with their details.
+        This lists all your service accounts with their details.
       responses:
         200:
           description: "Get an array of your service accounts"
