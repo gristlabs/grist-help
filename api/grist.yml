@@ -1451,29 +1451,14 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - expiresAt
-              properties:
-                label:
-                  type: string
-                  description: "The service account's display name"
-                  example: "n8n"
-                description:
-                  type: string
-                  description: "Description of service account's purpose"
-                  example: "For data update workflow"
-                expiresAt:
-                  type: string
-                  description: "The service account's expiration date"
-                  example: "2042-10-10"
+              $ref: "#/components/schemas/CreateServiceAccount"
       responses:
         200:
           description: "Creates a new service account"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ServiceAccountResult"
+                $ref: "#/components/schemas/ServiceAccountResultWithApiKey"
         403:
           description: "The caller is not allowed to create service accounts"
   /service-accounts/{saId}:
@@ -1508,20 +1493,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                label:
-                  type: string
-                  description: "The service account's display name"
-                  example: "n8n"
-                description:
-                  type: string
-                  description: "Description of service account's purpose"
-                  example: "For data update workflow"
-                expiresAt:
-                  type: string
-                  description: "The service account's expiration date"
-                  example: "2042-10-10"
+              $ref: "#/components/schemas/ServiceAccountBody"
       responses:
         200:
           description: "The service account has been patched"
@@ -1565,7 +1537,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ServiceAccountResult"
+                $ref: "#/components/schemas/ServiceAccountResultWithApiKey"
         403:
           description: "The caller is not allowed to regenerate this api key"
         404:
@@ -2543,6 +2515,37 @@ components:
           $ref: "https://specs.frictionlessdata.io/schemas/csv-dialect.json"
         schema:
           $ref: "https://specs.frictionlessdata.io/schemas/table-schema.json"
+    CreateServiceAccount:
+      allOf:
+        - $ref: '#/components/schemas/ServiceAccountBody'
+        - type: object
+          required:
+            - expiresAt
+    ServiceAccountBody:
+      type: object
+      properties:
+        label:
+          type: string
+          description: "The service account's display name"
+          example: "n8n"
+        description:
+          type: string
+          description: "Description of service account's purpose"
+          example: "For data update workflow"
+        expiresAt:
+          type: string
+          description: "The service account's expiration date"
+          example: "2042-10-10"
+    ServiceAccountResultWithApiKey:
+      allOf:
+        - $ref: "#/components/schemas/ServiceAccountResult"
+        - type: object
+          required:
+            - apikey
+          properties:
+            key:
+              type: string
+              example: "1234567890abcdef"
     ServiceAccountResult:
       type: object
       required:
@@ -2571,9 +2574,6 @@ components:
         hasValidKey:
           type: boolean
           example: true
-        apikey:
-          type: string
-          example: "1234567890abcdef"
     ServiceAccountsResult:
       type: array
       items:
