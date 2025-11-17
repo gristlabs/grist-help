@@ -1476,7 +1476,7 @@ paths:
                 $ref: "#/components/schemas/ServiceAccountResult"
         403:
           description: "The caller is not allowed to create service accounts"
-  /services-accounts/{saId}:
+  /service-accounts/{saId}:
     get:
       tags:
         - service accounts
@@ -1549,7 +1549,7 @@ paths:
           description: "The caller is not allowed to delete this service accounts"
         404:
           description: "No such service account"
-  /services-accounts/{saId}/apikey:
+  /service-accounts/{saId}/apikey:
     post:
       tags:
         - service accounts
