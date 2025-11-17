@@ -1506,7 +1506,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/saIdPathParam'
       description: |
-        This update a service account's label, description or expiration date.
+        This updates a service account's label, description or expiration date.
       requestBody:
         content:
           application/json:
