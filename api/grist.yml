@@ -2544,7 +2544,7 @@ components:
         dialect:
           $ref: "https://specs.frictionlessdata.io/schemas/csv-dialect.json"
         schema:
-          $ref: https://specs.frictionlessdata.io/schemas/table-schema.json
+          $ref: "https://specs.frictionlessdata.io/schemas/table-schema.json"
     ServiceAccountResult:
       type: object
       required:
