@@ -1454,7 +1454,7 @@ paths:
               $ref: "#/components/schemas/CreateServiceAccount"
       responses:
         200:
-          description: "Creates a new service account"
+          description: "The service account created"
           content:
             application/json:
               schema:
