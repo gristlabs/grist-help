@@ -1630,7 +1630,7 @@ tags:
   - name: users
     description: "Grist users."
   - name: service accounts
-    description: "Impersonations to handle grist ressources at API level without compromising real users API keys."
+    description: "Impersonations to manage grist resources through REST APIs with specific rights."
   - name: scim
     description: "SCIM"
 components:
