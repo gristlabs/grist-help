@@ -1487,7 +1487,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/saIdPathParam'
       description: |
-        This list a service account details.
+        This lists a service account details.
       responses:
         200:
           description: "Get a service account details"
