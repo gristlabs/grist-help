@@ -1565,7 +1565,7 @@ paths:
         Useful especially to change the API key when it has been leaked.
       responses:
         200:
-          description: "Generate a new apikey"
+          description: "The service account with the new API key"
           content:
             application/json:
               schema:
