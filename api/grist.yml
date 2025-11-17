@@ -1438,9 +1438,7 @@ paths:
           content:
             application/json:
               schema:
-                type:
-                  oneOf:
-                    - $ref: "#/components/schemas/ServiceAccountsResult"
+                $ref: "#/components/schemas/ServiceAccountsResult"
         403:
           description: "The caller is not allowed to access this ressource"
     post:
