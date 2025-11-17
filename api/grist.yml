@@ -1588,7 +1588,7 @@ paths:
         403:
           description: "The caller is not allowed to delete this api key"
         404:
-          description: "Can't delete api key of non existing service account"
+          description: "Service account not found"
   /scim/v2/Users:
     $ref: "./scim/users.yml#/paths/~1scim~1v2~1Users"
   /scim/v2/Users/{userId}:
