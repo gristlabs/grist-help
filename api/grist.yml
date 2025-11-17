@@ -1496,7 +1496,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ServiceAccountResult"
         403:
-          description: "The caller is not allowed to create service accounts"
+          description: Access denied
         404:
           description: "No such service account"
     patch:
