@@ -1548,7 +1548,7 @@ paths:
         The underlying user is soft deleted in cascade.
       responses:
         200:
-          description: "Deletes a service account"
+          description: "Success"
         403:
           description: "The caller is not allowed to delete this service accounts"
         404:
