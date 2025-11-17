@@ -1562,7 +1562,7 @@ paths:
         - $ref: '#/components/parameters/saIdPathParam'
       description: |
         This renews an api key of a given service account.
-        Useful if an api key has leak and must be changed.
+        Useful especially to change the API key when it has been leaked.
       responses:
         200:
           description: "Generate a new apikey"
