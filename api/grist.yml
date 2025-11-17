@@ -1440,7 +1440,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ServiceAccountsResult"
         403:
-          description: "The caller is not allowed to access this ressource"
+          description: "The caller is not allowed to access this resource"
     post:
       tags:
         - service accounts
@@ -1465,11 +1465,11 @@ paths:
     get:
       tags:
         - service accounts
-      summary: "Get a service account details"
+      summary: "Get a service account's details"
       parameters:
         - $ref: '#/components/parameters/saIdPathParam'
       description: |
-        This lists a service account details.
+        This reports the details of a service account.
       responses:
         200:
           description: "Details of the service account"
@@ -1502,7 +1502,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ServiceAccountResult"
         403:
-          description: "The caller is not allowed to modify this service accounts"
+          description: "The caller is not allowed to modify this service account"
         404:
           description: "Service account not found"
     delete:
@@ -1513,12 +1513,11 @@ paths:
         - $ref: '#/components/parameters/saIdPathParam'
       description: |
         This deletes a given service account.
-        The underlying user is soft deleted in cascade.
       responses:
         200:
           description: "Success"
         403:
-          description: "The caller is not allowed to delete this service accounts"
+          description: "The caller is not allowed to delete this service account"
         404:
           description: "Service account not found"
   /service-accounts/{saId}/apikey:
