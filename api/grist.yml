@@ -1582,7 +1582,7 @@ paths:
         - $ref: '#/components/parameters/saIdPathParam'
       responses:
         200:
-          description: "Deletes the api key of a service account"
+          description: "Success"
         403:
           description: "The caller is not allowed to delete this api key"
         404:
