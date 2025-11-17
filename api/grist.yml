@@ -1449,14 +1449,13 @@ paths:
       summary: "Create a service accounts"
       description: |
         This creates a new service account with a new API key.
-        If no info is given label and description will be empty,
-        ExpiresAt date will be today at midnight so the generated api key will be expired at its creation.
       requestBody:
         content:
           application/json:
             schema:
               type: object
               required:
+                - expiresAt
               properties:
                 label:
                   type: string
@@ -1512,7 +1511,6 @@ paths:
           application/json:
             schema:
               type: object
-              required:
               properties:
                 label:
                   type: string
@@ -2582,7 +2580,6 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/ServiceAccountResult"
-          $ref: "https://specs.frictionlessdata.io/schemas/table-schema.json"
     DocumentStoreSetting:
       type: object
       properties:
