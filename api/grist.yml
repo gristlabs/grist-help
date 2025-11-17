@@ -1580,8 +1580,6 @@ paths:
       summary: "Deletes service account's api key"
       parameters:
         - $ref: '#/components/parameters/saIdPathParam'
-      description: |
-        This deletes the api key of a given service account.
       responses:
         200:
           description: "Deletes the api key of a service account"
