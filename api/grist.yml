@@ -1448,7 +1448,7 @@ paths:
         - service accounts
       summary: "Create a service accounts"
       description: |
-        This creates a new service account with a new apikey.
+        This creates a new service account with a new API key.
         If no info is given label and description will be empty,
         ExpiresAt date will be today at midnight so the generated api key will be expired at its creation.
       requestBody:
