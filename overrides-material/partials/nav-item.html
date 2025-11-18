@@ -148,6 +148,10 @@
   {% elif nav_item == page %}
     <li class="{{ class }}">
       {% set toc = page.toc %}
+      {# CHANGE / addition: support specific pages rendering their toc in the main nav #}
+      {% if page.meta and page.meta.toc and page.meta.toc_in_nav %}
+        {% set toc = page.meta.toc %}
+      {% endif %}
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       {% set first = toc | first %}
       {% if first and first.level == 1 %}
@@ -163,7 +167,10 @@
         {{ render_content(nav_item) }}
       </a>
       {% if toc %}
-        {% include "partials/toc.html" %}
+        {# CHANGE / addition: support specific pages rendering their toc in the main nav #}
+        {% with toc_integrated=true %}
+          {% include "partials/toc.html" %}
+        {% endwith %}
       {% endif %}
     </li>
   {% else %}

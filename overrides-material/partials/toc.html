@@ -1,11 +1,20 @@
 {# copy of original material/partials/toc.html with some commented changes #}
-
+{# Note: this can both be included in the secondary nav (right panel), or as child of a main nav item (left panel).
+ The latter happens if toc_integrated is true (see below). #}
 {% set title = lang.t("toc") %}
 {% if config.mdx_configs.toc and config.mdx_configs.toc.title %}
   {% set title = config.mdx_configs.toc.title %}
 {% endif %}
-<nav class="md-nav md-nav--secondary" aria-label="{{ title | e }}">
-  {# CHANGE / support custom page toc #}
+
+{# CHANGE / a page can choose to render its toc in the main sidebar. If that is the case,
+the toc_integrated variable is set to true #}
+{% if toc_integrated %}
+<div class="md-nav--integrated">
+{% endif %}
+
+<nav class="md-nav {% if not toc_integrated %}md-nav--secondary{% endif %}" aria-label="{{ title | e }}">
+  {# CHANGE / support custom page toc. set a `toc` frontmatter in a markdown file
+  to set a specific table of contents #}
   {% set toc = page.toc %}
   {% if page and page.meta and page.meta.toc %}
     {% set toc = page.meta.toc %}
@@ -15,10 +24,12 @@
     {% set toc = first.children %}
   {% endif %}
   {% if toc %}
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      {{ title }}
-    </label>
+    {% if not toc_integrated %}
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        {{ title }}
+      </label>
+    {% endif %}
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       {% for toc_item in toc %}
         {% include "partials/toc-item.html" %}
@@ -26,3 +37,9 @@
     </ul>
   {% endif %}
 </nav>
+
+{# CHANGE / a page can choose to render its toc in the main sidebar. If that is the case,
+the toc_integrated variable is set to true #}
+{% if toc_integrated %}
+</div>
+{% endif %}

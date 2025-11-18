@@ -134,6 +134,17 @@ function enableHomeSearchButton() {
   });
 }
 
+/* Our API reference is generated with redoc and has its own styles.
+Remove the material theme classes that interfere. */
+function cleanApiContentStyles() {
+  const apiContent = document.querySelector('#api-content');
+  if (!apiContent) {
+    return;
+  }
+  document.querySelector('.api-header')?.classList.add('md-typeset');
+  document.querySelector('.md-content__inner.md-typeset')?.classList.remove('md-typeset');
+}
+
 function initDialog(id, { onOpen } = {}) {
   const dialog = new A11yDialog(document.getElementById(id));
   const body = document.querySelector("body");
@@ -174,5 +185,6 @@ window.onload = function() {
   autoPlayYouTubeModal();
   maybeSetUpYouTubeAPI();
   enableHomeSearchButton();
+  cleanApiContentStyles();
 };
 window.addEventListener('popstate', expandSelected);

@@ -294,6 +294,12 @@ but make sure the borders have WCAG-compliant contrast ratio */
   }
 }
 
+/* some pages specifically have their table of content in the main nav. In that case, hide
+the secondary nav, that usually contains the table of content. */
+.md-main__inner:has(.md-sidebar--primary .md-nav__item--active [data-md-component="toc"]) .md-sidebar--secondary {
+  display: none;
+}
+
 /* breadcrumbs changes */
 .md-path {
   font-size: 0.65rem;
@@ -959,6 +965,63 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 .md-main__inner:has(#api-content) {
   max-width: none;
   width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.md-main__inner:has(#api-content) .md-content__inner {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.api-header {
+  padding: 0 1rem !important;
+}
+
+.api-info {
+  display: none;
+}
+
+#api-content h1, #api-content h2 {
+  margin: 20px 0 5px 0 !important;
+}
+
+/* this tries to target the "UnderlineHeader" of redoc, that is unfortunately not
+handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.77/src/common-elements/headers.ts#L47 */
+#api-content h5[class] {
+  color: var(--grist-light-text);
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-main__inner:has(#api-content) {
+    padding-left: 1rem;
+  }
+
+  .md-main__inner:has(#api-content) .md-path {
+    padding-left: 40px;
+  }
+
+  .md-main__inner:has(#api-content) .md-content__inner {
+    margin-left: 0.8rem;
+  }
+
+  .api-header {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  /* hide the redoc mobile menu on desktop */
+  .redoc-wrap .menu-content {
+    display: none;
+  }
+}
+
+.api-header > h1:first-child {
+  margin-top: 0 !important;
+}
+
+#api-content {
+  font-size: 1rem;
+  font-family: inherit;
 }
