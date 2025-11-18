@@ -78,6 +78,10 @@ Just keep its default of 125% font size at any breakpoint. */
   }
 }
 
+.md-skip:focus {
+  z-index: 1000;
+}
+
 .md-header,
 .md-tabs {
   --md-primary-fg-color: var(--grist-light);
