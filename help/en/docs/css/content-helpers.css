@@ -250,12 +250,15 @@
 
 .tag-core::after {
   content: "core";
+  content: "core" / "core";
 }
 
 .tag-ee::after {
   content: "enterprise";
+  content: "enterprise" / "entreprise";
 }
 
 .tag-core.tag-ee::after {
   content: "core, enterprise";
+  content: "core, enterprise" / "core, entreprise";
 }
