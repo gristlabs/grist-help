@@ -64,6 +64,19 @@
   --md-code-bg-color: var(--grist-light);
 }
 
+/* mkdocs-material makes global font size bigger on these breakpoints; we don't want that.
+Just keep its default of 125% font size at any breakpoint. */
+@media screen and (min-width:100em) {
+  html {
+    font-size: 125%;
+  }
+}
+@media screen and (min-width:125em) {
+  html {
+    font-size: 125%;
+  }
+}
+
 .md-header,
 .md-tabs {
   --md-primary-fg-color: var(--grist-light);
@@ -117,7 +130,7 @@ custom code relying on z-indexes) */
 but make sure the borders have WCAG-compliant contrast ratio */
 .md-search__input {
   border: 1px solid var(--grist-input-border-color);
-  border-radius: 3px;
+  border-radius: 8px;
 }
 
 
@@ -159,6 +172,10 @@ but make sure the borders have WCAG-compliant contrast ratio */
   }
 }
 @media screen and (min-width: 76.25em) {
+  /* make sidebar a bit wider so that the section names are on one line */
+  .md-sidebar--primary {
+    width: 13rem;
+  }
   /* section name */
   .md-nav--primary .md-nav__item--section > .md-nav__link {
     font-size: 0.9rem;
@@ -170,12 +187,22 @@ but make sure the borders have WCAG-compliant contrast ratio */
     color: var(--md-default-fg-color) !important;
   }
 
+  /* section name that has a section icon */
   .md-nav--primary .md-nav__item--section > .md-nav__link:has(.g-nav-icon) {
     align-items: center;
     gap: 16px;
-    font-size: 0.8rem;
-    /* align with the current page content heading */
-    margin-top: 0.165rem !important;
+    font-size: 0.9rem;
+  }
+
+  /* vertically align the section name with the current page content heading */
+  .md-main__inner:has(.md-content > .md-path) .md-nav--primary .md-nav__item--section > .md-nav__link {
+    margin-top: 1.2rem !important;
+  }
+
+  /* vertically align the section name with the current page content heading,
+  when it has a section icon */
+  .md-main__inner:has(.md-content > .md-path) .md-nav--primary .md-nav__item--section > .md-nav__link:has(.g-nav-icon) {
+    margin-top: 0.59rem !important;
   }
 
   .g-nav-icon {
@@ -220,6 +247,7 @@ but make sure the borders have WCAG-compliant contrast ratio */
     padding-left: 8px;
     padding-right: 8px;
     margin-bottom: 8px;
+    font-size: 0.8rem;
   }
 
   .md-nav--secondary > .md-nav__list {
@@ -267,7 +295,8 @@ but make sure the borders have WCAG-compliant contrast ratio */
 
 /* breadcrumbs changes */
 .md-path {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
+  padding-top: 0;
 }
 
 .md-path__link {
@@ -285,6 +314,11 @@ but make sure the borders have WCAG-compliant contrast ratio */
 /* make sure content beginning with alert boxes dont begin with extra margin on the top */
 .md-content__inner > .admonition:first-child {
   margin-top: 0;
+}
+
+.md-typeset {
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
 .md-typeset .admonition {
@@ -482,7 +516,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   padding-top: 1rem;
 }
 .g-quick-links-header {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: var(--md-default-fg-color);
   margin: 0;
@@ -636,7 +670,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 .g-home-container .md-grid {
   padding-left: .8rem;
   padding-right: .8rem;
-  max-width: 48rem;
+  max-width: 55rem;
 }
 
 .g-home-container :is(h1, h2, h3, h4, p) {
@@ -645,7 +679,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 }
 
 .g-home-container p {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   line-height: 1.5;
 }
 
@@ -666,20 +700,20 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 }
 
 .g-home-hero h1 {
-  font-size: 1.33rem;
+  font-size: 1.6rem;
   font-weight: normal;
   margin-bottom: 16px;
 }
 
 .g-home-hero p {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   margin-top: 32px;
 }
 
 .g-home-hero button {
   cursor: pointer;
   color: inherit;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-family: inherit;
   background-color: var(--grist-light);
   color: var(--grist-dark-text);
@@ -784,7 +818,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 }
 
 .g-home-heading-card h2 {
-  font-size: 0.8333rem;
+  font-size: 1rem;
 }
 
 .g-home-heading-card-icon {
@@ -805,17 +839,17 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 .g-home-featured-cards .g-home-cards-title,
 .g-home-info-cards .g-home-cards-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 .g-home-featured-card h3 {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 .g-home-featured-cards .g-home-cards-description,
 .g-home-info-cards .g-home-cards-description {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-bottom: 1rem;
 }
 
@@ -878,7 +912,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 }
 
 .g-home-info-card h3 {
-  font-size: 0.68rem;
+  font-size: 0.8rem;
 }
 
 /* API specific overrides */
