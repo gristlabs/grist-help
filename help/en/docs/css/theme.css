@@ -34,7 +34,7 @@
   */
   --grist-primary: #0f7b51; /* Note: Figma color used for `green` is hsla(157, 78%, 39%, 1),
   but it doesn't match required WCAG ratios. Using a darker shade as base for now. */
-  --grist-primary-transparent: #0f7b51ab;
+  --grist-primary-transparent: #0f7b512a;
   --grist-primary-light: #16b176;
   --grist-primary-dark: #196c47;
   --grist-selection-opaque: #dcf4eb;
