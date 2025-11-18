@@ -148,7 +148,9 @@
   {% elif nav_item == page %}
     <li class="{{ class }}">
       {% set toc = page.toc %}
-      {# CHANGE / addition: support specific pages rendering their toc in the main nav #}
+      {# CHANGE / addition: support specific pages rendering their toc in the main nav
+       ⚠ this breaks the mobile nav for now. Kept in code in case someone wants to use this,
+       but this needs more work before actual use! #}
       {% if page.meta and page.meta.toc and page.meta.toc_in_nav %}
         {% set toc = page.meta.toc %}
       {% endif %}
@@ -166,7 +168,7 @@
       <a href="{{ nav_item.url | url }}" class="md-nav__link md-nav__link--active">
         {{ render_content(nav_item) }}
       </a>
-      {% if toc %}
+      {% if page.meta and page.meta.toc and page.meta.toc_in_nav and toc %}
         {# CHANGE / addition: support specific pages rendering their toc in the main nav #}
         {% with toc_integrated=true %}
           {% include "partials/toc.html" %}
