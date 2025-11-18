@@ -62,6 +62,7 @@
   --md-default-fg-color--lightest: var(--grist-medium-grey);
   --md-typeset-color: var(--md-default-fg-color--light);
   --md-code-bg-color: var(--grist-light);
+  --md-typeset-table-color: var(--grist-slate);
 }
 
 /* mkdocs-material makes global font size bigger on these breakpoints; we don't want that.
@@ -357,10 +358,19 @@ but make sure the borders have WCAG-compliant contrast ratio */
   letter-spacing: 0;
 }
 
+.md-typeset table:not([class]) {
+  font-size: inherit;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 8px;
+}
 
 .md-typeset code {
   border: 1px solid var(--grist-slate);
   color: inherit;
+  font-size: 0.9em;
 }
 
 /**
@@ -430,6 +440,10 @@ but make sure the borders have WCAG-compliant contrast ratio */
 /* when we have a hash on a detail element, highlight it like when we focus something in it */
 .md-typeset details:has(:target) {
   box-shadow: 0 0 0 .2rem #448aff1a;
+}
+/* but don't highlight when clicking on the details button */
+.md-typeset .admonition:focus-within, .md-typeset details:focus-within {
+  box-shadow: none;
 }
 
 body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary {
@@ -947,14 +961,4 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
   width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
-}
-
-
-
-.table-hover > tbody > tr:hover {
-  background-color: unset;
-}
-
-.table-striped > tbody > tr:nth-of-type(2n + 1) {
-  background-color: unset;
 }
