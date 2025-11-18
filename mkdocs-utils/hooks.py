@@ -4,7 +4,7 @@
 # Original Author: Sebastián Ramírez and contributors
 
 import glob
-import json
+import time
 from mkdocs.structure import StructureItem
 import yaml
 import urllib.parse
@@ -18,10 +18,10 @@ from mkdocs.structure.files import File, Files
 from mkdocs.structure.pages import Page
 from mkdocs.structure.nav import Navigation, Section
 from mkdocs.utils.yaml import yaml_load
-from jinja2 import Environment
 
 non_translated_sections = [] # Add the sections that are not translated here
 build_mode = 'prod'
+build_timestamp = None
 
 
 MISSING_TRANSLATION_FILENAME = "MISSING-TRANSLATION.md"
@@ -151,41 +151,11 @@ def on_page_markdown(
   return markdown
 
 def on_startup(*, command, dirty):
-  global build_mode
+  global build_mode, build_timestamp
   build_mode = 'prod' if command in ['build', 'gh-deploy'] else 'dev'
+  build_timestamp = str(int(time.time()))
 
 def on_page_context(context, page, config, nav):
   context['build_mode'] = build_mode
+  context['build_timestamp'] = build_timestamp
   return context
-
-@lru_cache
-def _load_vite_manifest(manifest_path: str):
-  manifest_file = Path(manifest_path)
-  if not manifest_file.is_absolute():
-    project_root = Path(__file__).parent.parent
-    manifest_file = project_root / manifest_path
-
-  try:
-    with open(manifest_file, 'r') as f:
-      return json.load(f)
-  except FileNotFoundError:
-    return {}
-
-def vite_asset(entry: str, manifest_path: str = "help/en/docs/js/build/.vite/manifest.json") -> str:
-  # first check if build_mode is "dev": if it is, just return the file served by vite
-  if build_mode == 'dev':
-    return "http://localhost:8001/" + entry
-  # otherwise, go check the vite manifest file to get the correct built files
-  manifest = _load_vite_manifest(manifest_path)
-
-  if entry in manifest:
-    return "/js/build/" + manifest[entry].get('file', entry)
-
-  raise ValueError(f"Error while loading vite asset {entry}")
-
-def on_env(env: Environment, config: MkDocsConfig, files: Files) -> Environment:
-  """
-  Add custom Jinja functions to the environment.
-  """
-  env.globals['vite_asset'] = vite_asset
-  return env

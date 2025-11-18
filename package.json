@@ -20,13 +20,11 @@
   },
   "homepage": "https://github.com/dsagal/grist-help#readme",
   "dependencies": {
-    "a11y-dialog": "^8.1.4",
     "redoc-cli": "^0.13.20"
   },
   "devDependencies": {
     "typedoc": "^0.23.9",
     "typedoc-plugin-markdown": "3.13.4",
-    "typescript": "^4.7.4",
-    "vite": "^7.2.2"
+    "typescript": "^4.7.4"
   }
 }

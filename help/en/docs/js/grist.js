@@ -1,14 +1,9 @@
 "use strict";
 /* global window, document */
 
-import { initDialog } from './modules/dialog';
-
-function initDialogs() {
-  const dialogTriggers = document.querySelectorAll('[data-dialog-open]');
-  dialogTriggers.forEach(trigger => {
-    initDialog(trigger.getAttribute('data-dialog-open'));
-  });
-}
+/* Note: as there is no build system, make sure every vendor has a unique name
+to prevent caching issues. */
+import A11yDialog from './vendor/a11y-dialog.8.1.4.esm.min.js';
 
 // When loading a page with #hash in the URL, if #hash refers to a <detail> element, expand the
 // detail, and collapse other details.
@@ -136,6 +131,39 @@ function enableHomeSearchButton() {
       return;
     }
     searchInput.focus();
+  });
+}
+
+function initDialog(id, { onOpen } = {}) {
+  const dialog = new A11yDialog(document.getElementById(id));
+  const body = document.querySelector("body");
+  dialog.on("show", function () {
+    body.setAttribute("data-dialog-open", "true");
+    if (dialog.$el.querySelector("[data-default-dialog-focus]")) {
+      setTimeout(() => {
+        dialog.$el.querySelector("[data-default-dialog-focus]").focus();
+      }, 0);
+    }
+  });
+
+  dialog.on("hide", function () {
+    body.removeAttribute("data-dialog-open");
+  });
+
+  document.querySelectorAll(`[data-dialog-open="${id}"]`).forEach((button) => {
+    button.addEventListener("click", () => {
+      dialog.show();
+      onOpen?.(button, dialog);
+    });
+  });
+
+  return dialog;
+}
+
+function initDialogs() {
+  const dialogTriggers = document.querySelectorAll("[data-dialog-open]");
+  dialogTriggers.forEach((trigger) => {
+    initDialog(trigger.getAttribute("data-dialog-open"));
   });
 }
 
