@@ -17,8 +17,10 @@ options=(
   --options.pathInMiddlePanel
   --options.theme.breakpoints.medium=50rem
   --options.theme.breakpoints.large=50rem
+  --options.theme.colors.primary.main=#0f7b51
   "--options.theme.typography.fontFamily=var(--md-text-font-family)"
   "--options.theme.typography.headings.fontFamily=var(--md-text-font-family)"
+  --options.theme.typography.headings.fontWeight=500
   "--options.theme.typography.code.fontFamily=var(--md-code-font-family)"
   "--options.theme.typography.code.color=var(--md-typeset-color)"
   --options.theme.sidebar.width=0px

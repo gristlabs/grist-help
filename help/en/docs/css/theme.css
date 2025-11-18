@@ -971,7 +971,6 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 
 .md-main__inner:has(#api-content) .md-content__inner {
   margin-left: 0;
-  margin-right: 0;
   margin-bottom: 0;
 }
 
@@ -993,6 +992,24 @@ handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.
   color: var(--grist-light-text);
 }
 
+/* hide the right code blocks main background to try to have a lighter global UI */
+.redoc-wrap > div:last-child:empty {
+  background-color: transparent !important;
+}
+
+.redoc-wrap [id^="operation/"] > div:first-child + div:last-child {
+  border-radius: 16px;
+}
+
+.redoc-wrap [id^="operation/"] > div:first-child + div:last-child .react-tabs__tab-panel {
+  border-radius: 12px;
+}
+
+/* prevent empty gray divs from showing up */
+.redoc-wrap [id^="operation/"] > div:first-child + div:last-child:empty {
+  display: none;
+}
+
 @media screen and (min-width: 76.25em) {
   .md-main__inner:has(#api-content) {
     padding-left: 1rem;
@@ -1010,7 +1027,9 @@ handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.
     padding-left: 40px !important;
     padding-right: 40px !important;
   }
+}
 
+@media screen and (min-width: 50rem) {
   /* hide the redoc mobile menu on desktop */
   .redoc-wrap .menu-content {
     display: none;
