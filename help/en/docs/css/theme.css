@@ -1034,6 +1034,10 @@ moves it to the left side to not interfer with the floating assistant button */
   /* align the button with the assistant button */
   left: 20px;
   bottom: 10px;
+  /* match shadow of assistant button */
+  box-shadow: #0000001a 0px 4px 7px;
+  /* add a border to better distinguish the button from the background */
+  border: 1px solid #ddd;
 }
 
 @media screen and (min-width: 50rem) {
