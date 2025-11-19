@@ -1031,7 +1031,9 @@ handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.
 moves it to the left side to not interfer with the floating assistant button */
 .redoc-wrap > .menu-content + div {
   right: auto;
+  /* align the button with the assistant button */
   left: 20px;
+  bottom: 10px;
 }
 
 @media screen and (min-width: 50rem) {
