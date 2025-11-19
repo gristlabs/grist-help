@@ -1,5 +1,5 @@
 ---
-title: Analyze and visualize
+title: Analyser et visualiser
 ---
 
 # Comment analyser et visualiser des données {: data-toc-label='' }

@@ -1,8 +1,14 @@
 "use strict";
 /* global window, document */
 
+/* Note: as there is no build system, make sure every vendor has a unique name
+to prevent caching issues. */
+import A11yDialog from './vendor/a11y-dialog.8.1.4.esm.min.js';
+
 // When loading a page with #hash in the URL, if #hash refers to a <detail> element, expand the
 // detail, and collapse other details.
+// Note: the "expand the detail" part doesn't seem necessary to code at first (I guess the browser
+// or the material theme does it?), but we keep it mostly to correctly scroll into view.
 function expandSelected() {
   var hash = window.location.hash.split('/').slice(-1)[0];
   var elem = hash ? document.querySelector(hash) : null;
@@ -24,12 +30,16 @@ function expandSelected() {
 // Function to get and auto play YouTube video from data tag.
 // From https://stackoverflow.com/a/23629470/328565
 function autoPlayYouTubeModal(){
-  $('body').on('click', '[data-toggle="modal"][data-theVideo]', function() {
-    var theModal = $(this).data("target");
-    var videoSRC = $(this).attr("data-theVideo");
-    $(theModal).find('iframe').attr('src', videoSRC + "?rel=0&autoplay=1");
-    $(theModal).on('hidden.bs.modal', function(e) {
-      $(theModal).find('iframe').attr('src', '');
+  document.body.addEventListener('click', function(event) {
+    const trigger = event.target.closest('[data-dialog-open][data-theVideo]');
+    if (!trigger) return;
+    const theModal = `#${trigger.getAttribute('data-dialog-open')}`;
+    const videoSRC = trigger.getAttribute('data-theVideo');
+    const iframe = document.querySelector(`${theModal} iframe`);
+    if (!iframe) return;
+    iframe.src = videoSRC + "?rel=0&autoplay=1";
+    iframe.addEventListener('hidden.bs.modal', function(e) {
+      iframe.src = '';
     });
   });
 }
@@ -86,9 +96,95 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+/**
+ * This adds an anchor tag on the header title text.
+ * This is done in JS to avoid overriding the whole mkdocs-material header partial just for this.
+ */
+function addHeaderLink() {
+  const headerLink = document.querySelector('.md-header__button.md-logo')?.href;
+  if (!headerLink) {
+    return;
+  }
+  const headerTitleWrapper = document.querySelector('.md-header__topic');
+  if (!headerTitleWrapper) {
+    return;
+  }
+  // Hide this anchor from assistive tools: we already have an anchor on the logo.
+  // This trick is done mostly to have a better "mouse UX" so that the whole heading is clickable,
+  // but we don't need this with keyboard/assistive tools UX.
+  // And it's easier to use a <a> tag and hide it from assistive tools, than adding click handlers on a div
+  // (as this automatically handles ctrl+click, middle mouse click, etc.).
+  headerTitleWrapper.outerHTML = `<a aria-hidden="true" tabindex="-1" class="md-header__topic" href="${headerLink}">${headerTitleWrapper.innerHTML}</a>`;
+}
+
+/* we currently don't have an actual search page. But the home page shows a search button.
+ As a middleground for now, this button just opens the functional search input shown in the header. */
+function enableHomeSearchButton() {
+  const searchButton = document.querySelector('.g-home-hero button');
+  if (!searchButton) {
+    return;
+  }
+  // simulate click on .md-search__input
+  searchButton.addEventListener('click', function() {
+    const searchInput = document.querySelector('.md-search__input');
+    if (!searchInput) {
+      return;
+    }
+    searchInput.focus();
+  });
+}
+
+/* Our API reference is generated with redoc and has its own styles.
+Remove the material theme classes that interfere. */
+function cleanApiContentStyles() {
+  const apiContent = document.querySelector('#api-content');
+  if (!apiContent) {
+    return;
+  }
+  document.querySelector('.api-header')?.classList.add('md-typeset');
+  document.querySelector('.md-content__inner.md-typeset')?.classList.remove('md-typeset');
+}
+
+function initDialog(id, { onOpen } = {}) {
+  const dialog = new A11yDialog(document.getElementById(id));
+  const body = document.querySelector("body");
+  dialog.on("show", function () {
+    body.setAttribute("data-dialog-open", "true");
+    if (dialog.$el.querySelector("[data-default-dialog-focus]")) {
+      setTimeout(() => {
+        dialog.$el.querySelector("[data-default-dialog-focus]").focus();
+      }, 0);
+    }
+  });
+
+  dialog.on("hide", function () {
+    body.removeAttribute("data-dialog-open");
+  });
+
+  document.querySelectorAll(`[data-dialog-open="${id}"]`).forEach((button) => {
+    button.addEventListener("click", () => {
+      dialog.show();
+      onOpen?.(button, dialog);
+    });
+  });
+
+  return dialog;
+}
+
+function initDialogs() {
+  const dialogTriggers = document.querySelectorAll("[data-dialog-open]");
+  dialogTriggers.forEach((trigger) => {
+    initDialog(trigger.getAttribute("data-dialog-open"));
+  });
+}
+
 window.onload = function() {
+  initDialogs();
+  addHeaderLink();
   expandSelected();
   autoPlayYouTubeModal();
   maybeSetUpYouTubeAPI();
+  enableHomeSearchButton();
+  cleanApiContentStyles();
 };
 window.addEventListener('popstate', expandSelected);

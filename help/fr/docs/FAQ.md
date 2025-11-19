@@ -1,5 +1,7 @@
 ---
 title: FAQ
+hide:
+  - navigation
 ---
 
 # Questions Fréquemment Posées
