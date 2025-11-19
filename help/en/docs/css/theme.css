@@ -1027,6 +1027,13 @@ handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.
   }
 }
 
+/* this targets the redoc "fab" (floating action button) shown on mobile and
+moves it to the left side to not interfer with the floating assistant button */
+.redoc-wrap > .menu-content + div {
+  right: auto;
+  left: 20px;
+}
+
 @media screen and (min-width: 50rem) {
   /* hide the redoc mobile menu on desktop */
   .redoc-wrap .menu-content {
