@@ -298,12 +298,6 @@ but make sure the borders have WCAG-compliant contrast ratio */
   }
 }
 
-/* some pages specifically have their table of content in the main nav. In that case, hide
-the secondary nav, that usually contains the table of content. */
-.md-main__inner:has(.md-sidebar--primary .md-nav__item--active [data-md-component="toc"]) .md-sidebar--secondary {
-  display: none;
-}
-
 /* breadcrumbs changes */
 .md-path {
   font-size: 0.65rem;
