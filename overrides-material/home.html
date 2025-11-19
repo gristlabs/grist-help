@@ -15,7 +15,7 @@
         <p>{{ data.home.intro }}</p>
         </div>
         <div class="g-home-hero-image">
-          <img src="/images/home/hero.svg" alt="">
+          <img src="/images/home/hero.svg" width="423" height="237" alt="">
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
                   class="g-home-heading-card-icon"
                   style="background-color: {{ section_icon.bg_color }}"
                 >
-                  <img src="{{ section_icon.icon }}" alt="">
+                  <img src="{{ section_icon.icon }}" width="80" height="80" alt="">
                 </div>
               {% endif %}
               <h2><a class="stretched-link" href="{{ card.url }}">{{ card.title }}</a></h2>
@@ -69,7 +69,7 @@
         <div class="g-home-cards-items g-home-info-cards-items">
           {% for card in data.home.more_info_cards['items'] %}
             <div class="g-home-card g-home-info-card">
-              <div class="g-home-info-card-icon"><img src="{{ card.icon }}" alt=""></div>
+              <div class="g-home-info-card-icon"><img src="{{ card.icon }}" width="40" height="40" alt=""></div>
               <h3><a class="stretched-link" href="{{ card.url }}">{{ card.title }}</a></h3>
               <p>{{ card.description }}</p>
             </div>
