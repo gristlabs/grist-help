@@ -1,0 +1,79 @@
+components:
+  params:
+    searchStartIndex:
+      name: startIndex
+      in: query
+      description: The starting index for pagination.
+      required: false
+      schema:
+        type: integer
+        example: 1
+    searchCount:
+      name: count
+      in: query
+      description: The number of resources to retrieve.
+      required: false
+      schema:
+        type: integer
+        example: 10
+    searchFilter:
+      name: filter
+      in: query
+      description: Filter resources based on specific criteria.
+      required: false
+      schema:
+        type: string
+        example: "displayName pr"
+  schemas:
+    postSearch:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+            - "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+        filter:
+          type: string
+          description: Filter expression for resources.
+          example: 'userName co "john.doe"'
+        sortBy:
+          type: string
+          description: Field to sort by.
+          example: "userName"
+        sortOrder:
+          type: string
+          description: Order of sorting (ascending or descending).
+          example: "ascending"
+        attributes:
+          type: array
+          description: A multi-valued list of strings indicating the names of resource attributes to return in the response.
+          items:
+            type: string
+        excludedAttributes:
+          type: array
+          description: A multi-valued list of strings indicating the names of resource attributes to be removed from the default set of attributes to return.
+          items:
+            type: string
+        startIndex:
+          description: The starting index for pagination.
+          type: integer
+          example: 1
+        count:
+          description: The number of resources to retrieve.
+          type: integer
+          example: 10
+    patchItem:
+      type: object
+      properties:
+        op:
+          type: string
+          description: Operation type (add, replace, remove).
+          example: "replace"
+        path:
+          type: string
+          description: The field to be updated.
+        value:
+          type: string
+          description: New value for the field.

@@ -1,0 +1,298 @@
+paths:
+  /scim/v2/Roles:
+    get:
+      summary: Retrieve list of roles.
+      description: |
+        Roles are system-defined entities giving particular permissions to a given resource (document, workspace or organization).
+        This API returns by default all these roles associated to all the resources.
+        You may use the parameters to filter the results.
+      operationId: getRoles
+      tags:
+        - scim
+      parameters:
+        - $ref: "./common.yml#/components/params/searchStartIndex"
+        - $ref: "./common.yml#/components/params/searchCount"
+        - $ref: "./common.yml#/components/params/searchFilter"
+      responses:
+        '200':
+          description: Successfully retrieved list of roles.
+          content:
+            application/scim+json:
+              schema:
+                $ref: "#/components/schemas/RolesListResponse"
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '500':
+          description: Internal server error.
+
+  /scim/v2/Roles/{roleId}:
+    get:
+      summary: Retrieve role by ID
+      operationId: getRoleById
+      tags:
+        - scim
+      parameters:
+        - $ref: '#/components/params/roleIdPathParam'
+      responses:
+        '200':
+          description: Successfully retrieved role details.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RoleInGetResponse'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '404':
+          description: Role not found.
+        '500':
+          description: Internal server error.
+    put:
+      summary: Update a role by ID
+      description: |
+        ⚠️ This operation overwrites all the memberships (the "members" property). In order to update part of the membership, please use [PATCH](#tag/scim/operation/patchRoleById) instead.
+        Only the memberships are authorized to be modified through this endpoint, other properties will be ignored.
+      operationId: updateRoleById
+      tags:
+        - scim
+      parameters:
+        - $ref: '#/components/params/roleIdPathParam'
+      requestBody:
+        description: Updated data for the role.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/RoleInRequest'
+      responses:
+        '200':
+          description: Role updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RoleInResponse'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '404':
+          description: Role not found.
+        '409':
+          description: Conflict on resource (like displayName).
+        '500':
+          description: Internal server error.
+
+    patch:
+      summary: Partially update a role by ID
+      description: |
+        Only the memberships are authorized to be modified through this endpoint, other properties will be ignored.
+      operationId: patchRoleById
+      tags:
+        - scim
+      parameters:
+        - $ref: '#/components/params/roleIdPathParam'
+      requestBody:
+        description: Data for the partial update of the role.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              type: object
+              properties:
+                schemas:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                Operations:
+                  type: array
+                  items:
+                    allOf:
+                      - $ref: "./common.yml#/components/schemas/patchItem"
+                      - type: object
+                        properties:
+                          path:
+                            example: "members[display eq \"John Doe\"].value"
+                          value:
+                            example: "42"
+      responses:
+        '200':
+          description: Role partially updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/RoleInResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '404':
+          description: Role not found.
+        '409':
+          description: Conflict on resource (like displayName).
+        '500':
+          description: Internal server error.
+
+components:
+  params:
+    roleIdPathParam:
+      in: path
+      name: roleId
+      schema:
+        type: integer
+      description: A role id
+      required: true
+
+  schemas:
+    Member:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The ID of a member.
+          example: "1"
+        display:
+          type: string
+          description: The display name of a member.
+          example: "Engineering"
+        type:
+          type: string
+          description: The type of member (User or Group).
+          example: "Group"
+        $ref:
+          type: string
+          description: The URL to access the member
+          example: "/api/scim/v2/Groups/1"
+    MembersInResponse:
+      type: array
+      items:
+        allOf:
+          - type: object
+            required:
+              - value
+              - display
+              - type
+              - $ref
+          - $ref: "#/components/schemas/Member"
+    MembersInRequest:
+      type: array
+      items:
+        allOf:
+          - type: object
+            required:
+              - value
+              - type
+          - $ref: "#/components/schemas/Member"
+    RoleInRequest:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+            - "urn:ietf:params:scim:schemas:Grist:1.0:Role"
+        members:
+          $ref: "#/components/schemas/MembersInRequest"
+    RolesListResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+            - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        totalResults:
+          type: integer
+          description: Total number of roles.
+          example: 1
+        itemsPerPage:
+          type: integer
+          description: Number of roles returned per page.
+          example: 20
+        startIndex:
+          type: integer
+          description: Starting index.
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleInGetResponse'
+    RoleInGetResponse:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/RoleInResponse'
+        - type: object
+          required:
+            - schemas
+            - id
+            - meta
+            - displayName
+            - members
+          properties:
+            displayName:
+              type: string
+              description: The name of the role.
+              example: "owners"
+        - oneOf:
+          - type: object
+            required:
+              - orgId
+            properties:
+              orgId:
+                type: number
+                description: The ID of the organization that the role applies to
+                example: 1
+          - type: object
+            required:
+              - workspaceId
+            properties:
+              workspaceId:
+                type: number
+                description: The ID of the workspace that the role applies to
+                example: 2
+          - type: object
+            required:
+              - docId
+            properties:
+              docId:
+                type: string
+                description: The ID of the document that the role applies to
+                example: diHs5TB4mq6BQXw5RvBVu4
+    RoleInResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:schemas:Grist:1.0:Role
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              enum:
+              - "Role"
+            location:
+              type: string
+              example: "/api/scim/v2/Roles/1"
+        id:
+          type: string
+          description: The unique identifier of the role.
+          example: "1"
+        displayName:
+          type: string
+          description: The name of the role.
+          example: "owners"
+        members:
+          $ref: "#/components/schemas/MembersInResponse"
+
