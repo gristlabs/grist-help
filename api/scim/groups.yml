@@ -1,8 +1,8 @@
 paths:
-  /scim/v2/Users:
+  /scim/v2/Groups:
     get:
-      summary: Retrieve list of users
-      operationId: getUsers
+      summary: Retrieve list of groups
+      operationId: getGroups
       tags:
         - scim
       parameters:
@@ -11,11 +11,11 @@ paths:
         - $ref: "./common.yml#/components/params/searchFilter"
       responses:
         '200':
-          description: Successfully retrieved list of users.
+          description: Successfully retrieved list of groups.
           content:
             application/scim+json:
               schema:
-                $ref: "#/components/schemas/UsersListResponse"
+                $ref: "#/components/schemas/GroupsListResponse"
         '401':
           description: Unauthenticated
         '403':
@@ -24,24 +24,24 @@ paths:
           description: Internal server error.
 
     post:
-      summary: Create a new user
-      operationId: createUser
+      summary: Create a new group
+      operationId: createGroup
       tags:
         - scim
       requestBody:
-        description: Data for the user to be created.
+        description: Data for the group to be created.
         required: true
         content:
           application/scim+json:
             schema:
-              $ref: '#/components/schemas/UserInRequest'
+              $ref: '#/components/schemas/GroupInRequest'
       responses:
         '201':
-          description: User created successfully.
+          description: Group created successfully.
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/UserInResponse'
+                $ref: '#/components/schemas/GroupInResponse'
         '400':
           description: Bad request.
         '401':
@@ -49,76 +49,76 @@ paths:
         '403':
           description: Unauthorized
         '409':
-          description: Conflict on resource (like email).
+          description: Conflict on resource (like displayName).
         '500':
           description: Internal server error.
 
-  /scim/v2/Users/{userId}:
-    get: &get-user
-      summary: Retrieve user by ID
-      operationId: getUserById
+  /scim/v2/Groups/{groupId}:
+    get:
+      summary: Retrieve group by ID
+      operationId: getGroupById
       tags:
         - scim
       parameters:
-        - $ref: '#/components/params/userIdPathParam'
+        - $ref: '#/components/params/groupIdPathParam'
       responses:
         '200':
-          description: Successfully retrieved user details.
+          description: Successfully retrieved group details.
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/UserInResponse'
+                $ref: '#/components/schemas/GroupInResponse'
         '401':
           description: Unauthenticated
         '403':
           description: Unauthorized
         '404':
-          description: User not found.
+          description: Group not found.
         '500':
           description: Internal server error.
 
-    put: &put-user
-      summary: Update a user by ID
-      description: ⚠️  This operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
-      operationId: updateUserById
+    put:
+      summary: Update a group by ID
+      description: ⚠️ This operation overrides all the group's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchGroupById) instead.
+      operationId: updateGroupById
       tags:
         - scim
       parameters:
-        - $ref: '#/components/params/userIdPathParam'
+        - $ref: '#/components/params/groupIdPathParam'
       requestBody:
-        description: Updated data for the user.
+        description: Updated data for the group.
         required: true
         content:
           application/scim+json:
             schema:
-              $ref: '#/components/schemas/UserInRequest'
+              $ref: '#/components/schemas/GroupInRequest'
       responses:
         '200':
-          description: User updated successfully.
+          description: Group updated successfully.
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/UserInResponse'
+                $ref: '#/components/schemas/GroupInResponse'
         '401':
           description: Unauthenticated
         '403':
           description: Unauthorized
         '404':
-          description: User not found.
+          description: Group not found.
         '409':
-          description: Conflict on resource (like email).
+          description: Conflict on resource (like displayName).
         '500':
           description: Internal server error.
 
-    patch: &patch-user
-      summary: Partially update a user by ID
-      operationId: patchUserById
+    patch:
+      summary: Partially update a group by ID
+      operationId: patchGroupById
       tags:
         - scim
       parameters:
-        - $ref: '#/components/params/userIdPathParam'
+        - $ref: '#/components/params/groupIdPathParam'
       requestBody:
-        description: Data for the partial update of the user.
+        description: Data for the partial update of the group.
         required: true
         content:
           application/scim+json:
@@ -130,7 +130,7 @@ paths:
                   items:
                     type: string
                     enum:
-                     - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                    - urn:ietf:params:scim:api:messages:2.0:PatchOp
                 Operations:
                   type: array
                   items:
@@ -139,16 +139,16 @@ paths:
                       - type: object
                         properties:
                           path:
-                            example: "photos[primary eq true].value"
+                            example: "members[display eq \"John Doe\"].value"
                           value:
-                            example: "https://example.com/pics/john-doe.png"
+                            example: "42"
       responses:
         '200':
-          description: User partially updated successfully.
+          description: Group partially updated successfully.
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/UserInResponse'
+                $ref: '#/components/schemas/GroupInResponse'
         '400':
           description: Bad request.
         '401':
@@ -156,36 +156,35 @@ paths:
         '403':
           description: Unauthorized
         '404':
-          description: User not found.
+          description: Group not found.
         '409':
-          description: Conflict on resource (like email).
+          description: Conflict on resource (like displayName).
         '500':
           description: Internal server error.
 
-    delete: &delete-user
-      summary: Delete a user by ID.
+    delete:
+      summary: Delete a group by ID.
       description: ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
-      operationId: deleteUserById
+      operationId: deleteGroupById
       tags:
         - scim
       parameters:
-        - $ref: '#/components/params/userIdPathParam'
+        - $ref: '#/components/params/groupIdPathParam'
       responses:
         '204':
-          description: User deleted successfully.
+          description: Group deleted successfully.
         '401':
           description: Unauthenticated
         '403':
           description: Unauthorized
         '404':
-          description: User not found.
+          description: Group not found.
         '500':
           description: Internal server error.
-
-  /scim/v2/Users/.search:
+  /scim/v2/Groups/.search:
     post:
-      summary: Search users
-      operationId: searchUsers
+      summary: Search groups
+      operationId: searchGroups
       tags:
         - scim
       requestBody:
@@ -199,13 +198,13 @@ paths:
                 - type: object
                   properties:
                     filter:
-                      example: 'userName pr'
+                      example: 'displayName eq "Engineering"'
                     sortBy:
-                      example: 'userName'
+                      example: 'displayName'
                     attributes:
                       example: ['id', 'displayName']
                     excludedAttributes:
-                      example: ['locale']
+                      example: ['members']
       responses:
         '200':
           description: Users retrieved based on search criteria.
@@ -226,7 +225,7 @@ paths:
                   Resources:
                     type: array
                     items:
-                      $ref: '#/components/schemas/UserInResponse'
+                      $ref: '#/components/schemas/GroupInResponse'
         '400':
           description: Bad request.
         '401':
@@ -235,27 +234,58 @@ paths:
           description: Unauthorized
         '500':
           description: Internal server error.
-  /scim/v2/Me:
-    get:
-      <<: *get-user
-      summary: Retrieve information about oneself
-      description: When SCIM is enabled, this endpoint is accessible by anyone authentified in Grist.
-      operationId: getMe
-      parameters: []
 
 components:
-
   params:
-    userIdPathParam:
+    groupIdPathParam:
       in: path
-      name: userId
+      name: groupId
       schema:
         type: integer
-      description: A user id
+      description: A group id
       required: true
 
   schemas:
-    UsersListResponse:
+    Member:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The ID of a member.
+          example: "1"
+        display:
+          type: string
+          description: The display name of a member.
+          example: "John Doe"
+        type:
+          type: string
+          description: The type of member (User or Group).
+          example: "User"
+        $ref:
+          type: string
+          description: The URL to access to the member
+          example: "/api/scim/v2/Users/1"
+    MembersInResponse:
+      type: array
+      items:
+        allOf:
+          - type: object
+            required:
+              - value
+              - display
+              - type
+              - $ref
+          - $ref: "#/components/schemas/Member"
+    MembersInRequest:
+      type: array
+      items:
+        allOf:
+          - type: object
+            required:
+              - value
+              - type
+          - $ref: "#/components/schemas/Member"
+    GroupsListResponse:
       type: object
       properties:
         schemas:
@@ -266,11 +296,11 @@ components:
             - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         totalResults:
           type: integer
-          description: Total number of users.
+          description: Total number of groups.
           example: 1
         itemsPerPage:
           type: integer
-          description: Number of users returned per page.
+          description: Number of groups returned per page.
           example: 20
         startIndex:
           type: integer
@@ -279,9 +309,9 @@ components:
         Resources:
           type: array
           items:
-            $ref: '#/components/schemas/UserInResponse'
+            $ref: '#/components/schemas/GroupInResponse'
 
-    UserInRequest:
+    GroupInRequest:
       type: object
       properties:
         schemas:
@@ -289,78 +319,41 @@ components:
           items:
             type: string
             enum:
-            - "urn:ietf:params:scim:schemas:core:2.0:User"
-        userName:
-          type: string
-          description: The unique username.
-          example: "john.doe@example.com"
-        name:
-          type: object
-          properties:
-            formatted:
-              type: string
-              description: Full name of the user.
-              example: "John Doe"
-        emails:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-                description: The user's email address.
-                example: "john.doe@example.com"
-              primary:
-                type: boolean
-                description: Whether this is the primary email.
-                example: true
+            - "urn:ietf:params:scim:schemas:core:2.0:Group"
         displayName:
           type: string
-          description: the display name of the user
-          example: "John Doe"
-        preferredLanguage:
-          type: string
-          description: Indicates the user's preferred written or spoken languages and is generally used for selecting a localized user interface.
-          example: "en"
-        locale:
-          type: string
-          description: Used to indicate the User's default location for purposes of localizing such items as currency, date time format, or numerical representations.
-          example: "en"
-        photos:
-          type: array
-          description: The picture of the user. It is expected to have a single item in the context of Grist.
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-                description: The picture of the user
-                example: "https://example.com/pics/john-doe.png"
-              primary:
-                type: boolean
-                description: Whether this is the primary picture
-                example: true
-              type:
-                type: string
-                description: The picture type. Currently, we only offer pictures of type "photo".
-                enum: ["photo", "thumbnail"]
-                example: "photo"
-    UserInResponse:
+          description: The display name of the group.
+          example: "Engineering"
+        members:
+          $ref: "#/components/schemas/MembersInRequest"
+
+    GroupInResponse:
       allOf:
       - type: object
         properties:
+          schemas:
+            type: array
+            items:
+              type: string
+              enum:
+                - urn:ietf:params:scim:schemas:core:2.0:Group
           meta:
             type: object
             properties:
               resourceType:
                 type: string
                 enum:
-                - "User"
+                - "Group"
               location:
                 type: string
-                example: "/api/scim/v2/Users/1"
+                example: "/api/scim/v2/Groups/1"
           id:
             type: string
-            description: The unique identifier of the user.
+            description: The unique identifier of the group.
             example: "1"
-      - $ref: '#/components/schemas/UserInRequest'
+          displayName:
+            type: string
+            description: The name of the group.
+            example: "Engineering"
+          members:
+            $ref: "#/components/schemas/MembersInResponse"
