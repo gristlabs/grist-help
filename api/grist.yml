@@ -365,7 +365,55 @@ paths:
       responses:
         200:
           description: "Success"
+  /docs/{docId}/disable:
+    post:
+      operationId: disableDoc
+      tags:
+        - docs
+      summary: "Disable a document."
+      description: |
+        Disabled documents cannot be accessed or modified. Moving and
+        renaming a disabled doc is also forbidden, as well as
+        accessing or submitting published forms associated to a
+        disabled document.
 
+        Disabled documents, however, can be moved to and restored from
+        the trash.
+
+        The operation is non-destructive. Disabled documents can be
+        re-enabled.
+
+        Only admin accounts can disable a document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "Success"
+        403:
+          description: "The caller is not allowed to disable this document"
+        404:
+          description: "The document is not found"
+  /docs/{docId}/enable:
+    post:
+      operationId: enableDoc
+      tags:
+        - docs
+      summary: "Enable a document."
+      description: |
+        If a document has been previously disabled, this will restore
+        all former access to a document, including access to its
+        associated published forms.
+
+        Only admin accounts can enable a document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "Success"
+        403:
+          description: "The caller is not allowed to enable this document"
+        404:
+          description: "The document is not found"
   /docs/{docId}/copy:
     post:
       operationId: copyDoc
@@ -1444,6 +1492,44 @@ paths:
           description: "The passed user name does not match the one retrieved from the database given the passed user id"
         403:
           description: "The caller is not allowed to delete this account"
+        404:
+          description: "The user is not found"
+  /users/{userId}/disable:
+    post:
+      tags:
+        - users
+      summary: "Disable a user"
+      description: |
+        A disabled user can not log in and loses access to all pages,
+        including public ones, as well as API access. The operation is
+        non-destructive. Disabled users can be re-enabled.
+
+        Only admin accounts can disable a user.
+      parameters:
+        - $ref: '#/components/parameters/userIdPathParam'
+      responses:
+        200:
+          description: "The account has been disabled successfully"
+        403:
+          description: "The caller is not allowed to disable this account"
+        404:
+          description: "The user is not found"
+  /users/{userId}/enable:
+    post:
+      tags:
+        - users
+      summary: "Enable a user"
+      description: |
+        If a user has been disabled, this will restore their access, including API access.
+
+        Only admin accounts can enable a user.
+      parameters:
+        - $ref: '#/components/parameters/userIdPathParam'
+      responses:
+        200:
+          description: "The account has been enabled successfully"
+        403:
+          description: "The caller is not allowed to enable this account"
         404:
           description: "The user is not found"
   /service-accounts:
