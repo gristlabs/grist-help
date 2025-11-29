@@ -973,7 +973,7 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 }
 
 .api-header {
-  padding: 0 1rem !important;
+  padding: 0 16px !important;
 }
 
 .api-info {
@@ -1019,11 +1019,6 @@ handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.
 
   .md-main__inner:has(#api-content) .md-content__inner {
     margin-left: 0.8rem;
-  }
-
-  .api-header {
-    padding-left: 40px !important;
-    padding-right: 40px !important;
   }
 }
 

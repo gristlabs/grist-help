@@ -29,6 +29,7 @@ options=(
   --options.theme.sidebar.width=0px
   --options.scrollYOffset=48
   --options.jsonSampleExpandLevel=all
+  --options.theme.spacing.sectionHorizontal=16
 )
 
 if [[ "$1" = "" ]]; then
