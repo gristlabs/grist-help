@@ -139,6 +139,7 @@
   text-align: center;
 }
 
+/* Old carousel (possibly no longer used) */
 .carousel-indicators li {
   border: 1px solid var(--md-primary-fg-color);
 }
@@ -148,6 +149,27 @@
 .carousel-inner > .item {
   transition: none;
 }
+
+/* Glider carousel */
+.glider-next, .glider-prev {
+  background-color: var(--grist-primary) !important;
+  color: var(--grist-light) !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 2rem !important;
+  top: calc(50% - 1rem) !important;
+}
+.glider-next:focus, .glider-next:hover, .glider-prev:focus, .glider-prev:hover {
+  background-color: var(--grist-primary) !important;
+  color: var(--grist-light) !important;
+}
+.glider-next.disabled, .glider-prev.disabled {
+  color: var(--grist-light) !important;
+}
+.glider-next { right: -0.25rem !important; }
+.glider-prev { left: -0.25rem !important; }
+.glider-dot.active { background-color: var(--grist-primary) !important; }
+
 
 .formula {
   --md-code-bg-color: var(--grist-light);
