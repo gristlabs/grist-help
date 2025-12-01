@@ -84,7 +84,7 @@ nav:
       - code/modules/grist_plugin_api.md
       - ... | flat | **/code/interfaces/**
       - ... | flat | **/code/modules/**
-  - Self-managed:
+  - Self-hosted:
     - self-managed.md
     - install/saml.md
     - install/oidc.md
@@ -106,6 +106,7 @@ nav:
       - telemetry-full.md
   - News & updates:
     - newsletters.md
+    - newsletters/2025-11.md
     - newsletters/2025-10.md
     - newsletters/2025-09.md
     - newsletters/2025-08.md
