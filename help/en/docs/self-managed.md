@@ -145,10 +145,11 @@ In a multi-team Grist installation, take the following steps:
    example, `admins`)
 2. To this team site [add the user
    accounts](https://support.getgrist.com/team-sharing/) that you wish
-   to designate as administrators.
+   to designate as administrators. Their role on this team site must
+   be "OWNER".
 3. Set `GRIST_INSTALL_ADMIN_ORG` to the name of the team site from the
    first step (for example, `GRIST_INSTALL_ADMIN_ORG=admins`).
-4. Restart the Grist server with the new configuration.
+4. Restart the Grist server with the new environment variable.
 
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
