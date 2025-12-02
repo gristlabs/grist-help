@@ -1060,6 +1060,7 @@
 </ul>
 </li>
 <li><a href="#what-is-the-administrative-account">What is the administrative account?</a></li>
+<li><a href="#how-can-i-have-more-than-one-administrative-account">How can I have more than one administrative account?</a></li>
 <li><a href="#how-do-i-sandbox-documents">How do I sandbox documents?</a><ul>
 <li><a href="#xsave-not-available">XSAVE not available</a></li>
 <li><a href="#ptrace-not-available">PTRACE not available</a></li>
@@ -1206,6 +1207,26 @@ may inspect details of the installation or toggle features such as
 <a href="./#how-do-i-control-telemetry">telemetry</a> or <a href="./#how-do-i-enable-grist-enterprise">Grist
 Enterprise</a>.</p>
 <p>If <a href="./#how-do-i-enable-grist-enterprise">Grist Enterprise</a> is enabled, the administrative account will also have access to <a href="../admin-controls/">Admin Controls</a></p>
+<h3 class="tag-ee" id="how-can-i-have-more-than-one-administrative-account">How can I have more than one administrative account?<a class="headerlink" href="#how-can-i-have-more-than-one-administrative-account" title="Permanent link">#</a></h3>
+<p>In <a href="./#how-do-i-enable-grist-enterprise">Grist
+Enterprise</a>, it is
+possible to have more than one administrative account. This is done
+via the <code>GRIST_INSTALL_ADMIN_ORG</code> environment variable.</p>
+<p>A prerequisite is allowing the creation of multiple team sites. To do
+so, ensure that <code>GRIST_SINGLE_ORG</code> is unset.</p>
+<p>In a multi-team Grist installation, take the following steps:</p>
+<ol>
+<li>From your user account menu at the top right, create a Grist team
+   site (a.k.a. organization) with the name of your choosing (for
+   example, <code>admins</code>)</li>
+<li>To this team site <a href="https://support.getgrist.com/team-sharing/">add the user
+   accounts</a> that you wish
+   to designate as administrators. Their role on this team site must
+   be &ldquo;OWNER&rdquo;.</li>
+<li>Set <code>GRIST_INSTALL_ADMIN_ORG</code> to the name of the team site from the
+   first step (for example, <code>GRIST_INSTALL_ADMIN_ORG=admins</code>).</li>
+<li>Restart the Grist server with the new environment variable.</li>
+</ol>
 <h3 class="tag-core tag-ee" id="how-do-i-sandbox-documents">How do I sandbox documents?<a class="headerlink" href="#how-do-i-sandbox-documents" title="Permanent link">#</a></h3>
 <p>Grist allows for very powerful formulas, using Python.  We recommend
 setting the environment variable <code>GRIST_SANDBOX_FLAVOR</code> to <code>gvisor</code> if
