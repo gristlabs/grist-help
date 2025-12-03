@@ -45,7 +45,7 @@ The following SCIM entities can be queried and manipulated through the Grist SCI
       a workspace or an organization is possible but as of December 2025 they are
       not displayed in the UI (especially in the Users Management popup).
 - The roles (`owners`, `editors`, `viewers`, `members`, `guests`) through `/Roles`
-    - The Roles are the one you see in the Users Management popup: `owners`,
+    - The Roles are the ones you see in the Users Management popup: `owners`,
       `editors`, `viewers`, `guests` and `members`.
       Each role gives a certain access to a resource: a document, a workspace or
       an organisation (aka *team site*).

@@ -207,7 +207,7 @@ paths:
                       example: ['members']
       responses:
         '200':
-          description: Users retrieved based on search criteria.
+          description: Groups retrieved based on search criteria.
           content:
             application/scim+json:
               schema:
@@ -221,7 +221,7 @@ paths:
                       - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
                   totalResults:
                     type: integer
-                    description: Total number of users found.
+                    description: Total number of groups found.
                   Resources:
                     type: array
                     items:

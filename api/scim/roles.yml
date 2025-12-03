@@ -206,7 +206,7 @@ components:
           example: 1
         itemsPerPage:
           type: integer
-          description: Number of groups returned per page.
+          description: Number of roles returned per page.
           example: 20
         startIndex:
           type: integer
@@ -230,7 +230,7 @@ components:
           properties:
             displayName:
               type: string
-              description: The name of the group.
+              description: The name of the role.
               example: "owners"
         - oneOf:
           - type: object
@@ -278,7 +278,7 @@ components:
               example: "/api/scim/v2/Roles/1"
         id:
           type: string
-          description: The unique identifier of the group.
+          description: The unique identifier of the role.
           example: "1"
         members:
           $ref: "#/components/schemas/MembersInResponse"

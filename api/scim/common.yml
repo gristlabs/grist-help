@@ -11,7 +11,7 @@ components:
     searchCount:
       name: count
       in: query
-      description: The number of groups to retrieve.
+      description: The number of resources to retrieve.
       required: false
       schema:
         type: integer
@@ -19,7 +19,7 @@ components:
     searchFilter:
       name: filter
       in: query
-      description: Filter groups based on specific criteria.
+      description: Filter resources based on specific criteria.
       required: false
       schema:
         type: string
@@ -36,7 +36,7 @@ components:
             - "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
         filter:
           type: string
-          description: Filter expression for users.
+          description: Filter expression for resources.
           example: 'userName co "john.doe"'
         sortBy:
           type: string
@@ -61,7 +61,7 @@ components:
           type: integer
           example: 1
         count:
-          description: The number of users to retrieve.
+          description: The number of resources to retrieve.
           type: integer
           example: 10
     patchItem:
