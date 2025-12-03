@@ -328,32 +328,31 @@ components:
           $ref: "#/components/schemas/MembersInRequest"
 
     GroupInResponse:
-      allOf:
-      - type: object
-        properties:
-          schemas:
-            type: array
-            items:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
+        meta:
+          type: object
+          properties:
+            resourceType:
               type: string
               enum:
-                - urn:ietf:params:scim:schemas:core:2.0:Group
-          meta:
-            type: object
-            properties:
-              resourceType:
-                type: string
-                enum:
-                - "Group"
-              location:
-                type: string
-                example: "/api/scim/v2/Groups/1"
-          id:
-            type: string
-            description: The unique identifier of the group.
-            example: "1"
-          displayName:
-            type: string
-            description: The name of the group.
-            example: "Engineering"
-          members:
-            $ref: "#/components/schemas/MembersInResponse"
+              - "Group"
+            location:
+              type: string
+              example: "/api/scim/v2/Groups/1"
+        id:
+          type: string
+          description: The unique identifier of the group.
+          example: "1"
+        displayName:
+          type: string
+          description: The name of the group.
+          example: "Engineering"
+        members:
+          $ref: "#/components/schemas/MembersInResponse"
