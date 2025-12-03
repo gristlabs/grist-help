@@ -178,7 +178,8 @@ components:
         allOf:
           - type: object
             required:
-              - members
+              - value
+              - type
           - $ref: "#/components/schemas/Member"
     RoleInRequest:
       type: object
