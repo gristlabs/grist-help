@@ -79,7 +79,7 @@ paths:
 
     put:
       summary: Update a group by ID
-      description: ⚠️ This operation overrides all the group's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchGroupById) instead.
+      description: ⚠️ This operation overwrites all the group's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchGroupById) instead.
       operationId: updateGroupById
       tags:
         - scim

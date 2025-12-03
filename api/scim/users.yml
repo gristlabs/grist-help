@@ -79,7 +79,7 @@ paths:
 
     put: &put-user
       summary: Update a user by ID
-      description: ⚠️  This operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
+      description: ⚠️  This operation overwrites all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
       operationId: updateUserById
       tags:
         - scim

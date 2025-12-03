@@ -48,7 +48,7 @@ paths:
           description: Internal server error.
     put:
       summary: Update a role by ID
-      description: ⚠️ This operation overrides all the role's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchRoleById) instead.
+      description: ⚠️ This operation overwrites all the role's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchRoleById) instead.
       operationId: updateRoleById
       tags:
         - scim
