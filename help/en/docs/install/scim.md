@@ -39,7 +39,7 @@ The SCIM implementation is documented in the [Grist REST API reference](/api/#ta
 The following SCIM entities can be queried and manipulated through the Grist SCIM API:
 
 - The users through `/Users`.
-    - These are simply regular users as you can see them in Grist
+    - These are simply regular users as you can see them in Grist.
 - The groups of users (or *teams*) through `/Groups`.
     - ⚠️ Please note that it is very experimental and adding a team to a document,
       a workspace or an organization is possible but as of December 2025 they are
@@ -48,7 +48,7 @@ The following SCIM entities can be queried and manipulated through the Grist SCI
     - The Roles are the ones you see in the Users Management popup: `owners`,
       `editors`, `viewers`, `guests` and `members`.
       Each role gives a certain access to a resource: a document, a workspace or
-      an organisation (aka *team site*).
+      an organization (aka *team site*).
       You can use Roles to grant Users (`/scim/v2/Users`) or
       Groups (`/scim/v2/Groups`) access to one of these resources.
 

@@ -263,7 +263,7 @@ components:
           example: "User"
         $ref:
           type: string
-          description: The URL to access to the member
+          description: The URL to access the member
           example: "/api/scim/v2/Users/1"
     MembersInResponse:
       type: array
