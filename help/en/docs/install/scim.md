@@ -6,9 +6,9 @@ SCIM {: .tag-core .tag-ee }
 ====
 
 !!! warning "🚧 Status of SCIM"
-    As of November 2024, the SCIM endpoint is experimental and in active development. Also please note that group management is not supported yet.
+    As of November 2024, the SCIM endpoint is experimental and in active development.
 
-## Use case and difference with SSO systems 
+## Use case and difference with SSO systems
 
 Grist supports authentication via [OIDC](oidc.md) or [SAML](saml.md) to allow users to log in securely. However, when managing large organizations with dynamic user bases, manual user management (creation, updating, and deletion of accounts) can become complex and time-consuming. This is where the System for Cross-domain Identity Management (SCIM) comes in.
 
@@ -33,6 +33,24 @@ For more details on the SCIM standard, refer to the official IETF specifications
 ## The API
 
 The SCIM implementation is documented in the [Grist REST API reference](/api/#tag/scim).
+
+## The entities
+
+The following SCIM entities can be queried and manipulated through the Grist SCIM API:
+
+- The users through `/Users`.
+    - These are simply regular users as you can see them in Grist.
+- The groups of users (or *teams*) through `/Groups`.
+    - ⚠️ Please note that it is very experimental and adding a team to a document,
+      a workspace or an organization is possible but as of December 2025 they are
+      not displayed in the UI (especially in the Users Management popup).
+- The roles (`owners`, `editors`, `viewers`, `members`, `guests`) through `/Roles`
+    - The Roles are the ones you see in the Users Management popup: `owners`,
+      `editors`, `viewers`, `guests` and `members`.
+      Each role gives a certain access to a resource: a document, a workspace or
+      an organization (aka *team site*).
+      You can use Roles to grant Users (`/scim/v2/Users`) or
+      Groups (`/scim/v2/Groups`) access to one of these resources.
 
 ## Enabling and configuring SCIM
 

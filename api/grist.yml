@@ -1677,6 +1677,16 @@ paths:
     $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1ServiceProviderConfig"
   /scim/v2/ResourceTypes:
     $ref: "./scim/serviceproviderconfig.yml#/paths/~1scim~1v2~1ResourceTypes"
+  /scim/v2/Groups:
+    $ref: "./scim/groups.yml#/paths/~1scim~1v2~1Groups"
+  /scim/v2/Groups/{groupId}:
+    $ref: "./scim/groups.yml#/paths/~1scim~1v2~1Groups~1{groupId}"
+  /scim/v2/Groups/.search:
+    $ref: "./scim/groups.yml#/paths/~1scim~1v2~1Groups~1.search"
+  /scim/v2/Roles:
+    $ref: "./scim/roles.yml#/paths/~1scim~1v2~1Roles"
+  /scim/v2/Roles/{roleId}:
+    $ref: "./scim/roles.yml#/paths/~1scim~1v2~1Roles~1{roleId}"
 
 tags:
   - name: orgs

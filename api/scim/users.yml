@@ -6,27 +6,9 @@ paths:
       tags:
         - scim
       parameters:
-        - name: startIndex
-          in: query
-          description: The starting index for pagination.
-          required: false
-          schema:
-            type: integer
-            example: 1
-        - name: count
-          in: query
-          description: The number of users to retrieve.
-          required: false
-          schema:
-            type: integer
-            example: 10
-        - name: filter
-          in: query
-          description: Filter users based on specific criteria.
-          required: false
-          schema:
-            type: string
-            example: "userName pr"
+        - $ref: "./common.yml#/components/params/searchStartIndex"
+        - $ref: "./common.yml#/components/params/searchCount"
+        - $ref: "./common.yml#/components/params/searchFilter"
       responses:
         '200':
           description: Successfully retrieved list of users.
@@ -97,7 +79,7 @@ paths:
 
     put: &put-user
       summary: Update a user by ID
-      description: ⚠️  This operation override all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
+      description: ⚠️  This operation overwrites all the user's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchUserById) instead.
       operationId: updateUserById
       tags:
         - scim
@@ -152,20 +134,14 @@ paths:
                 Operations:
                   type: array
                   items:
-                    type: object
-                    properties:
-                      op:
-                        type: string
-                        description: Operation type (add, replace, remove).
-                        example: "replace"
-                      path:
-                        type: string
-                        description: The field to be updated.
-                        example: "photos[primary eq true].value"
-                      value:
-                        type: string
-                        description: New value for the field.
-                        example: "https://example.com/pics/john-doe.png"
+                    allOf:
+                      - $ref: "./common.yml#/components/schemas/patchItem"
+                      - type: object
+                        properties:
+                          path:
+                            example: "photos[primary eq true].value"
+                          value:
+                            example: "https://example.com/pics/john-doe.png"
       responses:
         '200':
           description: User partially updated successfully.
@@ -187,7 +163,7 @@ paths:
           description: Internal server error.
 
     delete: &delete-user
-      summary: Delete a user by ID. 
+      summary: Delete a user by ID.
       description: ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
       operationId: deleteUserById
       tags:
@@ -218,47 +194,18 @@ paths:
         content:
           application/scim+json:
             schema:
-              type: object
-              properties:
-                schemas:
-                  type: array
-                  items:
-                    type: string
-                    enum:
-                    - "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
-                filter:
-                  type: string
-                  description: Filter expression for users.
-                  example: 'userName co "john.doe"'
-                sortBy:
-                  type: string
-                  description: Field to sort by.
-                  example: "userName"
-                sortOrder:
-                  type: string
-                  description: Order of sorting (ascending or descending).
-                  example: "ascending"
-                attributes:
-                  type: array
-                  description: A multi-valued list of strings indicating the names of resource attributes to return in the response.
-                  items:
-                    type: string
-                  example: [ "id", "displayName" ]
-                excludedAttributes:
-                  type: array
-                  description: A multi-valued list of strings indicating the names of resource attributes to be removed from the default set of attributes to return.
-                  items:
-                    type: string
-                  example: [ "locale" ]
-                startIndex:
-                  description: The starting index for pagination.
-                  type: integer
-                  example: 1
-                count:
-                  description: The number of users to retrieve.
-                  type: integer
-                  example: 10
-
+              allOf:
+                - $ref: "./common.yml#/components/schemas/postSearch"
+                - type: object
+                  properties:
+                    filter:
+                      example: 'userName pr'
+                    sortBy:
+                      example: 'userName'
+                    attributes:
+                      example: ['id', 'displayName']
+                    excludedAttributes:
+                      example: ['locale']
       responses:
         '200':
           description: Users retrieved based on search criteria.
@@ -407,7 +354,7 @@ components:
             properties:
               resourceType:
                 type: string
-                enum: 
+                enum:
                 - "User"
               location:
                 type: string
