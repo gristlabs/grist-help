@@ -677,6 +677,19 @@ body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
 }
 
 /*****************************************
+ Page-specific styles
+
+ We have a [data-page-id] element in the page that we can use here to create specific page styles.
+
+ Use this selector as base: `body:has(> [data-page-id="<page-id>"])`
+ *****************************************/
+
+/* On the FAQ page, it's useful to give more space to the sidebar with TOC */
+body:has(> [data-page-id="FAQ"]) .md-sidebar--secondary {
+  width: 18rem;
+}
+
+/*****************************************
  Homepage specific template classes
 
  the "g-" prefix makes it explicit these are "grist template" classes

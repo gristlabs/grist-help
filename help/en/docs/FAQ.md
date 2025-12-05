@@ -4,11 +4,6 @@ hide:
   - navigation
 ---
 
-<style>
-/* On this page, it's useful to give more space to the sidebar with TOC */
-.md-sidebar--secondary { width: 18rem; }
-</style>
-
 # Frequently Asked Questions
 
 [TOC]

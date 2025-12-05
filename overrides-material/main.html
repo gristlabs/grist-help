@@ -46,6 +46,17 @@
   {% endif %}
 {% endblock %}
 
+{% block header %}
+  {# This is a trick to easily target specific pages in CSS/JS code. The templates don't expose any html/body classes or ids and we can't
+  add any custom ones easily. So we add this empty tag and we can use the :has() pseudo-class to target specific pages.
+  Not ideal, but it works pretty well. It allows us to add custom CSS to specific pages without having the CSS in markdown files, making it
+  easier to maintain accross different languages. #}
+  {% if page and page.file and page.file.src_path %}
+    <div data-page-id="{{ page.file.src_path.rsplit('.', 1)[0] }}" style="display: none !important;"></div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+
 {% block scripts %}
   {% from "macros/dialog.html" import g_dialog %}
 
