@@ -312,6 +312,12 @@ but make sure the borders have WCAG-compliant contrast ratio */
   color: var(--grist-dark-text);
 }
 
+/* tooltip weird bug handling: sometimes, mkdocs-material shows empty tooltips.
+Just hide them if they are empty. */
+[role="tooltip"]:has(> .md-tooltip2__inner:empty) {
+  display: none;
+}
+
 /*****************************************
  Markdown content overrides
  *****************************************/
