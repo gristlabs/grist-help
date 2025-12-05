@@ -33,28 +33,29 @@ How does this compare to a spreadsheet? These screenshots show first the Lightwe
 and then a regular spreadsheet with the same data.
 
 #### Lightweight CRM
+
 <div id="glider1" class="glider-contain">
   <div class="glider">
-    <img src="../images/lightweight-crm/grist-crm1.png" alt="Grist Screenshot1">
-    <img src="../images/lightweight-crm/grist-crm2.png" alt="Grist Screenshot2">
-    <img src="../images/lightweight-crm/grist-crm3.png" alt="Grist Screenshot3">
+    <img src="../images/lightweight-crm/grist-crm1.png" alt="Contacts page is easily readable thanks to page widgets: one for the contacts list, one for the contact details, and one for the contact interactions.">
+    <img src="../images/lightweight-crm/grist-crm2.png" alt="The contact details are displayed in a card widget, making it easy to read and edit. It changes as soon as you click on a contact in the main list.">
+    <img src="../images/lightweight-crm/grist-crm3.png" alt="The contact interactions are displayed in a table widget. It lists only the interactions for the selected contact in the main list.">
   </div>
 
-  <button class="glider-prev">«</button>
-  <button class="glider-next">»</button>
+  <button class="glider-prev" aria-label="Previous lightweight CRM slide">«</button>
+  <button class="glider-next" aria-label="Next lightweight CRM slide">»</button>
   <div role="tablist" class="dots"></div>
 </div>
 
 #### Regular spreadsheet
 <div id="glider2" class="glider-contain">
   <div class="glider">
-    <img src="../images/lightweight-crm/spreadsheet1.png" alt="Spreadsheet Screenshot1">
-    <img src="../images/lightweight-crm/spreadsheet2.png" alt="Spreadsheet Screenshot2">
-    <img src="../images/lightweight-crm/spreadsheet3.png" alt="Spreadsheet Screenshot3">
+    <img src="../images/lightweight-crm/spreadsheet1.png" alt="All contact info is displayed in one spreadsheet.">
+    <img src="../images/lightweight-crm/spreadsheet2.png" alt="It's hard to add information, as every new info requires a new column.">
+    <img src="../images/lightweight-crm/spreadsheet3.png" alt="We end up with lots and lots of columns, making the spreadsheet difficult to read and understand.">
   </div>
 
-  <button class="glider-prev">«</button>
-  <button class="glider-next">»</button>
+  <button class="glider-prev" aria-label="Previous spreadsheet slide">«</button>
+  <button class="glider-next" aria-label="Next spreadsheet slide">»</button>
   <div role="tablist" class="dots"></div>
 </div>
 
