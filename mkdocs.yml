@@ -20,9 +20,7 @@ theme:
     accent: custom
   features:
     - navigation.tabs
-    # Content.tooltips causes a weird empty tooltip to appear in nav panel after first expanding a
-    # section, and unclear when it's actually helpful.
-    #- content.tooltips
+    - content.tooltips
     - navigation.path
     - navigation.footer
     - navigation.top
