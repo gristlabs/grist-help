@@ -437,17 +437,17 @@ have a paperclip icon:
 
 ![Attachment paperclip](images/columns/columns-attachment-column.png)
 
-When you click on a paperclip icon, you can select a file to attach.
-If it is an image, you'll see a thumbnail of it in the cell.
+When you click on a paperclip icon, you can select a file to attach. You also have the abiliy to copy/paste files into a cell.
+
+If the file is an image, you'll see a thumbnail of it in the cell.
 
 ![Image attachment](images/columns/columns-attach-image.png)
 
 <!-- Source: https://en.wikipedia.org/wiki/File:Red_eyed_tree_frog_edit2.jpg -->
 
 If you hover over the image, you'll see a paperclip icon again,
-which you can use to add more files to the same cell.  You'll
-also see an "open-eye" icon, which when clicked brings up a
-larger view of all of the cell's attachments, and gives you
-a way to rename them, download them, or remove them.
+which you can use to add more files to the same cell. 
+
+Double clicking on the image brings up a larger view of all of the cell's attachments, and gives you a way to rename them, download them, or remove them.
 
 ![Image browser](images/columns/columns-view-image.png)
