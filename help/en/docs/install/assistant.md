@@ -2,15 +2,15 @@
 title: Assistant
 ---
 
-Assistant {: .tag-ee }
+Assistant for self-hosters {: .tag-ee }
 ==============
 
 !!! warning "Note"
-    This documentation refers to the current Assistant, which is only available on the Enterprise edition. You can find the documentation for the legacy AI Formula Assistant [here](ai-assistant-legacy.md).
+    This documentation refers to the current [Assistant](/assistant), which is only available on the Enterprise edition. You can find the documentation for the legacy AI Formula Assistant [here](ai-assistant-legacy.md).
 
 ## How to set up the Assistant
 
-You can use the Assistant in self-managed Grist with your AI provider of choice or a local model. The Assistant currently only supports chat completion API endpoints such as those provided by OpenAI (e.g. `/v1/chat/completions`), and models that support tool calling and structured output.
+You can use the [Assistant](/assistant) in self-hosted Grist with your AI provider of choice or a local model. The Assistant currently only supports chat completion API endpoints such as those provided by OpenAI (e.g. `/v1/chat/completions`), and models that support tool calling and structured output.
 
 To enable the Assistant, specify the completion endpoint to use by setting the `ASSISTANT_CHAT_COMPLETION_ENDPOINT` environment variable as follows:
 

@@ -32,7 +32,7 @@ When you apply a suggested formula, you will see the formula previewed in the co
 
 For self-hosters looking to connect their Grist instance, set the [AI Assistant-related environment variables](https://github.com/gristlabs/grist-core#ai-formula-assistant-related-variables-all-optional){:target="\_blank"}. 
 
-The above variables also enable the use of the LLaMA family of self-hostable models via [llama2-cpp-python](https://github.com/abetlen/llama-cpp-python){:target="\_blank"}.
+The above variables also enable the use of other models (including self-hostable ones). See [these instructions](install/ai-assistant-legacy.md#using-openrouter) for more information.
 
 Learn more about [self-hosting Grist](self-managed.md). 
 

@@ -47,8 +47,8 @@ Certain Grist Labs employees may also examine logs of assistant requests (questi
 
 For self-hosters, the Assistant is available on [Enterprise](https://www.getgrist.com/pricing/) plans. Learn how to [enable Grist Enterprise](https://support.getgrist.com/self-managed/#how-do-i-enable-grist-enterprise). Our [Legacy Formula AI Assistant](ai-assistant-legacy.md) remains available to self-hosters on the [Community edition](https://github.com/gristlabs/grist-core){:target="\_blank"}.
 
-For self-hosters looking to connect their Grist instance, set the [AI Assistant-related environment variables](https://github.com/gristlabs/grist-core#ai-formula-assistant-related-variables-all-optional){:target="\_blank"}. 
+For self-hosters looking to connect their Grist instance, set the [AI Assistant-related environment variables](install/assistant.md#environment-variables). 
 
-The above variables also enable the use of other models (including self-hostable ones). See [these instructions](https://github.com/gristlabs/grist-core?tab=readme-ov-file#using-grist-with-openrouter-for-model-agnostic-and-claude-support){:target="\_blank"} for more information.
+The above variables also enable the use of other models (including self-hostable ones). See [these instructions](install/assistant.md#using-openrouter) for more information.
 
 Learn more about [self-hosting Grist](self-managed.md). 
