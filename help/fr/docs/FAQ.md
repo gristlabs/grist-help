@@ -2,6 +2,7 @@
 title: FAQ
 hide:
   - navigation
+htmlclass: page-wide-toc
 ---
 
 # Questions Fréquemment Posées
