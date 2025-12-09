@@ -41,9 +41,11 @@ The following SCIM entities can be queried and manipulated through the Grist SCI
 - The users through `/Users`.
     - These are simply regular users as you can see them in Grist.
 - The groups of users (or *teams*) through `/Groups`.
-    - ⚠️ Please note that it is very experimental and adding a team to a document,
-      a workspace or an organization is possible but as of December 2025 they are
-      not displayed in the UI (especially in the Users Management popup).
+    - ⚠️ Please note that this feature is very experimental. Adding a team to a document,
+      workspace, or organization is possible, but as of December 2025, teams/groups added via SCIM
+      are not displayed in the UI (especially in the Users Management popup). However, these teams/groups
+      will still have access as configured. To verify group membership or access, please use the SCIM API
+      or the REST API directly, as changes may not be visible in the UI until future updates resolve this limitation.
 - The roles (`owners`, `editors`, `viewers`, `members`, `guests`) through `/Roles`
     - The Roles are the ones you see in the Users Management popup: `owners`,
       `editors`, `viewers`, `guests` and `members`.
@@ -52,6 +54,8 @@ The following SCIM entities can be queried and manipulated through the Grist SCI
       You can use Roles to grant Users (`/scim/v2/Users`) or
       Groups (`/scim/v2/Groups`) access to one of these resources.
 
+    !!! note "Roles are system-defined"
+        Roles (`owners`, `editors`, `viewers`, `members`, `guests`) are predefined by Grist and cannot be created or deleted through the SCIM API. You can only query roles and modify their memberships (i.e., assign or remove users/groups from roles), but you cannot create new roles or delete existing ones.
 ## Enabling and configuring SCIM
 
 Below is a list of environment variables you may use to configure SCIM:
