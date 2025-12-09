@@ -1,0 +1,358 @@
+paths:
+  /scim/v2/Groups:
+    get:
+      summary: Retrieve list of groups
+      operationId: getGroups
+      tags:
+        - scim
+      parameters:
+        - $ref: "./common.yml#/components/params/searchStartIndex"
+        - $ref: "./common.yml#/components/params/searchCount"
+        - $ref: "./common.yml#/components/params/searchFilter"
+      responses:
+        '200':
+          description: Successfully retrieved list of groups.
+          content:
+            application/scim+json:
+              schema:
+                $ref: "#/components/schemas/GroupsListResponse"
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '500':
+          description: Internal server error.
+
+    post:
+      summary: Create a new group
+      operationId: createGroup
+      tags:
+        - scim
+      requestBody:
+        description: Data for the group to be created.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/GroupInRequest'
+      responses:
+        '201':
+          description: Group created successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupInResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '409':
+          description: Conflict on resource (like displayName).
+        '500':
+          description: Internal server error.
+
+  /scim/v2/Groups/{groupId}:
+    get:
+      summary: Retrieve group by ID
+      operationId: getGroupById
+      tags:
+        - scim
+      parameters:
+        - $ref: '#/components/params/groupIdPathParam'
+      responses:
+        '200':
+          description: Successfully retrieved group details.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupInResponse'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '404':
+          description: Group not found.
+        '500':
+          description: Internal server error.
+
+    put:
+      summary: Update a group by ID
+      description: ⚠️ This operation overwrites all the group's information. In order to pass only some properties to update, please use [PATCH](#tag/scim/operation/patchGroupById) instead.
+      operationId: updateGroupById
+      tags:
+        - scim
+      parameters:
+        - $ref: '#/components/params/groupIdPathParam'
+      requestBody:
+        description: Updated data for the group.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/GroupInRequest'
+      responses:
+        '200':
+          description: Group updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupInResponse'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '404':
+          description: Group not found.
+        '409':
+          description: Conflict on resource (like displayName).
+        '500':
+          description: Internal server error.
+
+    patch:
+      summary: Partially update a group by ID
+      operationId: patchGroupById
+      tags:
+        - scim
+      parameters:
+        - $ref: '#/components/params/groupIdPathParam'
+      requestBody:
+        description: Data for the partial update of the group.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              type: object
+              properties:
+                schemas:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                Operations:
+                  type: array
+                  items:
+                    allOf:
+                      - $ref: "./common.yml#/components/schemas/patchItem"
+                      - type: object
+                        properties:
+                          path:
+                            example: "members[display eq \"John Doe\"].value"
+                          value:
+                            example: "42"
+      responses:
+        '200':
+          description: Group partially updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupInResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '404':
+          description: Group not found.
+        '409':
+          description: Conflict on resource (like displayName).
+        '500':
+          description: Internal server error.
+
+    delete:
+      summary: Delete a group by ID.
+      description: ⚠️ **This action cannot be undone, please be cautious when using this endpoint** ⚠️
+      operationId: deleteGroupById
+      tags:
+        - scim
+      parameters:
+        - $ref: '#/components/params/groupIdPathParam'
+      responses:
+        '204':
+          description: Group deleted successfully.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '404':
+          description: Group not found.
+        '500':
+          description: Internal server error.
+  /scim/v2/Groups/.search:
+    post:
+      summary: Search groups
+      operationId: searchGroups
+      tags:
+        - scim
+      requestBody:
+        description: Search criteria.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              allOf:
+                - $ref: "./common.yml#/components/schemas/postSearch"
+                - type: object
+                  properties:
+                    filter:
+                      example: 'displayName eq "Engineering"'
+                    sortBy:
+                      example: 'displayName'
+                    attributes:
+                      example: ['id', 'displayName']
+                    excludedAttributes:
+                      example: ['members']
+      responses:
+        '200':
+          description: Groups retrieved based on search criteria.
+          content:
+            application/scim+json:
+              schema:
+                type: object
+                properties:
+                  schemas:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                      - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+                  totalResults:
+                    type: integer
+                    description: Total number of groups found.
+                  Resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GroupInResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Unauthorized
+        '500':
+          description: Internal server error.
+
+components:
+  params:
+    groupIdPathParam:
+      in: path
+      name: groupId
+      schema:
+        type: integer
+      description: A group id
+      required: true
+
+  schemas:
+    Member:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The ID of a member.
+          example: "1"
+        display:
+          type: string
+          description: The display name of a member.
+          example: "John Doe"
+        type:
+          type: string
+          description: The type of member (User or Group).
+          example: "User"
+        $ref:
+          type: string
+          description: The URL to access the member
+          example: "/api/scim/v2/Users/1"
+    MembersInResponse:
+      type: array
+      items:
+        allOf:
+          - type: object
+            required:
+              - value
+              - display
+              - type
+              - $ref
+          - $ref: "#/components/schemas/Member"
+    MembersInRequest:
+      type: array
+      items:
+        allOf:
+          - type: object
+            required:
+              - value
+              - type
+          - $ref: "#/components/schemas/Member"
+    GroupsListResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+            - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        totalResults:
+          type: integer
+          description: Total number of groups.
+          example: 1
+        itemsPerPage:
+          type: integer
+          description: Number of groups returned per page.
+          example: 20
+        startIndex:
+          type: integer
+          description: Starting index.
+          example: 1
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupInResponse'
+
+    GroupInRequest:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+            - "urn:ietf:params:scim:schemas:core:2.0:Group"
+        displayName:
+          type: string
+          description: The display name of the group.
+          example: "Engineering"
+        members:
+          $ref: "#/components/schemas/MembersInRequest"
+
+    GroupInResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
+        meta:
+          type: object
+          properties:
+            resourceType:
+              type: string
+              enum:
+              - "Group"
+            location:
+              type: string
+              example: "/api/scim/v2/Groups/1"
+        id:
+          type: string
+          description: The unique identifier of the group.
+          example: "1"
+        displayName:
+          type: string
+          description: The name of the group.
+          example: "Engineering"
+        members:
+          $ref: "#/components/schemas/MembersInResponse"
