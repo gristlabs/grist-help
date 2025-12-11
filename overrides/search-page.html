@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block libs %}
+  {{ super() }}
+  <script type="module" src="/js/searchPage.js"></script>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+  <div id="search-results-container">
+    <template id="search-result">
+      <a href="" class="search-page-result">
+        <h2 class="search-title"></h2>
+        <div class="search-content"></div>
+      </a>
+    </template>
+  </div>
+{% endblock %}

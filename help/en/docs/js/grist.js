@@ -10,7 +10,20 @@ import A11yDialog from './vendor/a11y-dialog.8.1.4.esm.min.js';
 // Note: the "expand the detail" part doesn't seem necessary to code at first (I guess the browser
 // or the material theme does it?), but we keep it mostly to correctly scroll into view.
 function expandSelected() {
-  var hash = window.location.hash.split('/').slice(-1)[0];
+  let hash = window.location.hash;
+
+  // We use a dummy header for the sake of search snippets in the Function Reference. If we get an
+  // anchor for that header, replace with the one we actually want, to get the normal scrolling
+  // and expansion.
+  const m = hash.match(/^#(.+)--search$/);
+  if (m) {
+    const realId = m[1];
+    if (document.getElementById(realId)) {
+      requestAnimationFrame(() => { location.replace('#' + realId); });
+      return;
+    }
+  }
+
   var elem = hash ? document.querySelector(hash) : null;
   if (!elem) { return; }
   var closestExpandableElem = elem.closest('details');
@@ -133,6 +146,39 @@ function enableHomeSearchButton() {
     searchInput.focus();
   });
 }
+
+/**
+ * When user searches and presses enter, go to /search page.
+ */
+window.document$.subscribe(function () {
+  const form  = document.querySelector('.md-search__form');
+  const input = form && form.querySelector('.md-search__input');
+  if (!form || !input) return;
+
+  function search() {
+    const q = input.value.trim();
+    if (!q) { return; }
+    window.location.href = '/search/?q=' + encodeURIComponent(q);
+  }
+
+  input.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Enter') { return; }
+    ev.preventDefault();
+    ev.stopPropagation();
+    search();
+  });
+
+  const result = document.querySelector('.md-search-result__meta')
+  if (result) {
+    const searchButton = document.createElement('button');
+    searchButton.textContent = 'See all results';
+    searchButton.className = 'search-all-button';
+    searchButton.addEventListener('click', search);
+    result.after(searchButton);
+  }
+});
+
+
 
 /* Our API reference is generated with redoc and has its own styles.
 Remove the material theme classes that interfere. */

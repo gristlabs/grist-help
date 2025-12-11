@@ -39,9 +39,12 @@ Python (see [Python documentation](https://docs.python.org/3.11/)). Here are som
 
 <!-- BEGIN mkpydocs docs -->
 ### Grist
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>class __Record__</code> {: #record data-toc-label="Record" }
 </summary>
+
+### <code>class __Record__</code> {: #record--search .search-only }
+
 A Record represents a record of data. It is the primary means of accessing values in formulas. A
 Record for a particular table has a property for each data and formula column in the table.
 
@@ -57,14 +60,20 @@ def Name_Length(rec, table):
   return len(rec.Full_Name)
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__$__*Field* or __rec__*.Field*</code> {: #_field data-toc-label="$Field" }
 </summary>
+
+### <code>__$__*Field* or __rec__*.Field*</code> {: #_field--search .search-only }
+
 Access the field named "Field" of the current record. E.g. `$First_Name` or `rec.First_Name`.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__$group__</code> {: #_group data-toc-label="$group" }
 </summary>
+
+### <code>__$group__</code> {: #_group--search .search-only }
+
 In a [summary table](summary-tables.md), `$group` is a special field
 containing the list of Records that are summarized by the current summary line.  E.g. the
 formula `len($group)` counts the number of those records being summarized in each row.
@@ -79,9 +88,12 @@ sum(r.Amount for r in $group if r > 0)    # Sum of only the positive amounts
 sum(r.Shares * r.Price for r in $group)   # Sum of shares * price products
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>class __RecordSet__</code> {: #recordset data-toc-label="RecordSet" }
 </summary>
+
+### <code>class __RecordSet__</code> {: #recordset--search .search-only }
+
 A RecordSet represents a collection of records, as returned by `Table.lookupRecords()` or
 `$group` property in summary views.
 
@@ -100,9 +112,12 @@ min(Tasks.lookupRecords(Owner="Bob").DueDate)
 
 You can get the number of records in a RecordSet using `len`, e.g. `len($group)`.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>RecordSet.**find.\***(value)</code> {: #find_ data-toc-label="find.*" }
 </summary>
+
+### <code>RecordSet.**find.\***(value)</code> {: #find_--search .search-only }
+
 A set of methods for finding values in sorted sets of records, as returned by
 [`lookupRecords`](#lookuprecords). For example:
 ```
@@ -157,18 +172,24 @@ return rate.Hourly_Rate
 
 Note that this is also much faster when there are many rates for the same Person and Role.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>class __UserTable__</code> {: #usertable data-toc-label="UserTable" }
 </summary>
+
+### <code>class __UserTable__</code> {: #usertable--search .search-only }
+
 Each data table in the document is represented in the code by an instance of `UserTable` class.
 These names are always capitalized. A UserTable provides access to all the records in the table,
 as well as methods to look up particular records.
 
 Every table in the document is available to all formulas.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>UserTable.__all__</code> {: #all data-toc-label="all" }
 </summary>
+
+### <code>UserTable.__all__</code> {: #all--search .search-only }
+
 The list of all the records in this table.
 
 For example, this evaluates to the number of records in the table `Students`.
@@ -181,9 +202,12 @@ This evaluates to the sum of the `Population` field for every record in the tabl
 sum(r.Population for r in Countries.all)
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone data-toc-label="lookupOne" }
 </summary>
+
+### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone--search .search-only }
+
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
@@ -210,9 +234,12 @@ Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Prio
 Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords data-toc-label="lookupRecords" }
 </summary>
+
+### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords--search .search-only }
+
 Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
 any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
@@ -254,15 +281,21 @@ value.
 Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 ### Cumulative
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__NEXT__(rec, *, group_by=(), order_by)</code> {: #next data-toc-label="NEXT" }
 </summary>
+
+### <code>__NEXT__(rec, *, group_by=(), order_by)</code> {: #next--search .search-only }
+
 Finds the next record in the table according to the order specified by `order_by`, and
 grouping specified by `group_by`. See [`PREVIOUS`](#previous) for details.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__PREVIOUS__(rec, *, group_by=(), order_by)</code> {: #previous data-toc-label="PREVIOUS" }
 </summary>
+
+### <code>__PREVIOUS__(rec, *, group_by=(), order_by)</code> {: #previous--search .search-only }
+
 Finds the previous record in the table according to the order specified by `order_by`, and
 grouping specified by `group_by`. Each of these arguments may be a column ID or a tuple of
 column IDs, and `order_by` allows column IDs to be prefixed with "-" to reverse sort order.
@@ -296,9 +329,12 @@ used to match views sorted by multiple columns. For example:
 PREVIOUS(rec, group_by=("Account", "Year"), order_by=("Date", "-Amount"))
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__RANK__(rec, *, group_by=(), order_by, order='asc')</code> {: #rank data-toc-label="RANK" }
 </summary>
+
+### <code>__RANK__(rec, *, group_by=(), order_by, order='asc')</code> {: #rank--search .search-only }
+
 Returns the rank (or position) of this record in the table according to the order specified by
 `order_by`, and grouping specified by `group_by`. See [`PREVIOUS`](#previous) for details of
 these parameters.
@@ -317,9 +353,12 @@ the current record (`rec`) among all the records in its table for the same year,
 decreasing score.
 </details>
 ### Date
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DATE__(year, month, day)</code> {: #date data-toc-label="DATE" }
 </summary>
+
+### <code>__DATE__(year, month, day)</code> {: #date--search .search-only }
+
 Returns the `datetime.datetime` object that represents a particular date.
 The DATE function is most useful in formulas where year, month, and day are formulas, not
 constants.
@@ -364,9 +403,12 @@ If day is less than 1, subtracts that many days plus 1, from the first day of th
 datetime.date(2007, 12, 16)
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DATEADD__(start_date, days=0, months=0, years=0, weeks=0)</code> {: #dateadd data-toc-label="DATEADD" }
 </summary>
+
+### <code>__DATEADD__(start_date, days=0, months=0, years=0, weeks=0)</code> {: #dateadd--search .search-only }
+
 Returns the date a given number of days, months, years, or weeks away from `start_date`. You may
 specify arguments in any order if you specify argument names. Use negative values to subtract.
 
@@ -395,9 +437,12 @@ datetime.date(2025, 3, 26)
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DATEDIF__(start_date, end_date, unit)</code> {: #datedif data-toc-label="DATEDIF" }
 </summary>
+
+### <code>__DATEDIF__(start_date, end_date, unit)</code> {: #datedif--search .search-only }
+
 Calculates the number of days, months, or years between two dates.
 Unit indicates the type of information that you want returned:
 
@@ -439,9 +484,12 @@ The difference between 1 and 15, ignoring the months and the years of the dates 
 14
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DATEVALUE__(date_string, tz=None)</code> {: #datevalue data-toc-label="DATEVALUE" }
 </summary>
+
+### <code>__DATEVALUE__(date_string, tz=None)</code> {: #datevalue--search .search-only }
+
 Converts a date that is stored as text to a `datetime` object.
 
 
@@ -472,9 +520,12 @@ In case of ambiguity, prefer M/D/Y format.
 datetime.datetime(2003, 1, 2, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DATE_TO_XL__(date_value)</code> {: #date_to_xl data-toc-label="DATE_TO_XL" }
 </summary>
+
+### <code>__DATE_TO_XL__(date_value)</code> {: #date_to_xl--search .search-only }
+
 Converts a Python `date` or `datetime` object to the serial number as used by
 Excel, with December 30, 1899 as serial number 1.
 
@@ -496,9 +547,12 @@ See XL_TO_DATE for more explanation.
 40982.0625
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DAY__(date)</code> {: #day data-toc-label="DAY" }
 </summary>
+
+### <code>__DAY__(date)</code> {: #day--search .search-only }
+
 Returns the day of a date, as an integer ranging from 1 to 31. Same as `date.day`.
 
 
@@ -518,9 +572,12 @@ Returns the day of a date, as an integer ranging from 1 to 31. Same as `date.day
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DAYS__(end_date, start_date)</code> {: #days data-toc-label="DAYS" }
 </summary>
+
+### <code>__DAYS__(end_date, start_date)</code> {: #days--search .search-only }
+
 Returns the number of days between two dates. Same as `(end_date - start_date).days`.
 
 
@@ -540,9 +597,12 @@ Returns the number of days between two dates. Same as `(end_date - start_date).d
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DTIME__(value, tz=None)</code> {: #dtime data-toc-label="DTIME" }
 </summary>
+
+### <code>__DTIME__(value, tz=None)</code> {: #dtime--search .search-only }
+
 Returns the value converted to a python `datetime` object. The value may be a
 `string`, `date` (interpreted as midnight on that day), `time` (interpreted as a
 time-of-day today), or an existing `datetime`.
@@ -583,9 +643,12 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__EDATE__(start_date, months)</code> {: #edate data-toc-label="EDATE" }
 </summary>
+
+### <code>__EDATE__(start_date, months)</code> {: #edate--search .search-only }
+
 Returns the date that is the given number of months before or after `start_date`. Use
 EDATE to calculate maturity dates or due dates that fall on the same day of the month as the
 date of issue.
@@ -617,9 +680,12 @@ datetime.date(2012, 3, 1)
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__EOMONTH__(start_date, months)</code> {: #eomonth data-toc-label="EOMONTH" }
 </summary>
+
+### <code>__EOMONTH__(start_date, months)</code> {: #eomonth--search .search-only }
+
 Returns the date for the last day of the month that is the indicated number of months before or
 after start_date. Use EOMONTH to calculate maturity dates or due dates that fall on the last day
 of the month.
@@ -646,9 +712,12 @@ datetime.date(2012, 3, 31)
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__HOUR__(time)</code> {: #hour data-toc-label="HOUR" }
 </summary>
+
+### <code>__HOUR__(time)</code> {: #hour--search .search-only }
+
 Same as `time.hour`.
 
 
@@ -668,9 +737,12 @@ Same as `time.hour`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISOWEEKNUM__(date)</code> {: #isoweeknum data-toc-label="ISOWEEKNUM" }
 </summary>
+
+### <code>__ISOWEEKNUM__(date)</code> {: #isoweeknum--search .search-only }
+
 Returns the ISO week number of the year for a given date.
 
 
@@ -685,9 +757,12 @@ Returns the ISO week number of the year for a given date.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MINUTE__(time)</code> {: #minute data-toc-label="MINUTE" }
 </summary>
+
+### <code>__MINUTE__(time)</code> {: #minute--search .search-only }
+
 Returns the minutes of `datetime`, as an integer from 0 to 59.
 Same as `time.minute`.
 
@@ -713,9 +788,12 @@ Same as `time.minute`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MONTH__(date)</code> {: #month data-toc-label="MONTH" }
 </summary>
+
+### <code>__MONTH__(date)</code> {: #month--search .search-only }
+
 Returns the month of a date represented, as an integer from from 1 (January) to 12 (December).
 Same as `date.month`.
 
@@ -736,9 +814,12 @@ Same as `date.month`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MOONPHASE__(date, output='emoji')</code> {: #moonphase data-toc-label="MOONPHASE" }
 </summary>
+
+### <code>__MOONPHASE__(date, output='emoji')</code> {: #moonphase--search .search-only }
+
 Returns the phase of the moon on the given date. The output defaults to a moon-phase emoji.
 
 - With `output="days"`, the output is the age of the moon in days (new moon being 0).
@@ -785,9 +866,12 @@ True
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__NETWORKDAYS__(start_date, end_date, holidays=[])</code> {: #networkdays data-toc-label="NETWORKDAYS" }
 </summary>
+
+### <code>__NETWORKDAYS__(start_date, end_date, holidays=[])</code> {: #networkdays--search .search-only }
+
 Calculates the net or number of work days between two dates.
 The work days are Monday through Friday, excluding the dates in the `holidays` list.
 
@@ -863,14 +947,20 @@ Strings are also accepted:
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__NOW__(tz=None)</code> {: #now data-toc-label="NOW" }
 </summary>
+
+### <code>__NOW__(tz=None)</code> {: #now--search .search-only }
+
 Returns the `datetime` object for the current time.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SECOND__(time)</code> {: #second data-toc-label="SECOND" }
 </summary>
+
+### <code>__SECOND__(time)</code> {: #second--search .search-only }
+
 Returns the seconds of `datetime`, as an integer from 0 to 59.
 Same as `time.second`.
 
@@ -891,14 +981,20 @@ Same as `time.second`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__TODAY__(tz=None)</code> {: #today data-toc-label="TODAY" }
 </summary>
+
+### <code>__TODAY__(tz=None)</code> {: #today--search .search-only }
+
 Returns the `date` object for the current date.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__WEEKDAY__(date, return_type=1)</code> {: #weekday data-toc-label="WEEKDAY" }
 </summary>
+
+### <code>__WEEKDAY__(date, return_type=1)</code> {: #weekday--search .search-only }
+
 Returns the day of the week corresponding to a date. The day is given as an integer, ranging
 from 1 (Sunday) to 7 (Saturday), by default.
 
@@ -941,9 +1037,12 @@ Return_type determines the type of the returned value.
 3
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__WEEKNUM__(date, return_type=1)</code> {: #weeknum data-toc-label="WEEKNUM" }
 </summary>
+
+### <code>__WEEKNUM__(date, return_type=1)</code> {: #weeknum--search .search-only }
+
 Returns the week number of a specific date. For example, the week containing January 1 is the
 first week of the year, and is numbered week 1.
 
@@ -982,9 +1081,12 @@ Return_type determines which week is considered the first week of the year.
 5
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__XL_TO_DATE__(value, tz=None)</code> {: #xl_to_date data-toc-label="XL_TO_DATE" }
 </summary>
+
+### <code>__XL_TO_DATE__(value, tz=None)</code> {: #xl_to_date--search .search-only }
+
 Converts a provided Excel serial number representing a date into a `datetime` object.
 Value is interpreted as the number of days since December 30, 1899.
 
@@ -1011,9 +1113,12 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 datetime.datetime(2012, 3, 14, 1, 30, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__YEAR__(date)</code> {: #year data-toc-label="YEAR" }
 </summary>
+
+### <code>__YEAR__(date)</code> {: #year--search .search-only }
+
 Returns the year corresponding to a date as an integer.
 Same as `date.year`.
 
@@ -1034,9 +1139,12 @@ Same as `date.year`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__YEARFRAC__(start_date, end_date, basis=0)</code> {: #yearfrac data-toc-label="YEARFRAC" }
 </summary>
+
+### <code>__YEARFRAC__(start_date, end_date, basis=0)</code> {: #yearfrac--search .search-only }
+
 Calculates the fraction of the year represented by the number of whole days between two dates.
 
 Basis is the type of day count basis to use.
@@ -1083,24 +1191,33 @@ Fraction between same dates, using the Actual/365 basis argument. Uses a 365 day
 ```
 </details>
 ### Info
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__CELL__(info_type, reference)</code> {: #cell data-toc-label="CELL" }
 </summary>
+
+### <code>__CELL__(info_type, reference)</code> {: #cell--search .search-only }
+
 Returns the requested information about the specified cell. This is not implemented in Grist
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__ISBLANK__(value)</code> {: #isblank data-toc-label="ISBLANK" }
 </summary>
+
+### <code>__ISBLANK__(value)</code> {: #isblank--search .search-only }
+
 Returns whether a value refers to an empty cell. It isn't implemented in Grist. To check for an
 empty string, use `value == ""`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISEMAIL__(value)</code> {: #isemail data-toc-label="ISEMAIL" }
 </summary>
+
+### <code>__ISEMAIL__(value)</code> {: #isemail--search .search-only }
+
 Returns whether a value is a valid email address.
 
 Note that checking email validity is not an exact science. The technical standard considers many
@@ -1128,9 +1245,12 @@ False
 False
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISERR__(value)</code> {: #iserr data-toc-label="ISERR" }
 </summary>
+
+### <code>__ISERR__(value)</code> {: #iserr--search .search-only }
+
 Checks whether a value is an error. In other words, it returns true
 if using `value` directly would raise an exception.
 
@@ -1152,9 +1272,12 @@ For example:
 False
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISERROR__(value)</code> {: #iserror data-toc-label="ISERROR" }
 </summary>
+
+### <code>__ISERROR__(value)</code> {: #iserror--search .search-only }
+
 Checks whether a value is an error or an invalid value. It is similar to `ISERR`, but also
 returns true for an invalid value such as NaN or a text value in a Numeric column.
 
@@ -1176,9 +1299,12 @@ True
 True
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISLOGICAL__(value)</code> {: #islogical data-toc-label="ISLOGICAL" }
 </summary>
+
+### <code>__ISLOGICAL__(value)</code> {: #islogical--search .search-only }
+
 Checks whether a value is `True` or `False`.
 
 
@@ -1208,9 +1334,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISNA__(value)</code> {: #isna data-toc-label="ISNA" }
 </summary>
+
+### <code>__ISNA__(value)</code> {: #isna--search .search-only }
+
 Checks whether a value is the error `#N/A`.
 
 
@@ -1235,9 +1364,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISNONTEXT__(value)</code> {: #isnontext data-toc-label="ISNONTEXT" }
 </summary>
+
+### <code>__ISNONTEXT__(value)</code> {: #isnontext--search .search-only }
+
 Checks whether a value is non-textual.
 
 
@@ -1272,9 +1404,12 @@ True
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISNUMBER__(value)</code> {: #isnumber data-toc-label="ISNUMBER" }
 </summary>
+
+### <code>__ISNUMBER__(value)</code> {: #isnumber--search .search-only }
+
 Checks whether a value is a number.
 
 
@@ -1318,9 +1453,12 @@ False
 False
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISREF__(value)</code> {: #isref data-toc-label="ISREF" }
 </summary>
+
+### <code>__ISREF__(value)</code> {: #isref--search .search-only }
+
 Checks whether a value is a table record.
 
 For example, if a column `person` is of type Reference to the `People` table,
@@ -1340,9 +1478,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISREFLIST__(value)</code> {: #isreflist data-toc-label="ISREFLIST" }
 </summary>
+
+### <code>__ISREFLIST__(value)</code> {: #isreflist--search .search-only }
+
 Checks whether a value is a [`RecordSet`](#recordset),
 the type of values in Reference List columns.
 
@@ -1363,9 +1504,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISTEXT__(value)</code> {: #istext data-toc-label="ISTEXT" }
 </summary>
+
+### <code>__ISTEXT__(value)</code> {: #istext--search .search-only }
+
 Checks whether a value is text.
 
 
@@ -1400,9 +1544,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ISURL__(value)</code> {: #isurl data-toc-label="ISURL" }
 </summary>
+
+### <code>__ISURL__(value)</code> {: #isurl--search .search-only }
+
 Checks whether a value is a valid URL. It does not need to be fully qualified, or to include
 "http://" and "www". It does not follow a standard, but attempts to work similarly to ISURL in
 Google Sheets, and to return True for text that is likely a URL.
@@ -1430,9 +1577,12 @@ True
 False
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__N__(value)</code> {: #n data-toc-label="N" }
 </summary>
+
+### <code>__N__(value)</code> {: #n--search .search-only }
+
 Returns the value converted to a number. True/False are converted to 1/0. A date is converted to
 Excel-style serial number of the date. Anything else is converted to 0.
 
@@ -1468,9 +1618,12 @@ Excel-style serial number of the date. Anything else is converted to 0.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__NA__()</code> {: #na data-toc-label="NA" }
 </summary>
+
+### <code>__NA__()</code> {: #na--search .search-only }
+
 Returns the "value not available" error, `#N/A`.
 
 
@@ -1480,9 +1633,12 @@ True
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__PEEK__(func)</code> {: #peek data-toc-label="PEEK" }
 </summary>
+
+### <code>__PEEK__(func)</code> {: #peek--search .search-only }
+
 Evaluates the given expression without creating dependencies
 or requiring that referenced values are up to date, using whatever value it finds in a cell.
 This is useful for preventing circular reference errors, particularly in trigger formulas.
@@ -1493,9 +1649,12 @@ calculated before the other. But if `A` uses `PEEK($B)` then it will simply get 
 already stored in `$B` without requiring that `$B` is first calculated to the latest value.
 Therefore `A` will be calculated first, and `B` can use `$A` without problems.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__RECORD__(record_or_list, dates_as_iso=False, expand_refs=0)</code> {: #record_2 data-toc-label="RECORD" }
 </summary>
+
+### <code>__RECORD__(record_or_list, dates_as_iso=False, expand_refs=0)</code> {: #record_2--search .search-only }
+
 Returns a Python dictionary with all fields in the given record. If a list of records is given,
 returns a list of corresponding Python dictionaries.
 
@@ -1520,24 +1679,33 @@ RECORD(People.lookupOne(First_Name="Alice"))
 RECORD(People.lookupRecords(Department="HR"))
 ```
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__REQUEST__(url, params=None, headers=None, method='GET', data=None, json=None)</code> {: #request data-toc-label="REQUEST" }
 </summary>
 
+### <code>__REQUEST__(url, params=None, headers=None, method='GET', data=None, json=None)</code> {: #request--search .search-only }
+
+
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__TYPE__(value)</code> {: #type data-toc-label="TYPE" }
 </summary>
+
+### <code>__TYPE__(value)</code> {: #type--search .search-only }
+
 Returns a number associated with the type of data passed into the function. This is not
 implemented in Grist. Use `isinstance(value, type)` or `type(value)`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 ### Logical
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__AND__(logical_expression, *logical_expressions)</code> {: #and data-toc-label="AND" }
 </summary>
+
+### <code>__AND__(logical_expression, *logical_expressions)</code> {: #and--search .search-only }
+
 Returns True if all of the arguments are logically true, and False if any are false.
 Same as `all([value1, value2, ...])`.
 
@@ -1568,9 +1736,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__FALSE__()</code> {: #false data-toc-label="FALSE" }
 </summary>
+
+### <code>__FALSE__()</code> {: #false--search .search-only }
+
 Returns the logical value `False`. You may also use the value `False` directly. This
 function is provided primarily for compatibility with other spreadsheet programs.
 
@@ -1581,9 +1752,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__IF__(logical_expression, value_if_true, value_if_false)</code> {: #if data-toc-label="IF" }
 </summary>
+
+### <code>__IF__(logical_expression, value_if_true, value_if_false)</code> {: #if--search .search-only }
+
 Returns one value if a logical expression is `True` and another if it is `False`.
 
 The equivalent Python expression is:
@@ -1624,9 +1798,12 @@ to evaluate to `1` rather than raise an exception.
 0.0
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__IFERROR__(value, value_if_error='')</code> {: #iferror data-toc-label="IFERROR" }
 </summary>
+
+### <code>__IFERROR__(value, value_if_error='')</code> {: #iferror--search .search-only }
+
 Returns the first argument if it is not an error value, otherwise returns the second argument if
 present, or a blank if the second argument is absent.
 
@@ -1653,9 +1830,12 @@ NOTE: Grist handles values that raise an exception by wrapping them to use lazy 
 ''
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__NOT__(logical_expression)</code> {: #not data-toc-label="NOT" }
 </summary>
+
+### <code>__NOT__(logical_expression)</code> {: #not--search .search-only }
+
 `True`. Same as `not logical_expression`.
 
 
@@ -1670,9 +1850,12 @@ True
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__OR__(logical_expression, *logical_expressions)</code> {: #or data-toc-label="OR" }
 </summary>
+
+### <code>__OR__(logical_expression, *logical_expressions)</code> {: #or--search .search-only }
+
 Returns True if any of the arguments is logically true, and false if all of the
 arguments are false.
 Same as `any([value1, value2, ...])`.
@@ -1714,9 +1897,12 @@ True
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__TRUE__()</code> {: #true data-toc-label="TRUE" }
 </summary>
+
+### <code>__TRUE__()</code> {: #true--search .search-only }
+
 Returns the logical value `True`. You may also use the value `True` directly. This
 function is provided primarily for compatibility with other spreadsheet programs.
 
@@ -1728,9 +1914,12 @@ True
 
 </details>
 ### Lookup
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone_2 data-toc-label="lookupOne" }
 </summary>
+
+### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone_2--search .search-only }
+
 Returns a [Record](#record) matching the given field=value arguments. The value may be any
 expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
@@ -1757,9 +1946,12 @@ Tasks.lookupOne(Project=$id, order_by="Priority")  # Task with the smallest Prio
 Rates.lookupOne(Person=$id, order_by="-Date")      # Rate with the latest Date.
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords_2 data-toc-label="lookupRecords" }
 </summary>
+
+### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords_2--search .search-only }
+
 Returns a [RecordSet](#recordset) matching the given field=value arguments. The value may be
 any expression,
 most commonly a field in the current row (e.g. `$SomeField`) or a constant (e.g. a quoted string
@@ -1800,37 +1992,52 @@ value.
 
 Learn more about [lookupRecords](references-lookups.md#lookuprecords).
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__ADDRESS__(row, column, absolute_relative_mode, use_a1_notation, sheet)</code> {: #address data-toc-label="ADDRESS" }
 </summary>
+
+### <code>__ADDRESS__(row, column, absolute_relative_mode, use_a1_notation, sheet)</code> {: #address--search .search-only }
+
 Returns a cell reference as a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__CHOOSE__(index, choice1, choice2)</code> {: #choose data-toc-label="CHOOSE" }
 </summary>
+
+### <code>__CHOOSE__(index, choice1, choice2)</code> {: #choose--search .search-only }
+
 Returns an element from a list of choices based on index.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__COLUMN__(cell_reference=None)</code> {: #column data-toc-label="COLUMN" }
 </summary>
+
+### <code>__COLUMN__(cell_reference=None)</code> {: #column--search .search-only }
+
 Returns the column number of a specified cell, with `A=1`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__COLUMNS__(range)</code> {: #columns data-toc-label="COLUMNS" }
 </summary>
+
+### <code>__COLUMNS__(range)</code> {: #columns--search .search-only }
+
 Returns the number of columns in a specified array or range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__CONTAINS__(value, match_empty=no_match_empty)</code> {: #contains data-toc-label="CONTAINS" }
 </summary>
+
+### <code>__CONTAINS__(value, match_empty=no_match_empty)</code> {: #contains--search .search-only }
+
 Use this marker with [UserTable.lookupRecords](#lookuprecords) to find records
 where a field of a list type (such as `Choice List` or `Reference List`) contains the given value.
 
@@ -1858,79 +2065,112 @@ For example, given this formula:
 If `g` is `''` (i.e. equal to `match_empty`) then the column `genre` in the returned records
 will either be an empty list (or other container) or a list containing `g` as usual.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__GETPIVOTDATA__(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code> {: #getpivotdata data-toc-label="GETPIVOTDATA" }
 </summary>
+
+### <code>__GETPIVOTDATA__(value_name, any_pivot_table_cell, original_column_1, pivot_item_1=None, *args)</code> {: #getpivotdata--search .search-only }
+
 Extracts an aggregated value from a pivot table that corresponds to the specified row and column headings.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__HLOOKUP__(search_key, range, index, is_sorted)</code> {: #hlookup data-toc-label="HLOOKUP" }
 </summary>
+
+### <code>__HLOOKUP__(search_key, range, index, is_sorted)</code> {: #hlookup--search .search-only }
+
 Horizontal lookup. Searches across the first row of a range for a key and returns the value of a specified cell in the column found.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__HYPERLINK__(url, link_label)</code> {: #hyperlink data-toc-label="HYPERLINK" }
 </summary>
+
+### <code>__HYPERLINK__(url, link_label)</code> {: #hyperlink--search .search-only }
+
 Creates a hyperlink inside a cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__INDEX__(reference, row, column)</code> {: #index data-toc-label="INDEX" }
 </summary>
+
+### <code>__INDEX__(reference, row, column)</code> {: #index--search .search-only }
+
 Returns the content of a cell, specified by row and column offset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__INDIRECT__(cell_reference_as_string)</code> {: #indirect data-toc-label="INDIRECT" }
 </summary>
+
+### <code>__INDIRECT__(cell_reference_as_string)</code> {: #indirect--search .search-only }
+
 Returns a cell reference specified by a string.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__LOOKUP__(search_key, search_range_or_search_result_array, result_range=None)</code> {: #lookup data-toc-label="LOOKUP" }
 </summary>
+
+### <code>__LOOKUP__(search_key, search_range_or_search_result_array, result_range=None)</code> {: #lookup--search .search-only }
+
 Looks through a row or column for a key and returns the value of the cell in a result range located in the same position as the search row or column.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__MATCH__(search_key, range, search_type)</code> {: #match data-toc-label="MATCH" }
 </summary>
+
+### <code>__MATCH__(search_key, range, search_type)</code> {: #match--search .search-only }
+
 Returns the relative position of an item in a range that matches a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__OFFSET__(cell_reference, offset_rows, offset_columns, height, width)</code> {: #offset data-toc-label="OFFSET" }
 </summary>
+
+### <code>__OFFSET__(cell_reference, offset_rows, offset_columns, height, width)</code> {: #offset--search .search-only }
+
 Returns a range reference shifted a specified number of rows and columns from a starting cell reference.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__ROW__(cell_reference)</code> {: #row data-toc-label="ROW" }
 </summary>
+
+### <code>__ROW__(cell_reference)</code> {: #row--search .search-only }
+
 Returns the row number of a specified cell.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__ROWS__(range)</code> {: #rows data-toc-label="ROWS" }
 </summary>
+
+### <code>__ROWS__(range)</code> {: #rows--search .search-only }
+
 Returns the number of rows in a specified array or range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SELF_HYPERLINK__(label=None, page=None, **kwargs)</code> {: #self_hyperlink data-toc-label="SELF_HYPERLINK" }
 </summary>
+
+### <code>__SELF_HYPERLINK__(label=None, page=None, **kwargs)</code> {: #self_hyperlink--search .search-only }
+
 Creates a link to the current document.  All parameters are optional.
 
 The returned string is in URL format, optionally preceded by a label and a space
@@ -1979,9 +2219,12 @@ TypeError: unexpected keyword argument 'Linky_Link' (not of form LinkKey_NAME)
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__VLOOKUP__(table, **field_value_pairs)</code> {: #vlookup data-toc-label="VLOOKUP" }
 </summary>
+
+### <code>__VLOOKUP__(table, **field_value_pairs)</code> {: #vlookup--search .search-only }
+
 Vertical lookup. Searches the given table for a record matching the given `field=value`
 arguments. If multiple records match, returns one of them. If none match, returns the special
 empty record.
@@ -2002,9 +2245,12 @@ VLOOKUP(People, First_Name="Lewis", Last_Name="Carroll").Age
 ```
 </details>
 ### Math
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ABS__(value)</code> {: #abs data-toc-label="ABS" }
 </summary>
+
+### <code>__ABS__(value)</code> {: #abs--search .search-only }
+
 Returns the absolute value of a number.
 
 
@@ -2024,9 +2270,12 @@ Returns the absolute value of a number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ACOS__(value)</code> {: #acos data-toc-label="ACOS" }
 </summary>
+
+### <code>__ACOS__(value)</code> {: #acos--search .search-only }
+
 Returns the inverse cosine of a value, in radians.
 
 
@@ -2041,9 +2290,12 @@ Returns the inverse cosine of a value, in radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ACOSH__(value)</code> {: #acosh data-toc-label="ACOSH" }
 </summary>
+
+### <code>__ACOSH__(value)</code> {: #acosh--search .search-only }
+
 Returns the inverse hyperbolic cosine of a number.
 
 
@@ -2058,9 +2310,12 @@ Returns the inverse hyperbolic cosine of a number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ARABIC__(roman_numeral)</code> {: #arabic data-toc-label="ARABIC" }
 </summary>
+
+### <code>__ARABIC__(roman_numeral)</code> {: #arabic--search .search-only }
+
 Computes the value of a Roman numeral.
 
 
@@ -2075,9 +2330,12 @@ Computes the value of a Roman numeral.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ASIN__(value)</code> {: #asin data-toc-label="ASIN" }
 </summary>
+
+### <code>__ASIN__(value)</code> {: #asin--search .search-only }
+
 Returns the inverse sine of a value, in radians.
 
 
@@ -2097,9 +2355,12 @@ Returns the inverse sine of a value, in radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ASINH__(value)</code> {: #asinh data-toc-label="ASINH" }
 </summary>
+
+### <code>__ASINH__(value)</code> {: #asinh--search .search-only }
+
 Returns the inverse hyperbolic sine of a number.
 
 
@@ -2114,9 +2375,12 @@ Returns the inverse hyperbolic sine of a number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ATAN__(value)</code> {: #atan data-toc-label="ATAN" }
 </summary>
+
+### <code>__ATAN__(value)</code> {: #atan--search .search-only }
+
 Returns the inverse tangent of a value, in radians.
 
 
@@ -2136,9 +2400,12 @@ Returns the inverse tangent of a value, in radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ATAN2__(x, y)</code> {: #atan2 data-toc-label="ATAN2" }
 </summary>
+
+### <code>__ATAN2__(x, y)</code> {: #atan2--search .search-only }
+
 Returns the angle between the x-axis and a line segment from the origin (0,0) to specified
 coordinate pair (`x`,`y`), in radians.
 
@@ -2169,9 +2436,12 @@ coordinate pair (`x`,`y`), in radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ATANH__(value)</code> {: #atanh data-toc-label="ATANH" }
 </summary>
+
+### <code>__ATANH__(value)</code> {: #atanh--search .search-only }
+
 Returns the inverse hyperbolic tangent of a number.
 
 
@@ -2186,9 +2456,12 @@ Returns the inverse hyperbolic tangent of a number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__CEILING__(value, factor=1)</code> {: #ceiling data-toc-label="CEILING" }
 </summary>
+
+### <code>__CEILING__(value, factor=1)</code> {: #ceiling--search .search-only }
+
 Rounds a number up to the nearest multiple of factor, or the nearest integer if the factor is
 omitted or 1.
 
@@ -2219,9 +2492,12 @@ omitted or 1.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__COMBIN__(n, k)</code> {: #combin data-toc-label="COMBIN" }
 </summary>
+
+### <code>__COMBIN__(n, k)</code> {: #combin--search .search-only }
+
 Returns the number of ways to choose some number of objects from a pool of a given size of
 objects.
 
@@ -2242,9 +2518,12 @@ objects.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__COS__(angle)</code> {: #cos data-toc-label="COS" }
 </summary>
+
+### <code>__COS__(angle)</code> {: #cos--search .search-only }
+
 Returns the cosine of an angle provided in radians.
 
 
@@ -2264,9 +2543,12 @@ Returns the cosine of an angle provided in radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__COSH__(value)</code> {: #cosh data-toc-label="COSH" }
 </summary>
+
+### <code>__COSH__(value)</code> {: #cosh--search .search-only }
+
 Returns the hyperbolic cosine of any real number.
 
 
@@ -2281,9 +2563,12 @@ Returns the hyperbolic cosine of any real number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DEGREES__(angle)</code> {: #degrees data-toc-label="DEGREES" }
 </summary>
+
+### <code>__DEGREES__(angle)</code> {: #degrees--search .search-only }
+
 Converts an angle value in radians to degrees.
 
 
@@ -2298,9 +2583,12 @@ Converts an angle value in radians to degrees.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__EVEN__(value)</code> {: #even data-toc-label="EVEN" }
 </summary>
+
+### <code>__EVEN__(value)</code> {: #even--search .search-only }
+
 Rounds a number up to the nearest even integer, rounding away from zero.
 
 
@@ -2325,9 +2613,12 @@ Rounds a number up to the nearest even integer, rounding away from zero.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__EXP__(exponent)</code> {: #exp data-toc-label="EXP" }
 </summary>
+
+### <code>__EXP__(exponent)</code> {: #exp--search .search-only }
+
 Returns Euler's number, e (~2.718) raised to a power.
 
 
@@ -2342,9 +2633,12 @@ Returns Euler's number, e (~2.718) raised to a power.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__FACT__(value)</code> {: #fact data-toc-label="FACT" }
 </summary>
+
+### <code>__FACT__(value)</code> {: #fact--search .search-only }
+
 Returns the factorial of a number.
 
 
@@ -2376,9 +2670,12 @@ ValueError: factorial() not defined for negative values
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__FACTDOUBLE__(value)</code> {: #factdouble data-toc-label="FACTDOUBLE" }
 </summary>
+
+### <code>__FACTDOUBLE__(value)</code> {: #factdouble--search .search-only }
+
 Returns the "double factorial" of a number.
 
 
@@ -2403,9 +2700,12 @@ Returns the "double factorial" of a number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__FLOOR__(value, factor=1)</code> {: #floor data-toc-label="FLOOR" }
 </summary>
+
+### <code>__FLOOR__(value, factor=1)</code> {: #floor--search .search-only }
+
 Rounds a number down to the nearest integer multiple of specified significance.
 
 
@@ -2437,9 +2737,12 @@ ValueError: factor argument invalid
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__GCD__(value1, *more_values)</code> {: #gcd data-toc-label="GCD" }
 </summary>
+
+### <code>__GCD__(value1, *more_values)</code> {: #gcd--search .search-only }
+
 Returns the greatest common divisor of one or more integers.
 
 
@@ -2479,9 +2782,12 @@ Returns the greatest common divisor of one or more integers.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__INT__(value)</code> {: #int data-toc-label="INT" }
 </summary>
+
+### <code>__INT__(value)</code> {: #int--search .search-only }
+
 Rounds a number down to the nearest integer that is less than or equal to it.
 
 
@@ -2501,9 +2807,12 @@ Rounds a number down to the nearest integer that is less than or equal to it.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__LCM__(value1, *more_values)</code> {: #lcm data-toc-label="LCM" }
 </summary>
+
+### <code>__LCM__(value1, *more_values)</code> {: #lcm--search .search-only }
+
 Returns the least common multiple of one or more integers.
 
 
@@ -2543,9 +2852,12 @@ Returns the least common multiple of one or more integers.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__LN__(value)</code> {: #ln data-toc-label="LN" }
 </summary>
+
+### <code>__LN__(value)</code> {: #ln--search .search-only }
+
 Returns the the logarithm of a number, base e (Euler's number).
 
 
@@ -2565,9 +2877,12 @@ Returns the the logarithm of a number, base e (Euler's number).
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__LOG__(value, base=10)</code> {: #log data-toc-label="LOG" }
 </summary>
+
+### <code>__LOG__(value, base=10)</code> {: #log--search .search-only }
+
 Returns the the logarithm of a number given a base.
 
 
@@ -2587,9 +2902,12 @@ Returns the the logarithm of a number given a base.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__LOG10__(value)</code> {: #log10 data-toc-label="LOG10" }
 </summary>
+
+### <code>__LOG10__(value)</code> {: #log10--search .search-only }
+
 Returns the the logarithm of a number, base 10.
 
 
@@ -2614,9 +2932,12 @@ Returns the the logarithm of a number, base 10.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MOD__(dividend, divisor)</code> {: #mod data-toc-label="MOD" }
 </summary>
+
+### <code>__MOD__(dividend, divisor)</code> {: #mod--search .search-only }
+
 Returns the result of the modulo operator, the remainder after a division operation.
 
 
@@ -2641,9 +2962,12 @@ Returns the result of the modulo operator, the remainder after a division operat
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MROUND__(value, factor)</code> {: #mround data-toc-label="MROUND" }
 </summary>
+
+### <code>__MROUND__(value, factor)</code> {: #mround--search .search-only }
+
 Rounds one number to the nearest integer multiple of another.
 
 
@@ -2670,9 +2994,12 @@ ValueError: factor argument invalid
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MULTINOMIAL__(value1, *more_values)</code> {: #multinomial data-toc-label="MULTINOMIAL" }
 </summary>
+
+### <code>__MULTINOMIAL__(value1, *more_values)</code> {: #multinomial--search .search-only }
+
 Returns the factorial of the sum of values divided by the product of the values' factorials.
 
 
@@ -2697,9 +3024,12 @@ Returns the factorial of the sum of values divided by the product of the values'
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__NUM__(value)</code> {: #num data-toc-label="NUM" }
 </summary>
+
+### <code>__NUM__(value)</code> {: #num--search .search-only }
+
 For a Python floating-point value that's actually an integer, returns a Python integer type.
 Otherwise, returns the value unchanged. This is helpful sometimes when a value comes from a
 Numeric Grist column (represented as floats), but when int values are actually expected.
@@ -2726,9 +3056,12 @@ Numeric Grist column (represented as floats), but when int values are actually e
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ODD__(value)</code> {: #odd data-toc-label="ODD" }
 </summary>
+
+### <code>__ODD__(value)</code> {: #odd--search .search-only }
+
 Rounds a number up to the nearest odd integer.
 
 
@@ -2758,9 +3091,12 @@ Rounds a number up to the nearest odd integer.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__PI__()</code> {: #pi data-toc-label="PI" }
 </summary>
+
+### <code>__PI__()</code> {: #pi--search .search-only }
+
 Returns the value of Pi to 14 decimal places.
 
 
@@ -2780,9 +3116,12 @@ Returns the value of Pi to 14 decimal places.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__POWER__(base, exponent)</code> {: #power data-toc-label="POWER" }
 </summary>
+
+### <code>__POWER__(base, exponent)</code> {: #power--search .search-only }
+
 Returns a number raised to a power.
 
 
@@ -2802,9 +3141,12 @@ Returns a number raised to a power.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__PRODUCT__(factor1, *more_factors)</code> {: #product data-toc-label="PRODUCT" }
 </summary>
+
+### <code>__PRODUCT__(factor1, *more_factors)</code> {: #product--search .search-only }
+
 Returns the result of multiplying a series of numbers together. Each argument may be a number or
 an array.
 
@@ -2824,9 +3166,12 @@ an array.
 4500
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__QUOTIENT__(dividend, divisor)</code> {: #quotient data-toc-label="QUOTIENT" }
 </summary>
+
+### <code>__QUOTIENT__(dividend, divisor)</code> {: #quotient--search .search-only }
+
 Returns one number divided by another, without the remainder.
 
 
@@ -2846,9 +3191,12 @@ Returns one number divided by another, without the remainder.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__RADIANS__(angle)</code> {: #radians data-toc-label="RADIANS" }
 </summary>
+
+### <code>__RADIANS__(angle)</code> {: #radians--search .search-only }
+
 Converts an angle value in degrees to radians.
 
 
@@ -2858,19 +3206,28 @@ Converts an angle value in degrees to radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__RAND__()</code> {: #rand data-toc-label="RAND" }
 </summary>
+
+### <code>__RAND__()</code> {: #rand--search .search-only }
+
 Returns a random number between 0 inclusive and 1 exclusive.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__RANDBETWEEN__(low, high)</code> {: #randbetween data-toc-label="RANDBETWEEN" }
 </summary>
+
+### <code>__RANDBETWEEN__(low, high)</code> {: #randbetween--search .search-only }
+
 Returns a uniformly random integer between two values, inclusive.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ROMAN__(number, form_unused=None)</code> {: #roman data-toc-label="ROMAN" }
 </summary>
+
+### <code>__ROMAN__(number, form_unused=None)</code> {: #roman--search .search-only }
+
 Formats a number in Roman numerals. The second argument is ignored in this implementation.
 
 
@@ -2895,9 +3252,12 @@ Formats a number in Roman numerals. The second argument is ignored in this imple
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ROUND__(value, places=0)</code> {: #round data-toc-label="ROUND" }
 </summary>
+
+### <code>__ROUND__(value, places=0)</code> {: #round--search .search-only }
+
 Rounds a number to a certain number of decimal places,
 by default to the nearest whole number if the number of places is not given.
 
@@ -2961,9 +3321,12 @@ in the case of a tie, i.e. when the last digit is 5.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ROUNDDOWN__(value, places=0)</code> {: #rounddown data-toc-label="ROUNDDOWN" }
 </summary>
+
+### <code>__ROUNDDOWN__(value, places=0)</code> {: #rounddown--search .search-only }
+
 Rounds a number to a certain number of decimal places, always rounding down towards zero.
 
 
@@ -2993,9 +3356,12 @@ Rounds a number to a certain number of decimal places, always rounding down towa
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__ROUNDUP__(value, places=0)</code> {: #roundup data-toc-label="ROUNDUP" }
 </summary>
+
+### <code>__ROUNDUP__(value, places=0)</code> {: #roundup--search .search-only }
+
 Rounds a number to a certain number of decimal places, always rounding up away from zero.
 
 
@@ -3025,9 +3391,12 @@ Rounds a number to a certain number of decimal places, always rounding up away f
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SERIESSUM__(x, n, m, a)</code> {: #seriessum data-toc-label="SERIESSUM" }
 </summary>
+
+### <code>__SERIESSUM__(x, n, m, a)</code> {: #seriessum--search .search-only }
+
 Given parameters x, n, m, and a, returns the power series sum a_1*x^n + a_2*x^(n+m)
 + ... + a_i*x^(n+(i-1)m), where i is the number of entries in range `a`.
 
@@ -3053,9 +3422,12 @@ Given parameters x, n, m, and a, returns the power series sum a_1*x^n + a_2*x^(n
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SIGN__(value)</code> {: #sign data-toc-label="SIGN" }
 </summary>
+
+### <code>__SIGN__(value)</code> {: #sign--search .search-only }
+
 Given an input number, returns `-1` if it is negative, `1` if positive, and `0` if it is zero.
 
 
@@ -3075,9 +3447,12 @@ Given an input number, returns `-1` if it is negative, `1` if positive, and `0` 
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SIN__(angle)</code> {: #sin data-toc-label="SIN" }
 </summary>
+
+### <code>__SIN__(angle)</code> {: #sin--search .search-only }
+
 Returns the sine of an angle provided in radians.
 
 
@@ -3102,9 +3477,12 @@ Returns the sine of an angle provided in radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SINH__(value)</code> {: #sinh data-toc-label="SINH" }
 </summary>
+
+### <code>__SINH__(value)</code> {: #sinh--search .search-only }
+
 Returns the hyperbolic sine of any real number.
 
 
@@ -3114,9 +3492,12 @@ Returns the hyperbolic sine of any real number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SQRT__(value)</code> {: #sqrt data-toc-label="SQRT" }
 </summary>
+
+### <code>__SQRT__(value)</code> {: #sqrt--search .search-only }
+
 Returns the positive square root of a positive number.
 
 
@@ -3138,9 +3519,12 @@ ValueError: math domain error
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SQRTPI__(value)</code> {: #sqrtpi data-toc-label="SQRTPI" }
 </summary>
+
+### <code>__SQRTPI__(value)</code> {: #sqrtpi--search .search-only }
+
 Returns the positive square root of the product of Pi and the given positive number.
 
 
@@ -3155,16 +3539,22 @@ Returns the positive square root of the product of Pi and the given positive num
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__SUBTOTAL__(function_code, range1, range2)</code> {: #subtotal data-toc-label="SUBTOTAL" }
 </summary>
+
+### <code>__SUBTOTAL__(function_code, range1, range2)</code> {: #subtotal--search .search-only }
+
 Returns a subtotal for a vertical range of cells using a specified aggregation function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SUM__(value1, *more_values)</code> {: #sum data-toc-label="SUM" }
 </summary>
+
+### <code>__SUM__(value1, *more_values)</code> {: #sum--search .search-only }
+
 Returns the sum of a series of numbers. Each argument may be a number or an array.
 Non-numeric values are ignored.
 
@@ -3184,23 +3574,32 @@ Non-numeric values are ignored.
 52
 ```
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__SUMIF__(records, criterion, sum_range)</code> {: #sumif data-toc-label="SUMIF" }
 </summary>
+
+### <code>__SUMIF__(records, criterion, sum_range)</code> {: #sumif--search .search-only }
+
 Returns a conditional sum across a range.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__SUMIFS__(sum_range, criteria_range1, criterion1, *args)</code> {: #sumifs data-toc-label="SUMIFS" }
 </summary>
+
+### <code>__SUMIFS__(sum_range, criteria_range1, criterion1, *args)</code> {: #sumifs--search .search-only }
+
 Returns the sum of a range depending on multiple criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SUMPRODUCT__(array1, *more_arrays)</code> {: #sumproduct data-toc-label="SUMPRODUCT" }
 </summary>
+
+### <code>__SUMPRODUCT__(array1, *more_arrays)</code> {: #sumproduct--search .search-only }
+
 Multiplies corresponding components in two equally-sized arrays,
 and returns the sum of those products.
 
@@ -3226,16 +3625,22 @@ and returns the sum of those products.
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__SUMSQ__(value1, value2)</code> {: #sumsq data-toc-label="SUMSQ" }
 </summary>
+
+### <code>__SUMSQ__(value1, value2)</code> {: #sumsq--search .search-only }
+
 Returns the sum of the squares of a series of numbers and/or cells.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__TAN__(angle)</code> {: #tan data-toc-label="TAN" }
 </summary>
+
+### <code>__TAN__(angle)</code> {: #tan--search .search-only }
+
 Returns the tangent of an angle provided in radians.
 
 
@@ -3255,9 +3660,12 @@ Returns the tangent of an angle provided in radians.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__TANH__(value)</code> {: #tanh data-toc-label="TANH" }
 </summary>
+
+### <code>__TANH__(value)</code> {: #tanh--search .search-only }
+
 Returns the hyperbolic tangent of any real number.
 
 
@@ -3277,9 +3685,12 @@ Returns the hyperbolic tangent of any real number.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__TRUNC__(value, places=0)</code> {: #trunc data-toc-label="TRUNC" }
 </summary>
+
+### <code>__TRUNC__(value, places=0)</code> {: #trunc--search .search-only }
+
 Truncates a number to a certain number of significant digits by omitting less significant
 digits.
 
@@ -3300,9 +3711,12 @@ digits.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__UUID__()</code> {: #uuid data-toc-label="UUID" }
 </summary>
+
+### <code>__UUID__()</code> {: #uuid--search .search-only }
+
 Generate a random UUID-formatted string identifier.
 
 Since UUID() produces a different value each time it's called, it is best to use it in
@@ -3312,9 +3726,12 @@ formula may get recalculated any time the document is reloaded, producing a diff
 UUID() each time.
 </details>
 ### Schedule
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SCHEDULE__(schedule, start=None, count=10, end=None)</code> {: #schedule data-toc-label="SCHEDULE" }
 </summary>
+
+### <code>__SCHEDULE__(schedule, start=None, count=10, end=None)</code> {: #schedule--search .search-only }
+
 Returns the list of `datetime` objects generated according to the `schedule` string. Starts at
 `start`, which defaults to NOW(). Generates at most `count` results (10 by default). If `end` is
 given, stops there.
@@ -3435,16 +3852,22 @@ The time zone of `start` determines the time zone of the generated times.
 
 </details>
 ### Stats
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__AVEDEV__(value1, value2)</code> {: #avedev data-toc-label="AVEDEV" }
 </summary>
+
+### <code>__AVEDEV__(value1, value2)</code> {: #avedev--search .search-only }
+
 Calculates the average of the magnitudes of deviations of data from a dataset's mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__AVERAGE__(value, *more_values)</code> {: #average data-toc-label="AVERAGE" }
 </summary>
+
+### <code>__AVERAGE__(value, *more_values)</code> {: #average--search .search-only }
+
 Returns the numerical average value in a dataset, ignoring non-numerical values.
 
 Each argument may be a value or an array. Values that are not numbers, including logical
@@ -3474,9 +3897,12 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__AVERAGEA__(value, *more_values)</code> {: #averagea data-toc-label="AVERAGEA" }
 </summary>
+
+### <code>__AVERAGEA__(value, *more_values)</code> {: #averagea--search .search-only }
+
 Returns the numerical average value in a dataset, counting non-numerical values as 0.
 
 Each argument may be a value of an array. Values that are not numbers, including dates and text
@@ -3505,23 +3931,32 @@ False as 0.
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__AVERAGEIF__(criteria_range, criterion, average_range=None)</code> {: #averageif data-toc-label="AVERAGEIF" }
 </summary>
+
+### <code>__AVERAGEIF__(criteria_range, criterion, average_range=None)</code> {: #averageif--search .search-only }
+
 Returns the average of a range depending on criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__AVERAGEIFS__(average_range, criteria_range1, criterion1, *args)</code> {: #averageifs data-toc-label="AVERAGEIFS" }
 </summary>
+
+### <code>__AVERAGEIFS__(average_range, criteria_range1, criterion1, *args)</code> {: #averageifs--search .search-only }
+
 Returns the average of a range depending on multiple criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__AVERAGE_WEIGHTED__(pairs)</code> {: #average_weighted data-toc-label="AVERAGE_WEIGHTED" }
 </summary>
+
+### <code>__AVERAGE_WEIGHTED__(pairs)</code> {: #average_weighted--search .search-only }
+
 Given a list of (value, weight) pairs, finds the average of the values weighted by the
 corresponding weights. Ignores any pairs with a non-numerical value or weight.
 
@@ -3545,32 +3980,44 @@ list of pairs.
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__BINOMDIST__(num_successes, num_trials, prob_success, cumulative)</code> {: #binomdist data-toc-label="BINOMDIST" }
 </summary>
+
+### <code>__BINOMDIST__(num_successes, num_trials, prob_success, cumulative)</code> {: #binomdist--search .search-only }
+
 Calculates the probability of drawing a certain number of successes (or a maximum number of
 successes) in a certain number of tries given a population of a certain size containing a
 certain number of successes, with replacement of draws.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__CONFIDENCE__(alpha, standard_deviation, pop_size)</code> {: #confidence data-toc-label="CONFIDENCE" }
 </summary>
+
+### <code>__CONFIDENCE__(alpha, standard_deviation, pop_size)</code> {: #confidence--search .search-only }
+
 Calculates the width of half the confidence interval for a normal distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__CORREL__(data_y, data_x)</code> {: #correl data-toc-label="CORREL" }
 </summary>
+
+### <code>__CORREL__(data_y, data_x)</code> {: #correl--search .search-only }
+
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__COUNT__(value, *more_values)</code> {: #count data-toc-label="COUNT" }
 </summary>
+
+### <code>__COUNT__(value, *more_values)</code> {: #count--search .search-only }
+
 Returns the count of numerical and date/datetime values in a dataset,
 ignoring other types of values.
 
@@ -3604,9 +4051,12 @@ and blank values, and text representations of numbers, are ignored.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__COUNTA__(value, *more_values)</code> {: #counta data-toc-label="COUNTA" }
 </summary>
+
+### <code>__COUNTA__(value, *more_values)</code> {: #counta--search .search-only }
+
 Returns the count of all values in a dataset, including non-numerical values.
 
 Each argument may be a value or an array.
@@ -3633,141 +4083,198 @@ Each argument may be a value or an array.
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__COVAR__(data_y, data_x)</code> {: #covar data-toc-label="COVAR" }
 </summary>
+
+### <code>__COVAR__(data_y, data_x)</code> {: #covar--search .search-only }
+
 Calculates the covariance of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__CRITBINOM__(num_trials, prob_success, target_prob)</code> {: #critbinom data-toc-label="CRITBINOM" }
 </summary>
+
+### <code>__CRITBINOM__(num_trials, prob_success, target_prob)</code> {: #critbinom--search .search-only }
+
 Calculates the smallest value for which the cumulative binomial distribution is greater than or equal to a specified criteria.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__DEVSQ__(value1, value2)</code> {: #devsq data-toc-label="DEVSQ" }
 </summary>
+
+### <code>__DEVSQ__(value1, value2)</code> {: #devsq--search .search-only }
+
 Calculates the sum of squares of deviations based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__EXPONDIST__(x, lambda_, cumulative)</code> {: #expondist data-toc-label="EXPONDIST" }
 </summary>
+
+### <code>__EXPONDIST__(x, lambda_, cumulative)</code> {: #expondist--search .search-only }
+
 Returns the value of the exponential distribution function with a specified lambda at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__FDIST__(x, degrees_freedom1, degrees_freedom2)</code> {: #fdist data-toc-label="FDIST" }
 </summary>
+
+### <code>__FDIST__(x, degrees_freedom1, degrees_freedom2)</code> {: #fdist--search .search-only }
+
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
 with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F
 distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__FISHER__(value)</code> {: #fisher data-toc-label="FISHER" }
 </summary>
+
+### <code>__FISHER__(value)</code> {: #fisher--search .search-only }
+
 Returns the Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__FISHERINV__(value)</code> {: #fisherinv data-toc-label="FISHERINV" }
 </summary>
+
+### <code>__FISHERINV__(value)</code> {: #fisherinv--search .search-only }
+
 Returns the inverse Fisher transformation of a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__FORECAST__(x, data_y, data_x)</code> {: #forecast data-toc-label="FORECAST" }
 </summary>
+
+### <code>__FORECAST__(x, data_y, data_x)</code> {: #forecast--search .search-only }
+
 Calculates the expected y-value for a specified x based on a linear regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__F_DIST__(x, degrees_freedom1, degrees_freedom2, cumulative)</code> {: #f_dist data-toc-label="F_DIST" }
 </summary>
+
+### <code>__F_DIST__(x, degrees_freedom1, degrees_freedom2, cumulative)</code> {: #f_dist--search .search-only }
+
 Calculates the left-tailed F probability distribution (degree of diversity) for two data sets
 with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F
 distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__F_DIST_RT__(x, degrees_freedom1, degrees_freedom2)</code> {: #f_dist_rt data-toc-label="F_DIST_RT" }
 </summary>
+
+### <code>__F_DIST_RT__(x, degrees_freedom1, degrees_freedom2)</code> {: #f_dist_rt--search .search-only }
+
 Calculates the right-tailed F probability distribution (degree of diversity) for two data sets
 with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F
 distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__GEOMEAN__(value1, value2)</code> {: #geomean data-toc-label="GEOMEAN" }
 </summary>
+
+### <code>__GEOMEAN__(value1, value2)</code> {: #geomean--search .search-only }
+
 Calculates the geometric mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__HARMEAN__(value1, value2)</code> {: #harmean data-toc-label="HARMEAN" }
 </summary>
+
+### <code>__HARMEAN__(value1, value2)</code> {: #harmean--search .search-only }
+
 Calculates the harmonic mean of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__HYPGEOMDIST__(num_successes, num_draws, successes_in_pop, pop_size)</code> {: #hypgeomdist data-toc-label="HYPGEOMDIST" }
 </summary>
+
+### <code>__HYPGEOMDIST__(num_successes, num_draws, successes_in_pop, pop_size)</code> {: #hypgeomdist--search .search-only }
+
 Calculates the probability of drawing a certain number of successes in a certain number of tries given a population of a certain size containing a certain number of successes, without replacement of draws.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__INTERCEPT__(data_y, data_x)</code> {: #intercept data-toc-label="INTERCEPT" }
 </summary>
+
+### <code>__INTERCEPT__(data_y, data_x)</code> {: #intercept--search .search-only }
+
 Calculates the y-value at which the line resulting from linear regression of a dataset will intersect the y-axis (x=0).
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__KURT__(value1, value2)</code> {: #kurt data-toc-label="KURT" }
 </summary>
+
+### <code>__KURT__(value1, value2)</code> {: #kurt--search .search-only }
+
 Calculates the kurtosis of a dataset, which describes the shape, and in particular the "peakedness" of that dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__LARGE__(data, n)</code> {: #large data-toc-label="LARGE" }
 </summary>
+
+### <code>__LARGE__(data, n)</code> {: #large--search .search-only }
+
 Returns the nth largest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__LOGINV__(x, mean, standard_deviation)</code> {: #loginv data-toc-label="LOGINV" }
 </summary>
+
+### <code>__LOGINV__(x, mean, standard_deviation)</code> {: #loginv--search .search-only }
+
 Returns the value of the inverse log-normal cumulative distribution with given mean and standard deviation at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__LOGNORMDIST__(x, mean, standard_deviation)</code> {: #lognormdist data-toc-label="LOGNORMDIST" }
 </summary>
+
+### <code>__LOGNORMDIST__(x, mean, standard_deviation)</code> {: #lognormdist--search .search-only }
+
 Returns the value of the log-normal cumulative distribution with given mean and standard deviation at a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MAX__(value, *more_values)</code> {: #max data-toc-label="MAX" }
 </summary>
+
+### <code>__MAX__(value, *more_values)</code> {: #max--search .search-only }
+
 Returns the maximum value in a dataset, ignoring values other than numbers and dates/datetimes.
 
 Each argument may be a value or an array. Values that are not numbers or dates, including logical
@@ -3816,9 +4323,12 @@ datetime.date(2015, 1, 2)
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MAXA__(value, *more_values)</code> {: #maxa data-toc-label="MAXA" }
 </summary>
+
+### <code>__MAXA__(value, *more_values)</code> {: #maxa--search .search-only }
+
 Returns the maximum numeric value in a dataset.
 
 Each argument may be a value of an array. Values that are not numbers, including dates and text
@@ -3852,9 +4362,12 @@ False as 0. Returns 0 if the arguments contain no numbers.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MEDIAN__(value, *more_values)</code> {: #median data-toc-label="MEDIAN" }
 </summary>
+
+### <code>__MEDIAN__(value, *more_values)</code> {: #median--search .search-only }
+
 Returns the median value in a numeric dataset, ignoring non-numerical values.
 
 Each argument may be a value or an array. Values that are not numbers, including logical
@@ -3895,9 +4408,12 @@ ValueError: MEDIAN requires at least one number
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MIN__(value, *more_values)</code> {: #min data-toc-label="MIN" }
 </summary>
+
+### <code>__MIN__(value, *more_values)</code> {: #min--search .search-only }
+
 Returns the minimum value in a dataset, ignoring values other than numbers and dates/datetimes.
 
 Each argument may be a value or an array. Values that are not numbers or dates, including logical
@@ -3946,9 +4462,12 @@ datetime.datetime(2015, 1, 1, 12, 34, 56)
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MINA__(value, *more_values)</code> {: #mina data-toc-label="MINA" }
 </summary>
+
+### <code>__MINA__(value, *more_values)</code> {: #mina--search .search-only }
+
 Returns the minimum numeric value in a dataset.
 
 Each argument may be a value of an array. Values that are not numbers, including dates and text
@@ -3982,165 +4501,234 @@ False as 0. Returns 0 if the arguments contain no numbers.
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__MODE__(value1, value2)</code> {: #mode data-toc-label="MODE" }
 </summary>
+
+### <code>__MODE__(value1, value2)</code> {: #mode--search .search-only }
+
 Returns the most commonly occurring value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__NEGBINOMDIST__(num_failures, num_successes, prob_success)</code> {: #negbinomdist data-toc-label="NEGBINOMDIST" }
 </summary>
+
+### <code>__NEGBINOMDIST__(num_failures, num_successes, prob_success)</code> {: #negbinomdist--search .search-only }
+
 Calculates the probability of drawing a certain number of failures before a certain number of successes given a probability of success in independent trials.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__NORMDIST__(x, mean, standard_deviation, cumulative)</code> {: #normdist data-toc-label="NORMDIST" }
 </summary>
+
+### <code>__NORMDIST__(x, mean, standard_deviation, cumulative)</code> {: #normdist--search .search-only }
+
 Returns the value of the normal distribution function (or normal cumulative distribution
 function) for a specified value, mean, and standard deviation.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__NORMINV__(x, mean, standard_deviation)</code> {: #norminv data-toc-label="NORMINV" }
 </summary>
+
+### <code>__NORMINV__(x, mean, standard_deviation)</code> {: #norminv--search .search-only }
+
 Returns the value of the inverse normal distribution function for a specified value, mean, and standard deviation.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__NORMSDIST__(x)</code> {: #normsdist data-toc-label="NORMSDIST" }
 </summary>
+
+### <code>__NORMSDIST__(x)</code> {: #normsdist--search .search-only }
+
 Returns the value of the standard normal cumulative distribution function for a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__NORMSINV__(x)</code> {: #normsinv data-toc-label="NORMSINV" }
 </summary>
+
+### <code>__NORMSINV__(x)</code> {: #normsinv--search .search-only }
+
 Returns the value of the inverse standard normal distribution function for a specified value.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__PEARSON__(data_y, data_x)</code> {: #pearson data-toc-label="PEARSON" }
 </summary>
+
+### <code>__PEARSON__(data_y, data_x)</code> {: #pearson--search .search-only }
+
 Calculates r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__PERCENTILE__(data, percentile)</code> {: #percentile data-toc-label="PERCENTILE" }
 </summary>
+
+### <code>__PERCENTILE__(data, percentile)</code> {: #percentile--search .search-only }
+
 Returns the value at a given percentile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__PERCENTRANK__(data, value, significant_digits=None)</code> {: #percentrank data-toc-label="PERCENTRANK" }
 </summary>
+
+### <code>__PERCENTRANK__(data, value, significant_digits=None)</code> {: #percentrank--search .search-only }
+
 Returns the percentage rank (percentile) of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__PERCENTRANK_EXC__(data, value, significant_digits=None)</code> {: #percentrank_exc data-toc-label="PERCENTRANK_EXC" }
 </summary>
+
+### <code>__PERCENTRANK_EXC__(data, value, significant_digits=None)</code> {: #percentrank_exc--search .search-only }
+
 Returns the percentage rank (percentile) from 0 to 1 exclusive of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__PERCENTRANK_INC__(data, value, significant_digits=None)</code> {: #percentrank_inc data-toc-label="PERCENTRANK_INC" }
 </summary>
+
+### <code>__PERCENTRANK_INC__(data, value, significant_digits=None)</code> {: #percentrank_inc--search .search-only }
+
 Returns the percentage rank (percentile) from 0 to 1 inclusive of a specified value in a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__PERMUT__(n, k)</code> {: #permut data-toc-label="PERMUT" }
 </summary>
+
+### <code>__PERMUT__(n, k)</code> {: #permut--search .search-only }
+
 Returns the number of ways to choose some number of objects from a pool of a given size of objects, considering order.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__POISSON__(x, mean, cumulative)</code> {: #poisson data-toc-label="POISSON" }
 </summary>
+
+### <code>__POISSON__(x, mean, cumulative)</code> {: #poisson--search .search-only }
+
 Returns the value of the Poisson distribution function (or Poisson cumulative distribution
 function) for a specified value and mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__PROB__(data, probabilities, low_limit, high_limit=None)</code> {: #prob data-toc-label="PROB" }
 </summary>
+
+### <code>__PROB__(data, probabilities, low_limit, high_limit=None)</code> {: #prob--search .search-only }
+
 Given a set of values and corresponding probabilities, calculates the probability that a value chosen at random falls between two limits.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__QUARTILE__(data, quartile_number)</code> {: #quartile data-toc-label="QUARTILE" }
 </summary>
+
+### <code>__QUARTILE__(data, quartile_number)</code> {: #quartile--search .search-only }
+
 Returns a value nearest to a specified quartile of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__RANK_AVG__(value, data, is_ascending=None)</code> {: #rank_avg data-toc-label="RANK_AVG" }
 </summary>
+
+### <code>__RANK_AVG__(value, data, is_ascending=None)</code> {: #rank_avg--search .search-only }
+
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the average rank of the entries will be returned.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__RANK_EQ__(value, data, is_ascending=None)</code> {: #rank_eq data-toc-label="RANK_EQ" }
 </summary>
+
+### <code>__RANK_EQ__(value, data, is_ascending=None)</code> {: #rank_eq--search .search-only }
+
 Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the top rank of the entries will be returned.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__RSQ__(data_y, data_x)</code> {: #rsq data-toc-label="RSQ" }
 </summary>
+
+### <code>__RSQ__(data_y, data_x)</code> {: #rsq--search .search-only }
+
 Calculates the square of r, the Pearson product-moment correlation coefficient of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__SKEW__(value1, value2)</code> {: #skew data-toc-label="SKEW" }
 </summary>
+
+### <code>__SKEW__(value1, value2)</code> {: #skew--search .search-only }
+
 Calculates the skewness of a dataset, which describes the symmetry of that dataset about the mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__SLOPE__(data_y, data_x)</code> {: #slope data-toc-label="SLOPE" }
 </summary>
+
+### <code>__SLOPE__(data_y, data_x)</code> {: #slope--search .search-only }
+
 Calculates the slope of the line resulting from linear regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__SMALL__(data, n)</code> {: #small data-toc-label="SMALL" }
 </summary>
+
+### <code>__SMALL__(data, n)</code> {: #small--search .search-only }
+
 Returns the nth smallest element from a data set, where n is user-defined.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__STANDARDIZE__(value, mean, standard_deviation)</code> {: #standardize data-toc-label="STANDARDIZE" }
 </summary>
+
+### <code>__STANDARDIZE__(value, mean, standard_deviation)</code> {: #standardize--search .search-only }
+
 Calculates the normalized equivalent of a random variable given mean and standard deviation of the distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__STDEV__(value, *more_values)</code> {: #stdev data-toc-label="STDEV" }
 </summary>
+
+### <code>__STDEV__(value, *more_values)</code> {: #stdev--search .search-only }
+
 Calculates the standard deviation based on a sample, ignoring non-numerical values.
 
 
@@ -4172,9 +4760,12 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__STDEVA__(value, *more_values)</code> {: #stdeva data-toc-label="STDEVA" }
 </summary>
+
+### <code>__STDEVA__(value, *more_values)</code> {: #stdeva--search .search-only }
+
 Calculates the standard deviation based on a sample, setting text to the value `0`.
 
 
@@ -4206,9 +4797,12 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__STDEVP__(value, *more_values)</code> {: #stdevp data-toc-label="STDEVP" }
 </summary>
+
+### <code>__STDEVP__(value, *more_values)</code> {: #stdevp--search .search-only }
+
 Calculates the standard deviation based on an entire population, ignoring non-numerical values.
 
 
@@ -4238,9 +4832,12 @@ Calculates the standard deviation based on an entire population, ignoring non-nu
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__STDEVPA__(value, *more_values)</code> {: #stdevpa data-toc-label="STDEVPA" }
 </summary>
+
+### <code>__STDEVPA__(value, *more_values)</code> {: #stdevpa--search .search-only }
+
 Calculates the standard deviation based on an entire population, setting text to the value `0`.
 
 
@@ -4270,102 +4867,144 @@ Calculates the standard deviation based on an entire population, setting text to
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__STEYX__(data_y, data_x)</code> {: #steyx data-toc-label="STEYX" }
 </summary>
+
+### <code>__STEYX__(data_y, data_x)</code> {: #steyx--search .search-only }
+
 Calculates the standard error of the predicted y-value for each x in the regression of a dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__TDIST__(x, degrees_freedom, tails)</code> {: #tdist data-toc-label="TDIST" }
 </summary>
+
+### <code>__TDIST__(x, degrees_freedom, tails)</code> {: #tdist--search .search-only }
+
 Calculates the probability for Student's t-distribution with a given input (x).
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__TINV__(probability, degrees_freedom)</code> {: #tinv data-toc-label="TINV" }
 </summary>
+
+### <code>__TINV__(probability, degrees_freedom)</code> {: #tinv--search .search-only }
+
 Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__TRIMMEAN__(data, exclude_proportion)</code> {: #trimmean data-toc-label="TRIMMEAN" }
 </summary>
+
+### <code>__TRIMMEAN__(data, exclude_proportion)</code> {: #trimmean--search .search-only }
+
 Calculates the mean of a dataset excluding some proportion of data from the high and low ends of the dataset.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__TTEST__(range1, range2, tails, type)</code> {: #ttest data-toc-label="TTEST" }
 </summary>
+
+### <code>__TTEST__(range1, range2, tails, type)</code> {: #ttest--search .search-only }
+
 Returns the probability associated with t-test. Determines whether two samples are likely to have come from the same two underlying populations that have the same mean.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__T_INV__(probability, degrees_freedom)</code> {: #t_inv data-toc-label="T_INV" }
 </summary>
+
+### <code>__T_INV__(probability, degrees_freedom)</code> {: #t_inv--search .search-only }
+
 Calculates the negative inverse of the one-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__T_INV_2T__(probability, degrees_freedom)</code> {: #t_inv_2t data-toc-label="T_INV_2T" }
 </summary>
+
+### <code>__T_INV_2T__(probability, degrees_freedom)</code> {: #t_inv_2t--search .search-only }
+
 Calculates the inverse of the two-tailed TDIST function.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__VAR__(value1, value2)</code> {: #var data-toc-label="VAR" }
 </summary>
+
+### <code>__VAR__(value1, value2)</code> {: #var--search .search-only }
+
 Calculates the variance based on a sample.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__VARA__(value1, value2)</code> {: #vara data-toc-label="VARA" }
 </summary>
+
+### <code>__VARA__(value1, value2)</code> {: #vara--search .search-only }
+
 Calculates an estimate of variance based on a sample, setting text to the value `0`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__VARP__(value1, value2)</code> {: #varp data-toc-label="VARP" }
 </summary>
+
+### <code>__VARP__(value1, value2)</code> {: #varp--search .search-only }
+
 Calculates the variance based on an entire population.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__VARPA__(value1, value2)</code> {: #varpa data-toc-label="VARPA" }
 </summary>
+
+### <code>__VARPA__(value1, value2)</code> {: #varpa--search .search-only }
+
 Calculates the variance based on an entire population, setting text to the value `0`.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__WEIBULL__(x, shape, scale, cumulative)</code> {: #weibull data-toc-label="WEIBULL" }
 </summary>
+
+### <code>__WEIBULL__(x, shape, scale, cumulative)</code> {: #weibull--search .search-only }
+
 Returns the value of the Weibull distribution function (or Weibull cumulative distribution
 function) for a specified shape and scale.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__ZTEST__(data, value, standard_deviation)</code> {: #ztest data-toc-label="ZTEST" }
 </summary>
+
+### <code>__ZTEST__(data, value, standard_deviation)</code> {: #ztest--search .search-only }
+
 Returns the two-tailed P-value of a Z-test with standard distribution.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
 ### Text
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__CHAR__(table_number)</code> {: #char data-toc-label="CHAR" }
 </summary>
+
+### <code>__CHAR__(table_number)</code> {: #char--search .search-only }
+
 Convert a number into a character according to the current Unicode table.
 Same as `chr(number)`.
 
@@ -4381,9 +5020,12 @@ u'!'
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__CLEAN__(text)</code> {: #clean data-toc-label="CLEAN" }
 </summary>
+
+### <code>__CLEAN__(text)</code> {: #clean--search .search-only }
+
 Returns the text with the non-printable characters removed.
 
 This removes both characters with values 0 through 31, and other Unicode characters in the
@@ -4396,9 +5038,12 @@ u'Monthly report'
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__CODE__(string)</code> {: #code data-toc-label="CODE" }
 </summary>
+
+### <code>__CODE__(string)</code> {: #code--search .search-only }
+
 Returns the numeric Unicode map value of the first character in the string provided.
 Same as `ord(string[0])`.
 
@@ -4419,9 +5064,12 @@ Same as `ord(string[0])`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__CONCAT__(string, *more_strings)</code> {: #concat data-toc-label="CONCAT" }
 </summary>
+
+### <code>__CONCAT__(string, *more_strings)</code> {: #concat--search .search-only }
+
 Joins together any number of text strings into one string. Also available under the name
 `CONCATENATE`. Similar to the Python expression `"".join(array_of_strings)`.
 
@@ -4452,9 +5100,12 @@ u'0abc'
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__CONCATENATE__(string, *more_strings)</code> {: #concatenate data-toc-label="CONCATENATE" }
 </summary>
+
+### <code>__CONCATENATE__(string, *more_strings)</code> {: #concatenate--search .search-only }
+
 Joins together any number of text strings into one string. Also available under the name
 `CONCAT`. Similar to the Python expression `"".join(array_of_strings)`.
 
@@ -4495,9 +5146,12 @@ u'0abc'
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__DOLLAR__(number, decimals=2)</code> {: #dollar data-toc-label="DOLLAR" }
 </summary>
+
+### <code>__DOLLAR__(number, decimals=2)</code> {: #dollar--search .search-only }
+
 Formats a number into a formatted dollar amount, with decimals rounded to the specified place (.
 If decimals value is omitted, it defaults to 2.
 
@@ -4538,9 +5192,12 @@ If decimals value is omitted, it defaults to 2.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__EXACT__(string1, string2)</code> {: #exact data-toc-label="EXACT" }
 </summary>
+
+### <code>__EXACT__(string1, string2)</code> {: #exact--search .search-only }
+
 Tests whether two strings are identical. Same as `string2 == string2`.
 
 
@@ -4560,9 +5217,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__FIND__(find_text, within_text, start_num=1)</code> {: #find data-toc-label="FIND" }
 </summary>
+
+### <code>__FIND__(find_text, within_text, start_num=1)</code> {: #find--search .search-only }
+
 Returns the position at which a string is first found within text.
 
 Find is case-sensitive. The returned position is 1 if within_text starts with find_text.
@@ -4617,9 +5277,12 @@ ValueError: substring not found
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__FIXED__(number, decimals=2, no_commas=False)</code> {: #fixed data-toc-label="FIXED" }
 </summary>
+
+### <code>__FIXED__(number, decimals=2, no_commas=False)</code> {: #fixed--search .search-only }
+
 Formats a number with a fixed number of decimal places (2 by default), and commas.
 If no_commas is True, then omits the commas.
 
@@ -4665,9 +5328,12 @@ If no_commas is True, then omits the commas.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__LEFT__(string, num_chars=1)</code> {: #left data-toc-label="LEFT" }
 </summary>
+
+### <code>__LEFT__(string, num_chars=1)</code> {: #left--search .search-only }
+
 Returns a substring of length num_chars from the beginning of the given string. If num_chars is
 omitted, it is assumed to be 1. Same as `string[:num_chars]`.
 
@@ -4690,9 +5356,12 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__LEN__(text)</code> {: #len data-toc-label="LEN" }
 </summary>
+
+### <code>__LEN__(text)</code> {: #len--search .search-only }
+
 Returns the number of characters in a text string, or the number of items in a list. Same as
 [`len`](https://docs.python.org/3/library/functions.html#len) in python.
 See [Record Set](#recordset) for an example of using `len` on a list of records.
@@ -4714,9 +5383,12 @@ See [Record Set](#recordset) for an example of using `len` on a list of records.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__LOWER__(text)</code> {: #lower data-toc-label="LOWER" }
 </summary>
+
+### <code>__LOWER__(text)</code> {: #lower--search .search-only }
+
 Converts a specified string to lowercase. Same as `text.lower()`.
 
 
@@ -4731,9 +5403,12 @@ Converts a specified string to lowercase. Same as `text.lower()`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__MID__(text, start_num, num_chars)</code> {: #mid data-toc-label="MID" }
 </summary>
+
+### <code>__MID__(text, start_num, num_chars)</code> {: #mid--search .search-only }
+
 Returns a segment of a string, starting at start_num. The first character in text has
 start_num 1.
 
@@ -4761,9 +5436,12 @@ ValueError: start_num invalid
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__PHONE_FORMAT__(value, country=None, format=None)</code> {: #phone_format data-toc-label="PHONE_FORMAT" }
 </summary>
+
+### <code>__PHONE_FORMAT__(value, country=None, format=None)</code> {: #phone_format--search .search-only }
+
 Formats a phone number.
 
 With no optional arguments, the number must start with "+" and the international dialing prefix,
@@ -4865,9 +5543,12 @@ TypeError: Phone number must be a text value. If formatting a value from a Numer
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__PROPER__(text)</code> {: #proper data-toc-label="PROPER" }
 </summary>
+
+### <code>__PROPER__(text)</code> {: #proper--search .search-only }
+
 Capitalizes each word in a specified string. It converts the first letter of each word to
 uppercase, and all other letters to lowercase. Same as `text.title()`.
 
@@ -4888,9 +5569,12 @@ uppercase, and all other letters to lowercase. Same as `text.title()`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__REGEXEXTRACT__(text, regular_expression)</code> {: #regexextract data-toc-label="REGEXEXTRACT" }
 </summary>
+
+### <code>__REGEXEXTRACT__(text, regular_expression)</code> {: #regexextract--search .search-only }
+
 Extracts the first part of text that matches regular_expression.
 
 
@@ -4919,9 +5603,12 @@ ValueError: REGEXEXTRACT text does not match
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__REGEXMATCH__(text, regular_expression)</code> {: #regexmatch data-toc-label="REGEXMATCH" }
 </summary>
+
+### <code>__REGEXMATCH__(text, regular_expression)</code> {: #regexmatch--search .search-only }
+
 Returns whether a piece of text matches a regular expression.
 
 
@@ -4951,9 +5638,12 @@ False
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__REGEXREPLACE__(text, regular_expression, replacement)</code> {: #regexreplace data-toc-label="REGEXREPLACE" }
 </summary>
+
+### <code>__REGEXREPLACE__(text, regular_expression, replacement)</code> {: #regexreplace--search .search-only }
+
 Replaces all parts of text matching the given regular expression with replacement text.
 
 
@@ -4983,9 +5673,12 @@ Replaces all parts of text matching the given regular expression with replacemen
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__REPLACE__(text, position, length, new_text)</code> {: #replace data-toc-label="REPLACE" }
 </summary>
+
+### <code>__REPLACE__(text, position, length, new_text)</code> {: #replace--search .search-only }
+
 Replaces part of a text string with a different text string. Position is counted from 1.
 
 
@@ -5017,9 +5710,12 @@ ValueError: position invalid
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__REPT__(text, number_times)</code> {: #rept data-toc-label="REPT" }
 </summary>
+
+### <code>__REPT__(text, number_times)</code> {: #rept--search .search-only }
+
 Returns specified text repeated a number of times. Same as `text * number_times`.
 
 The result of the REPT function cannot be longer than 32767 characters, or it raises a
@@ -5061,9 +5757,12 @@ ValueError: number_times invalid
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__RIGHT__(string, num_chars=1)</code> {: #right data-toc-label="RIGHT" }
 </summary>
+
+### <code>__RIGHT__(string, num_chars=1)</code> {: #right--search .search-only }
+
 Returns a substring of length num_chars from the end of a specified string. If num_chars is
 omitted, it is assumed to be 1. Same as `string[-num_chars:]`.
 
@@ -5091,9 +5790,12 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SEARCH__(find_text, within_text, start_num=1)</code> {: #search data-toc-label="SEARCH" }
 </summary>
+
+### <code>__SEARCH__(find_text, within_text, start_num=1)</code> {: #search--search .search-only }
+
 Returns the position at which a string is first found within text, ignoring case.
 
 Find is case-sensitive. The returned position is 1 if within_text starts with find_text.
@@ -5133,9 +5835,12 @@ If find_text is not found, or start_num is invalid, raises ValueError.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SUBSTITUTE__(text, old_text, new_text, instance_num=None)</code> {: #substitute data-toc-label="SUBSTITUTE" }
 </summary>
+
+### <code>__SUBSTITUTE__(text, old_text, new_text, instance_num=None)</code> {: #substitute--search .search-only }
+
 Replaces existing text with new text in a string. It is useful when you know the substring of
 text to replace. Use REPLACE when you know the position of text to replace.
 
@@ -5160,9 +5865,12 @@ u'Quarter 2, 2008'
 u'Quarter 1, 2012'
 ```
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__T__(value)</code> {: #t data-toc-label="T" }
 </summary>
+
+### <code>__T__(value)</code> {: #t--search .search-only }
+
 Returns value if value is text, or the empty string when value is not text.
 
 
@@ -5202,9 +5910,12 @@ u''
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__TASTEME__(food)</code> {: #tasteme data-toc-label="TASTEME" }
 </summary>
+
+### <code>__TASTEME__(food)</code> {: #tasteme--search .search-only }
+
 For any given piece of text, decides if it is tasty or not.
 
 This is not serious. It appeared as an Easter egg, and is kept as such. It is in fact a puzzle
@@ -5223,18 +5934,24 @@ False
 ```
 
 </details>
-<details markdown><summary class="unimplemented" markdown="block">
+<details markdown><summary class="unimplemented" markdown="block" data-search-exclude>
 #### <code>__TEXT__(number, format_type)</code> {: #text data-toc-label="TEXT" }
 </summary>
+
+### <code>__TEXT__(number, format_type)</code> {: #text--search .search-only }
+
 Converts a number into text according to a specified format. It is not yet implemented in
 Grist. You can use the similar Python functions str() to convert numbers into strings, and
 optionally format() to specify the number format.
 
 <span class="grist-tip">Note</span>This function is not currently implemented in Grist.
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__TRIM__(text)</code> {: #trim data-toc-label="TRIM" }
 </summary>
+
+### <code>__TRIM__(text)</code> {: #trim--search .search-only }
+
 Removes all spaces from text except for single spaces between words. Note that TRIM does not
 remove other whitespace such as tab or newline characters.
 
@@ -5250,9 +5967,12 @@ remove other whitespace such as tab or newline characters.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__UPPER__(text)</code> {: #upper data-toc-label="UPPER" }
 </summary>
+
+### <code>__UPPER__(text)</code> {: #upper--search .search-only }
+
 Converts a specified string to uppercase. Same as `text.upper()`.
 
 
@@ -5267,9 +5987,12 @@ Converts a specified string to uppercase. Same as `text.upper()`.
 ```
 
 </details>
-<details markdown><summary  markdown="block">
+<details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__VALUE__(text)</code> {: #value data-toc-label="VALUE" }
 </summary>
+
+### <code>__VALUE__(text)</code> {: #value--search .search-only }
+
 Converts a string in accepted date, time or number formats into a number or date.
 
 

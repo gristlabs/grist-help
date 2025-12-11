@@ -1067,3 +1067,108 @@ moves it to the left side to not interfer with the floating assistant button */
   font-size: 1rem;
   font-family: inherit;
 }
+
+
+.md-search-result {
+  position: relative;
+}
+
+/* Shorten snippets in search dropdown */
+.md-search-result .md-typeset {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* For search snippets, force display property in nested content to ensure it
+ * respects the clamping above. */
+.md-search-result .md-typeset > * {
+  display: block !important;
+}
+
+/* We stick in an extra headers in the generated function documentation to help out search, but
+ * don't want it shown. Keep it visually hidden, but still in the DOM for anchor + scrolling.
+ */
+.search-only {
+  display: none;
+}
+
+.search-all-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.8rem;
+  height: 1.8rem;
+  padding: 0 0.8rem;
+  color: var(--md-typeset-a-color);
+  cursor: pointer;
+}
+.search-all-button:hover {
+  text-decoration: underline;
+}
+
+/*** BEGIN Styles for the search page ***/
+#search-empty-results, #search-in-progress {
+  display: none;
+}
+#search-results-container a.search-page-result {
+  color: inherit;
+  font-weight: inherit;
+}
+#search-results-container a.search-page-result:hover {
+  text-decoration: none;
+}
+a.search-page-result h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--md-typeset-a-color);
+}
+a.search-page-result h2 code {
+  border: none;
+  padding: none;
+}
+a.search-page-result:hover h2 {
+  text-decoration: underline;
+}
+a.search-page-result .search-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  /* mkdocs-material gives us actual HTML. Flatten it inline, to make it appear like snippets. */
+  & * {
+    display: inline;
+    font-size: inherit;
+    color: inherit;
+    white-space: normal;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  & li::before { all: unset; content: "•\00A0"; }
+  & li::after { all: unset; content: "\00A0"; }
+  & li { all: unset; }
+  & br { display: none; }
+  & mark {
+    background: var(--md-typeset-mark-color);
+    padding: 0 .1em;
+    border-radius: .2em;
+  }
+  /* add a separator after block elements */
+  p::after, li::after, div::after, pre::after, blockquote::after,
+  h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+    content: " ";
+  }
+  & code {
+    background-color: var(--grist-medium-grey);
+    border-radius: .1rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    font-size: .9em;
+    padding: 0 .3rem;
+    word-break: break-word;
+  }
+}
+/*** END Styles for the search page ***/
