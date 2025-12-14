@@ -1116,22 +1116,34 @@ moves it to the left side to not interfer with the floating assistant button */
   color: inherit;
   font-weight: inherit;
 }
-#search-results-container a.search-page-result:hover {
-  text-decoration: none;
-}
 a.search-page-result h2 {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--md-typeset-a-color);
 }
 a.search-page-result h2 code {
   border: none;
-  padding: none;
+  padding: 0;
 }
-a.search-page-result:hover h2 {
-  text-decoration: underline;
+a.search-page-result h2 code:hover,
+a.search-page-result:focus h2 code,
+a.search-page-result:hover h2 code {
+  background-color: unset;
 }
-a.search-page-result .search-content {
+.search-category {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: normal;
+  background-color: var(--category-color, #f8f8f8);
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: 16px;
+  &.get-started { --category-color: #e0f0ff; }
+  &.tutorials-guides { --category-color: #ffeed0; }
+  &.support-docs { --category-color: #dff6f7; }
+  &.technical-docs { --category-color: #efe9fd; }
+  &.newsletters { --category-color: #e0f0ff; }
+}
+#search-results-container .search-content {
   display: -webkit-box;
   -webkit-line-clamp: 3;    /* number of lines to show */
   -webkit-box-orient: vertical;

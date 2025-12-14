@@ -44,6 +44,19 @@ searchWorker.addEventListener("message", (ev) => {
 });
 
 /**
+ * These articles are one from each category. Category names aren't the same across translations,
+ * but article identifiers hopefully are. We map each to a CSS class, for colored category labels.
+ */
+const representativeCategoryArticles = {
+  'getting-started/': 'get-started',
+  'lightweight-crm/': 'tutorials-guides',
+  'creating-doc/': 'support-docs',
+  'rest-api/': 'technical-docs',
+  'newsletters/': 'newsletters',
+  'FAQ/': 'support-docs',
+};
+
+/**
  * Once we get results from the search worker, render them.
  */
 function renderSearchResults(results) {
@@ -71,6 +84,12 @@ function renderSearchResults(results) {
     }
     flat.sort((a, b) => b.score - a.score);
 
+    // console.warn("RESULTS", flat);
+
+    // Construct a map of category to css class, using representativeCategoryArticles.
+    const categoryClasses = new Map(Object.entries(representativeCategoryArticles)
+      .map(entry => [window.__NAV_MAP__[entry[0]]?.[0], entry[1]]));
+
     const baseUrl = new URL(config.base, location.href);
     for (const result of flat) {
       const resultElem = document.importNode(resultTemplate.content, true);
@@ -81,8 +100,15 @@ function renderSearchResults(results) {
         title = parent.title + " &gt; " + title;
         parent = parent.parent;
       }
-      resultElem.querySelector('a.search-page-result').href = new URL(result.location, baseUrl);
+      const url = new URL(result.location, baseUrl);
+      const category = window.__NAV_MAP__[url.pathname.slice(1)]?.[0];
+      resultElem.querySelector('a.search-page-result').href = url;
       resultElem.querySelector('.search-title').innerHTML = title;
+      if (category) {
+        const categoryElem = resultElem.querySelector('.search-category');
+        categoryElem.textContent = category;
+        categoryElem.classList.add(categoryClasses.get(category));
+      }
       resultElem.querySelector('.search-content').innerHTML = result.text;
       resultTemplate.before(resultElem);
     }
