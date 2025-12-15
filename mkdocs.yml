@@ -33,8 +33,8 @@ theme:
   logo_height: 24
   favicon: images/favicon.png
 nav:
-  - getting-started.md
-  - Tutorials & Guides:
+  - Tutorials & guides:
+    - getting-started.md
     - How-to tutorials:
       - lightweight-crm.md
       - investment-research.md
@@ -57,7 +57,7 @@ nav:
       - examples/2021-07-auto-stamps.md
       - examples/2023-01-acl-memo.md
       - examples/2023-07-proposals-contracts.md
-  - Support Docs:
+  - Support docs:
     - Managing documents:
       - creating-doc.md
       - document-settings.md
@@ -116,7 +116,7 @@ nav:
       - data-security.md
       - browser-support.md
       - glossary.md
-  - Technical Docs:
+  - Technical docs:
     - Integrations:
       - rest-api.md
       - api.md
@@ -128,7 +128,7 @@ nav:
         - code/modules/grist_plugin_api.md
         - ... | flat | **/code/interfaces/**
         - ... | flat | **/code/modules/**
-    - Self-managed:
+    - Self-hosted:
       - self-managed.md
       - install/saml.md
       - install/oidc.md
@@ -149,7 +149,7 @@ nav:
         - telemetry-limited.md
         - telemetry-full.md
   - News & updates:
-    - newsletters.md
+    # - newsletters.md
     - newsletters/2025-10.md
     - newsletters/2025-09.md
     - newsletters/2025-08.md
@@ -251,16 +251,16 @@ extra:
   #  - in the homepage template to automatically show the correct icon and color in each "hero card"
   #  - in the nav sidebar to automatically show the correct icon and color in each section
   section_icons:
-    getting-started.md:
-      icon: /images/home/play.svg
-      bg_color: "#e0f0ff"
-    Tutorials & Guides:
+    # getting-started.md:
+    #   icon: /images/home/play.svg
+    #   bg_color: "#e0f0ff"
+    Tutorials & guides:
       icon: /images/home/bulb.svg
       bg_color: "#ffeed0"
-    Support Docs:
+    Support docs:
       icon: /images/home/headset.svg
       bg_color: "#dff6f7"
-    Technical Docs:
+    Technical docs:
       icon: /images/home/cloud.svg
       bg_color: "#efe9fd"
   google_tag_manager: 'GTM-5FDHKQ9'

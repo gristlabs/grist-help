@@ -1,35 +1,29 @@
 ---
 title: Getting started
-hide:
-  - navigation
-  - toc
 ---
 
 # Welcome to Grist! {: data-toc-label='' }
 
-[Grist](https://www.getgrist.com) is a software product to organize, analyze, and share data.
-
-<div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">
+<div class="img-caption clearfix" style="float: right; width: 250px; margin: 8px 0px 8px 24px;">
   <button type="button" data-dialog-open="video-modal"
-    data-theVideo="https://www.youtube.com/embed/XYZ_ZGSxU00">
-  <img alt="Grist Overview Demo" src="https://img.youtube.com/vi/XYZ_ZGSxU00/0.jpg">
-  <em>Grist Overview Demo</em>
+    data-theVideo="https://www.youtube.com/embed/XyVPJ-7bDpY">
+  <img alt="What is Grist?" src="https://img.youtube.com/vi/XyVPJ-7bDpY/0.jpg">
+  <em>Grist overview</em>
   </button>
 </div>
-Grist combines the best of spreadsheets and databases. Grist lets you work with simple grids and
+
+### What is Grist?
+
+[Grist](https://www.getgrist.com) combines the best of spreadsheets and databases. Grist lets you work with simple grids and
 lists, and is at its best when data gets more complex.
 
-To sign up and start using Grist, visit [https://docs.getgrist.com](https://docs.getgrist.com).
+To sign up and start using Grist, visit [docs.getgrist.com](https://docs.getgrist.com). Upon signing up, you'll be invited to complete the Grist basics tutorial.
 
-To learn Grist, we recommend starting with our How-To tutorials, or our
-Intro videos.
-{: .clearfix }
+### Grist 101 webinar
 
-<div class="row" markdown="1">
+If you're used to video explanations, our [new user's webinar](https://www.getgrist.com/webinars/grist-101-new-users-guide/) is a great way to get up to speed on essential features and helpful tricks.
 
-<div class="col-md-6" markdown="1">
-
-### How-To Tutorials
+### How-to tutorials
 
 [Create a custom CRM](lightweight-crm.md). Using the "Lightweight CRM" example,
 learn to link data, and create high-productivity layouts.
@@ -40,11 +34,7 @@ Research" example, learn to create summary tables and charts, and link charts dy
 [Managing business data](afterschool-program.md). Using the "Afterschool Program" example,
 learn to model business data, use formulas, and manage complexity.
 
-</div>
-
-<div class="col-md-6 column-images" markdown="1">
-
-### Intro Videos
+### Intro videos
 
 [![Creating a doc](https://img.youtube.com/vi/eL0EU_Fv_TI/0.jpg) *Creating a doc*](creating-doc.md)
 {: .img-caption }
@@ -55,7 +45,7 @@ learn to model business data, use formulas, and manage complexity.
 [![Columns & types](https://img.youtube.com/vi/kEKYcW3h4V8/0.jpg) *Columns & types*](col-types.md)
 {: .img-caption }
 
-[![Reference columns](https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg) *Reference&nbsp;columns*](col-refs.md)
+[![Reference columns](https://img.youtube.com/vi/fkn2YCxEvTc/0.jpg) *References*](col-refs.md)
 {: .img-caption }
 
 [![Linking widgets](https://img.youtube.com/vi/F5m_je0QKvs/0.jpg) *Linking widgets*](linking-widgets.md)
@@ -64,21 +54,14 @@ learn to model business data, use formulas, and manage complexity.
 [![Sharing a doc](https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg) *Sharing a doc*](sharing.md)
 {: .img-caption }
 
-</div>
-
-</div>
-
 ## Popular shortcuts
 
 - [Frequently Asked Questions](FAQ.md)
 - [Function reference](functions.md)
 - [Keyboard shortcuts](keyboard-shortcuts.md)
 
-## Contact us
+## Community support
 
-If you have questions not answered here, problem reports, or other feedback,
-please contact us!
+Join us on our [Community forum](https://community.getgrist.com/) or official [Discord channel](https://discord.gg/MYKpYQ3fbP) for further discussion.
 
-Email: <support@getgrist.com>
-
-
+If you have questions about Grist deployments or plans, please feel free to [contact us!](https://www.getgrist.com/contact/)

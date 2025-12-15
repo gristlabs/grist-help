@@ -4,24 +4,20 @@ search_button: Search our library of docs, tutorials, videos, and more
 # Heading cards are meant to target "sections" described in `mkdocs.yml` extra.section_icons to correctly show their icon and color
 heading_cards:
   items:
-    - title: Get Started
-      section: getting-started.md
-      description: New to Grist? Start here with our step-by-step intro to all of the essentials
+    - title: Get started
+      section: Tutorials & guides
+      description: New to Grist? Start here with the essentials
       url: /getting-started/
-    - title: Learn More
-      section: Tutorials & Guides
-      description: Explore tutorials, videos, and more to see Grist at its most powerful
-      url: /lightweight-crm/
-    - title: Support Docs
-      section: Support Docs
+    - title: Support docs
+      section: Support docs
       description: Learn more about Grist’s powerful features with our support docs
       url: /creating-doc/
-    - title: Technical Docs
-      section: Technical Docs
+    - title: Technical docs
+      section: Technical docs
       description: Take Grist to the next level with APIs and self-hosted instances
       url: /rest-api/
 featured_cards:
-  heading: Featured Tutorials
+  heading: Featured tutorials
   intro: Start building fast with these step-by-step tutorials.
   items:
     - title: Create your own CRM
@@ -37,7 +33,7 @@ featured_cards:
       image: /images/home/analyze-data.jpg
       url: /investment-research/
 more_info_cards:
-  heading: More Support Ressources
+  heading: More support resources
   intro: Looking for more help? Connect with Grist’s supportive user community, or contact our team.
   items:
     - title: Join the community
@@ -45,10 +41,10 @@ more_info_cards:
       icon: /images/home/community.svg
       url: https://community.getgrist.com/
     - title: Chat on Discord
-      description: Connect with other members of the Grist community and our team
+      description: Join our official Discord channel for discussion and news
       icon: /images/home/discord.svg
       url: https://discord.gg/MYKpYQ3fbP
-    - title: Contact Support
-      description: Connect with other members of the Grist community and our team
+    - title: Contact support
+      description: Reach out for more information about Grist deployments and services
       icon: /images/home/mail.svg
-      url: mailto:support@getgrist.com
+      url: https://www.getgrist.com/contact/
