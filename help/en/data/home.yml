@@ -16,6 +16,10 @@ heading_cards:
       section: Technical docs
       description: Take Grist to the next level with APIs and self-hosted instances
       url: /rest-api/
+    - title: News & updates
+      section: News & updates
+      description: See the newest features, fixes, and community contributions
+      url: /newsletters/
 featured_cards:
   heading: Featured tutorials
   intro: Start building fast with these step-by-step tutorials.

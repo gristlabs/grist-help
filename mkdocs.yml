@@ -217,7 +217,6 @@ nav:
     - newsletters/2020-07.md
     - newsletters/2020-06.md
     - newsletters/2020-05.md
-  - FAQ.md
 extra:
   logo: 'images/logo.png'
   palette:
@@ -252,9 +251,6 @@ extra:
   #  - in the homepage template to automatically show the correct icon and color in each "hero card"
   #  - in the nav sidebar to automatically show the correct icon and color in each section
   section_icons:
-    # getting-started.md:
-    #   icon: /images/home/play.svg
-    #   bg_color: "#e0f0ff"
     Tutorials & guides:
       icon: /images/home/bulb.svg
       bg_color: "#ffeed0"
@@ -264,6 +260,9 @@ extra:
     Technical docs:
       icon: /images/home/cloud.svg
       bg_color: "#efe9fd"
+    News & updates:
+      icon: /images/home/rocket.svg
+      bg_color: "#e0f0ff"
   google_tag_manager: 'GTM-5FDHKQ9'
   generator: false
 extra_css:
