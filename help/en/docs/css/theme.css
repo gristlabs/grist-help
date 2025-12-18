@@ -93,9 +93,9 @@ Just keep its default of 125% font size at any breakpoint. */
 }
 
 
-/** Override just for newsletters */
+/** Override just for newsletters: don't show the header that comes from emails */
 .md-main .newsletter-header .header {
-  width: 100%
+  display: none;
 }
 
 /* Render a custom website heading with CSS;

@@ -1,4 +1,14 @@
 {% extends "main.html" %}
+
+{% macro first_leaf_url(nav_item) %}
+  {% set first = nav_item.children | first %}
+  {% if first and first.children %}
+    {{ first_leaf_url(first) }}
+  {% else %}
+    {{ first.url }}
+  {% endif %}
+{% endmacro %}
+
 {% block container %}
   <div class="g-home-container">
     <div class="g-home-hero">
@@ -37,7 +47,13 @@
                   <img src="{{ section_icon.icon }}" width="80" height="80" alt="">
                 </div>
               {% endif %}
-              <h2><a class="stretched-link" href="{{ card.url }}">{{ card.title }}</a></h2>
+
+              {% set target_url = card.url %}
+              {% if not target_url %}
+                {% set section = (nav | selectattr("title", "equalto", card.section) | first) %}
+                {% set target_url = first_leaf_url(section) %}
+              {% endif %}
+              <h2><a class="stretched-link" href="{{ target_url }}">{{ card.title }}</a></h2>
               <p>{{ card.description }}</p>
             </div>
           {% endfor %}

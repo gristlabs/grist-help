@@ -19,7 +19,7 @@ heading_cards:
     - title: News & updates
       section: News & updates
       description: See the newest features, fixes, and community contributions
-      url: /newsletters/
+      # Omit url to go instead to the first page in the named section ("News & updates")
 featured_cards:
   heading: Featured tutorials
   intro: Start building fast with these step-by-step tutorials.

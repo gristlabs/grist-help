@@ -149,7 +149,6 @@ nav:
         - telemetry-limited.md
         - telemetry-full.md
   - News & updates:
-    - newsletters.md
     - newsletters/2025-11.md
     - newsletters/2025-10.md
     - newsletters/2025-09.md
@@ -217,6 +216,7 @@ nav:
     - newsletters/2020-07.md
     - newsletters/2020-06.md
     - newsletters/2020-05.md
+    - newsletters.md
 extra:
   logo: 'images/logo.png'
   palette:
