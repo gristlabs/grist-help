@@ -128,6 +128,29 @@ Enterprise](self-managed.md#how-do-i-enable-grist-enterprise).
 
 If [Grist Enterprise](self-managed.md#how-do-i-enable-grist-enterprise) is enabled, the administrative account will also have access to [Admin Controls](admin-controls.md)
 
+### How can I have more than one administrative account? {: .tag-ee }
+
+In [Grist
+Enterprise](self-managed.md#how-do-i-enable-grist-enterprise), it is
+possible to have more than one administrative account. This is done
+via the `GRIST_INSTALL_ADMIN_ORG` environment variable.
+
+A prerequisite is allowing the creation of multiple team sites. To do
+so, ensure that `GRIST_SINGLE_ORG` is unset.
+
+In a multi-team Grist installation, take the following steps:
+
+1. From your user account menu at the top right, create a Grist team
+   site (a.k.a. organization) with the name of your choosing (for
+   example, `admins`)
+2. To this team site [add the user
+   accounts](https://support.getgrist.com/team-sharing/) that you wish
+   to designate as administrators. Their role on this team site must
+   be "OWNER".
+3. Set `GRIST_INSTALL_ADMIN_ORG` to the name of the team site from the
+   first step (for example, `GRIST_INSTALL_ADMIN_ORG=admins`).
+4. Restart the Grist server with the new environment variable.
+
 ### How do I sandbox documents? {: .tag-core .tag-ee }
 
 Grist allows for very powerful formulas, using Python.  We recommend
