@@ -48,12 +48,11 @@ function autoPlayYouTubeModal(){
     if (!trigger) return;
     const theModal = `#${trigger.getAttribute('data-dialog-open')}`;
     const videoSRC = trigger.getAttribute('data-theVideo');
-    const iframe = document.querySelector(`${theModal} iframe`);
+    const container = document.querySelector(theModal);
+    const iframe = container?.querySelector('iframe');
     if (!iframe) return;
     iframe.src = videoSRC + "?rel=0&autoplay=1";
-    iframe.addEventListener('hidden.bs.modal', function(e) {
-      iframe.src = '';
-    });
+    container.addEventListener("hide", () => { console.log("AAAAAAAAAAAA"); iframe.src = ''; });
   });
 }
 

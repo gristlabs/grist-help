@@ -1,6 +1,6 @@
 heading: Welcome! How can we help you?
 intro: Explore tutorials, docs, guides, videos, and more to learn how to get the most out of Grist.
-search_button: Search our library of docs, tutorials, videos, and more
+search_button: Search documentation
 # Heading cards are meant to target "sections" described in `mkdocs.yml` extra.section_icons to correctly show their icon and color
 heading_cards:
   items:

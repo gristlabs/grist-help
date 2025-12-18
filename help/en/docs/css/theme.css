@@ -92,6 +92,12 @@ Just keep its default of 125% font size at any breakpoint. */
   border-top: 1px solid var(--grist-medium-grey);
 }
 
+
+/** Override just for newsletters */
+.md-main .newsletter-header .header {
+  width: 100%
+}
+
 /* Render a custom website heading with CSS;
 this allows us to avoid overriding the whole mkdocs-material header partial just for this. */
 .md-header__title:not(.md-header__title--active) .md-header__topic .md-ellipsis {
@@ -134,27 +140,24 @@ custom code relying on z-indexes) */
 /* make the search bar in the header blend more into it (with a less pronounced background),
 but make sure the borders have WCAG-compliant contrast ratio */
 .md-search__input {
+  background-color: var(--md-default-bg-color);
   border: 1px solid var(--grist-input-border-color);
   border-radius: 8px;
 }
-
-
-@media screen and (min-width: 60em) {
-  .md-search__form {
-    background-color: var(--md-default-bg-color);
-  }
-  .md-search__input::placeholder {
-    color: var(--md-default-fg-color--lighter);
-  }
+.md-search__input::placeholder {
+  color: var(--md-default-fg-color--lighter);
+}
+.md-search__form {
+  background-color: var(--md-default-fg-color--lightest) !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+.md-search__output {
+  border-radius: 0 0 8px 8px !important;
 }
 
 /* this targets links in both sidebars (left and right) */
 .md-nav {
   font-size: 0.75rem;
-}
-
-.md-nav__link {
-  margin-top: 0.8rem;
 }
 
 .md-nav__link--active {
@@ -253,6 +256,7 @@ but make sure the borders have WCAG-compliant contrast ratio */
     padding-right: 8px;
     margin-bottom: 8px;
     font-size: 0.8rem;
+    position: relative;
   }
 
   .md-nav--secondary > .md-nav__list {
@@ -321,6 +325,11 @@ Just hide them if they are empty. */
 /*****************************************
  Markdown content overrides
  *****************************************/
+
+/* have a little blank space at the bottom of articles before the dark footer begins */ 
+.md-content__inner {
+  margin-bottom: 4rem;
+}
 
 /* make sure content beginning with alert boxes dont begin with extra margin on the top */
 .md-content__inner > .admonition:first-child {
@@ -687,6 +696,14 @@ html.page-wide-toc .md-sidebar--secondary {
   width: 18rem;
 }
 
+/* On the FAQ page, make TOC headings bold, only at the top level. */
+html.page-wide-toc .md-nav__item .md-nav__link {
+  font-weight: 600;
+}
+html.page-wide-toc .md-nav__item .md-nav__item .md-nav__link {
+  font-weight: revert;
+}
+
 /*****************************************
  Homepage specific template classes
 
@@ -775,6 +792,7 @@ html.page-wide-toc .md-sidebar--secondary {
   gap: 12px;
   line-height: 1.5;
   text-align: left;
+  width: 100%;
 }
 
 .g-home-hero button svg {
