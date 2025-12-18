@@ -2,7 +2,7 @@
 title: Newsletters
 ---
 
-# Monthly newsletters
+# Grist from the mill
 
 Welcome to our monthly newsletter of updates and tips for Grist users. The phrase "Grist for the
 mill" means "useful experience, material, or knowledge", perfectly reflecting its purpose.

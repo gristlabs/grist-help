@@ -149,7 +149,7 @@ nav:
         - telemetry-limited.md
         - telemetry-full.md
   - News & updates:
-    # - newsletters.md
+    - newsletters.md
     - newsletters/2025-11.md
     - newsletters/2025-10.md
     - newsletters/2025-09.md
