@@ -1,3 +1,16 @@
+/**
+ * These articles are one from each category. Category names aren't the same across translations,
+ * but article identifiers hopefully are. We map each to a CSS class, for colored category labels.
+ */
+const representativeCategoryArticles = {
+  'getting-started/': 'get-started',
+  'lightweight-crm/': 'tutorials-guides',
+  'creating-doc/': 'support-docs',
+  'rest-api/': 'technical-docs',
+  'newsletters/2025-01/': 'newsletters',
+  'FAQ/': 'support-docs',
+};
+
 // Get search worker URL and create the worker.
 const config = JSON.parse(document.getElementById("__config").textContent);
 const workerUrl = new URL(config.search, document.baseURI);
@@ -42,19 +55,6 @@ searchWorker.addEventListener("message", (ev) => {
     }
   }
 });
-
-/**
- * These articles are one from each category. Category names aren't the same across translations,
- * but article identifiers hopefully are. We map each to a CSS class, for colored category labels.
- */
-const representativeCategoryArticles = {
-  'getting-started/': 'get-started',
-  'lightweight-crm/': 'tutorials-guides',
-  'creating-doc/': 'support-docs',
-  'rest-api/': 'technical-docs',
-  'newsletters/': 'newsletters',
-  'FAQ/': 'support-docs',
-};
 
 /**
  * Once we get results from the search worker, render them.
