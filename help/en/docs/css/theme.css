@@ -160,6 +160,10 @@ but make sure the borders have WCAG-compliant contrast ratio */
   font-size: 0.75rem;
 }
 
+.md-nav__link {
+  margin-top: 0.8rem;
+}
+
 .md-nav__link--active {
   font-weight: 600;
 }
