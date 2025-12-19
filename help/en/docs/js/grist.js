@@ -170,7 +170,7 @@ window.document$.subscribe(function () {
   const result = document.querySelector('.md-search-result__meta')
   if (result) {
     const searchButton = document.createElement('button');
-    searchButton.textContent = 'See all results';
+    searchButton.textContent = window.extraTranslations['g.search.view_all'];
     searchButton.className = 'search-all-button';
     searchButton.addEventListener('click', search);
     result.after(searchButton);
