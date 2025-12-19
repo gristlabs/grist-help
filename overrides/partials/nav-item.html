@@ -19,8 +19,8 @@
   {# CHANGE / addition: grist-specific section icon #}
   {% if config.extra.section_icons %}
     {% set icon_config = none %}
-    {% if nav_item.title and nav_item.title in config.extra.section_icons %}
-      {% set icon_config = config.extra.section_icons[nav_item.title] %}
+    {% if nav_item.en_title and nav_item.en_title in config.extra.section_icons %}
+      {% set icon_config = config.extra.section_icons[nav_item.en_title] %}
     {% elif nav_item.file and nav_item.file.src_path in config.extra.section_icons %}
       {% set icon_config = config.extra.section_icons[nav_item.file.src_path] %}
     {% endif %}

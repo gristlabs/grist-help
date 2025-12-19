@@ -124,6 +124,8 @@ def on_nav(nav: Navigation, config: MkDocsConfig, files: Files) -> Navigation:
     if not isinstance(item, Section):
       return
     section = cast(Section, item)
+     # Save the original title so that it's available in templates when needed
+    section.en_title = section.title
     section.title = translated_sections.get(section.title, section.title)
     for child in section.children:
       change_section_titles(child)

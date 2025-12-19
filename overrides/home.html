@@ -52,7 +52,7 @@
               {% if not target_url %}
                 {% set section =
                   (nav | selectattr("title", "equalto", card.section) | first)
-                  or (nav | selectattr("title", "equalto", card.title) | first)
+                  or (nav | selectattr("en_title", "equalto", card.section) | first)
                 %}
                 {% if section %}
                   {% set target_url = first_leaf_url(section) %}
