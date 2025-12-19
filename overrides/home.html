@@ -50,8 +50,13 @@
 
               {% set target_url = card.url %}
               {% if not target_url %}
-                {% set section = (nav | selectattr("title", "equalto", card.section) | first) %}
-                {% set target_url = first_leaf_url(section) %}
+                {% set section =
+                  (nav | selectattr("title", "equalto", card.section) | first)
+                  or (nav | selectattr("title", "equalto", card.title) | first)
+                %}
+                {% if section %}
+                  {% set target_url = first_leaf_url(section) %}
+                {% endif %}
               {% endif %}
               <h2><a class="stretched-link" href="{{ target_url }}">{{ card.title }}</a></h2>
               <p>{{ card.description }}</p>

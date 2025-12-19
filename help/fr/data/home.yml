@@ -18,7 +18,7 @@ heading_cards:
     - title: Actualités
       section: News & updates
       description: Accédez aux dernières actus de Grist et sa communauté
-      url: /fr/newsletters/
+      # Omit url to go instead to the first sub-page of the "Actualités" nav section
 featured_cards:
   heading: Tutoriels en vedette
   intro: Commencez à construire rapidement avec ces tutoriels étape par étape.
