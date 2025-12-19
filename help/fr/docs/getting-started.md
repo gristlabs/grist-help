@@ -1,31 +1,26 @@
 ---
 title: Premiers pas
-hide:
-  - navigation
-  - toc
 ---
 
 # Bienvenue sur Grist! {: data-toc-label='' }
 
-[Grist](https://www.getgrist.com) est un logiciel permettant d'organiser, d'analyser et de partager des données.
-
-<div class="img-caption clearfix" style="float: left; width: 188px; margin: 8px 24px 8px 0px;">
+<div class="img-caption clearfix" style="float: right; width: 250px; margin: 8px 0px 8px 24px;">
   <button type="button" data-dialog-open="video-modal"
-    data-theVideo="https://www.youtube.com/embed/XYZ_ZGSxU00">
-  <img alt="Démonstration de Grist" src="https://img.youtube.com/vi/XYZ_ZGSxU00/0.jpg">
-  <em>Démonstration de Grist</em>
+    data-theVideo="https://www.youtube.com/embed/XyVPJ-7bDpY">
+  <img alt="What is Grist?" src="https://img.youtube.com/vi/XyVPJ-7bDpY/0.jpg">
+  <em>Aperçu de Grist</em>
   </button>
 </div>
-Grist combine le meilleur des tableurs et des bases de données. Grist vous permet de travailler avec des grilles et des listes simples, et est à son meilleur lorsque les données deviennent plus complexes.
 
-Pour vous inscrire et commencer à utiliser Grist, visitez [https://docs.getgrist.com](https://docs.getgrist.com).
+### Qu'est-ce que Grist ?
 
-Pour apprendre à utiliser Grist, nous vous recommandons de commencer par nos tutoriels pratiques ou nos vidéos d'introduction.
-{: .clearfix }
+[Grist](https://www.getgrist.com) combine le meilleur des tableurs et des bases de données. Grist vous permet de travailler avec des grilles et des listes simples, et est à son meilleur lorsque les données deviennent plus complexes.
 
-<div class="row" markdown="1">
+Pour vous inscrire et commencer à utiliser Grist, visitez [docs.getgrist.com](https://docs.getgrist.com). Une fois inscrit, vous pourrez suivre le tutoriel sur les bases de Grist.
 
-<div class="col-md-6" markdown="1">
+### Webinaire sur les bases de Grist
+
+Si vous préférez les explications vidéo, notre webinaire [Grist 101 pour les nouveaux utilisateurs](https://www.getgrist.com/webinars/grist-101-new-users-guide/) (en anglais) est un excellent moyen de vous familiariser avec les fonctionnalités essentielles et les astuces utiles.
 
 ### Tutoriels pratiques
 
@@ -37,10 +32,6 @@ apprenez à créer des tableaux récapitulatifs et des graphiques, et à lier le
 
 [Gestion des données commerciales](afterschool-program.md). En utilisant l'exemple "Programme parascolaire",
 apprenez à modéliser des données commerciales, à utiliser des formules et à gérer la complexité.
-
-</div>
-
-<div class="col-md-6 column-images" markdown="1">
 
 ### Vidéos d'introduction
 
@@ -62,19 +53,15 @@ apprenez à modéliser des données commerciales, à utiliser des formules et à
 [![Partager un document](https://img.youtube.com/vi/vJpcC3-FHF8/0.jpg) *Partager un document*](sharing.md)
 {: .img-caption }
 
-</div>
-
-</div>
-
 ## Raccourcis populaires
 
-- [Questions fréquemment posées](FAQ.md)
+- [Foire aux Questions](FAQ.md)
 - [Référence des fonctions](functions.md)
 - [Raccourcis clavier](keyboard-shortcuts.md)
 
-## Contactez-nous
+## Support communautaire
 
-Si vous avez des questions non répondues ici, des rapports de problèmes ou d'autres commentaires,
-veuillez nous contacter !
+Rejoignez-nous sur notre [forum communautaire](https://community.getgrist.com/) ou sur notre [chaîne Discord](https://discord.gg/MYKpYQ3fbP) pour discuter.
 
-Email: <support@getgrist.com>
+Si vous avez des questions sur le déploiement de Grist ou les offres commerciales, n'hésitez pas à [nous contacter](https://www.getgrist.com/contact/) !
+
