@@ -230,12 +230,6 @@ extra:
   article_nav_bottom: false
   history_buttons: false
   meta_me_url: https://fosstodon.org/@grist
-  home_links:
-    - href: https://community.getgrist.com
-      text: 'Community'
-    - href: https://www.getgrist.com
-      text: 'Back to Grist'
-      hide_on_small_screen: true
   quick_links:
     - text: 'FAQ'
       href: /FAQ
