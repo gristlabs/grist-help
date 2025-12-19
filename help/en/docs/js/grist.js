@@ -157,7 +157,8 @@ window.document$.subscribe(function () {
   function search() {
     const q = input.value.trim();
     if (!q) { return; }
-    window.location.href = '/search/?q=' + encodeURIComponent(q);
+    const rootUrl = document.querySelector('.md-header__button.md-logo').getAttribute('href');
+    window.location.href = rootUrl.replace(/\/$/, '') + '/search/?q=' + encodeURIComponent(q);
   }
 
   input.addEventListener('keydown', function (ev) {

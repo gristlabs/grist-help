@@ -139,7 +139,7 @@ def _inject_warning(markdown: str, warning: str, page: Page):
   for excluded_section in non_translated_sections:
     if page.file.src_path.startswith(excluded_section):
       return markdown
-  return f"{warning}\n\n{markdown}"
+  return f"<div data-search-exclude markdown='block'>{warning}\n\n{markdown}</div>"
 
 def on_page_markdown(
   markdown: str, *, page: Page, config: MkDocsConfig, **_: Any

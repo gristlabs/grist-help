@@ -14,7 +14,7 @@ const representativeCategoryArticles = {
 // Get search worker URL and create the worker.
 const config = JSON.parse(document.getElementById("__config").textContent);
 const workerUrl = new URL(config.search, document.baseURI);
-const searchWorker = new Worker(workerUrl, { type: "module" });
+const searchWorker = new Worker(workerUrl);
 const elemSearchInProgress = document.getElementById('search-in-progress');
 const elemSearchEmptyResults = document.getElementById('search-empty-results');
 

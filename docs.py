@@ -54,7 +54,7 @@ def get_missing_translation_path(lang: str) -> Path:
 def get_missing_translation_snippet() -> str:
   missing_translation_file_path = get_missing_translation_path("en")
   missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
-  return "!!!warning\n\n" + indent(missing_translation_content, "    ")
+  return "<div data-search-exclude markdown='block'>!!!warning\n\n" + indent(missing_translation_content, "    ") + "</div>"
 
 
 def get_mkdocs_yaml_for_lang(lang: str) -> str:
