@@ -1,5 +1,5 @@
 ---
-title: Conditional formatting
+title: Mise en forme conditionnelle
 ---
 
 Mise en forme conditionnelle

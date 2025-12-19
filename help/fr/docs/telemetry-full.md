@@ -1,5 +1,5 @@
 ---
-title: Full telemetry
+title: Télémétrie complète
 ---
 
 # Niveau de télémétrie : complet

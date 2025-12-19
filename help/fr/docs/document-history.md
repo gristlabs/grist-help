@@ -1,5 +1,5 @@
 ---
-title: Document history
+title: Historique du document
 ---
 
 Historique du document

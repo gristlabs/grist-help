@@ -1,5 +1,5 @@
 ---
-title: Calendar
+title: Calendrier
 ---
 
 # Vue : Calendrier

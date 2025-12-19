@@ -1,5 +1,5 @@
 ---
-title: Overview of telemetry
+title: Vue d'ensemble de la télémétrie
 ---
 
 # Aperçu de la Télémétrie

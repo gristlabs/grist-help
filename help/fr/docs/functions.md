@@ -1,5 +1,5 @@
 ---
-title: Function reference
+title: Référence des fonctions
 ---
 
 # Référence des Fonctions {: data-toc-label='' }

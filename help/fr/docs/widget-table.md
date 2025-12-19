@@ -1,5 +1,5 @@
 ---
-title: Table widget
+title: Widget tableau
 ---
 
 # Vue Table: Tableau

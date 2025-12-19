@@ -1,5 +1,5 @@
 ---
-title: Browser support
+title: Support des navigateurs
 ---
 
 # Support des Navigateurs

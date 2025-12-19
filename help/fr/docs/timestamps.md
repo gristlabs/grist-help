@@ -1,5 +1,5 @@
 ---
-title: Timestamp columns
+title: Colonnes d'horodatage
 ---
 
 Colonnes de timestamp

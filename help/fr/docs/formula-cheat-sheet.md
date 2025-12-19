@@ -1,5 +1,5 @@
 ---
-title: Formula cheat sheet
+title: Aide-mémoire des formules
 ---
 
 # Fiche de Formules

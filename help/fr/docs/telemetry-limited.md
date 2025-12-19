@@ -1,5 +1,5 @@
 ---
-title: Limited telemetry
+title: Télémétrie limitée
 ---
 
 # Niveau de télémétrie : limité

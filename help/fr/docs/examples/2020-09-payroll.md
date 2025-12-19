@@ -1,5 +1,5 @@
 ---
-title: Track payroll
+title: Suivre la paie
 ---
 
 # Suivi de la Paie

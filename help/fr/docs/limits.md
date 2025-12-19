@@ -1,5 +1,5 @@
 ---
-title: Limits
+title: Limites
 ---
 
 # Limites

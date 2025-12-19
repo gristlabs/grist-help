@@ -1,5 +1,5 @@
 ---
-title: Forwarded headers
+title: En-têtes transférés
 ---
 
 En-têtes Transférés

@@ -1,5 +1,5 @@
 ---
-title: On-demand tables
+title: Tables à la demande
 ---
 
 # Tables à la Demande

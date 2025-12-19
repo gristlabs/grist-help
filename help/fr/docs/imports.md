@@ -1,5 +1,5 @@
 ---
-title: Importing more data
+title: Importer plus de données
 ---
 
 # Importer plus de données

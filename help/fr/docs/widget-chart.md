@@ -1,5 +1,5 @@
 ---
-title: Chart
+title: Graphique
 ---
 
 # Vue : Graphique

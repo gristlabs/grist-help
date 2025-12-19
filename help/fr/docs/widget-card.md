@@ -1,5 +1,5 @@
 ---
-title: Card & card list
+title: Carte et liste de cartes
 ---
 
 # Vue : Fiche & Liste de Fiches {: data-toc-label='Vue : Fiche' }

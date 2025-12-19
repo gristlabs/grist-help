@@ -1,5 +1,5 @@
 ---
-title: Sharing team sites
+title: Partage d'équipe
 ---
 
 # Partage d'équipe

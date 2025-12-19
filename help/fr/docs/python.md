@@ -1,5 +1,5 @@
 ---
-title: Python versions
+title: Versions de Python
 ---
 
 Python

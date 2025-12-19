@@ -1,5 +1,5 @@
 ---
-title: Exports & backups
+title: Exports et sauvegardes
 ---
 
 # Exportation

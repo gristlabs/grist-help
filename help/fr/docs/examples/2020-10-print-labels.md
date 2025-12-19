@@ -1,5 +1,5 @@
 ---
-title: Print mailing labels
+title: Imprimer des étiquettes postales
 ---
 
 # Impression d'Étiquettes d'Adresse

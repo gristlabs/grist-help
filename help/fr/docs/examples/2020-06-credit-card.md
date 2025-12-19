@@ -1,5 +1,5 @@
 ---
-title: Credit card expenses
+title: Dépenses par carte de crédit
 ---
 
 # Découper et Analyser les Dépenses

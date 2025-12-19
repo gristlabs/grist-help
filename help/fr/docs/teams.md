@@ -1,5 +1,5 @@
 ---
-title: Creating team sites
+title: Créer des sites d'équipe
 ---
 
 Équipes

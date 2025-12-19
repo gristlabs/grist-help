@@ -1,5 +1,5 @@
 ---
-title: Search, sort & filter
+title: Rechercher, trier et filtrer
 ---
 
 # Recherche, Tri et Filtrage

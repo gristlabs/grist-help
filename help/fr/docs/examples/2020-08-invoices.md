@@ -1,5 +1,5 @@
 ---
-title: Prepare invoices
+title: Préparer les factures
 ---
 
 # Préparation des factures

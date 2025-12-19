@@ -1,5 +1,5 @@
 ---
-title: Treasure hunt
+title: Chasse au trésor
 ---
 
 # Planifier une Chasse au Trésor

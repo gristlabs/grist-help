@@ -1,5 +1,5 @@
 ---
-title: Copying documents
+title: Copier des documents
 ---
 
 # Copier des Documents
