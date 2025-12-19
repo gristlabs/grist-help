@@ -213,6 +213,10 @@ function initDialog(id, { onOpen } = {}) {
     });
   });
 
+  document.getElementById(id).querySelectorAll(".g-dialog-close").forEach((button) => {
+    button.setAttribute("aria-label", window.extraTranslations["g.dialog.close"]);
+  });
+
   return dialog;
 }
 

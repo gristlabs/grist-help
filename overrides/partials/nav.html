@@ -29,7 +29,7 @@
 
   {# CHANGE / addition: grist-specific quick links nav #}
   <nav class="g-quick-links md-nav__list" aria-labelledby="quick-links-header">
-    <p class="g-quick-links-header" id="quick-links-header">Quick Links</p>
+    <p class="g-quick-links-header" id="quick-links-header">{{ lang.t('g.nav.quick_links') }}</p>
     <ul class="g-quick-links-list">
       {% for quick_link in config.extra.quick_links %}
         <li>
