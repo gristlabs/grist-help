@@ -10,7 +10,7 @@ heading_cards:
     - title: Documentation support
       section: Support docs
       description: Découvrez les fonctionnalités de Grist
-      url: creating-doc/
+      # Omit url to go instead to the first sub-page of the "Support docs" section
     - title: Documentation technique
       section: Technical docs
       description: Utilisez Grist avec les API et les instances auto-hébergées

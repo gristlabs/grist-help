@@ -701,10 +701,10 @@ html.page-wide-toc .md-sidebar--secondary {
 }
 
 /* On the FAQ page, make TOC headings bold, only at the top level. */
-html.page-wide-toc .md-nav__item .md-nav__link {
+html.page-wide-toc .md-nav--secondary .md-nav__item .md-nav__link {
   font-weight: 600;
 }
-html.page-wide-toc .md-nav__item .md-nav__item .md-nav__link {
+html.page-wide-toc .md-nav--secondary .md-nav__item .md-nav__item .md-nav__link {
   font-weight: revert;
 }
 

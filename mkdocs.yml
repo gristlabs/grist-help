@@ -58,6 +58,7 @@ nav:
       - examples/2023-01-acl-memo.md
       - examples/2023-07-proposals-contracts.md
   - Support docs:
+    - FAQ.md
     - Managing documents:
       - creating-doc.md
       - document-settings.md

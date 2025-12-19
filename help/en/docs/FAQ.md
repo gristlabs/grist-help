@@ -1,7 +1,7 @@
 ---
 title: FAQ
 hide:
-  - navigation
+  - toc
 htmlclass: page-wide-toc
 ---
 
