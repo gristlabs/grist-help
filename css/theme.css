@@ -1,0 +1,1208 @@
+/*****************************************
+ * Helper classes
+ *****************************************/
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*****************************************
+ Material theme customizations
+ *****************************************/
+
+:root > * {
+  /*
+   Colors from our Figma design, names try to match the ones in the figma file
+   but we abstract some notions (green is 'primary' for example, allowing for easier customization)
+  */
+  --grist-primary: #0f7b51; /* Note: Figma color used for `green` is hsla(157, 78%, 39%, 1),
+  but it doesn't match required WCAG ratios. Using a darker shade as base for now. */
+  --grist-primary-transparent: #0f7b512a;
+  --grist-primary-light: #16b176;
+  --grist-primary-dark: #196c47;
+  --grist-selection-opaque: #dcf4eb;
+  --grist-dark-bg: #252532;
+  --grist-dark-text: #4a4a4a;
+  --grist-light-text: #76767c; /* this correctly has a 4.5 WCAG ratio on white bg (minimum required for texts) */
+  --grist-slate: #93939a; /* this correctly has a 3.0 WCAG ratio on white bg (minimum required for important UI elements like input borders) */
+  --grist-medium-grey: #e8e8e8;
+  --grist-light-grey: #f7f7f7;
+  --grist-light: #ffffff;
+
+  --grist-input-border-color: var(--grist-slate);
+
+  /*
+   Material theme variables
+  */
+  --md-primary-fg-color: var(--grist-primary);
+  --md-primary-fg-color--light: var(--grist-primary-light);
+  --md-primary-fg-color--dark: var(--grist-primary-dark);
+  --md-accent-fg-color: var(--grist-primary);
+  --md-accent-fg-color--transparent: var(--grist-primary-transparent);
+  --md-default-fg-color: var(--grist-dark-bg);
+  --md-default-fg-color--light: var(--grist-dark-text);
+  --md-default-fg-color--lighter: var(--grist-light-text);
+  --md-default-fg-color--lightest: var(--grist-medium-grey);
+  --md-typeset-color: var(--md-default-fg-color--light);
+  --md-code-bg-color: var(--grist-light);
+  --md-typeset-table-color: var(--grist-slate);
+}
+
+/* mkdocs-material makes global font size bigger on these breakpoints; we don't want that.
+Just keep its default of 125% font size at any breakpoint. */
+@media screen and (min-width:100em) {
+  html {
+    font-size: 125%;
+  }
+}
+@media screen and (min-width:125em) {
+  html {
+    font-size: 125%;
+  }
+}
+
+.md-skip:focus {
+  z-index: 1000;
+}
+
+.md-header,
+.md-tabs {
+  --md-primary-fg-color: var(--grist-light);
+  --md-primary-bg-color: var(--md-default-fg-color);
+}
+
+.md-main {
+  border-top: 1px solid var(--grist-medium-grey);
+}
+
+
+/** Override just for newsletters: don't show the header that comes from emails */
+.md-main .newsletter-header .header {
+  display: none;
+}
+
+/* Render a custom website heading with CSS;
+this allows us to avoid overriding the whole mkdocs-material header partial just for this. */
+.md-header__title:not(.md-header__title--active) .md-header__topic .md-ellipsis {
+  visibility: hidden;
+}
+.md-header__title:not(.md-header__title--active) .md-header__topic {
+  background-image: url('../images/heading.svg');
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 144px 24px;
+}
+
+/* fine-tune the material theme "tabs", which are the nav items in the header */
+.md-tabs__item--active {
+  font-weight: 500;
+}
+
+.md-tabs__item--active {
+  border-bottom: 2px solid var(--grist-primary);
+}
+
+.md-tabs__link {
+  opacity: 0.85;
+  height: 100%;
+}
+
+/* make the header z-index higher than our custom code for homepage (it was very low, making it difficult to add some
+custom code relying on z-indexes) */
+.md-header {
+  z-index: 20;
+}
+/* make sure the sidebar panel on mobile is rendered above the header now */
+/* Note: the max-width value is the same as the one in mkdocs material for the mobile menu breakpoint */
+@media screen and (max-width: 76.2344em) {
+  .md-sidebar--primary {
+    z-index: 25;
+  }
+}
+
+/* make the search bar in the header blend more into it (with a less pronounced background),
+but make sure the borders have WCAG-compliant contrast ratio */
+.md-search__input {
+  background-color: var(--md-default-bg-color);
+  border: 1px solid var(--grist-input-border-color);
+  border-radius: 8px;
+}
+.md-search__input::placeholder {
+  color: var(--md-default-fg-color--lighter);
+}
+.md-search__form {
+  background-color: var(--md-default-fg-color--lightest) !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+.md-search__output {
+  border-radius: 0 0 8px 8px !important;
+}
+
+/* this targets links in both sidebars (left and right) */
+.md-nav {
+  font-size: 0.75rem;
+}
+
+.md-nav__link {
+  margin-top: 0.8rem;
+}
+
+.md-nav__link--active {
+  font-weight: 600;
+}
+
+/* fine-tune the left sidebar nav (section-based navigation) */
+/* do this only on desktop: just use material theme default styles on mobile */
+.g-nav-icon {
+  display: none;
+}
+@media screen and (max-width: 76.2344em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background-color: var(--grist-light);
+    color: var(--grist-dark-text);
+  }
+  .md-nav__title .md-nav__button.md-logo img,
+  .md-nav__title .md-nav__button.md-logo svg {
+    height: 2rem;
+  }
+}
+@media screen and (min-width: 76.25em) {
+  /* make sidebar a bit wider so that the section names are on one line */
+  .md-sidebar--primary {
+    width: 13rem;
+  }
+  /* section name */
+  .md-nav--primary .md-nav__item--section > .md-nav__link {
+    font-size: 0.9rem;
+    /* align with the current page content heading */
+    margin-top: 0.4rem !important;
+    box-shadow: none;
+    background-color: transparent;
+    margin-bottom: 8px;
+    color: var(--md-default-fg-color) !important;
+  }
+
+  /* section name that has a section icon */
+  .md-nav--primary .md-nav__item--section > .md-nav__link:has(.g-nav-icon) {
+    align-items: center;
+    gap: 16px;
+    font-size: 0.9rem;
+  }
+
+  /* vertically align the section name with the current page content heading */
+  .md-main__inner:has(.md-content > .md-path) .md-nav--primary .md-nav__item--section > .md-nav__link {
+    margin-top: 1.2rem !important;
+  }
+
+  /* vertically align the section name with the current page content heading,
+  when it has a section icon */
+  .md-main__inner:has(.md-content > .md-path) .md-nav--primary .md-nav__item--section > .md-nav__link:has(.g-nav-icon) {
+    margin-top: 0.59rem !important;
+  }
+
+  .g-nav-icon {
+    display: block;
+    line-height: 1;
+    border-radius: 4px;
+    padding: 4px;
+    width: 46px;
+    height: 46px;
+  }
+
+  /* section dropdown item (level 0 item that has children) */
+  .md-nav--primary .md-nav__item--section .md-nav__item--nested > .md-nav__link {
+    font-weight: 500;
+    color: var(--md-default-fg-color);
+    font-size: 0.7rem;
+  }
+
+  /* section dropdown item that is open */
+  .md-nav--primary .md-nav__item--section .md-nav__item--nested .md-nav__toggle:checked ~ .md-nav__link {
+    color: var(--md-accent-fg-color);
+    margin-bottom: 0.6rem;
+  }
+
+  .md-nav--primary .md-nav__item .md-nav__link--active {
+    color: inherit;
+  }
+
+  /* fine-tune the right sidebar nav (table of contents) */
+  /* Note: the "has" selector here is made to prevent rendering a background
+  on an empty table of contents. It seems the theme renders the block with empty spaces
+  in it if no toc is there, making the :empty selector not work */
+  .md-nav--secondary:has(label.md-nav__title) {
+    padding: 24px 16px calc(24px - 0.3rem);
+    border-radius: 8px;
+    background-color: var(--grist-light-grey);
+  }
+
+  .md-nav--secondary > .md-nav__title {
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    position: relative;
+  }
+
+  .md-nav--secondary > .md-nav__list {
+    padding-left: 0;
+  }
+
+  .md-nav--secondary .md-nav__list {
+    padding-bottom: 0.35rem;
+  }
+
+  /* both left and right normal nav items have same styling */
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link,
+  .md-nav--secondary .md-nav__link {
+    font-size: 0.65rem;
+    margin-right: 0 !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 0;
+    line-height: 1.5;
+  }
+
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link:is([for], [href]):is(:hover, :focus),
+  .md-nav--secondary .md-nav__link:is([for], [href]):is(:hover, :focus) {
+    color: var(--md-default-fg-color);
+  }
+
+  .md-nav--primary .md-nav__item:not(.md-nav__item--section, .md-nav__item--nested) > .md-nav__link--active,
+  .md-nav--secondary .md-nav__link--active {
+    background-color: var(--grist-medium-grey);
+    color: var(--grist-dark-text);
+    font-weight: 500;
+  }
+
+  /* main nav level 0 items that are page links (not section name, not dropdown) */
+  .md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link {
+    padding-left: 0;
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .md-nav--primary .md-nav__item--section > .md-nav > .md-nav__list > .md-nav__item:not(.md-nav__item--nested) > .md-nav__link--active {
+    padding-left: 8px;
+  }
+}
+
+/* breadcrumbs changes */
+.md-path {
+  font-size: 0.65rem;
+  padding-top: 0;
+}
+
+.md-path__link {
+  color: var(--grist-light-text);
+}
+
+.md-path__item:last-child .md-path__link {
+  color: var(--grist-dark-text);
+}
+
+/* tooltip weird bug handling: sometimes, mkdocs-material shows empty tooltips.
+Just hide them if they are empty. */
+[role="tooltip"]:has(> .md-tooltip2__inner:empty) {
+  display: none;
+}
+
+/*****************************************
+ Markdown content overrides
+ *****************************************/
+
+/* have a little blank space at the bottom of articles before the dark footer begins */ 
+.md-content__inner {
+  margin-bottom: 4rem;
+}
+
+/* make sure content beginning with alert boxes dont begin with extra margin on the top */
+.md-content__inner > .admonition:first-child {
+  margin-top: 0;
+}
+
+.md-typeset {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.md-typeset .admonition {
+  font-size: inherit;
+}
+
+.md-typeset img {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.md-typeset a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.md-typeset a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.md-typeset a:active {
+  text-decoration: none;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: var(--md-default-fg-color);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.md-typeset table:not([class]) {
+  font-size: inherit;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 8px;
+}
+
+.md-typeset code {
+  border: 1px solid var(--grist-slate);
+  color: inherit;
+  font-size: 0.9em;
+}
+
+/**
+ * Make good-looking lists to help step-by-step instructions stand out.
+ */
+ .md-typeset ol:not(.carousel-indicators) {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  counter-reset: step-counter;
+}
+
+.md-typeset ol:not(.carousel-indicators) > li {
+  position: relative;
+
+  counter-increment: step-counter;
+
+  margin-left: 48px;
+  margin-bottom: 14px;
+}
+
+.md-typeset ol:not(.carousel-indicators) > li::before {
+  position: absolute;
+  left: -40px;
+
+  content: counter(step-counter);
+
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  border-radius: 14px;
+
+  border: 1px solid var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+  font-weight: 400;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+ * Adjust properties of collapsible per-function documentation and contained code samples.
+ *
+ * Note: material theme heavily styles the details/summary tags by default (unfortunately it seems
+ * the pymdownx.details styles are loaded even when the extension is disabled), so we must undo
+ * a lot of them. This is why some selectors target the body dir tag.
+ */
+.md-typeset details {
+  display: block;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+  box-shadow: none;
+  margin: 4px 8px;
+  padding: 2px 8px 2px 24px;
+}
+
+.md-typeset details[open] {
+  background-color: #fff;
+}
+
+/* when we have a hash on a detail element, highlight it like when we focus something in it */
+.md-typeset details:has(:target) {
+  box-shadow: 0 0 0 .2rem #448aff1a;
+}
+/* but don't highlight when clicking on the details button */
+.md-typeset .admonition:focus-within, .md-typeset details:focus-within {
+  box-shadow: none;
+}
+
+body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary {
+  margin: 0.5rem 0 0.5rem -16px;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  display: block;
+  border-radius: 0;
+}
+
+.md-typeset summary:not(:focus-visible) {
+  outline: 0;
+}
+
+body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::before {
+  content: "";
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-mask-image: var(--icon-Expand);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  display: inline-block;
+  background-color: var(--grist-light-text);
+  position: relative;
+  font-size: initial;
+  width: 16px;
+  height: 16px;
+  top: 3px;
+  left: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+body:is([dir="ltr"], [dir="rtl"]) .md-typeset summary::after {
+  display: none;
+}
+
+.md-typeset details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.md-typeset summary h4 {
+  display: inline-block;
+  margin: 0;
+}
+
+/*
+ * Hide the empty paragraphs that are generated around headers in the expanding sections.
+ */
+.md-typeset summary p:empty {
+  display: none;
+}
+
+/*
+ * Clean up any extra space used by paragraphs in the header.
+ */
+.md-typeset summary p {
+  margin: 0;
+}
+
+.md-typeset summary:hover .headerlink {
+  display: inline-block;
+}
+
+.md-typeset .unimplemented {
+  opacity: 0.5;
+}
+
+
+/*****************************************
+ Nav addition: quick links
+ the "g-" prefix makes it explicit these are "grist template" classes
+ *****************************************/
+ .g-quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+.g-quick-links-header {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+  margin: 0;
+}
+.g-quick-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.g-quick-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.6rem;
+}
+@media screen and (max-width: 76.2344em) {
+  .g-quick-links-header {
+    padding-left: .8rem;
+    padding-right: .8rem;
+    margin-bottom: 0.2rem;
+  }
+  .g-quick-link {
+    padding: 0.2rem 0.8rem;
+  }
+}
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-sidebar__inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .md-sidebar--primary .md-sidebar__inner > .md-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*****************************************
+ Dialog component
+ *****************************************/
+
+.g-dialog-container,
+.g-dialog-overlay {
+  position: fixed;
+  inset: 0;
+}
+
+.g-dialog-container {
+  z-index: 100;
+  display: flex;
+}
+
+.g-dialog-container[aria-hidden='true'] {
+  display: none;
+}
+
+.g-dialog-overlay {
+  background-color: rgb(43 46 56 / 0.9);
+}
+
+.g-dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+.g-dialog-close svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.g-dialog-close:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.g-dialog-content {
+  margin: 60px 16px auto;
+  z-index: 2;
+  position: relative;
+  background-color: white;
+  overflow: auto;
+  max-height: 90vh;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px #00000080;
+}
+
+@media (min-width: 32em) {
+  .g-dialog-content {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 41em) {
+  .g-dialog-content {
+    max-width: 900px;
+  }
+}
+
+@keyframes g-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes g-slide-up {
+  from {
+    transform: translateY(10%);
+  }
+}
+
+.g-dialog-overlay {
+  animation: g-fade-in 200ms both;
+}
+
+.g-dialog-content {
+  animation: g-fade-in 300ms 200ms both, g-slide-up 300ms 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-dialog-overlay,
+  .g-dialog-content {
+    animation: none;
+  }
+}
+
+/*****************************************
+ Page-specific styles
+
+ Markdown files can set a "htmlclass" frontmatter to apply a specific css class to the html tag.
+ *****************************************/
+
+/* On the FAQ page, it's useful to give more space to the sidebar with TOC */
+html.page-wide-toc .md-sidebar--secondary {
+  width: 18rem;
+}
+
+/* On the FAQ page, make TOC headings bold, only at the top level. */
+html.page-wide-toc .md-nav--secondary .md-nav__item .md-nav__link {
+  font-weight: 600;
+}
+html.page-wide-toc .md-nav--secondary .md-nav__item .md-nav__item .md-nav__link {
+  font-weight: revert;
+}
+
+/*****************************************
+ Homepage specific template classes
+
+ the "g-" prefix makes it explicit these are "grist template" classes
+ *****************************************/
+.md-main__inner:has(.g-home-container) {
+  margin-top: 0;
+  max-width: 100%;
+}
+
+.g-home-container {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.g-home-container .md-grid {
+  padding-left: .8rem;
+  padding-right: .8rem;
+  max-width: 55rem;
+}
+
+.g-home-container :is(h1, h2, h3, h4, p) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.g-home-container p {
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.g-home-hero .md-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.g-home-hero {
+  padding: 1rem 0;
+}
+
+.g-home-hero-image {
+    display: none;
+    max-width: 40%;
+}
+
+.g-home-hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 60em) {
+  .g-home-hero {
+    padding: 3rem 0 1rem;
+  }
+
+  .g-home-hero-image {
+    display: block;
+  }
+}
+
+.g-home-hero h1 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin-bottom: 16px;
+}
+
+.g-home-hero p {
+  font-size: 0.9rem;
+  margin-top: 32px;
+}
+
+.g-home-hero button {
+  cursor: pointer;
+  color: inherit;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: var(--grist-light);
+  color: var(--grist-dark-text);
+  border-radius: 8px;
+  border: none;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.5;
+  text-align: left;
+  width: 100%;
+}
+
+.g-home-hero button svg {
+  flex-shrink: 0;
+}
+
+.g-home-hero button:hover {
+  color: var(--grist-dark-bg);
+}
+
+.g-home-cards-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 60em) {
+  .g-home-cards-items {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.666rem;
+  }
+}
+
+.g-home-cards-items > * {
+  flex: 1;
+  width: 340px;
+  max-width: 100%;
+}
+
+.g-home-cards-title {
+  font-weight: 500;
+  color: var(--grist-dark-bg);
+}
+
+.g-home-cards-items :is(h2, h3) {
+  font-weight: 600;
+}
+
+.g-home-cards-title,
+.g-home-cards-description {
+  text-align: center;
+}
+
+.g-home-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.g-home-hero,
+.g-home-heading-cards {
+  background-color: var(--grist-primary);
+  color: #fff;
+}
+
+.g-home-heading-cards {
+  padding-top: 0;
+  position: relative;
+  z-index: 10;
+  padding: 0 0 2rem;
+  text-align: center;
+}
+
+.g-home-heading-cards-second-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background-color: #f7f7f7;
+  height: 95%;
+}
+
+@media screen and (min-width: 60em) {
+  .g-home-heading-cards-second-bg {
+    height: 50%;
+  }
+}
+
+.g-home-heading-cards-items {
+  position: relative;
+  z-index: 15;
+}
+
+.g-home-heading-card {
+  background-color: #fff;
+  color: black;
+  padding: 1rem;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s ease-in-out;
+  border-radius: 0.5rem;
+  align-items: center;
+}
+
+.g-home-heading-card:hover {
+  box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+.g-home-heading-card h2 {
+  font-size: 1rem;
+}
+
+.g-home-heading-card-icon {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.g-home-heading-card-icon img {
+  width: 80px;
+  height: auto;
+}
+
+.g-home-featured-cards,
+.g-home-info-cards {
+  padding: 2rem 0;
+}
+
+.g-home-featured-cards .g-home-cards-title,
+.g-home-info-cards .g-home-cards-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.g-home-featured-card h3 {
+  font-size: 0.9rem;
+}
+
+.g-home-featured-cards .g-home-cards-description,
+.g-home-info-cards .g-home-cards-description {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.g-home-featured-card-text,
+.g-home-info-card {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--grist-light-grey);
+  color: var(--grist-dark-text);
+}
+
+.g-home-featured-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.g-home-featured-card-text {
+  position: relative;
+  z-index: 10;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  box-shadow: 2px 2px 6px #00000026;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.g-home-featured-card-text:hover {
+  box-shadow: 4px 4px 6px #00000026;
+}
+
+.g-home-featured-card img {
+  position: relative;
+  z-index: 5;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 11;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.g-home-info-card {
+  gap: 4px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.g-home-info-card:hover {
+  box-shadow: 2px 2px 6px #00000026;
+}
+
+.g-home-info-card h3 {
+  font-size: 0.8rem;
+}
+
+/* API specific overrides */
+.md-main__inner:has(#api-content) {
+  max-width: none;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.md-main__inner:has(#api-content) .md-content__inner {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.api-header {
+  padding: 0 16px !important;
+}
+
+.api-info {
+  display: none;
+}
+
+#api-content h1, #api-content h2 {
+  margin: 20px 0 5px 0 !important;
+}
+
+/* this tries to target the "UnderlineHeader" of redoc, that is unfortunately not
+handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.77/src/common-elements/headers.ts#L47 */
+#api-content h5[class] {
+  color: var(--grist-light-text);
+}
+
+/* hide the right code blocks main background to try to have a lighter global UI */
+.redoc-wrap > div:last-child:empty {
+  background-color: transparent !important;
+}
+
+.redoc-wrap [id^="operation/"] > div:first-child + div:last-child {
+  border-radius: 16px;
+}
+
+.redoc-wrap [id^="operation/"] > div:first-child + div:last-child .react-tabs__tab-panel {
+  border-radius: 12px;
+}
+
+/* prevent empty gray divs from showing up */
+.redoc-wrap [id^="operation/"] > div:first-child + div:last-child:empty {
+  display: none;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-main__inner:has(#api-content) {
+    padding-left: 1rem;
+  }
+
+  .md-main__inner:has(#api-content) .md-path {
+    padding-left: 40px;
+  }
+
+  .md-main__inner:has(#api-content) .md-content__inner {
+    margin-left: 0.8rem;
+  }
+}
+
+/* this targets the redoc "fab" (floating action button) shown on mobile and
+moves it to the left side to not interfer with the floating assistant button */
+.redoc-wrap > .menu-content + div {
+  right: auto;
+  /* align the button with the assistant button */
+  left: 20px;
+  bottom: 10px;
+  /* match shadow of assistant button */
+  box-shadow: #0000001a 0px 4px 7px;
+  /* add a border to better distinguish the button from the background */
+  border: 1px solid #ddd;
+}
+
+@media screen and (min-width: 50rem) {
+  /* hide the redoc mobile menu on desktop */
+  .redoc-wrap .menu-content {
+    display: none;
+  }
+}
+
+.api-header > h1:first-child {
+  margin-top: 0 !important;
+}
+
+#api-content {
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+
+.md-search-result {
+  position: relative;
+}
+
+/* Shorten snippets in search dropdown */
+.md-search-result .md-typeset {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* For search snippets, force display property in nested content to ensure it
+ * respects the clamping above. */
+.md-search-result .md-typeset > * {
+  display: block !important;
+}
+
+/* We stick in an extra headers in the generated function documentation to help out search, but
+ * don't want it shown. Keep it visually hidden, but still in the DOM for anchor + scrolling.
+ */
+.search-only {
+  display: none;
+}
+
+.search-all-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.8rem;
+  height: 1.8rem;
+  padding: 0 0.8rem;
+  color: var(--md-typeset-a-color);
+  cursor: pointer;
+}
+.search-all-button:hover {
+  text-decoration: underline;
+}
+
+/*** BEGIN Styles for the search page ***/
+#search-empty-results, #search-in-progress {
+  display: none;
+}
+#search-results-container a.search-page-result {
+  color: inherit;
+  font-weight: inherit;
+}
+a.search-page-result h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+a.search-page-result h2 code {
+  border: none;
+  padding: 0;
+}
+a.search-page-result h2 code:hover,
+a.search-page-result:focus h2 code,
+a.search-page-result:hover h2 code {
+  background-color: unset;
+}
+.search-category {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: normal;
+  background-color: var(--category-color, #f8f8f8);
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: 16px;
+  &.get-started { --category-color: #e0f0ff; }
+  &.tutorials-guides { --category-color: #ffeed0; }
+  &.support-docs { --category-color: #dff6f7; }
+  &.technical-docs { --category-color: #efe9fd; }
+  &.newsletters { --category-color: #e0f0ff; }
+}
+#search-results-container .search-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  /* mkdocs-material gives us actual HTML. Flatten it inline, to make it appear like snippets. */
+  & * {
+    display: inline;
+    font-size: inherit;
+    color: inherit;
+    white-space: normal;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  & li::before { all: unset; content: "•\00A0"; }
+  & li::after { all: unset; content: "\00A0"; }
+  & li { all: unset; }
+  & br { display: none; }
+  & mark {
+    background: var(--md-typeset-mark-color);
+    padding: 0 .1em;
+    border-radius: .2em;
+  }
+  /* add a separator after block elements */
+  p::after, li::after, div::after, pre::after, blockquote::after,
+  h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+    content: " ";
+  }
+  & code {
+    background-color: var(--grist-medium-grey);
+    border-radius: .1rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    font-size: .9em;
+    padding: 0 .3rem;
+    word-break: break-word;
+  }
+}
+/*** END Styles for the search page ***/
