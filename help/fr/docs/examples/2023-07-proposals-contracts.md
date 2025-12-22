@@ -1,5 +1,5 @@
 ---
-title: Proposals & contracts
+title: Propositions et contrats
 ---
 
 # Création de Propositions

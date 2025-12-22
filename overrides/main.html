@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {# Pages can specify a class to append to the html tag in their frontmatter. #}
+  {# We add this class in JS because the theme doesn't let us manipulate the html or body tags directly. #}
+  {# This is done as early as possible to avoid flash of unstyled content #}
+  {% if page and page.meta and page.meta.htmlclass %}
+    <script>document.documentElement.className += " {{ page.meta.htmlclass }} ";</script>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+
+{% block libs %}
+  {{ super() }}
+  {# add our specific translations to be used easily in JS #}
+  <script>
+    window.extraTranslations = {
+      "g.dialog.close": {{ lang.t("g.dialog.close") | tojson }},
+      "g.search.view_all": {{ lang.t("g.search.view_all") | tojson }},
+    };
+  </script>
+  <script type="module" src="/js/grist.js?v={{ build_timestamp }}"></script>
+{% endblock %}
+
+{# replace the material fonts block with our own that uses bunnyfonts and allows to specify the font variants #}
+{% block fonts %}
+  {% if config.theme.font != false %}
+    {% set text = config.theme.font.text | d("Roboto", true) %}
+    {% set code = config.theme.font.code | d("Roboto Mono", true) %}
+    {% set text_variants = config.theme.font.text_variants | d("300,300i,400,400i,700,700i", true) %}
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family={{
+        text | replace(' ', '+') + ':' + text_variants + '%7C' +
+        code | replace(' ', '+') + ':400,400i,700,700i'
+      }}&display=fallback">
+    <style>:root{--md-text-font:"{{ text }}";--md-code-font:"{{ code }}"}</style>
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+  {% if config.extra.meta_me_url %}
+    <link rel="me" href="{{ config.extra.meta_me_url }}">
+  {% endif %}
+
+  {%- if config.extra.google_tag_manager and build_mode == 'prod' %}
+    {% set gtm_id = config.extra.google_tag_manager %}
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ gtm_id }}');</script>
+    <!-- End Google Tag Manager -->
+  {%- endif %}
+
+  {%- if page and page.meta and page.meta.is_api %}
+    {% include 'api-head.html' %}
+  {%- endif %}
+
+  {% if build_mode == 'prod' %}
+    {% include 'partials/beacon.html' %}
+  {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  {% from "macros/dialog.html" import g_dialog %}
+
+  {# prepare a dialog specific to youtube #}
+  {% call g_dialog("Video", "video-modal", visually_hide_title=true) %}
+    <div style="position:relative; padding-bottom:56.25%; margin-top: 32px;">
+      <iframe src="" allowfullscreen style="position:absolute; left:0; top:0; width:100%; height:100%"></iframe>
+    </div>
+  {% endcall %}
+
+  {{ super() }}
+  {%- if config.extra.google_tag_manager and build_mode == 'prod' %}
+    {% set gtm_id = config.extra.google_tag_manager %}
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm_id }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  {%- endif %}
+{% endblock %}

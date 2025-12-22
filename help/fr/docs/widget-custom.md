@@ -1,5 +1,5 @@
 ---
-title: Custom
+title: Personnalisé
 ---
 
 # Widget de page : Personnalisé

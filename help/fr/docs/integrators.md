@@ -1,5 +1,5 @@
 ---
-title: Integrator services
+title: Services d'intégration
 ---
 
 # Services d'Intégration

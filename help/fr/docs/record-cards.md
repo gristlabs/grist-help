@@ -1,5 +1,5 @@
 ---
-title: Record cards
+title: Vues fiche
 ---
 
 # Vue Fiche

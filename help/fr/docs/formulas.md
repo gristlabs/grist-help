@@ -1,5 +1,5 @@
 ---
-title: Intro to formulas
+title: Introduction aux formules
 ---
 
 Formules

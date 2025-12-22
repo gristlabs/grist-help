@@ -1,5 +1,5 @@
 ---
-title: Link keys guide
+title: Guide des clés de lien
 ---
 
 # Créer des Liens Uniques en 4 Étapes

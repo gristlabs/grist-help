@@ -1,5 +1,5 @@
 ---
-title: Automatic backups
+title: Sauvegardes automatiques
 ---
 
 # Sauvegardes Automatiques

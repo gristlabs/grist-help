@@ -1,0 +1,53 @@
+heading: Bienvenue! Comment pouvons-nous vous aider?
+intro: Explorez les tutoriels, les documents, les guides, les vidéos et plus encore pour apprendre à tirer le meilleur parti de Grist.
+search_button: Rechercher dans la documentation
+heading_cards:
+  items:
+    - title: Commencer
+      section: Tutorials & guides
+      description: Nouveau sur Grist? Commencez ici avec les infos essentielles
+      url: getting-started/
+    - title: Documentation support
+      section: Support docs
+      description: Découvrez les fonctionnalités de Grist
+      # Omit url to go instead to the first sub-page of the "Support docs" section
+    - title: Documentation technique
+      section: Technical docs
+      description: Utilisez Grist avec les API et les instances auto-hébergées
+      url: rest-api/
+    - title: Actualités
+      section: News & updates
+      description: Accédez aux dernières actus de Grist et sa communauté
+      # Omit url to go instead to the first sub-page of the "News & updates" nav section
+featured_cards:
+  heading: Tutoriels en vedette
+  intro: Commencez à construire rapidement avec ces tutoriels étape par étape.
+  items:
+    - title: Créer votre propre CRM
+      description: Explorez les capacités puissantes de la base de données de Grist et apprenez comment lier des enregistrements pour créer des mises en page à haute productivité pour simplifier vos opérations commerciales
+      image: /images/home/custom-crm.jpg
+      url: lightweight-crm/
+    - title: Gérer les données commerciales
+      description: Racontez l'histoire derrière vos données avec des tableaux récapitulatifs, des widgets, des graphiques dynamiques et plus encore
+      image: /images/home/business-data.jpg
+      url: afterschool-program/
+    - title: Analyser et visualiser des données
+      description: Transformez les données d'aujourd'hui en profits de demain avec des formules pour modéliser des données et des outils pour vous aider à couper à travers le bruit
+      image: /images/home/analyze-data.jpg
+      url: investment-research/
+more_info_cards:
+  heading: Plus de ressources de support
+  intro: Cherchez-vous plus d'aide? Connectez-vous avec la communauté d'utilisateurs de Grist, ou contactez notre équipe.
+  items:
+    - title: Rejoindre la communauté
+      description: Connectez-vous avec d'autres membres de la communauté de Grist et notre équipe
+      icon: /images/home/community.svg
+      url: https://community.getgrist.com/
+    - title: Discuter sur Discord
+      description: Connectez-vous avec d'autres membres de la communauté de Grist et notre équipe
+      icon: /images/home/discord.svg
+      url: https://discord.gg/MYKpYQ3fbP
+    - title: Contacter le support
+      description: Connectez-vous avec d'autres membres de la communauté de Grist et notre équipe
+      icon: /images/home/mail.svg
+      url: https://www.getgrist.com/contact/

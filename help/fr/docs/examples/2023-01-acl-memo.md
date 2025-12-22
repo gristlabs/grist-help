@@ -1,5 +1,5 @@
 ---
-title: Restrict duplicate records
+title: Restreindre les enregistrements en double
 ---
 
 # Règles d'accès pour restreindre les enregistrements en double

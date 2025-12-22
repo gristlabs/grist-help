@@ -1,5 +1,5 @@
 ---
-title: Authorship columns
+title: Colonnes d'auteur
 ---
 
 Colonnes d'auteur

@@ -1,0 +1,102 @@
+{% extends "main.html" %}
+
+{% macro first_leaf_url(nav_item) %}
+  {% set first = nav_item.children | first %}
+  {% if first and first.children %}
+    {{ first_leaf_url(first) }}
+  {% else %}
+    {{ first.url }}
+  {% endif %}
+{% endmacro %}
+
+{% block container %}
+  <div class="g-home-container">
+    <div class="g-home-hero">
+      <div class="md-grid">
+        <div class="g-home-hero-text">
+        <h1>{{ data.home.heading }}</h1>
+        <button type="button">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5779 6.75523C10.2578 6.75523 6.75572 10.2574 6.75572 14.5775C6.75572 18.8975 10.2578 22.3997 14.5779 22.3997C18.898 22.3997 22.4002 18.8975 22.4002 14.5775C22.4002 10.2574 18.898 6.75523 14.5779 6.75523ZM5.3335 14.5775C5.3335 9.47189 9.47237 5.33301 14.5779 5.33301C19.6835 5.33301 23.8224 9.47189 23.8224 14.5775C23.8224 19.683 19.6835 23.8219 14.5779 23.8219C9.47237 23.8219 5.3335 19.683 5.3335 14.5775Z" fill="#262633"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1082 20.1077C20.3859 19.83 20.8361 19.83 21.1138 20.1077L26.4586 25.4524C26.7363 25.7301 26.7363 26.1804 26.4586 26.4581C26.1809 26.7358 25.7306 26.7358 25.4529 26.4581L20.1082 21.1134C19.8305 20.8357 19.8305 20.3854 20.1082 20.1077Z" fill="#262633"/>
+          </svg>
+          <span>{{ data.home.search_button }}</span>
+        </button>
+        <p>{{ data.home.intro }}</p>
+        </div>
+        <div class="g-home-hero-image">
+          <img src="/images/home/hero.svg" width="423" height="237" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="g-home-cards g-home-heading-cards">
+      <div class="md-grid">
+        <div class="g-home-cards-items g-home-heading-cards-items">
+          {% for card in data.home.heading_cards['items'] %}
+            <div class="g-home-card g-home-heading-card">
+              {% set section_icon =
+                config.extra.section_icons is defined
+                and config.extra.section_icons[card.section] is defined
+                and config.extra.section_icons[card.section] or {}
+              %}
+              {% if section_icon %}
+                <div
+                  class="g-home-heading-card-icon"
+                  style="background-color: {{ section_icon.bg_color }}"
+                >
+                  <img src="{{ section_icon.icon }}" width="80" height="80" alt="">
+                </div>
+              {% endif %}
+
+              {% set target_url = card.url %}
+              {% if not target_url %}
+                {% set section =
+                  (nav | selectattr("title", "equalto", card.section) | first)
+                  or (nav | selectattr("en_title", "equalto", card.section) | first)
+                %}
+                {% if section %}
+                  {% set target_url = first_leaf_url(section) %}
+                {% endif %}
+              {% endif %}
+              <h2><a class="stretched-link" href="{{ target_url }}">{{ card.title }}</a></h2>
+              <p>{{ card.description }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="g-home-heading-cards-second-bg"></div>
+    </div>
+    <div class="g-home-cards g-home-featured-cards">
+      <div class="md-grid">
+        <h2 class="g-home-cards-title">{{ data.home.featured_cards.heading }}</h2>
+        <p class="g-home-cards-description">{{ data.home.featured_cards.intro }}</p>
+        <div class="g-home-cards-items g-home-featured-cards-items">
+          {% for card in data.home.featured_cards['items'] %}
+            <div class="g-home-card g-home-featured-card">
+              <img src="{{ card.image }}" alt="">
+              <div class="g-home-featured-card-text">
+                <h3><a class="stretched-link" href="{{ card.url }}">{{ card.title }}</a></h3>
+                <p>{{ card.description }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="g-home-cards g-home-info-cards">
+      <div class="md-grid">
+        <h2 class="g-home-cards-title">{{ data.home.more_info_cards.heading }}</h2>
+        <p class="g-home-cards-description">{{ data.home.more_info_cards.intro }}</p>
+        <div class="g-home-cards-items g-home-info-cards-items">
+          {% for card in data.home.more_info_cards['items'] %}
+            <div class="g-home-card g-home-info-card">
+              <div class="g-home-info-card-icon"><img src="{{ card.icon }}" width="40" height="40" alt=""></div>
+              <h3><a class="stretched-link" href="{{ card.url }}">{{ card.title }}</a></h3>
+              <p>{{ card.description }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

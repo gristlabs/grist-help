@@ -1,5 +1,5 @@
 ---
-title: Form
+title: Formulaire
 ---
 
 # Vue fiche : Formulaire

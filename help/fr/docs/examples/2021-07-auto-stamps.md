@@ -1,5 +1,5 @@
 ---
-title: Time and user stamps
+title: Horodatage et tampons utilisateur
 ---
 
 # Guide des Horodatages Automatiques et des Utilisateurs

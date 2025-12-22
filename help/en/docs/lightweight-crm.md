@@ -29,79 +29,50 @@ Examples & Templates in your [Grist home page](https://docs.getgrist.com/).
 - Click on any contact to select it. The two sections on the right show the details and the
   history of interactions with the selected contact.
 
-How does this compare to a spreadsheet? These screenshots show the Lightweight CRM example on the
-left, and a regular spreadsheet with the same data on the right.
+How does this compare to a spreadsheet? These screenshots show first the Lightweight CRM example,
+and then a regular spreadsheet with the same data.
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <div id="carousel-grist" class="carousel slide" data-interval="false">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-grist" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-grist" data-slide-to="1"></li>
-          <li data-target="#carousel-grist" data-slide-to="2"></li>
-        </ol>
+#### Lightweight CRM
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="../images/lightweight-crm/grist-crm1.png" alt="Grist Screenshot1">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/grist-crm2.png" alt="Grist Screenshot2">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/grist-crm3.png" alt="Grist Screenshot3">
-          </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-grist" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-grist" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div id="carousel-spreadsheet" class="carousel slide" data-interval="false">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-spreadsheet" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-spreadsheet" data-slide-to="1"></li>
-          <li data-target="#carousel-spreadsheet" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="../images/lightweight-crm/spreadsheet1.png" alt="Spreadsheet Screenshot1">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/spreadsheet2.png" alt="Spreadsheet Screenshot2">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/spreadsheet3.png" alt="Spreadsheet Screenshot3">
-          </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-spreadsheet" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-spreadsheet" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
+<div id="glider1" class="glider-contain">
+  <div class="glider">
+    <img src="../images/lightweight-crm/grist-crm1.png" alt="Contacts page is easily readable thanks to page widgets: one for the contacts list, one for the contact details, and one for the contact interactions.">
+    <img src="../images/lightweight-crm/grist-crm2.png" alt="The contact details are displayed in a card widget, making it easy to read and edit. It changes as soon as you click on a contact in the main list.">
+    <img src="../images/lightweight-crm/grist-crm3.png" alt="The contact interactions are displayed in a table widget. It lists only the interactions for the selected contact in the main list.">
   </div>
+
+  <button class="glider-prev" aria-label="Previous lightweight CRM slide">«</button>
+  <button class="glider-next" aria-label="Next lightweight CRM slide">»</button>
+  <div role="tablist" class="dots"></div>
 </div>
+
+#### Regular spreadsheet
+<div id="glider2" class="glider-contain">
+  <div class="glider">
+    <img src="../images/lightweight-crm/spreadsheet1.png" alt="All contact info is displayed in one spreadsheet.">
+    <img src="../images/lightweight-crm/spreadsheet2.png" alt="It's hard to add information, as every new info requires a new column.">
+    <img src="../images/lightweight-crm/spreadsheet3.png" alt="We end up with lots and lots of columns, making the spreadsheet difficult to read and understand.">
+  </div>
+
+  <button class="glider-prev" aria-label="Previous spreadsheet slide">«</button>
+  <button class="glider-next" aria-label="Next spreadsheet slide">»</button>
+  <div role="tablist" class="dots"></div>
+</div>
+
+<!-- CDN library and initialization for the Glider.js carousel. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script>
+  for (let suffix of [1, 2]) {
+    new Glider(document.querySelector(`#glider${suffix} .glider`), {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: `#glider${suffix} .dots`,
+      duration: 0,
+      arrows: { prev: `#glider${suffix} .glider-prev`, next: `#glider${suffix} .glider-next` }
+    });
+  }
+</script>
 
 &nbsp;
 

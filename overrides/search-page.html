@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+
+{% block libs %}
+  {{ super() }}
+  <script type="module" src="/js/searchPage.js"></script>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+  <div id="search-results-container">
+    <template id="search-result">
+      <a href="" class="search-page-result">
+        <h2><span class="search-title"></span>
+          <span class="search-category"></span>
+        </h2>
+      </a>
+      <div class="search-content"></div>
+    </template>
+  </div>
+  <script>
+    /* Expose nav tree to JS, for labeling search results. */
+    window.__NAV_MAP__ = window.__NAV_MAP__ || {};
+
+    {% macro walk(items, trail=[]) -%}
+      {%- for item in items -%}
+        {%- if item.is_page -%}
+          window.__NAV_MAP__["{{ item.url|e }}"] = {{ (trail + [item.title])|tojson }};
+        {%- elif item.is_section -%}
+          {{ walk(item.children, trail + [item.title]) }}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endmacro -%}
+
+    {{ walk(nav) }}
+  </script>
+{% endblock %}

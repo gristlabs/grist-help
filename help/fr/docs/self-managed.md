@@ -1,5 +1,5 @@
 ---
-title: Self-managed Grist
+title: Grist auto-hébergé
 ---
 
 ---

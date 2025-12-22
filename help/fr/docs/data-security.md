@@ -1,5 +1,5 @@
 ---
-title: Data security
+title: Sécurité des données
 ---
 
 # Sécurité des Données

@@ -1,5 +1,5 @@
 ---
-title: Embedding
+title: Intégration
 ---
 
 ## Intégrer Grist

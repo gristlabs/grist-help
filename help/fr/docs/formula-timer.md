@@ -1,5 +1,5 @@
 ---
-title: Formula timer
+title: Minuteur de formules
 ---
 
 Minuteur de formules

@@ -1,5 +1,16 @@
 INHERIT: ../../mkdocs.yml
 docs_dir: './docs'
 theme:
-  custom_dir: ../../overrides
   language: fr
+extra:
+  homepage: /fr/
+  quick_links:
+    - text: 'FAQ'
+      href: /fr/FAQ
+      icon: /images/quick-links/bookmark.svg
+    - text: 'Communauté'
+      href: https://community.getgrist.com
+      icon: /images/quick-links/users-outline.svg
+    - text: 'Modèles'
+      href: https://docs.getgrist.com/p/templates
+      icon: /images/quick-links/board.svg

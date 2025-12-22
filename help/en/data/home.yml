@@ -1,0 +1,54 @@
+heading: Welcome! How can we help you?
+intro: Explore tutorials, docs, guides, videos, and more to learn how to get the most out of Grist.
+search_button: Search documentation
+# Heading cards are meant to target "sections" described in `mkdocs.yml` extra.section_icons to correctly show their icon and color
+heading_cards:
+  items:
+    - title: Get started
+      section: Tutorials & guides
+      description: New to Grist? Start here with the essentials
+      url: /getting-started/
+    - title: Support docs
+      section: Support docs
+      description: Learn more about Grist’s powerful features with our support docs
+      # Omit url to go instead to the first page in the named section
+    - title: Technical docs
+      section: Technical docs
+      description: Take Grist to the next level with APIs and self-hosted instances
+      url: /rest-api/
+    - title: News & updates
+      section: News & updates
+      description: See the newest features, fixes, and community contributions
+      # Omit url to go instead to the first page in the named section ("News & updates")
+featured_cards:
+  heading: Featured tutorials
+  intro: Start building fast with these step-by-step tutorials.
+  items:
+    - title: Create your own CRM
+      description: Explore Grist’s powerful database capabilities and learn how linking records can help you create high-productivity layouts to streamline your business operations
+      image: /images/home/custom-crm.jpg
+      url: /lightweight-crm/
+    - title: Managing Business data
+      description: Tell the story behind your data with summary tables, widgets, dynamic charts, and more
+      image: /images/home/business-data.jpg
+      url: /afterschool-program/
+    - title: Analyze and visualize data
+      description: Turn today’s data into tomorrow’s profits with formulas for modeling data and tools to help cut through the noise
+      image: /images/home/analyze-data.jpg
+      url: /investment-research/
+more_info_cards:
+  heading: More support resources
+  intro: Looking for more help? Connect with Grist’s supportive user community, or contact our team.
+  items:
+    - title: Join the community
+      description: Connect with other members of the Grist community and our team
+      icon: /images/home/community.svg
+      url: https://community.getgrist.com/
+    - title: Chat on Discord
+      description: Join our official Discord channel for discussion and news
+      icon: /images/home/discord.svg
+      url: https://discord.gg/MYKpYQ3fbP
+    - title: Contact support
+      description: Reach out for more information about Grist deployments and services
+      icon: /images/home/mail.svg
+      url: https://www.getgrist.com/contact/

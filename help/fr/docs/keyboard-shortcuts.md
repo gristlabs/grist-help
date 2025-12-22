@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: Raccourcis clavier
 ---
 
 # Raccourcis Grist

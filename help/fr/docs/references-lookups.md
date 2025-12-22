@@ -1,5 +1,5 @@
 ---
-title: References and lookups
+title: Références et recherches
 ---
 
 Utiliser des références et des recherches dans les formules

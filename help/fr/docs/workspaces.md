@@ -1,5 +1,5 @@
 ---
-title: Workspaces
+title: Espaces de travail
 ---
 
 Espaces de travail

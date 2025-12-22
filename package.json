@@ -4,7 +4,9 @@
   "description": "Repository for Grist documentation and tutorials.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build",
+    "dev": "vite dev"
   },
   "repository": {
     "type": "git",

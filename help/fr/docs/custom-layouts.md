@@ -1,5 +1,5 @@
 ---
-title: Custom layouts
+title: Dispositions personnalisées
 ---
 
 # Dispositions Personnalisées

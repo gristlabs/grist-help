@@ -1,5 +1,5 @@
 ---
-title: Summary tables guide
+title: Guide des tables de résumé
 ---
 
 # Guide des Tables de Résumé

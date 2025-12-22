@@ -4,6 +4,7 @@
 # Original Author: Sebastián Ramírez and contributors
 
 import glob
+import time
 from mkdocs.structure import StructureItem
 import yaml
 import urllib.parse
@@ -19,6 +20,8 @@ from mkdocs.structure.nav import Navigation, Section
 from mkdocs.utils.yaml import yaml_load
 
 non_translated_sections = [] # Add the sections that are not translated here
+build_mode = 'prod'
+build_timestamp = None
 
 
 MISSING_TRANSLATION_FILENAME = "MISSING-TRANSLATION.md"
@@ -121,6 +124,8 @@ def on_nav(nav: Navigation, config: MkDocsConfig, files: Files) -> Navigation:
     if not isinstance(item, Section):
       return
     section = cast(Section, item)
+     # Save the original title so that it's available in templates when needed
+    section.en_title = section.title
     section.title = translated_sections.get(section.title, section.title)
     for child in section.children:
       change_section_titles(child)
@@ -134,7 +139,7 @@ def _inject_warning(markdown: str, warning: str, page: Page):
   for excluded_section in non_translated_sections:
     if page.file.src_path.startswith(excluded_section):
       return markdown
-  return f"{warning}\n\n{markdown}"
+  return f"<div data-search-exclude markdown='block'>{warning}\n\n{markdown}</div>"
 
 def on_page_markdown(
   markdown: str, *, page: Page, config: MkDocsConfig, **_: Any
@@ -146,3 +151,13 @@ def on_page_markdown(
     return _inject_warning(markdown=markdown, page=page, warning=get_automated_translation_content(config.docs_dir))
 
   return markdown
+
+def on_startup(*, command, dirty):
+  global build_mode, build_timestamp
+  build_mode = 'prod' if command in ['build', 'gh-deploy'] else 'dev'
+  build_timestamp = str(int(time.time()))
+
+def on_page_context(context, page, config, nav):
+  context['build_mode'] = build_mode
+  context['build_timestamp'] = build_timestamp
+  return context

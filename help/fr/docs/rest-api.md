@@ -1,5 +1,5 @@
 ---
-title: REST API usage
+title: Utilisation de l'API REST
 ---
 
 # Utilisation de l'API Grist

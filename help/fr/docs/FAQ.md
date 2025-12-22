@@ -1,5 +1,8 @@
 ---
 title: FAQ
+hide:
+  - toc
+htmlclass: page-wide-toc
 ---
 
 # Questions Fréquemment Posées

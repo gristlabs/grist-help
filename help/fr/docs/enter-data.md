@@ -1,5 +1,5 @@
 ---
-title: Entering data
+title: Saisie de données
 ---
 
 # Saisie de données

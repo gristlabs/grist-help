@@ -1,5 +1,5 @@
 ---
-title: Intro to access rules
+title: Règles d'accès
 ---
 
 Règles d'accès

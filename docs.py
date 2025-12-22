@@ -1,4 +1,4 @@
-#!./env/bin/python
+#!env/bin/python
 
 # Python script adapted from the fastapi project to manage translations
 # License: MIT
@@ -11,15 +11,13 @@ import logging
 import os
 import shutil
 import subprocess
-from mkdocs.utils.yaml import yaml_load
-from getpass import getpass
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from multiprocessing import Pool
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 from textwrap import dedent, indent
-from requests.adapters import HTTPAdapter, Retry
 
+from mkdocs.utils.yaml import yaml_load
 import mkdocs.commands.build
 import mkdocs.commands.serve
 import mkdocs.config
@@ -56,7 +54,7 @@ def get_missing_translation_path(lang: str) -> Path:
 def get_missing_translation_snippet() -> str:
   missing_translation_file_path = get_missing_translation_path("en")
   missing_translation_content = missing_translation_file_path.read_text(encoding="utf-8")
-  return "!!!warning\n\n" + indent(missing_translation_content, "    ")
+  return "<div data-search-exclude markdown='block'>!!!warning\n\n" + indent(missing_translation_content, "    ") + "</div>"
 
 
 def get_mkdocs_yaml_for_lang(lang: str) -> str:
@@ -64,7 +62,6 @@ def get_mkdocs_yaml_for_lang(lang: str) -> str:
   INHERIT: ../../{mkdocs_config_name}
   docs_dir: './docs'
   theme:
-    custom_dir: ../../overrides
     language: {lang}
   """).lstrip()
 
@@ -182,9 +179,14 @@ def update_translatable_nav_sections() -> None:
     """
     en_nav_sections_keys = []
     for nav_item in nav:
-      # Nav_items dicts (objects) maybe either be pages, represented this way: {"Welcome to Grist": "index.md"}
+      # Nav_items dicts (objects) maybe either be pages, represented this way:
+      # {"Welcome to Grist": "index.md"}
       # or sections, represented this way:
-      # {'How-to tutorials': [{'Create your own CRM': 'lightweight-crm.md'}, {'Analyze and visualize': 'investment-research.md'}, ...]}
+      # {'How-to tutorials': [
+      #     {'Create your own CRM': 'lightweight-crm.md'},
+      #     {'Analyze and visualize': 'investment-research.md'},
+      #     ...
+      #  ]}
       if isinstance(nav_item, dict):
         first_key = list(nav_item.keys())[0]
         # If the value is a list, it's a section, so we recurse into it.
@@ -196,9 +198,8 @@ def update_translatable_nav_sections() -> None:
           en_nav_sections_keys += extract_nav_sections_keys(nav_item[first_key])
     return en_nav_sections_keys
 
-  """
-  Extract the nav sections from the en docs and add these sections to the dedicated yaml file so they can be translated.
-  """
+  # Extract the nav sections from the en docs and add these sections to the dedicated yaml file so
+  # they can be translated.
   global_config = yaml_load(global_config_path().read_text(encoding="utf-8"))
   en_nav = global_config.get("nav", [])
 
@@ -207,13 +208,17 @@ def update_translatable_nav_sections() -> None:
 
   for lang in get_alternate_langs_config()['extra']['alternate']:
     localized_nav_sections_path = Path('help') / lang.get('code') / 'sections-translations.yml'
-    cur_localized_nav_sections = yaml_load((localized_nav_sections_path).read_text(encoding="utf-8")) if localized_nav_sections_path.exists() else {}
+    cur_localized_nav_sections = (
+        yaml_load((localized_nav_sections_path).read_text(encoding="utf-8"))
+        if localized_nav_sections_path.exists() else {})
     updated_localized_nav_sections = {}
 
     for en_section_name in en_nav_sections:
-      updated_localized_nav_sections[en_section_name] = cur_localized_nav_sections.get(en_section_name) or en_section_name
+      updated_localized_nav_sections[en_section_name] = \
+          cur_localized_nav_sections.get(en_section_name) or en_section_name
 
-    localized_nav_sections_path.write_text(yaml.dump(updated_localized_nav_sections), encoding='utf-8')
+    localized_nav_sections_path.write_text(
+        yaml.dump(updated_localized_nav_sections, allow_unicode=True), encoding='utf-8')
 
 
 @app.command()

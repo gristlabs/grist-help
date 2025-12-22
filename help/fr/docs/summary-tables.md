@@ -1,5 +1,5 @@
 ---
-title: Summary tables
+title: Tables de synthèse
 ---
 
 # Tables de synthèse

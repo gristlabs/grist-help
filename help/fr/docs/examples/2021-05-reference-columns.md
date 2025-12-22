@@ -1,5 +1,5 @@
 ---
-title: Reference columns guide
+title: Guide des colonnes de référence
 ---
 
 # Guide des Colonnes de Référence

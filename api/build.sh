@@ -10,17 +10,33 @@ if ! yarn check --verify-tree; then
   npm ci
 fi
 
-options="--options.theme.spacing.sectionVertical=2 \
-       --options.hideDownloadButton --disableGoogleFont --options.pathInMiddlePanel \
-       --options.theme.breakpoints.medium=50rem --options.theme.breakpoints.large=50rem \
-       --options.theme.sidebar.width=0px \
-       --options.scrollYOffset=48 \
-       --options.jsonSampleExpandLevel=all"
+options=(
+  --options.theme.spacing.sectionVertical=2
+  --options.hideDownloadButton
+  --disableGoogleFont
+  --options.pathInMiddlePanel
+  --options.theme.breakpoints.medium=50rem
+  --options.theme.breakpoints.large=50rem
+  # Note: this is a hardcoded value instead of our color var, because redoc reads values to generate other colors
+  # and expects a color string
+  --options.theme.colors.primary.main=#0f7b51
+  "--options.theme.typography.fontFamily=var(--md-text-font-family)"
+  "--options.theme.typography.headings.fontFamily=var(--md-text-font-family)"
+  --options.theme.typography.headings.fontWeight=500
+  "--options.theme.typography.code.fontFamily=var(--md-code-font-family)"
+  "--options.theme.typography.code.color=var(--md-typeset-color)"
+  "--options.theme.fab.color=var(--grist-primary)"
+  --options.theme.sidebar.width=0px
+  --options.scrollYOffset=48
+  --options.jsonSampleExpandLevel=all
+  --options.theme.spacing.sectionHorizontal=16
+)
 
 if [[ "$1" = "" ]]; then
   set -x
-  $cli build api/grist.yml -t api/body.hbs --output=help/en/docs/api.md $options
-  $cli build api/grist.yml -t api/head.hbs --output=overrides/api-head-tmp.html $options
+  # options are passed like this to avoid issues with spaces in the values
+  $cli build api/grist.yml -t api/body.hbs --output=help/en/docs/api.md "${options[@]}"
+  $cli build api/grist.yml -t api/head.hbs --output=overrides/api-head-tmp.html "${options[@]}"
   # There is some javascript for loading yaml files that has a special character in it
   # that Jinja's "raw" mode actually modifies for some reason.  I don't think we need this
   # code?  So this line just brutally removes this character.

@@ -3,8 +3,6 @@ site_name: Grist Help Center
 site_dir: site
 site_description: "Tutorials and resources for Grist, to help you organize your data, your way."
 site_url: "https://support.getgrist.com"
-repo_name: "GitHub"
-repo_url: "https://github.com/gristlabs/grist-help"
 
 # use directory urls (for prettiness) unless running htmlproofing
 # (which is confused by them).
@@ -13,99 +11,145 @@ use_directory_urls: !ENV [HTMLPROOFER_OVERRIDE_USE_DIRECTORY_URLS, true]
 docs_dir: './help/en/docs' # Add localization folder here for now, we'll handle i18n later
 # windmill is a theme maintained by Grist Labs in https://github.com/gristlabs/mkdocs-windmill
 theme:
-  name: windmill
-  custom_dir: overrides
+  name: material
+  font:
+    text: 'Rubik'
+    text_variants: '400,400i,500,600'
+  palette:
+    primary: custom
+    accent: custom
+  features:
+    - navigation.tabs
+    - content.tooltips
+    - navigation.path
+    - navigation.footer
+    - navigation.top
+  custom_dir: ./../../overrides
   # Disable the language selector when running in live (so for a specific language)
   disable_language_selector: !ENV [DISABLE_LANGUAGE_SELECTOR, false]
+  # Material settings
+  logo: images/logo.svg
+  logo_width: 24
+  logo_height: 24
+  favicon: images/favicon.png
 nav:
-  - index.md
-  - FAQ.md
-  - How-to tutorials:
-    - lightweight-crm.md
-    - investment-research.md
-    - afterschool-program.md
-  - Managing documents:
-    - creating-doc.md
-    - document-settings.md
-    - sharing.md
-    - copying-docs.md
-    - imports.md
-    - exports.md
-    - automatic-backups.md
-    - document-history.md
-    - workspaces.md
-  - Pages and tables:
-    - enter-data.md
-    - page-widgets.md
-    - raw-data.md
-    - search-sort-filter.md
-    - widget-table.md
-    - widget-card.md
-    - widget-form.md
-    - widget-chart.md
-    - widget-calendar.md
-    - widget-custom.md
-    - linking-widgets.md
-    - custom-layouts.md
-    - record-cards.md
-    - summary-tables.md
-    - document-tours.md
-    - document-tutorials.md
-  - Columns and data types:
-    - col-types.md
-    - col-refs.md
-    - conditional-formatting.md
-    - timestamps.md
-    - authorship.md
-    - col-transform.md
-  - Using formulas:
-    - formulas.md
-    - references-lookups.md
-    - dates.md
-    - formula-timer.md
-    - python.md
-    - functions.md
-    - formula-cheat-sheet.md
-  - AI Assistant:
+  - Tutorials & guides:
+    - getting-started.md
+    - How-to tutorials:
+      - lightweight-crm.md
+      - investment-research.md
+      - afterschool-program.md
+    - More examples:
+      - examples.md
+      - examples/2020-06-credit-card.md
+      - examples/2020-06-book-club.md
+      - examples/2020-07-email-compose.md
+      - examples/2020-08-invoices.md
+      - examples/2020-09-payroll.md
+      - examples/2020-10-print-labels.md
+      - examples/2020-11-treasure-hunt.md
+      - examples/2020-12-map.md
+      - examples/2021-01-tasks.md
+      - examples/2021-03-leads.md
+      - examples/2021-04-link-keys.md
+      - examples/2021-05-reference-columns.md
+      - examples/2021-06-timesheets.md
+      - examples/2021-07-auto-stamps.md
+      - examples/2023-01-acl-memo.md
+      - examples/2023-07-proposals-contracts.md
+  - Support docs:
+    - FAQ.md
+    - Managing documents:
+      - creating-doc.md
+      - document-settings.md
+      - sharing.md
+      - copying-docs.md
+      - imports.md
+      - exports.md
+      - automatic-backups.md
+      - document-history.md
+      - workspaces.md
+    - Pages and tables:
+      - enter-data.md
+      - page-widgets.md
+      - raw-data.md
+      - search-sort-filter.md
+      - widget-table.md
+      - widget-card.md
+      - widget-form.md
+      - widget-chart.md
+      - widget-calendar.md
+      - widget-custom.md
+      - linking-widgets.md
+      - custom-layouts.md
+      - record-cards.md
+      - summary-tables.md
+      - document-tours.md
+      - document-tutorials.md
+    - Columns and data types:
+      - col-types.md
+      - col-refs.md
+      - conditional-formatting.md
+      - timestamps.md
+      - authorship.md
+      - col-transform.md
+    - Using formulas:
+      - formulas.md
+      - references-lookups.md
+      - dates.md
+      - formula-timer.md
+      - python.md
+      - functions.md
+      - formula-cheat-sheet.md
     - assistant.md
-  - Team sites:
-    - teams.md
-    - team-sharing.md
-  - Access rules:
-    - access-rules.md
-  - Integrations:
-    - rest-api.md
-    - api.md
-    - integrators.md
-    - embedding.md
-    - webhooks.md
-    - Plugin API:
-      - code/README.md
-      - code/modules/grist_plugin_api.md
-      - ... | flat | **/code/interfaces/**
-      - ... | flat | **/code/modules/**
-  - Self-hosted:
-    - self-managed.md
-    - install/saml.md
-    - install/oidc.md
-    - install/scim.md
-    - install/forwarded-headers.md
-    - install/cloud-storage.md
-    - install/grist-connect.md
-    - install/grist-builder-edition.md
-    - admin-panel.md
-    - admin-controls.md
-    - install/assistant.md
-    - Audit logs:
-      - install/audit-log-overview.md
-      - install/audit-log-streaming.md
-      - install/audit-log-events.md
-    - Telemetry:
-      - telemetry.md
-      - telemetry-limited.md
-      - telemetry-full.md
+    - Team sites:
+      - teams.md
+      - team-sharing.md
+    - Access rules:
+      - access-rules.md
+    - Reference:
+      - keyboard-shortcuts.md
+      # The function reference (functions.md) is listed above; here is an intentionally non-standard
+      # link, so that only the above page item gets highlighted when the function reference is open.
+      # TODO: this needs a special way to localize the nav entry, perhaps similar to section titles.
+      - Function reference: /functions/
+      - limits.md
+      - data-security.md
+      - browser-support.md
+      - glossary.md
+  - Technical docs:
+    - Integrations:
+      - rest-api.md
+      - api.md
+      - integrators.md
+      - embedding.md
+      - webhooks.md
+      - Plugin API:
+        - code/README.md
+        - code/modules/grist_plugin_api.md
+        - ... | flat | **/code/interfaces/**
+        - ... | flat | **/code/modules/**
+    - Self-hosted:
+      - self-managed.md
+      - install/saml.md
+      - install/oidc.md
+      - install/scim.md
+      - install/forwarded-headers.md
+      - install/cloud-storage.md
+      - install/grist-connect.md
+      - install/grist-builder-edition.md
+      - admin-panel.md
+      - admin-controls.md
+      - install/assistant.md
+      - Audit logs:
+        - install/audit-log-overview.md
+        - install/audit-log-streaming.md
+        - install/audit-log-events.md
+      - Telemetry:
+        - telemetry.md
+        - telemetry-limited.md
+        - telemetry-full.md
   - News & updates:
-    - newsletters.md
     - newsletters/2025-11.md
     - newsletters/2025-10.md
     - newsletters/2025-09.md
@@ -173,35 +217,7 @@ nav:
     - newsletters/2020-07.md
     - newsletters/2020-06.md
     - newsletters/2020-05.md
-  - More examples:
-      - examples.md
-      - examples/2020-06-credit-card.md
-      - examples/2020-06-book-club.md
-      - examples/2020-07-email-compose.md
-      - examples/2020-08-invoices.md
-      - examples/2020-09-payroll.md
-      - examples/2020-10-print-labels.md
-      - examples/2020-11-treasure-hunt.md
-      - examples/2020-12-map.md
-      - examples/2021-01-tasks.md
-      - examples/2021-03-leads.md
-      - examples/2021-04-link-keys.md
-      - examples/2021-05-reference-columns.md
-      - examples/2021-06-timesheets.md
-      - examples/2021-07-auto-stamps.md
-      - examples/2023-01-acl-memo.md
-      - examples/2023-07-proposals-contracts.md
-  - Reference:
-    - keyboard-shortcuts.md
-    # The function reference (functions.md) is listed above; here is an intentionally non-standard
-    # link, so that only the above page item gets highlighted when the function reference is open.
-    # TODO: this needs a special way to localize the nav entry, perhaps similar to section titles.
-    - Function reference: /functions/
-    - limits.md
-    - data-security.md
-    - browser-support.md
-    - glossary.md
-
+    - newsletters.md
 extra:
   logo: 'images/logo.png'
   palette:
@@ -210,25 +226,50 @@ extra:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  homepage: '/help'
+  homepage: '/'
   version: '1.0.2-dev'
   article_nav_bottom: false
   history_buttons: false
-  home_links:
-    - href: https://community.getgrist.com
-      text: 'Community'
-    - href: https://www.getgrist.com
-      text: 'Back to Grist'
-      hide_on_small_screen: true
+  meta_me_url: https://fosstodon.org/@grist
+  quick_links:
+    - text: 'FAQ'
+      href: /FAQ
+      icon: /images/quick-links/bookmark.svg
+    - text: 'Community'
+      href: https://community.getgrist.com
+      icon: /images/quick-links/users-outline.svg
+    - text: 'Templates'
+      href: https://docs.getgrist.com/p/templates
+      icon: /images/quick-links/board.svg
+  # each section matches a first-level item in the mkdocs.yml `nav`
+  # this data is used:
+  #  - in the homepage template to automatically show the correct icon and color in each "hero card"
+  #  - in the nav sidebar to automatically show the correct icon and color in each section
+  section_icons:
+    Tutorials & guides:
+      icon: /images/home/bulb.svg
+      bg_color: "#ffeed0"
+    Support docs:
+      icon: /images/home/headset.svg
+      bg_color: "#dff6f7"
+    Technical docs:
+      icon: /images/home/cloud.svg
+      bg_color: "#efe9fd"
+    News & updates:
+      icon: /images/home/rocket.svg
+      bg_color: "#e0f0ff"
   google_tag_manager: 'GTM-5FDHKQ9'
+  generator: false
 extra_css:
-  - css/grist.css
-extra_javascript:
-  - js/grist.js
+  - css/theme.css
+  - css/icons.css
+  - css/content-helpers.css
 
 plugins:
   - search
   - awesome-pages
+  - macros
+  - data
   - htmlproofer:
       enabled: !ENV [HTMLPROOFER_ENABLED, false]
       validate_external_urls: false
@@ -246,6 +287,9 @@ markdown_extensions:
   extra: {}
   meta: {}
   attr_list: {}
+  pymdownx.highlight:
+    use_pygments: true
+  pymdownx.superfences: {}
 
 hooks:
 - ../../mkdocs-utils/hooks.py
