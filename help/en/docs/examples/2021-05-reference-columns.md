@@ -98,7 +98,7 @@ we saw that clicking on a job application would populate a view of milestones re
 application.
 
 Let’s do that now by adding `Milestones` as a widget to the `Job Applications` page. ([Brush up on
-widgets here](../page-widgets.md#page-widgets).) Adding the table as a
+widgets here](../page-widgets.md#widgets).) Adding the table as a
 Card List widget makes the data easier to view. Similarly, you may want to change the `Job
 Applications` table to a Card List widget.
 

@@ -763,7 +763,7 @@ Follow these steps:
 
 By default, Grist installations do not send detailed information to
 any central service, [except for some version
-information](#how-do-i-control-automatic-checks-for-new-installed-versions).
+information](#how-do-i-control-automatic-version-checks).
 It is useful to permit Grist to send more information, to give Grist
 Labs some limited insight into your usage, through measurements called
 telemetry. This will help guide development, and draw attention to

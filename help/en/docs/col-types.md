@@ -60,7 +60,7 @@ Learn more about each shortcut option at the links below:
 
 - [Detect Duplicates in...](formula-cheat-sheet.md#finding-duplicates)
 
-- [Date helpers...](dates.md#getting-a-part-of-the-date)
+- [Date helpers...](dates.md#displaying-days-weeks-years-and-intervals)
 
 - [UUID](access-rules.md#link-keys)
 
@@ -225,7 +225,7 @@ The Markdown cell format in Grist supports a subset of markdown, including lists
 bold and italic text, code spans and code blocks, and blockquotes. It does _not_ currently support
 images or custom HTML.
 
-### Hyperlinks (deprecated)
+### Hyperlinks (deprecated) {: #hyperlinks }
 
 When a Text column uses "HyperLink" formatting, values get formatted like so:
 
@@ -266,7 +266,7 @@ The options under NUMBER FORMAT include:
   {: .screenshot-half }
   
 !!! note "Setting Default Currency"
-    You can set a document's default timezone, locale, and currency in [Document Settings](creating-doc.md#document-settings).
+    You can set a document's default timezone, locale, and currency in [Document Settings](document-settings.md).
   
   
 - `,`: Turn on the display of thousands separators.
@@ -311,7 +311,7 @@ format for dates, see the [date and time formatting reference](https://momentjs.
 <span class="screenshot-large">*![columns-format-datetime](images/columns/columns-format-datetime.png)*</span>
 {: .screenshot-half }
 
-If you'd like to set a default timezone for your document, you can do so in [Document Settings](creating-doc.md#document-settings).
+If you'd like to set a default timezone for your document, you can do so in [Document Settings](document-settings.md).
 
 ## Choice columns
 
@@ -401,7 +401,7 @@ while the cell is being edited. You can also use the arrow keys and the
 when hovering your cursor over a choice.
 
 !!! note "Filtering Choice and Choice List columns' dropdown lists"
-    When entering data into a Choice or Choice List column you will see a dropdown list of all available choices. Sometimes it would be useful to filter the dropdown list based on a condition, such as the value in another cell. Writing conditions to filter choice dropdown lists is similar to [filtering reference column's dropdown lists](col-refs.md#filtering-reference-choices-in-dropdown).
+    When entering data into a Choice or Choice List column you will see a dropdown list of all available choices. Sometimes it would be useful to filter the dropdown list based on a condition, such as the value in another cell. Writing conditions to filter choice dropdown lists is similar to [filtering reference column's dropdown lists](col-refs.md#filtering-reference-choices-in-dropdown-lists).
 
 ## Reference columns
 
