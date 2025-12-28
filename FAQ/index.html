@@ -63,7 +63,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1766442648"></script>
+  <script type="module" src="/js/grist.js?v=1766894415"></script>
 
     
   
@@ -8329,7 +8329,7 @@ team site on a paid plan is associated with its own subscription, and is billed 
 <p><strong>Adding account to team site.</strong> You may own or be a member of multiple teams sites. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on &lsquo;Manage Users&rsquo;.</p>
 </li>
 </ol>
-<p><strong>Did you know?</strong> </p>
+<p><strong>Did you know?</strong></p>
 <p>A single team site can work well for an organization with multiple teams (or subteams). You can use workspaces
 within a team site, and <a href="../workspaces/#managing-access">manage access to them</a> to create separate
 areas for different teams.</p>
@@ -8338,7 +8338,7 @@ areas for different teams.</p>
 <p>You can now easily switch between all your accounts, and all your teams, from the user menu.</p>
 <h3 id="how-do-i-update-my-profile-settings">How do I update my profile settings?<a class="headerlink" href="#how-do-i-update-my-profile-settings" title="Permanent link">#</a></h3>
 <p>Open the <a href="../glossary/#user-menu">user menu</a> by clicking on the profile icon in the top-right of Grist, then select &lsquo;Profile Settings&rsquo;.</p>
-<p>From here, you can manage the name associated with your account, update Grist&rsquo;s theme to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out <a href="../rest-api/#grist-api">Grist API</a>.</p>
+<p>From here, you can manage the name associated with your account, update Grist&rsquo;s theme to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out <a href="../rest-api/">Grist API</a>.</p>
 <p><strong>Would you like to help translate Grist?</strong></p>
 <p>We use <a href="https://hosted.weblate.org/engage/grist/">Weblate</a> to manage translations and welcome volunteer translators! If you’d like to translate Grist into a new language (thank you!) let us know which language in this <a href="https://community.getgrist.com/t/translating-grist/2086">Community thread</a>, and we’ll add the language on Weblate.</p>
 <h3 id="how-can-i-change-the-email-address-i-use-for-grist">How can I change the email address I use for Grist?<a class="headerlink" href="#how-can-i-change-the-email-address-i-use-for-grist" title="Permanent link">#</a></h3>
@@ -8354,8 +8354,9 @@ areas for different teams.</p>
 <p>All Grist users have access to a free personal site. The personal site is always named beginning with &lsquo;@&rsquo; and is always located at <a href="https://docs.getgrist.com/">docs.getgrist.com</a>. Each document in this site may be shared with up to two guests for free. Learn more about free plans on our <a href="https://www.getgrist.com/pricing/">pricing page</a>.</p>
 <p>Documents shared with you from other personal accounts will be shown in your personal site in workspaces named with &lsquo;@Name&rsquo; to indicate the owner of that document.</p>
 <p>You may navigate between your <a href="../teams/#understanding-personal-sites">personal site</a> and <a href="../teams/">team sites</a> by clicking in the top-left corner to open a drop-down menu of sites to which you have access.</p>
-<center>*![Navigating between sites](images/faq/personal-and-team-site.png)*</center>
-
+<center>
+<p><em><img alt="Navigating between sites" src="../images/faq/personal-and-team-site.png" /></em></p>
+</center>
 <h3 id="how-to-manage-ownership-of-my-team-site">How to manage ownership of my team site?<a class="headerlink" href="#how-to-manage-ownership-of-my-team-site" title="Permanent link">#</a></h3>
 <p><strong>Add a second owner</strong></p>
 <ol>
@@ -8389,8 +8390,9 @@ areas for different teams.</p>
 <p>If you’re transferring team site ownership between two Grist email accounts that you own, you can more easily transfer ownership by signing in with multiple accounts. To sign in with another account, open the user menu and click on &lsquo;Add Account&rsquo;. You can now easily switch between all your accounts, and all your teams, from the user menu. Follow the steps above to transfer ownership from one account to the other.</p>
 <h3 id="can-i-edit-my-teams-name-and-subdomain">Can I edit my team’s name and subdomain?<a class="headerlink" href="#can-i-edit-my-teams-name-and-subdomain" title="Permanent link">#</a></h3>
 <p>You may edit your site name and subdomain from the billing page. Open the <a href="../glossary/#user-menu">user menu</a> by clicking on the profile icon in the top-right of Grist, then click on <a href="../teams/#billing-account">&lsquo;Billing Account&rsquo;</a>.</p>
-<center>*![Public access](images/faq/edit-subdomain.png)*</center>
-
+<center>
+<p><em><img alt="Public access" src="../images/faq/edit-subdomain.png" /></em></p>
+</center>
 <hr />
 <h2 id="documents-and-data">Documents and data<a class="headerlink" href="#documents-and-data" title="Permanent link">#</a></h2>
 <h3 id="can-i-move-documents-between-sites">Can I move documents between sites?<a class="headerlink" href="#can-i-move-documents-between-sites" title="Permanent link">#</a></h3>
@@ -8412,8 +8414,9 @@ areas for different teams.</p>
 <h3 id="does-grist-accept-non-english-characters">Does Grist accept non-English characters?<a class="headerlink" href="#does-grist-accept-non-english-characters" title="Permanent link">#</a></h3>
 <p>Non-English characters are supported in column labels, but not column ids, which are the column’s Python name used in formulas. When importing a file into Grist, non-English characters do import as values in cells, but do not import into column labels (aka headers). The column labels are approximated with English characters. You may rename the column labels to include non-English characters after import.</p>
 <p>To <a href="../col-types/#renaming-columns">edit column labels and ids</a> separately, open the creator panel and select the column menu. Click the link icon that joins label to id to enable column id editing. While non-English characters are not supported, it is possible to edit the ids into something more clear and friendly to use in formulas. </p>
-<center>*![Editing column labels and id](images/faq/editing-col-label-id.png)*</center>
-
+<center>
+<p><em><img alt="Editing column labels and id" src="../images/faq/editing-col-label-id.png" /></em></p>
+</center>
 <h3 id="how-do-i-sum-the-total-of-a-column">How do I sum the total of a column?<a class="headerlink" href="#how-do-i-sum-the-total-of-a-column" title="Permanent link">#</a></h3>
 <p>To summarize multiple records, you need <a href="../summary-tables/">summary tables</a>.</p>
 <p>The major difference between Grist and spreadsheets like Excel or Google Sheets is that Grist is a database, so each row in a grid represents a record (e.g. a person, a bank transaction, etc.) Since a sum across multiple records isn&rsquo;t the same kind of record, Grist offers summarizing data as a separate widget, which can be modified to calculate even more powerful summary data.</p>
@@ -8434,8 +8437,9 @@ areas for different teams.</p>
 <li><strong>Guests.</strong> Each document may be shared with 2 guests (non-team members) at no additional cost.</li>
 <li><strong>Link sharing.</strong> In share settings, there is an option to turn on <a href="../sharing/#public-access-and-link-sharing">public access</a>. The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan&rsquo;s user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.</li>
 </ol>
-<center>*![Public access](images/faq/link-sharing.png)*</center>
-
+<center>
+<p><em><img alt="Public access" src="../images/faq/link-sharing.png" /></em></p>
+</center>
 <ol>
 <li>
 <p><strong>Restricted view-only link sharing.</strong> With view-only link sharing, there is a way to further restrict what people can see by using Grist&rsquo;s access rules to set specific URL parameters called <a href="../access-rules/#link-keys">link keys</a> that determine which tables, columns, or rows are shown when a specific link is shared. </p>

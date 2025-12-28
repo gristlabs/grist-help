@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1766442648"></script>
+  <script type="module" src="/js/grist.js?v=1766894415"></script>
 
     
   
@@ -2448,7 +2448,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hyperlinks-deprecated" class="md-nav__link">
+  <a href="#hyperlinks" class="md-nav__link">
     <span class="md-ellipsis">
       
         Hyperlinks (deprecated)
@@ -8002,7 +8002,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hyperlinks-deprecated" class="md-nav__link">
+  <a href="#hyperlinks" class="md-nav__link">
     <span class="md-ellipsis">
       
         Hyperlinks (deprecated)
@@ -8229,7 +8229,7 @@ select &ldquo;Delete column&rdquo;.</p>
 <p><a href="../formula-cheat-sheet/#finding-duplicates">Detect Duplicates in&hellip;</a></p>
 </li>
 <li>
-<p><a href="../dates/#getting-a-part-of-the-date">Date helpers&hellip;</a></p>
+<p><a href="../dates/#displaying-days-weeks-years-and-intervals">Date helpers&hellip;</a></p>
 </li>
 <li>
 <p><a href="../access-rules/#link-keys">UUID</a></p>
@@ -8376,7 +8376,7 @@ shows this same markdown when it is rendered:</p>
 <p>The Markdown cell format in Grist supports a subset of markdown, including lists, links, headings,
 bold and italic text, code spans and code blocks, and blockquotes. It does <em>not</em> currently support
 images or custom HTML.</p>
-<h3 id="hyperlinks-deprecated">Hyperlinks (deprecated)<a class="headerlink" href="#hyperlinks-deprecated" title="Permanent link">#</a></h3>
+<h3 id="hyperlinks">Hyperlinks (deprecated)<a class="headerlink" href="#hyperlinks" title="Permanent link">#</a></h3>
 <p>When a Text column uses &ldquo;HyperLink&rdquo; formatting, values get formatted like so:</p>
 <ul>
 <li><code>https://getgrist.com</code> will show <a href="https://getgrist.com">https://getgrist.com</a>.</li>
@@ -8407,7 +8407,7 @@ increasing/decreasing the number.</p>
 <p class="screenshot-half"><em><img alt="Format numeric" src="../images/columns/columns-format-currency.png" /></em></p>
 <div class="admonition note">
 <p class="admonition-title">Setting Default Currency</p>
-<p>You can set a document&rsquo;s default timezone, locale, and currency in <a href="../creating-doc/#document-settings">Document Settings</a>.</p>
+<p>You can set a document&rsquo;s default timezone, locale, and currency in <a href="../document-settings/">Document Settings</a>.</p>
 </div>
 <ul>
 <li><code>,</code>: Turn on the display of thousands separators.</li>
@@ -8435,7 +8435,7 @@ format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format
 More details in <a href="../dates/">Working with dates</a>.  You can choose the
 format for dates, see the <a href="https://momentjs.com/docs/#/displaying/format/">date and time formatting reference</a>.  You can also specify the timezone to display for. </p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-datetime" src="../images/columns/columns-format-datetime.png" /></em></span></p>
-<p>If you&rsquo;d like to set a default timezone for your document, you can do so in <a href="../creating-doc/#document-settings">Document Settings</a>.</p>
+<p>If you&rsquo;d like to set a default timezone for your document, you can do so in <a href="../document-settings/">Document Settings</a>.</p>
 <h2 id="choice-columns">Choice columns<a class="headerlink" href="#choice-columns" title="Permanent link">#</a></h2>
 <p>This type is for storing one of a set of valid values, where you get to
 specify the available values.</p>
@@ -8500,7 +8500,7 @@ while the cell is being edited. You can also use the arrow keys and the
 when hovering your cursor over a choice.</p>
 <div class="admonition note">
 <p class="admonition-title">Filtering Choice and Choice List columns&rsquo; dropdown lists</p>
-<p>When entering data into a Choice or Choice List column you will see a dropdown list of all available choices. Sometimes it would be useful to filter the dropdown list based on a condition, such as the value in another cell. Writing conditions to filter choice dropdown lists is similar to <a href="../col-refs/#filtering-reference-choices-in-dropdown">filtering reference column&rsquo;s dropdown lists</a>.</p>
+<p>When entering data into a Choice or Choice List column you will see a dropdown list of all available choices. Sometimes it would be useful to filter the dropdown list based on a condition, such as the value in another cell. Writing conditions to filter choice dropdown lists is similar to <a href="../col-refs/#filtering-reference-choices-in-dropdown-lists">filtering reference column&rsquo;s dropdown lists</a>.</p>
 </div>
 <h2 id="reference-columns">Reference columns<a class="headerlink" href="#reference-columns" title="Permanent link">#</a></h2>
 <p>This sets up a cross-reference to another table.  You can specify the
