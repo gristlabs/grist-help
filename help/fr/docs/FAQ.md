@@ -71,7 +71,7 @@ Les documents partagés avec vous depuis d'autres comptes personnels seront affi
 
 Vous pouvez naviguer entre votre [espace personnel](teams.md#understanding-personal-sites) et [espaces d'équipe](teams.md) en cliquant dans le coin supérieur gauche pour ouvrir un menu déroulant des sites auxquels vous avez accès.
 
-<center>*![Naviguer entre les sites](images/faq/personal-and-team-site.png)*</center>
+<center markdown>*![Naviguer entre les sites](images/faq/personal-and-team-site.png)*</center>
 
 ### Comment gérer la propriété de mon espace d'équipe ?
 
@@ -103,7 +103,7 @@ Si vous transférez la propriété d'un espace d'équipe entre deux comptes e-ma
 
 Vous pouvez modifier le nom de votre site et le sous-domaine depuis la page de facturation. Ouvrez le [menu utilisateur](glossary.md#user-menu) en cliquant sur l'icône de profil en haut à droite de Grist, puis cliquez sur ['Compte de facturation'](teams.md#billing-account).
 
-<center>*![Accès public](images/faq/edit-subdomain.png)*</center>
+<center markdown>*![Accès public](images/faq/edit-subdomain.png)*</center>
 
 ---
 
@@ -135,7 +135,7 @@ Les caractères non anglais sont pris en charge dans les étiquettes de colonnes
 
 Pour [modifier les étiquettes et les identifiants de colonnes](col-types.md#renaming-columns) séparément, ouvrez le panneau de création et sélectionnez le menu de la colonne. Cliquez sur l'icône de lien qui joint l'étiquette à l'identifiant pour activer la modification de l'identifiant de la colonne. Bien que les caractères non anglais ne soient pas pris en charge, il est possible de modifier les identifiants pour les rendre plus clairs et conviviaux à utiliser dans les formules.
 
-<center>*![Modification des étiquettes et des identifiants de colonnes](images/faq/editing-col-label-id.png)*</center>
+<center markdown>*![Modification des étiquettes et des identifiants de colonnes](images/faq/editing-col-label-id.png)*</center>
 
 ### Comment puis-je additionner le total d'une colonne ?
 
@@ -172,7 +172,7 @@ Il existe de nombreuses façons de partager des données Grist avec des non-memb
 1. **Invités.** Chaque document peut être partagé avec 2 invités (non-membres de l'équipe) sans frais supplémentaires.
 2. **Partage de lien.** Dans les paramètres de partage, il y a une option pour activer [l'accès public](sharing.md#public-access-and-link-sharing). Le rôle d'accès public peut être défini sur visualiseur ou éditeur. Toute personne ayant un lien peut voir (ou modifier) vos données. Ces vues ne seraient pas comptées dans le nombre d'utilisateurs de votre plan. Le document est visible par toute personne ayant le lien, donc faites preuve de prudence lorsque vous travaillez avec des données sensibles.
 
-<center>*![Accès public](images/faq/link-sharing.png)*</center>
+<center markdown>*![Accès public](images/faq/link-sharing.png)*</center>
 
 3. **Partage de lien en lecture seule restreint.** Avec le partage de lien en lecture seule, il est possible de restreindre davantage ce que les gens peuvent voir en utilisant les permissions avancées de Grist pour définir des paramètres d'URL spécifiques appelés [clés de lien](access-rules.md#link-keys) qui déterminent quelles tables, colonnes ou lignes sont affichées lorsqu'un lien spécifique est partagé.
 

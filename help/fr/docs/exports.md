@@ -11,7 +11,7 @@ vous pouvez exporter cette table soit en fichier XLSX, soit en CSV, un format d'
 Pour ce faire, ouvrez votre document à la table ou à la vue souhaitée. Ensuite, cliquez sur le menu à trois points en haut à droite de la vue. 
 Sélectionnez soit "Télécharger en CSV" soit "Télécharger en XLSX".
 
-<center>![Exporter une Table](images/exports/export-table.png)</center>
+<center markdown>![Exporter une Table](images/exports/export-table.png)</center>
 
 Votre navigateur téléchargera alors un fichier contenant une ligne d'en-tête
 nommant vos colonnes, à l'exclusion de toute colonne masquée ou ligne filtrée, suivie de toutes les
@@ -23,7 +23,7 @@ Si vous souhaitez exporter toutes les tables au format Excel, cliquez sur l'icô
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
 en haut à droite de l'écran et sélectionnez "Exporter XLSX".
 
-<center>![Exporter un Document](images/exports/export-xlsx.png)</center>
+<center markdown>![Exporter un Document](images/exports/export-xlsx.png)</center>
 
 Votre navigateur téléchargera alors un fichier Excel, où chaque table est une feuille distincte
 contenant toutes les lignes, sans aucun filtre appliqué. Pour utiliser cette option, vous devez avoir un accès complet

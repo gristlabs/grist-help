@@ -17,7 +17,7 @@ In Grist, you organize your document into 'pages'. These are listed in the left-
 *![Renaming Pages Menu](images/rename_pages1.png)*
 {: .screenshot-half }
 
-* **Renaming** the page does not edit data tables' names or widget titles. See [changing widget](page-widgets.md#changing-widget-or-its-data) below to learn how to edit table and widget names.
+* **Renaming** the page does not edit data tables' names or widget titles. See [changing widget](page-widgets.md#changing-a-widget-or-its-data) below to learn how to edit table and widget names.
 * **Duplicating** a page duplicates *views* of data and does not duplicate the data itself.
 * **Removing** a page does not delete data. When removing the last view of data, you will be asked if you want to delete only the view, but not the data itself; or if you want to delete both the page and the underlying data table(s). Learn more about your document's data in the [raw data page](raw-data.md).
 

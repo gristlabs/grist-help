@@ -26,7 +26,7 @@ team site on a paid plan is associated with its own subscription, and is billed 
 
 2. **Adding account to team site.** You may own or be a member of multiple teams sites. If you have multiple Grist login accounts, you may also add your second account as a team member. While in the team site you own, open the user menu and click on 'Manage Users'.
 
-**Did you know?** 
+**Did you know?**
 
 A single team site can work well for an organization with multiple teams (or subteams). You can use workspaces
 within a team site, and [manage access to them](workspaces.md#managing-access) to create separate
@@ -42,7 +42,7 @@ You can now easily switch between all your accounts, and all your teams, from th
 
 Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then select 'Profile Settings'.
 
-From here, you can manage the name associated with your account, update Grist's theme to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out [Grist API](rest-api.md#grist-api).
+From here, you can manage the name associated with your account, update Grist's theme to light or dark mode, set a language and create and manage an API key. To learn more about our API, check out [Grist API](rest-api.md).
 
 **Would you like to help translate Grist?**
 
@@ -75,7 +75,7 @@ Documents shared with you from other personal accounts will be shown in your per
 
 You may navigate between your [personal site](teams.md#understanding-personal-sites) and [team sites](teams.md) by clicking in the top-left corner to open a drop-down menu of sites to which you have access.
 
-<center>*![Navigating between sites](images/faq/personal-and-team-site.png)*</center>
+<center markdown>*![Navigating between sites](images/faq/personal-and-team-site.png)*</center>
 
 ### How to manage ownership of my team site?
 
@@ -107,7 +107,7 @@ If you’re transferring team site ownership between two Grist email accounts th
 
 You may edit your site name and subdomain from the billing page. Open the [user menu](glossary.md#user-menu) by clicking on the profile icon in the top-right of Grist, then click on ['Billing Account'](teams.md#billing-account).
 
-<center>*![Public access](images/faq/edit-subdomain.png)*</center>
+<center markdown>*![Public access](images/faq/edit-subdomain.png)*</center>
 
 ---
 
@@ -139,7 +139,7 @@ Non-English characters are supported in column labels, but not column ids, which
 
 To [edit column labels and ids](col-types.md#renaming-columns) separately, open the creator panel and select the column menu. Click the link icon that joins label to id to enable column id editing. While non-English characters are not supported, it is possible to edit the ids into something more clear and friendly to use in formulas. 
 
-<center>*![Editing column labels and id](images/faq/editing-col-label-id.png)*</center>
+<center markdown>*![Editing column labels and id](images/faq/editing-col-label-id.png)*</center>
 
 ### How do I sum the total of a column?
 
@@ -176,7 +176,7 @@ There are many ways to share Grist data with non-team members.
 1. **Guests.** Each document may be shared with 2 guests (non-team members) at no additional cost.
 2. **Link sharing.** In share settings, there is an option to turn on [public access](sharing.md#public-access-and-link-sharing). The public access role can be set to viewer or editor. Anyone with a link can view (or edit) your data. Those views would not count towards your plan's user count. The document is visible to anyone with the link, however, so use caution when working with sensitive data.
 
-<center>*![Public access](images/faq/link-sharing.png)*</center>
+<center markdown>*![Public access](images/faq/link-sharing.png)*</center>
 
 3. **Restricted view-only link sharing.** With view-only link sharing, there is a way to further restrict what people can see by using Grist's access rules to set specific URL parameters called [link keys](access-rules.md#link-keys) that determine which tables, columns, or rows are shown when a specific link is shared. 
 
