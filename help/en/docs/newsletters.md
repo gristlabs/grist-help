@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[December 2025](newsletters/2025-12.md) •
+2025 year in review, community widgets showcase, and a Help Center redesign.
+
 [November 2025](newsletters/2025-11.md) •
 10k GitHub stars, Advent of Code 2025, and cartesian products.
 
