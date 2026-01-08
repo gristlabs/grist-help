@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1767026065"></script>
+  <script type="module" src="/js/grist.js?v=1767886003"></script>
 
     
   
@@ -3937,6 +3937,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The entities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#enabling-and-configuring-scim" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6810,6 +6821,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The entities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#enabling-and-configuring-scim" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6904,7 +6926,7 @@
 <h1 class="tag-core tag-ee" id="scim">SCIM<a class="headerlink" href="#scim" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">🚧 Status of SCIM</p>
-<p>As of November 2024, the SCIM endpoint is experimental and in active development. Also please note that group management is not supported yet.</p>
+<p>As of November 2024, the SCIM endpoint is experimental and in active development.</p>
 </div>
 <h2 id="use-case-and-difference-with-sso-systems">Use case and difference with SSO systems<a class="headerlink" href="#use-case-and-difference-with-sso-systems" title="Permanent link">#</a></h2>
 <p>Grist supports authentication via <a href="../oidc/">OIDC</a> or <a href="../saml/">SAML</a> to allow users to log in securely. However, when managing large organizations with dynamic user bases, manual user management (creation, updating, and deletion of accounts) can become complex and time-consuming. This is where the System for Cross-domain Identity Management (SCIM) comes in.</p>
@@ -6922,6 +6944,35 @@
 <p>For more details on the SCIM standard, refer to the official IETF specifications: <a href="https://www.rfc-editor.org/rfc/rfc7643">RFC7643</a> and <a href="https://www.rfc-editor.org/rfc/rfc7644">RFC7644</a>.</p>
 <h2 id="the-api">The API<a class="headerlink" href="#the-api" title="Permanent link">#</a></h2>
 <p>The SCIM implementation is documented in the <a href="../../api/#tag/scim">Grist REST API reference</a>.</p>
+<h2 id="the-entities">The entities<a class="headerlink" href="#the-entities" title="Permanent link">#</a></h2>
+<p>The following SCIM entities can be queried and manipulated through the Grist SCIM API:</p>
+<ul>
+<li>
+<p>The users through <code>/Users</code>.</p>
+<p>These are simply regular users as you can see them in Grist.</p>
+</li>
+<li>
+<p>The groups of users (or <em>teams</em>) through <code>/Groups</code>.</p>
+<p>⚠️ Please note that this feature is very experimental. Adding a team to a document,
+workspace, or organization is possible, but as of December 2025, teams/groups added via SCIM
+are not displayed in the UI (especially in the Users Management popup). However, these teams/groups
+will still have access as configured. To verify group membership or access, please use the SCIM API
+or the REST API directly, as changes may not be visible in the UI until future updates resolve this limitation.</p>
+</li>
+<li>
+<p>The roles (<code>owners</code>, <code>editors</code>, <code>viewers</code>, <code>members</code>, <code>guests</code>) through <code>/Roles</code></p>
+<p>The Roles are the ones you see in the Users Management popup: <code>owners</code>,
+<code>editors</code>, <code>viewers</code>, <code>guests</code> and <code>members</code>.
+Each role gives a certain access to a resource: a document, a workspace or
+an organization (aka <em>team site</em>).
+You can use Roles to grant Users (<code>/scim/v2/Users</code>) or
+Groups (<code>/scim/v2/Groups</code>) access to one of these resources.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Roles are system-defined</p>
+<p>Roles (<code>owners</code>, <code>editors</code>, <code>viewers</code>, <code>members</code>, <code>guests</code>) are predefined by Grist and cannot be created or deleted through the SCIM API. You can only query roles and modify their memberships (i.e., assign or remove users/groups from roles).</p>
+</div>
 <h2 id="enabling-and-configuring-scim">Enabling and configuring SCIM<a class="headerlink" href="#enabling-and-configuring-scim" title="Permanent link">#</a></h2>
 <p>Below is a list of environment variables you may use to configure SCIM:</p>
 <ul>
