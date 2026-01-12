@@ -95,6 +95,11 @@ def get_images_relative_paths(docs_dir: str) -> List[str]:
   all_images = images + examples_images
   return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), all_images))
 
+def get_unlocalized_assets_relative_paths(docs_dir: str) -> List[str]:
+  en_docs_path = (Path(docs_dir) / "../../en/docs").resolve()
+  unlocalized_assets = glob.glob(f"{en_docs_path}/unlocalized-assets/**/*", recursive=True)
+  return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), unlocalized_assets))
+
 def on_files(files: Files, *, config: MkDocsConfig) -> Files:
 
   # We circumvent the fact that the config.nav object is not available anymore
@@ -106,8 +111,10 @@ def on_files(files: Files, *, config: MkDocsConfig) -> Files:
     resolve_files(items=untouched_config['nav'] or [], files=files, config=config)
 
   images = get_images_relative_paths(config.docs_dir)
+  unlocalized_assets = get_unlocalized_assets_relative_paths(config.docs_dir)
 
   resolve_files(items=images, files=files, config=config)
+  resolve_files(items=unlocalized_assets, files=files, config=config)
   if "logo" in config.extra:
     resolve_file(item=config.extra["logo"], files=files, config=config)
   if "favicon" in config.theme:
