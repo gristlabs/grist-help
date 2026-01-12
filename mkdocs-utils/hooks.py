@@ -91,7 +91,9 @@ def resolve_files(*, items: List[Any], files: Files, config: MkDocsConfig) -> No
 def get_images_relative_paths(docs_dir: str) -> List[str]:
   en_docs_path = (Path(docs_dir) / "../../en/docs").resolve()
   images = glob.glob(f"{en_docs_path}/images/**/*", recursive=True)
-  return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), images))
+  examples_images = glob.glob(f"{en_docs_path}/examples/images/**/*", recursive=True)
+  all_images = images + examples_images
+  return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), all_images))
 
 def on_files(files: Files, *, config: MkDocsConfig) -> Files:
 
