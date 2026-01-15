@@ -62,7 +62,7 @@ and it probably asks you to enter hours for each employee once a month.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1767886003"></script>
+  <script type="module" src="/js/grist.js?v=1768487917"></script>
 
     
   
@@ -7995,33 +7995,31 @@ your payroll service allows it.</p>
 <p>I promised to show how rates are looked up. Open up the &ldquo;Payroll&rdquo; page, click on
 any cell in the <code>Per Hour</code> column, and hit <code class="keys"><em>Enter</em></code>.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="Rate Lookup Formula" src="../images/2020-09-payroll/rate-lookup-formula.png" /></em></span></p>
-<p>The formula you see is an involved Python function, but it is intentionally broken up into bits,
+<p>The formula you see is a multi-step Python function. It is intentionally broken up into bits,
 with comments explaining what each line does:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get all the rates for the Person and Role in this row.</span>
-<span class="n">rates</span> <span class="o">=</span> <span class="n">Rates</span><span class="o">.</span><span class="n">lookupRecords</span><span class="p">(</span><span class="n">Person</span><span class="o">=</span><span class="err">$</span><span class="n">Person</span><span class="p">,</span> <span class="n">Role</span><span class="o">=</span><span class="err">$</span><span class="n">Role</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get all the rates for the Person and Role in this row, sorted by Rate_Start.</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="n">Rates</span><span class="o">.</span><span class="n">lookupRecords</span><span class="p">(</span><span class="n">Person</span><span class="o">=</span><span class="err">$</span><span class="n">Person</span><span class="p">,</span> <span class="n">Role</span><span class="o">=</span><span class="err">$</span><span class="n">Role</span><span class="p">,</span> <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Rate_Start&quot;</span><span class="p">)</span>
 
-<span class="c1"># Pick out only those rates whose Rate_Start is on or before this row&#39;s Date.</span>
-<span class="n">past_rates</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rates</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">Rate_Start</span> <span class="o">&lt;=</span> <span class="err">$</span><span class="n">Date</span><span class="p">]</span>
-
-<span class="c1"># Select the latest of past_rates, i.e. maximum by Rate_Start.</span>
-<span class="n">current_rate</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">past_rates</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">Rate_Start</span><span class="p">)</span>
+<span class="c1"># Select the most recent rate that started on or before this row&#39;s Date.</span>
+<span class="n">current_rate</span> <span class="o">=</span> <span class="n">rates</span><span class="o">.</span><span class="n">find</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="err">$</span><span class="n">Date</span><span class="p">)</span>
 
 <span class="c1"># Return the Hourly_Rate from the relevant Rates record.</span>
 <span class="k">return</span> <span class="n">current_rate</span><span class="o">.</span><span class="n">Hourly_Rate</span>
 </code></pre></div>
-<p>(If this seems too complicated, good luck trying to achieve the same in a traditional
-spreadsheet!)</p>
-<p>Read the comments in that code to understand the steps. For those who know Python, it may already
-make perfect sense. For those who don’t, here are the relevant links to Grist and Python
-documentation:</p>
+<p>Read the comments in that code to understand the steps. The second step uses the <code>find.le</code> method,
+one of several available for <a href="../../functions/#find_">ordered lookups</a>.
+It is simpler and more efficient than other ways to find the correct rate.</p>
+<p>This same formula could be written without comments and more concisely:</p>
+<div class="highlight"><pre><span></span><code><span class="n">rates</span> <span class="o">=</span> <span class="n">Rates</span><span class="o">.</span><span class="n">lookupRecords</span><span class="p">(</span><span class="n">Person</span><span class="o">=</span><span class="err">$</span><span class="n">Person</span><span class="p">,</span> <span class="n">Role</span><span class="o">=</span><span class="err">$</span><span class="n">Role</span><span class="p">,</span> <span class="n">order_by</span><span class="o">=</span><span class="s2">&quot;Rate_Start&quot;</span><span class="p">)</span>
+<span class="n">rates</span><span class="o">.</span><span class="n">find</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="err">$</span><span class="n">Date</span><span class="p">)</span><span class="o">.</span><span class="n">Hourly_Rate</span>
+</code></pre></div>
+<p>To learn more about the parts of this formula, here are the relevant documentation links:</p>
 <ul>
-<li><a href="https://support.getgrist.com/functions/#lookuprecords">lookupRecords</a>:
-  how we look up all rates for the given person and role.</li>
-<li><a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions</a>:
-  how we filter for only those rates with an earlier <code>Rate_Start</code>.</li>
-<li><a href="https://docs.python.org/3/library/functions.html#max">max function</a>:
-  how we choose the rate record with the latest <code>Rate_Start</code>.</li>
-<li><a href="https://support.getgrist.com/functions/#_field">.Field</a>: how we get the <code>Hourly_Rate</code> field
+<li><a href="../../functions/#lookuprecords">lookupRecords</a>:
+  how we look up all rates for the given person and role, and sort them.</li>
+<li><a href="../../functions/#find_">.find.le</a>:
+  how we find look up the closest rate that applies to the current date.</li>
+<li><a href="../../functions/#_field">.Field</a>: how we get the <code>Hourly_Rate</code> field
   from the rate record.</li>
 </ul>
 <p>This formula is also a good illustration of how helpful it is to have Python available, along with
