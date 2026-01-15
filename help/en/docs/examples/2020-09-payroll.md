@@ -103,37 +103,38 @@ any cell in the `Per Hour` column, and hit <code class="keys">*Enter*</code>.
 <span class="screenshot-large">*![Rate Lookup Formula](../examples/images/2020-09-payroll/rate-lookup-formula.png)*</span>
 {: .screenshot-half }
 
-The formula you see is an involved Python function, but it is intentionally broken up into bits,
+The formula you see is a multi-step Python function. It is intentionally broken up into bits,
 with comments explaining what each line does:
 
 ```python
-# Get all the rates for the Person and Role in this row.
-rates = Rates.lookupRecords(Person=$Person, Role=$Role)
+# Get all the rates for the Person and Role in this row, sorted by Rate_Start.
+rates = Rates.lookupRecords(Person=$Person, Role=$Role, order_by="Rate_Start")
 
-# Pick out only those rates whose Rate_Start is on or before this row's Date.
-past_rates = [r for r in rates if r.Rate_Start <= $Date]
-
-# Select the latest of past_rates, i.e. maximum by Rate_Start.
-current_rate = max(past_rates, key=lambda r: r.Rate_Start)
+# Select the most recent rate that started on or before this row's Date.
+current_rate = rates.find.le($Date)
 
 # Return the Hourly_Rate from the relevant Rates record.
 return current_rate.Hourly_Rate
 ```
 
-(If this seems too complicated, good luck trying to achieve the same in a traditional
-spreadsheet!)
+Read the comments in that code to understand the steps. The second step uses the `find.le` method,
+one of several available for [ordered lookups](../functions.md#find_).
+It is simpler and more efficient than other ways to find the correct rate.
 
-Read the comments in that code to understand the steps. For those who know Python, it may already
-make perfect sense. For those who don’t, here are the relevant links to Grist and Python
-documentation:
+This same formula could be written without comments and more concisely:
 
-- [lookupRecords](https://support.getgrist.com/functions/#lookuprecords):
-  how we look up all rates for the given person and role.
-- [list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions):
-  how we filter for only those rates with an earlier `Rate_Start`.
-- [max function](https://docs.python.org/3/library/functions.html#max):
-  how we choose the rate record with the latest `Rate_Start`.
-- [.Field](https://support.getgrist.com/functions/#_field): how we get the `Hourly_Rate` field
+```python
+rates = Rates.lookupRecords(Person=$Person, Role=$Role, order_by="Rate_Start")
+rates.find.le($Date).Hourly_Rate
+```
+
+To learn more about the parts of this formula, here are the relevant documentation links:
+
+- [lookupRecords](../functions.md#lookuprecords):
+  how we look up all rates for the given person and role, and sort them.
+- [.find.le](../functions.md#find_):
+  how we find look up the closest rate that applies to the current date.
+- [.Field](../functions.md#_field): how we get the `Hourly_Rate` field
   from the rate record.
 
 This formula is also a good illustration of how helpful it is to have Python available, along with
