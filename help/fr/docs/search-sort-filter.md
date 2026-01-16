@@ -73,7 +73,7 @@ Vous pouvez ajouter une ou plusieurs colonnes, enregistrer ou annuler les param�
 ### Options de tri avancées
 L'onglet "Trier & Filtrer" expose des options de tri supplémentaires qui peuvent être utiles pour divers types de colonnes :
 
-- `Utiliser la position des choix` -- disponible sur les colonnes [Choix](col-types.md#choice-columns), trie les enregistrements en utilisant l'ordre configuré des éléments de choix, plutôt que leurs noms.
+- `Utiliser la position des choix` -- disponible sur les colonnes [Choix](col-types.md#colonnes-de-choix), trie les enregistrements en utilisant l'ordre configuré des éléments de choix, plutôt que leurs noms.
 - `Valeurs vides en dernier` -- dans l'ordre alphabétique, les valeurs vides sont affichées en premier par défaut, utilisez cette option pour les mettre à la fin.
 - `Tri naturel` -- pour la colonne Texte, traitera les nombres à plusieurs chiffres dans les chaînes comme s'ils étaient un seul caractère, permettant un ordre plus convivial. Par exemple, en utilisant le `tri naturel`, _Produit10_ sera positionné après _Produit2_.
 

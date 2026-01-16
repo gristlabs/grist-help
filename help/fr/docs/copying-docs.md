@@ -66,11 +66,11 @@ Vous pouvez utiliser l'option "Dupliquer le document" pour enregistrer la versio
 
 ## Copier des Exemples Publics
 
-Lorsque vous ouvrez un exemple public depuis la [page Exemples & Modèles](https://docs.getgrist.com/p/templates), il ouvrira l'exemple en [mode sandbox](glossary.md#fiddle-mode).
+Lorsque vous ouvrez un exemple public depuis la [page Exemples & Modèles](https://docs.getgrist.com/p/templates), il ouvrira l'exemple en [mode sandbox](glossary.md#mode-fiddle).
 
 <span class="screenshot-large">*![Mode Sandbox](images/copying-docs/fiddle-mode.png)*</span>
 {: .screenshot-half }
 
-Le mode sandbox est similaire à travailler sur une copie, comme décrit ci-dessus dans [Essayer des Modifications](#trying-out-changes). Vous pouvez apporter des modifications, mais elles restent privées. Vous pouvez enregistrer une copie de l'exemple sous un nouveau nom en utilisant le bouton ou l'option de menu "Enregistrer une copie".
+Le mode sandbox est similaire à travailler sur une copie, comme décrit ci-dessus dans [Essayer des Modifications](#essayer-des-modifications). Vous pouvez apporter des modifications, mais elles restent privées. Vous pouvez enregistrer une copie de l'exemple sous un nouveau nom en utilisant le bouton ou l'option de menu "Enregistrer une copie".
 
 Vous pouvez utiliser la case à cocher "Comme modèle" pour supprimer les données de l'exemple, en conservant uniquement sa structure. Cela facilite son utilisation pour vos propres données.

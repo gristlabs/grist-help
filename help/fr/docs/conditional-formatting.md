@@ -7,7 +7,7 @@ Mise en forme conditionnelle
 
 Le style des cellules peut changer en fonction des règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s'appliquer à une ligne entière ou aux cellules d'une colonne.
 
-Pour ajouter une mise en forme conditionnelle à une colonne particulière, sélectionnez la colonne, allez à la section `STYLE DE CELLULE` du [panneau de création](glossary.md#creator-panel) sous l'onglet `Colonne`, et cliquez sur `Ajouter un style conditionnel`.
+Pour ajouter une mise en forme conditionnelle à une colonne particulière, sélectionnez la colonne, allez à la section `STYLE DE CELLULE` du [panneau de création](glossary.md#panneau-de-creation) sous l'onglet `Colonne`, et cliquez sur `Ajouter un style conditionnel`.
 
 *![Ajouter un style conditionnel](images/columns/add-conditional-style.png)*
 {: .screenshot-half}
@@ -22,7 +22,7 @@ Nous aimerions également mettre en surbrillance les éleveurs ayant 1 ou 2 chie
 
 ![Règles conditionnelles multiples](images/columns/multiple-conditional-rules.PNG)
 
-Pour ajouter une mise en forme conditionnelle aux lignes, allez à la section `STYLE DE LIGNE` du [panneau de création](glossary.md#creator-panel) sous l'onglet `Table > Vue`, et cliquez sur `Ajouter un style conditionnel`.
+Pour ajouter une mise en forme conditionnelle aux lignes, allez à la section `STYLE DE LIGNE` du [panneau de création](glossary.md#panneau-de-creation) sous l'onglet `Table > Vue`, et cliquez sur `Ajouter un style conditionnel`.
 
 ![Styles de ligne conditionnels](images/newsletters/2022-08/conditional-row.png)
 

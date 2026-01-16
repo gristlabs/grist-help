@@ -50,7 +50,7 @@ Pour supprimer un champ, déplacez la souris dessus. Une icône "x" apparaîtra.
   *![card_layout_delete](images/card_layout_delete.png)*
   {: .screenshot-half }
 
-Vous pouvez également supprimer un champ en le masquant dans la liste "Champs visibles" du panneau latéral, comme décrit dans [Configurer la liste des champs](page-widgets.md#configuring-field-lists). Cela est disponible même lorsque l'éditeur de disposition n'est pas actif.
+Vous pouvez également supprimer un champ en le masquant dans la liste "Champs visibles" du panneau latéral, comme décrit dans [Configurer la liste des champs](page-widgets.md#configurer-les-listes-de-champs). Cela est disponible même lorsque l'éditeur de disposition n'est pas actif.
 
 #### Ajouter un champ
 Pour ajouter un champ, cliquez sur le bouton "Ajouter un champ" en haut de l'éditeur de disposition. Dans le menu déroulant, sélectionnez "Créer un nouveau champ" pour créer une nouvelle colonne de données, ou l'un des champs existants dans la table qui ne sont pas actuellement affichés dans la fiche.
@@ -62,7 +62,7 @@ Lorsque vous cliquez sur le champ, il sera ajouté en bas de la disposition. Vou
 
 Tous les nouveaux champs que vous créez ne seront ajoutés aux données que lorsque vous enregistrerez la disposition. Vous pouvez les renommer dans l'onglet "Champ" du panneau latéral.
 
-Vous pouvez également ajouter un champ existant en le rendant visible à l'aide de la liste "Champs masqués" dans le panneau latéral, comme décrit dans [Configurer la liste des champs](page-widgets.md#configuring-field-lists). Cela est disponible même lorsque l'éditeur de disposition n'est pas actif.
+Vous pouvez également ajouter un champ existant en le rendant visible à l'aide de la liste "Champs masqués" dans le panneau latéral, comme décrit dans [Configurer la liste des champs](page-widgets.md#configurer-les-listes-de-champs). Cela est disponible même lorsque l'éditeur de disposition n'est pas actif.
 
 #### Enregistrer la disposition
 

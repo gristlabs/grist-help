@@ -6,10 +6,10 @@ title: Intégration
 
 Peut-être souhaitez-vous lister vos produits, prix et quantités sur votre site web,
 ou vous voulez afficher un graphique en camembert des résultats de vote qui se met à jour en direct. Avec
-[l'accès public](sharing.md#public-access-and-link-sharing) activé, vous pouvez intégrer votre
+[l'accès public](sharing.md#acces-public-et-partage-de-lien) activé, vous pouvez intégrer votre
 document Grist sur votre propre site.
 
-Pour ce faire, vous devez d'abord le rendre [public](sharing.md#public-access-and-link-sharing) et avoir
+Pour ce faire, vous devez d'abord le rendre [public](sharing.md#acces-public-et-partage-de-lien) et avoir
 accès au code de votre site web afin de placer du code HTML à l'emplacement souhaité.
 
 Si votre site est hébergé sur une plateforme CMS cloud populaire (comme Blogger ou WordPress),
@@ -61,7 +61,7 @@ Voici deux autres exemples avec un graphique et une vue liste de fiches :
 Ajouter `?embed=true` à une URL partage la page en lecture seule tandis que `?style=singlePage` peut être éditée et suit les [permissions avancées](access-rules.md).
 
 !!! note "Partager une Vue Intégrée"
-    Ajouter `?embed=true` ou `?style=singlePage` à la fin de l'URL d'une page de document rend le document sans la barre d'outils en haut, le menu de page à gauche ou le panneau de créateur à droite. Pour en savoir plus sur le partage de lien, consultez [Accès public et partage de lien](sharing.md#public-access-and-link-sharing).
+    Ajouter `?embed=true` ou `?style=singlePage` à la fin de l'URL d'une page de document rend le document sans la barre d'outils en haut, le menu de page à gauche ou le panneau de créateur à droite. Pour en savoir plus sur le partage de lien, consultez [Accès public et partage de lien](sharing.md#acces-public-et-partage-de-lien).
 
 #### Apparence
 

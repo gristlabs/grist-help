@@ -164,7 +164,7 @@ Voici ce que nous avons maintenant dans la page Vue des Cours :
 
 ![classlist-page2](images/afterschool-program/classlist-page2.png)
 
-C'est le bon moment pour nettoyer cette page en masquant les colonnes et les champs qui sont dupliqués ou distrayants. Consultez [Configurer les listes de champs](page-widgets.md#configuring-field-lists) pour une méthode efficace de sélection des champs à afficher, et [Mises en page personnalisées](custom-layouts.md) pour réorganiser les widgets sur la page.
+C'est le bon moment pour nettoyer cette page en masquant les colonnes et les champs qui sont dupliqués ou distrayants. Consultez [Configurer les listes de champs](page-widgets.md#configurer-les-listes-de-champs) pour une méthode efficace de sélection des champs à afficher, et [Mises en page personnalisées](custom-layouts.md) pour réorganiser les widgets sur la page.
 
 ![classlist-page3](images/afterschool-program/classlist-page3.png)
 

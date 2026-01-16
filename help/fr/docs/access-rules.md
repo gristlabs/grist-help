@@ -9,7 +9,7 @@ Chaque document Grist peut être [partagé avec d'autres](sharing.md)
 en utilisant l'option `Gérer les utilisateurs` dans le menu de partage
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
 Les utilisateurs peuvent être invités en tant que Visiteurs, Éditeurs ou Propriétaires (voir 
- [Partage d'un document](sharing.md) pour un rappel sur ces rôles), ou un document peut être [partagé publiquement](sharing.md#public-access-and-link-sharing) avec des permissions de lecture ou d'édition.
+ [Partage d'un document](sharing.md) pour un rappel sur ces rôles), ou un document peut être [partagé publiquement](sharing.md#acces-public-et-partage-de-lien) avec des permissions de lecture ou d'édition.
 Parfois, vous avez besoin de plus de nuances sur qui peut voir ou éditer des
 parties individuelles d'un document. Les règles d'accès nous donnent ce pouvoir.
 
@@ -42,7 +42,7 @@ Ces règles disent, en résumé, que les Propriétaires et Éditeurs peuvent fai
 le document, que les Visiteurs ne peuvent que lire le document, et que tout le monde
 d'autre est interdit d'accès. Ces règles ne peuvent pas être modifiées, mais elles
 peuvent être remplacées. Pour comprendre si un groupe de règles permet une
-certaines permissions ([Lire, Mettre à jour, Créer, Supprimer ou Structure](access-rules.md#access-rule-permissions)), lisez
+certaines permissions ([Lire, Mettre à jour, Créer, Supprimer ou Structure](access-rules.md#permissions-des-regles-dacces)), lisez
 les règles de haut en bas, et trouvez la première règle applicable
 qui permet (vert) ou refuse (rouge) cette permission.
 Nous verrons de nombreux exemples au fur et à mesure.
@@ -75,7 +75,7 @@ nous cliquons sur `Ajouter des règles de table` et sélectionnons le nom de la 
 Ensuite, nous ajoutons une condition pour tout utilisateur qui n'est pas un Propriétaire (`user.Access != OWNER`), avec toutes
 les permissions refusées. Sélectionner `Refuser tout` dans le menu déroulant à côté de `R` `U` `C` `D` est un moyen rapide
 de définir toutes les permissions sur refusées, ou vous pouvez cliquer sur chaque permission individuellement pour les mettre en rouge. `R` est Lire, `U` est Mettre à jour, `C` est Créer, et `D` est Supprimer
-(voir [Permissions de règle d'accès](access-rules.md#access-rule-permissions)).
+(voir [Permissions de règle d'accès](access-rules.md#permissions-des-regles-dacces)).
 Les permissions de structure (`S`) ne sont pas disponibles au niveau de la table.
 Une fois que vous avez terminé, cliquez sur `ENREGISTRER`.
 
@@ -304,7 +304,7 @@ nous définissons le type de colonne sur `Texte` et activons l'option `HyperLink
 ![Règles d'accès](images/access-rules/access-rules-linkkey-link.png)
 
 Une fois que nous avons ces liens, nous pouvons faire un peu de ménage en cachant les
-colonnes `UUID` et `Ref` (voir [Opérations sur les colonnes](widget-table.md#column-operations) pour un rappel sur la façon
+colonnes `UUID` et `Ref` (voir [Opérations sur les colonnes](widget-table.md#operations-sur-les-colonnes) pour un rappel sur la façon
 de le faire) :
 
 ![Règles d'accès](images/access-rules/access-rules-linkkey-prune.png)
@@ -323,7 +323,7 @@ URL :
 
 Ce n'est que le début des possibilités. Les clés de lien peuvent donner accès à
 plusieurs lignes à travers de nombreuses tables. Elles peuvent être utilisées dans
-[Tables d'attributs d'utilisateur](#user-attribute-tables). Et les données auxquelles elles donnent accès
+[Tables d'attributs d'utilisateur](#tables-dattributs-dutilisateur). Et les données auxquelles elles donnent accès
 peuvent être dans des tables, des fiches, des listes de fiches, des graphiques et des widgets personnalisés.
 
 Consultez [un autre exemple](https://support.getgrist.com/examples/2021-04-link-keys/) pour approfondir votre compréhension des clés de lien.
@@ -351,18 +351,18 @@ La variable `user` contient les membres suivants :
    client web, pas dans l'API.
  * `user.SessionID`: une chaîne unique attribuée aux utilisateurs anonymes pendant la durée de la session de cet utilisateur. Pour les utilisateurs connectés, `user.SessionID` est toujours `"u"` + l'ID numérique de l'utilisateur. 
 
-Pour un exemple d'utilisation de la variable `user`, lisez [Règles par défaut](access-rules.md#default-rules).
+Pour un exemple d'utilisation de la variable `user`, lisez [Règles par défaut](access-rules.md#regles-par-defaut).
 
 La variable `rec` contient l'état d'un enregistrement/ligne individuel, pour
 les conditions qui doivent en tenir compte. Lorsqu'elle est utilisée, cette
 règle devient spécifique à la ligne. Cela permet, par exemple, de rendre certaines
 lignes visibles uniquement pour certains utilisateurs, ou d'interdire la modification
 de certaines lignes par certains utilisateurs.
-Pour un exemple d'utilisation de la variable `rec`, lisez [Contrôle d'accès au niveau des lignes](access-rules.md#row-level-access-control).
+Pour un exemple d'utilisation de la variable `rec`, lisez [Contrôle d'accès au niveau des lignes](access-rules.md#controle-dacces-au-niveau-des-lignes).
 
 La variable `newRec` est disponible pour la création et la mise à jour d'enregistrements/ligne, et contient l'état d'une ligne après un changement proposé,
 vous permettant d'autoriser ou de refuser sélectivement certains changements.
-Pour un exemple d'utilisation de la variable `newRec`, lisez [Vérification des nouvelles valeurs](access-rules.md#checking-new-values).
+Pour un exemple d'utilisation de la variable `newRec`, lisez [Vérification des nouvelles valeurs](access-rules.md#verification-des-nouvelles-valeurs).
 
 Les opérations prises en charge dans les formules de condition sont actuellement : `and`, `or`,
 `+`, `-`, `*`, `/`, `%`, `==`, `!=`, `<`, `<=`, `>`, `>=`, `is`, `is
@@ -370,12 +370,12 @@ not`, `in`, `not in`. Les variables prises en charge sont : `user`, `rec`,
 `newRec` avec leurs membres accessibles avec `.`. Les chaînes, les nombres et
 les listes sont également pris en charge. Si une opération dont vous avez besoin n'est pas disponible,
 considérez si vous pouvez faire une partie du travail dans une formule dans la table
-elle-même (voir [Mémos de règle d'accès](access-rules.md#access-rule-memos) pour un exemple).
+elle-même (voir [Mémos de règle d'accès](access-rules.md#memos-des-regles-dacces) pour un exemple).
 
 Les commentaires sont autorisés, en utilisant `#` ou `"""`. S'il y a un commentaire dans une
 règle, alors le premier commentaire dans une règle qui entraîne un refus d'une
 action sera signalé à l'utilisateur comme un conseil sur la raison pour laquelle l'action n'a pas été
-permise. Voir [Mémos de règle d'accès](access-rules.md#access-rule-memos) pour un exemple.
+permise. Voir [Mémos de règle d'accès](access-rules.md#memos-des-regles-dacces) pour un exemple.
 
 ## Permissions des règles d'accès
 
@@ -397,7 +397,7 @@ qui doivent être gérées dans les règles de table par défaut.
 les Éditeurs et les Propriétaires, tout utilisateur de ce type pourrait éditer une formule et ainsi récupérer n'importe quelle donnée.
 
 En d'autres termes, avoir la permission `S` rend possible de contourner d'autres règles qui empêchent
-l'accès aux données. Pour cette raison, la désactiver -- comme décrit ci-dessus dans [Verrouiller la structure](#lock-down-structure) -- est une première étape importante pour limiter l'accès aux données.
+l'accès aux données. Pour cette raison, la désactiver -- comme décrit ci-dessus dans [Verrouiller la structure](#verrouiller-la-structure) -- est une première étape importante pour limiter l'accès aux données.
 
 
 ## Mémos des règles d'accès

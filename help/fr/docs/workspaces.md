@@ -36,7 +36,7 @@ Vous aurez alors la possibilité de choisir l'dossier souhaité.
 
 ## Gérer l'accès
 
-Sur les [espaces d'équipe](teams.md), les propriétaires d'espaces de travail peuvent contrôler qui a accès à un dossier en utilisant "Gérer les utilisateurs." Les contrôles sont similaires à ceux pour [partager des documents](sharing.md). Les espaces de travail dans les [espaces personnels](teams.md#understanding-personal-sites) ne peuvent pas être partagés.
+Sur les [espaces d'équipe](teams.md), les propriétaires d'espaces de travail peuvent contrôler qui a accès à un dossier en utilisant "Gérer les utilisateurs." Les contrôles sont similaires à ceux pour [partager des documents](sharing.md). Les espaces de travail dans les [espaces personnels](teams.md#comprendre-les-espaces-personnels) ne peuvent pas être partagés.
 
 ![workspaces-manage-users](images/workspaces/workspaces-manage-users.png)
 

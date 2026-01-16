@@ -8,7 +8,7 @@ En-têtes Transférés
 Vous pouvez avoir un middleware qui effectue l'authentification et transmet ensuite l'identité aux applications web dans un en-tête. Si c'est le cas, Grist peut être configuré pour respecter cet en-tête.
 
 !!! warning "Avertissement"
-    **La logique de redirection pour l'authentification utilisant des en-têtes transférés suppose actuellement une configuration [d'un seul espace d'équipe](../self-managed.md#how-do-i-set-up-a-team) et peut mal se comporter pour des configurations multi-sites.**
+    **La logique de redirection pour l'authentification utilisant des en-têtes transférés suppose actuellement une configuration [d'un seul espace d'équipe](../self-managed.md#comment-configurer-une-equipe) et peut mal se comporter pour des configurations multi-sites.**
 
 Pour que cela fonctionne, voici ce que vous devez faire :
 

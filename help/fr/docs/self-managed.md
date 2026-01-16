@@ -88,16 +88,16 @@ Si vous utilisez un autre outil ou service, voici les points importants :
 Installé de cette manière, Grist est accessible uniquement par vous. En général, vous voudrez
 prendre au moins les étapes suivantes :
 
-  * [Configurer le sandboxing](self-managed.md#how-do-i-sandbox-documents) - cela est important pour
+  * [Configurer le sandboxing](self-managed.md#comment-sandboxer-des-documents) - cela est important pour
     limiter ce que les formules peuvent faire.
-  * [Servir depuis un hôte public](self-managed.md#how-do-i-run-grist-on-a-server)
+  * [Servir depuis un hôte public](self-managed.md#comment-executer-grist-sur-un-serveur)
     afin de pouvoir collaborer en direct avec d'autres.
   * Activer une méthode d'authentification afin que les utilisateurs puissent se connecter. Souvent, vous voudrez
     connecter Grist à un service "SSO" (Single Sign-On) que vous utilisez déjà.
     Nous supportons certaines méthodes d'authentification très
-    [générales](self-managed.md#how-do-i-set-up-authentication) qui couvrent de nombreux cas,
-    et une [méthode d'authentification spéciale](self-managed.md#are-there-other-authentication-methods) pour des cas personnalisés.
-  * Envisager d'activer le [support des snapshots](self-managed.md#how-do-i-set-up-snapshots) si vous souhaitez que Grist gère les sauvegardes de documents.
+    [générales](self-managed.md#comment-configurer-lauthentification) qui couvrent de nombreux cas,
+    et une [méthode d'authentification spéciale](self-managed.md#existe-t-il-dautres-methodes-dauthentification) pour des cas personnalisés.
+  * Envisager d'activer le [support des snapshots](self-managed.md#comment-configurer-des-snapshots) si vous souhaitez que Grist gère les sauvegardes de documents.
 
 #### Grist sur AWS
 
@@ -158,7 +158,7 @@ Dans certains environnements cloud tels que AWS ECS, vous devrez peut-être
 
 Nous vous suggérons de vous familiariser avec tous les autres aspects de
 l'autogestion sur cette page avant de servir Grist depuis un hôte public
-(surtout [Sandboxing](self-managed.md#how-do-i-sandbox-documents)).
+(surtout [Sandboxing](self-managed.md#comment-sandboxer-des-documents)).
 Lorsque vous le ferez, il est important de dire à Grist d'où il sera servi,
 en utilisant la variable `APP_HOME_URL`. Par exemple, si vous allez
 servir depuis `https://grist.example.com`, faites savoir à Grist comme ceci :
@@ -230,7 +230,7 @@ docker run ...
 
 Le nom de l'équipe ne doit utiliser que des caractères minuscules a-z, des chiffres
 0-9, et le tiret (`-`). Vous voudrez également peut-être vous pencher sur
-[Personnalisation du style](self-managed.md#how-do-i-customize-styling) pour cacher les éléments d'interface utilisateur
+[Personnalisation du style](self-managed.md#comment-personnaliser-le-style) pour cacher les éléments d'interface utilisateur
 dont vous n'avez pas besoin.
 
 ### Comment configurer l'authentification ? {: .tag-core .tag-ee }
@@ -499,7 +499,7 @@ docker build -t custom/grist .
 ```
 
 Une fois terminé, vous pouvez utiliser `custom/grist` à la place de `gristlabs/grist(-ee)` dans
-[Comment installer Grist](self-managed.md#how-do-i-install-grist),
+[Comment installer Grist](self-managed.md#comment-installer-grist),
 et votre bibliothèque python sera désormais disponible à l'importation dans les formules.
 
 Si vous souhaitez que l'importation soit effectuée automatiquement, afin de ne pas avoir à le faire dans
@@ -514,7 +514,7 @@ Il est possible d'utiliser des webhooks pour activer des intégrations avec des 
 
 Notez que lors de l'auto-hébergement, seuls les services externes autorisés par la
 [variable d'environnement `ALLOWED_WEBHOOK_DOMAINS`](https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables)
-sont autorisés. [Il y a des préoccupations de sécurité](webhooks.md#security) avec
+sont autorisés. [Il y a des préoccupations de sécurité](webhooks.md#securite) avec
 l'autorisation de tout domaine, car les services internes de Grist peuvent devenir vulnérables
 à la manipulation.
 
@@ -547,7 +547,7 @@ fonctionne confortablement servi depuis un conteneur Grist avec :
 Les exigences en mémoire et en CPU évolueront avec le nombre de documents
 utilisés simultanément par votre équipe.
 
-[Le sandboxing](self-managed.md#how-do-i-sandbox-documents) est un problème important pour servir
+[Le sandboxing](self-managed.md#comment-sandboxer-des-documents) est un problème important pour servir
 Grist. Il est réalisé en utilisant [gvisor](https://gvisor.dev/). Le sandboxing dépend de
 la disponibilité de certaines capacités, et peut être indisponible dans
 des environnements qui n'autorisent pas ou manquent ces capacités. Le sandboxing de Grist est connu
@@ -566,7 +566,7 @@ Lorsqu'il est installé en tant que conteneur, Grist s'attend à avoir accès à
 volume persistant, ou à un répertoire partagé avec l'hôte, dans lequel il
 stocke tout ce qui doit durer au-delà d'un redémarrage de conteneur.
 Concrètement, si vous avez démarré Grist exactement comme décrit dans
-[Comment installer Grist](self-managed.md#how-do-i-install-grist),
+[Comment installer Grist](self-managed.md#comment-installer-grist),
 ce répertoire serait `~/grist`. Voici ce que vous y trouveriez :
 
  * Un sous-répertoire appelé `docs`, contenant des fichiers `*.grist`.
@@ -575,20 +575,20 @@ ce répertoire serait `~/grist`. Voici ce que vous y trouveriez :
    Vous pouvez également les télécharger sur une autre installation de
    Grist (comme notre service hébergé) et les visualiser/éditer là-bas.
    Si vous déplacez ou renommez ces fichiers, Grist ne les reconnaîtra plus.
-   Si le [support des snapshots](self-managed.md#how-do-i-set-up-snapshots)
+   Si le [support des snapshots](self-managed.md#comment-configurer-des-snapshots)
    est configuré, il y aura des fichiers supplémentaires à côté de chaque fichier `.grist`
    pour suivre son état de stockage.
 
  * Un fichier appelé `grist-sessions.db`. Cela contient des informations
    pour prendre en charge les sessions de navigateur avec Grist. C'est une base de données SQLite.
-   Si [redis est configuré](self-managed.md#what-is-a-state-store),
+   Si [redis est configuré](self-managed.md#quest-ce-quun-magasin-detat),
    cela est utilisé à la place de ce fichier.
 
  * Un fichier appelé `home.sqlite3`. Cela contient des informations sur
    les équipes, les espaces de travail et les documents (métadonnées uniquement, telles que les noms,
    plutôt que le contenu des documents tels que les tables et les cellules). C'est une
    base de données SQLite. Elle est appelée la
-   [base de données principale](self-managed.md#what-is-a-home-database)
+   [base de données principale](self-managed.md#quest-ce-quune-base-de-donnees-principale)
    et si PostgreSQL est configuré, cela est utilisé à la place de ce fichier.
 
  * Si vous utilisez Grist Omnibus, il y a d'autres fichiers, y compris :

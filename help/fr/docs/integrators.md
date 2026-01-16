@@ -132,10 +132,10 @@ un document à surveiller.
 
 ![configuration grist](images/zapier/gmail/grist-setup.png)
 
-Pour les déclencheurs instantanés, nous pouvons éventuellement spécifier une [colonne de "disponibilité"](integrators.md#readiness-column). Si nous
+Pour les déclencheurs instantanés, nous pouvons éventuellement spécifier une [colonne de "disponibilité"](integrators.md#colonne-de-disponibilite). Si nous
 laissons cela vide, chaque fois qu'un enregistrement est créé ou modifié dans la table sélectionnée,
 Grist en informera Zapier. Si nous la configurons, elle devrait généralement être une
-[colonne de bascule](col-types.md#toggle-columns), et Grist informera Zapier uniquement
+[colonne de bascule](col-types.md#colonnes-basculantes), et Grist informera Zapier uniquement
 pour les enregistrements lorsque cette colonne est activée. Cela est pratique pour les enregistrements qui ont de nombreuses
 colonnes remplies manuellement, lorsque nous ne voulons pas déclencher avant qu'ils ne soient
 complets. Pour cet exemple, il est bien de laisser la colonne de disponibilité vide.
@@ -178,7 +178,7 @@ une nuance importante pour les notifications. Habituellement, il ne sera pas sou
 exactement est-ce ?
 
 Grist laisse l'utilisateur décider par lui-même, en créant une [colonne de bascule
-(booléenne)](col-types.md#toggle-columns) qui est activée lorsque l'enregistrement est prêt. La
+(booléenne)](col-types.md#colonnes-basculantes) qui est activée lorsque l'enregistrement est prêt. La
 colonne peut être définie manuellement ou via une formule. Cela s'appelle une
 colonne de disponibilité.
 
@@ -192,7 +192,7 @@ bool($Name and $Email)
 
 Vous feriez en sorte que la colonne prenne effet en la fournissant dans l'option
 `Colonne de Disponibilité` décrite dans l'
-[exemple d'alerte par email](integrators.md#example-sending-email-alerts).
+[exemple d'alerte par email](integrators.md#exemple-envoi-dalertes-par-email).
 
 ### Déclenchement (ou évitement du déclenchement) sur des enregistrements préexistants
 

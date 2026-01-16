@@ -77,13 +77,13 @@ Notez que cela permet à **n'importe qui** ayant le lien de modifier
 **absolument tout** dans votre document, y compris de supprimer toutes les
 données. En cas de problème, vous pouvez récupérer les versions précédentes de votre
 document dans la section des instantanés de
-[Historique du document.](./automatic-backups.md#examining-backups)
+[Historique du document.](./automatic-backups.md#examiner-les-sauvegardes)
 
 !!! note "Partager une vue intégrée"
     Ajouter `?embed=true` ou `?style=singlePage` à la fin de l'URL de la page d'un document rend le document sans la barre d'outils en haut, le menu de la page à gauche ou le panneau du créateur à droite. `?style=singlePage` peut être modifié et suit les permissions avancées, tandis que `?embed=true` est en lecture seule. Pour en savoir plus sur l'intégration, voir [Intégration de Grist](embedding.md).
 
 [Les permissions avancées](access-rules.md) peuvent être combinées avec le partage de lien en lecture seule, c'est-à-dire lorsque le rôle d'accès public est défini sur "Lecteur". Lisez-en plus sur
-[Les clés de lien](access-rules.md#link-keys) pour apprendre comment définir des règles qui
+[Les clés de lien](access-rules.md#cles-de-lien) pour apprendre comment définir des règles qui
 limitent les parties de vos données que les utilisateurs peuvent voir lorsqu'ils accèdent à votre document
 via un lien particulier.
 

@@ -48,7 +48,7 @@ Les colonnes peuvent horodater un enregistrement lorsqu'il est créé ou mis à 
 Ajoutons une colonne au table `Tâches` pour suivre la dernière mise à jour d'une tâche. Cela peut être accompli en trois étapes.
 
 1. Dans la table `Tâches`, créez une colonne intitulée ‘Dernière Mise à Jour’ et dans les types de colonne, sélectionnez
-   **DateHeure** pour choisir votre [format de date et heure](../col-types.md#datetime-columns) souhaité.
+   **DateHeure** pour choisir votre [format de date et heure](../col-types.md#colonnes-dateheure) souhaité.
 2. Convertissez la colonne en une colonne de données en cliquant sur le menu déroulant `ACTIONS` dans le panneau de création.
    Cela empêche la formule de se déclencher à chaque chargement du document. Une fois convertie en colonne de données, entrez la formule `NOW()`{: .formula}. Vous verrez deux options de case à cocher sous la formule.
     - `Appliquer aux nouveaux enregistrements` déclenche la formule uniquement lorsqu'un enregistrement est créé.
@@ -67,11 +67,11 @@ Les colonnes de nom d'utilisateur sont créées en utilisant les mêmes étapes 
 formule est `user.Name`{: .formula}. Ajoutons une colonne à la table `Tâches` pour suivre qui a créé une tâche.
 
 1. Dans la table `Tâches`, créez une colonne intitulée ‘Créé Par’ et dans les types de colonne, sélectionnez **Texte**
-   et [modifiez le format](../col-types.md#text-columns) si vous le souhaitez.
+   et [modifiez le format](../col-types.md#colonnes-de-texte) si vous le souhaitez.
 2. Convertissez la colonne de formule en une colonne de données et entrez la formule `user.Name`{: .formula}.
 3. Sélectionnez `Appliquer aux nouveaux enregistrements` pour que la formule ne se déclenche que lorsqu'un nouvel enregistrement est créé.
 
-Il existe d'autres possibilités en plus de `user.Name` telles que `user.Email` ou un `user.UserID` unique. Les informations utilisateur disponibles sont les mêmes que celles des [conditions de règle d'accès](../access-rules.md#access-rule-conditions).
+Il existe d'autres possibilités en plus de `user.Name` telles que `user.Email` ou un `user.UserID` unique. Les informations utilisateur disponibles sont les mêmes que celles des [conditions de règle d'accès](../access-rules.md#conditions-des-regles-dacces).
 
 **Note.** Il est toujours possible pour un utilisateur de modifier manuellement les cellules avec des formules d'horodatage ou de nom d'utilisateur. Si vous ne voulez pas que cela soit autorisé, utilisez les
 [permissions avancées](../access-rules.md) pour l'interdire.

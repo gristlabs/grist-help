@@ -17,7 +17,7 @@ Nous supportons actuellement deux versions de Python :
  * Python 3 (spécifiquement 3.11 au moment de l'écriture)
  * Python 2 (spécifiquement 2.7)
 
-Les documents nouvellement créés sur notre service hébergé utilisent Python 3 par défaut, tandis que les documents plus anciens (créés avant environ novembre 2021) utilisent Python 2 par défaut. Pour savoir quelle version de Python un document spécifique utilise, regardez ses [Paramètres du document](creating-doc.md#document-settings).
+Les documents nouvellement créés sur notre service hébergé utilisent Python 3 par défaut, tandis que les documents plus anciens (créés avant environ novembre 2021) utilisent Python 2 par défaut. Pour savoir quelle version de Python un document spécifique utilise, regardez ses [Paramètres du document](creating-doc.md#parametres-du-document).
 Le paramètre `Engine` peut être `python2`, `python3`, ou vide.
 Un paramètre vide implique `python2`.
 
@@ -33,8 +33,8 @@ dans une autre, ou (pire) donner de mauvais résultats.
 Python 2 a atteint sa fin de vie en janvier 2020, donc si vous cherchez de l'aide en ligne pour Python,
 les réponses que vous trouvez sont de plus en plus susceptibles d'être pour Python 3. Si vous avez un document
 qui utilise Python 2, et que vous souhaitez le passer à Python 3, nous vous recommandons de lire
-[Tester l'effet du changement de versions de Python](python.md#testing-the-effect-of-changing-python-versions)
-et [Différences entre les versions de Python](python.md#differences-between-python-versions).
+[Tester l'effet du changement de versions de Python](python.md#tester-leffet-du-changement-de-versions-de-python)
+et [Différences entre les versions de Python](python.md#differences-entre-les-versions-de-python).
 Assurez-vous de vérifier toutes les tables et colonnes, ainsi que les formules régulières et les formules de déclenchement.
 Nous serions intéressés d'entendre votre expérience, et de vous aider avec tout problème,
 sur le [forum communautaire](https://community.getgrist.com/).
@@ -45,16 +45,16 @@ Grist auto-hébergé peut utiliser n'importe quelle version de Python avec laque
 
 Grist dispose de certaines fonctionnalités qui peuvent vous aider à évaluer les conséquences du changement de la version de Python utilisée par un document.
 
- * La fonctionnalité [Travailler sur une copie](copying-docs.md#trying-out-changes) est utile pour
+ * La fonctionnalité [Travailler sur une copie](copying-docs.md#essayer-des-modifications) est utile pour
    expérimenter le changement de version de Python sans affecter votre document jusqu'à ce que
    vous soyez prêt. Il y a une option "Comparer avec l'original" qui vous permettra
    de visualiser quelles cellules ont changé, le cas échéant. Assurez-vous de vérifier toutes les tables et colonnes.
- * L'[onglet Activité de l'Historique du document](document-history.md#activity)
+ * L'[onglet Activité de l'Historique du document](document-history.md#activite)
    (avec "Toutes les tables" sélectionné) vous permet de revoir plus en détail ce qui a
    changé.
  * Soyez prudent pour tester toutes les [formules de déclenchement](formulas.md#trigger-formulas) que vous pourriez
    avoir, car le code Python qu'elles contiennent ne sera pas exécuté tant que vous ne déclencherez pas spécifiquement ces formules.
- * Vous pouvez utiliser le [visualiseur de code](formulas.md#code-viewer) pour vous rappeler rapidement
+ * Vous pouvez utiliser le [visualiseur de code](formulas.md#visualiseur-de-code) pour vous rappeler rapidement
    de toutes les formules dans un document, afin de pouvoir les vérifier systématiquement.
 
 ## Différences entre les versions de Python

@@ -6,7 +6,7 @@ Formules
 =========
 
 Grist dispose d'un puissant moteur de données pour calculer les cellules de vos
-tables en utilisant des formules. Il dispose même d'un [Assistant de Formule AI](ai-assistant.md) pour aider à rédiger des formules. Si vous avez déjà utilisé des tableurs ou
+tables en utilisant des formules. Il dispose même d'un [Assistant de Formule AI](assistant.md) pour aider à rédiger des formules. Si vous avez déjà utilisé des tableurs ou
 des expressions de base de données, vous serez dans un territoire familier - mais il y a
 quelques subtilités que vous voudrez connaître, alors restez avec nous.
 
@@ -37,7 +37,7 @@ Votre formule devrait ressembler à ceci :
 {: .screenshot-half }
 
 Pour contrôler l'ID de la colonne, comme "$Prix_Unitaire", qui est utilisé dans les formules, consultez
-[Renommer les colonnes](col-types.md#renaming-columns).
+[Renommer les colonnes](col-types.md#renommer-les-colonnes).
 
 Appuyez sur <code class="keys">*Entrée*</code>, et votre formule est appliquée à toutes les cellules de la colonne.
 
@@ -50,7 +50,7 @@ Dans Grist, une seule formule s'applique à toute une colonne.
 Vous n'avez pas à vous soucier de la remplir pour toutes les lignes,
 et vous pouvez vous référer à des valeurs dans la même ligne sans tracas.
 
-Vous pouvez formater les colonnes numériques pour qu'elles aient un meilleur aspect en [définissant le type de colonne](col-types.md#specifying-a-type) sur `Numérique`, et en sélectionnant des options de formatage appropriées :
+Vous pouvez formater les colonnes numériques pour qu'elles aient un meilleur aspect en [définissant le type de colonne](col-types.md#specifier-un-type) sur `Numérique`, et en sélectionnant des options de formatage appropriées :
 
 <span class="screenshot-large">*![formules-prix-final](images/formulas/formulas-price-formatted.png)*</span>
 {: .screenshot-half }
@@ -65,7 +65,7 @@ Une colonne de formule est l'un des trois comportements possibles de colonne, qu
 la section `COMPORTEMENT DE COLONNE` dans le panneau de création :
 
 - `Colonne de données` maintient des données, que vous pouvez mettre à jour ou effacer manuellement, ou éventuellement
-calculer en utilisant [formules d'initialisation](formulas.md#trigger-formulas).
+calculer en utilisant [formules d'initialisation](formulas.md#formules-dinitialisation).
 - `Colonne de formule` reflète toujours le résultat du calcul de la formule, et est maintenue
 à jour par Grist.
 - `Colonne vide` est un état pour une nouvelle colonne. Saisir une valeur dans celle-ci la transformera en une
@@ -79,11 +79,11 @@ disponibles dans le menu de comportement. Selon le comportement actuel de la col
 
 - L'action `Définir la formule` convertit une colonne vide en colonne de formule.
 - L'action `Définir la formule d'initialisation` ou `Convertir en formule d'initialisation` définit un déclencheur sur une colonne
-(plus d'informations sur les déclencheurs dans la prochaine [section Formules d'initialisation](formulas.md#trigger-formulas)).
+(plus d'informations sur les déclencheurs dans la prochaine [section Formules d'initialisation](formulas.md#formules-dinitialisation)).
 - L'action `Transformer en colonne de données` convertit une colonne vide en colonne de données régulière.
 - `Convertir la colonne en données` convertit une colonne de formule en colonne de données régulière (vous pouvez en lire
 davantage sur cette fonctionnalité dans la 
-[section Geler une colonne de formule](formulas.md#freeze-a-formula-column)).
+[section Geler une colonne de formule](formulas.md#geler-une-colonne-de-formule)).
 - L'action `Effacer et transformer en formule` efface toutes les données d'une colonne et la convertit en une
 colonne de formule. (Nous disons "effacer" pour rappeler que les données existantes dans la colonne seront
 perdues. Elles seront remplacées par les résultats de calcul de la formule.)
@@ -166,8 +166,8 @@ Les formules sont sensibles à la casse, les fonctions similaires à Excel étan
 le Python régulier étant généralement en minuscules (`max`).
 
 Pour des correspondances exactes, il existe un raccourci pour éviter l'itération appelé
-[lookupRecords](functions.md#lookuprecords), ou
-[lookupOne](functions.md#lookupone) pour des correspondances uniques.
+[lookupRecords](functions.md#lookuprecords_2), ou
+[lookupOne](functions.md#lookupone_2) pour des correspondances uniques.
 Il suffit de passer les valeurs des colonnes que vous souhaitez faire correspondre.
 Par exemple, voici une formule pour rechercher le nom du produit d'un matériau
 avec une quantité de 52 :
@@ -225,7 +225,7 @@ Pour ceux qui connaissent Python, voici les valeurs supplémentaires disponibles
 vous dans Grist :
 
  * `rec` est la ligne actuelle. La syntaxe `$column` est une abréviation pour
-   `rec.column`. La variable `rec` est de type [Record](functions.md#record).
+   `rec.column`. La variable `rec` est de type [Record](functions.md#record.
  * `table` est le tableau actuel, et est de type [UserTable](functions.md#usertable).
  * Les tableaux dans votre document sont disponibles par leur nom, et sont également de
    type [UserTable](functions.md#usertable).
@@ -258,7 +258,7 @@ changent.
 La formule d'origine est sauvegardée mais reste inactive. Elle peut redevenir utile
 si vous souhaitez convertir la colonne de nouveau en colonne de formule, ou
 l'utiliser comme une 
-[Formule d'Initialisation](formulas.md#trigger-formulas).
+[Formule d'Initialisation](formulas.md#formules-dinitialisation).
 
 Le panneau latéral a de nombreux autres paramètres pratiques, tels que le formatage des cellules
 (nombre de chiffres après la virgule, couleur, etc.). Les options s'appliquent
@@ -266,8 +266,8 @@ tout autant aux colonnes de formule qu'aux colonnes régulières.
 
 ## Recherches
 
-Les fonctions Grist [lookupOne](functions.md#lookupone) et
-[lookupRecords](functions.md#lookuprecords) sont utiles pour énumérer
+Les fonctions Grist [lookupOne](functions.md#lookupone_2) et
+[lookupRecords](functions.md#lookuprecords_2) sont utiles pour énumérer
 des sous-ensembles de vos données. Par exemple, supposons que nous ajoutions une colonne `Catégorie`
 à notre tableau `Matériaux`, et souhaitions lister tous les produits appartenant
 à une catégorie spécifique. Nous pouvons le faire en utilisant `TABLE.lookupRecords`, où `TABLE` est le tableau d'intérêt, et en lui fournissant les valeurs de colonne
@@ -275,7 +275,7 @@ des sous-ensembles de vos données. Par exemple, supposons que nous ajoutions un
 
 ![formules-options-colonne](images/formulas/formulas-lookup-unsorted.png)
 
-Si vous suivez, consultez [Ajouter un champ](widget-card.md#adding-a-field)
+Si vous suivez, consultez [Ajouter un champ](widget-card.md#ajouter-un-champ)
 pour des détails sur la façon d'ajouter un nouveau champ à une carte. Si vous vous souciez de l'ordre
 des résultats, `lookupRecords` prend un paramètre optionnel `sort_by`. Par exemple,
 nous pourrions utiliser cette formule pour trier par le nom du produit lui-même :
@@ -293,7 +293,7 @@ des lignes.
 
 Si vous vous retrouvez à faire beaucoup de recherches, envisagez
 si les [Tableaux de Résumé](summary-tables.md) et
-[Formules de Résumé](summary-tables.md#summary-formulas) pourraient être
+[Formules de Résumé](summary-tables.md#formules-de-synthese) pourraient être
 ce que vous recherchez.
 
 ## Récursivité

@@ -95,7 +95,7 @@ D'accord ! Si quelqu'un m'envoyait cela, je le paierais. Vous devriez me donner 
 lui donnant une date d'échéance. Ajoutons une colonne `Échéance` et définissons-la à
 un mois à partir de la date `Émise`. N'oubliez pas de rendre la colonne `Échéance`
 visible pour le widget via `Options du Widget`. Assurez-vous également de
-[définir le Type de Colonne](../col-types.md#specifying-a-type) pour
+[définir le Type de Colonne](../col-types.md#specifier-un-type) pour
 `Émise` sur `Date` sinon vous ne pourrez pas faire de calculs de date dessus (ce sera
 juste une chaîne de caractères).
 
@@ -219,7 +219,7 @@ pour obtenir une colonne calculée automatiquement :
 Il est probablement plus confortable d'éditer les factures
 comme une Vue Fiche plutôt qu'une Vue Table, alors changeons cela
 en utilisant `Options du Widget`, `Table`, `Changer Widget`, `Fiche`, `Enregistrer`.
-Vous pouvez [personnaliser la mise en page de la fiche](../widget-card.md#editing-card-layout) à votre goût.
+Vous pouvez [personnaliser la mise en page de la fiche](../widget-card.md#modifier-la-disposition-de-la-fiche) à votre goût.
 
 ![Facture](../examples/images/2020-08-invoices/invoice-card.png)
 

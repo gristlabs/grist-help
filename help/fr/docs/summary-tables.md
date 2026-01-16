@@ -135,7 +135,7 @@ Sélectionnez "Diagramme à barres" pour le type de graphique, et sélectionnez 
 <span class="screenshot-large">*![summary-chart-res](images/summary-chart-res.png)*</span>
 {: .screenshot-half }
 
-Le tutoriel [Analyser et visualiser](investment-research.md#dynamic-charts) montre d'autres exemples de graphiques basés sur des tables de synthèse.
+Le tutoriel [Analyser et visualiser](investment-research.md#graphiques-dynamiques) montre d'autres exemples de graphiques basés sur des tables de synthèse.
 
 ## Détacher des tables de synthèse
 

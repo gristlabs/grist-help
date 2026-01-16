@@ -8,7 +8,7 @@ Grist offre deux façons de transformer toutes les valeurs d'une colonne. L'une 
 
 ## Conversions de type
 
-Lors de la conversion entre différents types de colonnes, Grist adopte un comportement par défaut raisonnable, mais rend ce comportement facile à réviser. Par exemple, supposons que vous ayez une colonne d'entiers. Pour convertir cette colonne en texte, ouvrez les options de la colonne comme décrit dans [Spécifier un type](col-types.md#specifying-a-type), et trouvez la section de type de colonne. Changez le type de colonne en texte dans le menu déroulant. Vous remarquerez qu'une boîte de dialogue "annuler/réviser/appliquer" s'ouvre à côté du menu déroulant.
+Lors de la conversion entre différents types de colonnes, Grist adopte un comportement par défaut raisonnable, mais rend ce comportement facile à réviser. Par exemple, supposons que vous ayez une colonne d'entiers. Pour convertir cette colonne en texte, ouvrez les options de la colonne comme décrit dans [Spécifier un type](col-types.md#specifier-un-type), et trouvez la section de type de colonne. Changez le type de colonne en texte dans le menu déroulant. Vous remarquerez qu'une boîte de dialogue "annuler/réviser/appliquer" s'ouvre à côté du menu déroulant.
 
 *![Tally to text](images/columns/columns-tally-convert.png)*
 {: .screenshot-half }
@@ -26,7 +26,7 @@ Les tableurs sont des outils pratiques pour nettoyer les données en utilisant d
 
 ![Motivating transformations](images/columns/columns-zip-columns.png)
 
-Nous pourrions maintenant [figer les résultats](formulas.md#freeze-a-formula-column) et supprimer les données originales si nous n'en avons plus besoin.
+Nous pourrions maintenant [figer les résultats](formulas.md#geler-une-colonne-de-formule) et supprimer les données originales si nous n'en avons plus besoin.
 
 Si vous savez que vous allez jeter les données originales comme cela, Grist offre des transformations de colonne comme un moyen plus rapide de modifier systématiquement toutes les cellules d'une colonne.
 
@@ -38,4 +38,4 @@ Lorsque vous cliquez sur le bouton orange "éclair", Grist vous propose une form
 
 ![Column transformation preview](images/columns/columns-transformer-preview.png)
 
-Lorsque vous êtes satisfait, appuyez sur "Appliquer" pour remplacer les valeurs des cellules par leurs nouvelles versions. De même, la colonne `response` pourrait être transformée avec la formule en valeurs vrai/faux avec `$response[0] == 'y'`, puis définie comme une [colonne à bascule](col-types.md#toggle-columns).
+Lorsque vous êtes satisfait, appuyez sur "Appliquer" pour remplacer les valeurs des cellules par leurs nouvelles versions. De même, la colonne `response` pourrait être transformée avec la formule en valeurs vrai/faux avec `$response[0] == 'y'`, puis définie comme une [colonne à bascule](col-types.md#colonnes-basculantes).

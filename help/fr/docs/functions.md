@@ -3175,7 +3175,7 @@ Tronque un nombre à un certain nombre de chiffres significatifs en omettant les
 Génère un identifiant de chaîne formaté UUID aléatoire.
 
 Puisque UUID() produit une valeur différente chaque fois qu'il est appelé, il est préférable de l'utiliser dans
-[formule de déclenchement](formulas.md#trigger-formulas) pour de nouveaux enregistrements.
+[formule de déclenchement](formulas.md#formules-dinitialisation) pour de nouveaux enregistrements.
 Cela ne calculerait UUID() qu'une seule fois et figerait la valeur calculée. En revanche, une formule ordinaire peut être recalculée à chaque fois que le document est rechargé, produisant une valeur différente pour
 UUID() à chaque fois.
 </details>
@@ -4600,7 +4600,7 @@ L'argument `format` spécifie le format de sortie, selon ce tableau :
     `+33 2 34 56 78 90`.
   - `"*"` ou `"E164"` - format E164, comme international mais sans séparateurs, par exemple
     `+12345678901`.
-  - `"tel"` ou `"RFC3966"` - format adapté à utiliser comme un [hyperlien](col-types.md#hyperlinks),
+  - `"tel"` ou `"RFC3966"` - format adapté à utiliser comme un [hyperlien](col-types.md#hyperliens),
     par exemple 'tel:+1-234-567-8901'.
 
 Lorsque vous spécifiez l'argument `format`, vous pouvez omettre l'argument `country`. C'est-à-dire

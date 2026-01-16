@@ -9,7 +9,7 @@ Cette fonctionnalité permet la synchronisation automatique des documents Grist 
 
 Grist Enterprise prend en charge nativement les comptes de stockage Azure et AWS S3 en utilisant le client officiel d'AWS.
 
-Il est conseillé d'avoir [Redis activé](../self-managed.md#what-is-a-state-store) lors de l'utilisation du stockage cloud, car c'est la configuration la mieux testée.
+Il est conseillé d'avoir [Redis activé](../self-managed.md#quest-ce-quun-magasin-detat) lors de l'utilisation du stockage cloud, car c'est la configuration la mieux testée.
 
 Activer la création de snapshots entraîne un grand changement dans la façon dont les documents sont stockés, et il est préférable de le faire avant de créer des documents. Sauvegardez votre travail avant de modifier cette configuration.
 

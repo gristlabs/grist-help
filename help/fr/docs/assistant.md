@@ -7,22 +7,22 @@ Assistant de Formule AI
 
 L'Assistant de Formule AI de Grist simplifie la partie la plus difficile des feuilles de calcul — les formules. L'assistant ne fait qu'une seule chose, écrire des formules en réponse à des requêtes en langage clair.
 
-Lorsque vous posez une question à l'assistant, il n'est pas nécessaire de spécifier les IDs des colonnes ou d'expliquer la structure de vos données. Lorsque vous soumettez une question à l'assistant, Grist envoie votre question et le schéma de vos données (en partie ou en totalité) à [OpenAI](https://openai.com/){:target="\_blank"} afin que l'assistant puisse mieux comprendre votre document. Vous pouvez consulter le schéma de vos données dans la [vue code.](formulas.md#code-viewer)
+Lorsque vous posez une question à l'assistant, il n'est pas nécessaire de spécifier les IDs des colonnes ou d'expliquer la structure de vos données. Lorsque vous soumettez une question à l'assistant, Grist envoie votre question et le schéma de vos données (en partie ou en totalité) à [OpenAI](https://openai.com/){:target="\_blank"} afin que l'assistant puisse mieux comprendre votre document. Vous pouvez consulter le schéma de vos données dans la [vue code.](formulas.md#visualiseur-de-code)
 
-Aucune donnée n'est partagée avec OpenAI à moins qu'un utilisateur ne soumette une question à l'assistant. En savoir plus sur [l'utilisation des données](ai-assistant.md#data-use-policy).
+Aucune donnée n'est partagée avec OpenAI à moins qu'un utilisateur ne soumette une question à l'assistant. En savoir plus sur [l'utilisation des données](assistant.md#politique-dutilisation-des-donnees).
 
 ## Comment Utiliser l'Assistant AI
 
 Créez une [colonne de formule](formulas.md) et cliquez soit sur l'icône d'agrandissement, soit sur le lien texte “utiliser l'Assistant AI” dans la cellule.
 
-<span class="screenshot-large">*![Ouverture de l'Assistant AI](images/ai-assistant/formula-cell-editor.png)*</span>
+<span class="screenshot-large">*![Ouverture de l'Assistant AI](images/ai-assistant-legacy/formula-cell-editor.png)*</span>
 {: .screenshot-half }
 
-Cela ouvrira un éditeur de formule étendu avec le chat de l'Assistant AI en dessous. Décrivez simplement ce que vous voulez que la formule fasse. [Voici quelques conseils.](ai-assistant.md#best-practices)
+Cela ouvrira un éditeur de formule étendu avec le chat de l'Assistant AI en dessous. Décrivez simplement ce que vous voulez que la formule fasse. [Voici quelques conseils.](assistant.md#bonnes-pratiques)
 
 Lorsque vous appliquez une formule suggérée, vous verrez la formule prévisualisée dans la colonne. Si vous êtes satisfait de la formule, cliquez sur “Enregistrer”. Sinon, cliquez sur “Annuler” pour annuler les modifications apportées à la formule.
 
-<span class="screenshot-large">*![Assistant de Formule AI](images/ai-assistant/ai-assistant-dialog.png)*</span>
+<span class="screenshot-large">*![Assistant de Formule AI](images/ai-assistant-legacy/ai-assistant-dialog.png)*</span>
 {: .screenshot-half }
 
 ## Assistant AI pour les Auto-hébergeurs
@@ -50,13 +50,13 @@ Les [plans Pro](https://www.getgrist.com/pricing/){:target="\_blank"} incluent 1
 
 * Définissez le [type de colonne](col-types.md) de la colonne de formule avant de demander de l'aide à l'assistant. Cela aide l'assistant à deviner quel type de valeurs vous souhaitez obtenir.
 
-* Pensez au type de valeur que vous vous attendez à voir dans la formule, et formulez la question en conséquence. Par exemple, si vous voulez une formule qui renvoie Vrai ou Faux dans une [colonne de bascule](col-types.md#toggle-columns), posez une question oui-ou-non. Sinon, l'assistant pourrait suggérer une formule qui liste toutes les lignes où quelque chose est vrai (et est techniquement correct), mais vous espériez une simple valeur vraie ou fausse par ligne.
+* Pensez au type de valeur que vous vous attendez à voir dans la formule, et formulez la question en conséquence. Par exemple, si vous voulez une formule qui renvoie Vrai ou Faux dans une [colonne de bascule](col-types.md#colonnes-basculantes), posez une question oui-ou-non. Sinon, l'assistant pourrait suggérer une formule qui liste toutes les lignes où quelque chose est vrai (et est techniquement correct), mais vous espériez une simple valeur vraie ou fausse par ligne.
 
 * L'assistant est conversationnel. Si vous n'êtes pas satisfait d'une formule suggérée, expliquez à l'assistant où la formule a échoué et demandez-lui de faire un changement.
 
 * Parfois, l'assistant s'entête sur une mauvaise idée. S'il insiste sur une méthode de formule particulière, envisagez de supprimer la conversation et de recommencer. Cliquez sur le menu à trois points dans l'en-tête de l'Assistant AI pour effacer une conversation.
 
-<span class="screenshot-large">*![Effacer la Conversation de l'Assistant AI](images/ai-assistant/clear-conversation.png)*</span>
+<span class="screenshot-large">*![Effacer la Conversation de l'Assistant AI](images/ai-assistant-legacy/clear-conversation.png)*</span>
 {: .screenshot-half }
 
 * Rappelez-vous que les formules Grist s'appliquent à toute la colonne. Si vous voulez des sommes de lignes, vous avez besoin d'une [table de résumé](summary-tables.md). Vous pouvez ajouter plus de formules aux tables de résumé et demander à l'assistant de vous aider.

@@ -4,7 +4,7 @@ title: Données sources
 
 # Données sources
 
-La page des données sources est une page spéciale qui répertorie toutes les [tables de données](glossary.md#data-table) de votre document et résume les statistiques d'utilisation de votre document.
+La page des données sources est une page spéciale qui répertorie toutes les [tables de données](glossary.md#table-de-donnees) de votre document et résume les statistiques d'utilisation de votre document.
 
 Depuis votre document, accédez à la page des données sources en cliquant sur le lien 'Données Sources' en bas à gauche du menu des pages.
 
@@ -15,7 +15,7 @@ Contrairement aux autres [pages](page-widgets.md), la mise en page de la page de
 
 ![Liste des Données Sources](images/raw-data/raw-data-list.png)
 
-Cliquez sur une table de données pour l'ouvrir. Notez que dans le panneau de création, le [type de vue](page-widgets.md#page-widgets) ne peut pas être modifié. Renommer la vue renomme également la table de données. Étant donné que les données sources sont destinées à montrer toutes les données, les colonnes ne peuvent pas être masquées non plus. Cependant, les colonnes peuvent être réorganisées, supprimées, créées et modifiées. Pour les créateurs, cette vue peut faciliter la modification de la structure des données, l'ajout de [formules](formulas.md), de [mise en forme conditionnelle](conditional-formatting.md), etc.
+Cliquez sur une table de données pour l'ouvrir. Notez que dans le panneau de création, le [type de vue](page-widgets.md#pages-widgets) ne peut pas être modifié. Renommer la vue renomme également la table de données. Étant donné que les données sources sont destinées à montrer toutes les données, les colonnes ne peuvent pas être masquées non plus. Cependant, les colonnes peuvent être réorganisées, supprimées, créées et modifiées. Pour les créateurs, cette vue peut faciliter la modification de la structure des données, l'ajout de [formules](formulas.md), de [mise en forme conditionnelle](conditional-formatting.md), etc.
 
 ![Vue des Données Sources](images/raw-data/raw-data-lightbox.png)
 

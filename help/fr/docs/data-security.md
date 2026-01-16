@@ -59,7 +59,7 @@ et le lieu de stockage des données. Voici quelques considérations de sécurit�
    car le logiciel que vous installez aura un accès complet à vos
    données.
  * Les documents Grist prennent en charge des formules Python puissantes. Veuillez
-   prêter attention aux instructions pour [configurer le sandboxing](self-managed.md#how-do-i-sandbox-documents)
+   prêter attention aux instructions pour [configurer le sandboxing](self-managed.md#comment-sandboxer-des-documents)
    si votre équipe peut travailler avec des documents non fiables.
  * Par défaut, Grist est accueillant pour les utilisateurs anonymes, leur permettant
    de créer et de modifier leurs propres documents. Vous pouvez souhaiter

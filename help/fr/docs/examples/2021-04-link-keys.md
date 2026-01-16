@@ -38,7 +38,7 @@ Vous remarquerez que notre formule a changé en formule d'initialisation. Sélec
 ## Étape 2 : Connecter l'UUID aux enregistrements dans d'autres tables
 
 Dans les tables Étudiants, Sessions et Paiements, ajoutez une colonne qui lie chaque enregistrement à l'UUID de la famille référencée. Nommez ces colonnes "UUID", avec la formule simple `$Family.UUID`{: .formula}.
-Vous ne savez pas comment cela fonctionne ? Révisez les puissantes [colonnes de référence](../col-refs.md#reference-and-reference-lists) de Grist.
+Vous ne savez pas comment cela fonctionne ? Révisez les puissantes [colonnes de référence](../col-refs.md#comprendre-les-colonnes-de-reference) de Grist.
 
 ![Utiliser des colonnes de référence pour récupérer l'UUID](images/2021-04-link-keys/private-tutor-reference-UUID.png)
 
@@ -56,7 +56,7 @@ Dans la table des familles, créez une nouvelle colonne dans laquelle vous utili
 
 Ouvrez la page des Permissions Avancées depuis le panneau de gauche et créez des règles pour donner un accès limité à vos clients. Réfléchissons à qui devrait accéder à chaque table et quelles parties de celle-ci devraient être accessibles.
 
- 1. Vous, le propriétaire du document, devez avoir un accès complet pour Lire (R), Mettre à jour (U), Créer (C) et Supprimer (D) des enregistrements dans chaque table. Ajoutez la règle `user.Access in [OWNER]` à _chaque table_ pour accorder aux propriétaires un accès complet. Pourquoi `user.Access` ? Consultez les [conditions des permissions avancées](../access-rules.md#access-rule-conditions) pour en savoir plus.
+ 1. Vous, le propriétaire du document, devez avoir un accès complet pour Lire (R), Mettre à jour (U), Créer (C) et Supprimer (D) des enregistrements dans chaque table. Ajoutez la règle `user.Access in [OWNER]` à _chaque table_ pour accorder aux propriétaires un accès complet. Pourquoi `user.Access` ? Consultez les [conditions des permissions avancées](../access-rules.md#conditions-des-regles-dacces) pour en savoir plus.
 
  2. Les parents consultant le document doivent avoir un accès en lecture seule uniquement aux enregistrements liés à leur famille. Dans les étapes précédentes, nous avons créé un identifiant unique (UUID) pour chaque famille, connecté les enregistrements pertinents dans toutes les tables à un UUID, et généré des URL avec des clés de lien incluant ces UUID. Maintenant, nous devons créer des permissions avancées qui correspondent aux UUID et aux clés de lien URL.
 
@@ -68,7 +68,7 @@ Ouvrez la page des Permissions Avancées depuis le panneau de gauche et créez d
 
 ![Créer des liens uniques](images/2021-04-link-keys/private-tutor-UUID-acl.png)
 
-Vous l'avez fait ! Ce n'est que le début. Il y a beaucoup plus que vous pouvez faire avec les clés de lien. Consultez [un autre exemple](../access-rules.md#link-keys) pour approfondir encore plus votre compréhension des clés de lien.
+Vous l'avez fait ! Ce n'est que le début. Il y a beaucoup plus que vous pouvez faire avec les clés de lien. Consultez [un autre exemple](../access-rules.md#cles-de-lien) pour approfondir encore plus votre compréhension des clés de lien.
 
 **Besoin d'aide supplémentaire ?** Consultez la [solution du tutoriel ici](https://public.getgrist.com/9ZQvegsao3zT/Private-Tutor-LinkKey-Tutorial-Solution?UUID_=039170d0-c4d6-4a43-a357-3cb0fd10822f).
 Faites une copie pour voir toutes les données :

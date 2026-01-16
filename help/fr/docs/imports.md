@@ -4,7 +4,7 @@ title: Importer plus de données
 
 # Importer plus de données
 
-Vous pouvez importer un fichier pour [créer un nouveau document Grist](creating-doc.md) ou pour ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON, tabulés et depuis [Google Drive](imports.md#import-from-google-drive).
+Vous pouvez importer un fichier pour [créer un nouveau document Grist](creating-doc.md) ou pour ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON, tabulés et depuis [Google Drive](imports.md#importer-depuis-google-drive).
 
 Pour créer un nouveau document Grist, cliquez sur le bouton "Ajouter Nouveau" sur l'écran d'accueil et choisissez "Importer un document", comme décrit dans [créer un nouveau document Grist](creating-doc.md).
 
@@ -42,7 +42,7 @@ Pour importer, connectez-vous à votre compte Google en cliquant sur le bouton "
 
 ![import-dialog](images/import-google-drive-picker.png)
 
-Une fois le fichier choisi, le reste du processus est le même que pour importer depuis un fichier Excel. Dans la [boîte de dialogue d'importation](imports.md#the-import-dialog), vous pouvez configurer quelles données importer et dans quelle table de destination les ajouter.
+Une fois le fichier choisi, le reste du processus est le même que pour importer depuis un fichier Excel. Dans la [boîte de dialogue d'importation](imports.md#la-boite-de-dialogue-dimportation), vous pouvez configurer quelles données importer et dans quelle table de destination les ajouter.
 
 Si vous avez une URL vers un fichier ou une feuille de calcul stockée sur votre Google Drive ou un fichier accessible publiquement, vous pouvez l'importer directement en utilisant l'option "Importer depuis une URL" du menu "Ajouter Nouveau".
 
