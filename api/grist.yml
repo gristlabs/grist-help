@@ -63,6 +63,8 @@ paths:
       responses:
         200:
           description: Success
+
+  /orgs/{orgId}/{name}:
     delete:
       operationId: deleteOrg
       tags:
@@ -70,6 +72,12 @@ paths:
       summary: "Delete an org"
       parameters:
         - $ref: '#/components/parameters/orgIdPathParam'
+        - in: path
+          name: name
+          schema:
+            type: string
+          description: The organization name
+          required: true
       responses:
         200:
           description: Success
