@@ -12,7 +12,7 @@ Pour tous les plans, le nombre de documents n'est pas limité.
 
 Pour éviter l'utilisation abusive du système par des outils d'automatisation, les espaces d'équipe peuvent être limités à 1 000 documents. Si vous rencontrez cette limite pour une utilisation légitime, veuillez contacter le support pour l'augmenter.
 
-Les anciens plans gratuits avaient une limite de dix documents. En savoir plus sur les [limites héritées](#legacy-limits).
+Les anciens plans gratuits avaient une limite de dix documents. En savoir plus sur les [limites héritées](#limites-heritees).
 
 ## Nombre de collaborateurs
 

@@ -34,7 +34,7 @@ Dans le même élément de menu, vous pouvez choisir de trier par ordre croissan
 **Différence par rapport à Excel** :
 Il est important de noter que le tri ne change aucun calcul de formule, il ne change que l'ordre dans lequel vous voyez les enregistrements. Cela est différent des tableurs comme Excel.
 
-Une autre différence est que le paramètre de tri est "actif" : si vous ajoutez un enregistrement ou modifiez une cellule utilisée pour le tri, l'enregistrement se déplacera à sa position correcte dans l'ordre de tri. Voir [Enregistrer les positions des lignes](#saving-row-positions) ci-dessous pour une option plus similaire au comportement d'Excel.
+Une autre différence est que le paramètre de tri est "actif" : si vous ajoutez un enregistrement ou modifiez une cellule utilisée pour le tri, l'enregistrement se déplacera à sa position correcte dans l'ordre de tri. Voir [Enregistrer les positions des lignes](#enregistrer-les-positions-des-lignes) ci-dessous pour une option plus similaire au comportement d'Excel.
 
 ### Colonnes Multiples
 Lorsque vous triez une table, vous pouvez cliquer sur une autre colonne pour l'ajouter au tri :

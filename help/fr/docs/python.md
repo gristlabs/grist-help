@@ -52,7 +52,7 @@ Grist dispose de certaines fonctionnalités qui peuvent vous aider à évaluer l
  * L'[onglet Activité de l'Historique du document](document-history.md#activite)
    (avec "Toutes les tables" sélectionné) vous permet de revoir plus en détail ce qui a
    changé.
- * Soyez prudent pour tester toutes les [formules de déclenchement](formulas.md#trigger-formulas) que vous pourriez
+ * Soyez prudent pour tester toutes les [formules de déclenchement](formulas.md#formules-dinitialisation) que vous pourriez
    avoir, car le code Python qu'elles contiennent ne sera pas exécuté tant que vous ne déclencherez pas spécifiquement ces formules.
  * Vous pouvez utiliser le [visualiseur de code](formulas.md#visualiseur-de-code) pour vous rappeler rapidement
    de toutes les formules dans un document, afin de pouvoir les vérifier systématiquement.

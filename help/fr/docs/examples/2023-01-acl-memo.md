@@ -11,7 +11,7 @@ d'enregistrements ont le même code :
 
 ![Table des aéroports](images/2023-01-acl-memo/access-rules-dupe-setup.png)
 
-Pour comprendre cette formule, visitez notre [aide-mémoire des formules](../formula-cheat-sheet.md#finding-duplicates) pour trouver des doublons.
+Pour comprendre cette formule, visitez notre [aide-mémoire des formules](../formula-cheat-sheet.md#trouver-des-doublons) pour trouver des doublons.
 
 Maintenant, nous pouvons ajouter une règle d'accès pour interdire toute mise à jour ou création d'enregistrement qui entraînerait un `Count` supérieur à un. Nous pouvons également inclure une note pour expliquer le problème :
 

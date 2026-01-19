@@ -268,7 +268,7 @@ Si vous essayez d'utiliser différentes colonnes avec des valeurs *numériques* 
 <span class="screenshot-large">*![column-type-numeric](images/formula-cheat-sheet/column-type-numeric.png)*</span>
 {: .screenshot-half }
 
-[float()](https://docs.python.org/3/library/functions.html#float){:target="\_blank"} n'est nécessaire que lorsque vous traitez des valeurs alphanumériques comme nous le voyons dans l'[exemple](#example-converting-a-string-to-a-float).
+[float()](https://docs.python.org/3/library/functions.html#float){:target="\_blank"} n'est nécessaire que lorsque vous traitez des valeurs alphanumériques comme nous le voyons dans l'[exemple](#exemple-de-conversion-dune-chaine-en-float).
 
 **TypeError : impossible de multiplier une séquence par un type non-int de 'float'**
 <span class="screenshot-large">*![multiply-non-int-float-type-error](images/formula-cheat-sheet/multiply-non-int-float-type-error.png)*</span>
@@ -722,7 +722,7 @@ return sorted(set(full_list))
 ```
 Nous allons décomposer cela ligne par ligne.
 
-Attending-Confirmed est une colonne de liste de référence qui tire des données de la table EMPLOYEES. `$Attending_Confirmed.Role_Division` tire la valeur de la colonne Role Division de la table EMPLOYEES. La colonne Role Division dans la table EMPLOYEES est elle-même une colonne de référence, qui pointe vers un enregistrement dans la table Divisions. [Chaining](references-lookups.md#chaining) nous permet de spécifier quelles informations nous voulons de cet enregistrement. Dans ce cas, nous voulons la Division. Nous développons notre formule pour `$Attending_Confirmed.Role_Division.Division`. La Division est trouvée pour chaque employé listé dans la colonne Attending-Confirmed, créant une liste. Nous assignons cette liste de divisions à la variable `confirmed_div`.
+Attending-Confirmed est une colonne de liste de référence qui tire des données de la table EMPLOYEES. `$Attending_Confirmed.Role_Division` tire la valeur de la colonne Role Division de la table EMPLOYEES. La colonne Role Division dans la table EMPLOYEES est elle-même une colonne de référence, qui pointe vers un enregistrement dans la table Divisions. [Chaînage](references-lookups.md#chaînage) nous permet de spécifier quelles informations nous voulons de cet enregistrement. Dans ce cas, nous voulons la Division. Nous développons notre formule pour `$Attending_Confirmed.Role_Division.Division`. La Division est trouvée pour chaque employé listé dans la colonne Attending-Confirmed, créant une liste. Nous assignons cette liste de divisions à la variable `confirmed_div`.
 
 Attending-Pending est également une colonne de liste de référence qui tire des données de la table EMPLOYEES. `$Attending_Pending.Role_Division.Division` fait la même chose que ci-dessus sauf que maintenant nous tirons la division pour chaque employé dans la colonne Attending-Pending. Nous assignons cette liste à la variable `pending_div`.
 
@@ -807,7 +807,7 @@ Une autre possibilité est que cela a été entré en tant que colonne de formul
 <span></span><section class="cheat-sheet">
 #### Filtrer les Données dans une Durée Spécifiée
 
-En utilisant la fonction [`DATEADD()`](functions.md#dateadd) et les [opérateurs de comparaison](#comparing-values), vous pouvez déterminer si une date tombe dans une plage spécifique puis appliquer un filtre.
+En utilisant la fonction [`DATEADD()`](functions.md#dateadd) et les [opérateurs de comparaison](#comparer-des-valeurs), vous pouvez déterminer si une date tombe dans une plage spécifique puis appliquer un filtre.
 
 <span></span><details><summary>
 #### Exemple de Filtrage des Données qui 'Tombe dans une Plage de 1 Mois'

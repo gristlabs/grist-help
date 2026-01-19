@@ -52,7 +52,7 @@ La structure de la formule est
 `$[ID de la Colonne de Référence dans la Table de Référence].[ID de la Colonne dans la Table Sous-jacente]`{: .formula}.
 Grist complétera également automatiquement des parties de la formule pendant que vous la tapez.
 
-Il y a une autre façon d'ajouter plusieurs colonnes à partir d'une table sous-jacente. Si vous êtes intéressé à en savoir plus, visitez la [section d'aide sur les colonnes de référence](../col-refs.md#inclure) de notre site web.
+Il y a une autre façon d'ajouter plusieurs colonnes à partir d'une table sous-jacente. Si vous êtes intéressé à en savoir plus, visitez la [section d'aide sur les colonnes de référence](../col-refs.md#inclure-plusieurs-champs-dune-reference) de notre site web.
 
 ## Étape 3 : Créer une Mise en Page Hautement Productive avec des Tables Liées
 
