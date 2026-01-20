@@ -8,5 +8,5 @@ if [ -e env ]; then
   source ./env/bin/activate
 fi
 
-python3 ./docs.py build-all
 ./api/build.sh
+python3 ./docs.py build-all
