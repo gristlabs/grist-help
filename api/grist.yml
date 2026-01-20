@@ -533,6 +533,11 @@ paths:
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - $ref: '#/components/parameters/headerQueryParam'
+        - in: query
+          name: tableId
+          schema:
+            type: string
+            description: "Name of a table (normalized)."
       responses:
         200:
           description: A document's content in Excel form
