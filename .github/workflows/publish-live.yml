@@ -21,7 +21,7 @@ jobs:
         run: git fetch origin gh-pages
 
       - name: Building the documentation
-        run: python3 ./docs.py build-all
+        run: ./build-doc.sh
 
       - name: Publish live
         run: |
