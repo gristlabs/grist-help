@@ -9,3 +9,4 @@ if [ -e env ]; then
 fi
 
 python3 ./docs.py build-all
+./api/build.sh
