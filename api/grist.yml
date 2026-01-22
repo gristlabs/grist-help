@@ -607,6 +607,9 @@ paths:
                   description: "The number of the latest history actions to keep"
               example:
                 keep: 3
+      responses:
+        200:
+            description: Success
   /docs/{docId}/force-reload:
     post:
       operationId: forceReload
@@ -1913,22 +1916,24 @@ components:
           type: number
           example: 1
     WebhookProperties:
-      size:
-        type: number
-        example: 1
-      attempts:
-        type: number
-        example: 1
-      errorMessage:
-        type: string
-        nullable: true
-        example: null
-      httpStatus:
-        type: number
-        example: 200
-      status:
-        type: string
-        example: "success"
+      type: object
+      properties:
+        size:
+            type: number
+            example: 1
+        attempts:
+            type: number
+            example: 1
+        errorMessage:
+            type: string
+            nullable: true
+            example: null
+        httpStatus:
+            type: number
+            example: 200
+        status:
+            type: string
+            example: "success"
     Workspace:
       type: object
       required:
