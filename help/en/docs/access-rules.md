@@ -33,39 +33,45 @@ limiting their access to just what they need.
 
 ## Enabling access rules
 
-Without any access ruless, every collaborator on a document can see all data in it, and every
-Editor or Owner may change anything about the documement's data, structure, logic, or layout. In
+With access rules disabled, every collaborator on a document can see all its data, and every
+Editor or Owner may change anything about the document's data, structure, logic, or layout. In
 other words, Owners and Editors are equally powerful within a document, with the ability to create
 or delete tables or columns, write formulas, reorganize pages, and so on.
 
-Enabling access rules changes this default to allow only Owners to change the document's
-structure, and denying this permission to Editors.
+Enabling access rules allows only Owners to change the document's
+structure, and denies this permission to Editors.
 
-Click "Enable access rules" to add access rules to your document:
+Click "Enable Access Rules" to add access rules to your document:
 
-![Enable access rules](images/access-rules/enable-access-rules.png)
+![Enable Access Rules](images/access-rules/enable-access-rules.png)
 
-You'll see the explanation of change: that Editors will no longer be able to change the structure
-of the document or edit formulas, and that only Owners will be able to copy or download the
-document. Once you click "Continue", you'll see the configuration for granular access rules.
+Next, you'll see a dialog with an explanation of what will change: Editors will no longer be able to
+change structure or edit formulas, and only Owners will be able to copy or download the document.
+Once you click "Continue", you'll see the configuration for granular access rules.
 
-Note that the presence of the enabled `Save` button is telling us that the changes (in this case
-the enabling of access rules) have not been applied yet. Click `Save` for them to take effect.
+![Access rules just enabled](images/access-rules/access-rules-newly-enabled.png)
 
-To revert back to the default state, click the "Disable access rules" button at the bottom of the
-page. If you don't see one, delete any other rules you see using the
-"Trash" icon (<span class="grist-icon" style="--icon: var(--icon-Remove)"></span>);
-the "Disable access rules" button will appear once there are no deletable rules.
+**Note:** the enabled `Save` button on top means that changes (in this case the enabling of access
+rules) have not been applied! Click `Save` for them to take effect.
 
-![Disable access rules](images/access-rules/disable-access-rules.png)
+## Disabling access rules
+
+All rules must be manually deleted to disable access rules.
+
+To revert a document back to its default state, click the "Disable Access Rules" button at the
+bottom of the page. If you don't see one, delete all other rules you see using the "Trash" icon
+(<span class="grist-icon" style="--icon: var(--icon-Remove)"></span>). The "Disable Access Rules"
+button will appear once there are no deletable rules.
+
+![Disable Access Rules](images/access-rules/disable-access-rules.png)
 
 
 ## Default rules
 
-To see the access rules for a document, visit its access rules page by
+To enable and view the access rules for a document, visit its access rules page by
 clicking
 <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
-in the left sidebar. When no custom rules have been created yet,
+in the left sidebar. When rules are enabled but no custom rules have been created yet,
 the access rules page contains the `Default Rules` for our document:
 
 ![Access rules](images/access-rules/access-rules-page.png)
@@ -75,7 +81,7 @@ the document, that Viewers can only read the document, and everyone
 else is forbidden all access.  These rules cannot be modified since they reflect the underlying enforcement of basic roles.
 
 However, other rules can be added above them to restrict access in more granular ways, using the
-"+" button circled in the screenshot. Default rules in this section are used as the fallback for
+"+" button circled in the above screenshot. Default rules in this section are used as the fallback for
 all tables.
 
 To understand whether a group of rules allows a
@@ -110,10 +116,13 @@ left side bar, and attempts to open it will be denied:
 
 ## Basic conditions
 
-Access rules are applied in a particular order. If trying to read or update columns with
-[column-specific rules](#restrict-access-to-columns), the conditions for those columns are checked
-first. Then conditions for the table are checked. Finally, default rules are checked. As soon as
-we have a definitive answer (Allow or Deny), further rules are not checked.
+Access rules are applied in a particular order:
+
+1. Column-specific rules (see [Restrict access to columns](#restrict-access-to-columns))
+2. Table-wide rules
+3. Default rules
+
+As soon as we have a definitive answer (Allow or Deny), further rules are not checked.
 
 For any group of rule conditions, they are checked top to bottom. A last empty condition (shown
 as "Everyone" in the interface) always matches. If you insert a custom condition with the single
@@ -124,8 +133,8 @@ example:
 
 - `user.Access == EDITOR` -- checks if the user has Editor-level access to the document.
 - `user.Access != OWNER` -- checks if the user does _not_ have Owner-level access.
-- `user.Access in [VIEWER, EDITOR]` -- check if the user has Viewer or Editor access.
-- `user.Access not in [EDITOR, OWNER]` -- check if the user is neither Editor nor Owner.
+- `user.Access in [VIEWER, EDITOR]` -- checks if the user has Viewer or Editor access.
+- `user.Access not in [EDITOR, OWNER]` -- checks if the user has neither Editor nor Owner access.
 
 
 ## Seed rules
@@ -145,24 +154,24 @@ Below "Default rules", you'll find several checkboxes that control document beha
 viewing and editing data.
 
 Each special rule has a checkbox to toggle it, and also an expander (`>`) that shows the complete
-conditions that implement that special rule. The conditions may be edited if you'd like to toggle
-that behavior for particular subsets of users (e.g. determined using
+conditions that implement each special rule. The conditions may be edited if you'd like to toggle
+behavior for particular subsets of users (e.g. determined using
 [user attributes](#user-attribute-tables)).
 
 ### Allow Editors to edit structure {: #lock-down-structure data-toc-label='Structure edit' }
 
-The first is "Allow Editors to edit structure". This restores the default behavior of a document
-without access rules. In fact, when that's the only checked rule (and no other rules for any
-tables), it's equivalent to disabling access rules altogether.
+This rule restores the default behavior of a document without access rules. In fact, when this is
+the only checked rule (and there are no table rules), it's equivalent to disabling access rules
+altogether.
 
 This rule controls a document-wide permission called the "structure permission", represented by
 `S` if you expand it:
 
 ![Access rules](images/access-rules/access-rules-lock-structure.png)
 
-**Important.** This structure permission (`S`) is very powerful. It allows creating or changing
-formulas. Since formula calculations are not limited by access control rules, a determined user
-could use them to retrieve any data from a document. In other words, having the "edit structure"
+**Important:** The structure permission (`S`) is very powerful, as it allows for creating or changing
+formulas. Since formula calculations are not limited by access rules, a determined user
+could use them to retrieve any data from a document. In other words, having the structure
 permission makes it possible to circumvent other rules that prevent access to data.
 
 ### Allow everyone to view access rules {: data-toc-label='View access rules' }
@@ -193,9 +202,9 @@ to copy or download the full document.
 Hidden under another `>` expander is a special rule that's only useful for non-sensitive
 templates and examples: to allow users with restrictions to copy or download the document.
 
-It addresses a particular problem: how do you demonstrate to someone a document with restrictive
-access rules without making them an owner? A template by its nature involves copying the
-document, which wouldn't be allowed to anyone without full access to it. This rule exists to
+It addresses a particular problem: how do you demonstrate a template with restrictive access
+rules, and share it with someone without making them an owner? A template by definition involves
+copying the document, which is prohibited to anyone without full access. This rule exists to
 circumvent read restrictions just for this purpose.
 
 Note that when you make a copy of a document with this special rule, the special rule itself is
@@ -328,37 +337,41 @@ write access to all rows and columns.
 
 ### Using references in conditions
 
-The `rec` variable used in conditions gives access to all the fields in the current record, but
-not to any records referred to by references. In other words, the [dot notation
+In conditions, the `rec` variable gives access to all the fields in the current record, but
+_not_ to any records referred to by references. In other words, the [dot notation
 lookups](references-lookups.md#reference-columns-and-dot-notation) supported by normal formulas
-(such as `$Person.Email` or `rec.Person.Email`) are _not_ supported in access rule conditions.
-Instead, in rule conditions, a reference value is a numerical ID of the referenced record.
+(such as `$Person.Email` or `rec.Person.Email`) are not supported in access rule conditions.
+Instead, a reference value is a numerical ID of the referenced record.
 
-You may still use such records in comparisons. For example:
+You may still use such records in comparisons:
 
 -   **Example 1.** Let's imagine that table `Orders` has a column `Purchaser` that's a reference to the `Team`
     table and represents a person who placed the order. And let's say you have a user attribute
     `user.Team`, configured as above.
 
-    Then you may compare them using the condition `rec.Purchaser == user.Team.id`{: .formula}.
+    Let's say you want to allow only the purchaser to update certain fields. Then you may compare
+    the value in the record with the user using the condition `rec.Purchaser == user.Team.id`{: .formula}.
     Here, `rec.Purchaser` is a numeric identifier of a record in table `Team`, while `user.Team` is
     such a record, and `user.Team.id` is its identifier (using the built-in `id` field).
 
 -   **Example 2.** Let's say now that both tables `Orders` and `Team` each have a column named
     `Department`, which is a reference to the `Departments` table.
 
-    To compare these, use this condition: `rec.Department == user.Team.Department`{: .formula}.
+    Let's say you want to only allow any person to view only the orders associated with the
+    department they are in. You can compare the value in the record with the user's department
+    using this condition: `rec.Department == user.Team.Department`{: .formula}.
 
     Here, both `rec.Department` and `user.Team.Department` are numeric identifiers of records in
     table `Departments`.
 
-You can also use normal formulas in your actual table to bring in referenced data as additional
-columns. E.g. if you add a column in table `Orders` named `Role` with the formula
-`$Purchaser.Role`, then you could use `rec.Role` in rule conditions for table `Orders`.
+When this isn't enough, you can also use normal formulas in your actual table to bring in
+referenced data as additional columns. E.g. if you add a column in table `Orders` named `Role`
+with the formula `$Purchaser.Role`, then you could use `rec.Role` in rule conditions for table
+`Orders`.
 
-!!! note "Understanding reference columns in access rules" 
-    References offer a good way to limit the access of team members access to just those rows pertinent to their work. One way to do so is to relate all records in all tables to their respective team members. For example, leads and sales records can reference the sales rep responsible for those records. This quick video explains how. 
-    
+!!! note "Understanding reference columns in access rules"
+    References offer a good way to limit the access of team members to rows pertinent to their work. One way to do so is to relate all records in all tables to their respective team members. For example, leads and sales records can reference the sales rep responsible for those records. This quick video explains how.
+
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ZL3rHdAZzfY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Checking new values
