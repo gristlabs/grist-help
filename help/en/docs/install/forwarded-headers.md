@@ -2,7 +2,7 @@
 title: Forwarded headers
 ---
 
-Forwarded Headers
+Forwarded headers {: .tag-core .tag-ee}
 =================
 
 You may have a middleware that does authentication and then passes identity

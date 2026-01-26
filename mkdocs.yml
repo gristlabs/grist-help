@@ -131,16 +131,19 @@ nav:
         - ... | flat | **/code/modules/**
     - Self-hosted:
       - self-managed.md
-      - install/saml.md
-      - install/oidc.md
-      - install/scim.md
-      - install/forwarded-headers.md
       - install/cloud-storage.md
-      - install/grist-connect.md
       - install/grist-builder-edition.md
       - admin-panel.md
       - admin-controls.md
       - install/assistant.md
+      - Authentication:
+        - install/authentication-overview.md
+        - install/sign-in-with-grist.md
+        - install/oidc.md
+        - install/saml.md
+        - install/forwarded-headers.md
+        - install/grist-connect.md
+        - install/scim.md
       - Audit logs:
         - install/audit-log-overview.md
         - install/audit-log-streaming.md
