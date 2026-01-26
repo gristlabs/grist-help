@@ -166,10 +166,7 @@ def build_all() -> None:
   update_languages()
   shutil.rmtree(site_path, ignore_errors=True)
   langs = [lang.name for lang in get_lang_paths() if lang.is_dir()]
-  cpu_count = os.cpu_count() or 1
-  process_pool_size = cpu_count
-  typer.echo(f"Using process pool size: {process_pool_size}")
-  with Pool(process_pool_size) as p:
+  with Pool() as p:
     p.map(build_lang, langs)
 
 def update_translatable_nav_sections() -> None:
