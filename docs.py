@@ -166,8 +166,8 @@ def build_all() -> None:
   update_languages()
   shutil.rmtree(site_path, ignore_errors=True)
   langs = [lang.name for lang in get_lang_paths() if lang.is_dir()]
-  with Pool() as p:
-    p.map(build_lang, langs)
+  for lang in langs:
+    build_lang(lang)
 
 def update_translatable_nav_sections() -> None:
   def extract_nav_sections_keys(nav):
