@@ -155,9 +155,21 @@ def on_page_markdown(
 ) -> str:
   docs_dir=Path(config.docs_dir)
   if isinstance(page.file, EnFile):
-    return _inject_warning(markdown=markdown, page=page, warning=get_missing_translation_content(config.docs_dir))
-  elif docs_dir.parent.name != 'en' and (docs_dir.parent / MACHINE_TRANSLATION_FILENAME).exists():
-    return _inject_warning(markdown=markdown, page=page, warning=get_automated_translation_content(config.docs_dir))
+    return _inject_warning(
+      markdown=markdown,
+      page=page,
+      warning=get_missing_translation_content(config.docs_dir)
+    )
+  elif (
+    docs_dir.parent.name != 'en'
+    and (docs_dir.parent / MACHINE_TRANSLATION_FILENAME).exists()
+    and page.meta.get('machine_translated', True)
+  ):
+    return _inject_warning(
+      markdown=markdown,
+      page=page,
+      warning=get_automated_translation_content(config.docs_dir)
+    )
 
   return markdown
 
