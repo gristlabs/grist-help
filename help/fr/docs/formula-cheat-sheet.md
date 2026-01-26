@@ -123,7 +123,7 @@ La formule utilisée dans la colonne Reçu de la table Tous les Produits est :
 ```
 SUM(Incoming_Order_Line_Items.lookupRecords(SKU=$id).Received_Qty)
 ```
-Nous utilisons la fonction [lookupRecords](functions.md#lookuprecords_2) pour trouver tous les enregistrements dans la table Incoming Order Line Items où le SKU correspond au SKU dans cette ligne, puis tirer la valeur dans la colonne Received Qty pour chacun de ces enregistrements. Nous utilisons SUM() pour trouver la somme de ces valeurs.
+Nous utilisons la fonction [lookupRecords](functions.md#lookuprecords) pour trouver tous les enregistrements dans la table Incoming Order Line Items où le SKU correspond au SKU dans cette ligne, puis tirer la valeur dans la colonne Received Qty pour chacun de ces enregistrements. Nous utilisons SUM() pour trouver la somme de ces valeurs.
 
 Les colonnes Qty on Order et Sold de la table [Tous les Produits](https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager/p/1){:target="\_blank"} sont également de bons exemples de la fonction SUM().
 
@@ -218,7 +218,7 @@ La formule utilisée dans la colonne Orphaned? de la table Orphaned Pages est :
 ```
 len(Links.lookupRecords(To=$id))<1
 ```
-Nous utilisons la fonction [lookupRecords](functions.md#lookuprecords_2) pour trouver tous les enregistrements dans la table Links où le lien dans la colonne To correspond au lien listé dans la colonne Slug de cette ligne.
+Nous utilisons la fonction [lookupRecords](functions.md#lookuprecords) pour trouver tous les enregistrements dans la table Links où le lien dans la colonne To correspond au lien listé dans la colonne Slug de cette ligne.
 
 Nous utilisons [len()](functions.md#len) pour compter le nombre d'enregistrements trouvés. S'il est inférieur à 1, la formule est évaluée comme vraie et la case à cocher sera cochée. S'il est égal ou supérieur à 1, la formule est évaluée comme fausse.
 
@@ -612,7 +612,7 @@ Décomposons cela, en travaillant de l'intérieur vers l'extérieur.
 ```
 Duplicates.lookupRecords(Grocery_List=$Grocery_List)
 ```
-Ceci est une fonction [lookupRecords](functions.md#lookuprecords_2) qui suit le format :
+Ceci est une fonction [lookupRecords](functions.md#lookuprecords) qui suit le format :
 ```
 [Table_Name].lookupRecords([A]=$[B])
 ``` 

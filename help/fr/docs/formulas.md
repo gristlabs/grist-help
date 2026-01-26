@@ -166,7 +166,7 @@ Les formules sont sensibles à la casse, les fonctions similaires à Excel étan
 le Python régulier étant généralement en minuscules (`max`).
 
 Pour des correspondances exactes, il existe un raccourci pour éviter l'itération appelé
-[lookupRecords](functions.md#lookuprecords_2), ou
+[lookupRecords](functions.md#lookuprecords), ou
 [lookupOne](functions.md#lookupone_2) pour des correspondances uniques.
 Il suffit de passer les valeurs des colonnes que vous souhaitez faire correspondre.
 Par exemple, voici une formule pour rechercher le nom du produit d'un matériau
@@ -267,7 +267,7 @@ tout autant aux colonnes de formule qu'aux colonnes régulières.
 ## Recherches
 
 Les fonctions Grist [lookupOne](functions.md#lookupone_2) et
-[lookupRecords](functions.md#lookuprecords_2) sont utiles pour énumérer
+[lookupRecords](functions.md#lookuprecords) sont utiles pour énumérer
 des sous-ensembles de vos données. Par exemple, supposons que nous ajoutions une colonne `Catégorie`
 à notre tableau `Matériaux`, et souhaitions lister tous les produits appartenant
 à une catégorie spécifique. Nous pouvons le faire en utilisant `TABLE.lookupRecords`, où `TABLE` est le tableau d'intérêt, et en lui fournissant les valeurs de colonne

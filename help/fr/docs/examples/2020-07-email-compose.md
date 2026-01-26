@@ -55,7 +55,7 @@ Un exemple en direct de cela est ici :
 
 Les liens email sont très pratiques pour envoyer des emails à un groupe de personnes, comme des étudiants dans une classe, ou des personnes sur un certain projet.
 
-Par exemple, si vous avez une [colonne de référence](../col-refs.md) "Projet" qui lie une personne à un projet, alors dans la table des projets, vous pouvez rechercher toutes les personnes associées en utilisant [lookupRecords](../functions.md#lookuprecords_2). Vous pouvez ensuite créer un lien pour les envoyer un email en groupe :
+Par exemple, si vous avez une [colonne de référence](../col-refs.md) "Projet" qui lie une personne à un projet, alors dans la table des projets, vous pouvez rechercher toutes les personnes associées en utilisant [lookupRecords](../functions.md#lookuprecords). Vous pouvez ensuite créer un lien pour les envoyer un email en groupe :
 
 ```python
 from urllib.parse import quote
