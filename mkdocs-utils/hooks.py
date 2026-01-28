@@ -51,6 +51,10 @@ def get_automated_translation_content(docs_dir: str) -> str:
   content = _get_warning_file_content(docs_dir, MACHINE_TRANSLATION_FILENAME)
   return content.replace('__ISSUE_URL__', _get_issue_url_for_translation_commitment())
 
+def _get_absolute_reviewed_translation_files(reviewed_translation_files: List[str]) -> List[str]:
+  if not reviewed_translation_files:
+    return []
+  return list(map(lambda f: str(Path(f).resolve(True)), reviewed_translation_files))
 
 class EnFile(File):
   pass
@@ -92,6 +96,10 @@ def get_images_relative_paths(docs_dir: str) -> List[str]:
   en_docs_path = (Path(docs_dir) / "../../en/docs").resolve()
   images = glob.glob(f"{en_docs_path}/images/**/*", recursive=True)
   return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), images))
+
+def on_config(config: MkDocsConfig, **_: Any) -> MkDocsConfig:
+  config.extra['reviewed_translation_files'] = _get_absolute_reviewed_translation_files(config.extra.get("reviewed_translation_files", []))
+  return config
 
 def on_files(files: Files, *, config: MkDocsConfig) -> Files:
 
@@ -144,12 +152,16 @@ def _inject_warning(markdown: str, warning: str, page: Page):
 def on_page_markdown(
   markdown: str, *, page: Page, config: MkDocsConfig, **_: Any
 ) -> str:
-  docs_dir=Path(config.docs_dir)
+  docs_dir = Path(config.docs_dir)
+  reviewed_translation_files = config.extra['reviewed_translation_files']
+
+  if page.file.src_path == "telemetry.md":
+    print("telemetry.md: ", page.file.abs_src_path, reviewed_translation_files)
+
   if isinstance(page.file, EnFile):
     return _inject_warning(markdown=markdown, page=page, warning=get_missing_translation_content(config.docs_dir))
-  elif docs_dir.parent.name != 'en' and (docs_dir.parent / MACHINE_TRANSLATION_FILENAME).exists():
+  elif docs_dir.parent.name != 'en' and (docs_dir.parent / MACHINE_TRANSLATION_FILENAME).exists() and page.file.abs_src_path not in reviewed_translation_files:
     return _inject_warning(markdown=markdown, page=page, warning=get_automated_translation_content(config.docs_dir))
-
   return markdown
 
 def on_startup(*, command, dirty):
