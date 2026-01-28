@@ -67,7 +67,7 @@ parts of a document.  Access rules give us that power.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1769185525"></script>
+  <script type="module" src="/js/grist.js?v=1769623679"></script>
 
     
   
@@ -3032,10 +3032,10 @@ parts of a document.  Access rules give us that power.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#default-rules" class="md-nav__link">
+  <a href="#enabling-access-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Default rules
+        Enabling access rules
       
     </span>
   </a>
@@ -3043,10 +3043,21 @@ parts of a document.  Access rules give us that power.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#lock-down-structure" class="md-nav__link">
+  <a href="#disabling-access-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lock down structure
+        Disabling access rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default rules
       
     </span>
   </a>
@@ -3065,13 +3076,85 @@ parts of a document.  Access rules give us that power.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#seed-rules" class="md-nav__link">
+  <a href="#basic-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Seed Rules
+        Basic conditions
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seed-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lock-down-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure edit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-everyone-to-view-access-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View access rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict-non-owners-from-copying-or-downloading-the-full-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy or download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-rules-for-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special rules for templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3116,6 +3199,23 @@ parts of a document.  Access rules give us that power.">
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Row-level access control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-references-in-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using references in conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7889,10 +7989,10 @@ parts of a document.  Access rules give us that power.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#default-rules" class="md-nav__link">
+  <a href="#enabling-access-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Default rules
+        Enabling access rules
       
     </span>
   </a>
@@ -7900,10 +8000,21 @@ parts of a document.  Access rules give us that power.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#lock-down-structure" class="md-nav__link">
+  <a href="#disabling-access-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lock down structure
+        Disabling access rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default rules
       
     </span>
   </a>
@@ -7922,13 +8033,85 @@ parts of a document.  Access rules give us that power.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#seed-rules" class="md-nav__link">
+  <a href="#basic-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Seed Rules
+        Basic conditions
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seed-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lock-down-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure edit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-everyone-to-view-access-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View access rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict-non-owners-from-copying-or-downloading-the-full-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy or download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-rules-for-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special rules for templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7973,6 +8156,23 @@ parts of a document.  Access rules give us that power.">
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Row-level access control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-references-in-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using references in conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -8128,47 +8328,55 @@ organized using a document with two tables, <code>Orders</code> and <code>Financ
 Now we are taking on more employees, and want to share the document with them while
 limiting their access to just what they need.</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-example.png" /></p>
+<h2 id="enabling-access-rules">Enabling access rules<a class="headerlink" href="#enabling-access-rules" title="Permanent link">#</a></h2>
+<p>With access rules disabled, every collaborator on a document can see all its data, and every
+Editor or Owner may change anything about the document&rsquo;s data, structure, logic, or layout. In
+other words, Owners and Editors are equally powerful within a document, with the ability to create
+or delete tables or columns, write formulas, reorganize pages, and so on.</p>
+<p>Enabling access rules allows only Owners to change the document&rsquo;s
+structure, and denies this permission to Editors.</p>
+<p>Click &ldquo;Enable Access Rules&rdquo; to add access rules to your document:</p>
+<p><img alt="Enable Access Rules" src="../images/access-rules/enable-access-rules.png" /></p>
+<p>Next, you&rsquo;ll see a dialog with an explanation of what will change: Editors will no longer be able to
+change structure or edit formulas, and only Owners will be able to copy or download the document.
+Once you click &ldquo;Continue&rdquo;, you&rsquo;ll see the configuration for granular access rules.</p>
+<p><img alt="Access rules just enabled" src="../images/access-rules/access-rules-newly-enabled.png" /></p>
+<p><strong>Note:</strong> the enabled <code>Save</code> button on top means that changes (in this case the enabling of access
+rules) have not been applied! Click <code>Save</code> for them to take effect.</p>
+<h2 id="disabling-access-rules">Disabling access rules<a class="headerlink" href="#disabling-access-rules" title="Permanent link">#</a></h2>
+<p>All rules must be manually deleted to disable access rules.</p>
+<p>To revert a document back to its default state, click the &ldquo;Disable Access Rules&rdquo; button at the
+bottom of the page. If you don&rsquo;t see one, delete all other rules you see using the &ldquo;Trash&rdquo; icon
+(<span class="grist-icon" style="--icon: var(--icon-Remove)"></span>). The &ldquo;Disable Access Rules&rdquo;
+button will appear once there are no deletable rules.</p>
+<p><img alt="Disable Access Rules" src="../images/access-rules/disable-access-rules.png" /></p>
 <h2 id="default-rules">Default rules<a class="headerlink" href="#default-rules" title="Permanent link">#</a></h2>
-<p>To see the access rules for a document, visit its access rules page by
+<p>To enable and view the access rules for a document, visit its access rules page by
 clicking
 <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
-in the left sidebar. When no custom rules have been created yet,
+in the left sidebar. When rules are enabled but no custom rules have been created yet,
 the access rules page contains the <code>Default Rules</code> for our document:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-page.png" /></p>
 <p>These rules say, in summary, that Owners and Editors can do anything within
 the document, that Viewers can only read the document, and everyone
-else is forbidden all access.  These rules cannot be modified since they reflect the underlying enforcement of basic roles.
-However, other rules can be added to restrict access in more granular ways.
-To understand whether a group of rules allows a
-certain permission (<a href="./#access-rule-permissions">Read, Update, Create, Delete, or Structure</a>), read
+else is forbidden all access.  These rules cannot be modified since they reflect the underlying enforcement of basic roles.</p>
+<p>However, other rules can be added above them to restrict access in more granular ways, using the
+&ldquo;+&rdquo; button circled in the above screenshot. Default rules in this section are used as the fallback for
+all tables.</p>
+<p>To understand whether a group of rules allows a
+certain permission (<a href="./#access-rule-permissions">Read, Update, Create, or Delete</a>), read
 the rules from top to bottom, and find the first applicable rule
 that allows (green) or denies (red) that permission.
 We&rsquo;ll see plenty of examples as we go.</p>
-<h2 id="lock-down-structure">Lock down structure<a class="headerlink" href="#lock-down-structure" title="Permanent link">#</a></h2>
-<p>By default Owners and Editors are equally powerful within a document, with the ability to create
-or delete tables or columns, write formulas, reorganize pages, and so on.</p>
-<p>Suppose we want only the original Owners of the document to be allowed to change
-its structure, as we plan to invite other specialized collaborators as Editors.
-To do this, uncheck the box for the first rule listed under &lsquo;Special Rules&rsquo; to 
-disallow editors from editing structure. </p>
-<p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure.png" /></p>
-<p>Once we&rsquo;ve made changes, the <code>SAVE</code> button becomes an inviting green.  We
-click <code>SAVE</code> for the rule to take effect. </p>
-<p><strong>Important.</strong> This is an important first step for any document where you intend to block any access to Editors.
-Without denying them the structure permission (<code>S</code>), anyone with edit access will be able to
-create or change formulas. Since formula calculations are not limited by access control rules,
-a determined user could use them to retrieve any data from a document. To protect against
-that, deny structure permission to users whose access should be limited.</p>
 <h2 id="make-a-private-table">Make a private table<a class="headerlink" href="#make-a-private-table" title="Permanent link">#</a></h2>
 <p>To ensure that only Owners can access a table, such as the <code>Financials</code> table in our example,
 we click <code>Add Table Rules</code> and select the table name, <code>Financials</code>.  This creates a new empty
-group of rules called <code>Rules for table Financials</code>.
-Then we add a condition for any user who is not an Owner (<code>user.Access != OWNER</code>), with all
+group of rules called <code>Rules for table Financials</code>.</p>
+<p>Then we add a condition for any user who is not an Owner (<code>user.Access != OWNER</code>), with all
 permissions denied.  Selecting <code>Deny All</code> from the drop-down beside <code>R</code> <code>U</code> <code>C</code> <code>D</code> is a fast
 way to set all permissions to denied, or you can click each permission individually to turn
 them red.  <code>R</code> is Read, <code>U</code> is Update, <code>C</code> is Create, and <code>D</code> is Delete
 (see <a href="./#access-rule-permissions">Access rule permissions</a>).
-Structure (<code>S</code>) permissions are not available at the table level.
 Once you are done, click <code>SAVE</code>.</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-private-table.png" /></p>
 <p>Now we could go ahead and share the document with a team member
@@ -8177,13 +8385,74 @@ document</a> with them as an Editor so that the restrictions
 we&rsquo;ve set up apply to them.  They won&rsquo;t see the <code>Financials</code> table in the
 left side bar, and attempts to open it will be denied:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-private-table-is-hidden.png" /></p>
-<h2 id="seed-rules">Seed Rules<a class="headerlink" href="#seed-rules" title="Permanent link">#</a></h2>
+<h2 id="basic-conditions">Basic conditions<a class="headerlink" href="#basic-conditions" title="Permanent link">#</a></h2>
+<p>Access rules are applied in a particular order:</p>
+<ol>
+<li>Column-specific rules (see <a href="#restrict-access-to-columns">Restrict access to columns</a>)</li>
+<li>Table-wide rules</li>
+<li>Default rules</li>
+</ol>
+<p>As soon as we have a definitive answer (Allow or Deny), further rules are not checked.</p>
+<p>For any group of rule conditions, they are checked top to bottom. A last empty condition (shown
+as &ldquo;Everyone&rdquo; in the interface) always matches. If you insert a custom condition with the single
+keyword <code>True</code>, it will also always match.</p>
+<p>It&rsquo;s common to use conditions based on the user&rsquo;s access level to the document, for
+example:</p>
+<ul>
+<li><code>user.Access == EDITOR</code> &ndash; checks if the user has Editor-level access to the document.</li>
+<li><code>user.Access != OWNER</code> &ndash; checks if the user does <em>not</em> have Owner-level access.</li>
+<li><code>user.Access in [VIEWER, EDITOR]</code> &ndash; checks if the user has Viewer or Editor access.</li>
+<li><code>user.Access not in [EDITOR, OWNER]</code> &ndash; checks if the user has neither Editor nor Owner access.</li>
+</ul>
+<h2 id="seed-rules">Seed rules<a class="headerlink" href="#seed-rules" title="Permanent link">#</a></h2>
 <p>When writing access rules for specific tables, it is fairly common to repeat the same rule across many tables — 
 for example, always grant owners full read and write permissions. To automatically add a set of rules to all 
 new table rules, you can write &ldquo;seed rules.&rdquo; There is a checkbox above default rules that makes the common 
 case easier with one click. Click it to write a seed rule that will automatically grant owners full access 
 whenever table rules are added. Click the <code>&gt;</code> icon to uncollapse the seed rules table to modify seed rules.</p>
 <p><img alt="access-rules-default-owner-access" src="../images/access-rules/access-rules-default-owner-access.png" /></p>
+<h2 id="special-rules">Special rules<a class="headerlink" href="#special-rules" title="Permanent link">#</a></h2>
+<p>Below &ldquo;Default rules&rdquo;, you&rsquo;ll find several checkboxes that control document behavior outside of
+viewing and editing data.</p>
+<p>Each special rule has a checkbox to toggle it, and also an expander (<code>&gt;</code>) that shows the complete
+conditions that implement each special rule. The conditions may be edited if you&rsquo;d like to toggle
+behavior for particular subsets of users (e.g. determined using
+<a href="#user-attribute-tables">user attributes</a>).</p>
+<h3 id="lock-down-structure">Allow Editors to edit structure<a class="headerlink" href="#lock-down-structure" title="Permanent link">#</a></h3>
+<p>This rule restores the default behavior of a document without access rules. In fact, when this is
+the only checked rule (and there are no table rules), it&rsquo;s equivalent to disabling access rules
+altogether.</p>
+<p>This rule controls a document-wide permission called the &ldquo;structure permission&rdquo;, represented by
+<code>S</code> if you expand it:</p>
+<p><img alt="Access rules" src="../images/access-rules/access-rules-lock-structure.png" /></p>
+<p><strong>Important:</strong> The structure permission (<code>S</code>) is very powerful, as it allows for creating or changing
+formulas. Since formula calculations are not limited by access rules, a determined user
+could use them to retrieve any data from a document. In other words, having the structure
+permission makes it possible to circumvent other rules that prevent access to data.</p>
+<h3 id="allow-everyone-to-view-access-rules">Allow everyone to view access rules<a class="headerlink" href="#allow-everyone-to-view-access-rules" title="Permanent link">#</a></h3>
+<p>By default, only Owners may view access rules. This rule allows every collaborator to view them.
+(It cannot allow non-Owners to change access rules, only view.)</p>
+<p><img alt="Special rules" src="../images/access-rules/access-rules-special-rules.png" /></p>
+<h3 id="restrict-non-owners-from-copying-or-downloading-the-full-document">Restrict non-Owners from copying or downloading the full document<a class="headerlink" href="#restrict-non-owners-from-copying-or-downloading-the-full-document" title="Permanent link">#</a></h3>
+<p>This rule appears only if you allow non-Owners to view access rules.</p>
+<p>By default, only Owners may copy a document or download it in full. Such copies and downloads
+include the document&rsquo;s access rules, and so would make the rules visible to the new owner of the
+copy. For this reason, the permission to view access rules is a prerequisite to
+full copies.</p>
+<p>If you allow others to view access rules, then you may have non-Owners with complete access to all
+data. To avoid surprises, such users are still restricted from copying or downloading, but you can
+remove this restriction.</p>
+<p>Note that users who do not have complete read access to all document data will still be unable
+to copy or download the full document.</p>
+<h3 id="special-rules-for-templates">Special rules for templates<a class="headerlink" href="#special-rules-for-templates" title="Permanent link">#</a></h3>
+<p>Hidden under another <code>&gt;</code> expander is a special rule that&rsquo;s only useful for non-sensitive
+templates and examples: to allow users with restrictions to copy or download the document.</p>
+<p>It addresses a particular problem: how do you demonstrate a template with restrictive access
+rules, and share it with someone without making them an owner? A template by definition involves
+copying the document, which is prohibited to anyone without full access. This rule exists to
+circumvent read restrictions just for this purpose.</p>
+<p>Note that when you make a copy of a document with this special rule, the special rule itself is
+not copied: the new copy will not have it on.</p>
 <h2 id="restrict-access-to-columns">Restrict access to columns<a class="headerlink" href="#restrict-access-to-columns" title="Permanent link">#</a></h2>
 <p>We can restrict a collaborator&rsquo;s access to columns.  In our eample, we might
 wish to give a delivery specialist more limited access to
@@ -8272,9 +8541,40 @@ If it is, we allow <code>R</code> Read access:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-stage-charon.png" /></p>
 <p>Kimberly and Charon now have read-only access to the table.  Owners still have full
 write access to all rows and columns.</p>
+<h3 id="using-references-in-conditions">Using references in conditions<a class="headerlink" href="#using-references-in-conditions" title="Permanent link">#</a></h3>
+<p>In conditions, the <code>rec</code> variable gives access to all the fields in the current record, but
+<em>not</em> to any records referred to by references. In other words, the <a href="../references-lookups/#reference-columns-and-dot-notation">dot notation
+lookups</a> supported by normal formulas
+(such as <code>$Person.Email</code> or <code>rec.Person.Email</code>) are not supported in access rule conditions.
+Instead, a reference value is a numerical ID of the referenced record.</p>
+<p>You may still use such records in comparisons:</p>
+<ul>
+<li>
+<p><strong>Example 1.</strong> Let&rsquo;s imagine that table <code>Orders</code> has a column <code>Purchaser</code> that&rsquo;s a reference to the <code>Team</code>
+    table and represents a person who placed the order. And let&rsquo;s say you have a user attribute
+    <code>user.Team</code>, configured as above.</p>
+<p>Let&rsquo;s say you want to allow only the purchaser to update certain fields. Then you may compare
+the value in the record with the user using the condition <code class="formula">rec.Purchaser == user.Team.id</code>.
+Here, <code>rec.Purchaser</code> is a numeric identifier of a record in table <code>Team</code>, while <code>user.Team</code> is
+such a record, and <code>user.Team.id</code> is its identifier (using the built-in <code>id</code> field).</p>
+</li>
+<li>
+<p><strong>Example 2.</strong> Let&rsquo;s say now that both tables <code>Orders</code> and <code>Team</code> each have a column named
+    <code>Department</code>, which is a reference to the <code>Departments</code> table.</p>
+<p>Let&rsquo;s say you want to only allow any person to view only the orders associated with the
+department they are in. You can compare the value in the record with the user&rsquo;s department
+using this condition: <code class="formula">rec.Department == user.Team.Department</code>.</p>
+<p>Here, both <code>rec.Department</code> and <code>user.Team.Department</code> are numeric identifiers of records in
+table <code>Departments</code>.</p>
+</li>
+</ul>
+<p>When this isn&rsquo;t enough, you can also use normal formulas in your actual table to bring in
+referenced data as additional columns. E.g. if you add a column in table <code>Orders</code> named <code>Role</code>
+with the formula <code>$Purchaser.Role</code>, then you could use <code>rec.Role</code> in rule conditions for table
+<code>Orders</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Understanding reference columns in access rules</p>
-<p>You can limit the data team members access to just those rows pertinent to their work. One way to do so is to relate all records in all tables to their respective team members. For example, leads and sales records can reference the sales rep responsible for those records. This quick video explains how. </p>
+<p>References offer a good way to limit the access of team members to rows pertinent to their work. One way to do so is to relate all records in all tables to their respective team members. For example, leads and sales records can reference the sales rep responsible for those records. This quick video explains how.</p>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZL3rHdAZzfY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 </div>
 <h2 id="checking-new-values">Checking new values<a class="headerlink" href="#checking-new-values" title="Permanent link">#</a></h2>
@@ -8362,15 +8662,17 @@ permissions are set by that rule, but other rules could set them.</p>
 Variables that may be available in access rules are <code>user</code>, <code>rec</code>, and <code>newRec</code>.</p>
 <p>The <code>user</code> variable contains the following members:</p>
 <ul>
-<li><code>user.Access</code>: one of <code>owners</code>, <code>editors</code>, or <code>viewers</code>, giving how the
+<li><code>user.Access</code>: one of <code>OWNER</code>, <code>EDITOR</code>, or <code>VIEWER</code>, giving how the
    document was shared with the user (see <a href="../sharing/">Sharing a document</a>).</li>
 <li><code>user.Email</code>: the email address of the user (or <code>anon@getgrist.com</code> for users who are not logged in).</li>
 <li><code>user.UserID</code>: a numeric ID that is associated with the user.</li>
-<li><code>user.Name</code>: the user&rsquo;s name (or <code>Anonymous</code> if unavailable).</li>
+<li><code>user.Name</code>: the user&rsquo;s name (or <code>Anonymous</code> if unavailable). Note that users may
+   change the name on their account.</li>
 <li><code>user.LinkKey</code>: an object with any access control URL parameters.  Access control URL
    parameters end in an underscore (which is then stripped).  Only available in the
    web client, not the API.</li>
-<li><code>user.SessionID</code>: a unique string assigned to anonymous users for the duration of that user&rsquo;s session. For logged in users, <code>user.SessionID</code> is always <code>"u"</code> + the user&rsquo;s numeric id. </li>
+<li><code>user.SessionID</code>: a unique string assigned to anonymous users for the duration of that user&rsquo;s session. For logged in users, <code>user.SessionID</code> is always <code>"u"</code> + the user&rsquo;s numeric id.</li>
+<li><code>user.IsLoggedIn</code>: a boolean for whether a user is signed in or anonymous.</li>
 </ul>
 <p>For an example of using the <code>user</code> variable, read <a href="./#default-rules">Default rules</a>.</p>
 <p>The <code>rec</code> variable contains the state of an individual record/row, for
@@ -8405,15 +8707,10 @@ single letter acronyms for convenience:</p>
 <li><code>D</code> - permission to delete rows.</li>
 <li><code>S</code> - permission to change table structure.</li>
 </ul>
-<p>The <code>S</code> structure permission is available in the default access rule
-group.  Column rules lack the <code>C</code> create and <code>D</code> delete permissions,
+<p>The <code>S</code> structure permission is available only in the special rule to edit structure
+(see <a href="#lock-down-structure">Structure edit</a>).</p>
+<p>Column rules lack the <code>C</code> create and <code>D</code> delete permissions,
 which should be handled in default table rules.</p>
-<p><strong>Note:</strong> The <code>S</code> permission is very powerful. It allows writing formulas, which can access
-any data in the document regardless of rules. Since the <code>S</code> permission is on by default for
-Editors and Owners, any such user would be able to edit a formula and so retrieve any data.</p>
-<p>In other words, having the <code>S</code> permission makes it possible to circumvent other rules that prevent
-access to data. For this reason, turning it off &ndash; as described above in <a href="#lock-down-structure">Locking down
-structure</a> &ndash; is an important first step in limiting data access.</p>
 <h2 id="access-rule-memos">Access rule memos<a class="headerlink" href="#access-rule-memos" title="Permanent link">#</a></h2>
 <p>When a user receives an error message denying them access because of a
 rule, it can be helpful to give specific details that will help them understand
