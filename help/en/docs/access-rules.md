@@ -1,5 +1,7 @@
 ---
 title: Intro to access rules
+search:
+  boost: 3
 ---
 
 Access rules
@@ -28,12 +30,48 @@ limiting their access to just what they need.
 
 ![Access rules](images/access-rules/access-rules-example.png)
 
+
+## Enabling access rules
+
+With access rules disabled, every collaborator on a document can see all its data, and every
+Editor or Owner may change anything about the document's data, structure, logic, or layout. In
+other words, Owners and Editors are equally powerful within a document, with the ability to create
+or delete tables or columns, write formulas, reorganize pages, and so on.
+
+Enabling access rules allows only Owners to change the document's
+structure, and denies this permission to Editors.
+
+Click "Enable Access Rules" to add access rules to your document:
+
+![Enable Access Rules](images/access-rules/enable-access-rules.png)
+
+Next, you'll see a dialog with an explanation of what will change: Editors will no longer be able to
+change structure or edit formulas, and only Owners will be able to copy or download the document.
+Once you click "Continue", you'll see the configuration for granular access rules.
+
+![Access rules just enabled](images/access-rules/access-rules-newly-enabled.png)
+
+**Note:** the enabled `Save` button on top means that changes (in this case the enabling of access
+rules) have not been applied! Click `Save` for them to take effect.
+
+## Disabling access rules
+
+All rules must be manually deleted to disable access rules.
+
+To revert a document back to its default state, click the "Disable Access Rules" button at the
+bottom of the page. If you don't see one, delete all other rules you see using the "Trash" icon
+(<span class="grist-icon" style="--icon: var(--icon-Remove)"></span>). The "Disable Access Rules"
+button will appear once there are no deletable rules.
+
+![Disable Access Rules](images/access-rules/disable-access-rules.png)
+
+
 ## Default rules
 
-To see the access rules for a document, visit its access rules page by
+To enable and view the access rules for a document, visit its access rules page by
 clicking
 <span class="app-menu-item"><span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> Access Rules</span>
-in the left sidebar. When no custom rules have been created yet,
+in the left sidebar. When rules are enabled but no custom rules have been created yet,
 the access rules page contains the `Default Rules` for our document:
 
 ![Access rules](images/access-rules/access-rules-page.png)
@@ -41,45 +79,28 @@ the access rules page contains the `Default Rules` for our document:
 These rules say, in summary, that Owners and Editors can do anything within
 the document, that Viewers can only read the document, and everyone
 else is forbidden all access.  These rules cannot be modified since they reflect the underlying enforcement of basic roles.
-However, other rules can be added to restrict access in more granular ways.
+
+However, other rules can be added above them to restrict access in more granular ways, using the
+"+" button circled in the above screenshot. Default rules in this section are used as the fallback for
+all tables.
+
 To understand whether a group of rules allows a
-certain permission ([Read, Update, Create, Delete, or Structure](access-rules.md#access-rule-permissions)), read
+certain permission ([Read, Update, Create, or Delete](access-rules.md#access-rule-permissions)), read
 the rules from top to bottom, and find the first applicable rule
 that allows (green) or denies (red) that permission.
 We'll see plenty of examples as we go.
-
-## Lock down structure
-
-By default Owners and Editors are equally powerful within a document, with the ability to create
-or delete tables or columns, write formulas, reorganize pages, and so on.
-
-Suppose we want only the original Owners of the document to be allowed to change
-its structure, as we plan to invite other specialized collaborators as Editors.
-To do this, uncheck the box for the first rule listed under 'Special Rules' to 
-disallow editors from editing structure. 
-
-![Access rules](images/access-rules/access-rules-lock-structure.png)
-
-Once we've made changes, the `SAVE` button becomes an inviting green.  We
-click `SAVE` for the rule to take effect. 
-
-**Important.** This is an important first step for any document where you intend to block any access to Editors.
-Without denying them the structure permission (`S`), anyone with edit access will be able to
-create or change formulas. Since formula calculations are not limited by access control rules,
-a determined user could use them to retrieve any data from a document. To protect against
-that, deny structure permission to users whose access should be limited.
 
 ## Make a private table
 
 To ensure that only Owners can access a table, such as the `Financials` table in our example,
 we click `Add Table Rules` and select the table name, `Financials`.  This creates a new empty
 group of rules called `Rules for table Financials`.
+
 Then we add a condition for any user who is not an Owner (`user.Access != OWNER`), with all
 permissions denied.  Selecting `Deny All` from the drop-down beside `R` `U` `C` `D` is a fast
 way to set all permissions to denied, or you can click each permission individually to turn
 them red.  `R` is Read, `U` is Update, `C` is Create, and `D` is Delete
 (see [Access rule permissions](access-rules.md#access-rule-permissions)).
-Structure (`S`) permissions are not available at the table level.
 Once you are done, click `SAVE`.
 
 ![Access rules](images/access-rules/access-rules-private-table.png)
@@ -92,7 +113,31 @@ left side bar, and attempts to open it will be denied:
 
 ![Access rules](images/access-rules/access-rules-private-table-is-hidden.png)
 
-## Seed Rules
+
+## Basic conditions
+
+Access rules are applied in a particular order:
+
+1. Column-specific rules (see [Restrict access to columns](#restrict-access-to-columns))
+2. Table-wide rules
+3. Default rules
+
+As soon as we have a definitive answer (Allow or Deny), further rules are not checked.
+
+For any group of rule conditions, they are checked top to bottom. A last empty condition (shown
+as "Everyone" in the interface) always matches. If you insert a custom condition with the single
+keyword `True`, it will also always match.
+
+It's common to use conditions based on the user's access level to the document, for
+example:
+
+- `user.Access == EDITOR` -- checks if the user has Editor-level access to the document.
+- `user.Access != OWNER` -- checks if the user does _not_ have Owner-level access.
+- `user.Access in [VIEWER, EDITOR]` -- checks if the user has Viewer or Editor access.
+- `user.Access not in [EDITOR, OWNER]` -- checks if the user has neither Editor nor Owner access.
+
+
+## Seed rules
 
 When writing access rules for specific tables, it is fairly common to repeat the same rule across many tables — 
 for example, always grant owners full read and write permissions. To automatically add a set of rules to all 
@@ -101,6 +146,70 @@ case easier with one click. Click it to write a seed rule that will automaticall
 whenever table rules are added. Click the `>` icon to uncollapse the seed rules table to modify seed rules.
 
 ![access-rules-default-owner-access](images/access-rules/access-rules-default-owner-access.png)
+
+
+## Special rules
+
+Below "Default rules", you'll find several checkboxes that control document behavior outside of
+viewing and editing data.
+
+Each special rule has a checkbox to toggle it, and also an expander (`>`) that shows the complete
+conditions that implement each special rule. The conditions may be edited if you'd like to toggle
+behavior for particular subsets of users (e.g. determined using
+[user attributes](#user-attribute-tables)).
+
+### Allow Editors to edit structure {: #lock-down-structure data-toc-label='Structure edit' }
+
+This rule restores the default behavior of a document without access rules. In fact, when this is
+the only checked rule (and there are no table rules), it's equivalent to disabling access rules
+altogether.
+
+This rule controls a document-wide permission called the "structure permission", represented by
+`S` if you expand it:
+
+![Access rules](images/access-rules/access-rules-lock-structure.png)
+
+**Important:** The structure permission (`S`) is very powerful, as it allows for creating or changing
+formulas. Since formula calculations are not limited by access rules, a determined user
+could use them to retrieve any data from a document. In other words, having the structure
+permission makes it possible to circumvent other rules that prevent access to data.
+
+### Allow everyone to view access rules {: data-toc-label='View access rules' }
+
+By default, only Owners may view access rules. This rule allows every collaborator to view them.
+(It cannot allow non-Owners to change access rules, only view.)
+
+![Special rules](images/access-rules/access-rules-special-rules.png)
+
+### Restrict non-Owners from copying or downloading the full document {: data-toc-label='Copy or download' }
+
+This rule appears only if you allow non-Owners to view access rules.
+
+By default, only Owners may copy a document or download it in full. Such copies and downloads
+include the document's access rules, and so would make the rules visible to the new owner of the
+copy. For this reason, the permission to view access rules is a prerequisite to
+full copies.
+
+If you allow others to view access rules, then you may have non-Owners with complete access to all
+data. To avoid surprises, such users are still restricted from copying or downloading, but you can
+remove this restriction.
+
+Note that users who do not have complete read access to all document data will still be unable
+to copy or download the full document.
+
+### Special rules for templates
+
+Hidden under another `>` expander is a special rule that's only useful for non-sensitive
+templates and examples: to allow users with restrictions to copy or download the document.
+
+It addresses a particular problem: how do you demonstrate a template with restrictive access
+rules, and share it with someone without making them an owner? A template by definition involves
+copying the document, which is prohibited to anyone without full access. This rule exists to
+circumvent read restrictions just for this purpose.
+
+Note that when you make a copy of a document with this special rule, the special rule itself is
+not copied: the new copy will not have it on.
+
 
 ## Restrict access to columns
 
@@ -226,9 +335,43 @@ And here's how the table looks as Charon (doing sourcing):
 Kimberly and Charon now have read-only access to the table.  Owners still have full
 write access to all rows and columns.
 
-!!! note "Understanding reference columns in access rules" 
-    You can limit the data team members access to just those rows pertinent to their work. One way to do so is to relate all records in all tables to their respective team members. For example, leads and sales records can reference the sales rep responsible for those records. This quick video explains how. 
-    
+### Using references in conditions
+
+In conditions, the `rec` variable gives access to all the fields in the current record, but
+_not_ to any records referred to by references. In other words, the [dot notation
+lookups](references-lookups.md#reference-columns-and-dot-notation) supported by normal formulas
+(such as `$Person.Email` or `rec.Person.Email`) are not supported in access rule conditions.
+Instead, a reference value is a numerical ID of the referenced record.
+
+You may still use such records in comparisons:
+
+-   **Example 1.** Let's imagine that table `Orders` has a column `Purchaser` that's a reference to the `Team`
+    table and represents a person who placed the order. And let's say you have a user attribute
+    `user.Team`, configured as above.
+
+    Let's say you want to allow only the purchaser to update certain fields. Then you may compare
+    the value in the record with the user using the condition `rec.Purchaser == user.Team.id`{: .formula}.
+    Here, `rec.Purchaser` is a numeric identifier of a record in table `Team`, while `user.Team` is
+    such a record, and `user.Team.id` is its identifier (using the built-in `id` field).
+
+-   **Example 2.** Let's say now that both tables `Orders` and `Team` each have a column named
+    `Department`, which is a reference to the `Departments` table.
+
+    Let's say you want to only allow any person to view only the orders associated with the
+    department they are in. You can compare the value in the record with the user's department
+    using this condition: `rec.Department == user.Team.Department`{: .formula}.
+
+    Here, both `rec.Department` and `user.Team.Department` are numeric identifiers of records in
+    table `Departments`.
+
+When this isn't enough, you can also use normal formulas in your actual table to bring in
+referenced data as additional columns. E.g. if you add a column in table `Orders` named `Role`
+with the formula `$Purchaser.Role`, then you could use `rec.Role` in rule conditions for table
+`Orders`.
+
+!!! note "Understanding reference columns in access rules"
+    References offer a good way to limit the access of team members to rows pertinent to their work. One way to do so is to relate all records in all tables to their respective team members. For example, leads and sales records can reference the sales rep responsible for those records. This quick video explains how.
+
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ZL3rHdAZzfY?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Checking new values
@@ -347,15 +490,17 @@ Variables that may be available in access rules are `user`, `rec`, and `newRec`.
 
 The `user` variable contains the following members:
 
- * `user.Access`: one of `owners`, `editors`, or `viewers`, giving how the
+ * `user.Access`: one of `OWNER`, `EDITOR`, or `VIEWER`, giving how the
    document was shared with the user (see [Sharing a document](sharing.md)).
  * `user.Email`: the email address of the user (or `anon@getgrist.com` for users who are not logged in).
  * `user.UserID`: a numeric ID that is associated with the user.
- * `user.Name`: the user's name (or `Anonymous` if unavailable).
+ * `user.Name`: the user's name (or `Anonymous` if unavailable). Note that users may
+   change the name on their account.
  * `user.LinkKey`: an object with any access control URL parameters.  Access control URL
    parameters end in an underscore (which is then stripped).  Only available in the
    web client, not the API.
- * `user.SessionID`: a unique string assigned to anonymous users for the duration of that user's session. For logged in users, `user.SessionID` is always `"u"` + the user's numeric id. 
+ * `user.SessionID`: a unique string assigned to anonymous users for the duration of that user's session. For logged in users, `user.SessionID` is always `"u"` + the user's numeric id.
+ * `user.IsLoggedIn`: a boolean for whether a user is signed in or anonymous.
 
 For an example of using the `user` variable, read [Default rules](access-rules.md#default-rules).
 
@@ -396,18 +541,11 @@ single letter acronyms for convenience:
  * `D` - permission to delete rows.
  * `S` - permission to change table structure.
 
-The `S` structure permission is available in the default access rule
-group.  Column rules lack the `C` create and `D` delete permissions,
+The `S` structure permission is available only in the special rule to edit structure
+(see [Structure edit](#lock-down-structure)).
+
+Column rules lack the `C` create and `D` delete permissions,
 which should be handled in default table rules.
-
-**Note:** The `S` permission is very powerful. It allows writing formulas, which can access
-any data in the document regardless of rules. Since the `S` permission is on by default for
-Editors and Owners, any such user would be able to edit a formula and so retrieve any data.
-
-In other words, having the `S` permission makes it possible to circumvent other rules that prevent
-access to data. For this reason, turning it off -- as described above in [Locking down
-structure](#lock-down-structure) -- is an important first step in limiting data access.
-
 
 ## Access rule memos
 
