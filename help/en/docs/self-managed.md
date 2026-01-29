@@ -305,7 +305,7 @@ automatic right to team site membership.
 
 ### How do I set up authentication? {: .tag-core .tag-ee }
 
-Grist offers [several authentication methods](install/authentication-overview.md#getting-started) to secure your installation with, depending on your organization's security requirements and needs.
+Grist offers [several authentication methods](install/authentication-overview.md#getting-started) to help satisfy each organization's specific security requirements.
 
 For any authentication method, you may want to also consider setting the
 following variables:

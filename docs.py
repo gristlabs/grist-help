@@ -167,8 +167,9 @@ def build_all() -> None:
   shutil.rmtree(site_path, ignore_errors=True)
   langs = [lang.name for lang in get_lang_paths() if lang.is_dir()]
   if os.environ.get("NETLIFY"):
-    # Parallel builds in Netlify stopped working as of 01/26/2026.
-    # TODO: Figure out why.
+    # Parallel builds in Netlify stopped working after 01/26/2026, presumably
+    # due to missing sychronization primitives that are needed for process pools.
+    # Fall back to serial builds, which aren't much slower.
     for lang in langs:
       build_lang(lang)
   else:
