@@ -655,13 +655,11 @@ describe('Docs API', function() {
       // Move to trash
       await client.apis.docs.removeDoc({ docId });
 
-      // Doc should still be describable but marked as removed
-      // (behavior may vary - some APIs return 404 after soft delete)
+      // Doc should return 404 after soft delete
       try {
-        descResult = await client.apis.docs.describeDoc({ docId });
-        // If we can still access it, check workspace listing
+        await client.apis.docs.describeDoc({ docId });
+        assert.fail('Should have thrown 404');
       } catch (err) {
-        // 404 is acceptable - doc is in trash
         assert.equal(err.status, 404);
       }
 
@@ -694,10 +692,9 @@ describe('Docs API', function() {
       // Unremove should fail since it's permanently deleted
       try {
         await client.apis.docs.unremoveDoc({ docId });
-        assert.fail('Should have thrown error');
+        assert.fail('Should have thrown 404');
       } catch (err) {
-        // 404 or 400 expected
-        assert.include([400, 404], err.status);
+        assert.equal(err.status, 404);
       }
     });
 
@@ -1008,9 +1005,58 @@ describe('Docs API', function() {
       }
     });
 
-    // Note: uploadAttachments requires multipart form data which is complex to test
-    // with swagger-client. A full test would upload a file, verify it appears in
-    // listAttachments, then download it.
+    it('should upload, list, and download an attachment', async function() {
+      const testContent = 'Hello, this is test attachment content!';
+      const file = new File([testContent], 'test.txt', { type: 'text/plain' });
+
+      // Upload the attachment
+      const uploadResult = await client.apis.attachments.uploadAttachments(
+        { docId },
+        { requestBody: { upload: [file] } }
+      );
+
+      assert.equal(uploadResult.status, 200);
+      assert.isArray(uploadResult.body);
+      assert.lengthOf(uploadResult.body, 1);
+      const attachmentId = uploadResult.body[0];
+      assert.isNumber(attachmentId);
+
+      // Verify it appears in list
+      const listResult = await client.apis.attachments.listAttachments({ docId });
+      assert.lengthOf(listResult.body.records, 1);
+      const record = listResult.body.records[0];
+      assert.equal(record.id, attachmentId);
+      assert.equal(record.fields.fileName, 'test.txt');
+      assert.isNumber(record.fields.fileSize);
+
+      // Get metadata
+      const metaResult = await client.apis.attachments.getAttachmentMetadata({ docId, attachmentId });
+      assert.equal(metaResult.status, 200);
+      assert.equal(metaResult.body.fileName, 'test.txt');
+
+      // Download the attachment
+      const downloadResult = await client.apis.attachments.downloadAttachment({ docId, attachmentId });
+      assert.equal(downloadResult.status, 200);
+      // Text content comes as string, binary as Blob
+      const downloadedContent = typeof downloadResult.data === 'string'
+        ? downloadResult.data
+        : await downloadResult.data.text();
+      assert.equal(downloadedContent, testContent);
+    });
+
+    it('should upload multiple attachments at once', async function() {
+      const file1 = new File(['Content 1'], 'file1.txt', { type: 'text/plain' });
+      const file2 = new File(['Content 2'], 'file2.txt', { type: 'text/plain' });
+
+      const uploadResult = await client.apis.attachments.uploadAttachments(
+        { docId },
+        { requestBody: { upload: [file1, file2] } }
+      );
+
+      assert.equal(uploadResult.status, 200);
+      assert.isArray(uploadResult.body);
+      assert.lengthOf(uploadResult.body, 2);
+    });
   });
 
   // Note: Snapshots require a versioned S3-compatible external store to be meaningful.
@@ -1377,6 +1423,11 @@ describe('Docs API', function() {
       });
 
       assert.equal(result.status, 200);
+
+      // Verify the webhook was modified
+      const listResult = await client.apis.webhooks.listWebhooks({ docId });
+      const webhook = listResult.body.webhooks.find(w => w.id === webhookId);
+      assert.equal(webhook.fields.enabled, false);
     });
 
     it('should delete a webhook', async function() {
@@ -1448,6 +1499,16 @@ describe('Docs API', function() {
       });
 
       assert.equal(result.status, 200);
+
+      // Verify deletion - should return 404
+      try {
+        await client.apis['service accounts'].getServiceAccount({
+          saId: serviceAccountId
+        });
+        assert.fail('Should have thrown 404');
+      } catch (err) {
+        assert.equal(err.status, 404);
+      }
     });
   });
 

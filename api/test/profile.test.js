@@ -50,24 +50,33 @@ describe('Profile API', function() {
   });
 
   describe('POST /api/profile/user/locale (updateUserLocale)', function() {
-    it('should update user locale', async function() {
-      // Set locale to a specific value
-      const setResult = await client.apis.profile.updateUserLocale({}, {
+    it('should update user locale and verify via profile', async function() {
+      // Set locale to French
+      await client.apis.profile.updateUserLocale({}, {
         requestBody: { locale: 'fr' }
       });
-      assert.equal(setResult.status, 200);
 
-      // Change to another locale
-      const changeResult = await client.apis.profile.updateUserLocale({}, {
+      // Verify locale was set
+      let profile = await client.apis.profile.getProfile();
+      assert.equal(profile.body.locale, 'fr');
+
+      // Change to German
+      await client.apis.profile.updateUserLocale({}, {
         requestBody: { locale: 'de' }
       });
-      assert.equal(changeResult.status, 200);
+
+      // Verify locale changed
+      profile = await client.apis.profile.getProfile();
+      assert.equal(profile.body.locale, 'de');
 
       // Clear locale (reset to default)
-      const clearResult = await client.apis.profile.updateUserLocale({}, {
+      await client.apis.profile.updateUserLocale({}, {
         requestBody: { locale: null }
       });
-      assert.equal(clearResult.status, 200);
+
+      // Verify locale was cleared
+      profile = await client.apis.profile.getProfile();
+      assert.isNull(profile.body.locale);
     });
   });
 
