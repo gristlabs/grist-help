@@ -4,7 +4,7 @@
   "description": "Repository for Grist documentation and tutorials.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require api/test/hooks.js --timeout 60000 'api/test/*.test.js'",
     "build": "vite build",
     "dev": "vite dev"
   },
@@ -23,6 +23,10 @@
     "redoc-cli": "^0.13.20"
   },
   "devDependencies": {
+    "chai": "^4.3.7",
+    "js-yaml": "^4.1.0",
+    "mocha": "^10.2.0",
+    "swagger-client": "^3.24.0",
     "typedoc": "^0.23.9",
     "typedoc-plugin-markdown": "3.13.4",
     "typescript": "^4.7.4"

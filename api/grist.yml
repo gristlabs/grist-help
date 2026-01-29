@@ -124,6 +124,47 @@ paths:
         200:
           description: Success
 
+  /orgs/{orgId}/usage:
+    get:
+      operationId: getOrgUsage
+      tags:
+        - orgs
+      summary: "Get organization usage summary"
+      description: |
+        Get usage statistics for all non-deleted documents in the organization.
+        Only accessible to organization owners.
+      parameters:
+        - $ref: '#/components/parameters/orgIdPathParam'
+      responses:
+        200:
+          description: "Usage summary"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  countsByDataLimitStatus:
+                    type: object
+                    description: "Count of documents grouped by data limit status"
+                    properties:
+                      approachingLimit:
+                        type: integer
+                      gracePeriod:
+                        type: integer
+                      deleteOnly:
+                        type: integer
+                  attachments:
+                    type: object
+                    required:
+                      - totalBytes
+                    properties:
+                      totalBytes:
+                        type: integer
+                        description: "Total attachment storage used in bytes"
+                      limitExceeded:
+                        type: boolean
+                        description: "Whether the attachment limit has been exceeded (only present when limit is exceeded)"
+
   /orgs/{orgId}/workspaces:
     get:
       operationId: listWorkspaces
@@ -209,6 +250,43 @@ paths:
       responses:
         200:
           description: Success
+
+  /workspaces/{workspaceId}/remove:
+    post:
+      operationId: removeWorkspace
+      tags:
+        - workspaces
+      summary: "Move workspace to trash"
+      description: |
+        Soft-delete the workspace by moving it to trash. The workspace can be
+        restored using the unremove endpoint. If the `permanent` query parameter
+        is set to true, the workspace is permanently deleted instead.
+      parameters:
+        - $ref: '#/components/parameters/workspaceIdPathParam'
+        - in: query
+          name: permanent
+          schema:
+            type: boolean
+          description: "If true, permanently delete instead of moving to trash"
+      responses:
+        200:
+          description: Workspace moved to trash (or permanently deleted)
+
+  /workspaces/{workspaceId}/unremove:
+    post:
+      operationId: unremoveWorkspace
+      tags:
+        - workspaces
+      summary: "Restore workspace from trash"
+      description: |
+        Recover a workspace that was previously soft-deleted. Only works if the
+        workspace is still in the trash.
+      parameters:
+        - $ref: '#/components/parameters/workspaceIdPathParam'
+      responses:
+        200:
+          description: Workspace restored successfully
+
   /workspaces/{workspaceId}/docs:
     post:
       operationId: createDoc
@@ -308,6 +386,146 @@ paths:
         200:
           description: Success
 
+  /templates:
+    get:
+      operationId: listTemplates
+      tags:
+        - templates
+      summary: "List available templates"
+      description: |
+        Get all available templates. Templates are organized by workspace within
+        a template organization configured on the server.
+
+        **Note:** Requires a template organization to be configured on the server.
+      responses:
+        200:
+          description: "List of workspaces containing templates"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WorkspaceWithDocsAndDomain"
+
+  /templates/{templateId}:
+    get:
+      operationId: getTemplate
+      tags:
+        - templates
+      summary: "Get template details"
+      description: |
+        Get information about a specific template.
+
+        **Note:** Requires a template organization to be configured on the server.
+      parameters:
+        - name: templateId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: "ID of the template"
+      responses:
+        200:
+          description: "Template information"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocWithWorkspace"
+
+  /widgets:
+    get:
+      operationId: listWidgets
+      tags:
+        - widgets
+      summary: "List available custom widgets"
+      description: |
+        Get all widget definitions from the configured widget repository.
+        Custom widgets extend Grist's functionality with specialized views.
+      responses:
+        200:
+          description: "List of widgets"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: "Widget display name"
+                    url:
+                      type: string
+                      description: "URL to load the widget"
+                    widgetId:
+                      type: string
+                      description: "Unique widget identifier"
+
+  /docs:
+    post:
+      operationId: createDocUnified
+      tags:
+        - docs
+      summary: "Create a document"
+      description: |
+        A unified endpoint for creating documents. Can create an empty document,
+        copy an existing document, or import a file.
+
+        - To create an empty unsaved document: provide no parameters
+        - To create an empty saved document: provide `workspaceId`
+        - To copy an existing document: provide `sourceDocumentId`, `workspaceId`, and `documentName`
+        - To import a file: use multipart/form-data with a file upload and optional `workspaceId`
+      requestBody:
+        description: "settings for the document"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                workspaceId:
+                  type: integer
+                  description: "The workspace to save the document in. If omitted, creates an unsaved document."
+                  example: 97
+                documentName:
+                  type: string
+                  description: "Name for the new document (required when copying)"
+                  example: "My Document"
+                sourceDocumentId:
+                  type: string
+                  description: "ID of document to copy from. Requires workspaceId and documentName."
+                  example: "mNnQ2PXndhXm"
+                asTemplate:
+                  type: boolean
+                  description: "When copying, if true, copy structure only without data"
+                  example: false
+                timezone:
+                  type: string
+                  description: "Timezone for the document"
+                  example: "America/New_York"
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                upload:
+                  description: "File to import (.grist, .xlsx, .csv, etc.)"
+                  type: string
+                  format: binary
+                workspaceId:
+                  type: integer
+                  description: "The workspace to save the document in"
+                documentName:
+                  type: string
+                  description: "Name for the imported document"
+      responses:
+        200:
+          description: The document id
+          content:
+            application/json:
+              schema:
+                type: string
+                description: a unique identifier for the document
+                example: "9PJhBDZPyCNoayZxaCwFfS"
+
   /docs/{docId}:
     get:
       operationId: describeDoc
@@ -350,6 +568,43 @@ paths:
       responses:
         200:
           description: Success
+
+  /docs/{docId}/remove:
+    post:
+      operationId: removeDoc
+      tags:
+        - docs
+      summary: "Move document to trash"
+      description: |
+        Soft-delete the document by moving it to trash. The document can be
+        restored using the unremove endpoint. If the `permanent` query parameter
+        is set to true, the document is permanently deleted instead.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: permanent
+          schema:
+            type: boolean
+          description: "If true, permanently delete instead of moving to trash"
+      responses:
+        200:
+          description: Document moved to trash (or permanently deleted)
+
+  /docs/{docId}/unremove:
+    post:
+      operationId: unremoveDoc
+      tags:
+        - docs
+      summary: "Restore document from trash"
+      description: |
+        Recover a document that was previously soft-deleted. Only works if the
+        document is still in the trash.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Document restored successfully
+
   /docs/{docId}/move:
     patch:
       operationId: moveDoc
@@ -372,7 +627,36 @@ paths:
                   example: 597
       responses:
         200:
-          description: "Success"
+          description: "Document moved successfully. Returns empty body."
+
+  /docs/{docId}/pin:
+    patch:
+      operationId: pinDoc
+      tags:
+        - docs
+      summary: "Pin a document"
+      description: |
+        Pin the document so it appears in a prominent location. Pinned documents
+        are displayed at the top of workspace listings for easy access.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Document pinned successfully
+
+  /docs/{docId}/unpin:
+    patch:
+      operationId: unpinDoc
+      tags:
+        - docs
+      summary: "Unpin a document"
+      description: "Remove the pinned status from a document."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Document unpinned successfully
+
   /docs/{docId}/disable:
     post:
       operationId: disableDoc
@@ -396,7 +680,7 @@ paths:
         - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
-          description: "Success"
+          description: "Document disabled successfully. Returns empty body."
         403:
           description: "The caller is not allowed to disable this document"
         404:
@@ -417,7 +701,7 @@ paths:
         - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
-          description: "Success"
+          description: "Document enabled successfully. Returns empty body."
         403:
           description: "The caller is not allowed to enable this document"
         404:
@@ -459,6 +743,50 @@ paths:
                 type: string
                 example: "145"
 
+  /docs/{docId}/fork:
+    post:
+      operationId: forkDoc
+      tags:
+        - docs
+      summary: "Fork a document"
+      description: |
+        Create a fork of a document. A fork is a personal copy that tracks its relationship
+        to the original document. Forks can be used to experiment with changes before
+        applying them to the original.
+
+        The fork will have a new docId and urlId that encode the relationship to the trunk
+        (original) document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "Fork created successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - forkId
+                  - docId
+                  - urlId
+                properties:
+                  forkId:
+                    type: string
+                    description: "The unique identifier for this fork"
+                    example: "abc123"
+                  docId:
+                    type: string
+                    description: "The full document ID of the fork"
+                    example: "XXXXX~abc123"
+                  urlId:
+                    type: string
+                    description: "The URL-friendly ID of the fork"
+                    example: "UUUUU~abc123"
+        400:
+          description: Cannot fork a document that's already a fork
+        403:
+          description: Insufficient access to document to copy it entirely
+
   /docs/{docId}/access:
     get:
       operationId: listDocAccess
@@ -496,6 +824,47 @@ paths:
       responses:
         200:
           description: Success
+
+  /docs/{docId}/usersForViewAs:
+    get:
+      operationId: getUsersForViewAs
+      tags:
+        - docs
+      summary: "Get users for 'View As' feature"
+      description: |
+        Get users that can be used with the "View As" feature for testing access rules.
+        Only document owners can call this endpoint.
+
+        Users are drawn from:
+        - Users the document is shared with
+        - Users mentioned in user attribute tables
+        - Predefined example users
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "Users available for View As"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    description: "Users the document is shared with"
+                    items:
+                      $ref: "#/components/schemas/User"
+                  attributeTableUsers:
+                    type: array
+                    description: "Users found in user attribute tables"
+                    items:
+                      $ref: "#/components/schemas/User"
+                  exampleUsers:
+                    type: array
+                    description: "Predefined example users"
+                    items:
+                      $ref: "#/components/schemas/User"
+
   /docs/{docId}/download:
     get:
       operationId: downloadDoc
@@ -568,6 +937,55 @@ paths:
             text/csv:
               schema:
                 type: string
+
+  /docs/{docId}/download/tsv:
+    get:
+      operationId: downloadDocTsv
+      tags:
+        - docs
+      summary: "Content of table, as a TSV file"
+      description: "Download table data as tab-separated values."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: tableId
+          schema:
+            type: string
+            description: "Name of a table (normalized)."
+          required: true
+        - $ref: '#/components/parameters/headerQueryParam'
+      responses:
+        200:
+          description: A table's content in TSV form
+          content:
+            text/tab-separated-values:
+              schema:
+                type: string
+
+  /docs/{docId}/download/dsv:
+    get:
+      operationId: downloadDocDsv
+      tags:
+        - docs
+      summary: "Content of table, as a DSV file"
+      description: "Download table data using a custom delimiter (💩)."
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: tableId
+          schema:
+            type: string
+            description: "Name of a table (normalized)."
+          required: true
+        - $ref: '#/components/parameters/headerQueryParam'
+      responses:
+        200:
+          description: A table's content in DSV form
+          content:
+            text/plain:
+              schema:
+                type: string
+
   /docs/{docId}/download/table-schema:
     get:
       operationId: downloadTableSchema
@@ -591,6 +1009,201 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/TableSchemaResult'
+
+  /docs/{docId}/snapshots:
+    get:
+      operationId: listSnapshots
+      tags:
+        - docs
+      summary: "List document snapshots"
+      description: |
+        Returns a list of snapshots (backups) of the document. Snapshots are created
+        automatically as the document is edited. Most recent snapshots are listed first.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: raw
+          schema:
+            type: boolean
+          description: "If true, returns all snapshots including those not in the snapshot inventory"
+      responses:
+        200:
+          description: "List of snapshots"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - snapshots
+                properties:
+                  snapshots:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - snapshotId
+                        - lastModified
+                        - docId
+                      properties:
+                        snapshotId:
+                          type: string
+                          description: "Unique identifier for the snapshot"
+                        lastModified:
+                          type: string
+                          format: date-time
+                          description: "When the snapshot was created"
+                        docId:
+                          type: string
+                          description: "Document ID that can be used to open this snapshot"
+
+  /docs/{docId}/snapshots/remove:
+    post:
+      operationId: removeSnapshots
+      tags:
+        - docs
+      summary: "Remove document snapshots"
+      description: |
+        Remove specific snapshots from a document's backup history.
+        Only document owners can remove snapshots.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                snapshotIds:
+                  type: array
+                  items:
+                    type: string
+                  description: "List of snapshot IDs to remove"
+              example:
+                snapshotIds: ["abc123", "def456"]
+      responses:
+        200:
+          description: "Snapshots removed"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  snapshotIds:
+                    type: array
+                    items:
+                      type: string
+                    description: "The snapshot IDs that were removed"
+
+  /docs/{docId}/states:
+    get:
+      operationId: getStates
+      tags:
+        - docs
+      summary: "Get document action history states"
+      description: |
+        Returns a list of document states representing the action history.
+        Each state has a sequential number (n) and a hash (h) that uniquely
+        identifies that point in history. Most recent state is first.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "List of document states"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - states
+                properties:
+                  states:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - n
+                        - h
+                      properties:
+                        n:
+                          type: integer
+                          description: "Sequential action number"
+                        h:
+                          type: string
+                          description: "Hash identifier for this state"
+
+  /docs/{docId}/compare:
+    get:
+      operationId: compareVersions
+      tags:
+        - docs
+      summary: "Compare document versions"
+      description: |
+        Compare two versions of the same document by their state hashes.
+        Returns details about what changed between the versions.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: left
+          schema:
+            type: string
+          description: "Hash of the left version to compare (defaults to HEAD)"
+        - in: query
+          name: right
+          schema:
+            type: string
+          description: "Hash of the right version to compare (defaults to HEAD)"
+        - in: query
+          name: maxRows
+          schema:
+            type: integer
+          description: "Maximum number of row changes to include in details"
+      responses:
+        200:
+          description: "Comparison result"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocComparison'
+        403:
+          description: Insufficient access to compare documents
+
+  /docs/{docId}/compare/{docId2}:
+    get:
+      operationId: compareDocuments
+      tags:
+        - docs
+      summary: "Compare two documents"
+      description: |
+        Compare this document with another document. Useful for comparing
+        a fork with its trunk document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - name: docId2
+          in: path
+          required: true
+          schema:
+            type: string
+          description: "ID of the document to compare with"
+        - in: query
+          name: detail
+          schema:
+            type: boolean
+          description: "If true, include detailed change information"
+        - in: query
+          name: maxRows
+          schema:
+            type: integer
+          description: "Maximum number of row changes to include"
+      responses:
+        200:
+          description: "Comparison result"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocComparison'
+        403:
+          description: Insufficient access to compare documents
+
   /docs/{docId}/states/remove:
     post:
       operationId: deleteActions
@@ -612,6 +1225,120 @@ paths:
                   description: "The number of the latest history actions to keep"
               example:
                 keep: 3
+
+  /docs/{docId}/proposals:
+    get:
+      operationId: listProposals
+      tags:
+        - docs
+      summary: "List change proposals"
+      description: |
+        List proposals associated with a document. Proposals are suggested changes
+        from forks that can be reviewed and applied to the trunk document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: outgoing
+          schema:
+            type: boolean
+          description: "If true, list proposals where this document is the source. Otherwise list proposals where this document is the destination."
+      responses:
+        200:
+          description: "List of proposals"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  proposals:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: "Proposal ID"
+                        srcDocId:
+                          type: string
+                          description: "Source document (fork) ID"
+                        destDocId:
+                          type: string
+                          description: "Destination document (trunk) ID"
+                        retracted:
+                          type: boolean
+                          description: "Whether the proposal has been retracted"
+                        comparison:
+                          $ref: '#/components/schemas/DocComparison'
+
+  /docs/{docId}/propose:
+    post:
+      operationId: createProposal
+      tags:
+        - docs
+      summary: "Create a change proposal"
+      description: |
+        Create a proposal from a fork to its trunk document. The proposal contains
+        the comparison of changes between the fork and trunk.
+        This endpoint can only be called on a fork document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                retracted:
+                  type: boolean
+                  description: "Set to true to retract an existing proposal"
+                  default: false
+      responses:
+        200:
+          description: "Proposal created"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: "Proposal ID"
+                  comparison:
+                    $ref: '#/components/schemas/DocComparison'
+        400:
+          description: Can only propose from a fork
+
+  /docs/{docId}/proposals/{proposalId}/apply:
+    post:
+      operationId: applyProposal
+      tags:
+        - docs
+      summary: "Apply a change proposal"
+      description: |
+        Apply a proposal's changes to the document. This merges the fork's
+        changes into the trunk document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - name: proposalId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: "ID of the proposal to apply"
+      responses:
+        200:
+          description: "Proposal applied successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  proposalId:
+                    type: integer
+                  changes:
+                    type: object
+                    description: "Summary of changes applied"
+
   /docs/{docId}/force-reload:
     post:
       operationId: forceReload
@@ -624,6 +1351,83 @@ paths:
       responses:
         200:
           description: Document reloaded successfully
+
+  /docs/{docId}/flush:
+    post:
+      operationId: flushDoc
+      tags:
+        - docs
+      summary: "Flush document to storage"
+      description: |
+        Ensure all pending changes to the document are written to persistent storage.
+        Returns true if the document was flushed, false if the document was not open.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "Flush result"
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: "True if document was flushed, false if document was not open"
+
+  /docs/{docId}/assign:
+    post:
+      operationId: assignDoc
+      tags:
+        - docs
+      summary: "Reassign document to appropriate worker"
+      description: |
+        Administrative endpoint that checks if a document is assigned to the expected
+        worker group and frees it for reassignment if not. Used for load balancing
+        and maintenance operations.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: group
+          schema:
+            type: string
+          description: "Update the document's worker group (requires special permit)"
+      responses:
+        200:
+          description: "Assignment result"
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: "True if document was freed for reassignment"
+
+  /docs/{docId}/replace:
+    post:
+      operationId: replaceDoc
+      tags:
+        - docs
+      summary: "Replace document content"
+      description: |
+        Replace the current document content with content from another source.
+        Can restore from a snapshot or copy from another document.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceDocId:
+                  type: string
+                  description: "ID of document to copy content from"
+                snapshotId:
+                  type: string
+                  description: "ID of snapshot to restore from"
+                resetTutorialMetadata:
+                  type: boolean
+                  description: "Reset tutorial progress when replacing (for tutorial forks)"
+      responses:
+        200:
+          description: Document content replaced successfully
+
   /docs/{docId}/recover:
     post:
       operationId: recoverDoc
@@ -663,6 +1467,136 @@ paths:
           description: Access denied - only owners can control recovery mode
         404:
           description: Document not found
+
+  /docs/{docId}/timing:
+    get:
+      operationId: getTimingStatus
+      tags:
+        - docs
+      summary: "Get formula timing status"
+      description: |
+        Check if formula timing is enabled for a document and retrieve timing data
+        if available. Only document owners can access timing information.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "Timing status"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - status
+                properties:
+                  status:
+                    type: string
+                    enum: ["disabled", "pending", "active"]
+                    description: |
+                      - disabled: timing is not enabled
+                      - pending: timing is enabled but no data yet
+                      - active: timing is enabled and data is available
+                  timing:
+                    type: object
+                    description: "Timing data (only present when status is 'active')"
+
+  /docs/{docId}/timing/start:
+    post:
+      operationId: startTiming
+      tags:
+        - docs
+      summary: "Start formula timing"
+      description: |
+        Start collecting timing information for formula calculations.
+        Only document owners can start timing.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Timing started successfully
+        400:
+          description: Timing already started for this document
+
+  /docs/{docId}/timing/stop:
+    post:
+      operationId: stopTiming
+      tags:
+        - docs
+      summary: "Stop formula timing"
+      description: |
+        Stop collecting timing information and return the collected data.
+        Only document owners can stop timing.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: "Timing stopped and data returned"
+          content:
+            application/json:
+              schema:
+                type: object
+                description: "Collected timing data for formulas"
+        400:
+          description: Timing not started for this document
+
+  /docs/{docId}/apply:
+    post:
+      operationId: applyUserActions
+      tags:
+        - docs
+      summary: "Apply a list of user actions"
+      description: |
+        Apply a sequence of user actions to a document. This is a low-level endpoint
+        for making batch changes using Grist's internal action format.
+
+        Each action is an array where the first element is the action type.
+        Common action types:
+        - `["AddRecord", tableId, rowId, {column: value}]` - Add a row (use null for auto-assigned rowId)
+        - `["UpdateRecord", tableId, rowId, {column: value}]` - Update a row
+        - `["RemoveRecord", tableId, rowId]` - Delete a row
+        - `["BulkAddRecord", tableId, [rowIds], {column: [values]}]` - Add multiple rows
+        - `["BulkUpdateRecord", tableId, [rowIds], {column: [values]}]` - Update multiple rows
+        - `["BulkRemoveRecord", tableId, [rowIds]]` - Delete multiple rows
+        - `["AddColumn", tableId, colId, {type, ...}]` - Add a column
+        - `["RemoveColumn", tableId, colId]` - Remove a column
+        - `["RenameColumn", tableId, oldColId, newColId]` - Rename a column
+        - `["AddTable", tableId, [{id, type, ...}]]` - Add a table
+        - `["RemoveTable", tableId]` - Remove a table
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - in: query
+          name: noparse
+          schema:
+            type: boolean
+          description: "If true, string values are stored as-is without parsing (e.g. dates won't be auto-converted)"
+      requestBody:
+        description: "An array of user actions to apply"
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: array
+                description: "A user action: [actionType, ...args]"
+              example:
+                - ["AddRecord", "People", null, {"Name": "Alice", "Age": 30}]
+                - ["UpdateRecord", "People", 1, {"Age": 31}]
+        required: true
+      responses:
+        200:
+          description: Actions applied successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  actionNum:
+                    type: integer
+                    description: "The action number assigned"
+                  retValues:
+                    type: array
+                    description: "Return values from each action (e.g. new row IDs)"
+
   /docs/{docId}/tables/{tableId}/data:
     get:
       operationId: getTableData
@@ -996,6 +1930,37 @@ paths:
         200:
           description: Success
 
+  /docs/{docId}/attachments/updateUsed:
+    post:
+      operationId: updateUsedAttachments
+      tags:
+        - attachments
+      summary: "Update attachment usage tracking"
+      description: |
+        Recalculate which attachments are in use by scanning the document.
+        This is mostly used for testing and maintenance.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Success
+
+  /docs/{docId}/attachments/verifyFiles:
+    post:
+      operationId: verifyAttachmentFiles
+      tags:
+        - attachments
+      summary: "Verify attachment file integrity"
+      description: |
+        Verify that attachment records match the actual stored files.
+        This is a maintenance endpoint to check for data consistency.
+        Only document owners can call this endpoint.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+      responses:
+        200:
+          description: Verification passed
+
   /docs/{docId}/tables/{tableId}/records:
     get:
       operationId: "listRecords"
@@ -1179,14 +2144,18 @@ paths:
       tags:
         - tables
       summary: "Modify tables of a document"
+      description: |
+        Modify metadata for existing tables. This endpoint is primarily useful for:
+        - Renaming tables (via the `tableId` field)
+        - Setting on-demand loading (via the `onDemand` field)
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
-        description: "the tables to change, with ids"
+        description: "the tables to modify, identified by their current id"
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/TablesList"
+              $ref: "#/components/schemas/UpdateTables"
         required: true
       responses:
         200:
@@ -1300,11 +2269,55 @@ paths:
         200:
           description: Success
 
+  /docs/{docId}/forms/{viewSectionId}:
+    get:
+      operationId: getFormData
+      tags:
+        - forms
+      summary: "Get form view data"
+      description: |
+        Get the form configuration for a specific view section. Forms are
+        a special view type that allows external users to submit data.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - name: viewSectionId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: "ID of the view section (form)"
+      responses:
+        200:
+          description: "Form data"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  formFieldsById:
+                    type: object
+                    description: "Form fields indexed by field ID"
+                  formLayoutSpec:
+                    type: string
+                    description: "JSON layout specification for the form"
+                  formTableId:
+                    type: string
+                    description: "ID of the table the form submits to"
+                  formTitle:
+                    type: string
+                    description: "Title of the form"
+        404:
+          description: Form not found
+
   /docs/{docId}/webhooks:
     get:
+      operationId: listWebhooks
       tags:
         - webhooks
       summary: "Webhooks associated with a document"
+      description: |
+        Returns all webhooks configured for this document, including their
+        settings and delivery statistics.
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
       responses:
@@ -1318,12 +2331,15 @@ paths:
                   - webhooks
                 properties:
                   webhooks:
-                    type: object
                     $ref: "#/components/schemas/Webhooks"
     post:
+      operationId: createWebhooks
       tags:
         - webhooks
       summary: "Create new webhooks for a document"
+      description: |
+        Creates one or more webhooks that will POST to specified URLs when
+        data in the document changes. Returns the IDs of the created webhooks.
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
@@ -1357,14 +2373,17 @@ paths:
                   webhooks:
                     type: array
                     items:
-                      type: object
                       $ref: "#/components/schemas/WebhookId"
 
   /docs/{docId}/webhooks/{webhookId}:
     patch:
+      operationId: modifyWebhook
       tags:
         - webhooks
       summary: "Modify a webhook"
+      description: |
+        Update the configuration of an existing webhook, such as its URL,
+        enabled state, or event types.
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - in: path
@@ -1380,11 +2399,15 @@ paths:
               $ref: "#/components/schemas/WebhookPartialFields"
       responses:
         200:
-          description: "Success."
+          description: "Webhook updated successfully. Returns empty body."
     delete:
+      operationId: deleteWebhook
       tags:
         - webhooks
       summary: "Remove a webhook"
+      description: |
+        Permanently delete a webhook. Any pending deliveries in the queue
+        for this webhook will also be removed.
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - in: path
@@ -1394,7 +2417,7 @@ paths:
           required: true
       responses:
         200:
-          description: "Success."
+          description: "Webhook deleted successfully."
           content:
             application/json:
               schema:
@@ -1408,20 +2431,58 @@ paths:
 
   /docs/{docId}/webhooks/queue:
     delete:
+      operationId: clearWebhookQueue
       tags:
         - webhooks
       summary: "Empty a document's queue of undelivered payloads"
+      description: |
+        Clear all pending webhook deliveries for this document. Use this
+        if the queue has built up due to unreachable endpoints.
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
-          description: "Success."
+          description: "Queue cleared successfully. Returns empty body."
+
+  /docs/{docId}/webhooks/queue/{webhookId}:
+    delete:
+      operationId: clearWebhookQueueForWebhook
+      tags:
+        - webhooks
+      summary: "Clear queue for a specific webhook"
+      description: |
+        Clear the queue of pending payloads for a specific webhook.
+        Only document owners can call this endpoint.
+      parameters:
+        - $ref: '#/components/parameters/docIdPathParam'
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: "ID of the webhook"
+      responses:
+        200:
+          description: "Queue cleared"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
 
   /docs/{docId}/sql:
     get:
+      operationId: runSqlGet
       tags:
         - sql
       summary: "Run an SQL query against a document"
+      description: |
+        Execute a read-only SQL SELECT query against the document's SQLite database.
+        This is a simplified endpoint for basic queries. For queries with parameters
+        or custom timeouts, use the POST endpoint instead.
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
         - in: query
@@ -1437,9 +2498,14 @@ paths:
               schema:
                 $ref: "#/components/schemas/SqlResultSet"
     post:
+      operationId: runSql
       tags:
         - sql
       summary: "Run an SQL query against a document, with options or parameters"
+      description: |
+        Execute a read-only SQL SELECT query with support for parameterized queries
+        and custom timeouts. All Grist documents are SQLite databases, and queries
+        are executed directly against SQLite with security restrictions.
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
       requestBody:
@@ -1474,8 +2540,204 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SqlResultSet"
+
+  /profile/user:
+    get:
+      operationId: getProfile
+      tags:
+        - profile
+      summary: "Get current user's profile"
+      description: "Returns the profile information of the currently authenticated user."
+      responses:
+        200:
+          description: "User profile"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+  /profile/user/name:
+    post:
+      operationId: updateUserName
+      tags:
+        - profile
+      summary: "Update user's name"
+      description: "Update the display name for the current user."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  description: "New display name"
+                  example: "John Doe"
+      responses:
+        200:
+          description: Name updated successfully
+
+  /profile/user/locale:
+    post:
+      operationId: updateUserLocale
+      tags:
+        - profile
+      summary: "Update user's locale"
+      description: "Update the locale preference for the current user."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locale:
+                  type: string
+                  description: "Locale code (e.g. 'en-US', 'fr'). Set to null to clear."
+                  example: "en-US"
+      responses:
+        200:
+          description: Locale updated successfully
+
+  /profile/apikey:
+    get:
+      operationId: getApiKey
+      tags:
+        - profile
+      summary: "Get user's API key"
+      description: "Returns the current user's API key if one exists."
+      responses:
+        200:
+          description: "API key"
+          content:
+            text/plain:
+              schema:
+                type: string
+    post:
+      operationId: createApiKey
+      tags:
+        - profile
+      summary: "Create or regenerate API key"
+      description: "Create a new API key or regenerate an existing one."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                force:
+                  type: boolean
+                  description: "If true, regenerate even if a key already exists"
+      responses:
+        200:
+          description: "New API key"
+          content:
+            text/plain:
+              schema:
+                type: string
+    delete:
+      operationId: deleteApiKey
+      tags:
+        - profile
+      summary: "Delete user's API key"
+      description: "Delete the current user's API key."
+      responses:
+        200:
+          description: API key deleted successfully
+
+  /session/access/active:
+    get:
+      operationId: getActiveSession
+      tags:
+        - session
+      summary: "Get active session information"
+      description: |
+        Returns information about the active user and organization for the current session.
+      responses:
+        200:
+          description: "Active session info"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: "#/components/schemas/User"
+                  org:
+                    $ref: "#/components/schemas/Org"
+                  orgError:
+                    type: object
+                    description: "Error information if org access failed"
+                    properties:
+                      error:
+                        type: string
+                      status:
+                        type: integer
+    post:
+      operationId: setActiveUser
+      tags:
+        - session
+      summary: "Set active user for organization"
+      description: |
+        Switch which user account is active for a given organization.
+        Useful when a user has multiple accounts logged in.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+                  description: "Email of the user to make active"
+                org:
+                  type: string
+                  description: "Organization subdomain or 'current'"
+      responses:
+        200:
+          description: "Active user changed"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+        403:
+          description: Email not available for this session
+
+  /session/access/all:
+    get:
+      operationId: getAllSessions
+      tags:
+        - session
+      summary: "Get all session users and organizations"
+      description: |
+        Returns all user profiles logged into the current session and all
+        organizations they can access.
+      responses:
+        200:
+          description: "All session info"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
+                  orgs:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Org"
+
   /users/{userId}:
     delete:
+      operationId: deleteUser
       tags:
         - users
       summary: "Delete a user from Grist"
@@ -1509,6 +2771,7 @@ paths:
           description: "The user is not found"
   /users/{userId}/disable:
     post:
+      operationId: disableUser
       tags:
         - users
       summary: "Disable a user"
@@ -1529,6 +2792,7 @@ paths:
           description: "The user is not found"
   /users/{userId}/enable:
     post:
+      operationId: enableUser
       tags:
         - users
       summary: "Enable a user"
@@ -1547,6 +2811,7 @@ paths:
           description: "The user is not found"
   /service-accounts:
     get:
+      operationId: listServiceAccounts
       tags:
         - service accounts
       summary: "Get all your service accounts"
@@ -1562,9 +2827,10 @@ paths:
         403:
           description: "The caller is not allowed to access this resource"
     post:
+      operationId: createServiceAccount
       tags:
         - service accounts
-      summary: "Create a service accounts"
+      summary: "Create a service account"
       description: |
         This creates a new service account with a new API key.
       requestBody:
@@ -1583,6 +2849,7 @@ paths:
           description: "The caller is not allowed to create service accounts"
   /service-accounts/{saId}:
     get:
+      operationId: getServiceAccount
       tags:
         - service accounts
       summary: "Get a service account's details"
@@ -1602,6 +2869,7 @@ paths:
         404:
           description: "Service account not found"
     patch:
+      operationId: modifyServiceAccount
       tags:
         - service accounts
       summary: "Modify a service account"
@@ -1616,16 +2884,13 @@ paths:
               $ref: "#/components/schemas/ServiceAccountBody"
       responses:
         200:
-          description: "The service account has been patched"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ServiceAccountResult"
+          description: "Success (empty body)"
         403:
           description: "The caller is not allowed to modify this service account"
         404:
           description: "Service account not found"
     delete:
+      operationId: deleteServiceAccount
       tags:
         - service accounts
       summary: "Delete a service account"
@@ -1635,13 +2900,14 @@ paths:
         This deletes a given service account.
       responses:
         200:
-          description: "Success"
+          description: "Service account deleted successfully. Returns empty body."
         403:
           description: "The caller is not allowed to delete this service account"
         404:
           description: "Service account not found"
   /service-accounts/{saId}/apikey:
     post:
+      operationId: regenerateServiceAccountApiKey
       tags:
         - service accounts
       summary: "Generate a new service account's api key"
@@ -1662,14 +2928,18 @@ paths:
         404:
           description: "Service account not found"
     delete:
+      operationId: deleteServiceAccountApiKey
       tags:
         - service accounts
-      summary: "Deletes service account's api key"
+      summary: "Delete a service account's api key"
+      description: |
+        Deletes the API key for a service account. The service account will
+        no longer be able to authenticate until a new key is generated.
       parameters:
         - $ref: '#/components/parameters/saIdPathParam'
       responses:
         200:
-          description: "Success"
+          description: "API key deleted successfully. Returns empty body."
         403:
           description: "The caller is not allowed to delete this api key"
         404:
@@ -1775,6 +3045,62 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Org"
+    DocComparison:
+      type: object
+      description: "Comparison result between two document versions"
+      required:
+        - left
+        - right
+        - parent
+        - summary
+      properties:
+        left:
+          type: object
+          description: "Left/local document state"
+          properties:
+            n:
+              type: integer
+              description: "Sequential action number"
+            h:
+              type: string
+              description: "Hash identifier"
+        right:
+          type: object
+          description: "Right/remote document state"
+          properties:
+            n:
+              type: integer
+            h:
+              type: string
+        parent:
+          type: object
+          nullable: true
+          description: "Most recent common ancestor state"
+          properties:
+            n:
+              type: integer
+            h:
+              type: string
+        summary:
+          type: string
+          enum: ["same", "left", "right", "both", "unrelated"]
+          description: |
+            Relationship summary:
+            - same: documents have the same most recent state
+            - left: the left document has actions not yet in the right
+            - right: the right document has actions not yet in the left
+            - both: both documents have changes (possible divergence)
+            - unrelated: no common history found
+        details:
+          type: object
+          description: "Detailed change information (when requested)"
+          properties:
+            leftChanges:
+              type: object
+              description: "Changes in the left document relative to common ancestor"
+            rightChanges:
+              type: object
+              description: "Changes in the right document relative to common ancestor"
     Webhooks:
       type: array
       items:
@@ -2199,12 +3525,19 @@ components:
                 example: Table1
               fields:
                 type: object
+                properties:
+                  tableRef:
+                    type: integer
+                    description: Row ID of the table in the _grist_Tables metadata table
+                  onDemand:
+                    type: boolean
+                    description: Whether the table uses on-demand loading
       example:
         tables:
           - id: People
             fields:
               tableRef: 1
-              onDemand: true
+              onDemand: false
           - id: Places
             fields:
               tableRef: 2
@@ -2323,6 +3656,39 @@ components:
             fields:
               type: Choice
               widgetOptions: "{\"choices\":[\"New\",\"Old\"],\"choiceOptions\":{\"New\":{\"fillColor\":\"#FF0000\",\"textColor\":\"#FFFFFF\"}}}"
+    UpdateTables:
+      type: object
+      required:
+        - tables
+      properties:
+        tables:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - fields
+            properties:
+              id:
+                type: string
+                description: Current table identifier
+              fields:
+                type: object
+                properties:
+                  tableId:
+                    type: string
+                    description: Set to a new value to rename the table
+                  onDemand:
+                    type: boolean
+                    description: Whether the table should use on-demand loading
+      example:
+        tables:
+          - id: People
+            fields:
+              tableId: Persons
+          - id: Places
+            fields:
+              onDemand: true
     UpdateColumns:
       type: object
       required:
