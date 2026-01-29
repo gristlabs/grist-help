@@ -69,7 +69,7 @@ Now that you've registered your Grist server on getgrist.com, you can finish con
 
 1. Return to the Admin Panel.
 2. Under "Sign in with getgrist.com", click "Configure".
-3. Paste the secret you copied from [**step 2**](#step-2-start-configuring-getgristcom-authentication)).
+3. Paste the secret you copied from [**step 2**](#step-2-register-your-grist-server).
 4. Click "Configure".
 
 If you are configuring authentication for the first time, getgrist.com authentication will automatically be set as the active method on server restart. Otherwise, you need to set getgrist.com authentication as the active method. To set it as the active method:
@@ -80,7 +80,7 @@ If you are configuring authentication for the first time, getgrist.com authentic
 !!!warning "**Changing authentication may affect your access**"
     If you are not able to sign in to an account on getgrist.com with an email that matches your current Grist user's email, you may lose access to that account, including any documents owned by it.
 
-    When the authentication method is changing, you will see a warning in the Admin Panel titled "Authentication change may affect your access". You may click "Change admin user" in the warning to [set a new installation admin]([set the installation admin](../../self-managed/#what-is-the-administrative-account)) when the authentication change takes effect on server restart.
+    When the authentication method is changing, you will see a warning in the Admin Panel titled "Authentication change may affect your access". You may click "Change admin user" in the warning to [set a new installation admin](../../self-managed/#what-is-the-administrative-account) when the authentication change takes effect on server restart.
 
     For example, if you've been using Grist as you@example.com but will be signing in as john@example.com on getgrist.com, you should change the admin email to "john@example.com" and check the option to replace "you@example.com" with the new email throughout Grist.
 
