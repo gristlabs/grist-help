@@ -86,16 +86,12 @@ If you are configuring authentication for the first time, getgrist.com authentic
 
 ### Step 4: Restart your Grist server
 
-To start using getgrist.com authentication, you must restart your Grist server. To restart your Grist server:
-
-1. Navigate to "Restart Grist" at the top of the Admin Panel and click "Restart Grist".
-2. Click "Restart Grist".
-2. Click "Restart".
+To start using getgrist.com authentication, you must restart your Grist server. To restart your Grist server, click 'Restart Grist' at the top of the Admin Panel.
 
 <span class="screenshot-full">*![admin-panel-restart](../images/admin-panel/admin-panel-restart.png)*</span>
 {: .screenshot-half }
 
-Depending on how you installed Grist, restarting from the Admin Panel may be unavailable. In that case, you must restart your Grist server manually. Refer to the installation documentation for instructions on how to restart the server manually.
+Depending on how you installed Grist, restarting from the Admin Panel may be unavailable. In that case, you must restart your Grist server manually. Refer to the documentation for how you installed Grist for instructions on how to manually restart your Grist server.
 
 ### Step 5: Test getgrist.com authentication
 
