@@ -13,7 +13,7 @@ Grist offers several authentication methods to help satisfy each organization's 
 ### Sign in with getgrist.com {: .tag-core .tag-ee}
 Sign in with getgrist.com allows users on your Grist server to sign in using their account on getgrist.com, which is the cloud version of Grist managed by Grist Labs.
 
-If you don’t already have an existing login solution to integrate with Grist, getgrist.com authentication is the simplest way to get authentication up and running. User registration and authentication are fully handled by Grist Labs, with no other external dependencies or services required.
+If you don’t already have an existing login solution to integrate with Grist, getgrist.com authentication is the simplest way to get authentication up and running. User registration and authentication are fully handled by Grist Labs, while your documents and data stay on your server.
 
 getgrist.com authentication is built on the industry-standard OAuth 2.0 and OpenID Connect (OIDC) protocols. When signing in, users will be redirected to the getgrist.com sign-in page to log in or register. After authenticating using their getgrist.com credentials, they'll be redirected back to your Grist server and signed in with the same credentials.
 
