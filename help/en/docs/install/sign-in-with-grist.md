@@ -6,29 +6,29 @@ title: Sign in with getgrist.com
 
 Sign in with getgrist.com allows users on your Grist server to sign in using their account on getgrist.com, which is the cloud version of Grist managed by Grist Labs.
 
-If you don’t already have an existing login solution to integrate with Grist, Sign in with getgrist.com is the simplest way to get authentication up and running. User registration and authentication are fully handled by Grist Labs, with no other external dependencies or services required.
+If you don’t already have an existing login solution to integrate with Grist, getgrist.com authentication is the simplest way to get authentication up and running. User registration and authentication are fully handled by Grist Labs, with no other external dependencies or services required.
 
 ## How it works
 
-Sign in with getgrist.com is built on the industry-standard OAuth 2.0 and OpenID Connect (OIDC) protocols. When signing in, users will be redirected to the getgrist.com sign-in page to log in or register.
+getgrist.com authentication is built on the industry-standard OAuth 2.0 and OpenID Connect (OIDC) protocols. When signing in, users will be redirected to the getgrist.com sign-in page to log in or register.
 
 <span class="screenshot-full">*![sign-in-with-grist-login](../images/sign-in-with-grist/sign-in-with-grist-login.png)*</span>
 {: .screenshot-half }
 
 After authenticating using their getgrist.com credentials, they'll be redirected back to your Grist server and signed in with the same credentials.
 
-## Setting up Sign in with getgrist.com
+## Setting up getgrist.com authentication
 
 ### Prerequisites
 
-To set up Sign in with getgrist.com, you must:
+To set up getgrist.com authentication, you must:
 
 * have [administrator access](../../self-managed/#what-is-the-administrative-account) on your Grist installation.
-* have [registered for an account on getgrist.com](https://login.getgrist.com/signup).
+* have [an account on getgrist.com](https://login.getgrist.com/signup).
 
 ### Step 1: Open authentication settings
 
-To begin setting up Sign in with getgrist.com, you need to navigate to your Grist server's authentication settings. To get to authentication settings:
+To begin setting up getgrist.com authentication, you need to navigate to your Grist server's authentication settings. To get to authentication settings:
 
 1. Sign in to your Grist installation as an administrator.
 2. Navigate to the [**Admin Panel**](https://support.getgrist.com/admin-panel/).
@@ -39,7 +39,7 @@ To begin setting up Sign in with getgrist.com, you need to navigate to your Gris
 
 ### Step 2: Register your Grist server
 
-You should see a list of available authentication methods, including Sign in with getgrist.com. Before you can use getgrist.com authentication, you must first register your Grist server. To register your server:
+You should see a list of available authentication methods, including "Sign in with getgrist.com". Before you can use getgrist.com authentication, you must first register your Grist server. To register your server:
 
 1. Under "Sign in with getgrist.com", click "Configure".
 2. Click "Register your Grist server".
