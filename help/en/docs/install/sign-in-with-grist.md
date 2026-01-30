@@ -27,7 +27,7 @@ To set up getgrist.com authentication, you must:
 * have [an account on getgrist.com](https://login.getgrist.com/signup).
 * have [configured your installation in single team mode](../../self-managed/#how-do-i-set-up-a-team)
 
-The reason for using single team mode is simple. Sign in with getgrist.com handles authentication for you, meaning it checks who a user arriving at your site is, and verifies their identity. But it remains the responsibility of your installation to handle authorization, meaning to control what operations the user can do on it. In single team mode, this is simple. You can just use user management for the team site to let in exactly the people you want. In multi-team mode, there is no equivalent, and the default behavior allows anyone in. We plan to offer a solution for this mode soon, but in the meanwhile, stick with single team mode.
+The reason for using single team mode is simple. Sign in with getgrist.com handles *authentication* for you, meaning it checks who a user arriving at your site is, and verifies their identity. But it remains the responsibility of your installation to handle *authorization*, meaning to control what operations the user can do on it. In single team mode, this is simple. You can just use user management for the team site to let in exactly the people you want. In multi-team mode, there is no equivalent, and the default behavior allows anyone in. We plan to offer a solution for this mode soon, but in the meanwhile, stick with single team mode.
 
 ### Step 1: Open authentication settings
 
