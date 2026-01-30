@@ -1,13 +1,23 @@
 /**
  * Mocha root hooks - runs once before/after all test files
+ *
+ * Set GRIST_RUNNING=1 to skip starting/stopping the Grist container
+ * (useful when Grist is provided externally, e.g., via GitHub Actions services)
  */
 
 const { startGrist, stopGrist, waitForGrist, createClient, getClient } = require('./helpers');
 
+const externalGrist = process.env.GRIST_RUNNING === '1';
+
 exports.mochaHooks = {
   async beforeAll() {
     this.timeout(120000);
-    startGrist();
+
+    if (externalGrist) {
+      console.log('Using external Grist instance...');
+    } else {
+      startGrist();
+    }
     await waitForGrist();
 
     // Create the Swagger client from grist.yml spec
@@ -20,7 +30,9 @@ exports.mochaHooks = {
   },
 
   async afterAll() {
-    stopGrist();
+    if (!externalGrist) {
+      stopGrist();
+    }
   }
 };
 

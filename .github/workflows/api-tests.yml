@@ -1,0 +1,50 @@
+name: API Tests
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'api/**'
+      - 'package.json'
+      - 'package-lock.json'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'api/**'
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    services:
+      grist:
+        image: gristlabs/grist
+        ports:
+          - 8485:8484
+        env:
+          GRIST_TEST_LOGIN: 1
+          TEST_SUPPORT_API_KEY: api_key_for_support
+          GRIST_WIDGET_LIST_URL: https://github.com/gristlabs/grist-widget/releases/download/latest/manifest.json
+          GRIST_ENABLE_SERVICE_ACCOUNTS: 1
+          ALLOWED_WEBHOOK_DOMAINS: '*'
+          GRIST_TEMPLATE_ORG: templates
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run API tests
+        env:
+          GRIST_RUNNING: 1
+        run: npm test
