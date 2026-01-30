@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[January 2026](newsletters/2026-01.md) •
+Suggestions, a new self-hosting auth. option, and community widgets
+
 [December 2025](newsletters/2025-12.md) •
 2025 year in review, community widgets showcase, and a Help Center redesign.
 
