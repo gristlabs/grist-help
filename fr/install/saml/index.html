@@ -14,10 +14,10 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
         <link rel="canonical" href="https://support.getgrist.com/install/saml/">
       
       
-        <link rel="prev" href="../../self-managed/">
+        <link rel="prev" href="../oidc/">
       
       
-        <link rel="next" href="../oidc/">
+        <link rel="next" href="../forwarded-headers/">
       
       
         
@@ -62,7 +62,7 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1769647655"></script>
+  <script type="module" src="/js/grist.js?v=1769795483"></script>
 
     
   
@@ -3742,228 +3742,6 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-
-  
-  
-    
-    
-    
-  
-
-  <span class="md-ellipsis">
-    SAML
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-
-  
-  
-    
-    
-    
-  
-
-  <span class="md-ellipsis">
-    SAML
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#exemple-auth0" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple : Auth0
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemple-authentik" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple : Authentik
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemple-google" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple : Google
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#depannage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dépannage
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../oidc/" class="md-nav__link">
-        
-  
-  
-
-  
-  
-    
-    
-    
-  
-
-  <span class="md-ellipsis">
-    OIDC
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../scim/" class="md-nav__link">
-        
-  
-  
-
-  
-  
-    
-    
-    
-  
-
-  <span class="md-ellipsis">
-    SCIM
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../forwarded-headers/" class="md-nav__link">
-        
-  
-  
-
-  
-  
-    
-    
-    
-  
-
-  <span class="md-ellipsis">
-    En-têtes transférés
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -3981,37 +3759,6 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
 
   <span class="md-ellipsis">
     Stockage cloud
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../grist-connect/" class="md-nav__link">
-        
-  
-  
-
-  
-  
-    
-    
-    
-  
-
-  <span class="md-ellipsis">
-    GristConnect
     
   </span>
   
@@ -4150,6 +3897,380 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
                 
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_7" id="__nav_3_2_7_label" tabindex="0">
+            
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Authentication
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication-overview/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Authentication overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sign-in-with-grist/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Sign in with getgrist.com
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oidc/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    OIDC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    SAML
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    SAML
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-auth0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple : Auth0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-authentik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple : Authentik
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple : Google
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depannage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dépannage
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forwarded-headers/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    En-têtes transférés
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grist-connect/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    GristConnect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scim/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    SCIM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     
@@ -4164,10 +4285,10 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_8" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_12" id="__nav_3_2_12_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_8" id="__nav_3_2_8_label" tabindex="0">
             
   
   
@@ -4188,8 +4309,8 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_12">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_8">
             <span class="md-nav__icon md-icon"></span>
             Audit logs
           </label>
@@ -4314,10 +4435,10 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_13" id="__nav_3_2_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
             
   
   
@@ -4338,8 +4459,8 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_13">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_9">
             <span class="md-nav__icon md-icon"></span>
             Télémétrie
           </label>
@@ -6829,6 +6950,24 @@ Un bon aperçu informatif de SAML est disponible sur https://www.okta.com/integr
   
 
       
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../authentication-overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
     </ol>
   </nav>
 
@@ -6994,7 +7133,7 @@ Nous utilisons également des attributs optionnels pour le nom de l&rsquo;utilis
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../../self-managed/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Grist auto-hébergé">
+          <a href="../oidc/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: OIDC">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -7004,20 +7143,20 @@ Nous utilisons également des attributs optionnels pour le nom de l&rsquo;utilis
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Grist auto-hébergé
+                OIDC
               </div>
             </div>
           </a>
         
         
           
-          <a href="../oidc/" class="md-footer__link md-footer__link--next" aria-label="Suivant: OIDC">
+          <a href="../forwarded-headers/" class="md-footer__link md-footer__link--next" aria-label="Suivant: En-têtes transférés">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                OIDC
+                En-têtes transférés
               </div>
             </div>
             <div class="md-footer__button md-icon">
