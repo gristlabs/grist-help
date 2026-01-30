@@ -145,7 +145,7 @@ Email notifications for comments can be enabled under [Document Settings](docume
 
 Previously, making changes to data in a Grist document was either in real time, or done by copying a document and replacing the original with the new version. If you enable suggestions, you can now manage collaborative changes with a workflow similar to [version control](https://en.wikipedia.org/wiki/Version_control){:target="\_blank"} in computer science. 
 
-A user makes changes in a personal copy without modifying the original document, then submits these suggestions to be reviewed by the document owner prior to integration. This workflow can be useful in more sensitive contexts, or for crowdsourcing data easily with additional quality control. 
+With suggestions enabled, users (signed-in or not) automatically open a copy of a document. They make edits to this copy without modifying the original, and then submit these suggestions to be reviewed by the [document Owner](#roles) prior to integration. This workflow can be useful in more sensitive contexts, or for crowdsourcing data easily with additional quality control. 
 
 ### Limitations
 
@@ -158,11 +158,15 @@ In their current experimental state, suggestions have the following limitations:
 
 ### Enabling suggestions
 
-To enable suggestions, go to 'Document Settings' and check the toggle 'Enable suggestions'. Once this is enabled, all users (signed-in and guests) will be able to make suggestions. 
+To enable suggestions, go to 'Document settings' and check the toggle 'Enable suggestions'. Once this is enabled, even users who don't have a Grist account, will be able to make suggestions. 
+
+For added flexibility, document Owners and Editors can switch between editing and suggesting by clicking 'Suggest changes' in the 'Share' menu.
+
+![Switching from editing to suggesting](images/sharing/editing-toggle.png)
 
 ## Leaving a Document
 
-Non-owners may look up their access details to a document by clicking on the share icon 
+Non-Owners may look up their access details to a document by clicking on the share icon 
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>) on top right of the
 screen and selecting "Access Details."
 
