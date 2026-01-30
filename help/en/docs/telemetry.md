@@ -1,8 +1,8 @@
 ---
-title: Overview of telemetry
+title: Telemetry overview
 ---
 
-# Overview of Telemetry
+# Telemetry overview
 
 Grist development is guided by telemetry: a set of measurements
 aimed at quantifying aspects of how Grist is used. Aside from [an automatic version check](self-managed.md#how-do-i-control-automatic-version-checks), self-hosted

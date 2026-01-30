@@ -305,13 +305,7 @@ automatic right to team site membership.
 
 ### How do I set up authentication? {: .tag-core .tag-ee }
 
-Authentication can be set up in many ways for Grist Core and Enterprise, using
-SAML, OpenID Connect or forwarded headers. Between the two, many popular SSOs can be hooked
-up, such as Google or Microsoft sign-ins.
-
-  * [SAML](install/saml.md).
-  * [OpenID Connect](install/oidc.md)
-  * [Forwarded headers](install/forwarded-headers.md).
+Grist offers [several authentication methods](install/authentication-overview.md#getting-started) to help satisfy each organization's specific security requirements.
 
 For any authentication method, you may want to also consider setting the
 following variables:
@@ -326,12 +320,6 @@ following variables:
 For our SaaS, we use a custom authentication system based around AWS
 Cognito. Currently, we have no plans to release that as part of Core
 or Enterprise.
-
-### Are there other authentication methods? {: .tag-ee }
-
-If users on your site login via WordPress, or via a custom mechanism
-you developed, you may want to consider
-[GristConnect](install/grist-connect.md), available for Grist Enterprise.
 
 ### How do I enable Grist Enterprise? {: .tag-ee }
 

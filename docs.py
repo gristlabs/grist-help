@@ -166,11 +166,17 @@ def build_all() -> None:
   update_languages()
   shutil.rmtree(site_path, ignore_errors=True)
   langs = [lang.name for lang in get_lang_paths() if lang.is_dir()]
-  cpu_count = os.cpu_count() or 1
-  process_pool_size = cpu_count * 4
-  typer.echo(f"Using process pool size: {process_pool_size}")
-  with Pool(process_pool_size) as p:
-    p.map(build_lang, langs)
+  if os.environ.get("NETLIFY"):
+    # Parallel builds in Netlify stopped working after 01/26/2026, presumably
+    # due to missing sychronization primitives that are needed for process pools.
+    # Fall back to serial builds, which aren't much slower.
+    for lang in langs:
+      build_lang(lang)
+  else:
+    cpu_count = os.cpu_count() or 1
+    process_pool_size = cpu_count * 4
+    with Pool(process_pool_size) as p:
+      p.map(build_lang, langs)
 
 def update_translatable_nav_sections() -> None:
   def extract_nav_sections_keys(nav):
