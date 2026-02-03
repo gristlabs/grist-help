@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Tutorials and resources for Grist, to help you organize your data, your way.">
+        <meta name="description" content="You can use the Assistant in self-hosted Grist with your AI provider of choice or a local model.">
       
       
       
@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1769796644"></script>
+  <script type="module" src="/js/grist.js?v=1770134492"></script>
 
     
   
@@ -3950,10 +3950,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-openrouter" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using OpenRouter
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-assistant-with-a-compatible-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up the Assistant with a compatible endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-assistant-with-openrouter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up the Assistant with OpenRouter
       
     </span>
   </a>
@@ -6878,10 +6900,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-openrouter" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using OpenRouter
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-assistant-with-a-compatible-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up the Assistant with a compatible endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-assistant-with-openrouter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up the Assistant with OpenRouter
       
     </span>
   </a>
@@ -6990,14 +7034,28 @@
 <p class="admonition-title">Note</p>
 <p>This documentation refers to the current <a href="../../assistant/">Assistant</a>, which is only available on the Enterprise edition. You can find the documentation for the legacy AI Formula Assistant <a href="ai-assistant-legacy.md">here</a>.</p>
 </div>
+<p>You can use the <a href="../../assistant/">Assistant</a> in self-hosted Grist with your AI provider of choice or a local model.</p>
 <h2 id="how-to-set-up-the-assistant">How to set up the Assistant<a class="headerlink" href="#how-to-set-up-the-assistant" title="Permanent link">#</a></h2>
-<p>You can use the <a href="../../assistant/">Assistant</a> in self-hosted Grist with your AI provider of choice or a local model. The Assistant currently only supports chat completion API endpoints such as those provided by OpenAI (e.g. <code>/v1/chat/completions</code>), and models that support tool calling and structured output.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
+<p>The Assistant currently only supports providers and models with an API endpoint compatible with a subset of the <a href="https://platform.openai.com/docs/api-reference/chat/create">OpenAI create chat completion endpoint</a>. Specifically, the endpoint must:</p>
+<ul>
+<li>support the following request body parameters:<ul>
+<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-messages">messages</a></li>
+<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-model">model</a></li>
+<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-tools">tools</a></li>
+<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-temperature">temperature</a></li>
+</ul>
+</li>
+<li>return a JSON response with at least one element in <a href="https://platform.openai.com/docs/api-reference/chat/object#chat-object-choices">choices</a></li>
+</ul>
+<p>Additionally, the underlying model must support tool calls (also known as function calls).</p>
+<h3 id="set-up-the-assistant-with-a-compatible-endpoint">Set up the Assistant with a compatible endpoint<a class="headerlink" href="#set-up-the-assistant-with-a-compatible-endpoint" title="Permanent link">#</a></h3>
 <p>To enable the Assistant, specify the completion endpoint to use by setting the <code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code> environment variable as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">ASSISTANT_CHAT_COMPLETION_ENDPOINT</span><span class="o">=</span>https://api.openai.com/v1/chat/completions
 </code></pre></div>
 <p>If no completion endpoint is specified, <code>https://api.openai.com/v1/chat/completions</code> will be used by default.</p>
 <p>If the completion endpoint you are using requires authentication, such as the OpenAI endpoint above, you must also set the <code>ASSISTANT_API_KEY</code> environment variable. You can obtain an OpenAI API key by <a href="https://auth.openai.com/create-account">signing up for an account</a> and <a href="https://platform.openai.com/api-keys">generating an API key</a>. Refer to the documentation for your provider on how to obtain an API key.</p>
-<h3 id="using-openrouter">Using OpenRouter<a class="headerlink" href="#using-openrouter" title="Permanent link">#</a></h3>
+<h3 id="set-up-the-assistant-with-openrouter">Set up the Assistant with OpenRouter<a class="headerlink" href="#set-up-the-assistant-with-openrouter" title="Permanent link">#</a></h3>
 <p>The Assistant can also be used with OpenRouter to access a wide range of models, such as Anthropic&rsquo;s Claude Sonnet. As before, you&rsquo;ll need to set <code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code> and <code>ASSISTANT_API_KEY</code> to OpenRouter&rsquo;s chat completion
 endpoint and your OpenRouter API key, respectively.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">ASSISTANT_CHAT_COMPLETION_ENDPOINT</span><span class="o">=</span>https://openrouter.ai/api/v1/chat/completions
