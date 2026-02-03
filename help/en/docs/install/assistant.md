@@ -8,9 +8,24 @@ Assistant for self-hosters {: .tag-ee }
 !!! warning "Note"
     This documentation refers to the current [Assistant](../assistant.md), which is only available on the Enterprise edition. You can find the documentation for the legacy AI Formula Assistant [here](ai-assistant-legacy.md).
 
+You can use the [Assistant](../assistant.md) in self-hosted Grist with your AI provider of choice or a local model.
+
 ## How to set up the Assistant
 
-You can use the [Assistant](../assistant.md) in self-hosted Grist with your AI provider of choice or a local model. The Assistant currently only supports chat completion API endpoints such as those provided by OpenAI (e.g. `/v1/chat/completions`), and models that support tool calling and structured output.
+### Prerequisites
+
+The Assistant currently only supports providers and models with an API endpoint compatible with a subset of the [OpenAI create chat completion endpoint](https://platform.openai.com/docs/api-reference/chat/create). Specifically, the endpoint must:
+
+* support the following request body parameters:
+    * [messages](https://platform.openai.com/docs/api-reference/chat/create#chat_create-messages)
+    * [model](https://platform.openai.com/docs/api-reference/chat/create#chat_create-model)
+    * [tools](https://platform.openai.com/docs/api-reference/chat/create#chat_create-tools)
+    * [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat_create-temperature)
+* return a JSON response with at least one element in [choices](https://platform.openai.com/docs/api-reference/chat/object#chat-object-choices)
+
+Additionally, the underlying model must support tool calls (also known as function calls).
+
+### Set up the Assistant with a compatible endpoint
 
 To enable the Assistant, specify the completion endpoint to use by setting the `ASSISTANT_CHAT_COMPLETION_ENDPOINT` environment variable as follows:
 
@@ -22,7 +37,7 @@ If no completion endpoint is specified, `https://api.openai.com/v1/chat/completi
 
 If the completion endpoint you are using requires authentication, such as the OpenAI endpoint above, you must also set the `ASSISTANT_API_KEY` environment variable. You can obtain an OpenAI API key by [signing up for an account](https://auth.openai.com/create-account) and [generating an API key](https://platform.openai.com/api-keys). Refer to the documentation for your provider on how to obtain an API key.
 
-### Using OpenRouter
+### Set up the Assistant with OpenRouter
 
 The Assistant can also be used with OpenRouter to access a wide range of models, such as Anthropic's Claude Sonnet. As before, you'll need to set `ASSISTANT_CHAT_COMPLETION_ENDPOINT` and `ASSISTANT_API_KEY` to OpenRouter's chat completion
 endpoint and your OpenRouter API key, respectively.
