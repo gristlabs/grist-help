@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/integrators/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/integrators/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3395,7 +3399,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3934,7 +3938,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3965,7 +3969,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7111,10 +7115,10 @@ messages instantanés.</p>
 <p>Une fois que nous avons choisi un compte Grist à utiliser comme avant, nous pouvons choisir une table dans
 un document à surveiller.</p>
 <p><img alt="configuration grist" src="../images/zapier/gmail/grist-setup.png" /></p>
-<p>Pour les déclencheurs instantanés, nous pouvons éventuellement spécifier une <a href="./#readiness-column">colonne de &ldquo;disponibilité&rdquo;</a>. Si nous
+<p>Pour les déclencheurs instantanés, nous pouvons éventuellement spécifier une <a href="./#colonne-de-disponibilite">colonne de &ldquo;disponibilité&rdquo;</a>. Si nous
 laissons cela vide, chaque fois qu&rsquo;un enregistrement est créé ou modifié dans la table sélectionnée,
 Grist en informera Zapier. Si nous la configurons, elle devrait généralement être une
-<a href="../col-types/#toggle-columns">colonne de bascule</a>, et Grist informera Zapier uniquement
+<a href="../col-types/#colonnes-basculantes">colonne de bascule</a>, et Grist informera Zapier uniquement
 pour les enregistrements lorsque cette colonne est activée. Cela est pratique pour les enregistrements qui ont de nombreuses
 colonnes remplies manuellement, lorsque nous ne voulons pas déclencher avant qu&rsquo;ils ne soient
 complets. Pour cet exemple, il est bien de laisser la colonne de disponibilité vide.
@@ -7142,7 +7146,7 @@ dans un document. Cela sert de base aux déclencheurs instantanés de Zapier.</p
 créés vides, et que les cellules soient ensuite remplies une par une. Cela crée
 une nuance importante pour les notifications. Habituellement, il ne sera pas souhaitable d&rsquo;envoyer une notification avant que l&rsquo;enregistrement ne soit en quelque sorte &ldquo;prêt&rdquo;, mais quand
 exactement est-ce ?</p>
-<p>Grist laisse l&rsquo;utilisateur décider par lui-même, en créant une <a href="../col-types/#toggle-columns">colonne de bascule
+<p>Grist laisse l&rsquo;utilisateur décider par lui-même, en créant une <a href="../col-types/#colonnes-basculantes">colonne de bascule
 (booléenne)</a> qui est activée lorsque l&rsquo;enregistrement est prêt. La
 colonne peut être définie manuellement ou via une formule. Cela s&rsquo;appelle une
 colonne de disponibilité.</p>
@@ -7153,7 +7157,7 @@ avoir la formule suivante :</p>
 </code></pre></div>
 <p>Vous feriez en sorte que la colonne prenne effet en la fournissant dans l&rsquo;option
 <code>Colonne de Disponibilité</code> décrite dans l&rsquo;
-<a href="./#example-sending-email-alerts">exemple d&rsquo;alerte par email</a>.</p>
+<a href="./#exemple-envoi-dalertes-par-email">exemple d&rsquo;alerte par email</a>.</p>
 <h3 id="declenchement-ou-evitement-du-declenchement-sur-des-enregistrements-preexistants">Déclenchement (ou évitement du déclenchement) sur des enregistrements préexistants<a class="headerlink" href="#declenchement-ou-evitement-du-declenchement-sur-des-enregistrements-preexistants" title="Permanent link">#</a></h3>
 <p>L&rsquo;ordre des étapes est important lors de la configuration d&rsquo;une intégration qui utilise une
 colonne de disponibilité. Si vous avez des données existantes, réfléchissez à si vous
@@ -7205,7 +7209,7 @@ activées avant d&rsquo;activer l&rsquo;intégration, sinon une fois qu&rsquo;el
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../api/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: REST API reference">
+          <a href="../api/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Documentation de l&#39;API REST">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -7215,7 +7219,7 @@ activées avant d&rsquo;activer l&rsquo;intégration, sinon une fois qu&rsquo;el
                 Précédent
               </span>
               <div class="md-ellipsis">
-                REST API reference
+                Documentation de l'API REST
               </div>
             </div>
           </a>

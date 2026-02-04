@@ -67,7 +67,7 @@ parties individuelles d’un document. Les règles d’accès nous donnent ce po
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -226,14 +226,18 @@ parties individuelles d’un document. Les règles d’accès nous donnent ce po
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/access-rules/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/access-rules/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3607,7 +3611,7 @@ parties individuelles d’un document. Les règles d’accès nous donnent ce po
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -4031,7 +4035,7 @@ parties individuelles d’un document. Les règles d’accès nous donnent ce po
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4062,7 +4066,7 @@ parties individuelles d’un document. Les règles d’accès nous donnent ce po
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7215,7 +7219,7 @@ parties individuelles d’un document. Les règles d’accès nous donnent ce po
 en utilisant l&rsquo;option <code>Gérer les utilisateurs</code> dans le menu de partage
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>).
 Les utilisateurs peuvent être invités en tant que Visiteurs, Éditeurs ou Propriétaires (voir 
- <a href="../sharing/">Partage d&rsquo;un document</a> pour un rappel sur ces rôles), ou un document peut être <a href="../sharing/#public-access-and-link-sharing">partagé publiquement</a> avec des permissions de lecture ou d&rsquo;édition.
+ <a href="../sharing/">Partage d&rsquo;un document</a> pour un rappel sur ces rôles), ou un document peut être <a href="../sharing/#acces-public-et-partage-de-lien">partagé publiquement</a> avec des permissions de lecture ou d&rsquo;édition.
 Parfois, vous avez besoin de plus de nuances sur qui peut voir ou éditer des
 parties individuelles d&rsquo;un document. Les règles d&rsquo;accès nous donnent ce pouvoir.</p>
 <p>Seuls les propriétaires d&rsquo;un document peuvent modifier ses règles d&rsquo;accès.
@@ -7241,7 +7245,7 @@ la page des règles d&rsquo;accès contient les <code>Règles par défaut</code>
 le document, que les Visiteurs ne peuvent que lire le document, et que tout le monde
 d&rsquo;autre est interdit d&rsquo;accès. Ces règles ne peuvent pas être modifiées, mais elles
 peuvent être remplacées. Pour comprendre si un groupe de règles permet une
-certaines permissions (<a href="./#access-rule-permissions">Lire, Mettre à jour, Créer, Supprimer ou Structure</a>), lisez
+certaines permissions (<a href="./#permissions-des-regles-dacces">Lire, Mettre à jour, Créer, Supprimer ou Structure</a>), lisez
 les règles de haut en bas, et trouvez la première règle applicable
 qui permet (vert) ou refuse (rouge) cette permission.
 Nous verrons de nombreux exemples au fur et à mesure.</p>
@@ -7266,7 +7270,7 @@ nous cliquons sur <code>Ajouter des règles de table</code> et sélectionnons le
 Ensuite, nous ajoutons une condition pour tout utilisateur qui n&rsquo;est pas un Propriétaire (<code>user.Access != OWNER</code>), avec toutes
 les permissions refusées. Sélectionner <code>Refuser tout</code> dans le menu déroulant à côté de <code>R</code> <code>U</code> <code>C</code> <code>D</code> est un moyen rapide
 de définir toutes les permissions sur refusées, ou vous pouvez cliquer sur chaque permission individuellement pour les mettre en rouge. <code>R</code> est Lire, <code>U</code> est Mettre à jour, <code>C</code> est Créer, et <code>D</code> est Supprimer
-(voir <a href="./#access-rule-permissions">Permissions de règle d&rsquo;accès</a>).
+(voir <a href="./#permissions-des-regles-dacces">Permissions de règle d&rsquo;accès</a>).
 Les permissions de structure (<code>S</code>) ne sont pas disponibles au niveau de la table.
 Une fois que vous avez terminé, cliquez sur <code>ENREGISTRER</code>.</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-private-table.png" /></p>
@@ -7432,7 +7436,7 @@ pour contrôler le texte du lien dans la feuille de calcul. Pour afficher le lie
 nous définissons le type de colonne sur <code>Texte</code> et activons l&rsquo;option <code>HyperLink</code> :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-link.png" /></p>
 <p>Une fois que nous avons ces liens, nous pouvons faire un peu de ménage en cachant les
-colonnes <code>UUID</code> et <code>Ref</code> (voir <a href="../widget-table/#column-operations">Opérations sur les colonnes</a> pour un rappel sur la façon
+colonnes <code>UUID</code> et <code>Ref</code> (voir <a href="../widget-table/#operations-sur-les-colonnes">Opérations sur les colonnes</a> pour un rappel sur la façon
 de le faire) :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-prune.png" /></p>
 <p>Les liens ne font encore rien de spécial, mais nous avons maintenant tout ce dont nous
@@ -7445,7 +7449,7 @@ URL :</p>
 <p><img alt="Règles d'accès" src="../images/access-rules/access-rules-linkkey-use.png" /></p>
 <p>Ce n&rsquo;est que le début des possibilités. Les clés de lien peuvent donner accès à
 plusieurs lignes à travers de nombreuses tables. Elles peuvent être utilisées dans
-<a href="#user-attribute-tables">Tables d&rsquo;attributs d&rsquo;utilisateur</a>. Et les données auxquelles elles donnent accès
+<a href="#tables-dattributs-dutilisateur">Tables d&rsquo;attributs d&rsquo;utilisateur</a>. Et les données auxquelles elles donnent accès
 peuvent être dans des tables, des fiches, des listes de fiches, des graphiques et des widgets personnalisés.</p>
 <p>Consultez <a href="https://support.getgrist.com/examples/2021-04-link-keys/">un autre exemple</a> pour approfondir votre compréhension des clés de lien.</p>
 <h2 id="conditions-des-regles-dacces">Conditions des règles d&rsquo;accès<a class="headerlink" href="#conditions-des-regles-dacces" title="Permanent link">#</a></h2>
@@ -7468,27 +7472,27 @@ Les variables qui peuvent être disponibles dans les règles d&rsquo;accès sont
    client web, pas dans l&rsquo;API.</li>
 <li><code>user.SessionID</code>: une chaîne unique attribuée aux utilisateurs anonymes pendant la durée de la session de cet utilisateur. Pour les utilisateurs connectés, <code>user.SessionID</code> est toujours <code>"u"</code> + l&rsquo;ID numérique de l&rsquo;utilisateur. </li>
 </ul>
-<p>Pour un exemple d&rsquo;utilisation de la variable <code>user</code>, lisez <a href="./#default-rules">Règles par défaut</a>.</p>
+<p>Pour un exemple d&rsquo;utilisation de la variable <code>user</code>, lisez <a href="./#regles-par-defaut">Règles par défaut</a>.</p>
 <p>La variable <code>rec</code> contient l&rsquo;état d&rsquo;un enregistrement/ligne individuel, pour
 les conditions qui doivent en tenir compte. Lorsqu&rsquo;elle est utilisée, cette
 règle devient spécifique à la ligne. Cela permet, par exemple, de rendre certaines
 lignes visibles uniquement pour certains utilisateurs, ou d&rsquo;interdire la modification
 de certaines lignes par certains utilisateurs.
-Pour un exemple d&rsquo;utilisation de la variable <code>rec</code>, lisez <a href="./#row-level-access-control">Contrôle d&rsquo;accès au niveau des lignes</a>.</p>
+Pour un exemple d&rsquo;utilisation de la variable <code>rec</code>, lisez <a href="./#controle-dacces-au-niveau-des-lignes">Contrôle d&rsquo;accès au niveau des lignes</a>.</p>
 <p>La variable <code>newRec</code> est disponible pour la création et la mise à jour d&rsquo;enregistrements/ligne, et contient l&rsquo;état d&rsquo;une ligne après un changement proposé,
 vous permettant d&rsquo;autoriser ou de refuser sélectivement certains changements.
-Pour un exemple d&rsquo;utilisation de la variable <code>newRec</code>, lisez <a href="./#checking-new-values">Vérification des nouvelles valeurs</a>.</p>
+Pour un exemple d&rsquo;utilisation de la variable <code>newRec</code>, lisez <a href="./#verification-des-nouvelles-valeurs">Vérification des nouvelles valeurs</a>.</p>
 <p>Les opérations prises en charge dans les formules de condition sont actuellement : <code>and</code>, <code>or</code>,
 <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>is</code>, <code>is
 not</code>, <code>in</code>, <code>not in</code>. Les variables prises en charge sont : <code>user</code>, <code>rec</code>,
 <code>newRec</code> avec leurs membres accessibles avec <code>.</code>. Les chaînes, les nombres et
 les listes sont également pris en charge. Si une opération dont vous avez besoin n&rsquo;est pas disponible,
 considérez si vous pouvez faire une partie du travail dans une formule dans la table
-elle-même (voir <a href="./#access-rule-memos">Mémos de règle d&rsquo;accès</a> pour un exemple).</p>
+elle-même (voir <a href="./#memos-des-regles-dacces">Mémos de règle d&rsquo;accès</a> pour un exemple).</p>
 <p>Les commentaires sont autorisés, en utilisant <code>#</code> ou <code>"""</code>. S&rsquo;il y a un commentaire dans une
 règle, alors le premier commentaire dans une règle qui entraîne un refus d&rsquo;une
 action sera signalé à l&rsquo;utilisateur comme un conseil sur la raison pour laquelle l&rsquo;action n&rsquo;a pas été
-permise. Voir <a href="./#access-rule-memos">Mémos de règle d&rsquo;accès</a> pour un exemple.</p>
+permise. Voir <a href="./#memos-des-regles-dacces">Mémos de règle d&rsquo;accès</a> pour un exemple.</p>
 <h2 id="permissions-des-regles-dacces">Permissions des règles d&rsquo;accès<a class="headerlink" href="#permissions-des-regles-dacces" title="Permanent link">#</a></h2>
 <p>Une permission contrôle si un utilisateur peut effectuer un type d&rsquo;action particulier.
 Les règles d&rsquo;accès Grist traitent actuellement 5 types d&rsquo;actions, qui sont données
@@ -7506,7 +7510,7 @@ qui doivent être gérées dans les règles de table par défaut.</p>
 à toutes les données dans le document, indépendamment des règles. Étant donné que la permission <code>S</code> est activée par défaut pour
 les Éditeurs et les Propriétaires, tout utilisateur de ce type pourrait éditer une formule et ainsi récupérer n&rsquo;importe quelle donnée.</p>
 <p>En d&rsquo;autres termes, avoir la permission <code>S</code> rend possible de contourner d&rsquo;autres règles qui empêchent
-l&rsquo;accès aux données. Pour cette raison, la désactiver &ndash; comme décrit ci-dessus dans <a href="#lock-down-structure">Verrouiller la structure</a> &ndash; est une première étape importante pour limiter l&rsquo;accès aux données.</p>
+l&rsquo;accès aux données. Pour cette raison, la désactiver &ndash; comme décrit ci-dessus dans <a href="#verrouiller-la-structure">Verrouiller la structure</a> &ndash; est une première étape importante pour limiter l&rsquo;accès aux données.</p>
 <h2 id="memos-des-regles-dacces">Mémos des règles d&rsquo;accès<a class="headerlink" href="#memos-des-regles-dacces" title="Permanent link">#</a></h2>
 <p>Lorsqu&rsquo;un utilisateur reçoit un message d&rsquo;erreur lui refusant l&rsquo;accès en raison d&rsquo;une
 règle, il peut être utile de donner des détails spécifiques qui l&rsquo;aideront à comprendre

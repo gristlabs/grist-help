@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/conditional-formatting/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/conditional-formatting/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3458,7 +3462,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3882,7 +3886,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3913,7 +3917,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -6920,14 +6924,14 @@
 </div>
 <h1 id="mise-en-forme-conditionnelle">Mise en forme conditionnelle<a class="headerlink" href="#mise-en-forme-conditionnelle" title="Permanent link">#</a></h1>
 <p>Le style des cellules peut changer en fonction des règles conditionnelles. Les règles conditionnelles sont écrites sous forme de formules. La mise en forme conditionnelle peut s&rsquo;appliquer à une ligne entière ou aux cellules d&rsquo;une colonne.</p>
-<p>Pour ajouter une mise en forme conditionnelle à une colonne particulière, sélectionnez la colonne, allez à la section <code>STYLE DE CELLULE</code> du <a href="../glossary/#creator-panel">panneau de création</a> sous l&rsquo;onglet <code>Colonne</code>, et cliquez sur <code>Ajouter un style conditionnel</code>.</p>
+<p>Pour ajouter une mise en forme conditionnelle à une colonne particulière, sélectionnez la colonne, allez à la section <code>STYLE DE CELLULE</code> du <a href="../glossary/#panneau-de-creation">panneau de création</a> sous l&rsquo;onglet <code>Colonne</code>, et cliquez sur <code>Ajouter un style conditionnel</code>.</p>
 <p class="screenshot-half"><em><img alt="Ajouter un style conditionnel" src="../images/columns/add-conditional-style.png" /></em></p>
 <p>Dans cet exemple, nous avons une liste d&rsquo;éleveurs de chiens qui ont élevé des pur-sang champions. Appliquons une mise en forme conditionnelle à la colonne Éleveur en fonction du nombre de chiens champions. Nous aimerions mettre en surbrillance en or les éleveurs ayant plus de 2 champions.</p>
 <p><img alt="Écrire des règles conditionnelles" src="../images/columns/first-conditional-rule.png" /></p>
 <p>Ici, la formule conditionnelle est <code class="formula">$Number_of_Champions &gt; 2</code>.</p>
 <p>Nous aimerions également mettre en surbrillance les éleveurs ayant 1 ou 2 chiens champions en bleu, et ceux ayant 0 chien champion en marron. Cliquez sur <code>Ajouter une autre règle</code> pour ajouter plus de styles conditionnels.</p>
 <p><img alt="Règles conditionnelles multiples" src="../images/columns/multiple-conditional-rules.PNG" /></p>
-<p>Pour ajouter une mise en forme conditionnelle aux lignes, allez à la section <code>STYLE DE LIGNE</code> du <a href="../glossary/#creator-panel">panneau de création</a> sous l&rsquo;onglet <code>Table &gt; Vue</code>, et cliquez sur <code>Ajouter un style conditionnel</code>.</p>
+<p>Pour ajouter une mise en forme conditionnelle aux lignes, allez à la section <code>STYLE DE LIGNE</code> du <a href="../glossary/#panneau-de-creation">panneau de création</a> sous l&rsquo;onglet <code>Table &gt; Vue</code>, et cliquez sur <code>Ajouter un style conditionnel</code>.</p>
 <p><img alt="Styles de ligne conditionnels" src="../images/newsletters/2022-08/conditional-row.png" /></p>
 <h2 id="ordre-des-regles">Ordre des règles<a class="headerlink" href="#ordre-des-regles" title="Permanent link">#</a></h2>
 <p>Notez que Grist applique les règles dans l&rsquo;ordre. Les styles appliqués par des règles ultérieures remplaceront ceux appliqués par des règles antérieures.</p>

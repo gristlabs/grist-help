@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/widget-custom/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/widget-custom/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3673,7 +3677,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -4097,7 +4101,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4128,7 +4132,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7428,10 +7432,10 @@
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">access_level</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>Pour l&rsquo;instant, il suffit de sauter le paramètre <code>options</code> (il sera décrit dans la section <a href="./#widget-options">Options de widget</a>). Le niveau d&rsquo;accès actuel fait partie du deuxième paramètre, qui décrit comment Grist interagira avec votre widget.</p>
+<p>Pour l&rsquo;instant, il suffit de sauter le paramètre <code>options</code> (il sera décrit dans la section <a href="./#options-de-widget">Options de widget</a>). Le niveau d&rsquo;accès actuel fait partie du deuxième paramètre, qui décrit comment Grist interagira avec votre widget.</p>
 <h2 id="exemple-de-facture">Exemple de facture<a class="headerlink" href="#exemple-de-facture" title="Permanent link">#</a></h2>
 <p>L&rsquo;exemple minimal ci-dessus a montré des enregistrements au format JSON simple, mais le widget peut devenir aussi sophistiqué que vous le souhaitez. Voici un exemple montrant un enregistrement sous forme de facture imprimable :</p>
-<p><img alt="exemple de facture" src="examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p><img alt="exemple de facture" src="../examples/images/2020-08-invoices/final-invoice.png" /></p>
 <p>Vous pouvez lire les détails sur la façon d&rsquo;utiliser ce widget dans notre <a href="../examples/2020-08-invoices/">exemple de préparation de facture</a>. Le widget de facture est hébergé à :</p>
 <blockquote>
 <p><a href="https://gristlabs.github.io/grist-widget/invoices/">https://gristlabs.github.io/grist-widget/invoices/</a></p>
@@ -7538,7 +7542,7 @@
 </blockquote>
 <p>Lorsque votre widget enregistre ou modifie certaines options, l&rsquo;icône en haut de la section devient verte. Vous pouvez soit appliquer ces options au widget, soit annuler cette modification.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="options non enregistrées" src="../images/widget_custom_unsaved_options.png" /></em></span></p>
-<p>Cela permet aux visualisateurs (utilisateurs avec un accès en lecture seule) ou aux collaborateurs de configurer votre widget sans écraser les paramètres d&rsquo;origine. Ce comportement devrait vous sembler familier, car cela fonctionne comme <a href="../search-sort-filter/#saving-sort-settings">le tri et le filtrage</a> sur les vues de table ou de carte.</p>
+<p>Cela permet aux visualisateurs (utilisateurs avec un accès en lecture seule) ou aux collaborateurs de configurer votre widget sans écraser les paramètres d&rsquo;origine. Ce comportement devrait vous sembler familier, car cela fonctionne comme <a href="../search-sort-filter/#enregistrer-les-parametres-de-tri">le tri et le filtrage</a> sur les vues de table ou de carte.</p>
 <p>En enregistrant les options actuelles, vous les appliquerez au widget et les rendrez disponibles pour les autres. En utilisant ce menu, vous pouvez également effacer toutes les options pour revenir à l&rsquo;état initial du widget. Pour ce faire, appuyez sur la petite icône de poubelle, puis sur <code>Enregistrer</code>.</p>
 <p>Grist déclenchera également un événement chaque fois que les options sont modifiées (ou effacées). Voici comment vous pouvez vous abonner à cet événement.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">grist</span><span class="p">.</span><span class="nx">onOptions</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span><span class="w"> </span><span class="nx">interaction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -7573,16 +7577,30 @@
 <span class="nx">grist</span><span class="p">.</span><span class="nx">setCursorPos</span><span class="p">({</span><span class="nx">rowId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;new&#39;</span><span class="p">});</span>
 </code></pre></div>
 <h2 id="widgets-personnalises-prefabriques">Widgets personnalisés préfabriqués<a class="headerlink" href="#widgets-personnalises-prefabriques" title="Permanent link">#</a></h2>
-<p>Tous les widgets personnalisés préfabriqués sont disponibles dans le panneau de configuration du widget personnalisé sur le côté droit de l&rsquo;écran sous le menu déroulant Personnalisé.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widgets préfabriqués" src="images/widget-custom/premade-widgets.png" /></em></span></p>
+<p>Ajoutez un widget personnalisé à votre document Grist en ajoutant un nouveau widget à la page et en sélectionnant &lsquo;Personnalisé&rsquo; comme widget.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="custom-add-widget" src="../images/widget-custom/custom-add-widget.png" /></em></span></p>
+<p>Après avoir cliqué sur le bouton vert &lsquo;Ajouter à la page&rsquo;, vous serez invité à sélectionner parmi une liste de widgets préfabriqués.</p>
+<p><span class="screenshot-large"><em><img alt="custom-choose-widget" src="../images/widget-custom/custom-choose-widget.png" /></em></span></p>
+<p>Vous avez également la possibilité d&rsquo;ajouter votre propre widget en utilisant la sélection d&rsquo;URL personnalisée.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="custom-custom-url" src="../images/widget-custom/custom-custom-url.png" /></em></span></p>
+<div class="admonition note">
+<p class="admonition-title">Widget communautaire</p>
+<p>Avez-vous créé un excellent widget personnalisé ? Montrez-le dans notre catégorie <a href="https://community.getgrist.com/c/showcase/8"><em>#showcase</em></a> dans notre <a href="https://community.getgrist.com">Forum communautaire</a> !</p>
+</div>
+<p>De nombreux widgets personnalisés préfabriqués nécessiteront une configuration une fois ajoutés à votre document. Cliquez sur la barre verte verticale dans le coin supérieur droit de la page pour ouvrir le Panneau de création. Sous l&rsquo;onglet &lsquo;Personnalisé&rsquo;, vous configurerez le &lsquo;Niveau d&rsquo;accès&rsquo; et mapperez toutes les colonnes nécessaires. Notez que le widget vous invitera à accepter le niveau d&rsquo;accès requis.</p>
+<p class="screenshot-half"><span><em><img alt="custom-widget-configuration" src="../images/widget-custom/custom-widget-configuration.png" /></em></span></p>
+<p>Il peut également être utile de lier votre widget personnalisé à un widget existant sur la même page afin qu&rsquo;il n&rsquo;affiche que les données liées à un seul enregistrement sélectionné. Lors de l&rsquo;ajout d&rsquo;un widget à la page, assurez-vous de &lsquo;Sélectionner par&rsquo; votre widget de sélection. En savoir plus sur <a href="../linking-widgets/">lier des widgets</a>.</p>
+<p class="screenshot-half"><span><em><img alt="custom-select-by" src="../images/widget-custom/custom-select-by.png" /></em></span></p>
 <h3 id="graphiques-avances">Graphiques avancés<a class="headerlink" href="#graphiques-avances" title="Permanent link">#</a></h3>
 <p>Le widget personnalisé Graphiques avancés vous donne plus de puissance et de flexibilité que les graphiques intégrés de Grist, offrant une grande variété de types de graphiques ainsi qu&rsquo;un contrôle accru sur le style et la mise en page. C&rsquo;est une version de <a href="https://chart-studio.plotly.com/">Chart Studio</a> de Plotly, consultez leurs <a href="https://plotly.com/chart-studio-help/tutorials/">tutoriels</a> pour une aide plus détaillée.</p>
-<p>Vous devrez définir le niveau d&rsquo;accès sur &ldquo;Accès complet au document&rdquo;. Ne vous inquiétez pas, le widget ne lit que les données de la table sélectionnée, ne les envoie à aucun serveur et ne modifie ou n&rsquo;apporte d&rsquo;autres changements à votre document.</p>
+<p>Vous devrez définir le niveau d&rsquo;accès sur &lsquo;Accès complet au document&rsquo;.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="custom-advanced-charts-access" src="../images/widget-custom/custom-advanced-charts-access.png" /></em></span></p>
+<p>Ne vous inquiétez pas, le widget ne lit que les données de la table sélectionnée, ne les envoie à aucun serveur et ne modifie ou n&rsquo;apporte d&rsquo;autres changements à votre document.</p>
 <p>Voici ce que vous devriez voir :</p>
-<p><img alt="panneau de traces vide de graphique avancé" src="../images/widget-custom/advanced-chart-blank-traces-panel.png" /></p>
-<p>Cliquez sur le grand bouton bleu “+ Trace” pour commencer. Cela ajoutera un panneau comme suit :</p>
-<p><img alt="trace vide de graphique avancé" src="../images/widget-custom/advanced-chart-blank-trace.png" /></p>
-<p>Cliquez sur “Dispersion” pour choisir un type de graphique différent tel que Bar ou Ligne. Ensuite, cliquez sur les menus déroulants “Choisir des données” pour sélectionner les colonnes que vous souhaitez tracer.</p>
+<p><span class="screenshot-large"><em><img alt="advanced-chart-blank-traces-panel" src="../images/widget-custom/advanced-chart-blank-traces-panel.png" /></em></span></p>
+<p>Cliquez sur le grand bouton bleu &lsquo;+ Trace&rsquo; pour commencer. Cela ajoutera un panneau comme suit :</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="advanced-chart-blank-trace" src="../images/widget-custom/advanced-chart-blank-trace.png" /></em></span></p>
+<p>Cliquez sur &lsquo;Dispersion&rsquo; pour choisir un type de graphique différent tel que Bar ou Ligne. Ensuite, cliquez sur les menus déroulants X et Y pour sélectionner les colonnes que vous souhaitez tracer.</p>
 <p>Vous pouvez ajouter plusieurs traces pour superposer différents graphiques. Essayez différents panneaux dans la barre latérale pour personnaliser davantage le graphique. Par exemple, allez dans Style &gt; Axes &gt; Titres pour ajouter une étiquette à chaque axe. Consultez les <a href="https://plotly.com/chart-studio-help/tutorials/">tutoriels de studio de graphique</a> pour en savoir plus.</p>
 <p>Au fur et à mesure que vous personnalisez le widget, n&rsquo;oubliez pas de cliquer régulièrement sur le bouton ‘Enregistrer’ au-dessus du widget pour conserver votre configuration.</p>
 <h3 id="copier-dans-le-presse-papiers">Copier dans le presse-papiers<a class="headerlink" href="#copier-dans-le-presse-papiers" title="Permanent link">#</a></h3>
@@ -7592,23 +7610,20 @@
 <p>Vous pouvez trouver un exemple du bouton copier dans le presse-papiers dans notre <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/4" target="_blank">Webinaire 7 (Widgets personnalisés)</a> modèle. Vous pouvez également regarder une vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=2063s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
 <h3 id="integrateur-dropbox">Intégrateur Dropbox<a class="headerlink" href="#integrateur-dropbox" title="Permanent link">#</a></h3>
 <p>Voir et accéder aux fichiers enregistrés sur Dropbox.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="widget intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder-widget.png" /></em></span></p>
-<p>Pour commencer, ajoutez une nouvelle colonne à votre table pour stocker vos liens Dropbox.</p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les liens Dropbox et &lsquo;Sélectionner par&rsquo; cette même table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget Dropbox" src="../images/widget-custom/dropbox-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Intégrateur Dropbox&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;Lien Dropbox&rsquo;, sélectionnez la colonne qui contient vos liens Dropbox.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-embedder-widget" src="../images/widget-custom/dropbox-embedder-widget.png" /></em></span></p>
+<p>Avec ce widget, il est utile de le lier à un autre widget sur la page. Lors de la sélection de la table de données qui contient les liens Dropbox, assurez-vous de &lsquo;Sélectionner par&rsquo; cette même table.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="dropbox-add-widget" src="../images/widget-custom/dropbox-add-widget.png" /></em></span></p>
+<p>Pour configurer, autorisez l&rsquo;accès pour lire la table sélectionnée. Ensuite, sous &lsquo;Lien Dropbox&rsquo;, sélectionnez la colonne qui contient vos liens Dropbox.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder-configuration.png" /></em></span></p>
 <p>Vous pouvez créer des liens vers des dossiers ou des fichiers spécifiques dans Dropbox. Cliquez sur &lsquo;Partager&rsquo;, puis définissez les permissions pour le lien. Vous pouvez choisir de permettre à quiconque ayant le lien de visualiser ou d&rsquo;éditer. Créez ensuite, puis copiez le lien. Collez ce lien dans votre colonne Lien Dropbox dans Grist. Notez que les utilisateurs ne peuvent pas modifier directement dans le widget personnalisé même si des permissions d&rsquo;édition sont accordées. Pour éditer, sélectionnez l&rsquo;objet dans l&rsquo;intégrateur Dropbox et il s&rsquo;ouvrira dans un nouvel onglet où il pourra être modifié directement dans Dropbox.</p>
 <p><span class="screenshot-large"><em><img alt="créer un lien intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder-create-link.png" /></em></span></p>
-<p>Vous pouvez consulter un exemple de l&rsquo;intégrateur Dropbox dans notre <a href="https://templates.getgrist.com/uXMbETLdfriM/Hurricane-Preparedness" target="_blank">Préparation à l&rsquo;ouragan</a> modèle.</p>
+<p>Vous pouvez consulter un exemple de l&rsquo;intégrateur Dropbox dans notre modèle <a href="https://templates.getgrist.com/uXMbETLdfriM/Hurricane-Preparedness" target="_blank">Préparation à l&rsquo;ouragan</a>.</p>
 <p><em><img alt="intégrateur Dropbox" src="../images/widget-custom/dropbox-embedder.png" /></em></p>
 <h3 id="lecteur-video-grist">Lecteur vidéo Grist<a class="headerlink" href="#lecteur-video-grist" title="Permanent link">#</a></h3>
 <p>Intégrez des vidéos provenant de sources en ligne telles que YouTube, Vimeo, Facebook Video, Google Drive et plus encore.</p>
-<p><em><img alt="lecteur vidéo" src="../images/widget-custom/video-player.png" /></em></p>
-<p>Pour commencer, ajoutez une nouvelle colonne à votre table pour stocker vos URL vidéo.</p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les URL vidéo et &lsquo;Sélectionner par&rsquo; cette même table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget lecteur vidéo" src="images/widget-custom/video-player-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Lecteur vidéo Grist&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;URL&rsquo;, sélectionnez la colonne qui contient vos URL vidéo.</p>
+<p><em><img alt="video-player" src="../images/widget-custom/video-player.png" /></em></p>
+<p>Vous devrez ajouter une nouvelle colonne dans votre table pour stocker vos URL vidéo. Sélectionnez cette colonne sous le menu déroulant &lsquo;URL&rsquo; lors de la configuration de votre widget personnalisé.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="video-player-configuration" src="../images/widget-custom/video-player-configuration.png" /></em></span></p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration lecteur vidéo" src="../images/widget-custom/video-player-configuration.png" /></em></span></p>
 <p>Pour la plupart des vidéos en ligne, y compris les vidéos YouTube et les vidéos stockées sur Google Drive, vous pouvez simplement cliquer sur l&rsquo;option &lsquo;Partager&rsquo; et copier l&rsquo;URL.</p>
 <p><em><img alt="intégration youtube" src="../images/widget-custom/youtube-embed.png" /></em></p>
@@ -7627,34 +7642,30 @@
 <p><em><img alt="intégration lecteur vidéo" src="../images/widget-custom/video-player-embed.png" /></em></p>
 <h3 id="visionneuse-html">Visionneuse HTML<a class="headerlink" href="#visionneuse-html" title="Permanent link">#</a></h3>
 <p>La visionneuse HTML affiche du HTML écrit dans une cellule.</p>
-<p>Pour des widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#markdown">Markdown</a> et <a href="#notepad">Bloc-notes</a>.</p>
-<p><em><img alt="visionneuse html" src="../images/widget-custom/html-viewer.png" /></em></p>
-<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que vous écrirez du HTML.</p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient le HTML et &lsquo;Sélectionner par&rsquo; cette même table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget visionneuse HTML" src="images/widget-custom/html-viewer-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Visionneuse HTML&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;HTML&rsquo;, sélectionnez la colonne de texte qui contient votre HTML.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration visionneuse HTML" src="../images/widget-custom/html-viewer-configuration.png" /></em></span></p>
+<p>Pour des widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#markdown">Markdown</a> et <a href="#bloc-notes">Bloc-notes</a>.</p>
+<p><em><img alt="html-viewer" src="../images/widget-custom/html-viewer.png" /></em></p>
+<p>Vous aurez besoin d&rsquo;une colonne de texte dans votre table où vous écrirez le texte et le formatage HTML.</p>
+<p>Lors de la configuration de votre widget personnalisé, autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;HTML&rsquo;, sélectionnez la colonne de texte qui contient votre HTML.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="html-viewer-configurationt" src="../images/widget-custom/html-viewer-configuration.png" /></em></span></p>
 <p>Votre HTML sera visible dans le widget personnalisé.</p>
-<p><em><img alt="exemple final visionneuse HTML" src="../images/widget-custom/html-viewer-final-example.png" /></em></p>
+<p><em><img alt="html-viewer-final-example" src="../images/widget-custom/html-viewer-final-example.png" /></em></p>
 <p>Pour obtenir de l&rsquo;aide sur le formatage HTML, consultez ce guide de W3 Schools : <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank">Formatage de texte HTML</a></p>
 <p>Vous pouvez trouver un exemple de la visionneuse HTML dans notre <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result/p/1" target="_blank">Webinaire 7 (Widgets personnalisés)</a> modèle. Vous pouvez également regarder une vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1538s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
 <h3 id="visionneuse-dimages">Visionneuse d&rsquo;images<a class="headerlink" href="#visionneuse-dimages" title="Permanent link">#</a></h3>
 <p>Voir des images à partir d&rsquo;URL.</p>
-<p><em><img alt="visionneuse d'images" src="../images/widget-custom/image-viewer.png" /></em></p>
-<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que vous ajouterez l&rsquo;URL de votre image.</p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient l&rsquo;URL de l&rsquo;image et &lsquo;Sélectionner par&rsquo; cette même table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget visionneuse d'images" src="images/widget-custom/image-viewer-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Visionneuse d&rsquo;images&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;URL de l&rsquo;image&rsquo;, sélectionnez la colonne qui contient les URL de vos images.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration visionneuse d'images" src="../images/widget-custom/image-viewer-configuration.png" /></em></span></p>
+<p><em><img alt="image-viewer" src="../images/widget-custom/image-viewer.png" /></em></p>
+<p>Votre table devra inclure une colonne pour stocker l&rsquo;URL de votre image.</p>
+<p>Pour configurer, autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;URL de l&rsquo;image&rsquo;, sélectionnez la colonne qui contient les URL de vos images.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-configuration" src="../images/widget-custom/image-viewer-configuration.png" /></em></span></p>
 <p>Pour copier l&rsquo;URL d&rsquo;une image, faites un clic droit sur la photo puis &lsquo;Copier l&rsquo;adresse de l&rsquo;image&rsquo;. Cela copie l&rsquo;URL dans votre presse-papiers. Collez cette URL dans votre colonne spécifiée dans Grist.</p>
-<p><em><img alt="enregistrer image visionneuse" src="../images/widget-custom/image-viewer-save-image.png" /></em></p>
+<p><em><img alt="image-viewer-save-image" src="../images/widget-custom/image-viewer-save-image.png" /></em></p>
 <p>De plus, vous pouvez ajouter plusieurs images pour un enregistrement spécifique en ajoutant plusieurs URL d&rsquo;images, séparées par un espace ou une nouvelle ligne, dans une seule cellule.</p>
 <p>Veuillez noter qu&rsquo;une virgule ne fonctionnera pas pour séparer les liens.</p>
-<p><em><img alt="liens multiples visionneuse d'images" src="../images/widget-custom/image-viewer-multiple-links.png" /></em></p>
+<p><em><img alt="image-viewer-multiple-links" src="../images/widget-custom/image-viewer-multiple-links.png" /></em></p>
 <p>Lorsque plusieurs URL d&rsquo;images sont présentes, le widget personnalisé visionneuse d&rsquo;images fonctionnera comme un carrousel. Cliquez sur les flèches pour voir d&rsquo;autres images.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="visionneuse d'images parc multiples" src="../images/widget-custom/image-viewer-multiple.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="image-viewer-park-multiple" src="../images/widget-custom/image-viewer-multiple.png" /></em></span></p>
 <p>Pour un exemple du widget visionneuse d&rsquo;images, consultez notre <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/4" target="_blank">Base de données des parcs nationaux des États-Unis</a>, et ajoutez une critique de parc pendant que vous y êtes !</p>
-<p>Vous pouvez également consulter notre modèle <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Générateur de mèmes</a> pour un autre excellent exemple.</p>
+<p>Vous pouvez également consulter notre <a href="https://templates.getgrist.com/gtzQwTXkgzFG/Meme-Generator" target="_blank">Générateur de mèmes</a> modèle pour un autre excellent exemple.</p>
 <p>Pour une vidéo explicative, assurez-vous de regarder notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=559s" target="_blank">Webinaire sur les widgets personnalisés</a> !</p>
 <h3 id="notebook-jupyterlite">Notebook JupyterLite<a class="headerlink" href="#notebook-jupyterlite" title="Permanent link">#</a></h3>
 <p>Ce widget vous permet d&rsquo;exécuter du code Python personnalisé dans <a href="https://jupyterlite.readthedocs.io/">JupyterLite</a>, une version de <a href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab</a> fonctionnant entièrement dans le navigateur. Vous pouvez utiliser la pleine <a href="../code/modules/grist_plugin_api/">API de plugin de widget personnalisée</a> et accéder ou modifier n&rsquo;importe quelles données dans le document (sous réserve des Règles d&rsquo;accès), débloquant presque des possibilités illimitées pour les utilisateurs avancés.</p>
@@ -7689,74 +7700,67 @@
 <p>Vous pouvez utiliser de nombreuses (mais pas toutes) bibliothèques tierces dans votre notebook, comme <code>pandas</code>. Beaucoup seront installées automatiquement lorsqu&rsquo;elles seront importées. D&rsquo;autres nécessiteront d&rsquo;exécuter <code>%pip install &lt;nom du package&gt;</code> dans une cellule, par exemple <code>%pip install pandas</code>. Notez que c&rsquo;est <code>%pip</code> et non <code>!pip</code> comme dans un notebook Jupyter classique.</p>
 <h3 id="carte">Carte<a class="headerlink" href="#carte" title="Permanent link">#</a></h3>
 <p>Le widget de carte personnalisé vous permet d&rsquo;afficher des emplacements en utilisant des coordonnées de latitude et de longitude. Si vos données sont une adresse, plutôt qu&rsquo;au format lat-long, Grist peut convertir l&rsquo;adresse en coordonnées lat-long.</p>
-<p><em><img alt="widget de carte" src="../images/widget-custom/map-widget.png" /></em></p>
+<p><em><img alt="map-widget" src="../images/widget-custom/map-widget.png" /></em></p>
 <p>Si vous utilisez des coordonnées lat-long existantes, vous aurez besoin de trois colonnes : Nom, Longitude et Latitude.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="colonnes lat-long de carte" src="../images/widget-custom/map-lat-long-columns.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-lat-long-columns" src="../images/widget-custom/map-lat-long-columns.png" /></em></span></p>
 <p>Si vous utilisez une adresse, vous aurez besoin de six colonnes : Nom, Adresse, Géocodage, Longitude, Latitude et Adresse géocodée.</p>
-<p class="screenshot-half"><em><img alt="colonnes d'adresse de carte" src="../images/widget-custom/map-address-columns.png" /></em></span></p>
-<p>Géocodage est une <a href="../col-types/#toggle-columns">colonne de type bascule</a> qui doit être définie sur vrai pour tout enregistrement que vous souhaitez convertir d&rsquo;adresse en coordonnées lat-long à afficher sur la carte.</p>
+<p><em><img alt="map-address-columns" src="../images/widget-custom/map-address-columns.png" /></em></p>
+<p>Géocodage est une <a href="../col-types/#colonnes-basculantes">colonne de type bascule</a> qui doit être définie sur vrai pour tout enregistrement que vous souhaitez convertir d&rsquo;adresse en coordonnées lat-long à afficher sur la carte.</p>
 <p>Si vous souhaitez convertir tous les enregistrements, vous pouvez faire de Géocodage une colonne de formule avec la formule = <code>True</code>. Cela marquera tous les enregistrements comme vrais.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="géocodage vrai de carte" src="../images/widget-custom/map-geocode-true.png" /></em></span></p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les adresses ou les coordonnées lat-long et &lsquo;Sélectionner par&rsquo; cette même table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget de carte" src="images/widget-custom/map-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Carte&rsquo; dans le menu déroulant Personnalisé.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-geocode-true" src="../images/widget-custom/map-geocode-true.png" /></em></span></p>
+<p>Pour configurer, définissez le niveau d&rsquo;accès approprié pour le widget.</p>
 <p>Si vous avez déjà <strong>des coordonnées lat-long</strong>, vous pouvez définir votre niveau d&rsquo;accès sur <em>Lire la table sélectionnée</em>.</p>
 <p>Si vous utilisez une <strong>adresse</strong> et qu&rsquo;elle doit être convertie en coordonnées lat-long, vous devrez définir votre niveau d&rsquo;accès sur <em>Accès complet au document</em> car le widget a besoin de la permission d&rsquo;écrire dans votre document afin d&rsquo;ajouter des coordonnées lat-long.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration de carte 1" src="../images/widget-custom/map-configuration-1.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-1" src="../images/widget-custom/map-configuration-1.png" /></em></span></p>
 <p>Mappez toutes les colonnes requises. Notez que Nom, Longitude et Latitude sont étiquetés comme requis. Géocodage, Adresse et Adresse géocodée sont listés comme optionnels. Si vous utilisez des adresses et que vous avez besoin que Grist les convertisse en coordonnées lat-long, vous devez mapper les six colonnes.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration de carte 2" src="../images/widget-custom/map-configuration-2.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="map-configuration-2" src="../images/widget-custom/map-configuration-2.png" /></em></span></p>
 <p>Après avoir mappé les colonnes nécessaires et sélectionné le niveau d&rsquo;accès approprié, le widget de carte se remplira.</p>
-<p><em><img alt="carte finale" src="../images/widget-custom/map-final.png" /></em></p>
-<p>Vous pouvez configurer la carte pour afficher uniquement l&rsquo;emplacement sélectionné en cliquant sur l&rsquo;option &lsquo;Ouvrir la configuration&rsquo; dans le <a href="../glossary/#creator-panel">panneau de création</a>. Ensuite, décochez &lsquo;Tous les emplacements&rsquo;. Cliquez sur la coche verte en haut du widget pour enregistrer les paramètres de configuration mis à jour.</p>
-<p><em><img alt="configuration de carte emplacement" src="../images/widget-custom/map-configuration-location.png" /></em></p>
+<p><em><img alt="map-final" src="../images/widget-custom/map-final.png" /></em></p>
+<p>Vous pouvez configurer la carte pour afficher uniquement l&rsquo;emplacement sélectionné en cliquant sur l&rsquo;option &lsquo;Ouvrir la configuration&rsquo; dans le <a href="../glossary/#panneau-de-creation">panneau de création</a>. Ensuite, décochez &lsquo;Tous les emplacements&rsquo;. Cliquez sur la coche verte en haut du widget pour enregistrer les paramètres de configuration mis à jour.</p>
+<p><em><img alt="map-configuration-location" src="../images/widget-custom/map-configuration-location.png" /></em></p>
 <p>Consultez notre modèle <a href="https://templates.getgrist.com/pyMHqncEspfZ/Mapping-Locations" target="_blank">Cartographie des emplacements</a> ou notre <a href="https://templates.getgrist.com/dKztiPYamcCp/Crowdsourced-List/p/1" target="_blank">Liste de crowdsourcing</a> pour deux excellents exemples !</p>
 <p>Pour une vidéo explicative, consultez notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=713s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
 <h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">#</a></h3>
 <p>Le widget personnalisé Markdown vous permet de formater du texte en utilisant Markdown tout en affichant le texte formaté dans un widget modifiable.</p>
-<p>Pour d&rsquo;autres widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#html-viewer">HTML</a> et <a href="#notepad">Bloc-notes</a>.</p>
-<p><em><img alt="widget markdown" src="../images/widget-custom/markdown-widget.png" /></em></p>
-<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que vous ajouterez votre texte qui sera formaté en utilisant Markdown.</p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient le texte formaté avec Markdown et &lsquo;Sélectionner par&rsquo; cette même table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget markdown" src="images/widget-custom/markdown-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Markdown&rsquo; dans le menu déroulant Personnalisé et autorisez <strong>l&rsquo;accès complet au document</strong>. Comme le widget est également un éditeur, il a besoin de la permission d&rsquo;écrire dans le document.</p>
+<p>Pour d&rsquo;autres widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#visionneuse-html">HTML</a> et <a href="#bloc-notes">Bloc-notes</a>.</p>
+<p><em><img alt="markdown-widget" src="../images/widget-custom/markdown-widget.png" /></em></p>
+<p>Votre table devra inclure une colonne de texte où votre texte formaté en Markdown sera stocké.</p>
+<p>Configurez le widget personnalisé Markdown en autorisant <strong>l&rsquo;accès complet au document</strong>. Comme le widget est également un éditeur, il a besoin de la permission d&rsquo;écrire directement dans le document.</p>
 <p>Sous &lsquo;Contenu&rsquo;, sélectionnez la colonne de texte qui contient le formatage Markdown.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration markdown" src="../images/widget-custom/markdown-configuration.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-configuration" src="../images/widget-custom/markdown-configuration.png" /></em></span></p>
 <p>Tout formatage Markdown dans la colonne de texte spécifiée s&rsquo;appliquera et sera visible et modifiable dans le widget personnalisé.</p>
-<p><em><img alt="exemple final markdown" src="../images/widget-custom/markdown-final.png" /></em></p>
+<p><em><img alt="markdown-final" src="../images/widget-custom/markdown-final.png" /></em></p>
 <p>Pour éditer le texte directement dans le widget, cliquez sur l&rsquo;icône d&rsquo;édition. Le texte reviendra à afficher la syntaxe Markdown qui peut être modifiée directement dans le widget. Lorsqu&rsquo;il est en mode édition, l&rsquo;icône d&rsquo;édition sera remplacée par l&rsquo;icône de sauvegarde. Assurez-vous de cliquer sur l&rsquo;icône de sauvegarde pour enregistrer les modifications et revenir à l&rsquo;affichage du texte formaté.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="édition markdown" src="../images/widget-custom/markdown-edit.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="markdown-edit" src="../images/widget-custom/markdown-edit.png" /></em></span></p>
 <p>Pour obtenir de l&rsquo;aide sur le formatage Markdown, consultez le <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Guide Markdown</a> pour la syntaxe de base. Ce guide est également accessible dans le widget Markdown en cliquant sur l&rsquo;icône d&rsquo;information en haut du widget. Le guide s&rsquo;ouvrira dans un nouvel onglet de votre navigateur pour une référence facile.</p>
-<p>Vous pouvez trouver un exemple de l&rsquo;éditeur Markdown dans notre <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result" target="_blank">Webinaire 7 (Widgets personnalisés)</a> modèle et consulter cette vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1339s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
+<p>Vous pouvez trouver un exemple de l&rsquo;éditeur Markdown dans notre modèle <a href="https://public.getgrist.com/uGS3WH3mhoVy/7-Webinar-7-Custom-Widgets-End-Result" target="_blank">Webinaire 7 (Widgets personnalisés)</a> et consulter cette vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1339s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
+<p>Si vous préférez voir votre texte formaté directement dans la table, vous pouvez utiliser le <a href="../col-types/#colonnes-de-texte">format de cellule Markdown</a>.</p>
 <h3 id="bloc-notes">Bloc-notes<a class="headerlink" href="#bloc-notes" title="Permanent link">#</a></h3>
 <p>Le widget Bloc-notes personnalisé vous permet de formater du texte en utilisant un éditeur de texte enrichi.</p>
-<p>Pour d&rsquo;autres widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#html-viewer">HTML</a> et <a href="#markdown">Markdown</a>.</p>
-<p><em><img alt="widget bloc-notes" src="../images/widget-custom/notepad-widget.png" /></em></p>
-<p>Pour commencer, ajoutez une nouvelle colonne à votre table. C&rsquo;est là que les détails de notre texte formaté seront stockés.</p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient la colonne que nous venons d&rsquo;ajouter et &lsquo;Sélectionner par&rsquo; cette même table.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget bloc-notes" src="images/widget-custom/notepad-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Bloc-notes&rsquo; dans le menu déroulant Personnalisé et autorisez <strong>l&rsquo;accès complet au document</strong>. Comme le widget est également un éditeur, il a besoin de la permission d&rsquo;écrire dans le document.</p>
-<p>Sous &lsquo;Contenu&rsquo;, sélectionnez la colonne créée pour stocker notre texte formaté.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration bloc-notes" src="../images/widget-custom/notepad-configuration.png" /></em></span></p>
+<p>Pour d&rsquo;autres widgets d&rsquo;édition de texte, consultez nos widgets personnalisés <a href="#visionneuse-html">HTML</a> et <a href="#markdown">Markdown</a>.</p>
+<p><em><img alt="notepad-widget" src="../images/widget-custom/notepad-widget.png" /></em></p>
+<p>La table de données sous-jacente devra inclure une colonne où le texte formaté sera stocké.</p>
+<p>Lors de la configuration, autorisez <strong>l&rsquo;accès complet au document</strong>. Comme le widget est également un éditeur, il a besoin de la permission d&rsquo;écrire dans le document.</p>
+<p>Sous &lsquo;Contenu&rsquo;, sélectionnez la colonne créée pour stocker le texte formaté.</p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="notepad-configuration" src="../images/widget-custom/notepad-configuration.png" /></em></span></p>
 <p>Si la colonne de texte que vous avez choisie sous Contenu a du texte existant, ce texte apparaîtra dans le widget Bloc-notes, prêt à être formaté.</p>
-<p><em><img alt="texte enregistré bloc-notes" src="../images/widget-custom/notepad-saved-text.png" /></em></p>
+<p><em><img alt="notepad-saved-text" src="../images/widget-custom/notepad-saved-text.png" /></em></p>
 <p>Utilisez n&rsquo;importe quelle option montrée ici pour formater votre texte.</p>
-<p><em><img alt="symboles bloc-notes" src="../images/widget-custom/notepad-symbols.png" /></em></p>
-<p>Comme vous pouvez le voir dans la capture d&rsquo;écran ci-dessous, le code pour le texte formaté n&rsquo;est pas utile à voir dans votre table. Vous éditerez le texte directement dans le widget Bloc-notes afin que vous puissiez <a href="../widget-table/#column-operations">cacher</a> cette colonne de votre table de données.</p>
-<p><em><img alt="code de texte édité bloc-notes" src="../images/widget-custom/notepad-edited-text-code.png" /></em></p>
+<p><em><img alt="notepad-symbols" src="../images/widget-custom/notepad-symbols.png" /></em></p>
+<p>Comme vous pouvez le voir dans la capture d&rsquo;écran ci-dessous, le code pour le texte formaté n&rsquo;est pas utile à voir dans votre table. Vous éditerez le texte directement dans le widget Bloc-notes afin que vous puissiez <a href="../widget-table/#operations-sur-les-colonnes">cacher</a> cette colonne de votre table de données.</p>
+<p><em><img alt="notepad-edited-text-code" src="../images/widget-custom/notepad-edited-text-code.png" /></em></p>
 <p>Consultez notre <a href="https://templates.getgrist.com/4TRbjZXSPtR5/US-National-Park-Database/p/13" target="_blank">Base de données des parcs nationaux des États-Unis</a> ou notre <a href="https://templates.getgrist.com/cMQA7uuBbtMW/-Grocery-List-Meal-Planner/p/3" target="_blank">🛒 Liste de courses + Planificateur de repas</a> pour deux excellents exemples de Bloc-notes !</p>
 <p>Vous pouvez également consulter cette vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1194s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
 <h3 id="etiquettes-dimpression">Étiquettes d&rsquo;impression<a class="headerlink" href="#etiquettes-dimpression" title="Permanent link">#</a></h3>
 <p>Le widget personnalisé Étiquettes d&rsquo;impression vous permet de personnaliser et d&rsquo;imprimer des étiquettes directement à partir de Grist.</p>
-<p><em><img alt="impression d'étiquettes" src="../images/widget-custom/print-label.png" /></em></p>
-<p>Pour commencer, ajoutez une nouvelle colonne à votre table. Cette colonne contiendra le texte pour l&rsquo;étiquette. Optionnellement, vous pouvez ajouter une deuxième colonne pour spécifier un nombre d&rsquo;étiquettes, vous permettant d&rsquo;imprimer plus d&rsquo;une même étiquette sans avoir à créer des enregistrements en double.</p>
-<p>Ensuite, ajoutez un nouveau widget personnalisé à la page. Choisissez la table de données qui contient les détails de l&rsquo;étiquette.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="ajouter widget impression d'étiquettes" src="images/widget-custom/print-label-add-widget.png" /></em></span></p>
-<p>Pour configurer, sélectionnez &lsquo;Impression d&rsquo;étiquettes&rsquo; dans le menu déroulant Personnalisé et autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;Étiquette&rsquo;, sélectionnez la colonne qui contient le texte à inclure sur les étiquettes. Si vous souhaitez imprimer plus d&rsquo;une étiquette, sélectionnez la colonne qui contient le nombre d&rsquo;étiquettes pour chaque enregistrement que vous souhaitez imprimer.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="configuration impression d'étiquettes" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
+<p><em><img alt="print-label" src="../images/widget-custom/print-label.png" /></em></p>
+<p>Votre table devra inclure une colonne qui contiendra le texte pour l&rsquo;étiquette. Optionnellement, vous pouvez ajouter une deuxième colonne pour spécifier un nombre d&rsquo;étiquettes, vous permettant d&rsquo;imprimer plus d&rsquo;une même étiquette sans avoir à créer des enregistrements en double.</p>
+<p>Pour configurer, autorisez l&rsquo;accès pour lire la table sélectionnée. Sous &lsquo;Étiquette&rsquo;, sélectionnez la colonne qui contient le texte à inclure sur les étiquettes. Si vous souhaitez imprimer plus d&rsquo;une étiquette, sélectionnez la colonne qui contient le nombre d&rsquo;étiquettes pour chaque enregistrement que vous souhaitez imprimer.</p>
+<p class="screenshot-half"><span><em><img alt="print-label-configuration" src="../images/widget-custom/print-label-configuration.png" /></em></span></p>
 <p>Vous pouvez choisir parmi des tailles de feuille standard dans le menu déroulant en haut à gauche du widget. Assurez-vous d&rsquo;enregistrer les modifications en cliquant sur la coche verte en haut à droite du widget.</p>
-<p class="screenshot-half"><em><img alt="configuration de feuille d'impression d'étiquettes" src="../images/widget-custom/print-label-sheet-configuration.png" /></em></span></p>
+<p><em><img alt="print-label-sheet-configuration" src="../images/widget-custom/print-label-sheet-configuration.png" /></em></p>
 <p>Pour laisser des étiquettes vides au début de la feuille, cliquez sur l&rsquo;icône de paramètres puis spécifiez combien d&rsquo;étiquettes doivent rester vides. Cela est particulièrement utile si une partie de votre feuille d&rsquo;étiquettes a déjà été utilisée. Vous pouvez sauter les étiquettes utilisées et commencer à imprimer sur votre première étiquette inutilisée.</p>
-<p class="screenshot-half"><em><img alt="étiquettes vides d'impression" src="../images/widget-custom/print-label-blanks.png" /></em></span></p>
+<p><em><img alt="print-label-blanks" src="../images/widget-custom/print-label-blanks.png" /></em></p>
 <p>Consultez notre modèle <a href="https://templates.getgrist.com/9nNr9uQwoXWA/Print-Mailing-Labels" target="_blank">Impression d&rsquo;étiquettes d&rsquo;expédition</a> et notre modèle <a href="https://templates.getgrist.com/ihsZTnKTF7Lr/Treasure-Hunt/p/6" target="_blank">Chasse au trésor</a> pour deux excellents exemples !</p>
 <p>Vous pouvez également consulter cette vidéo explicative de notre <a href="https://www.youtube.com/watch?v=zNLHX_ezY50&amp;t=1749s" target="_blank">Webinaire sur les widgets personnalisés</a>.</p>
 </div>

@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2020-07-email-compose/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2020-07-email-compose/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3491,7 +3495,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3915,7 +3919,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3946,7 +3950,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -6985,16 +6989,16 @@
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 id="preparer-des-emails-en-utilisant-des-formules">Préparer des Emails en Utilisant des Formules<a class="headerlink" href="#preparer-des-emails-en-utilisant-des-formules" title="Permanent link">#</a></h1>
-<p>Vous savez peut-être déjà que vous pouvez ajouter des <a href="../../col-types/#hyperlinks">champs de lien hypertexte</a> dans Grist. Vous savez peut-être aussi que les liens &ldquo;mailto&rdquo; ouvrent un programme de messagerie pour créer un nouveau message électronique.</p>
+<p>Vous savez peut-être déjà que vous pouvez ajouter des <a href="../../col-types/#hyperliens">champs de lien hypertexte</a> dans Grist. Vous savez peut-être aussi que les liens &ldquo;mailto&rdquo; ouvrent un programme de messagerie pour créer un nouveau message électronique.</p>
 <p>Il est moins connu que les liens &ldquo;mailto&rdquo; permettent de pré-remplir de nombreuses parties du message électronique. Si vous utilisez Grist pour stocker des contacts, vous pouvez essentiellement créer des modèles d&rsquo;email en utilisant des formules Grist.</p>
 <h2 id="liens-mailto-simples">Liens Mailto Simples<a class="headerlink" href="#liens-mailto-simples" title="Permanent link">#</a></h2>
 <p>Le lien &ldquo;mailto&rdquo; le plus simple dans Grist ressemble à <code>mailto:someone@example.com</code>. Lorsque la colonne est définie sur Texte et que son format est défini sur Hyperlien, elle s&rsquo;affiche comme <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#115;&#111;&#109;&#101;&#111;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>.</p>
 <p>Si vous avez une table avec les colonnes <code>Full_Name</code> et <code>Email</code>, ajoutez une autre colonne avec cette formule :
 <code class="formula">"Compose Email mailto:%s" % ($Email)</code>.
 Définissez son type sur Texte et son format de cellule sur Hyperlien :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Format Hyperlien" src="../examples/images/2020-07-hyperlink-format.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Format Hyperlien" src="../images/2020-07-hyperlink-format.png" /></em></span></p>
 <p>Vous obtiendrez un lien dans chaque ligne de la personne, sur lequel vous pouvez cliquer pour commencer à composer un email à cette personne :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Cellules Mailto" src="../examples/images/2020-07-hyperlink-cells.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Cellules Mailto" src="../images/2020-07-hyperlink-cells.png" /></em></span></p>
 <p>Voyez un exemple de cela en action ici :
 <a href="https://templates.getgrist.com/3HfynRQwpHPy/Email-Contacts" target="_blank">Composition Simple</a>.</p>
 <h2 id="cc-bcc-objet-corps">Cc, Bcc, Objet, Corps<a class="headerlink" href="#cc-bcc-objet-corps" title="Permanent link">#</a></h2>

@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/col-refs/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/col-refs/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -2423,6 +2427,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#references-bidirectionnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Références bidirectionnelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#convertir-une-colonne-de-texte-en-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2434,30 +2449,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inclure" class="md-nav__link">
+  <a href="#inclure-plusieurs-champs-dune-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inclure
+        Inclure plusieurs champs d&rsquo;une référence
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Inclure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#plusieurs-champs-dune-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        plusieurs champs d&rsquo;une référence
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3563,7 +3561,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3987,7 +3985,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4018,7 +4016,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -6974,6 +6972,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#references-bidirectionnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Références bidirectionnelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#convertir-une-colonne-de-texte-en-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6985,30 +6994,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inclure" class="md-nav__link">
+  <a href="#inclure-plusieurs-champs-dune-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inclure
+        Inclure plusieurs champs d&rsquo;une référence
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Inclure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#plusieurs-champs-dune-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        plusieurs champs d&rsquo;une référence
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -7131,48 +7123,77 @@
 <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/fkn2YCxEvTc?rel=0" width="560"></iframe>
 <h1 id="reference-et-listes-de-references">Référence et Listes de Références<a class="headerlink" href="#reference-et-listes-de-references" title="Permanent link">#</a></h1>
 <h2 id="vue-densemble">Vue d&rsquo;ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">#</a></h2>
+<p>Dans la plupart des ensembles de données, chaque enregistrement partage une relation avec un autre type de données. Les bases de données relationnelles comme Grist sont construites sur ces relations. Des numéros d&rsquo;identification sont assignés aux personnes, les employés sont organisés en départements, les reçus listent différents produits, etc.</p>
+<p><a href="https://www.getgrist.com/blog/understanding-relationships-in-relational-databases/">Ces relations</a> se présentent sous quatre formes différentes :</p>
+<ol>
+<li><strong>Un-à-Un</strong> : Une relation exclusive entre deux enregistrements uniques, comme un individu et son acte de naissance, ou une entreprise et son document d&rsquo;incorporation. Chaque enregistrement ne peut avoir qu&rsquo;un seul correspondant, et vice versa.</li>
+<li><strong>Un-à-Plusieurs</strong> : Une relation dans laquelle un enregistrement peut être lié à n&rsquo;importe quel nombre d&rsquo;enregistrements correspondants, comme un département et ses employés, ou une personne avec plusieurs adresses e-mail. Le premier enregistrement peut être lié à plusieurs autres enregistrements, mais chacun de ces enregistrements ne peut être lié qu&rsquo;au premier.</li>
+<li><strong>Plusieurs-à-Un</strong> : Une relation qui est l&rsquo;inverse d&rsquo;une relation Un-à-Plusieurs. Considérez les exemples précédents, mais inversés : les employés et le département auquel ils sont assignés, ou plusieurs adresses e-mail et la personne à laquelle elles appartiennent.</li>
+<li><strong>Plusieurs-à-Plusieurs</strong> : Une relation dans laquelle n&rsquo;importe quel nombre d&rsquo;enregistrements peut être lié à n&rsquo;importe quel nombre d&rsquo;enregistrements correspondants, comme une liste d&rsquo;étudiants et les différents cours auxquels ils sont inscrits. Ces relations sont les moins restrictives et peuvent exprimer les relations les plus complexes.</li>
+</ol>
+<p><img alt="relational-data-overview" src="../images/columns/relational-data-overview.png" /></p>
 <p>Les colonnes Référence et Liste de Références dans Grist permettent à une table de créer une référence explicite à une autre. Dans le monde des bases de données, cela est similaire à une clé étrangère. Dans le monde des tableurs, cela est similaire à un <code>VLOOKUP</code>, mais beaucoup plus puissant et plus facile à utiliser.</p>
 <p>Dans ce guide, nous utiliserons le terme <strong>table sous-jacente</strong> pour la table qui liste toutes les valeurs disponibles, et <strong>table de référence</strong> pour la table qui utilise ces valeurs.</p>
 <h2 id="creer-une-nouvelle-colonne-de-reference">Créer une nouvelle colonne de Référence<a class="headerlink" href="#creer-une-nouvelle-colonne-de-reference" title="Permanent link">#</a></h2>
 <p>Supposons que nous ayons un document avec deux tables, Clients et Projets. La table Clients liste nos clients - noms, contacts, dates de signature - et la table Projets liste les projets que nous réalisons pour les clients.</p>
 <p><img alt="Motivation de la référence" src="../images/columns/columns-reference-clients-projects.png" /></p>
-<p>Il y a toutes sortes de choses que Grist peut faire pour nous si nous lui indiquons que la colonne Client dans la table Projets fait référence aux clients listés dans la table Clients. Nous pouvons le faire en convertissant la colonne Client en une &ldquo;colonne de référence&rdquo;. Ouvrez le panneau latéral des Options de Colonne (voir <a href="../col-types/#specifying-a-type">Spécifier un type</a>) et définissez le &ldquo;Type de Colonne&rdquo; sur &ldquo;Référence&rdquo;. Ajustez l&rsquo;option &ldquo;Données de la Table&rdquo; pour être la table correcte que vous souhaitez croiser, et l&rsquo;option &ldquo;Afficher la Colonne&rdquo; pour correspondre à la colonne de cette table que vous souhaitez afficher. Ensuite, cliquez sur &ldquo;Appliquer&rdquo; lorsque vous êtes satisfait du résultat.</p>
+<p>Il y a toutes sortes de choses que Grist peut faire pour nous si nous lui indiquons que la colonne <strong>Client</strong> dans la table <em>Projets</em> fait référence aux clients listés dans la table <em>Clients</em>. Nous pouvons le faire en convertissant la colonne <strong>Client</strong> en une &ldquo;colonne de référence&rdquo;. Ouvrez le <em>panneau de création</em> sur le côté droit de la page (voir <a href="../col-types/#specifier-un-type">Spécifier un type</a>) et définissez le &ldquo;Type de Colonne&rdquo; sur &ldquo;Référence&rdquo;. Ajustez l&rsquo;option &ldquo;Données de la Table&rdquo; pour être la table correcte que vous souhaitez croiser, et l&rsquo;option &ldquo;Afficher la Colonne&rdquo; pour correspondre à la colonne de cette table que vous souhaitez afficher. Ensuite, cliquez sur &ldquo;Appliquer&rdquo; lorsque vous êtes satisfait du résultat.</p>
 <p><img alt="Configuration de la référence" src="../images/columns/columns-reference-link-client.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Comprendre la référence</p>
 <p>La valeur de la colonne fait toujours référence à l&rsquo;ensemble du <strong>record</strong> dans la table sous-jacente. La valeur affichée peut être n&rsquo;importe quelle colonne de ce record, comme sélectionné dans <code>Afficher la Colonne</code>. Vous pouvez également inclure des colonnes supplémentaires à afficher comme expliqué plus tard.</p>
 </div>
-<p>Dans notre exemple, vous pouvez voir des petites icônes de lien apparaître dans les cellules de la colonne Client, montrant qu&rsquo;elles ont été correctement croisées avec la table Clients. Une fois le type de colonne défini, vous pouvez commencer à taper dedans ou double-cliquer pour voir une liste déroulante de toutes les valeurs disponibles.</p>
+<p>Dans notre exemple, vous pouvez voir des petites icônes de lien apparaître dans les cellules de la colonne <strong>Client</strong>, montrant qu&rsquo;elles ont été correctement croisées avec la table <em>Clients</em>. Une fois le type de colonne défini, vous pouvez commencer à taper dedans ou double-cliquer pour voir une liste déroulante de toutes les valeurs disponibles.</p>
 <p class="screenshot-half"><em><img alt="Sélection des valeurs déroulantes" src="../images/column-ref-select-dropdown.png" /></em></p>
-<p>Notez que la table <code>Clients</code> et la colonne <code>Client</code> sont liées par le type de colonne plutôt que par le nom. Elles peuvent être nommées comme vous le souhaitez.</p>
+<p>Notez que la table <em>Clients</em> et la colonne <strong>Client</strong> sont liées par le type de colonne plutôt que par le nom. Elles peuvent être nommées comme vous le souhaitez.</p>
 <div class="admonition note">
 <p class="admonition-title">Repérer les colonnes de référence</p>
 <p>Vous pouvez dire que les valeurs dans une colonne représentent une référence par l&rsquo;icône de lien qui apparaît à côté des valeurs.</p>
 </div>
-<p>Si vous tapez accidentellement une valeur qui n&rsquo;est pas présente dans la table <code>Clients</code>, sa valeur sera mise en évidence comme invalide :</p>
+<p>Si vous tapez accidentellement une valeur qui n&rsquo;est pas présente dans la table <em>Clients</em>, sa valeur sera mise en évidence comme invalide :</p>
 <p class="screenshot-half"><em><img alt="Valeur de référence invalide" src="../images/column-ref-invalid.png" /></em></p>
 <h2 id="ajouter-des-valeurs-a-une-colonne-de-reference">Ajouter des valeurs à une colonne de Référence<a class="headerlink" href="#ajouter-des-valeurs-a-une-colonne-de-reference" title="Permanent link">#</a></h2>
 <p>Parfois, il est utile d&rsquo;ajouter une nouvelle valeur à la liste déroulante sans avoir à passer à la table sous-jacente. Les colonnes de référence rendent cela facile ! Il suffit de taper la valeur que vous souhaitez ajouter et de sélectionner la valeur <code>+</code> dans la liste déroulante. Grist ajoutera automatiquement un nouveau record contenant cette valeur à la table sous-jacente et insérera la référence appropriée :</p>
 <p class="screenshot-half"><em><img alt="Ajouter une valeur de référence" src="../images/column-ref-add-value.png" /></em></p>
+<h2 id="references-bidirectionnelles">Références bidirectionnelles<a class="headerlink" href="#references-bidirectionnelles" title="Permanent link">#</a></h2>
+<p>Par défaut, les nouvelles colonnes de référence sont ajoutées à une table en tant que références unidirectionnelles. Cela signifie qu&rsquo;elles n&rsquo;existent que comme une seule colonne dans cette table spécifique. Grist vous permet également de configurer une colonne de référence avec des références bidirectionnelles. Cela crée une nouvelle colonne dans la table référencée (ou cible), ce qui signifie que les références entre les deux seront affichées dans les deux tables et resteront synchronisées.</p>
+<p>Par exemple, nous pouvons faire de la colonne de référence existante, <strong>Client</strong>, une référence bidirectionnelle. Sous l&rsquo;onglet &lsquo;Colonne&rsquo; du Panneau de Création, sélectionnez &lsquo;Ajouter une référence bidirectionnelle&rsquo;.</p>
+<p><em><img alt="two-way-ref" src="../images/columns/two-way-ref.png" /></em></p>
+<p>Cela crée une nouvelle colonne de référence dans la table référencée, <em>Clients</em>. Comme il peut y avoir plusieurs projets pour un seul client, la colonne <strong>Projets</strong> créée automatiquement est une <a href="../col-types/#colonnes-de-liste-de-references">Liste de Références</a>. Lorsqu&rsquo;elle fait partie d&rsquo;une référence bidirectionnelle, les mises à jour effectuées dans une colonne seront reflétées dans l&rsquo;autre.</p>
+<p><em><img alt="two-way-ref-2" src="../images/columns/two-way-ref-2.png" /></em></p>
+<p>Les références bidirectionnelles respecteront si une colonne est une Référence ou une Liste de Références. Par exemple, la colonne <strong>Client</strong> dans la table <em>Projets</em> est une colonne de Référence, ce qui signifie qu&rsquo;un seul <strong>Client</strong> peut être assigné à chaque projet.</p>
+<p>Le <strong>Projet</strong> &ldquo;Newsletter template&rdquo; est déjà assigné au <strong>Client</strong> &ldquo;Prime Builders International&rdquo;. Que se passe-t-il si nous essayons d&rsquo;assigner ce projet à &ldquo;ABC Construction Company&rdquo; ?</p>
+<p><em><img alt="two-way-error-1" src="../images/columns/two-way-error-1.png" /></em></p>
+<p>Une fenêtre contextuelle apparaîtra qui nous indique que l&rsquo;enregistrement est déjà assigné. Si nécessaire, vous pouvez réassigner l&rsquo;enregistrement au nouveau <strong>Client</strong> en cochant la case.</p>
+<p class="screenshot-half"><em><img alt="two-way-error-2" src="../images/columns/two-way-error-2.png" /></em></p>
+<p>Pour supprimer une référence bidirectionnelle, sélectionnez la colonne de référence que vous souhaitez conserver. Ensuite, dans le Panneau de Création, cliquez sur l&rsquo;icône de poubelle à côté de &lsquo;Référence Bidirectionnelle&rsquo;. Cela supprimera la colonne de référence dans la table cible. Par exemple, lorsque la colonne <strong>Client</strong> dans la table <em>Projets</em> est sélectionnée, cliquer sur l&rsquo;icône de poubelle supprimera la colonne <strong>Projets</strong> dans la table cible, <em>Clients</em>.</p>
+<p><em><img alt="two-way-delete" src="../images/columns/two-way-delete.png" /></em></p>
+<p>Alternativement, vous pouvez supprimer une référence bidirectionnelle en sélectionnant la colonne puis en sélectionnant &lsquo;Supprimer la colonne&rsquo; depuis le menu de la colonne ou en utilisant le raccourci clavier <code class="keys"><em>Alt</em> + <em>Moins</em></code>.</p>
+<p>Veuillez noter que les références bidirectionnelles ne peuvent pas être utilisées sur les colonnes <a href="../formulas/">Formule</a>.</p>
 <h2 id="convertir-une-colonne-de-texte-en-reference">Convertir une colonne de Texte en Référence<a class="headerlink" href="#convertir-une-colonne-de-texte-en-reference" title="Permanent link">#</a></h2>
 <p>Lorsque vous travaillez avec des données existantes, il est courant d&rsquo;avoir des valeurs textuelles existantes qui devraient vraiment être des valeurs de référence. Ne vous inquiétez pas, la conversion est simple ! Il suffit de changer le type de colonne en <code>Référence</code> et Grist trouvera et substituera automatiquement les valeurs correspondantes par des références. Si certaines valeurs ne sont pas trouvées, elles seront affichées comme invalides. Vous pouvez alors soit les ajouter à la table sous-jacente, soit sélectionner les valeurs appropriées pour elles.</p>
-<p>Dans cet exemple, les trois premières valeurs correspondent parfaitement, mais <code>Forest Labs</code> est invalide car il n&rsquo;existe pas dans la table <code>Clients</code> :</p>
+<p>Dans cet exemple, les trois premières valeurs correspondent parfaitement, mais <code>Forest Labs</code> est invalide car il n&rsquo;existe pas dans la table <em>Clients</em> :</p>
 <p><img alt="Convertir les valeurs après" src="../images/column-ref-convert-after.png" /></p>
-<h2 id="inclure">Inclure<a class="headerlink" href="#inclure" title="Permanent link">#</a></h2>
-<h3 id="plusieurs-champs-dune-reference">plusieurs champs d&rsquo;une référence<a class="headerlink" href="#plusieurs-champs-dune-reference" title="Permanent link">#</a></h3>
-<p>Un grand avantage des colonnes de référence est qu&rsquo;elles vous permettent d&rsquo;intégrer facilement plusieurs colonnes de la table sous-jacente. Dans notre exemple, si vous souhaitez intégrer <code>$Client.Contact</code> à la table <code>Projets</code>, vous pouvez simplement sélectionner la colonne <code>Contact</code> dans la section <code>Ajouter des Colonnes Référencées</code> et elle sera automatiquement ajoutée à la table <code>Projets</code> :</p>
-<p><img alt="Colonnes supplémentaires insérées" src="images/column-ref-other-columns.png" /></p>
-<p>Si vous êtes à l&rsquo;aise avec les formules, vous pouvez voir que la colonne ajoutée est simplement la formule <code>=$Client.Contact</code>. Si vous le souhaitez, vous pouvez obtenir le même résultat en ajoutant manuellement la colonne de formule. Vous pouvez également utiliser d&rsquo;autres champs de la table <code>Clients</code> en référant à <code>$Client</code> dans les formules de la table <code>Projets</code>.</p>
-<p>Notez que dans les formules, nous utilisons le nom de la <em>colonne</em> de référence (<code>$Client</code>) pour faire référence à un record lié, et non le nom de la table (qui est <code>Clients</code> ici). Ne laissez pas la similarité des noms dans cet exemple vous confondre.</p>
+<h2 id="inclure-plusieurs-champs-dune-reference">Inclure plusieurs champs d&rsquo;une référence<a class="headerlink" href="#inclure-plusieurs-champs-dune-reference" title="Permanent link">#</a></h2>
+<p>Un grand avantage des colonnes de référence est qu&rsquo;elles vous permettent d&rsquo;intégrer facilement plusieurs colonnes de la table sous-jacente. Dans notre exemple, nous voulons intégrer <code>$Client.Contact</code> à la table <em>Projets</em>. Il y a deux façons de faire cela.</p>
+<ol>
+<li>Cliquez sur l&rsquo;icône <code>+</code> à l&rsquo;extrême droite de la table comme si vous ajoutiez une nouvelle colonne. Sous &lsquo;Lookups&rsquo;, survolez la table à partir de laquelle vous souhaitez extraire des données. Dans notre exemple, nous voulons extraire des données de la table <em>Clients</em>. Cela développe le menu pour afficher toutes les colonnes de cette table. Sélectionnez la colonne à partir de laquelle vous souhaitez extraire des données. Dans notre exemple, nous voulons intégrer des données de la colonne <strong>Contact</strong>.
+<img alt="Colonnes supplémentaires insérées" src="../images/column-ref-other-columns1.png" /></li>
+<li>Vous pouvez cliquer dans la colonne de référence, <strong>Client</strong>, pour la sélectionner. Ensuite, dans l&rsquo;onglet Colonne du Panneau de Création, cliquez sur le texte vert &lsquo;Ajouter une colonne&rsquo; sous la section &lsquo;Ajouter des Colonnes Référencées&rsquo;. Sélectionnez la colonne <strong>Contact</strong> dans la liste et elle sera automatiquement ajoutée à la table <em>Projets</em> :
+<img alt="Colonnes supplémentaires insérées" src="../images/column-ref-other-columns2.png" /></li>
+</ol>
+<p>Si vous êtes à l&rsquo;aise avec les formules, vous pouvez voir que la colonne ajoutée est simplement la formule <code>=$Client.Contact</code>. Si vous le souhaitez, vous pouvez obtenir le même résultat en ajoutant manuellement la colonne de formule. Vous pouvez également utiliser n&rsquo;importe quels autres champs de la table <em>Clients</em> en référençant <code>$Client</code> dans les formules de la table <em>Projets</em>.</p>
+<p>Notez que dans les formules, nous utilisons le nom de la colonne de référence (<code>$Client</code>) pour faire référence à un enregistrement lié, et non le nom de la table (qui est <em>Clients</em> ici). Ne laissez pas la similarité des noms dans cet exemple vous confondre.</p>
 <p class="screenshot-half"><em><img alt="Colonnes supplémentaires en tant que formules" src="../images/column-ref-other-formula.png" /></em></p>
 <div class="admonition note">
 <p class="admonition-title">Utiliser des références dans les formules</p>
-<p>Vous avez peut-être remarqué que la table sous-jacente est <code>Clients</code> (pluriel) mais que la formule est <code>$Client.Contact</code> (singulier). C&rsquo;est parce que la formule se réfère à la colonne de référence, <strong>pas</strong> à la table sous-jacente. Dans notre exemple, la colonne de référence est <code>Client</code>.</p>
+<p>Vous avez peut-être remarqué que la table sous-jacente est <em>Clients</em> (pluriel) mais que la formule est <code>$Client.Contact</code> (singulier). C&rsquo;est parce que la formule se réfère à la colonne de référence, <strong>pas</strong> à la table sous-jacente. Dans notre exemple, la colonne de référence est <strong>Client</strong>.</p>
+<p>Consultez notre article sur <a href="../references-lookups/">Références et Lookups</a> pour voir plus de façons d&rsquo;utiliser les références dans les formules.</p>
 </div>
 <h2 id="creer-une-nouvelle-colonne-de-liste-de-references">Créer une nouvelle colonne de Liste de Références<a class="headerlink" href="#creer-une-nouvelle-colonne-de-liste-de-references" title="Permanent link">#</a></h2>
-<p>Jusqu&rsquo;à présent, notre exemple ne traitait que des projets ayant un seul client. Supposons que nous ayons également des projets avec plusieurs clients, et que nous souhaitions maintenir des références à tous depuis la colonne <code>Client</code> de la table <code>Projets</code>.</p>
-<p>Nous pouvons indiquer à Grist que la colonne <code>Client</code> contient plusieurs références en changeant son type en &ldquo;Liste de Références&rdquo;. Ce type de colonne peut référencer plusieurs records, et peut également être considéré comme une sélection multiple.</p>
-<p>Ouvrez le panneau latéral des Options de Colonne (voir <a href="../col-types/#specifying-a-type">Spécifier un type</a>) et définissez le &ldquo;Type de Colonne&rdquo; de <code>Client</code> sur &ldquo;Liste de Références&rdquo;. Grist convertira automatiquement toutes vos références existantes en listes de références. Une fois que vous êtes satisfait du résultat, cliquez simplement sur &ldquo;Appliquer&rdquo; et la colonne <code>Client</code> sera prête à accepter autant de clients que vos projets en ont besoin.</p>
+<p>Jusqu&rsquo;à présent, notre exemple ne traitait que des projets ayant un seul client. Supposons que nous ayons également des projets avec plusieurs clients, et que nous souhaitions maintenir des références à tous depuis la colonne <strong>Client</strong> de la table <em>Projets</em>.</p>
+<p>Nous pouvons indiquer à Grist que la colonne <strong>Client</strong> contient plusieurs références en changeant son type en &ldquo;Liste de Références&rdquo;. Ce type de colonne peut référencer plusieurs records, et peut également être considéré comme une sélection multiple.</p>
+<p>Ouvrez le <em>panneau de création</em> (voir <a href="../col-types/#specifier-un-type">Spécifier un type</a>) et définissez le &ldquo;Type de Colonne&rdquo; de <strong>Client</strong> sur &ldquo;Liste de Références&rdquo;. Grist convertira automatiquement toutes vos références existantes en listes de références. Une fois que vous êtes satisfait du résultat, cliquez simplement sur &ldquo;Appliquer&rdquo; et la colonne <strong>Client</strong> sera prête à accepter autant de clients que vos projets en ont besoin.</p>
 <p><img alt="Configuration de la Liste de Références" src="../images/columns/columns-reference-list-transform.png" /></p>
 <h2 id="modifier-les-valeurs-dans-une-colonne-de-liste-de-references">Modifier les valeurs dans une colonne de Liste de Références<a class="headerlink" href="#modifier-les-valeurs-dans-une-colonne-de-liste-de-references" title="Permanent link">#</a></h2>
 <p>Pour apporter des modifications à une cellule de Liste de Références, double-cliquez simplement sur la cellule ou appuyez sur la touche <code class="keys"><em>Entrée</em></code> après avoir sélectionné la cellule que vous souhaitez modifier. Vous pouvez également commencer à taper après avoir sélectionné une cellule si vous souhaitez écraser tout contenu existant. Cela ouvrira un éditeur comme celui de l&rsquo;exemple ci-dessous.</p>
@@ -7184,34 +7205,36 @@
 <h2 id="comprendre-les-colonnes-de-reference">Comprendre les colonnes de référence<a class="headerlink" href="#comprendre-les-colonnes-de-reference" title="Permanent link">#</a></h2>
 <p>Les cellules dans une colonne de référence identifient toujours un <em>record</em> entier dans la table référencée. Pour plus de commodité, vous pouvez sélectionner quelle colonne de ce record afficher en définissant &ldquo;AFFICHER LA COLONNE&rdquo;. Cependant, la valeur de la cellule est <em>toujours</em> l&rsquo;ID unique d&rsquo;un record. De même, les Listes de Références stockent une liste d&rsquo;IDs de records. Qu&rsquo;est-ce que cela signifie vraiment ?</p>
 <p>Jetons un coup d&rsquo;œil au modèle <a href="https://templates.getgrist.com/doc/afterschool-program/p/2/m/fork">Inscription aux Cours</a>.</p>
-<p>Dans la table Classes, la colonne Instructeur est une colonne de référence qui fait référence aux données de la table Staff. Le Nom Complet est sélectionné sous &lsquo;Afficher la Colonne&rsquo; et est utilisé comme étiquette pour représenter le record de la table Staff qui est référencé ici.</p>
+<p>Dans la table <em>Classes</em>, la colonne <strong>Instructeur</strong> est une colonne de référence qui fait référence aux données de la table <em>Staff</em>. <strong>Nom Complet</strong> est sélectionné sous &lsquo;Afficher la Colonne&rsquo; et est utilisé comme étiquette pour représenter le record de la table <em>Staff</em> qui est référencé ici.</p>
 <p><em><img alt="explication des colonnes de référence" src="../images/columns/columns-reference-explanation.png" /></em></p>
 <p>Nous pouvons changer cette étiquette pour n&rsquo;importe quelle autre valeur contenue dans le record. Changeons-la en &lsquo;ID de Ligne&rsquo;.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="explication des colonnes de référence - afficher la colonne" src="../images/columns/columns-reference-explanation-show-column.png" /></em></span></p>
 <p>L&rsquo;ID de ligne est ce qui est réellement stocké dans la colonne de Référence ou de Liste de Références. Avec cet ID, nous pouvons récupérer toutes les données associées à ce record.</p>
 <p><em><img alt="explication des colonnes de référence - id de ligne" src="../images/columns/columns-reference-explanation-rowid1.png" /></em></p>
-<p>Dans la première ligne de la table Classes, nous voyons <code>Staff[2]</code> comme valeur dans la colonne Instructeur. Cela représente le record dans la table Staff avec l&rsquo;ID de Ligne = <code>2</code>.</p>
-<p>Nous pouvons naviguer vers la table Staff et voir quel record est assigné à l&rsquo;ID de Ligne = <code>2</code>.</p>
-<p>Pour voir l&rsquo;ID unique d&rsquo;un record, ajoutez une nouvelle colonne avec la formule = <a href="../formula-cheat-sheet/#using-a-records-unique-identifier-in-formulas"><code>$id</code></a>.</p>
+<p>Dans la première ligne de la table <em>Classes</em>, nous voyons <code>Staff[2]</code> comme valeur dans la colonne <strong>Instructeur</strong>. Cela représente le record dans la table <em>Staff</em> avec l&rsquo;ID de Ligne = <code>2</code>.</p>
+<p>Nous pouvons naviguer vers la table <em>Staff</em> et voir quel record est assigné à l&rsquo;ID de Ligne = <code>2</code>.</p>
+<p>Pour voir l&rsquo;ID unique d&rsquo;un record, ajoutez une nouvelle colonne avec la formule = <a href="../formula-cheat-sheet/#utilisation-de-lidentifiant-unique-dun-enregistrement-dans-les-formules"><code>$id</code></a>.</p>
 <p><em><img alt="explication des colonnes de référence - id de ligne" src="../images/columns/columns-reference-explanation-rowid.png" /></em></p>
-<p>Nous pouvons voir que la valeur dans la colonne Nom Complet pour le record avec l&rsquo;ID de Ligne =<code>2</code> est <code>Dowbakin, Daniella</code>. Si nous revenons à nos paramètres d&rsquo;origine pour la colonne Instructeur de la table Classes, où <code>Nom Complet</code> était sélectionné sous Afficher la Colonne, nous voyons que la valeur de Nom Complet associée à <code>Staff[2]</code> est <code>Dowbakin, Daniella</code>.</p>
+<p>Nous pouvons voir que la valeur dans la colonne <strong>Nom Complet</strong> pour le record avec l&rsquo;ID de Ligne =<code>2</code> est <code>Dowbakin, Daniella</code>. Si nous revenons à nos paramètres d&rsquo;origine pour la colonne <strong>Instructeur</strong> de la table <em>Classes</em>, où <code>Nom Complet</code> était sélectionné sous &lsquo;Afficher la Colonne&rsquo;, nous voyons que la valeur <strong>Nom Complet</strong> associée à <code>Staff[2]</code> est <code>Dowbakin, Daniella</code>.</p>
 <p><em><img alt="explication des colonnes de référence - nom complet" src="../images/columns/columns-reference-explanation-fullname.png" /></em></p>
 <h2 id="filtrer-les-choix-de-reference-dans-la-liste-deroulante">Filtrer les choix de Référence dans la liste déroulante<a class="headerlink" href="#filtrer-les-choix-de-reference-dans-la-liste-deroulante" title="Permanent link">#</a></h2>
-<p>Lors de la saisie de données dans une colonne de référence, vous verrez une liste déroulante de toutes les valeurs disponibles à choisir. Parfois, la liste peut devenir longue et, dans certains cas, confuse. Par exemple, disons que vous suivez les changements de population dans les 1 000 villes les plus peuplées du monde. Lors de la saisie d&rsquo;une ville dans la colonne de référence pour la sélection de la ville, la liste déroulante affiche toutes les 1 000 villes.</p>
-<p class="screenshot-half"><em><img alt="Liste déroulante de référence non filtrée" src="images/filter-reference-columns/unfiltered-cities.png" /></em></p>
-<p>Il serait utile que la liste déroulante des choix de villes soit filtrée en fonction du pays sélectionné dans la colonne <code>Pays</code>.</p>
-<p>Pour filtrer la liste déroulante d&rsquo;une colonne de référence, sélectionnez la colonne de référence puis définissez une &ldquo;Condition de Liste Déroulante&rdquo; dans le Panneau de Création sous l&rsquo;onglet &ldquo;Colonne&rdquo;.</p>
-<p class="screenshot-half"><em><img alt="Définir la condition de liste déroulante" src="images/filter-reference-columns/set-dropdown-condition.png" /></em></p>
-<p>Vous pouvez filtrer le choix de la liste déroulante en écrivant une condition sous forme de formule. L&rsquo;attribut <code>choice</code> fait référence aux choix dans la liste déroulante. Dans ce cas, la formule est <code>choice.Country == $Country</code>.</p>
-<p class="screenshot-half"><em><img alt="Condition de filtre de liste déroulante de référence" src="images/filter-reference-columns/city-filter-condition.png" /></em></p>
-<p class="screenshot-half"><em><img alt="Liste déroulante de référence filtrée" src="images/filter-reference-columns/filtered-cities.png" /></em></p>
-<p>Pourquoi cela a-t-il fonctionné ? La colonne de ville est une colonne de référence pointant vers une table <code>Cities</code> qui correspond aux pays et aux villes. Cette table ressemble à ceci.</p>
-<p class="screenshot-half"><em><img alt="Table de référence des villes" src="images/filter-reference-columns/cities-tables.png" /></em></p>
-<p>La condition de formule <code>choice.Country == $Country</code> recherche le pays de chaque choix dans la table <code>Cities</code> en utilisant un <a href="https://support.getgrist.com/references-lookups/#reference-columns-and-dot-notation">lookup de référence</a>, puis compare ces pays à la valeur entrée dans la colonne <code>Country</code> de la table <code>Population Rankings</code>.</p>
-<p class="screenshot-half"><em><img alt="Liste déroulante de référence filtrée mise en évidence" src="images/filter-reference-columns/filtered-cities-highlight.png" /></em></p>
-<p>La liste déroulante affiche maintenant uniquement les choix (c&rsquo;est-à-dire les villes) dont le pays est égal au pays entré dans la colonne <code>Country</code>.</p>
-<p>L&rsquo;attribut <code>choice</code> peut également être utilisé lors de la définition des conditions de filtre de liste déroulante pour les colonnes <a href="../col-types/#choice-columns">Choice</a> et <a href="../col-types/#choice-list-columns">Choice List</a>.</p>
-<p>Notez que parce que le filtrage des listes déroulantes de référence est écrit sous forme de formules, le filtrage peut être très flexible et granulaire. Les utilisateurs expérimentés avec les <a href="https://support.getgrist.com/access-rules/">permissions avancées</a> peuvent remarquer des similitudes dans la façon de penser à l&rsquo;écriture de ces formules.</p>
+<p>Lors de la saisie de données dans une colonne de référence, vous verrez une liste déroulante de toutes les valeurs disponibles à choisir. Parfois, la liste peut devenir longue et, dans certains cas, confuse.</p>
+<p>Par exemple, disons que nous créons une base de données de stades et notons leurs emplacements en utilisant une liste déroulante pour sélectionner leurs villes respectives à partir d&rsquo;une liste de villes du monde :</p>
+<p><em><img alt="Liste déroulante de référence non filtrée" src="../images/columns/unfiltered-cities.png" /></em></p>
+<p>Une liste déroulante aussi longue est peu pratique. Au lieu de cela, il serait utile que la liste déroulante des villes soit filtrée pour n&rsquo;afficher que les villes basées sur la colonne adjacente <strong>Pays du Stade</strong>.</p>
+<p>Pour faire cela, nous travaillerons avec trois tables – <em>Pays</em>, <em>Villes</em>, et <em>Stades</em>. Vous pouvez <a href="https://public.getgrist.com/9XHx6mHSm7y4/Reference-Filtering/m/fork" target="_blank">voir cet exemple ici</a>.</p>
+<p><em><img alt="Définir la condition de liste déroulante" src="../images/columns/stadiums-all-tables.png" /></em></p>
+<p>La table <em>Pays</em> liste chaque <strong>Pays</strong> comme un record unique. La table <em>Villes</em> crée une relation entre une ville et un pays. Chaque <strong>Ville</strong> est son propre record, assigné à son <strong>Pays</strong> correspondant dans la colonne de référence adjacente. La table <em>Stades</em> est liée aux deux tables via des colonnes de référence : <strong>Pays du Stade</strong> référence la table <em>Pays</em>, et <strong>Ville du Stade</strong> référence la table <em>Villes</em>.</p>
+<p>Pour filtrer la liste déroulante d&rsquo;une colonne de référence – ici, la colonne <strong>Ville du Stade</strong> – sélectionnez d&rsquo;abord la colonne de référence, puis cliquez sur &lsquo;Définir la condition de liste déroulante&rsquo; dans le Panneau de Création sous l&rsquo;onglet &lsquo;Colonne&rsquo;.</p>
+<p class="screenshot-half"><em><img alt="Condition de filtre de liste déroulante de référence" src="../images/columns/set-dropdown-condition.png" /></em></p>
+<p>En écrivant une condition sous forme de formule, vous pouvez filtrer les choix trouvés dans les listes déroulantes de la colonne. L&rsquo;attribut <code>choice</code> fait référence aux choix dans la liste déroulante.</p>
+<p class="screenshot-half"><em><img alt="Définir la condition de filtre de liste déroulante" src="../images/columns/dropdown-condition.png" /></em></p>
+<p>Ici, la formule est <code>choice.Country == $Stadium_Country</code></p>
+<p><code>choice.Country</code> regarde la valeur dans la colonne <strong>Pays</strong> de la table <em>Villes</em>. Si elle correspond à la valeur dans la colonne <strong>Pays du Stade</strong> de la table <em>Stades</em>, alors ce record sera inclus dans les options de la liste déroulante.</p>
+<p><em><img alt="Liste déroulante de référence filtrée" src="../images/columns/filtered-cities-highlight.png" /></em></p>
+<p>Maintenant, au lieu d&rsquo;afficher une liste de toutes les villes du monde, la liste déroulante dans la colonne <strong>Ville du Stade</strong> ne liste que les choix qui appartiennent au pays entré dans la colonne <strong>Pays du Stade</strong>, ce qui rend la sélection du choix approprié beaucoup plus rapide.</p>
+<p>L&rsquo;attribut <code>choice</code> peut également être utilisé lors de la définition des conditions de filtre de liste déroulante pour les colonnes <em>choix</em> et <em>liste de choix</em>.</p>
+<p>Notez que parce que les conditions de filtrage des listes déroulantes de référence sont écrites sous forme de formules, ces conditions peuvent être très flexibles et granulaires. Les utilisateurs expérimentés avec les règles d&rsquo;accès peuvent remarquer des similitudes dans la façon de penser à l&rsquo;écriture de ces formules.</p>
 </div>
 
 

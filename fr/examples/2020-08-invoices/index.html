@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2020-08-invoices/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2020-08-invoices/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3502,7 +3506,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3926,7 +3930,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3957,7 +3961,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7008,13 +7012,13 @@
 </div>
 <h1 id="preparation-des-factures">Préparation des factures<a class="headerlink" href="#preparation-des-factures" title="Permanent link">#</a></h1>
 <p>Si vous enregistrez qui est facturé pour quoi dans Grist, il peut être pratique de générer des factures directement à côté de ces enregistrements. Ce tutoriel vous montre comment configurer un document comme celui-ci :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/final-invoice.png" /></p>
 <p>Vous pouvez trouver un modèle fini à l&rsquo;adresse <a href="https://templates.getgrist.com/9NH6D58FmxwP/Invoicing" target="_blank">https://templates.getgrist.com/9NH6D58FmxwP/Invoicing</a>.
 Si vous souhaitez ajouter des factures à un document existant et les faire fonctionner comme vous le souhaitez, comprendre ce tutoriel devrait vous y aider.</p>
 <h2 id="configuration-dune-table-de-factures">Configuration d&rsquo;une table de factures<a class="headerlink" href="#configuration-dune-table-de-factures" title="Permanent link">#</a></h2>
 <p>Tout d&rsquo;abord, créez une table pour enregistrer les factures en
 <a href="../../creating-doc/">créant un document vide</a> et en renommant <code>Table1</code> en <code>Factures</code> :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/make-invoices-table.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/make-invoices-table.png" /></p>
 <p>Maintenant, ajoutons une vue à côté de la table pour voir les factures terminées.
 Il existe toutes sortes de styles de factures possibles, donc Grist permet aux développeurs web de créer les leurs en utilisant des Widgets Personnalisés. Nous utiliserons un exemple de style de facture publié par Grist, mais si cela ne correspond pas à vos besoins, tout développeur web pourrait l&rsquo;ajuster pour vous.</p>
 <p>Cliquez sur <code>Ajouter Nouveau</code>, puis <code>Ajouter Widget à la Page</code>. Ensuite :</p>
@@ -7023,17 +7027,17 @@ Il existe toutes sortes de styles de factures possibles, donc Grist permet aux d
 <li>Pour <code>Sélectionner Données</code>, choisissez <code>Factures</code> puisque nous afficherons les données de la table des factures.</li>
 <li>Pour <code>Sélectionner Par</code>, choisissez <code>FACTURES</code> afin que le Widget Personnalisé affiche les données de la facture actuellement sélectionnée par l&rsquo;utilisateur.</li>
 </ul>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-custom-widget.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-custom-widget.png" /></p>
 <p>Super, nous avons maintenant deux vues, une Vue Table qui contiendra les données des factures, et une Vue Personnalisée qui affichera ces données sous forme de facture bien formatée et imprimable. La Vue Personnalisée commence par être vide ; sélectionnez <code>Options du Widget</code> pour spécifier ce que nous voulons y mettre :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/widget-options.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/widget-options.png" /></p>
 <p>Dans la section <code>PERSONNALISÉ</code> où il est indiqué <code>URL complète de la page web à afficher</code>, mettez ce lien :</p>
 <blockquote>
 <p><a href="https://gristlabs.github.io/grist-widget/invoices/">https://gristlabs.github.io/grist-widget/invoices/</a></p>
 </blockquote>
 <p>Et réglez <code>Accès</code> sur <code>lire table</code>. Cela accorde au Widget Personnalisé l&rsquo;accès en lecture à la table des Factures.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/set-url.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/set-url.png" /></p>
 <p>Maintenant, placez ce que vous voulez dans une ligne de la table des Factures (j&rsquo;ai juste ajouté le numéro <code>1</code>). Une facture incomplète apparaîtra immédiatement :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/empty-invoice.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/empty-invoice.png" /></p>
 <p>La facture incomplète montre quels noms de colonnes utiliser pour contrôler quelles parties de la facture. Une boîte noire supplémentaire montre quelles colonnes le widget comprend, quelles colonnes il ignore, et quelles colonnes supplémentaires le widget pourrait utiliser.
 Actuellement, il dit qu&rsquo;il ne reconnaît aucune des colonnes présentes, qu&rsquo;il attend des colonnes comme <code>Numéro</code>, <code>Client</code>, <code>Articles</code>, etc., et qu&rsquo;il ignore les colonnes par défaut <code>A</code>, <code>B</code> et <code>C</code> dans la table des Factures.</p>
 <p>En regardant le début de la facture, nous voyons un espace pour un numéro de facture,
@@ -7041,41 +7045,41 @@ Actuellement, il dit qu&rsquo;il ne reconnaît aucune des colonnes présentes, q
 nous pourrions laisser la valeur à 1, mais cela donnerait l&rsquo;impression que nous n&rsquo;avons pas encore fait beaucoup d&rsquo;affaires. Je vais choisir de définir le numéro de facture comme étant <code class="formula">$id + 51371</code>,
 où <code>$id</code> est un identifiant numérique auto-incrémenté attribué à chaque ligne.
 Mais vous pouvez le définir manuellement ou avec une formule différente. Dès qu&rsquo;il est défini, la facture se met à jour :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-number.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-number.png" /></p>
 <p>La prochaine colonne suggérée par la boîte d&rsquo;aide est <code>Client</code>, alors
 renommons la colonne <code>B</code> en <code>Client</code>. Plus tard, nous donnerons des informations sur le client de manière structurée, mais pour l&rsquo;instant, mettons juste du texte ici (utilisez <code class="keys"><em>Shift</em> + <em>Entrée</em></code> pour insérer des sauts de ligne) :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-client.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-client.png" /></p>
 <p>Super, maintenant la boîte Client est remplie. La prochaine colonne suggérée est <code>Articles</code>,
 alors renommons la colonne <code>C</code> en <code>Articles</code>. Plus tard, nous donnerons des informations sur les articles de manière structurée, mais pour l&rsquo;instant, mettons juste du texte ici :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-items.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-items.png" /></p>
 <p>Et maintenant la Description est définie. Il nous manque un total, alors ajoutons une
 colonne appelée <code>Total</code> et définissons-la à <code>100</code> :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-total.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-total.png" /></p>
 <p>La facture ne se mettra pas à jour immédiatement. C&rsquo;est la première nouvelle colonne que nous avons ajoutée - jusqu&rsquo;à présent, nous les avons renommées. Lorsque nous avons créé le Widget Personnalisé,
 il a reçu l&rsquo;accès aux colonnes qui existaient au moment de la création.
 Pour permettre au widget de voir la nouvelle colonne, ouvrez à nouveau <code>Options du Widget</code> et déplacez
 <code>Total</code> de <code>Colonnes Cachées</code> à <code>Colonnes Visibles</code> :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-total-visible.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-total-visible.png" /></p>
 <p>Super, la facture s&rsquo;est mise à jour. Maintenant, définissons qui émet la facture en
 ajoutant une colonne <code>Émetteur</code> (n&rsquo;oubliez pas de la rendre visible pour le widget
 via <code>Options du Widget</code>).</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-invoicer.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-invoicer.png" /></p>
 <p>Comme dernière étape pour créer une facture utilisable, ajoutons une colonne <code>Émise</code>
 et mettons-y la date d&rsquo;aujourd&rsquo;hui (n&rsquo;oubliez pas de la rendre visible pour le widget
 via <code>Options du Widget</code>). Dès que la facture a une date, la boîte d&rsquo;aide noire
 disparaîtra :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-issued.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-issued.png" /></p>
 <p>D&rsquo;accord ! Si quelqu&rsquo;un m&rsquo;envoyait cela, je le paierais. Vous devriez me donner un coup de pouce en
 lui donnant une date d&rsquo;échéance. Ajoutons une colonne <code>Échéance</code> et définissons-la à
 un mois à partir de la date <code>Émise</code>. N&rsquo;oubliez pas de rendre la colonne <code>Échéance</code>
 visible pour le widget via <code>Options du Widget</code>. Assurez-vous également de
-<a href="../../col-types/#specifying-a-type">définir le Type de Colonne</a> pour
+<a href="../../col-types/#specifier-un-type">définir le Type de Colonne</a> pour
 <code>Émise</code> sur <code>Date</code> sinon vous ne pourrez pas faire de calculs de date dessus (ce sera
 juste une chaîne de caractères).</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-due.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-due.png" /></p>
 <p>S&rsquo;il y a des instructions spéciales à accompagner avec la facture, nous pouvons ajouter une colonne <code>Note</code>.
 N&rsquo;oubliez pas de la rendre visible pour le widget via <code>Options du Widget</code>.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-note.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-note.png" /></p>
 <h2 id="entrer-les-informations-du-client">Entrer les informations du client<a class="headerlink" href="#entrer-les-informations-du-client" title="Permanent link">#</a></h2>
 <p>Maintenant, faisons deux changements utiles à la configuration de la facture :</p>
 <ul>
@@ -7099,24 +7103,24 @@ que le widget soit mis à jour au fur et à mesure que nous ajoutons et modifion
 <p>Lorsque le widget de facture voit une colonne nommée &ldquo;Références&rdquo;, il remplit la facture en utilisant les
 valeurs &ldquo;emballées&rdquo; dans cette colonne, plutôt que les champs individuels de la facture. Le bénéfice sera
 vu dans l&rsquo;étape suivante, car ces valeurs emballées peuvent inclure des données provenant d&rsquo;enregistrements liés.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-references.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-references.png" /></p>
 <p>Ensuite, plaçons les informations du client dans une table séparée. Ajoutez une nouvelle table
 à la page pour entrer les informations de l&rsquo;entreprise en cliquant
 sur <code>Ajouter Nouveau</code>, <code>Ajouter Widget à la Page</code>, puis <code>Sélectionner Widget &gt; Table</code> et
 <code>Sélectionner Données &gt; Nouvelle Table</code> :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-businesses.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-businesses.png" /></p>
 <p>Puis renommez la table en <code>Entreprises</code>. Vider également la colonne <code>Client</code>
 pour que nous puissions voir l&rsquo;aide sur ce que le widget attend là :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-businesses-rename.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-businesses-rename.png" /></p>
 <p>Le widget suggère les colonnes <code>Nom</code>, <code>Rue1</code>, <code>Rue2</code>, <code>Ville</code>, <code>État</code>
 et <code>Code Postal</code>. Fournissons donc ces colonnes dans notre table <code>Entreprises</code>,
 et remplissons-les pour un client exemple. Ensuite, placez le même <code>Nom</code> dans
 la colonne <code>Client</code>, et dans <code>Options de Colonne</code> définissez le Type de Colonne sur
 <code>Référence</code>. Référez-vous à <code>Entreprises</code> <code>Nom</code> si Grist ne le devine pas automatiquement.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-a-business.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-a-business.png" /></p>
 <p>Une fois que vous appuyez sur <code>Appliquer</code>, vous verrez une section Client
 bien formatée.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/link-client.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/link-client.png" /></p>
 <h2 id="entrer-les-informations-de-lemetteur">Entrer les informations de l&rsquo;émetteur<a class="headerlink" href="#entrer-les-informations-de-lemetteur" title="Permanent link">#</a></h2>
 <p>Nous pourrions faire la même chose pour la colonne <code>Émetteur</code> que nous avons fait pour la colonne <code>Client</code>,
 et en faire une référence à la table <code>Entreprises</code> ou une table séparée.
@@ -7135,7 +7139,7 @@ colonne <code>Émetteur</code> (commencez à taper avec <code class="keys"><stro
 <span class="p">}</span>
 </code></pre></div>
 <p>Puis définissez le Type de Colonne pour <code>Émetteur</code> sur <code>Any</code> dans le panneau de droite.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/link-invoice.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/link-invoice.png" /></p>
 <p>Remarquez comment les emails, les numéros de téléphone et les liens sont spécialement formatés par le
 widget.</p>
 <h2 id="entrer-les-informations-des-articles">Entrer les informations des articles<a class="headerlink" href="#entrer-les-informations-des-articles" title="Permanent link">#</a></h2>
@@ -7146,30 +7150,30 @@ où chaque article a une <code>Description</code>, un <code>Prix</code>, une <co
 Ajoutons donc une table <code>Articles</code> comme nous avons ajouté <code>Entreprises</code>,
 et donnons-lui ces quatre colonnes. Nous pouvons définir <code>Total</code> avec cette formule simple :</p>
 <p><code class="formula">$Prix * $Quantité</code></p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-items-table.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-items-table.png" /></p>
 <p>Maintenant, nous devons tirer ces articles dans la table <code>Factures</code> pour que
 le Widget Personnalisé y ait accès. Définissez la colonne <code>Articles</code> sur
 la formule <code class="formula">Articles.lookupRecords()</code>, puis réinitialisez
 son type de colonne sur <code>Any</code>. Cette formule nécessite un peu plus de travail,
 ce que nous ferons bientôt, mais commençons par cela.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-items-lookup.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-items-lookup.png" /></p>
 <p>Super, notre facture se met à jour correctement ! Supprimez la colonne <code>Total</code>
 pour obtenir une colonne calculée automatiquement :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/plausible-invoice.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/plausible-invoice.png" /></p>
 <p>Il est probablement plus confortable d&rsquo;éditer les factures
 comme une Vue Fiche plutôt qu&rsquo;une Vue Table, alors changeons cela
 en utilisant <code>Options du Widget</code>, <code>Table</code>, <code>Changer Widget</code>, <code>Fiche</code>, <code>Enregistrer</code>.
-Vous pouvez <a href="../../widget-card/#editing-card-layout">personnaliser la mise en page de la fiche</a> à votre goût.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/invoice-card.png" /></p>
+Vous pouvez <a href="../../widget-card/#modifier-la-disposition-de-la-fiche">personnaliser la mise en page de la fiche</a> à votre goût.</p>
+<p><img alt="Facture" src="../images/2020-08-invoices/invoice-card.png" /></p>
 <p>Pour ajouter une nouvelle facture, cliquez sur le petit <code>+</code> au-dessus de la fiche des factures,
 définissez une date <code>Émise</code>, et choisissez soit le Client existant soit ajoutez
 un nouveau.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/invoice-new.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/invoice-new.png" /></p>
 <p>Une fois que nous avons une deuxième facture, il devient clair que nous avons négligé la
 formule pour collecter les articles de la facture - toutes les factures contiennent
 tous les articles. Pas de problème, nous pouvons être plus spécifiques en ajoutant une colonne <code>Facture</code>
 aux <code>Articles</code> et en la configurant pour faire référence à des <code>Factures</code> spécifiques :</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/add-invoice-column.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/add-invoice-column.png" /></p>
 <p>Une fois cela fait, nous pouvons saupoudrer un peu de poussière de fée Grist, et
 aller dans <code>Options du Widget</code> pour la Vue Table <code>ARTICLES</code>, cliquer sur
 <code>Changer Widget</code>, et définir <code>SÉLECTIONNER PAR</code> sur <code>FICHE FACTURES</code>. Une fois
@@ -7177,12 +7181,12 @@ cela enregistré, seuls les articles de la facture actuellement sélectionnée
 sont affichés. Encore mieux, lorsque vous ajoutez de nouveaux articles, la colonne <code>facture</code>
 est automatiquement définie sur la facture que vous visualisez.
 Vous pouvez donc simplement masquer la colonne <code>facture</code> et l&rsquo;oublier.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/link-items-to-invoice.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/link-items-to-invoice.png" /></p>
 <p>Maintenant, informons le Widget Personnalisé des articles à utiliser en mettant à jour la
 formule <code>Articles</code> pour être plus précise :</p>
 <div class="highlight"><pre><span></span><code>Articles.lookupRecords(Facture=$id)
 </code></pre></div>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/items-formula.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/items-formula.png" /></p>
 <p>Avec cela, entrer de nouvelles factures devient un jeu d&rsquo;enfant !</p>
 <ul>
 <li>Cliquez sur <code>+</code> pour ajouter une nouvelle fiche de facture.</li>
@@ -7201,7 +7205,7 @@ dans lequel il se trouve et le changer un peu (ou engager un développeur web po
 n&rsquo;ont pas besoin d&rsquo;être des experts Grist).</p>
 <p>Pour les développeurs intéressés, le code GitHub est ici :
 <a href="https://github.com/gristlabs/grist-widget/tree/master/invoices">https://github.com/gristlabs/grist-widget/tree/master/invoices</a>.</p>
-<p><img alt="Facture" src="../examples/images/2020-08-invoices/final-invoice.png" /></p>
+<p><img alt="Facture" src="../images/2020-08-invoices/final-invoice.png" /></p>
 <p>Amusez-vous bien et bonne chance pour être payé !</p>
 </div>
 

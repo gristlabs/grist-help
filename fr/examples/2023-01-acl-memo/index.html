@@ -64,7 +64,7 @@ d’enregistrements ont le même code :">
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -223,14 +223,18 @@ d’enregistrements ont le même code :">
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2023-01-acl-memo/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2023-01-acl-memo/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3406,7 +3410,7 @@ d’enregistrements ont le même code :">
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3830,7 +3834,7 @@ d’enregistrements ont le même code :">
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3861,7 +3865,7 @@ d’enregistrements ont le même code :">
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -6852,17 +6856,17 @@ d’enregistrements ont le même code :">
 interdire l&rsquo;entrée d&rsquo;un nouvel enregistrement avec le même code d&rsquo;aéroport qu&rsquo;un existant.
 Dans la table, nous pouvons ajouter une colonne nommée <code>Count</code> qui compte combien
 d&rsquo;enregistrements ont le même code :</p>
-<p><img alt="Table des aéroports" src="images/2023-01-acl-memo/access-rules-dupe-setup.png" /></p>
-<p>Pour comprendre cette formule, visitez notre <a href="../../formula-cheat-sheet/#finding-duplicates">aide-mémoire des formules</a> pour trouver des doublons.</p>
+<p><img alt="Table des aéroports" src="../images/2023-01-acl-memo/access-rules-dupe-setup.png" /></p>
+<p>Pour comprendre cette formule, visitez notre <a href="../../formula-cheat-sheet/#trouver-des-doublons">aide-mémoire des formules</a> pour trouver des doublons.</p>
 <p>Maintenant, nous pouvons ajouter une règle d&rsquo;accès pour interdire toute mise à jour ou création d&rsquo;enregistrement qui entraînerait un <code>Count</code> supérieur à un. Nous pouvons également inclure une note pour expliquer le problème :</p>
-<p><img alt="Règle de duplication" src="images/2023-01-acl-memo/access-rules-dupe-rule.png" /></p>
+<p><img alt="Règle de duplication" src="../images/2023-01-acl-memo/access-rules-dupe-rule.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">newRec</p>
-<p>Cette variable est disponible pour la création et la mise à jour des enregistrements/lignes, et contient l&rsquo;état d&rsquo;une ligne après une modification proposée, vous permettant de permettre ou de refuser sélectivement certaines modifications. Voir <a href="../../access-rules/#checking-new-values">vérification des nouvelles valeurs</a> pour plus de détails.</p>
+<p>Cette variable est disponible pour la création et la mise à jour des enregistrements/lignes, et contient l&rsquo;état d&rsquo;une ligne après une modification proposée, vous permettant de permettre ou de refuser sélectivement certaines modifications. Voir <a href="../../access-rules/#verification-des-nouvelles-valeurs">vérification des nouvelles valeurs</a> pour plus de détails.</p>
 </div>
 <p>Maintenant, si nous essayons d&rsquo;ajouter une nouvelle ligne avec un code existant, nous obtenons une erreur utile :</p>
-<p><img alt="Erreur de duplication" src="images/2023-01-acl-memo/access-rules-dupe-forbidden.png" /></p>
-<p>Voir <a href="../../access-rules/#access-rule-conditions">Conditions des règles d&rsquo;accès</a> pour plus de détails sur l&rsquo;écriture des conditions des règles d&rsquo;accès, et <a href="../../formulas/">Formules</a> pour en savoir plus sur l&rsquo;utilisation des formules dans les colonnes.</p>
+<p><img alt="Erreur de duplication" src="../images/2023-01-acl-memo/access-rules-dupe-forbidden.png" /></p>
+<p>Voir <a href="../../access-rules/#conditions-des-regles-dacces">Conditions des règles d&rsquo;accès</a> pour plus de détails sur l&rsquo;écriture des conditions des règles d&rsquo;accès, et <a href="../../formulas/">Formules</a> pour en savoir plus sur l&rsquo;utilisation des formules dans les colonnes.</p>
 </div>
 
 

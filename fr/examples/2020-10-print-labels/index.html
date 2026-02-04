@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2020-10-print-labels/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2020-10-print-labels/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3569,7 +3573,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3993,7 +3997,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4024,7 +4028,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7153,25 +7157,25 @@
 <p>Le modèle montre quelques variations de ce que vous pouvez faire.</p>
 <h3 id="etiquettes-pour-une-table-dadresses">Étiquettes pour une table d&rsquo;adresses<a class="headerlink" href="#etiquettes-pour-une-table-dadresses" title="Permanent link">#</a></h3>
 <p>C&rsquo;est ce que vous voyez sur la première page :</p>
-<p><img alt="Page des Étiquettes d'Adresse" src="../examples/images/2020-10-print-labels/address-labels-page.png" /></p>
+<p><img alt="Page des Étiquettes d'Adresse" src="../images/2020-10-print-labels/address-labels-page.png" /></p>
 <p>Vous pouvez utiliser le menu déroulant en haut de la vue des étiquettes pour sélectionner la taille des étiquettes, en fonction du papier d&rsquo;étiquettes que vous prévoyez d&rsquo;utiliser.</p>
 <p>Ce qui est réellement imprimé est une colonne cachée nommée <code>LabelText</code>. Si vous affichez cette colonne, ou la trouvez dans la page &ldquo;Adresses&rdquo; (où elle est visible), vous verrez que c&rsquo;est une formule qui assemble toutes les parties d&rsquo;une adresse. (Nous entrerons dans les <a href="#ajouter-la-formule-labeltext">détails de cette formule</a> ci-dessous.)</p>
 <p>Pour imprimer les étiquettes, sélectionnez &ldquo;Imprimer la vue&rdquo; dans le menu au-dessus de la vue des étiquettes (voir aussi les <a href="#notes-dimpression">Notes d&rsquo;Impression</a> ci-dessous) :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu d'Impression" src="../examples/images/2020-10-print-labels/print-menu.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Menu d'Impression" src="../images/2020-10-print-labels/print-menu.png" /></em></span></p>
 <h3 id="une-feuille-detiquettes-pour-la-meme-adresse">Une feuille d&rsquo;étiquettes pour la même adresse<a class="headerlink" href="#une-feuille-detiquettes-pour-la-meme-adresse" title="Permanent link">#</a></h3>
 <p>Si vous avez besoin de nombreuses étiquettes identiques, par exemple pour une adresse de retour, ajoutez une autre colonne nommée <code>LabelCount</code>. Ceci est illustré dans la page &ldquo;Feuilles d&rsquo;Étiquettes&rdquo;.</p>
-<p><img alt="Page des Feuilles d'Étiquettes" src="../examples/images/2020-10-print-labels/label-sheets-page.png" /></p>
+<p><img alt="Page des Feuilles d'Étiquettes" src="../images/2020-10-print-labels/label-sheets-page.png" /></p>
 <p>Si vous avez plusieurs adresses dans la table et que vous souhaitez n&rsquo;en imprimer qu&rsquo;une seule, il suffit de définir le compte à zéro pour les adresses que vous ne souhaitez pas inclure.</p>
 <h3 id="une-liste-filtree-detiquettes">Une liste filtrée d&rsquo;étiquettes<a class="headerlink" href="#une-liste-filtree-detiquettes" title="Permanent link">#</a></h3>
 <p>Il existe plusieurs façons d&rsquo;imprimer seulement quelques étiquettes à partir d&rsquo;une table plus grande, et celles-ci sont illustrées dans le modèle lié :</p>
 <ol>
 <li>
 <p>La page &ldquo;Étiquettes d&rsquo;Adresse&rdquo; inclut un bouton de filtre pour <code>État</code>, qui permet un filtrage simple par état. Vous pouvez cliquer sur le bouton <code>+</code> pour créer facilement des filtres supplémentaires comme celui-ci :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Bouton de Filtre" src="../examples/images/2020-10-print-labels/filter-button.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Bouton de Filtre" src="../images/2020-10-print-labels/filter-button.png" /></em></span></p>
 </li>
 <li>
 <p>Pour imprimer seulement quelques étiquettes à partir d&rsquo;une table plus grande, vous pouvez utiliser la colonne <code>LabelCount</code> avec une formule. Cette formule peut produire 1 pour une étiquette qui doit être incluse, ou 0 pour une étiquette qui ne doit pas l&rsquo;être. La page &ldquo;Filtré par Formule&rdquo; montre un exemple, avec la formule simple qui inclut uniquement les adresses de Californie : <code class="formula">IF($State == "CA", 1, 0)</code> :</p>
-<p><img alt="Page Filtrée" src="../examples/images/2020-10-print-labels/filtered-page.png" /></p>
+<p><img alt="Page Filtrée" src="../images/2020-10-print-labels/filtered-page.png" /></p>
 </li>
 <li>
 <p>La page &ldquo;Filtré Manuellement&rdquo; inclut une colonne <code>Sélectionner pour Imprimer</code>. Cliquez sur n&rsquo;importe quel bouton pour inclure la ligne correspondante dans la feuille d&rsquo;étiquettes.</p>
@@ -7182,7 +7186,7 @@
 <h2 id="ajouter-des-etiquettes-a-votre-document">Ajouter des Étiquettes à Votre Document<a class="headerlink" href="#ajouter-des-etiquettes-a-votre-document" title="Permanent link">#</a></h2>
 <p>Si vous avez un document avec des adresses, vous pouvez ajouter une page avec des étiquettes d&rsquo;adresse, et les étiquettes seront là &ndash; à jour et prêtes pour vous &ndash; chaque fois que vous l&rsquo;ouvrez.</p>
 <p>Je vais supposer que vous avez déjà une page qui montre une table avec des adresses. Peut-être s&rsquo;appelle-t-elle &ldquo;Personnes&rdquo;, &ldquo;Clients&rdquo; ou &ldquo;Employés&rdquo;. Ouvrez le menu à côté du nom de la page dans le panneau de gauche, et cliquez sur &ldquo;Dupliquer&rdquo; :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Dupliquer la Page" src="../examples/images/2020-10-print-labels/duplicate-page.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Dupliquer la Page" src="../images/2020-10-print-labels/duplicate-page.png" /></em></span></p>
 <p>Cela vous donne une nouvelle page. Nous ajouterons les étiquettes ici, pour éviter de prendre de la place sur la page que vous utilisez à d&rsquo;autres fins.</p>
 <h3 id="ajouter-la-formule-labeltext">Ajouter la formule LabelText<a class="headerlink" href="#ajouter-la-formule-labeltext" title="Permanent link">#</a></h3>
 <p>Ensuite, ajoutez une colonne à la table avec les adresses, et nommez-la <code>LabelText</code>. Tapez une formule qui produit une adresse formatée sur plusieurs lignes. Voici un exemple, mais vous devrez peut-être renommer, ajouter ou supprimer des champs en fonction des noms de vos colonnes :</p>
@@ -7196,15 +7200,15 @@
 </ul>
 <h3 id="ajouter-la-vue-personnalisee">Ajouter la Vue Personnalisée<a class="headerlink" href="#ajouter-la-vue-personnalisee" title="Permanent link">#</a></h3>
 <p>Cliquez sur le bouton <code>Ajouter Nouveau</code> et sélectionnez <code>Ajouter une Vue à la Page</code>. Dans la boîte de dialogue qui apparaît, sélectionnez la vue <code>Personnalisée</code> et la table qui contient les adresses :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ajouter une Page" src="../examples/images/2020-10-print-labels/add-page.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ajouter une Page" src="../images/2020-10-print-labels/add-page.png" /></em></span></p>
 <p>Cliquez sur <code>Ajouter à la Page</code>.</p>
 <p>Ouvrez le menu au-dessus de la vue et sélectionnez &ldquo;Options de la Vue&rdquo; :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Options de la Vue" src="../examples/images/2020-10-print-labels/widget-options.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Options de la Vue" src="../images/2020-10-print-labels/widget-options.png" /></em></span></p>
 <p>Dans le panneau de droite qui s&rsquo;ouvre, dans la section &ldquo;Personnalisé&rdquo;, entrez l&rsquo;URL de la vue qui implémente la fonctionnalité des étiquettes d&rsquo;adresse :</p>
 <p><code>https://gristlabs.github.io/grist-widget/printlabels/</code></p>
 <p>Ensuite, changez le menu déroulant &ldquo;Accès&rdquo; de <code>aucun</code> à <code>lire la table</code>.</p>
 <p>Vous devriez maintenant voir vos étiquettes ! Si ce n&rsquo;est pas le cas, vérifiez que <code>LabelText</code> est listé ci-dessous sous &ldquo;Colonnes Visibles&rdquo;. (Si c&rsquo;est sous &ldquo;Colonnes Cachées&rdquo;, cliquez sur l&rsquo;icône &ldquo;œil&rdquo; pour le rendre visible à la vue.)</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Colonnes Visibles" src="../examples/images/2020-10-print-labels/visible-columns.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Colonnes Visibles" src="../images/2020-10-print-labels/visible-columns.png" /></em></span></p>
 <p>Vous pouvez ajouter une autre colonne nommée <code>LabelCount</code> pour imprimer plusieurs étiquettes ou en omettre certaines. Si vous le faites, assurez-vous simplement de l&rsquo;ajouter aux &ldquo;Colonnes Visibles&rdquo; de la Vue Personnalisée, car ce sont les seules colonnes disponibles pour elle.</p>
 <h3 id="definir-la-taille-preferee-des-etiquettes">Définir la Taille Préférée des Étiquettes<a class="headerlink" href="#definir-la-taille-preferee-des-etiquettes" title="Permanent link">#</a></h3>
 <p>La vue des étiquettes se souvient de la dernière taille d&rsquo;étiquette que vous avez choisie. Si vous préférez qu&rsquo;elle s&rsquo;ouvre toujours à une taille fixe, vous pouvez ajouter la taille préférée dans l&rsquo;URL de la vue (dans le panneau de droite), par exemple :</p>
@@ -7215,7 +7219,7 @@
 <p>La vue utilise le navigateur pour l&rsquo;impression. Pour correspondre exactement aux tailles du papier d&rsquo;étiquettes, vérifiez bien que vous n&rsquo;avez pas de paramètres qui changeraient l&rsquo;échelle, et vérifiez l&rsquo;Aperçu avant impression avant d&rsquo;imprimer. S&rsquo;il y a une échelle définie, elle doit être &ldquo;100%&rdquo;, et des options telles que &ldquo;Ignorer l&rsquo;Échelle et Réduire pour Adapter à la Largeur de la Page&rdquo; doivent être désactivées.</p>
 <h2 id="personnalisation-supplementaire">Personnalisation Supplémentaire<a class="headerlink" href="#personnalisation-supplementaire" title="Permanent link">#</a></h2>
 <p>Cette fonctionnalité est construite en utilisant les <a href="../../widget-custom/">Vues Personnalisées</a>. Elle vous permet, ou permet à un développeur tiers, de la personnaliser davantage en utilisant HTML, CSS et Javascript. Pour les développeurs intéressés, le code de cette vue est disponible à <a href="https://github.com/gristlabs/grist-widget/tree/master/printlabels">https://github.com/gristlabs/grist-widget/tree/master/printlabels</a>.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Profitez des Étiquettes" src="../examples/images/2020-10-print-labels/enjoy-label.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Profitez des Étiquettes" src="../images/2020-10-print-labels/enjoy-label.png" /></em></span></p>
 </div>
 
 

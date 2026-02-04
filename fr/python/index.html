@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/python/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/python/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3537,7 +3541,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3961,7 +3965,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3992,7 +3996,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7091,7 +7095,7 @@ Les formules Python sont évaluées dans un sandbox, sans accès à Internet, et
 <li>Python 3 (spécifiquement 3.11 au moment de l&rsquo;écriture)</li>
 <li>Python 2 (spécifiquement 2.7)</li>
 </ul>
-<p>Les documents nouvellement créés sur notre service hébergé utilisent Python 3 par défaut, tandis que les documents plus anciens (créés avant environ novembre 2021) utilisent Python 2 par défaut. Pour savoir quelle version de Python un document spécifique utilise, regardez ses <a href="../creating-doc/#document-settings">Paramètres du document</a>.
+<p>Les documents nouvellement créés sur notre service hébergé utilisent Python 3 par défaut, tandis que les documents plus anciens (créés avant environ novembre 2021) utilisent Python 2 par défaut. Pour savoir quelle version de Python un document spécifique utilise, regardez ses <a href="../creating-doc/#parametres-du-document">Paramètres du document</a>.
 Le paramètre <code>Engine</code> peut être <code>python2</code>, <code>python3</code>, ou vide.
 Un paramètre vide implique <code>python2</code>.</p>
 <p>Si vous avez des droits d&rsquo;édition sur un document, vous pouvez changer le paramètre <code>Engine</code>,
@@ -7106,8 +7110,8 @@ dans une autre, ou (pire) donner de mauvais résultats.</p>
 <p>Python 2 a atteint sa fin de vie en janvier 2020, donc si vous cherchez de l&rsquo;aide en ligne pour Python,
 les réponses que vous trouvez sont de plus en plus susceptibles d&rsquo;être pour Python 3. Si vous avez un document
 qui utilise Python 2, et que vous souhaitez le passer à Python 3, nous vous recommandons de lire
-<a href="./#testing-the-effect-of-changing-python-versions">Tester l&rsquo;effet du changement de versions de Python</a>
-et <a href="./#differences-between-python-versions">Différences entre les versions de Python</a>.
+<a href="./#tester-leffet-du-changement-de-versions-de-python">Tester l&rsquo;effet du changement de versions de Python</a>
+et <a href="./#differences-entre-les-versions-de-python">Différences entre les versions de Python</a>.
 Assurez-vous de vérifier toutes les tables et colonnes, ainsi que les formules régulières et les formules de déclenchement.
 Nous serions intéressés d&rsquo;entendre votre expérience, et de vous aider avec tout problème,
 sur le <a href="https://community.getgrist.com/">forum communautaire</a>.</p>
@@ -7115,16 +7119,16 @@ sur le <a href="https://community.getgrist.com/">forum communautaire</a>.</p>
 <h2 id="tester-leffet-du-changement-de-versions-de-python">Tester l&rsquo;effet du changement de versions de Python<a class="headerlink" href="#tester-leffet-du-changement-de-versions-de-python" title="Permanent link">#</a></h2>
 <p>Grist dispose de certaines fonctionnalités qui peuvent vous aider à évaluer les conséquences du changement de la version de Python utilisée par un document.</p>
 <ul>
-<li>La fonctionnalité <a href="../copying-docs/#trying-out-changes">Travailler sur une copie</a> est utile pour
+<li>La fonctionnalité <a href="../copying-docs/#essayer-des-modifications">Travailler sur une copie</a> est utile pour
    expérimenter le changement de version de Python sans affecter votre document jusqu&rsquo;à ce que
    vous soyez prêt. Il y a une option &ldquo;Comparer avec l&rsquo;original&rdquo; qui vous permettra
    de visualiser quelles cellules ont changé, le cas échéant. Assurez-vous de vérifier toutes les tables et colonnes.</li>
-<li>L&rsquo;<a href="../document-history/#activity">onglet Activité de l&rsquo;Historique du document</a>
+<li>L&rsquo;<a href="../document-history/#activite">onglet Activité de l&rsquo;Historique du document</a>
    (avec &ldquo;Toutes les tables&rdquo; sélectionné) vous permet de revoir plus en détail ce qui a
    changé.</li>
-<li>Soyez prudent pour tester toutes les <a href="../formulas/#trigger-formulas">formules de déclenchement</a> que vous pourriez
+<li>Soyez prudent pour tester toutes les <a href="../formulas/#formules-dinitialisation">formules de déclenchement</a> que vous pourriez
    avoir, car le code Python qu&rsquo;elles contiennent ne sera pas exécuté tant que vous ne déclencherez pas spécifiquement ces formules.</li>
-<li>Vous pouvez utiliser le <a href="../formulas/#code-viewer">visualiseur de code</a> pour vous rappeler rapidement
+<li>Vous pouvez utiliser le <a href="../formulas/#visualiseur-de-code">visualiseur de code</a> pour vous rappeler rapidement
    de toutes les formules dans un document, afin de pouvoir les vérifier systématiquement.</li>
 </ul>
 <h2 id="differences-entre-les-versions-de-python">Différences entre les versions de Python<a class="headerlink" href="#differences-entre-les-versions-de-python" title="Permanent link">#</a></h2>

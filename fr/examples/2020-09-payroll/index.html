@@ -62,7 +62,7 @@ et il vous demande probablement de saisir les heures de chaque employé une fois
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -221,14 +221,18 @@ et il vous demande probablement de saisir les heures de chaque employé une fois
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2020-09-payroll/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2020-09-payroll/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3514,7 +3518,7 @@ et il vous demande probablement de saisir les heures de chaque employé une fois
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3938,7 +3942,7 @@ et il vous demande probablement de saisir les heures de chaque employé une fois
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3969,7 +3973,7 @@ et il vous demande probablement de saisir les heures de chaque employé une fois
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7034,7 +7038,7 @@ et il vous demande probablement de saisir les heures de chaque employé une fois
 et il vous demande probablement de saisir les heures de chaque employé une fois par mois.</p>
 <p>C&rsquo;est là que Grist peut vous aider à suivre les choses de manière pratique et à réduire les erreurs,
 surtout si vous avez des employés à temps partiel.</p>
-<p><img alt="Résumé de la Paie" src="../examples/images/2020-09-payroll/pay-periods.png" /></p>
+<p><img alt="Résumé de la Paie" src="../images/2020-09-payroll/pay-periods.png" /></p>
 <h2 id="le-modele-de-paie">Le Modèle de Paie<a class="headerlink" href="#le-modele-de-paie" title="Permanent link">#</a></h2>
 <p>Le modèle finalisé est ici : <a href="https://templates.getgrist.com/5pHLanQNThxk/Payroll" target="_blank">https://templates.getgrist.com/5pHLanQNThxk/Payroll</a>.
 N&rsquo;hésitez pas à l&rsquo;ouvrir dans une fenêtre séparée et à essayer les choses vous-même au fur et à mesure.</p>
@@ -7048,22 +7052,22 @@ N&rsquo;hésitez pas à l&rsquo;ouvrir dans une fenêtre séparée et à essayer
 </ol>
 <h2 id="la-page-personnes">La Page &ldquo;Personnes&rdquo;<a class="headerlink" href="#la-page-personnes" title="Permanent link">#</a></h2>
 <p>Commençons par l&rsquo;onglet &ldquo;Personnes&rdquo; dans l&rsquo;exemple. Il répond à nos besoins (1), (2) et (3).</p>
-<p><img alt="Page Personnes" src="../examples/images/2020-09-payroll/people-page.png" /></p>
+<p><img alt="Page Personnes" src="../images/2020-09-payroll/people-page.png" /></p>
 <p>En haut, nous avons une liste de personnes, avec des informations de contact telles que l&rsquo;adresse et le numéro de téléphone. Pour ajouter une nouvelle personne, cliquez dans la dernière ligne de la <code>table PERSONNES</code> et saisissez les données.</p>
 <p>En dessous, nous avons une fiche pour la personne sélectionnée &ndash; un moyen pratique de visualiser ou de mettre à jour l&rsquo;enregistrement de la personne sélectionnée.</p>
 <p>À côté, il y a les taux pour cette personne. Nous suivons tous les taux, pas seulement le plus récent, ainsi que la date d&rsquo;effet de chaque taux.</p>
 <p>Pour ajouter un nouveau taux, sélectionnez une personne, cliquez dans la dernière ligne de la <code>table TAUX</code> et saisissez la date d&rsquo;effet dans la colonne <code>Début du Taux</code> (peut-être en utilisant le raccourci pour la date d&rsquo;aujourd&rsquo;hui : <code class="keys"><em>⌘</em> + <strong>;</strong> (point-virgule)</code> sur Mac ou <code class="keys"><em>Ctrl</em> + <strong>;</strong></code> sur Windows). Définissez le <code>Rôle</code> auquel il s&rsquo;applique et le <code>Taux Horaire</code>. Le champ <code>Commentaire</code> est pour vos propres notes.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ajout de Taux" src="../examples/images/2020-09-payroll/add-rate.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ajout de Taux" src="../images/2020-09-payroll/add-rate.png" /></em></span></p>
 <p>Ne modifiez pas les valeurs des taux existants, sinon les calculs de paie passés seront affectés. Lorsque vous accordez une augmentation à quelqu&rsquo;un, ajoutez-la comme une nouvelle ligne. De cette façon, l&rsquo;historique complet est conservé et disponible pour référence.</p>
 <h2 id="la-page-paie">La Page &ldquo;Paie&rdquo;<a class="headerlink" href="#la-page-paie" title="Permanent link">#</a></h2>
 <p>Pour saisir les heures de paie, passez à la page &ldquo;Paie&rdquo;. C&rsquo;est la tâche la plus courante, nous avons donc placé cette page en premier dans la liste des pages pour qu&rsquo;elle s&rsquo;ouvre par défaut lorsque vous ouvrez le document. Faites défiler jusqu&rsquo;en bas (vous pouvez utiliser ces raccourcis pratiques : <code class="keys"><em>⌘</em> <em>↓</em></code> sur Mac, <code class="keys"><em>Ctrl</em> + <em>↓</em></code> sur Windows).</p>
-<p><img alt="Page Paie" src="../examples/images/2020-09-payroll/payroll-page.png" /></p>
+<p><img alt="Page Paie" src="../images/2020-09-payroll/payroll-page.png" /></p>
 <p>Pour ajouter une entrée de paie, saisissez la date (ou utilisez le sélecteur de date), sélectionnez la personne en utilisant l&rsquo;auto-complétion, sélectionnez son rôle et saisissez ses heures. Les quelques colonnes suivantes recherchent automatiquement le taux pertinent et calculent le paiement.</p>
 <p>Si vous souhaitez saisir des heures pour un intervalle de dates, par exemple pour une semaine particulière ou pour quelqu&rsquo;un travaillant à temps plein ce mois-ci, vous pouvez utiliser <code>Date</code> comme date de début et saisir également une <code>Date de Fin</code>.</p>
 <p>L&rsquo;élément intéressant de cette page est la façon dont le taux <code>Par Heure</code> est recherché. Vous n&rsquo;avez pas besoin de vous en soucier si vous utilisez simplement le modèle, mais si vous aimez regarder sous le capot ou si vous avez besoin de personnaliser cela davantage selon vos besoins, je vais l&rsquo;expliquer en détail ci-dessous.</p>
 <h2 id="la-page-periodes-de-paie">La Page &ldquo;Périodes de Paie&rdquo;<a class="headerlink" href="#la-page-periodes-de-paie" title="Permanent link">#</a></h2>
 <p>Ici, les totaux pour chaque période sont automatiquement totalisés pour répondre à notre besoin (5) — voir un aperçu, saisir des données dans un système de paie et vérifier que tout correspond.</p>
-<p><img alt="Résumé de la Paie" src="../examples/images/2020-09-payroll/pay-periods.png" /></p>
+<p><img alt="Résumé de la Paie" src="../images/2020-09-payroll/pay-periods.png" /></p>
 <p>La dernière période de paie (dans notre cas, un mois) se trouve en haut de la table en haut à gauche. Vous pouvez sélectionner n&rsquo;importe quelle période de paie pour voir un graphique circulaire avec un aperçu des paiements répartis par rôle et une table de combien chaque personne a gagné ce mois-là.</p>
 <p>Les noms et les heures dans la dernière table sont généralement tout ce dont un service de paie a besoin. De plus, nous avons inclus une colonne <code>Dates</code> résumant les dates travaillées ce mois-ci : pour les personnes travaillant à temps partiel, cela aide à se souvenir de quand le revenu a été gagné. Cela pourrait être une note pratique à inclure dans un bulletin de paie si votre service de paie le permet.</p>
 <p>C&rsquo;est tout !</p>
@@ -7071,7 +7075,7 @@ N&rsquo;hésitez pas à l&rsquo;ouvrir dans une fenêtre séparée et à essayer
 <h2 id="sous-le-capot">Sous le capot<a class="headerlink" href="#sous-le-capot" title="Permanent link">#</a></h2>
 <p>J&rsquo;ai promis de montrer comment les taux sont recherchés. Ouvrez la page &ldquo;Paie&rdquo;, cliquez sur
 n&rsquo;importe quelle cellule dans la colonne <code>Par Heure</code> et appuyez sur <code class="keys"><em>Entrée</em></code>.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Formule de Recherche de Taux" src="../examples/images/2020-09-payroll/rate-lookup-formula.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Formule de Recherche de Taux" src="../images/2020-09-payroll/rate-lookup-formula.png" /></em></span></p>
 <p>La formule que vous voyez est une fonction Python complexe, mais elle est intentionnellement décomposée en morceaux, avec des commentaires expliquant ce que fait chaque ligne :</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Obtenez tous les taux pour la Personne et le Rôle dans cette ligne.</span>
 <span class="n">rates</span> <span class="o">=</span> <span class="n">Rates</span><span class="o">.</span><span class="n">lookupRecords</span><span class="p">(</span><span class="n">Person</span><span class="o">=</span><span class="err">$</span><span class="n">Person</span><span class="p">,</span> <span class="n">Role</span><span class="o">=</span><span class="err">$</span><span class="n">Role</span><span class="p">)</span>
@@ -7101,9 +7105,9 @@ n&rsquo;importe quelle cellule dans la colonne <code>Par Heure</code> et appuyez
 <p>Pour commencer à utiliser cet exemple pour votre propre paie, commencez par le modèle :</p>
 <p class="grist-button"><a href="https://templates.getgrist.com/5pHLanQNThxk/Payroll" target="_blank">ALLER AU MODÈLE</a></p>
 <p>puis cliquez sur &ldquo;Enregistrer une copie&rdquo; :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Enregistrer une copie" src="../examples/images/2020-09-payroll/save-copy.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Enregistrer une copie" src="../images/2020-09-payroll/save-copy.png" /></em></span></p>
 <p>Ensuite, cochez la case &ldquo;Comme Modèle&rdquo;.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Dupliquer Comme Modèle" src="../examples/images/2020-09-payroll/duplicate-as-template.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Dupliquer Comme Modèle" src="../images/2020-09-payroll/duplicate-as-template.png" /></em></span></p>
 <p>Votre copie inclura alors toute la structure, la logique et les mises en page du document de paie sans aucune des données d&rsquo;exemple.</p>
 </div>
 

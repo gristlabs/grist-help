@@ -6,9 +6,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Grist supports real-time monitoring of activity in your installation by
-streaming logs of audit events to an external security information and event
-management (SIEM) system like Splunk.">
+        <meta name="description" content="Grist supporte la surveillance en temps réel de l’activité dans votre installation en
+diffusant des journaux d’événements d’audit vers un système externe de gestion des informations et événements de sécurité
+(SIEM) tel que Splunk.">
       
       
       
@@ -63,7 +63,7 @@ management (SIEM) system like Splunk.">
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -160,7 +160,7 @@ management (SIEM) system like Splunk.">
     <div data-md-component="skip">
       
         
-        <a href="#audit-log-overview" class="md-skip">
+        <a href="#apercu-des-journaux-daudit" class="md-skip">
           Aller au contenu
         </a>
       
@@ -222,14 +222,18 @@ management (SIEM) system like Splunk.">
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/install/audit-log-overview/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/install/audit-log-overview/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3395,7 +3399,7 @@ management (SIEM) system like Splunk.">
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3821,7 +3825,7 @@ management (SIEM) system like Splunk.">
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3852,7 +3856,7 @@ management (SIEM) system like Splunk.">
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -4296,10 +4300,10 @@ management (SIEM) system like Splunk.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-are-audit-logs" class="md-nav__link">
+  <a href="#quest-ce-que-les-journaux-daudit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What are audit logs?
+        Qu&rsquo;est-ce que les journaux d&rsquo;audit ?
       
     </span>
   </a>
@@ -4307,10 +4311,10 @@ management (SIEM) system like Splunk.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#about-audit-log-events" class="md-nav__link">
+  <a href="#a-propos-des-evenements-de-journaux-daudit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        About audit log events
+        À propos des événements de journaux d&rsquo;audit
       
     </span>
   </a>
@@ -4318,10 +4322,10 @@ management (SIEM) system like Splunk.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#streaming-audit-log-events" class="md-nav__link">
+  <a href="#diffusion-des-evenements-de-journaux-daudit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Streaming audit log events
+        Diffusion des événements de journaux d&rsquo;audit
       
     </span>
   </a>
@@ -6864,10 +6868,10 @@ management (SIEM) system like Splunk.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-are-audit-logs" class="md-nav__link">
+  <a href="#quest-ce-que-les-journaux-daudit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What are audit logs?
+        Qu&rsquo;est-ce que les journaux d&rsquo;audit ?
       
     </span>
   </a>
@@ -6875,10 +6879,10 @@ management (SIEM) system like Splunk.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#about-audit-log-events" class="md-nav__link">
+  <a href="#a-propos-des-evenements-de-journaux-daudit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        About audit log events
+        À propos des événements de journaux d&rsquo;audit
       
     </span>
   </a>
@@ -6886,10 +6890,10 @@ management (SIEM) system like Splunk.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#streaming-audit-log-events" class="md-nav__link">
+  <a href="#diffusion-des-evenements-de-journaux-daudit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Streaming audit log events
+        Diffusion des événements de journaux d&rsquo;audit
       
     </span>
   </a>
@@ -6991,26 +6995,25 @@ management (SIEM) system like Splunk.">
 <div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 class="tag-ee" id="audit-log-overview">Audit log overview<a class="headerlink" href="#audit-log-overview" title="Permanent link">#</a></h1>
-<p>Grist supports real-time monitoring of activity in your installation by
-streaming logs of audit events to an external security information and event
-management (SIEM) system like Splunk.</p>
-<h2 id="what-are-audit-logs">What are audit logs?<a class="headerlink" href="#what-are-audit-logs" title="Permanent link">#</a></h2>
-<p>Audit logs are a record of events triggered by actions performed within your
-installation that help you answer questions like &ldquo;when was a workspace
-removed?&rdquo; or &ldquo;who invited a collaborator to a document?&rdquo; Audit logs can
-can help maintain compliance and identify misuse of organization resources.</p>
-<h2 id="about-audit-log-events">About audit log events<a class="headerlink" href="#about-audit-log-events" title="Permanent link">#</a></h2>
-<p>Audit log events include the action that occurred, who performed the action,
-when and where the action occurred, and any additional details about the action
-in question.</p>
-<p>For example, the <code>document.create</code> action occurs when a document is created
-in your installation, and includes details like the ID and name of the created
-document and its workspace.</p>
+<h1 class="tag-ee" id="apercu-des-journaux-daudit">Aperçu des journaux d&rsquo;audit<a class="headerlink" href="#apercu-des-journaux-daudit" title="Permanent link">#</a></h1>
+<p>Grist supporte la surveillance en temps réel de l&rsquo;activité dans votre installation en
+diffusant des journaux d&rsquo;événements d&rsquo;audit vers un système externe de gestion des informations et événements de sécurité
+(SIEM) tel que Splunk.</p>
+<h2 id="quest-ce-que-les-journaux-daudit">Qu&rsquo;est-ce que les journaux d&rsquo;audit ?<a class="headerlink" href="#quest-ce-que-les-journaux-daudit" title="Permanent link">#</a></h2>
+<p>Les journaux d&rsquo;audit sont un enregistrement d&rsquo;événements déclenchés par des actions effectuées dans votre
+installation qui vous aident à répondre à des questions comme &ldquo;quand un espace de travail
+a-t-il été supprimé ?&rdquo; ou &ldquo;qui a invité un collaborateur à un document ?&rdquo; Les journaux d&rsquo;audit peuvent
+aider à maintenir la conformité et à identifier la mauvaise utilisation des ressources de l&rsquo;organisation.</p>
+<h2 id="a-propos-des-evenements-de-journaux-daudit">À propos des événements de journaux d&rsquo;audit<a class="headerlink" href="#a-propos-des-evenements-de-journaux-daudit" title="Permanent link">#</a></h2>
+<p>Les événements de journaux d&rsquo;audit incluent l&rsquo;action qui s&rsquo;est produite, qui a effectué l&rsquo;action,
+quand et où l&rsquo;action s&rsquo;est produite, et tous les détails supplémentaires concernant l&rsquo;action
+en question.</p>
+<p>Par exemple, l&rsquo;action <code>document.create</code> se produit lorsqu&rsquo;un document est créé
+dans votre installation, et inclut des détails comme l&rsquo;ID et le nom du document créé
+et son espace de travail.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;806ed0d9-7d25-4df2-9a6c-f7d2f6b8dba6&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;document.create&quot;</span><span class="p">,</span>
@@ -7041,12 +7044,12 @@ document and its workspace.</p>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For a full list of events that may appear, see
-<a href="../audit-log-events/">&ldquo;Audit log events for your self-managed instance&rdquo;</a>.</p>
-<h2 id="streaming-audit-log-events">Streaming audit log events<a class="headerlink" href="#streaming-audit-log-events" title="Permanent link">#</a></h2>
-<p>Installation admins can configure streaming of audit log events to external
-SIEM systems from the Admin Panel. For more information, see
-<a href="../audit-log-streaming/">&ldquo;Audit log streaming.&rdquo;</a></p>
+<p>Pour une liste complète des événements qui peuvent apparaître, voir
+<a href="../audit-log-events/">&ldquo;Événements de journaux d&rsquo;audit pour votre instance auto-gérée&rdquo;</a>.</p>
+<h2 id="diffusion-des-evenements-de-journaux-daudit">Diffusion des événements de journaux d&rsquo;audit<a class="headerlink" href="#diffusion-des-evenements-de-journaux-daudit" title="Permanent link">#</a></h2>
+<p>Les administrateurs d&rsquo;installation peuvent configurer la diffusion des événements de journaux d&rsquo;audit vers des systèmes
+SIEM externes depuis le Panneau d&rsquo;administration. Pour plus d&rsquo;informations, voir
+<a href="../audit-log-streaming/">&ldquo;Diffusion des journaux d&rsquo;audit.&rdquo;</a></p>
 </div>
 
 

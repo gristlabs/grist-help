@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/exports/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/exports/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3502,7 +3506,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3926,7 +3930,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3957,7 +3961,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7029,7 +7033,7 @@ en haut à droite de l&rsquo;écran et sélectionnez &ldquo;Exporter XLSX&rdquo;
 contenant toutes les lignes, sans aucun filtre appliqué. Pour utiliser cette option, vous devez avoir un accès complet
 en lecture pour toutes les tables d&rsquo;un document.</p>
 <p>Une note à propos de &ldquo;Exporter CSV&rdquo; dans le menu de partage. Lorsque vous êtes sur une page avec plusieurs vues, &ldquo;Exporter CSV&rdquo; n&rsquo;exportera que les données de la
-vue actuellement sélectionnée. Pour exporter toutes vos données, utilisez &ldquo;Exporter XLSX&rdquo; ou l&rsquo;option &ldquo;Télécharger&rdquo; qui est expliquée ci-dessous dans <a href="./#backing-up-an-entire-document">sauvegarder un document entier</a>.</p>
+vue actuellement sélectionnée. Pour exporter toutes vos données, utilisez &ldquo;Exporter XLSX&rdquo; ou l&rsquo;option &ldquo;Télécharger&rdquo; qui est expliquée ci-dessous dans <a href="./#sauvegarder-un-document-entier">sauvegarder un document entier</a>.</p>
 <h2 id="envoyer-vers-google-drive">Envoyer vers Google Drive<a class="headerlink" href="#envoyer-vers-google-drive" title="Permanent link">#</a></h2>
 <p>Si vous souhaitez exporter un document vers Google Drive en tant que fichier Google Sheet, cliquez sur l&rsquo;icône de partage
 (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>)
@@ -7039,10 +7043,10 @@ connecté) puis d&rsquo;autoriser la création d&rsquo;un fichier dans votre Goo
 créer de nouveaux fichiers et les gérer, mais ne pourra pas accéder à d&rsquo;autres fichiers dans votre drive.</p>
 <p><img alt="exports-send-to-google" src="../images/exports/exports-send-to-google.png" /></p>
 <p>Une fois que vous acceptez la demande d&rsquo;autorisation, Grist exportera votre document en un 
-<a href="./#exporting-a-document">fichier Excel</a> puis le sauvegardera dans votre Google Drive en tant que
+<a href="./#exporter-un-document">fichier Excel</a> puis le sauvegardera dans votre Google Drive en tant que
 fichier Google Sheet. Pour utiliser cette option, vous devez avoir un accès complet en lecture pour toutes les tables d&rsquo;un document.</p>
 <h2 id="sauvegarder-un-document-entier">Sauvegarder un document entier<a class="headerlink" href="#sauvegarder-un-document-entier" title="Permanent link">#</a></h2>
-<p>Grist effectue automatiquement des sauvegardes régulières des documents, comme décrit dans <a href="../automatic-backups/">Sauvegardes Automatiques</a>. Vous pouvez également effectuer des sauvegardes manuelles en <a href="../copying-docs/#copying-for-backup-purposes">enregistrant des copies</a> des documents dans votre compte Grist.</p>
+<p>Grist effectue automatiquement des sauvegardes régulières des documents, comme décrit dans <a href="../automatic-backups/">Sauvegardes Automatiques</a>. Vous pouvez également effectuer des sauvegardes manuelles en <a href="../copying-docs/#copier-a-des-fins-de-sauvegarde">enregistrant des copies</a> des documents dans votre compte Grist.</p>
 <p>De plus, les documents Grist peuvent être téléchargés dans leur intégralité sous forme de fichier de base de données SQLite
 avec une extension <code>.grist</code>. SQLite est un format de base de données populaire.
 Le fichier téléchargé contiendra toutes vos données tabulaires, tous les fichiers joints dans ces tables, les métadonnées sur vos tables, pages et

@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/references-lookups/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/references-lookups/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3557,7 +3561,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3981,7 +3985,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4012,7 +4016,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7199,7 +7203,7 @@
 <p><span class="screenshot-large"><em><img alt="reference-list-registrants" src="../images/references-lookups/reference-list-registrants.png" /></em></span></p>
 <p>Avec une liste de références, la notation par points renvoie une liste de tous les champs sélectionnés ;</p>
 <p><span class="screenshot-large"><em><img alt="registrants-balance" src="../images/references-lookups/registrants-balance.png" /></em></span></p>
-<p><code>$Registrants.Balance</code> est une liste des Soldes pour chaque participant dans la liste de <code>$Registrants</code>. Cela suit le format <code>$[A].[B]</code> où <code>[A]</code> est le nom de la colonne de Liste de Références et <code>[B]</code> est le nom de la colonne dans la table référencée dont vous souhaitez extraire des données. Nous apprendrons comment trouver la somme de ces soldes dans <a href="#working-with-record-sets">Travailler avec des ensembles d&rsquo;enregistrements</a>.</p>
+<p><code>$Registrants.Balance</code> est une liste des Soldes pour chaque participant dans la liste de <code>$Registrants</code>. Cela suit le format <code>$[A].[B]</code> où <code>[A]</code> est le nom de la colonne de Liste de Références et <code>[B]</code> est le nom de la colonne dans la table référencée dont vous souhaitez extraire des données. Nous apprendrons comment trouver la somme de ces soldes dans <a href="#travailler-avec-des-ensembles-denregistrements">Travailler avec des ensembles d&rsquo;enregistrements</a>.</p>
 <h2 id="lookuprecords">lookupRecords<a class="headerlink" href="#lookuprecords" title="Permanent link">#</a></h2>
 <p>Vous pouvez également obtenir une liste de références en utilisant <a href="https://support.getgrist.com/functions/#lookuprecords">lookupRecords</a>.</p>
 <p>La formule pour lookupRecords suit ce format :</p>
@@ -7235,7 +7239,7 @@
 <p>Vous pouvez également le faire sur une liste de références car une liste de références est la même chose, une liste d&rsquo;enregistrements.</p>
 <div class="highlight"><pre><span></span><code>SUM($RefList.Column)
 </code></pre></div>
-<p>Dans la section <a href="#reference-lists-and-dot-notation">Listes de références et notation par points</a>, nous avons utilisé la colonne Registrants et la notation par points pour trouver le solde pour chaque personne de notre liste d&rsquo;Inscrits. Nous pouvons utiliser <code>SUM()</code> avec notre formule précédente pour trouver le solde total.
+<p>Dans la section <a href="#listes-de-references-et-notation-par-points">Listes de références et notation par points</a>, nous avons utilisé la colonne Registrants et la notation par points pour trouver le solde pour chaque personne de notre liste d&rsquo;Inscrits. Nous pouvons utiliser <code>SUM()</code> avec notre formule précédente pour trouver le solde total.
 <div class="highlight"><pre><span></span><code>SUM($Registrants.Balance)
 </code></pre></div>
 <span class="screenshot-large"><em><img alt="registrants-balance-sum" src="../images/references-lookups/registrants-balance-sum.png" /></em></span></p>

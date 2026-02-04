@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2021-04-link-keys/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2021-04-link-keys/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3491,7 +3495,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3915,7 +3919,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3946,7 +3950,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -6992,29 +6996,29 @@ que vous pouvez copier et modifier en suivant ce guide.</p>
 <p>Dans notre exemple, vous êtes un tuteur privé qui utilise Grist pour suivre les heures, les paiements et les données des clients.
 Vous souhaitez partager l&rsquo;historique des sessions et des paiements avec les parents via un lien qui ne montre que les données de leur famille. Une façon simple de le faire serait de définir des permissions avancées qui limitent la vue d&rsquo;un destinataire de lien uniquement aux enregistrements liés à leur famille.</p>
 <p>Faisons cela maintenant.</p>
-<p class="wide-img-caption"><img alt="Vue du tuteur et de la famille" src="images/2021-04-link-keys/full-v-limited-access-animated.gif" />
+<p class="wide-img-caption"><img alt="Vue du tuteur et de la famille" src="../images/2021-04-link-keys/full-v-limited-access-animated.gif" />
 <em>Le tuteur privé peut voir toutes les données, mais un parent ne peut voir que les données de sa famille.</em></p>
 <h2 id="etape-1-creer-un-identifiant-unique">Étape 1 : Créer un identifiant unique<a class="headerlink" href="#etape-1-creer-un-identifiant-unique" title="Permanent link">#</a></h2>
 <p>Dans la table des familles, créez une nouvelle colonne dans laquelle vous utiliserez la fonction <a href="../../functions/#uuid"><code>UUID()</code></a> de Grist pour générer et attribuer une clé unique à chaque famille.</p>
-<p><img alt="Créer un UUID pour chaque famille" src="images/2021-04-link-keys/private-tutor-uuid.png" /></p>
+<p><img alt="Créer un UUID pour chaque famille" src="../images/2021-04-link-keys/private-tutor-uuid.png" /></p>
 <p>Convertissez la colonne en colonne de données pour figer ses valeurs.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Convertir en colonne de données" src="../examples/images/2021-04-link-keys/convert-to-data-column.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Convertir en colonne de données" src="../images/2021-04-link-keys/convert-to-data-column.png" /></em></span></p>
 <p>Vous remarquerez que notre formule a changé en formule d&rsquo;initialisation. Sélectionnez &lsquo;Appliquer aux nouveaux enregistrements&rsquo;. Cela garantira que les nouvelles lignes se verront également attribuer un identifiant unique.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Appliquer aux nouveaux enregistrements" src="../examples/images/2021-04-link-keys/apply-to-new-records.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Appliquer aux nouveaux enregistrements" src="../images/2021-04-link-keys/apply-to-new-records.png" /></em></span></p>
 <h2 id="etape-2-connecter-luuid-aux-enregistrements-dans-dautres-tables">Étape 2 : Connecter l&rsquo;UUID aux enregistrements dans d&rsquo;autres tables<a class="headerlink" href="#etape-2-connecter-luuid-aux-enregistrements-dans-dautres-tables" title="Permanent link">#</a></h2>
 <p>Dans les tables Étudiants, Sessions et Paiements, ajoutez une colonne qui lie chaque enregistrement à l&rsquo;UUID de la famille référencée. Nommez ces colonnes &ldquo;UUID&rdquo;, avec la formule simple <code class="formula">$Family.UUID</code>.
-Vous ne savez pas comment cela fonctionne ? Révisez les puissantes <a href="../../col-refs/#reference-and-reference-lists">colonnes de référence</a> de Grist.</p>
-<p><img alt="Utiliser des colonnes de référence pour récupérer l'UUID" src="images/2021-04-link-keys/private-tutor-reference-UUID.png" /></p>
+Vous ne savez pas comment cela fonctionne ? Révisez les puissantes <a href="../../col-refs/#comprendre-les-colonnes-de-reference">colonnes de référence</a> de Grist.</p>
+<p><img alt="Utiliser des colonnes de référence pour récupérer l'UUID" src="../images/2021-04-link-keys/private-tutor-reference-UUID.png" /></p>
 <p><strong>Astuce :</strong> La formule <code class="formula">$Family.UUID</code> récupère l&rsquo;UUID de l&rsquo;enregistrement référencé dans la colonne Famille.</p>
 <h2 id="etape-3-creer-des-liens-uniques">Étape 3 : Créer des liens uniques<a class="headerlink" href="#etape-3-creer-des-liens-uniques" title="Permanent link">#</a></h2>
 <p>Dans la table des familles, créez une nouvelle colonne dans laquelle vous utiliserez la fonction <a href="../../functions/#self_hyperlink"><code>SELF_HYPERLINK()</code></a> de Grist pour générer des hyperliens. Utilisez la formule <code class="formula">SELF_HYPERLINK(LinkKey_UUID=$UUID)</code> pour créer une clé de lien appelée &ldquo;UUID&rdquo; qui définit le paramètre d&rsquo;URL à un <code>$UUID</code> spécifique dans un enregistrement. Convertissez le type de colonne en Texte &gt; Hyperlien.</p>
-<p><img alt="Créer des liens uniques" src="images/2021-04-link-keys/private-tutor-UUID-links.png" /></p>
+<p><img alt="Créer des liens uniques" src="../images/2021-04-link-keys/private-tutor-UUID-links.png" /></p>
 <p><strong>Comment cela fonctionne-t-il ?</strong> Le lien généré pour &ldquo;Raddon, Fin&rdquo; est <code>.../Private-Tutor-recUUID/p/9?UUID_=6752c258-443d-4a2c-800d-1491da265b72</code>. La &ldquo;clé de lien&rdquo; est la partie de l&rsquo;URL qui lit <code>?UUID_=6752c258-443d-4a2c-800d-1491da265b72</code>.</p>
 <h2 id="etape-4-creer-des-permissions-avancees">Étape 4 : Créer des permissions avancées<a class="headerlink" href="#etape-4-creer-des-permissions-avancees" title="Permanent link">#</a></h2>
 <p>Ouvrez la page des Permissions Avancées depuis le panneau de gauche et créez des règles pour donner un accès limité à vos clients. Réfléchissons à qui devrait accéder à chaque table et quelles parties de celle-ci devraient être accessibles.</p>
 <ol>
 <li>
-<p>Vous, le propriétaire du document, devez avoir un accès complet pour Lire (R), Mettre à jour (U), Créer (C) et Supprimer (D) des enregistrements dans chaque table. Ajoutez la règle <code>user.Access in [OWNER]</code> à <em>chaque table</em> pour accorder aux propriétaires un accès complet. Pourquoi <code>user.Access</code> ? Consultez les <a href="../../access-rules/#access-rule-conditions">conditions des permissions avancées</a> pour en savoir plus.</p>
+<p>Vous, le propriétaire du document, devez avoir un accès complet pour Lire (R), Mettre à jour (U), Créer (C) et Supprimer (D) des enregistrements dans chaque table. Ajoutez la règle <code>user.Access in [OWNER]</code> à <em>chaque table</em> pour accorder aux propriétaires un accès complet. Pourquoi <code>user.Access</code> ? Consultez les <a href="../../access-rules/#conditions-des-regles-dacces">conditions des permissions avancées</a> pour en savoir plus.</p>
 </li>
 <li>
 <p>Les parents consultant le document doivent avoir un accès en lecture seule uniquement aux enregistrements liés à leur famille. Dans les étapes précédentes, nous avons créé un identifiant unique (UUID) pour chaque famille, connecté les enregistrements pertinents dans toutes les tables à un UUID, et généré des URL avec des clés de lien incluant ces UUID. Maintenant, nous devons créer des permissions avancées qui correspondent aux UUID et aux clés de lien URL.</p>
@@ -7025,11 +7029,11 @@ Vous ne savez pas comment cela fonctionne ? Révisez les puissantes <a href="../
 </li>
 </ol>
 <p><strong>Astuce :</strong> Ne modifiez pas les règles par défaut. L&rsquo;accès au niveau des lignes est accordé dans les tables pertinentes.</p>
-<p><img alt="Créer des liens uniques" src="images/2021-04-link-keys/private-tutor-UUID-acl.png" /></p>
-<p>Vous l&rsquo;avez fait ! Ce n&rsquo;est que le début. Il y a beaucoup plus que vous pouvez faire avec les clés de lien. Consultez <a href="../../access-rules/#link-keys">un autre exemple</a> pour approfondir encore plus votre compréhension des clés de lien.</p>
+<p><img alt="Créer des liens uniques" src="../images/2021-04-link-keys/private-tutor-UUID-acl.png" /></p>
+<p>Vous l&rsquo;avez fait ! Ce n&rsquo;est que le début. Il y a beaucoup plus que vous pouvez faire avec les clés de lien. Consultez <a href="../../access-rules/#cles-de-lien">un autre exemple</a> pour approfondir encore plus votre compréhension des clés de lien.</p>
 <p><strong>Besoin d&rsquo;aide supplémentaire ?</strong> Consultez la <a href="https://public.getgrist.com/9ZQvegsao3zT/Private-Tutor-LinkKey-Tutorial-Solution?UUID_=039170d0-c4d6-4a43-a357-3cb0fd10822f">solution du tutoriel ici</a>.
 Faites une copie pour voir toutes les données :</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="faire-une-copie" src="images/2021-04-link-keys/make-a-copy.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="faire-une-copie" src="../images/2021-04-link-keys/make-a-copy.png" /></em></span></p>
 </div>
 
 

@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/imports/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/imports/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3502,7 +3506,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3926,7 +3930,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3957,7 +3961,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7007,7 +7011,7 @@
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 id="importer-plus-de-donnees">Importer plus de données<a class="headerlink" href="#importer-plus-de-donnees" title="Permanent link">#</a></h1>
-<p>Vous pouvez importer un fichier pour <a href="../creating-doc/">créer un nouveau document Grist</a> ou pour ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON, tabulés et depuis <a href="./#import-from-google-drive">Google Drive</a>.</p>
+<p>Vous pouvez importer un fichier pour <a href="../creating-doc/">créer un nouveau document Grist</a> ou pour ajouter des données à un document existant. Grist prend en charge les importations de fichiers Excel, CSV, JSON, tabulés et depuis <a href="./#importer-depuis-google-drive">Google Drive</a>.</p>
 <p>Pour créer un nouveau document Grist, cliquez sur le bouton &ldquo;Ajouter Nouveau&rdquo; sur l&rsquo;écran d&rsquo;accueil et choisissez &ldquo;Importer un document&rdquo;, comme décrit dans <a href="../creating-doc/">créer un nouveau document Grist</a>.</p>
 <p>Pour ajouter à un document existant, ouvrez ce document, cliquez sur le bouton &ldquo;Ajouter Nouveau&rdquo; puis sur &ldquo;Importer depuis un fichier&rdquo;. Par défaut, chaque table importée est ajoutée comme une nouvelle table Grist, mais en examinant la boîte de dialogue de prévisualisation pour une importation, vous avez la possibilité de changer la destination vers une table Grist existante.</p>
 <p>Vous pouvez également importer n&rsquo;importe lequel des mêmes formats depuis une URL, en utilisant l&rsquo;option &ldquo;Importer depuis une URL&rdquo;.</p>
@@ -7026,7 +7030,7 @@
 <p><img alt="import-dialog" src="../images/import-google-drive-sign-in.png" /></p>
 <p>Pour importer, connectez-vous à votre compte Google en cliquant sur le bouton &ldquo;Se connecter&rdquo; et en suivant le processus de connexion. Grist vous demandera l&rsquo;autorisation de lire le fichier que vous importerez depuis Google Drive. Nous ne lirons aucun autre fichier sur votre drive — juste le fichier unique que vous choisissez d&rsquo;importer.</p>
 <p><img alt="import-dialog" src="../images/import-google-drive-picker.png" /></p>
-<p>Une fois le fichier choisi, le reste du processus est le même que pour importer depuis un fichier Excel. Dans la <a href="./#the-import-dialog">boîte de dialogue d&rsquo;importation</a>, vous pouvez configurer quelles données importer et dans quelle table de destination les ajouter.</p>
+<p>Une fois le fichier choisi, le reste du processus est le même que pour importer depuis un fichier Excel. Dans la <a href="./#la-boite-de-dialogue-dimportation">boîte de dialogue d&rsquo;importation</a>, vous pouvez configurer quelles données importer et dans quelle table de destination les ajouter.</p>
 <p>Si vous avez une URL vers un fichier ou une feuille de calcul stockée sur votre Google Drive ou un fichier accessible publiquement, vous pouvez l&rsquo;importer directement en utilisant l&rsquo;option &ldquo;Importer depuis une URL&rdquo; du menu &ldquo;Ajouter Nouveau&rdquo;.</p>
 <p><img alt="import-from-url" src="../images/import-from-url.png" /></p>
 <p>Si le fichier n&rsquo;est pas partagé publiquement, Grist vous demandera l&rsquo;autorisation de lire les fichiers de votre Google Drive. Si vous ne souhaitez pas autoriser Grist à lire vos fichiers, il ouvrira le sélecteur de fichiers Google où vous pourrez sélectionner le fichier que vous souhaitez importer.</p>

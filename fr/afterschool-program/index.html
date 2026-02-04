@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/afterschool-program/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/afterschool-program/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3568,7 +3572,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3992,7 +3996,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4023,7 +4027,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7151,10 +7155,10 @@
 <p>Commençons par les cours et leurs instructeurs.</p>
 <p>Nous avons besoin d&rsquo;une liste de cours et d&rsquo;instructeurs. Le même instructeur peut enseigner différents cours, donc les instructeurs et les cours vivront dans des tables différentes. Appelons-les &ldquo;Cours&rdquo; et &ldquo;Personnel&rdquo;. Chaque cours a un seul instructeur, donc l&rsquo;une des propriétés d&rsquo;un cours sera l&rsquo;instructeur de ce cours.</p>
 <h2 id="cours-et-instructeurs">Cours et Instructeurs<a class="headerlink" href="#cours-et-instructeurs" title="Permanent link">#</a></h2>
-<p>En partant de zéro, vous allez créer un nouveau document vide (voir <a href="../creating-doc/">Créer un document</a>), renommer la table vide initiale &ldquo;Table1&rdquo; en &ldquo;Cours&rdquo;, ajouter les colonnes nécessaires et saisir quelques cours. Pour suivre les étapes de ce tutoriel, vous pouvez plutôt importer <a data-wm-adjusted="1" href="./unlocalized-assets/afterschool-program/Classes.csv">Classes.csv</a>
+<p>En partant de zéro, vous allez créer un nouveau document vide (voir <a href="../creating-doc/">Créer un document</a>), renommer la table vide initiale &ldquo;Table1&rdquo; en &ldquo;Cours&rdquo;, ajouter les colonnes nécessaires et saisir quelques cours. Pour suivre les étapes de ce tutoriel, vous pouvez plutôt importer <a data-wm-adjusted="1" href="../unlocalized-assets/afterschool-program/Classes.csv">Classes.csv</a>
 (ou simplement vous référer au document exemple &ldquo;Programme périscolaire&rdquo;).</p>
 <p><img alt="add-classes" src="../images/afterschool-program/add-classes.png" /></p>
-<p>Pour la table Personnel, cliquez sur le bouton &ldquo;Ajouter nouveau&rdquo; et sélectionnez &ldquo;Ajouter une table vide&rdquo;. Renommez-la en &ldquo;Personnel&rdquo;, créez quelques colonnes et saisissez des données sur les instructeurs. Ou importez <a href="./unlocalized-assets/afterschool-program/Staff.csv">Staff.csv</a> pour utiliser des données d&rsquo;exemple et gagner quelques étapes.</p>
+<p>Pour la table Personnel, cliquez sur le bouton &ldquo;Ajouter nouveau&rdquo; et sélectionnez &ldquo;Ajouter une table vide&rdquo;. Renommez-la en &ldquo;Personnel&rdquo;, créez quelques colonnes et saisissez des données sur les instructeurs. Ou importez <a href="../unlocalized-assets/afterschool-program/Staff.csv">Staff.csv</a> pour utiliser des données d&rsquo;exemple et gagner quelques étapes.</p>
 <p><img alt="add-staff" src="../images/afterschool-program/add-staff.png" /></p>
 <p>Nous voulons que la colonne <em>Instructeur</em> dans la table <code>Cours</code> soit une référence à la table <code>Personnel</code>. Actuellement, la table <code>Personnel</code> n&rsquo;a pas de colonne qui identifie de manière unique chaque enregistrement. Pour configurer des références, il est judicieux d&rsquo;en ajouter une. Dans ce cas, nous allons ajouter une colonne &ldquo;Nom Complet&rdquo; à la table <code>Personnel</code>.</p>
 <h2 id="formules">Formules<a class="headerlink" href="#formules" title="Permanent link">#</a></h2>
@@ -7178,7 +7182,7 @@
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="instructor-autocomplete" src="../images/afterschool-program/instructor-autocomplete.png" /></em></span></p>
 <p>Ensuite, nous allons continuer avec les étudiants et leurs inscriptions.</p>
 <h2 id="etudiants">Étudiants<a class="headerlink" href="#etudiants" title="Permanent link">#</a></h2>
-<p>Chaque cours a un certain nombre d&rsquo;étudiants. Nous aurons donc besoin d&rsquo;une table d&rsquo;étudiants. Encore une fois, ajoutez une nouvelle table vide, renommez-la en &ldquo;Étudiants&rdquo; et remplissez-la avec les noms des étudiants, les niveaux de classe, etc. Ou importez <a href="./unlocalized-assets/afterschool-program/Students.csv">Students.csv</a> pour utiliser des données d&rsquo;exemple et gagner quelques étapes.</p>
+<p>Chaque cours a un certain nombre d&rsquo;étudiants. Nous aurons donc besoin d&rsquo;une table d&rsquo;étudiants. Encore une fois, ajoutez une nouvelle table vide, renommez-la en &ldquo;Étudiants&rdquo; et remplissez-la avec les noms des étudiants, les niveaux de classe, etc. Ou importez <a href="../unlocalized-assets/afterschool-program/Students.csv">Students.csv</a> pour utiliser des données d&rsquo;exemple et gagner quelques étapes.</p>
 <p><img alt="students-table" src="../images/afterschool-program/students-table.png" /></p>
 <p>Ajoutons ici une colonne de formule &ldquo;Nom Complet&rdquo;, tout comme dans la table <code>Personnel</code>. Cela sera utile.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="students-fullname" src="../images/afterschool-program/students-fullname.png" /></em></span></p>
@@ -7190,7 +7194,7 @@
 <p class="screenshot-half"><span class="screenshot-full"><em><img alt="many-to-many-cross" src="../images/many-to-many-cross.png" /></em></span></p>
 <p>deviendra ceci :</p>
 <p class="screenshot-half"><span class="screenshot-full"><em><img alt="many-to-many-join" src="../images/many-to-many-join.png" /></em></span></p>
-<p>Alors, ajoutons une nouvelle table, nommons-la &ldquo;Inscriptions&rdquo;, et ajoutons les colonnes dont nous avons besoin. Ici aussi, pour suivre, vous pouvez importer des données d&rsquo;exemple à partir de <a href="./unlocalized-assets/afterschool-program/Enrollments.csv">Enrollments.csv</a>.</p>
+<p>Alors, ajoutons une nouvelle table, nommons-la &ldquo;Inscriptions&rdquo;, et ajoutons les colonnes dont nous avons besoin. Ici aussi, pour suivre, vous pouvez importer des données d&rsquo;exemple à partir de <a href="../unlocalized-assets/afterschool-program/Enrollments.csv">Enrollments.csv</a>.</p>
 <p><img alt="enrollments-table" src="../images/afterschool-program/enrollments-table.png" /></p>
 <p>Dans les Options de colonne pour la colonne <em>Étudiant</em>, définissez le type de colonne sur &ldquo;Référence&rdquo;, définissez la table référencée sur <code>Étudiants</code>, et sélectionnez &ldquo;Nom Complet&rdquo; comme colonne à afficher.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="enrollments-student-col" src="../images/afterschool-program/enrollments-student-col.png" /></em></span></p>
@@ -7215,7 +7219,7 @@
 <p><img alt="classlist-theme" src="../images/afterschool-program/classlist-theme.png" /></p>
 <p>Voici ce que nous avons maintenant dans la page Vue des Cours :</p>
 <p><img alt="classlist-page2" src="../images/afterschool-program/classlist-page2.png" /></p>
-<p>C&rsquo;est le bon moment pour nettoyer cette page en masquant les colonnes et les champs qui sont dupliqués ou distrayants. Consultez <a href="../page-widgets/#configuring-field-lists">Configurer les listes de champs</a> pour une méthode efficace de sélection des champs à afficher, et <a href="../custom-layouts/">Mises en page personnalisées</a> pour réorganiser les widgets sur la page.</p>
+<p>C&rsquo;est le bon moment pour nettoyer cette page en masquant les colonnes et les champs qui sont dupliqués ou distrayants. Consultez <a href="../page-widgets/#configurer-les-listes-de-champs">Configurer les listes de champs</a> pour une méthode efficace de sélection des champs à afficher, et <a href="../custom-layouts/">Mises en page personnalisées</a> pour réorganiser les widgets sur la page.</p>
 <p><img alt="classlist-page3" src="../images/afterschool-program/classlist-page3.png" /></p>
 <h2 id="vue-des-inscriptions">Vue des Inscriptions<a class="headerlink" href="#vue-des-inscriptions" title="Permanent link">#</a></h2>
 <p>Notre autre objectif déclaré était de disposer d&rsquo;un moyen pratique d&rsquo;inscrire un étudiant et de voir ou d&rsquo;ajuster les inscriptions d&rsquo;un étudiant donné.</p>
@@ -7233,7 +7237,7 @@
 <h2 id="ajout-de-couches">Ajout de Couches<a class="headerlink" href="#ajout-de-couches" title="Permanent link">#</a></h2>
 <p>Si vous travaillez avec des enfants, vous parlez à leurs parents. Vous devrez avoir les noms et les coordonnées des parents, que vous pouvez ajouter en tant que colonnes dans la table des étudiants.</p>
 <p>Vous constaterez probablement que certains parents ont plusieurs enfants qui s&rsquo;inscrivent ensemble à des cours. Reconnaître la relation parent-enfant dans votre base de données peut sembler une étape complexe, mais cela simplifiera probablement votre flux de travail quotidien.</p>
-<p>Alors, ajoutons une table de plus : <code>Familles</code>. Nous inclurons le nom et les coordonnées des parents, et lierons chaque enfant à un enregistrement ici. Vous pouvez importer des données d&rsquo;exemple à partir de <a href="./unlocalized-assets/afterschool-program/Families.csv">Families.csv</a>.</p>
+<p>Alors, ajoutons une table de plus : <code>Familles</code>. Nous inclurons le nom et les coordonnées des parents, et lierons chaque enfant à un enregistrement ici. Vous pouvez importer des données d&rsquo;exemple à partir de <a href="../unlocalized-assets/afterschool-program/Families.csv">Families.csv</a>.</p>
 <p><img alt="families1" src="../images/afterschool-program/families1.png" /></p>
 <p>Notez que nous avons ajouté une colonne <em>Nom Complet</em> ici comme pour d&rsquo;autres tables qui listent des personnes.</p>
 <p>Dans la table des Étudiants, nous allons ajouter une colonne nommée &ldquo;Famille&rdquo;, et en faire une Référence à <code>Familles</code>.</p>

@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/formula-cheat-sheet/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/formula-cheat-sheet/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3960,7 +3964,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -4384,7 +4388,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4415,7 +4419,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7950,7 +7954,7 @@ Nous ajoutons le sous-total à la taxe calculée, puis divisons cela par 12 mois
 <p><span></span><details><summary></p>
 <h4 id="depannage-des-erreurs">Dépannage des Erreurs<a class="headerlink" href="#depannage-des-erreurs" title="Permanent link">#</a></h4>
 </summary>
-<p><code>#TypeError</code> : Confirmez que toutes les colonnes utilisées dans la formule sont de type <a href="../col-types/#numeric-columns">Numérique</a>.
+<p><code>#TypeError</code> : Confirmez que toutes les colonnes utilisées dans la formule sont de type <a href="../col-types/#colonnes-numeriques">Numérique</a>.
 </details>
 </section></p>
 <p><span></span><section class="cheat-sheet"></p>
@@ -7976,7 +7980,7 @@ return min(items.Date) if items else None
 </code></pre></div>
 Décomposons cela.</p>
 <p><code>Interactions.lookupRecords(Contact=$id, Type="To-Do")</code> trouve tous les enregistrements dans la table Interactions où les Contacts correspondent et le Type est To-Do. Cela renvoie une liste d&rsquo;enregistrements que nous assignons à la variable <code>items</code>.</p>
-<p>Ensuite, nous utilisons la <a href="../references-lookups/#reference-columns-and-dot-notation">notation par points</a> pour trouver toutes les Dates assignées aux enregistrements de notre liste <code>items</code>. Ces dates sont évaluées pour trouver la date minimale. C&rsquo;est la valeur qui est renvoyée. Ainsi, nous voyons la date de la tâche qui est due le plus tôt.</p>
+<p>Ensuite, nous utilisons la <a href="../references-lookups/#colonnes-de-reference-et-notation-par-points">notation par points</a> pour trouver toutes les Dates assignées aux enregistrements de notre liste <code>items</code>. Ces dates sont évaluées pour trouver la date minimale. C&rsquo;est la valeur qui est renvoyée. Ainsi, nous voyons la date de la tâche qui est due le plus tôt.</p>
 <p>S&rsquo;il n&rsquo;y a pas d&rsquo;éléments dans la liste, rien n&rsquo;est renvoyé et le champ reste vide.</p>
 <p>Dans l&rsquo;exemple MAX(), la liste a deux éléments : <code>$Max_Students - $Count</code> et <code>0</code>, et la formule renvoie le plus grand des deux. Dans l&rsquo;exemple min(), la variable <code>items</code> tire une liste d&rsquo;enregistrements basée sur les arguments <a href="../references-lookups/#lookuprecords">lookupRecords</a>, énumérant les dates et renvoyant la plus petite date. Notez que c&rsquo;est une fonction Python. Si nous avions écrit la formule comme MIN(), une fonction de tableur, la formule ne fonctionnerait pas car la formule de tableur nécessite un <a href="../functions/#min">format très spécifique</a>.</p>
 <p></details>
@@ -7992,7 +7996,7 @@ Décomposons cela.</p>
 <p>La formule utilisée dans la colonne Coût Total de la table Sélectionner ou Ajouter de Nouveaux Produits est :
 <div class="highlight"><pre><span></span><code>SUM($Requirements.Cost)
 </code></pre></div>
-La colonne Requirements est une <a href="../page-widgets/#configuring-field-lists">colonne cachée</a> dans cette table. C&rsquo;est une colonne de liste de référence qui tire des données de la table Build Requirements.</p>
+La colonne Requirements est une <a href="../page-widgets/#configurer-les-listes-de-champs">colonne cachée</a> dans cette table. C&rsquo;est une colonne de liste de référence qui tire des données de la table Build Requirements.</p>
 <p>Notre formule utilise la colonne Requirements pour accéder à la table Build Requirements, puis tire le coût pour chaque enregistrement dans la table.</p>
 <p>Nous utilisons SUM() pour additionner les coûts de chaque enregistrement.</p>
 <p><strong><a href="https://templates.getgrist.com/sXsBGDTKau1F/Inventory-Manager" target="_blank">Inventory Manager</a> template</strong></p>
@@ -8025,7 +8029,7 @@ La colonne Order de la table Incoming Order Line Items est une colonne de réfé
 <div class="highlight"><pre><span></span><code>if $Status == &quot;Received&quot;:
   return NOW()
 </code></pre></div>
-C&rsquo;est une <a href="../formulas/#trigger-formulas">formule d&rsquo;initialisation</a> qui est déclenchée lorsqu&rsquo;un changement est effectué dans la colonne Status. Si la valeur dans la colonne Status est égale à <code>Received</code>, la date actuelle est renvoyée. Si les valeurs ne sont pas égales, rien n&rsquo;est renvoyé.</p>
+C&rsquo;est une <a href="../formulas/#formules-dinitialisation">formule d&rsquo;initialisation</a> qui est déclenchée lorsqu&rsquo;un changement est effectué dans la colonne Status. Si la valeur dans la colonne Status est égale à <code>Received</code>, la date actuelle est renvoyée. Si les valeurs ne sont pas égales, rien n&rsquo;est renvoyé.</p>
 <p></details>
 <span></span><details><summary></p>
 <h4 id="exemples-utilisant_1">Exemples utilisant <code>!=</code><a class="headerlink" href="#exemples-utilisant_1" title="Permanent link">#</a></h4>
@@ -8091,27 +8095,27 @@ Dans cet exemple, la colonne Appraisal Value est une colonne de texte qui contie
 <p><span></span><details><summary></p>
 <h4 id="depannage">Dépannage<a class="headerlink" href="#depannage" title="Permanent link">#</a></h4>
 <p></summary>
-Si vous essayez d&rsquo;utiliser différentes colonnes avec des valeurs <em>numériques</em> dans une formule mathématique mais que vous voyez une erreur, vérifiez les types de colonnes pour chacune des colonnes utilisées dans la formule. Toutes doivent être de type <a href="../col-types/#numeric-columns">Numérique</a>.</p>
+Si vous essayez d&rsquo;utiliser différentes colonnes avec des valeurs <em>numériques</em> dans une formule mathématique mais que vous voyez une erreur, vérifiez les types de colonnes pour chacune des colonnes utilisées dans la formule. Toutes doivent être de type <a href="../col-types/#colonnes-numeriques">Numérique</a>.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="column-type-numeric" src="../images/formula-cheat-sheet/column-type-numeric.png" /></em></span></p>
-<p><a href="https://docs.python.org/3/library/functions.html#float" target="_blank">float()</a> n&rsquo;est nécessaire que lorsque vous traitez des valeurs alphanumériques comme nous le voyons dans l&rsquo;<a href="#example-converting-a-string-to-a-float">exemple</a>.</p>
+<p><a href="https://docs.python.org/3/library/functions.html#float" target="_blank">float()</a> n&rsquo;est nécessaire que lorsque vous traitez des valeurs alphanumériques comme nous le voyons dans l&rsquo;<a href="#exemple-de-conversion-dune-chaine-en-float">exemple</a>.</p>
 <p><strong>TypeError : impossible de multiplier une séquence par un type non-int de &lsquo;float&rsquo;</strong>
 <span class="screenshot-large"><em><img alt="multiply-non-int-float-type-error" src="../images/formula-cheat-sheet/multiply-non-int-float-type-error.png" /></em></span>
-Cette erreur se produit lorsqu&rsquo;une formule tente de <strong>multiplier</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#numeric-columns">Numérique</a>. Dans la capture d&rsquo;écran ci-dessous, la colonne Tax est une colonne <a href="../col-types/#text-columns">Texte</a>.
+Cette erreur se produit lorsqu&rsquo;une formule tente de <strong>multiplier</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#colonnes-numeriques">Numérique</a>. Dans la capture d&rsquo;écran ci-dessous, la colonne Tax est une colonne <a href="../col-types/#colonnes-de-texte">Texte</a>.
 <span class="screenshot-large"><em><img alt="multiply-non-int-error-tax-text" src="../images/formula-cheat-sheet/multiply-non-int-error-tax-text.png" /></em></span>
-Lorsque nous changeons le type de colonne en <a href="../col-types/#numeric-columns">Numérique</a>, l&rsquo;erreur est résolue.
+Lorsque nous changeons le type de colonne en <a href="../col-types/#colonnes-numeriques">Numérique</a>, l&rsquo;erreur est résolue.
 <span class="screenshot-large"><em><img alt="multiply-non-int-error-tax-numeric" src="../images/formula-cheat-sheet/multiply-non-int-error-tax-numeric.png" /></em></span></p>
 <p><strong>TypeError : type d&rsquo;opérande non pris en charge pour / : &lsquo;float&rsquo; et &lsquo;str&rsquo;</strong>
 <span class="screenshot-large"><em><img alt="division-float-string-error" src="../images/formula-cheat-sheet/division-float-string-error.png" /></em></span>
-Cette erreur se produit lorsqu&rsquo;une formule tente de <strong>diviser</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#numeric-columns">Numérique</a>. Dans l&rsquo;exemple ci-dessus, la colonne &lsquo;# of Payments&rsquo; est une colonne <a href="../col-types/#choice-columns">Choice</a>.</p>
-<p>Lorsque nous changeons le type de colonne en <a href="../col-types/#numeric-columns">Numérique</a>, l&rsquo;erreur est résolue.</p>
+Cette erreur se produit lorsqu&rsquo;une formule tente de <strong>diviser</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#colonnes-numeriques">Numérique</a>. Dans l&rsquo;exemple ci-dessus, la colonne &lsquo;# of Payments&rsquo; est une colonne <a href="../col-types/#colonnes-de-choix">Choice</a>.</p>
+<p>Lorsque nous changeons le type de colonne en <a href="../col-types/#colonnes-numeriques">Numérique</a>, l&rsquo;erreur est résolue.</p>
 <p><strong>TypeError : type d&rsquo;opérande non pris en charge pour + : &lsquo;float&rsquo; et &lsquo;str&rsquo;</strong>
 <span class="screenshot-large"><em><img alt="addition-float-string-error" src="../images/formula-cheat-sheet/addition-float-string-error.png" /></em></span>
-Cette erreur se produit lorsqu&rsquo;une formule tente d&rsquo;<strong>ajouter</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#numeric-columns">Numérique</a>. Dans l&rsquo;exemple ci-dessus, la colonne Tax est une colonne <a href="../col-types/#text-columns">Texte</a>.</p>
-<p>Lorsque nous changeons le type de colonne en <a href="../col-types/#numeric-columns">Numérique</a>, l&rsquo;erreur est résolue.</p>
+Cette erreur se produit lorsqu&rsquo;une formule tente d&rsquo;<strong>ajouter</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#colonnes-numeriques">Numérique</a>. Dans l&rsquo;exemple ci-dessus, la colonne Tax est une colonne <a href="../col-types/#colonnes-de-texte">Texte</a>.</p>
+<p>Lorsque nous changeons le type de colonne en <a href="../col-types/#colonnes-numeriques">Numérique</a>, l&rsquo;erreur est résolue.</p>
 <p><strong>TypeError : type d&rsquo;opérande non pris en charge pour - : &lsquo;float&rsquo; et &lsquo;str&rsquo;</strong>
 <span class="screenshot-large"><em><img alt="subtraction-float-string-error" src="../images/formula-cheat-sheet/subtraction-float-string-error.png" /></em></span>
-Cette erreur se produit lorsqu&rsquo;une formule tente de <strong>soustraire</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#numeric-columns">Numérique</a>. Dans l&rsquo;exemple ci-dessus, la colonne Discount est une colonne <a href="../col-types/#text-columns">Texte</a>.</p>
-<p>Lorsque nous changeons le type de colonne en <a href="../col-types/#numeric-columns">Numérique</a>, l&rsquo;erreur est résolue.</p>
+Cette erreur se produit lorsqu&rsquo;une formule tente de <strong>soustraire</strong> des valeurs de plusieurs colonnes, dont au moins une n&rsquo;est pas de type <a href="../col-types/#colonnes-numeriques">Numérique</a>. Dans l&rsquo;exemple ci-dessus, la colonne Discount est une colonne <a href="../col-types/#colonnes-de-texte">Texte</a>.</p>
+<p>Lorsque nous changeons le type de colonne en <a href="../col-types/#colonnes-numeriques">Numérique</a>, l&rsquo;erreur est résolue.</p>
 <p></details>
 </section></p>
 <p><span></span><section class="cheat-sheet"></p>
@@ -8227,7 +8231,7 @@ Nous utilisons la méthode <a href="https://www.w3schools.com/python/ref_string_
 <p><div class="highlight"><pre><span></span><code>&quot;{} — {:g} {}&quot;.format(comp.Component, quantity, comp.Unit)
   for (comp, quantity) in $Components.items()
 </code></pre></div>
-Nous allons travailler à l&rsquo;envers. Tout d&rsquo;abord, nous devons examiner la colonne Components qui est une <a href="../page-widgets/#configuring-field-lists">colonne cachée</a> dans la table All Contracts.</p>
+Nous allons travailler à l&rsquo;envers. Tout d&rsquo;abord, nous devons examiner la colonne Components qui est une <a href="../page-widgets/#configurer-les-listes-de-champs">colonne cachée</a> dans la table All Contracts.</p>
 <p><span class="screenshot-large"><em><img alt="combining-text-components-hidden" src="../images/formula-cheat-sheet/combining-text-components-hidden.png" /></em></span></p>
 <p>Cette colonne est une liste de composants et de leurs quantités associées pour le contrat. Dans la boucle <code>for</code>, nous assignons chaque élément de la liste de composants à deux variables, comp et quantity. Pour <code>Components[3]: 6.0</code>, comp = <code>Components[3]</code> et quantity = <code>6.0</code>. <code>Components[#]</code> spécifie un Composant dans la table Components par ID de ligne. <code>Components[3]</code> est le composant assigné <code>3</code> comme son ID de ligne.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="components-row-id" src="../images/formula-cheat-sheet/components-row-id.png" /></em></span></p>
@@ -8241,7 +8245,7 @@ Nous allons travailler à l&rsquo;envers. Tout d&rsquo;abord, nous devons examin
 <p>La formule utilisée dans la colonne Body de la table Advanced Compose est :
 <div class="highlight"><pre><span></span><code>&quot;Dear %s,\n\nWelcome to the %s team!&quot; % ($Contact_Name_as_Plaintext, $Team)
 </code></pre></div>
-Cette technique utilise l&rsquo;opérateur <code>%</code> au lieu de la méthode <code>format()</code>. Les spécificateurs de format commencent par <code>%</code> suivi d&rsquo;un caractère qui représente le type de données. <code>%s</code> est un espace réservé pour une chaîne. Le premier <code>%s</code> est remplacé par la valeur trouvée dans la colonne &ldquo;Contact Name as Plaintext&rdquo; qui est une <a href="../page-widgets/#configuring-field-lists">colonne cachée</a> et le deuxième <code>%s</code> est remplacé par la valeur dans la colonne Team.</p>
+Cette technique utilise l&rsquo;opérateur <code>%</code> au lieu de la méthode <code>format()</code>. Les spécificateurs de format commencent par <code>%</code> suivi d&rsquo;un caractère qui représente le type de données. <code>%s</code> est un espace réservé pour une chaîne. Le premier <code>%s</code> est remplacé par la valeur trouvée dans la colonne &ldquo;Contact Name as Plaintext&rdquo; qui est une <a href="../page-widgets/#configurer-les-listes-de-champs">colonne cachée</a> et le deuxième <code>%s</code> est remplacé par la valeur dans la colonne Team.</p>
 <p><code>\n</code> ajoute une nouvelle ligne.</p>
 <p></details>
 </section></p>
@@ -8288,7 +8292,7 @@ Votre URL s&rsquo;affiche-t-elle toujours après avoir ajouté une étiquette ? 
 Ici, nous joignons plusieurs chaînes pour créer notre publicité.</p>
 <p><code>"Coming soon to a city near you!\n"</code> est renvoyé presque exactement comme nous le voyons, à l&rsquo;exception des guillemets <code>""</code> et <code>\n</code> à la fin de la chaîne.</p>
 <p>Les guillemets <code>""</code> spécifient qu&rsquo;il s&rsquo;agit d&rsquo;une chaîne et <code>\n</code> est en fait un caractère de nouvelle ligne qui peut être utilisé pour spécifier une nouvelle ligne dans une chaîne.</p>
-<p><code>" : ".join($New_Location_s_in_2022)</code> est également une chaîne mais utilise la méthode <a href="https://www.w3schools.com/python/ref_string_join.asp" target="_blank">join() de Python</a> pour joindre les valeurs de notre colonne de <a href="../col-types/#choice-list-columns">liste de choix</a>, &ldquo;New Locations in 2022&rdquo;. Ce que nous voyons entre guillemets avant <code>.join</code> est ce qui séparera chaque valeur de notre liste.</p>
+<p><code>" : ".join($New_Location_s_in_2022)</code> est également une chaîne mais utilise la méthode <a href="https://www.w3schools.com/python/ref_string_join.asp" target="_blank">join() de Python</a> pour joindre les valeurs de notre colonne de <a href="../col-types/#colonnes-de-liste-de-choix">liste de choix</a>, &ldquo;New Locations in 2022&rdquo;. Ce que nous voyons entre guillemets avant <code>.join</code> est ce qui séparera chaque valeur de notre liste.</p>
 <p>Dans cet exemple, chaque valeur est séparée par un espace, <code>:</code> et un autre espace.</p>
 <p></details>
 </section></p>
@@ -8372,7 +8376,7 @@ full_list = confirmed_div + pending_div
 return sorted(set(full_list))
 </code></pre></div>
 Nous allons décomposer cela ligne par ligne.</p>
-<p>Attending-Confirmed est une colonne de liste de référence qui tire des données de la table EMPLOYEES. <code>$Attending_Confirmed.Role_Division</code> tire la valeur de la colonne Role Division de la table EMPLOYEES. La colonne Role Division dans la table EMPLOYEES est elle-même une colonne de référence, qui pointe vers un enregistrement dans la table Divisions. <a href="../references-lookups/#chaining">Chaining</a> nous permet de spécifier quelles informations nous voulons de cet enregistrement. Dans ce cas, nous voulons la Division. Nous développons notre formule pour <code>$Attending_Confirmed.Role_Division.Division</code>. La Division est trouvée pour chaque employé listé dans la colonne Attending-Confirmed, créant une liste. Nous assignons cette liste de divisions à la variable <code>confirmed_div</code>.</p>
+<p>Attending-Confirmed est une colonne de liste de référence qui tire des données de la table EMPLOYEES. <code>$Attending_Confirmed.Role_Division</code> tire la valeur de la colonne Role Division de la table EMPLOYEES. La colonne Role Division dans la table EMPLOYEES est elle-même une colonne de référence, qui pointe vers un enregistrement dans la table Divisions. <a href="../references-lookups/#chaînage">Chaînage</a> nous permet de spécifier quelles informations nous voulons de cet enregistrement. Dans ce cas, nous voulons la Division. Nous développons notre formule pour <code>$Attending_Confirmed.Role_Division.Division</code>. La Division est trouvée pour chaque employé listé dans la colonne Attending-Confirmed, créant une liste. Nous assignons cette liste de divisions à la variable <code>confirmed_div</code>.</p>
 <p>Attending-Pending est également une colonne de liste de référence qui tire des données de la table EMPLOYEES. <code>$Attending_Pending.Role_Division.Division</code> fait la même chose que ci-dessus sauf que maintenant nous tirons la division pour chaque employé dans la colonne Attending-Pending. Nous assignons cette liste à la variable <code>pending_div</code>.</p>
 <p>Nous créons une liste de toutes les divisions en ajoutant les deux listes ensemble et en assignant cette liste combinée à la variable <code>full_list</code>.</p>
 <p><code>return sorted(set(full_list))</code> utilise d&rsquo;abord la méthode <a href="https://docs.python.org/3/tutorial/datastructures.html#sets" target="_blank">set()</a> de Python pour créer une liste sans doublons. Nous utilisons ensuite la méthode <a href="https://docs.python.org/3/library/functions.html#sorted" target="_blank">sorted()</a> pour renvoyer notre ensemble de divisions, trié par ordre alphabétique.</p>
@@ -8402,12 +8406,12 @@ Nous allons décomposer cela ligne par ligne.</p>
 <p>La formule utilisée dans la colonne Last Updated de la table Tasks est :
 <div class="highlight"><pre><span></span><code>NOW()
 </code></pre></div>
-C&rsquo;est une <a href="../formulas/#trigger-formulas">formule d&rsquo;initialisation</a> qui se déclenche lorsqu&rsquo;un changement est effectué dans n&rsquo;importe quel champ pour cet enregistrement. Lorsqu&rsquo;un changement est effectué, cette formule exécute son calcul. <code>NOW()</code> calcule l&rsquo;heure et la date actuelles pour le <a href="../dates/#time-zones">fuseau horaire</a> sélectionné.</p>
+C&rsquo;est une <a href="../formulas/#formules-dinitialisation">formule d&rsquo;initialisation</a> qui se déclenche lorsqu&rsquo;un changement est effectué dans n&rsquo;importe quel champ pour cet enregistrement. Lorsqu&rsquo;un changement est effectué, cette formule exécute son calcul. <code>NOW()</code> calcule l&rsquo;heure et la date actuelles pour le <a href="../dates/#fuseaux-horaires">fuseau horaire</a> sélectionné.</p>
 <p><span class="screenshot-large"><em><img alt="created-by-trigger" src="../images/formula-cheat-sheet/created-by-trigger.png" /></em></span></p>
 <p>La formule utilisée dans la colonne Created By de la table Tasks est :
 <div class="highlight"><pre><span></span><code>user.Name
 </code></pre></div>
-C&rsquo;est une <a href="../formulas/#trigger-formulas">formule d&rsquo;initialisation</a> qui se déclenche lorsqu&rsquo;un nouvel enregistrement est créé. Lorsque l&rsquo;enregistrement est créé, cette formule exécute son calcul. <code>user.Name</code> recherche le compte utilisateur qui est connecté à Grist et renvoie le nom associé à ce compte.</p>
+C&rsquo;est une <a href="../formulas/#formules-dinitialisation">formule d&rsquo;initialisation</a> qui se déclenche lorsqu&rsquo;un nouvel enregistrement est créé. Lorsque l&rsquo;enregistrement est créé, cette formule exécute son calcul. <code>user.Name</code> recherche le compte utilisateur qui est connecté à Grist et renvoie le nom associé à ce compte.</p>
 </details>
 <p><span></span><details><summary></p>
 <h4 id="depannage-des-erreurs_2">Dépannage des Erreurs<a class="headerlink" href="#depannage-des-erreurs_2" title="Permanent link">#</a></h4>
@@ -8430,7 +8434,7 @@ Si la valeur de temps dans votre colonne datetime ne se calcule pas, vérifiez v
 </section></p>
 <p><span></span><section class="cheat-sheet"></p>
 <h4 id="filtrer-les-donnees-dans-une-duree-specifiee">Filtrer les Données dans une Durée Spécifiée<a class="headerlink" href="#filtrer-les-donnees-dans-une-duree-specifiee" title="Permanent link">#</a></h4>
-<p>En utilisant la fonction <a href="../functions/#dateadd"><code>DATEADD()</code></a> et les <a href="#comparing-values">opérateurs de comparaison</a>, vous pouvez déterminer si une date tombe dans une plage spécifique puis appliquer un filtre.</p>
+<p>En utilisant la fonction <a href="../functions/#dateadd"><code>DATEADD()</code></a> et les <a href="#comparer-des-valeurs">opérateurs de comparaison</a>, vous pouvez déterminer si une date tombe dans une plage spécifique puis appliquer un filtre.</p>
 <p><span></span><details><summary></p>
 <h4 id="exemple-de-filtrage-des-donnees-qui-tombe-dans-une-plage-de-1-mois">Exemple de Filtrage des Données qui &lsquo;Tombe dans une Plage de 1 Mois&rsquo;<a class="headerlink" href="#exemple-de-filtrage-des-donnees-qui-tombe-dans-une-plage-de-1-mois" title="Permanent link">#</a></h4>
 </summary>
@@ -8440,7 +8444,7 @@ La formule utilisée dans la colonne Falls in 1 Month Range? de la table Interac
 <div class="highlight"><pre><span></span><code>TODAY() &gt;= $Date &gt;=  DATEADD(TODAY(),months=-1)
 </code></pre></div>
 <a href="../functions/#today"><code>TODAY()</code></a> renvoie la date actuelle.</p>
-<p><code>$Date</code> est le nom d&rsquo;une colonne dans notre table, qui est de type <a href="../col-types/#date-columns">Date</a>.</p>
+<p><code>$Date</code> est le nom d&rsquo;une colonne dans notre table, qui est de type <a href="../col-types/#colonnes-de-date">Date</a>.</p>
 <p><a href="../functions/#dateadd"><code>DATEADD(start_date, days=0, months=0, years=0, weeks=0)</code></a> renvoie la date qui est le nombre donné de jours, mois, années ou semaines avant ou après la <code>start_date</code>. Dans cet exemple, elle renvoie la date qui est un mois avant la date de départ, <code>TODAY()</code>.</p>
 <p>Cette formule est vraie si la valeur de date dans la colonne Date tombe entre <code>TODAY()</code> et notre date <code>DATEADD()</code> qui est un mois auparavant. Si la valeur de date dans la colonne Date ne tombe pas entre ces deux dates, la formule renvoie faux.</p>
 <p>Nous pouvons utiliser cette colonne pour filtrer nos données. Si nous ne voulons voir que les interactions qui tombent dans la Plage de 1 Mois, nous filtrerions pour n&rsquo;inclure que les valeurs <code>true</code>. Si nous voulons voir les interactions qui tombent en dehors de la Plage de 1 Mois, nous filtrerions pour n&rsquo;inclure que les valeurs <code>false</code>.</p>
@@ -8454,7 +8458,7 @@ La formule utilisée dans la colonne Falls in 1 Month Range? de la table Interac
 <li>
 <p><code>#TypeError</code> :</p>
 <p><span class="screenshot-large"><em><img alt="1-month-range-type-error" src="../images/formula-cheat-sheet/1-month-range-type-error.png" /></em></span></p>
-<p>Parce que <code>$Date</code> est une colonne de type <a href="../col-types/#date-columns">Date</a>, <code>TODAY()</code> doit être utilisé dans les formules comparant des dates. <a href="../functions/#now"><code>NOW()</code></a> est une formule DateTime qui ne doit être utilisée qu&rsquo;avec d&rsquo;autres valeurs DateTime. Par exemple, si la colonne <code>$Date</code> était une colonne de type <a href="../col-types/#datetime-columns">DateTime</a>, <code>NOW()</code> devrait être utilisé plutôt que <code>TODAY()</code> car il inclut le composant temps.</p>
+<p>Parce que <code>$Date</code> est une colonne de type <a href="../col-types/#colonnes-de-date">Date</a>, <code>TODAY()</code> doit être utilisé dans les formules comparant des dates. <a href="../functions/#now"><code>NOW()</code></a> est une formule DateTime qui ne doit être utilisée qu&rsquo;avec d&rsquo;autres valeurs DateTime. Par exemple, si la colonne <code>$Date</code> était une colonne de type <a href="../col-types/#colonnes-dateheure">DateTime</a>, <code>NOW()</code> devrait être utilisé plutôt que <code>TODAY()</code> car il inclut le composant temps.</p>
 <p><code>NOW()</code> est date et heure. <code>TODAY()</code> est seulement date.</p>
 </li>
 </ul>

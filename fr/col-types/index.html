@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/col-types/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/col-types/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3651,7 +3655,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -4075,7 +4079,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4106,7 +4110,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7322,21 +7326,21 @@
 <p class="screenshot-half"><em><img alt="Ajouter une colonne cachée" src="../images/columns/columns-add-hidden-column.png" /></em></p>
 <p>&ldquo;Appariements&rdquo; vous permet d&rsquo;ajouter des colonnes de données provenant de tables liées. Vous pouvez utiliser des colonnes de référence pour relier des données dans différentes tables. En savoir plus sur <a href="../references-lookups/">Références et Appariements</a>.</p>
 <p class="screenshot-half"><em><img alt="Ajouter une colonne d'appariement" src="../images/columns/columns-add-lookup.png" /></em></p>
-<p>&ldquo;Raccourcis&rdquo; répertorie les fonctions de <a href="../formulas/#trigger-formulas">formule d&rsquo;initialisation</a> les plus fréquemment utilisées.</p>
+<p>&ldquo;Raccourcis&rdquo; répertorie les fonctions de <a href="../formulas/#formules-dinitialisation">formule d&rsquo;initialisation</a> les plus fréquemment utilisées.</p>
 <p class="screenshot-half"><em><img alt="Ajouter une colonne de raccourci" src="../images/columns/columns-add-shortcut.png" /></em></p>
 <p>En savoir plus sur chaque option de raccourci aux liens ci-dessous :</p>
 <ul>
 <li>
-<p><a href="../formula-cheat-sheet/#examples-of-automatic-date-time-and-author-stamps">Horodatage</a></p>
+<p><a href="../formula-cheat-sheet/#exemples-de-tampons-automatiques-de-date-heure-et-auteur">Horodatage</a></p>
 </li>
 <li>
-<p><a href="../formula-cheat-sheet/#examples-of-automatic-date-time-and-author-stamps">Autorité</a></p>
+<p><a href="../formula-cheat-sheet/#exemples-de-tampons-automatiques-de-date-heure-et-auteur">Autorité</a></p>
 </li>
 <li>
-<p><a href="../formula-cheat-sheet/#finding-duplicates">Détecter les doublons dans&hellip;</a></p>
+<p><a href="../formula-cheat-sheet/#trouver-des-doublons">Détecter les doublons dans&hellip;</a></p>
 </li>
 <li>
-<p><a href="../access-rules/#link-keys">UUID</a></p>
+<p><a href="../access-rules/#cles-de-lien">UUID</a></p>
 </li>
 </ul>
 <h2 id="reorganiser-les-colonnes">Réorganiser les colonnes<a class="headerlink" href="#reorganiser-les-colonnes" title="Permanent link">#</a></h2>
@@ -7456,7 +7460,7 @@
 <p class="screenshot-half"><em><img alt="Format numérique" src="../images/columns/columns-format-currency.png" /></em></p>
 <div class="admonition note">
 <p class="admonition-title">Définir la devise par défaut</p>
-<p>Vous pouvez définir le fuseau horaire, la locale et la devise par défaut d&rsquo;un document dans <a href="../creating-doc/#document-settings">Paramètres du document</a>.</p>
+<p>Vous pouvez définir le fuseau horaire, la locale et la devise par défaut d&rsquo;un document dans <a href="../creating-doc/#parametres-du-document">Paramètres du document</a>.</p>
 </div>
 <ul>
 <li><code>,</code> : Activer l&rsquo;affichage des séparateurs de milliers.</li>
@@ -7469,18 +7473,18 @@
 <h2 id="colonnes-basculantes">Colonnes basculantes<a class="headerlink" href="#colonnes-basculantes" title="Permanent link">#</a></h2>
 <p>Ce type est pour stocker des valeurs vrai/faux. Les valeurs peuvent être affichées sous forme de texte, de cases à cocher ou de commutateurs.</p>
 <p class="screenshot-half"><em><img alt="Format basculant" src="../images/columns/columns-format-toggle.png" /></em></p>
-<p>Voir également l&rsquo;exemple dans <a href="./#specifying-a-type">Spécifier un type</a>.</p>
+<p>Voir également l&rsquo;exemple dans <a href="./#specifier-un-type">Spécifier un type</a>.</p>
 <h2 id="colonnes-de-date">Colonnes de date<a class="headerlink" href="#colonnes-de-date" title="Permanent link">#</a></h2>
 <p>Ce type est pour stocker des dates de calendrier (sans composant horaire). Plus de détails dans <a href="../dates/">Travailler avec des dates</a>. Vous pouvez choisir le format des dates, voir la <a href="https://momentjs.com/docs/#/displaying/format/">référence de formatage des dates</a>.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-date" src="../images/columns/columns-format-date.png" /></em></span></p>
 <h2 id="colonnes-dateheure">Colonnes DateHeure<a class="headerlink" href="#colonnes-dateheure" title="Permanent link">#</a></h2>
 <p>Ce type est pour stocker des dates de calendrier plus l&rsquo;heure de la journée. Plus de détails dans <a href="../dates/">Travailler avec des dates</a>. Vous pouvez choisir le format des dates, voir la <a href="https://momentjs.com/docs/#/displaying/format/">référence de formatage des dates et heures</a>. Vous pouvez également spécifier le fuseau horaire à afficher.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-datetime" src="../images/columns/columns-format-datetime.png" /></em></span></p>
-<p>Si vous souhaitez définir un fuseau horaire par défaut pour votre document, vous pouvez le faire dans <a href="../creating-doc/#document-settings">Paramètres du document</a>.</p>
+<p>Si vous souhaitez définir un fuseau horaire par défaut pour votre document, vous pouvez le faire dans <a href="../creating-doc/#parametres-du-document">Paramètres du document</a>.</p>
 <h2 id="colonnes-de-choix">Colonnes de choix<a class="headerlink" href="#colonnes-de-choix" title="Permanent link">#</a></h2>
 <p>Ce type est pour stocker une valeur parmi un ensemble de valeurs valides, où vous pouvez spécifier les valeurs disponibles.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-choice" src="../images/columns/columns-format-choice.png" /></em></span></p>
-<p>Il y a un exemple d&rsquo;utilisation de ce type de colonne dans l&rsquo;<a href="../lightweight-crm/#setting-other-types">exemple de CRM léger</a>.</p>
+<p>Il y a un exemple d&rsquo;utilisation de ce type de colonne dans l&rsquo;<a href="../lightweight-crm/#definir-dautres-types">exemple de CRM léger</a>.</p>
 <p>Si vous commencez avec une colonne de texte peuplée, Grist prendra toutes les valeurs uniques de cette colonne comme choix valides.</p>
 <p>Vous pouvez ajouter ou supprimer des choix en cliquant soit sur <code>Modifier</code> soit sur la boîte de choix. Pour ajouter un choix, tapez sa valeur dans le champ de texte en dessous des autres choix et appuyez sur <code>Entrée</code>. Pour supprimer un choix, cliquez sur l&rsquo;icône de suppression à droite du choix ou sélectionnez le choix en cliquant dessus, puis appuyez sur <code>Retour arrière</code>/<code>Supprimer</code>. Pour appliquer/enregistrer vos modifications, vous pouvez soit cliquer sur le bouton <code>Enregistrer</code>, soit appuyer sur <code>Entrée</code>. Pour annuler vos modifications, vous pouvez soit cliquer sur le bouton <code>Annuler</code>, soit appuyer sur <code>Échap</code>.</p>
 <p>Cliquer sur le menu déroulant de couleur à gauche d&rsquo;un choix ouvrira un sélecteur de couleur pour personnaliser la couleur de remplissage et de texte d&rsquo;un choix. Les modifications de couleurs sont reflétées dans les cellules et dans le reste de votre document une fois que vous avez enregistré vos modifications.</p>
@@ -7494,19 +7498,19 @@
 <p>Ce type est pour stocker plusieurs valeurs d&rsquo;un ensemble de valeurs valides, où vous pouvez spécifier les valeurs disponibles.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-choice-list" src="../images/columns/columns-format-choice-list.png" /></em></span></p>
 <p>Si vous commencez avec une colonne de texte peuplée, Grist prendra toutes les valeurs uniques de cette colonne comme choix valides.</p>
-<p>Les colonnes de liste de choix sont configurées de la même manière que les colonnes de <a href="#choice-columns">Choix</a>, et prennent en charge le même niveau de personnalisation et de raccourcis clavier. Elles diffèrent par le nombre de choix qu&rsquo;elles permettent d&rsquo;entrer dans chaque cellule. Alors que les colonnes de choix ne permettent qu&rsquo;une seule valeur au maximum dans une cellule, les colonnes de liste de choix en permettent plusieurs.</p>
+<p>Les colonnes de liste de choix sont configurées de la même manière que les colonnes de <a href="#colonnes-de-choix">Choix</a>, et prennent en charge le même niveau de personnalisation et de raccourcis clavier. Elles diffèrent par le nombre de choix qu&rsquo;elles permettent d&rsquo;entrer dans chaque cellule. Alors que les colonnes de choix ne permettent qu&rsquo;une seule valeur au maximum dans une cellule, les colonnes de liste de choix en permettent plusieurs.</p>
 <p>Comme avec les colonnes de choix, lors de la saisie dans une cellule de colonne de liste de choix, les choix valides seront affichés dans un menu de saisie semi-automatique. Une fois que vous avez sélectionné une valeur, vous pouvez continuer à ajouter des choix à la même cellule.</p>
 <p class="screenshot-half"><em><img alt="Format choix" src="../images/columns/columns-cell-choice-list.png" /></em></p>
 <p>Les choix peuvent être réorganisés à l&rsquo;intérieur de leurs cellules en cliquant et en les faisant glisser pendant que la cellule est en cours d&rsquo;édition. Vous pouvez également utiliser les touches fléchées et la touche <code>Supprimer</code> pour naviguer et supprimer des choix, ou simplement cliquer sur l&rsquo;icône de suppression lorsque vous survolez un choix.</p>
 <div class="admonition note">
 <p class="admonition-title">Filtrer les listes déroulantes des colonnes de choix et de liste de choix</p>
-<p>Lors de la saisie de données dans une colonne de choix ou de liste de choix, vous verrez une liste déroulante de tous les choix disponibles. Parfois, il serait utile de filtrer la liste déroulante en fonction d&rsquo;une condition, comme la valeur dans une autre cellule. Écrire des conditions pour filtrer les listes déroulantes de choix est similaire à <a href="../col-refs/#filtering-reference-choices-in-dropdown">filtrer les listes déroulantes des colonnes de référence</a>.</p>
+<p>Lors de la saisie de données dans une colonne de choix ou de liste de choix, vous verrez une liste déroulante de tous les choix disponibles. Parfois, il serait utile de filtrer la liste déroulante en fonction d&rsquo;une condition, comme la valeur dans une autre cellule. Écrire des conditions pour filtrer les listes déroulantes de choix est similaire à <a href="../col-refs/#filtrer-les-choix-de-reference-dans-la-liste-deroulante">filtrer les listes déroulantes des colonnes de référence</a>.</p>
 </div>
 <h2 id="colonnes-de-reference">Colonnes de référence<a class="headerlink" href="#colonnes-de-reference" title="Permanent link">#</a></h2>
 <p>Ceci établit une référence croisée à une autre table. Vous pouvez spécifier la table à référencer, et une colonne au sein de cette table à afficher. Il y a beaucoup de choses que vous pouvez faire avec ce type de colonne, voir <a href="../col-refs/">Colonnes de référence</a> pour plus de détails.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-reference" src="../images/columns/columns-format-reference.png" /></em></span></p>
 <h2 id="colonnes-de-liste-de-references">Colonnes de liste de références<a class="headerlink" href="#colonnes-de-liste-de-references" title="Permanent link">#</a></h2>
-<p>Comme les <a href="#reference-columns">Colonnes de référence</a>, mais peuvent stocker plusieurs références dans une seule cellule. Il y a beaucoup de choses que vous pouvez faire avec ce type de colonne, voir <a href="../col-refs/#creating-a-new-reference-list-column">Colonnes de référence</a> pour plus de détails.</p>
+<p>Comme les <a href="#colonnes-de-reference">Colonnes de référence</a>, mais peuvent stocker plusieurs références dans une seule cellule. Il y a beaucoup de choses que vous pouvez faire avec ce type de colonne, voir <a href="../col-refs/#creer-une-nouvelle-colonne-de-liste-de-references">Colonnes de référence</a> pour plus de détails.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="columns-format-reference-list" src="../images/columns/columns-format-reference-list.png" /></em></span></p>
 <h2 id="colonnes-de-pieces-jointes">Colonnes de pièces jointes<a class="headerlink" href="#colonnes-de-pieces-jointes" title="Permanent link">#</a></h2>
 <p>Ce type de colonne vous permet d&rsquo;insérer des fichiers et des images entiers dans des cellules. Lorsque des images sont ajoutées dans des cellules, une miniature d&rsquo;aperçu est affichée dans la cellule. La barre &ldquo;Taille&rdquo; permet de contrôler l&rsquo;échelle de cette miniature.</p>

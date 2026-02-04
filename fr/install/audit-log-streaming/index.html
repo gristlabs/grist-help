@@ -6,8 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Grist can stream audit log events from your installation to an external
-destination, such as a security information and event management (SIEM) system.">
+        <meta name="description" content="Grist peut diffuser des événements de journaux d’audit depuis votre installation vers une destination
+externe, telle qu’un système de gestion des informations et événements de sécurité (SIEM).">
       
       
       
@@ -62,7 +62,7 @@ destination, such as a security information and event management (SIEM) system."
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -159,7 +159,7 @@ destination, such as a security information and event management (SIEM) system."
     <div data-md-component="skip">
       
         
-        <a href="#audit-log-streaming" class="md-skip">
+        <a href="#diffusion-des-journaux-daudit" class="md-skip">
           Aller au contenu
         </a>
       
@@ -221,14 +221,18 @@ destination, such as a security information and event management (SIEM) system."
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/install/audit-log-streaming/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/install/audit-log-streaming/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3394,7 +3398,7 @@ destination, such as a security information and event management (SIEM) system."
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3820,7 +3824,7 @@ destination, such as a security information and event management (SIEM) system."
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3851,7 +3855,7 @@ destination, such as a security information and event management (SIEM) system."
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -4326,22 +4330,22 @@ destination, such as a security information and event management (SIEM) system."
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adding-streaming-destinations" class="md-nav__link">
+  <a href="#ajouter-des-destinations-de-diffusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding streaming destinations
+        Ajouter des destinations de diffusion
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Adding streaming destinations">
+    <nav class="md-nav" aria-label="Ajouter des destinations de diffusion">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#streaming-to-splunk-hec" class="md-nav__link">
+  <a href="#diffusion-vers-splunk-hec" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Streaming to Splunk (HEC)
+        Diffusion vers Splunk (HEC)
       
     </span>
   </a>
@@ -4349,10 +4353,10 @@ destination, such as a security information and event management (SIEM) system."
 </li>
         
           <li class="md-nav__item">
-  <a href="#streaming-to-other-destinations-http" class="md-nav__link">
+  <a href="#diffusion-vers-dautres-destinations-http" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Streaming to other destinations (HTTP)
+        Diffusion vers d&rsquo;autres destinations (HTTP)
       
     </span>
   </a>
@@ -4365,10 +4369,10 @@ destination, such as a security information and event management (SIEM) system."
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating-streaming-destinations" class="md-nav__link">
+  <a href="#mettre-a-jour-les-destinations-de-diffusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating streaming destinations
+        Mettre à jour les destinations de diffusion
       
     </span>
   </a>
@@ -4376,10 +4380,10 @@ destination, such as a security information and event management (SIEM) system."
 </li>
       
         <li class="md-nav__item">
-  <a href="#deleting-streaming-destinations" class="md-nav__link">
+  <a href="#supprimer-les-destinations-de-diffusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deleting streaming destinations
+        Supprimer les destinations de diffusion
       
     </span>
   </a>
@@ -6891,22 +6895,22 @@ destination, such as a security information and event management (SIEM) system."
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adding-streaming-destinations" class="md-nav__link">
+  <a href="#ajouter-des-destinations-de-diffusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding streaming destinations
+        Ajouter des destinations de diffusion
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Adding streaming destinations">
+    <nav class="md-nav" aria-label="Ajouter des destinations de diffusion">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#streaming-to-splunk-hec" class="md-nav__link">
+  <a href="#diffusion-vers-splunk-hec" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Streaming to Splunk (HEC)
+        Diffusion vers Splunk (HEC)
       
     </span>
   </a>
@@ -6914,10 +6918,10 @@ destination, such as a security information and event management (SIEM) system."
 </li>
         
           <li class="md-nav__item">
-  <a href="#streaming-to-other-destinations-http" class="md-nav__link">
+  <a href="#diffusion-vers-dautres-destinations-http" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Streaming to other destinations (HTTP)
+        Diffusion vers d&rsquo;autres destinations (HTTP)
       
     </span>
   </a>
@@ -6930,10 +6934,10 @@ destination, such as a security information and event management (SIEM) system."
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating-streaming-destinations" class="md-nav__link">
+  <a href="#mettre-a-jour-les-destinations-de-diffusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating streaming destinations
+        Mettre à jour les destinations de diffusion
       
     </span>
   </a>
@@ -6941,10 +6945,10 @@ destination, such as a security information and event management (SIEM) system."
 </li>
       
         <li class="md-nav__item">
-  <a href="#deleting-streaming-destinations" class="md-nav__link">
+  <a href="#supprimer-les-destinations-de-diffusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deleting streaming destinations
+        Supprimer les destinations de diffusion
       
     </span>
   </a>
@@ -7046,49 +7050,47 @@ destination, such as a security information and event management (SIEM) system."
 <div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 class="tag-ee" id="audit-log-streaming">Audit log streaming<a class="headerlink" href="#audit-log-streaming" title="Permanent link">#</a></h1>
-<p>Grist can stream audit log events from your installation to an external
-destination, such as a security information and event management (SIEM) system.</p>
-<p>You can add, update, or delete a streaming destination at any time, and stream
-to multiple destinations. Events from all team sites within your installation
-will be included in the stream.</p>
-<p>Events are streamed in real-time. Only events that occurred after a streaming
-destination was added will be sent to that destination.</p>
-<p><strong>Note:</strong> You must be an installation administrator to view or modify streaming
-destinations.</p>
-<h2 id="adding-streaming-destinations">Adding streaming destinations<a class="headerlink" href="#adding-streaming-destinations" title="Permanent link">#</a></h2>
-<p>Grist currently supports streaming to destinations with HTTP Event Collector
-(HEC) endpoints, such as Splunk, or destinations that can accept structured JSON
-over HTTP. Follow the instructions for your destination:</p>
+<h1 class="tag-ee" id="diffusion-des-journaux-daudit">Diffusion des journaux d&rsquo;audit<a class="headerlink" href="#diffusion-des-journaux-daudit" title="Permanent link">#</a></h1>
+<p>Grist peut diffuser des événements de journaux d&rsquo;audit depuis votre installation vers une destination
+externe, telle qu&rsquo;un système de gestion des informations et événements de sécurité (SIEM).</p>
+<p>Vous pouvez ajouter, mettre à jour ou supprimer une destination de diffusion à tout moment, et diffuser
+vers plusieurs destinations. Les événements de tous les sites d&rsquo;équipe dans votre installation
+seront inclus dans le flux.</p>
+<p>Les événements sont diffusés en temps réel. Seuls les événements qui se sont produits après qu&rsquo;une destination de diffusion
+ait été ajoutée seront envoyés à cette destination.</p>
+<p><strong>Note :</strong> Vous devez être un administrateur d&rsquo;installation pour voir ou modifier les destinations de diffusion.</p>
+<h2 id="ajouter-des-destinations-de-diffusion">Ajouter des destinations de diffusion<a class="headerlink" href="#ajouter-des-destinations-de-diffusion" title="Permanent link">#</a></h2>
+<p>Grist supporte actuellement la diffusion vers des destinations avec des points de terminaison HTTP Event Collector
+(HEC), comme Splunk, ou des destinations qui peuvent accepter du JSON structuré
+sur HTTP. Suivez les instructions pour votre destination :</p>
 <ul>
-<li><a href="#streaming-to-splunk-hec">Splunk (HEC)</a></li>
-<li><a href="#streaming-to-other-destinations-http">Other (HTTP)</a></li>
+<li><a href="#diffusion-vers-splunk-hec">Splunk (HEC)</a></li>
+<li><a href="#diffusion-vers-dautres-destinations-http">Autre (HTTP)</a></li>
 </ul>
-<h3 id="streaming-to-splunk-hec">Streaming to Splunk (HEC)<a class="headerlink" href="#streaming-to-splunk-hec" title="Permanent link">#</a></h3>
-<p>To stream to destinations with HEC endpoints, a format used by Splunk and
-Splunk-compatible services, you need to set up an HEC endpoint that is
-reachable from your Grist installation. You can also use a tool like
-<a href="https://vector.dev/">Vector</a> which supports receiving HEC events. See
-<a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector">Splunk&rsquo;s documentation</a>
-for more information.</p>
+<h3 id="diffusion-vers-splunk-hec">Diffusion vers Splunk (HEC)<a class="headerlink" href="#diffusion-vers-splunk-hec" title="Permanent link">#</a></h3>
+<p>Pour diffuser vers des destinations avec des points de terminaison HEC, un format utilisé par Splunk et
+les services compatibles avec Splunk, vous devez configurer un point de terminaison HEC qui est
+accessible depuis votre installation Grist. Vous pouvez également utiliser un outil comme
+<a href="https://vector.dev/">Vector</a> qui supporte la réception d&rsquo;événements HEC. Voir
+<a href="https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector">la documentation de Splunk</a>
+pour plus d&rsquo;informations.</p>
 <ol>
-<li>Click the profile icon in the top-right corner of Grist.</li>
-<li>Click <strong>Admin Panel</strong>.</li>
-<li>Under &ldquo;Audit Logs&rdquo;, click <strong>Log Streaming</strong>.</li>
-<li>Under &ldquo;Destinations&rdquo;, click <strong>Start streaming</strong> or <strong>Add destination</strong>.</li>
-<li>Under &ldquo;Destination&rdquo;, click <strong>Splunk</strong>.</li>
-<li>Under &ldquo;URL&rdquo;, enter the HEC endpoint to send events to.</li>
-<li>Under &ldquo;Token&rdquo;, enter &ldquo;Splunk &rdquo; followed by the HEC token (e.g. <code>Splunk B5A79AAD-D822-46CC-80D1-819F80D7BFB0</code>).</li>
-<li>Click <strong>Add destination</strong>.</li>
+<li>Cliquez sur l&rsquo;icône de profil dans le coin supérieur droit de Grist.</li>
+<li>Cliquez sur <strong>Panneau d&rsquo;administration</strong>.</li>
+<li>Sous &ldquo;Journaux d&rsquo;audit&rdquo;, cliquez sur <strong>Diffusion des journaux</strong>.</li>
+<li>Sous &ldquo;Destinations&rdquo;, cliquez sur <strong>Commencer la diffusion</strong> ou <strong>Ajouter une destination</strong>.</li>
+<li>Sous &ldquo;Destination&rdquo;, cliquez sur <strong>Splunk</strong>.</li>
+<li>Sous &ldquo;URL&rdquo;, entrez le point de terminaison HEC vers lequel envoyer les événements.</li>
+<li>Sous &ldquo;Jeton&rdquo;, entrez &ldquo;Splunk &rdquo; suivi du jeton HEC (par exemple <code>Splunk B5A79AAD-D822-46CC-80D1-819F80D7BFB0</code>).</li>
+<li>Cliquez sur <strong>Ajouter une destination</strong>.</li>
 </ol>
-<h3 id="streaming-to-other-destinations-http">Streaming to other destinations (HTTP)<a class="headerlink" href="#streaming-to-other-destinations-http" title="Permanent link">#</a></h3>
-<p>To stream to other HTTP destinations, you need to set up an endpoint that is
-reachable from your Grist installation and accepts structured JSON with the
-following format:</p>
+<h3 id="diffusion-vers-dautres-destinations-http">Diffusion vers d&rsquo;autres destinations (HTTP)<a class="headerlink" href="#diffusion-vers-dautres-destinations-http" title="Permanent link">#</a></h3>
+<p>Pour diffuser vers d&rsquo;autres destinations HTTP, vous devez configurer un point de terminaison qui est
+accessible depuis votre installation Grist et accepte du JSON structuré avec le
+format suivant :</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;806ed0d9-7d25-4df2-9a6c-f7d2f6b8dba6&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;document.create&quot;</span><span class="p">,</span>
@@ -7120,32 +7122,32 @@ following format:</p>
 <span class="p">}</span>
 </code></pre></div>
 <ol>
-<li>Click the profile icon in the top-right corner of Grist.</li>
-<li>Click <strong>Admin Panel</strong>.</li>
-<li>Under &ldquo;Audit Logs&rdquo;, click <strong>Log Streaming</strong>.</li>
-<li>Under &ldquo;Destinations&rdquo;, click <strong>Start streaming</strong> or <strong>Add destination</strong>.</li>
-<li>Under &ldquo;Destination&rdquo;, click <strong>Other</strong>.</li>
-<li>Under &ldquo;URL&rdquo;, enter the HTTP endpoint to send events to.</li>
-<li>Under &ldquo;Token&rdquo;, enter the value to include in the Authorization header, if applicable.</li>
-<li>Click <strong>Add destination</strong>.</li>
+<li>Cliquez sur l&rsquo;icône de profil dans le coin supérieur droit de Grist.</li>
+<li>Cliquez sur <strong>Panneau d&rsquo;administration</strong>.</li>
+<li>Sous &ldquo;Journaux d&rsquo;audit&rdquo;, cliquez sur <strong>Diffusion des journaux</strong>.</li>
+<li>Sous &ldquo;Destinations&rdquo;, cliquez sur <strong>Commencer la diffusion</strong> ou <strong>Ajouter une destination</strong>.</li>
+<li>Sous &ldquo;Destination&rdquo;, cliquez sur <strong>Autre</strong>.</li>
+<li>Sous &ldquo;URL&rdquo;, entrez le point de terminaison HTTP vers lequel envoyer les événements.</li>
+<li>Sous &ldquo;Jeton&rdquo;, entrez la valeur à inclure dans l&rsquo;en-tête Authorization, le cas échéant.</li>
+<li>Cliquez sur <strong>Ajouter une destination</strong>.</li>
 </ol>
-<h2 id="updating-streaming-destinations">Updating streaming destinations<a class="headerlink" href="#updating-streaming-destinations" title="Permanent link">#</a></h2>
+<h2 id="mettre-a-jour-les-destinations-de-diffusion">Mettre à jour les destinations de diffusion<a class="headerlink" href="#mettre-a-jour-les-destinations-de-diffusion" title="Permanent link">#</a></h2>
 <ol>
-<li>Click the profile icon in the top-right corner of Grist.</li>
-<li>Click <strong>Admin Panel</strong>.</li>
-<li>Under &ldquo;Audit Logs&rdquo;, click <strong>Log Streaming</strong>.</li>
-<li>Under &ldquo;Destinations&rdquo;, click <strong>&hellip;</strong> for the destination you want to update.</li>
-<li>Modify the destination, URL, and/or token.</li>
-<li>Click <strong>Save</strong>.</li>
+<li>Cliquez sur l&rsquo;icône de profil dans le coin supérieur droit de Grist.</li>
+<li>Cliquez sur <strong>Panneau d&rsquo;administration</strong>.</li>
+<li>Sous &ldquo;Journaux d&rsquo;audit&rdquo;, cliquez sur <strong>Diffusion des journaux</strong>.</li>
+<li>Sous &ldquo;Destinations&rdquo;, cliquez sur <strong>&hellip;</strong> pour la destination que vous souhaitez mettre à jour.</li>
+<li>Modifiez la destination, l&rsquo;URL et/ou le jeton.</li>
+<li>Cliquez sur <strong>Enregistrer</strong>.</li>
 </ol>
-<h2 id="deleting-streaming-destinations">Deleting streaming destinations<a class="headerlink" href="#deleting-streaming-destinations" title="Permanent link">#</a></h2>
+<h2 id="supprimer-les-destinations-de-diffusion">Supprimer les destinations de diffusion<a class="headerlink" href="#supprimer-les-destinations-de-diffusion" title="Permanent link">#</a></h2>
 <ol>
-<li>Click the profile icon in the top-right corner of Grist.</li>
-<li>Click <strong>Admin Panel</strong>.</li>
-<li>Under &ldquo;Audit Logs&rdquo;, click <strong>Log Streaming</strong>.</li>
-<li>Under &ldquo;Destinations&rdquo;, click <strong>&hellip;</strong> for the destination you want to delete.</li>
-<li>Click <strong>Delete</strong>.</li>
-<li>Click <strong>Delete</strong> again in the confirmation modal that appears.</li>
+<li>Cliquez sur l&rsquo;icône de profil dans le coin supérieur droit de Grist.</li>
+<li>Cliquez sur <strong>Panneau d&rsquo;administration</strong>.</li>
+<li>Sous &ldquo;Journaux d&rsquo;audit&rdquo;, cliquez sur <strong>Diffusion des journaux</strong>.</li>
+<li>Sous &ldquo;Destinations&rdquo;, cliquez sur <strong>&hellip;</strong> pour la destination que vous souhaitez supprimer.</li>
+<li>Cliquez sur <strong>Supprimer</strong>.</li>
+<li>Cliquez sur <strong>Supprimer</strong> à nouveau dans la fenêtre contextuelle de confirmation qui apparaît.</li>
 </ol>
 </div>
 

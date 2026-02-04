@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="You can use the Assistant in self-hosted Grist with your AI provider of choice or a local model.">
+        <meta name="description" content="Tutorials and resources for Grist, to help you organize your data, your way.">
       
       
       
@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -158,7 +158,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#assistant-for-self-hosters" class="md-skip">
+        <a href="#assistant-pour-les-auto-hebergeurs" class="md-skip">
           Aller au contenu
         </a>
       
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/install/assistant/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/install/assistant/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3393,7 +3397,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3819,7 +3823,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3850,7 +3854,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -3938,44 +3942,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-set-up-the-assistant" class="md-nav__link">
+  <a href="#comment-configurer-lassistant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to set up the Assistant
+        Comment configurer l&rsquo;Assistant
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How to set up the Assistant">
+    <nav class="md-nav" aria-label="Comment configurer l’Assistant">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#utilisation-dopenrouter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-up-the-assistant-with-a-compatible-endpoint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set up the Assistant with a compatible endpoint
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-up-the-assistant-with-openrouter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set up the Assistant with OpenRouter
+        Utilisation d&rsquo;OpenRouter
       
     </span>
   </a>
@@ -3988,10 +3970,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#variables-denvironnement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment variables
+        Variables d&rsquo;environnement
       
     </span>
   </a>
@@ -6888,44 +6870,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-set-up-the-assistant" class="md-nav__link">
+  <a href="#comment-configurer-lassistant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to set up the Assistant
+        Comment configurer l&rsquo;Assistant
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How to set up the Assistant">
+    <nav class="md-nav" aria-label="Comment configurer l’Assistant">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#utilisation-dopenrouter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-up-the-assistant-with-a-compatible-endpoint" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set up the Assistant with a compatible endpoint
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-up-the-assistant-with-openrouter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set up the Assistant with OpenRouter
+        Utilisation d&rsquo;OpenRouter
       
     </span>
   </a>
@@ -6938,10 +6898,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#variables-denvironnement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment variables
+        Variables d&rsquo;environnement
       
     </span>
   </a>
@@ -7025,58 +6985,42 @@
 <div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Nous commençons tout juste à traduire la documentation pour cette langue, désolé !</p>
-<p>Nous affichons des pages traduites partiellement afin de suivre l&rsquo;avancement.</p>
-<p>Cette page n&rsquo;est pas encore traduite. Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour nous aider 👋</a>.</p>
+<p>La traduction proposée ici a été générée automatiquement par le modèle d&rsquo;intelligence artificielle GPT-4o. Il est probable qu&rsquo;elle contienne des imperfections.</p>
+<p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
-<h1 class="tag-ee" id="assistant-for-self-hosters">Assistant for self-hosters<a class="headerlink" href="#assistant-for-self-hosters" title="Permanent link">#</a></h1>
+<h1 class="tag-ee" id="assistant-pour-les-auto-hebergeurs">Assistant pour les auto-hébergeurs<a class="headerlink" href="#assistant-pour-les-auto-hebergeurs" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Note</p>
-<p>This documentation refers to the current <a href="../../assistant/">Assistant</a>, which is only available on the Enterprise edition. You can find the documentation for the legacy AI Formula Assistant <a href="ai-assistant-legacy.md">here</a>.</p>
+<p>Cette documentation fait référence à l&rsquo;<a href="../../assistant/">Assistant</a> actuel, qui n&rsquo;est disponible que sur l&rsquo;édition Enterprise. Vous pouvez trouver la documentation pour l&rsquo;Assistant de Formule IA legacy <a href="../ai-assistant-legacy/">ici</a>.</p>
 </div>
-<p>You can use the <a href="../../assistant/">Assistant</a> in self-hosted Grist with your AI provider of choice or a local model.</p>
-<h2 id="how-to-set-up-the-assistant">How to set up the Assistant<a class="headerlink" href="#how-to-set-up-the-assistant" title="Permanent link">#</a></h2>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
-<p>The Assistant currently only supports providers and models with an API endpoint compatible with a subset of the <a href="https://platform.openai.com/docs/api-reference/chat/create">OpenAI create chat completion endpoint</a>. Specifically, the endpoint must:</p>
-<ul>
-<li>support the following request body parameters:<ul>
-<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-messages">messages</a></li>
-<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-model">model</a></li>
-<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-tools">tools</a></li>
-<li><a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-temperature">temperature</a></li>
-</ul>
-</li>
-<li>return a JSON response with at least one element in <a href="https://platform.openai.com/docs/api-reference/chat/object#chat-object-choices">choices</a></li>
-</ul>
-<p>Additionally, the underlying model must support tool calls (also known as function calls).</p>
-<h3 id="set-up-the-assistant-with-a-compatible-endpoint">Set up the Assistant with a compatible endpoint<a class="headerlink" href="#set-up-the-assistant-with-a-compatible-endpoint" title="Permanent link">#</a></h3>
-<p>To enable the Assistant, specify the completion endpoint to use by setting the <code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code> environment variable as follows:</p>
+<h2 id="comment-configurer-lassistant">Comment configurer l&rsquo;Assistant<a class="headerlink" href="#comment-configurer-lassistant" title="Permanent link">#</a></h2>
+<p>Vous pouvez utiliser l&rsquo;<a href="../../assistant/">Assistant</a> dans Grist auto-hébergé avec votre fournisseur d&rsquo;IA de choix ou un modèle local. L&rsquo;Assistant ne supporte actuellement que les points de terminaison d&rsquo;API de complétion de chat tels que ceux fournis par OpenAI (par exemple <code>/v1/chat/completions</code>), et les modèles qui supportent l&rsquo;appel d&rsquo;outils et la sortie structurée.</p>
+<p>Pour activer l&rsquo;Assistant, spécifiez le point de terminaison de complétion à utiliser en définissant la variable d&rsquo;environnement <code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code> comme suit :</p>
 <div class="highlight"><pre><span></span><code><span class="nv">ASSISTANT_CHAT_COMPLETION_ENDPOINT</span><span class="o">=</span>https://api.openai.com/v1/chat/completions
 </code></pre></div>
-<p>If no completion endpoint is specified, <code>https://api.openai.com/v1/chat/completions</code> will be used by default.</p>
-<p>If the completion endpoint you are using requires authentication, such as the OpenAI endpoint above, you must also set the <code>ASSISTANT_API_KEY</code> environment variable. You can obtain an OpenAI API key by <a href="https://auth.openai.com/create-account">signing up for an account</a> and <a href="https://platform.openai.com/api-keys">generating an API key</a>. Refer to the documentation for your provider on how to obtain an API key.</p>
-<h3 id="set-up-the-assistant-with-openrouter">Set up the Assistant with OpenRouter<a class="headerlink" href="#set-up-the-assistant-with-openrouter" title="Permanent link">#</a></h3>
-<p>The Assistant can also be used with OpenRouter to access a wide range of models, such as Anthropic&rsquo;s Claude Sonnet. As before, you&rsquo;ll need to set <code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code> and <code>ASSISTANT_API_KEY</code> to OpenRouter&rsquo;s chat completion
-endpoint and your OpenRouter API key, respectively.</p>
+<p>Si aucun point de terminaison de complétion n&rsquo;est spécifié, <code>https://api.openai.com/v1/chat/completions</code> sera utilisé par défaut.</p>
+<p>Si le point de terminaison de complétion que vous utilisez nécessite une authentification, comme le point de terminaison OpenAI ci-dessus, vous devez également définir la variable d&rsquo;environnement <code>ASSISTANT_API_KEY</code>. Vous pouvez obtenir une clé API OpenAI en <a href="https://auth.openai.com/create-account">créant un compte</a> et en <a href="https://platform.openai.com/api-keys">générant une clé API</a>. Référez-vous à la documentation de votre fournisseur pour savoir comment obtenir une clé API.</p>
+<h3 id="utilisation-dopenrouter">Utilisation d&rsquo;OpenRouter<a class="headerlink" href="#utilisation-dopenrouter" title="Permanent link">#</a></h3>
+<p>L&rsquo;Assistant peut également être utilisé avec OpenRouter pour accéder à une large gamme de modèles, tels que Claude Sonnet d&rsquo;Anthropic. Comme précédemment, vous devrez définir <code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code> et <code>ASSISTANT_API_KEY</code> sur le point de terminaison de complétion de chat d&rsquo;OpenRouter et votre clé API OpenRouter, respectivement.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">ASSISTANT_CHAT_COMPLETION_ENDPOINT</span><span class="o">=</span>https://openrouter.ai/api/v1/chat/completions
 <span class="nv">ASSISTANT_API_KEY</span><span class="o">=</span>your_openrouter_api_key_here
 </code></pre></div>
-<p>You may then specify the model to use by setting <code>ASSISTANT_MODEL</code>:</p>
+<p>Vous pouvez ensuite spécifier le modèle à utiliser en définissant <code>ASSISTANT_MODEL</code> :</p>
 <div class="highlight"><pre><span></span><code><span class="nv">ASSISTANT_MODEL</span><span class="o">=</span>anthropic/claude-sonnet-4.5
 </code></pre></div>
-<p>The Assistant is know to work with the following OpenRouter models:</p>
+<p>L&rsquo;Assistant est connu pour fonctionner avec les modèles OpenRouter suivants :</p>
 <ul>
-<li><code>openai/gpt-4o-2024-08-06</code> (last tested: 10-02-2025)</li>
-<li><code>anthropic/claude-sonnet-4.5</code> (last tested: 10-02-2025)</li>
+<li><code>openai/gpt-4o-2024-08-06</code> (dernier test : 10-02-2025)</li>
+<li><code>anthropic/claude-sonnet-4.5</code> (dernier test : 10-02-2025)</li>
 </ul>
-<p>If a model you don&rsquo;t see has worked for you, you may <a href="https://github.com/gristlabs/grist-help/edit/master/help/en/docs/install/assistant.md">open a pull request</a> and add it to the list.</p>
-<h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">#</a></h2>
+<p>Si un modèle que vous ne voyez pas a fonctionné pour vous, vous pouvez <a href="https://github.com/gristlabs/grist-help/edit/master/help/en/docs/install/assistant.md">ouvrir une pull request</a> et l&rsquo;ajouter à la liste.</p>
+<h2 id="variables-denvironnement">Variables d&rsquo;environnement<a class="headerlink" href="#variables-denvironnement" title="Permanent link">#</a></h2>
 <ul>
-<li><code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code>: the chat completion endpoint to use (default: <code>https://api.openai.com/v1/chat/completions</code>)</li>
-<li><code>ASSISTANT_API_KEY</code>: an API key to include in requests to the chat completion endpoint</li>
-<li><code>ASSISTANT_MODEL</code>: the value of the <code>model</code> parameter for the chat completion endpoint (default: <code>gpt-4o-2024-08-06</code>)</li>
-<li><code>ASSISTANT_LONGER_CONTEXT_MODEL</code>: if set, retry requests that exceed context limits with this model</li>
-<li><code>ASSISTANT_MAX_TOOL_CALLS</code>: the maximum number of tool calls allowed in a single request (default: <code>10</code>)</li>
+<li><code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code> : le point de terminaison de complétion de chat à utiliser (par défaut : <code>https://api.openai.com/v1/chat/completions</code>)</li>
+<li><code>ASSISTANT_API_KEY</code> : une clé API à inclure dans les requêtes au point de terminaison de complétion de chat</li>
+<li><code>ASSISTANT_MODEL</code> : la valeur du paramètre <code>model</code> pour le point de terminaison de complétion de chat (par défaut : <code>gpt-4o-2024-08-06</code>)</li>
+<li><code>ASSISTANT_LONGER_CONTEXT_MODEL</code> : si défini, réessayer les requêtes qui dépassent les limites de contexte avec ce modèle</li>
+<li><code>ASSISTANT_MAX_TOOL_CALLS</code> : le nombre maximum d&rsquo;appels d&rsquo;outils autorisés dans une seule requête (par défaut : <code>10</code>)</li>
 </ul>
 </div>
 
@@ -7117,7 +7061,7 @@ endpoint and your OpenRouter API key, respectively.</p>
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../../admin-controls/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Admin Controls">
+          <a href="../../admin-controls/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Contrôles d&#39;administration">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -7127,7 +7071,7 @@ endpoint and your OpenRouter API key, respectively.</p>
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Admin Controls
+                Contrôles d'administration
               </div>
             </div>
           </a>

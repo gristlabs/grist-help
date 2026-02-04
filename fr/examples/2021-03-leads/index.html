@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2021-03-leads/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2021-03-leads/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3458,7 +3462,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3882,7 +3886,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3913,7 +3917,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -6920,9 +6924,9 @@
 </div>
 <h1 id="une-table-de-prospects-avec-des-affectations">Une table de prospects, avec des affectations<a class="headerlink" href="#une-table-de-prospects-avec-des-affectations" title="Permanent link">#</a></h1>
 <p>Les permissions avancées vous permettent de contrôler comment un document partagé est utilisé, et de maintenir une séparation des rôles et des responsabilités. Dans cet exemple, nous supposons qu&rsquo;un entrepreneur utilise Grist comme un outil de suivi de prospects pour les ventes et les conseillers potentiels :</p>
-<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork"><img alt="Table de prospects" src="../examples/images/2021-03-leads/leads-table.png" /></a></p>
+<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork"><img alt="Table de prospects" src="../images/2021-03-leads/leads-table.png" /></a></p>
 <p>Notre entrepreneur souhaite déléguer les prospects de vente à une petite équipe de freelances, et garder les conseillers potentiels privés. Ils veulent pouvoir assigner quelqu&rsquo;un pour suivre un prospect simplement en écrivant ses initiales dans une colonne &ldquo;Affectation&rdquo;, et ne permettre à personne d&rsquo;autre de changer cette affectation. Voici les règles qu&rsquo;ils ont établies, que vous pouvez voir vous-même <a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork/p/acl">en visitant l&rsquo;exemple</a> :</p>
-<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork/p/acl"><img alt="Règles de prospects" src="../examples/images/2021-03-leads/leads-rules.png" /></a></p>
+<p><a href="https://public.getgrist.com/3NsoHE2mWtEp/Lead-list/m/fork/p/acl"><img alt="Règles de prospects" src="../images/2021-03-leads/leads-rules.png" /></a></p>
 <p>Il y a trois blocs de règles. Tout d&rsquo;abord, la règle pour la table des Conseillers :</p>
 <ul>
 <li>Cela restreint tout accès à la table des Conseillers au propriétaire. Nous supposons que
@@ -6943,21 +6947,21 @@ désactivées. Elles donnent une permission spéciale pour voir les permissions 
 copier ce document même si normalement cela ne serait pas autorisé. Ce sont des exceptions utiles pour un document d&rsquo;exemple sans information sensible.</p>
 <p>Pour jouer avec le document, il est préférable d&rsquo;en faire une copie et d&rsquo;en devenir le propriétaire.
 Cliquez sur &ldquo;Enregistrer une copie&rdquo;, et placez le document dans votre espace personnel ou dans un espace d&rsquo;équipe.
-<a href="../../sharing/">Partagez le document</a> avec quelqu&rsquo;un d&rsquo;autre en tant qu&rsquo;éditeur et assurez-vous qu&rsquo;ils <a href="../../access-rules/#view-as-another-user">voient ce que vous attendez</a>.</p>
+<a href="../../sharing/">Partagez le document</a> avec quelqu&rsquo;un d&rsquo;autre en tant qu&rsquo;éditeur et assurez-vous qu&rsquo;ils <a href="../../access-rules/#voir-en-tant-quautre-utilisateur">voient ce que vous attendez</a>.</p>
 <p>Vous voudrez désactiver les &ldquo;Règles avancées&rdquo; qui vous ont permis d&rsquo;inspecter l&rsquo;exemple et d&rsquo;en faire une copie complète :</p>
-<p><img alt="Règles spéciales de prospects" src="../examples/images/2021-03-leads/leads-specials.png" /></p>
+<p><img alt="Règles spéciales de prospects" src="../images/2021-03-leads/leads-specials.png" /></p>
 <p>N&rsquo;oubliez pas de cliquer sur &ldquo;Enregistrer&rdquo; après avoir modifié les règles, afin qu&rsquo;elles prennent effet.</p>
 <h2 id="acces-par-utilisateur">Accès par utilisateur<a class="headerlink" href="#acces-par-utilisateur" title="Permanent link">#</a></h2>
 <p>Supposons que nous voulions maintenant restreindre les prospects pour qu&rsquo;ils ne soient vus que par la personne à qui ils sont assignés (ou par le propriétaire). Nous pouvons le faire de plusieurs façons. Une manière pratique est d&rsquo;ajouter une table listant les membres de l&rsquo;équipe, y compris leur adresse e-mail :</p>
-<p><a href="https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork"><img alt="Équipe de prospects" src="../examples/images/2021-03-leads/leads-team.png" /></a></p>
+<p><a href="https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork"><img alt="Équipe de prospects" src="../images/2021-03-leads/leads-team.png" /></a></p>
 <p>Une fois que nous avons une telle table, nous pouvons faire en sorte que la colonne <code>Affectation</code> s&rsquo;y réfère.
 Voir <a href="https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork">https://public.getgrist.com/vuPduz2UdJDi/Lead-list-with-team/m/fork</a> pour l&rsquo;exemple complet (vous devrez en faire une copie pour obtenir un accès complet, sinon vous verrez une vue filtrée).</p>
-<p><img alt="Référence de prospects" src="../examples/images/2021-03-leads/leads-reference.png" /></p>
+<p><img alt="Référence de prospects" src="../images/2021-03-leads/leads-reference.png" /></p>
 <p>Nous pouvons ensuite utiliser les membres de l&rsquo;équipe dans les règles, via une
-<a href="../../access-rules/#user-attribute-tables">table de propriété d&rsquo;utilisateur</a> :</p>
-<p><img alt="Attributs de prospects" src="../examples/images/2021-03-leads/leads-attributes.png" /></p>
+<a href="../../access-rules/#tables-dattributs-dutilisateur">table de propriété d&rsquo;utilisateur</a> :</p>
+<p><img alt="Attributs de prospects" src="../images/2021-03-leads/leads-attributes.png" /></p>
 <p>Ensuite, chaque utilisateur avec qui le document est partagé (autre que les propriétaires) verra une vue filtrée de seulement les prospects qui leur sont assignés :</p>
-<p><img alt="Prospects filtrés" src="../examples/images/2021-03-leads/leads-filtered.png" /></p>
+<p><img alt="Prospects filtrés" src="../images/2021-03-leads/leads-filtered.png" /></p>
 <p>Lisez notre <a href="../../access-rules/">introduction aux permissions avancées</a> pour en savoir plus sur ce que vous pouvez faire avec les permissions avancées.</p>
 </div>
 

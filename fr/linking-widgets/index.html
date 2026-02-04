@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/linking-widgets/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/linking-widgets/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3531,7 +3535,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3955,7 +3959,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3986,7 +3990,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7110,7 +7114,7 @@
   </a>
 </div></p>
 <p>&nbsp;</p>
-<p>Pour créer cela, commencez par créer une page avec une vue Table pour les données de <code>Départements</code>, comme décrit dans <a href="../page-widgets/#widget-picker">Vues sur la page</a>. Ensuite, dans le menu &ldquo;Ajouter nouveau&rdquo;, sélectionnez l&rsquo;option &ldquo;Ajouter une vue à la page&rdquo; pour ajouter une autre vue Table pour les données d&rsquo;<code>Employés</code>. Dans le sélecteur de vues, utilisez le menu déroulant &ldquo;Sélectionner par&rdquo; et choisissez la vue &ldquo;DÉPARTEMENTS&rdquo; ajoutée à la première étape.</p>
+<p>Pour créer cela, commencez par créer une page avec une vue Table pour les données de <code>Départements</code>, comme décrit dans <a href="../page-widgets/#selecteur-de-widgets">Vues sur la page</a>. Ensuite, dans le menu &ldquo;Ajouter nouveau&rdquo;, sélectionnez l&rsquo;option &ldquo;Ajouter une vue à la page&rdquo; pour ajouter une autre vue Table pour les données d&rsquo;<code>Employés</code>. Dans le sélecteur de vues, utilisez le menu déroulant &ldquo;Sélectionner par&rdquo; et choisissez la vue &ldquo;DÉPARTEMENTS&rdquo; ajoutée à la première étape.</p>
 <p class="screenshot-half"><em><img alt="linking-add-widget" src="../images/linking-add-widget.png" /></em></p>
 <p>C&rsquo;est tout ce qu&rsquo;il faut : maintenant, sélectionner un département dans la première table fera en sorte que la deuxième table affiche uniquement les employés de ce département. Notez que cela repose sur le fait que la table <code>Employés</code> ait une colonne de type <code>Référence</code> avec la table cible <code>Départements</code>. Voir <a href="../col-refs/">Colonnes de référence</a>.</p>
 <h2 id="types-de-liaison">Types de liaison<a class="headerlink" href="#types-de-liaison" title="Permanent link">#</a></h2>
@@ -7121,11 +7125,11 @@
 <p class="screenshot-half"><em><img alt="linking-same-record-add" src="../images/linking-same-record-add.png" /></em></p>
 <p>Lorsque vous sélectionnez un enregistrement dans la table, la nouvelle vue &ldquo;Fiche EMPLOYÉS&rdquo; affiche une fiche pour l&rsquo;enregistrement sélectionné.</p>
 <p><img alt="linking-same-record-result" src="../images/linking-same-record-result.png" /></p>
-<p>Pour un autre exemple de ce type de liaison, voir le document &ldquo;CRM léger&rdquo; dans &ldquo;Exemples &amp; Modèles&rdquo; et la section <a href="../lightweight-crm/#customizing-layout">Personnaliser la mise en page</a> dans le tutoriel associé.</p>
+<p>Pour un autre exemple de ce type de liaison, voir le document &ldquo;CRM léger&rdquo; dans &ldquo;Exemples &amp; Modèles&rdquo; et la section <a href="../lightweight-crm/#personnaliser-la-mise-en-page">Personnaliser la mise en page</a> dans le tutoriel associé.</p>
 <h2 id="liaison-par-filtre">Liaison par filtre<a class="headerlink" href="#liaison-par-filtre" title="Permanent link">#</a></h2>
 <p>Comme dans l&rsquo;exemple Employé-Département, lorsqu&rsquo;une table a une référence à une autre (c&rsquo;est-à-dire une colonne de type &ldquo;Référence&rdquo;), la deuxième table peut servir de sélecteur pour la première. Essentiellement, sélectionner un enregistrement peut automatiquement filtrer une autre vue pour n&rsquo;afficher que les enregistrements qui se réfèrent à l&rsquo;enregistrement sélectionné.</p>
 <p>Dans l&rsquo;exemple montré précédemment, la table <code>Employés</code> a une colonne &ldquo;Référence&rdquo; pointant vers la table <code>Départements</code>, donc une liste de départements peut servir de sélecteur pour les employés. Lorsqu&rsquo;un département est sélectionné, seuls les employés de ce département seront affichés.</p>
-<p>Le document &ldquo;CRM léger&rdquo; dans &ldquo;Exemples &amp; Modèles&rdquo; fournit un autre exemple, où la sélection d&rsquo;un contact affiche uniquement les conversations avec ce contact. C&rsquo;est également décrit dans le <a href="../lightweight-crm/#linking-tables-visually">tutoriel</a>.</p>
+<p>Le document &ldquo;CRM léger&rdquo; dans &ldquo;Exemples &amp; Modèles&rdquo; fournit un autre exemple, où la sélection d&rsquo;un contact affiche uniquement les conversations avec ce contact. C&rsquo;est également décrit dans le <a href="../lightweight-crm/#lier-visuellement-les-tables">tutoriel</a>.</p>
 <p>Lorsque la cible de la liaison est une vue Graphique, vous obtenez des graphiques dynamiques qui reflètent les données associées à l&rsquo;enregistrement sélectionné. Par exemple, vous pourriez lier un graphique en secteurs à un département pour afficher la somme des salaires pour chaque poste dans le département sélectionné.</p>
 <div id="carousel-ex2" class="carousel slide" data-interval="false">
   <!-- Indicateurs -->
@@ -7177,8 +7181,8 @@
 <p>De plus, vous pouvez lier un autre tableau récapitulatif. Par exemple, vous pouvez résumer les employés par poste <em>et</em> par genre, et lier cela au résumé par poste. En sélectionnant un poste, vous pouvez alors voir un résumé par genre pour ce poste. Cela est également pratique avec les graphiques.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="linking-summary2" src="../images/linking-summary2.png" /></em></span></p>
 <p>Dans cet exemple, vous voyez un graphique en secteurs avec le salaire moyen pour les hommes contre les femmes pour le poste sélectionné. En cliquant sur différents postes, le graphique en secteurs se met à jour pour refléter celui sélectionné.</p>
-<p>Plus d&rsquo;exemples de ce type de liaison peuvent être trouvés dans le tutoriel <a href="../investment-research/#dynamic-charts">Analyser et visualiser</a>.</p>
-<p>Enfin, les tables qui référencent les données sous-jacentes d&rsquo;un tableau récapitulatif peuvent maintenant être liées au tableau récapitulatif lui-même. Dans l&rsquo;image ci-dessous, la table des Chiens Champions a une <a href="../col-types/#reference-columns">colonne de référence</a> vers la table des Éleveurs. La table des Éleveurs est résumée dans la vue en haut à droite par la colonne &ldquo;Pays&rdquo;. Parce que le Chien Champion référence l&rsquo;Éleveur, vous pouvez ajouter une vue des Chiens Champions qui sélectionne par un tableau récapitulatif des données des Éleveurs.</p>
+<p>Plus d&rsquo;exemples de ce type de liaison peuvent être trouvés dans le tutoriel <a href="../investment-research/#graphiques-dynamiques">Analyser et visualiser</a>.</p>
+<p>Enfin, les tables qui référencent les données sous-jacentes d&rsquo;un tableau récapitulatif peuvent maintenant être liées au tableau récapitulatif lui-même. Dans l&rsquo;image ci-dessous, la table des Chiens Champions a une <a href="../col-types/#colonnes-de-reference">colonne de référence</a> vers la table des Éleveurs. La table des Éleveurs est résumée dans la vue en haut à droite par la colonne &ldquo;Pays&rdquo;. Parce que le Chien Champion référence l&rsquo;Éleveur, vous pouvez ajouter une vue des Chiens Champions qui sélectionne par un tableau récapitulatif des données des Éleveurs.</p>
 <p><span class="screenshot-large"><em><img alt="Lier les données référencées au tableau récapitulatif" src="../images/linking-summary-reference.gif" /></em></span></p>
 <h2 id="changer-les-parametres-de-liaison">Changer les paramètres de liaison<a class="headerlink" href="#changer-les-parametres-de-liaison" title="Permanent link">#</a></h2>
 <p>Après qu&rsquo;une vue soit ajoutée, vous pouvez voir et changer ses paramètres de liaison depuis le panneau de droite. Une façon d&rsquo;y accéder est de cliquer sur l&rsquo;icône à trois points en haut à droite de la vue, et de cliquer sur l&rsquo;option de menu &ldquo;Sélection des données&rdquo;:</p>

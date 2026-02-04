@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2021-01-tasks/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2021-01-tasks/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3519,7 +3523,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3943,7 +3947,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3974,7 +3978,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7044,7 +7048,7 @@
 <p>J&rsquo;étais surpris d&rsquo;apprendre que beaucoup de gens préfèrent un tableur à un logiciel de gestion de projet. Pourquoi ? Parce que c&rsquo;est plus simple. Eh bien, je suis d&rsquo;accord ! Depuis l&rsquo;année dernière, nous utilisons Grist en interne pour gérer les projets et les tâches au sein de Grist Labs. C&rsquo;est d&rsquo;une simplicité déconcertante, et cela fonctionne parfaitement pour nous.</p>
 <h2 id="notre-flux-de-travail">Notre Flux de Travail<a class="headerlink" href="#notre-flux-de-travail" title="Permanent link">#</a></h2>
 <p>Nous avons une petite équipe et des réunions régulières programmées. Les objectifs de ces réunions sont de passer en revue tout le travail qui a été assigné et de finir avec une liste de nouvelles tâches. Après la réunion, chacun peut voir exactement ce qu&rsquo;on attend de lui pour la prochaine fois.</p>
-<p><a href="https://public.getgrist.com/hik1whAV5snj/Task-Management/m/fork"><img alt="Vue des Tâches" src="../examples/images/2021-01-tasks/task-view.png" /></a></p>
+<p><a href="https://public.getgrist.com/hik1whAV5snj/Task-Management/m/fork"><img alt="Vue des Tâches" src="../images/2021-01-tasks/task-view.png" /></a></p>
 <p>Vous pouvez explorer l&rsquo;exemple sur <a href="https://public.getgrist.com/hik1whAV5snj/Task-Management/m/fork" target="_blank">https://public.getgrist.com/hik1whAV5snj/Task-Management/m/fork</a>.</p>
 <h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">#</a></h3>
 <p>La structure est simple. Il y a trois tables :</p>
@@ -7060,7 +7064,7 @@
 <p>De nos jours, tout le monde travaille à distance, donc les check-ins se font via Zoom. Tout le monde ouvre le document Grist &ldquo;Check-Ins&rdquo;, et une personne se charge de faire les mises à jour et partage son écran pour que les autres puissent suivre.</p>
 <p>Tout d&rsquo;abord, créez un enregistrement pour le check-in d&rsquo;aujourd&rsquo;hui : cliquez dans la table CHECK_INS, et appuyez sur <code class="keys"><em>Ctrl</em> + <em>=</em></code> (<code class="keys"><em>⌘</em> <em>=</em></code> sur Mac) pour ajouter un nouvel enregistrement, puis <code class="keys"><em>Ctrl</em> + <strong>;</strong></code> (<code class="keys"><em>⌘</em> + <strong>;</strong></code> sur Mac) pour insérer la date d&rsquo;aujourd&rsquo;hui.</p>
 <p>Ensuite, cliquez sur la deuxième date (check-in précédent) pour passer en revue le travail précédemment assigné. C&rsquo;est là que nous prenons tour à tour pour passer en revue les tâches terminées. C&rsquo;est une occasion de marquer les choses comme complètes. Si une tâche n&rsquo;a pas été commencée, changez la date associée à la date d&rsquo;aujourd&rsquo;hui &ndash; cela déplacera la tâche.</p>
-<p><img alt="Changer la Date de la Tâche" src="../examples/images/2021-01-tasks/change-task-date.png" /></p>
+<p><img alt="Changer la Date de la Tâche" src="../images/2021-01-tasks/change-task-date.png" /></p>
 <p>Il y a un champ pour enregistrer des notes optionnelles sur le résultat. Si une tâche n&rsquo;a été que partiellement terminée, nous notons ce qui a été fait, la marquons comme complète, et créons une nouvelle tâche dans le check-in d&rsquo;aujourd&rsquo;hui pour le travail restant. Toutes les tâches de suivi sont également créées pour le check-in d&rsquo;aujourd&rsquo;hui.</p>
 <p>À la fin, toutes les tâches encore associées au dernier check-in sont marquées comme terminées. C&rsquo;est un enregistrement satisfaisant du travail de chacun !</p>
 <p>Maintenant, cliquez sur le check-in d&rsquo;aujourd&rsquo;hui. Toutes les tâches qui ont été déplacées ou les tâches de suivi créées seront ici. C&rsquo;est une occasion de créer et d&rsquo;assigner de nouvelles tâches, et de revoir le backlog.</p>
@@ -7068,13 +7072,13 @@
 <p>Chaque fois qu&rsquo;une nouvelle tâche apparaît (par exemple un bug à corriger), n&rsquo;importe qui peut l&rsquo;ajouter au dernier check-in. Elle peut être assignée à une personne immédiatement, mais si ce n&rsquo;est pas urgent, elle peut être assignée à &ldquo;Backlog&rdquo;.</p>
 <p>Pendant le check-in, nous passons en revue les nouveaux éléments du backlog et leur attribuons une priorité : juste un numéro.</p>
 <p>Il y a une page séparée <code>Backlog</code> pour voir toutes les tâches du backlog, ordonnées par priorité de la plus haute à la plus basse.</p>
-<p><img alt="Backlog" src="../examples/images/2021-01-tasks/backlog.png" /></p>
+<p><img alt="Backlog" src="../images/2021-01-tasks/backlog.png" /></p>
 <p>Lors de l&rsquo;assignation des tâches pendant le check-in, visitez cette page pour voir s&rsquo;il y a quelque chose de haute priorité qui devrait être assigné. Si quelqu&rsquo;un a du temps libre, il y a généralement beaucoup de petits éléments de faible priorité qui peuvent également être pris en charge.</p>
 <p>C&rsquo;est à peu près tout. La dernière page que nous utilisons s&rsquo;appelle <code>By Person</code>, et c&rsquo;est juste une manière utile de voir toutes les tâches terminées et en attente pour une personne donnée. C&rsquo;est une référence utile pour les bilans trimestriels.</p>
 <h2 id="document-de-gestion-des-taches">Document de Gestion des Tâches<a class="headerlink" href="#document-de-gestion-des-taches" title="Permanent link">#</a></h2>
 <p>Le document d&rsquo;exemple est disponible sur <a href="https://public.getgrist.com/hik1whAV5snj/Task-Management/m/fork">https://public.getgrist.com/hik1whAV5snj/Task-Management/m/fork</a>. Il ne semble pas plus compliqué qu&rsquo;une liste de tâches, et c&rsquo;est le but !</p>
 <p>Pour commencer à l&rsquo;utiliser pour vos propres tâches, ouvrez le menu Partager (<span class="grist-icon" style="--icon: var(--icon-Share)"></span>), et cliquez sur &ldquo;Dupliquer le Document&hellip;&rdquo;. Donnez-lui un nom et cochez la case &ldquo;Comme Modèle&rdquo;.</p>
-<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Dupliquer" src="../examples/images/2021-01-tasks/duplicate.png" /></em></span></p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="Dupliquer" src="../images/2021-01-tasks/duplicate.png" /></em></span></p>
 <p>Votre copie inclura alors la structure et les mises en page sans aucune des données d&rsquo;exemple.</p>
 <p>Profitez-en ! Que vos tâches soient terminées à temps !</p>
 </div>

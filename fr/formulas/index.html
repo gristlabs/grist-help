@@ -64,7 +64,7 @@ quelques subtilités que vous voudrez connaître, alors restez avec nous.">
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -223,14 +223,18 @@ quelques subtilités que vous voudrez connaître, alors restez avec nous.">
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/formulas/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/formulas/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3560,7 +3564,7 @@ quelques subtilités que vous voudrez connaître, alors restez avec nous.">
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3984,7 +3988,7 @@ quelques subtilités que vous voudrez connaître, alors restez avec nous.">
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4015,7 +4019,7 @@ quelques subtilités que vous voudrez connaître, alors restez avec nous.">
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7121,7 +7125,7 @@ quelques subtilités que vous voudrez connaître, alors restez avec nous.">
 </div>
 <h1 id="formules">Formules<a class="headerlink" href="#formules" title="Permanent link">#</a></h1>
 <p>Grist dispose d&rsquo;un puissant moteur de données pour calculer les cellules de vos
-tables en utilisant des formules. Il dispose même d&rsquo;un <a href="ai-assistant.md">Assistant de Formule AI</a> pour aider à rédiger des formules. Si vous avez déjà utilisé des tableurs ou
+tables en utilisant des formules. Il dispose même d&rsquo;un <a href="../assistant/">Assistant de Formule AI</a> pour aider à rédiger des formules. Si vous avez déjà utilisé des tableurs ou
 des expressions de base de données, vous serez dans un territoire familier - mais il y a
 quelques subtilités que vous voudrez connaître, alors restez avec nous.</p>
 <p>Commençons par un usage classique des tableurs. Supposons que vous ayez
@@ -7142,7 +7146,7 @@ symbole de multiplication, puis cliquez sur la colonne Prix Unitaire.
 Votre formule devrait ressembler à ceci :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix-multiplication" src="../images/formulas/formulas-price-multiply.png" /></em></span></p>
 <p>Pour contrôler l&rsquo;ID de la colonne, comme &ldquo;$Prix_Unitaire&rdquo;, qui est utilisé dans les formules, consultez
-<a href="../col-types/#renaming-columns">Renommer les colonnes</a>.</p>
+<a href="../col-types/#renommer-les-colonnes">Renommer les colonnes</a>.</p>
 <p>Appuyez sur <code class="keys"><em>Entrée</em></code>, et votre formule est appliquée à toutes les cellules de la colonne.</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix-final" src="../images/formulas/formulas-price-final.png" /></em></span></p>
 <p>Si vous avez déjà travaillé avec des tableurs, vous serez peut-être surpris
@@ -7150,7 +7154,7 @@ de constater que vous n&rsquo;avez pas besoin de spécifier les numéros de lign
 Dans Grist, une seule formule s&rsquo;applique à toute une colonne.
 Vous n&rsquo;avez pas à vous soucier de la remplir pour toutes les lignes,
 et vous pouvez vous référer à des valeurs dans la même ligne sans tracas.</p>
-<p>Vous pouvez formater les colonnes numériques pour qu&rsquo;elles aient un meilleur aspect en <a href="../col-types/#specifying-a-type">définissant le type de colonne</a> sur <code>Numérique</code>, et en sélectionnant des options de formatage appropriées :</p>
+<p>Vous pouvez formater les colonnes numériques pour qu&rsquo;elles aient un meilleur aspect en <a href="../col-types/#specifier-un-type">définissant le type de colonne</a> sur <code>Numérique</code>, et en sélectionnant des options de formatage appropriées :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="formules-prix-final" src="../images/formulas/formulas-price-formatted.png" /></em></span></p>
 <h2 id="comportement-des-colonnes">Comportement des colonnes<a class="headerlink" href="#comportement-des-colonnes" title="Permanent link">#</a></h2>
 <p>Lorsque nous fournissons une formule pour une colonne, nous disons à Grist de mettre à jour sa valeur à chaque changement
@@ -7160,7 +7164,7 @@ déterminée uniquement par la formule.</p>
 la section <code>COMPORTEMENT DE COLONNE</code> dans le panneau de création :</p>
 <ul>
 <li><code>Colonne de données</code> maintient des données, que vous pouvez mettre à jour ou effacer manuellement, ou éventuellement
-calculer en utilisant <a href="./#trigger-formulas">formules d&rsquo;initialisation</a>.</li>
+calculer en utilisant <a href="./#formules-dinitialisation">formules d&rsquo;initialisation</a>.</li>
 <li><code>Colonne de formule</code> reflète toujours le résultat du calcul de la formule, et est maintenue
 à jour par Grist.</li>
 <li><code>Colonne vide</code> est un état pour une nouvelle colonne. Saisir une valeur dans celle-ci la transformera en une
@@ -7173,11 +7177,11 @@ disponibles dans le menu de comportement. Selon le comportement actuel de la col
 <ul>
 <li>L&rsquo;action <code>Définir la formule</code> convertit une colonne vide en colonne de formule.</li>
 <li>L&rsquo;action <code>Définir la formule d'initialisation</code> ou <code>Convertir en formule d'initialisation</code> définit un déclencheur sur une colonne
-(plus d&rsquo;informations sur les déclencheurs dans la prochaine <a href="./#trigger-formulas">section Formules d&rsquo;initialisation</a>).</li>
+(plus d&rsquo;informations sur les déclencheurs dans la prochaine <a href="./#formules-dinitialisation">section Formules d&rsquo;initialisation</a>).</li>
 <li>L&rsquo;action <code>Transformer en colonne de données</code> convertit une colonne vide en colonne de données régulière.</li>
 <li><code>Convertir la colonne en données</code> convertit une colonne de formule en colonne de données régulière (vous pouvez en lire
 davantage sur cette fonctionnalité dans la 
-<a href="./#freeze-a-formula-column">section Geler une colonne de formule</a>).</li>
+<a href="./#geler-une-colonne-de-formule">section Geler une colonne de formule</a>).</li>
 <li>L&rsquo;action <code>Effacer et transformer en formule</code> efface toutes les données d&rsquo;une colonne et la convertit en une
 colonne de formule. (Nous disons &ldquo;effacer&rdquo; pour rappeler que les données existantes dans la colonne seront
 perdues. Elles seront remplacées par les résultats de calcul de la formule.)</li>
@@ -7236,7 +7240,7 @@ pour trouver le nom du produit avec la plus grande quantité :</p>
 le Python régulier étant généralement en minuscules (<code>max</code>).</p>
 <p>Pour des correspondances exactes, il existe un raccourci pour éviter l&rsquo;itération appelé
 <a href="../functions/#lookuprecords">lookupRecords</a>, ou
-<a href="../functions/#lookupone">lookupOne</a> pour des correspondances uniques.
+<a href="../functions/#lookupone_2">lookupOne</a> pour des correspondances uniques.
 Il suffit de passer les valeurs des colonnes que vous souhaitez faire correspondre.
 Par exemple, voici une formule pour rechercher le nom du produit d&rsquo;un matériau
 avec une quantité de 52 :</p>
@@ -7294,7 +7298,7 @@ disponible avec un résumé Python pur du document.</p>
 vous dans Grist :</p>
 <ul>
 <li><code>rec</code> est la ligne actuelle. La syntaxe <code>$column</code> est une abréviation pour
-   <code>rec.column</code>. La variable <code>rec</code> est de type <a href="../functions/#record">Record</a>.</li>
+   <code>rec.column</code>. La variable <code>rec</code> est de type [Record](functions.md#record.</li>
 <li><code>table</code> est le tableau actuel, et est de type <a href="../functions/#usertable">UserTable</a>.</li>
 <li>Les tableaux dans votre document sont disponibles par leur nom, et sont également de
    type <a href="../functions/#usertable">UserTable</a>.</li>
@@ -7319,19 +7323,19 @@ changent.</p>
 <p>La formule d&rsquo;origine est sauvegardée mais reste inactive. Elle peut redevenir utile
 si vous souhaitez convertir la colonne de nouveau en colonne de formule, ou
 l&rsquo;utiliser comme une 
-<a href="./#trigger-formulas">Formule d&rsquo;Initialisation</a>.</p>
+<a href="./#formules-dinitialisation">Formule d&rsquo;Initialisation</a>.</p>
 <p>Le panneau latéral a de nombreux autres paramètres pratiques, tels que le formatage des cellules
 (nombre de chiffres après la virgule, couleur, etc.). Les options s&rsquo;appliquent
 tout autant aux colonnes de formule qu&rsquo;aux colonnes régulières.</p>
 <h2 id="recherches">Recherches<a class="headerlink" href="#recherches" title="Permanent link">#</a></h2>
-<p>Les fonctions Grist <a href="../functions/#lookupone">lookupOne</a> et
+<p>Les fonctions Grist <a href="../functions/#lookupone_2">lookupOne</a> et
 <a href="../functions/#lookuprecords">lookupRecords</a> sont utiles pour énumérer
 des sous-ensembles de vos données. Par exemple, supposons que nous ajoutions une colonne <code>Catégorie</code>
 à notre tableau <code>Matériaux</code>, et souhaitions lister tous les produits appartenant
 à une catégorie spécifique. Nous pouvons le faire en utilisant <code>TABLE.lookupRecords</code>, où <code>TABLE</code> est le tableau d&rsquo;intérêt, et en lui fournissant les valeurs de colonne
 à faire correspondre. Par exemple, <code class="formula">Materials.lookupRecords(Catégorie='Navire')</code>, comme ici :</p>
 <p><img alt="formules-options-colonne" src="../images/formulas/formulas-lookup-unsorted.png" /></p>
-<p>Si vous suivez, consultez <a href="../widget-card/#adding-a-field">Ajouter un champ</a>
+<p>Si vous suivez, consultez <a href="../widget-card/#ajouter-un-champ">Ajouter un champ</a>
 pour des détails sur la façon d&rsquo;ajouter un nouveau champ à une carte. Si vous vous souciez de l&rsquo;ordre
 des résultats, <code>lookupRecords</code> prend un paramètre optionnel <code>sort_by</code>. Par exemple,
 nous pourrions utiliser cette formule pour trier par le nom du produit lui-même :</p>
@@ -7344,7 +7348,7 @@ colonne interne qui est mise à jour avec l&rsquo;ordre de tri établi manuellem
 des lignes.</p>
 <p>Si vous vous retrouvez à faire beaucoup de recherches, envisagez
 si les <a href="../summary-tables/">Tableaux de Résumé</a> et
-<a href="../summary-tables/#summary-formulas">Formules de Résumé</a> pourraient être
+<a href="../summary-tables/#formules-de-synthese">Formules de Résumé</a> pourraient être
 ce que vous recherchez.</p>
 <h2 id="recursivite">Récursivité<a class="headerlink" href="#recursivite" title="Permanent link">#</a></h2>
 <p>Les recherches sont pratiques pour les formules récursives. Supposons que nous ayons un tableau comptant combien

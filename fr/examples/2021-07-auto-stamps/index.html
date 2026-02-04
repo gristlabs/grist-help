@@ -64,7 +64,7 @@ ou de suivre rapidement la dernière modification jusqu’à son auteur.">
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -223,14 +223,18 @@ ou de suivre rapidement la dernière modification jusqu’à son auteur.">
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2021-07-auto-stamps/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2021-07-auto-stamps/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3494,7 +3498,7 @@ ou de suivre rapidement la dernière modification jusqu’à son auteur.">
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3918,7 +3922,7 @@ ou de suivre rapidement la dernière modification jusqu’à son auteur.">
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3949,7 +3953,7 @@ ou de suivre rapidement la dernière modification jusqu’à son auteur.">
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7023,7 +7027,7 @@ soumis à des fondations axées sur la mer. Voici une répartition de la structu
 Ajoutons une colonne au table <code>Tâches</code> pour suivre la dernière mise à jour d&rsquo;une tâche. Cela peut être accompli en trois étapes.</p>
 <ol>
 <li>Dans la table <code>Tâches</code>, créez une colonne intitulée ‘Dernière Mise à Jour’ et dans les types de colonne, sélectionnez
-   <strong>DateHeure</strong> pour choisir votre <a href="../../col-types/#datetime-columns">format de date et heure</a> souhaité.</li>
+   <strong>DateHeure</strong> pour choisir votre <a href="../../col-types/#colonnes-dateheure">format de date et heure</a> souhaité.</li>
 <li>Convertissez la colonne en une colonne de données en cliquant sur le menu déroulant <code>ACTIONS</code> dans le panneau de création.
    Cela empêche la formule de se déclencher à chaque chargement du document. Une fois convertie en colonne de données, entrez la formule <code class="formula">NOW()</code>. Vous verrez deux options de case à cocher sous la formule.<ul>
 <li><code>Appliquer aux nouveaux enregistrements</code> déclenche la formule uniquement lorsqu&rsquo;un enregistrement est créé.</li>
@@ -7041,11 +7045,11 @@ C&rsquo;est tout aussi simple à créer dans Grist que les horodatages.</p>
 formule est <code class="formula">user.Name</code>. Ajoutons une colonne à la table <code>Tâches</code> pour suivre qui a créé une tâche.</p>
 <ol>
 <li>Dans la table <code>Tâches</code>, créez une colonne intitulée ‘Créé Par’ et dans les types de colonne, sélectionnez <strong>Texte</strong>
-   et <a href="../../col-types/#text-columns">modifiez le format</a> si vous le souhaitez.</li>
+   et <a href="../../col-types/#colonnes-de-texte">modifiez le format</a> si vous le souhaitez.</li>
 <li>Convertissez la colonne de formule en une colonne de données et entrez la formule <code class="formula">user.Name</code>.</li>
 <li>Sélectionnez <code>Appliquer aux nouveaux enregistrements</code> pour que la formule ne se déclenche que lorsqu&rsquo;un nouvel enregistrement est créé.</li>
 </ol>
-<p>Il existe d&rsquo;autres possibilités en plus de <code>user.Name</code> telles que <code>user.Email</code> ou un <code>user.UserID</code> unique. Les informations utilisateur disponibles sont les mêmes que celles des <a href="../../access-rules/#access-rule-conditions">conditions de règle d&rsquo;accès</a>.</p>
+<p>Il existe d&rsquo;autres possibilités en plus de <code>user.Name</code> telles que <code>user.Email</code> ou un <code>user.UserID</code> unique. Les informations utilisateur disponibles sont les mêmes que celles des <a href="../../access-rules/#conditions-des-regles-dacces">conditions de règle d&rsquo;accès</a>.</p>
 <p><strong>Note.</strong> Il est toujours possible pour un utilisateur de modifier manuellement les cellules avec des formules d&rsquo;horodatage ou de nom d&rsquo;utilisateur. Si vous ne voulez pas que cela soit autorisé, utilisez les
 <a href="../../access-rules/">permissions avancées</a> pour l&rsquo;interdire.</p>
 <p>Et voilà ! Vous avez créé des colonnes qui capturent les informations d&rsquo;utilisateur et d&rsquo;horodatage basées sur des

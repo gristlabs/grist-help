@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/glossary/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/glossary/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3711,7 +3715,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -4135,7 +4139,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4166,7 +4170,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7426,13 +7430,13 @@
 </div>
 <h1 id="glossaire">Glossaire<a class="headerlink" href="#glossaire" title="Permanent link">#</a></h1>
 <h2 id="diagramme-a-barres">Diagramme à Barres<a class="headerlink" href="#diagramme-a-barres" title="Permanent link">#</a></h2>
-<p>Il s&rsquo;agit d&rsquo;un <a href="../widget-chart/#bar-chart">type de diagramme</a> classique, où les valeurs d&rsquo;une colonne sont représentées par la hauteur d&rsquo;une série de rectangles.</p>
+<p>Il s&rsquo;agit d&rsquo;un <a href="../widget-chart/#graphique-en-barres">type de diagramme</a> classique, où les valeurs d&rsquo;une colonne sont représentées par la hauteur d&rsquo;une série de rectangles.</p>
 <h2 id="colonne">Colonne<a class="headerlink" href="#colonne" title="Permanent link">#</a></h2>
 <p>Une colonne est une série verticale de cellules dans une table. Les colonnes dans Grist ont des noms. Chaque cellule d&rsquo;une colonne se trouve dans une ligne différente. Lorsque les données d&rsquo;une colonne sont présentes dans une fiche, nous l&rsquo;appelons un champ. Lorsqu&rsquo;une table de données est représentée sous forme de graphique, nous nous référons à chaque colonne comme une série. D&rsquo;un point de vue modélisation des données, les colonnes contiennent généralement des données sur un seul aspect de nombreuses entités du monde réel, tandis que les lignes contiennent des données sur de nombreux aspects d&rsquo;une seule entité.</p>
 <h2 id="options-de-colonne">Options de Colonne<a class="headerlink" href="#options-de-colonne" title="Permanent link">#</a></h2>
 <p>L&rsquo;apparence et le comportement de chaque colonne peuvent être personnalisés en cliquant sur l&rsquo;en-tête de la colonne, en cliquant sur le menu déroulant, et en sélectionnant &ldquo;Options de Colonne&rdquo;.</p>
 <h2 id="type-de-colonne">Type de Colonne<a class="headerlink" href="#type-de-colonne" title="Permanent link">#</a></h2>
-<p>Les colonnes ont des types, qui contrôlent l&rsquo;apparence des cellules dans cette colonne et la méthode utilisée pour les éditer. Vous pouvez <a href="../col-types/#specifying-a-type">changer le type de colonne</a> à volonté. Le <a href="../col-types/#text-columns">Type de Colonne Texte</a> est adapté aux chaînes de caractères de toute longueur; le <a href="../col-types/#date-columns">Type de Colonne Date</a> est spécialisé pour stocker et éditer des dates de calendrier; le <a href="../col-types/#reference-columns">Type de Colonne Référence</a> est destiné à stocker et éditer des liens vers d&rsquo;autres tables; le <a href="../col-types/#numeric-columns">Type de Colonne Numérique</a> est pour tout type de nombre, etc.</p>
+<p>Les colonnes ont des types, qui contrôlent l&rsquo;apparence des cellules dans cette colonne et la méthode utilisée pour les éditer. Vous pouvez <a href="../col-types/#specifier-un-type">changer le type de colonne</a> à volonté. Le <a href="../col-types/#colonnes-de-texte">Type de Colonne Texte</a> est adapté aux chaînes de caractères de toute longueur; le <a href="../col-types/#colonnes-de-date">Type de Colonne Date</a> est spécialisé pour stocker et éditer des dates de calendrier; le <a href="../col-types/#colonnes-de-reference">Type de Colonne Référence</a> est destiné à stocker et éditer des liens vers d&rsquo;autres tables; le <a href="../col-types/#colonnes-numeriques">Type de Colonne Numérique</a> est pour tout type de nombre, etc.</p>
 <h2 id="panneau-de-creation">Panneau de Création<a class="headerlink" href="#panneau-de-creation" title="Permanent link">#</a></h2>
 <p>Le panneau de création est le menu de configuration à droite pour les vues et les colonnes.</p>
 <h2 id="tableau-de-bord">Tableau de Bord<a class="headerlink" href="#tableau-de-bord" title="Permanent link">#</a></h2>
@@ -7445,7 +7449,7 @@
 <p>Comme les bases de données et les feuilles de calcul, les données dans un document Grist sont organisées en un ensemble de tables. La manière dont ces données sont visualisées et éditées est exceptionnellement flexible. Les documents Grist sont organisés visuellement en pages. Les pages contiennent des vues qui offrent différentes manières de visualiser et d&rsquo;éditer les tables.</p>
 <p>Pour travailler avec Grist, la première étape est généralement de <a href="../creating-doc/">créer un document</a>.</p>
 <h2 id="poignee-de-deplacement">Poignée de Déplacement<a class="headerlink" href="#poignee-de-deplacement" title="Permanent link">#</a></h2>
-<p>C&rsquo;est une icône pour faciliter la réorganisation visuelle des vues ou des listes. Sur un ordinateur de bureau, lorsque vous survolez une poignée de déplacement, le curseur de la souris change. La poignée de déplacement pour une vue est juste à gauche du titre de la vue. Il y a un exemple d&rsquo;utilisation de cette poignée de déplacement dans la <a href="../investment-research/#chart-graph-plot">démonstration de recherche d&rsquo;investissement</a>.</p>
+<p>C&rsquo;est une icône pour faciliter la réorganisation visuelle des vues ou des listes. Sur un ordinateur de bureau, lorsque vous survolez une poignée de déplacement, le curseur de la souris change. La poignée de déplacement pour une vue est juste à gauche du titre de la vue. Il y a un exemple d&rsquo;utilisation de cette poignée de déplacement dans la <a href="../investment-research/#graphique-diagramme-trace">démonstration de recherche d&rsquo;investissement</a>.</p>
 <h2 id="mode-fiddle">Mode Fiddle<a class="headerlink" href="#mode-fiddle" title="Permanent link">#</a></h2>
 <p>Le mode fiddle est un mode spécial dans lequel certains documents Grist, tels que ceux de la <a href="https://docs.getgrist.com/p/templates">page des Exemples &amp; Modèles</a>, s&rsquo;ouvrent. Un document ouvert en mode fiddle aura une étiquette &ldquo;fiddle&rdquo; à côté du titre du document dans la barre supérieure.</p>
 <p>En mode fiddle, toute modification d&rsquo;un document entraînera la création d&rsquo;une nouvelle copie non enregistrée (a.k.a &ldquo;fork&rdquo;) de ce document; le document original restera inchangé. La copie peut être enregistrée via le bouton ou l&rsquo;option de menu &ldquo;Enregistrer la Copie&rdquo;.</p>
@@ -7470,7 +7474,7 @@
 <p>Une seule table peut être visualisée (ou éditée) à partir de plusieurs vues dans une ou plusieurs pages. Et une seule page peut contenir des vues pour visualiser (ou éditer) de nombreuses tables.</p>
 <p>Les pages sont listées dans le document (<a href="../page-widgets/#pages">dans le panneau à gauche</a>). Dans cette liste, elles peuvent être réorganisées et regroupées, avec plusieurs &ldquo;sous-pages&rdquo; imbriquées dans une seule page.</p>
 <h2 id="diagramme-a-secteurs">Diagramme à Secteurs<a class="headerlink" href="#diagramme-a-secteurs" title="Permanent link">#</a></h2>
-<p>Il s&rsquo;agit d&rsquo;un <a href="../widget-chart/#pie-chart">type de diagramme</a> classique, où un cercle est découpé en tranches selon les valeurs d&rsquo;une colonne.</p>
+<p>Il s&rsquo;agit d&rsquo;un <a href="../widget-chart/#graphique-en-secteurs">type de diagramme</a> classique, où un cercle est découpé en tranches selon les valeurs d&rsquo;une colonne.</p>
 <h2 id="enregistrement">Enregistrement<a class="headerlink" href="#enregistrement" title="Permanent link">#</a></h2>
 <p>Un enregistrement est les données d&rsquo;une ligne d&rsquo;une table, comprenant les données dans les cellules individuelles de cette ligne. Il a un identifiant unique, généralement caché mais disponible dans les formules sous la forme <code>id</code>. Dans une Vue Fiche ou une Vue Liste de Fiches, un enregistrement est représenté par une seule fiche.</p>
 <h2 id="ligne">Ligne<a class="headerlink" href="#ligne" title="Permanent link">#</a></h2>
@@ -7478,19 +7482,19 @@
 <h2 id="serie">Série<a class="headerlink" href="#serie" title="Permanent link">#</a></h2>
 <p>Les données d&rsquo;une seule colonne affichées dans une Vue Graphique sont appelées une série. Les mêmes données dans une Vue Fiche sont appelées un champ, et dans une Vue Tableau sont appelées une colonne.</p>
 <h2 id="trier">Trier<a class="headerlink" href="#trier" title="Permanent link">#</a></h2>
-<p>L&rsquo;ordre dans lequel les lignes d&rsquo;une table sont affichées est appelé l&rsquo;ordre de tri. Un exemple de changement de l&rsquo;ordre de tri d&rsquo;une table est donné dans le <a href="../lightweight-crm/#to-do-tasks-for-contacts">tutoriel CRM</a>.</p>
+<p>L&rsquo;ordre dans lequel les lignes d&rsquo;une table sont affichées est appelé l&rsquo;ordre de tri. Un exemple de changement de l&rsquo;ordre de tri d&rsquo;une table est donné dans le <a href="../lightweight-crm/#taches-a-faire-pour-les-contacts">tutoriel CRM</a>.</p>
 <h2 id="formules-de-declenchement">Formules de Déclenchement<a class="headerlink" href="#formules-de-declenchement" title="Permanent link">#</a></h2>
-<p>Une <a href="../formulas/#trigger-formulas">formule d&rsquo;initialisation</a> est une formule qui recalcule vos données en fonction d&rsquo;un ensemble de conditions que vous décidez. Elles permettent également de nettoyer les données lorsqu&rsquo;une nouvelle valeur est entrée (<a href="https://www.youtube.com/watch?v=wwzm39ADslA&amp;list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&amp;index=10&amp;t=2282s" target="_blank">regarder le webinaire</a>), de fournir une <a href="../formula-cheat-sheet/#setting-default-values-for-new-records">valeur par défaut</a> sensée pour une colonne ou de <a href="../formula-cheat-sheet/#automatic-date-time-and-author-stamps">créer des tampons de temps et d&rsquo;auteur</a>.</p>
+<p>Une <a href="../formulas/#formules-dinitialisation">formule d&rsquo;initialisation</a> est une formule qui recalcule vos données en fonction d&rsquo;un ensemble de conditions que vous décidez. Elles permettent également de nettoyer les données lorsqu&rsquo;une nouvelle valeur est entrée (<a href="https://www.youtube.com/watch?v=wwzm39ADslA&amp;list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&amp;index=10&amp;t=2282s" target="_blank">regarder le webinaire</a>), de fournir une <a href="../formula-cheat-sheet/#definir-des-valeurs-par-defaut-pour-de-nouveaux-enregistrements">valeur par défaut</a> sensée pour une colonne ou de <a href="../formula-cheat-sheet/#tampons-automatiques-de-date-heure-et-auteur">créer des tampons de temps et d&rsquo;auteur</a>.</p>
 <h2 id="menu-utilisateur">Menu Utilisateur<a class="headerlink" href="#menu-utilisateur" title="Permanent link">#</a></h2>
 <p>Le menu utilisateur est le menu qui s&rsquo;ouvre en cliquant sur votre icône de profil en haut à droite de Grist. De là, vous pouvez gérer votre profil, ajouter des comptes Grist supplémentaires que vous possédez, et voir une liste des espaces d&rsquo;équipe auxquels vous avez accès.</p>
-<p>Selon l&rsquo;endroit où vous vous trouvez, le menu utilisateur contiendra des options supplémentaires. Par exemple, depuis un <a href="../teams/#understanding-personal-sites">espace personnel</a> vous verrez l&rsquo;option de mettre à niveau votre plan vers un <a href="../teams/">espace d&rsquo;équipe</a>. Depuis un espace d&rsquo;équipe, selon votre rôle et vos permissions, vous pourrez peut-être <a href="../teams/#billing-account">gérer la facturation</a> ou <a href="../team-sharing/">éditer les membres de l&rsquo;équipe</a>. Depuis un document, vous trouverez une option pour éditer les paramètres du document.</p>
+<p>Selon l&rsquo;endroit où vous vous trouvez, le menu utilisateur contiendra des options supplémentaires. Par exemple, depuis un <a href="../teams/#comprendre-les-espaces-personnels">espace personnel</a> vous verrez l&rsquo;option de mettre à niveau votre plan vers un <a href="../teams/">espace d&rsquo;équipe</a>. Depuis un espace d&rsquo;équipe, selon votre rôle et vos permissions, vous pourrez peut-être <a href="../teams/#compte-de-facturation">gérer la facturation</a> ou <a href="../team-sharing/">éditer les membres de l&rsquo;équipe</a>. Depuis un document, vous trouverez une option pour éditer les paramètres du document.</p>
 <p class="screenshot-half"><em><img alt="paramètres du document" class="screenshot4" src="../images/document-settings.png" /></em></p>
 <h2 id="vue">Vue<a class="headerlink" href="#vue" title="Permanent link">#</a></h2>
 <p>Une page contient des sections, telles que des grilles de tableaux ou des graphiques, que nous appelons &ldquo;vues de page&rdquo;. Elles sont utilisées pour <a href="../page-widgets/">visualiser ou éditer des données</a> dans des tables. Les types de vues de page incluent les <a href="../widget-card/">Vues Fiche</a>, les <a href="../widget-chart/">Vues Graphique</a>, ainsi que la grille de tableau de style feuille de calcul classique (appelée <a href="../widget-table/">Vue Tableau</a>).</p>
 <h2 id="options-de-vue">Options de Vue<a class="headerlink" href="#options-de-vue" title="Permanent link">#</a></h2>
 <p>Chaque vue de page peut avoir son apparence et son comportement personnalisés. La manière dont cela est fait varie selon la vue, mais peut toujours être fait systématiquement en cliquant sur le menu à trois points en haut à droite d&rsquo;une vue et en sélectionnant &ldquo;Options de Vue&rdquo;.</p>
 <h2 id="retour-a-la-ligne">Retour à la Ligne<a class="headerlink" href="#retour-a-la-ligne" title="Permanent link">#</a></h2>
-<p>Normalement, le contenu qui ne tient pas dans la largeur d&rsquo;une cellule est tronqué, avec &ldquo;&hellip;&rdquo; indiquant qu&rsquo;une partie des données est cachée. Lorsque le paramètre &ldquo;Retour à la Ligne&rdquo; est activé, les longues lignes seront renvoyées à la ligne suivante, et la cellule deviendra plus haute pour inclure tout le contenu. Un exemple de retour à la ligne est donné dans le <a href="../lightweight-crm/#linking-tables-visually">tutoriel CRM</a>.</p>
+<p>Normalement, le contenu qui ne tient pas dans la largeur d&rsquo;une cellule est tronqué, avec &ldquo;&hellip;&rdquo; indiquant qu&rsquo;une partie des données est cachée. Lorsque le paramètre &ldquo;Retour à la Ligne&rdquo; est activé, les longues lignes seront renvoyées à la ligne suivante, et la cellule deviendra plus haute pour inclure tout le contenu. Un exemple de retour à la ligne est donné dans le <a href="../lightweight-crm/#lier-visuellement-les-tables">tutoriel CRM</a>.</p>
 </div>
 
 

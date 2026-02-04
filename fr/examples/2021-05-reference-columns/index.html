@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2021-05-reference-columns/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2021-05-reference-columns/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3547,7 +3551,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3971,7 +3975,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4002,7 +4006,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7122,16 +7126,16 @@
 <p>La structure de la formule est
 <code class="formula">$[ID de la Colonne de Référence dans la Table de Référence].[ID de la Colonne dans la Table Sous-jacente]</code>.
 Grist complétera également automatiquement des parties de la formule pendant que vous la tapez.</p>
-<p>Il y a une autre façon d&rsquo;ajouter plusieurs colonnes à partir d&rsquo;une table sous-jacente. Si vous êtes intéressé à en savoir plus, visitez la <a href="../../col-refs/#including-multiple-fields-from-a-reference">section d&rsquo;aide sur les colonnes de référence</a> de notre site web.</p>
+<p>Il y a une autre façon d&rsquo;ajouter plusieurs colonnes à partir d&rsquo;une table sous-jacente. Si vous êtes intéressé à en savoir plus, visitez la <a href="../../col-refs/#inclure-plusieurs-champs-dune-reference">section d&rsquo;aide sur les colonnes de référence</a> de notre site web.</p>
 <h2 id="etape-3-creer-une-mise-en-page-hautement-productive-avec-des-tables-liees">Étape 3 : Créer une Mise en Page Hautement Productive avec des Tables Liées<a class="headerlink" href="#etape-3-creer-une-mise-en-page-hautement-productive-avec-des-tables-liees" title="Permanent link">#</a></h2>
 <p>L&rsquo;une des fonctionnalités les plus puissantes de Grist est la capacité de lier des tables liées sur la même page pour créer des mises en page hautement productives. Dans le tableau de bord final montré au début de ce tutoriel, nous avons vu que cliquer sur une candidature remplissait une vue des étapes liées à cette candidature.</p>
-<p>Faisons cela maintenant en ajoutant <code>Étapes</code> comme vue à la page <code>Candidatures</code>. (<a href="../../page-widgets/#page-widgets">Révisez les vues ici</a>.) Ajouter la table comme vue de Liste de Fiches rend les données plus faciles à visualiser. De même, vous pouvez vouloir changer la table <code>Candidatures</code> en une vue de Liste de Fiches.</p>
+<p>Faisons cela maintenant en ajoutant <code>Étapes</code> comme vue à la page <code>Candidatures</code>. (<a href="../../page-widgets/#pages-widgets">Révisez les vues ici</a>.) Ajouter la table comme vue de Liste de Fiches rend les données plus faciles à visualiser. De même, vous pouvez vouloir changer la table <code>Candidatures</code> en une vue de Liste de Fiches.</p>
 <p>Dans le menu LISTE DE FICHES à droite, sélectionnez DONNÉES pour définir les règles de sélection des données. Sous SÉLECTIONNER PAR, vous verrez l&rsquo;option &ldquo;LISTE_DE_FICHES CANDIDATURES&rdquo;. Cette option est uniquement disponible parce qu&rsquo;à l&rsquo;étape 1, nous avons créé une référence de la table <code>Étapes</code> à la table <code>Candidatures</code> dans la colonne de référence <code>Rôle</code>. Cette référence indique à Grist quelles étapes sont liées à quelles candidatures.</p>
 <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/ZYJgPkcMhJU?rel=0" width="560"></iframe>
 <p>Félicitations ! Vous savez maintenant comment utiliser les colonnes de référence pour organiser des données liées, donner une structure à vos données, et créer des vues liées dans des mises en page productives. Si vous le souhaitez, comparez votre document à la <a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">solution du tutoriel</a>.</p>
 <h3 id="approfondir-combiner-des-formules-et-des-colonnes-de-reference">Approfondir : Combiner des Formules et des Colonnes de Référence<a class="headerlink" href="#approfondir-combiner-des-formules-et-des-colonnes-de-reference" title="Permanent link">#</a></h3>
 <p>Si vous êtes à l&rsquo;aise avec les formules, essayez d&rsquo;utiliser des formules dans les colonnes de référence pour rendre Grist un outil encore plus puissant. Dans la <a href="https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution">solution du tutoriel</a>, nous avons utilisé une formule pour faire plus.</p>
-<p>La formule dans le champ <code>Dernière Étape</code> dans la vue <code>Candidatures</code> recherche la date la plus récente dans les enregistrements liés dans la table <code>Étapes</code>. Ainsi, ajouter une nouvelle étape avec une date plus récente mettrait automatiquement à jour ce champ. Vous pouvez en apprendre plus sur <a href="../../formulas/#lookups">les formules de recherche sur notre site web</a>.</p>
+<p>La formule dans le champ <code>Dernière Étape</code> dans la vue <code>Candidatures</code> recherche la date la plus récente dans les enregistrements liés dans la table <code>Étapes</code>. Ainsi, ajouter une nouvelle étape avec une date plus récente mettrait automatiquement à jour ce champ. Vous pouvez en apprendre plus sur <a href="../../formulas/#recherches">les formules de recherche sur notre site web</a>.</p>
 <p>Parce que <code>Dernière Étape</code> est à la fois une colonne de formule <strong><em>et</em></strong> une colonne de référence, nous avons également fait ce qui suit en suivant la formule décrite à l&rsquo;étape 2 de ce tutoriel.</p>
 <p>Le champ <code>Statut</code> utilise la formule <code class="formula">$Dernière_Étape.Tour</code> pour rechercher le statut du tour de l&rsquo;étape liée. Le champ <code>Mis à Jour Le</code> utilise la formule <code class="formula">$Dernière_Étape.Date</code> pour rechercher la date de l&rsquo;étape liée.</p>
 <p>En faisant cela, le statut et la date se mettent également à jour automatiquement lorsque le champ <code>Dernière Étape</code> se met à jour.</p>

@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -220,14 +220,18 @@
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/search-sort-filter/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/search-sort-filter/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3580,7 +3584,7 @@
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -4004,7 +4008,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -4035,7 +4039,7 @@
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -7179,7 +7183,7 @@ qui ouvre une recherche de type tableur.</p>
 <p>Dans le même élément de menu, vous pouvez choisir de trier par ordre croissant ou décroissant.</p>
 <p><strong>Différence par rapport à Excel</strong> :
 Il est important de noter que le tri ne change aucun calcul de formule, il ne change que l&rsquo;ordre dans lequel vous voyez les enregistrements. Cela est différent des tableurs comme Excel.</p>
-<p>Une autre différence est que le paramètre de tri est &ldquo;actif&rdquo; : si vous ajoutez un enregistrement ou modifiez une cellule utilisée pour le tri, l&rsquo;enregistrement se déplacera à sa position correcte dans l&rsquo;ordre de tri. Voir <a href="#saving-row-positions">Enregistrer les positions des lignes</a> ci-dessous pour une option plus similaire au comportement d&rsquo;Excel.</p>
+<p>Une autre différence est que le paramètre de tri est &ldquo;actif&rdquo; : si vous ajoutez un enregistrement ou modifiez une cellule utilisée pour le tri, l&rsquo;enregistrement se déplacera à sa position correcte dans l&rsquo;ordre de tri. Voir <a href="#enregistrer-les-positions-des-lignes">Enregistrer les positions des lignes</a> ci-dessous pour une option plus similaire au comportement d&rsquo;Excel.</p>
 <h3 id="colonnes-multiples">Colonnes Multiples<a class="headerlink" href="#colonnes-multiples" title="Permanent link">#</a></h3>
 <p>Lorsque vous triez une table, vous pouvez cliquer sur une autre colonne pour l&rsquo;ajouter au tri :</p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="Ajouter au tri" src="../images/search-sort-filter/column-menu-add-sort.png" /></em></span></p>
@@ -7203,7 +7207,7 @@ Tout comme vous pouvez créer plusieurs pages affichant les données de la même
 <h3 id="options-de-tri-avancees">Options de tri avancées<a class="headerlink" href="#options-de-tri-avancees" title="Permanent link">#</a></h3>
 <p>L&rsquo;onglet &ldquo;Trier &amp; Filtrer&rdquo; expose des options de tri supplémentaires qui peuvent être utiles pour divers types de colonnes :</p>
 <ul>
-<li><code>Utiliser la position des choix</code> &ndash; disponible sur les colonnes <a href="../col-types/#choice-columns">Choix</a>, trie les enregistrements en utilisant l&rsquo;ordre configuré des éléments de choix, plutôt que leurs noms.</li>
+<li><code>Utiliser la position des choix</code> &ndash; disponible sur les colonnes <a href="../col-types/#colonnes-de-choix">Choix</a>, trie les enregistrements en utilisant l&rsquo;ordre configuré des éléments de choix, plutôt que leurs noms.</li>
 <li><code>Valeurs vides en dernier</code> &ndash; dans l&rsquo;ordre alphabétique, les valeurs vides sont affichées en premier par défaut, utilisez cette option pour les mettre à la fin.</li>
 <li><code>Tri naturel</code> &ndash; pour la colonne Texte, traitera les nombres à plusieurs chiffres dans les chaînes comme s&rsquo;ils étaient un seul caractère, permettant un ordre plus convivial. Par exemple, en utilisant le <code>tri naturel</code>, <em>Produit10</em> sera positionné après <em>Produit2</em>.</li>
 </ul>

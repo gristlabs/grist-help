@@ -64,7 +64,7 @@ avec tout cela.">
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770134492"></script>
+  <script type="module" src="/js/grist.js?v=1770217369"></script>
 
     
   
@@ -223,14 +223,18 @@ avec tout cela.">
     <div class="md-select__inner">
       <ul class="md-select__list">
         
+          
+          
           <li class="md-select__item">
-            <a href="/" hreflang="" class="md-select__link">
+            <a href="/examples/2020-06-book-club/" hreflang="en" class="md-select__link">
               en - English
             </a>
           </li>
         
+          
+          
           <li class="md-select__item">
-            <a href="/fr/" hreflang="" class="md-select__link">
+            <a href="/fr/examples/2020-06-book-club/" hreflang="fr" class="md-select__link">
               fr - français
             </a>
           </li>
@@ -3472,7 +3476,7 @@ avec tout cela.">
   
 
   <span class="md-ellipsis">
-    REST API reference
+    Documentation de l'API REST
     
   </span>
   
@@ -3896,7 +3900,7 @@ avec tout cela.">
   
 
   <span class="md-ellipsis">
-    Admin Panel
+    Panneau d'administration
     
   </span>
   
@@ -3927,7 +3931,7 @@ avec tout cela.">
   
 
   <span class="md-ellipsis">
-    Admin Controls
+    Contrôles d'administration
     
   </span>
   
@@ -6959,8 +6963,8 @@ Pour emprunter ou acheter le livre, il est préférable d&rsquo;avoir son code I
 confusion. Une chose que nous pouvons faire est d&rsquo;ajouter un lien pour rechercher un livre
 sur <a href="https://isbnsearch.org">isbnsearch.org</a>
 par son titre et son auteur. Pour ce faire, ajoutez une nouvelle colonne, puis définissez-la comme une
-<a href="../../col-types/#text-columns">colonne HyperLink</a> :</p>
-<p><img alt="Créer un chercheur d'ISBN" src="../examples/images/2020-06-book-club-find-isbn.png" /></p>
+<a href="../../col-types/#colonnes-de-texte">colonne HyperLink</a> :</p>
+<p><img alt="Créer un chercheur d'ISBN" src="../images/2020-06-book-club-find-isbn.png" /></p>
 <p>Ce que nous allons faire, c&rsquo;est remplir cette colonne en utilisant une formule qui prend le
 titre du livre et le nom de l&rsquo;auteur, et les utilise comme mots-clés pour rechercher sur
 le site <a href="https://isbnsearch.org">isbnsearch.org</a>. Voici la formule :</p>
@@ -6971,13 +6975,13 @@ le site <a href="https://isbnsearch.org">isbnsearch.org</a>. Voici la formule :<
 <p>Les URL avec des espaces, des apostrophes ou d&rsquo;autres lettres étranges que vous pourriez trouver dans
 les noms nécessitent un encodage spécial, nous avons donc utilisé le module python <code>urllib</code> pour nous assurer
 que tout est encodé correctement. Maintenant, nous avons un lien <code>[isbn]</code> pratique à côté de chaque livre :</p>
-<p><img alt="Formule de lien ISBN" src="../examples/images/2020-06-book-club-isbn-link.png" /></p>
+<p><img alt="Formule de lien ISBN" src="../images/2020-06-book-club-isbn-link.png" /></p>
 <p>Nous pouvons cliquer sur la flèche à côté de <code>[isbn]</code>, localiser le livre et noter son code ISBN
 dans une nouvelle colonne :</p>
-<p><img alt="Commencer" src="../examples/images/2020-06-book-club-isbn-search-result.png" /></p>
+<p><img alt="Commencer" src="../images/2020-06-book-club-isbn-search-result.png" /></p>
 <p>Ensuite, nous pouvons l&rsquo;ajouter à notre liste de livres. Maintenant que nous avons un coup de main pour trouver les ISBN,
 ajoutons quelques livres de plus :</p>
-<p><img alt="Commencer" src="../examples/images/2020-06-book-club-all-isbn.png" /></p>
+<p><img alt="Commencer" src="../images/2020-06-book-club-all-isbn.png" /></p>
 <h2 id="recherche-en-bibliotheque-et-en-magasin">Recherche en bibliothèque et en magasin<a class="headerlink" href="#recherche-en-bibliotheque-et-en-magasin" title="Permanent link">#</a></h2>
 <p>Une fois que nous avons l&rsquo;ISBN, ajouter un lien pour acheter le livre est facile. Voici une formule
 pour le site <a href="https://indiebound.org">indiebound.org</a>, qui aux États-Unis est susceptible
@@ -6991,10 +6995,10 @@ que vous aimez (trouvez simplement une page de recherche sur leur site et faites
 <span class="s2">&quot;[amazon] https://www.amazon.com/s?i=stripbooks&amp;k=&quot;</span> <span class="o">+</span> <span class="n">urllib</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="err">$</span><span class="n">keywords</span><span class="p">)</span>
 </code></pre></div>
 <p>Les nouveaux liens ressemblent à ceci :</p>
-<p><img alt="Commencer" src="../examples/images/2020-06-book-club-buy.png" /></p>
+<p><img alt="Commencer" src="../images/2020-06-book-club-buy.png" /></p>
 <p>Cliquer sur le lien <code>[buy]</code> près d&rsquo;un livre nous amène maintenant à ce livre sur
 <a href="https://indiebound.org">indiebound.org</a>.</p>
-<p><img alt="Commencer" src="../examples/images/2020-06-book-club-indie.png" /></p>
+<p><img alt="Commencer" src="../images/2020-06-book-club-indie.png" /></p>
 <p>Pour votre bibliothèque locale, la même idée est très probablement applicable. Par exemple, dans
 le nord du New Jersey, aux États-Unis, voici ce que vous voulez :</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urllib</span>
@@ -7009,8 +7013,8 @@ le nord du New Jersey, aux États-Unis, voici ce que vous voulez :</p>
 <span class="n">keywords</span> <span class="o">=</span> <span class="p">(</span><span class="err">$</span><span class="n">Title</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="err">$</span><span class="n">Author</span><span class="o">.</span><span class="n">Name</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="s2">&quot;[wikipedia] https://en.wikipedia.org/wiki/Special:Search/&quot;</span> <span class="o">+</span> <span class="n">urllib</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
 </code></pre></div>
-<p>Une fois que nous avons tous ces liens, il est logique d&rsquo;ajouter une <a href="../../linking-widgets/#same-record-linking">vue fiche</a> afin que nous puissions les disposer :</p>
-<p><img alt="Commencer" src="../examples/images/2020-06-book-club-card.png" /></p>
+<p>Une fois que nous avons tous ces liens, il est logique d&rsquo;ajouter une <a href="../../linking-widgets/#liaison-sur-le-meme-enregistrement">vue fiche</a> afin que nous puissions les disposer :</p>
+<p><img alt="Commencer" src="../images/2020-06-book-club-card.png" /></p>
 <h2 id="modele-pret-a-lemploi">Modèle prêt à l&rsquo;emploi<a class="headerlink" href="#modele-pret-a-lemploi" title="Permanent link">#</a></h2>
 <p>Voici une
 <a href="https://templates.getgrist.com/hdXy57qLiyNf/Book-Club" target="_blank">exemple de liste de livres</a>
