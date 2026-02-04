@@ -42,7 +42,7 @@ Nous ajoutons le sous-total à la taxe calculée, puis divisons cela par 12 mois
 #### Dépannage des Erreurs
 </summary>
 
-`#TypeError` : Confirmez que toutes les colonnes utilisées dans la formule sont de type [Numérique](col-types.md#numeric-columns).
+`#TypeError` : Confirmez que toutes les colonnes utilisées dans la formule sont de type [Numérique](col-types.md#colonnes-numeriques).
 </details>
 </section>
 
@@ -83,7 +83,7 @@ Décomposons cela.
 
 `Interactions.lookupRecords(Contact=$id, Type="To-Do")` trouve tous les enregistrements dans la table Interactions où les Contacts correspondent et le Type est To-Do. Cela renvoie une liste d'enregistrements que nous assignons à la variable `items`.
 
-Ensuite, nous utilisons la [notation par points](references-lookups.md#reference-columns-and-dot-notation) pour trouver toutes les Dates assignées aux enregistrements de notre liste `items`. Ces dates sont évaluées pour trouver la date minimale. C'est la valeur qui est renvoyée. Ainsi, nous voyons la date de la tâche qui est due le plus tôt.
+Ensuite, nous utilisons la [notation par points](references-lookups.md#colonnes-de-reference-et-notation-par-points) pour trouver toutes les Dates assignées aux enregistrements de notre liste `items`. Ces dates sont évaluées pour trouver la date minimale. C'est la valeur qui est renvoyée. Ainsi, nous voyons la date de la tâche qui est due le plus tôt.
 
 S'il n'y a pas d'éléments dans la liste, rien n'est renvoyé et le champ reste vide.
 
@@ -109,7 +109,7 @@ La formule utilisée dans la colonne Coût Total de la table Sélectionner ou Aj
 ```
 SUM($Requirements.Cost)
 ```
-La colonne Requirements est une [colonne cachée](page-widgets.md#configuring-field-lists) dans cette table. C'est une colonne de liste de référence qui tire des données de la table Build Requirements.
+La colonne Requirements est une [colonne cachée](page-widgets.md#configurer-les-listes-de-champs) dans cette table. C'est une colonne de liste de référence qui tire des données de la table Build Requirements.
 
 Notre formule utilise la colonne Requirements pour accéder à la table Build Requirements, puis tire le coût pour chaque enregistrement dans la table.
 
@@ -160,7 +160,7 @@ La formule utilisée dans la colonne Date Received de la table [Create New Order
 if $Status == "Received":
   return NOW()
 ```
-C'est une [formule d'initialisation](formulas.md#trigger-formulas) qui est déclenchée lorsqu'un changement est effectué dans la colonne Status. Si la valeur dans la colonne Status est égale à `Received`, la date actuelle est renvoyée. Si les valeurs ne sont pas égales, rien n'est renvoyé.
+C'est une [formule d'initialisation](formulas.md#formules-dinitialisation) qui est déclenchée lorsqu'un changement est effectué dans la colonne Status. Si la valeur dans la colonne Status est égale à `Received`, la date actuelle est renvoyée. Si les valeurs ne sont pas égales, rien n'est renvoyé.
 
 </details>
 <span></span><details><summary>
@@ -263,37 +263,37 @@ Si la valeur dans la colonne Appraisal Value ***ne se termine pas*** par "k", et
 <span></span><details><summary>
 #### Dépannage
 </summary>
-Si vous essayez d'utiliser différentes colonnes avec des valeurs *numériques* dans une formule mathématique mais que vous voyez une erreur, vérifiez les types de colonnes pour chacune des colonnes utilisées dans la formule. Toutes doivent être de type [Numérique](col-types.md#numeric-columns).
+Si vous essayez d'utiliser différentes colonnes avec des valeurs *numériques* dans une formule mathématique mais que vous voyez une erreur, vérifiez les types de colonnes pour chacune des colonnes utilisées dans la formule. Toutes doivent être de type [Numérique](col-types.md#colonnes-numeriques).
 
 <span class="screenshot-large">*![column-type-numeric](images/formula-cheat-sheet/column-type-numeric.png)*</span>
 {: .screenshot-half }
 
-[float()](https://docs.python.org/3/library/functions.html#float){:target="\_blank"} n'est nécessaire que lorsque vous traitez des valeurs alphanumériques comme nous le voyons dans l'[exemple](#example-converting-a-string-to-a-float).
+[float()](https://docs.python.org/3/library/functions.html#float){:target="\_blank"} n'est nécessaire que lorsque vous traitez des valeurs alphanumériques comme nous le voyons dans l'[exemple](#exemple-de-conversion-dune-chaine-en-float).
 
 **TypeError : impossible de multiplier une séquence par un type non-int de 'float'**
 <span class="screenshot-large">*![multiply-non-int-float-type-error](images/formula-cheat-sheet/multiply-non-int-float-type-error.png)*</span>
-Cette erreur se produit lorsqu'une formule tente de **multiplier** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#numeric-columns). Dans la capture d'écran ci-dessous, la colonne Tax est une colonne [Texte](col-types.md#text-columns).
+Cette erreur se produit lorsqu'une formule tente de **multiplier** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#colonnes-numeriques). Dans la capture d'écran ci-dessous, la colonne Tax est une colonne [Texte](col-types.md#colonnes-de-texte).
 <span class="screenshot-large">*![multiply-non-int-error-tax-text](images/formula-cheat-sheet/multiply-non-int-error-tax-text.png)*</span>
-Lorsque nous changeons le type de colonne en [Numérique](col-types.md#numeric-columns), l'erreur est résolue.
+Lorsque nous changeons le type de colonne en [Numérique](col-types.md#colonnes-numeriques), l'erreur est résolue.
 <span class="screenshot-large">*![multiply-non-int-error-tax-numeric](images/formula-cheat-sheet/multiply-non-int-error-tax-numeric.png)*</span>
 
 **TypeError : type d'opérande non pris en charge pour / : 'float' et 'str'**
 <span class="screenshot-large">*![division-float-string-error](images/formula-cheat-sheet/division-float-string-error.png)*</span>
-Cette erreur se produit lorsqu'une formule tente de **diviser** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#numeric-columns). Dans l'exemple ci-dessus, la colonne '# of Payments' est une colonne [Choice](col-types.md#choice-columns).
+Cette erreur se produit lorsqu'une formule tente de **diviser** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#colonnes-numeriques). Dans l'exemple ci-dessus, la colonne '# of Payments' est une colonne [Choice](col-types.md#colonnes-de-choix).
 
-Lorsque nous changeons le type de colonne en [Numérique](col-types.md#numeric-columns), l'erreur est résolue.
+Lorsque nous changeons le type de colonne en [Numérique](col-types.md#colonnes-numeriques), l'erreur est résolue.
 
 **TypeError : type d'opérande non pris en charge pour + : 'float' et 'str'**
 <span class="screenshot-large">*![addition-float-string-error](images/formula-cheat-sheet/addition-float-string-error.png)*</span>
-Cette erreur se produit lorsqu'une formule tente d'**ajouter** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#numeric-columns). Dans l'exemple ci-dessus, la colonne Tax est une colonne [Texte](col-types.md#text-columns).
+Cette erreur se produit lorsqu'une formule tente d'**ajouter** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#colonnes-numeriques). Dans l'exemple ci-dessus, la colonne Tax est une colonne [Texte](col-types.md#colonnes-de-texte).
 
-Lorsque nous changeons le type de colonne en [Numérique](col-types.md#numeric-columns), l'erreur est résolue.
+Lorsque nous changeons le type de colonne en [Numérique](col-types.md#colonnes-numeriques), l'erreur est résolue.
 
 **TypeError : type d'opérande non pris en charge pour - : 'float' et 'str'**
 <span class="screenshot-large">*![subtraction-float-string-error](images/formula-cheat-sheet/subtraction-float-string-error.png)*</span>
-Cette erreur se produit lorsqu'une formule tente de **soustraire** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#numeric-columns). Dans l'exemple ci-dessus, la colonne Discount est une colonne [Texte](col-types.md#text-columns).
+Cette erreur se produit lorsqu'une formule tente de **soustraire** des valeurs de plusieurs colonnes, dont au moins une n'est pas de type [Numérique](col-types.md#colonnes-numeriques). Dans l'exemple ci-dessus, la colonne Discount est une colonne [Texte](col-types.md#colonnes-de-texte).
 
-Lorsque nous changeons le type de colonne en [Numérique](col-types.md#numeric-columns), l'erreur est résolue.
+Lorsque nous changeons le type de colonne en [Numérique](col-types.md#colonnes-numeriques), l'erreur est résolue.
 
 </details>
 </section>
@@ -480,7 +480,7 @@ Cela nous laisse avec le suivant :
 "{} — {:g} {}".format(comp.Component, quantity, comp.Unit)
   for (comp, quantity) in $Components.items()
 ```
-Nous allons travailler à l'envers. Tout d'abord, nous devons examiner la colonne Components qui est une [colonne cachée](page-widgets.md#configuring-field-lists) dans la table All Contracts.
+Nous allons travailler à l'envers. Tout d'abord, nous devons examiner la colonne Components qui est une [colonne cachée](page-widgets.md#configurer-les-listes-de-champs) dans la table All Contracts.
 
 <span class="screenshot-large">*![combining-text-components-hidden](images/formula-cheat-sheet/combining-text-components-hidden.png)*</span>
 
@@ -507,7 +507,7 @@ La formule utilisée dans la colonne Body de la table Advanced Compose est :
 ```
 "Dear %s,\n\nWelcome to the %s team!" % ($Contact_Name_as_Plaintext, $Team)
 ```
-Cette technique utilise l'opérateur `%` au lieu de la méthode `format()`. Les spécificateurs de format commencent par `%` suivi d'un caractère qui représente le type de données. `%s` est un espace réservé pour une chaîne. Le premier `%s` est remplacé par la valeur trouvée dans la colonne "Contact Name as Plaintext" qui est une [colonne cachée](page-widgets.md#configuring-field-lists) et le deuxième `%s` est remplacé par la valeur dans la colonne Team.
+Cette technique utilise l'opérateur `%` au lieu de la méthode `format()`. Les spécificateurs de format commencent par `%` suivi d'un caractère qui représente le type de données. `%s` est un espace réservé pour une chaîne. Le premier `%s` est remplacé par la valeur trouvée dans la colonne "Contact Name as Plaintext" qui est une [colonne cachée](page-widgets.md#configurer-les-listes-de-champs) et le deuxième `%s` est remplacé par la valeur dans la colonne Team.
 
 `\n` ajoute une nouvelle ligne.
 
@@ -582,7 +582,7 @@ Ici, nous joignons plusieurs chaînes pour créer notre publicité.
 
 Les guillemets `""` spécifient qu'il s'agit d'une chaîne et `\n` est en fait un caractère de nouvelle ligne qui peut être utilisé pour spécifier une nouvelle ligne dans une chaîne.
 
-`" : ".join($New_Location_s_in_2022)` est également une chaîne mais utilise la méthode [join() de Python](https://www.w3schools.com/python/ref_string_join.asp){:target="\_blank"} pour joindre les valeurs de notre colonne de [liste de choix](col-types.md#choice-list-columns), "New Locations in 2022". Ce que nous voyons entre guillemets avant `.join` est ce qui séparera chaque valeur de notre liste.
+`" : ".join($New_Location_s_in_2022)` est également une chaîne mais utilise la méthode [join() de Python](https://www.w3schools.com/python/ref_string_join.asp){:target="\_blank"} pour joindre les valeurs de notre colonne de [liste de choix](col-types.md#colonnes-de-liste-de-choix), "New Locations in 2022". Ce que nous voyons entre guillemets avant `.join` est ce qui séparera chaque valeur de notre liste.
 
 Dans cet exemple, chaque valeur est séparée par un espace, `:` et un autre espace.
 
@@ -722,7 +722,7 @@ return sorted(set(full_list))
 ```
 Nous allons décomposer cela ligne par ligne.
 
-Attending-Confirmed est une colonne de liste de référence qui tire des données de la table EMPLOYEES. `$Attending_Confirmed.Role_Division` tire la valeur de la colonne Role Division de la table EMPLOYEES. La colonne Role Division dans la table EMPLOYEES est elle-même une colonne de référence, qui pointe vers un enregistrement dans la table Divisions. [Chaining](references-lookups.md#chaining) nous permet de spécifier quelles informations nous voulons de cet enregistrement. Dans ce cas, nous voulons la Division. Nous développons notre formule pour `$Attending_Confirmed.Role_Division.Division`. La Division est trouvée pour chaque employé listé dans la colonne Attending-Confirmed, créant une liste. Nous assignons cette liste de divisions à la variable `confirmed_div`.
+Attending-Confirmed est une colonne de liste de référence qui tire des données de la table EMPLOYEES. `$Attending_Confirmed.Role_Division` tire la valeur de la colonne Role Division de la table EMPLOYEES. La colonne Role Division dans la table EMPLOYEES est elle-même une colonne de référence, qui pointe vers un enregistrement dans la table Divisions. [Chaînage](references-lookups.md#chaînage) nous permet de spécifier quelles informations nous voulons de cet enregistrement. Dans ce cas, nous voulons la Division. Nous développons notre formule pour `$Attending_Confirmed.Role_Division.Division`. La Division est trouvée pour chaque employé listé dans la colonne Attending-Confirmed, créant une liste. Nous assignons cette liste de divisions à la variable `confirmed_div`.
 
 Attending-Pending est également une colonne de liste de référence qui tire des données de la table EMPLOYEES. `$Attending_Pending.Role_Division.Division` fait la même chose que ci-dessus sauf que maintenant nous tirons la division pour chaque employé dans la colonne Attending-Pending. Nous assignons cette liste à la variable `pending_div`.
 
@@ -770,7 +770,7 @@ La formule utilisée dans la colonne Last Updated de la table Tasks est :
 ```
 NOW()
 ```
-C'est une [formule d'initialisation](formulas.md#trigger-formulas) qui se déclenche lorsqu'un changement est effectué dans n'importe quel champ pour cet enregistrement. Lorsqu'un changement est effectué, cette formule exécute son calcul. `NOW()` calcule l'heure et la date actuelles pour le [fuseau horaire](dates.md#time-zones) sélectionné.
+C'est une [formule d'initialisation](formulas.md#formules-dinitialisation) qui se déclenche lorsqu'un changement est effectué dans n'importe quel champ pour cet enregistrement. Lorsqu'un changement est effectué, cette formule exécute son calcul. `NOW()` calcule l'heure et la date actuelles pour le [fuseau horaire](dates.md#fuseaux-horaires) sélectionné.
 
 <span class="screenshot-large">*![created-by-trigger](images/formula-cheat-sheet/created-by-trigger.png)*</span>
 
@@ -778,7 +778,7 @@ La formule utilisée dans la colonne Created By de la table Tasks est :
 ```
 user.Name
 ```
-C'est une [formule d'initialisation](formulas.md#trigger-formulas) qui se déclenche lorsqu'un nouvel enregistrement est créé. Lorsque l'enregistrement est créé, cette formule exécute son calcul. `user.Name` recherche le compte utilisateur qui est connecté à Grist et renvoie le nom associé à ce compte.
+C'est une [formule d'initialisation](formulas.md#formules-dinitialisation) qui se déclenche lorsqu'un nouvel enregistrement est créé. Lorsque l'enregistrement est créé, cette formule exécute son calcul. `user.Name` recherche le compte utilisateur qui est connecté à Grist et renvoie le nom associé à ce compte.
 
 </details>
 
@@ -807,7 +807,7 @@ Une autre possibilité est que cela a été entré en tant que colonne de formul
 <span></span><section class="cheat-sheet">
 #### Filtrer les Données dans une Durée Spécifiée
 
-En utilisant la fonction [`DATEADD()`](functions.md#dateadd) et les [opérateurs de comparaison](#comparing-values), vous pouvez déterminer si une date tombe dans une plage spécifique puis appliquer un filtre.
+En utilisant la fonction [`DATEADD()`](functions.md#dateadd) et les [opérateurs de comparaison](#comparer-des-valeurs), vous pouvez déterminer si une date tombe dans une plage spécifique puis appliquer un filtre.
 
 <span></span><details><summary>
 #### Exemple de Filtrage des Données qui 'Tombe dans une Plage de 1 Mois'
@@ -822,7 +822,7 @@ TODAY() >= $Date >=  DATEADD(TODAY(),months=-1)
 ```
 [`TODAY()`](functions.md#today) renvoie la date actuelle.
 
-`$Date` est le nom d'une colonne dans notre table, qui est de type [Date](col-types.md#date-columns).
+`$Date` est le nom d'une colonne dans notre table, qui est de type [Date](col-types.md#colonnes-de-date).
 
 [`DATEADD(start_date, days=0, months=0, years=0, weeks=0)`](functions.md#dateadd) renvoie la date qui est le nombre donné de jours, mois, années ou semaines avant ou après la `start_date`. Dans cet exemple, elle renvoie la date qui est un mois avant la date de départ, `TODAY()`.
 
@@ -844,7 +844,7 @@ Nous pouvons utiliser cette colonne pour filtrer nos données. Si nous ne voulon
 
     <span class="screenshot-large">*![1-month-range-type-error](images/formula-cheat-sheet/1-month-range-type-error.png)*</span>
 
-    Parce que `$Date` est une colonne de type [Date](col-types.md#date-columns), `TODAY()` doit être utilisé dans les formules comparant des dates. [`NOW()`](functions.md#now) est une formule DateTime qui ne doit être utilisée qu'avec d'autres valeurs DateTime. Par exemple, si la colonne `$Date` était une colonne de type [DateTime](col-types.md#datetime-columns), `NOW()` devrait être utilisé plutôt que `TODAY()` car il inclut le composant temps.
+    Parce que `$Date` est une colonne de type [Date](col-types.md#colonnes-de-date), `TODAY()` doit être utilisé dans les formules comparant des dates. [`NOW()`](functions.md#now) est une formule DateTime qui ne doit être utilisée qu'avec d'autres valeurs DateTime. Par exemple, si la colonne `$Date` était une colonne de type [DateTime](col-types.md#colonnes-dateheure), `NOW()` devrait être utilisé plutôt que `TODAY()` car il inclut le composant temps.
 
     `NOW()` est date et heure. `TODAY()` est seulement date.
 </div>

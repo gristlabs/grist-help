@@ -83,7 +83,7 @@ Si vous avez de nombreux graphiques, vous pouvez simplement les disposer en gril
 
 ![widget_chart_examples](images/custom-layouts/widget_chart_examples.png)
 
-Pour les graphiques dynamiques dans lesquels les données sont sélectionnées par une autre table, une disposition comme [Liste et Détail](#layout-list-and-detail) ci-dessus fonctionnerait bien. Un conseil est d'inclure à la fois une vue de Table et une vue de Graphique, configurées et liées de la même manière, et ne différant que par le type de vue :
+Pour les graphiques dynamiques dans lesquels les données sont sélectionnées par une autre table, une disposition comme [Liste et Détail](#disposition-liste-et-detail) ci-dessus fonctionnerait bien. Un conseil est d'inclure à la fois une vue de Table et une vue de Graphique, configurées et liées de la même manière, et ne différant que par le type de vue :
 
 ![layout-chart-table](images/custom-layouts/layout-chart-table.png)
 

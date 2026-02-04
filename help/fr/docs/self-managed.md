@@ -14,26 +14,34 @@ description: Les éléments essentiels pour créer et maintenir une installation
 
 ### Qu'est-ce que Grist Autogéré ?
 
-Il existe quatre variantes de Grist :
+Il existe cinq variantes de Grist :
 
   * **SaaS** (Software as a Service) : Grist est disponible en tant que service hébergé
     sur [docs.getgrist.com](https://docs.getgrist.com).
-    Aucune installation nécessaire. Plans gratuits et payants, avec des limites d'utilisation.
+    Aucune installation nécessaire. Plans gratuits et payants, avec des limites d'utilisation. Les détails des plans sont disponibles sur notre
+    [page de tarification](https://www.getgrist.com/pricing/).
   * **Application de bureau** : Grist est disponible en tant qu'application de bureau, construite avec Electron.
     Elle est disponible en téléchargement sur [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases).
     Cette application de bureau n'a pas besoin d'internet et n'est liée à aucun compte ou service en ligne.
-  * **Entreprise Autogérée** : Grist est disponible en tant qu'application sous licence
-    installée par des entreprises sur leur propre infrastructure
-    avec notre support et assistance. Contient des fonctionnalités propriétaires
-    développées pour des entreprises avec des besoins particuliers.
-  * **Noyau Autogéré** : Grist est disponible en tant qu'application gratuite installée
+  * **Entreprise** : Grist est disponible en tant qu'application sous licence qui peut être installée par des entreprises
+    sur leur propre infrastructure avec notre support ou hébergée sur une infrastructure dédiée gérée par Grist. Contient
+    des fonctionnalités propriétaires développées pour des entreprises avec des besoins particuliers.
+  * **Noyau** : Grist est disponible en tant qu'application gratuite installée
     par des développeurs citoyens sur leur propre infrastructure avec le soutien de la communauté.
     Les documents Grist créés avec nos offres SaaS et Entreprise
     peuvent être ouverts et modifiés avec le Noyau, et vice versa. Cela établit
     les documents Grist comme un format fiable pour l'archivage et l'échange.
+  * **Grist Builder Edition** : Une version du Noyau pré-emballée pour
+    des fournisseurs de cloud tels que [Amazon Web
+    Services](https://aws.amazon.com/marketplace/pp/prodview-tew3ygop5xxy4)
+    ou [Microsoft
+    Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/grist.grist-builder-edition).
+    En savoir plus
+    [ici](https://support.getgrist.com/install/grist-builder-edition/).
 
-Grist Autogéré, qu'il s'agisse de l'Entreprise ou du Noyau, est installé et configuré de
-la même manière, comme décrit dans les sections suivantes. Pour plus de clarté, les sections sont étiquetées
+Grist auto-hébergé (ou autogéré), qu'il s'agisse de l'Entreprise ou du Noyau, est installé et configuré de
+la même manière, comme décrit dans les sections suivantes. Grist Builder Edition peut être configuré de la même manière, mais
+inclut une configuration par défaut pour commencer. Pour plus de clarté, les sections sont étiquetées
 avec la variante à laquelle elles s'appliquent, par exemple :
 {: .tag-core .tag-ee }
 
@@ -63,6 +71,7 @@ Pour essayer Grist avec Docker, créez un répertoire vide pour que Grist y stoc
 docker run -p 8484:8484 \
   -v ~/grist:/persist \
   -e GRIST_SESSION_SECRET=inventez-un-secret-ici \
+  -e GRIST_DEFAULT_EMAIL=your-email@example.com \
   -it gristlabs/grist
 ```
 
@@ -88,20 +97,61 @@ Si vous utilisez un autre outil ou service, voici les points importants :
 Installé de cette manière, Grist est accessible uniquement par vous. En général, vous voudrez
 prendre au moins les étapes suivantes :
 
-  * [Configurer le sandboxing](self-managed.md#how-do-i-sandbox-documents) - cela est important pour
+  * [Configurer le sandboxing](self-managed.md#comment-sandboxer-des-documents) - cela est important pour
     limiter ce que les formules peuvent faire.
-  * [Servir depuis un hôte public](self-managed.md#how-do-i-run-grist-on-a-server)
+  * [Servir depuis un hôte public](self-managed.md#comment-executer-grist-sur-un-serveur)
     afin de pouvoir collaborer en direct avec d'autres.
   * Activer une méthode d'authentification afin que les utilisateurs puissent se connecter. Souvent, vous voudrez
     connecter Grist à un service "SSO" (Single Sign-On) que vous utilisez déjà.
     Nous supportons certaines méthodes d'authentification très
-    [générales](self-managed.md#how-do-i-set-up-authentication) qui couvrent de nombreux cas,
-    et une [méthode d'authentification spéciale](self-managed.md#are-there-other-authentication-methods) pour des cas personnalisés.
-  * Envisager d'activer le [support des snapshots](self-managed.md#how-do-i-set-up-snapshots) si vous souhaitez que Grist gère les sauvegardes de documents.
+    [générales](self-managed.md#comment-configurer-lauthentification) qui couvrent de nombreux cas,
+    et une [méthode d'authentification spéciale](self-managed.md#existe-t-il-dautres-methodes-dauthentification) pour des cas personnalisés.
+  * Envisager d'activer le [support des snapshots](self-managed.md#comment-configurer-des-snapshots) si vous souhaitez que Grist gère les sauvegardes de documents.
 
-#### Grist sur AWS
+#### Grist sur AWS et Azure
 
-Vous pouvez également héberger Grist sur AWS. Des instructions complètes sur cette méthode d'hébergement sont disponibles sur la page Grist [AWS Marketplace](install/aws-marketplace.md).
+Vous pouvez également héberger Grist sur AWS et Azure. Des instructions complètes sur ces méthodes d'hébergement sont disponibles sur la [page Grist Builder Edition](install/grist-builder-edition.md).
+
+### Qu'est-ce que le compte administratif ? {: .tag-core .tag-ee }
+
+Sur une nouvelle installation Grist, l'utilisateur qui se connecte avec l'adresse e-mail
+définie par `GRIST_DEFAULT_EMAIL` est l'administrateur de cette installation Grist.
+Lorsque Grist s'exécute pour la première fois, il créera un
+compte défini à la valeur de `GRIST_DEFAULT_EMAIL`. Notez que si cette
+variable n'est pas définie, elle est par défaut `you@example.com`. Changer la
+valeur de `GRIST_DEFAULT_EMAIL` après que le premier utilisateur administrateur a été
+créé révoquera effectivement les permissions d'administrateur du
+premier utilisateur et les assignera à la nouvelle adresse e-mail.
+
+Le compte administratif a accès à la page [Installation](admin-panel.md#parametres) dans le [Panneau d'administration](admin-panel.md) où il
+peut inspecter les détails de l'installation ou activer/désactiver des fonctionnalités telles que
+la [télémétrie](#comment-controler-la-telemetrie) ou [Grist
+Enterprise](#comment-activer-grist-entreprise).
+
+Si [Grist Enterprise](#comment-activer-grist-entreprise) est activé, le compte administratif aura également accès aux [Contrôles d'administration](admin-controls.md)
+
+### Comment puis-je avoir plus d'un compte administratif ? {: .tag-ee }
+
+Dans [Grist
+Enterprise](#comment-activer-grist-entreprise), il est
+possible d'avoir plus d'un compte administratif. Cela se fait
+via la variable d'environnement `GRIST_INSTALL_ADMIN_ORG`.
+
+Un prérequis est d'autoriser la création de plusieurs sites d'équipe. Pour
+ce faire, assurez-vous que `GRIST_SINGLE_ORG` n'est pas défini.
+
+Dans une installation Grist multi-équipe, suivez ces étapes :
+
+1. Depuis le menu de votre compte utilisateur en haut à droite, créez un site d'équipe Grist
+   (alias organisation) avec le nom de votre choix (par
+   exemple, `admins`)
+2. À ce site d'équipe, [ajoutez les comptes
+   utilisateurs](https://support.getgrist.com/team-sharing/) que vous souhaitez
+   désigner comme administrateurs. Leur rôle sur ce site d'équipe doit
+   être "OWNER".
+3. Définissez `GRIST_INSTALL_ADMIN_ORG` sur le nom du site d'équipe de la
+   première étape (par exemple, `GRIST_INSTALL_ADMIN_ORG=admins`).
+4. Redémarrez le serveur Grist avec la nouvelle variable d'environnement.
 
 ### Comment sandboxer des documents ? {: .tag-core .tag-ee }
 
@@ -158,7 +208,7 @@ Dans certains environnements cloud tels que AWS ECS, vous devrez peut-être
 
 Nous vous suggérons de vous familiariser avec tous les autres aspects de
 l'autogestion sur cette page avant de servir Grist depuis un hôte public
-(surtout [Sandboxing](self-managed.md#how-do-i-sandbox-documents)).
+(surtout [Sandboxing](self-managed.md#comment-sandboxer-des-documents)).
 Lorsque vous le ferez, il est important de dire à Grist d'où il sera servi,
 en utilisant la variable `APP_HOME_URL`. Par exemple, si vous allez
 servir depuis `https://grist.example.com`, faites savoir à Grist comme ceci :
@@ -230,8 +280,23 @@ docker run ...
 
 Le nom de l'équipe ne doit utiliser que des caractères minuscules a-z, des chiffres
 0-9, et le tiret (`-`). Vous voudrez également peut-être vous pencher sur
-[Personnalisation du style](self-managed.md#how-do-i-customize-styling) pour cacher les éléments d'interface utilisateur
+[Personnalisation du style](self-managed.md#comment-personnaliser-le-style) pour cacher les éléments d'interface utilisateur
 dont vous n'avez pas besoin.
+
+
+#### Changer la valeur de `GRIST_DEFAULT_EMAIL`
+
+Lors de [l'utilisation de
+`GRIST_SINGLE_ORG`](#comment-configurer-une-equipe), la
+seule organisation sera également créée initialement et possédée par l'utilisateur
+configuré par `GRIST_DEFAULT_EMAIL`. Si vous changez la valeur de
+`GRIST_DEFAULT_EMAIL`, [l'administrateur](self-managed.md#quest-ce-que-le-compte-administratif) peut
+temporairement perdre l'accès au site d'équipe.
+
+Pour éviter cela, avant de changer `GRIST_DEFAULT_EMAIL`, utilisez
+les [options de partage d'équipe](team-sharing.md) pour ajouter de nouveaux propriétaires au site d'équipe,
+car en dehors de la création initiale, les administrateurs n'ont pas de
+droit automatique à l'adhésion au site d'équipe.
 
 ### Comment configurer l'authentification ? {: .tag-core .tag-ee }
 
@@ -264,7 +329,7 @@ que vous avez développé, vous voudrez peut-être envisager
 
 ### Comment activer Grist Entreprise ? {: .tag-ee }
 
-Grist Entreprise peut être activé en visitant le panneau d'administration et en cliquant sur le bouton 'Activer les fonctionnalités Grist Entreprise'.
+Grist Entreprise peut être activé en visitant la page Installation dans le [Panneau d'administration](admin-panel.md) et en cliquant sur le bouton 'Activer les fonctionnalités Grist Entreprise'.
 Cela fera redémarrer Grist automatiquement.
 
 ![Bouton d'activation Entreprise sur le panneau d'administration](images/admin-panel/enterprise-toggle.png)
@@ -274,7 +339,7 @@ Vous devriez maintenant avoir une version non activée de Grist Entreprise, avec
 Les clés d'activation sont utilisées pour exécuter Grist Entreprise après une période d'essai
 de 30 jours écoulée.
 Obtenez une clé d'activation en [vous inscrivant à Grist Entreprise](https://www.getgrist.com/pricing).
-Vous n'avez pas besoin d'une clé d'activation pour exécuter Grist Noyau, et pouvez revenir au Noyau à tout moment en utilisant le bouton dans le panneau d'administration.
+Vous n'avez pas besoin d'une clé d'activation pour exécuter Grist Noyau, et pouvez revenir au Noyau à tout moment en utilisant le bouton dans le [Panneau d'administration](admin-panel.md).
 
 Placez le contenu de votre clé d'activation dans une variable d'environnement appelée
 `GRIST_ACTIVATION`, ou placez-la dans un répertoire accessible à Grist et
@@ -361,7 +426,10 @@ vous devrez vous assurer que le CSS personnalisé est disponible depuis cette UR
 
 ### Comment lister des widgets personnalisés ? {: .tag-core .tag-ee }
 
-Dans notre SaaS, Grist a une [liste de widgets personnalisés préconstruits](https://support.getgrist.com/newsletters/2022-02/#custom-widgets-menu) disponibles dans l'interface utilisateur.
+Dans notre SaaS, Grist a une liste de widgets personnalisés préconstruits disponibles dans l'interface utilisateur.
+
+![Galerie de widgets personnalisés](images/widget-custom/custom-widget-gallery.png)
+
 Vous pouvez faire en sorte que votre installation autogérée propose la même liste en
 définissant ce qui suit :
 
@@ -373,98 +441,61 @@ docker run
 ```
 
 C'est optionnel. Si vous laissez la variable non définie, les documents avec
-des widgets personnalisés fonctionneront toujours bien, mais vous devrez entrer une URL complète lorsque vous ajoutez des widgets personnalisés plutôt que de choisir une option dans un
-menu déroulant.
+des widgets personnalisés fonctionneront toujours bien, mais vous devrez entrer une URL complète lorsque vous ajoutez des widgets personnalisés, plutôt que de choisir un widget dans la
+galerie.
 
 Vous pouvez rendre votre propre liste de widgets disponible en forkant
 [github.com/gristlabs/grist-widget](https://github.com/gristlabs/grist-widget)
 ou en préparant manuellement un fichier `.json` sur un serveur public dans le même
 format que notre `manifest.json`.
 
+Pour personnaliser l'apparence des widgets dans la galerie, les champs suivants
+peuvent être définis dans le `manifest.json` :
+
+ - `name` : Le titre du widget.
+ - `description` : Une description optionnelle affichée sous le titre du widget.
+ - `authors` : Une liste optionnelle d'un ou plusieurs auteurs du widget. Le
+ premier auteur sera affiché dans le champ "Développeur".
+ - `lastUpdatedAt` : La date affichée dans le champ "Dernière mise à jour".
+
 ### Comment configurer des notifications par e-mail ? {: .tag-ee }
 
-Dans Grist SaaS, nous envoyons des e-mails tels que des invitations à partager un
-document en utilisant [SendGrid](https://sendgrid.com/).
-Le même mécanisme est disponible dans Grist Entreprise. Il n'y a pas encore d'équivalent dans Grist Noyau.
+Dans Grist SaaS, nous envoyons des e-mails lorsqu'un utilisateur est invité à un document ou reçoit une notification de document (mentions de commentaires, modifications de document, etc.).
+Le même mécanisme est disponible dans Grist Entreprise. Il n'y a pas encore
+d'équivalent dans Grist Noyau.
 
-Vous devrez définir une clé API SendGrid :
+Grist utilise [Nodemailer](https://nodemailer.com/) à cette fin.
+Il y a deux variables d'environnement qui doivent être configurées pour
+l'activer :
+
+  * `GRIST_NODEMAILER_CONFIG` : Il s'agit d'une configuration JSON passée
+    textuellement à la méthode `createTransport` de Nodemailer. Référez-vous à [la
+    documentation de Nodemailer](https://nodemailer.com/usage#create-a-transporter)
+    pour les détails sur ce qu'il faut fournir ici. Notez que cette variable
+    doit contenir le JSON lui-même, et non un chemin vers un fichier JSON.
+  * `GRIST_NODEMAILER_SENDER` : Il s'agit d'une autre chaîne de configuration JSON
+    pour définir le champ `From:` des e-mails envoyés par Grist. Il
+    prend la forme suivante :
+
+    ```
+    {"name": "Nom par défaut de l'expéditeur",
+     "email": "sender.email@example.com"}
+     ```
+
+Comme ces deux variables doivent être passées en tant que JSON textuel,
+elles peuvent avoir besoin d'être entre guillemets si elles sont passées depuis un shell. Par exemple,
 
 ```
-docker run
+docker run \ 
+  -e GRIST_NODEMAILER_CONFIG='{"host":"smtp.example.com","port":587,"auth":{"user":"username","pass":"swordfish"}}' \
+  -e GRIST_NODEMAILER_SENDER='{"name":"Grist Admin","email":"admin@example.com"}' \
+  -e REDIS_URL="redis://hostname/N"
+  -it gristlabs/grist
   ...
-  -e SENDGRID_API_KEY=SG.XXXXXXX.XXXXX \
-  ...
 ```
 
-Vous devrez rendre un fichier `config.json` disponible à la
-racine du volume mappé à `/persist`. Son contenu doit être
-le suivant :
-
-```
-{
-  "sendgrid": {
-    "api": {
-      "prefix": "https://api.sendgrid.com/v3",
-      "enroll": "/marketing/contacts",
-      "search": "/marketing/contacts/search",
-      "searchByEmail": "/marketing/contacts/search/emails",
-      "listRemove": "/marketing/lists/{{id}}/contacts",
-      "send": "/mail/send"
-    },
-    "address": {
-      "from": {
-        "email": "<l'adresse-e-mail@doit-venir-de>",
-        "name": "le nom à afficher avec l'e-mail"
-      }
-    },
-    "template": {
-      "invite": "d-f9.....",
-      "billingManagerInvite": "d-f9.....",
-      "memberChange": "d-b3....."
-    },
-    "list": {
-      "singleUserOnboarding": "b22..."
-    },
-    "unsubscribeGroup": {
-      "invites": 19...,
-      "billingManagers": 19....
-    }
-  }
-}
-```
-
-Voici la signification des clés dans ce fichier :
-
-  * `sendgrid.api` - Les valeurs doivent rester inchangées par rapport à ce qui est
-    défini dans l'exemple. Cela contrôle la version de l'API et
-    les points de terminaison. Grist cible actuellement la v3 de l'API web de SendGrid.
-  * `sendgrid.address` - Doit être défini sur une adresse e-mail vérifiée et
-    le nom d'un expéditeur SendGrid. Cela contrôle l'adresse "De" de tous
-    les e-mails envoyés via SendGrid (par exemple, les invitations envoyées au nom des utilisateurs Grist).
-  * `sendgrid.template` - Mappe les actions Grist aux identifiants de modèles d'e-mail SendGrid.
-    Ceux-ci sont pour les e-mails transactionnels qui sont envoyés à la suite
-    d'une action se produisant dans Grist.
-  * `sendgrid.template.invite` - Ceci est pour les e-mails envoyés aux utilisateurs qui
-    sont invités à des documents, des espaces de travail ou des sites.
-  * `sendgrid.template.memberChange` - Ceci est pour les e-mails envoyés aux
-    responsables de la facturation lorsque des utilisateurs sont ajoutés/retirés des sites.
-  * `sendgrid.list` - Mappe les actions Grist aux identifiants de listes de marketing SendGrid.
-    Ceux-ci sont pour des e-mails automatisés en cours qui sont envoyés à tous
-    les utilisateurs qui sont inscrits dans une liste particulière.
-  * `sendgrid.list.singleUserOnboarding` - Les nouveaux utilisateurs Grist sont
-    automatiquement ajoutés à cette liste lors de leur première connexion. Cela est adapté
-    pour envoyer des e-mails d'intégration réguliers aux utilisateurs.
-  * `sendgrid.unsubscribeGroup` - Mappe les types d'e-mails aux identifiants de groupes de désinscription SendGrid.
-    Ceux-ci permettent aux utilisateurs de se désinscrire de la réception de certains types d'e-mails (via le lien dans l'e-mail).
-  * `sendgrid.unsubscribeGrist.invites` - Si défini, les e-mails d'invitation peuvent être
-    supprimés via le lien de désinscription dans les e-mails.
-  * `sendgrid.unsubscribeGrist.billingManagers` - Si défini, les e-mails envoyés
-    spécifiquement aux responsables de la facturation (par exemple, changements d'adhésion) peuvent être
-    supprimés via le lien de désinscription dans les e-mails.
-
-Pour référence, il existe des exemples de modèles SendGrid dans
-[example-sendgrid-templates.zip](./install/example-sendgrid-templates.zip)
-basés sur une exportation des modèles SendGrid pour notre SaaS.
+Notez qu'un [magasin d'état](self-managed.md#quest-ce-quun-magasin-detat) est
+également requis pour les notifications par e-mail, fourni ci-dessus via `REDIS_URL`.
 
 ### Comment ajouter plus de packages python ? {: .tag-core .tag-ee }
 
@@ -499,7 +530,7 @@ docker build -t custom/grist .
 ```
 
 Une fois terminé, vous pouvez utiliser `custom/grist` à la place de `gristlabs/grist(-ee)` dans
-[Comment installer Grist](self-managed.md#how-do-i-install-grist),
+[Comment installer Grist](self-managed.md#comment-installer-grist),
 et votre bibliothèque python sera désormais disponible à l'importation dans les formules.
 
 Si vous souhaitez que l'importation soit effectuée automatiquement, afin de ne pas avoir à le faire dans
@@ -514,7 +545,7 @@ Il est possible d'utiliser des webhooks pour activer des intégrations avec des 
 
 Notez que lors de l'auto-hébergement, seuls les services externes autorisés par la
 [variable d'environnement `ALLOWED_WEBHOOK_DOMAINS`](https://github.com/gristlabs/grist-core?tab=readme-ov-file#environment-variables)
-sont autorisés. [Il y a des préoccupations de sécurité](webhooks.md#security) avec
+sont autorisés. [Il y a des préoccupations de sécurité](webhooks.md#securite) avec
 l'autorisation de tout domaine, car les services internes de Grist peuvent devenir vulnérables
 à la manipulation.
 
@@ -547,7 +578,7 @@ fonctionne confortablement servi depuis un conteneur Grist avec :
 Les exigences en mémoire et en CPU évolueront avec le nombre de documents
 utilisés simultanément par votre équipe.
 
-[Le sandboxing](self-managed.md#how-do-i-sandbox-documents) est un problème important pour servir
+[Le sandboxing](self-managed.md#comment-sandboxer-des-documents) est un problème important pour servir
 Grist. Il est réalisé en utilisant [gvisor](https://gvisor.dev/). Le sandboxing dépend de
 la disponibilité de certaines capacités, et peut être indisponible dans
 des environnements qui n'autorisent pas ou manquent ces capacités. Le sandboxing de Grist est connu
@@ -566,7 +597,7 @@ Lorsqu'il est installé en tant que conteneur, Grist s'attend à avoir accès à
 volume persistant, ou à un répertoire partagé avec l'hôte, dans lequel il
 stocke tout ce qui doit durer au-delà d'un redémarrage de conteneur.
 Concrètement, si vous avez démarré Grist exactement comme décrit dans
-[Comment installer Grist](self-managed.md#how-do-i-install-grist),
+[Comment installer Grist](self-managed.md#comment-installer-grist),
 ce répertoire serait `~/grist`. Voici ce que vous y trouveriez :
 
  * Un sous-répertoire appelé `docs`, contenant des fichiers `*.grist`.
@@ -575,20 +606,20 @@ ce répertoire serait `~/grist`. Voici ce que vous y trouveriez :
    Vous pouvez également les télécharger sur une autre installation de
    Grist (comme notre service hébergé) et les visualiser/éditer là-bas.
    Si vous déplacez ou renommez ces fichiers, Grist ne les reconnaîtra plus.
-   Si le [support des snapshots](self-managed.md#how-do-i-set-up-snapshots)
+   Si le [support des snapshots](self-managed.md#comment-configurer-des-snapshots)
    est configuré, il y aura des fichiers supplémentaires à côté de chaque fichier `.grist`
    pour suivre son état de stockage.
 
  * Un fichier appelé `grist-sessions.db`. Cela contient des informations
    pour prendre en charge les sessions de navigateur avec Grist. C'est une base de données SQLite.
-   Si [redis est configuré](self-managed.md#what-is-a-state-store),
+   Si [redis est configuré](self-managed.md#quest-ce-quun-magasin-detat),
    cela est utilisé à la place de ce fichier.
 
  * Un fichier appelé `home.sqlite3`. Cela contient des informations sur
    les équipes, les espaces de travail et les documents (métadonnées uniquement, telles que les noms,
    plutôt que le contenu des documents tels que les tables et les cellules). C'est une
    base de données SQLite. Elle est appelée la
-   [base de données principale](self-managed.md#what-is-a-home-database)
+   [base de données principale](#quest-ce-quune-base-de-donnees-principale)
    et si PostgreSQL est configuré, cela est utilisé à la place de ce fichier.
 
  * Si vous utilisez Grist Omnibus, il y a d'autres fichiers, y compris :
@@ -614,13 +645,32 @@ et définissez les variables suivantes :
 * TYPEORM_HOST - défini sur le nom d'hôte de la base de données, par exemple grist.mumble.rds.amazonaws.com
 * TYPEORM_PORT - défini sur le numéro de port de la base de données si ce n'est pas le défaut pour PostgreSQL
 
-Grist est connu pour fonctionner avec PostgreSQL des versions 10 à 14 (les versions ultérieures
-devraient également fonctionner, mais n'ont pas été spécifiquement testées au moment de la rédaction).
+Grist est connu pour fonctionner avec PostgreSQL des versions 10 à 16.
+Les versions 12 et supérieures, cependant, ont activé par défaut un compilateur JIT qui
+est connu pour causer des problèmes avec Grist, qui se manifeste par chaque
+opération de cellule prenant quelques secondes notables. Pour les versions Grist avant 1.5.0,
+le compilateur JIT de PostgreSQL doit être désactivé pour Grist avec l'argument
+de ligne de commande `-c jit=off` ou via [d'autres méthodes de changement de
+la configuration PostgreSQL](https://www.postgresql.org/docs/current/config-setting.html#CONFIG-SETTING-CONFIGURATION-FILE).
+Dans un fichier `docker-compose.yaml`, par exemple, le compilateur JIT peut être
+désactivé comme ceci :
+
+```yaml
+  postgres:
+    image: postgres:latest
+    command: -c jit=off
+  # autre configuration suit...
+```
+
+À partir de la version Grist 1.5.0, Grist désactivera inconditionnellement la compilation JIT
+lors de la connexion à PostgreSQL, supprimant le besoin de
+le désactiver vous-même.
 
 ### Qu'est-ce qu'un magasin d'état ? {: .tag-core .tag-ee }
 
 Grist peut être configuré pour utiliser Redis comme cache d'état externe. Pour
-la plupart des fonctionnalités de Grist, cela est optionnel. Il est requis pour le support des webhooks, et recommandé pour le support des snapshots. Pour l'utiliser, il suffit de définir `REDIS_URL` sur quelque chose comme
+la plupart des fonctionnalités de Grist, cela est optionnel. Il est requis pour le support des webhooks et des notifications.
+Il est également recommandé pour le support des snapshots. Pour l'utiliser, il suffit de définir `REDIS_URL` sur quelque chose comme
 `redis://hostname/N` où `N` est un numéro de base de données redis.
 
 ```
@@ -682,15 +732,26 @@ Selon les [spécifications de MinIO](https://min.io/docs/minio/linux/developers/
 
 Pour plus de détails, et d'autres options, voir [Stockage Cloud](install/cloud-storage.md).
 
+### Comment activer les pièces jointes externes ? {: .tag-core .tag-ee }
+
+Suivez ces étapes :
+
+1. Activez les snapshots comme dans les instructions [ci-dessus](#comment-configurer-des-snapshots).
+2. Définissez la [variable d'environnement](https://github.com/gristlabs/grist-core/#environment-variables) `GRIST_EXTERNAL_ATTACHMENTS_MODE=snapshots`.
+3. Suivez les [instructions pour activer les pièces jointes externes](document-settings.md#external-attachments) pour chaque document qui en a besoin.
+
 ### Comment contrôler la télémétrie ? {: .tag-core }
 
-Par défaut, les installations Grist ne "téléphonent pas" à un service central.
-Il est utile de leur permettre de le faire, pour donner à Grist Labs un aperçu limité de votre utilisation, à travers des mesures appelées
+Par défaut, les installations Grist n'envoient pas d'informations détaillées à
+un service central, [sauf pour certaines informations de version](#comment-controler-les-verifications-automatiques-de-version).
+Il est utile de permettre à Grist d'envoyer plus d'informations, pour donner à Grist
+Labs un aperçu limité de votre utilisation, à travers des mesures appelées
 télémétrie. Cela aidera à guider le développement et à attirer l'attention sur
-les utilisateurs autogérés en tant que groupe.
+les utilisateurs auto-hébergés en tant que groupe.
 
 Le moyen le plus simple pour un propriétaire d'une installation Grist de choisir d'envoyer
-la télémétrie à Grist Labs est de cliquer sur le bouton "Opter pour la télémétrie" sur la bannière "Support Grist" sur la page principale de l'installation.
+la télémétrie à Grist Labs est de cliquer sur le bouton "Opter pour la télémétrie" sur
+la bannière "Support Grist" sur la page principale de l'installation.
 Si vous ne souhaitez pas opter pour cela, vous pouvez ignorer la bannière.
 La bannière est affichée uniquement au propriétaire de l'installation.
 Le propriétaire de l'installation est l'utilisateur dont l'adresse e-mail
@@ -714,8 +775,35 @@ Les valeurs recommandées sont `limited` ou `off`.
 
 Dans tous les cas, lisez [télémétrie limitée](telemetry-limited.md) pour des détails exacts
 sur les données envoyées, et [aperçu de la télémétrie](telemetry.md) pour plus d'explications.
-Une méthode interactive pour contrôler la télémétrie n'est actuellement disponible que pour les versions Grist Noyau. Dans tous les cas,
+Une méthode interactive pour contrôler la télémétrie n'est
+disponible que pour les versions Grist Noyau actuellement. Dans tous les cas,
 le défaut est de ne pas envoyer de télémétrie.
+
+### Comment contrôler les vérifications automatiques de version ? {: .tag-core .tag-ee }
+
+Les images Docker par défaut pour Grist Noyau et Entreprise sont activées
+avec un paramètre pour effectuer des vérifications de mise à jour hebdomadaires et informer [l'administrateur de l'installation](self-managed.md#quest-ce-que-le-compte-administratif) si de telles mises à jour sont disponibles. Ce
+comportement peut être désactivé depuis le [Panneau d'administration](admin-panel.md) via le
+bouton 'Vérification automatique hebdomadaire'. Vous pouvez cliquer sur
+'Vérifier maintenant' à tout moment pour voir si une nouvelle image Docker Grist est disponible.
+
+<span class="screenshot-large">*![Vérification automatique de version](images/admin-version-checking.png)*</span>
+
+De plus, il est également possible de désactiver les vérifications automatiques en
+définissant la variable d'environnement
+`GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=false` pour l'image Docker.
+
+D'autre part, l'image [Docker](https://hub.docker.com/r/gristlabs/grist-oss) `gristlabs/grist-oss` a des valeurs par défaut moins strictes. Elle contient uniquement du code libre et open-source, sans l'option d'activer les fonctionnalités Enterprise de Grist Labs, et a cette vérification désactivée. Si désiré, la vérification automatique de version peut être activée pour
+cette image Docker en définissant la variable d'environnement
+`GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=true`.
+
+La vérification automatique de version envoie trois informations à un service maintenu par Grist Labs :
+
+1. Le numéro de version de l'installation
+2. S'il s'agit d'une installation Noyau ou Entreprise
+3. Un numéro d'identification d'installation unique et anonymisé
+
+Ces informations anonymisées aident Grist Labs à déterminer à quelle vitesse les mises à jour critiques sont adoptées par la communauté. Cela donne également une mesure anonymisée de l'utilisation de Grist, ce qui peut aider à diriger l'attention des développeurs vers le support de l'auto-hébergement. Pour les administrateurs, cette vérification peut être utile pour rester à jour, surtout avec les versions spéciales liées à la sécurité qui peuvent être publiées en dehors du cycle de publication habituel.
 
 ### Comment mettre à jour mon installation ? {: .tag-core .tag-ee }
 
@@ -723,7 +811,28 @@ Nous publions actuellement de nouvelles images Grist Noyau et Entreprise à
 environ des intervalles hebdomadaires. Grist gère toutes les migrations qui
 peuvent être nécessaires pour les documents ou les bases de données qu'il utilise.
 Des utilitaires tels que [Watchtower](https://containrrr.dev/watchtower/) peuvent
-maintenir votre version de Grist à jour pour vous.
+maintenir votre version de Grist à jour pour vous. Nous pouvons également installer et maintenir des installations Grist auto-hébergées
+pour les utilisateurs Enterprise. [Contactez-nous](https://www.getgrist.com/contact/) pour plus d'informations.
+
+### Qu'est-ce que l'ID d'installation ? Changera-t-il si je mets à jour ou déplace le conteneur ? {: .tag-ee #installation-id }
+
+Les clés d'activation utilisées pour Grist Enterprise sont normalement liées à un ID d'installation particulier,
+qui est un identifiant unique généré aléatoirement pour votre instance. Vous pouvez trouver votre
+ID d'installation dans la section "Version" du [Panneau d'administration](admin-panel.md) :
+
+![ID d'installation dans le panneau d'administration](images/admin-panel/installation-id.png)
+
+L'ID d'installation est lié à la [base de données principale](#questce-quune-base-de-donnees-principale) plutôt qu'à la
+machine hôte ou au conteneur. Il ne changera pas si vous mettez à jour le conteneur ou le déplacez vers une autre
+machine, tant que la base de données de l'application reste la même. Si la base de données est Postgres, l'ID d'installation est préservé lors de toute transition qui préserve les données contenues par cette
+base de données (par exemple, sauvegarde et restauration depuis la sauvegarde). Si la base de données est le SQLite par défaut dans un volume
+persistant, l'ID d'installation est préservé lors de toute transition qui préserve le contenu de ce
+volume.
+
+
+### Comment supprimer complètement un utilisateur de mon instance ? {: .tag-ee }
+
+[L'administrateur de l'installation](self-managed.md#quest-ce-que-le-compte-administratif) peut gérer l'accès — y compris [supprimer des utilisateurs](admin-controls.md#supprimer-un-utilisateur) — via la zone [Contrôles d'administration](admin-controls.md) dans le [Panneau d'administration](admin-panel.md).
 
 ### Que faire si j'ai besoin d'une haute disponibilité ? {: .tag-ee }
 

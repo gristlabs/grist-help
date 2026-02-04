@@ -44,7 +44,7 @@ Par exemple, disons que vous avez une table de `Départements` dans une entrepri
 
 &nbsp;
 
-Pour créer cela, commencez par créer une page avec une vue Table pour les données de `Départements`, comme décrit dans [Vues sur la page](page-widgets.md#widget-picker). Ensuite, dans le menu "Ajouter nouveau", sélectionnez l'option "Ajouter une vue à la page" pour ajouter une autre vue Table pour les données d'`Employés`. Dans le sélecteur de vues, utilisez le menu déroulant "Sélectionner par" et choisissez la vue "DÉPARTEMENTS" ajoutée à la première étape.
+Pour créer cela, commencez par créer une page avec une vue Table pour les données de `Départements`, comme décrit dans [Vues sur la page](page-widgets.md#selecteur-de-widgets). Ensuite, dans le menu "Ajouter nouveau", sélectionnez l'option "Ajouter une vue à la page" pour ajouter une autre vue Table pour les données d'`Employés`. Dans le sélecteur de vues, utilisez le menu déroulant "Sélectionner par" et choisissez la vue "DÉPARTEMENTS" ajoutée à la première étape.
 
 *![linking-add-widget](images/linking-add-widget.png)*
 {: .screenshot-half }
@@ -68,7 +68,7 @@ Lorsque vous sélectionnez un enregistrement dans la table, la nouvelle vue "Fic
 
 ![linking-same-record-result](images/linking-same-record-result.png)
 
-Pour un autre exemple de ce type de liaison, voir le document "CRM léger" dans "Exemples &amp; Modèles" et la section [Personnaliser la mise en page](lightweight-crm.md#customizing-layout) dans le tutoriel associé.
+Pour un autre exemple de ce type de liaison, voir le document "CRM léger" dans "Exemples &amp; Modèles" et la section [Personnaliser la mise en page](lightweight-crm.md#personnaliser-la-mise-en-page) dans le tutoriel associé.
 
 ## Liaison par filtre
 
@@ -76,7 +76,7 @@ Comme dans l'exemple Employé-Département, lorsqu'une table a une référence �
 
 Dans l'exemple montré précédemment, la table `Employés` a une colonne "Référence" pointant vers la table `Départements`, donc une liste de départements peut servir de sélecteur pour les employés. Lorsqu'un département est sélectionné, seuls les employés de ce département seront affichés.
 
-Le document "CRM léger" dans "Exemples &amp; Modèles" fournit un autre exemple, où la sélection d'un contact affiche uniquement les conversations avec ce contact. C'est également décrit dans le [tutoriel](lightweight-crm.md#linking-tables-visually).
+Le document "CRM léger" dans "Exemples &amp; Modèles" fournit un autre exemple, où la sélection d'un contact affiche uniquement les conversations avec ce contact. C'est également décrit dans le [tutoriel](lightweight-crm.md#lier-visuellement-les-tables).
 
 Lorsque la cible de la liaison est une vue Graphique, vous obtenez des graphiques dynamiques qui reflètent les données associées à l'enregistrement sélectionné. Par exemple, vous pourriez lier un graphique en secteurs à un département pour afficher la somme des salaires pour chaque poste dans le département sélectionné.
 
@@ -153,9 +153,9 @@ De plus, vous pouvez lier un autre tableau récapitulatif. Par exemple, vous pou
 
 Dans cet exemple, vous voyez un graphique en secteurs avec le salaire moyen pour les hommes contre les femmes pour le poste sélectionné. En cliquant sur différents postes, le graphique en secteurs se met à jour pour refléter celui sélectionné.
 
-Plus d'exemples de ce type de liaison peuvent être trouvés dans le tutoriel [Analyser et visualiser](investment-research.md#dynamic-charts).
+Plus d'exemples de ce type de liaison peuvent être trouvés dans le tutoriel [Analyser et visualiser](investment-research.md#graphiques-dynamiques).
 
-Enfin, les tables qui référencent les données sous-jacentes d'un tableau récapitulatif peuvent maintenant être liées au tableau récapitulatif lui-même. Dans l'image ci-dessous, la table des Chiens Champions a une [colonne de référence](col-types.md#reference-columns) vers la table des Éleveurs. La table des Éleveurs est résumée dans la vue en haut à droite par la colonne "Pays". Parce que le Chien Champion référence l'Éleveur, vous pouvez ajouter une vue des Chiens Champions qui sélectionne par un tableau récapitulatif des données des Éleveurs.
+Enfin, les tables qui référencent les données sous-jacentes d'un tableau récapitulatif peuvent maintenant être liées au tableau récapitulatif lui-même. Dans l'image ci-dessous, la table des Chiens Champions a une [colonne de référence](col-types.md#colonnes-de-reference) vers la table des Éleveurs. La table des Éleveurs est résumée dans la vue en haut à droite par la colonne "Pays". Parce que le Chien Champion référence l'Éleveur, vous pouvez ajouter une vue des Chiens Champions qui sélectionne par un tableau récapitulatif des données des Éleveurs.
 
 <span class="screenshot-large">*![Lier les données référencées au tableau récapitulatif](images/linking-summary-reference.gif)*</span>
 

@@ -21,7 +21,7 @@ Pour emprunter ou acheter le livre, il est préférable d'avoir son code ISBN un
 confusion. Une chose que nous pouvons faire est d'ajouter un lien pour rechercher un livre
 sur [isbnsearch.org](https://isbnsearch.org)
 par son titre et son auteur. Pour ce faire, ajoutez une nouvelle colonne, puis définissez-la comme une
-[colonne HyperLink](../col-types.md#text-columns) :
+[colonne HyperLink](../col-types.md#colonnes-de-texte) :
 
 ![Créer un chercheur d'ISBN](../examples/images/2020-06-book-club-find-isbn.png)
 
@@ -102,7 +102,7 @@ keywords = ($Title or "") + " " + ($Author.Name or "")
 "[wikipedia] https://en.wikipedia.org/wiki/Special:Search/" + urllib.quote(keywords)
 ```
 
-Une fois que nous avons tous ces liens, il est logique d'ajouter une [vue fiche](../linking-widgets.md#same-record-linking) afin que nous puissions les disposer :
+Une fois que nous avons tous ces liens, il est logique d'ajouter une [vue fiche](../linking-widgets.md#liaison-sur-le-meme-enregistrement) afin que nous puissions les disposer :
 
 ![Commencer](../examples/images/2020-06-book-club-card.png)
 

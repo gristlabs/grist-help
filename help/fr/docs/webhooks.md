@@ -43,7 +43,7 @@ le traitement du webhook. Tous les champs ne sont pas obligatoires.
   webhook est configuré pour se déclencher lors de modifications. Si un webhook
   se déclenche lors de l'ajout d'une ligne, peu importe quelles colonnes sont définies
   lorsque la nouvelle ligne est ajoutée.
-* **Colonne prête** (optionnel): Une colonne booléenne, ou [Toggle](col-types.md#toggle-columns), sur la table qui
+* **Colonne prête** (optionnel): Une colonne booléenne, ou [Toggle](col-types.md#colonnes-basculantes), sur la table qui
   détermine si la ligne doit déclencher le webhook ou non. Lorsque la
   colonne devient vraie, la ligne correspondante déclenchera le webhook.
 * **URL**: L'URL distante du service que le webhook notifiera

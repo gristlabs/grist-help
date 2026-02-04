@@ -13,7 +13,7 @@ Supposons que nous voulions remplir automatiquement une colonne avec le nom du c
 
 ![démarrage d'une colonne Créé par](images/formulas/formulas-created-by-convert.png)
 
-Définissez `user.Name`{: .formula} comme formule de la colonne. Il existe d'autres possibilités, telles que `user.Email`{: .formula}, un `user.UserID`{: .formula} unique, et ainsi de suite. Les informations utilisateur disponibles sont les mêmes que celles des [conditions de règles d'accès](access-rules.md#access-rule-conditions). Les informations temporelles sont également disponibles (voir [Colonnes de timestamp](timestamps.md)). Mais restons-en à `user.Name`{: .formula} pour l'instant.
+Définissez `user.Name`{: .formula} comme formule de la colonne. Il existe d'autres possibilités, telles que `user.Email`{: .formula}, un `user.UserID`{: .formula} unique, et ainsi de suite. Les informations utilisateur disponibles sont les mêmes que celles des [conditions de règles d'accès](access-rules.md#conditions-des-regles-dacces). Les informations temporelles sont également disponibles (voir [Colonnes de timestamp](timestamps.md)). Mais restons-en à `user.Name`{: .formula} pour l'instant.
 
 ![une colonne Créé par](images/formulas/formulas-created-by-final.png)
 
@@ -24,7 +24,7 @@ Maintenant, pour définir la colonne chaque fois qu'un enregistrement est créé
 
 ## Une colonne "Mis à jour par"
 
-Si nous voulons une colonne qui enregistre qui a modifié un enregistrement en dernier (par opposition à son créateur), la procédure est similaire à celle d'une [colonne "Créé par"](authorship.md#a-created-by-column), mais au lieu de `Appliquer aux nouveaux enregistrements`, sélectionnez `Appliquer aux modifications des enregistrements`. Ensuite, sélectionnez `N'importe quel champ` (en supposant que vous voulez que toute modification d'un enregistrement soit considérée comme une mise à jour) et appuyez sur `OK`. Vous pouvez alternativement choisir quelles colonnes, lorsqu'elles sont mises à jour, déclencheront la formule.
+Si nous voulons une colonne qui enregistre qui a modifié un enregistrement en dernier (par opposition à son créateur), la procédure est similaire à celle d'une [colonne "Créé par"](authorship.md#une-colonne-cree-par), mais au lieu de `Appliquer aux nouveaux enregistrements`, sélectionnez `Appliquer aux modifications des enregistrements`. Ensuite, sélectionnez `N'importe quel champ` (en supposant que vous voulez que toute modification d'un enregistrement soit considérée comme une mise à jour) et appuyez sur `OK`. Vous pouvez alternativement choisir quelles colonnes, lorsqu'elles sont mises à jour, déclencheront la formule.
 
 ![une colonne Mis à jour par](images/formulas/formulas-updated-by-setup.png)
 

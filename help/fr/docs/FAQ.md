@@ -27,19 +27,19 @@ Oui ! Vous pouvez créer plusieurs espaces d'équipe. Chaque espace d'équipe pe
 
 **Le saviez-vous ?**
 
-Un seul espace d'équipe peut bien fonctionner pour une organisation avec plusieurs équipes (ou sous-équipes). Vous pouvez utiliser des espaces de travail au sein d'un espace d'équipe, et [gérer l'accès à ceux-ci](workspaces.md#managing-access) pour créer des zones séparées pour différentes équipes.
+Un seul espace d'équipe peut bien fonctionner pour une organisation avec plusieurs équipes (ou sous-équipes). Vous pouvez utiliser des espaces de travail au sein d'un espace d'équipe, et [gérer l'accès à ceux-ci](workspaces.md#gerer-lacces) pour créer des zones séparées pour différentes équipes.
 
 ### Puis-je ajouter plusieurs comptes de connexion à Grist ?
 
-Oui ! Pour ajouter plusieurs comptes à Grist, ouvrez le [menu utilisateur](glossary.md#user-menu) en cliquant sur l'icône de profil en haut à droite de Grist, puis cliquez sur 'Ajouter un compte'.
+Oui ! Pour ajouter plusieurs comptes à Grist, ouvrez le [menu utilisateur](glossary.md#menu-utilisateur) en cliquant sur l'icône de profil en haut à droite de Grist, puis cliquez sur 'Ajouter un compte'.
 
 Vous pouvez maintenant facilement passer d'un compte à l'autre, et d'une équipe à l'autre, depuis le menu utilisateur.
 
 ### Comment puis-je mettre à jour les paramètres de mon profil ?
 
-Ouvrez le [menu utilisateur](glossary.md#user-menu) en cliquant sur l'icône de profil en haut à droite de Grist, puis sélectionnez 'Paramètres du profil'.
+Ouvrez le [menu utilisateur](glossary.md#menu-utilisateur) en cliquant sur l'icône de profil en haut à droite de Grist, puis sélectionnez 'Paramètres du profil'.
 
-À partir de là, vous pouvez gérer le nom associé à votre compte, mettre à jour le thème de Grist en mode clair ou sombre, définir une langue et créer et gérer une clé API. Pour en savoir plus sur notre API, consultez [Grist API](rest-api.md#grist-api).
+À partir de là, vous pouvez gérer le nom associé à votre compte, mettre à jour le thème de Grist en mode clair ou sombre, définir une langue et créer et gérer une clé API. Pour en savoir plus sur notre API, consultez [Grist API](rest-api.md).
 
 **Souhaitez-vous aider à traduire Grist ?**
 
@@ -47,9 +47,9 @@ Nous utilisons [Weblate](https://hosted.weblate.org/engage/grist/) pour gérer l
 
 ### Comment puis-je changer l'adresse e-mail que j'utilise pour Grist ?
 
-Il n'est pas possible de changer l'e-mail associé à votre compte Grist. Cependant, il est possible de transférer la propriété des documents et des espaces d'équipe entre deux comptes e-mail Grist que vous possédez. Cela changerait effectivement votre e-mail Grist. [Apprenez comment](FAQ.md#how-to-manage-ownership-of-my-team-site).
+Il n'est pas possible de changer l'e-mail associé à votre compte Grist. Cependant, il est possible de transférer la propriété des documents et des espaces d'équipe entre deux comptes e-mail Grist que vous possédez. Cela changerait effectivement votre e-mail Grist. [Apprenez comment](FAQ.md#comment-gerer-la-propriete-de-mon-espace-dequipe).
 
-Il est possible de gérer plusieurs comptes dans Grist. Pour ajouter un autre compte, ouvrez le [menu utilisateur](glossary.md#user-menu) en cliquant sur l'icône de profil en haut à droite de Grist, puis cliquez sur 'Ajouter un compte'.
+Il est possible de gérer plusieurs comptes dans Grist. Pour ajouter un autre compte, ouvrez le [menu utilisateur](glossary.md#menu-utilisateur) en cliquant sur l'icône de profil en haut à droite de Grist, puis cliquez sur 'Ajouter un compte'.
 
 Vous pouvez maintenant facilement passer d'un compte à l'autre, et d'une équipe à l'autre, depuis le menu utilisateur.
 
@@ -57,7 +57,7 @@ Vous pouvez maintenant facilement passer d'un compte à l'autre, et d'une équip
 
 Vous pouvez supprimer votre compte dans 'Paramètres du profil' en sélectionnant 'Supprimer le compte' sous 'Confidentialité & Données'. Veuillez noter que cette action est permanente.
 
-Besoin de supprimer un espace d'équipe ? En savoir plus [ici](teams.md#billing-account).
+Besoin de supprimer un espace d'équipe ? En savoir plus [ici](teams.md#compte-de-facturation).
 
 ---
 
@@ -69,7 +69,7 @@ Tous les utilisateurs de Grist ont accès à un espace personnel gratuit. L'espa
 
 Les documents partagés avec vous depuis d'autres comptes personnels seront affichés dans votre espace personnel dans des espaces de travail nommés avec '@Nom' pour indiquer le propriétaire de ce document.
 
-Vous pouvez naviguer entre votre [espace personnel](teams.md#understanding-personal-sites) et [espaces d'équipe](teams.md) en cliquant dans le coin supérieur gauche pour ouvrir un menu déroulant des sites auxquels vous avez accès.
+Vous pouvez naviguer entre votre [espace personnel](teams.md#comprendre-les-espaces-personnels) et [espaces d'équipe](teams.md) en cliquant dans le coin supérieur gauche pour ouvrir un menu déroulant des sites auxquels vous avez accès.
 
 <center markdown>*![Naviguer entre les sites](images/faq/personal-and-team-site.png)*</center>
 
@@ -79,7 +79,7 @@ Vous pouvez naviguer entre votre [espace personnel](teams.md#understanding-perso
 
 1. Ouvrez l'espace d'équipe auquel vous souhaitez ajouter un deuxième propriétaire.
 
-2. Cliquez sur 'Gérer les utilisateurs' sous le [menu utilisateur](glossary.md#user-menu) en cliquant sur l'icône de profil en haut à droite de Grist.
+2. Cliquez sur 'Gérer les utilisateurs' sous le [menu utilisateur](glossary.md#menu-utilisateur) en cliquant sur l'icône de profil en haut à droite de Grist.
 
 3. Ajoutez la nouvelle adresse e-mail en tant que Propriétaire, et cliquez sur Confirmer.
 
@@ -89,11 +89,11 @@ Vous pouvez naviguer entre votre [espace personnel](teams.md#understanding-perso
 
 1. Suivez les étapes 1 à 3 ci-dessus pour ajouter un deuxième propriétaire.
 
-4. Allez à 'Compte de facturation' (également sous le menu utilisateur) et ajoutez le nouveau Propriétaire en tant que [Gestionnaire de facturation](team-sharing.md#billing-permissions).
+4. Allez à 'Compte de facturation' (également sous le menu utilisateur) et ajoutez le nouveau Propriétaire en tant que [Gestionnaire de facturation](team-sharing.md#permissions-de-facturation).
 
 5. Le nouveau Propriétaire doit se connecter, ouvrir l'espace d'équipe, et visiter à nouveau les pages 'Gérer les utilisateurs' et 'Compte de facturation' pour supprimer le propriétaire d'origine. Cela transférera essentiellement la propriété de l'espace d'équipe au nouveau compte.
 
-Il n'est pas possible d'ajouter un deuxième propriétaire à, ou de transférer la propriété d'un [compte personnel](teams.md#understanding-personal-sites).
+Il n'est pas possible d'ajouter un deuxième propriétaire à, ou de transférer la propriété d'un [compte personnel](teams.md#comprendre-les-espaces-personnels).
 
 **Le saviez-vous ?**
 
@@ -101,7 +101,7 @@ Si vous transférez la propriété d'un espace d'équipe entre deux comptes e-ma
 
 ### Puis-je modifier le nom et le sous-domaine de mon équipe ?
 
-Vous pouvez modifier le nom de votre site et le sous-domaine depuis la page de facturation. Ouvrez le [menu utilisateur](glossary.md#user-menu) en cliquant sur l'icône de profil en haut à droite de Grist, puis cliquez sur ['Compte de facturation'](teams.md#billing-account).
+Vous pouvez modifier le nom de votre site et le sous-domaine depuis la page de facturation. Ouvrez le [menu utilisateur](glossary.md#menu-utilisateur) en cliquant sur l'icône de profil en haut à droite de Grist, puis cliquez sur ['Compte de facturation'](teams.md#compte-de-facturation).
 
 <center markdown>*![Accès public](images/faq/edit-subdomain.png)*</center>
 
@@ -133,7 +133,7 @@ Les pièces jointes sont comptées séparément. Les pièces jointes plus les do
 
 Les caractères non anglais sont pris en charge dans les étiquettes de colonnes, mais pas dans les identifiants de colonnes, qui sont le nom Python de la colonne utilisé dans les formules. Lors de l'importation d'un fichier dans Grist, les caractères non anglais sont importés en tant que valeurs dans les cellules, mais ne sont pas importés dans les étiquettes de colonnes (alias en-têtes). Les étiquettes de colonnes sont approximées avec des caractères anglais. Vous pouvez renommer les étiquettes de colonnes pour inclure des caractères non anglais après l'importation.
 
-Pour [modifier les étiquettes et les identifiants de colonnes](col-types.md#renaming-columns) séparément, ouvrez le panneau de création et sélectionnez le menu de la colonne. Cliquez sur l'icône de lien qui joint l'étiquette à l'identifiant pour activer la modification de l'identifiant de la colonne. Bien que les caractères non anglais ne soient pas pris en charge, il est possible de modifier les identifiants pour les rendre plus clairs et conviviaux à utiliser dans les formules.
+Pour [modifier les étiquettes et les identifiants de colonnes](col-types.md#renommer-les-colonnes) séparément, ouvrez le panneau de création et sélectionnez le menu de la colonne. Cliquez sur l'icône de lien qui joint l'étiquette à l'identifiant pour activer la modification de l'identifiant de la colonne. Bien que les caractères non anglais ne soient pas pris en charge, il est possible de modifier les identifiants pour les rendre plus clairs et conviviaux à utiliser dans les formules.
 
 <center markdown>*![Modification des étiquettes et des identifiants de colonnes](images/faq/editing-col-label-id.png)*</center>
 
@@ -143,7 +143,7 @@ Pour résumer plusieurs enregistrements, vous avez besoin de [tables de synthès
 
 La principale différence entre Grist et les tableurs comme Excel ou Google Sheets est que Grist est une base de données, donc chaque ligne dans une grille représente un enregistrement (par exemple, une personne, une transaction bancaire, etc.). Puisqu'une somme sur plusieurs enregistrements n'est pas le même type d'enregistrement, Grist propose de résumer les données sous forme de vue séparée, qui peut être modifiée pour calculer des données de synthèse encore plus puissantes.
 
-Par exemple, supposons que vous ayez une table de commandes de boutique en ligne appelée `Commandes` et que vous souhaitiez additionner les revenus des ventes de toutes les commandes. En haut du menu de gauche, cliquez sur le bouton 'Ajouter nouveau' et sélectionnez 'Ajouter une page' ou 'Ajouter une vue à la page'. Dans le sélecteur de vue, sélectionnez la table `Commandes` puis cliquez sur l'icône de somme (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) à côté. Ajoutez la page ou la vue à votre document. Fait ! Vous avez maintenant créé une table de synthèse qui, par défaut, compte tous les enregistrements dans la table `Commandes` et additionne toutes les colonnes [numériques](col-types.md#numeric-columns) et [entiers](col-types.md#integer-columns), telles que le montant vendu dans chaque commande.
+Par exemple, supposons que vous ayez une table de commandes de boutique en ligne appelée `Commandes` et que vous souhaitiez additionner les revenus des ventes de toutes les commandes. En haut du menu de gauche, cliquez sur le bouton 'Ajouter nouveau' et sélectionnez 'Ajouter une page' ou 'Ajouter une vue à la page'. Dans le sélecteur de vue, sélectionnez la table `Commandes` puis cliquez sur l'icône de somme (<span class="grist-icon" style="--icon: var(--icon-Pivot)"></span>) à côté. Ajoutez la page ou la vue à votre document. Fait ! Vous avez maintenant créé une table de synthèse qui, par défaut, compte tous les enregistrements dans la table `Commandes` et additionne toutes les colonnes [numériques](col-types.md#colonnes-numeriques) et [entiers](col-types.md#colonnes-entieres), telles que le montant vendu dans chaque commande.
 
 Les tables de synthèse peuvent faire plus qu'une simple somme des colonnes d'une table. En quelques clics, vous pouvez résumer les commandes *par mois* pour calculer le nombre de commandes et le revenu total des ventes dans chaque mois pour lequel vous avez des données.
 
@@ -170,11 +170,11 @@ Les invités, en revanche, sont invités à des documents particuliers, mais ne 
 Il existe de nombreuses façons de partager des données Grist avec des non-membres de l'équipe.
 
 1. **Invités.** Chaque document peut être partagé avec 2 invités (non-membres de l'équipe) sans frais supplémentaires.
-2. **Partage de lien.** Dans les paramètres de partage, il y a une option pour activer [l'accès public](sharing.md#public-access-and-link-sharing). Le rôle d'accès public peut être défini sur visualiseur ou éditeur. Toute personne ayant un lien peut voir (ou modifier) vos données. Ces vues ne seraient pas comptées dans le nombre d'utilisateurs de votre plan. Le document est visible par toute personne ayant le lien, donc faites preuve de prudence lorsque vous travaillez avec des données sensibles.
+2. **Partage de lien.** Dans les paramètres de partage, il y a une option pour activer [l'accès public](sharing.md#acces-public-et-partage-de-lien). Le rôle d'accès public peut être défini sur visualiseur ou éditeur. Toute personne ayant un lien peut voir (ou modifier) vos données. Ces vues ne seraient pas comptées dans le nombre d'utilisateurs de votre plan. Le document est visible par toute personne ayant le lien, donc faites preuve de prudence lorsque vous travaillez avec des données sensibles.
 
 <center markdown>*![Accès public](images/faq/link-sharing.png)*</center>
 
-3. **Partage de lien en lecture seule restreint.** Avec le partage de lien en lecture seule, il est possible de restreindre davantage ce que les gens peuvent voir en utilisant les permissions avancées de Grist pour définir des paramètres d'URL spécifiques appelés [clés de lien](access-rules.md#link-keys) qui déterminent quelles tables, colonnes ou lignes sont affichées lorsqu'un lien spécifique est partagé.
+3. **Partage de lien en lecture seule restreint.** Avec le partage de lien en lecture seule, il est possible de restreindre davantage ce que les gens peuvent voir en utilisant les permissions avancées de Grist pour définir des paramètres d'URL spécifiques appelés [clés de lien](access-rules.md#cles-de-lien) qui déterminent quelles tables, colonnes ou lignes sont affichées lorsqu'un lien spécifique est partagé.
 
 4. **Intégration en lecture seule.** Les [pages](page-widgets.md#pages) Grist peuvent être intégrées dans des sites Web dans une iframe. [Apprenez comment](embedding.md).
 

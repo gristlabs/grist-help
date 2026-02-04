@@ -12,7 +12,7 @@ Les types de graphiques les plus courants sont illustrés ici :
 
 ## Types de graphiques
 
-Chaque type de graphique trace une ou plusieurs séries de données. Sélectionnez les séries à tracer en cliquant sur le texte vert 'Ajouter une série' dans le [panneau de création](glossary.md#creator-panel). Dans la zone au-dessus de la section "Séries" du panneau de création, vous pouvez configurer l'axe des x pour la plupart des graphiques, ou les étiquettes pour les graphiques en secteurs et en anneaux.
+Chaque type de graphique trace une ou plusieurs séries de données. Sélectionnez les séries à tracer en cliquant sur le texte vert 'Ajouter une série' dans le [panneau de création](glossary.md#panneau-de-creation). Dans la zone au-dessus de la section "Séries" du panneau de création, vous pouvez configurer l'axe des x pour la plupart des graphiques, ou les étiquettes pour les graphiques en secteurs et en anneaux.
 
 #### Graphique en barres
 

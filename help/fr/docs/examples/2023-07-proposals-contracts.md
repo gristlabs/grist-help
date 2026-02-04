@@ -158,7 +158,7 @@ Mettez à jour la colonne **Adresse du Client** pour utiliser la formule suivant
 ```
 $Customer_Name.Address
 ```
-Cette formule utilise notre colonne de référence, **Nom du Client**, ainsi que la [notation par point](../references-lookups.md#reference-columns-and-dot-notation), pour extraire la valeur de la colonne **Adresse** de la table référencée.
+Cette formule utilise notre colonne de référence, **Nom du Client**, ainsi que la [notation par point](../references-lookups.md#colonnes-de-reference-et-notation-par-points), pour extraire la valeur de la colonne **Adresse** de la table référencée.
 
 Lorsque vous regardez une proposition pour un projet existant, vous remarquerez que le **Nom du Client** ne se remplit plus. Cela est dû à la façon dont les colonnes de référence stockent les données. Bien que sous 'Afficher la Colonne', nous ayons choisi de voir la valeur de la colonne **Nom** de la table référencée, les colonnes de référence stockent en réalité l'ID d'un enregistrement. C'est ce que nous voyons maintenant dans la proposition.
 
@@ -183,7 +183,7 @@ template.format_map(Find_Data(
 ```
 Dans la dernière partie de la formule, nous pouvons spécifier des variables qui tirent des données d'autres tables.
 
-`Customer_Name = $Customer_Name.Name` est pour notre colonne de référence, **Nom du Client**. Il utilise la [notation par point](../references-lookups.md#reference-columns-and-dot-notation) pour spécifier quelles données extraire de la table référencée.
+`Customer_Name = $Customer_Name.Name` est pour notre colonne de référence, **Nom du Client**. Il utilise la [notation par point](../references-lookups.md#colonnes-de-reference-et-notation-par-points) pour spécifier quelles données extraire de la table référencée.
 
 !!! note "Note : Adresse du Client"
     La colonne **Adresse du Client** peut être complètement supprimée de la table `Projets`. Ces données sont déjà stockées dans la table `Clients` et notre colonne **Nom du Client** est une colonne de référence pointant vers cette table. Nous pouvons utiliser cette colonne de référence pour extraire toute autre information de la table `Clients` à inclure dans notre proposition. Si vous choisissez de supprimer **Adresse du Client** de la table `Projets`, mettez à jour la dernière section de la formule comme suit :

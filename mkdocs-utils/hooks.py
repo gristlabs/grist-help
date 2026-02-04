@@ -91,7 +91,14 @@ def resolve_files(*, items: List[Any], files: Files, config: MkDocsConfig) -> No
 def get_images_relative_paths(docs_dir: str) -> List[str]:
   en_docs_path = (Path(docs_dir) / "../../en/docs").resolve()
   images = glob.glob(f"{en_docs_path}/images/**/*", recursive=True)
-  return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), images))
+  examples_images = glob.glob(f"{en_docs_path}/examples/images/**/*", recursive=True)
+  all_images = images + examples_images
+  return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), all_images))
+
+def get_unlocalized_assets_relative_paths(docs_dir: str) -> List[str]:
+  en_docs_path = (Path(docs_dir) / "../../en/docs").resolve()
+  unlocalized_assets = glob.glob(f"{en_docs_path}/unlocalized-assets/**/*", recursive=True)
+  return list(map(lambda i: str(Path(i).relative_to(en_docs_path)), unlocalized_assets))
 
 def on_files(files: Files, *, config: MkDocsConfig) -> Files:
 
@@ -104,8 +111,10 @@ def on_files(files: Files, *, config: MkDocsConfig) -> Files:
     resolve_files(items=untouched_config['nav'] or [], files=files, config=config)
 
   images = get_images_relative_paths(config.docs_dir)
+  unlocalized_assets = get_unlocalized_assets_relative_paths(config.docs_dir)
 
   resolve_files(items=images, files=files, config=config)
+  resolve_files(items=unlocalized_assets, files=files, config=config)
   if "logo" in config.extra:
     resolve_file(item=config.extra["logo"], files=files, config=config)
   if "favicon" in config.theme:
@@ -146,9 +155,21 @@ def on_page_markdown(
 ) -> str:
   docs_dir=Path(config.docs_dir)
   if isinstance(page.file, EnFile):
-    return _inject_warning(markdown=markdown, page=page, warning=get_missing_translation_content(config.docs_dir))
-  elif docs_dir.parent.name != 'en' and (docs_dir.parent / MACHINE_TRANSLATION_FILENAME).exists():
-    return _inject_warning(markdown=markdown, page=page, warning=get_automated_translation_content(config.docs_dir))
+    return _inject_warning(
+      markdown=markdown,
+      page=page,
+      warning=get_missing_translation_content(config.docs_dir)
+    )
+  elif (
+    docs_dir.parent.name != 'en'
+    and (docs_dir.parent / MACHINE_TRANSLATION_FILENAME).exists()
+    and page.meta.get('machine_translated', True)
+  ):
+    return _inject_warning(
+      markdown=markdown,
+      page=page,
+      warning=get_automated_translation_content(config.docs_dir)
+    )
 
   return markdown
 

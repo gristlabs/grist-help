@@ -11,7 +11,7 @@ Il est parfois utile d'avoir des colonnes qui stockent le moment où des enregis
 
 Supposons que nous voulions une colonne qui stocke le moment où un enregistrement a été créé.
 Comme première étape, ajoutez une colonne appelée (par exemple) `Créé le` et entrez `NOW()`{: .formula} comme formule.
-Définissez le type de colonne sur `DateTime` (voir [Créer une colonne date/heure](dates.md#making-a-datetime-column))
+Définissez le type de colonne sur `DateTime` (voir [Créer une colonne date/heure](dates.md#creation-dune-colonne-dateheure))
 et choisissez comment vous souhaitez que l'heure et la date soient affichées.
 
 ![commencer une colonne Créé le](images/formulas/formulas-created-at-start.png)
@@ -29,7 +29,7 @@ Et voilà ! Tous les nouveaux enregistrements auront `Créé le` défini avec `N
 ## Une colonne "Mis à jour le"
 
 Si nous voulons une colonne qui stocke le moment où un enregistrement est mis à jour (par opposition à créé),
-la procédure est similaire à celle pour [une colonne "Créé le"](timestamps.md#a-created-at-column),
+la procédure est similaire à celle pour [une colonne "Créé le"](timestamps.md#une-colonne-cree-le),
 mais au lieu de `Appliquer aux nouveaux enregistrements`,
 sélectionnez `Appliquer aux modifications des enregistrements`. Ensuite, sélectionnez `N'importe quel champ` (en supposant que vous voulez que tout changement dans un enregistrement soit considéré comme une mise à jour) et appuyez sur `OK`. Vous pouvez alternativement choisir quelles colonnes "compter" comme mises à jour et lesquelles ignorer.
 
@@ -41,8 +41,8 @@ sélectionnez `Appliquer aux modifications des enregistrements`. Ensuite, sélec
 Voici un exemple des nouvelles colonnes en action. Un nouvel enregistrement a été ajouté, pour
 `Méthodes de livraison non orthodoxes`, et une heure de création et de mise à jour ont été définies automatiquement. Ensuite, la description de `Barbe à papa vs Barbe à papa` a été mise à jour,
 et l'heure de mise à jour pour cet enregistrement a été définie automatiquement.
-Il serait également simple d'ajouter des colonnes [Créé par](authorship.md#a-created-by-column)
-et [Mis à jour par](authorship.md#a-created-by-column).
+Il serait également simple d'ajouter des colonnes [Créé par](authorship.md#une-colonne-cree-par)
+et [Mis à jour par](authorship.md#une-colonne-cree-par).
 
 ![Colonnes Créé le et Mis à jour le en utilisation](images/formulas/formulas-update-and-create.png)
 

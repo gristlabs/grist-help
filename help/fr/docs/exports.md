@@ -30,7 +30,7 @@ contenant toutes les lignes, sans aucun filtre appliqué. Pour utiliser cette op
 en lecture pour toutes les tables d'un document.
 
 Une note à propos de "Exporter CSV" dans le menu de partage. Lorsque vous êtes sur une page avec plusieurs vues, "Exporter CSV" n'exportera que les données de la
-vue actuellement sélectionnée. Pour exporter toutes vos données, utilisez "Exporter XLSX" ou l'option "Télécharger" qui est expliquée ci-dessous dans [sauvegarder un document entier](exports.md#backing-up-an-entire-document).
+vue actuellement sélectionnée. Pour exporter toutes vos données, utilisez "Exporter XLSX" ou l'option "Télécharger" qui est expliquée ci-dessous dans [sauvegarder un document entier](exports.md#sauvegarder-un-document-entier).
 
 ## Envoyer vers Google Drive
 
@@ -45,12 +45,12 @@ créer de nouveaux fichiers et les gérer, mais ne pourra pas accéder à d'autr
 ![exports-send-to-google](images/exports/exports-send-to-google.png)
 
 Une fois que vous acceptez la demande d'autorisation, Grist exportera votre document en un 
-[fichier Excel](exports.md#exporting-a-document) puis le sauvegardera dans votre Google Drive en tant que
+[fichier Excel](exports.md#exporter-un-document) puis le sauvegardera dans votre Google Drive en tant que
 fichier Google Sheet. Pour utiliser cette option, vous devez avoir un accès complet en lecture pour toutes les tables d'un document.
 
 ## Sauvegarder un document entier
 
-Grist effectue automatiquement des sauvegardes régulières des documents, comme décrit dans [Sauvegardes Automatiques](automatic-backups.md). Vous pouvez également effectuer des sauvegardes manuelles en [enregistrant des copies](copying-docs.md#copying-for-backup-purposes) des documents dans votre compte Grist.
+Grist effectue automatiquement des sauvegardes régulières des documents, comme décrit dans [Sauvegardes Automatiques](automatic-backups.md). Vous pouvez également effectuer des sauvegardes manuelles en [enregistrant des copies](copying-docs.md#copier-a-des-fins-de-sauvegarde) des documents dans votre compte Grist.
 
 De plus, les documents Grist peuvent être téléchargés dans leur intégralité sous forme de fichier de base de données SQLite
 avec une extension `.grist`. SQLite est un format de base de données populaire.

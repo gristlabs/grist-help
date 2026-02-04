@@ -12,11 +12,11 @@ La vue calendrier permet de visualiser les données dans une vue calendrier. Dan
 
 Dans votre table de données, vous aurez besoin de deux colonnes de données, avec la possibilité d'ajouter trois colonnes de données supplémentaires :
 
-1. **Titre** : colonne [Texte](col-types.md#text-columns), contenant le titre de votre événement.
-2. **Date de début** : colonne [Date](col-types.md#date-columns) ou [DateHeure](col-types.md#datetime-columns), contenant la date, ou la date et l'heure, à laquelle l'événement commence.
-3. *(Optionnel)* **Date de fin** : colonne [Date](col-types.md#date-columns) ou [DateHeure](col-types.md#datetime-columns), contenant la date, ou la date et l'heure, à laquelle l'événement se termine.
-4. *(Optionnel)* **Toute la journée ?** : colonne [Basculer](col-types.md#toggle-columns), indiquant si un événement dure toute la journée.
-5. *(Optionnel)* **Type** : colonne [Choix](col-types.md#choice-columns) ou [Liste de choix](col-types.md#choice-list-columns), contenant la catégorie et le style de l'événement.
+1. **Titre** : colonne [Texte](col-types.md#colonnes-de-texte), contenant le titre de votre événement.
+2. **Date de début** : colonne [Date](col-types.md#colonnes-de-date) ou [DateHeure](col-types.md#colonnes-dateheure), contenant la date, ou la date et l'heure, à laquelle l'événement commence.
+3. *(Optionnel)* **Date de fin** : colonne [Date](col-types.md#colonnes-de-date) ou [DateHeure](col-types.md#colonnes-dateheure), contenant la date, ou la date et l'heure, à laquelle l'événement se termine.
+4. *(Optionnel)* **Toute la journée ?** : colonne [Basculer](col-types.md#colonnes-basculantes), indiquant si un événement dure toute la journée.
+5. *(Optionnel)* **Type** : colonne [Choix](col-types.md#colonnes-de-choix) ou [Liste de choix](col-types.md#colonnes-de-liste-de-choix), contenant la catégorie et le style de l'événement.
 
 *![widget-calendar-columns](images/widget-calendar/widget-calendar-columns.png)*
 

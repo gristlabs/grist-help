@@ -34,7 +34,7 @@ Dans le même élément de menu, vous pouvez choisir de trier par ordre croissan
 **Différence par rapport à Excel** :
 Il est important de noter que le tri ne change aucun calcul de formule, il ne change que l'ordre dans lequel vous voyez les enregistrements. Cela est différent des tableurs comme Excel.
 
-Une autre différence est que le paramètre de tri est "actif" : si vous ajoutez un enregistrement ou modifiez une cellule utilisée pour le tri, l'enregistrement se déplacera à sa position correcte dans l'ordre de tri. Voir [Enregistrer les positions des lignes](#saving-row-positions) ci-dessous pour une option plus similaire au comportement d'Excel.
+Une autre différence est que le paramètre de tri est "actif" : si vous ajoutez un enregistrement ou modifiez une cellule utilisée pour le tri, l'enregistrement se déplacera à sa position correcte dans l'ordre de tri. Voir [Enregistrer les positions des lignes](#enregistrer-les-positions-des-lignes) ci-dessous pour une option plus similaire au comportement d'Excel.
 
 ### Colonnes Multiples
 Lorsque vous triez une table, vous pouvez cliquer sur une autre colonne pour l'ajouter au tri :
@@ -73,7 +73,7 @@ Vous pouvez ajouter une ou plusieurs colonnes, enregistrer ou annuler les param�
 ### Options de tri avancées
 L'onglet "Trier & Filtrer" expose des options de tri supplémentaires qui peuvent être utiles pour divers types de colonnes :
 
-- `Utiliser la position des choix` -- disponible sur les colonnes [Choix](col-types.md#choice-columns), trie les enregistrements en utilisant l'ordre configuré des éléments de choix, plutôt que leurs noms.
+- `Utiliser la position des choix` -- disponible sur les colonnes [Choix](col-types.md#colonnes-de-choix), trie les enregistrements en utilisant l'ordre configuré des éléments de choix, plutôt que leurs noms.
 - `Valeurs vides en dernier` -- dans l'ordre alphabétique, les valeurs vides sont affichées en premier par défaut, utilisez cette option pour les mettre à la fin.
 - `Tri naturel` -- pour la colonne Texte, traitera les nombres à plusieurs chiffres dans les chaînes comme s'ils étaient un seul caractère, permettant un ordre plus convivial. Par exemple, en utilisant le `tri naturel`, _Produit10_ sera positionné après _Produit2_.
 

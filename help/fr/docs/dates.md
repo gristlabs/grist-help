@@ -74,6 +74,7 @@ import dateutil
 dateutil.parser.parse($date_text, dayfirst=True)
 ```
 
+
 ## Calculs de dates
 
 Une fois que vous avez une colonne de date correcte, vous voudrez souvent effectuer des calculs de dates, comme calculer la différence entre deux dates. La manière la plus simple de le faire est d'utiliser la fonction [DATEDIF](functions.md#datedif) qui prend deux dates et l'unité d'information à retourner (Jours, Mois ou Années).
@@ -99,19 +100,22 @@ DAYS($Last_day, $First_day)
 !!! note "Formules Excel/Sheets"
     Grist prend en charge de nombreuses autres fonctions courantes d'autres applications de tableur, y compris [`DATEADD`](functions.md#dateadd), [`DATEDIF`](functions.md#datedif), [`DATEVALUE`](functions.md#datevalue), [`MONTH`](functions.md#month), [`HOUR`](functions.md#hour), et [bien d'autres](functions.md#date).
 
-## Obtenir une partie de la date
+## Afficher les jours, semaines, années et intervalles
 
-Vous avez vu comment analyser la date, l'afficher dans différents formats et effectuer des calculs de dates. Mais que faire si vous voulez obtenir plus d'informations sur une date spécifique, comme obtenir son jour de la semaine ?
+Vous avez appris à analyser les dates, les formater et effectuer des calculs de dates. Mais que faire si vous voulez plus de détails, comme le jour de la semaine ? Vous pouvez trouver cela (et bien plus encore) dans le menu 'Ajouter une colonne'. Cliquez sur l'icône `+` à l'extrême droite d'un tableau, survolez 'Assistants de date…', puis choisissez une colonne de date. Dans le menu suivant, choisissez une option telle que 'Jour de la semaine' pour ajouter une nouvelle colonne de formule.
 
-Une option est d'utiliser la fonction [WEEKDAY](functions.md#weekday), qui se comporte comme dans Excel, renvoyant 1-7 pour dimanche-samedi.
+![Date Helpers](images/dates/date_helpers.png)
 
-![Weekday formula](images/dates-weekday-formula.png)
+Cette option intégrée utilise la fonction [strftime](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior) :
 
-Alternativement, nous pouvons utiliser la fonction [strftime](https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior) :
+![Weekday format](images/dates/dates-weekday-strftime.png)
 
-![Weekday format](images/dates-weekday-strftime.png)
+Bien sûr, vous pouvez toujours écrire votre propre fonction pour obtenir les mêmes informations. Par exemple, vous pourriez utiliser la fonction [WEEKDAY](functions.md#weekday), qui se comporte comme dans Excel, renvoyant 1-7 pour dimanche-samedi.
 
-Une autre option serait de reformater la date en utilisant le format de date dans les options de colonne (voir la [référence de formatage de date](https://momentjs.com/docs/#/displaying/format/)).
+![Weekday formula](images/dates/dates-weekday-formula.png)
+
+Une autre option serait de reformater la date en utilisant le Format de date dans les Options de colonne
+(voir la [référence de formatage de date](https://momentjs.com/docs/#/displaying/format/)).
 
 ## Fuseaux horaires
 

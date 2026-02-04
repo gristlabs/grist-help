@@ -44,7 +44,7 @@ Les sites qui commencent par le symbole '@' sont des espaces personnels. Tous le
 
 ## Compte de Facturation
 
-Si vous avez créé un espace d'équipe sur le plan Pro ou Business, ou si vous y avez été ajouté en tant que Gestionnaire de Facturation, vous pouvez gérer les informations de facturation et modifier le nom et le sous-domaine de votre espace d'équipe depuis la page du compte de facturation. Ouvrez le [menu utilisateur](glossary.md#user-menu) et cliquez sur 'Compte de Facturation' pour ouvrir un menu qui ressemble à ceci.
+Si vous avez créé un espace d'équipe sur le plan Pro ou Business, ou si vous y avez été ajouté en tant que Gestionnaire de Facturation, vous pouvez gérer les informations de facturation et modifier le nom et le sous-domaine de votre espace d'équipe depuis la page du compte de facturation. Ouvrez le [menu utilisateur](glossary.md#menu-utilisateur) et cliquez sur 'Compte de Facturation' pour ouvrir un menu qui ressemble à ceci.
 
 <span class="screenshot-large">*![compte de facturation](images/team-sharing/billing-account.png)*</span>
 

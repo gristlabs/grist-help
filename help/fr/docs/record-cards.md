@@ -28,7 +28,7 @@ Vous pouvez modifier la mise en page d'une vue fiche depuis la page des [donnée
 
 ![record-cards-edit-layout](images/record-cards/record-cards-edit-layout.png)
 
-Vous pouvez glisser-déposer les champs pour les réorganiser, redimensionner et ajouter/supprimer des champs de la vue. En savoir plus sur [la modification des mises en page des fiches](widget-card.md#editing-card-layout).
+Vous pouvez glisser-déposer les champs pour les réorganiser, redimensionner et ajouter/supprimer des champs de la vue. En savoir plus sur [la modification des mises en page des fiches](widget-card.md#modifier-la-disposition-de-la-fiche).
 
 ![record-cards-edit-layout-2](images/record-cards/record-cards-edit-layout-2.png)
 

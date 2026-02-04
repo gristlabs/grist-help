@@ -4,7 +4,7 @@ title: Préremplir les e-mails
 
 # Préparer des Emails en Utilisant des Formules
 
-Vous savez peut-être déjà que vous pouvez ajouter des [champs de lien hypertexte](../col-types.md#hyperlinks) dans Grist. Vous savez peut-être aussi que les liens "mailto" ouvrent un programme de messagerie pour créer un nouveau message électronique.
+Vous savez peut-être déjà que vous pouvez ajouter des [champs de lien hypertexte](../col-types.md#hyperliens) dans Grist. Vous savez peut-être aussi que les liens "mailto" ouvrent un programme de messagerie pour créer un nouveau message électronique.
 
 Il est moins connu que les liens "mailto" permettent de pré-remplir de nombreuses parties du message électronique. Si vous utilisez Grist pour stocker des contacts, vous pouvez essentiellement créer des modèles d'email en utilisant des formules Grist.
 

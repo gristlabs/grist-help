@@ -60,6 +60,6 @@ Voici quelques-uns des plus utiles :
 
 Vous pouvez créer un lien partageable vers une cellule en appuyant sur <code class="keys">*⌘* *⇧* *A*</code> (Mac)
 ou <code class="keys">*Ctrl* + *Maj* + *A*</code> (Windows) lorsque la cellule est sélectionnée.
-Cette option est également disponible via le [menu de la ligne](widget-table.md#row-operations) sous "Copier le lien d'ancrage."
+Cette option est également disponible via le [menu de la ligne](widget-table.md#operations-sur-les-lignes) sous "Copier le lien d'ancrage."
 Le lien sera placé dans votre presse-papiers, prêt à être collé dans un email ou une application de messagerie instantanée.
 Le lien ne s'ouvrira que pour les personnes ayant accès au document.

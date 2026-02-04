@@ -6,7 +6,7 @@ title: Glossaire
 
 ## Diagramme à Barres
 
-Il s'agit d'un [type de diagramme](widget-chart.md#bar-chart) classique, où les valeurs d'une colonne sont représentées par la hauteur d'une série de rectangles.
+Il s'agit d'un [type de diagramme](widget-chart.md#graphique-en-barres) classique, où les valeurs d'une colonne sont représentées par la hauteur d'une série de rectangles.
 
 ## Colonne
 
@@ -18,7 +18,7 @@ L'apparence et le comportement de chaque colonne peuvent être personnalisés en
 
 ## Type de Colonne
 
-Les colonnes ont des types, qui contrôlent l'apparence des cellules dans cette colonne et la méthode utilisée pour les éditer. Vous pouvez [changer le type de colonne](col-types.md#specifying-a-type) à volonté. Le [Type de Colonne Texte](col-types.md#text-columns) est adapté aux chaînes de caractères de toute longueur; le [Type de Colonne Date](col-types.md#date-columns) est spécialisé pour stocker et éditer des dates de calendrier; le [Type de Colonne Référence](col-types.md#reference-columns) est destiné à stocker et éditer des liens vers d'autres tables; le [Type de Colonne Numérique](col-types.md#numeric-columns) est pour tout type de nombre, etc.
+Les colonnes ont des types, qui contrôlent l'apparence des cellules dans cette colonne et la méthode utilisée pour les éditer. Vous pouvez [changer le type de colonne](col-types.md#specifier-un-type) à volonté. Le [Type de Colonne Texte](col-types.md#colonnes-de-texte) est adapté aux chaînes de caractères de toute longueur; le [Type de Colonne Date](col-types.md#colonnes-de-date) est spécialisé pour stocker et éditer des dates de calendrier; le [Type de Colonne Référence](col-types.md#colonnes-de-reference) est destiné à stocker et éditer des liens vers d'autres tables; le [Type de Colonne Numérique](col-types.md#colonnes-numeriques) est pour tout type de nombre, etc.
 
 ## Panneau de Création
 
@@ -44,7 +44,7 @@ Pour travailler avec Grist, la première étape est généralement de [créer un
 
 ## Poignée de Déplacement
 
-C'est une icône pour faciliter la réorganisation visuelle des vues ou des listes. Sur un ordinateur de bureau, lorsque vous survolez une poignée de déplacement, le curseur de la souris change. La poignée de déplacement pour une vue est juste à gauche du titre de la vue. Il y a un exemple d'utilisation de cette poignée de déplacement dans la [démonstration de recherche d'investissement](investment-research.md#chart-graph-plot).
+C'est une icône pour faciliter la réorganisation visuelle des vues ou des listes. Sur un ordinateur de bureau, lorsque vous survolez une poignée de déplacement, le curseur de la souris change. La poignée de déplacement pour une vue est juste à gauche du titre de la vue. Il y a un exemple d'utilisation de cette poignée de déplacement dans la [démonstration de recherche d'investissement](investment-research.md#graphique-diagramme-trace).
 
 ## Mode Fiddle
 
@@ -87,7 +87,7 @@ Les pages sont listées dans le document ([dans le panneau à gauche](page-widge
 
 ## Diagramme à Secteurs
 
-Il s'agit d'un [type de diagramme](widget-chart.md#pie-chart) classique, où un cercle est découpé en tranches selon les valeurs d'une colonne.
+Il s'agit d'un [type de diagramme](widget-chart.md#graphique-en-secteurs) classique, où un cercle est découpé en tranches selon les valeurs d'une colonne.
 
 ## Enregistrement
 
@@ -103,17 +103,17 @@ Les données d'une seule colonne affichées dans une Vue Graphique sont appelée
 
 ## Trier
 
-L'ordre dans lequel les lignes d'une table sont affichées est appelé l'ordre de tri. Un exemple de changement de l'ordre de tri d'une table est donné dans le [tutoriel CRM](lightweight-crm.md#to-do-tasks-for-contacts).
+L'ordre dans lequel les lignes d'une table sont affichées est appelé l'ordre de tri. Un exemple de changement de l'ordre de tri d'une table est donné dans le [tutoriel CRM](lightweight-crm.md#taches-a-faire-pour-les-contacts).
 
 ## Formules de Déclenchement
 
-Une [formule d'initialisation](formulas.md#trigger-formulas) est une formule qui recalcule vos données en fonction d'un ensemble de conditions que vous décidez. Elles permettent également de nettoyer les données lorsqu'une nouvelle valeur est entrée ([regarder le webinaire](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s){: target="\_blank"}), de fournir une [valeur par défaut](formula-cheat-sheet.md#setting-default-values-for-new-records) sensée pour une colonne ou de [créer des tampons de temps et d'auteur](formula-cheat-sheet.md#automatic-date-time-and-author-stamps).
+Une [formule d'initialisation](formulas.md#formules-dinitialisation) est une formule qui recalcule vos données en fonction d'un ensemble de conditions que vous décidez. Elles permettent également de nettoyer les données lorsqu'une nouvelle valeur est entrée ([regarder le webinaire](https://www.youtube.com/watch?v=wwzm39ADslA&list=PL3Q9Tu1JOy_4p4g-uS_3LQrB_3Vm7CWe4&index=10&t=2282s){: target="\_blank"}), de fournir une [valeur par défaut](formula-cheat-sheet.md#definir-des-valeurs-par-defaut-pour-de-nouveaux-enregistrements) sensée pour une colonne ou de [créer des tampons de temps et d'auteur](formula-cheat-sheet.md#tampons-automatiques-de-date-heure-et-auteur).
 
 ## Menu Utilisateur
 
 Le menu utilisateur est le menu qui s'ouvre en cliquant sur votre icône de profil en haut à droite de Grist. De là, vous pouvez gérer votre profil, ajouter des comptes Grist supplémentaires que vous possédez, et voir une liste des espaces d'équipe auxquels vous avez accès.
 
-Selon l'endroit où vous vous trouvez, le menu utilisateur contiendra des options supplémentaires. Par exemple, depuis un [espace personnel](teams.md#understanding-personal-sites) vous verrez l'option de mettre à niveau votre plan vers un [espace d'équipe](teams.md). Depuis un espace d'équipe, selon votre rôle et vos permissions, vous pourrez peut-être [gérer la facturation](teams.md#billing-account) ou [éditer les membres de l'équipe](team-sharing.md). Depuis un document, vous trouverez une option pour éditer les paramètres du document.
+Selon l'endroit où vous vous trouvez, le menu utilisateur contiendra des options supplémentaires. Par exemple, depuis un [espace personnel](teams.md#comprendre-les-espaces-personnels) vous verrez l'option de mettre à niveau votre plan vers un [espace d'équipe](teams.md). Depuis un espace d'équipe, selon votre rôle et vos permissions, vous pourrez peut-être [gérer la facturation](teams.md#compte-de-facturation) ou [éditer les membres de l'équipe](team-sharing.md). Depuis un document, vous trouverez une option pour éditer les paramètres du document.
 
 *![paramètres du document](images/document-settings.png){: .screenshot4}*
 {: .screenshot-half }
@@ -128,4 +128,4 @@ Chaque vue de page peut avoir son apparence et son comportement personnalisés. 
 
 ## Retour à la Ligne
 
-Normalement, le contenu qui ne tient pas dans la largeur d'une cellule est tronqué, avec "..." indiquant qu'une partie des données est cachée. Lorsque le paramètre "Retour à la Ligne" est activé, les longues lignes seront renvoyées à la ligne suivante, et la cellule deviendra plus haute pour inclure tout le contenu. Un exemple de retour à la ligne est donné dans le [tutoriel CRM](lightweight-crm.md#linking-tables-visually).
+Normalement, le contenu qui ne tient pas dans la largeur d'une cellule est tronqué, avec "..." indiquant qu'une partie des données est cachée. Lorsque le paramètre "Retour à la Ligne" est activé, les longues lignes seront renvoyées à la ligne suivante, et la cellule deviendra plus haute pour inclure tout le contenu. Un exemple de retour à la ligne est donné dans le [tutoriel CRM](lightweight-crm.md#lier-visuellement-les-tables).

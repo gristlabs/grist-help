@@ -52,13 +52,13 @@ La structure de la formule est
 `$[ID de la Colonne de Référence dans la Table de Référence].[ID de la Colonne dans la Table Sous-jacente]`{: .formula}.
 Grist complétera également automatiquement des parties de la formule pendant que vous la tapez.
 
-Il y a une autre façon d'ajouter plusieurs colonnes à partir d'une table sous-jacente. Si vous êtes intéressé à en savoir plus, visitez la [section d'aide sur les colonnes de référence](../col-refs.md#including-multiple-fields-from-a-reference) de notre site web.
+Il y a une autre façon d'ajouter plusieurs colonnes à partir d'une table sous-jacente. Si vous êtes intéressé à en savoir plus, visitez la [section d'aide sur les colonnes de référence](../col-refs.md#inclure-plusieurs-champs-dune-reference) de notre site web.
 
 ## Étape 3 : Créer une Mise en Page Hautement Productive avec des Tables Liées
 
 L'une des fonctionnalités les plus puissantes de Grist est la capacité de lier des tables liées sur la même page pour créer des mises en page hautement productives. Dans le tableau de bord final montré au début de ce tutoriel, nous avons vu que cliquer sur une candidature remplissait une vue des étapes liées à cette candidature.
 
-Faisons cela maintenant en ajoutant `Étapes` comme vue à la page `Candidatures`. ([Révisez les vues ici](../page-widgets.md#page-widgets).) Ajouter la table comme vue de Liste de Fiches rend les données plus faciles à visualiser. De même, vous pouvez vouloir changer la table `Candidatures` en une vue de Liste de Fiches.
+Faisons cela maintenant en ajoutant `Étapes` comme vue à la page `Candidatures`. ([Révisez les vues ici](../page-widgets.md#pages-widgets).) Ajouter la table comme vue de Liste de Fiches rend les données plus faciles à visualiser. De même, vous pouvez vouloir changer la table `Candidatures` en une vue de Liste de Fiches.
 
 Dans le menu LISTE DE FICHES à droite, sélectionnez DONNÉES pour définir les règles de sélection des données. Sous SÉLECTIONNER PAR, vous verrez l'option "LISTE_DE_FICHES CANDIDATURES". Cette option est uniquement disponible parce qu'à l'étape 1, nous avons créé une référence de la table `Étapes` à la table `Candidatures` dans la colonne de référence `Rôle`. Cette référence indique à Grist quelles étapes sont liées à quelles candidatures.
 
@@ -70,7 +70,7 @@ Félicitations ! Vous savez maintenant comment utiliser les colonnes de référe
 
 Si vous êtes à l'aise avec les formules, essayez d'utiliser des formules dans les colonnes de référence pour rendre Grist un outil encore plus puissant. Dans la [solution du tutoriel](https://public.getgrist.com/2xHXr5km5jkn/Job-Application-Reference-Column-Tutorial-Solution), nous avons utilisé une formule pour faire plus.
 
-La formule dans le champ `Dernière Étape` dans la vue `Candidatures` recherche la date la plus récente dans les enregistrements liés dans la table `Étapes`. Ainsi, ajouter une nouvelle étape avec une date plus récente mettrait automatiquement à jour ce champ. Vous pouvez en apprendre plus sur [les formules de recherche sur notre site web](../formulas.md#lookups).
+La formule dans le champ `Dernière Étape` dans la vue `Candidatures` recherche la date la plus récente dans les enregistrements liés dans la table `Étapes`. Ainsi, ajouter une nouvelle étape avec une date plus récente mettrait automatiquement à jour ce champ. Vous pouvez en apprendre plus sur [les formules de recherche sur notre site web](../formulas.md#recherches).
 
 Parce que `Dernière Étape` est à la fois une colonne de formule **_et_** une colonne de référence, nous avons également fait ce qui suit en suivant la formule décrite à l'étape 2 de ce tutoriel.
 

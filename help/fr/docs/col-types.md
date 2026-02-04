@@ -44,20 +44,20 @@ La troisième option, "Ajouter une colonne de formule", ajoutera une nouvelle co
 *![Ajouter une colonne d'appariement](images/columns/columns-add-lookup.png)*
 {: .screenshot-half }
 
-"Raccourcis" répertorie les fonctions de [formule d'initialisation](formulas.md#trigger-formulas) les plus fréquemment utilisées.
+"Raccourcis" répertorie les fonctions de [formule d'initialisation](formulas.md#formules-dinitialisation) les plus fréquemment utilisées.
 
 *![Ajouter une colonne de raccourci](images/columns/columns-add-shortcut.png)*
 {: .screenshot-half }
 
 En savoir plus sur chaque option de raccourci aux liens ci-dessous :
 
-- [Horodatage](formula-cheat-sheet.md#examples-of-automatic-date-time-and-author-stamps)
+- [Horodatage](formula-cheat-sheet.md#exemples-de-tampons-automatiques-de-date-heure-et-auteur)
 
-- [Autorité](formula-cheat-sheet.md#examples-of-automatic-date-time-and-author-stamps)
+- [Autorité](formula-cheat-sheet.md#exemples-de-tampons-automatiques-de-date-heure-et-auteur)
 
-- [Détecter les doublons dans...](formula-cheat-sheet.md#finding-duplicates)
+- [Détecter les doublons dans...](formula-cheat-sheet.md#trouver-des-doublons)
 
-- [UUID](access-rules.md#link-keys)
+- [UUID](access-rules.md#cles-de-lien)
 
 ## Réorganiser les colonnes
 
@@ -194,7 +194,7 @@ Les options sous FORMAT DE NOMBRE incluent :
   {: .screenshot-half }
   
 !!! note "Définir la devise par défaut"
-    Vous pouvez définir le fuseau horaire, la locale et la devise par défaut d'un document dans [Paramètres du document](creating-doc.md#document-settings).
+    Vous pouvez définir le fuseau horaire, la locale et la devise par défaut d'un document dans [Paramètres du document](creating-doc.md#parametres-du-document).
   
 - `,` : Activer l'affichage des séparateurs de milliers.
 - `%` : Afficher les nombres en pourcentages. Par exemple, "0.5" s'afficherait comme "50%".
@@ -212,7 +212,7 @@ Ce type est pour stocker des valeurs vrai/faux. Les valeurs peuvent être affich
 *![Format basculant](images/columns/columns-format-toggle.png)*
 {: .screenshot-half }
 
-Voir également l'exemple dans [Spécifier un type](col-types.md#specifying-a-type).
+Voir également l'exemple dans [Spécifier un type](col-types.md#specifier-un-type).
 
 ## Colonnes de date
 
@@ -228,7 +228,7 @@ Ce type est pour stocker des dates de calendrier plus l'heure de la journée. Pl
 <span class="screenshot-large">*![columns-format-datetime](images/columns/columns-format-datetime.png)*</span>
 {: .screenshot-half }
 
-Si vous souhaitez définir un fuseau horaire par défaut pour votre document, vous pouvez le faire dans [Paramètres du document](creating-doc.md#document-settings).
+Si vous souhaitez définir un fuseau horaire par défaut pour votre document, vous pouvez le faire dans [Paramètres du document](creating-doc.md#parametres-du-document).
 
 ## Colonnes de choix
 
@@ -237,7 +237,7 @@ Ce type est pour stocker une valeur parmi un ensemble de valeurs valides, où vo
 <span class="screenshot-large">*![columns-format-choice](images/columns/columns-format-choice.png)*</span>
 {: .screenshot-half }
 
-Il y a un exemple d'utilisation de ce type de colonne dans l'[exemple de CRM léger](lightweight-crm.md#setting-other-types).
+Il y a un exemple d'utilisation de ce type de colonne dans l'[exemple de CRM léger](lightweight-crm.md#definir-dautres-types).
 
 Si vous commencez avec une colonne de texte peuplée, Grist prendra toutes les valeurs uniques de cette colonne comme choix valides.
 
@@ -267,7 +267,7 @@ Ce type est pour stocker plusieurs valeurs d'un ensemble de valeurs valides, où
 
 Si vous commencez avec une colonne de texte peuplée, Grist prendra toutes les valeurs uniques de cette colonne comme choix valides.
 
-Les colonnes de liste de choix sont configurées de la même manière que les colonnes de [Choix](#choice-columns), et prennent en charge le même niveau de personnalisation et de raccourcis clavier. Elles diffèrent par le nombre de choix qu'elles permettent d'entrer dans chaque cellule. Alors que les colonnes de choix ne permettent qu'une seule valeur au maximum dans une cellule, les colonnes de liste de choix en permettent plusieurs.
+Les colonnes de liste de choix sont configurées de la même manière que les colonnes de [Choix](#colonnes-de-choix), et prennent en charge le même niveau de personnalisation et de raccourcis clavier. Elles diffèrent par le nombre de choix qu'elles permettent d'entrer dans chaque cellule. Alors que les colonnes de choix ne permettent qu'une seule valeur au maximum dans une cellule, les colonnes de liste de choix en permettent plusieurs.
 
 Comme avec les colonnes de choix, lors de la saisie dans une cellule de colonne de liste de choix, les choix valides seront affichés dans un menu de saisie semi-automatique. Une fois que vous avez sélectionné une valeur, vous pouvez continuer à ajouter des choix à la même cellule.
 
@@ -277,7 +277,7 @@ Comme avec les colonnes de choix, lors de la saisie dans une cellule de colonne 
 Les choix peuvent être réorganisés à l'intérieur de leurs cellules en cliquant et en les faisant glisser pendant que la cellule est en cours d'édition. Vous pouvez également utiliser les touches fléchées et la touche `Supprimer` pour naviguer et supprimer des choix, ou simplement cliquer sur l'icône de suppression lorsque vous survolez un choix.
 
 !!! note "Filtrer les listes déroulantes des colonnes de choix et de liste de choix"
-    Lors de la saisie de données dans une colonne de choix ou de liste de choix, vous verrez une liste déroulante de tous les choix disponibles. Parfois, il serait utile de filtrer la liste déroulante en fonction d'une condition, comme la valeur dans une autre cellule. Écrire des conditions pour filtrer les listes déroulantes de choix est similaire à [filtrer les listes déroulantes des colonnes de référence](col-refs.md#filtering-reference-choices-in-dropdown).
+    Lors de la saisie de données dans une colonne de choix ou de liste de choix, vous verrez une liste déroulante de tous les choix disponibles. Parfois, il serait utile de filtrer la liste déroulante en fonction d'une condition, comme la valeur dans une autre cellule. Écrire des conditions pour filtrer les listes déroulantes de choix est similaire à [filtrer les listes déroulantes des colonnes de référence](col-refs.md#filtrer-les-choix-de-reference-dans-la-liste-deroulante).
 
 ## Colonnes de référence
 
@@ -288,7 +288,7 @@ Ceci établit une référence croisée à une autre table. Vous pouvez spécifie
 
 ## Colonnes de liste de références
 
-Comme les [Colonnes de référence](#reference-columns), mais peuvent stocker plusieurs références dans une seule cellule. Il y a beaucoup de choses que vous pouvez faire avec ce type de colonne, voir [Colonnes de référence](col-refs.md#creating-a-new-reference-list-column) pour plus de détails.
+Comme les [Colonnes de référence](#colonnes-de-reference), mais peuvent stocker plusieurs références dans une seule cellule. Il y a beaucoup de choses que vous pouvez faire avec ce type de colonne, voir [Colonnes de référence](col-refs.md#creer-une-nouvelle-colonne-de-liste-de-references) pour plus de détails.
 
 <span class="screenshot-large">*![columns-format-reference-list](images/columns/columns-format-reference-list.png)*</span>
 {: .screenshot-half }

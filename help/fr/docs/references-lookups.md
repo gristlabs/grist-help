@@ -169,7 +169,7 @@ Avec une liste de références, la notation par points renvoie une liste de tous
 
 <span class="screenshot-large">*![registrants-balance](images/references-lookups/registrants-balance.png)*</span>
 
-`$Registrants.Balance` est une liste des Soldes pour chaque participant dans la liste de `$Registrants`. Cela suit le format `$[A].[B]` où `[A]` est le nom de la colonne de Liste de Références et `[B]` est le nom de la colonne dans la table référencée dont vous souhaitez extraire des données. Nous apprendrons comment trouver la somme de ces soldes dans [Travailler avec des ensembles d'enregistrements](#working-with-record-sets).
+`$Registrants.Balance` est une liste des Soldes pour chaque participant dans la liste de `$Registrants`. Cela suit le format `$[A].[B]` où `[A]` est le nom de la colonne de Liste de Références et `[B]` est le nom de la colonne dans la table référencée dont vous souhaitez extraire des données. Nous apprendrons comment trouver la somme de ces soldes dans [Travailler avec des ensembles d'enregistrements](#travailler-avec-des-ensembles-denregistrements).
 
 ## lookupRecords
 
@@ -241,7 +241,7 @@ Vous pouvez également le faire sur une liste de références car une liste de r
 SUM($RefList.Column)
 ```
 
-Dans la section [Listes de références et notation par points](#reference-lists-and-dot-notation), nous avons utilisé la colonne Registrants et la notation par points pour trouver le solde pour chaque personne de notre liste d'Inscrits. Nous pouvons utiliser `SUM()` avec notre formule précédente pour trouver le solde total.
+Dans la section [Listes de références et notation par points](#listes-de-references-et-notation-par-points), nous avons utilisé la colonne Registrants et la notation par points pour trouver le solde pour chaque personne de notre liste d'Inscrits. Nous pouvons utiliser `SUM()` avec notre formule précédente pour trouver le solde total.
 ```
 SUM($Registrants.Balance)
 ```

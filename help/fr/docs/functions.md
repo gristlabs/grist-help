@@ -39,7 +39,7 @@ Python (voir [documentation Python](https://docs.python.org/3.11/)). Voici quelq
 
 <!-- BEGIN mkpydocs docs -->
 ### Grist
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>class __Record__</code> {: #record data-toc-label="Record" }
 </summary>
 Un Enregistrement représente un enregistrement de données. C'est le principal moyen d'accéder aux valeurs dans les formules. Un
@@ -57,12 +57,12 @@ def Longueur_Nom(rec, table):
   return len(rec.Nom_Complet)
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__$__*Field* ou __rec__*.Field*</code> {: #_field data-toc-label="$Field" }
 </summary>
 Accède au champ nommé "Field" de l'enregistrement actuel. Par exemple, `$Prenom` ou `rec.Prenom`.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__$group__</code> {: #_group data-toc-label="$group" }
 </summary>
 Dans une [table de résumé](summary-tables.md), `$group` est un champ spécial
@@ -79,7 +79,7 @@ sum(r.Montant for r in $group if r > 0)    # Somme uniquement des montants posit
 sum(r.Actions * r.Prix for r in $group)   # Somme des produits actions * prix
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>class __RecordSet__</code> {: #recordset data-toc-label="RecordSet" }
 </summary>
 Un Ensemble d'Enregistrements représente une collection d'enregistrements, comme retourné par `Table.lookupRecords()` ou
@@ -100,7 +100,7 @@ min(Tâches.lookupRecords(Propriétaire="Bob").DateEcheance)
 
 Vous pouvez obtenir le nombre d'enregistrements dans un Ensemble d'Enregistrements en utilisant `len`, par exemple `len($group)`.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>RecordSet.**find.\***(value)</code> {: #find_ data-toc-label="find.*" }
 </summary>
 Un ensemble de méthodes pour trouver des valeurs dans des ensembles d'enregistrements triés, comme retourné par
@@ -146,7 +146,7 @@ return taux.Taux_Horaire
 
 Notez que cela est également beaucoup plus rapide lorsqu'il y a de nombreux taux pour la même Personne et Rôle.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>class __UserTable__</code> {: #usertable data-toc-label="UserTable" }
 </summary>
 Chaque table de données dans le document est représentée dans le code par une instance de la classe `UserTable`.
@@ -155,7 +155,7 @@ ainsi que des méthodes pour rechercher des enregistrements particuliers.
 
 Chaque table dans le document est disponible pour toutes les formules.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>UserTable.__all__</code> {: #all data-toc-label="all" }
 </summary>
 La liste de tous les enregistrements dans cette table.
@@ -170,7 +170,7 @@ Cela évalue la somme du champ `Population` pour chaque enregistrement dans la t
 sum(r.Population for r in Pays.all)
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone data-toc-label="lookupOne" }
 </summary>
 Retourne un [Enregistrement](#record) correspondant aux arguments field=value donnés. La valeur peut être n'importe quelle
@@ -199,7 +199,7 @@ Tâches.lookupOne(Projet=$id, order_by="Priorité")  # Tâche avec la plus petit
 Taux.lookupOne(Personne=$id, order_by="-Date")      # Taux avec la dernière Date.
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords data-toc-label="lookupRecords" }
 </summary>
 Retourne un [Ensemble d'Enregistrements](#recordset) correspondant aux arguments field=value donnés. La valeur peut être
@@ -242,13 +242,13 @@ où un champ de type liste (tel que `Liste de Choix` ou `Liste de Références`)
 En savoir plus sur [lookupRecords](references-lookups.md#lookuprecords).
 </details>
 ### Cumulatif
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__NEXT__(rec, *, group_by=(), order_by)</code> {: #next data-toc-label="NEXT" }
 </summary>
 Trouve l'enregistrement suivant dans la table selon l'ordre spécifié par `order_by`, et
 le regroupement spécifié par `group_by`. Voir [`PRÉCÉDENT`](#previous) pour plus de détails.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__PREVIOUS__(rec, *, group_by=(), order_by)</code> {: #previous data-toc-label="PREVIOUS" }
 </summary>
 Trouve l'enregistrement précédent dans la table selon l'ordre spécifié par `order_by`, et
@@ -284,7 +284,7 @@ utilisé pour correspondre aux vues triées par plusieurs colonnes. Par exemple 
 PRÉCÉDENT(rec, group_by=("Compte", "Année"), order_by=("Date", "-Montant"))
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__RANK__(rec, *, group_by=(), order_by, order='asc')</code> {: #rank data-toc-label="RANK" }
 </summary>
 Retourne le rang (ou la position) de cet enregistrement dans la table selon l'ordre spécifié par
@@ -305,7 +305,7 @@ l'enregistrement actuel (`rec`) parmi tous les enregistrements de sa table pour 
 score décroissant.
 </details>
 ### Date
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DATE__(year, month, day)</code> {: #date data-toc-label="DATE" }
 </summary>
 Retourne l'objet `datetime.datetime` qui représente une date particulière.
@@ -352,7 +352,7 @@ Si le jour est inférieur à 1, soustrait ce nombre de jours plus 1, du premier 
 datetime.date(2007, 12, 16)
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DATEADD__(start_date, days=0, months=0, years=0, weeks=0)</code> {: #dateadd data-toc-label="DATEADD" }
 </summary>
 Retourne la date un certain nombre de jours, mois, années ou semaines à partir de `start_date`. Vous pouvez
@@ -382,7 +382,7 @@ datetime.date(2025, 3, 26)
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DATEDIF__(start_date, end_date, unit)</code> {: #datedif data-toc-label="DATEDIF" }
 </summary>
 Calcule le nombre de jours, mois ou années entre deux dates.
@@ -426,7 +426,7 @@ La différence entre 1 et 15, en ignorant les mois et les années des dates (14)
 14
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DATEVALUE__(date_string, tz=None)</code> {: #datevalue data-toc-label="DATEVALUE" }
 </summary>
 Convertit une date qui est stockée sous forme de texte en un objet `datetime`.
@@ -458,7 +458,7 @@ En cas d'ambiguïté, préférez le format M/J/A.
 datetime.datetime(2003, 1, 2, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DATE_TO_XL__(date_value)</code> {: #date_to_xl data-toc-label="DATE_TO_XL" }
 </summary>
 Convertit un objet `date` ou `datetime` Python en le numéro de série utilisé par
@@ -481,7 +481,7 @@ Voir XL_TO_DATE pour plus d'explications.
 40982.0625
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DAY__(date)</code> {: #day data-toc-label="DAY" }
 </summary>
 Retourne le jour d'une date, sous forme d'entier allant de 1 à 31. Identique à `date.day`.
@@ -502,7 +502,7 @@ Retourne le jour d'une date, sous forme d'entier allant de 1 à 31. Identique à
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DAYS__(end_date, start_date)</code> {: #days data-toc-label="DAYS" }
 </summary>
 Retourne le nombre de jours entre deux dates. Identique à `(end_date - start_date).days`.
@@ -523,7 +523,7 @@ Retourne le nombre de jours entre deux dates. Identique à `(end_date - start_da
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DTIME__(value, tz=None)</code> {: #dtime data-toc-label="DTIME" }
 </summary>
 Retourne la valeur convertie en un objet `datetime` Python. La valeur peut être une
@@ -564,7 +564,7 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__EDATE__(start_date, months)</code> {: #edate data-toc-label="EDATE" }
 </summary>
 Retourne la date qui est le nombre donné de mois avant ou après `start_date`. Utilisez
@@ -597,7 +597,7 @@ datetime.date(2012, 3, 1)
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__EOMONTH__(start_date, months)</code> {: #eomonth data-toc-label="EOMONTH" }
 </summary>
 Retourne la date du dernier jour du mois qui est le nombre indiqué de mois avant ou
@@ -625,7 +625,7 @@ datetime.date(2012, 3, 31)
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__HOUR__(time)</code> {: #hour data-toc-label="HOUR" }
 </summary>
 Identique à `time.hour`.
@@ -646,7 +646,7 @@ Identique à `time.hour`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISOWEEKNUM__(date)</code> {: #isoweeknum data-toc-label="ISOWEEKNUM" }
 </summary>
 Retourne le numéro de la semaine ISO de l'année pour une date donnée.
@@ -662,7 +662,7 @@ Retourne le numéro de la semaine ISO de l'année pour une date donnée.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MINUTE__(time)</code> {: #minute data-toc-label="MINUTE" }
 </summary>
 Retourne les minutes d'un `datetime`, sous forme d'entier de 0 à 59.
@@ -689,7 +689,7 @@ Identique à `time.minute`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MONTH__(date)</code> {: #month data-toc-label="MONTH" }
 </summary>
 Retourne le mois d'une date représentée, sous forme d'entier de 1 (janvier) à 12 (décembre).
@@ -711,7 +711,7 @@ Identique à `date.month`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MOONPHASE__(date, output='emoji')</code> {: #moonphase data-toc-label="MOONPHASE" }
 </summary>
 Retourne la phase de la lune à la date donnée. La sortie par défaut est un emoji de phase lunaire.
@@ -759,12 +759,12 @@ True
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__NOW__(tz=None)</code> {: #now data-toc-label="NOW" }
 </summary>
 Retourne l'objet `datetime` pour l'heure actuelle.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SECOND__(time)</code> {: #second data-toc-label="SECOND" }
 </summary>
 Retourne les secondes d'un `datetime`, sous forme d'entier de 0 à 59.
@@ -786,12 +786,12 @@ Identique à `time.second`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__TODAY__(tz=None)</code> {: #today data-toc-label="TODAY" }
 </summary>
 Retourne l'objet `date` pour la date actuelle.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__WEEKDAY__(date, return_type=1)</code> {: #weekday data-toc-label="WEEKDAY" }
 </summary>
 Retourne le jour de la semaine correspondant à une date. Le jour est donné sous forme d'entier, allant
@@ -836,7 +836,7 @@ Return_type détermine le type de la valeur retournée.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__WEEKNUM__(date, return_type=1)</code> {: #weeknum data-toc-label="WEEKNUM" }
 </summary>
 Retourne le numéro de la semaine d'une date spécifique. Par exemple, la semaine contenant le 1er janvier est la
@@ -876,7 +876,7 @@ Return_type détermine quelle semaine est considérée comme la première semain
 5
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__XL_TO_DATE__(value, tz=None)</code> {: #xl_to_date data-toc-label="XL_TO_DATE" }
 </summary>
 Convertit un numéro de série Excel fourni représentant une date en un objet `datetime`.
@@ -903,7 +903,7 @@ datetime.datetime(2008, 1, 1, 0, 0, tzinfo=moment.tzinfo('America/New_York'))
 datetime.datetime(2012, 3, 14, 1, 30, tzinfo=moment.tzinfo('America/New_York'))
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__YEAR__(date)</code> {: #year data-toc-label="YEAR" }
 </summary>
 Retourne l'année correspondant à une date sous forme d'entier.
@@ -925,7 +925,7 @@ Identique à `date.year`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__YEARFRAC__(start_date, end_date, basis=0)</code> {: #yearfrac data-toc-label="YEARFRAC" }
 </summary>
 Calcule la fraction de l'année représentée par le nombre de jours entiers entre deux dates.
@@ -984,7 +984,7 @@ chaîne vide, utilisez `value == ""`.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISEMAIL__(value)</code> {: #isemail data-toc-label="ISEMAIL" }
 </summary>
 Retourne si une valeur est une adresse email valide.
@@ -1014,7 +1014,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISERR__(value)</code> {: #iserr data-toc-label="ISERR" }
 </summary>
 Vérifie si une valeur est une erreur. En d'autres termes, elle retourne vrai
@@ -1037,7 +1037,7 @@ Par exemple :
 False
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISERROR__(value)</code> {: #iserror data-toc-label="ISERROR" }
 </summary>
 Vérifie si une valeur est une erreur ou une valeur invalide. Elle est similaire à `ISERR`, mais retourne également vrai pour une valeur invalide telle que NaN ou une valeur textuelle dans une colonne Numérique.
@@ -1059,7 +1059,7 @@ True
 True
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISLOGICAL__(value)</code> {: #islogical data-toc-label="ISLOGICAL" }
 </summary>
 Vérifie si une valeur est `True` ou `False`.
@@ -1090,7 +1090,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISNA__(value)</code> {: #isna data-toc-label="ISNA" }
 </summary>
 Vérifie si une valeur est l'erreur `#N/A`.
@@ -1116,7 +1116,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISNONTEXT__(value)</code> {: #isnontext data-toc-label="ISNONTEXT" }
 </summary>
 Vérifie si une valeur n'est pas textuelle.
@@ -1152,7 +1152,7 @@ True
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISNUMBER__(value)</code> {: #isnumber data-toc-label="ISNUMBER" }
 </summary>
 Vérifie si une valeur est un nombre.
@@ -1198,7 +1198,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISREF__(value)</code> {: #isref data-toc-label="ISREF" }
 </summary>
 Vérifie si une valeur est un enregistrement de table.
@@ -1219,7 +1219,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISREFLIST__(value)</code> {: #isreflist data-toc-label="ISREFLIST" }
 </summary>
 Vérifie si une valeur est un [`Ensemble d'Enregistrements`](#recordset),
@@ -1241,7 +1241,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISTEXT__(value)</code> {: #istext data-toc-label="ISTEXT" }
 </summary>
 Vérifie si une valeur est textuelle.
@@ -1277,7 +1277,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ISURL__(value)</code> {: #isurl data-toc-label="ISURL" }
 </summary>
 Vérifie si une valeur est une URL valide. Elle n'a pas besoin d'être entièrement qualifiée, ni d'inclure
@@ -1307,7 +1307,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__N__(value)</code> {: #n data-toc-label="N" }
 </summary>
 Retourne la valeur convertie en un nombre. Vrai/Faux sont convertis en 1/0. Une date est convertie en
@@ -1344,7 +1344,7 @@ numéro de série de style Excel de la date. Tout le reste est converti en 0.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__NA__()</code> {: #na data-toc-label="NA" }
 </summary>
 Retourne l'erreur "valeur non disponible", `#N/A`.
@@ -1355,7 +1355,7 @@ True
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__PEEK__(func)</code> {: #peek data-toc-label="PEEK" }
 </summary>
 Évalue l'expression donnée sans créer de dépendances
@@ -1368,7 +1368,7 @@ calculée avant l'autre. Mais si `A` utilise `PEEK($B)` alors il obtiendra simpl
 déjà stockée dans `$B` sans nécessiter que `$B` soit d'abord calculé à la dernière valeur.
 Ainsi, `A` sera calculé en premier, et `B` pourra utiliser `$A` sans problèmes.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__RECORD__(record_or_list, dates_as_iso=False, expand_refs=0)</code> {: #record_2 data-toc-label="RECORD" }
 </summary>
 Retourne un dictionnaire Python avec tous les champs de l'enregistrement donné. Si une liste d'enregistrements est donnée,
@@ -1410,7 +1410,7 @@ implémenté dans Grist. Utilisez `isinstance(value, type)` ou `type(value)`.
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 ### Logique
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__AND__(logical_expression, *logical_expressions)</code> {: #and data-toc-label="AND" }
 </summary>
 Renvoie True si tous les arguments sont logiquement vrais, et False si l'un d'eux est faux.
@@ -1443,7 +1443,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__FALSE__()</code> {: #false data-toc-label="FALSE" }
 </summary>
 Renvoie la valeur logique `False`. Vous pouvez également utiliser la valeur `False` directement. Cette
@@ -1456,7 +1456,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__IF__(logical_expression, value_if_true, value_if_false)</code> {: #if data-toc-label="IF" }
 </summary>
 Renvoie une valeur si une expression logique est `True` et une autre si elle est `False`.
@@ -1499,7 +1499,7 @@ d'évaluer à `1` plutôt que de lever une exception.
 0.0
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__IFERROR__(value, value_if_error='')</code> {: #iferror data-toc-label="IFERROR" }
 </summary>
 Renvoie le premier argument s'il n'est pas une valeur d'erreur, sinon renvoie le deuxième argument s'il
@@ -1528,7 +1528,7 @@ NOTE : Grist gère les valeurs qui lèvent une exception en les enveloppant pour
 ''
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__NOT__(logical_expression)</code> {: #not data-toc-label="NOT" }
 </summary>
 `True`. Identique à `not expression_logique`.
@@ -1545,7 +1545,7 @@ True
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__OR__(logical_expression, *logical_expressions)</code> {: #or data-toc-label="OR" }
 </summary>
 Renvoie True si l'un des arguments est logiquement vrai, et faux si tous les
@@ -1589,7 +1589,7 @@ True
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__TRUE__()</code> {: #true data-toc-label="TRUE" }
 </summary>
 Renvoie la valeur logique `True`. Vous pouvez également utiliser la valeur `True` directement. Cette
@@ -1603,7 +1603,7 @@ True
 
 </details>
 ### Recherche
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupOne__(Field_In_Lookup_Table=value, ...)</code> {: #lookupone_2 data-toc-label="lookupOne" }
 </summary>
 Renvoie un [Enregistrement](#record) correspondant aux arguments champ=valeur donnés. La valeur peut être n'importe quelle
@@ -1632,7 +1632,7 @@ Tasks.lookupOne(Project=$id, order_by="Priority")  # Tâche avec la plus petite 
 Rates.lookupOne(Person=$id, order_by="-Date")      # Taux avec la dernière date.
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>UserTable.__lookupRecords__(Field_In_Lookup_Table=value, ...)</code> {: #lookuprecords_2 data-toc-label="lookupRecords" }
 </summary>
 Renvoie un [Ensemble d'Enregistrements](#recordset) correspondant aux arguments champ=valeur donnés. La valeur peut être
@@ -1702,7 +1702,7 @@ Renvoie le nombre de colonnes dans un tableau ou un intervalle spécifié.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__CONTAINS__(value, match_empty=no_match_empty)</code> {: #contains data-toc-label="CONTAINS" }
 </summary>
 Utilisez ce marqueur avec [UserTable.lookupRecords](#lookuprecords) pour trouver des enregistrements
@@ -1802,7 +1802,7 @@ Renvoie le nombre de lignes dans un tableau ou un intervalle spécifié.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SELF_HYPERLINK__(label=None, page=None, **kwargs)</code> {: #self_hyperlink data-toc-label="SELF_HYPERLINK" }
 </summary>
 Crée un lien vers le document actuel. Tous les paramètres sont optionnels.
@@ -1853,7 +1853,7 @@ TypeError: unexpected keyword argument 'Linky_Link' (not of form LinkKey_NAME)
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__VLOOKUP__(table, **field_value_pairs)</code> {: #vlookup data-toc-label="VLOOKUP" }
 </summary>
 Recherche verticale. Recherche dans la table donnée pour un enregistrement correspondant aux arguments `champ=valeur` donnés. Si plusieurs enregistrements correspondent, renvoie l'un d'eux. Si aucun ne correspond, renvoie l'enregistrement vide spécial.
@@ -1874,7 +1874,7 @@ VLOOKUP(People, First_Name="Lewis", Last_Name="Carroll").Age
 ```
 </details>
 ### Math
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ABS__(value)</code> {: #abs data-toc-label="ABS" }
 </summary>
 Renvoie la valeur absolue d'un nombre.
@@ -1896,7 +1896,7 @@ Renvoie la valeur absolue d'un nombre.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ACOS__(value)</code> {: #acos data-toc-label="ACOS" }
 </summary>
 Renvoie le cosinus inverse d'une valeur, en radians.
@@ -1913,7 +1913,7 @@ Renvoie le cosinus inverse d'une valeur, en radians.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ACOSH__(value)</code> {: #acosh data-toc-label="ACOSH" }
 </summary>
 Renvoie le cosinus hyperbolique inverse d'un nombre.
@@ -1930,7 +1930,7 @@ Renvoie le cosinus hyperbolique inverse d'un nombre.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ARABIC__(roman_numeral)</code> {: #arabic data-toc-label="ARABIC" }
 </summary>
 Calcule la valeur d'un chiffre romain.
@@ -1947,7 +1947,7 @@ Calcule la valeur d'un chiffre romain.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ASIN__(value)</code> {: #asin data-toc-label="ASIN" }
 </summary>
 Renvoie le sinus inverse d'une valeur, en radians.
@@ -1969,7 +1969,7 @@ Renvoie le sinus inverse d'une valeur, en radians.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ASINH__(value)</code> {: #asinh data-toc-label="ASINH" }
 </summary>
 Renvoie le sinus hyperbolique inverse d'un nombre.
@@ -1986,7 +1986,7 @@ Renvoie le sinus hyperbolique inverse d'un nombre.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ATAN__(value)</code> {: #atan data-toc-label="ATAN" }
 </summary>
 Renvoie l'arc tangente d'une valeur, en radians.
@@ -2008,7 +2008,7 @@ Renvoie l'arc tangente d'une valeur, en radians.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ATAN2__(x, y)</code> {: #atan2 data-toc-label="ATAN2" }
 </summary>
 Renvoie l'angle entre l'axe x et un segment de ligne allant de l'origine (0,0) à la paire de coordonnées spécifiée (`x`,`y`), en radians.
@@ -2040,7 +2040,7 @@ Renvoie l'angle entre l'axe x et un segment de ligne allant de l'origine (0,0) �
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ATANH__(value)</code> {: #atanh data-toc-label="ATANH" }
 </summary>
 Renvoie le sinus hyperbolique inverse d'un nombre.
@@ -2057,7 +2057,7 @@ Renvoie le sinus hyperbolique inverse d'un nombre.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__CEILING__(value, factor=1)</code> {: #ceiling data-toc-label="CEILING" }
 </summary>
 Arrondit un nombre à la multiple supérieure la plus proche du facteur, ou à l'entier le plus proche si le facteur est
@@ -2090,7 +2090,7 @@ ommis ou 1.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__COMBIN__(n, k)</code> {: #combin data-toc-label="COMBIN" }
 </summary>
 Renvoie le nombre de façons de choisir un certain nombre d'objets dans un ensemble d'une taille donnée d'objets.
@@ -2112,7 +2112,7 @@ Renvoie le nombre de façons de choisir un certain nombre d'objets dans un ensem
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__COS__(angle)</code> {: #cos data-toc-label="COS" }
 </summary>
 Renvoie le cosinus d'un angle donné en radians.
@@ -2134,7 +2134,7 @@ Renvoie le cosinus d'un angle donné en radians.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__COSH__(value)</code> {: #cosh data-toc-label="COSH" }
 </summary>
 Renvoie le cosinus hyperbolique de tout nombre réel.
@@ -2151,7 +2151,7 @@ Renvoie le cosinus hyperbolique de tout nombre réel.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DEGREES__(angle)</code> {: #degrees data-toc-label="DEGREES" }
 </summary>
 Convertit une valeur d'angle en radians en degrés.
@@ -2168,7 +2168,7 @@ Convertit une valeur d'angle en radians en degrés.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__EVEN__(value)</code> {: #even data-toc-label="EVEN" }
 </summary>
 Arrondit un nombre à l'entier pair supérieur le plus proche, en arrondissant loin de zéro.
@@ -2195,7 +2195,7 @@ Arrondit un nombre à l'entier pair supérieur le plus proche, en arrondissant l
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__EXP__(exponent)</code> {: #exp data-toc-label="EXP" }
 </summary>
 Renvoie le nombre d'Euler, e (~2.718) élevé à une puissance.
@@ -2212,7 +2212,7 @@ Renvoie le nombre d'Euler, e (~2.718) élevé à une puissance.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__FACT__(value)</code> {: #fact data-toc-label="FACT" }
 </summary>
 Renvoie la factorielle d'un nombre.
@@ -2246,7 +2246,7 @@ ValueError: factorial() not defined for negative values
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__FACTDOUBLE__(value)</code> {: #factdouble data-toc-label="FACTDOUBLE" }
 </summary>
 Renvoie la "double factorielle" d'un nombre.
@@ -2273,7 +2273,7 @@ Renvoie la "double factorielle" d'un nombre.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__FLOOR__(value, factor=1)</code> {: #floor data-toc-label="FLOOR" }
 </summary>
 Arrondit un nombre à l'entier multiple inférieur le plus proche de la signification spécifiée.
@@ -2307,7 +2307,7 @@ ValueError: facteur argument invalide
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__GCD__(value1, *more_values)</code> {: #gcd data-toc-label="GCD" }
 </summary>
 Renvoie le plus grand commun diviseur de un ou plusieurs entiers.
@@ -2349,7 +2349,7 @@ Renvoie le plus grand commun diviseur de un ou plusieurs entiers.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__INT__(value)</code> {: #int data-toc-label="INT" }
 </summary>
 Arrondit un nombre à l'entier le plus proche qui est inférieur ou égal à lui.
@@ -2371,7 +2371,7 @@ Arrondit un nombre à l'entier le plus proche qui est inférieur ou égal à lui
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__LCM__(value1, *more_values)</code> {: #lcm data-toc-label="LCM" }
 </summary>
 Renvoie le plus petit multiple commun de un ou plusieurs entiers.
@@ -2413,7 +2413,7 @@ Renvoie le plus petit multiple commun de un ou plusieurs entiers.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__LN__(value)</code> {: #ln data-toc-label="LN" }
 </summary>
 Renvoie le logarithme d'un nombre, base e (nombre d'Euler).
@@ -2435,7 +2435,7 @@ Renvoie le logarithme d'un nombre, base e (nombre d'Euler).
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__LOG__(value, base=10)</code> {: #log data-toc-label="LOG" }
 </summary>
 Renvoie le logarithme d'un nombre donné une base.
@@ -2457,7 +2457,7 @@ Renvoie le logarithme d'un nombre donné une base.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__LOG10__(value)</code> {: #log10 data-toc-label="LOG10" }
 </summary>
 Renvoie le logarithme d'un nombre, base 10.
@@ -2484,7 +2484,7 @@ Renvoie le logarithme d'un nombre, base 10.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MOD__(dividend, divisor)</code> {: #mod data-toc-label="MOD" }
 </summary>
 Renvoie le résultat de l'opérateur modulo, le reste après une opération de division.
@@ -2511,7 +2511,7 @@ Renvoie le résultat de l'opérateur modulo, le reste après une opération de d
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MROUND__(value, factor)</code> {: #mround data-toc-label="MROUND" }
 </summary>
 Arrondit un nombre à l'entier multiple le plus proche d'un autre.
@@ -2540,7 +2540,7 @@ ValueError: facteur argument invalide
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MULTINOMIAL__(value1, *more_values)</code> {: #multinomial data-toc-label="MULTINOMIAL" }
 </summary>
 Renvoie la factorielle de la somme des valeurs divisée par le produit des factorielles des valeurs.
@@ -2567,7 +2567,7 @@ Renvoie la factorielle de la somme des valeurs divisée par le produit des facto
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__NUM__(value)</code> {: #num data-toc-label="NUM" }
 </summary>
 Pour une valeur flottante Python qui est en fait un entier, renvoie un type entier Python.
@@ -2596,7 +2596,7 @@ colonne numérique Grist (représentée comme des flottants), mais lorsque des v
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ODD__(value)</code> {: #odd data-toc-label="ODD" }
 </summary>
 Arrondit un nombre à l'entier impair supérieur le plus proche.
@@ -2628,7 +2628,7 @@ Arrondit un nombre à l'entier impair supérieur le plus proche.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__PI__()</code> {: #pi data-toc-label="PI" }
 </summary>
 Renvoie la valeur de Pi à 14 décimales.
@@ -2650,7 +2650,7 @@ Renvoie la valeur de Pi à 14 décimales.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__POWER__(base, exponent)</code> {: #power data-toc-label="POWER" }
 </summary>
 Renvoie un nombre élevé à une puissance.
@@ -2672,7 +2672,7 @@ Renvoie un nombre élevé à une puissance.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__PRODUCT__(factor1, *more_factors)</code> {: #product data-toc-label="PRODUCT" }
 </summary>
 Renvoie le résultat de la multiplication d'une série de nombres. Chaque argument peut être un nombre ou
@@ -2694,7 +2694,7 @@ un tableau.
 4500
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__QUOTIENT__(dividend, divisor)</code> {: #quotient data-toc-label="QUOTIENT" }
 </summary>
 Renvoie un nombre divisé par un autre, sans le reste.
@@ -2716,7 +2716,7 @@ Renvoie un nombre divisé par un autre, sans le reste.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__RADIANS__(angle)</code> {: #radians data-toc-label="RADIANS" }
 </summary>
 Convertit une valeur d'angle en degrés en radians.
@@ -2728,17 +2728,17 @@ Convertit une valeur d'angle en degrés en radians.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__RAND__()</code> {: #rand data-toc-label="RAND" }
 </summary>
 Renvoie un nombre aléatoire entre 0 inclus et 1 exclus.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__RANDBETWEEN__(low, high)</code> {: #randbetween data-toc-label="RANDBETWEEN" }
 </summary>
 Renvoie un entier aléatoire uniformément entre deux valeurs, inclusif.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ROMAN__(number, form_unused=None)</code> {: #roman data-toc-label="ROMAN" }
 </summary>
 Formate un nombre en chiffres romains. Le deuxième argument est ignoré dans cette implémentation.
@@ -2765,7 +2765,7 @@ Formate un nombre en chiffres romains. Le deuxième argument est ignoré dans ce
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ROUND__(value, places=0)</code> {: #round data-toc-label="ROUND" }
 </summary>
 Arrondit un nombre à un certain nombre de décimales,
@@ -2831,7 +2831,7 @@ en cas d'égalité, c'est-à-dire lorsque le dernier chiffre est 5.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ROUNDDOWN__(value, places=0)</code> {: #rounddown data-toc-label="ROUNDDOWN" }
 </summary>
 Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours vers le bas vers zéro.
@@ -2863,7 +2863,7 @@ Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours 
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__ROUNDUP__(value, places=0)</code> {: #roundup data-toc-label="ROUNDUP" }
 </summary>
 Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours vers le haut loin de zéro.
@@ -2895,7 +2895,7 @@ Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours 
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SERIESSUM__(x, n, m, a)</code> {: #seriessum data-toc-label="SERIESSUM" }
 </summary>
 Étant donné les paramètres x, n, m et a, renvoie la somme de la série de puissance a_1*x^n + a_2*x^(n+m)
@@ -2923,7 +2923,7 @@ Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours 
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SIGN__(value)</code> {: #sign data-toc-label="SIGN" }
 </summary>
 Étant donné un nombre d'entrée, renvoie `-1` s'il est négatif, `1` s'il est positif, et `0` s'il est zéro.
@@ -2945,7 +2945,7 @@ Arrondit un nombre à un certain nombre de décimales, en arrondissant toujours 
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SIN__(angle)</code> {: #sin data-toc-label="SIN" }
 </summary>
 Renvoie le sinus d'un angle donné en radians.
@@ -2972,7 +2972,7 @@ Renvoie le sinus d'un angle donné en radians.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SINH__(value)</code> {: #sinh data-toc-label="SINH" }
 </summary>
 Renvoie le sinus hyperbolique de tout nombre réel.
@@ -2984,7 +2984,7 @@ Renvoie le sinus hyperbolique de tout nombre réel.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SQRT__(value)</code> {: #sqrt data-toc-label="SQRT" }
 </summary>
 Renvoie la racine carrée positive d'un nombre positif.
@@ -3008,7 +3008,7 @@ ValueError: math domain error
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SQRTPI__(value)</code> {: #sqrtpi data-toc-label="SQRTPI" }
 </summary>
 Renvoie la racine carrée positive du produit de Pi et du nombre positif donné.
@@ -3032,7 +3032,7 @@ Renvoie un sous-total pour une plage verticale de cellules en utilisant une fonc
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SUM__(value1, *more_values)</code> {: #sum data-toc-label="SUM" }
 </summary>
 Renvoie la somme d'une série de nombres. Chaque argument peut être un nombre ou un tableau.
@@ -3068,7 +3068,7 @@ Renvoie la somme d'une plage en fonction de plusieurs critères.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SUMPRODUCT__(array1, *more_arrays)</code> {: #sumproduct data-toc-label="SUMPRODUCT" }
 </summary>
 Multiplie les composants correspondants dans deux tableaux de taille égale,
@@ -3103,7 +3103,7 @@ Renvoie la somme des carrés d'une série de nombres et/ou de cellules.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__TAN__(angle)</code> {: #tan data-toc-label="TAN" }
 </summary>
 Renvoie la tangente d'un angle donné en radians.
@@ -3125,7 +3125,7 @@ Renvoie la tangente d'un angle donné en radians.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__TANH__(value)</code> {: #tanh data-toc-label="TANH" }
 </summary>
 Renvoie la tangente hyperbolique de tout nombre réel.
@@ -3147,7 +3147,7 @@ Renvoie la tangente hyperbolique de tout nombre réel.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__TRUNC__(value, places=0)</code> {: #trunc data-toc-label="TRUNC" }
 </summary>
 Tronque un nombre à un certain nombre de chiffres significatifs en omettant les chiffres moins significatifs.
@@ -3169,18 +3169,18 @@ Tronque un nombre à un certain nombre de chiffres significatifs en omettant les
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__UUID__()</code> {: #uuid data-toc-label="UUID" }
 </summary>
 Génère un identifiant de chaîne formaté UUID aléatoire.
 
 Puisque UUID() produit une valeur différente chaque fois qu'il est appelé, il est préférable de l'utiliser dans
-[formule de déclenchement](formulas.md#trigger-formulas) pour de nouveaux enregistrements.
+[formule de déclenchement](formulas.md#formules-dinitialisation) pour de nouveaux enregistrements.
 Cela ne calculerait UUID() qu'une seule fois et figerait la valeur calculée. En revanche, une formule ordinaire peut être recalculée à chaque fois que le document est rechargé, produisant une valeur différente pour
 UUID() à chaque fois.
 </details>
 ### Horaire
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SCHEDULE__(schedule, start=None, count=10, end=None)</code> {: #schedule data-toc-label="SCHEDULE" }
 </summary>
 Renvoie la liste des objets `datetime` générés selon la chaîne `horaire`. Commence à
@@ -3307,7 +3307,7 @@ Calcule la moyenne des magnitudes des écarts des données par rapport à la moy
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__AVERAGE__(value, *more_values)</code> {: #average data-toc-label="AVERAGE" }
 </summary>
 Renvoie la valeur moyenne numérique dans un ensemble de données, en ignorant les valeurs non numériques.
@@ -3339,7 +3339,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__AVERAGEA__(value, *more_values)</code> {: #averagea data-toc-label="AVERAGEA" }
 </summary>
 Renvoie la valeur moyenne numérique dans un ensemble de données, en comptant les valeurs non numériques comme 0.
@@ -3382,7 +3382,7 @@ Renvoie la moyenne d'une plage en fonction de plusieurs critères.
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__AVERAGE_WEIGHTED__(pairs)</code> {: #average_weighted data-toc-label="AVERAGE_WEIGHTED" }
 </summary>
 Étant donné une liste de paires (valeur, poids), trouve la moyenne des valeurs pondérées par les
@@ -3429,7 +3429,7 @@ Calcule r, le coefficient de corrélation de produit-moment de Pearson d'un ense
 
 <span class="grist-tip">Note</span>Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__COUNT__(value, *more_values)</code> {: #count data-toc-label="COUNT" }
 </summary>
 Renvoie le nombre de valeurs numériques et de dates/datetime dans un ensemble de données,
@@ -3465,7 +3465,7 @@ et vides, et les représentations textuelles de nombres, sont ignorées.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__COUNTA__(value, *more_values)</code> {: #counta data-toc-label="COUNTA" }
 </summary>
 Renvoie le nombre de toutes les valeurs dans un ensemble de données, y compris les valeurs non numériques.
@@ -3623,7 +3623,7 @@ Renvoie la valeur de la distribution cumulative log-normale avec une moyenne et 
 
 <span class="grist-tip">Note</span> Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MAX__(value, *more_values)</code> {: #max data-toc-label="MAX" }
 </summary>
 Renvoie la valeur maximale d'un ensemble de données, en ignorant les valeurs autres que les nombres et les dates/datetime.
@@ -3671,7 +3671,7 @@ datetime.date(2015, 1, 2)
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MAXA__(value, *more_values)</code> {: #maxa data-toc-label="MAXA" }
 </summary>
 Renvoie la valeur numérique maximale d'un ensemble de données.
@@ -3704,7 +3704,7 @@ Chaque argument peut être une valeur d'un tableau. Les valeurs qui ne sont pas 
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MEDIAN__(value, *more_values)</code> {: #median data-toc-label="MEDIAN" }
 </summary>
 Renvoie la valeur médiane d'un ensemble de données numériques, en ignorant les valeurs non numériques.
@@ -3743,7 +3743,7 @@ ValueError: MEDIAN requires at least one number
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MIN__(value, *more_values)</code> {: #min data-toc-label="MIN" }
 </summary>
 Renvoie la valeur minimale d'un ensemble de données, en ignorant les valeurs autres que les nombres et les dates/datetimes.
@@ -3791,7 +3791,7 @@ datetime.datetime(2015, 1, 1, 12, 34, 56)
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MINA__(value, *more_values)</code> {: #mina data-toc-label="MINA" }
 </summary>
 Renvoie la valeur numérique minimale d'un ensemble de données.
@@ -3978,7 +3978,7 @@ Calcule l'équivalent normalisé d'une variable aléatoire donnée la moyenne et
 
 <span class="grist-tip">Note</span> Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__STDEV__(value, *more_values)</code> {: #stdev data-toc-label="STDEV" }
 </summary>
 Calcule l'écart type basé sur un échantillon, en ignorant les valeurs non numériques.
@@ -4011,7 +4011,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__STDEVA__(value, *more_values)</code> {: #stdeva data-toc-label="STDEVA" }
 </summary>
 Calcule l'écart type basé sur un échantillon, en considérant le texte comme la valeur `0`.
@@ -4044,7 +4044,7 @@ ZeroDivisionError: float division by zero
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__STDEVP__(value, *more_values)</code> {: #stdevp data-toc-label="STDEVP" }
 </summary>
 Calcule l'écart type basé sur une population entière, en ignorant les valeurs non numériques.
@@ -4075,7 +4075,7 @@ Calcule l'écart type basé sur une population entière, en ignorant les valeurs
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__STDEVPA__(value, *more_values)</code> {: #stdevpa data-toc-label="STDEVPA" }
 </summary>
 Calcule l'écart type basé sur une population entière, en considérant le texte comme la valeur `0`.
@@ -4198,7 +4198,7 @@ Renvoie la valeur P à deux queues d'un test Z avec distribution standard.
 <span class="grist-tip">Note</span> Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
 ### Texte
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__CHAR__(table_number)</code> {: #char data-toc-label="CHAR" }
 </summary>
 Convertit un nombre en un caractère selon la table Unicode actuelle.
@@ -4215,7 +4215,7 @@ u'!'
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__CLEAN__(text)</code> {: #clean data-toc-label="CLEAN" }
 </summary>
 Renvoie le texte avec les caractères non imprimables supprimés.
@@ -4228,7 +4228,7 @@ u'Rapport mensuel'
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__CODE__(string)</code> {: #code data-toc-label="CODE" }
 </summary>
 Renvoie la valeur de la carte Unicode numérique du premier caractère de la chaîne fournie.
@@ -4250,7 +4250,7 @@ Identique à `ord(string[0])`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__CONCAT__(string, *more_strings)</code> {: #concat data-toc-label="CONCAT" }
 </summary>
 Joint ensemble de chaînes de texte en une seule chaîne. Également disponible sous le nom
@@ -4281,7 +4281,7 @@ u'0abc'
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__CONCATENATE__(string, *more_strings)</code> {: #concatenate data-toc-label="CONCATENATE" }
 </summary>
 Joint ensemble de chaînes de texte en une seule chaîne. Également disponible sous le nom
@@ -4320,7 +4320,7 @@ u'0abc'
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__DOLLAR__(number, decimals=2)</code> {: #dollar data-toc-label="DOLLAR" }
 </summary>
 Formate un nombre en un montant en dollars formaté, avec des décimales arrondies à la place spécifiée (.
@@ -4362,7 +4362,7 @@ Si la valeur des décimales est omise, elle est par défaut à 2.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__EXACT__(string1, string2)</code> {: #exact data-toc-label="EXACT" }
 </summary>
 Teste si deux chaînes sont identiques. Identique à `string2 == string2`.
@@ -4383,7 +4383,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__FIND__(find_text, within_text, start_num=1)</code> {: #find data-toc-label="FIND" }
 </summary>
 Renvoie la position à laquelle une chaîne est d'abord trouvée dans le texte.
@@ -4439,7 +4439,7 @@ ValueError: substring not found
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__FIXED__(number, decimals=2, no_commas=False)</code> {: #fixed data-toc-label="FIXED" }
 </summary>
 Formate un nombre avec un nombre fixe de décimales (2 par défaut), et des virgules.
@@ -4486,7 +4486,7 @@ Si no_commas est True, alors omet les virgules.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__LEFT__(string, num_chars=1)</code> {: #left data-toc-label="LEFT" }
 </summary>
 Renvoie une sous-chaîne de longueur num_chars à partir du début de la chaîne donnée. Si num_chars est
@@ -4510,7 +4510,7 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__LEN__(text)</code> {: #len data-toc-label="LEN" }
 </summary>
 Renvoie le nombre de caractères dans une chaîne de texte, ou le nombre d'éléments dans une liste. Identique à
@@ -4533,7 +4533,7 @@ Voir [Ensemble d'enregistrements](#recordset) pour un exemple d'utilisation de `
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__LOWER__(text)</code> {: #lower data-toc-label="LOWER" }
 </summary>
 Convertit une chaîne spécifiée en minuscules. Identique à `text.lower()`.
@@ -4549,7 +4549,7 @@ Convertit une chaîne spécifiée en minuscules. Identique à `text.lower()`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__MID__(text, start_num, num_chars)</code> {: #mid data-toc-label="MID" }
 </summary>
 Renvoie un segment d'une chaîne, commençant à start_num. Le premier caractère dans le texte a
@@ -4578,7 +4578,7 @@ ValueError: start_num invalid
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__PHONE_FORMAT__(value, country=None, format=None)</code> {: #phone_format data-toc-label="PHONE_FORMAT" }
 </summary>
 Formate un numéro de téléphone.
@@ -4600,7 +4600,7 @@ L'argument `format` spécifie le format de sortie, selon ce tableau :
     `+33 2 34 56 78 90`.
   - `"*"` ou `"E164"` - format E164, comme international mais sans séparateurs, par exemple
     `+12345678901`.
-  - `"tel"` ou `"RFC3966"` - format adapté à utiliser comme un [hyperlien](col-types.md#hyperlinks),
+  - `"tel"` ou `"RFC3966"` - format adapté à utiliser comme un [hyperlien](col-types.md#hyperliens),
     par exemple 'tel:+1-234-567-8901'.
 
 Lorsque vous spécifiez l'argument `format`, vous pouvez omettre l'argument `country`. C'est-à-dire
@@ -4679,7 +4679,7 @@ TypeError: Le numéro de téléphone doit être une valeur textuelle. Si vous fo
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__PROPER__(text)</code> {: #proper data-toc-label="PROPER" }
 </summary>
 Met en majuscule chaque mot dans une chaîne spécifiée. Il convertit la première lettre de chaque mot en
@@ -4701,7 +4701,7 @@ majuscule, et toutes les autres lettres en minuscules. Identique à `text.title(
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__REGEXEXTRACT__(text, regular_expression)</code> {: #regexextract data-toc-label="REGEXEXTRACT" }
 </summary>
 Extrait la première partie du texte qui correspond à l'expression régulière.
@@ -4731,7 +4731,7 @@ ValueError: REGEXEXTRACT text does not match
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__REGEXMATCH__(text, regular_expression)</code> {: #regexmatch data-toc-label="REGEXMATCH" }
 </summary>
 Renvoie si un morceau de texte correspond à une expression régulière.
@@ -4762,7 +4762,7 @@ False
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__REGEXREPLACE__(text, regular_expression, replacement)</code> {: #regexreplace data-toc-label="REGEXREPLACE" }
 </summary>
 Remplace toutes les parties du texte correspondant à l'expression régulière donnée par le texte de remplacement.
@@ -4793,7 +4793,7 @@ Remplace toutes les parties du texte correspondant à l'expression régulière d
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__REPLACE__(text, position, length, new_text)</code> {: #replace data-toc-label="REPLACE" }
 </summary>
 Remplace une partie d'une chaîne de texte par une chaîne de texte différente. La position est comptée à partir de 1.
@@ -4826,7 +4826,7 @@ ValueError: position invalid
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__REPT__(text, number_times)</code> {: #rept data-toc-label="REPT" }
 </summary>
 Renvoie le texte spécifié répété un certain nombre de fois. Identique à `text * number_times`.
@@ -4869,7 +4869,7 @@ ValueError: number_times invalid
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__RIGHT__(string, num_chars=1)</code> {: #right data-toc-label="RIGHT" }
 </summary>
 Renvoie une sous-chaîne de longueur num_chars à partir de la fin d'une chaîne spécifiée. Si num_chars est
@@ -4898,7 +4898,7 @@ ValueError: num_chars invalid
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SEARCH__(find_text, within_text, start_num=1)</code> {: #search data-toc-label="SEARCH" }
 </summary>
 Renvoie la position à laquelle une chaîne est d'abord trouvée dans le texte, en ignorant la casse.
@@ -4940,7 +4940,7 @@ Si find_text n'est pas trouvé, ou si start_num est invalide, lève une ValueErr
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__SUBSTITUTE__(text, old_text, new_text, instance_num=None)</code> {: #substitute data-toc-label="SUBSTITUTE" }
 </summary>
 Remplace le texte existant par du nouveau texte dans une chaîne. Il est utile lorsque vous connaissez le sous-texte à
@@ -4966,7 +4966,7 @@ u'Trimestre 2, 2008'
 u'Trimestre 1, 2012'
 ```
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__T__(value)</code> {: #t data-toc-label="T" }
 </summary>
 Renvoie la valeur si la valeur est du texte, ou la chaîne vide lorsque la valeur n'est pas du texte.
@@ -5007,7 +5007,7 @@ u''
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__TASTEME__(food)</code> {: #tasteme data-toc-label="TASTEME" }
 </summary>
 Pour un morceau de texte donné, décide s'il est savoureux ou non.
@@ -5036,7 +5036,7 @@ optionnellement format() pour spécifier le format du nombre.
 
 <span class="grist-tip">Note</span> Cette fonction n'est pas actuellement implémentée dans Grist.
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__TRIM__(text)</code> {: #trim data-toc-label="TRIM" }
 </summary>
 Supprime tous les espaces du texte sauf pour les espaces simples entre les mots. Notez que TRIM ne
@@ -5053,7 +5053,7 @@ supprime pas d'autres espaces blancs tels que les caractères de tabulation ou d
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__UPPER__(text)</code> {: #upper data-toc-label="UPPER" }
 </summary>
 Convertit une chaîne spécifiée en majuscules. Identique à `text.upper()`.
@@ -5069,7 +5069,7 @@ Convertit une chaîne spécifiée en majuscules. Identique à `text.upper()`.
 ```
 
 </details>
-<details markdown><summary >
+<details markdown><summary markdown="block" data-search-exclude>
 #### <code>__VALUE__(text)</code> {: #value data-toc-label="VALUE" }
 </summary>
 Convertit une chaîne dans des formats de date, d'heure ou de nombre acceptés en un nombre ou une date.

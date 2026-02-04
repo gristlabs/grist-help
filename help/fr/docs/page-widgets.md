@@ -20,7 +20,7 @@ Vous pouvez renommer, supprimer ou dupliquer des pages en utilisant le menu à t
 *![Renaming Pages Menu](images/rename_pages1.png)*
 {: .screenshot-half }
 
-* **Renommer** la page ne modifie pas les noms des tables de données ou les titres des widgets. Voir [changer le widget](page-widgets.md#changing-widget-or-its-data) ci-dessous pour apprendre comment modifier les noms des tables et des widgets.
+* **Renommer** la page ne modifie pas les noms des tables de données ou les titres des widgets. Voir [changer le widget](page-widgets.md#changer-le-widget-ou-ses-donnees) ci-dessous pour apprendre comment modifier les noms des tables et des widgets.
 * **Dupliquer** une page duplique les *vues* des données et ne duplique pas les données elles-mêmes.
 * **Supprimer** une page ne supprime pas les données. Lors de la suppression de la dernière vue des données, il vous sera demandé si vous souhaitez supprimer uniquement la vue, mais pas les données elles-mêmes ; ou si vous souhaitez supprimer à la fois la page et la ou les tables de données sous-jacentes. En savoir plus sur les données de votre document dans la [page des données sources](raw-data.md).
 
