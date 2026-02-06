@@ -52,7 +52,7 @@ month, or week. To do that, you should add a column to your underlying table tha
 relevant date period from your date column.
 
 Grist offers a handy shortcut for this. When adding a column, you'll see an option 'Date
-Helpers', which lets you pick any column of type Date or DateTime in your data, and for that
+helpers...', which lets you pick any column of type Date or DateTime in your data, and for that
 column, which period to extract:
 
 <span class="screenshot-large">*![Date Helpers](images/summary-date-helpers.png)*</span>
