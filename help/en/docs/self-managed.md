@@ -831,14 +831,26 @@ installation ID in the "Version" section of the [Admin Panel](admin-panel.md):
 
 ![Installation ID in the admin panel](images/admin-panel/installation-id.png)
 
+If needed, expand the Enterprise area using the caret to the left of its name.
+
+ - If you do not see "Enterprise" in the "Version" section, then you may be using
+   a version of Grist packaged without Grist Labs Enterprise
+   extensions. Please use the official `gristlabs/grist` docker image,
+   or ask your packager to double check the
+   [build instructions](https://github.com/gristlabs/grist-core/#building-from-source).
+
+ - If you do not see an Installation ID, you may not have turned on the
+   Enterprise toggle yet, or Grist may not have been restarted after you did so.
+   Please check the toggle to the right of "Enterprise" is activated and that
+   Grist has successfully restarted.
+
 The installation ID is tied to the [home database](#what-is-a-home-database) rather than to the
 host machine or container. It will not change if you upgrade the container or move it to another
-machine, as long as the application's database remains the same. If the database is Postgres, the
+machine, as long as the application's database remains the same. If the database is PostgreSQL, the
 installation ID is preserved across any transition that preserves the data contained by that
 database (e.g. backup and restore from backup). If the database is the default SQLite in a persistent
 volume, the installation ID is preserved across any transition that preserves the content of that
 volume.
-
 
 ### How do I completely remove a user from my instance? {: .tag-ee }
 
