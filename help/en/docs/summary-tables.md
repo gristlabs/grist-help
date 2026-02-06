@@ -45,6 +45,25 @@ be created using formulas in the next step.
     buckets, one for each status. Every project goes into one of these three buckets. You can then
     easily calculate info for each folder, such as a count of projects or the total of their costs.
 
+### Summarizing by year, quarter, month, or week
+
+If you have data with dates, it's common to want summaries by a date period like year, quarter,
+month, or week. To do that, you should add a column to your underlying table that extracts the
+relevant date period from your date column.
+
+Grist offers a handy shortcut for this. When adding a column, you'll see an option 'Date
+helpers...', which lets you pick any column of type Date or DateTime in your data, and for that
+column, which period to extract:
+
+<span class="screenshot-large">*![Date Helpers](images/summary-date-helpers.png)*</span>
+{: .screenshot-half }
+
+See [Working with dates](dates.md#displaying-days-weeks-years-and-intervals) for more options.
+
+Once you've added such a column, simply select it as a 'Group by' field when creating a summary
+table.
+
+
 ## Summary formulas
 
 When you add a summary table, each of the selected group-by fields becomes a column in the new
