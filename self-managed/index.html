@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770753813"></script>
+  <script type="module" src="/js/grist.js?v=1770761112"></script>
 
     
   
@@ -9478,9 +9478,25 @@ Grist installations for Enterprise users. <a href="https://www.getgrist.com/cont
 which is a randomly-generated unique identifier for your instance. You can find your
 installation ID in the &ldquo;Version&rdquo; section of the <a href="../admin-panel/">Admin Panel</a>:</p>
 <p><img alt="Installation ID in the admin panel" src="../images/admin-panel/installation-id.png" /></p>
+<p>If needed, expand the Enterprise area using the caret to the left of its name.</p>
+<ul>
+<li>
+<p>If you do not see &ldquo;Enterprise&rdquo; in the &ldquo;Version&rdquo; section, then you may be using
+   a version of Grist packaged without Grist Labs Enterprise
+   extensions. Please use the official <code>gristlabs/grist</code> docker image,
+   or ask your packager to double check the
+   <a href="https://github.com/gristlabs/grist-core/#building-from-source">build instructions</a>.</p>
+</li>
+<li>
+<p>If you do not see an Installation ID, you may not have turned on the
+   Enterprise toggle yet, or Grist may not have been restarted after you did so.
+   Please check the toggle to the right of &ldquo;Enterprise&rdquo; is activated and that
+   Grist has successfully restarted.</p>
+</li>
+</ul>
 <p>The installation ID is tied to the <a href="#what-is-a-home-database">home database</a> rather than to the
 host machine or container. It will not change if you upgrade the container or move it to another
-machine, as long as the application&rsquo;s database remains the same. If the database is Postgres, the
+machine, as long as the application&rsquo;s database remains the same. If the database is PostgreSQL, the
 installation ID is preserved across any transition that preserves the data contained by that
 database (e.g. backup and restore from backup). If the database is the default SQLite in a persistent
 volume, the installation ID is preserved across any transition that preserves the content of that
