@@ -4,6 +4,8 @@ on:
     branches:
       - hscout
   pull_request:
+    branches:
+      - hscout
 jobs:
   push-to-helpscout:
     runs-on: ubuntu-latest
