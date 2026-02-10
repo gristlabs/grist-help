@@ -2,7 +2,7 @@ name: Push to HelpScout
 on:
   push:
     branches:
-      - master
+      - hscout
   pull_request:
 jobs:
   push-to-helpscout:
