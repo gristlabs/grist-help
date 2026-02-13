@@ -692,50 +692,105 @@ Grist's cloud storage feature allows automatic syncing of Grist
 documents and document versions to an S3-compatible bucket
 (available for all Grist versions) or to Azure storage (in Enterprise Grist).
 
-Here is an example of running Grist locally, with snapshots stored
-in a test MinIO instance:
+!!! warning "Warning"
+
+    **It is entirely possible to permanently lose documents when
+    configuring snapshots. We strongly urge users to back up their
+    documents (`.grist` files) data before attempting to follow these
+    instructions.**
+
+Below is an example Docker Compose setup for running Grist locally,
+with snapshots stored in a test MinIO instance. First, create a `.env`
+file with the following example configuration:
 
 ```sh
-# Make a network
-docker network create grist
+MINIO_PASSWORD=gristadmin
+PERSIST_DIR=/tmp/persist
 
-# Start Redis in our network (recommended for snapshots)
-docker run --rm --network grist --name redis redis
-
-# Start MinIO in our network
-docker run --rm --network grist --name minio \
-  -v /tmp/minio:/data \
-  -p 9000:9000 -p 9001:9001 \
-  -e MINIO_ROOT_USER=grist -e MINIO_ROOT_PASSWORD=admingrist \
-   -it minio/minio server /data -console-address ":9001"
-
-# Visit http://localhost:9000 and set up a bucket called grist-docs.
-# Make sure to enable versioning on the bucket.
-
-# Hook Grist up to Redis and MinIO
-docker run --rm --network grist \
-  -e GRIST_DOCS_MINIO_ACCESS_KEY=grist \
-  -e GRIST_DOCS_MINIO_SECRET_KEY=admingrist \
-  -e GRIST_DOCS_MINIO_USE_SSL=0 \
-  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
-  -e GRIST_DOCS_MINIO_ENDPOINT=minio \
-  -e GRIST_DOCS_MINIO_PORT=9000 \
-  -e REDIS_URL=redis://redis \
-  -v /tmp/grist:/persist -p 8484:8484 -it gristlabs/grist
+# Change to your real AWS credentials in order to use S3
+AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXX
+AWS_SECRET_ACCESS_KEY=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 ```
 
-Here are flags to make Grist talk to an AWS S3 bucket using the MinIO
-client:
-```
-  ...
-  -e GRIST_DOCS_MINIO_ACCESS_KEY=$AWS_ACCESS_KEY_ID \
-  -e GRIST_DOCS_MINIO_SECRET_KEY=$AWS_SECRET_ACCESS_KEY \
-  -e GRIST_DOCS_MINIO_ENDPOINT=s3.amazonaws.com \
-  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
-  ...
+Then, create a file called `compose.yaml` with the following example:
+
+```yaml
+services:
+  grist:
+    image: gristlabs/grist:latest
+    environment:
+      GRIST_DOCS_MINIO_ACCESS_KEY: grist
+      GRIST_DOCS_MINIO_SECRET_KEY: ${MINIO_PASSWORD}
+      GRIST_DOCS_MINIO_BUCKET: grist-docs
+      GRIST_DOCS_MINIO_ENDPOINT: minio
+
+      # Here are alternative flags to the above in order to make Grist
+      # talk to an AWS S3 bucket using the MinIO client:
+      #
+      # GRIST_DOCS_MINIO_ACCESS_KEY: ${AWS_ACCESS_KEY_ID}
+      # GRIST_DOCS_MINIO_SECRET_KEY: ${AWS_SECRET_ACCESS_KEY}
+      # GRIST_DOCS_MINIO_ENDPOINT: s3.amazonaws.com
+      # GRIST_DOCS_MINIO_BUCKET: grist-docs
+
+      GRIST_DOCS_MINIO_USE_SSL: 0
+      GRIST_DOCS_MINIO_PORT: 9000
+      REDIS_URL: redis://redis
+
+      # Add any additional Grist configuration here
+      #
+      # ...
+    ports:
+      - 8484:8484
+    # This dependency is only for this example, to make sure a bucket
+    # is created below in the local filesystem before startup.
+    depends_on:
+      minio-setup:
+        condition: service_started
+    volumes:
+      - ${PERSIST_DIR}/grist:/persist
+
+  minio:
+    image: minio/minio:latest
+    environment:
+      MINIO_ROOT_USER: grist
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+    volumes:
+      - ${PERSIST_DIR}/minio:/data
+    command:
+      server /data --console-address=":9001"
+
+  # Start Redis (recommended for snapshots)
+  redis:
+    image: redis:alpine
+    volumes:
+      - ${PERSIST_DIR}/redis:/data
+
+  # This sets up the buckets required in MinIO. It is only needed to make this example work.
+  # It isn't necessary for deployment and can be safely removed.
+  minio-setup:
+    image: minio/mc
+    environment:
+      MINIO_PASSWORD: ${MINIO_PASSWORD}
+    depends_on:
+      minio:
+        condition: service_started
+    restart: on-failure
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc alias set myminio http://minio:9000 grist ${MINIO_PASSWORD};
+      /usr/bin/mc mb myminio/grist-docs;
+      /usr/bin/mc anonymous set public myminio/grist-docs;
+      /usr/bin/mc version enable myminio/grist-docs;
+      "
 ```
 
-As per [MinIO specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1).), the default bucket region is `us-east-1`. This default region can be overwritten using the `GRIST_DOCS_MINIO_BUCKET_REGION` flag.
+Start this Compose file via the usual invocation: `docker compose up`.
+
+As per [MinIO
+specs](https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1),
+the default bucket region is `us-east-1`. This default region can be
+overwritten using the `GRIST_DOCS_MINIO_BUCKET_REGION` environment
+variable in the `grist` service.
 
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 
