@@ -6,7 +6,7 @@ title: Importing more data
 
 You can import a file to [start a new Grist document](creating-doc.md), or to
 add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from [Google Drive](imports.md#import-from-google-drive).
+tab-separated files and from [Google Drive](imports.md#import-from-google-drive) and [Airtable](imports.md#import-from-airtable).
 
 To start a new Grist document, click the "Add New" button on the home screen
 and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
@@ -148,3 +148,47 @@ Changes are highlighted as follows:
    values from the imported file.
  - Unchanged records have no highlighting. Field values that exist in the destination table,
    but are blank in the imported file, are distinguished by a light gray font color.
+
+## Import from Airtable
+
+Airtable bases can be imported directly into a new Grist document or added as new tables through a separate method that keeps your data's relationships intact.
+This process will copy the full contents of your base (including attachments), but it does not include views,
+interfaces, or forms.
+
+Begin the import process by clicking the "Add new" button and choosing "Import from Airtable".
+
+![import-airtable-auth](images/import-airtable-auth.png)
+
+You can connect to your Airtable base by selecting "Connect with Airtable". This method is the easiest and most secure.
+Simply log in to your Airtable account and grant access to the bases you want to import.
+
+!!! note "Note"
+    "Connect with Airtable" will be disabled if not configured on your Grist installation.
+    Use a personal access token or visit our [self-hosted documentation](/rest-api/) for more info.
+
+Once authenticated, select the specific Airtable base you would like to import.
+
+![import-airtable-bases](images/import-airtable-bases.png)
+
+You will then see a list of all the tables contained within that base. For each table, you can choose to:
+
+* **Create a new table:** This will create a new table, and import all data into it.
+* **Create a new table (structure only)**: This will create a new table that matches the structure of the one in
+  Airtable, but will not import any data.
+* **Skip the table:** Skips the table entirely. If you have any other tables containing references to this table, those
+  references will not be imported.
+
+![import-airtable-tables](images/import-airtable-tables.png)
+
+During configuration, you will likely see warnings next to each table. These warnings let you know if there are any
+differences you might notice in your data after the import is complete.
+
+Finally, click "Import tables" to execute the import process. Once the transfer is complete, your newly created
+tables will appear in the destination document.
+
+!!! warning Note
+    The import process runs entirely through your web browser. You should not close your browser or
+    turn off your computer while the import is running. Additionally, if you are on a slow internet connection or have a
+    restricted data plan (e.g., mobile data), you may want to wait and run the import when you have a stronger or 
+    unmetered connection.
+
