@@ -8,7 +8,7 @@
       
         <meta name="description" content="You can import a file to start a new Grist document, or to
 add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from Google Drive.">
+tab-separated files and from Google Drive and Airtable.">
       
       
       
@@ -63,7 +63,7 @@ tab-separated files and from Google Drive.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1770761112"></script>
+  <script type="module" src="/js/grist.js?v=1772143085"></script>
 
     
   
@@ -1659,6 +1659,17 @@ tab-separated files and from Google Drive.">
     <span class="md-ellipsis">
       
         Updating existing records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-from-airtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import from Airtable
       
     </span>
   </a>
@@ -8016,6 +8027,17 @@ tab-separated files and from Google Drive.">
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#import-from-airtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import from Airtable
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8085,7 +8107,7 @@ tab-separated files and from Google Drive.">
 <h1 id="importing-more-data">Importing more data<a class="headerlink" href="#importing-more-data" title="Permanent link">#</a></h1>
 <p>You can import a file to <a href="../creating-doc/">start a new Grist document</a>, or to
 add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from <a href="./#import-from-google-drive">Google Drive</a>.</p>
+tab-separated files and from <a href="./#import-from-google-drive">Google Drive</a> and <a href="./#import-from-airtable">Airtable</a>.</p>
 <p>To start a new Grist document, click the &ldquo;Add New&rdquo; button on the home screen
 and choose &ldquo;Import document&rdquo;, as described in <a href="../creating-doc/">starting a new Grist document</a>.</p>
 <p>To add to an existing document, open that document, click the &ldquo;Add
@@ -8188,6 +8210,41 @@ will be made to the destination table, and display them in the preview table.</p
 <li>Unchanged records have no highlighting. Field values that exist in the destination table,
    but are blank in the imported file, are distinguished by a light gray font color.</li>
 </ul>
+<h2 id="import-from-airtable">Import from Airtable<a class="headerlink" href="#import-from-airtable" title="Permanent link">#</a></h2>
+<p>Airtable bases can be imported directly into a new Grist document or added as new tables through a separate method that keeps your data&rsquo;s relationships intact.
+This process will copy the full contents of your base (including attachments), but it does not include views,
+interfaces, or forms.</p>
+<p>Begin the import process by clicking the &ldquo;Add new&rdquo; button and choosing &ldquo;Import from Airtable&rdquo;.</p>
+<p><img alt="import-airtable-auth" src="../images/import-airtable-auth.png" /></p>
+<p>You can connect to your Airtable base by selecting &ldquo;Connect with Airtable&rdquo;. This method is the easiest and most secure.
+Simply log in to your Airtable account and grant access to the bases you want to import.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>&ldquo;Connect with Airtable&rdquo; will be disabled if not configured on your Grist installation.
+Use a personal access token or visit our <a href="/rest-api/">self-hosted documentation</a> for more info.</p>
+</div>
+<p>Once authenticated, select the specific Airtable base you would like to import.</p>
+<p><img alt="import-airtable-bases" src="../images/import-airtable-bases.png" /></p>
+<p>You will then see a list of all the tables contained within that base. For each table, you can choose to:</p>
+<ul>
+<li><strong>Create a new table:</strong> This will create a new table, and import all data into it.</li>
+<li><strong>Create a new table (structure only)</strong>: This will create a new table that matches the structure of the one in
+  Airtable, but will not import any data.</li>
+<li><strong>Skip the table:</strong> Skips the table entirely. If you have any other tables containing references to this table, those
+  references will not be imported.</li>
+</ul>
+<p><img alt="import-airtable-tables" src="../images/import-airtable-tables.png" /></p>
+<p>During configuration, you will likely see warnings next to each table. These warnings let you know if there are any
+differences you might notice in your data after the import is complete.</p>
+<p>Finally, click &ldquo;Import tables&rdquo; to execute the import process. Once the transfer is complete, your newly created
+tables will appear in the destination document.</p>
+<div class="admonition warning note">
+<p class="admonition-title">Warning</p>
+<p>The import process runs entirely through your web browser. You should not close your browser or
+turn off your computer while the import is running. Additionally, if you are on a slow internet connection or have a
+restricted data plan (e.g., mobile data), you may want to wait and run the import when you have a stronger or 
+unmetered connection.</p>
+</div>
 
 
 
