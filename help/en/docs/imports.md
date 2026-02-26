@@ -151,7 +151,7 @@ Changes are highlighted as follows:
 
 ## Import from Airtable
 
-Airtable bases can be imported directly into a new Grist document or added as new tables within an existing document.
+Airtable bases can be imported directly into a new Grist document or added as new tables through a separate method that keeps your data's relationships intact.
 This process will copy the full contents of your base (including attachments), but it does not include views,
 interfaces, or forms.
 
