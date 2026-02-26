@@ -162,9 +162,9 @@ Begin the import process by clicking the "Add new" button and choosing "Import f
 You can connect to your Airtable base by selecting "Connect with Airtable". This method is the easiest and most secure.
 Simply log in to your Airtable account and grant access to the bases you want to import.
 
-!!! note "Connect with Airtable"
-    **Connect with Airtable** will be disabled if it is not configured on your Grist installation,
-    use a personal access token or visit our self-hosted documentation for more info.
+!!! note "Note"
+    "Connect with Airtable" will be disabled if not configured on your Grist installation.
+    Use a personal access token or visit our [self-hosted documentation](/rest-api/) for more info.
 
 Once authenticated, select the specific Airtable base you would like to import.
 
