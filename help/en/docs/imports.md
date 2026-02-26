@@ -183,7 +183,7 @@ You will then see a list of all the tables contained within that base. For each 
 During configuration, you will likely see warnings next to each table. These warnings let you know if there are any
 differences you might notice in your data after the import is complete.
 
-Finally, click **"Import tables"** to execute the import process. Once the transfer is complete, your newly created
+Finally, click "Import tables" to execute the import process. Once the transfer is complete, your newly created
 tables will appear in the destination document.
 
 !!! warning Note
