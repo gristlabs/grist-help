@@ -118,7 +118,7 @@ nav:
       - browser-support.md
       - glossary.md
   - Technical docs:
-    - Integrations:
+    - Building integrations:
       - rest-api.md
       - api.md
       - integrators.md
@@ -144,6 +144,8 @@ nav:
         - install/forwarded-headers.md
         - install/grist-connect.md
         - install/scim.md
+      - Configuring integrations:
+        - install/integrations/airtable.md
       - Audit logs:
         - install/audit-log-overview.md
         - install/audit-log-streaming.md
