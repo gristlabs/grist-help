@@ -2,7 +2,7 @@
 title: Airtable
 ---
 
-# Airtable Integration
+# Airtable integration
 
 ## Importing from Airtable
 
