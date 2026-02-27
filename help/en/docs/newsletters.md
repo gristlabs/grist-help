@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[February 2026](newsletters/2026-02.md) •
+Import from Airtable and Vibe View
+
 [January 2026](newsletters/2026-01.md) •
 Suggestions, a new self-hosting auth. option, and community widgets
 
