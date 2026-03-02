@@ -21,8 +21,10 @@ describe('Profile API', function() {
       assert.isNumber(result.body.id);
       assert.property(result.body, 'name');
       assert.isString(result.body.name);
+      // User schema must include email
       assert.property(result.body, 'email');
       assert.isString(result.body.email);
+      assert.include(result.body.email, '@');
     });
   });
 

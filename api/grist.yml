@@ -12,9 +12,9 @@ security:
 servers:
   - url: https://{gristhost}/api
     variables:
-        subdomain:
-            description: The team name, or `docs` for personal areas
-            default: docs
+        gristhost:
+            description: The hostname of your Grist instance, e.g. `docs.getgrist.com` or `myteam.getgrist.com`
+            default: docs.getgrist.com
 
 paths:
   /orgs:
@@ -567,7 +567,13 @@ paths:
         - $ref: '#/components/parameters/docIdPathParam'
       responses:
         200:
-          description: Success
+          description: The ID of the deleted document
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The document ID
+                example: "mNPYddmJcMPE"
 
   /docs/{docId}/remove:
     post:
@@ -1077,7 +1083,13 @@ paths:
                   type: array
                   items:
                     type: string
-                  description: "List of snapshot IDs to remove"
+                  description: "List of specific snapshot IDs to remove"
+                select:
+                  type: string
+                  enum:
+                    - unlisted
+                    - past
+                  description: "Remove snapshots by category instead of by ID. `unlisted` removes snapshots not listed in the regular inventory (for fixing up inconsistencies). `past` removes all snapshots except the most recent one (for sanitizing history)."
               example:
                 snapshotIds: ["abc123", "def456"]
       responses:
@@ -2998,6 +3010,16 @@ tags:
     description: "Impersonations to manage grist resources through REST APIs with specific rights."
   - name: scim
     description: "SCIM"
+  - name: profile
+    description: "User profile and API key management."
+  - name: session
+    description: "Session information for the active user."
+  - name: forms
+    description: "Published forms from Grist documents."
+  - name: templates
+    description: "Template documents available for copying."
+  - name: widgets
+    description: "Custom widgets available for use in documents."
 components:
   securitySchemes:
     ApiKey:
@@ -3029,11 +3051,10 @@ components:
           nullable: true
           example: "gristlabs"
         owner:
-          type: object
-          $ref: "#/components/schemas/User"
+          allOf:
+            - $ref: "#/components/schemas/User"
           nullable: true
         access:
-          type: string
           $ref: "#/components/schemas/Access"
         createdAt:
           type: string
@@ -3235,31 +3256,6 @@ components:
           type: string
           description: Webhook identifier
           example: "xxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxx"
-    WebhookRequiredProperties:
-      type: object
-      required:
-        - size
-      properties:
-        size:
-          type: number
-          example: 1
-    WebhookProperties:
-      size:
-        type: number
-        example: 1
-      attempts:
-        type: number
-        example: 1
-      errorMessage:
-        type: string
-        nullable: true
-        example: null
-      httpStatus:
-        type: number
-        example: 200
-      status:
-        type: string
-        example: "success"
     Workspace:
       type: object
       required:
@@ -3275,8 +3271,13 @@ components:
           type: string
           example: Secret Plans
         access:
-          type: string
           $ref: "#/components/schemas/Access"
+        createdAt:
+          type: string
+          example: "2019-09-13T15:42:35.000Z"
+        updatedAt:
+          type: string
+          example: "2019-09-13T15:42:35.000Z"
     Doc:
       type: object
       required:
@@ -3293,7 +3294,6 @@ components:
           type: string
           example: Project Lollipop
         access:
-          type: string
           $ref: "#/components/schemas/Access"
         isPinned:
           type: boolean
@@ -3302,6 +3302,36 @@ components:
           type: string
           nullable: true
           example: null
+        createdAt:
+          type: string
+          example: "2019-09-13T15:42:35.000Z"
+        updatedAt:
+          type: string
+          example: "2019-09-13T15:42:35.000Z"
+        removedAt:
+          type: string
+          nullable: true
+          description: "Set to a datetime when the document is soft-deleted (in trash)"
+          example: null
+        type:
+          type: string
+          nullable: true
+          description: "Document type: null for normal documents, \"template\", or \"tutorial\""
+          example: null
+        options:
+          type: object
+          nullable: true
+          description: "Document options including description, icon, and other settings"
+          properties:
+            description:
+              type: string
+              nullable: true
+            icon:
+              type: string
+              nullable: true
+            openMode:
+              type: string
+              nullable: true
     WorkspaceWithDocs:
       allOf:
         - $ref: "#/components/schemas/Workspace"
@@ -3348,6 +3378,7 @@ components:
       required:
         - id
         - name
+        - email
         - picture
       properties:
         id:
@@ -3357,6 +3388,9 @@ components:
         name:
           type: string
           example: "Helga Hufflepuff"
+        email:
+          type: string
+          example: "helga@hogwarts.edu"
         picture:
           type: string
           nullable: true
@@ -4036,7 +4070,7 @@ components:
         - $ref: "#/components/schemas/ServiceAccountResult"
         - type: object
           required:
-            - apikey
+            - key
           properties:
             key:
               type: string
@@ -4064,7 +4098,8 @@ components:
           type: string
           example: "For data import workflow"
         expiresAt:
-          type: date
+          type: string
+          format: date-time
           example: "2042-10-10T00:00:00.000Z"
         hasValidKey:
           type: boolean
@@ -4224,3 +4259,4 @@ components:
       schema:
         type: integer
       description: A service account id
+      required: true
