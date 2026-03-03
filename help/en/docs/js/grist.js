@@ -10,34 +10,39 @@ import A11yDialog from './vendor/a11y-dialog.8.1.4.esm.min.js';
 // Note: the "expand the detail" part doesn't seem necessary to code at first (I guess the browser
 // or the material theme does it?), but we keep it mostly to correctly scroll into view.
 function expandSelected() {
-  let hash = window.location.hash;
+  try {
+    let hash = window.location.hash;
 
-  // We use a dummy header for the sake of search snippets in the Function Reference. If we get an
-  // anchor for that header, replace with the one we actually want, to get the normal scrolling
-  // and expansion.
-  const m = hash.match(/^#(.+)--search$/);
-  if (m) {
-    const realId = m[1];
-    if (document.getElementById(realId)) {
-      requestAnimationFrame(() => { location.replace('#' + realId); });
+    // We use a dummy header for the sake of search snippets in the Function Reference. If we get an
+    // anchor for that header, replace with the one we actually want, to get the normal scrolling
+    // and expansion.
+    const m = hash.match(/^#(.+)--search$/);
+    if (m) {
+      const realId = m[1];
+      if (document.getElementById(realId)) {
+        requestAnimationFrame(() => { location.replace('#' + realId); });
+        return;
+      }
+    }
+
+    const selector = hash ? hash[0] + CSS.escape(hash.slice(1)) : null;
+    var elem = selector ? document.querySelector(selector) : null;
+    if (!elem) { return; }
+    var closestExpandableElem = elem.closest('details');
+
+    if (!closestExpandableElem) {
       return;
     }
+
+    for (var el of document.querySelectorAll('details')) {
+      el.open = (el === closestExpandableElem);
+    }
+
+    // After collapsing other details, the scroll position may be off, so fix it now.
+    elem.scrollIntoView();
+  } catch (e) {
+    console.error(e);
   }
-
-  var elem = hash ? document.querySelector(hash) : null;
-  if (!elem) { return; }
-  var closestExpandableElem = elem.closest('details');
-
-  if (!closestExpandableElem) {
-    return;
-  }
-
-  for (var el of document.querySelectorAll('details')) {
-    el.open = (el === closestExpandableElem);
-  }
-
-  // After collapsing other details, the scroll position may be off, so fix it now.
-  elem.scrollIntoView();
 }
 
 // Function to get and auto play YouTube video from data tag.
