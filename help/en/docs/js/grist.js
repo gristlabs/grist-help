@@ -25,8 +25,8 @@ function expandSelected() {
       }
     }
 
-    var elem = hash ? document.querySelector(CSS.escape(hash)) : null;
-    console.log(CSS.escape(hash), hash);
+    const selector = hash ? hash[0] + CSS.escape(hash.slice(1)) : null;
+    var elem = selector ? document.querySelector(selector) : null;
     if (!elem) { return; }
     var closestExpandableElem = elem.closest('details');
 
