@@ -1047,6 +1047,29 @@ handled by theme vars it seems: https://github.com/Redocly/redoc/blob/v2.0.0-rc.
   display: none;
 }
 
+/* reset conflicting md-typeset styles */
+.redoc-wrap [id^="operation/"] > div:first-child h5 {
+  margin: 0;
+}
+
+.redoc-wrap [id^="operation/"] > div:nth-child(2) h3 {
+  color: white;
+}
+
+.redoc-wrap [id^="operation/"] > div:last-child .react-tabs__tab-list {
+  margin: 0;
+}
+
+.redoc-wrap [id^="operation/"] > div:last-child .react-tabs__tab-list > li {
+  margin: 0 5px 5px 5px;
+}
+
+.redoc-wrap [id^="operation/"] > div:last-child code {
+  color: inherit;
+  border: inherit;
+  background-color: inherit;
+}
+
 @media screen and (min-width: 76.25em) {
   .md-main__inner:has(#api-content) {
     padding-left: 1rem;
