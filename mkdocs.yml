@@ -118,6 +118,7 @@ nav:
       - browser-support.md
       - glossary.md
   - Technical docs:
+    - technical-docs.md
     - Building integrations:
       - rest-api.md
       - api.md
