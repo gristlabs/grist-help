@@ -333,12 +333,12 @@ column of data. To enter a formula, click on a cell in the "Due" column, and hit
 
 ![formula-start](images/lightweight-crm/formula-start.png)
 
-In this formula, we want to look up all Interactions for the current Contact whose Type is
-"To-Do", then select the one with the earliest Date. Using Python syntax, the formula is:
+In this formula, we want to look up the Interactions for the current Contact whose Type is
+"To-Do", select the earliest of these, and show its Date. Using Python syntax, the formula is:
 
 ```python
-items = Interactions.lookupRecords(Contact=$id, Type="To-Do")
-return min(items.Date) if items else None
+first_todo = Interactions.lookupOne(Contact=$id, Type="To-Do", order_by="Date")
+return first_todo.Date
 ```
 
 Paste it in, or type in. When typing in multi-line formulas, use `Shift+Enter` to add new lines, and
@@ -354,7 +354,7 @@ will concatenate them, separated by line breaks. Click into the "To-Do Items" co
 start typing the formula, and enter
 
 ```python
-items = Interactions.lookupRecords(Contact=$id, Type="To-Do")
+items = Interactions.lookupRecords(Contact=$id, Type="To-Do", order_by="Date")
 return "\n".join(items.Notes)
 ```
 
