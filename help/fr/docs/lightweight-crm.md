@@ -25,75 +25,31 @@ Ouvrez le document [CRM léger](https://templates.getgrist.com/doc/lightweight-c
 
 Comment cela se compare-t-il à un tableur ? Ces captures d'écran montrent l'exemple de CRM léger à gauche, et un tableur ordinaire avec les mêmes données à droite.
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <div id="carousel-grist" class="carousel slide" data-interval="false">
-        <!-- Indicateurs -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-grist" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-grist" data-slide-to="1"></li>
-          <li data-target="#carousel-grist" data-slide-to="2"></li>
-        </ol>
+#### CRM léger
 
-        <!-- Wrapper pour les diapositives -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="../images/lightweight-crm/grist-crm1.png" alt="Capture d'écran Grist1">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/grist-crm2.png" alt="Capture d'écran Grist2">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/grist-crm3.png" alt="Capture d'écran Grist3">
-          </div>
-        </div>
-
-        <!-- Contrôles -->
-        <a class="left carousel-control" href="#carousel-grist" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Précédent</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-grist" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Suivant</span>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div id="carousel-spreadsheet" class="carousel slide" data-interval="false">
-        <!-- Indicateurs -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-spreadsheet" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-spreadsheet" data-slide-to="1"></li>
-          <li data-target="#carousel-spreadsheet" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper pour les diapositives -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="../images/lightweight-crm/spreadsheet1.png" alt="Capture d'écran Tableur1">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/spreadsheet2.png" alt="Capture d'écran Tableur2">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/spreadsheet3.png" alt="Capture d'écran Tableur3">
-          </div>
-        </div>
-
-        <!-- Contrôles -->
-        <a class="left carousel-control" href="#carousel-spreadsheet" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Précédent</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-spreadsheet" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Suivant</span>
-        </a>
-      </div>
-    </div>
+<div id="glider1" class="glider-contain">
+  <div class="glider">
+    <img src="../images/lightweight-crm/grist-crm1.png" alt="Capture d'écran Grist1">
+    <img src="../images/lightweight-crm/grist-crm2.png" alt="Capture d'écran Grist2">
+    <img src="../images/lightweight-crm/grist-crm3.png" alt="Capture d'écran Grist3">
   </div>
+
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div role="tablist" class="dots"></div>
+</div>
+
+#### Tableur ordinaire
+<div id="glider2" class="glider-contain">
+  <div class="glider">
+    <img src="../images/lightweight-crm/spreadsheet1.png" alt="Capture d'écran Tableur1">
+    <img src="../images/lightweight-crm/spreadsheet2.png" alt="Capture d'écran Tableur2">
+    <img src="../images/lightweight-crm/spreadsheet3.png" alt="Capture d'écran Tableur3">
+  </div>
+
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div role="tablist" class="dots"></div>
 </div>
 
 &nbsp;
