@@ -30,6 +30,34 @@ in a table, leading to action in another service.  Conversely,
 workflows triggered by other services can consult, add, or update
 records in Grist tables.
 
+## Example: Updating multiple tables from a form submission
+
+Forms throw data in one place, which makes perfect sense. But what if you want to trigger updates in multiple tables, and sort out information once a form is submitted... automatically. Automations let you do that and much more (duplicate checking, for example). 
+
+Join Jarek as he breaks down the complete workflow using Grist and n8n. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kj-BR-mRZko?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+See the [sample document](https://public.getgrist.com/5r74U9TUHRmb/Summer-Camp/p/8) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
+## Example: Using AI to modify data
+
+AI can do lots of things with data, but fitting the right AI process into a larger data workflow can seem daunting.
+
+Join Jarek as he plugs in an AI node that updates a product image when its associated color is changed. See how Grist + n8n can work with AI services and transform your data without manual prompting.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s_LWvzt7Uts?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+See the [sample document](https://public.getgrist.com/va1ydgMJkdy8/Inventory-Manager-n8n-AI/p/15) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
+## Example: Automating a CRM with AI email summaries
+
+An email account is not a CRM in itself, but having a record of email interactions can be invaluable. Join Jarek as he extends a basic spreadsheet-based CRM tracker with n8n AI automations to automatically summarize received emails and add them to a spreadsheet.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Nc1VF7yfwxk?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+See the [sample document](https://public.getgrist.com/q8nohVBPN9YH/Lightweight-CRM-n8n-AI/p/3) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
 ## Example: Storing third-party form submissions
 
 !!! note ""
