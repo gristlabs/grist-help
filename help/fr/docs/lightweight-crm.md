@@ -52,21 +52,6 @@ Comment cela se compare-t-il à un tableur ? Ces captures d'écran montrent l'ex
   <div role="tablist" class="dots"></div>
 </div>
 
-<!-- CDN library and initialization for the Glider.js carousel. -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
-<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-<script>
-  for (let suffix of [1, 2]) {
-    new Glider(document.querySelector(`#glider${suffix} .glider`), {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots: `#glider${suffix} .dots`,
-      duration: 0,
-      arrows: { prev: `#glider${suffix} .glider-prev`, next: `#glider${suffix} .glider-next` }
-    });
-  }
-</script>
-
 &nbsp;
 
 La difficulté réside dans l'historique des notes pour un contact. Dans une grille bidimensionnelle, vous avez peu d'options pour inclure plusieurs notes. Si vous les incluez sous forme de plusieurs colonnes, cela rend rapidement le tableur difficile à gérer et à naviguer.

@@ -72,21 +72,6 @@ Lorsque la cible de la liaison est une vue Graphique, vous obtenez des graphique
   <div role="tablist" class="dots"></div>
 </div>
 
-<!-- CDN library and initialization for the Glider.js carousel. -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
-<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-<script>
-  for (let suffix of [1, 2]) {
-    new Glider(document.querySelector(`#glider${suffix} .glider`), {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots: `#glider${suffix} .dots`,
-      duration: 0,
-      arrows: { prev: `#glider${suffix} .glider-prev`, next: `#glider${suffix} .glider-next` }
-    });
-  }
-</script>
-
 &nbsp;
 
 ## Liaison indirecte
