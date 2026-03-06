@@ -21,8 +21,5 @@ interact with Grist documents.
 
 ## Self-hosted Grist
 
-Grist can be [installed on your own infrastructure](self-managed.md) using Docker, as
-open-source Core or with enterprise features. The self-hosted section covers
-installation, storage, the [admin panel](admin-panel.md),
-[authentication](install/authentication-overview.md) (OIDC, SAML, and other methods),
-[audit logs](install/audit-log-overview.md), and more.
+Grist can be [installed on your own infrastructure](self-managed.md) using Docker. The self-hosted section covers installation, storage, the [admin panel](admin-panel.md),
+[authentication](install/authentication-overview.md) (OIDC, SAML, and other methods), and more.
