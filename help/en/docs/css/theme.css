@@ -182,6 +182,17 @@ but make sure the borders have WCAG-compliant contrast ratio */
   .md-nav__title .md-nav__button.md-logo svg {
     height: 2rem;
   }
+  .md-nav--primary .g-nav-back-title {
+    position: absolute;
+    top: .6rem;
+    left: 2.3rem;
+    font-size: .7rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+    right: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 @media screen and (min-width: 76.25em) {
   /* make sidebar a bit wider so that the section names are on one line */
