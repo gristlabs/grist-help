@@ -30,6 +30,42 @@ in a table, leading to action in another service.  Conversely,
 workflows triggered by other services can consult, add, or update
 records in Grist tables.
 
+## Example: Updating multiple tables from a form submission
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/kj-BR-mRZko?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Forms throw data in one place, which makes perfect sense. But what if you want to trigger updates in multiple tables, and sort out information once a form is submitted... automatically. Automations let you do that and much more (duplicate checking, for example). 
+
+Join Jarek as he breaks down the complete workflow using Grist and n8n. 
+
+See the [sample document](https://public.getgrist.com/5r74U9TUHRmb/Summer-Camp/p/8) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
+## Example: Using AI to modify data
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/s_LWvzt7Uts?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+AI can do lots of things with data, but fitting the right AI process into a larger data workflow can seem daunting.
+
+Join Jarek as he plugs in an AI node that updates a product image when its associated color is changed. See how Grist + n8n can work with AI services and transform your data without manual prompting.
+
+See the [sample document](https://public.getgrist.com/va1ydgMJkdy8/Inventory-Manager-n8n-AI/p/15) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
+## Example: Automating a CRM with AI email summaries
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/Nc1VF7yfwxk?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+An email account is not a CRM in itself, but having a record of email interactions can be invaluable. Join Jarek as he extends a basic spreadsheet-based CRM tracker with n8n AI automations to automatically summarize received emails and add them to a spreadsheet.
+
+See the [sample document](https://public.getgrist.com/q8nohVBPN9YH/Lightweight-CRM-n8n-AI/p/3) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
+## Example: Scheduling workflows with integrators
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/PEYCHWZUfJc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+It's one thing to prompt an AI and get an output. It's another to add AI as part of a workflow that takes data and does magical things with it. But often the final stage of an automation is scheduling it to happen automatically, taking the manual prompt out of the equation entirely. Join Jarek as he uses Grist and n8n to generate a personal newsletter that summarizes CRM interactions and drafts an email on a daily schedule. 
+
+See the [sample document](https://public.getgrist.com/eDxHPgfnxphh/Lightweight-CRM-n8n-scheduling/p/1) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
 ## Example: Storing third-party form submissions
 
 !!! note ""
