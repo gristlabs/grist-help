@@ -10,36 +10,16 @@ Une grande raison de placer plus d'une vue sur une page est que les vues peuvent
 
 Par exemple, disons que vous avez une table de `Départements` dans une entreprise, et une table d'`Employés`, chaque employé étant lié à un département. Vous pouvez avoir une vue Table listant les départements et servant de sélecteur pour une deuxième vue Table listant les employés :
 
-<div id="carousel-ex1" class="carousel slide" data-interval="false">
-  <!-- Indicateurs -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-ex1" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-ex1" data-slide-to="1"></li>
-    <li data-target="#carousel-ex1" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Conteneur pour les diapositives -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="../images/linking-ex1-slide1.png" alt="Capture d'écran de liaison 1">
-    </div>
-    <div class="item">
-      <img src="../images/linking-ex1-slide2.png" alt="Capture d'écran de liaison 2">
-    </div>
-    <div class="item">
-      <img src="../images/linking-ex1-slide3.png" alt="Capture d'écran de liaison 3">
-    </div>
+<div id="glider1" class="glider-contain">
+  <div class="glider">
+    <img src="../images/linking-ex1-slide1.png" alt="Capture d'écran de liaison 1">
+    <img src="../images/linking-ex1-slide2.png" alt="Capture d'écran de liaison 2">
+    <img src="../images/linking-ex1-slide3.png" alt="Capture d'écran de liaison 3">
   </div>
 
-  <!-- Contrôles -->
-  <a class="left carousel-control" href="#carousel-ex1" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Précédent</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-ex1" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Suivant</span>
-  </a>
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div role="tablist" class="dots"></div>
 </div>
 
 &nbsp;
@@ -80,36 +60,16 @@ Le document "CRM léger" dans "Exemples &amp; Modèles" fournit un autre exemple
 
 Lorsque la cible de la liaison est une vue Graphique, vous obtenez des graphiques dynamiques qui reflètent les données associées à l'enregistrement sélectionné. Par exemple, vous pourriez lier un graphique en secteurs à un département pour afficher la somme des salaires pour chaque poste dans le département sélectionné.
 
-<div id="carousel-ex2" class="carousel slide" data-interval="false">
-  <!-- Indicateurs -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-ex2" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-ex2" data-slide-to="1"></li>
-    <li data-target="#carousel-ex2" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Conteneur pour les diapositives -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="../images/linking-chart-slide1.png" alt="Capture d'écran de liaison 1">
-    </div>
-    <div class="item">
-      <img src="../images/linking-chart-slide2.png" alt="Capture d'écran de liaison 2">
-    </div>
-    <div class="item">
-      <img src="../images/linking-chart-slide3.png" alt="Capture d'écran de liaison 3">
-    </div>
+<div id="glider2" class="glider-contain">
+  <div class="glider">
+    <img src="../images/linking-chart-slide1.png" alt="Capture d'écran de liaison 1">
+    <img src="../images/linking-chart-slide2.png" alt="Capture d'écran de liaison 2">
+    <img src="../images/linking-chart-slide3.png" alt="Capture d'écran de liaison 3">
   </div>
 
-  <!-- Contrôles -->
-  <a class="left carousel-control" href="#carousel-ex2" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Précédent</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-ex2" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Suivant</span>
-  </a>
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div role="tablist" class="dots"></div>
 </div>
 
 &nbsp;
