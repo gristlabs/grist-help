@@ -100,14 +100,16 @@ Just keep its default of 125% font size at any breakpoint. */
 
 /* Render a custom website heading with CSS;
 this allows us to avoid overriding the whole mkdocs-material header partial just for this. */
-.md-header__title:not(.md-header__title--active) .md-header__topic .md-ellipsis {
+.md-header__title:not(.md-header__title--active) .md-header__topic:first-child .md-ellipsis {
   visibility: hidden;
 }
-.md-header__title:not(.md-header__title--active) .md-header__topic {
+.md-header__title:not(.md-header__title--active) .md-header__topic:first-child {
   background-image: url('../images/heading.svg');
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 144px 24px;
+  width: 144px;
+  overflow: hidden;
 }
 
 /* fine-tune the material theme "tabs", which are the nav items in the header */
