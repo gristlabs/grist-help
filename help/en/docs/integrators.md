@@ -58,6 +58,14 @@ An email account is not a CRM in itself, but having a record of email interactio
 
 See the [sample document](https://public.getgrist.com/q8nohVBPN9YH/Lightweight-CRM-n8n-AI/p/3) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
 
+## Example: Scheduling workflows with integrators
+
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/PEYCHWZUfJc?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+It's one thing to prompt an AI and get an output. It's another to add AI as part of a workflow that takes data and does magical things with it. But often the final stage of an automation is scheduling it to happen automatically, taking the manual prompt out of the equation entirely. Join Jarek as he uses Grist and n8n to generate a personal newsletter that summarizes CRM interactions and drafts an email on a daily schedule. 
+
+See the [sample document](https://public.getgrist.com/eDxHPgfnxphh/Lightweight-CRM-n8n-scheduling/p/1) which includes a page that has the workflow's n8n JSON which you can import into your own n8n instance.
+
 ## Example: Storing third-party form submissions
 
 !!! note ""
