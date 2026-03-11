@@ -15,7 +15,7 @@ heading_cards:
     - title: Technical docs
       section: Technical docs
       description: Take Grist to the next level with APIs and self-hosted instances
-      url: /rest-api/
+      # Omit url to go instead to the first page in the named section ("Technical Docs")
     - title: News & updates
       section: News & updates
       description: See the newest features, fixes, and community contributions
