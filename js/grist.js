@@ -233,6 +233,36 @@ function initDialogs() {
   });
 }
 
+// If the page contains any Glider.js carousels (.glider-contain), dynamically load the library
+// and initialize them. This avoids loading Glider.js on pages that don't need it.
+function maybeInitGliders() {
+  const containers = document.querySelectorAll('.glider-contain');
+  if (containers.length === 0) { return; }
+
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css';
+  document.head.appendChild(link);
+
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js';
+  script.onload = function() {
+    containers.forEach(function(container) {
+      new Glider(container.querySelector('.glider'), {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: container.querySelector('.dots'),
+        duration: 0,
+        arrows: {
+          prev: container.querySelector('.glider-prev'),
+          next: container.querySelector('.glider-next'),
+        }
+      });
+    });
+  };
+  document.head.appendChild(script);
+}
+
 window.onload = function() {
   initDialogs();
   addHeaderLink();
@@ -241,5 +271,6 @@ window.onload = function() {
   maybeSetUpYouTubeAPI();
   enableHomeSearchButton();
   cleanApiContentStyles();
+  maybeInitGliders();
 };
 window.addEventListener('popstate', expandSelected);

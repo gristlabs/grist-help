@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1773231754"></script>
+  <script type="module" src="/js/grist.js?v=1773254543"></script>
 
     
   
@@ -7195,43 +7195,17 @@
 <h2 id="lier-des-vues-sur-la-page">Lier des vues sur la page<a class="headerlink" href="#lier-des-vues-sur-la-page" title="Permanent link">#</a></h2>
 <p>Une grande raison de placer plus d&rsquo;une vue sur une page est que les vues peuvent être liées. Lorsqu&rsquo;elles sont liées, la sélection d&rsquo;un enregistrement dans une vue entraînera la mise à jour d&rsquo;une autre vue pour afficher uniquement les données liées à l&rsquo;enregistrement sélectionné.</p>
 <p>Par exemple, disons que vous avez une table de <code>Départements</code> dans une entreprise, et une table d&rsquo;<code>Employés</code>, chaque employé étant lié à un département. Vous pouvez avoir une vue Table listant les départements et servant de sélecteur pour une deuxième vue Table listant les employés :</p>
-<div class="carousel slide" data-interval="false" id="carousel-ex1">
-  
-<!-- Indicateurs -->
+<div class="glider-contain" id="glider1">
+<div class="glider">
+    <img src="../images/linking-ex1-slide1.png" alt="Capture d'écran de liaison 1">
+    <img src="../images/linking-ex1-slide2.png" alt="Capture d'écran de liaison 2">
+    <img src="../images/linking-ex1-slide3.png" alt="Capture d'écran de liaison 3">
+  </div>
 
-
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-ex1" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-ex1" data-slide-to="1"></li>
-    <li data-target="#carousel-ex1" data-slide-to="2"></li>
-  </ol>
-
-  
-<!-- Conteneur pour les diapositives -->
-
-
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="../images/linking-ex1-slide1.png" alt="Capture d'écran de liaison 1">
-    </div>
-    <div class="item">
-      <img src="../images/linking-ex1-slide2.png" alt="Capture d'écran de liaison 2">
-    </div>
-<div class="highlight"><pre><span></span><code>&lt;div class=&quot;item&quot;&gt;
-  &lt;img src=&quot;../images/linking-ex1-slide3.png&quot; alt=&quot;Capture d&#39;écran de liaison 3&quot;&gt;
-</code></pre></div>
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div class="dots" role="tablist"></div>
 </div>
-</div>
-<!-- Contrôles -->
-<p><a class="left carousel-control" href="#carousel-ex1" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Précédent</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-ex1" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Suivant</span>
-  </a>
-</div></p>
 <p>&nbsp;</p>
 <p>Pour créer cela, commencez par créer une page avec une vue Table pour les données de <code>Départements</code>, comme décrit dans <a href="../page-widgets/#selecteur-de-widgets">Vues sur la page</a>. Ensuite, dans le menu &ldquo;Ajouter nouveau&rdquo;, sélectionnez l&rsquo;option &ldquo;Ajouter une vue à la page&rdquo; pour ajouter une autre vue Table pour les données d&rsquo;<code>Employés</code>. Dans le sélecteur de vues, utilisez le menu déroulant &ldquo;Sélectionner par&rdquo; et choisissez la vue &ldquo;DÉPARTEMENTS&rdquo; ajoutée à la première étape.</p>
 <p class="screenshot-half"><em><img alt="linking-add-widget" src="../images/linking-add-widget.png" /></em></p>
@@ -7250,38 +7224,17 @@
 <p>Dans l&rsquo;exemple montré précédemment, la table <code>Employés</code> a une colonne &ldquo;Référence&rdquo; pointant vers la table <code>Départements</code>, donc une liste de départements peut servir de sélecteur pour les employés. Lorsqu&rsquo;un département est sélectionné, seuls les employés de ce département seront affichés.</p>
 <p>Le document &ldquo;CRM léger&rdquo; dans &ldquo;Exemples &amp; Modèles&rdquo; fournit un autre exemple, où la sélection d&rsquo;un contact affiche uniquement les conversations avec ce contact. C&rsquo;est également décrit dans le <a href="../lightweight-crm/#lier-visuellement-les-tables">tutoriel</a>.</p>
 <p>Lorsque la cible de la liaison est une vue Graphique, vous obtenez des graphiques dynamiques qui reflètent les données associées à l&rsquo;enregistrement sélectionné. Par exemple, vous pourriez lier un graphique en secteurs à un département pour afficher la somme des salaires pour chaque poste dans le département sélectionné.</p>
-<div id="carousel-ex2" class="carousel slide" data-interval="false">
-  <!-- Indicateurs -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-ex2" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-ex2" data-slide-to="1"></li>
-    <li data-target="#carousel-ex2" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Conteneur pour les diapositives -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="../images/linking-chart-slide1.png" alt="Capture d'écran de liaison 1">
-    </div>
-    <div class="item">
-      <img src="../images/linking-chart-slide2.png" alt="Capture d'écran de liaison 2">
-    </div>
-    <div class="item">
-      <img src="../images/linking-chart-slide3.png" alt="Capture d'écran de liaison 3">
-    </div>
+<div class="glider-contain" id="glider2">
+<div class="glider">
+    <img src="../images/linking-chart-slide1.png" alt="Capture d'écran de liaison 1">
+    <img src="../images/linking-chart-slide2.png" alt="Capture d'écran de liaison 2">
+    <img src="../images/linking-chart-slide3.png" alt="Capture d'écran de liaison 3">
   </div>
 
-  <!-- Contrôles -->
-  <a class="left carousel-control" href="#carousel-ex2" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Précédent</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-ex2" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Suivant</span>
-  </a>
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div class="dots" role="tablist"></div>
 </div>
-
 <p>&nbsp;</p>
 <h2 id="liaison-indirecte">Liaison indirecte<a class="headerlink" href="#liaison-indirecte" title="Permanent link">#</a></h2>
 <p>Chaque fois qu&rsquo;une table <code>A</code> a une référence à <code>B</code>, <code>A</code> peut être utilisée à la place de <code>B</code> comme source de liaison. Au lieu de considérer l&rsquo;enregistrement actuellement sélectionné dans <code>A</code>, la liaison considérera l&rsquo;enregistrement référencé dans <code>B</code> comme la sélection.</p>
@@ -7308,7 +7261,8 @@
 <p class="screenshot-half"><em><img alt="linking-menu-option" src="../images/linking-menu-option.png" /></em></p>
 <p>Cela ouvre le panneau latéral, qui montre quelles données sont affichées, et quelle vue, le cas échéant, sert de sélecteur.</p>
 <p class="screenshot-half"><em><img alt="linking-side-panel" src="../images/linking-side-panel.png" /></em></p>
-<p>Vous pouvez changer le paramètre &ldquo;Sélectionner par&rdquo; ici, ou cliquer sur le bouton vert &ldquo;Modifier la sélection des données&rdquo;, et le changer dans la boîte de dialogue du sélecteur de vues.</div></p>
+<p>Vous pouvez changer le paramètre &ldquo;Sélectionner par&rdquo; ici, ou cliquer sur le bouton vert &ldquo;Modifier la sélection des données&rdquo;, et le changer dans la boîte de dialogue du sélecteur de vues.</p>
+</div>
 
 
 

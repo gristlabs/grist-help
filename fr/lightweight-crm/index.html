@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1773231754"></script>
+  <script type="module" src="/js/grist.js?v=1773254543"></script>
 
     
   
@@ -654,6 +654,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Explorer l’exemple">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crm-leger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRM léger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableur-ordinaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableur ordinaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7094,6 +7122,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Explorer l’exemple">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crm-leger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRM léger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableur-ordinaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableur ordinaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -7316,78 +7372,30 @@
 </li>
 </ul>
 <p>Comment cela se compare-t-il à un tableur ? Ces captures d&rsquo;écran montrent l&rsquo;exemple de CRM léger à gauche, et un tableur ordinaire avec les mêmes données à droite.</p>
-<div class="container-fluid">
-<div class="row">
-    <div class="col-md-6">
-      <div id="carousel-grist" class="carousel slide" data-interval="false">
-        <!-- Indicateurs -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-grist" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-grist" data-slide-to="1"></li>
-          <li data-target="#carousel-grist" data-slide-to="2"></li>
-        </ol>
+<h4 id="crm-leger">CRM léger<a class="headerlink" href="#crm-leger" title="Permanent link">#</a></h4>
+<div class="glider-contain" id="glider1">
+<div class="glider">
+    <img src="../images/lightweight-crm/grist-crm1.png" alt="Capture d'écran Grist1">
+    <img src="../images/lightweight-crm/grist-crm2.png" alt="Capture d'écran Grist2">
+    <img src="../images/lightweight-crm/grist-crm3.png" alt="Capture d'écran Grist3">
+  </div>
 
-        <!-- Wrapper pour les diapositives -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="../images/lightweight-crm/grist-crm1.png" alt="Capture d'écran Grist1">
-          </div>
-          <div class="item">
-            <img src="../images/lightweight-crm/grist-crm2.png" alt="Capture d'écran Grist2">
-          </div>
-<div class="highlight"><pre><span></span><code>      &lt;div class=&quot;item&quot;&gt;
-        &lt;img src=&quot;../images/lightweight-crm/grist-crm3.png&quot; alt=&quot;Capture d&#39;écran Grist3&quot;&gt;
-</code></pre></div>
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div class="dots" role="tablist"></div>
 </div>
-<div class="highlight"><pre><span></span><code>    &lt;/div&gt;
+<h4 id="tableur-ordinaire">Tableur ordinaire<a class="headerlink" href="#tableur-ordinaire" title="Permanent link">#</a></h4>
+<div class="glider-contain" id="glider2">
+<div class="glider">
+    <img src="../images/lightweight-crm/spreadsheet1.png" alt="Capture d'écran Tableur1">
+    <img src="../images/lightweight-crm/spreadsheet2.png" alt="Capture d'écran Tableur2">
+    <img src="../images/lightweight-crm/spreadsheet3.png" alt="Capture d'écran Tableur3">
+  </div>
 
-    &lt;!-- Contrôles --&gt;
-    &lt;a class=&quot;left carousel-control&quot; href=&quot;#carousel-grist&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;
-      &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-      &lt;span class=&quot;sr-only&quot;&gt;Précédent&lt;/span&gt;
-    &lt;/a&gt;
-    &lt;a class=&quot;right carousel-control&quot; href=&quot;#carousel-grist&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;
-      &lt;span class=&quot;glyphicon glyphicon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-      &lt;span class=&quot;sr-only&quot;&gt;Suivant&lt;/span&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-6&quot;&gt;
-  &lt;div id=&quot;carousel-spreadsheet&quot; class=&quot;carousel slide&quot; data-interval=&quot;false&quot;&gt;
-    &lt;!-- Indicateurs --&gt;
-    &lt;ol class=&quot;carousel-indicators&quot;&gt;
-      &lt;li data-target=&quot;#carousel-spreadsheet&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;
-      &lt;li data-target=&quot;#carousel-spreadsheet&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;
-      &lt;li data-target=&quot;#carousel-spreadsheet&quot; data-slide-to=&quot;2&quot;&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-
-    &lt;!-- Wrapper pour les diapositives --&gt;
-    &lt;div class=&quot;carousel-inner&quot; role=&quot;listbox&quot;&gt;
-      &lt;div class=&quot;item active&quot;&gt;
-        &lt;img src=&quot;../images/lightweight-crm/spreadsheet1.png&quot; alt=&quot;Capture d&#39;écran Tableur1&quot;&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;img src=&quot;../images/lightweight-crm/spreadsheet2.png&quot; alt=&quot;Capture d&#39;écran Tableur2&quot;&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;item&quot;&gt;
-        &lt;img src=&quot;../images/lightweight-crm/spreadsheet3.png&quot; alt=&quot;Capture d&#39;écran Tableur3&quot;&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;!-- Contrôles --&gt;
-    &lt;a class=&quot;left carousel-control&quot; href=&quot;#carousel-spreadsheet&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;
-      &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-      &lt;span class=&quot;sr-only&quot;&gt;Précédent&lt;/span&gt;
-    &lt;/a&gt;
-    &lt;a class=&quot;right carousel-control&quot; href=&quot;#carousel-spreadsheet&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;
-      &lt;span class=&quot;glyphicon glyphicon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-      &lt;span class=&quot;sr-only&quot;&gt;Suivant&lt;/span&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre></div>
-<p></div>
-</div></p>
+  <button class="glider-prev" aria-label="Diapositive précédente">«</button>
+  <button class="glider-next" aria-label="Diapositive suivante">»</button>
+  <div class="dots" role="tablist"></div>
+</div>
 <p>&nbsp;</p>
 <p>La difficulté réside dans l&rsquo;historique des notes pour un contact. Dans une grille bidimensionnelle, vous avez peu d&rsquo;options pour inclure plusieurs notes. Si vous les incluez sous forme de plusieurs colonnes, cela rend rapidement le tableur difficile à gérer et à naviguer.</p>
 <p>Grist ressemble davantage à une application, mais reste aussi polyvalent qu&rsquo;un tableur.</p>
@@ -7520,7 +7528,8 @@
 </li>
 </ul>
 <p>Dans une entreprise réelle, vous aurez besoin de plus. Les produits CRM spécialisés ont des tonnes de fonctionnalités. Leur problème est la complexité : essayer de satisfaire les besoins de nombreux clients différents rend le produit compliqué à utiliser. La beauté de Grist est que vous pouvez commencer simplement et ajouter uniquement le niveau de complexité dont vous avez besoin, et rien de plus.</p>
-<p>D&rsquo;autres tutoriels montrent comment modéliser des données plus complexes, analyser et représenter des données, et plus encore.</div></p>
+<p>D&rsquo;autres tutoriels montrent comment modéliser des données plus complexes, analyser et représenter des données, et plus encore.</p>
+</div>
 <div class="footnote">
 <hr />
 <ol>
