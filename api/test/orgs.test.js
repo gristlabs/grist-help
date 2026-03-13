@@ -31,6 +31,13 @@ describe('Orgs API', function() {
       assert.isString(org.createdAt);
       assert.property(org, 'updatedAt');
       assert.isString(org.updatedAt);
+
+      // owner can be null (personal orgs) or a User object
+      assert.property(org, 'owner');
+      if (org.owner !== null) {
+        assert.property(org.owner, 'id');
+        assert.property(org.owner, 'name');
+      }
     });
   });
 
@@ -120,10 +127,12 @@ describe('Orgs API', function() {
       assert.isArray(result.body.users);
       assert.isAbove(result.body.users.length, 0);
 
-      // Check user structure
+      // Check user structure — must include email
       const user = result.body.users[0];
       assert.property(user, 'id');
       assert.property(user, 'name');
+      assert.property(user, 'email');
+      assert.isString(user.email);
       assert.property(user, 'access');
     });
   });
@@ -209,6 +218,12 @@ describe('Workspaces API', function() {
       assert.property(result.body, 'access');
       assert.property(result.body, 'docs');
       assert.isArray(result.body.docs);
+
+      // Workspace should include timestamps
+      assert.property(result.body, 'createdAt');
+      assert.isString(result.body.createdAt);
+      assert.property(result.body, 'updatedAt');
+      assert.isString(result.body.updatedAt);
     });
 
     it('should rename a workspace via modifyWorkspace', async function() {
