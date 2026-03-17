@@ -10,10 +10,12 @@ a self-hosted Grist instance.
 
 ## Building integrations
 
-Grist has a [REST API](rest-api.md) for reading and modifying documents, workspaces,
+Grist has a [REST API](api.md) for reading and modifying documents, workspaces,
 and team sites programmatically, with
-[client libraries](rest-api.md#api-clients) available in several languages. You can
-react to data changes in real time using [webhooks](webhooks.md), connect Grist to
+[client libraries](rest-api.md#api-clients) available in several languages and
+an interactive [API Console](https://docs.getgrist.com/apiconsole).
+
+You can react to data changes in real time using [webhooks](webhooks.md), connect Grist to
 thousands of other apps through [integrator platforms](integrators.md) like Zapier, n8n,
 and Make, or [embed](embedding.md) live Grist views directly into your website. The
 [Custom Widget API](code/README.md) lets you create entirely new widget types that
