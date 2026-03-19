@@ -60,7 +60,7 @@ choose the widget to include in the new page.
 
 A page can be hidden to specific users. In order to display a page, the user needs read access to
 all the views (and therefore all of the tables) displayed on that page. This constraint can
-be used to create conditionally visible pages. An exemple is provided on
+be used to create conditionally visible pages. An example is provided on
 [our community Forum](https://community.getgrist.com/t/how-do-i-hide-a-page-table-from-a-user-without-blocking-the-user-from-selecting-references-from-that-table/1565){:target="\_blank"}.
 
 ## Widgets
