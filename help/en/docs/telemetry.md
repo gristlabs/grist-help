@@ -25,7 +25,7 @@ Telemetry may be configured by optional environment variables:
 	sent. It defaults to a service operated by Grist Labs.
 	If you are running a large hosted service, you may wish to
 	direct telemetry to a service you control.
-  * `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING`. This controls automatic version checking. It defaults to `true` in the Grist Core and Enterprise Docker images, but is `false` when building from source or using the `grist-oss` Docker image.
+  * `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING`. This controls automatic version checking. It defaults to `true`, but is `false` when building from source or using the `grist-oss` Docker image.
 
 Telemetry may also be configured interactively by the owner of
 a Grist installation, see [How do I control telemetry?](self-managed.md#how-do-i-control-telemetry) for details.

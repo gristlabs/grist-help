@@ -5,9 +5,6 @@ title: Assistant
 Assistant for self-hosters {: .tag-ee }
 ==============
 
-!!! warning "Note"
-    This documentation refers to the current [Assistant](../assistant.md), which is only available on the Enterprise edition. You can find the documentation for the legacy AI Formula Assistant [here](ai-assistant-legacy.md).
-
 You can use the [Assistant](../assistant.md) in self-hosted Grist with your AI provider of choice or a local model.
 
 ## How to set up the Assistant
@@ -24,6 +21,9 @@ The Assistant currently only supports providers and models with an API endpoint 
 * return a JSON response with at least one element in [choices](https://platform.openai.com/docs/api-reference/chat/object#chat-object-choices)
 
 Additionally, the underlying model must support tool calls (also known as function calls).
+
+!!! warning "Note"
+    You can find the documentation for the legacy AI Formula Assistant [here](ai-assistant-legacy.md).
 
 ### Set up the Assistant with a compatible endpoint
 
