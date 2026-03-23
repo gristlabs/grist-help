@@ -29,7 +29,7 @@ self-hosted section covers installation, storage, the
 [authentication](install/authentication-overview.md) (OIDC, SAML, and other methods),
 and more.
 
-Grist Community Edition is free, open-source and fully functional for many use cases. The
+Grist Community edition is free, open-source and fully functional for many use cases. The
 [full version of Grist](self-managed.md#how-do-i-enable-the-full-edition-of-grist) adds features for organizations that need tighter security, compliance, and
 operational control, including
 [audit logging](install/audit-log-overview.md) with
