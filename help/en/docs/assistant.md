@@ -45,7 +45,7 @@ Certain Grist Labs employees may also examine logs of assistant requests (questi
 
 ## Assistant for self-hosters
 
-For self-hosters, the Assistant requires the full edition of Grist to be enabled. [Learn how.](self-managed/#how-do-i-enable-the-full-edition-of-grist) Our [Legacy Formula AI Assistant](ai-assistant-legacy.md) remains available to self-hosters on the [Community edition](https://github.com/gristlabs/grist-core){:target="\_blank"}.
+For self-hosters, the Assistant requires the full edition of Grist to be enabled. [Learn how.](./self-managed/#how-do-i-enable-the-full-edition-of-grist) Our [Legacy Formula AI Assistant](ai-assistant-legacy.md) remains available to self-hosters on the [Community edition](https://github.com/gristlabs/grist-core){:target="\_blank"}.
 
 For self-hosters looking to connect their Grist instance, set the [AI Assistant-related environment variables](install/assistant.md#environment-variables).
 
