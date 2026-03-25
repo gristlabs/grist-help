@@ -7,54 +7,21 @@ description: The essentials of creating and maintaining a self-hosted Grist inst
 
 [TOC]
 
-## The essentials
+## What is self-hosted Grist?
 
-There are five flavors of Grist:
+There are two flavors of self-hosted Grist, the full edition and Grist Community edition. 
 
-  * **SaaS** (Software as a Service): Grist is available as a hosted service
-    at [docs.getgrist.com](https://docs.getgrist.com).
-    No installation needed. Free and paid plans, with usage limits. Plan details available on our 
-    [pricing page](https://www.getgrist.com/pricing/).
-  * **Desktop app**: Grist is available as a desktop application, built with Electron.
-    It is available for download at [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases).
-    This desktop application does not need internet and is not tied to any online account or service.
-  * **Enterprise**: Grist is available as a licensed application that can be installed by enterprises 
-    on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. Contains 
-    proprietary features developed for enterprises with particular needs. 
-  * **Core**: Grist is available as a free application installed
-    by citizen developers on their own infrastructure with community support.
-    Grist documents created with our SaaS and Enterprise offerings
-	can be opened and edited with Core, and vice versa. This establishes
-	Grist documents as a reliable format for archiving and interchange.
-  * **Grist Builder Edition**: A version of Core pre-packaged for
-    cloud providers such as [Amazon Web
-    Services](https://aws.amazon.com/marketplace/pp/prodview-tew3ygop5xxy4)
-    or [Microsoft
-    Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/grist.grist-builder-edition).
-    Read more about it
-    [here](https://support.getgrist.com/install/grist-builder-edition/).
+The full edition of Grist is a licensed application that can be installed by enterprises on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. This edition includes all features enabled for improved security, governance, and collaboration, such as advanced admin controls, automations, email notifications, AI assistance, and more. 
 
-### What is self-hosted Grist?
+Grist Community edition is the free and open-source heart of Grist, with everything you need to open and edit Grist documents, control access, create forms, connect to single sign-on (SSO) providers, and much more.
 
-Self-hosted (or self-managed) Grist, be it Enterprise or Core, is installed and
-configured in much the same way, as described in the following
-sections. Grist Builder Edition can be configured the same way, but
-includes a default configuration to get started. For clarity, the
-sections are tagged with which flavor they apply to, for example:
-{: .tag-core .tag-ee }
+Grist is also available as a desktop application based on Grist Community edition and built with Electron. It is available for download at [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases). Grist Desktop does not need internet and is not tied to any online account or service.
 
-The full source code for Grist Core is always available at
-[github.com/gristlabs/grist-core](https://github.com/gristlabs/grist-core/)
-and is under an Apache-2.0 license. You may use and redistribute Core
-freely, under the terms of the free software license.
-The full source for Grist Enterprise
-is also available, at
-[github.com/gristlabs/grist-ee](https://github.com/gristlabs/grist-ee/),
-under a proprietary license that does not grant any automatic
-rights to use or redistribute the software. You can evaluate Enterprise
-for 30 days using the instructions in the following sections,
-or [sign up for our Grist Enterprise plan](https://www.getgrist.com/pricing)
-and get support.
+### Grist Community edition
+
+When you install Grist, you can toggle between the full edition of Grist and Grist Community edition in the [Admin Panel](#how-do-i-enable-the-full-edition-of-grist). 
+
+The full source code for Grist Community edition is always available at [github.com/gristlabs/grist-core](https://github.com/gristlabs/grist-core/) and is under an Apache-2.0 license. You may use and redistribute this edition freely, under the terms of the free software license. The full source for Grist is also available upon request for users on the Enterprise plan, under a proprietary license that does not grant any automatic rights to use or redistribute the software. You can evaluate Grist for 30 days using the instructions in the following sections, or sign up for our [self-hosted Grist plan](https://www.getgrist.com/pricing).
 
 ### How do I install Grist? {: .tag-core .tag-ee }
 
@@ -80,10 +47,7 @@ Grist installation (such as our SaaS).
 
 If using some other tool or service, here are the important points:
 
- * The main image name is `gristlabs/grist`, which is our combined Core and Enterprise docker image.
-   The image `gristlabs/grist-oss` also exists, which uses only free and open source code. This image uses only Grist
-   Core, and has no enterprise features available.
-   (For some tools such as Podman, you may need to prefix these image names with `docker.io/`.)
+ * The main image name is `gristlabs/grist`, which includes a toggle between the full and Community editions of Grist. The image `gristlabs/grist-oss` also exists, which uses only free and open-source code.
  * A volume (or mount, or directory) needs to be available at location
    `/persist` within the container. It can be initially empty - Grist
    will populate it. Without this volume, nothing you do will be stored long-term.
@@ -121,19 +85,13 @@ value of `GRIST_DEFAULT_EMAIL` after the first admin user has been
 created will effectively revoke administrator permissions from the
 first user and assign them to the new email address.
 
-The administrative account has access to the [Installation](admin-panel.md#settings) page in the [Admin Panel](admin-panel.md) where they
-may inspect details of the installation or toggle features such as
-[telemetry](self-managed.md#how-do-i-control-telemetry) or [Grist
-Enterprise](self-managed.md#how-do-i-enable-grist-enterprise).
+The administrative account has access to the [Installation](admin-panel.md#settings) page in the [Admin Panel](admin-panel.md) where they may inspect details of the installation and configure additional options.
 
-If [Grist Enterprise](self-managed.md#how-do-i-enable-grist-enterprise) is enabled, the administrative account will also have access to [Admin Controls](admin-controls.md)
+In the full edition of Grist, the administrative account will also have access to [Admin Controls](admin-controls.md).
 
 ### How can I have more than one administrative account? {: .tag-ee }
 
-In [Grist
-Enterprise](self-managed.md#how-do-i-enable-grist-enterprise), it is
-possible to have more than one administrative account. This is done
-via the `GRIST_INSTALL_ADMIN_ORG` environment variable.
+In the full edition of Grist, it is possible to have more than one administrative account. This is done via the `GRIST_INSTALL_ADMIN_ORG` environment variable.
 
 A prerequisite is allowing the creation of multiple team sites. To do
 so, ensure that `GRIST_SINGLE_ORG` is unset.
@@ -317,23 +275,13 @@ following variables:
   * `GRIST_FORCE_LOGIN`: (optional) when set to `true` this will
     instruct Grist to redirect anonymous users to a login page.
 
-For our SaaS, we use a custom authentication system based around AWS
-Cognito. Currently, we have no plans to release that as part of Core
-or Enterprise.
+### How do I enable the full edition of Grist? {: .tag-ee }
 
-### How do I enable Grist Enterprise? {: .tag-ee }
+The full edition of Grist can be enabled by visiting the Installation page in the [Admin Panel](admin-panel.md). This will cause Grist to automatically restart.
 
-Grist Enterprise can be enabled by visiting the Installation page in the [Admin Panel](admin-panel.md) and clicking the 'Enable Grist Enterprise Features' toggle.
-This will cause Grist to automatically restart.
+![Edition toggle on the Admin Panel](images/admin-panel/enterprise-toggle.png)
 
-![Enterprise toggle on the admin panel](images/admin-panel/enterprise-toggle.png)
-
-You should now have an unactivated version of Grist Enterprise, with a 30 day trial period.
-
-Activation keys are used to run Grist Enterprise after a trial period
-of 30 days has expired.
-Get an activation key by [signing up for Grist Enterprise](https://www.getgrist.com/pricing).
-You don't need an activation key to run Grist Core, and can revert back to Core at any time using the toggle in the [Admin Panel](admin-panel.md).
+This should trigger a 30 day trial. Activation keys are required to run the full edition of Grist after the trial period has expired. Get an activation key by [signing up for the full edition of Grist](https://www.getgrist.com/pricing). You don't need an activation key to run Grist Community edition, and can revert back to Community at any time using the toggle in the [Admin Panel](admin-panel.md).
 
 Place the contents of your activation key in an environment variable called
 `GRIST_ACTIVATION`, or place it in a directory available to Grist and
@@ -457,9 +405,7 @@ fields may be set in the `manifest.json`:
 
 ### How do I set up email notifications? {: .tag-ee }
 
-In Grist SaaS, we send emails when a user is invited to a document or receives a document notification (comment mentions, document changes, etc.).
-The same mechanism is available in Grist Enterprise. There is not yet
-an equivalent in Grist Core.
+In Grist SaaS, we send emails when a user is invited to a document or receives a document notification (comment mentions, document changes, etc.). The same mechanism is available in the full edition of Grist.
 
 Grist uses [Nodemailer](https://nodemailer.com/) for this purpose.
 There are two environment variables that need to be configured to
@@ -495,17 +441,17 @@ docker run \
 Note that a [state store](self-managed.md#what-is-a-state-store) is
 also required for email notifications, supplied above via `REDIS_URL`.
 
-### How do I add more python packages? {: .tag-core .tag-ee }
+### How do I add more Python packages? {: .tag-core .tag-ee }
 
-The set of python packages available for use in formulas is currently
+The set of Python packages available for use in formulas is currently
 not configurable. You can add packages anyway if you are willing to
 build and install your own version of the Grist.
 
 !!! warning "Warning"
 
-    **Grist documents made on an installation with custom python packages 
+    **Grist documents made on an installation with custom Python packages 
     will not bring those packages with them if copied to a different installation. 
-    Formulas using custom python packages will give errors when those packages are unavailable.**
+    Formulas using custom Python packages will give errors when those packages are unavailable.**
 
 Create an empty directory, and add the following into it, in a file called
 `Dockerfile`:
@@ -518,7 +464,7 @@ RUN \
   python3 -m pip install phonenumbers
 ```
 
-Replace `phonenumbers` with the python package or packages you want
+Replace `phonenumbers` with the Python package or packages you want
 to install. You can now build your custom Grist image by running a
 `docker build` in the directory with `Dockerfile` in it:
 
@@ -529,7 +475,7 @@ docker build -t custom/grist .
 
 Once done, you can use `custom/grist` in place of `gristlabs/grist(-ee)` in
 [How do I install Grist](self-managed.md#how-do-i-install-grist),
-and your python library will now be available to import in formalas.
+and your Python library will now be available to import in formalas.
 
 If you want the import done automatically, so you don't have to do it in
 formulas, currently that requires a code change to
@@ -690,7 +636,7 @@ docker run
 
 Grist's cloud storage feature allows automatic syncing of Grist
 documents and document versions to an S3-compatible bucket
-(available for all Grist versions) or to Azure storage (in Enterprise Grist).
+(available for all Grist editions) or to Azure storage (in the full edition of Grist).
 
 Here is an example of running Grist locally, with snapshots stored
 in a test MinIO instance:
@@ -789,7 +735,7 @@ the default is to not send telemetry.
 
 ### How do I control automatic version checks? {: .tag-core .tag-ee }
 
-The default Docker images for Grist Core and Enterprise come enabled
+The default Docker images for Grist come enabled
 with a setting to perform weekly update checks and inform the [installation administrator](self-managed.md#what-is-the-administrative-account) if any such updates are available. This
 behavior can be disabled from the [Admin Panel](admin-panel.md) via the
 'Auto-check weekly' toggle. You can click on
@@ -802,21 +748,21 @@ In addition, it is also possible to disable automatic checks by
 setting the environment variable
 `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=false` for the Docker image.
 
-On the other hand, the `gristlabs/grist-oss` [Docker image](https://hub.docker.com/r/gristlabs/grist-oss) image has less opinionated defaults. It contains only free and open-source code, without the option to enable Enterprise features from Grist Labs, and has this check disabled. If desired, automatic version checking can be enabled for
+On the other hand, the `gristlabs/grist-oss` [Docker image](https://hub.docker.com/r/gristlabs/grist-oss) image has less opinionated defaults. It contains only free and open-source code, without full Grist edition toggle, and has this check disabled. If desired, automatic version checking can be enabled for
 this Docker image by setting the environment variable
 `GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING=true`.
 
 The automatic version check sends three pieces of information to a service maintained by Grist Labs:
 
 1. The version number of the installation
-2. Whether it's a Core or an Enterprise installation
+2. Whether the installation is a full or Community edition
 3. An anonymized and unique installation identification number
 
 This anonymized information helps Grist Labs determine how quickly critical upgrades are being taken up by the community. It also gives an anonymized measure of Grist usage, which may help direct developer attention to supporting self-hosting. For administrators, this check can be helpful for staying up to date, especially with special security-related releases which may be issued outside of the usual release cycle.
 
 ### How do I upgrade my installation? {: .tag-core .tag-ee }
 
-We currently release new Grist Core and Enterprise images at
+We currently release new Grist images at
 approximately weekly intervals. Grist handles any migrations that
 may be needed to the documents or databases it uses.
 Utilities such as [Watchtower](https://containrrr.dev/watchtower/) can
@@ -825,7 +771,7 @@ Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/
 
 ### What is the installation ID? Will it change if I upgrade or move the container? {: .tag-ee #installation-id }
 
-Activation keys used for Grist Enterprise are normally tied to a particular installation ID,
+Activation keys used for Grist are normally tied to a particular installation ID,
 which is a randomly-generated unique identifier for your instance. You can find your
 installation ID in the "Version" section of the [Admin Panel](admin-panel.md):
 
@@ -834,13 +780,13 @@ installation ID in the "Version" section of the [Admin Panel](admin-panel.md):
 If needed, expand the Enterprise area using the caret to the left of its name.
 
  - If you do not see "Enterprise" in the "Version" section, then you may be using
-   a version of Grist packaged without Grist Labs Enterprise
+   a version of Grist packaged without full Grist
    extensions. Please use the official `gristlabs/grist` docker image,
    or ask your packager to double check the
    [build instructions](https://github.com/gristlabs/grist-core/#building-from-source).
 
  - If you do not see an Installation ID, you may not have turned on the
-   Enterprise toggle yet, or Grist may not have been restarted after you did so.
+   full Grist edition toggle yet, or Grist may not have been restarted after you did so.
    Please check the toggle to the right of "Enterprise" is activated and that
    Grist has successfully restarted.
 

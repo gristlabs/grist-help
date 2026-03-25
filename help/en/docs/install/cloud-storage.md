@@ -8,7 +8,7 @@ Cloud Storage {: .tag-core .tag-ee }
 This feature allows automatic syncing of Grist documents and document
 versions to S3-compatible stores such as MinIO (or AWS S3 itself).
 
-Grist Enterprise has native support for Azure storage accounts, and
+The full edition of Grist has native support for Azure storage accounts, and
 for AWS S3 using AWS's official client.
 
 It is advisable to have [Redis enabled](../self-managed.md#what-is-a-state-store) when using cloud storage, since this is the best-tested configuration.

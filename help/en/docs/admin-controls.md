@@ -5,7 +5,7 @@ title: Admin Controls
 # Admin Controls
 
 Grist Admin Controls provide a comprehensive view of users and resources in a Grist
-installation. It is available on all Enterprise plans, whether managed by Grist Labs or hosted on your
+installation. It is available in the full edition of Grist, whether managed by Grist Labs or hosted on your
 own servers.
 
 ## Accessing Admin Controls
@@ -83,7 +83,7 @@ organizations, workspaces, and documents.
 
 Grist allows a single installation to host multiple "organizations", also called "team sites",
 each with its own set of team members, workspaces, and documents. It is most common for an
-Enterprise account to have just a single team site, but Admin Controls includes a listing of
+installation to have just a single team site, but Admin Controls includes a listing of
 organizations whether there is one or several.
 
 In addition, every user by default has an associated "personal site", which is just another
