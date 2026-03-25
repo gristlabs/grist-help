@@ -23,6 +23,8 @@ You can also change how the document opens for users:
 - **Template:** Document automatically opens in [fiddle mode](glossary.md#fiddle-mode), allowing users to make temporary edits without saving changes to the original. If they want to keep changes, they must save a copy.
 - **Tutorial:** Document automatically opens as a user-specific copy, which they can edit freely without affecting others.
 
+You can enable [Suggestions](sharing.md#suggestions) on the document as well.
+
 ### Notifications
 
 You can enable email notifications for document changes by toggling the 'Changes' option.
@@ -40,6 +42,8 @@ Notifications for [comments](sharing.md#comments) can be enabled by selecting fr
   (This is the default setting.)
 - **None**: Turn off comment notifications entirely.
 
+Notifications for [Suggestions](sharing.md#suggestions) can be enabled by toggling the 'Suggestions' option.
+
 <span class="screenshot-large">*![document-settings-notifications](images/document-settings/document-settings-notifications.png)*</span>
 
 ### Data Engine
@@ -48,7 +52,6 @@ The Data Engine section provides tools to monitor and optimize document performa
 
 - **Formula Timer:** Grist’s built-in [formula timer](formula-timer.md) measures how long each formula takes to evaluate. This helps identify slow-performing formulas that may impact how quickly a document opens or responds to changes.
 - **Reload Data Engine:** Performs a hard reset of the data engine, forcing the document to reload. This can help resolve certain performance issues.
-- **Python Version:** Allows you to switch the Python version used for formulas. We recommend using Python 3, but be aware that changing this setting may affect existing formulas.
 
 <span class="screenshot-large">*![document-settings-data-engine](images/document-settings/document-settings-data-engine.png)*</span>
 
