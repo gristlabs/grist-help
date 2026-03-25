@@ -20,6 +20,22 @@ heading_cards:
       section: News & updates
       description: See the newest features, fixes, and community contributions
       # Omit url to go instead to the first page in the named section ("News & updates")
+webinar_cards:
+  heading: Popular webinars
+  intro: Join us as we dive into Grist – from the essentials to advanced tricks.
+  items:
+    - title: Grist 101
+      description: Designed to help new users navigate the basics of Grist and will provide you with the essential tools and knowledge to get started
+      image: /images/home/webinar1.png
+      url: https://www.getgrist.com/webinars/grist-101-new-users-guide/
+    - title: Build your document with AI
+      description: A simple, practical look at what AI can (and can’t) do with relational spreadsheets. Start with a blank page and end with a custom foundation
+      image: /images/home/webinar2.png
+      url: https://www.getgrist.com/webinars/build-your-document-with-ai/
+    - title: How to migrate from Airtable to Grist
+      description: Learn how to import Airtable bases into Grist while preserving relationships, formatting, and even attachments – with real-life examples
+      image: /images/home/webinar3.png
+      url: https://www.getgrist.com/webinars/migrate-airtable-to-grist-webinar/
 featured_cards:
   heading: Featured tutorials
   intro: Start building fast with these step-by-step tutorials.
