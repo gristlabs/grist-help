@@ -102,7 +102,7 @@ To monitor all automations, click the 'Monitoring' button at the top of the 'Aut
 
 ![monitoring-button](images/automations/monitoring-button.png)
 
-The 'Delivery log' includes details for any actions including if the action was successful or rejected as well as any errors. Any actions that are queued will appear in the 'Pending' view.
+The 'Delivery log' includes details for any actions – regardless if the action was successful or rejected – as well as any errors. Any actions that are queued will appear in the 'Pending' view.
 
 ![monitoring-delivery-log](images/automations/monitoring-delivery-log.png)
 
