@@ -79,7 +79,7 @@ Continuing with our example from above, we want to send an email to an employee'
 <span class="screenshot-large">*![send-email-dynamic-recipient](images/automations/send-email-dynamic-recipient.png)*</span>
 {: .screenshot-half }
 
-**Manager Email** is a column in the *Expenses* table that captures the email address of the Employee's manager. An email will be sent to the email in this column when the condition for the trigger is met, when the **Status** changes to 'Submitted for review'.
+**Manager Email** is a column in the *Expenses* table that captures the email address of the employee's manager. An email will be sent to the email in this column when the condition for the trigger is met – when the **Status** changes to 'Submitted for review'.
 
 <span class="screenshot-large">*![manager-email](images/automations/manager-email.png)*</span>
 
