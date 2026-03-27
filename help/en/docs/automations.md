@@ -25,7 +25,7 @@ In the popup, give the trigger a name and select the table where it should check
 <span class="screenshot-large">*![create-new-trigger-popup](images/automations/create-new-trigger-popup.png)*</span>
 {: .screenshot-half }
 
-There are three sections for customizing your trigger; General, Condition and Actions.
+There are three sections for customizing your trigger: General, Condition and Actions.
 
 ### General
 
