@@ -38,7 +38,7 @@ You can modify the name of the trigger, add a description and update the table w
 
 This is where you will specify which conditions need to be met in order for the automation to trigger.
 
-For example, we have a document where employees submit expense records to their manager for review. Let's set up an automation that emails the manager when the value in the **Status** column is 'Submitted for review'.
+For example, we have a document where employees submit expense records to their manager for review. Let's set up an automation that emails the manager when the value in the **Status** column is "Submitted for review".
 
 ![example-1-submitted-for-review](images/automations/example-1-submitted-for-review.png)
 
