@@ -42,7 +42,7 @@ For example, we have a document where employees submit expense records to their 
 
 ![example-1-submitted-for-review](images/automations/example-1-submitted-for-review.png)
 
-Because we only want this to trigger when the **Status** column is 'Submitted for review', we add a filter for the **Status** column and uncheck all other values.
+Because we only want this to trigger when the **Status** column is "Submitted for review", we add a filter for the **Status** column and uncheck all other values.
 
 <span class="screenshot-large">*![example-1-filter](images/automations/example-1-filter.png)*</span>
 {: .screenshot-half }
