@@ -65,7 +65,7 @@ Finally, we specify when to be notified about a row in this view. For our exampl
 
 ### Actions
 
-Next, we specify what action should occur when the conditions above are met. When you click '+ Add Action', you'll have two options; 'Send an email' or 'Create a webhook'.
+Next, we specify what action should occur when the conditions above are met. When you click '+ Add Action', you'll have two options: 'Send an email' or 'Create a webhook'.
 
 <span class="screenshot-large">*![actions](images/automations/actions.png)*</span>
 {: .screenshot-half }
