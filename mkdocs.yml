@@ -101,7 +101,12 @@ nav:
       - python.md
       - functions.md
       - formula-cheat-sheet.md
-    - assistant.md
+    - AI Assistant:
+      - assistant.md
+    - Automations:
+      - automations.md
+      - integrators.md
+      - webhooks.md
     - Team sites:
       - teams.md
       - team-sharing.md
