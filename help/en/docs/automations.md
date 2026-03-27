@@ -106,7 +106,7 @@ The 'Delivery log' includes details for any actions – regardless if the action
 
 ![monitoring-delivery-log](images/automations/monitoring-delivery-log.png)
 
-You can also monitor at the trigger level. Changes to data can be made in the Raw Data view when modifying a trigger. **This is a live view of your data. Any changes here will affect your data, even when the trigger is disabled**.
+You can also monitor at the trigger level. Changes to data can be made in the Raw Data view when modifying a trigger. **This is live data. Any changes here will affect your data, even when the trigger is disabled**.
 
 <span class="screenshot-large">*![action-raw-data](images/automations/action-raw-data.png)*</span>
 {: .screenshot-half }
