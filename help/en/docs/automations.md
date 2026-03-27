@@ -96,7 +96,7 @@ Learn more about [Webhooks](webhooks.md).
 
 ## Monitoring automations
 
-Automations can be monitored in two places; on an individual trigger or on the Monitoring page.
+Automations can be monitored in two places: on an individual trigger or on the Monitoring page.
 
 To monitor all automations, click the 'Monitoring' button at the top of the 'Automations' page.
 
