@@ -58,7 +58,7 @@ You can also add a custom filter using Python.
 <span class="screenshot-large">*![example-1-required-columns](images/automations/example-1-required-columns.png)*</span>
 {: .screenshot-half }
 
-Finally, we specify when to be notified about a row in this view. For our example, we want to notify the manager when a row's **Status** changes to 'Submitted for review', meanining 'A row enters this view'.
+Finally, we specify when to be notified about a row in this view. For our example, we want to notify the manager when a row's **Status** changes to "Submitted for review", meaning "A row enters this view".
 
 <span class="screenshot-large">*![example-1-notify-when](images/automations/example-1-notify-when.png)*</span>
 {: .screenshot-half }
