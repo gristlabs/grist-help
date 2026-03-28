@@ -64,7 +64,7 @@ we take measures to secure your data that you should know about.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1774646770"></script>
+  <script type="module" src="/js/grist.js?v=1774657941"></script>
 
     
   
@@ -3419,6 +3419,23 @@ we take measures to secure your data that you should know about.">
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Grist SaaS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dedicated Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3429,6 +3446,23 @@ we take measures to secure your data that you should know about.">
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Self-Managed Grist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -8263,6 +8297,23 @@ we take measures to secure your data that you should know about.">
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Grist SaaS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dedicated Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -8273,6 +8324,23 @@ we take measures to secure your data that you should know about.">
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Self-Managed Grist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -8355,10 +8423,12 @@ specific measures that relate to Grist documents that we host on
 your behalf:</p>
 <ul>
 <li>Grist servers operate in the Amazon Web Services (AWS) cloud
-    infrastructure, in the United States.</li>
+    infrastructure, in the United States.
+    <em>(For dedicated server: see below.)</em></li>
 <li><a href="https://aws.amazon.com/s3/">AWS S3</a> is used for long-term
     storage, and stores documents in encrypted form. Data is stored in
-    the United States.</li>
+    the United States.
+    <em>(For dedicated server: see below.)</em></li>
 <li>Grist employees never look at your data and cannot open your
     documents. The one exception is if you choose to share a document
     with customer support in order to get help with an issue.</li>
@@ -8368,6 +8438,8 @@ your behalf:</p>
     prohibits them from looking inside documents.</li>
 <li>Secure HTTPS is used for all access to Grist via public internet
     (both website and API calls).</li>
+<li>Authentication is via email and password, with optional
+    MFA, or via Google Sign-in. <em>(For dedicated server: see below.)</em></li>
 <li>Regular backups of Grist documents are made, and are stored in
     encrypted form. Grist retains more frequent snapshots of recent
     changes, and less frequent ones as you go back in time.</li>
@@ -8375,24 +8447,45 @@ your behalf:</p>
     folder under your control. At any time a &ldquo;Delete forever&rdquo; option
     can be used to immediately purge a document in this folder. All
     automatic backups are purged along with the document.</li>
-<li>Grist includes an optional AI-powered <a href="../assistant/">Assistant</a>. Details on the Assistant&rsquo;s data use policy can be found <a href="../assistant/#data-use-policy">here</a>.</li>
+<li>Grist includes an optional AI-powered <a href="../assistant/">Assistant</a>.
+    Your data is not accessed by any AI system unless the Assistant is
+    actively used on your documents.
+    Details on the Assistant&rsquo;s data use policy can be found
+    <a href="../assistant/#data-use-policy">here</a>.</li>
 </ul>
 <p>The hosted Grist product has not at this time gone through
 certification or auditing for SOC 2, ISO 27001, HIPAA, or GDPR
 compliance. If you need specific documentation, please contact
 customer support. You can also nudge us to prioritize certification
 over feature development at <a href="https://github.com/gristlabs/grist-core/issues/47">this issue</a>.</p>
+<h3 id="dedicated-server">Dedicated Server<a class="headerlink" href="#dedicated-server" title="Permanent link">#</a></h3>
+<p>All of the above applies to Dedicated Server customers, with the following differences and additions:</p>
+<ul>
+<li>Your Dedicated Server operates in a single-tenant environment.
+    Your instance is not shared with any other customer.</li>
+<li>Your server and data are hosted in an AWS region of your choice.</li>
+<li>Authentication is configured to integrate with the customer&rsquo;s
+    choice of identity provider, with support for OIDC and SAML.</li>
+<li>The AI Assistant can be configured to use an AI provider and model
+    of your choice, subject to <a href="../install/assistant/">API compatibility</a>.</li>
+<li>Software updates and maintenance are carried out by Grist Labs on a schedule coordinated with the customer.</li>
+</ul>
 <h2 id="self-managed-grist">Self-Managed Grist<a class="headerlink" href="#self-managed-grist" title="Permanent link">#</a></h2>
 <p>For Self-Managed Grist, you are in complete control of where servers
 operate and where data is stored. Here are some security
 considerations to bear in mind:</p>
 <ul>
+<li>Grist Labs has no access to your servers or your data. For
+   self-hosted installations, Grist Labs is not a data processor
+   under GDPR; it provides software and support only.</li>
 <li>Grist software is distributed via the <code>gristlabs</code> organization
    on <a href="https://github.com/gristlabs">github</a> and
    <a href="https://hub.docker.com/u/gristlabs">docker hub</a>. Please
    exercise diligence if accessing software elsewhere,
    since the software you install will have full access to your
    data.</li>
+<li>It is important to <a href="https://support.getgrist.com/self-managed/#how-do-i-upgrade-my-installation">keep your Grist installation up to date</a>
+   to receive security fixes. <em>(For Enterprise plan: see below.)</em></li>
 <li>Grist documents support powerful Python formulas. Please
    pay attention to instructions for <a href="../self-managed/#how-do-i-sandbox-documents">configuring sandboxing</a>
    if your team may be working with untrusted documents.</li>
@@ -8407,7 +8500,30 @@ considerations to bear in mind:</p>
    simply sticking with the defaults. Please
    read about <a href="https://support.getgrist.com/self-managed/#what-files-does-grist-store">the data Grist stores</a>
    and your options for where to store it.</li>
-<li>It is important to <a href="https://support.getgrist.com/self-managed/#how-do-i-upgrade-my-installation">keep your Grist installation up to date</a>.</li>
+</ul>
+<h3 id="enterprise-plan">Enterprise plan<a class="headerlink" href="#enterprise-plan" title="Permanent link">#</a></h3>
+<p>The Enterprise plan provides additional support and security
+capabilities for self-hosted installations:</p>
+<p>Services:</p>
+<ul>
+<li>Grist Labs engineers are available to advise on security-conscious
+    installation and configuration.</li>
+<li>Enterprise customers have full access to the Grist source code,
+    including paid features. You can audit it and build from source.</li>
+<li>Enterprise customers receive advance security advisories and
+    patches prior to public disclosure.</li>
+<li>Direct access to the Grist engineering team is included for support
+    and incident response.</li>
+</ul>
+<p>Capabilities:</p>
+<ul>
+<li><a href="../install/audit-log-overview/">Audit log streaming</a> allows
+    security events to be forwarded to your own monitoring
+    infrastructure.</li>
+<li><a href="../admin-controls/">Admin controls</a> provide advanced user and site
+    management tools to support access governance requirements.</li>
+<li>The AI Assistant can be configured to use an AI provider and model
+    of your choice, subject to <a href="../install/assistant/">API compatibility</a>.</li>
 </ul>
 
 
