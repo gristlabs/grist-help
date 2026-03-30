@@ -83,7 +83,7 @@ Continuing with our example from above, we want to send an email to an employee'
 
 <span class="screenshot-large">*![manager-email](images/automations/manager-email.png)*</span>
 
-Enter a subject and body for your email. Both support variable placeholders. The email body also supports [Markdown](https://www.markdownguide.org/basic-syntax/) formatting. 
+Enter a subject and body for your email. Both support variable placeholders within double braces. The email body also supports [Markdown](https://www.markdownguide.org/basic-syntax/) formatting. 
 
 <span class="screenshot-large">*![email-body](images/automations/email-body.png)*</span>
 {: .screenshot-half }
