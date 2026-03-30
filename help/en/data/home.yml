@@ -25,7 +25,7 @@ webinar_cards:
   intro: Join us as we dive into Grist – from the essentials to advanced tricks.
   items:
     - title: Grist 101
-      description: Designed to help new users navigate the basics of Grist and will provide you with the essential tools and knowledge to get started
+      description: Designed to help new users navigate the basics of Grist and provide you with the essential tools and knowledge to get started
       image: /images/home/webinar1.png
       url: https://www.getgrist.com/webinars/grist-101-new-users-guide/
     - title: Build your document with AI
