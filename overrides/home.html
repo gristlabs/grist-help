@@ -68,6 +68,23 @@
     </div>
     <div class="g-home-cards g-home-featured-cards">
       <div class="md-grid">
+        <h2 class="g-home-cards-title">{{ data.home.webinar_cards.heading }}</h2>
+        <p class="g-home-cards-description">{{ data.home.webinar_cards.intro }}</p>
+        <div class="g-home-cards-items g-home-featured-cards-items">
+          {% for card in data.home.webinar_cards['items'] %}
+            <div class="g-home-card g-home-featured-card">
+              <img src="{{ card.image }}" alt="">
+              <div class="g-home-featured-card-text">
+                <h3><a class="stretched-link" href="{{ card.url }}">{{ card.title }}</a></h3>
+                <p>{{ card.description }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="g-home-cards g-home-featured-cards">
+      <div class="md-grid">
         <h2 class="g-home-cards-title">{{ data.home.featured_cards.heading }}</h2>
         <p class="g-home-cards-description">{{ data.home.featured_cards.intro }}</p>
         <div class="g-home-cards-items g-home-featured-cards-items">

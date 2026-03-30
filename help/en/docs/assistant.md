@@ -49,6 +49,6 @@ For self-hosters, the Assistant requires the full edition of Grist to be enabled
 
 For self-hosters looking to connect their Grist instance, set the [AI Assistant-related environment variables](install/assistant.md#environment-variables).
 
-The above variables also enable the use of other models (including self-hostable ones). See [these instructions](install/assistant.md#using-openrouter) for more information.
+The above variables also enable the use of other models (including self-hostable ones). See [these instructions](install/assistant.md#set-up-the-assistant-with-openrouter) for more information.
 
 Learn more about [self-hosting Grist](self-managed.md). 

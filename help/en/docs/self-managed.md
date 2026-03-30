@@ -64,10 +64,7 @@ take at least the following steps:
   * [Serve from a public host](self-managed.md#how-do-i-run-grist-on-a-server)
     so you can collaborate live with others.
   * Enable an authentication method so users can log in. Often you'll want
-    to hook Grist up to an "SSO" (Single Sign-On) service you already use.
-	We support some very
-    [general authentication methods](self-managed.md#how-do-i-set-up-authentication) that cover many cases,
-	and a [special authentication method](self-managed.md#are-there-other-authentication-methods) for custom cases.
+    to hook Grist up to an "SSO" (Single Sign-On) service you already use. We support [several authentication methods](self-managed.md#how-do-i-set-up-authentication) that cover many cases.
   * Consider enabling [snapshot support](self-managed.md#how-do-i-set-up-snapshots) if you want Grist to handle document backups.
 
 #### Grist on AWS and Azure

@@ -27,7 +27,7 @@ Add the following columns to the `GristDocTour` table;
 3. **Placement:** Text column indicating tooltip position relative to the target (e.g., top, right).  [https://floating-ui.com/](https://floating-ui.com/){:target="\_blank"} has an interactive tool that shows how this works.
 4. **Location:** Formula column with the formula `SELF_HYPERLINK() + $Location_Cell`.
 <span class="screenshot-large">*![location-formula](images/document-tours/location-formula.png)*</span>
-5. **Location Cell:** Text column containing the [anchor link](#step-three-add-your-anchor-links) of the target cell (e.g., `/p/8#a1.s21.r1.c7`).
+5. **Location Cell:** Text column containing the [anchor link](#adding-anchor-links) of the target cell (e.g., `/p/8#a1.s21.r1.c7`).
 <span class="screenshot-large">*![location-cell](images/document-tours/location-cell.png)*</span>
 6. **Link URL (optional):** Text column for an additional link in the tooltip.
 - **Link Text (optional):** Text column for the display text of the link.
