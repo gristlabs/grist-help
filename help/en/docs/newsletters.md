@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[March 2026](newsletters/2026-03.md) •
+Grist automations and the busiest community month yet
+
 [February 2026](newsletters/2026-02.md) •
 Import from Airtable and Vibe View
 
