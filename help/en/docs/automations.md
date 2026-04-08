@@ -83,7 +83,7 @@ Continuing with our example from above, we want to send an email to an employee'
 
 <span class="screenshot-large">*![manager-email](images/automations/manager-email.png)*</span>
 
-Enter a subject and body for your email. Both support variable placeholders. The email body also supports [Markdown](https://www.markdownguide.org/basic-syntax/) formatting. 
+Enter a subject and body for your email. Both support variable placeholders within double braces. The email body also supports [Markdown](https://www.markdownguide.org/basic-syntax/) formatting. 
 
 <span class="screenshot-large">*![email-body](images/automations/email-body.png)*</span>
 {: .screenshot-half }
@@ -92,7 +92,14 @@ It is important to reiterate that only users with access to the document will re
 
 #### Create a webhook
 
-Learn more about [Webhooks](webhooks.md).
+A webhook action sends data from the triggering row to an external URL, letting you connect Grist to tools like Slack, Zapier, Make, or your own API.
+
+Enter the URL of the endpoint Grist should POST to. If your endpoint requires authentication, add a token or credential in the Authorization field. 
+
+<span class="screenshot-large">*![webhooks-config](images/automations/webhooks-config.png)*</span>
+{: .screenshot-half }
+
+You can also [configure webhooks](webhooks.md) outside of automations in 'Document Settings'.
 
 ## Monitoring automations
 
