@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1774974308"></script>
+  <script type="module" src="/js/grist.js?v=1775680014"></script>
 
     
   
@@ -8541,11 +8541,14 @@
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="send-email-dynamic-recipient" src="../images/automations/send-email-dynamic-recipient.png" /></em></span></p>
 <p><strong>Manager Email</strong> is a column in the <em>Expenses</em> table that captures the email address of the employee&rsquo;s manager. An email will be sent to the email in this column when the condition for the trigger is met – when the <strong>Status</strong> changes to &lsquo;Submitted for review&rsquo;.</p>
 <p><span class="screenshot-large"><em><img alt="manager-email" src="../images/automations/manager-email.png" /></em></span></p>
-<p>Enter a subject and body for your email. Both support variable placeholders. The email body also supports <a href="https://www.markdownguide.org/basic-syntax/">Markdown</a> formatting. </p>
+<p>Enter a subject and body for your email. Both support variable placeholders within double braces. The email body also supports <a href="https://www.markdownguide.org/basic-syntax/">Markdown</a> formatting. </p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="email-body" src="../images/automations/email-body.png" /></em></span></p>
 <p>It is important to reiterate that only users with access to the document will receive emails.</p>
 <h4 id="create-a-webhook">Create a webhook<a class="headerlink" href="#create-a-webhook" title="Permanent link">#</a></h4>
-<p>Learn more about <a href="../webhooks/">Webhooks</a>.</p>
+<p>A webhook action sends data from the triggering row to an external URL, letting you connect Grist to tools like Slack, Zapier, Make, or your own API.</p>
+<p>Enter the URL of the endpoint Grist should POST to. If your endpoint requires authentication, add a token or credential in the Authorization field. </p>
+<p class="screenshot-half"><span class="screenshot-large"><em><img alt="webhooks-config" src="../images/automations/webhooks-config.png" /></em></span></p>
+<p>You can also <a href="../webhooks/">configure webhooks</a> outside of automations in &lsquo;Document Settings&rsquo;.</p>
 <h2 id="monitoring-automations">Monitoring automations<a class="headerlink" href="#monitoring-automations" title="Permanent link">#</a></h2>
 <p>Automations can be monitored in two places: on an individual trigger or on the Monitoring page.</p>
 <p>To monitor all automations, click the &lsquo;Monitoring&rsquo; button at the top of the &lsquo;Automations&rsquo; page.</p>
