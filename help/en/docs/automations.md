@@ -99,7 +99,7 @@ Enter the URL of the endpoint Grist should POST to. If your endpoint requires au
 <span class="screenshot-large">*![webhooks-config](images/automations/webhooks-config.png)*</span>
 {: .screenshot-half }
 
-Learn more about [Webhooks](webhooks.md).
+You can also [configure webhooks](webhooks.md) outside of automations in 'Document Settings'.
 
 ## Monitoring automations
 
