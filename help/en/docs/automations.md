@@ -92,6 +92,13 @@ It is important to reiterate that only users with access to the document will re
 
 #### Create a webhook
 
+A webhook action sends data from the triggering row to an external URL, letting you connect Grist to tools like Slack, Zapier, Make, or your own API.
+
+Enter the URL of the endpoint Grist should POST to. If your endpoint requires authentication, add a token or credential in the Authorization field. 
+
+<span class="screenshot-large">*![webhooks-config](images/automations/webhooks-config.png)*</span>
+{: .screenshot-half }
+
 Learn more about [Webhooks](webhooks.md).
 
 ## Monitoring automations
