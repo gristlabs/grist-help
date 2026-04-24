@@ -2111,6 +2111,7 @@ paths:
       summary: "List tables in a document"
       parameters:
         - $ref: '#/components/parameters/docIdPathParam'
+        - $ref: '#/components/parameters/expandQueryParam'
       responses:
         200:
           description: The tables in a document
@@ -2118,6 +2119,44 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TablesList"
+              examples:
+                default:
+                  summary: "Without expand"
+                  value:
+                    tables:
+                      - id: People
+                        fields:
+                          tableRef: 1
+                          onDemand: false
+                      - id: Places
+                        fields:
+                          tableRef: 2
+                          onDemand: false
+                expanded:
+                  summary: "With ?expand=column"
+                  value:
+                    tables:
+                      - id: People
+                        fields:
+                          tableRef: 1
+                          onDemand: false
+                        columns:
+                          - id: Name
+                            fields:
+                              colRef: 2
+                              label: "Name"
+                              isFormula: false
+                              type: "Text"
+                              parentId: 1
+                              formula: ""
+                          - id: Age
+                            fields:
+                              colRef: 3
+                              label: "Age"
+                              isFormula: false
+                              type: "Numeric"
+                              parentId: 1
+                              formula: ""
     post:
       operationId: "addTables"
       tags:
@@ -3532,6 +3571,20 @@ components:
                   onDemand:
                     type: boolean
                     description: Whether the table uses on-demand loading
+              columns:
+                type: array
+                description: "Included when expand=column is set. Contains metadata for each column in the table."
+                items:
+                  type: object
+                  required:
+                    - id
+                    - fields
+                  properties:
+                    id:
+                      type: string
+                      example: ColumnName
+                    fields:
+                      $ref: "#/components/schemas/GetFields"
       example:
         tables:
           - id: People
@@ -4208,6 +4261,15 @@ components:
       schema:
         type: boolean
       description: "Set to true to include the hidden columns (like \"manualSort\")"
+    expandQueryParam:
+      in: query
+      name: expand
+      schema:
+        type: string
+        enum:
+          - column
+      description: "Set to \"column\" to include column metadata for each table in the response."
+      required: false
     headerQueryParam:
       in: query
       name: header
