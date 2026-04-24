@@ -131,6 +131,11 @@
         <nav class="md-nav" data-md-level="{{ level }}" aria-labelledby="{{ path }}_label" aria-expanded="{{ nav_item.active | tojson }}">
           <label class="md-nav__title" for="{{ path }}">
             <span class="md-nav__icon md-icon"></span>
+            {# CHANGE / addition: show the parent's section heading next to the back button #}
+            <span class="g-nav-back-title">
+              {{ parent.title if parent and parent.title else config.site_name }}
+            </span>
+            {# end CHANGE #}
             {{ nav_item.title }}
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
