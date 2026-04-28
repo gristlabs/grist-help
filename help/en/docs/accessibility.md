@@ -2,6 +2,8 @@
 title: "Accessibility: using Grist"
 ---
 
+This page is about how to use Grist if you have disabilities. If you are interested in how to author accessible Grist documents, see the [creating accessible Grist documents](accessible-content.md) page.
+
 Our goal is to make Grist usable by everyone:
 
 - that means _you_, if you have visual impairments,
