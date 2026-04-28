@@ -71,8 +71,6 @@ To choose a good alt text, try to remove the image: what visible text would you 
 
 ## Forms
 
-Here are a few quick tips to make your forms more understandable to everyone.
-
 ### Page title
 
 When publishing a form, watch out for the form page title. You can edit it by changing the _widget title_ in the form configuration:

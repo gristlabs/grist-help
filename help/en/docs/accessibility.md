@@ -83,7 +83,7 @@ The creator panel, which is the panel on the right that allows you to configure 
 
 ## Screen readers
 
-Screen reader compatibility in Grist is currently a work-in-progress as of 2026. A "beta" support will be available soon.
+Screen reader compatibility in Grist is currently a work-in-progress as of 2026. A "beta" support will be available soon. The documentation below will be relevant once beta support is available.
 
 ### Browser and screen reader support
 
