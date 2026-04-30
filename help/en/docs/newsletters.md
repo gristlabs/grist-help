@@ -11,14 +11,17 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[April 2026](newsletters/2026-04.md) •
+Grist Labs leadership update, Airtable import improvements, and Grist Console experiment.
+
 [March 2026](newsletters/2026-03.md) •
-Grist automations and the busiest community month yet
+Grist automations and the busiest community month yet.
 
 [February 2026](newsletters/2026-02.md) •
-Import from Airtable and Vibe View
+Import from Airtable and Vibe View.
 
 [January 2026](newsletters/2026-01.md) •
-Suggestions, a new self-hosting auth. option, and community widgets
+Suggestions, a new self-hosting auth. option, and community widgets.
 
 [December 2025](newsletters/2025-12.md) •
 2025 year in review, community widgets showcase, and a Help Center redesign.
