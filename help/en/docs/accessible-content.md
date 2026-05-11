@@ -51,7 +51,7 @@ Here are examples of how colors can be perceived by people with different color 
 
 With these examples, we realize that:
 
-- **High contrast** between colors is important. In multiple pictures, the first column content is hard or very hard to read. When in doubt, use a [color contrast checker](https://coolors.co/contrast-checker/).
+- **High contrast** between colors is important. In multiple pictures, the first column content is hard or very hard to read. When in doubt, use a [color contrast checker](https://coolors.co/contrast-checker).
 - **Avoid using color alone to convey information**. The third column, which has only green or red cells to show if the line is "valid", is not enough. In multiple pictures, we cannot understand whether the color means "valid" or "invalid". The fourth column adds a _check_ icon in the cell in addition to the color, making it accessible: even if I can't perceive the color, I can see the checkmark.
 
 !!! note "Tip"
