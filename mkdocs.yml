@@ -137,6 +137,7 @@ nav:
         - ... | flat | **/code/modules/**
     - Self-hosted:
       - self-managed.md
+      - install/first-run-setup.md
       - install/cloud-storage.md
       - install/grist-builder-edition.md
       - admin-panel.md
