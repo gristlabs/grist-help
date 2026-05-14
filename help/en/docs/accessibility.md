@@ -4,12 +4,7 @@ title: "Accessibility: using Grist"
 
 This page is about how to use Grist if you have disabilities. If you are interested in how to author accessible Grist documents, see the [creating accessible Grist documents](accessible-content.md) page.
 
-Our goal is to make Grist usable by everyone, which means:
-
-- if you have visual impairments,
-- if you are not able to use a mouse, and rely exclusively on the keyboard to navigate the interface,
-- if you are not able to read, and rely on specific tools to navigate, like screen readers,
-- more globally: _everyone!_
+Our goal is to make Grist usable by everyone, whether you have visual impairments, rely exclusively on the keyboard for navigation, or rely on specific accessibility tools such as screen readers.
 
 But Grist is a relatively complex web application, so there are a few specific things to know in order to use it in those cases.
 

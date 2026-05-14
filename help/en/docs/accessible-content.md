@@ -8,7 +8,7 @@ This page is about how to author accessible Grist documents. If you are interest
 
 A good practice to keep in mind when authoring content online is to make sure _everyone_ can perceive and understand it, whatever their disabilities.
 
-For example, that means considering the deaf and writing a text transcription or subtitles when making a video. Or considering the blind and providing text descriptions of your images that can be read by speech synthesis tools.
+For example, that means considering deaf people and writing a text transcription or subtitles when making a video. Or considering blind people and providing text descriptions of your images that can be read by speech synthesis tools.
 
 That is what we mean when we talk about accessibility.
 
