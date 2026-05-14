@@ -20,6 +20,10 @@ The Installation page is where you can configure installation settings including
 
 ![Admin Panel Installation](images/admin-panel/admin-panel-installation.png)
 
+## Quick setup
+
+The Quick setup page is a guided walkthrough of the most common installation settings: server URL, sandboxing, authentication, backups, and install-wide permissions. New installations land here automatically; existing ones can return any time to step through the same choices. Learn more about [first-run setup](install/first-run-setup.md).
+
 ## Admin Controls
 
 Grist Admin Controls provide a comprehensive view of users and resources in a Grist installation. It is available in the full edition of Grist, whether managed by Grist Labs or hosted on your own servers. Learn more about [Admin Controls](admin-controls.md).
