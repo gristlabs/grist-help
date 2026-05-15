@@ -39,7 +39,7 @@ container logs, or hosting panel for a banner that looks like this:
 └──────────────────────────────────────────┘
 ```
 
-Paste that key into the field and click Check key.
+Paste that key into the field and click 'Check key'.
 
 ![Boot key pasted](../images/first-run-setup/boot-key-typed.png)
 
@@ -47,7 +47,7 @@ Paste that key into the field and click Check key.
 
 Can't see the logs? Maybe Grist is running on a hosting provider that hides
 them, or in a container you didn't start yourself. Switch to the
-Set your boot key tab.
+'Set your boot key' tab.
 
 ![Set your boot key](../images/first-run-setup/boot-set-key.png)
 
@@ -60,7 +60,7 @@ command.
 
 If your server lives on a private, trusted network where only authorized
 people can reach it, the boot check is overkill. Switch to the
-Turn off this check tab.
+'Turn off this check' tab.
 
 ![Turn off this check](../images/first-run-setup/boot-disable-check.png)
 
@@ -83,7 +83,7 @@ This email becomes the owner of the installation. If `GRIST_ADMIN_EMAIL`
 was set when Grist started, you'll see it pre-filled and can adjust it. If
 not, type the one you'll sign in with.
 
-Click Continue. Grist hands you off to the Quick setup wizard.
+Click 'Continue'. Grist hands you off to the Quick setup wizard.
 
 ## Quick setup wizard
 
@@ -102,10 +102,10 @@ edition to run.
 The base URL matters more than it looks. Auth callbacks, share links, and
 email notifications all build their URLs from it. If you're behind a
 reverse proxy or HTTPS terminator, set it to the public URL users will
-type, not the internal one. Click Test URL to have Grist sanity-check
+type, not the internal one. Click 'Test URL' to have Grist sanity-check
 the value.
 
-The edition toggle picks between the licensed full edition of Grist and the
+The 'Edition' toggle picks between the licensed full edition of Grist and the
 free Grist Community edition. See the
 [edition comparison](https://www.getgrist.com/grist-edition-comparison/)
 for the difference.
@@ -137,7 +137,7 @@ read and edit documents.
 
 ![Quick setup, step 3: Authentication](../images/first-run-setup/setup-authentication.png)
 
-Open Other authentication methods and configure one. See
+Open 'Other authentication methods' and configure one. See
 [Authentication overview](authentication-overview.md) for the full list and
 guidance on which to pick:
 
@@ -199,7 +199,7 @@ The toggles, in plain English:
 
 ## Going live
 
-Click Apply and Go Live! Grist saves your choices, restarts itself, and
+Click 'Apply and Go Live'! Grist saves your choices, restarts itself, and
 switches into service. From here on out, visiting the server takes you to
 the home screen instead of the setup wizard.
 
@@ -215,5 +215,5 @@ time to step back through it.
 
 The boot login page is also still available. Sign out if you're signed
 in, open the [Admin Panel](../admin-panel.md), and click
-Sign in with boot key. This requires `GRIST_BOOT_KEY` to still be
+'Sign in with boot key'. This requires `GRIST_BOOT_KEY` to still be
 set in your environment.
