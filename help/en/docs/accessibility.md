@@ -104,3 +104,4 @@ By pressing <code class="keys">*Shift* + *F4*</code>, or through the accessibili
 When the "Screen reader improvements" mode is enabled:
 
 - Pressing <code class="keys">*Enter*</code> to edit a cell doesn't move the cursor below the cell.
+- [Markdown content](col-types.md#markdown) is vocalized by interpreting semantics instead of vocalizing the symbols. For example, `# Content title` is vocalized as "heading Content title" instead of letting the screen reader vocalize the `#`.
