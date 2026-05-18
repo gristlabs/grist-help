@@ -41,9 +41,12 @@ docker run -p 8484:8484 \
 ```
 
 You should then be able to visit `http://localhost:8484` in
-your browser. Already you will be able to create and edit Grist
-documents, and to open and edit documents downloaded from another
-Grist installation (such as our SaaS).
+your browser. Your first visit will land on the boot login page, then
+the Quick setup wizard. See
+[First-run setup](install/first-run-setup.md) for a walkthrough of both.
+After that you'll be able to create and edit Grist documents, and
+to open and edit documents downloaded from another Grist installation
+(such as our SaaS).
 
 If using some other tool or service, here are the important points:
 
