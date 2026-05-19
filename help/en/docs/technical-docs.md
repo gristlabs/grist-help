@@ -19,7 +19,10 @@ You can react to data changes in real time using [webhooks](webhooks.md), connec
 thousands of other apps through [integrator platforms](integrators.md) like Zapier, n8n,
 and Make, or [embed](embedding.md) live Grist views directly into your website. The
 [Custom Widget API](code/README.md) lets you create entirely new widget types that
-interact with Grist documents.
+interact with Grist documents. If you're building a third-party tool, AI agent, or
+internal app that needs to act on a user's data on their behalf, register it as an
+[OAuth app](oauth-apps.md) — users authorize it on the documents they choose and can
+revoke it at any time.
 
 ## Self-hosted Grist
 

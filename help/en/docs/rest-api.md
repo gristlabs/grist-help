@@ -22,6 +22,13 @@ account menu.  Then select the "Profile Settings" option:
 
 This shows a dialog with all of your profile setting options. Scroll down to the "API" section.
 
+!!! note ""
+    An API key carries your full account access. For tools that act on your
+    data on your behalf — partner products, internal apps, AI agents — prefer
+    a [connected app](connected-apps.md) instead: you authorize it on the
+    documents you choose and can revoke it without rotating your key. For
+    developers building such tools, see [OAuth apps](oauth-apps.md).
+
 ![api-user-profile](images/api/api-user-profile.png)
 
 Click on the "Create" button to create an API Key.

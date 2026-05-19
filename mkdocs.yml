@@ -107,6 +107,7 @@ nav:
       - automations.md
       - integrators.md
       - webhooks.md
+      - connected-apps.md
     - Team sites:
       - teams.md
       - team-sharing.md
@@ -130,6 +131,7 @@ nav:
     - Building integrations:
       - rest-api.md
       - api.md
+      - oauth-apps.md
       - integrators.md
       - embedding.md
       - webhooks.md

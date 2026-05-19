@@ -18,6 +18,13 @@ include:
 
 Each integrator provides its own way to configure the connection between Grist and other services. 
 
+!!! note ""
+    Most integrators authenticate with Grist using an [API key](rest-api.md).
+    If the integrator you're using supports it, a [connected
+    app](connected-apps.md) is the safer choice: it can be authorized on
+    specific documents and revoked individually, without rotating your other
+    credentials.
+
 [Pabbly Connect](https://www.pabbly.com/connect/integrations/grist/) has created a few videos walking through how to set up an integration with Grist 
 using Pabbly Connect.
 [Pabbly Connect Youtube - Grist Playlist](https://www.youtube.com/channel/UCVA5GKy8qpDxQR5xSt_zcJg/search?query=grist)

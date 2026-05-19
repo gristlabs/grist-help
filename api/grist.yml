@@ -3,6 +3,22 @@ info:
     An API for manipulating Grist sites, workspaces, and documents.
 
     # Authentication
+
+    The Grist API accepts two credential types in the `Authorization: Bearer`
+    header:
+
+    - **API keys** — long-lived, tied to a single user, carry that user's
+      full access. Best for your own scripts and one-off automations.
+    - **OAuth access tokens** — short-lived, issued by Grist's OAuth server
+      when a user authorizes a registered app. Scoped to the documents and
+      permissions the user granted, and revocable individually. Best for
+      third-party tools, AI agents, and internal apps that act on a user's
+      data on their behalf.
+
+    See [REST API usage](../rest-api/) for API keys and
+    [OAuth apps](../oauth-apps/) for building OAuth-based integrations.
+    OAuth apps require the Enterprise edition of Grist.
+
     <SecurityDefinitions />
   version: "1.0.1"
   title: "Grist API"
@@ -3044,6 +3060,30 @@ components:
       scheme: bearer
       bearerFormat: "Authorization: Bearer XXXXXXXXXXX"
       description: "Access to the Grist API is controlled by an Authorization header, which should contain the word 'Bearer', followed by a space, followed by your API key."
+    OAuth2:
+      type: oauth2
+      description: |
+        Access tokens issued by Grist's OAuth server. Tokens are passed in the
+        `Authorization: Bearer` header, the same way as an API key, but are
+        scoped to the documents and permissions the user granted to the app.
+        Tokens are opaque and prefixed with `grist_at_`.
+
+        OAuth apps use the authorization code flow with PKCE required. See
+        [OAuth apps](../oauth-apps/) for client registration and the full
+        flow; endpoints below are conventional and may be discovered at
+        `/.well-known/openid-configuration`.
+      flows:
+        authorizationCode:
+          authorizationUrl: "https://docs.getgrist.com/oidc/auth"
+          tokenUrl: "https://docs.getgrist.com/oidc/token"
+          refreshUrl: "https://docs.getgrist.com/oidc/token"
+          scopes:
+            "doc:read": "Read records, schema, and document structure"
+            "doc:write": "Create, update, and delete records"
+            "doc.schema:write": "Update document structure and formulas"
+            "doc:download": "Download the full document and run SQL queries"
+            "doc:webhooks": "Manage webhooks"
+            "offline_access": "Issue a refresh token for long-lived access"
   schemas:
     Org:
       type: object
