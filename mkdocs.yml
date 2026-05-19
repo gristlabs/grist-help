@@ -112,6 +112,9 @@ nav:
       - team-sharing.md
     - Access rules:
       - access-rules.md
+    - Accessibility:
+      - accessibility.md
+      - accessible-content.md
     - Reference:
       - keyboard-shortcuts.md
       # The function reference (functions.md) is listed above; here is an intentionally non-standard
