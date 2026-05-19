@@ -4,102 +4,80 @@ title: Connected apps
 
 # Connected apps
 
-Letting something — a script, an integration, an AI agent — act on your
-Grist data has typically meant sharing an [API key](rest-api.md). An API key
-carries your full account access. Whatever holds it can do anything you can
-do, on every document you can see, until you rotate the key.
+Allowing an integration, a script, or an AI agent to access your Grist data has typically meant
+sharing an [API key](rest-api.md). An API key provides complete access to everything you can
+access, and so carries the same risk as handing out your password.
 
-That's the same risk as handing out your password.
-
-Connected apps are the alternative. When a tool needs to act on your Grist
-data, it asks for permission. You choose which documents to grant it, and you
-can revoke that grant later — without affecting anything else.
-
-## What you control
-
-When an app asks to connect, you see what it's asking for and decide whether
-to grant it.
-
-- **Whether to authorize at all.** You see the app's name, who registered it,
-  and the permissions it's asking for before deciding.
-- **Which documents it can touch.** Authorize it on the documents you choose,
-  or on a whole workspace, or on everything. Documents you don't authorize stay
-  out of reach.
-- **When the access ends.** Revoke the app from your account at any time — its
-  tokens stop working immediately. Tokens are also short-lived and rotate
-  automatically.
-
-The permissions an app can ask for are set by the app — read records, write
-records, change document structure, manage webhooks, download the document.
-You see the list in plain English before you authorize, and you can decline
-if it asks for too much.
-
-[Access rules](access-rules.md) still apply on top of any of this. An
-authorized app sees and changes only the data your own role and access rules
-let *you* see and change — never the underlying data, and never more than you
-have yourself.
+Connected apps -- based on the OAuth framework -- provide a more secure alternative. When a tool
+needs to access your Grist data or act on it, it asks for permission. You can see what permissions
+it's asking for, and choose which documents to grant access to. You can also see which apps have
+what access, and revoke their access at any time.
 
 ## Authorizing an app
 
 When a third-party tool, AI agent, or partner application asks to connect to
-your Grist account, you'll see a consent screen showing:
+your Grist account, you'll see a consent screen like this:
 
-- The app's name, who registered it, and a contact email.
-- The permissions it's requesting, in plain English (for example, "Read
-  records from your documents").
-- A choice between **All documents** and **Selected resources** — pick the
-  specific documents, workspaces, or team sites the app should be able to
-  reach.
+![Consent screen for an app](images/connected-apps/consent-screen.png)
 
-Authorize only what the app actually needs. You can come back later to widen
-or narrow that selection.
+This is where you get to review and approve what the app is requesting. You'll see:
+
+- The app's name, URL, who registered it, and optionally description and contact info.
+- The permissions it's requesting, like "Read records from your documents".
+- Whether the app wants to continue accessing your data when you are not using Grist (for
+  automations that can run when you are not at the browser).
+- A choice between 'All documents' and 'Selected resources'. This lets you restrict the app's
+  access to specific documents, workspaces, or orgs (team sites or personal sites).
+
+![Resource picker](images/connected-apps/resource-picker.png)
+
+Authorize only the apps you intend by reviewing the app info, especially the shown
+URL. It's best to follow the principle of least privilege to grant access only to the resources
+the app needs. You can come back later to change that selection.
+
+!!! note "Permission limits"
+    Connected apps can only do at most what you, the authorizing user, can do. Their access is limited
+    by the same permissions and access rules. The app-specific permissions and the resources you
+    select can restrict this access, but never expand it.
 
 ## Managing authorized apps
 
-Visit your [Profile Settings](https://docs.getgrist.com/account) → **Authorized
-apps** to see every app you've granted access to. For each one, you can see:
+You can find 'Authorized apps' in 'Account settings' available under your [user menu](glossary.md#user-menu). This page lists every connected app you've granted access to.
 
-- The scopes you granted.
+![List of authorized apps](images/connected-apps/authorized-apps-list.png)
+
+For each one, you can see:
+
+- When you authorized it, and when it was last used.
+- What the app has permission to do.
 - Which documents or workspaces the app can reach.
-- When it was last used.
 
-Click an app to change which documents it can access, or to revoke it.
-**Revoking takes effect immediately** — the app's tokens stop working before
-its next request.
+Here you change which documents it can access, or use the 'Revoke' button to revoke its access.
 
-## API keys vs. connected apps
+![Authorized app management](images/connected-apps/manage-authorized-app.png)
+
+
+## API keys vs connected apps
 
 | | API key | Connected app |
 |---|---|---|
-| Scope of access | Everything you can see | Documents you choose |
-| What it can do | Anything you can do | Only what it asked for |
+| What can it access? | Everything you can | Documents you choose |
+| What can it do? | Anything you can do | Only what it asked for |
 | Tied to | Your account | A specific app and grant |
-| Revoke without losing other access? | No (one key per account) | Yes (revoke any one app) |
+| Can revoke individually? | No (one key per account) | Yes (revoke any one app) |
 
-API keys remain the right choice for your own scripts and one-off automations
-where you simply *are* the actor. For anything that runs on someone else's
-infrastructure — another product, an AI agent, an internal app used by
-several people — prefer a connected app.
-
-For organizations, this means a principle of least privilege users can
-actually apply: *"For any integration that supports it, use the connected
-app rather than an API key. Each connection is scoped to specific documents,
-can be revoked individually, and is listed under Authorized apps in your
-account settings."*
-
-## AI agents and third-party tools
-
-The same model covers AI agents that act on your Grist data. An agent that
-helps with one project can be granted read access to that project's
-documents only, and nothing else. If you stop using it, revoke its access
-from your Authorized apps page.
+For any integration that supports it, we recommend using the connected app rather than an API key,
+for better security, convenience, and visibility. Each connection is scoped to specific documents,
+is visible in the list of authorized apps, and can be revoked individually.
 
 ## On self-hosted Grist {: .tag-ee }
 
-When you run Grist on your own infrastructure, the OAuth server runs there
-too. Authorization, token issuance, validation, and revocation all happen on
-systems you control. You don't have to trust an outside service with the
-keys to your data — you can run the lock yourself.
+When you run Grist on your own infrastructure, the OAuth server runs there too, and
+enables the same type of connections with enhanced security properties and convenience.
+Authorization and validation all happen on the self-hosted server you control.
 
-Connected apps require the Enterprise edition of Grist. See [OAuth
-apps](oauth-apps.md) for how to build apps that connect this way.
+In particular, it means that you can create internal integrations or connect existing services to
+your self-hosted instance without sharing API keys.
+
+Connected apps require the full edition of Grist. See [OAuth apps](oauth-apps.md)
+for how to build apps that connect this way.
