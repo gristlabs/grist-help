@@ -19,6 +19,7 @@ user, and has the same permissions as that user.
     partner products, internal apps, AI agents -- a [connected app](connected-apps.md) is a safer
     choice: it can be authorized for specific documents and revoked individually, for greater
     security, control, and visibility.
+    For building such tools, see [OAuth apps](oauth-apps.md).
 
 To enable API access for yourself, visit the [Developer page](https://docs.getgrist.com/account/developer)
 of your account settings. You can always find this page by clicking your profile picture or
