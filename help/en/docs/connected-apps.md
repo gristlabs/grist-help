@@ -13,6 +13,13 @@ needs to access your Grist data or act on it, it asks for permission. You can se
 it's asking for, and choose which documents to grant access to. You can also see which apps have
 what access, and revoke their access at any time.
 
+For an app or tool that already supports Grist, you only need to authorize it by simply following
+that tool's "Connect to Grist" instructions. The rest of this article covers the details of this.
+
+If you are building a new app or integration that others will use to connect to Grist, or wiring
+up a tool that supports OAuth but doesn't yet have a Grist integration, see developer
+documentation at [OAuth apps](oauth-apps.md).
+
 ## Authorizing an app
 
 When a third-party tool, AI agent, or partner application asks to connect to
