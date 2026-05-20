@@ -12,44 +12,38 @@ Grist has an API for manipulating documents, workspaces, and team sites.
 ## Authentication
 
 To access the Grist API, you'll need an API key.  An API key is owned by a single
-user, and has the same permissions as that user.  To enable API access for
-yourself, visit your [Profile Settings](https://docs.getgrist.com/account). You can always find
-this page by clicking your profile picture or initial on the top right of the screen to open the
-account menu.  Then select the "Profile Settings" option:
+user, and has the same permissions as that user.
 
-*![api-profile-settings](images/api/api-profile-settings.png)*
+!!! note "Connected apps"
+    An API key carries your full account access. For tools that act on your data on your behalf --
+    partner products, internal apps, AI agents -- a [connected app](connected-apps.md) is a safer
+    choice: it can be authorized for specific documents and revoked individually, for greater
+    security, control, and visibility.
+
+To enable API access for yourself, visit the [Developer page](https://docs.getgrist.com/account/developer)
+of your account settings. You can always find this page by clicking your profile picture or
+initial on the top right of the screen, and selecting "Account settings":
+
+*![Account settings in user menu](images/api/user-menu-account-settings.png)*
 {: .screenshot-half}
 
-This shows a dialog with all of your profile setting options. Scroll down to the "API" section.
+The 'Developer' page has a section for API keys:
 
-!!! note ""
-    An API key carries your full account access. For tools that act on your
-    data on your behalf — partner products, internal apps, AI agents — prefer
-    a [connected app](connected-apps.md) instead: you authorize it on the
-    documents you choose and can revoke it without rotating your key. For
-    developers building such tools, see [OAuth apps](oauth-apps.md).
+![API key settings](images/api/api-key-settings.png)
 
-![api-user-profile](images/api/api-user-profile.png)
+Click on the "Create" button to create an API Key. Copy it for use when making API calls.
 
-Click on the "Create" button to create an API Key.
-
-![api-create-api-key](images/api/api-create-api-key.png)
-
-You can now copy this key for use when making API calls.  To be
-clear, copy the key in your profile settings, not the key
-in the above screenshot, which isn't a real one.  You can
-revoke your API key by clicking "Remove" from Profile Settings at any time.
+You can revoke revoke your API key by clicking the "Remove" button at any time.
 You'll then have the option to create a new one if you wish.
 
 To test your api key, try this from the command-line (substituting
 your api key):
 ```sh
-curl -H "Authorization: Bearer <API-KEY-GOES HERE>" https://docs.getgrist.com/api/orgs
+curl -H "Authorization: Bearer <API-KEY-GOES-HERE>" https://docs.getgrist.com/api/orgs
 ```
 
-This should return a list of organizations, which is what the API calls
-[team sites](team-sharing.md) and your personal site.  Your personal site
-is accessible at `docs.getgrist.com`.  Team sites are accessible at `<TEAM>.getgrist.com`.
+This should return a list of organizations, i.e. [team sites](team-sharing.md) you have access to,
+and your personal site.
 
 ## Usage
 
