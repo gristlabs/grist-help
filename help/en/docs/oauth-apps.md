@@ -8,158 +8,74 @@ OAuth apps let an external tool, AI agent, or partner application act on a
 Grist user's data on their behalf, with permissions and document scope the
 user controls.
 
-For end-user framing of the same feature — what users see when they authorize
-your app — see [Connected apps](connected-apps.md). This page covers how to
-build one.
+This page is reference material for building one. Grist's OAuth server is
+standard OAuth 2.0 authorization code flow with PKCE, plus OpenID Connect
+for identity. For the protocol itself, see [oauth.net](https://oauth.net/2/)
+and [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749); this page
+documents only what is Grist-specific.
 
-## When to use OAuth instead of API keys
+For the end-user view of the same feature — what users see when they
+authorize your app — see [Connected apps](connected-apps.md).
 
-A Grist [API key](rest-api.md) is fine when *you* are the actor: scripts you
-run yourself, one-off automations, integrators where a user pastes their own
-key into their own account.
+!!! note "Availability"
+    OAuth apps are part of the Enterprise edition of Grist (`grist-ee` and
+    `grist-saas`). On self-hosted installations the OAuth server runs on
+    your infrastructure; authentication, token issuance, validation, and
+    revocation all happen on systems you control.
+
+## When OAuth fits better than an API key
+
+A Grist [API key](rest-api.md) is fine when *you* are the actor: scripts
+you run yourself, one-off automations, integrators where a user pastes
+their own key into their own account.
 
 Prefer OAuth when:
 
-- **You're building software for someone else's team.** A custom proposal
-  generator, a survey app, an operations dashboard — each user on the
-  customer's team connects to their employer's Grist with their own
-  permissions and their own attribution. You never hold customer credentials,
-  and the customer's existing access rules apply automatically.
+- **You're building software for someone else's team.** Each user connects
+  to their employer's Grist with their own permissions and attribution.
+  You never hold customer credentials.
 - **You're connecting an internal app that acts as each user.** Retool,
-  Appsmith, in-house web apps, custom dashboards. Edits flow into Grist
-  under each user's own name; the app itself never holds anyone's key.
+  Appsmith, in-house dashboards. Edits flow into Grist under each user's
+  own name; the app itself holds no user keys.
 - **You're building an AI agent.** The user grants access to specific
-  documents, can revoke at any time, and you don't need to ask them to mint
-  an API key.
+  documents and can revoke at any time.
 
-## Availability
-
-OAuth apps are part of the Enterprise edition of Grist (`grist-ee` and
-`grist-saas`). They are not available in `grist-core`.
-
-On self-hosted installations the OAuth server runs on your infrastructure;
-authentication, token issuance, validation, and revocation happen on systems
-you control.
-
-## Register an OAuth app
-
-Visit your [Profile Settings](https://docs.getgrist.com/account) →
-**Developer** → **OAuth apps** → **Register app**.
-
-You'll provide:
-
-- **Application name** — shown on the consent screen.
-- **Application URI** — the app's homepage URL. If you don't supply a
-  redirect URI, Grist will use `<application-URI>/oauth2/callback`.
-- **Redirect URI** — where users return after authorizing. Must match
-  exactly when your app starts the flow. You can add more redirect URIs
-  later from the app's settings page.
-
-After registering, copy the **client ID** and **client secret**. The secret
-is shown once. If you lose it, you can regenerate it from the app's
-settings page — old credentials stop working immediately.
-
-From the app's settings page you can also edit the application URI,
-support contact, description, and the set of scopes the app is allowed to
-request.
-
-## The authorization flow
-
-OAuth apps use the OAuth 2.0 authorization code flow with **PKCE
-required**. There is no implicit or password grant.
-
-Discovery endpoints publish the rest:
+## Discovery
 
 ```
 GET https://<your-grist-server>/.well-known/openid-configuration
 GET https://<your-grist-server>/.well-known/oauth-authorization-server
 ```
 
-These return the authorization, token, revocation, JWKS, and userinfo
-endpoints. The examples below show the conventional paths.
+Both URLs return the same document. It lists the authorization, token,
+revocation, userinfo, and JWKS endpoints, plus supported scopes, grant
+types, and PKCE methods. Use it instead of hardcoding paths.
 
-### 1. Send the user to the authorization endpoint
+## Register an app
 
-```
-GET /oidc/auth
-  ?response_type=code
-  &client_id=<CLIENT-ID>
-  &redirect_uri=<YOUR-REDIRECT-URI>
-  &scope=doc:read+offline_access
-  &state=<CSRF-TOKEN>
-  &code_challenge=<PKCE-CHALLENGE>
-  &code_challenge_method=S256
-```
+Visit your [Profile Settings](https://docs.getgrist.com/account) →
+**Developer** → **OAuth apps**.
 
-Include `offline_access` if your app needs a refresh token for long-lived
-access. Without it the user will need to re-authorize each session.
+![OAuth apps list in Profile Settings](images/oauth-apps/oauth-apps-list.png)
 
-The user signs in (if needed), picks which documents, workspaces, or team
-sites to grant, and confirms. Grist redirects back to your `redirect_uri`
-with `?code=...&state=...`.
+Click **Register app** and fill in:
 
-### 2. Exchange the code for tokens
+- **Application name** — shown on the consent screen.
+- **Application URI** — the app's homepage URL.
+- **Redirect URI** — where users return after authorizing. Must use
+  `https://`; `http://` is allowed only for `localhost`, `127.0.0.1`, and
+  `[::1]`. Must match exactly when your app starts the flow. If you omit
+  one here, Grist uses `<application-URI>/oauth2/callback`.
 
-```
-POST /oidc/token
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic base64(client_id:client_secret)
+![Register-app form](images/oauth-apps/register-app.png)
 
-grant_type=authorization_code
-&code=<CODE>
-&redirect_uri=<YOUR-REDIRECT-URI>
-&code_verifier=<PKCE-VERIFIER>
-```
+After registering, copy the **client ID** and **client secret**. The
+secret is shown once. From the app's settings page you can add more
+redirect URIs, pick which scopes the app is allowed to request, edit the
+support contact and description, and regenerate the secret — regeneration
+invalidates the previous secret immediately.
 
-The response includes `access_token`, `refresh_token` (if `offline_access`
-was granted), `expires_in`, `token_type: "Bearer"`, and the granted
-`scope`.
-
-Access tokens start with `grist_at_` and refresh tokens with `grist_rt_`.
-They are opaque — do not try to decode them.
-
-### 3. Call the Grist API
-
-Pass the access token in the `Authorization` header, the same way as an
-API key:
-
-```sh
-curl -H "Authorization: Bearer grist_at_..." \
-  https://<your-grist-server>/api/docs/<DOC-ID>/tables/<TABLE-ID>/records
-```
-
-Endpoints check the granted scopes and the granted resource list. A
-request for a document the user didn't include in the grant returns 403,
-even though the user themselves has access to that document.
-
-### 4. Refresh
-
-```
-POST /oidc/token
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic base64(client_id:client_secret)
-
-grant_type=refresh_token
-&refresh_token=<REFRESH-TOKEN>
-```
-
-Refresh tokens rotate. Each refresh may return a new refresh token; if it
-does, store it and discard the old one. Tokens used past their TTL or after
-the grant has been revoked return `invalid_grant`.
-
-### Revoke
-
-```
-POST /oidc/token/revocation
-Content-Type: application/x-www-form-urlencoded
-Authorization: Basic base64(client_id:client_secret)
-
-token=<ACCESS-OR-REFRESH-TOKEN>
-```
-
-Users can also revoke your app from their Authorized apps page at any
-time. When they do, all of that user's tokens for your app stop working
-immediately.
+![App settings page](images/oauth-apps/app-settings.png)
 
 ## Scopes
 
@@ -170,47 +86,101 @@ immediately.
 | `doc.schema:write` | Update document structure and formulas. Equivalent to the **Structure** permission in [access rules](access-rules.md); formulas can bypass access rules. |
 | `doc:download` | Download the full document and run SQL queries. |
 | `doc:webhooks` | Manage [webhooks](webhooks.md). |
-| `offline_access` | Issue a refresh token. Request `prompt=consent` when starting the flow. |
+| `offline_access` | Issue a refresh token. Requires `prompt=consent` on the authorization request. |
 
-Grist also accepts the standard OIDC identity scopes `openid`, `email`, and
-`profile` for sign-in flows.
+Grist also accepts the standard OIDC identity scopes `openid`, `email`,
+and `profile` for sign-in flows.
 
 [Access rules](access-rules.md) apply on top of scopes: an authorized app
-sees and changes only what the authorizing user could see and change.
+sees and changes only what the authorizing user can see and change.
 
-## Granting access to specific documents
+## Per-document grants
 
-When the user authorizes your app, they can choose **All documents** or pick
-specific documents, workspaces, or team sites. The selection is enforced on
-every API call. Your app does not need to do anything to support this —
-calls to non-granted documents simply return 403.
+When the user authorizes your app, they choose **All documents** or pick
+specific documents, workspaces, or team sites. The selection is enforced
+on every API call: a request for a document outside the grant returns
+`403`, even if the user themselves can access that document. Your app
+does not need to do anything to support this.
 
-If your app needs access to a document the user didn't grant, the user can
-adjust the grant from their Authorized apps page, or you can prompt them to
+If your app needs a document the user didn't grant, the user can adjust
+the selection from their Authorized apps page (see
+[Connected apps](connected-apps.md)), or you can prompt them to
 re-authorize.
 
-## Token lifetimes
+## Tokens
 
-Defaults on a current Grist installation:
+| | Access token | Refresh token |
+|---|---|---|
+| Prefix | `grist_at_` | `grist_rt_` |
+| Format | Opaque — do not parse | Opaque — do not parse |
+| Default TTL | 1 hour | 60 days |
+| Rotation | n/a | Rotated when used past a fraction of its lifetime; the response may include a new `refresh_token` — if so, store it and discard the old one. |
 
-- Access token: 1 hour.
-- Refresh token: 60 days, rotated on use.
-- The underlying grant persists until the user revokes it.
+The underlying grant persists until the user revokes it. A job that
+refreshes at least once every 30 days keeps working indefinitely.
+Operators may change these defaults.
 
-A monthly automation that uses its refresh token at least every 30 days will
-keep working indefinitely. Operators may change these values.
+Revoke a token per [RFC 7009](https://datatracker.ietf.org/doc/html/rfc7009):
 
-## Notes for production
+```
+POST /oidc/revocation
+```
 
-- **Keep your client secret on a server**, not in a browser or mobile app.
-- **Discovery is authoritative.** Use the discovery document to find
-  endpoints rather than hardcoding paths, so your app keeps working if
-  Grist's mount points change.
-- **Token prefixes (`grist_at_`, `grist_rt_`) are stable.** You can use them
-  to recognize Grist credentials in logs without inspecting payloads.
-- **Resource indicators (RFC 8707) are not used.** Per-document granting is
-  expressed through the consent screen and enforced server-side; clients
-  request scopes only.
+Accepts either an access or refresh token. Users can also revoke from
+their Authorized apps page; doing so invalidates every token issued under
+that grant.
+
+## Grist-specific constraints
+
+- **PKCE is required** for every client, S256 recommended.
+- **Confidential clients only.** Every registered app has a client
+  secret; `token_endpoint_auth_method=none` is not supported. Keep the
+  secret on a server, not in a browser or mobile app.
+- **`offline_access` requires `prompt=consent`** on the authorization
+  request. Without it the request fails with
+  `invalid_request: offline_access scope requires prompt=consent`.
+- **Resource indicators ([RFC 8707](https://datatracker.ietf.org/doc/html/rfc8707))
+  are not used.** Per-document selection happens on the consent screen
+  and is enforced server-side; clients request scopes only.
+- **Token prefixes (`grist_at_`, `grist_rt_`) are stable** — use them to
+  recognize Grist credentials in logs without inspecting payloads.
+
+## Quick start
+
+A minimal end-to-end flow, by way of `curl`:
+
+```sh
+# 1. Send the user to:
+https://<server>/oidc/auth
+    ?response_type=code
+    &client_id=<CLIENT-ID>
+    &redirect_uri=<REDIRECT-URI>
+    &scope=doc:read+offline_access
+    &state=<CSRF-TOKEN>
+    &code_challenge=<PKCE-CHALLENGE>
+    &code_challenge_method=S256
+    &prompt=consent
+
+# 2. They return to <REDIRECT-URI>?code=...&state=...
+#    Verify state matches, then exchange the code:
+curl -u "<CLIENT-ID>:<CLIENT-SECRET>" https://<server>/oidc/token \
+  -d grant_type=authorization_code \
+  -d code=<CODE> \
+  -d redirect_uri=<REDIRECT-URI> \
+  -d code_verifier=<PKCE-VERIFIER>
+# → { access_token, refresh_token, expires_in, token_type: "Bearer", scope }
+
+# 3. Call the API the same way as with an API key:
+curl -H "Authorization: Bearer grist_at_..." \
+  https://<server>/api/docs/<DOC-ID>/tables/<TABLE-ID>/records
+
+# 4. Refresh later:
+curl -u "<CLIENT-ID>:<CLIENT-SECRET>" https://<server>/oidc/token \
+  -d grant_type=refresh_token -d refresh_token=<REFRESH-TOKEN>
+```
+
+Errors follow the OAuth 2.0 format: an HTTP 4xx with a JSON body of
+`{"error": "...", "error_description": "..."}`.
 
 ## Related
 
@@ -218,3 +188,9 @@ keep working indefinitely. Operators may change these values.
 - [REST API usage](rest-api.md) — calling Grist with an access token uses
   the same endpoints as an API key.
 - [API reference](api.md) — full list of endpoints.
+
+### Background reading
+
+- [OAuth 2.0](https://oauth.net/2/), [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749)
+- [PKCE](https://oauth.net/2/pkce/), [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)
+- [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html)
