@@ -57,7 +57,7 @@ libraries support using such a discovery endpoint instead of hardcoding paths.
 Visit your [Account settings → Developer](https://docs.getgrist.com/account/developer) page. The
 'OAuth apps' section lists the OAuth apps you are a maintainer for, and lets you register new ones.
 
-![OAuth apps list in Profile Settings](images/oauth-apps/oauth-apps-list.png)
+![OAuth apps list](images/oauth-apps/oauth-apps-list.png)
 
 Click **Register app** and fill in:
 
@@ -65,7 +65,8 @@ Click **Register app** and fill in:
 - **Redirect URI** — where users return after authorizing. Must use
   `https://` protocol, but `http://` is allowed for the `localhost` domain.
 
-![Register-app form](images/oauth-apps/register-app.png)
+*![Register-app form](images/oauth-apps/register-app.png)*
+{: .screenshot-half}
 
 These are the minimum properties needed to register an app. After registering, copy the **client
 ID** and **client secret**. The secret is shown once.
