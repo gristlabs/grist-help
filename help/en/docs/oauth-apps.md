@@ -128,9 +128,10 @@ integrations. Endpoints not listed are not available to use with OAuth tokens.
 | `/api/docs/{docId}/download` | `doc:download` | — |
 | `/api/docs/{docId}/webhooks*` | `doc:webhooks` | `doc:webhooks` |
 
-Endpoints for exporting in CSV/XLSX formats respect access rules and only require `doc:read`
-scope. The endpoint to download the full `.grist` document file allows an owner to bypass access
-rules, and so requires a separate scope. It may be useful for automating offsite backups.
+Endpoints for exporting in tabular format (CSV, XLSX, etc.) respect access rules and only require
+`doc:read` scope. The endpoint to download the full `.grist` document file allows a document owner
+to bypass access rules, and so requires a separate scope. It may be useful for automating offsite
+backups.
 
 ## Managing the app
 
