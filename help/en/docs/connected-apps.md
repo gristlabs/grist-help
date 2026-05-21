@@ -36,6 +36,8 @@ This is where you get to review and approve what the app is requesting. You'll s
 - A choice between 'All documents' and 'Selected resources'. This lets you restrict the app's
   access to specific documents, workspaces, or orgs (team sites or personal sites).
 
+Choosing 'Selected resources' opens a picker:
+
 ![Resource picker](images/connected-apps/resource-picker.png)
 
 Authorize only the apps you intend by reviewing the app info, especially the shown

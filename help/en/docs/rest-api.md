@@ -21,6 +21,8 @@ user, and has the same permissions as that user.
     security, control, and visibility.
     For building such tools, see [OAuth apps](oauth-apps.md).
 
+### API keys
+
 To enable API access for yourself, visit the [Developer page](https://docs.getgrist.com/account/developer)
 of your account settings. You can always find this page by clicking your profile picture or
 initial on the top right of the screen, and selecting "Account settings":
@@ -34,7 +36,7 @@ The 'Developer' page has a section for API keys:
 
 Click on the "Create" button to create an API Key. Copy it for use when making API calls.
 
-You can revoke revoke your API key by clicking the "Remove" button at any time.
+You can revoke your API key by clicking the "Remove" button at any time.
 You'll then have the option to create a new one if you wish.
 
 To test your api key, try this from the command-line (substituting

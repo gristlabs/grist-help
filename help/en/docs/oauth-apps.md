@@ -52,10 +52,10 @@ libraries support using such a discovery endpoint instead of hardcoding paths.
 
 ## Register an app
 
-// TODO: Is it poor to include this link because it's SaaS-specific and highly misleading to self-hosters?
-
-Visit your [Account settings → Developer](https://docs.getgrist.com/account/developer) page. The
-'OAuth apps' section lists the OAuth apps you are a maintainer for, and lets you register new ones.
+For an app that connects to getgrist.com, visit your [Account settings →
+Developer](https://docs.getgrist.com/account/developer) page. For self-hosted installations, you
+can find 'Account settings' under your [user menu](glossary.md#user-menu). The 'OAuth apps'
+section lists the OAuth apps you are a maintainer for, and lets you register new ones.
 
 ![OAuth apps list](images/oauth-apps/oauth-apps-list.png)
 
@@ -86,8 +86,8 @@ The last, but functionally critical, piece is:
   subset. This is a chance to limit what the app can do, even if it's compromised. It's a good
   idea to follow the principle of least privilege.
 
-  If you pick no scopes (which is the default starting point), your app will not work, as it will
-  not be able to request authorization for anything. So this step is mandatory.
+  You must select at least one scope. None are selected by default, and without scopes the app has
+  nothing to request on the consent screen and will not work.
 
 ![App settings page](images/oauth-apps/app-settings.png)
 
@@ -115,7 +115,8 @@ change structure.
 
 ## Endpoints for OAuth tokens
 
-The scopes above give access to the following endpoints:
+The scopes above give access to the following endpoints, curated for what's typically needed by
+integrations. Endpoints not listed are not available to use with OAuth tokens.
 
 | Path | Scopes to read | Scopes to update |
 |---|---|---|
@@ -123,12 +124,13 @@ The scopes above give access to the following endpoints:
 | `/api/docs/{docId}/tables/{tableId}/columns*` | `doc:read` | `doc.schema:write` |
 | `/api/docs/{docId}/tables/{tableId}/records*` | `doc:read` | `doc:write` |
 | `/api/docs/{docId}/attachments*` | `doc:read` | `doc:write` |
-| `/api/docs/{docId}/download/{csv,xlsx}` | `doc:read` | — |
+| `/api/docs/{docId}/download/*` (csv, xlsx, ...) | `doc:read` | — |
 | `/api/docs/{docId}/download` | `doc:download` | — |
 | `/api/docs/{docId}/webhooks*` | `doc:webhooks` | `doc:webhooks` |
 
-Endpoints not listed are not available to use with OAuth tokens.
-
+Endpoints for exporting in CSV/XLSX formats respect access rules and only require `doc:read`
+scope. The endpoint to download the full `.grist` document file allows an owner to bypass access
+rules, and so requires a separate scope. It may be useful for automating offsite backups.
 
 ## Managing the app
 
@@ -161,7 +163,7 @@ re-authorize.
 | Prefix | `grist_at_` | `grist_rt_` |
 | Format | Opaque | Opaque |
 | Default TTL | 1 hour | 60 days |
-| Rotation | -- | Rotated when used past a fraction of its lifetime; if the refresh responses includes a new `refresh_token`, that's the one you must use for subsequent refresh requests. |
+| Rotation | -- | Rotated when used past a fraction of its lifetime. If the refresh response includes a new `refresh_token`, replace your stored refresh token with it. |
 
 The underlying grant persists until the user revokes it. A job that
 refreshes at least once every 30 days keeps working indefinitely.
@@ -182,6 +184,8 @@ their 'Authorized apps' page; doing so invalidates every token issued under that
 - **Resource indicators (RFC 8707) are not used.**
   Per-document selection happens on the consent screen and is enforced server-side; clients
   request scopes only.
+- **Not all REST endpoints accept OAuth tokens.** The [list of supported scopes and
+  endpoints](#endpoints-for-oauth-tokens) is curated for what's typically needed by integrations.
 
 ## Flow example
 
