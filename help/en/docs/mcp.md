@@ -2,8 +2,9 @@
 title: "Grist MCP server"
 ---
 
-Model Context Protocol (MCP) is a standard that makes it easier for AI models to access external data. With Grist, this means the ability for models to work across your team sites and documents and do things like:
-- list and search tables
+Model Context Protocol (MCP) is a standard that makes it easier for AI models to access external data. With Grist's MCP server, AI tools gain the ability to work across your team sites and documents and do things like:
+
+- list and search tables,
 - read and query records, 
 - add or update rows, 
 - create new docs and tables,
@@ -29,14 +30,10 @@ Currently, Grist's MCP server has the following capabilities:
 
 You can use the Grist MCP server to:
 
-- **Query structured data in plain language:**
-  Sample prompt: "In my CRM doc, who has an open task due in the next 7 days?"
-- **Bulk-update records:**
-  Sample prompt: "In my Deliveries doc, updated all dates to follow ISO 8601 formatting."
-- **Start a document from scratch:**
-  Sample prompt: "Create a new doc called 'Reviewer Sandbox' with a Sample table that has the properly-typed columns: Name, Value, Created."
-- **Audit and manage sharing:**
-  Sample prompt: "Show who has access to the Invoices doc and to the workspace it lives in."
+- **Query structured data in plain language:** "In my CRM doc, who has an open task due in the next 7 days?"
+- **Bulk-update records:** "In my Deliveries doc, updated all dates to follow ISO 8601 formatting."
+- **Start a document from scratch:** "Create a new doc called 'Reviewer Sandbox' with a Sample table that has the properly-typed columns: Name, Value, Created."
+- **Audit and manage sharing:** "Show who has access to the Invoices doc and to the workspace it lives in."
 
 ## FAQ
 
