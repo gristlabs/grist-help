@@ -7,8 +7,7 @@ Model Context Protocol (MCP) is a standard that makes it easier for AI models to
 - list and search tables,
 - read and query records, 
 - add or update rows, 
-- create new docs and tables,
-- manage access rules, and lots more.
+- create new docs and tables, and lots more.
 
 ## Setting up the MCP server
 
