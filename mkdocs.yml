@@ -101,8 +101,9 @@ nav:
       - python.md
       - functions.md
       - formula-cheat-sheet.md
-    - AI Assistant:
+    - AI:
       - assistant.md
+      - mcp.md
     - Automations:
       - automations.md
       - integrators.md
