@@ -199,7 +199,7 @@ The toggles, in plain English:
 
 ## Going live
 
-Click 'Apply and Go Live'! Grist saves your choices, restarts itself, and
+Click 'Apply and go live'! Grist saves your choices, restarts itself, and
 switches into service. From here on out, visiting the server takes you to
 the home screen instead of the setup wizard.
 
