@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[May 2026](newsletters/2026-05.md) •
+Easier self-hosting, accessibility, and AI artifacts.
+
 [April 2026](newsletters/2026-04.md) •
 Grist Labs leadership update, Airtable import improvements, and Grist Console experiment.
 
