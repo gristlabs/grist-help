@@ -64,14 +64,16 @@ Click **Register app** and fill in:
 - **Application name** — shown on the consent screen.
 - **Redirect URI** — where users return after authorizing. Must use
   `https://` protocol, but `http://` is allowed for the `localhost` domain.
+- **Scopes** -- what permissions your app is allowed to request. This lets you apply the
+  principle of least privilege and limit what the app can do even if it's compromised.
 
-*![Register-app form](images/oauth-apps/register-app.png)*
+<span class="screenshot-large">*![Register-app form](images/oauth-apps/register-app.png)*</span>
 {: .screenshot-half}
 
 These are the minimum properties needed to register an app. After registering, copy the **client
 ID** and **client secret**. The secret is shown once.
 
-After this first step, you are taken to the app's settings page, where you should configure other
+After this first step, you are taken to the app's settings page, where you can configure other
 properties of the app:
 
 - **Application URI** -- the app URL shown to users. It defaults to the origin of the 'Redirect
@@ -80,14 +82,8 @@ properties of the app:
   starts the flow, the redirect URI must match one of these exactly.
 - **Contact email** and **Description** -- informational fields to explain to users what app they
   are authorizing and how to get support for it.
-
-The last, but functionally critical, piece is:
-- **Scopes** -- what permissions your app is allowed to request. You may enable all scopes, or any
-  subset. This is a chance to limit what the app can do, even if it's compromised. It's a good
-  idea to follow the principle of least privilege.
-
-  You must select at least one scope. None are selected by default, and without scopes the app has
-  nothing to request on the consent screen and will not work.
+- **Scopes** -- you can change the scopes you originally set. You may enable all scopes, or any
+  subset, but you must include at least one.
 
 ![App settings page](images/oauth-apps/app-settings.png)
 
@@ -102,6 +98,7 @@ If you make changes, don't forget to save using the 'Save changes' button at the
 | <nobr>`doc.schema:write`</nobr> | Update document structure and formulas. |
 | `doc:download` | Download the full document. |
 | `doc:webhooks` | Manage [webhooks](webhooks.md). |
+| <nobr>`user.profile:read`</nobr> | See the user's name, email address, and profile info. |
 | <nobr>`offline_access`</nobr> | Issue a refresh token. Requires `prompt=consent` on the authorization request. |
 
 [Access rules](access-rules.md) still apply in all cases: an authorized app sees and changes only
@@ -121,17 +118,25 @@ integrations. Endpoints not listed are not available to use with OAuth tokens.
 | Path | Scopes to read | Scopes to update |
 |---|---|---|
 | `/api/docs/{docId}/tables` | `doc:read` | `doc.schema:write` |
-| `/api/docs/{docId}/tables/{tableId}/columns*` | `doc:read` | `doc.schema:write` |
-| `/api/docs/{docId}/tables/{tableId}/records*` | `doc:read` | `doc:write` |
+| <nobr>`/api/docs/{docId}/tables/{tableId}/columns*`</nobr> | `doc:read` | `doc.schema:write` |
+| <nobr>`/api/docs/{docId}/tables/{tableId}/records*`</nobr> | `doc:read` | `doc:write` |
 | `/api/docs/{docId}/attachments*` | `doc:read` | `doc:write` |
-| `/api/docs/{docId}/download/*` (csv, xlsx, ...) | `doc:read` | — |
+| <nobr>`/api/docs/{docId}/download/*` (csv, xlsx, ...)</nobr> | `doc:read` | — |
 | `/api/docs/{docId}/download` | `doc:download` | — |
 | `/api/docs/{docId}/webhooks*` | `doc:webhooks` | `doc:webhooks` |
+| `/api/orgs` | `doc*` | — |
+| `/api/orgs/{orgId}/workspaces` | `doc*` | — |
+| `/api/workspaces/{wsId}/docs` | — | `doc:write` + `doc.schema:write` |
+| `/api/profile/user` | `user.profile:read` | — |
 
-Endpoints for exporting in tabular format (CSV, XLSX, etc.) respect access rules and only require
-`doc:read` scope. The endpoint to download the full `.grist` document file allows a document owner
-to bypass access rules, and so requires a separate scope. It may be useful for automating offsite
-backups.
+Any doc-level scope is enough to list orgs (personal and team sites) and to list the contents of
+the org (workspace and documents). If the user granted access to a limited set of resources, the
+app will only see those.
+
+Note that the endpoints for exporting in tabular format (CSV, XLSX, etc.) respect access rules and
+only require `doc:read` scope. The endpoint to download the full `.grist` document file allows a
+document owner to bypass access rules, and so requires a separate scope. It may be useful for
+automating offsite backups.
 
 ## Managing the app
 
