@@ -33,9 +33,9 @@ title: Keyboard shortcuts
 | <code class="keys">*End*</code> | <code class="keys">*End*</code> | Move to the last field or the end of a row |
 | <code class="keys">*⌥* *↓*</code> | <code class="keys">*Alt* + *↓*</code> | Open next page |
 | <code class="keys">*⌥* *↑*</code> | <code class="keys">*Alt* + *↑*</code> | Open previous page |
-| <code class="keys">*⌘* *O*</code> | <code class="keys">*Ctrl* + *O*</code> | Focus next page panel or widget |
-| <code class="keys">*⌘* *⇧* *O*</code> | <code class="keys">*Ctrl* + *Shift* + *O*</code> | Focus previous page panel or widget |
-| <code class="keys">*⌘* *⌥* *O*</code> | <code class="keys">*Ctrl* + *Alt* + *O*</code> | Toggle creator panel keyboard focus |
+| <code class="keys">*⌃* *O*</code> | <code class="keys">*Ctrl* + *O*</code> | Focus next page panel or widget |
+| <code class="keys">*⌃* *⇧* *O*</code> | <code class="keys">*Ctrl* + *Shift* + *O*</code> | Focus previous page panel or widget |
+| <code class="keys">*⌃* *⌥* *O*</code> | <code class="keys">*Ctrl* + *Alt* + *O*</code> | Toggle creator panel keyboard focus |
 | <code class="keys">*Space*</code> | <code class="keys">*Space*</code> | Show the record card widget of the selected record |
 
 ###Selection
