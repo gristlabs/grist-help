@@ -38,8 +38,8 @@ title: Keyboard shortcuts
 | <code class="keys">*⌃* *⌥* *O*</code> | <code class="keys">*Ctrl* + *Alt* + *O*</code> | Toggle creator panel keyboard focus |
 | <code class="keys">*Space*</code> | <code class="keys">*Space*</code> | Show the record card widget of the selected record |
 | <code class="keys">*⌃* *Enter*</code>,<code class="keys">*↑* *F10*</code> | <code class="keys">*Menu*</code>,<code class="keys">*Shift* + *F10*</code> | Open the context menu |
-| <code class="keys">*↑* *⌃* *Enter*</code>,<code class="keys">*⌃* *↑* *F10*</code> | <code class="keys">*Ctrl* + *Menu*</code>,<code class="keys">*Ctrl* +*Shift* + *F10*</code> | Open the current column menu |
-| <code class="keys">*⌥* *⌃* *Enter*</code>,<code class="keys">*⌥* *↑* *F10*</code> | <code class="keys">*Alt* + *Menu*</code>,<code class="keys">*Alt* +*Shift* + *10*</code> | Open the current row menu |
+| <code class="keys">*↑* *⌃* *Enter*</code>,<code class="keys">*⌃* *↑* *F10*</code> | <code class="keys">*Ctrl* + *Menu*</code>,<code class="keys">*Ctrl* + *Shift* + *F10*</code> | Open the current column menu |
+| <code class="keys">*⌥* *⌃* *Enter*</code>,<code class="keys">*⌥* *↑* *F10*</code> | <code class="keys">*Alt* + *Menu*</code>,<code class="keys">*Alt* + *Shift* + *10*</code> | Open the current row menu |
 
 ###Selection
 | Key (Mac) | Key (Windows) | Description | 
