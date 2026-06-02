@@ -21,24 +21,24 @@ To use Grist's MCP server you need:
 
 The connector works in Claude.ai (web), Claude Desktop, Claude Code, and Cowork.
 
-!!! note "" The MCP server is available on Grist SaaS (getgrist.com) today. Self-hosted Grist
-    support is on the roadmap.
+!!! note "Note" 
+    The MCP server is available on Grist SaaS (getgrist.com) today. Self-hosted Grist support is on the roadmap.
 
-There are two ways to connect Grist to Claude. Install from the Claude directory (recommended once
-the connector is published), or add it as a custom connector by URL.
+There are two ways to connect Grist to Claude: Install from the Claude directory (recommended once
+the connector is published – see note below), or add it as a custom connector by URL.
 
 ### Install from the Claude directory
 
-!!! note "" The directory listing is pending Anthropic review. Until it goes live, use the
-    custom-connector method below.
+!!! warning "Listing pending review" 
+    The directory listing is pending Anthropic review. Until it goes live, use the custom connector method below.
 
-When the listing is available:
+To add connect the Grist MCP server to your Claude account:
 
-1. In Claude.ai or Claude Desktop, open **Settings → Connectors**.
-2. Browse the directory or search for **Grist**.
-3. On the Grist listing, click **Connect**.
+1. In Claude.ai or Claude Desktop, open 'Settings' → 'Connectors'.
+2. Browse the directory or search for 'Grist'.
+3. On the Grist listing, click 'Connect'.
 4. Sign in with your usual Grist credentials (Google or email).
-5. Review the permissions and click **Allow** on the consent screen.
+5. Review the permissions and click 'Allow' on the consent screen.
 
 ### Add as a custom connector
 
@@ -47,32 +47,32 @@ because the OAuth bearer token identifies you.
 
 **MCP URL:** `https://docs.getgrist.com/api/mcp`
 
-!!! note "" Use this single URL for every team site and your personal site. You do not need a
-    different URL per team site.
+!!! note "Note" 
+    Use this single URL for every team site and your personal site. You do not need a different URL per team site.
 
 Use [Connect Grist to
 Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Grist&connectorUrl=https%3A%2F%2Fdocs.getgrist.com%2Fapi%2Fmcp){:target="_blank"}
-to open Claude's **Add custom connector** dialog with the name and URL pre-filled. Click **Add**,
+to open Claude's 'Add custom connector' dialog with the name and URL pre-filled. Click 'Add',
 then continue with the sign-in and consent steps below.
 
 Or add it by hand:
 
-1. In Claude.ai or Claude Desktop, open **Settings → Connectors**.
-2. Click **Add custom connector** and paste the URL above.
+1. In Claude.ai or Claude Desktop, open 'Settings' → 'Connectors'.
+2. Click 'Add custom connector' and paste the URL above.
 3. Sign in with your usual Grist credentials (Google or email).
-4. Review the permissions and click **Allow** on the consent screen.
+4. Review the permissions and click 'Allow' on the consent screen.
 
-<span class="screenshot-large">*![add-connector](images/mcp/add-connector.png)*</span> {:
-.screenshot-half }
+<span class="screenshot-large">*![add-connector](images/mcp/add-connector.png)*</span> 
+{: .screenshot-half }
 
 ### Permissions Grist requests
 
-After you click **Add**, Claude redirects you to Grist to sign in.
+After you click 'Add', Claude redirects you to Grist to sign in.
 
 <span class="screenshot-large">*![grist-account-picker](images/mcp/grist-account-picker.png)*</span>
 {: .screenshot-half }
 
-Grist's consent screen then asks Claude for a set of OAuth scopes. Each scope has a label; the
+Grist's consent screen then asks Claude for a set of OAuth scopes. Each scope has a label, and the
 underlying scope name is shown in parentheses.
 
 * **Identify you** (`openid`, `email`, `profile`): confirm who you are, and pass your name and email
@@ -90,8 +90,8 @@ grant, the call fails. To grant a missing scope, reconnect Grist from Claude's c
 
 ### Choosing which resources Claude can access
 
-<span class="screenshot-large">*![grist-consent](images/mcp/grist-consent.png)*</span> {:
-.screenshot-half }
+<span class="screenshot-large">*![grist-consent](images/mcp/grist-consent.png)*</span> 
+{: .screenshot-half }
 
 The same consent screen also asks which Grist resources Claude can reach. You have two options:
 
@@ -104,21 +104,21 @@ The same consent screen also asks which Grist resources Claude can reach. You ha
 Selecting a parent grants access to everything inside it. If you select a workspace, you do not need
 to also select the documents inside it.
 
-You can change this selection later from the **Authorized apps** page in your Grist account
+You can change this selection later from the 'Authorized apps' page in your Grist account
 settings, without disconnecting Claude. Changes can take up to an hour to propagate to
-already-connected apps; to apply them immediately, disconnect and reconnect Grist from Claude's
+already-connected apps. To apply them immediately, disconnect and reconnect Grist from Claude's
 connector settings.
 
-<span class="screenshot-large">*![authorized-apps](images/mcp/authorized-apps.png)*</span> {:
-.screenshot-half }
+<span class="screenshot-large">*![authorized-apps](images/mcp/authorized-apps.png)*</span> 
+{: .screenshot-half }
 
 ## Available tools
 
 Grist's MCP server exposes a set of tools that wrap the [Grist REST API](rest-api.md), grouped into
 six categories.
 
-!!! note "" Every tool name is prefixed with `grist_` when called (so `list_docs` is
-    `grist_list_docs`). The prefix is omitted below for readability.
+!!! note "Note" 
+    Every tool name is prefixed with `grist_` when called (so `list_docs` is `grist_list_docs`). The prefix is omitted below for readability.
 
 ### Discovery
 
@@ -161,7 +161,7 @@ Modify records.
 
 Try asking:
 
-* "Add a new client called Acme Corp to my CRM, email ops@acme.com."
+* "Add a new client called Acme Corp to my CRM with the email ops@acme.com."
 * "Mark task #42 as done in my Project Tracker."
 * "Remove every row in Tickets where Status is 'Archived'."
 
@@ -202,10 +202,8 @@ Try asking:
 
 ### Sharing and access
 
-!!! note "" The sharing and access tools are experimental and not yet available through Claude. The
-    tools are exposed by the MCP server, but Claude's connector flow does not currently expose the
-    scopes needed to call them. This section will be updated when the tools become usable
-    end-to-end.
+!!! warning "Note" 
+    The sharing and access tools are experimental and not yet available through Claude. The tools are exposed by the MCP server, but Claude's connector flow does not currently expose the scopes needed to call them. This section will be updated when the tools become usable end-to-end.
 
 Audit and change who can see what.
 
@@ -222,11 +220,11 @@ Try asking:
 
 ## Examples
 
-When Claude calls a Grist tool, it asks for your approval the first time. You can choose **Always
-allow** to skip the prompt for that tool on future calls.
+When Claude calls a Grist tool, it asks for your approval the first time. You can choose 'Always
+allow' to skip the prompt for that tool on future calls.
 
-<span class="screenshot-large">*![tool-call-approval](images/mcp/tool-call-approval.png)*</span> {:
-.screenshot-half }
+<span class="screenshot-large">*![tool-call-approval](images/mcp/tool-call-approval.png)*</span> 
+{: .screenshot-half }
 
 You can use the Grist MCP server to:
 
@@ -239,13 +237,13 @@ You can use the Grist MCP server to:
 
 After Claude finishes, the new or updated document appears in Grist alongside the conversation.
 
-<span class="screenshot-large">*![end-result](images/mcp/end-result.png)*</span> {: .screenshot-half
-}
+<span class="screenshot-large">*![end-result](images/mcp/end-result.png)*</span> 
+{: .screenshot-half}
 
 ## Data handling
 
 When you call a Grist tool from Claude, the data that the tool returns is sent to Anthropic so the
-model can use it in its response. Only the data the tool returns leaves Grist; nothing is read
+model can use it in its response. Only the data the tool returns leaves Grist – nothing is read
 pre-emptively.
 
 * Transport is HTTPS/TLS end-to-end.
@@ -254,8 +252,8 @@ pre-emptively.
 * The OAuth token is scoped to the permissions you granted at connect time. You can revoke it any
   time from Grist's account settings.
 
-!!! warning "" Treat the connector like sharing a document with a colleague: anything you ask Claude
-    to read or write will be visible to Anthropic.
+!!! warning "Warning" 
+    Treat the connector like sharing a document with a colleague. Anything you ask Claude to read or write will be visible to Anthropic.
 
 See the [Grist Privacy Policy](https://www.getgrist.com/privacy/){:target="_blank"} for details.
 
@@ -263,7 +261,7 @@ See the [Grist Privacy Policy](https://www.getgrist.com/privacy/){:target="_blan
 
 ### What does the Grist MCP server cost?
 
-Pricing for the Grist MCP server has not been announced. This page will be updated once it is.
+Pricing for the Grist MCP server has not been announced. This page will be updated once upon announcement.
 
 On the Claude side, custom connectors require a paid Claude plan.
 
@@ -273,8 +271,8 @@ See the [Data handling](#data-handling) section above.
 
 ### Can I have multiple Grist connectors in Claude?
 
-Yes, through the custom-connector path. The Claude directory listing supports only a single
-connection, but Claude's **Add custom connector** flow does not prevent you from adding the same URL
+Yes, through the [custom connector path](#add-as-a-custom-connector). The Claude directory listing supports only a single
+connection, but Claude's 'Add custom connector' flow does not prevent you from adding the same URL
 more than once. Add Grist again with a different connector name to keep a separate connection (for
 example, signed in as a different Grist account).
 
@@ -282,10 +280,10 @@ example, signed in as a different Grist account).
 
 Two options:
 
-* Disconnect Grist from Claude's connector settings, then reconnect. When the consent screen
+1. Disconnect Grist from Claude's connector settings, then reconnect. When the consent screen
   appears, sign in with the other account.
-* Add Grist as a custom connector a second time under a different name, and sign in with the other
-  account during the consent step. Both connections then live side by side in Claude.
+2. Add Grist as a custom connector a second time under a different name, and sign in with the other
+  account during the consent step. Both connections then live side-by-side in Claude.
 
 ### Can I connect Claude to my self-hosted Grist?
 
