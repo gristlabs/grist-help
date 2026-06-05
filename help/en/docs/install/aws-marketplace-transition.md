@@ -10,9 +10,8 @@ It is possible to copy your Grist documents to Builder Edition.
 
 1. Take note of the `EMAIL` variable under `~/grist/gristParameters`.
 2. Start [a Grist Builder Edition instance](grist-builder-edition.md).
-3. Follow [the instructions to run the bootstrap
-   script](https://github.com/gristlabs/grist-pack/tree/main/dist#quickstart),
-   using the value of `EMAIL` for the `DEFAULT_EMAIL` value. See
+3. Follow the instructions to run the bootstrap script,
+   using the value of `EMAIL` you noted earlier. See
    [here](../self-managed.md#what-is-the-administrative-account) for
    more details pertaining to this variable.
    
