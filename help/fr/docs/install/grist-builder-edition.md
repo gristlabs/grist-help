@@ -20,7 +20,7 @@ L'instance Grist doit être gérée par SSH ou un accès console équivalent. Le
 * Linux : [https://www.ssh.com/academy/ssh/command](https://www.ssh.com/academy/ssh/command)
 * macOS : [https://www.servermania.com/kb/articles/ssh-mac](https://www.servermania.com/kb/articles/ssh-mac)
 
-Une fois connecté, suivez les instructions affichées dans la console. D'autres détails techniques concernant la configuration peuvent être trouvés dans [le README fourni avec l'installation](https://github.com/gristlabs/grist-pack/blob/main/dist/README.md).
+Une fois connecté, suivez les instructions affichées dans la console. D'autres détails techniques concernant la configuration peuvent être trouvés dans le README fourni avec l'installation.
 
 Si vous avez besoin d'aide avec la configuration initiale, lisez ci-dessous pour des instructions spécifiques pour chaque fournisseur de cloud.
 
