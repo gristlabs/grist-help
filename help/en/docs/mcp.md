@@ -115,7 +115,7 @@ connector settings.
 ## Available tools
 
 Grist's MCP server exposes a set of tools that wrap the [Grist REST API](rest-api.md), grouped into
-six categories.
+five categories.
 
 !!! note "Note" 
     Every tool name is prefixed with `grist_` when called (so `list_docs` is `grist_list_docs`). The prefix is omitted below for readability.
@@ -128,9 +128,8 @@ Find what you have access to.
 * `list_workspaces` lists workspaces inside a team site.
 * `list_docs` lists documents inside a workspace.
 * `get_doc_info` returns metadata about a single document.
+* `list_snapshots` lists the snapshots of a document, with their `snapshotId` and `lastModified` timestamp. Requires `doc:read` scope and viewer-level access.
 * `help` returns a short overview Claude can use to plan its work.
-
-Other tools in this category: `list_snapshots`.
 
 Try asking:
 
@@ -173,8 +172,7 @@ Create and reshape documents.
 * `create_table` and `add_table_column` extend the schema.
 * `update_table_column` changes column type, formula, or label.
 
-Other tools: `rename_doc`, `delete_doc`, `move_doc`, `add_table`, `rename_table`, `remove_table`,
-`remove_table_column`, `create_workspace`, `rename_workspace`, `delete_workspace`.
+Other tools: `add_table`, `rename_table`, `remove_table`, `remove_table_column`.
 
 Try asking:
 
@@ -199,24 +197,6 @@ Try asking:
 * "Add a chart page to my Sales document showing revenue by month."
 * "Put a Card View of Contacts on the Overview page."
 * "Remove the Internal Notes page from my Project Tracker."
-
-### Sharing and access
-
-!!! warning "Note" 
-    The sharing and access tools are experimental and not yet available through Claude. The tools are exposed by the MCP server, but Claude's connector flow does not currently expose the scopes needed to call them. This section will be updated when the tools become usable end-to-end.
-
-Audit and change who can see what.
-
-* `list_doc_access` shows who has access to a document and at what role.
-* `update_doc_access` grants or revokes access.
-
-Other tools: `list_workspace_access`, `update_workspace_access`, `list_org_access`,
-`update_org_access`, `get_grist_access_rules_reference`.
-
-Try asking:
-
-* "Who has access to my Budget document?"
-* "Give viewer access to alice@example.com on Inventory."
 
 ## Examples
 
