@@ -31,10 +31,6 @@ You will need a Grist account (any plan, including the free one) and an MCP clie
 supports remote, OAuth-authenticated servers. On the Claude side, that means a plan that supports
 custom connectors.
 
-!!! info "Beta feature"
-    MCP support is currently a beta feature available to all Grist users. Availability is subject
-    to change.
-
 #### Claude.ai or Claude Desktop
 
 !!! warning "Directory listing pending review"
