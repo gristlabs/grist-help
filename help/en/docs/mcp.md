@@ -24,7 +24,7 @@ available to every Grist account on all plans, though this may change in the fut
 
 ### Self-hosted Grist
 
-On the full edition of self-hosted Grist the MCP server is off by default. Turn it on by setting
+On the full edition of self-hosted Grist, the MCP server is off by default. Turn it on by setting
 this environment variable on your instance:
 
 ```
