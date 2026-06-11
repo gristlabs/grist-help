@@ -158,7 +158,7 @@ connector settings.
 
 ## Available tools
 
-Grist's MCP server exposes a set of tools for working with your documents, grouped into five
+Grist's MCP server exposes a set of tools for working with your documents, grouped into a few
 categories. The tools act on your behalf, so they can only reach what your account can reach. The
 permissions you grant on the consent screen narrow this further, so you can limit what the connector
 is allowed to do.
@@ -190,6 +190,8 @@ Query and inspect document content.
 * `query_document` runs a natural-language or SQL-style query across the tables in a document.
 * `list_records` returns rows from a single table.
 * `get_tables` and `get_table_columns` describe a document's structure.
+* `list_snapshots` lists older saved versions of a document.
+* `get_grist_access_rules_reference` explains how a document's access rules work.
 
 Try asking:
 
@@ -219,7 +221,7 @@ Create and reshape documents.
 * `create_table` and `add_table_column` extend the schema.
 * `update_table_column` changes column type, formula, or label.
 
-Other tools: `add_table`, `rename_table`, `remove_table`, `remove_table_column`.
+Other tools: `rename_table`, `remove_table`, `remove_table_column`.
 
 Try asking:
 
@@ -244,6 +246,18 @@ Try asking:
 * "Add a chart page to my Sales document showing revenue by month."
 * "Put a Card View of Contacts on the Overview page."
 * "Remove the Internal Notes page from my Project Tracker."
+
+### Attachments
+
+Work with files stored in a document.
+
+* `list_attachments` lists the files in a document, with their name, size, and type.
+* `get_attachment_url` gives a short-lived link to download one file.
+
+Try asking:
+
+* "What files are attached in my Expenses document?"
+* "Give me a download link for the receipt in my Expenses document."
 
 ## Examples
 
