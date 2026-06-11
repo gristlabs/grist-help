@@ -117,8 +117,8 @@ and the underlying scope name is shown in parentheses.
 * **Read your profile** (`user.profile:read`): let the `get_user_profile` tool look up your name and
   email, so the client can confirm which Grist account it is connected as.
 * **Stay signed in** (`offline_access`): keep the connection working without asking you to sign in
-  again, including when the client acts on your behalf while you are away, such as a long-running
-  task or a scheduled run.
+  again, including when the client acts on your behalf while you are away, such as during a
+  scheduled run.
 * **Read documents** (`doc:read`): list and query tables, records, columns, and attachments.
 * **Modify records** (`doc:write`): add, update, and remove rows.
 * **Modify schema** (`doc.schema:write`): add, rename, or remove tables and columns.
@@ -175,8 +175,7 @@ Find what you have access to.
 * `list_workspaces` lists workspaces inside a team site.
 * `list_docs` lists documents inside a workspace.
 * `get_doc_info` returns metadata about a single document.
-* `get_user_profile` returns the account you are connected as (name and email), so you can confirm
-  which Grist account the client is using.
+* `get_user_profile` returns the name and email of the account you are connected as.
 * `help` returns a short overview of what the server can do.
 
 Try asking:
