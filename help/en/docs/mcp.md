@@ -32,7 +32,8 @@ GRIST_MCP_ENABLED=true
 ```
 
 !!! note "OAuth client authentication"
-    OAuth is one of the ways clients authenticate to Grist (see also API keys and service accounts).
+    OAuth is one of the ways clients authenticate to Grist (see also
+    [API keys and service accounts](rest-api.md#authentication)).
     It runs on Grist's built-in OIDC server, which you enable with:
 
     ```
@@ -58,14 +59,10 @@ Point your client at Grist's MCP endpoint:
 * **Self-hosted Grist:** `https://<your-grist-host>/api/mcp`, your own host; covers every team site
   and personal site on that instance.
 
-Any MCP client that supports OAuth-authenticated remote MCP servers connects by adding this URL as a
-custom connector. The sign-in and consent flow is the same for every client.
-
 Clients can authenticate in several ways: API keys, service accounts, registered
 [OAuth apps](https://support.getgrist.com/), and CIMD (Client ID Metadata Documents), the preferred
 standard that lets a client register itself automatically from a metadata URL instead of being set
-up in advance. To register an OAuth app, use the 'OAuth apps' page in your Grist account settings
-with your app's own redirect URL. Detailed documentation for registering OAuth apps is coming soon.
+up in advance.
 
 ### Connection examples
 
@@ -105,7 +102,9 @@ and approve the necessary permissions.
 
 ### Overview of Grist-requested permissions
 
-After you click 'Add', your MCP client redirects you to Grist to sign in.
+Before you can use the connector, your client sends you to Grist to sign in. Grist shows which app
+is asking for access (Claude in this example, with its name and URL) and lets you pick the account
+to continue with, or add another account.
 
 <span class="screenshot-full">*![grist-account-picker](images/mcp/grist-account-picker.png)*</span>
 {: .screenshot-half }
