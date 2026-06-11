@@ -328,9 +328,11 @@ Two options, available in most clients:
 
 ### Can I connect my self-hosted Grist?
 
-Yes, assuming you're running the [full edition](./self-managed.md#how-do-i-enable-the-full-edition-of-grist) of Grist. Self-hosters can add Grist as a [custom connector](#claudeai-or-claude-desktop) and use your own host in the MCP URL: `https://<your-grist-host>/api/mcp`. 
-
-In Claude, note that the directory listing connects to Grist SaaS only, so self-hosted instances must be added as a custom connector.
+Yes, as long as you are running the
+[full edition](./self-managed.md#how-do-i-enable-the-full-edition-of-grist) of Grist. Self-hosted
+Grist exposes the same MCP endpoint at your own host: `https://<your-grist-host>/api/mcp`. Add that
+URL to your MCP client the same way you would add any other MCP server, then sign in with your Grist
+account. See [Self-hosted Grist](#self-hosted-grist) for step-by-step instructions.
 
 ### Why am I seeing a "missing scope" error?
 
