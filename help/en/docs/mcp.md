@@ -262,10 +262,7 @@ You can use the Grist MCP server to:
 * **Start a document from scratch:** "Create a new document called 'Reviewer Sandbox' with a Sample
   table that has the properly-typed columns: Name, Value, Created."
 
-After Claude finishes, the new or updated document appears in Grist alongside the conversation.
-
-<span class="screenshot-full">*![end-result](images/mcp/end-result.png)*</span>
-{: .screenshot-half }
+Once the assistant finishes, the new or updated document is ready to open in Grist.
 
 ## Data handling
 
