@@ -74,31 +74,11 @@ Self-hosted Grist exposes the same MCP endpoint on your own instance:
 
 **MCP URL:** `https://<your-grist-host>/api/mcp`
 
-Substitute your own host. The same URL covers every team site on that instance. Any MCP client
-that supports OAuth can connect to it.
-
-There is no Claude directory listing for self-hosted Grist, so the 'Connect Grist to Claude'
-button does not apply here. Add Grist manually as a custom connector instead:
-
-#### Claude.ai or Claude Desktop
-
-1. In Claude.ai or Claude Desktop, open 'Settings' → 'Connectors'.
-2. Click 'Add custom connector' and paste your MCP URL.
-3. Sign in with your usual Grist credentials (Google or email).
-4. Review the permissions and click 'Allow' on the consent screen.
-
-#### Claude Code (terminal)
-
-```sh
-claude mcp add --transport http grist https://<your-grist-host>/api/mcp
-```
-
-Claude Code triggers the OAuth flow on first use.
-
-#### Other MCP clients
-
-Any MCP client that supports OAuth-authenticated remote MCP servers can connect using your MCP
-URL above.
+The same URL covers every team site on that instance. Connect exactly as for
+[Grist SaaS](#grist-saas) above, substituting your own host in the MCP URL. The one difference is
+that the one-click 'Connect Grist to Claude' link and the Claude directory listing are SaaS-only, so
+in Claude.ai or Claude Desktop you add Grist by hand: open 'Settings' → 'Connectors', click 'Add
+custom connector', and paste your MCP URL.
 
 ### Overview of Grist-requested permissions
 
