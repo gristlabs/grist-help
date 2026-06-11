@@ -15,17 +15,16 @@ For Grist's built-in AI assistant, see [AI Assistant](assistant.md).
 
 ## Setting up the MCP server
 
-The Grist MCP server is available on [Grist SaaS](#grist-saas) and on the full edition of [self-hosted Grist](#self-hosted-grist).
+The Grist MCP server is available on [Hosted Grist](#hosted-grist) and on the full edition of [self-hosted Grist](#self-hosted-grist).
 
-### Grist SaaS
+### Hosted Grist
 
-Grist SaaS exposes a single, universal MCP URL:
+Hosted Grist (getgrist.com) exposes a single, universal MCP URL:
 
 **MCP URL:** `https://docs.getgrist.com/api/mcp`
 
 The same URL works for every team site and your personal site. Any MCP client that supports OAuth
-can use it. Below, we cover Claude.ai, Claude Desktop, Claude Code in the terminal, and the
-generic OAuth path that other clients follow.
+can use it.
 
 You will need a Grist account (any plan, including the free one) and an MCP client that
 supports remote, OAuth-authenticated servers. On the Claude side, that means a plan that supports
@@ -35,15 +34,15 @@ custom connectors.
 
 !!! warning "Directory listing pending review"
     The Grist listing in the Claude directory is still under Anthropic review and is not active
-    yet. Until it goes live, use the special 'Connect Grist to Claude' link below.
+    yet. Until it goes live, use the special 'Connect Grist to Claude' link.
 
-The 'Connect Grist to Claude' link below opens Claude's 'Add custom connector' dialog with the Grist
+The 'Connect Grist to Claude' link opens Claude's 'Add custom connector' dialog with the Grist
 name and MCP URL pre-filled, so you only need to confirm the dialog and sign in:
 
 <span class="screenshot-full">[Connect Grist to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Grist&connectorUrl=https%3A%2F%2Fdocs.getgrist.com%2Fapi%2Fmcp){:target="_blank"}</span>
 {: .screenshot-half }
 
-After clicking the above link:
+After clicking the link:
 
 1. In the 'Add custom connector' dialog, click 'Add'.
 2. Sign in with your usual Grist credentials (Google or email).
@@ -65,8 +64,8 @@ and approve the necessary permissions.
 
 #### Other MCP clients
 
-Any MCP client that supports OAuth-authenticated remote MCP servers can connect to Grist SaaS by
-adding the universal URL above as a custom connector. The sign-in and consent flow is the same.
+Any MCP client that supports OAuth-authenticated remote MCP servers can connect to Hosted Grist by
+adding this universal URL as a custom connector. The sign-in and consent flow is the same.
 
 ### Self-hosted Grist
 
@@ -75,8 +74,9 @@ Self-hosted Grist exposes the same MCP endpoint on your own instance:
 **MCP URL:** `https://<your-grist-host>/api/mcp`
 
 The same URL covers every team site on that instance. Connect exactly as for
-[Grist SaaS](#grist-saas) above, substituting your own host in the MCP URL. The one difference is
-that the one-click 'Connect Grist to Claude' link and the Claude directory listing are SaaS-only, so
+[Hosted Grist](#hosted-grist), substituting your own host in the MCP URL. The one difference
+is that the one-click 'Connect Grist to Claude' link and the Claude directory listing are only on
+Hosted Grist, so
 in Claude.ai or Claude Desktop you add Grist by hand: open 'Settings' → 'Connectors', click 'Add
 custom connector', and paste your MCP URL.
 
@@ -140,7 +140,7 @@ permissions you grant on the consent screen narrow this further, so you can limi
 is allowed to do.
 
 !!! note "Note"
-    Every tool name is prefixed with `grist_` when called (so `list_docs` is `grist_list_docs`). The prefix is omitted below for readability.
+    Every tool name is prefixed with `grist_` when called (so `list_docs` is `grist_list_docs`). The prefix is omitted in this list for readability.
 
 ### Discovery
 
@@ -283,7 +283,7 @@ connectors on a paid plan). This depends on the provider, so check their pricing
 
 ### How does the MCP server handle my data?
 
-See the [Data handling](#data-handling) section above.
+See the [Data handling](#data-handling) section.
 
 ### Can I have multiple Grist connectors?
 
