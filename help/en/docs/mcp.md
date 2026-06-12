@@ -75,7 +75,7 @@ up in advance.
 
 ### Connection examples
 
-These walk through Claude. Other clients follow the same custom-connector flow.
+These walk through Claude and ChatGPT. Other clients follow the same custom-connector flow.
 
 **Claude.ai or Claude Desktop**
 
@@ -98,16 +98,42 @@ After clicking the link:
 <span class="screenshot-full">*![add-connector](images/mcp/add-connector.png)*</span>
 {: .screenshot-half }
 
-**Claude Code (terminal)**
+**ChatGPT**
 
-Add the Grist MCP server with a single command:
+!!! note "Developer mode required"
+    Adding a custom MCP server in ChatGPT needs developer mode. Turn it on under
+    **Settings > Apps > Advanced settings**.
+
+1. In ChatGPT, open **Settings > Apps**. Under **Advanced settings**, click **Create app**.
+
+    <span class="screenshot-full">*![chatgpt-apps](images/mcp/chatgpt-1.png)*</span>
+    {: .screenshot-half }
+
+2. Fill in the **New App** form:
+
+    * **Name:** `Grist`. The icon and description are optional.
+    * **Connection:** keep **Server URL** selected and enter `https://docs.getgrist.com/api/mcp`,
+      or `https://<your-grist-host>/api/mcp` for self-hosted Grist.
+    * **Authentication:** choose **OAuth**.
+    * Tick **I understand and want to continue** to accept the custom-server warning.
+
+    <span class="screenshot-full">*![chatgpt-new-app](images/mcp/chatgpt-2.png)*</span>
+    {: .screenshot-half }
+
+3. Click **Create**. ChatGPT opens a browser window for you to sign in to Grist and approve the
+   permissions on the consent screen.
+
+**Terminal apps (Claude Code, Gemini CLI, and similar)**
+
+Most terminal-based assistants add an MCP server with a single command. For Claude Code:
 
 ```sh
 claude mcp add --transport http grist https://docs.getgrist.com/api/mcp
 ```
 
-On first use, Claude Code opens a browser for you to sign in to Grist and approve the necessary
-permissions.
+Other tools, such as Gemini CLI, use a similar command. Check your tool's documentation for the
+exact syntax. On first use, the tool opens a browser for you to sign in to Grist and approve the
+necessary permissions.
 
 ### Overview of Grist-requested permissions
 
