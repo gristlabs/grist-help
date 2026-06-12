@@ -178,16 +178,17 @@ The same consent screen also asks which Grist resources the client can reach. Yo
   workspace, and document your account has access to, including ones you create later. This is the
   default.
 * **Selected resources.** Pick specific team sites, workspaces, or documents. You can mix levels,
-  for example a whole workspace plus a single document from elsewhere. Up to 50 resources per
-  connection.
+  for example a whole workspace plus a single document from elsewhere.
 
 Selecting a parent grants access to everything inside it. If you select a workspace, you do not need
 to also select the documents inside it.
 
 You can change this selection later from the 'Authorized apps' page in your Grist account
-settings, without disconnecting the client. Changes can take up to an hour to propagate to
-already-connected apps. To apply them immediately, disconnect and reconnect Grist from your client's
-connector settings.
+settings, without disconnecting the client. A change can take up to an hour to reach clients you
+have already connected, such as Claude or ChatGPT. To apply it right away, disconnect and reconnect
+Grist from that client's connector settings.
+
+[Learn more about OAuth apps](https://support.getgrist.com/).
 
 <span class="screenshot-full">*![authorized-apps](images/mcp/authorized-apps.png)*</span>
 {: .screenshot-half }
