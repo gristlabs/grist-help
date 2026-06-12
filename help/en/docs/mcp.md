@@ -31,33 +31,42 @@ this environment variable on your instance:
 GRIST_MCP_ENABLED=true
 ```
 
-!!! note "OAuth client authentication"
-    OAuth is one of the ways clients authenticate to Grist (see also
-    [API keys and service accounts](rest-api.md#authentication)).
-    It runs on Grist's built-in OIDC server, which you enable with:
+This is enough for clients that authenticate with a Grist [API key](rest-api.md#authentication): the
+user supplies their key in an `Authorization` header and connects, with nothing more to set up on
+your side. AI assistants
+such as Claude.ai, Claude Desktop, and ChatGPT sign in interactively instead, and need a couple
+more settings.
 
-    ```
-    GRIST_ENABLE_OIDC_SERVER=true
-    ```
+#### Interactive sign-in (Claude, ChatGPT, and similar)
 
-    Clients can then connect as a registered [OAuth app](https://support.getgrist.com/), or via the
-    CIMD flow (Client ID Metadata Documents), where a client registers itself automatically from a
-    metadata URL instead of being set up in advance. Popular clients like Claude and ChatGPT use
-    CIMD, so enable it by listing the client hosts you trust (the hosts of the tools you plan to
-    connect):
+Assistants like Claude and ChatGPT sign you in through Grist rather than taking an API key. They
+authenticate through Grist's built-in OIDC server, which you turn on with:
 
-    ```
-    GRIST_OIDC_CIMD_ALLOWED_HOSTS=claude.ai,chatgpt.com
-    ```
+```
+GRIST_ENABLE_OIDC_SERVER=true
+```
+
+These assistants register themselves automatically using CIMD (Client ID Metadata Documents).
+Allow them by listing the hosts you trust them to come from:
+
+```
+GRIST_OIDC_CIMD_ALLOWED_HOSTS=claude.ai,chatgpt.com
+```
+
+Once you set both variables, users can connect any assistant on your list.
+
+!!! note "Clients that do not support CIMD"
+    Some assistants cannot register themselves through CIMD. For these, set up an
+    [OAuth app](https://support.getgrist.com/) in Grist and use it with a client of your choice.
 
 ## Connecting your MCP client
 
-Point your client at Grist's MCP endpoint:
+Point your client at Grist's MCP server URL:
 
 * **Hosted Grist:** `https://docs.getgrist.com/api/mcp`, one URL for every team site and your
   personal site.
-* **Self-hosted Grist:** `https://<your-grist-host>/api/mcp`, your own host; covers every team site
-  and personal site on that instance.
+* **Self-hosted Grist:** `https://<your-grist-host>/api/mcp`, [your own host](self-managed.md#how-do-i-run-grist-on-a-server);
+  covers every team site and personal site on that instance.
 
 Clients can authenticate in several ways: API keys, service accounts, registered
 [OAuth apps](https://support.getgrist.com/), and CIMD (Client ID Metadata Documents), the preferred
@@ -97,8 +106,8 @@ Add the Grist MCP server with a single command:
 claude mcp add --transport http grist https://docs.getgrist.com/api/mcp
 ```
 
-Claude Code triggers the OAuth flow on first use, opening a browser for you to sign in to Grist
-and approve the necessary permissions.
+On first use, Claude Code opens a browser for you to sign in to Grist and approve the necessary
+permissions.
 
 ### Overview of Grist-requested permissions
 
@@ -109,7 +118,7 @@ to continue with, or add another account.
 <span class="screenshot-full">*![grist-account-picker](images/mcp/grist-account-picker.png)*</span>
 {: .screenshot-half }
 
-Grist's consent screen then asks your MCP client for a set of OAuth scopes. Each scope has a label,
+Grist's consent screen then asks your MCP client for a set of access scopes. Each scope has a label,
 and the underlying scope name is shown in parentheses.
 
 * **Identify you** (`openid`, `email`, `profile`): confirm who you are, and pass your name and email
