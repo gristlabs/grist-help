@@ -25,7 +25,7 @@ user, and has the same permissions as that user.
 
 To enable API access for yourself, visit the [Developer page](https://docs.getgrist.com/account/developer)
 of your account settings. You can always find this page by clicking your profile picture or
-initial on the top right of the screen, and selecting "Account settings":
+initial on the top right of the screen, and selecting 'Account settings':
 
 *![Account settings in user menu](images/api/user-menu-account-settings.png)*
 {: .screenshot-half}
@@ -34,13 +34,13 @@ The 'Developer' page has a section for API keys:
 
 ![API key settings](images/api/api-key-settings.png)
 
-Click on the "Create" button to create an API Key. Copy it for use when making API calls.
+Click on the 'Create' button to create an API Key. Copy it for use when making API calls.
 
-You can revoke your API key by clicking the "Remove" button at any time.
+You can revoke your API key by clicking the 'Remove' button at any time.
 You'll then have the option to create a new one if you wish.
 
-To test your api key, try this from the command-line (substituting
-your api key):
+To test your API key, try this from the command-line (substituting
+your API key):
 ```sh
 curl -H "Authorization: Bearer <API-KEY-GOES-HERE>" https://docs.getgrist.com/api/orgs
 ```

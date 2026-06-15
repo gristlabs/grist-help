@@ -8,7 +8,7 @@ Allowing an integration, a script, or an AI agent to access your Grist data has 
 sharing an [API key](rest-api.md). An API key provides complete access to everything you can
 access, and so carries the same risk as handing out your password.
 
-Connected apps -- based on the OAuth framework -- provide a more secure alternative. When a tool
+Connected apps -- based on the [OAuth framework](https://oauth.net/2/) -- provide a more secure alternative. When a tool
 needs to access your Grist data or act on it, it asks for permission. You can see what permissions
 it's asking for, and choose which documents to grant access to. You can also see which apps have
 what access, and revoke their access at any time.
@@ -29,7 +29,7 @@ your Grist account, you'll see a consent screen like this:
 
 This is where you get to review and approve what the app is requesting. You'll see:
 
-- The app's name, URL, who registered it, and optionally description and contact info.
+- The app's name, URL, who registered it, and optionally a description and contact info.
 - The permissions it's requesting, like "Read records from your documents".
 - Whether the app wants to continue accessing your data when you are not using Grist (for
   automations that can run when you are not at the browser).
@@ -61,7 +61,7 @@ For each one, you can see:
 - What the app has permission to do.
 - Which documents or workspaces the app can reach.
 
-Here you change which documents it can access, or use the 'Revoke' button to revoke its access.
+This is also where you can change which documents a connected app can access, or revoke access completely with the 'Revoke' button.
 
 ![Authorized app management](images/connected-apps/manage-authorized-app.png)
 
@@ -71,11 +71,11 @@ Here you change which documents it can access, or use the 'Revoke' button to rev
 | | API key | Connected app |
 |---|---|---|
 | What can it access? | Everything you can | Documents you choose |
-| What can it do? | Anything you can do | Only what it asked for |
+| What can it do? | Anything you can do | Only requested permissions |
 | Tied to | Your account | A specific app and grant |
 | Can revoke individually? | No (one key per account) | Yes (revoke any one app) |
 
-For any integration that supports it, we recommend using the connected app rather than an API key,
+For any integration that supports it, we recommend using the connected app rather than an API key –
 for better security, convenience, and visibility. Each connection is scoped to specific documents,
 is visible in the list of authorized apps, and can be revoked individually.
 
@@ -85,7 +85,7 @@ When you run Grist on your own infrastructure, the OAuth server runs there too, 
 enables the same type of connections with enhanced security properties and convenience.
 Authorization and validation all happen on the self-hosted server you control.
 
-In particular, it means that you can create internal integrations or connect existing services to
+This allows you to create internal integrations or connect existing services to
 your self-hosted instance without sharing API keys.
 
 Connected apps require the full edition of Grist. See [OAuth apps](oauth-apps.md)

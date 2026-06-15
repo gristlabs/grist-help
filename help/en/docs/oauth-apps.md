@@ -59,7 +59,7 @@ section lists the OAuth apps you are a maintainer for, and lets you register new
 
 ![OAuth apps list](images/oauth-apps/oauth-apps-list.png)
 
-Click **Register app** and fill in:
+Click "Register app" and fill in:
 
 - **Application name** — shown on the consent screen.
 - **Redirect URI** — where users return after authorizing. Must use
@@ -151,14 +151,14 @@ If the app is no longer used, you may use 'Delete app' button to delete it.
 
 ## Resource selections
 
-When the user authorizes your app, they may choose **All documents** or pick
+When the user authorizes your app, they may choose 'All documents' or pick
 specific documents, workspaces, or orgs. The selection is enforced
 on every API call: a request for a document outside the grant returns
 `403`, even if the user themselves can access that document. Your app
 does not need to do anything to support this.
 
 If your app needs a document the user didn't grant, the user can adjust
-the selection from their Authorized apps page (see
+the selection from their 'Authorized apps' page (see
 [Connected apps](connected-apps.md)), or you can prompt them to
 re-authorize.
 
@@ -186,7 +186,7 @@ their 'Authorized apps' page; doing so invalidates every token issued under that
   secret on a server, not in a browser or mobile app.
 - **`offline_access` requires `prompt=consent`** on the authorization
   request. Without it the request fails with
-  "invalid\_request: offline\_access scope requires prompt=consent".
+  `invalid\_request: offline\_access scope requires prompt=consent`.
 - **Resource indicators (RFC 8707) are not used.**
   Per-document selection happens on the consent screen and is enforced server-side; clients
   request scopes only.
