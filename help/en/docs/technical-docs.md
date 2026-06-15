@@ -21,8 +21,8 @@ and Make, or [embed](embedding.md) live Grist views directly into your website. 
 [Custom Widget API](code/README.md) lets you create entirely new widget types that
 interact with Grist documents. If you're building a third-party tool, AI agent, or
 internal app that needs to act on a user's data on their behalf, register it as an
-[OAuth app](oauth-apps.md) — users authorize it on the documents they choose and can
-revoke it at any time.
+[OAuth app](oauth-apps.md), which users can authorize on specific documents and
+can revoke at any time.
 
 ## Self-hosted Grist
 

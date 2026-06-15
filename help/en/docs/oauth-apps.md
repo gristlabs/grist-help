@@ -32,17 +32,21 @@ for scripts and integrations you run yourself. Prefer OAuth when:
   their own permissions and attribution. This is more secure and more convenient for the user
   than asking users to paste their own API keys.
 - **You are connecting an OAuth-enabled system to act as each user.** Third-party systems
-  that support OAuth can be connected to Grist to allow each user to authorize and act with the
-  user's permission. This is more secure than using an API key for a special "master" account with
+  that support OAuth can be connected to Grist to allow each user to authorize and act with their
+  own permissions. This is more secure than using an API key for a special "master" account with
   wide access.
 
 ## Discovery
 
-```
-// For getgrist.com
-GET https://login.getgrist.com/.well-known/oauth-authorization-server
+**For getgrist.com**
 
-// For your self-hosted server
+```
+GET https://login.getgrist.com/.well-known/oauth-authorization-server
+```
+
+**For your self-hosted server**
+
+```
 GET https://<your-grist-server>/.well-known/oauth-authorization-server
 ```
 
@@ -104,16 +108,19 @@ If you make changes, don't forget to save using the 'Save changes' button at the
 [Access rules](access-rules.md) still apply in all cases: an authorized app sees and changes only
 what the authorizing user can see and change. Scopes allow limiting that further.
 
-Note that `doc.schema:write` permission is equivalent to the **Structure** permission in [access
-rules](access-rules.md), which is very powerful. By enabling formula editing, it allows obtaining
-any data in the document, regardless of access rules. One of the security advantages of OAuth apps
-is that you can limit them to data changes only even if the authorizing user has the permission to
+Note that `doc.schema:write` permission is equivalent to the "structure" (`S`) permission in [access
+rules](access-rules.md), which is very powerful. Because this permission enables formula editing,
+it allows its holder to obtain any data in the document, regardless of other access rules.
+One of the security advantages of OAuth apps
+is that you can limit them to data changes only, even if the authorizing user has the permission to
 change structure.
 
 ## Endpoints for OAuth tokens
 
 The scopes above give access to the following endpoints, curated for what's typically needed by
 integrations. Endpoints not listed are not available to use with OAuth tokens.
+
+For details of individual endpoints, see [REST API Reference](api.md).
 
 | Path | Scopes to read | Scopes to update |
 |---|---|---|
@@ -129,8 +136,9 @@ integrations. Endpoints not listed are not available to use with OAuth tokens.
 | `/api/workspaces/{wsId}/docs` | — | `doc:write` + `doc.schema:write` |
 | `/api/profile/user` | `user.profile:read` | — |
 
-Any doc-level scope is enough to list orgs (personal and team sites) and to list the contents of
-the org (workspace and documents). If the user granted access to a limited set of resources, the
+Any document or "doc"-level scope is enough to list organizations ("orgs" – personal and team
+sites) and to list the contents of the organization (workspaces and documents).
+If the user granted access to a limited set of resources, the
 app will only see those.
 
 Note that the endpoints for exporting in tabular format (CSV, XLSX, etc.) respect access rules and

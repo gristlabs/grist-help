@@ -46,7 +46,8 @@ the app needs. You can come back later to change that selection.
 
 !!! note "Permission limits"
     Connected apps can only do at most what you, the authorizing user, can do. Their access is limited
-    by the same permissions and access rules. The app-specific permissions and the resources you
+    by the same permissions and [access rules](access-rules.md).
+    The app-specific permissions and the resources you
     select can restrict this access, but never expand it.
 
 ## Managing authorized apps
@@ -88,5 +89,7 @@ Authorization and validation all happen on the self-hosted server you control.
 This allows you to create internal integrations or connect existing services to
 your self-hosted instance without sharing API keys.
 
-Connected apps require the full edition of Grist. See [OAuth apps](oauth-apps.md)
+Connected apps require the
+[full edition](self-managed.md#how-do-i-enable-the-full-edition-of-grist)
+of Grist. See [OAuth apps](oauth-apps.md)
 for how to build apps that connect this way.
