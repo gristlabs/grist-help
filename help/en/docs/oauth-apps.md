@@ -194,7 +194,7 @@ their 'Authorized apps' page; doing so invalidates every token issued under that
   secret on a server, not in a browser or mobile app.
 - **`offline_access` requires `prompt=consent`** on the authorization
   request. Without it the request fails with
-  `invalid\_request: offline\_access scope requires prompt=consent`.
+  `invalid_request: offline_access scope requires prompt=consent`.
 - **Resource indicators (RFC 8707) are not used.**
   Per-document selection happens on the consent screen and is enforced server-side; clients
   request scopes only.
