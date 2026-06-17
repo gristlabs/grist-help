@@ -46,7 +46,7 @@ the app needs. You can come back later to change that selection.
 
 !!! note "Permission limits"
     Connected apps can only do at most what you, the authorizing user, can do. Their access is limited
-    by the same permissions and [access rules](access-rules.md).
+    by the same [access rules](access-rules.md).
     The app-specific permissions and the resources you
     select can restrict this access, but never expand it.
 
