@@ -23,6 +23,7 @@
     "redoc-cli": "^0.13.20"
   },
   "devDependencies": {
+    "@apidevtools/swagger-parser": "^12.1.0",
     "chai": "^4.3.7",
     "js-yaml": "^4.1.0",
     "mocha": "^10.2.0",
