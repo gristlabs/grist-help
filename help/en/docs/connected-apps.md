@@ -40,7 +40,7 @@ Choosing 'Selected resources' opens a picker:
 
 ![Resource picker](images/connected-apps/resource-picker.png)
 
-Authorize only the apps you intend by reviewing the app info, especially the shown
+Only authorize apps you trust, after reviewing the app info, especially the shown
 URL. It's best to follow the principle of least privilege to grant access only to the resources
 the app needs. You can come back later to change that selection.
 
@@ -76,7 +76,7 @@ This is also where you can change which documents a connected app can access, or
 | Tied to | Your account | A specific app and grant |
 | Can revoke individually? | No (one key per account) | Yes (revoke any one app) |
 
-For any integration that supports it, we recommend using the connected app rather than an API key –
+For any integration that supports it, we recommend using the connected app rather than an API key --
 for better security, convenience, and visibility. Each connection is scoped to specific documents,
 is visible in the list of authorized apps, and can be revoked individually.
 

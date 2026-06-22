@@ -213,7 +213,7 @@ not copied: the new copy will not have it on.
 
 ## Restrict access to columns
 
-We can restrict a collaborator's access to columns.  In our eample, we might
+We can restrict a collaborator's access to columns.  In our example, we might
 wish to give a delivery specialist more limited access to
 the `Orders` table.  Perhaps they don't need to see an **Email** column,
 or a **Piece** column with details of what is in the parcel.
@@ -256,7 +256,7 @@ document from the colleague's perspective.
 In our example, we could select Kiwi, and the
 document reopens, with a large banner stating that we are viewing it
 as Kiwi.  The **Piece** and **Email** columns are missing,
-and the `Financials` table is surpressed:
+and the `Financials` table is suppressed:
 
 ![Access rules](images/access-rules/access-rules-view-as-kiwi.png)
 
@@ -291,7 +291,7 @@ column to match against, **Email**.
 
 Save that. Now we can update our rules to be more general.  We find with
 autocomplete that we have a new `user.Team` variable available in
-condtions.  It makes columns from the `Team` available, such as `user.Team.Role`.
+conditions.  It makes columns from the `Team` available, such as `user.Team.Role`.
 Now we can check if the user has a particular role, and apply the permissions
 that go with that:
 

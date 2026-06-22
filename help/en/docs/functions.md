@@ -1161,7 +1161,7 @@ using the NASD standard calendar. For use in non-financial settings, option `-1`
 likely the best choice.
 
 See <https://en.wikipedia.org/wiki/360-day_calendar> for explanation of
-the US 30/360 and European 30/360 methods. See <http://www.dwheeler.com/yearfrac/> for analysis of
+the US 30/360 and European 30/360 methods. See <https://web.archive.org/web/20210118174252/https://dwheeler.com/yearfrac/> for analysis of
 Excel's particular implementation.
 
 Basis `-1` is similar to `1`, but differs from Excel when dates span both leap and non-leap years.

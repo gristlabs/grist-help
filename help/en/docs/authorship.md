@@ -47,8 +47,8 @@ pick and choose which columns, when updated, will trigger the formula.
 
 ![an Updated-By column](images/formulas/formulas-updated-by-setup.png)
 
-Here is an example the the new column at work - when `Cotton Candy v Candy Floss`
-is updated,a user name appears for that record:
+Here is an example of the new column at work - when `Cotton Candy v Candy Floss`
+is updated, a user name appears for that record:
 
 ![an Updated-By column](images/formulas/formulas-updated-by-autofill.png)
 

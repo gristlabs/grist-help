@@ -194,7 +194,7 @@ In the last portion of the formula, we can specify variables that pull from othe
     The **Customer Address** column can be deleted from the `Projects` table completely. This data is already stored in the `Customers` table and our **Customer Name** column is a reference column pointing to this table. We can use this reference column to pull any other information from the `Customers` table to include in our proposal. If you choose to delete **Customer Address** from the `Projects` table, update the last section of formula to the following:
 
     ```
-    template.format_map(Find_data(
+    template.format_map(Find_Data(
       Customer_Name = $Customer_Name.Name,
       Customer_Address = $Customer_Name.Address.replace('\n', '<br>'),
     ))
