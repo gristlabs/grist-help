@@ -14,7 +14,7 @@ include:">
         <link rel="canonical" href="https://support.getgrist.com/integrators/">
       
       
-        <link rel="prev" href="../api/">
+        <link rel="prev" href="../oauth-apps/">
       
       
         <link rel="next" href="../embedding/">
@@ -62,7 +62,7 @@ include:">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1780691508"></script>
+  <script type="module" src="/js/grist.js?v=1782090627"></script>
 
     
   
@@ -3177,6 +3177,37 @@ include:">
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connected-apps/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Connected apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3999,6 +4030,37 @@ include:">
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../oauth-apps/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    OAuth apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -4265,10 +4327,10 @@ include:">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_7" id="__nav_3_2_7_label" tabindex="0">
             
   
   
@@ -4289,8 +4351,8 @@ include:">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7">
             <span class="md-nav__icon md-icon"></span>
             
             <span class="g-nav-back-title">
@@ -9036,6 +9098,12 @@ include:</p>
 </ul>
 <h2 id="configuring-integrators">Configuring Integrators<a class="headerlink" href="#configuring-integrators" title="Permanent link">#</a></h2>
 <p>Each integrator provides its own way to configure the connection between Grist and other services. </p>
+<div class="admonition note">
+<p class="admonition-title">Connected apps</p>
+<p>If an integrator supports it, a <a href="../connected-apps/">connected app</a> is a safer choice than
+using API keys: it can be authorized on specific documents and revoked individually, for
+greater security, control, and visibility.</p>
+</div>
 <p><a href="https://www.pabbly.com/connect/integrations/grist/">Pabbly Connect</a> has created a few videos walking through how to set up an integration with Grist 
 using Pabbly Connect.
 <a href="https://www.youtube.com/channel/UCVA5GKy8qpDxQR5xSt_zcJg/search?query=grist">Pabbly Connect Youtube - Grist Playlist</a></p>
@@ -9245,7 +9313,7 @@ on notifications will be sent for all of them. That may be a lot!</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../api/" class="md-footer__link md-footer__link--prev" aria-label="Previous: REST API reference">
+          <a href="../oauth-apps/" class="md-footer__link md-footer__link--prev" aria-label="Previous: OAuth apps">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -9255,7 +9323,7 @@ on notifications will be sent for all of them. That may be a lot!</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                REST API reference
+                OAuth apps
               </div>
             </div>
           </a>

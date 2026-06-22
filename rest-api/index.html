@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1780691508"></script>
+  <script type="module" src="/js/grist.js?v=1782090627"></script>
 
     
   
@@ -3017,6 +3017,37 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connected-apps/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Connected apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3858,6 +3889,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3912,6 +3960,37 @@
 
   <span class="md-ellipsis">
     REST API reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oauth-apps/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    OAuth apps
     
   </span>
   
@@ -4033,10 +4112,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_7" id="__nav_3_2_7_label" tabindex="0">
             
   
   
@@ -4057,8 +4136,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7">
             <span class="md-nav__icon md-icon"></span>
             
             <span class="g-nav-back-title">
@@ -8629,6 +8708,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -8727,27 +8823,31 @@
 </ul>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <p>To access the Grist API, you&rsquo;ll need an API key.  An API key is owned by a single
-user, and has the same permissions as that user.  To enable API access for
-yourself, visit your <a href="https://docs.getgrist.com/account">Profile Settings</a>. You can always find
-this page by clicking your profile picture or initial on the top right of the screen to open the
-account menu.  Then select the &ldquo;Profile Settings&rdquo; option:</p>
-<p class="screenshot-half"><em><img alt="api-profile-settings" src="../images/api/api-profile-settings.png" /></em></p>
-<p>This shows a dialog with all of your profile setting options. Scroll down to the &ldquo;API&rdquo; section.</p>
-<p><img alt="api-user-profile" src="../images/api/api-user-profile.png" /></p>
-<p>Click on the &ldquo;Create&rdquo; button to create an API Key.</p>
-<p><img alt="api-create-api-key" src="../images/api/api-create-api-key.png" /></p>
-<p>You can now copy this key for use when making API calls.  To be
-clear, copy the key in your profile settings, not the key
-in the above screenshot, which isn&rsquo;t a real one.  You can
-revoke your API key by clicking &ldquo;Remove&rdquo; from Profile Settings at any time.
+user, and has the same permissions as that user.</p>
+<div class="admonition note">
+<p class="admonition-title">Connected apps</p>
+<p>An API key carries your full account access. For tools that act on your data on your behalf &ndash;
+partner products, internal apps, AI agents &ndash; a <a href="../connected-apps/">connected app</a> is a safer
+choice: it can be authorized for specific documents and revoked individually, for greater
+security, control, and visibility.
+For building such tools, see <a href="../oauth-apps/">OAuth apps</a>.</p>
+</div>
+<h3 id="api-keys">API keys<a class="headerlink" href="#api-keys" title="Permanent link">#</a></h3>
+<p>To enable API access for yourself, visit the <a href="https://docs.getgrist.com/account/developer">Developer page</a>
+of your account settings. You can always find this page by clicking your profile picture or
+initial on the top right of the screen, and selecting &lsquo;Account settings&rsquo;:</p>
+<p class="screenshot-half"><em><img alt="Account settings in user menu" src="../images/api/user-menu-account-settings.png" /></em></p>
+<p>The &lsquo;Developer&rsquo; page has a section for API keys:</p>
+<p><img alt="API key settings" src="../images/api/api-key-settings.png" /></p>
+<p>Click on the &lsquo;Create&rsquo; button to create an API Key. Copy it for use when making API calls.</p>
+<p>You can revoke your API key by clicking the &lsquo;Remove&rsquo; button at any time.
 You&rsquo;ll then have the option to create a new one if you wish.</p>
-<p>To test your api key, try this from the command-line (substituting
-your api key):
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;API-KEY-GOES HERE&gt;&quot;</span><span class="w"> </span>https://docs.getgrist.com/api/orgs
+<p>To test your API key, try this from the command-line (substituting
+your API key):
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;API-KEY-GOES-HERE&gt;&quot;</span><span class="w"> </span>https://docs.getgrist.com/api/orgs
 </code></pre></div></p>
-<p>This should return a list of organizations, which is what the API calls
-<a href="../team-sharing/">team sites</a> and your personal site.  Your personal site
-is accessible at <code>docs.getgrist.com</code>.  Team sites are accessible at <code>&lt;TEAM&gt;.getgrist.com</code>.</p>
+<p>This should return a list of organizations, i.e. <a href="../team-sharing/">team sites</a> you have access to,
+and your personal site.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>To access documents on your personal site via the API, simply continue
 using the <code>docs.getgrist.com</code> domain.  To access documents and
