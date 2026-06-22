@@ -177,7 +177,7 @@ grist.ready();
 grist.onRecord(function (record) {
   // Cursor has moved.
 });
-grist.onRecords(function (record) {
+grist.onRecords(function (records) {
   // Data in the table has changed.
 });
 grist.onOptions(function (options, interaction) {
