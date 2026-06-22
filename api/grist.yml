@@ -3,6 +3,10 @@ info:
     An API for manipulating Grist sites, workspaces, and documents.
 
     # Authentication
+
+    The Grist API accepts two credential types in the `Authorization: Bearer`
+    header: [API keys](../rest-api/) and [OAuth access tokens](../oauth-apps/).
+
     <SecurityDefinitions />
   version: "1.0.1"
   title: "Grist API"
@@ -868,6 +872,9 @@ paths:
   /docs/{docId}/download:
     get:
       operationId: downloadDoc
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:download"]
       tags:
         - docs
       summary: "Content of document, as an Sqlite file"
@@ -896,6 +903,9 @@ paths:
   /docs/{docId}/download/xlsx:
     get:
       operationId: downloadDocXlsx
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - docs
       summary: "Content of document, as an Excel file"
@@ -918,6 +928,9 @@ paths:
   /docs/{docId}/download/csv:
     get:
       operationId: downloadDocCsv
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - docs
       summary: "Content of table, as a CSV file"
@@ -941,6 +954,9 @@ paths:
   /docs/{docId}/download/tsv:
     get:
       operationId: downloadDocTsv
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - docs
       summary: "Content of table, as a TSV file"
@@ -965,6 +981,9 @@ paths:
   /docs/{docId}/download/dsv:
     get:
       operationId: downloadDocDsv
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - docs
       summary: "Content of table, as a DSV file"
@@ -989,6 +1008,9 @@ paths:
   /docs/{docId}/download/table-schema:
     get:
       operationId: downloadTableSchema
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - docs
       summary: "The schema of a table"
@@ -1693,6 +1715,9 @@ paths:
   /docs/{docId}/attachments:
     get:
       operationId: "listAttachments"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - attachments
       summary: "List metadata of all attachments in a doc"
@@ -1712,6 +1737,9 @@ paths:
                 $ref: "#/components/schemas/AttachmentMetadataList"
     post:
       operationId: "uploadAttachments"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:write"]
       tags:
         - attachments
       summary: "Upload attachments to a doc"
@@ -1734,6 +1762,9 @@ paths:
   /docs/{docId}/attachments/{attachmentId}:
     get:
       operationId: "getAttachmentMetadata"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - attachments
       summary: "Get the metadata for an attachment"
@@ -1754,6 +1785,9 @@ paths:
   /docs/{docId}/attachments/{attachmentId}/download:
     get:
       operationId: "downloadAttachment"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - attachments
       summary: "Download the contents of an attachment"
@@ -1964,6 +1998,9 @@ paths:
   /docs/{docId}/tables/{tableId}/records:
     get:
       operationId: "listRecords"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - records
       summary: "Fetch records from a table"
@@ -1985,6 +2022,9 @@ paths:
                 $ref: "#/components/schemas/RecordsList"
     post:
       operationId: "addRecords"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:write"]
       tags:
         - records
       summary: "Add records to a table"
@@ -2008,6 +2048,9 @@ paths:
                 $ref: "#/components/schemas/RecordsWithoutFields"
     patch:
       operationId: "modifyRecords"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:write"]
       tags:
         - records
       summary: "Modify records of a table"
@@ -2027,6 +2070,9 @@ paths:
           description: Success
     put:
       operationId: "replaceRecords"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:write"]
       tags:
         - records
       summary: "Add or update records of a table"
@@ -2086,6 +2132,9 @@ paths:
   /docs/{docId}/tables/{tableId}/records/delete:
     post:
       operationId: deleteRecords
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:write"]
       tags:
         - records
       summary: "Delete records of a table"
@@ -2106,6 +2155,9 @@ paths:
   /docs/{docId}/tables:
     get:
       operationId: "listTables"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - tables
       summary: "List tables in a document"
@@ -2159,6 +2211,9 @@ paths:
                               formula: ""
     post:
       operationId: "addTables"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc.schema:write"]
       tags:
         - tables
       summary: "Add tables to a document"
@@ -2180,6 +2235,9 @@ paths:
                 $ref: "#/components/schemas/TablesWithoutFields"
     patch:
       operationId: "modifyTables"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc.schema:write"]
       tags:
         - tables
       summary: "Modify tables of a document"
@@ -2203,6 +2261,9 @@ paths:
   /docs/{docId}/tables/{tableId}/columns:
     get:
       operationId: "listColumns"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:read"]
       tags:
         - columns
       summary: "List columns in a table"
@@ -2219,6 +2280,9 @@ paths:
                 $ref: "#/components/schemas/ColumnsList"
     post:
       operationId: "addColumns"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc.schema:write"]
       tags:
         - columns
       summary: "Add columns to a table"
@@ -2241,6 +2305,9 @@ paths:
                 $ref: "#/components/schemas/ColumnsWithoutFields"
     patch:
       operationId: "modifyColumns"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc.schema:write"]
       tags:
         - columns
       summary: "Modify columns of a table"
@@ -2259,6 +2326,9 @@ paths:
           description: Success
     put:
       operationId: "replaceColumns"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc.schema:write"]
       tags:
         - columns
       summary: "Add or update columns of a table"
@@ -2297,6 +2367,9 @@ paths:
   /docs/{docId}/tables/{tableId}/columns/{colId}:
     delete:
       operationId: "deleteColumn"
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc.schema:write"]
       tags:
         - columns
       summary: "Delete a column of a table"
@@ -2351,6 +2424,9 @@ paths:
   /docs/{docId}/webhooks:
     get:
       operationId: listWebhooks
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:webhooks"]
       tags:
         - webhooks
       summary: "Webhooks associated with a document"
@@ -2373,6 +2449,9 @@ paths:
                     $ref: "#/components/schemas/Webhooks"
     post:
       operationId: createWebhooks
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:webhooks"]
       tags:
         - webhooks
       summary: "Create new webhooks for a document"
@@ -2417,6 +2496,9 @@ paths:
   /docs/{docId}/webhooks/{webhookId}:
     patch:
       operationId: modifyWebhook
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:webhooks"]
       tags:
         - webhooks
       summary: "Modify a webhook"
@@ -2441,6 +2523,9 @@ paths:
           description: "Webhook updated successfully. Returns empty body."
     delete:
       operationId: deleteWebhook
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:webhooks"]
       tags:
         - webhooks
       summary: "Remove a webhook"
@@ -2471,6 +2556,9 @@ paths:
   /docs/{docId}/webhooks/queue:
     delete:
       operationId: clearWebhookQueue
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:webhooks"]
       tags:
         - webhooks
       summary: "Empty a document's queue of undelivered payloads"
@@ -2486,6 +2574,9 @@ paths:
   /docs/{docId}/webhooks/queue/{webhookId}:
     delete:
       operationId: clearWebhookQueueForWebhook
+      security:
+        - ApiKey: []
+        - OAuth2: ["doc:webhooks"]
       tags:
         - webhooks
       summary: "Clear queue for a specific webhook"
@@ -3044,6 +3135,28 @@ components:
       scheme: bearer
       bearerFormat: "Authorization: Bearer XXXXXXXXXXX"
       description: "Access to the Grist API is controlled by an Authorization header, which should contain the word 'Bearer', followed by a space, followed by your API key."
+    OAuth2:
+      type: oauth2
+      description: |
+        Access tokens issued by Grist's OAuth server. Tokens are passed in the
+        `Authorization: Bearer` header, the same way as an API key, but are scoped to the
+        documents and permissions granted by the user to the app. Tokens are opaque and start with
+        `grist_at_` prefix. See [OAuth apps](../oauth-apps/) for details.
+
+        Endpoints may be discovered at `/.well-known/oauth-authorization-server`. Endpoints below
+        are for getgrist.com.
+
+      flows:
+        authorizationCode:
+          authorizationUrl: "https://login.getgrist.com/oidc/auth"
+          tokenUrl: "https://login.getgrist.com/oidc/token"
+          scopes:
+            "doc:read": "Read document records, structure, and formulas"
+            "doc:write": "Create, update, and delete records"
+            "doc.schema:write": "Update document structure and formulas"
+            "doc:download": "Download documents in full"
+            "doc:webhooks": "Manage webhooks"
+            "offline_access": "Issue a refresh token for long-lived access"
   schemas:
     Org:
       type: object

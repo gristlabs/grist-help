@@ -62,6 +62,7 @@
   --md-default-fg-color--lightest: var(--grist-medium-grey);
   --md-typeset-color: var(--md-default-fg-color--light);
   --md-code-bg-color: var(--grist-light);
+  --md-code-hl-comment-color: var(--grist-light-text);
   --md-typeset-table-color: var(--grist-slate);
 }
 

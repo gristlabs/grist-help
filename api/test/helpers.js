@@ -77,6 +77,7 @@ function startGrist() {
   execSync(
     `docker run -d --name ${CONTAINER_NAME} ` +
     `-p ${GRIST_PORT}:8484 ` +
+    `-e GRIST_IN_SERVICE=true ` +
     `-e GRIST_TEST_LOGIN=1 ` +
     `-e TEST_SUPPORT_API_KEY=${API_KEY} ` +
     `-e GRIST_WIDGET_LIST_URL=https://github.com/gristlabs/grist-widget/releases/download/latest/manifest.json ` +

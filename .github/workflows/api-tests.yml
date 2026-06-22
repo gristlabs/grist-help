@@ -25,6 +25,7 @@ jobs:
         ports:
           - 8485:8484
         env:
+          GRIST_IN_SERVICE: true
           GRIST_TEST_LOGIN: 1
           TEST_SUPPORT_API_KEY: api_key_for_support
           GRIST_WIDGET_LIST_URL: https://github.com/gristlabs/grist-widget/releases/download/latest/manifest.json

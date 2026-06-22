@@ -18,6 +18,11 @@ include:
 
 Each integrator provides its own way to configure the connection between Grist and other services. 
 
+!!! note "Connected apps"
+    If an integrator supports it, a [connected app](connected-apps.md) is a safer choice than
+    using API keys: it can be authorized on specific documents and revoked individually, for
+    greater security, control, and visibility.
+
 [Pabbly Connect](https://www.pabbly.com/connect/integrations/grist/) has created a few videos walking through how to set up an integration with Grist 
 using Pabbly Connect.
 [Pabbly Connect Youtube - Grist Playlist](https://www.youtube.com/channel/UCVA5GKy8qpDxQR5xSt_zcJg/search?query=grist)
