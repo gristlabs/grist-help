@@ -681,7 +681,7 @@ client:
   ...
 ```
 
-As per [MinIO specs](https://docs.min.io/community/minio-object-store/developers/go/API.html), the default bucket region is `us-east-1`. This default region can be overwritten using the `GRIST_DOCS_MINIO_BUCKET_REGION` flag.
+As per [MinIO specs](https://github.com/minio/minio-go/blob/master/docs/API.md#makebucketctx-contextcontext-bucketname-string-opts-makebucketoptions-error), the default bucket region is `us-east-1`. This default region can be overwritten using the `GRIST_DOCS_MINIO_BUCKET_REGION` flag.
 
 For details, and other options, see [Cloud Storage](install/cloud-storage.md).
 

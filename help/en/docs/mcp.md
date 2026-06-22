@@ -3,9 +3,6 @@ title: "Grist MCP server"
 description: "Connect Claude and other MCP-aware tools to Grist team sites and documents."
 ---
 
-!!! warning "Pre-release document"
-    This is a draft document and the features described here are not enabled yet.
-
 Model Context Protocol (MCP) is an open standard that lets AI assistants access external data. Any
 MCP-aware tool (such as Claude or ChatGPT) can use Grist's MCP server to work with your team sites
 and documents: list and search tables, read and query rows, add or update rows, and create new
