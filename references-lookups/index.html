@@ -62,7 +62,7 @@ A common example of this is seen in the Class Enrollment template.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1782134871"></script>
+  <script type="module" src="/js/grist.js?v=1782144182"></script>
 
     
   
@@ -9050,7 +9050,7 @@ references the records on our Staff page. </p>
 <p>Building on our prior <a href="https://public.getgrist.com/6kTypo2FtSsf/Event-Sponsors-Attendees-References-and-Lookups/p/3" target="_blank">example</a> of attendees at a conference, suppose we have a list of registrants for an event and want to find the balance for each registrant. To do this, we can use dot notation.</p>
 <p>Here, <code>$Registrants</code> is a reference list. Our Great Outdoors Expo has 4 registrants. We can see the list of registrants in the Registrants column. This list is a reference to the Name column of the All Registrants table. </p>
 <p><span class="screenshot-large"><em><img alt="reference-list-registrants" src="../images/references-lookups/reference-list-registrants.png" /></em></span></p>
-<p>With a reference list, dot-notation returns a list of all the selected field;</p>
+<p>With a reference list, dot-notation returns a list of all the selected fields;</p>
 <p><span class="screenshot-large"><em><img alt="registrants-balance" src="../images/references-lookups/registrants-balance.png" /></em></span></p>
 <p><code>$Registrants.Balance</code> is a list of the Balances for each attendee in the list of <code>$Registrants</code>. This follows the format <code>$[A].[B]</code> where <code>[A]</code> is the name of the Reference List column and <code>[B]</code> is the name of the column in the referenced table you wish to pull data from. We&rsquo;ll learn how to find the sum of these balances in <a href="#working-with-record-sets">Working with Record Sets</a>.</p>
 <h2 id="lookuprecords">lookupRecords<a class="headerlink" href="#lookuprecords" title="Permanent link">#</a></h2>

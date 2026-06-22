@@ -67,7 +67,7 @@ parts of a document.  Access rules give us that power.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1782134871"></script>
+  <script type="module" src="/js/grist.js?v=1782144182"></script>
 
     
   
@@ -9406,7 +9406,7 @@ circumvent read restrictions just for this purpose.</p>
 <p>Note that when you make a copy of a document with this special rule, the special rule itself is
 not copied: the new copy will not have it on.</p>
 <h2 id="restrict-access-to-columns">Restrict access to columns<a class="headerlink" href="#restrict-access-to-columns" title="Permanent link">#</a></h2>
-<p>We can restrict a collaborator&rsquo;s access to columns.  In our eample, we might
+<p>We can restrict a collaborator&rsquo;s access to columns.  In our example, we might
 wish to give a delivery specialist more limited access to
 the <code>Orders</code> table.  Perhaps they don&rsquo;t need to see an <strong>Email</strong> column,
 or a <strong>Piece</strong> column with details of what is in the parcel.</p>
@@ -9438,7 +9438,7 @@ document from the colleague&rsquo;s perspective.</p>
 <p>In our example, we could select Kiwi, and the
 document reopens, with a large banner stating that we are viewing it
 as Kiwi.  The <strong>Piece</strong> and <strong>Email</strong> columns are missing,
-and the <code>Financials</code> table is surpressed:</p>
+and the <code>Financials</code> table is suppressed:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-view-as-kiwi.png" /></p>
 <p>You can also check in &lsquo;Raw Data&rsquo; to confirm only the expected tables, columns, and rows are exposed.</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-view-as-kiwi-raw-data.png" /></p>
@@ -9463,7 +9463,7 @@ column to match against, <strong>Email</strong>.</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-team-attribute.png" /></p>
 <p>Save that. Now we can update our rules to be more general.  We find with
 autocomplete that we have a new <code>user.Team</code> variable available in
-condtions.  It makes columns from the <code>Team</code> available, such as <code>user.Team.Role</code>.
+conditions.  It makes columns from the <code>Team</code> available, such as <code>user.Team.Role</code>.
 Now we can check if the user has a particular role, and apply the permissions
 that go with that:</p>
 <p><img alt="Access rules" src="../images/access-rules/access-rules-team-rules.png" /></p>

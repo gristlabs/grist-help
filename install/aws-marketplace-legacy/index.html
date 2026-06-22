@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1782134871"></script>
+  <script type="module" src="/js/grist.js?v=1782144182"></script>
 
     
   
@@ -8739,7 +8739,7 @@
 <ul>
 <li>Assigning a public DNS name to the Grist EC2 instance is allowed.</li>
 <li>The VPC can be accessed from the internet (allowing internet gateway and routing tables to handle traffic).</li>
-<li>A security group connection from ports 22 (SSH for configuration), 80 (HTTP connection) and 433 (HTTPS connection) is allowed.</li>
+<li>A security group connection from ports 22 (SSH for configuration), 80 (HTTP connection) and 443 (HTTPS connection) is allowed.</li>
 </ul>
 <h2 id="updating-grist-omnibus">Updating <code>grist-omnibus</code><a class="headerlink" href="#updating-grist-omnibus" title="Permanent link">#</a></h2>
 <p>The packaged version of <code>grist-omnibus</code> will auto-update before each launch. To update <code>grist-omnibus</code> manually, restart the Grist EC2 instance or log in via SSH and call <code>sudo ~/grist/restartGrist</code>.</p>

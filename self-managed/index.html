@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1782134871"></script>
+  <script type="module" src="/js/grist.js?v=1782144182"></script>
 
     
   
@@ -10139,7 +10139,7 @@ client:
   -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
   ...
 </code></pre></div></p>
-<p>As per <a href="https://min.io/docs/minio/linux/developers/go/API.html#:~:text=Default%20value%20is%20us-east,us-east-1">MinIO specs</a>.), the default bucket region is <code>us-east-1</code>. This default region can be overwritten using the <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> flag.</p>
+<p>As per <a href="https://github.com/minio/minio-go/blob/master/docs/API.md#makebucketctx-contextcontext-bucketname-string-opts-makebucketoptions-error">MinIO specs</a>, the default bucket region is <code>us-east-1</code>. This default region can be overwritten using the <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> flag.</p>
 <p>For details, and other options, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-enable-external-attachments">How do I enable external attachments?<a class="headerlink" href="#how-do-i-enable-external-attachments" title="Permanent link">#</a></h3>
 <p>Follow these steps:</p>

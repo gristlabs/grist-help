@@ -62,7 +62,7 @@ to generate proposals and contracts right there, alongside those records. You ca
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1782134871"></script>
+  <script type="module" src="/js/grist.js?v=1782144182"></script>
 
     
   
@@ -8993,7 +8993,7 @@ In the last portion of the formula, we can specify variables that pull from othe
 <div class="admonition note">
 <p class="admonition-title">Note: Customer Address</p>
 <p>The <strong>Customer Address</strong> column can be deleted from the <code>Projects</code> table completely. This data is already stored in the <code>Customers</code> table and our <strong>Customer Name</strong> column is a reference column pointing to this table. We can use this reference column to pull any other information from the <code>Customers</code> table to include in our proposal. If you choose to delete <strong>Customer Address</strong> from the <code>Projects</code> table, update the last section of formula to the following:</p>
-<div class="highlight"><pre><span></span><code>template.format_map(Find_data(
+<div class="highlight"><pre><span></span><code>template.format_map(Find_Data(
   Customer_Name = $Customer_Name.Name,
   Customer_Address = $Customer_Name.Address.replace(&#39;\n&#39;, &#39;&lt;br&gt;&#39;),
 ))
