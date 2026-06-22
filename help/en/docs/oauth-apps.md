@@ -155,7 +155,7 @@ later, you always have the option to regenerate the secret from the app configur
 Regenerating the secret will break existing integrations that still use the old secret,
 including any background tasks relying on refresh tokens.
 
-If the app is no longer used, you may use 'Delete app' button to delete it.
+If the app is no longer used, you may use the 'Delete app' button to delete it.
 
 ## Resource selections
 

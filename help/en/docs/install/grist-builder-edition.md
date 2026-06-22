@@ -36,7 +36,7 @@ If you don’t want to connect via SSH, AWS provides the option to connect from 
 
 #### Azure
 
-When deploying the virtual machine you may be asked to use SSH keys or password, as well as the default user to log in as. The default user is named `azureuser`, and you can login as `azureuser@[azure-vm-public-ip]`.
+When deploying the virtual machine you may be asked to use SSH keys or password, as well as the default user to log in as. The default user is named `azureuser`, and you can log in as `azureuser@[azure-vm-public-ip]`.
 
 **Note:** If you choose to use default method of SSH keys, you need to use the `*.pem` file you received when Azure generated key pairs.
 

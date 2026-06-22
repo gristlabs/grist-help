@@ -47,7 +47,7 @@ Once the above has been configured, you should be able to log in with your Googl
 
 * Assigning a public DNS name to the Grist EC2 instance is allowed.
 * The VPC can be accessed from the internet (allowing internet gateway and routing tables to handle traffic).
-* A security group connection from ports 22 (SSH for configuration), 80 (HTTP connection) and 433 (HTTPS connection) is allowed.
+* A security group connection from ports 22 (SSH for configuration), 80 (HTTP connection) and 443 (HTTPS connection) is allowed.
 
 ## Updating `grist-omnibus`
 

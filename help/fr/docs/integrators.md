@@ -9,7 +9,6 @@ Grist peut être connecté à des milliers d'autres services via des intégrateu
 - [Zapier](https://zapier.com/apps/grist/integrations)
 - [Integrately](https://integrately.com/integrations/grist)
 - [Pabbly Connect](https://www.pabbly.com/connect/integrations/grist/)
-- [KonnectzIT](https://plan.konnectzit.com/feedback/grist-integration)
 - [n8n](https://n8n.io/integrations/n8n-nodes-base.grist)
 - [Make](https://www.make.com/en/integrations/grist?utm_source=grist-app&utm_medium=partner&utm_campaign=grist-app-partner-program)
 

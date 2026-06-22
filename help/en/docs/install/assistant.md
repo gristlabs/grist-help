@@ -53,7 +53,7 @@ You may then specify the model to use by setting `ASSISTANT_MODEL`:
 ASSISTANT_MODEL=anthropic/claude-sonnet-4.5
 ```
 
-The Assistant is know to work with the following OpenRouter models:
+The Assistant is known to work with the following OpenRouter models:
 
  * `openai/gpt-4o-2024-08-06` (last tested: 10-02-2025)
  * `anthropic/claude-sonnet-4.5` (last tested: 10-02-2025)

@@ -168,7 +168,7 @@ Here, `$Registrants` is a reference list. Our Great Outdoors Expo has 4 registra
 
 <span class="screenshot-large">*![reference-list-registrants](images/references-lookups/reference-list-registrants.png)*</span>
 
-With a reference list, dot-notation returns a list of all the selected field;
+With a reference list, dot-notation returns a list of all the selected fields;
 
 <span class="screenshot-large">*![registrants-balance](images/references-lookups/registrants-balance.png)*</span>
 

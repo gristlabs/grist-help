@@ -38,7 +38,7 @@ To add additional form elements, click the + icon at the bottom of the form. Fro
 
 *![widget-form-elements-side](images/widget-form/widget-form-elements-side.png)*
 
-You can remove any element from the form by hovering over the object and clicking the trash icon to delete. You can hide any uneccessary fields from the form by hovering over the object and clicking the x icon.
+You can remove any element from the form by hovering over the object and clicking the trash icon to delete. You can hide any unnecessary fields from the form by hovering over the object and clicking the x icon.
 
 *![widget-form-delete](images/widget-form/widget-form-delete.png)*
 

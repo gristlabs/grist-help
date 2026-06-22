@@ -157,7 +157,7 @@ and the underlying scope name is shown in parentheses.
 * **Read documents** (`doc:read`): list and query tables, records, columns, and attachments.
 * **Modify records** (`doc:write`): add, update, and remove rows.
 * **Modify schema** (`doc.schema:write`): add, rename, or remove tables and columns.
-* **Download documents** (`doc:download`): export full documents as CSV or Excel. Not used by any
+* **Download documents** (`doc:download`): download documents in full. Not used by any
   MCP tool currently.
 * **Manage webhooks** (`doc:webhooks`): create, read, update, and delete document webhooks.
 

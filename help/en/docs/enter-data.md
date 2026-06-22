@@ -8,7 +8,7 @@ A spreadsheet-like grid is a great way to see data. In Grist, this is the view
 offered by the default page widget called "Table".
 
 As in a spreadsheet, you can use the mouse or arrow keys to move around the
-cells of a table. To start entering data into a selecte cell, either start
+cells of a table. To start entering data into a selected cell, either start
 typing, hit <code class="keys">*Enter*</code>, or double-click the cell.
 
 ## Editing cells
