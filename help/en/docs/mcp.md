@@ -57,7 +57,7 @@ Once you set both variables, users can connect any assistant on your list.
 
 !!! note "Clients that do not support CIMD"
     Some assistants cannot register themselves through CIMD. For these, set up an
-    [OAuth app](https://support.getgrist.com/) in Grist and use it with a client of your choice.
+    [OAuth app](oauth-apps.md) in Grist and use it with a client of your choice.
 
 ## Connecting your MCP client
 
@@ -69,7 +69,7 @@ Point your client at Grist's MCP server URL:
   covers every team site and personal site on that instance.
 
 Clients can authenticate in several ways: API keys, service accounts, registered
-[OAuth apps](https://support.getgrist.com/), and CIMD (Client ID Metadata Documents), the preferred
+[OAuth apps](oauth-apps.md), and CIMD (Client ID Metadata Documents), the preferred
 standard that lets a client register itself automatically from a metadata URL instead of being set
 up in advance.
 
@@ -183,12 +183,12 @@ The same consent screen also asks which Grist resources the client can reach. Yo
 Selecting a parent grants access to everything inside it. If you select a workspace, you do not need
 to also select the documents inside it.
 
-You can change this selection later from the 'Authorized apps' page in your Grist account
+You can change this selection later from the ['Authorized apps' page](connected-apps.md#managing-authorized-apps) in your Grist account
 settings, without disconnecting the client. A change can take up to an hour to reach clients you
 have already connected, such as Claude or ChatGPT. To apply it right away, disconnect and reconnect
 Grist from that client's connector settings.
 
-[Learn more about OAuth apps](https://support.getgrist.com/).
+[Learn more about connected apps](connected-apps.md).
 
 <span class="screenshot-full">*![authorized-apps](images/mcp/authorized-apps.png)*</span>
 {: .screenshot-half }
