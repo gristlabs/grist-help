@@ -24,13 +24,15 @@ your behalf:
     storage, and stores documents in encrypted form. Data is stored in
     the United States.
     _(For dedicated server: see below.)_
-  * Grist employees never look at your data and cannot open your
-    documents. The one exception is if you choose to share a document
-    with customer support in order to get help with an issue.
+  * Grist employees never look at and cannot open your documents.
+    The one exception is if you choose to share a document with
+    customer support in order to get help with an issue.
   * When being operated on, your data will by necessity exist in
-    unencrypted form in some of Grist's internal systems. Only select
-    key employees have full access to these systems, and policy
-    prohibits them from looking inside documents.
+    unencrypted form in some of Grist's internal systems, and
+    fragments of your data may appear in operational logs, which are
+    kept only as long as needed. Only select key employees have full
+    access to these systems and logs, and policy prohibits them from
+    looking inside documents.
   * Secure HTTPS is used for all access to Grist via public internet
     (both website and API calls).
   * Authentication is via email and password, with optional
