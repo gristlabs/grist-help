@@ -28,6 +28,14 @@ this environment variable on your instance:
 GRIST_MCP_ENABLED=true
 ```
 
+!!! note "Want to try the full edition?"
+    You can try the full edition of Grist free for 30 days.
+    [Learn how to turn it on](self-managed.md#how-do-i-enable-the-full-edition-of-grist).
+
+    Individuals and small companies may qualify for a free activation key for the full
+    edition. See the
+    [activation key FAQ](https://www.getgrist.com/free-grist-activation-key-faq/){:target="_blank"}.
+
 This is enough for clients that authenticate with a Grist [API key](rest-api.md#authentication): the
 user supplies their key in an `Authorization` header and connects, with nothing more to set up on
 your side. AI assistants
