@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[June 2026](newsletters/2026-06.md) •
+Improved AI tooling with our new MCP server and OAuth connected apps.
+
 [May 2026](newsletters/2026-05.md) •
 Easier self-hosting, accessibility, and AI artifacts.
 

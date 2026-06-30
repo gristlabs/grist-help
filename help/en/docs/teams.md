@@ -11,9 +11,8 @@ The difference between the Free plan and paid plans is the document limits. Docu
 
 If you have a team site but aren't seeing it, click in the top-left corner to open a drop-down menu of sites to which you have access.
 
-<center>
 *![List of Sites](images/faq/personal-and-team-site.png)*
-</center>
+{: .screenshot-half }
 
 Opening the user menu under your profile icon will also list all sites to which you have access.
 
