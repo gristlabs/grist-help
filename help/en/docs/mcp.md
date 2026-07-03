@@ -8,6 +8,10 @@ MCP-aware tool (such as Claude or ChatGPT) can use Grist's MCP server to work wi
 and documents: list and search tables, read and query rows, add or update rows, and create new
 documents and tables.
 
+!!! note "Add a Grist connector to Claude"
+    [Connect Grist to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Grist&connectorUrl=https%3A%2F%2Fdocs.getgrist.com%2Fapi%2Fmcp){:target="\_blank"}
+    {: .grist-button}
+
 For Grist's built-in AI assistant, see [AI Assistant](assistant.md).
 
 ## Setting up the MCP server
