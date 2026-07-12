@@ -369,12 +369,12 @@ clicking that green button and selecting "Save". You can also save by clicking t
 Grist has more great features, some of which are used in the "Lightweight CRM" example
 document. To read more about those, follow the links to their documentation.
 
-- Any text column may be shown as a [hyperlink](https://support.getgrist.com/col-types/#hyperlinks).
+- Any text column may be shown as a [hyperlink](col-types.md#hyperlinks).
 Lightweight CRM example uses it twice: for the "website" field, and for a formula-constructed hyperlink
 to a [Gmail search](https://community.getgrist.com/t/pull-up-gmail-history-for-a-particular-contact/517) page
 for the given contact's email. The latter is handy if you use Gmail.
 
-- Grist supports [attachments](https://support.getgrist.com/col-types/#attachment-columns_). In the
+- Grist supports [attachments](col-types.md#attachment-columns). In the
 example, there is an "Attachments" field for each contact that may be used to store an image of a
 business card, for example.
 

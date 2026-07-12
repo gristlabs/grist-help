@@ -164,7 +164,8 @@ Simply log in to your Airtable account and grant access to the bases you want to
 
 !!! note "Note"
     "Connect with Airtable" will be disabled if not configured on your Grist installation.
-    Use a personal access token or visit our [self-hosted documentation](/rest-api/) for more info.
+    Use a personal access token instead. The installation administrator may enable the more
+    convenient integration using [self-hosted setup instructions](install/integrations/airtable.md).
 
 Once authenticated, select the specific Airtable base you would like to import.
 
