@@ -87,6 +87,15 @@ Once you're done, add the results to the main documentation with:
 ./api/build.sh
 ```
 
+## Freshening all generated docs
+
+To regenerate all docs that are derived from a Grist checkout (each described in the sections
+below, plus the keyboard shortcuts page), and then build the site for an accurate preview, run:
+
+```
+./freshen.sh <path-to-grist-checkout>
+```
+
 ## Updating function reference
 
 To update `help/en/docs/functions.md` from the documentation comments in Grist, run:
