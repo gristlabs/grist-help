@@ -5,9 +5,11 @@
 ### Interfaces
 
 - [AddOrUpdateRecord](../interfaces/DocApiTypes.AddOrUpdateRecord.md)
+- [BulkAddOrUpdateRecordResult](../interfaces/DocApiTypes.BulkAddOrUpdateRecordResult.md)
 - [MinimalRecord](../interfaces/DocApiTypes.MinimalRecord.md)
 - [NewRecord](../interfaces/DocApiTypes.NewRecord.md)
 - [Record](../interfaces/DocApiTypes.Record.md)
+- [RecordsListPost](../interfaces/DocApiTypes.RecordsListPost.md)
 - [RecordsPatch](../interfaces/DocApiTypes.RecordsPatch.md)
 - [RecordsPost](../interfaces/DocApiTypes.RecordsPost.md)
 - [RecordsPut](../interfaces/DocApiTypes.RecordsPut.md)

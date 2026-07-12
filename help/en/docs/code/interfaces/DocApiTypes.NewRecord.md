@@ -21,4 +21,4 @@ blank.
 
 #### Index signature
 
-▪ [coldId: `string`]: [`CellValue`](../modules/GristData.md#cellvalue)
+▪ [colId: `string`]: [`CellValue`](../modules/GristData.md#cellvalue)

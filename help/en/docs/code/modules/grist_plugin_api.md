@@ -20,6 +20,7 @@ title: grist-plugin-api
 - [GristView](../interfaces/grist_plugin_api.GristView.md)
 - [InteractionOptions](../interfaces/grist_plugin_api.InteractionOptions.md)
 - [InteractionOptionsRequest](../interfaces/grist_plugin_api.InteractionOptionsRequest.md)
+- [LinkingInfo](../interfaces/grist_plugin_api.LinkingInfo.md)
 - [ParseOptionSchema](../interfaces/grist_plugin_api.ParseOptionSchema.md)
 - [ParseOptions](../interfaces/grist_plugin_api.ParseOptions.md)
 - [ReadyPayload](../interfaces/grist_plugin_api.ReadyPayload.md)
@@ -29,7 +30,9 @@ title: grist-plugin-api
 
 ### Type Aliases
 
+- [CellFormatType](grist_plugin_api.md#cellformattype)
 - [ColumnsToMap](grist_plugin_api.md#columnstomap)
+- [LinkType](grist_plugin_api.md#linktype)
 - [UIRowId](grist_plugin_api.md#uirowid)
 
 ### Variables
@@ -45,6 +48,7 @@ title: grist-plugin-api
 
 - [allowSelectBy](grist_plugin_api.md#allowselectby)
 - [clearOptions](grist_plugin_api.md#clearoptions)
+- [decodeObject](grist_plugin_api.md#decodeobject)
 - [fetchSelectedRecord](grist_plugin_api.md#fetchselectedrecord)
 - [fetchSelectedTable](grist_plugin_api.md#fetchselectedtable)
 - [getAccessToken](grist_plugin_api.md#getaccesstoken)
@@ -66,12 +70,42 @@ title: grist-plugin-api
 
 ## Type Aliases
 
+### CellFormatType
+
+Ƭ **CellFormatType**: ``"normal"`` \| ``"typed"``
+
+CellFormatType determines how each cell value is represented.
+
+- `"normal"` -- the compact format usual for Grist, whose interpretation depends on the column
+  type, e.g. a Date is a number (seconds since epoch), and a Ref is a number (rowId).
+- `"typed"` -- a self-describing typed form, the same as the "normal" format for `Any` columns,
+  e.g. a Date is `["d", secondsSinceEpoch]` and a RefList is `["r", tableId, [rowIds, ...]]`.
+  Formula errors are also returned inline, as `["E", ...]` values.
+
+When omitted, the REST API uses the "normal" format, while the Custom Widget API uses an
+in-between format for backward compatibility: it represents most values as "typed", but
+RefList and Attachments as "normal".
+
+See [Grist data format](https://github.com/gristlabs/grist-core/blob/main/documentation/grist-data-format.md)
+for details.
+
+___
+
 ### ColumnsToMap
 
 Ƭ **ColumnsToMap**: (`string` \| [`ColumnToMap`](../interfaces/grist_plugin_api.ColumnToMap.md))[]
 
 Tells Grist what columns a Custom Widget expects and allows users to map between existing column names
 and those requested by the Custom Widget.
+
+___
+
+### LinkType
+
+Ƭ **LinkType**: ``"Filter:Summary-Group"`` \| ``"Filter:Col->Col"`` \| ``"Filter:Row->Col"`` \| ``"Summary"`` \| ``"Show-Referenced-Records"`` \| ``"Cursor:Same-Table"`` \| ``"Cursor:Reference"`` \| ``"Error:Invalid"``
+
+Descriptive enum of how this section is linked to another section.
+See app/client/components/LinkingState.ts for classification logic.
 
 ___
 
@@ -155,6 +189,25 @@ Clears all the options.
 #### Returns
 
 `Promise`<`void`\>
+
+___
+
+### decodeObject
+
+▸ **decodeObject**(`value`): `unknown`
+
+Given a Grist-encoded value, returns an object represented by it.
+If the type code is unknown, or construction fails for any reason, returns an UnknownValue.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`CellValue`](GristData.md#cellvalue) |
+
+#### Returns
+
+`unknown`
 
 ___
 
@@ -331,12 +384,12 @@ ___
 
 ### on
 
-▸ **on**(`eventName`, `listener`): `Rpc`
+▸ **on**<`K`\>(`eventName`, `listener`): `Rpc`
 
-Adds the `listener` function to the end of the listeners array for the
-event named `eventName`. No checks are made to see if the `listener` has
-already been added. Multiple calls passing the same combination of `eventName`and `listener` will result in the `listener` being added, and called, multiple
-times.
+Adds the `listener` function to the end of the listeners array for the event
+named `eventName`. No checks are made to see if the `listener` has already
+been added. Multiple calls passing the same combination of `eventName` and
+`listener` will result in the `listener` being added, and called, multiple times.
 
 ```js
 server.on('connection', (stream) => {
@@ -346,10 +399,11 @@ server.on('connection', (stream) => {
 
 Returns a reference to the `EventEmitter`, so that calls can be chained.
 
-By default, event listeners are invoked in the order they are added. The`emitter.prependListener()` method can be used as an alternative to add the
+By default, event listeners are invoked in the order they are added. The `emitter.prependListener()` method can be used as an alternative to add the
 event listener to the beginning of the listeners array.
 
 ```js
+import { EventEmitter } from 'node:events';
 const myEE = new EventEmitter();
 myEE.on('foo', () => console.log('a'));
 myEE.prependListener('foo', () => console.log('b'));
@@ -362,6 +416,12 @@ myEE.emit('foo');
 **`Since`**
 
 v0.1.101
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `K` |
 
 #### Parameters
 

@@ -60,6 +60,7 @@ Triggered when a message is received from the AI Assistant.
 | context | object | The context in which the assistant is open (e.g. column id). |
 | response | object | The content and index of the response received from the AI Assistant. |
 | suggestedFormula | string | The formula suggested by the AI Assistant, if present. |
+| developerPromptVersion | string | The developer prompt version. May be either `"default"` or `"new-document"`. |
 
 ## assistantSave
 Triggered when changes in the expanded formula editor are saved after the AI Assistant was opened.
@@ -262,6 +263,8 @@ Triggered on doc open and close, as well as hourly while a document is open.
 | numSummaryTables | number | The number of summary tables in the document. |
 | numCustomWidgets | number | The number of custom widgets in the document. |
 | customWidgetIds | string[] | A list of plugin ids for every custom widget in the document. The ids of widgets not created by Grist Labs are replaced with "externalId". |
+| mcpToolCallsDelta | number | MCP tool calls for this document since the last reading. |
+| mcpUsersDelta | number | Unique MCP users for this document since the last reading. |
 
 ## processMonitor
 Triggered every 5 seconds.
@@ -331,6 +334,8 @@ Triggered daily.
 | numMembers | number | The number of site members. |
 | lastActivity | date | A timestamp of the most recent update made to a site document. |
 | earliestDocCreatedAt | date | A timestamp of the earliest non-deleted document creation time. |
+| mcpToolCallsDelta | number | MCP tool calls for this site since the last reading. |
+| mcpUsersDelta | number | Unique MCP users for this site since the last reading. |
 
 ## tutorialOpened
 Triggered when a tutorial is opened.
@@ -726,4 +731,30 @@ Triggered when the app checks for updates.
 | ----- | ---- | ----------- |
 | deploymentId | string | The installation id of the client. |
 | deploymentType | string | The deployment type of the client. |
+| currentVersion | string | The current version of the client. |
+
+## mcpToolCall
+Triggered when an MCP tool is called.
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| toolName | string | The MCP tool name. |
+| method | string | The JSON-RPC method. |
+| success | boolean | Whether the tool call succeeded. |
+| sessionId | string | The Mcp-Session-Id header, if present. |
+| docIdDigest | string | A hash of the doc id, if the call targets a document. |
+| orgId | number | The org id, present for doc-level calls. |
+| userId | number | The user id. |
+| durationMs | number | Wall-clock duration of the tool call in milliseconds. |
+
+## mcpSessionStart
+Triggered when an MCP session is initialized.
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| sessionId | string | The Mcp-Session-Id issued on initialize. |
+| userId | number | The user id. |
+| clientName | string | The MCP client name from clientInfo. |
+| clientVersion | string | The MCP client version from clientInfo. |
+| userAgent | string | The User-Agent header. |
 
