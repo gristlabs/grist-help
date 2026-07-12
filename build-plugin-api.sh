@@ -9,6 +9,8 @@ if [[ "$1" = "" ]]; then
   exit 2
 fi
 
+source "$(dirname "$0")/frontmatter.sh"
+
 DIR=$PWD
 cd $1
 rm -rf $DIR/tmp-code
@@ -17,6 +19,12 @@ $DIR/node_modules/.bin/typedoc \
   --plugin "typedoc-plugin-markdown" \
   --hideBreadcrumbs \
   --logLevel Verbose
+# Keep each existing page's YAML frontmatter across regeneration.
+for old in $DIR/help/en/docs/code/{interfaces,modules,enums}/*.md; do
+  new=$DIR/tmp-code/$(basename $(dirname $old))/$(basename $old)
+  [[ -f $new ]] && prepend_frontmatter $old $new
+done
+
 rm -rf $DIR/help/en/docs/code/interfaces $DIR/help/en/docs/code/modules $DIR/help/en/docs/code/enums
 mv $DIR/tmp-code/interfaces $DIR/help/en/docs/code/interfaces
 mv $DIR/tmp-code/modules $DIR/help/en/docs/code/modules

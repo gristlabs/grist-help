@@ -41,6 +41,10 @@ const KEY_MAP_WIN = {
 };
 
 function getHumanKey(key, isMac) {
+  if (typeof key !== 'string') {
+    // PlatformSpecificCommandKey, of the form {default, mac?}.
+    key = (isMac && key.mac) || key.default;
+  }
   const keyMap = isMac ? KEY_MAP_MAC : KEY_MAP_WIN;
   let keys = key.split('+').map(s => s.trim());
   keys = keys.map(k => {
@@ -72,7 +76,7 @@ function dumpKeys(groups) {
       if (!cmd.keys || !cmd.keys.length || !cmd.desc) { return; }
       const macHumanKeys = getMarkupForKeys(cmd.keys, true);
       const winHumanKeys = getMarkupForKeys(cmd.keys, false);
-      tableContent += `| ${macHumanKeys} | ${winHumanKeys} | ${cmd.desc} |\n`;
+      tableContent += `| ${macHumanKeys} | ${winHumanKeys} | ${cmd.desc()} |\n`;
     });
 
     if (!tableContent) { return ;}
@@ -103,8 +107,8 @@ formatted content, which is then inserted into the target file (\`help/en/docs/k
 in-between the two markers \`<!-- START -->\` and \`<!-- END -->\`. Logs the resulting page to
 standard output, or save to the target file if \`-i\` (the edit in place option) is passed.
 
-What's actually looked up is '<grist-root>/_build/core/app/client/components/commandList', i.e.
-Grist should be built in that directory.
+What's actually looked up is 'app/client/components/commandList' under \`grist-root\`'s
+'_build' or '_build/core' directory, i.e. Grist should be built.
 `);
     process.exit(1);
   }
@@ -124,8 +128,20 @@ Grist should be built in that directory.
     process.exit(1);
   }
 
-  // loads commands from grist app source tree.
-  const {groups} = require(path.join(gristAppRoot, '_build/core/app/client/components/commandList'));
+  // Loads commands from the built grist tree. Imports of 'app/...' modules (including
+  // transitive ones from commandList) resolve via NODE_PATH, which Node only reads at
+  // startup, so re-initialize module paths after setting it. The two paths cover the
+  // layouts of grist-core and full-grist checkouts.
+  process.env.NODE_PATH = ['_build', '_build/core']
+    .map((dir) => path.join(gristAppRoot, dir)).join(path.delimiter);
+  require('module')._initPaths();
+  const {groups} = require('app/client/components/commandList');
+
+  // Command descriptions are localized; initialize the checkout's own i18next instance
+  // (the one localization.ts uses) with its English translations.
+  const i18next = require(path.join(gristAppRoot, 'node_modules/i18next'));
+  const translations = require(path.join(gristAppRoot, 'static/locales/en.client.json'));
+  i18next.init({lng: 'en', defaultNS: 'client', resources: {en: {client: translations}}});
 
   let content = '';
   content += dumpKeys(groups);
