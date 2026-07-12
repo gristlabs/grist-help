@@ -5,7 +5,7 @@
 # Source: https://github.com/tiangolo/fastapi/blob/master/scripts/docs.py
 # Original Author: Sebastián Ramírez and contributors
 
-from functools import lru_cache
+from functools import lru_cache, partial
 import json
 import logging
 import os
@@ -14,7 +14,7 @@ import subprocess
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from multiprocessing import Pool
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Annotated, Any, Dict, List, Optional, Union
 from textwrap import dedent, indent
 
 from mkdocs.utils.yaml import yaml_load
@@ -123,11 +123,14 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
   typer.secho(f"Successfully initialized: {new_path}", color=typer.colors.GREEN)
   update_languages()
 
+StrictOption = Annotated[bool, typer.Option(help="Fail on warnings (see 'validation' in mkdocs.yml)")]
+
 @app.command()
 def build_lang(
   lang: str = typer.Argument(
     ..., callback=lang_callback, autocompletion=complete_existing_lang
   ),
+  strict: StrictOption = False,
 ) -> None:
   """
   Build the docs for a language.
@@ -151,14 +154,17 @@ def build_lang(
   current_dir = os.getcwd()
   os.chdir(lang_path)
   shutil.rmtree(build_site_dist_path, ignore_errors=True)
-  subprocess.run(["mkdocs", "build", "--site-dir", build_site_dist_path], check=True)
+  subprocess.run(
+    ["mkdocs", "build", "--site-dir", build_site_dist_path] + (["--strict"] if strict else []),
+    check=True,
+  )
   shutil.copytree(build_site_dist_path, dist_path, dirs_exist_ok=True)
   os.chdir(current_dir)
   typer.secho(f"Successfully built docs for: {lang}", color=typer.colors.GREEN)
 
 
 @app.command()
-def build_all() -> None:
+def build_all(strict: StrictOption = False) -> None:
   """
   Build mkdocs site for en, and then build each language inside, end result is located
   at directory ./site/ with each language inside.
@@ -171,12 +177,12 @@ def build_all() -> None:
     # due to missing sychronization primitives that are needed for process pools.
     # Fall back to serial builds, which aren't much slower.
     for lang in langs:
-      build_lang(lang)
+      build_lang(lang, strict=strict)
   else:
     cpu_count = os.cpu_count() or 1
     process_pool_size = cpu_count * 4
     with Pool(process_pool_size) as p:
-      p.map(build_lang, langs)
+      p.map(partial(build_lang, strict=strict), langs)
 
 def update_translatable_nav_sections() -> None:
   def extract_nav_sections_keys(nav):

@@ -1,0 +1,23 @@
+name: Validate docs
+on:
+  pull_request:
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build API reference
+        run: ./api/build.sh
+
+      - name: Build English docs in strict mode, failing on any problems
+        run: python3 ./docs.py build-lang en --strict
