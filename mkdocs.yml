@@ -141,6 +141,7 @@ nav:
         - code/modules/grist_plugin_api.md
         - ... | flat | **/code/interfaces/**
         - ... | flat | **/code/modules/**
+        - ... | flat | **/code/enums/**
     - Self-hosted:
       - self-managed.md
       - install/first-run-setup.md

@@ -72,10 +72,23 @@ def resolve_file(*, item: str, files: Files, config: MkDocsConfig) -> None:
       )
 
 
+def resolve_wildcard(*, item: str, files: Files, config: MkDocsConfig) -> None:
+  # Expand an awesome-pages wildcard nav entry (e.g. "... | flat | **/code/interfaces/**")
+  # against the en docs, so that the pages it covers are back-filled like literal entries.
+  pattern = item.split("|")[-1].strip()
+  en_docs_path = (Path(config.docs_dir) / "../../en/docs").resolve()
+  for match in glob.glob(f"{en_docs_path}/{pattern}", recursive=True):
+    if Path(match).is_file():
+      resolve_file(item=str(Path(match).relative_to(en_docs_path)), files=files, config=config)
+
+
 def resolve_files(*, items: List[Any], files: Files, config: MkDocsConfig) -> None:
   for item in items:
     if isinstance(item, str):
-      resolve_file(item=item, files=files, config=config)
+      if item.startswith("..."):
+        resolve_wildcard(item=item, files=files, config=config)
+      else:
+        resolve_file(item=item, files=files, config=config)
     elif isinstance(item, dict):
       assert len(item) == 1
       values = list(item.values())
