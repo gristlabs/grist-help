@@ -339,6 +339,36 @@ A document's webhook successfully delivered events.
 }
 ```
 
+### document.disable
+
+A document was disabled.
+
+#### Details
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| document | `object` | The disabled document. |
+| document.id | `string` | The document ID. |
+| document.name | `string` | The document name. |
+| document.workspace | `object` | The document's workspace. |
+| document.workspace.id | `number` | The workspace ID. |
+| document.workspace.name | `string` | The workspace name. |
+
+#### Sample
+
+```json
+{
+  "document": {
+    "id": "mRM8ydxxLkc6Ewo56jsDGx",
+    "name": "Project Lollipop",
+    "workspace": {
+      "id": 97,
+      "name": "Secret Plans"
+    }
+  }
+}
+```
+
 ### document.duplicate
 
 A document was duplicated.
@@ -381,6 +411,36 @@ A document was duplicated.
   },
   "options": {
     "as_template": false
+  }
+}
+```
+
+### document.enable
+
+A disabled document was re-enabled.
+
+#### Details
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| document | `object` | The enabled document. |
+| document.id | `string` | The document ID. |
+| document.name | `string` | The document name. |
+| document.workspace | `object` | The document's workspace. |
+| document.workspace.id | `number` | The workspace ID. |
+| document.workspace.name | `string` | The workspace name. |
+
+#### Sample
+
+```json
+{
+  "document": {
+    "id": "mRM8ydxxLkc6Ewo56jsDGx",
+    "name": "Project Lollipop",
+    "workspace": {
+      "id": 97,
+      "name": "Secret Plans"
+    }
   }
 }
 ```

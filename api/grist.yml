@@ -1635,6 +1635,7 @@ paths:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/sortHeaderParam'
         - $ref: '#/components/parameters/limitHeaderParam'
+        - $ref: '#/components/parameters/cellFormatQueryParam'
       responses:
         200:
           description: Cells from the table
@@ -2013,6 +2014,7 @@ paths:
         - $ref: '#/components/parameters/sortHeaderParam'
         - $ref: '#/components/parameters/limitHeaderParam'
         - $ref: '#/components/parameters/hiddenQueryParam'
+        - $ref: '#/components/parameters/cellFormatQueryParam'
       responses:
         200:
           description: Records from the table
@@ -3564,6 +3566,10 @@ components:
               fields:
                 type: object
                 description: "A JSON object mapping column names to [cell values](https://support.getgrist.com/code/modules/GristData/#cellvalue)."
+              errors:
+                type: object
+                readOnly: true
+                description: "Included only when the record has formula errors. Maps the name of each column with an error to the name of the exception; the value in `fields` is then `null`. See [Grist data format](https://github.com/gristlabs/grist-core/blob/main/documentation/grist-data-format.md)."
       example:
         records:
           -
@@ -4374,6 +4380,15 @@ components:
       schema:
         type: boolean
       description: "Set to true to include the hidden columns (like \"manualSort\")"
+    cellFormatQueryParam:
+      in: query
+      name: cellFormat
+      schema:
+        type: string
+        enum:
+          - normal
+          - typed
+      description: "With \"typed\", every cell value is returned in a self-describing typed form, e.g. a Date as `[\"d\", timestamp]` and a Reference as `[\"R\", tableId, rowId]`, and formula errors are returned inline as `[\"E\", ...]` values. The default \"normal\" format uses compact values whose interpretation depends on the column type. See [Grist data format](https://github.com/gristlabs/grist-core/blob/main/documentation/grist-data-format.md) for details."
     expandQueryParam:
       in: query
       name: expand

@@ -102,7 +102,7 @@ In a multi-team Grist installation, take the following steps:
    site (a.k.a. organization) with the name of your choosing (for
    example, `admins`)
 2. To this team site [add the user
-   accounts](https://support.getgrist.com/team-sharing/) that you wish
+   accounts](team-sharing.md) that you wish
    to designate as administrators. Their role on this team site must
    be "OWNER".
 3. Set `GRIST_INSTALL_ADMIN_ORG` to the name of the team site from the

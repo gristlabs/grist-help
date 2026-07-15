@@ -86,7 +86,7 @@ ___
 
 ### upsert
 
-▸ **upsert**(`records`, `options?`): `Promise`<`void`\>
+▸ **upsert**(`records`, `options?`): `Promise`<[`BulkAddOrUpdateRecordResult`](DocApiTypes.BulkAddOrUpdateRecordResult.md)\>
 
 Add or update a record or records.
 
@@ -99,4 +99,4 @@ Add or update a record or records.
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`<[`BulkAddOrUpdateRecordResult`](DocApiTypes.BulkAddOrUpdateRecordResult.md)\>

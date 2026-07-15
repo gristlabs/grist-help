@@ -4,6 +4,8 @@
 # Original Author: Sebastián Ramírez and contributors
 
 import glob
+import logging
+import re
 import time
 from mkdocs.structure import StructureItem
 import yaml
@@ -72,10 +74,23 @@ def resolve_file(*, item: str, files: Files, config: MkDocsConfig) -> None:
       )
 
 
+def resolve_wildcard(*, item: str, files: Files, config: MkDocsConfig) -> None:
+  # Expand an awesome-pages wildcard nav entry (e.g. "... | flat | **/code/interfaces/**")
+  # against the en docs, so that the pages it covers are back-filled like literal entries.
+  pattern = item.split("|")[-1].strip()
+  en_docs_path = (Path(config.docs_dir) / "../../en/docs").resolve()
+  for match in glob.glob(f"{en_docs_path}/{pattern}", recursive=True):
+    if Path(match).is_file():
+      resolve_file(item=str(Path(match).relative_to(en_docs_path)), files=files, config=config)
+
+
 def resolve_files(*, items: List[Any], files: Files, config: MkDocsConfig) -> None:
   for item in items:
     if isinstance(item, str):
-      resolve_file(item=item, files=files, config=config)
+      if item.startswith("..."):
+        resolve_wildcard(item=item, files=files, config=config)
+      else:
+        resolve_file(item=item, files=files, config=config)
     elif isinstance(item, dict):
       assert len(item) == 1
       values = list(item.values())
@@ -150,9 +165,32 @@ def _inject_warning(markdown: str, warning: str, page: Page):
       return markdown
   return f"<div data-search-exclude markdown='block'>{warning}\n\n{markdown}</div>"
 
+# Log under the "mkdocs." hierarchy so that warnings fail `mkdocs build --strict`.
+log = logging.getLogger("mkdocs.hooks.grist")
+
+# Pages should link to each other by relative .md path (the mkdocs convention), not by
+# absolute URL: absolute links always lead to the English production site, escaping
+# language versions and local previews. Warns during builds and `mkdocs serve`, and
+# fails the strict build that checks pull requests.
+SELF_SITE_LINK = re.compile(r'https://support\.getgrist\.com[^\s)"\'>]*')
+SELF_SITE_LINK_EXCLUDED = (
+  "newsletters/",  # frozen historical content
+  "api.md",        # generated from api/grist.yml, which links by URL by design
+)
+
+def _warn_absolute_self_links(markdown: str, page: Page) -> None:
+  if page.file.src_path.startswith(SELF_SITE_LINK_EXCLUDED) or isinstance(page.file, EnFile):
+    return
+  for match in SELF_SITE_LINK.finditer(markdown):
+    log.warning(
+      f"Doc file '{page.file.src_path}' links to our own site by absolute URL: "
+      f"'{match.group(0)}'; link to the relative .md file instead"
+    )
+
 def on_page_markdown(
   markdown: str, *, page: Page, config: MkDocsConfig, **_: Any
 ) -> str:
+  _warn_absolute_self_links(markdown, page)
   docs_dir=Path(config.docs_dir)
   if isinstance(page.file, EnFile):
     return _inject_warning(

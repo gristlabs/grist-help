@@ -2,4 +2,4 @@
 
 [DocApiTypes](../modules/DocApiTypes.md).RecordsPost
 
-JSON schema for the body of api /record POST endpoint
+JSON schema for the body of api /records POST endpoint

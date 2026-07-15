@@ -23,9 +23,9 @@ After authenticating using their getgrist.com credentials, they'll be redirected
 
 To set up getgrist.com authentication, you must:
 
-* have [administrator access](../../self-managed/#what-is-the-administrative-account) on your Grist installation.
+* have [administrator access](../self-managed.md#what-is-the-administrative-account) on your Grist installation.
 * have [an account on getgrist.com](https://login.getgrist.com/signup).
-* have [configured your installation in single team mode](../../self-managed/#how-do-i-set-up-a-team)
+* have [configured your installation in single team mode](../self-managed.md#how-do-i-set-up-a-team)
 
 The reason for using single team mode is simple. Sign in with getgrist.com handles *authentication* for you, meaning it checks who a user arriving at your site is, and verifies their identity. But it remains the responsibility of your installation to handle *authorization*, meaning to control what operations the user can do on it. In single team mode, this is simple. You can just use user management for the team site to let in exactly the people you want. In multi-team mode, there is no equivalent, and the default behavior allows anyone in. We plan to offer a solution for this mode soon, but in the meanwhile, stick with single team mode.
 
@@ -34,7 +34,7 @@ The reason for using single team mode is simple. Sign in with getgrist.com handl
 To begin setting up getgrist.com authentication, you need to navigate to your Grist server's authentication settings. To get to authentication settings:
 
 1. Sign in to your Grist installation as an administrator.
-2. Navigate to the [**Admin Panel**](https://support.getgrist.com/admin-panel/).
+2. Navigate to the [**Admin Panel**](../admin-panel.md).
 3. Under 'Security Settings', click 'Authentication'.
 
 <span class="screenshot-full">*![admin-panel-authentication](../images/admin-panel/admin-panel-authentication.png)*</span>
@@ -83,7 +83,7 @@ If you are configuring authentication for the first time, getgrist.com authentic
 !!!warning "**Changing authentication may affect your access**"
     If you are not able to sign in to an account on getgrist.com with an email that matches your current Grist user's email, you may lose access to that account, including any documents owned by it.
 
-    When the authentication method is changing, you will see a warning in the Admin Panel titled 'Restart required. Authentication change may affect your access'. You may click 'Change admin user' in the warning to [set a new installation admin](../../self-managed/#what-is-the-administrative-account) when the authentication change takes effect on server restart.
+    When the authentication method is changing, you will see a warning in the Admin Panel titled 'Restart required. Authentication change may affect your access'. You may click 'Change admin user' in the warning to [set a new installation admin](../self-managed.md#what-is-the-administrative-account) when the authentication change takes effect on server restart.
 
     For example, if you've been using Grist as you@example.com but will be signing in as john@example.com on getgrist.com, you should change the admin email to john@example.com and check the option to replace you@example.com with the new email throughout Grist.
 

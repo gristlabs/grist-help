@@ -84,21 +84,21 @@ considerations to bear in mind:
    exercise diligence if accessing software elsewhere,
    since the software you install will have full access to your
    data.
- * It is important to [keep your Grist installation up to date](https://support.getgrist.com/self-managed/#how-do-i-upgrade-my-installation)
+ * It is important to [keep your Grist installation up to date](self-managed.md#how-do-i-upgrade-my-installation)
    to receive security fixes. _(For Enterprise plan: see below.)_
  * Grist documents support powerful Python formulas. Please
    pay attention to instructions for [configuring sandboxing](self-managed.md#how-do-i-sandbox-documents)
    if your team may be working with untrusted documents.
  * Grist by default is welcoming to anonymous users, allowing
    them to create and edit their own documents. You may wish to
-   [configure a stricter arrangement](https://support.getgrist.com/self-managed/#how-do-i-set-up-authentication).
+   [configure a stricter arrangement](self-managed.md#how-do-i-set-up-authentication).
  * Grist does not make external services mandatory, since that would
    introduce unnecessary obstacles in some scenarios. For example,
    an individual editing a Grist document offline on their own
    desktop shouldn't need to install a PostgreSQL database first.
    But it is important to evaluate what you need in your situation rather than
    simply sticking with the defaults. Please
-   read about [the data Grist stores](https://support.getgrist.com/self-managed/#what-files-does-grist-store)
+   read about [the data Grist stores](self-managed.md#what-files-does-grist-store)
    and your options for where to store it.
 
 ### Enterprise plan

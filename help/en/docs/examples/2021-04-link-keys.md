@@ -5,7 +5,7 @@ title: Link keys guide
 # Create Unique Links in 4 Steps
 
 In Grist, “link keys” are URL parameters that when combined with the `user.LinkKey` variable in
-[access rules](https://support.getgrist.com/access-rules/) will determine which data a link recipient is permitted to view.
+[access rules](../access-rules.md) will determine which data a link recipient is permitted to view.
 
 You can learn to do this in four easy steps.
 [We’ve created a simple template](https://public.getgrist.com/cBRGq2QKzTSC/Private-Tutor-LinkKey-Tutorial)

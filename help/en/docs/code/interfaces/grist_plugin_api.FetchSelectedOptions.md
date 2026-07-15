@@ -17,12 +17,32 @@ The different methods have different default values for `keepEncoded` and `forma
 
 ### Properties
 
+- [cellFormat](grist_plugin_api.FetchSelectedOptions.md#cellformat)
+- [expandRefs](grist_plugin_api.FetchSelectedOptions.md#expandrefs)
 - [format](grist_plugin_api.FetchSelectedOptions.md#format)
 - [includeColumns](grist_plugin_api.FetchSelectedOptions.md#includecolumns)
 - [keepEncoded](grist_plugin_api.FetchSelectedOptions.md#keepencoded)
-- [expandRefs](grist_plugin_api.FetchSelectedOptions.md#expandrefs)
 
 ## Properties
+
+### cellFormat
+
+• `Optional` **cellFormat**: [`CellFormatType`](../modules/grist_plugin_api.md#cellformattype)
+
+How each cell's value is represented. See CellFormatType.
+
+___
+
+### expandRefs
+
+• `Optional` **expandRefs**: `boolean`
+
+- `true` (default): the returned data will show the contents of references, not their rowIds
+- `false`: the returned data will only display rowIds for references
+
+Setting `cellFormat: "typed"` changes the default to false.
+
+___
 
 ### format
 
@@ -35,7 +55,7 @@ ___
 
 ### includeColumns
 
-• `Optional` **includeColumns**: ``"shown"`` \| ``"normal"`` \| ``"all"``
+• `Optional` **includeColumns**: ``"normal"`` \| ``"shown"`` \| ``"all"``
 
 - `shown` (default): return only columns that are explicitly shown
   in the right panel configuration of the widget. This is the only value that doesn't require full access.
@@ -50,12 +70,3 @@ ___
 
 - `true`: the returned data will contain raw [CellValue](../modules/GristData.md#cellvalue)'s.
 - `false`: the values will be decoded, replacing e.g. `['D', timestamp]` with a moment date.
-
-___
-
-### expandRefs
-
-• `Optional` **expandRefs**: `boolean`
-
-- `true` (default): the returned data will show the contents of references, not their rowIds
-- `false`: the returned data will only display rowIds for references

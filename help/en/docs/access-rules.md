@@ -474,7 +474,7 @@ multiple rows across many tables.  They can be used in
 [User attribute tables](#user-attribute-tables).  And the data they give access to
 can be within tables, cards, card lists, charts, and custom widgets.
 
-Check out [another example](https://support.getgrist.com/examples/2021-04-link-keys/) to deepen your understanding of link keys even more.
+Check out [another example](examples/2021-04-link-keys.md) to deepen your understanding of link keys even more.
 
 ## Access rule conditions
 

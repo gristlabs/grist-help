@@ -74,6 +74,8 @@ Triggered on doc open and close, as well as hourly while a document is open.
 | numSummaryTables | number | The number of summary tables in the document. |
 | numCustomWidgets | number | The number of custom widgets in the document. |
 | customWidgetIds | string[] | A list of plugin ids for every custom widget in the document. The ids of widgets not created by Grist Labs are replaced with "externalId". |
+| mcpToolCallsDelta | number | MCP tool calls for this document since the last reading. |
+| mcpUsersDelta | number | Unique MCP users for this document since the last reading. |
 
 ## sendingWebhooks
 Triggered when sending webhooks.
@@ -108,6 +110,8 @@ Triggered daily.
 | numMembers | number | The number of site members. |
 | lastActivity | date | A timestamp of the most recent update made to a site document. |
 | earliestDocCreatedAt | date | A timestamp of the earliest non-deleted document creation time. |
+| mcpToolCallsDelta | number | MCP tool calls for this site since the last reading. |
+| mcpUsersDelta | number | Unique MCP users for this site since the last reading. |
 
 ## watchedVideoTour
 Triggered when the video tour is closed.
@@ -115,12 +119,4 @@ Triggered when the video tour is closed.
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | watchTimeSeconds | number | The number of seconds elapsed in the video player. |
-
-## checkedUpdateAPI
-Triggered when the app checks for updates.
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| deploymentId | string | The installation id of the client. |
-| deploymentType | string | The deployment type of the client. |
 

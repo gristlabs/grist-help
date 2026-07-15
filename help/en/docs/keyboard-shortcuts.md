@@ -6,6 +6,12 @@ title: Keyboard shortcuts
 
 <!-- The content below is generated from Grist code using ./build-shortcuts.js. -->
 <!-- START -->
+###Accessibility
+| Key (Mac) | Key (Windows) | Description | 
+| - | - | - | 
+| <code class="keys">*F4*</code> | <code class="keys">*F4*</code> | Show accessibility options |
+| <code class="keys">*⇧* *F4*</code> | <code class="keys">*Shift* + *F4*</code> | Toggle the screen reader improvements |
+
 ###General
 | Key (Mac) | Key (Windows) | Description | 
 | - | - | - | 
@@ -15,6 +21,7 @@ title: Keyboard shortcuts
 | <code class="keys">*⌘* *F*</code> | <code class="keys">*Ctrl* + *F*</code> | Find |
 | <code class="keys">*⌘* *G*</code> | <code class="keys">*Ctrl* + *G*</code> | Find next occurrence |
 | <code class="keys">*⌘* *⇧* *G*</code> | <code class="keys">*Ctrl* + *Shift* + *G*</code> | Find previous occurrence |
+| <code class="keys">*⌘* *Enter*</code> | <code class="keys">*Ctrl* + *Enter*</code> | When in the search bar, close it and focus the current match |
 
 ###Navigation
 | Key (Mac) | Key (Windows) | Description | 
@@ -37,9 +44,9 @@ title: Keyboard shortcuts
 | <code class="keys">*⌃* *⇧* *O*</code> | <code class="keys">*Ctrl* + *Shift* + *O*</code> | Focus previous page panel or widget |
 | <code class="keys">*⌃* *⌥* *O*</code> | <code class="keys">*Ctrl* + *Alt* + *O*</code> | Toggle creator panel keyboard focus |
 | <code class="keys">*Space*</code> | <code class="keys">*Space*</code> | Show the record card widget of the selected record |
-| <code class="keys">*⌃* *Enter*</code>,<code class="keys">*↑* *F10*</code> | <code class="keys">*Menu*</code>,<code class="keys">*Shift* + *F10*</code> | Open the context menu |
-| <code class="keys">*↑* *⌃* *Enter*</code>,<code class="keys">*⌃* *↑* *F10*</code> | <code class="keys">*Ctrl* + *Menu*</code>,<code class="keys">*Ctrl* + *Shift* + *F10*</code> | Open the current column menu |
-| <code class="keys">*⌥* *⌃* *Enter*</code>,<code class="keys">*⌥* *↑* *F10*</code> | <code class="keys">*Alt* + *Menu*</code>,<code class="keys">*Alt* + *Shift* + *10*</code> | Open the current row menu |
+| <code class="keys">*⌃* *Enter*</code>,<code class="keys">*⇧* *F10*</code> | <code class="keys">*Menu*</code>,<code class="keys">*Shift* + *F10*</code> | Open the context menu |
+| <code class="keys">*⌃* *⇧* *Enter*</code>,<code class="keys">*⌃* *⇧* *F10*</code> | <code class="keys">*Ctrl* + *Menu*</code>,<code class="keys">*Ctrl* + *Shift* + *F10*</code> | Open the current column menu |
+| <code class="keys">*⌃* *⌥* *Enter*</code>,<code class="keys">*⌥* *⇧* *F10*</code> | <code class="keys">*Alt* + *Menu*</code>,<code class="keys">*Alt* + *Shift* + *F10*</code> | Open the current row menu |
 
 ###Selection
 | Key (Mac) | Key (Windows) | Description | 
@@ -81,7 +88,6 @@ title: Keyboard shortcuts
 | <code class="keys">*⌘* *Delete*</code> | <code class="keys">*Ctrl* + *Backspace*</code>,<code class="keys">*Ctrl* + *Delete*</code> | Delete the currently selected record(s) |
 | <code class="keys">*⌥* *⇧* *=*</code> | <code class="keys">*Alt* + *Shift* + *=*</code> | Insert a new column, before the currently selected one |
 | <code class="keys">*⌥* *=*</code> | <code class="keys">*Alt* + *=*</code> | Insert a new column, after the currently selected one |
-| <code class="keys">*⌘* *⇧* *H*</code> | <code class="keys">*Ctrl* + *Shift* + *H*</code> | Use the currently selected row as table headers |
 | <code class="keys">*⌃* *M*</code> | <code class="keys">*Ctrl* + *M*</code> | Rename the currently selected column |
 | <code class="keys">*⌥* *⇧* *-*</code> | <code class="keys">*Alt* + *Shift* + *-*</code> | Hide the currently selected columns |
 | <code class="keys">*⌥* *-*</code> | <code class="keys">*Alt* + *-*</code> | Delete the currently selected columns |
