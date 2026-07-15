@@ -62,7 +62,7 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1783088036"></script>
+  <script type="module" src="/js/grist.js?v=1784147085"></script>
 
     
   
@@ -4174,6 +4174,37 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
   
   
     <li class="md-nav__item">
+      <a href="../code/interfaces/DocApiTypes.BulkAddOrUpdateRecordResult/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: BulkAddOrUpdateRecordResult
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../code/interfaces/DocApiTypes.MinimalRecord/" class="md-nav__link">
         
   
@@ -4250,6 +4281,37 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 
   <span class="md-ellipsis">
     Interface: Record
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/interfaces/DocApiTypes.RecordsListPost/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: RecordsListPost
     
   </span>
   
@@ -4949,6 +5011,37 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
   
   
     <li class="md-nav__item">
+      <a href="../code/interfaces/grist_plugin_api.LinkingInfo/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: LinkingInfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../code/interfaces/grist_plugin_api.ParseOptionSchema/" class="md-nav__link">
         
   
@@ -5211,6 +5304,37 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 
   <span class="md-ellipsis">
     Module: TableOperations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/enums/GristData.GristObjCode/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Enumeration: GristObjCode
     
   </span>
   
@@ -6973,6 +7097,28 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
     <span class="md-ellipsis">
       
         checkedUpdateAPI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcptoolcall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcpToolCall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcpsessionstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcpSessionStart
       
     </span>
   </a>
@@ -10210,6 +10356,28 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mcptoolcall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcpToolCall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcpsessionstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mcpSessionStart
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -10501,6 +10669,11 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <td>suggestedFormula</td>
 <td>string</td>
 <td>The formula suggested by the AI Assistant, if present.</td>
+</tr>
+<tr>
+<td>developerPromptVersion</td>
+<td>string</td>
+<td>The developer prompt version. May be either <code>"default"</code> or <code>"new-document"</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -11257,6 +11430,16 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <td>string[]</td>
 <td>A list of plugin ids for every custom widget in the document. The ids of widgets not created by Grist Labs are replaced with &ldquo;externalId&rdquo;.</td>
 </tr>
+<tr>
+<td>mcpToolCallsDelta</td>
+<td>number</td>
+<td>MCP tool calls for this document since the last reading.</td>
+</tr>
+<tr>
+<td>mcpUsersDelta</td>
+<td>number</td>
+<td>Unique MCP users for this document since the last reading.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="processmonitor">processMonitor<a class="headerlink" href="#processmonitor" title="Permanent link">#</a></h2>
@@ -11499,6 +11682,16 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <td>earliestDocCreatedAt</td>
 <td>date</td>
 <td>A timestamp of the earliest non-deleted document creation time.</td>
+</tr>
+<tr>
+<td>mcpToolCallsDelta</td>
+<td>number</td>
+<td>MCP tool calls for this site since the last reading.</td>
+</tr>
+<tr>
+<td>mcpUsersDelta</td>
+<td>number</td>
+<td>Unique MCP users for this site since the last reading.</td>
 </tr>
 </tbody>
 </table>
@@ -12748,6 +12941,102 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <td>deploymentType</td>
 <td>string</td>
 <td>The deployment type of the client.</td>
+</tr>
+<tr>
+<td>currentVersion</td>
+<td>string</td>
+<td>The current version of the client.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mcptoolcall">mcpToolCall<a class="headerlink" href="#mcptoolcall" title="Permanent link">#</a></h2>
+<p>Triggered when an MCP tool is called.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toolName</td>
+<td>string</td>
+<td>The MCP tool name.</td>
+</tr>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>The JSON-RPC method.</td>
+</tr>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>Whether the tool call succeeded.</td>
+</tr>
+<tr>
+<td>sessionId</td>
+<td>string</td>
+<td>The Mcp-Session-Id header, if present.</td>
+</tr>
+<tr>
+<td>docIdDigest</td>
+<td>string</td>
+<td>A hash of the doc id, if the call targets a document.</td>
+</tr>
+<tr>
+<td>orgId</td>
+<td>number</td>
+<td>The org id, present for doc-level calls.</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>The user id.</td>
+</tr>
+<tr>
+<td>durationMs</td>
+<td>number</td>
+<td>Wall-clock duration of the tool call in milliseconds.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mcpsessionstart">mcpSessionStart<a class="headerlink" href="#mcpsessionstart" title="Permanent link">#</a></h2>
+<p>Triggered when an MCP session is initialized.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sessionId</td>
+<td>string</td>
+<td>The Mcp-Session-Id issued on initialize.</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>The user id.</td>
+</tr>
+<tr>
+<td>clientName</td>
+<td>string</td>
+<td>The MCP client name from clientInfo.</td>
+</tr>
+<tr>
+<td>clientVersion</td>
+<td>string</td>
+<td>The MCP client version from clientInfo.</td>
+</tr>
+<tr>
+<td>userAgent</td>
+<td>string</td>
+<td>The User-Agent header.</td>
 </tr>
 </tbody>
 </table>

@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1783088036"></script>
+  <script type="module" src="/js/grist.js?v=1784147085"></script>
 
     
   
@@ -4177,6 +4177,37 @@
   
   
     <li class="md-nav__item">
+      <a href="../DocApiTypes.BulkAddOrUpdateRecordResult/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: BulkAddOrUpdateRecordResult
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../DocApiTypes.MinimalRecord/" class="md-nav__link">
         
   
@@ -4253,6 +4284,37 @@
 
   <span class="md-ellipsis">
     Interface: Record
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DocApiTypes.RecordsListPost/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: RecordsListPost
     
   </span>
   
@@ -5010,6 +5072,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#linking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        linking
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5045,6 +5118,37 @@
 
   <span class="md-ellipsis">
     Interface: InteractionOptionsRequest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grist_plugin_api.LinkingInfo/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: LinkingInfo
     
   </span>
   
@@ -5324,6 +5428,37 @@
 
   <span class="md-ellipsis">
     Module: TableOperations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/GristData.GristObjCode/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Enumeration: GristObjCode
     
   </span>
   
@@ -8820,6 +8955,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#linking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        linking
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8916,11 +9062,18 @@
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="./#accesslevel">accessLevel</a></li>
+<li><a href="./#linking">linking</a></li>
 </ul>
 <h2 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">#</a></h2>
 <h3 id="accesslevel">accessLevel<a class="headerlink" href="#accesslevel" title="Permanent link">#</a></h3>
 <p>• <strong>accessLevel</strong>: <code>string</code></p>
 <p>Granted access level.</p>
+<hr />
+<h3 id="linking">linking<a class="headerlink" href="#linking" title="Permanent link">#</a></h3>
+<p>• <code>Optional</code> <strong>linking</strong>: <a href="../grist_plugin_api.LinkingInfo/"><code>LinkingInfo</code></a></p>
+<p>Linking state of this section at the time of the message. May be absent on older
+Grist builds that do not support linking information; when present, fields inside
+describe whether this section is a link target and/or a link source.</p>
 
 
 

@@ -62,7 +62,7 @@ Data is transmitted to Grist Labs.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1783088036"></script>
+  <script type="module" src="/js/grist.js?v=1784147085"></script>
 
     
   
@@ -4174,6 +4174,37 @@ Data is transmitted to Grist Labs.">
   
   
     <li class="md-nav__item">
+      <a href="../code/interfaces/DocApiTypes.BulkAddOrUpdateRecordResult/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: BulkAddOrUpdateRecordResult
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../code/interfaces/DocApiTypes.MinimalRecord/" class="md-nav__link">
         
   
@@ -4250,6 +4281,37 @@ Data is transmitted to Grist Labs.">
 
   <span class="md-ellipsis">
     Interface: Record
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/interfaces/DocApiTypes.RecordsListPost/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: RecordsListPost
     
   </span>
   
@@ -4949,6 +5011,37 @@ Data is transmitted to Grist Labs.">
   
   
     <li class="md-nav__item">
+      <a href="../code/interfaces/grist_plugin_api.LinkingInfo/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: LinkingInfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../code/interfaces/grist_plugin_api.ParseOptionSchema/" class="md-nav__link">
         
   
@@ -5211,6 +5304,37 @@ Data is transmitted to Grist Labs.">
 
   <span class="md-ellipsis">
     Module: TableOperations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code/enums/GristData.GristObjCode/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Enumeration: GristObjCode
     
   </span>
   
@@ -6282,17 +6406,6 @@ Data is transmitted to Grist Labs.">
     <span class="md-ellipsis">
       
         watchedVideoTour
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checkedupdateapi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        checkedUpdateAPI
       
     </span>
   </a>
@@ -8901,17 +9014,6 @@ Data is transmitted to Grist Labs.">
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#checkedupdateapi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        checkedUpdateAPI
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -9274,6 +9376,16 @@ Data is transmitted to Grist Labs.</p>
 <td>string[]</td>
 <td>A list of plugin ids for every custom widget in the document. The ids of widgets not created by Grist Labs are replaced with &ldquo;externalId&rdquo;.</td>
 </tr>
+<tr>
+<td>mcpToolCallsDelta</td>
+<td>number</td>
+<td>MCP tool calls for this document since the last reading.</td>
+</tr>
+<tr>
+<td>mcpUsersDelta</td>
+<td>number</td>
+<td>Unique MCP users for this document since the last reading.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="sendingwebhooks">sendingWebhooks<a class="headerlink" href="#sendingwebhooks" title="Permanent link">#</a></h2>
@@ -9393,6 +9505,16 @@ Data is transmitted to Grist Labs.</p>
 <td>date</td>
 <td>A timestamp of the earliest non-deleted document creation time.</td>
 </tr>
+<tr>
+<td>mcpToolCallsDelta</td>
+<td>number</td>
+<td>MCP tool calls for this site since the last reading.</td>
+</tr>
+<tr>
+<td>mcpUsersDelta</td>
+<td>number</td>
+<td>Unique MCP users for this site since the last reading.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="watchedvideotour">watchedVideoTour<a class="headerlink" href="#watchedvideotour" title="Permanent link">#</a></h2>
@@ -9410,29 +9532,6 @@ Data is transmitted to Grist Labs.</p>
 <td>watchTimeSeconds</td>
 <td>number</td>
 <td>The number of seconds elapsed in the video player.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="checkedupdateapi">checkedUpdateAPI<a class="headerlink" href="#checkedupdateapi" title="Permanent link">#</a></h2>
-<p>Triggered when the app checks for updates.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>deploymentId</td>
-<td>string</td>
-<td>The installation id of the client.</td>
-</tr>
-<tr>
-<td>deploymentType</td>
-<td>string</td>
-<td>The deployment type of the client.</td>
 </tr>
 </tbody>
 </table>

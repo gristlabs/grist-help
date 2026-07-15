@@ -16,7 +16,7 @@
         <link rel="prev" href="../../modules/grist_plugin_api/">
       
       
-        <link rel="next" href="../DocApiTypes.MinimalRecord/">
+        <link rel="next" href="../DocApiTypes.BulkAddOrUpdateRecordResult/">
       
       
         
@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1783088036"></script>
+  <script type="module" src="/js/grist.js?v=1784147085"></script>
 
     
   
@@ -4315,6 +4315,37 @@
   
   
     <li class="md-nav__item">
+      <a href="../DocApiTypes.BulkAddOrUpdateRecordResult/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: BulkAddOrUpdateRecordResult
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../DocApiTypes.MinimalRecord/" class="md-nav__link">
         
   
@@ -4391,6 +4422,37 @@
 
   <span class="md-ellipsis">
     Interface: Record
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DocApiTypes.RecordsListPost/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: RecordsListPost
     
   </span>
   
@@ -5090,6 +5152,37 @@
   
   
     <li class="md-nav__item">
+      <a href="../grist_plugin_api.LinkingInfo/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Interface: LinkingInfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../grist_plugin_api.ParseOptionSchema/" class="md-nav__link">
         
   
@@ -5352,6 +5445,37 @@
 
   <span class="md-ellipsis">
     Module: TableOperations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enums/GristData.GristObjCode/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Enumeration: GristObjCode
     
   </span>
   
@@ -8967,7 +9091,7 @@
 
 <h1 id="interface-addorupdaterecord">Interface: AddOrUpdateRecord<a class="headerlink" href="#interface-addorupdaterecord" title="Permanent link">#</a></h1>
 <p><a href="../../modules/DocApiTypes/">DocApiTypes</a>.AddOrUpdateRecord</p>
-<p>JSON schema for api /record endpoint. Used in PUT method for adding or updating records.</p>
+<p>JSON schema for api /record endpoint. Used with PUT method for adding or updating records.</p>
 <h2 id="table-of-contents">Table of contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h3>
 <ul>
@@ -8980,10 +9104,10 @@
 <p>The values we will place in particular columns, either overwriting values in
 an existing record, or setting initial values in a new record.</p>
 <h4 id="index-signature">Index signature<a class="headerlink" href="#index-signature" title="Permanent link">#</a></h4>
-<p>▪ [coldId: <code>string</code>]: <a href="../../modules/GristData/#cellvalue"><code>CellValue</code></a></p>
+<p>▪ [colId: <code>string</code>]: <a href="../../modules/GristData/#cellvalue"><code>CellValue</code></a></p>
 <hr />
 <h3 id="require">require<a class="headerlink" href="#require" title="Permanent link">#</a></h3>
-<p>• <strong>require</strong>: { <code>[coldId: string]</code>: <a href="../../modules/GristData/#cellvalue"><code>CellValue</code></a>;  } &amp; { <code>id?</code>: <code>number</code>  }</p>
+<p>• <strong>require</strong>: { <code>[colId: string]</code>: <a href="../../modules/GristData/#cellvalue"><code>CellValue</code></a>;  } &amp; { <code>id?</code>: <code>number</code>  }</p>
 <p>The values we expect to have in particular columns, either by matching with
 an existing record, or creating a new record.</p>
 
@@ -9041,13 +9165,13 @@ an existing record, or creating a new record.</p>
         
         
           
-          <a href="../DocApiTypes.MinimalRecord/" class="md-footer__link md-footer__link--next" aria-label="Next: Interface: MinimalRecord">
+          <a href="../DocApiTypes.BulkAddOrUpdateRecordResult/" class="md-footer__link md-footer__link--next" aria-label="Next: Interface: BulkAddOrUpdateRecordResult">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Interface: MinimalRecord
+                Interface: BulkAddOrUpdateRecordResult
               </div>
             </div>
             <div class="md-footer__button md-icon">
