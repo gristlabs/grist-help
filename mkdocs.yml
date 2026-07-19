@@ -169,6 +169,7 @@ nav:
         - install/scim.md
       - Configuring integrations:
         - install/integrations/airtable.md
+        - install/integrations/zapier.md
       - Audit logs:
         - install/audit-log-overview.md
         - install/audit-log-streaming.md
