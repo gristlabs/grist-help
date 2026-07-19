@@ -100,7 +100,7 @@ click, no keys.
 ## Fallback: connect with an API key
 
 If OAuth apps aren't available (Grist Community), or you'd rather skip the setup above, or want to
-use a [service account](../..//newsletters/2025-10.md#self-hosted-grist-service-accounts-api), use the
+use a [service account](../../newsletters/2025-10.md#self-hosted-grist-service-accounts-api), use the
 published **Grist (API key)** app. It has a hostname field, so it works with any self-hosted
 instance: point it at your server and paste a Grist [API key](../../rest-api.md). This is quicker
 to set up, but the key carries the user's full account access and can't be scoped or revoked
