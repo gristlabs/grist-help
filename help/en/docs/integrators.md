@@ -120,12 +120,17 @@ response already in the spreadsheet.
 
 ![which worksheet](images/zapier/google-forms/which-worksheet.png)
 
-That's the Google side done.  Now for the Grist side.  We are prompted to
-give an API key for Grist, so we [set up an API key](rest-api.md) if we haven't already.
-To give precise access rights, we could set up a user account just for the integration,
-and give it access to just what it needs, and supply its API key.
+That's the Google side done.  Now for the Grist side.  We're prompted to
+connect a Grist account.  With the **Grist** app we click **Connect**, sign in to Grist, and
+choose which documents to authorize.  Zapier gets a [connected app](connected-apps.md) limited to
+just those documents — more secure and less fuss than an API key, and revocable at any time.
 
-![set api key](images/zapier/google-forms/set-api-key.png)
+![connect grist](images/zapier/google-forms/connect-grist.png)
+
+!!! note "Self-hosted Grist"
+    The **Grist** app connects to Grist's hosted service. If you run Grist yourself, you can offer
+    this same one-click connection from your own instance, or connect with an API key — see
+    [Zapier on self-hosted Grist](install/integrations/zapier.md).
 
 Now we confirm the team to use - personal docs or a team site we have access to:
 
