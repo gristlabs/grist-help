@@ -129,9 +129,10 @@ apps](connected-apps.md#managing-authorized-apps) listing, and revoke at any tim
 ![connect grist](images/zapier/google-forms/connect-grist.png)
 
 !!! note "Self-hosted Grist"
-    The **Grist** app connects to Grist's hosted service. If you run Grist yourself, you can offer
-    this same one-click connection from your own instance, or connect with an API key — see
-    [Zapier on self-hosted Grist](install/integrations/zapier.md).
+    The **Grist** app connects to Grist's hosted service. If you run Grist yourself, you can
+    connect with an API key using our **Grist (API key)** Zapier integration, or set up a
+    one-click integration for your own instance --
+    see [Zapier on self-hosted Grist](install/integrations/zapier.md).
 
 Now we confirm the team to use - personal docs or a team site we have access to:
 
