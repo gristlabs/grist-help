@@ -52,6 +52,13 @@ ZAPIER_APP_ID=<id from .zapierapprc>
 ZAPIER_APP_KEY=<key from .zapierapprc>
 ```
 
+The repo ships at the current published version (in `package.json`), which your brand-new app
+can't start from. Give it its own starting version:
+
+```sh
+npm version 1.0.0 --no-git-tag-version
+```
+
 Your integration's **redirect URI**, needed in the next step, is built from that key:
 
 ```
@@ -76,12 +83,12 @@ set yet and prints the command to set them on this version:
 
 ```sh
 npm run push:oauth
-npm run zapier-platform:oauth -- env:set 2.0.0 \
+npm run zapier-platform:oauth -- env:set 1.0.0 \
   GRIST_HOST=grist.acme.example CLIENT_ID=... CLIENT_SECRET=...
 ```
 
-`GRIST_HOST` is your server's hostname, without the protocol; `2.0.0` is the version from
-`package.json`. With the variables in place, promote the version from your Zapier dashboard.
+`GRIST_HOST` is your server's hostname, without the protocol; `1.0.0` is the version you set in
+Step 1. With the variables in place, promote the version from your Zapier dashboard.
 
 ## Step 4 — Share it with your users
 
