@@ -10,15 +10,15 @@ Grist sign-in, and a consent screen, with no API keys to create or share.
 
 One-click connect is built on [OAuth](../../oauth-apps.md). Each connection is scoped to the
 documents the user picks, shows up on their [Authorized apps](../../connected-apps.md) page, and
-can be revoked at any time — none of which an API key offers. To offer it, you stand up a Zapier
-integration bound to your own instance, as described below.
+can be revoked at any time. This gives more control and convenience than API keys. To offer it,
+you stand up a Zapier integration bound to your own instance, as described below.
 
 !!! note "Requires the full edition"
     OAuth apps are part of the [full edition](../../self-managed.md#how-do-i-enable-the-full-edition-of-grist)
     of Grist. On Grist Community, use the [API key](#fallback-connect-with-an-api-key) method instead.
 
-If you'd rather not run this yourself, [contact us](https://www.getgrist.com/contact/) — for
-Enterprise customers we can set up and maintain the integration for your instance.
+If you are an Enterprise customer and would prefer not to run this yourself, please reach out and
+we can set up and maintain this integration for your instance.
 
 ## Before you start
 
@@ -26,8 +26,8 @@ Enterprise customers we can set up and maintain the integration for your instanc
 - A **Zapier account** to build the integration under.
 - **Node.js 22+**.
 - For [instant triggers](../../integrators.md#readiness-column), add `zapier.com` to your
-  instance's `ALLOWED_WEBHOOK_DOMAINS` (comma-separated) — Grist refuses webhooks to unlisted
-  domains.
+  instance's `ALLOWED_WEBHOOK_DOMAINS` (comma-separated), or allow it from your egress proxy: see
+  [webhook security](../../webhooks.md#security).
 
 ## Step 1 — Create your Zapier integration
 
@@ -99,7 +99,8 @@ click, no keys.
 
 ## Fallback: connect with an API key
 
-If OAuth apps aren't available (Grist Community), or you'd rather skip the setup above, use the
+If OAuth apps aren't available (Grist Community), or you'd rather skip the setup above, or want to
+use a [service account](../..//newsletters/2025-10.md#self-hosted-grist-service-accounts-api), use the
 published **Grist (API key)** app. It has a hostname field, so it works with any self-hosted
 instance: point it at your server and paste a Grist [API key](../../rest-api.md). This is quicker
 to set up, but the key carries the user's full account access and can't be scoped or revoked

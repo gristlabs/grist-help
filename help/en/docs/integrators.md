@@ -123,7 +123,8 @@ response already in the spreadsheet.
 That's the Google side done.  Now for the Grist side.  We're prompted to
 connect a Grist account.  With the **Grist** app we click **Connect**, sign in to Grist, and
 choose which documents to authorize.  Zapier gets a [connected app](connected-apps.md) limited to
-just those documents — more secure and less fuss than an API key, and revocable at any time.
+just those documents. You can see it on the Grist side in your [Authorized
+apps](connected-apps.md#managing-authorized-apps) listing, and revoke at any time.
 
 ![connect grist](images/zapier/google-forms/connect-grist.png)
 
