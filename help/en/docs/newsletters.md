@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[July 2026](newsletters/2026-07.md) •
+GristCon 2026 announced, multi-server support and new templates.
+
 [June 2026](newsletters/2026-06.md) •
 Improved AI tooling with our new MCP server and OAuth connected apps.
 
