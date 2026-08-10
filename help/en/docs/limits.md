@@ -19,13 +19,15 @@ Older free plans had a limit of ten documents. Learn more about [legacy limits](
 
 ## Number of collaborators
 
-For team sites on all plans, there is no limit on the number of team members that may be added to the site.  For paid plans, the number of team members determines the price. See our [pricing page](https://www.getgrist.com/pricing) for details.
+Free team sites are limited to 10 team members. On paid plans, there is no limit on the number of team members that may be added to the site, and the number of team members determines the price. See our [pricing page](https://www.getgrist.com/pricing) for details.
+
+A free team site that has reached the limit cannot add more team members. To add someone new, remove an existing member first, or upgrade the site. Sites that are over the limit will become read-only until they are within the limit again.
 
 Team members added to your team site may inherit access to workspaces or documents
 within that organization. Learn more about [team
 sharing](team-sharing.md).
 
-On both personal and team sites, each document may be shared with up to 2 free guests who do not affect the plan price even on paid plans.
+On both personal and team sites, each document may be shared with up to 2 free guests who do not affect the plan price even on paid plans. Guests are not team members, and do not count toward the team member limit.
 
 ## Number of tables per document
 
