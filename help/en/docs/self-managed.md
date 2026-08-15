@@ -11,9 +11,9 @@ description: The essentials of creating and maintaining a self-hosted Grist inst
 
 There are two flavors of self-hosted Grist, the full edition and Grist Community edition. 
 
-The full edition of Grist is a licensed application that can be installed by enterprises on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. This edition includes all features enabled for improved security, governance, and collaboration, such as advanced admin controls, automations, email notifications, AI assistance, and more. 
+The full edition of Grist is a licensed application that can be installed by enterprises on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. This edition includes all features enabled for improved security, governance, and collaboration, such as single sign-on (SSO), advanced admin controls, automations, email notifications, AI assistance, and more. 
 
-Grist Community edition is the free and open-source heart of Grist, with everything you need to open and edit Grist documents, control access, create forms, connect to single sign-on (SSO) providers, and much more.
+Grist Community edition is the free and open-source heart of Grist, with everything you need to open and edit Grist documents, control access, create forms, and much more.
 
 Grist is also available as a desktop application based on Grist Community edition and built with Electron. It is available for download at [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases). Grist Desktop does not need internet and is not tied to any online account or service.
 
@@ -263,7 +263,7 @@ automatic right to team site membership.
 
 ### How do I set up authentication? {: .tag-core .tag-ee }
 
-Grist offers [several authentication methods](install/authentication-overview.md#getting-started) to help satisfy each organization's specific security requirements.
+Grist offers [several authentication methods](install/authentication-overview.md#getting-started) to help satisfy each organization's specific security requirements. Authentication options [Sign in with getgrist.com](install/sign-in-with-grist.md) and [forwarded headers](install/forwarded-headers.md) are available in all editions; connecting directly to your own identity provider via [OIDC](install/oidc.md) or [SAML](install/saml.md) is [fully supported](#how-do-i-enable-the-full-edition-of-grist) with an activation key.
 
 For any authentication method, you may want to also consider setting the
 following variables:

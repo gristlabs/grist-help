@@ -144,8 +144,8 @@ guidance on which to pick:
   - [Sign in with getgrist.com](sign-in-with-grist.md): managed auth by
     Grist Labs. Quickest to set up.
   - [OIDC](oidc.md): works with Google, Okta, Auth0, Keycloak, and most
-    other identity providers.
-  - [SAML](saml.md): for enterprise SSO.
+    other identity providers. Requires an activation key.
+  - [SAML](saml.md): for enterprise SSO. Requires an activation key.
   - [Forwarded headers](forwarded-headers.md): when an upstream proxy
     already authenticated the user.
   - [GristConnect](grist-connect.md): for sites that already speak
