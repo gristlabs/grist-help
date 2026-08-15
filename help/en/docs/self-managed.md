@@ -177,13 +177,13 @@ docker run ...
 ```
 
 You will need to place a "reverse proxy" in front of Grist to
-handle "SSL termination" (decrypting encypted traffic) using
+handle "SSL termination" (decrypting encrypted traffic) using
 a certificate that establishes ownership of the site. If you don't
-know what this means, you could try using the
-[Grist Omnibus](https://github.com/gristlabs/grist-omnibus) which
-packages Grist with a reverse proxy that will
-use [Let's Encrypt](https://letsencrypt.org/) to get a certificate
-for you automatically.
+know what this means, the
+[docker-compose examples](https://github.com/gristlabs/grist-core/tree/main/docker-compose-examples)
+include ready-made setups in which [Traefik](https://traefik.io/)
+obtains a certificate from [Let's Encrypt](https://letsencrypt.org/)
+automatically.
 
 An important job of such a proxy is to correctly forward
 [websocket](https://en.wikipedia.org/wiki/WebSocket) connections. This
@@ -457,7 +457,7 @@ Create an empty directory, and add the following into it, in a file called
 `Dockerfile`:
 
 ```
-FROM gristlabs/grist  # or grist-oss or grist-omnibus
+FROM gristlabs/grist  # or grist-oss
 
 RUN \
   apt update && apt install -y openssl && \
@@ -571,12 +571,6 @@ that directory would be `~/grist`. Here's what you would find there:
    SQLite database. It is called the
    [home database](self-managed.md#what-is-a-home-database)
    and if PostgreSQL is configured that is used instead of this file.
-
- * If using Grist Omnibus, there are other files, including:
-
-     - An `auth` directory, with a SQLite database for tracking login
-       state, and a store of any certificates created.
-     - A `param` directory, with secrets invented for the installation.
 
 ### What is a "home" database? {: .tag-core .tag-ee }
 
