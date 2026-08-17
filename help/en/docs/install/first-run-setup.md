@@ -131,14 +131,13 @@ WebAssembly: slower, but portable.
 
 ### Step 3: Authentication
 
-This is the step that matters most for a public-facing server. By default,
+This is the step that matters most for a public-facing server. Initially,
 a fresh Grist installation has no authentication. Anyone who reaches it can
 read and edit documents.
 
 ![Quick setup, step 3: Authentication](../images/first-run-setup/setup-authentication.png)
 
-Open 'Other authentication methods' and configure one. See
-[Authentication overview](authentication-overview.md) for the full list and
+See [Authentication overview](authentication-overview.md) for the full list and
 guidance on which to pick:
 
   - [Sign in with getgrist.com](sign-in-with-grist.md): managed auth by
@@ -148,12 +147,9 @@ guidance on which to pick:
   - [SAML](saml.md): for enterprise SSO. Requires an activation key.
   - [Forwarded headers](forwarded-headers.md): when an upstream proxy
     already authenticated the user.
-  - [GristConnect](grist-connect.md): for sites that already speak
-    DiscourseConnect.
 
 If you really do want an open server, say, a personal install on your
-laptop, check the *I understand this server has no authentication* box and
-the wizard will let you proceed.
+laptop, pick *No authentication* (the bottom-most option) and confirm.
 
 ### Step 4: Backups
 
