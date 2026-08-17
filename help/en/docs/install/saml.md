@@ -8,7 +8,7 @@ SAML {: .tag-ee }
 !!! note "Activation key required"
     SAML sign-in is fully supported with an activation key, as part of the
     [full edition](../self-managed.md#how-do-i-enable-the-full-edition-of-grist) of Grist.
-    Activation keys are free for individuals and small orgs (see
+    Activation keys are free for qualifying individuals and small orgs (see
     [details](https://www.getgrist.com/free-grist-activation-key-faq/)).
 
 Configuration for SAML, useful for enterprise single-sign-on logins.
