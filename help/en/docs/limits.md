@@ -69,7 +69,7 @@ is still likely to fail.
 
 ## API limits
 
-Free plans are limited to 5,000 API calls per document per day. Pro and Business plans raise the limit to 40,000 and 60,000 calls per document per day, respectively.
+Free plans (both personal and team sites) are limited to 3,000 API calls per month, shared across all documents on the site. Pro and Business plans raise the limit to 40,000 and 60,000 calls per document per day, respectively.
 
 Free plans may be rate limited to 5 API requests per second per document. The team plan does not impose
 such a rate limit.
