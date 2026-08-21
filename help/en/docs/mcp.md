@@ -13,6 +13,7 @@ documents and tables.
     {: .grist-button}
 
     For ChatGPT, see the [instructions below](#chatgpt).
+    {: style="text-align: center" }
 
 For Grist's built-in AI assistant, see [AI Assistant](assistant.md).
 
