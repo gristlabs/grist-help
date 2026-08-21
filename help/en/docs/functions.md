@@ -954,6 +954,10 @@ Strings are also accepted:
 ### <code>__NOW__(tz=None)</code> {: #now--search .search-only }
 
 Returns the `datetime` object for the current time.
+
+Grist re-evaluates `NOW()` about once an hour while the document is open, and on reload; Python's
+`datetime.now()` updates only on reload. Use a [trigger formula](formulas.md#trigger-formulas) to
+freeze the value.
 </details>
 <details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__SECOND__(time)</code> {: #second data-toc-label="SECOND" }
@@ -988,6 +992,10 @@ Same as `time.second`.
 ### <code>__TODAY__(tz=None)</code> {: #today--search .search-only }
 
 Returns the `date` object for the current date.
+
+Like `NOW()`, `TODAY()` re-evaluates about once an hour while the document is open; Python's
+`datetime.date.today()` updates only on reload. Use a [trigger formula](formulas.md#trigger-formulas)
+to freeze the value.
 </details>
 <details markdown><summary  markdown="block" data-search-exclude>
 #### <code>__WEEKDAY__(date, return_type=1)</code> {: #weekday data-toc-label="WEEKDAY" }

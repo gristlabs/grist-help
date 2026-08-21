@@ -338,9 +338,8 @@ ___
 
 ▸ **mapColumnNames**(`data`, `options?`): `any`
 
-Renames columns in the result using columns mapping configuration passed in ready method.
-Returns null if not all required columns were mapped or not widget doesn't support
-custom column mapping.
+Renames columns in the result using the mapping Grist holds for this widget.
+Returns the data unchanged when the widget maps no columns.
 
 #### Parameters
 
@@ -348,7 +347,6 @@ custom column mapping.
 | :------ | :------ |
 | `data` | `any` |
 | `options?` | `Object` |
-| `options.columns?` | [`ColumnsToMap`](grist_plugin_api.md#columnstomap) |
 | `options.mappings?` | ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md) |
 | `options.reverse?` | `boolean` |
 
@@ -373,7 +371,6 @@ we don't attempt to do these transformations automatically.
 | :------ | :------ |
 | `data` | `any` |
 | `options?` | `Object` |
-| `options.columns?` | [`ColumnsToMap`](grist_plugin_api.md#columnstomap) |
 | `options.mappings?` | ``null`` \| [`WidgetColumnMap`](../interfaces/grist_plugin_api.WidgetColumnMap.md) |
 
 #### Returns
