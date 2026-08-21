@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787145448"></script>
+  <script type="module" src="/js/grist.js?v=1787312957"></script>
 
     
   
@@ -23359,6 +23359,9 @@ The work days are Monday through Friday, excluding the dates in the <code>holida
 </summary>
 <h3 class="search-only" id="now--search"><code><strong>NOW</strong>(tz=None)</code><a class="headerlink" href="#now--search" title="Permanent link">#</a></h3>
 <p>Returns the <code>datetime</code> object for the current time.</p>
+<p>Grist re-evaluates <code>NOW()</code> about once an hour while the document is open, and on reload; Python&rsquo;s
+<code>datetime.now()</code> updates only on reload. Use a <a href="../formulas/#trigger-formulas">trigger formula</a> to
+freeze the value.</p>
 </details>
 <details>
 <summary>
@@ -23383,6 +23386,9 @@ Same as <code>time.second</code>.</p>
 </summary>
 <h3 class="search-only" id="today--search"><code><strong>TODAY</strong>(tz=None)</code><a class="headerlink" href="#today--search" title="Permanent link">#</a></h3>
 <p>Returns the <code>date</code> object for the current date.</p>
+<p>Like <code>NOW()</code>, <code>TODAY()</code> re-evaluates about once an hour while the document is open; Python&rsquo;s
+<code>datetime.date.today()</code> updates only on reload. Use a <a href="../formulas/#trigger-formulas">trigger formula</a>
+to freeze the value.</p>
 </details>
 <details>
 <summary>

@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787145448"></script>
+  <script type="module" src="/js/grist.js?v=1787312957"></script>
 
     
   
@@ -11282,9 +11282,8 @@ on the table is attempted.</p>
 <hr />
 <h3 id="mapcolumnnames">mapColumnNames<a class="headerlink" href="#mapcolumnnames" title="Permanent link">#</a></h3>
 <p>▸ <strong>mapColumnNames</strong>(<code>data</code>, <code>options?</code>): <code>any</code></p>
-<p>Renames columns in the result using columns mapping configuration passed in ready method.
-Returns null if not all required columns were mapped or not widget doesn&rsquo;t support
-custom column mapping.</p>
+<p>Renames columns in the result using the mapping Grist holds for this widget.
+Returns the data unchanged when the widget maps no columns.</p>
 <h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -11301,10 +11300,6 @@ custom column mapping.</p>
 <tr>
 <td style="text-align: left;"><code>options?</code></td>
 <td style="text-align: left;"><code>Object</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>options.columns?</code></td>
-<td style="text-align: left;"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>options.mappings?</code></td>
@@ -11341,10 +11336,6 @@ we don&rsquo;t attempt to do these transformations automatically.</p>
 <tr>
 <td style="text-align: left;"><code>options?</code></td>
 <td style="text-align: left;"><code>Object</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>options.columns?</code></td>
-<td style="text-align: left;"><a href="./#columnstomap"><code>ColumnsToMap</code></a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>options.mappings?</code></td>
