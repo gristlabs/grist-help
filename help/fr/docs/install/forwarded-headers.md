@@ -29,7 +29,7 @@ est "Un service d'authentification minimale qui fournit une connexion OAuth/SSO 
 
   - `LOGOUT_REDIRECT` pour traefik-forward-auth doit être `https://<grist-site>/signed-out`.
 
-Il existe des exemples pratiques sur [Un modèle pour l'auto-hébergement de Grist avec traefik et docker compose](https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856) et [Grist Omnibus](https://github.com/gristlabs/grist-omnibus).
+Il existe un exemple pratique sur [Un modèle pour l'auto-hébergement de Grist avec traefik et docker compose](https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856).
 
 ## Dépannage
 

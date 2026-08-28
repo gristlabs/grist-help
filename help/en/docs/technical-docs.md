@@ -35,6 +35,7 @@ and more.
 Grist Community edition is free, open-source and fully functional for many use cases. The
 [full version of Grist](self-managed.md#how-do-i-enable-the-full-edition-of-grist) adds features for organizations that need tighter security, compliance, and
 operational control, including
+[single sign-on](install/authentication-overview.md) via OIDC or SAML,
 [audit logging](install/audit-log-overview.md) with
 [streaming to SIEM systems](install/audit-log-streaming.md),
 [Admin Controls](admin-controls.md) for managing users and resources,

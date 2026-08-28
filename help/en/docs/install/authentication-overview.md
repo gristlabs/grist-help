@@ -19,18 +19,22 @@ getgrist.com authentication is built on the industry-standard OAuth 2.0 and Open
 
 [Learn more about setting up Sign in with getgrist.com](sign-in-with-grist.md).
 
-### OpenID Connect (OIDC) {: .tag-core .tag-ee}
+### OpenID Connect (OIDC) {: .tag-ee}
 OIDC allows users on your Grist server to sign in using an external identity provider that supports the OIDC standard.
 
 When signing in, users will be redirected to your chosen identity provider's login page to authenticate. After successful authentication, they'll be redirected back to your Grist server and signed in as the user verified by the provider.
 
+OIDC sign-in is fully supported with an [activation key](../self-managed.md#how-do-i-enable-the-full-edition-of-grist).
+
 [Learn more about setting up OIDC](oidc.md).
 
-### SAML {: .tag-core .tag-ee}
+### SAML {: .tag-ee}
 SAML allows users on your Grist server to sign in using an external identity provider that supports the SAML 2.0 standard.
 
 
 When signing in, users will be redirected to your chosen identity provider's login page to authenticate. After successful authentication, they'll be redirected back to your Grist server and signed in as the user verified by the provider.
+
+SAML sign-in is fully supported with an [activation key](../self-managed.md#how-do-i-enable-the-full-edition-of-grist).
 
 [Learn more about setting up SAML](saml.md).
 

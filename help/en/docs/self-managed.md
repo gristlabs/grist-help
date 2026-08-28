@@ -11,9 +11,9 @@ description: The essentials of creating and maintaining a self-hosted Grist inst
 
 There are two flavors of self-hosted Grist, the full edition and Grist Community edition. 
 
-The full edition of Grist is a licensed application that can be installed by enterprises on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. This edition includes all features enabled for improved security, governance, and collaboration, such as advanced admin controls, automations, email notifications, AI assistance, and more. 
+The full edition of Grist is a licensed application that can be installed by enterprises on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. This edition includes all features enabled for improved security, governance, and collaboration, such as single sign-on (SSO), advanced admin controls, automations, email notifications, AI assistance, and more. 
 
-Grist Community edition is the free and open-source heart of Grist, with everything you need to open and edit Grist documents, control access, create forms, connect to single sign-on (SSO) providers, and much more.
+Grist Community edition is the free and open-source heart of Grist, with everything you need to open and edit Grist documents, control access, create forms, and much more.
 
 Grist is also available as a desktop application based on Grist Community edition and built with Electron. It is available for download at [https://github.com/gristlabs/grist-desktop/releases](https://github.com/gristlabs/grist-desktop/releases). Grist Desktop does not need internet and is not tied to any online account or service.
 
@@ -177,13 +177,13 @@ docker run ...
 ```
 
 You will need to place a "reverse proxy" in front of Grist to
-handle "SSL termination" (decrypting encypted traffic) using
+handle "SSL termination" (decrypting encrypted traffic) using
 a certificate that establishes ownership of the site. If you don't
-know what this means, you could try using the
-[Grist Omnibus](https://github.com/gristlabs/grist-omnibus) which
-packages Grist with a reverse proxy that will
-use [Let's Encrypt](https://letsencrypt.org/) to get a certificate
-for you automatically.
+know what this means, the
+[docker-compose examples](https://github.com/gristlabs/grist-core/tree/main/docker-compose-examples)
+include ready-made setups in which [Traefik](https://traefik.io/)
+obtains a certificate from [Let's Encrypt](https://letsencrypt.org/)
+automatically.
 
 An important job of such a proxy is to correctly forward
 [websocket](https://en.wikipedia.org/wiki/WebSocket) connections. This
@@ -263,7 +263,7 @@ automatic right to team site membership.
 
 ### How do I set up authentication? {: .tag-core .tag-ee }
 
-Grist offers [several authentication methods](install/authentication-overview.md#getting-started) to help satisfy each organization's specific security requirements.
+Grist offers [several authentication methods](install/authentication-overview.md#getting-started) to help satisfy each organization's specific security requirements. Authentication options [Sign in with getgrist.com](install/sign-in-with-grist.md) and [forwarded headers](install/forwarded-headers.md) are available in all editions; connecting directly to your own identity provider via [OIDC](install/oidc.md) or [SAML](install/saml.md) is [fully supported](#how-do-i-enable-the-full-edition-of-grist) with an activation key.
 
 For any authentication method, you may want to also consider setting the
 following variables:
@@ -457,7 +457,7 @@ Create an empty directory, and add the following into it, in a file called
 `Dockerfile`:
 
 ```
-FROM gristlabs/grist  # or grist-oss or grist-omnibus
+FROM gristlabs/grist  # or grist-oss
 
 RUN \
   apt update && apt install -y openssl && \
@@ -571,12 +571,6 @@ that directory would be `~/grist`. Here's what you would find there:
    SQLite database. It is called the
    [home database](self-managed.md#what-is-a-home-database)
    and if PostgreSQL is configured that is used instead of this file.
-
- * If using Grist Omnibus, there are other files, including:
-
-     - An `auth` directory, with a SQLite database for tracking login
-       state, and a store of any certificates created.
-     - A `param` directory, with secrets invented for the installation.
 
 ### What is a "home" database? {: .tag-core .tag-ee }
 

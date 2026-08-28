@@ -222,10 +222,10 @@ docker run ...
 Vous devrez placer un "proxy inverse" devant Grist pour
 gérer la "terminaison SSL" (décryptage du trafic chiffré) en utilisant
 un certificat qui établit la propriété du site. Si vous ne savez pas
-ce que cela signifie, vous pourriez essayer d'utiliser le
-[Grist Omnibus](https://github.com/gristlabs/grist-omnibus) qui
-emballe Grist avec un proxy inverse qui utilisera [Let's Encrypt](https://letsencrypt.org/) pour obtenir un certificat
-pour vous automatiquement.
+ce que cela signifie, les
+[exemples docker-compose](https://github.com/gristlabs/grist-core/tree/main/docker-compose-examples)
+incluent des configurations prêtes à l'emploi dans lesquelles [Traefik](https://traefik.io/)
+obtient automatiquement un certificat auprès de [Let's Encrypt](https://letsencrypt.org/).
 
 Un travail important d'un tel proxy est de rediriger correctement
 les connexions [websocket](https://en.wikipedia.org/wiki/WebSocket). Cela
@@ -513,7 +513,7 @@ Créez un répertoire vide et ajoutez ce qui suit, dans un fichier appelé
 `Dockerfile` :
 
 ```
-FROM gristlabs/grist  # ou grist-oss ou grist-omnibus
+FROM gristlabs/grist  # ou grist-oss
 
 RUN \
   apt update && apt install -y openssl && \
@@ -621,12 +621,6 @@ ce répertoire serait `~/grist`. Voici ce que vous y trouveriez :
    base de données SQLite. Elle est appelée la
    [base de données principale](#quest-ce-quune-base-de-donnees-principale)
    et si PostgreSQL est configuré, cela est utilisé à la place de ce fichier.
-
- * Si vous utilisez Grist Omnibus, il y a d'autres fichiers, y compris :
-
-     - Un répertoire `auth`, avec une base de données SQLite pour suivre l'état de connexion,
-       et un stockage de tous les certificats créés.
-     - Un répertoire `param`, avec des secrets inventés pour l'installation.
 
 ### Qu'est-ce qu'une base de données "principale" ? {: .tag-core .tag-ee }
 

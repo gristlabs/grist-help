@@ -49,7 +49,7 @@ login and authentication for the traefik reverse proxy/load balancer."
   - `LOGOUT_REDIRECT` for traefik-forward-auth should be
     `https://<grist-site>/signed-out`.
 
-There are worked examples at [A template for self-hosting Grist with traefik and docker compose](https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856) and [Grist Omnibus](https://github.com/gristlabs/grist-omnibus).
+There is a working example at [A template for self-hosting Grist with traefik and docker compose](https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856).
 
 ## Troubleshooting
 
