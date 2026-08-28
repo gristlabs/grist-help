@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787312957"></script>
+  <script type="module" src="/js/grist.js?v=1787945100"></script>
 
     
   
@@ -9030,7 +9030,7 @@ est &ldquo;Un service d&rsquo;authentification minimale qui fournit une connexio
 <p><code>LOGOUT_REDIRECT</code> pour traefik-forward-auth doit être <code>https://&lt;grist-site&gt;/signed-out</code>.</p>
 </li>
 </ul>
-<p>Il existe des exemples pratiques sur <a href="https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856">Un modèle pour l&rsquo;auto-hébergement de Grist avec traefik et docker compose</a> et <a href="https://github.com/gristlabs/grist-omnibus">Grist Omnibus</a>.</p>
+<p>Il existe un exemple pratique sur <a href="https://community.getgrist.com/t/a-template-for-self-hosting-grist-with-traefik-and-docker-compose/856">Un modèle pour l&rsquo;auto-hébergement de Grist avec traefik et docker compose</a>.</p>
 <h2 id="depannage">Dépannage<a class="headerlink" href="#depannage" title="Permanent link">#</a></h2>
 <p>Pour beaucoup, cette méthode d&rsquo;authentification fonctionne très bien. Un utilisateur avec plusieurs applications web servies par le même middleware a eu des difficultés à coordonner les déconnexions. Cela pourrait être résolu en appliquant le middleware à tous les chemins de Grist et en définissant <code>GRIST_IGNORE_SESSION=true</code> afin que Grist n&rsquo;ait aucune notion distincte de qui est connecté. Mais alors, partager certains documents avec tout le monde publiquement (sans se connecter) est devenu un problème. Notez qu&rsquo;avec <code>GRIST_IGNORE_SESSION=true</code>, Grist fera confiance à <code>GRIST_FORWARD_AUTH_HEADER</code> sur toutes les requêtes, il est donc impératif que vous ayez un middleware qui remplace ou supprime cet en-tête pour <em>toutes</em> les requêtes externes avant de les transférer à Grist.</p>
 <p>Si au contraire vous voulez être sûr que l&rsquo;utilisateur doit être connecté avant d&rsquo;utiliser Grist de quelque manière que ce soit, vous pouvez définir <code>GRIST_FORCE_LOGIN=true</code>.</p>

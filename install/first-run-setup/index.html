@@ -64,7 +64,7 @@ you like it configured (the Quick setup wizard)?">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787312957"></script>
+  <script type="module" src="/js/grist.js?v=1787945100"></script>
 
     
   
@@ -9314,27 +9314,23 @@ shows the current value and locks the field. To change it, edit your
 environment and restart.</p>
 </div>
 <h3 id="step-3-authentication">Step 3: Authentication<a class="headerlink" href="#step-3-authentication" title="Permanent link">#</a></h3>
-<p>This is the step that matters most for a public-facing server. By default,
+<p>This is the step that matters most for a public-facing server. Initially,
 a fresh Grist installation has no authentication. Anyone who reaches it can
 read and edit documents.</p>
 <p><img alt="Quick setup, step 3: Authentication" src="../../images/first-run-setup/setup-authentication.png" /></p>
-<p>Open &lsquo;Other authentication methods&rsquo; and configure one. See
-<a href="../authentication-overview/">Authentication overview</a> for the full list and
+<p>See <a href="../authentication-overview/">Authentication overview</a> for the full list and
 guidance on which to pick:</p>
 <ul>
 <li><a href="../sign-in-with-grist/">Sign in with getgrist.com</a>: managed auth by
     Grist Labs. Quickest to set up.</li>
 <li><a href="../oidc/">OIDC</a>: works with Google, Okta, Auth0, Keycloak, and most
-    other identity providers.</li>
-<li><a href="../saml/">SAML</a>: for enterprise SSO.</li>
+    other identity providers. Requires an activation key.</li>
+<li><a href="../saml/">SAML</a>: for enterprise SSO. Requires an activation key.</li>
 <li><a href="../forwarded-headers/">Forwarded headers</a>: when an upstream proxy
     already authenticated the user.</li>
-<li><a href="../grist-connect/">GristConnect</a>: for sites that already speak
-    DiscourseConnect.</li>
 </ul>
 <p>If you really do want an open server, say, a personal install on your
-laptop, check the <em>I understand this server has no authentication</em> box and
-the wizard will let you proceed.</p>
+laptop, pick <em>No authentication</em> (the bottom-most option) and confirm.</p>
 <h3 id="step-4-backups">Step 4: Backups<a class="headerlink" href="#step-4-backups" title="Permanent link">#</a></h3>
 <p>Grist documents are SQLite files on disk. If the disk fails, they&rsquo;re gone.
 Hooking up external object storage gives you off-host backups automatically.</p>

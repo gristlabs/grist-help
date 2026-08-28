@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787312957"></script>
+  <script type="module" src="/js/grist.js?v=1787945100"></script>
 
     
   
@@ -9105,13 +9105,15 @@
 <p>If you don’t already have an existing login solution to integrate with Grist, getgrist.com authentication is the simplest way to get authentication up and running. User registration and authentication are fully handled by Grist Labs, while your documents and data stay on your server.</p>
 <p>getgrist.com authentication is built on the industry-standard OAuth 2.0 and OpenID Connect (OIDC) protocols. When signing in, users will be redirected to the getgrist.com sign-in page to log in or register. After authenticating using their getgrist.com credentials, they&rsquo;ll be redirected back to your Grist server and signed in with the same credentials.</p>
 <p><a href="../sign-in-with-grist/">Learn more about setting up Sign in with getgrist.com</a>.</p>
-<h3 class="tag-core tag-ee" id="openid-connect-oidc">OpenID Connect (OIDC)<a class="headerlink" href="#openid-connect-oidc" title="Permanent link">#</a></h3>
+<h3 class="tag-ee" id="openid-connect-oidc">OpenID Connect (OIDC)<a class="headerlink" href="#openid-connect-oidc" title="Permanent link">#</a></h3>
 <p>OIDC allows users on your Grist server to sign in using an external identity provider that supports the OIDC standard.</p>
 <p>When signing in, users will be redirected to your chosen identity provider&rsquo;s login page to authenticate. After successful authentication, they&rsquo;ll be redirected back to your Grist server and signed in as the user verified by the provider.</p>
+<p>OIDC sign-in is fully supported with an <a href="../../self-managed/#how-do-i-enable-the-full-edition-of-grist">activation key</a>.</p>
 <p><a href="../oidc/">Learn more about setting up OIDC</a>.</p>
-<h3 class="tag-core tag-ee" id="saml">SAML<a class="headerlink" href="#saml" title="Permanent link">#</a></h3>
+<h3 class="tag-ee" id="saml">SAML<a class="headerlink" href="#saml" title="Permanent link">#</a></h3>
 <p>SAML allows users on your Grist server to sign in using an external identity provider that supports the SAML 2.0 standard.</p>
 <p>When signing in, users will be redirected to your chosen identity provider&rsquo;s login page to authenticate. After successful authentication, they&rsquo;ll be redirected back to your Grist server and signed in as the user verified by the provider.</p>
+<p>SAML sign-in is fully supported with an <a href="../../self-managed/#how-do-i-enable-the-full-edition-of-grist">activation key</a>.</p>
 <p><a href="../saml/">Learn more about setting up SAML</a>.</p>
 <h3 class="tag-core tag-ee" id="forwarded-headers">Forwarded headers<a class="headerlink" href="#forwarded-headers" title="Permanent link">#</a></h3>
 <p>Forwarded headers allow your Grist server to trust authentication performed by an external proxy such as <a href="https://doc.traefik.io/traefik/reference/routing-configuration/http/middlewares/forwardauth/">Traefik ForwardAuth</a>.</p>

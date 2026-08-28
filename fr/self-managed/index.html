@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787312957"></script>
+  <script type="module" src="/js/grist.js?v=1787945100"></script>
 
     
   
@@ -10036,10 +10036,10 @@ servir depuis <code>https://grist.example.com</code>, faites savoir à Grist com
 <p>Vous devrez placer un &ldquo;proxy inverse&rdquo; devant Grist pour
 gérer la &ldquo;terminaison SSL&rdquo; (décryptage du trafic chiffré) en utilisant
 un certificat qui établit la propriété du site. Si vous ne savez pas
-ce que cela signifie, vous pourriez essayer d&rsquo;utiliser le
-<a href="https://github.com/gristlabs/grist-omnibus">Grist Omnibus</a> qui
-emballe Grist avec un proxy inverse qui utilisera <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> pour obtenir un certificat
-pour vous automatiquement.</p>
+ce que cela signifie, les
+<a href="https://github.com/gristlabs/grist-core/tree/main/docker-compose-examples">exemples docker-compose</a>
+incluent des configurations prêtes à l&rsquo;emploi dans lesquelles <a href="https://traefik.io/">Traefik</a>
+obtient automatiquement un certificat auprès de <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>.</p>
 <p>Un travail important d&rsquo;un tel proxy est de rediriger correctement
 les connexions <a href="https://en.wikipedia.org/wiki/WebSocket">websocket</a>. Cela
 représente deux exigences :</p>
@@ -10262,7 +10262,7 @@ Les formules utilisant des packages python personnalisés donneront des erreurs 
 </div>
 <p>Créez un répertoire vide et ajoutez ce qui suit, dans un fichier appelé
 <code>Dockerfile</code> :</p>
-<div class="highlight"><pre><span></span><code>FROM gristlabs/grist  # ou grist-oss ou grist-omnibus
+<div class="highlight"><pre><span></span><code>FROM gristlabs/grist  # ou grist-oss
 
 RUN \
   apt update &amp;&amp; apt install -y openssl &amp;&amp; \
@@ -10358,14 +10358,6 @@ ce répertoire serait <code>~/grist</code>. Voici ce que vous y trouveriez :</p>
    base de données SQLite. Elle est appelée la
    <a href="#quest-ce-quune-base-de-donnees-principale">base de données principale</a>
    et si PostgreSQL est configuré, cela est utilisé à la place de ce fichier.</p>
-</li>
-<li>
-<p>Si vous utilisez Grist Omnibus, il y a d&rsquo;autres fichiers, y compris :</p>
-<ul>
-<li>Un répertoire <code>auth</code>, avec une base de données SQLite pour suivre l&rsquo;état de connexion,
-   et un stockage de tous les certificats créés.</li>
-<li>Un répertoire <code>param</code>, avec des secrets inventés pour l&rsquo;installation.</li>
-</ul>
 </li>
 </ul>
 <h3 class="tag-core tag-ee" id="quest-ce-quune-base-de-donnees-principale">Qu&rsquo;est-ce qu&rsquo;une base de données &ldquo;principale&rdquo; ?<a class="headerlink" href="#quest-ce-quune-base-de-donnees-principale" title="Permanent link">#</a></h3>

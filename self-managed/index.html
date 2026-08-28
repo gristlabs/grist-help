@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787312957"></script>
+  <script type="module" src="/js/grist.js?v=1787945100"></script>
 
     
   
@@ -9785,8 +9785,8 @@
 </div>
 <h2 id="what-is-self-hosted-grist">What is self-hosted Grist?<a class="headerlink" href="#what-is-self-hosted-grist" title="Permanent link">#</a></h2>
 <p>There are two flavors of self-hosted Grist, the full edition and Grist Community edition. </p>
-<p>The full edition of Grist is a licensed application that can be installed by enterprises on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. This edition includes all features enabled for improved security, governance, and collaboration, such as advanced admin controls, automations, email notifications, AI assistance, and more. </p>
-<p>Grist Community edition is the free and open-source heart of Grist, with everything you need to open and edit Grist documents, control access, create forms, connect to single sign-on (SSO) providers, and much more.</p>
+<p>The full edition of Grist is a licensed application that can be installed by enterprises on their own infrastructure with our support or hosted on dedicated Grist-managed infrastructure. This edition includes all features enabled for improved security, governance, and collaboration, such as single sign-on (SSO), advanced admin controls, automations, email notifications, AI assistance, and more. </p>
+<p>Grist Community edition is the free and open-source heart of Grist, with everything you need to open and edit Grist documents, control access, create forms, and much more.</p>
 <p>Grist is also available as a desktop application based on Grist Community edition and built with Electron. It is available for download at <a href="https://github.com/gristlabs/grist-desktop/releases">https://github.com/gristlabs/grist-desktop/releases</a>. Grist Desktop does not need internet and is not tied to any online account or service.</p>
 <h3 id="grist-community-edition">Grist Community edition<a class="headerlink" href="#grist-community-edition" title="Permanent link">#</a></h3>
 <p>When you install Grist, you can toggle between the full edition of Grist and Grist Community edition in the <a href="#how-do-i-enable-the-full-edition-of-grist">Admin Panel</a>. </p>
@@ -9909,13 +9909,13 @@ this:</p>
   ...
 </code></pre></div>
 <p>You will need to place a &ldquo;reverse proxy&rdquo; in front of Grist to
-handle &ldquo;SSL termination&rdquo; (decrypting encypted traffic) using
+handle &ldquo;SSL termination&rdquo; (decrypting encrypted traffic) using
 a certificate that establishes ownership of the site. If you don&rsquo;t
-know what this means, you could try using the
-<a href="https://github.com/gristlabs/grist-omnibus">Grist Omnibus</a> which
-packages Grist with a reverse proxy that will
-use <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> to get a certificate
-for you automatically.</p>
+know what this means, the
+<a href="https://github.com/gristlabs/grist-core/tree/main/docker-compose-examples">docker-compose examples</a>
+include ready-made setups in which <a href="https://traefik.io/">Traefik</a>
+obtains a certificate from <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>
+automatically.</p>
 <p>An important job of such a proxy is to correctly forward
 <a href="https://en.wikipedia.org/wiki/WebSocket">websocket</a> connections. This
 amounts to two requirements:</p>
@@ -9980,7 +9980,7 @@ temporarily lose access to the team site.</p>
 site, since apart from initial creation, administrators have no
 automatic right to team site membership.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-set-up-authentication">How do I set up authentication?<a class="headerlink" href="#how-do-i-set-up-authentication" title="Permanent link">#</a></h3>
-<p>Grist offers <a href="../install/authentication-overview/#getting-started">several authentication methods</a> to help satisfy each organization&rsquo;s specific security requirements.</p>
+<p>Grist offers <a href="../install/authentication-overview/#getting-started">several authentication methods</a> to help satisfy each organization&rsquo;s specific security requirements. Authentication options <a href="../install/sign-in-with-grist/">Sign in with getgrist.com</a> and <a href="../install/forwarded-headers/">forwarded headers</a> are available in all editions; connecting directly to your own identity provider via <a href="../install/oidc/">OIDC</a> or <a href="../install/saml/">SAML</a> is <a href="#how-do-i-enable-the-full-edition-of-grist">fully supported</a> with an activation key.</p>
 <p>For any authentication method, you may want to also consider setting the
 following variables:</p>
 <ul>
@@ -10127,7 +10127,7 @@ Formulas using custom Python packages will give errors when those packages are u
 </div>
 <p>Create an empty directory, and add the following into it, in a file called
 <code>Dockerfile</code>:</p>
-<div class="highlight"><pre><span></span><code>FROM gristlabs/grist  # or grist-oss or grist-omnibus
+<div class="highlight"><pre><span></span><code>FROM gristlabs/grist  # or grist-oss
 
 RUN \
   apt update &amp;&amp; apt install -y openssl &amp;&amp; \
@@ -10228,14 +10228,6 @@ that directory would be <code>~/grist</code>. Here&rsquo;s what you would find t
    SQLite database. It is called the
    <a href="./#what-is-a-home-database">home database</a>
    and if PostgreSQL is configured that is used instead of this file.</p>
-</li>
-<li>
-<p>If using Grist Omnibus, there are other files, including:</p>
-<ul>
-<li>An <code>auth</code> directory, with a SQLite database for tracking login
-   state, and a store of any certificates created.</li>
-<li>A <code>param</code> directory, with secrets invented for the installation.</li>
-</ul>
 </li>
 </ul>
 <h3 class="tag-core tag-ee" id="what-is-a-home-database">What is a &ldquo;home&rdquo; database?<a class="headerlink" href="#what-is-a-home-database" title="Permanent link">#</a></h3>
