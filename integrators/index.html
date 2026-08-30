@@ -62,7 +62,7 @@ include:">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1787945100"></script>
+  <script type="module" src="/js/grist.js?v=1788063158"></script>
 
     
   
@@ -6316,6 +6316,37 @@ include:">
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/integrations/zapier/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Zapier
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -9384,11 +9415,21 @@ is done, we are prompted to confirm which spreadsheet to use:</p>
 For Zapier&rsquo;s benefit in a later step, it is important that there be at least one sample
 response already in the spreadsheet.</p>
 <p><img alt="which worksheet" src="../images/zapier/google-forms/which-worksheet.png" /></p>
-<p>That&rsquo;s the Google side done.  Now for the Grist side.  We are prompted to
-give an API key for Grist, so we <a href="../rest-api/">set up an API key</a> if we haven&rsquo;t already.
-To give precise access rights, we could set up a user account just for the integration,
-and give it access to just what it needs, and supply its API key.</p>
-<p><img alt="set api key" src="../images/zapier/google-forms/set-api-key.png" /></p>
+<p>That&rsquo;s the Google side done.  Now for the Grist side.  We&rsquo;re prompted to
+connect a Grist account.  With the <strong>Grist</strong> app we click <strong>Connect</strong>, sign in to Grist, and
+choose which documents to authorize.  Zapier gets a <a href="../connected-apps/">connected app</a> limited to
+just those documents. You can see it on the Grist side in your <a href="../connected-apps/#managing-authorized-apps">Authorized
+apps</a> listing, and revoke at any time.</p>
+<p><img alt="connect grist" src="../images/zapier/google-forms/connect-grist.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Self-hosted Grist</p>
+<p>The <a href="https://zapier.com/apps/grist/integrations"><strong>Grist</strong></a> Zapier integration
+connects to Grist&rsquo;s hosted service. If you run Grist yourself, you can
+connect with an API key using our <a href="https://zapier.com/apps/grist-api-key/integrations"><strong>Grist (API key)</strong></a>
+integration, or set up a
+one-click integration for your own instance &ndash;
+see <a href="../install/integrations/zapier/">Zapier on self-hosted Grist</a>.</p>
+</div>
 <p>Now we confirm the team to use - personal docs or a team site we have access to:</p>
 <p><img alt="which team" src="../images/zapier/google-forms/which-team.png" /></p>
 <p>Then we pick the Grist document to send form responses to:</p>
