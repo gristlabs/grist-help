@@ -16,8 +16,7 @@ title: Zapier
 - **If you are connecting Zapier to Grist on a self-hosted installation**, and received an invitation
   from your administrator to use a private Zapier integration, use that link to
   connect. Otherwise, the simplest way to connect is by using
-  the <!-- TODO update this link and the one below, once this integration is public. -->
-  [**Grist (API key)**](https://zapier.com/developer/public-invite/244081/eb20155b4854116177cb712b2f8378b0/)
+  the [**Grist (API key)**](https://zapier.com/apps/grist-api-key/integrations)
   integration.
 
 - **If you are the admin of a Grist installation** and want to give your users more convenient
@@ -118,7 +117,7 @@ click, no keys.
 If OAuth apps aren't available (Grist Community), or you'd rather skip the setup above, or want to
 use a [service account](../../newsletters/2025-10.md#self-hosted-grist-service-accounts-api), use the
 published
-[**Grist (API key)**](https://zapier.com/developer/public-invite/244081/eb20155b4854116177cb712b2f8378b0/)
+[**Grist (API key)**](https://zapier.com/apps/grist-api-key/integrations)
 integration. It has a hostname field, so it works with any self-hosted
 instance: point it at your server and paste a Grist [API key](../../rest-api.md). This is quicker
 to set up, but the key carries the user's full account access and can't be scoped or revoked
