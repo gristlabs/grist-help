@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[August 2026](newsletters/2026-08.md) •
+MCP improvements, memory optimizations, and integrations.
+
 [July 2026](newsletters/2026-07.md) •
 GristCon 2026 announced, multi-server support and new templates.
 
