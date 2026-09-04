@@ -8,9 +8,12 @@ MCP-aware tool (such as Claude or ChatGPT) can use Grist's MCP server to work wi
 and documents: list and search tables, read and query rows, add or update rows, and create new
 documents and tables.
 
-!!! note "Want to add a Grist connector to Claude?"
+!!! note "Want to add a Grist connector?"
     [Connect Grist to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Grist&connectorUrl=https%3A%2F%2Fdocs.getgrist.com%2Fapi%2Fmcp){:target="\_blank"}
     {: .grist-button}
+
+    For ChatGPT, see the [instructions below](#chatgpt).
+    {: style="text-align: center" }
 
 For Grist's built-in AI assistant, see [AI Assistant](assistant.md).
 
@@ -86,7 +89,7 @@ up in advance.
 
 These walk through Claude and ChatGPT. Other clients follow the same custom-connector flow.
 
-**Claude.ai or Claude Desktop**
+#### Claude.ai or Claude Desktop
 
 !!! warning "Directory listing pending review"
     The Grist listing in the Claude directory is still under Anthropic review and is not active
@@ -107,7 +110,7 @@ After clicking the link:
 <span class="screenshot-full">*![add-connector](images/mcp/add-connector.png)*</span>
 {: .screenshot-half }
 
-**ChatGPT**
+#### ChatGPT
 
 !!! note "Developer mode required"
     Adding a custom MCP server in ChatGPT needs developer mode. Turn it on under
@@ -132,7 +135,7 @@ After clicking the link:
 3. Click **Create**. ChatGPT opens a browser window for you to sign in to Grist and approve the
    permissions on the consent screen.
 
-**Terminal apps (Claude Code, Gemini CLI, and similar)**
+#### Terminal apps (Claude Code, Gemini CLI, and similar)
 
 Most terminal-based assistants add an MCP server with a single command. For Claude Code:
 
