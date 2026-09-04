@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1788215645"></script>
+  <script type="module" src="/js/grist.js?v=1788503501"></script>
 
     
   
@@ -3017,6 +3017,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Connection examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claudeai-or-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude.ai or Claude Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chatgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChatGPT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-apps-claude-code-gemini-cli-and-similar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal apps (Claude Code, Gemini CLI, and similar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -9304,6 +9343,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Connection examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claudeai-or-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude.ai or Claude Desktop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chatgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChatGPT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-apps-claude-code-gemini-cli-and-similar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal apps (Claude Code, Gemini CLI, and similar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -9605,8 +9683,9 @@ MCP-aware tool (such as Claude or ChatGPT) can use Grist&rsquo;s MCP server to w
 and documents: list and search tables, read and query rows, add or update rows, and create new
 documents and tables.</p>
 <div class="admonition note">
-<p class="admonition-title">Want to add a Grist connector to Claude?</p>
+<p class="admonition-title">Want to add a Grist connector?</p>
 <p class="grist-button"><a href="https://claude.ai/customize/connectors?modal=add-custom-connector&amp;connectorName=Grist&amp;connectorUrl=https%3A%2F%2Fdocs.getgrist.com%2Fapi%2Fmcp" target="_blank">Connect Grist to Claude</a></p>
+<p style="text-align: center">For ChatGPT, see the <a href="#chatgpt">instructions below</a>.</p>
 </div>
 <p>For Grist&rsquo;s built-in AI assistant, see <a href="../assistant/">AI Assistant</a>.</p>
 <h2 id="setting-up-the-mcp-server">Setting up the MCP server<a class="headerlink" href="#setting-up-the-mcp-server" title="Permanent link">#</a></h2>
@@ -9661,7 +9740,7 @@ standard that lets a client register itself automatically from a metadata URL in
 up in advance.</p>
 <h3 id="connection-examples">Connection examples<a class="headerlink" href="#connection-examples" title="Permanent link">#</a></h3>
 <p>These walk through Claude and ChatGPT. Other clients follow the same custom-connector flow.</p>
-<p><strong>Claude.ai or Claude Desktop</strong></p>
+<h4 id="claudeai-or-claude-desktop">Claude.ai or Claude Desktop<a class="headerlink" href="#claudeai-or-claude-desktop" title="Permanent link">#</a></h4>
 <div class="admonition warning">
 <p class="admonition-title">Directory listing pending review</p>
 <p>The Grist listing in the Claude directory is still under Anthropic review and is not active
@@ -9677,7 +9756,7 @@ name and MCP URL pre-filled, so you only need to confirm the dialog and sign in:
 <li>Review the permissions and click &lsquo;Allow&rsquo; on the consent screen.</li>
 </ol>
 <p class="screenshot-half"><span class="screenshot-full"><em><img alt="add-connector" src="../images/mcp/add-connector.png" /></em></span></p>
-<p><strong>ChatGPT</strong></p>
+<h4 id="chatgpt">ChatGPT<a class="headerlink" href="#chatgpt" title="Permanent link">#</a></h4>
 <div class="admonition note">
 <p class="admonition-title">Developer mode required</p>
 <p>Adding a custom MCP server in ChatGPT needs developer mode. Turn it on under
@@ -9704,7 +9783,7 @@ name and MCP URL pre-filled, so you only need to confirm the dialog and sign in:
    permissions on the consent screen.</p>
 </li>
 </ol>
-<p><strong>Terminal apps (Claude Code, Gemini CLI, and similar)</strong></p>
+<h4 id="terminal-apps-claude-code-gemini-cli-and-similar">Terminal apps (Claude Code, Gemini CLI, and similar)<a class="headerlink" href="#terminal-apps-claude-code-gemini-cli-and-similar" title="Permanent link">#</a></h4>
 <p>Most terminal-based assistants add an MCP server with a single command. For Claude Code:</p>
 <div class="highlight"><pre><span></span><code>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>grist<span class="w"> </span>https://docs.getgrist.com/api/mcp
 </code></pre></div>
