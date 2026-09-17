@@ -120,7 +120,7 @@ and formatting, but it does not include attachments, pages, or widgets.
 
 Begin the copy process by clicking the "Add New" button and choosing "Copy data from another document".
 
-![copy-data-menu](images/copying-docs/copy-data-menu.png)
+![add-new-menu-doc](images/add-new-menu-doc.png)
 
 !!! note "Note"
     "Copy data from another document" is available on Business plan and above, as well as in the full edition of
