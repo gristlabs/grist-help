@@ -6,18 +6,19 @@ title: Importing more data
 
 You can import a file to [start a new Grist document](creating-doc.md), or to
 add data to an existing document. Grist supports imports of Excel, CSV, JSON,
-tab-separated files and from [Google Drive](imports.md#import-from-google-drive) and [Airtable](imports.md#import-from-airtable).
+tab-separated files and from [Google Drive](imports.md#import-from-google-drive),
+[Airtable](imports.md#import-from-airtable), and [other Grist documents](imports.md#import-from-another-grist-document).
 
 To start a new Grist document, click the "Add New" button on the home screen
 and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
 
 To add to an existing document, open that document, click the "Add
-New" button and then "Import from file".  By default, each imported
+New" button and then "Import from..." > "File". By default, each imported
 table is added as a new Grist table, but when examining the preview
 dialog for an import, you have an option to change the destination to
 an existing Grist table.
 
-You can also import any of the same formats from a URL, using the "Import from URL" option.
+You can also import any of the same formats from a URL, using the "Import from..." > "URL" option.
 
 ## The Import dialog
 
@@ -55,7 +56,7 @@ Importing from a Google Drive is as easy as importing from an Excel file or a
 CSV file. You can either provide an URL of a file stored in the Google Drive or
 use a Google File Picker to choose a file from your own drive.
 
-To use a Picker, click the "Add New" button and choose "Import from Google 
+To use a Picker, click the "Add New" button and choose "Import from..." > "Google
 Drive".
 
 ![import-dialog](images/import-google-drive-sign-in.png)
@@ -74,8 +75,8 @@ you may configure what data to import, and which destination table to add it to.
 ## Import from URL
 
 If you have an URL to a file or a spreadsheet stored on your Google Drive or a file that
-is publicly accessible, you can import it directly using the "Import from URL" option from
-the "Add New" menu.
+is publicly accessible, you can import it directly using the "Import from..." > "URL" option
+from the "Add New" menu.
 
 ![import-from-url](images/import-from-url.png)
 
@@ -155,7 +156,7 @@ Airtable bases can be imported directly into a new Grist document or added as ne
 This process will copy the full contents of your base (including attachments), but it does not include views,
 interfaces, or forms.
 
-Begin the import process by clicking the "Add new" button and choosing "Import from Airtable".
+Begin the import process by clicking the "Add New" button and choosing "Import from..." > "Airtable".
 
 ![import-airtable-auth](images/import-airtable-auth.png)
 
@@ -192,4 +193,39 @@ tables will appear in the destination document.
     turn off your computer while the import is running. Additionally, if you are on a slow internet connection or have a
     restricted data plan (e.g., mobile data), you may want to wait and run the import when you have a stronger or 
     unmetered connection.
+
+## Import from another Grist document
+
+Tables from another Grist document can be imported directly into a new Grist document or added to an existing one.
+This process will copy the structure and data of the tables you select, including column types, formulas, and
+references, but it does not include attachments, pages, or widgets.
+
+Begin the import process by clicking the "Add New" button and choosing "Import from another document".
+
+!!! note "Note"
+    "Import from another document" is only available on Business plans and above on Hosted Grist (getgrist.com), and
+    in the full edition of self-hosted Grist.
+
+Then, select the site, workspace, and document you would like to import from and click "Continue".
+
+![import-grist-doc](images/import-grist-doc.png)
+
+You will then see a list of all the tables contained within that document. For each table, you can choose to:
+
+* **Create a new table:** This will create a new table, and import all data into it.
+* **Create a new table (structure only)**: This will create a new table that matches the structure of the one in the
+  source document, but will not import any data.
+* **Import into an existing table:** When importing within an existing document, you can choose one of its tables
+  as the destination. Columns are matched by ID, and records that were previously imported from the same source table
+  matching the "Source Row Id" column are updated in-place, rather than duplicated.
+* **Skip the table:** Skips the table entirely. If you have any other tables containing references to this table, those
+  references will not be imported.
+
+![import-grist-tables](images/import-grist-tables.png)
+
+During configuration, you may see warnings next to some tables. These warnings let you know if there are any
+differences you might notice in your data after the import is complete.
+
+Finally, click "Import tables" to execute the import process. Stay on the page until the import finishes. Once the
+transfer is complete, your newly created tables will appear in the destination document.
 
