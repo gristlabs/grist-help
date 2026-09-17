@@ -197,14 +197,14 @@ tables will appear in the destination document.
 ## Import from another Grist document
 
 Tables from another Grist document can be imported directly into a new Grist document or added to an existing one.
-This process will copy the structure and data of the tables you select, including column types, formulas, and
-references, but it does not include attachments, pages, or widgets.
+This process will copy the structure and data of the tables you select, including column types, formulas, references,
+and formatting, but it does not include attachments, pages, or widgets.
 
 Begin the import process by clicking the "Add New" button and choosing "Import from another document".
 
 !!! note "Note"
-    "Import from another document" is only available on Business plans and above on Hosted Grist (getgrist.com), and
-    in the full edition of self-hosted Grist.
+    "Import from another document" is available on Business plan and above, as well as in the full edition of
+    self-hosted Grist.
 
 Then, select the site, workspace, and document you would like to import from and click "Continue".
 
