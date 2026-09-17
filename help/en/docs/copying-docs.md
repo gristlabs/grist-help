@@ -110,3 +110,41 @@ a new name using the "Save Copy" button or menu option.
 
 You can use the "As Template" checkbox to discard the data of the example, keeping only its
 structure. This makes it easy to start using it for your own data.
+
+
+## Copying Data from Another Document
+
+Tables from another Grist document can be copied directly into a new Grist document or added to an existing one.
+This process will copy the structure and data of the tables you select, including column types, formulas, references,
+and formatting, but it does not include attachments, pages, or widgets.
+
+Begin the copy process by clicking the "Add New" button and choosing "Copy data from another document".
+
+![copy-data-menu](images/copying-docs/copy-data-menu.png)
+
+!!! note "Note"
+    "Copy data from another document" is available on Business plan and above, as well as in the full edition of
+    self-hosted Grist.
+
+Then, select the site, workspace, and document you would like to copy from and click "Continue".
+
+![copy-data-select-doc](images/copying-docs/copy-data-select-doc.png)
+
+You will then see a list of all the tables contained within that document. For each table, you can choose to:
+
+* **Create a new table:** This will create a new table, and copy all data into it.
+* **Create a new table (structure only)**: This will create a new table that matches the structure of the one in the
+  source document, but will not copy any data.
+* **Copy into an existing table:** When copying within an existing document, you can choose one of its tables
+  as the destination. Columns are matched by ID, and records that were previously copied from the same source table
+  matching the "Source Row Id" column are updated in-place, rather than duplicated.
+* **Skip the table:** Skips the table entirely. If you have any other tables containing references to this table, those
+  references will not be copied.
+
+![copy-data-select-tables](images/copying-docs/copy-data-select-tables.png)
+
+During configuration, you may see warnings next to some tables. These warnings let you know if there are any
+differences you might notice in your data after the copy is complete.
+
+Finally, click "Copy tables" to execute the copy process. Stay on the page until the copy finishes. Once the
+transfer is complete, your newly created tables will appear in the destination document.
