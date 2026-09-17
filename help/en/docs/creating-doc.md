@@ -43,7 +43,7 @@ checkbox in the dialog that appears.
 ## Importing more data
 
 Once you've created a document, you can import more data into it by opening the
-document and selecting "Add New" and then one of the Import options.
+document and selecting "Add New" > "Import from..." and then one of the import options.
 
 *![add-new-menu-doc](images/add-new-menu-doc.png){: .screenshot4}*
 {: .screenshot-half }

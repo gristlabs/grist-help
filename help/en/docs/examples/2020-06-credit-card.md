@@ -40,7 +40,7 @@ credit cards:
 To import this data into Grist:
 
 1. Open the [template here](https://public.getgrist.com/mMbk6UEHoHYf/AmEx-Activity-Template/m/fork){:target="\_blank"}.
-2. Click "Add New" button and choose "Import from file".
+2. Click "Add New" button and choose "Import from..." > "File".
 3. In the dialog that shows, change “To” table from “New Table” to “Activity”, like so:
 
 <span class="screenshot-large">*![Import destination](images/2020-06-credit-card-import-destination.png)*</span>
