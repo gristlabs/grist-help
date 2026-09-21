@@ -141,7 +141,7 @@ nothing else changes. See [Adding a load balancer](#adding-a-load-balancer).
 
 ### Settings to avoid
 
-Some settings are harmless on a single server and quietly wrong across several.
+Some settings are harmless on a single server but could cause problems across several.
 
 **`GRIST_DISABLE_S3`.** Without external document storage, documents exist only
 on the local disk of whichever server last held them, and cannot be picked up by
