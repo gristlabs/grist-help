@@ -798,7 +798,13 @@ The [installation administrator](self-managed.md#what-is-the-administrative-acco
 
 ### What if I need high availability? {: .tag-ee }
 
-We have developed expertise in hosting very busy Grist installations,
+[Grist Fleet](install/fleet.md) lets you run several Grist servers as one
+installation behind an ordinary load balancer, so that you can add and remove
+servers freely, upgrade with minimal disruption, and survive the loss of a
+server. It is available on the full edition of Grist, and needs to be enabled
+specifically on your activation key.
+
+We have also developed expertise in hosting very busy Grist installations,
 with many users, including how to upgrade with minimal disruption,
 and how to scale out to handle heavy load. We would be happy to help
 Enterprise clients with needs of this nature.
