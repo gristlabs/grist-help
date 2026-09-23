@@ -633,7 +633,8 @@ documents and document versions to an S3-compatible bucket
 (available for all Grist editions) or to Azure storage (in the full edition of Grist).
 
 Here is an example of running Grist locally, with snapshots stored
-in a test MinIO instance:
+in a test [RustFS](https://rustfs.com/) instance. Run each command in its
+own terminal, or add `-d` to run it in the background:
 
 ```sh
 # Make a network
@@ -642,24 +643,28 @@ docker network create grist
 # Start Redis in our network (recommended for snapshots)
 docker run --rm --network grist --name redis redis
 
-# Start MinIO in our network
-docker run --rm --network grist --name minio \
-  -v /tmp/minio:/data \
-  -p 9000:9000 -p 9001:9001 \
-  -e MINIO_ROOT_USER=grist -e MINIO_ROOT_PASSWORD=admingrist \
-   -it minio/minio server /data -console-address ":9001"
+# Start RustFS in our network
+docker run --rm --network grist --name rustfs -v rustfs:/data \
+  -e RUSTFS_ACCESS_KEY=grist -e RUSTFS_SECRET_KEY=admingrist \
+  -it rustfs/rustfs
 
-# Visit http://localhost:9000 and set up a bucket called grist-docs.
-# Make sure to enable versioning on the bucket.
+# Create a bucket called grist-docs, with versioning turned on
+docker run --rm --network grist --entrypoint sh \
+  -e AWS_ENDPOINT_URL=http://rustfs:9000 \
+  -e AWS_ACCESS_KEY_ID=grist -e AWS_SECRET_ACCESS_KEY=admingrist \
+  amazon/aws-cli -c "
+  aws s3api create-bucket --bucket grist-docs &&
+  aws s3api put-bucket-versioning --bucket grist-docs \
+    --versioning-configuration Status=Enabled"
 
-# Hook Grist up to Redis and MinIO
+# Hook Grist up to Redis and RustFS
 docker run --rm --network grist \
-  -e GRIST_DOCS_MINIO_ACCESS_KEY=grist \
-  -e GRIST_DOCS_MINIO_SECRET_KEY=admingrist \
-  -e GRIST_DOCS_MINIO_USE_SSL=0 \
-  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
-  -e GRIST_DOCS_MINIO_ENDPOINT=minio \
-  -e GRIST_DOCS_MINIO_PORT=9000 \
+  -e GRIST_DOCS_S3_ACCESS_KEY=grist \
+  -e GRIST_DOCS_S3_SECRET_KEY=admingrist \
+  -e GRIST_DOCS_S3_USE_SSL=0 \
+  -e GRIST_DOCS_S3_BUCKET=grist-docs \
+  -e GRIST_DOCS_S3_ENDPOINT=rustfs \
+  -e GRIST_DOCS_S3_PORT=9000 \
   -e REDIS_URL=redis://redis \
   -v /tmp/grist:/persist -p 8484:8484 -it gristlabs/grist
 ```
@@ -668,16 +673,20 @@ Here are flags to make Grist talk to an AWS S3 bucket using the MinIO
 client:
 ```
   ...
-  -e GRIST_DOCS_MINIO_ACCESS_KEY=$AWS_ACCESS_KEY_ID \
-  -e GRIST_DOCS_MINIO_SECRET_KEY=$AWS_SECRET_ACCESS_KEY \
-  -e GRIST_DOCS_MINIO_ENDPOINT=s3.amazonaws.com \
-  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
+  -e GRIST_DOCS_S3_ACCESS_KEY=$AWS_ACCESS_KEY_ID \
+  -e GRIST_DOCS_S3_SECRET_KEY=$AWS_SECRET_ACCESS_KEY \
+  -e GRIST_DOCS_S3_ENDPOINT=s3.amazonaws.com \
+  -e GRIST_DOCS_S3_BUCKET=grist-docs \
   ...
 ```
 
-As per [MinIO specs](https://github.com/minio/minio-go/blob/master/docs/API.md#makebucketctx-contextcontext-bucketname-string-opts-makebucketoptions-error), the default bucket region is `us-east-1`. This default region can be overwritten using the `GRIST_DOCS_MINIO_BUCKET_REGION` flag.
+The bucket region defaults to `us-east-1`, a common default for stores.
+If your bucket is elsewhere, set `GRIST_DOCS_S3_BUCKET_REGION` to its
+region.
 
-For details, and other options, see [Cloud Storage](install/cloud-storage.md).
+Any S3-compatible store works, as long as it supports bucket versioning.
+For details, other options, and some stores we've tested, see
+[Cloud Storage](install/cloud-storage.md#choosing-an-s3-compatible-store).
 
 ### How do I enable external attachments? {: .tag-core .tag-ee }
 
