@@ -286,7 +286,7 @@ This should trigger a 30 day trial. Activation keys are required to run the full
 [Request an activation key](https://www.getgrist.com/request-activation-key/), or learn more about
 [full edition of Grist](https://www.getgrist.com/pricing/#your-servers).
 
-!!! note "No 'full Grist' option?"
+!!! note "No "full Grist" option?"
     If you do not see an option to switch to full Grist, you may be running a version of Grist
     packaged without full Grist extensions. Please use the official `gristlabs/grist` docker image,
     or ask your packager to check the [build
