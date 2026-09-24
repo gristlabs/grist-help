@@ -791,7 +791,7 @@ If an activation key is already set, this section shows you its expiration date:
 
 ![Activation Key in the admin panel](images/admin-panel/activation-key-set.png)
 
-You can click "Update" to see the installation ID again.
+You can click 'Update' to see the installation ID again.
 
 - If you do not see an Installation ID, you may not have switched to the
 full Grist edition yet, or have not yet restarted Grist after you did so. See [How do I
