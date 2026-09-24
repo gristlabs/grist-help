@@ -780,8 +780,8 @@ Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/
 
 Activation keys used for Grist are normally tied to a particular installation ID,
 which is a randomly-generated unique identifier for your instance. You can find your
-installation ID in the "Edition" section of the [Admin Panel](admin-panel.md) when you
-are running the full Grist version:
+installation ID in the 'Edition' section of the [Admin Panel](admin-panel.md) when you
+are running the full Grist edition:
 
 ![Installation ID in the admin panel](images/admin-panel/installation-id.png)
 
