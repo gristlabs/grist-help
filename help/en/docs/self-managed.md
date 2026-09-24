@@ -785,6 +785,8 @@ are running the full Grist version:
 
 ![Installation ID in the admin panel](images/admin-panel/installation-id.png)
 
+To get an activation key, you may [request one here](https://www.getgrist.com/request-activation-key/).
+
 If an activation key is already set, this section shows you its expiration date:
 
 ![Activation Key in the admin panel](images/admin-panel/activation-key-set.png)
@@ -793,7 +795,7 @@ You can click "Update" to see the installation ID again.
 
 - If you do not see an Installation ID, you may not have switched to the
 full Grist edition yet, or have not yet restarted Grist after you did so. See [How do I
-enable the full edition of Grist?](#how-do-i-enable-the-full-edition-of-grist).
+enable the full edition of Grist?](#how-do-i-enable-the-full-edition-of-grist)
 
 - If you do not see an option to switch to full Grist, you may be running a version of Grist
 packaged without full Grist extensions. Please use the official `gristlabs/grist` docker image,
