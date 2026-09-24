@@ -281,7 +281,7 @@ The full edition of Grist can be enabled by visiting the Installation page in th
 
 ![Edition toggle on the Admin Panel](images/admin-panel/enterprise-toggle.png)
 
-This should trigger a 30 day trial. Activation keys are required to run the full edition of Grist after the trial period has expired.
+This should trigger a 30-day trial. Activation keys are required to run the full edition of Grist after the trial period has expired.
 
 [Request an activation key](https://www.getgrist.com/request-activation-key/), or learn more about
 [full edition of Grist](https://www.getgrist.com/pricing/#your-servers).
