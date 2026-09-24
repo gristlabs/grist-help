@@ -281,9 +281,22 @@ The full edition of Grist can be enabled by visiting the Installation page in th
 
 ![Edition toggle on the Admin Panel](images/admin-panel/enterprise-toggle.png)
 
-This should trigger a 30 day trial. Activation keys are required to run the full edition of Grist after the trial period has expired. Get an activation key by [signing up for the full edition of Grist](https://www.getgrist.com/pricing). You don't need an activation key to run Grist Community edition, and can revert back to Community at any time using the toggle in the [Admin Panel](admin-panel.md).
+This should trigger a 30 day trial. Activation keys are required to run the full edition of Grist after the trial period has expired.
 
-Place the contents of your activation key in an environment variable called
+[Request an activation key](https://www.getgrist.com/request-activation-key/), or learn more about
+[full edition of Grist](https://www.getgrist.com/pricing/#your-servers).
+
+!!! note "No 'full Grist' option?"
+    If you do not see an option to switch to full Grist, you may be running a version of Grist
+    packaged without full Grist extensions. Please use the official `gristlabs/grist` docker image,
+    or ask your packager to check the [build
+    instructions](https://github.com/gristlabs/grist-core/#building-from-source).
+
+You can revert back to Grist Community edition at any time using 'Downgrade to Community edition' link in the [Admin Panel](admin-panel.md). You do not need an activation key to run it.
+
+Once you have an activation key, paste it into the 'Activation key' textbox and click 'Activate'.
+
+Alternatively, you may place the contents of your activation key in an environment variable called
 `GRIST_ACTIVATION`, or place it in a directory available to Grist and
 provide the full path to the file with the environment variable
 `GRIST_ACTIVATION_FILE`. Without the activation key, there will be a
@@ -731,7 +744,7 @@ the default is to not send telemetry.
 
 The default Docker images for Grist come enabled
 with a setting to perform weekly update checks and inform the [installation administrator](self-managed.md#what-is-the-administrative-account) if any such updates are available. This
-behavior can be disabled from the [Admin Panel](admin-panel.md) via the
+behavior can be controlled from the [Admin Panel](admin-panel.md), in the 'Server' section, via the
 'Auto-check weekly' toggle. You can click on
 'Check now' at any time to see if a new Grist Docker image is available.  
 
@@ -767,22 +780,25 @@ Grist installations for Enterprise users. [Contact us](https://www.getgrist.com/
 
 Activation keys used for Grist are normally tied to a particular installation ID,
 which is a randomly-generated unique identifier for your instance. You can find your
-installation ID in the "Version" section of the [Admin Panel](admin-panel.md):
+installation ID in the "Edition" section of the [Admin Panel](admin-panel.md) when you
+are running the full Grist version:
 
 ![Installation ID in the admin panel](images/admin-panel/installation-id.png)
 
-If needed, expand the Enterprise area using the caret to the left of its name.
+If an activation key is already set, this section shows you its expiration date:
 
- - If you do not see "Enterprise" in the "Version" section, then you may be using
-   a version of Grist packaged without full Grist
-   extensions. Please use the official `gristlabs/grist` docker image,
-   or ask your packager to double check the
-   [build instructions](https://github.com/gristlabs/grist-core/#building-from-source).
+![Activation Key in the admin panel](images/admin-panel/activation-key-set.png)
 
- - If you do not see an Installation ID, you may not have turned on the
-   full Grist edition toggle yet, or Grist may not have been restarted after you did so.
-   Please check the toggle to the right of "Enterprise" is activated and that
-   Grist has successfully restarted.
+You can click "Update" to see the installation ID again.
+
+- If you do not see an Installation ID, you may not have switched to the
+full Grist edition yet, or have not yet restarted Grist after you did so. See [How do I
+enable the full edition of Grist?](#how-do-i-enable-the-full-edition-of-grist).
+
+- If you do not see an option to switch to full Grist, you may be running a version of Grist
+packaged without full Grist extensions. Please use the official `gristlabs/grist` docker image,
+or ask your packager to check the [build
+instructions](https://github.com/gristlabs/grist-core/#building-from-source).
 
 The installation ID is tied to the [home database](#what-is-a-home-database) rather than to the
 host machine or container. It will not change if you upgrade the container or move it to another
