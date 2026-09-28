@@ -120,7 +120,7 @@ and formatting, but it does not include attachments, pages, or widgets.
 
 Begin the copy process by clicking the "Add New" button and choosing "Copy data from another document".
 
-*![add-new-menu-doc](images/add-new-menu-doc.png){: .screenshot4}*
+*![add-new-menu-doc](images/copying-docs/copy-data-add-new-menu.png){: .screenshot4}*
 {: .screenshot-half }
 
 !!! note "Note"
