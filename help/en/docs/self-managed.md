@@ -684,6 +684,10 @@ The bucket region defaults to `us-east-1`, a common default for stores.
 If your bucket is elsewhere, set `GRIST_DOCS_S3_BUCKET_REGION` to its
 region.
 
+If you use the full edition of Grist with AWS S3, you can instead use
+Grist's native AWS client, which picks up credentials in all the usual AWS
+ways. See [S3 with native AWS client](install/cloud-storage.md#s3-with-native-aws-client).
+
 Any S3-compatible store works, as long as it supports bucket versioning.
 For details, other options, and some stores we've tested, see
 [Cloud Storage](install/cloud-storage.md#choosing-an-s3-compatible-store).

@@ -110,8 +110,7 @@ Usage once configured {: .tag-core .tag-ee}
 -----
 
 Once the external storage configuration is in place, start Grist as normal
-for self-managed Grist. If you start it with `DEBUG=1` set, you'll see a
-line like this among the settings Grist prints at startup:
+for self-managed Grist. Upon startup, there should be a line like:
 
 `info: == grist.externalStorage.[s3|azure|minio].active: true`
 
