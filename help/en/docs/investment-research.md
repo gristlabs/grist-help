@@ -80,7 +80,7 @@ your computer first. Then, create a Grist document by importing the first file f
 
 ![4-first-import](images/investment-research/4-first-import.png)
 
-Next, import the second table using the “Add New” button and the “Import from file” option.
+Next, import the second table using the “Add New” button and the “Import from...” > “File” option.
 
 ![5-second-import](images/investment-research/5-second-import.png)
 

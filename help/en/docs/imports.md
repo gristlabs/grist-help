@@ -12,12 +12,12 @@ To start a new Grist document, click the "Add New" button on the home screen
 and choose "Import document", as described in [starting a new Grist document](creating-doc.md).
 
 To add to an existing document, open that document, click the "Add
-New" button and then "Import from file".  By default, each imported
+New" button and then "Import from..." > "File". By default, each imported
 table is added as a new Grist table, but when examining the preview
 dialog for an import, you have an option to change the destination to
 an existing Grist table.
 
-You can also import any of the same formats from a URL, using the "Import from URL" option.
+You can also import any of the same formats from a URL, using the "Import from..." > "URL" option.
 
 ## The Import dialog
 
@@ -55,7 +55,7 @@ Importing from a Google Drive is as easy as importing from an Excel file or a
 CSV file. You can either provide an URL of a file stored in the Google Drive or
 use a Google File Picker to choose a file from your own drive.
 
-To use a Picker, click the "Add New" button and choose "Import from Google 
+To use a Picker, click the "Add New" button and choose "Import from..." > "Google
 Drive".
 
 ![import-dialog](images/import-google-drive-sign-in.png)
@@ -74,8 +74,8 @@ you may configure what data to import, and which destination table to add it to.
 ## Import from URL
 
 If you have an URL to a file or a spreadsheet stored on your Google Drive or a file that
-is publicly accessible, you can import it directly using the "Import from URL" option from
-the "Add New" menu.
+is publicly accessible, you can import it directly using the "Import from..." > "URL" option
+from the "Add New" menu.
 
 ![import-from-url](images/import-from-url.png)
 
@@ -155,7 +155,7 @@ Airtable bases can be imported directly into a new Grist document or added as ne
 This process will copy the full contents of your base (including attachments), but it does not include views,
 interfaces, or forms.
 
-Begin the import process by clicking the "Add new" button and choosing "Import from Airtable".
+Begin the import process by clicking the "Add New" button and choosing "Import from..." > "Airtable".
 
 ![import-airtable-auth](images/import-airtable-auth.png)
 
