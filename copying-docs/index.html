@@ -62,7 +62,7 @@ all cases, you would start with the “Share” menu available from the top bar 
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1790280321"></script>
+  <script type="module" src="/js/grist.js?v=1790697575"></script>
 
     
   
@@ -1654,6 +1654,17 @@ all cases, you would start with the “Share” menu available from the top bar 
     <span class="md-ellipsis">
       
         Copying Public Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-data-from-another-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying Data from Another Document
       
     </span>
   </a>
@@ -9085,6 +9096,17 @@ all cases, you would start with the “Share” menu available from the top bar 
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#copying-data-from-another-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying Data from Another Document
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9217,6 +9239,35 @@ You may make changes, but they remain private to you. You can save a copy of the
 a new name using the &ldquo;Save Copy&rdquo; button or menu option.</p>
 <p>You can use the &ldquo;As Template&rdquo; checkbox to discard the data of the example, keeping only its
 structure. This makes it easy to start using it for your own data.</p>
+<h2 id="copying-data-from-another-document">Copying Data from Another Document<a class="headerlink" href="#copying-data-from-another-document" title="Permanent link">#</a></h2>
+<p>Tables from another Grist document can be copied directly into a new Grist document or added to an existing one.
+This process will copy the structure and data of the tables you select, including column types, formulas, references,
+and formatting, but it does not include attachments, pages, or widgets.</p>
+<p>Begin the copy process by clicking the &ldquo;Add New&rdquo; button and choosing &ldquo;Copy data from another document&rdquo;.</p>
+<p class="screenshot-half"><em><img alt="add-new-menu-doc" class="screenshot4" src="../images/copying-docs/copy-data-add-new-menu.png" /></em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>&ldquo;Copy data from another document&rdquo; is available on Business plan and above, as well as in the full edition of
+self-hosted Grist.</p>
+</div>
+<p>Then, select the site, workspace, and document you would like to copy from and click &ldquo;Continue&rdquo;.</p>
+<p><img alt="copy-data-select-doc" src="../images/copying-docs/copy-data-select-doc.png" /></p>
+<p>You will then see a list of all the tables contained within that document. For each table, you can choose to:</p>
+<ul>
+<li><strong>Create a new table:</strong> This will create a new table, and copy all data into it.</li>
+<li><strong>Create a new table (structure only)</strong>: This will create a new table that matches the structure of the one in the
+  source document, but will not copy any data.</li>
+<li><strong>Copy into an existing table:</strong> When copying within an existing document, you can choose one of its tables
+  as the destination. Columns are matched by ID, and records that were previously copied from the same source table
+  matching the &ldquo;Source Row Id&rdquo; column are updated in-place, rather than duplicated.</li>
+<li><strong>Skip the table:</strong> Skips the table entirely. If you have any other tables containing references to this table, those
+  references will not be copied.</li>
+</ul>
+<p><img alt="copy-data-select-tables" src="../images/copying-docs/copy-data-select-tables.png" /></p>
+<p>During configuration, you may see warnings next to some tables. These warnings let you know if there are any
+differences you might notice in your data after the copy is complete.</p>
+<p>Finally, click &ldquo;Copy tables&rdquo; to execute the copy process. Stay on the page until the copy finishes. Once the
+transfer is complete, your newly created tables will appear in the destination document.</p>
 
 
 
