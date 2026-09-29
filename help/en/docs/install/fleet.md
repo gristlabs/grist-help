@@ -204,6 +204,8 @@ server you are talking to is marked *this server*.
 
 The line above the list says how documents reach these servers. *Fleet-style
 routing* means they are proxied between servers, as described on this page.
+*Worker-pool routing* means Fleet is not on for the server you are talking to;
+check that `GRIST_FLEET` is set there.
 
 Each server is marked with its state:
 
@@ -286,23 +288,18 @@ everyone until it is back, so leave that one until last. A
 
 ### When a server fails
 
-When a server fails, clients lose their connection to any documents it held, and
-reconnect automatically, backing off between attempts. The reconnection reaches a
-live server, which finds the document still assigned to the failed one, fails to
-reach it, and releases the assignment. The next attempt assigns the document to
-a live server, which loads it from shared storage. Users see a few seconds of
-interruption, and since Grist replays messages missed while disconnected,
-connected clients do not lose edits.
+A server that dies without shutting down cleanly keeps hold of its documents,
+and they cannot be opened until they are freed. That happens the next time
+someone loads one of them in their browser, if the dead server cannot be reached
+at all, for example because the connection is refused or its address no longer
+resolves. All of its documents are then freed, and each is loaded from shared
+storage by a live server when next opened. Edits made just before it died may be
+lost.
 
-Grist releases a document this way only when reaching its server fails outright:
-the connection is refused, or the address no longer resolves. A request that
-simply times out frees nothing, since a server that says nothing may be stalled
-rather than dead, and Grist cannot tell the two apart. So if a machine vanishes
-without refusing connections, its documents stay assigned to it and cannot be
-opened, and the Admin Panel shows it as
-[**not reporting**](#a-server-is-not-reporting). Start a server at that address
-again: a server takes its name from its address, so the new one picks up the
-documents the old one was holding.
+A server that simply stops answering is not treated as dead, since it may only
+be stalled. Its documents stay with it, and the Admin Panel shows it as
+[**not reporting**](#a-server-is-not-reporting). Starting a server again at the
+same address recovers them.
 
 Without a load balancer, the server your users arrive at is the exception: while
 it is down, nobody can reach the installation. See
@@ -379,46 +376,53 @@ traffic until nginx itself is reloaded.
 
 ### A server is not reporting
 
-When a server goes quiet, the **Servers** section in the Admin Panel
-([Monitoring the servers](#monitoring-the-servers)) says so before you open it,
-as in *1 of 3 not reporting*. Opening it explains what that can mean, above the
-list.
+The **Servers** section shows how many servers are not reporting, as in *1 of 3
+not reporting*.
 
 <span class="screenshot-large">*![One of three servers not reporting](../images/fleet/fleet-servers-not-reporting.png)*</span>
 {: .screenshot-half }
 
-The process may be gone, unable to reach Redis, or just too busy to report. Its
-documents cannot be opened while it holds them. See
-[When a server fails](#when-a-server-fails) for how they are freed.
+The server may have stopped, lost its connection to Redis, or be too busy to
+report. Its documents may not open until it recovers or is replaced. See
+[When a server fails](#when-a-server-fails).
 
 ### Documents on one server won't open
 
 If documents will not open while one particular server holds them, even though
 the Admin Panel's **Servers** section shows that server as **running**, the
-address that server published is usually not one the others can use.
+likely cause is that the other servers cannot reach the address it published.
 
-Each server works this out for itself, so there is normally nothing to set. Given
-`GRIST_HOST=0.0.0.0`, as in the official Docker images, it listens on every
-interface and advertises its own IP address on the network it uses to reach
-Redis, on the grounds that every member of the fleet reaches the same Redis, so
-that network should connect them to each other too. It takes its name from that
-address, which is why servers appear as `172.17.0.4_8484` and the like.
-
-Two things go wrong with that. **There may be nothing to advertise:** with
-`GRIST_HOST` unset, a server listens on `localhost` alone, where nothing else can
-reach it. It says so at startup, though on the official Docker images you will
-only see this with `DEBUG=1` set:
+Each server works out its own address, so there is normally nothing to set.
+Given `GRIST_HOST=0.0.0.0`, as in the official Docker images, it advertises its
+own IP address on the network it uses to reach Redis, and takes its name from
+that address, which is why servers appear as `172.17.0.4_8484` and the like.
+Set `DEBUG=1` to see what each server chose:
 
 ```
-DocWorker grist1_8484 has no address peers can reach, so published
-http://localhost:8484/. Set GRIST_HOST=0.0.0.0 to listen on every interface,
-or APP_DOC_INTERNAL_URL to name an address.
+== docWorkerId: 172.17.0.4_8484
+== docWorkerInternalUrl: http://172.17.0.4:8484/
+== docWorkerAddressSource: redis
 ```
 
-**Or the address may be the wrong one:** where Redis is reached over loopback,
-because it runs on the same machine, or through something alongside the server,
-such as a proxy adding TLS or a service mesh, the address picked up belongs to
-that neighbor rather than to the server itself.
+`docWorkerAddressSource` is `redis` in the usual case, `GRIST_HOST` where that
+named a single address, `APP_DOC_INTERNAL_URL` where you gave one, and `none`
+where nothing did. Check that each server has a different `docWorkerId`, and
+that the internal URLs are addresses the other servers can reach. Two things
+commonly go wrong:
+
+  * **No address.** With `GRIST_HOST` unset, a server listens on `localhost`
+    alone, where nothing else can reach it. It warns about this at startup
+    (visible with `DEBUG=1` on the official Docker images):
+
+    ```
+    DocWorker grist1_8484 has no address peers can reach, so published
+    http://localhost:8484/. Set GRIST_HOST=0.0.0.0 to listen on every interface,
+    or APP_DOC_INTERNAL_URL to name an address.
+    ```
+
+  * **The wrong address.** If Redis is reached over loopback, or through
+    something alongside the server such as a TLS proxy or a service mesh, the
+    address picked up belongs to that neighbor rather than to the server.
 
 Either way, name the address yourself:
 
@@ -432,53 +436,5 @@ APP_DOC_INTERNAL_URL=http://grist1:8484
 GRIST_DOC_WORKER_ID=grist1
 ```
 
-Naming an address also settles the server's name: left to itself, the name
-follows the address, so a server that comes back at a different address comes
-back under a different name. Internal URLs must use `http://`, not `https://`:
-server-to-server proxy connections do not currently support TLS.
-
-### Checking that Fleet is on
-
-In the Admin Panel, open the **Servers** section on the **Installation** page's
-**Server** card (see [Monitoring the servers](#monitoring-the-servers)). Above
-the list, *Fleet-style routing* means documents are being proxied between
-servers. *Worker-pool routing* means they are not, usually because `GRIST_FLEET`
-is not set on the server you are talking to. If the activation key does not
-include Fleet, the section says so instead of listing the servers.
-
-Where you have no admin panel to hand, the logs answer the same question. On
-startup, each server logs whether Fleet is available to it:
-
-```
-WebSocket proxy (Grist fleet) available on this server
-```
-
-or, if the activation key does not grant Fleet:
-
-```
-WebSocket proxy (Grist fleet) unavailable - no valid activation key for Grist Fleet loaded
-```
-
-The official Docker images run quietly by default and suppress this line. Set
-`DEBUG=1` to see it.
-
-The check happens the first time it is needed rather than at startup, so a
-server can come up with Fleet dormant and switch it on moments later once the
-activation key has been read. Seeing the "available" line a little after startup
-is normal.
-
-`DEBUG=1` also shows how each server identified itself to the others:
-
-```
-== docWorkerId: 172.17.0.4_8484
-== docWorkerInternalUrl: http://172.17.0.4:8484/
-== docWorkerAddressSource: redis
-```
-
-`docWorkerAddressSource` says where the address came from: `redis` for the
-address the server reaches Redis on, `GRIST_HOST` where that named a single
-address, `APP_DOC_INTERNAL_URL` where you gave one outright, and `none` where
-nothing did, which is the case described in
-[Documents on one server won't open](#documents-on-one-server-wont-open).
-Check that each server has a different `docWorkerId`, and that the internal URLs
-are addresses the other servers can actually reach.
+Internal URLs must use `http://`, not `https://`: server-to-server proxy
+connections do not currently support TLS.
