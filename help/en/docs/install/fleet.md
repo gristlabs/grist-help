@@ -286,11 +286,11 @@ everyone until it is back, so leave that one until last. A
 
 ### When a server fails
 
-Connections to the documents a failed server held break, and clients reconnect
-automatically, backing off between attempts. The reconnection reaches a live
-server, which finds the document still assigned to the failed one, fails to reach
-it, and releases the assignment. The next attempt assigns the document to a live
-server, which loads it from shared storage. Users see a few seconds of
+When a server fails, clients lose their connection to any documents it held, and
+reconnect automatically, backing off between attempts. The reconnection reaches a
+live server, which finds the document still assigned to the failed one, fails to
+reach it, and releases the assignment. The next attempt assigns the document to
+a live server, which loads it from shared storage. Users see a few seconds of
 interruption, and since Grist replays messages missed while disconnected,
 connected clients do not lose edits.
 
@@ -399,8 +399,9 @@ address that server published is usually not one the others can use.
 
 Each server works this out for itself, so there is normally nothing to set. Given
 `GRIST_HOST=0.0.0.0`, as in the official Docker images, it listens on every
-interface and advertises the address it reaches Redis on, on the grounds that
-every member of the fleet reaches the same Redis. It takes its name from that
+interface and advertises its own IP address on the network it uses to reach
+Redis, on the grounds that every member of the fleet reaches the same Redis, so
+that network should connect them to each other too. It takes its name from that
 address, which is why servers appear as `172.17.0.4_8484` and the like.
 
 Two things go wrong with that. **There may be nothing to advertise:** with
