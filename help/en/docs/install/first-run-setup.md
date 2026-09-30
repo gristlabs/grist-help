@@ -158,7 +158,7 @@ Hooking up external object storage gives you off-host backups automatically.
 
 ![Quick setup, step 4: Backups](../images/first-run-setup/setup-backups.png)
 
-You can pick S3, an S3-compatible service like MinIO, or Azure Blob Storage,
+You can pick S3, an S3-compatible service like RustFS, or Azure Blob Storage,
 or skip this step and configure it later from the
 [Admin Panel](../admin-panel.md). See
 [Cloud storage](cloud-storage.md) for the full setup details.
