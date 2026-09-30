@@ -411,8 +411,7 @@ that the internal URLs are addresses the other servers can reach. Two things
 commonly go wrong:
 
   * **No address.** With `GRIST_HOST` unset, a server listens on `localhost`
-    alone, where nothing else can reach it. It warns about this at startup
-    (visible with `DEBUG=1` on the official Docker images):
+    alone, where nothing else can reach it. It warns about this at startup:
 
     ```
     DocWorker grist1_8484 has no address peers can reach, so published
