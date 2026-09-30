@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
         <meta name="description" content="This feature allows automatic syncing of Grist documents and document
-versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
+versions to S3-compatible stores such as RustFS (or AWS S3 itself).">
       
       
       
@@ -62,7 +62,7 @@ versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1790697575"></script>
+  <script type="module" src="/js/grist.js?v=1790776178"></script>
 
     
   
@@ -5564,6 +5564,23 @@ versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="S3-compatible stores via MinIO client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choosing-an-s3-compatible-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing an S3-compatible store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -8982,6 +8999,23 @@ versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="S3-compatible stores via MinIO client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choosing-an-s3-compatible-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing an S3-compatible store
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -9085,7 +9119,7 @@ versions to S3-compatible stores such as MinIO (or AWS S3 itself).">
 
 <h1 class="tag-core tag-ee" id="cloud-storage">Cloud Storage<a class="headerlink" href="#cloud-storage" title="Permanent link">#</a></h1>
 <p>This feature allows automatic syncing of Grist documents and document
-versions to S3-compatible stores such as MinIO (or AWS S3 itself).</p>
+versions to S3-compatible stores such as RustFS (or AWS S3 itself).</p>
 <p>The full edition of Grist has native support for Azure storage accounts, and
 for AWS S3 using AWS&rsquo;s official client.</p>
 <p>It is advisable to have <a href="../../self-managed/#what-is-a-state-store">Redis enabled</a> when using cloud storage, since this is the best-tested configuration.</p>
@@ -9093,19 +9127,62 @@ for AWS S3 using AWS&rsquo;s official client.</p>
 <h2 class="tag-core tag-ee" id="s3-compatible-stores-via-minio-client">S3-compatible stores via MinIO client<a class="headerlink" href="#s3-compatible-stores-via-minio-client" title="Permanent link">#</a></h2>
 <p>Turn this on by setting the following environment variables:</p>
 <ul>
-<li>Set <code>GRIST_DOCS_MINIO_ACCESS_KEY</code> and <code>GRIST_DOCS_MINIO_SECRET_KEY</code>.</li>
-<li>Set <code>GRIST_DOCS_MINIO_BUCKET</code> to the name of a versioned bucket you have created. It is important that the bucket have versioning enabled.</li>
-<li>Set <code>GRIST_DOCS_MINIO_ENDPOINT</code> to the appropriate hostname - no protocol, no port.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_USE_SSL</code> to <code>1</code> to use <code>https</code> protocol (default) or <code>0</code> for <code>http</code>.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_PORT</code> to the port to use, if the default for the protocol (80/443) isn&rsquo;t right.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_PREFIX</code> to the prefix for your documents, defaults to &ldquo;docs/&rdquo;.</li>
-<li>(Optional) Set <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> to the region for your bucket, defaults to &ldquo;us-east-1&rdquo;.</li>
+<li>Set <code>GRIST_DOCS_S3_ACCESS_KEY</code> and <code>GRIST_DOCS_S3_SECRET_KEY</code>.</li>
+<li>Set <code>GRIST_DOCS_S3_BUCKET</code> to the name of a versioned bucket you have created. It is important that the bucket have versioning enabled.</li>
+<li>Set <code>GRIST_DOCS_S3_ENDPOINT</code> to the appropriate hostname - no protocol, no port.</li>
+<li>(Optional) Set <code>GRIST_DOCS_S3_USE_SSL</code> to <code>1</code> to use <code>https</code> protocol (default) or <code>0</code> for <code>http</code>.</li>
+<li>(Optional) Set <code>GRIST_DOCS_S3_PORT</code> to the port to use, if the default for the protocol (80/443) isn&rsquo;t right.</li>
+<li>(Optional) Set <code>GRIST_DOCS_S3_PREFIX</code> to the prefix for your documents, defaults to &ldquo;docs/&rdquo;.</li>
+<li>(Optional) Set <code>GRIST_DOCS_S3_BUCKET_REGION</code> to the region for your bucket, defaults to &ldquo;us-east-1&rdquo;.</li>
 </ul>
+<p>Older versions of Grist name these settings <code>GRIST_DOCS_MINIO_*</code>
+instead, as in <code>GRIST_DOCS_MINIO_BUCKET</code>. Those names still work.</p>
 <p>If using AWS S3, the endpoint to use is <code>s3.amazonaws.com</code>, and
 there&rsquo;s no need to set a port number or SSL flag. The access and
 secret keys are your <code>AWS_ACCESS_KEY_ID</code> and
 <code>AWS_SECRET_ACCESS_KEY</code>. Make sure to create a versioned bucket in
 advance.</p>
+<h3 id="choosing-an-s3-compatible-store">Choosing an S3-compatible store<a class="headerlink" href="#choosing-an-s3-compatible-store" title="Permanent link">#</a></h3>
+<p>Grist keeps a document&rsquo;s history as versions of an object in the bucket.
+That&rsquo;s why the bucket needs versioning turned on, and it means the store
+has to support versioning in the first place. Not all S3-compatible stores
+do. Garage and Cloudflare R2 are two popular ones that won&rsquo;t work with
+Grist.</p>
+<p>When Grist starts up, it checks that the bucket has versioning turned on.
+If it doesn&rsquo;t, Grist stops with an error saying so.</p>
+<p>We&rsquo;ve tested Grist with these stores:</p>
+<ul>
+<li><a href="https://aws.amazon.com/s3/">AWS S3</a> itself.</li>
+<li><a href="https://rustfs.com/">RustFS</a> is an open-source S3 server. Our
+    <a href="https://github.com/gristlabs/grist-core/tree/main/docker-compose-examples/grist-with-keycloak-postgres-redis-rustfs">docker-compose example</a>
+    uses it.</li>
+<li><a href="https://github.com/minio/minio">MinIO</a>. Its open-source edition is no
+    longer maintained.</li>
+<li><a href="https://github.com/pgsty/minio">Silo</a> is a community-maintained fork
+    of MinIO. If you already run MinIO, you can switch by changing
+    <code>minio/minio</code> to <code>pgsty/silo</code> in your setup. It uses the same settings
+    and reads MinIO&rsquo;s existing data as is.</li>
+<li><a href="https://github.com/versity/versitygw">Versity Gateway</a> is good for
+    testing. It serves S3 from an ordinary directory, so the latest version
+    of each document sits on disk as a plain file (start it with
+    <code>--versioning-dir</code> to keep older versions too). Its data directory needs
+    a filesystem that supports extended attributes. At the time of writing,
+    it doesn&rsquo;t support lifecycle rules, so the
+    <a href="#usage-once-configured">recommended rule</a> for pruning old versions
+    can&rsquo;t be set up there.</li>
+</ul>
+<p>Whichever store you pick, you can create the bucket and turn on versioning
+with the <a href="https://aws.amazon.com/cli/">AWS command line tool</a>, which works
+with any S3-compatible store. Point it at your store with
+<code>AWS_ENDPOINT_URL</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ENDPOINT_URL</span><span class="o">=</span>http://&lt;host&gt;:&lt;port&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>&lt;access<span class="w"> </span>key&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>&lt;secret<span class="w"> </span>key&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-east-1
+aws<span class="w"> </span>s3api<span class="w"> </span>create-bucket<span class="w"> </span>--bucket<span class="w"> </span>grist-docs
+aws<span class="w"> </span>s3api<span class="w"> </span>put-bucket-versioning<span class="w"> </span>--bucket<span class="w"> </span>grist-docs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--versioning-configuration<span class="w"> </span><span class="nv">Status</span><span class="o">=</span>Enabled
+</code></pre></div>
 <h2 class="tag-ee" id="azure">Azure<a class="headerlink" href="#azure" title="Permanent link">#</a></h2>
 <p>For Azure:</p>
 <ul>
@@ -9121,6 +9198,7 @@ advance.</p>
 <ul>
 <li>Set the name of the S3 bucket in an environment variable called <code>GRIST_DOCS_S3_BUCKET</code>. An example of a bucket name is <code>my-grist-docs</code>.</li>
 <li>Set a prefix such as <code>v1/</code> in an environment variable called <code>GRIST_DOCS_S3_PREFIX</code>.</li>
+<li>Leave <code>GRIST_DOCS_S3_ENDPOINT</code> unset. If it is set, Grist uses the <a href="#s3-compatible-stores-via-minio-client">MinIO client</a> instead.</li>
 <li>Arrange for access using AWS&rsquo;s many options; if nothing else, you can set <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> variables.</li>
 </ul>
 <h2 class="tag-core tag-ee" id="usage-once-configured">Usage once configured<a class="headerlink" href="#usage-once-configured" title="Permanent link">#</a></h2>

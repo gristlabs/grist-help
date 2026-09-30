@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1790697575"></script>
+  <script type="module" src="/js/grist.js?v=1790776178"></script>
 
     
   
@@ -10353,45 +10353,57 @@ support. It is also recommended for snapshot support. To use, just set <code>RED
 documents and document versions to an S3-compatible bucket
 (available for all Grist editions) or to Azure storage (in the full edition of Grist).</p>
 <p>Here is an example of running Grist locally, with snapshots stored
-in a test MinIO instance:</p>
+in a test <a href="https://rustfs.com/">RustFS</a> instance. Run each command in its
+own terminal, or add <code>-d</code> to run it in the background:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Make a network</span>
 docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>grist
 
 <span class="c1"># Start Redis in our network (recommended for snapshots)</span>
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>grist<span class="w"> </span>--name<span class="w"> </span>redis<span class="w"> </span>redis
 
-<span class="c1"># Start MinIO in our network</span>
-docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>grist<span class="w"> </span>--name<span class="w"> </span>minio<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span>/tmp/minio:/data<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-p<span class="w"> </span><span class="m">9000</span>:9000<span class="w"> </span>-p<span class="w"> </span><span class="m">9001</span>:9001<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-e<span class="w"> </span><span class="nv">MINIO_ROOT_USER</span><span class="o">=</span>grist<span class="w"> </span>-e<span class="w"> </span><span class="nv">MINIO_ROOT_PASSWORD</span><span class="o">=</span>admingrist<span class="w"> </span><span class="se">\</span>
-<span class="w">   </span>-it<span class="w"> </span>minio/minio<span class="w"> </span>server<span class="w"> </span>/data<span class="w"> </span>-console-address<span class="w"> </span><span class="s2">&quot;:9001&quot;</span>
+<span class="c1"># Start RustFS in our network</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>grist<span class="w"> </span>--name<span class="w"> </span>rustfs<span class="w"> </span>-v<span class="w"> </span>rustfs:/data<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">RUSTFS_ACCESS_KEY</span><span class="o">=</span>grist<span class="w"> </span>-e<span class="w"> </span><span class="nv">RUSTFS_SECRET_KEY</span><span class="o">=</span>admingrist<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-it<span class="w"> </span>rustfs/rustfs
 
-<span class="c1"># Visit http://localhost:9000 and set up a bucket called grist-docs.</span>
-<span class="c1"># Make sure to enable versioning on the bucket.</span>
+<span class="c1"># Create a bucket called grist-docs, with versioning turned on</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>grist<span class="w"> </span>--entrypoint<span class="w"> </span>sh<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">AWS_ENDPOINT_URL</span><span class="o">=</span>http://rustfs:9000<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>grist<span class="w"> </span>-e<span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>admingrist<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>amazon/aws-cli<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">  aws s3api create-bucket --bucket grist-docs &amp;&amp;</span>
+<span class="s2">  aws s3api put-bucket-versioning --bucket grist-docs \</span>
+<span class="s2">    --versioning-configuration Status=Enabled&quot;</span>
 
-<span class="c1"># Hook Grist up to Redis and MinIO</span>
+<span class="c1"># Hook Grist up to Redis and RustFS</span>
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>grist<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_MINIO_ACCESS_KEY</span><span class="o">=</span>grist<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_MINIO_SECRET_KEY</span><span class="o">=</span>admingrist<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_MINIO_USE_SSL</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_MINIO_BUCKET</span><span class="o">=</span>grist-docs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_MINIO_ENDPOINT</span><span class="o">=</span>minio<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_MINIO_PORT</span><span class="o">=</span><span class="m">9000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_S3_ACCESS_KEY</span><span class="o">=</span>grist<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_S3_SECRET_KEY</span><span class="o">=</span>admingrist<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_S3_USE_SSL</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_S3_BUCKET</span><span class="o">=</span>grist-docs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_S3_ENDPOINT</span><span class="o">=</span>rustfs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">GRIST_DOCS_S3_PORT</span><span class="o">=</span><span class="m">9000</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">REDIS_URL</span><span class="o">=</span>redis://redis<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>/tmp/grist:/persist<span class="w"> </span>-p<span class="w"> </span><span class="m">8484</span>:8484<span class="w"> </span>-it<span class="w"> </span>gristlabs/grist
 </code></pre></div>
 <p>Here are flags to make Grist talk to an AWS S3 bucket using the MinIO
 client:
 <div class="highlight"><pre><span></span><code>  ...
-  -e GRIST_DOCS_MINIO_ACCESS_KEY=$AWS_ACCESS_KEY_ID \
-  -e GRIST_DOCS_MINIO_SECRET_KEY=$AWS_SECRET_ACCESS_KEY \
-  -e GRIST_DOCS_MINIO_ENDPOINT=s3.amazonaws.com \
-  -e GRIST_DOCS_MINIO_BUCKET=grist-docs \
+  -e GRIST_DOCS_S3_ACCESS_KEY=$AWS_ACCESS_KEY_ID \
+  -e GRIST_DOCS_S3_SECRET_KEY=$AWS_SECRET_ACCESS_KEY \
+  -e GRIST_DOCS_S3_ENDPOINT=s3.amazonaws.com \
+  -e GRIST_DOCS_S3_BUCKET=grist-docs \
   ...
 </code></pre></div></p>
-<p>As per <a href="https://github.com/minio/minio-go/blob/master/docs/API.md#makebucketctx-contextcontext-bucketname-string-opts-makebucketoptions-error">MinIO specs</a>, the default bucket region is <code>us-east-1</code>. This default region can be overwritten using the <code>GRIST_DOCS_MINIO_BUCKET_REGION</code> flag.</p>
-<p>For details, and other options, see <a href="../install/cloud-storage/">Cloud Storage</a>.</p>
+<p>The bucket region defaults to <code>us-east-1</code>, a common default for stores.
+If your bucket is elsewhere, set <code>GRIST_DOCS_S3_BUCKET_REGION</code> to its
+region.</p>
+<p>If you use the full edition of Grist with AWS S3, you can instead use
+Grist&rsquo;s native AWS client, which picks up credentials in all the usual AWS
+ways. See <a href="../install/cloud-storage/#s3-with-native-aws-client">S3 with native AWS client</a>.</p>
+<p>Any S3-compatible store works, as long as it supports bucket versioning.
+For details, other options, and some stores we&rsquo;ve tested, see
+<a href="../install/cloud-storage/#choosing-an-s3-compatible-store">Cloud Storage</a>.</p>
 <h3 class="tag-core tag-ee" id="how-do-i-enable-external-attachments">How do I enable external attachments?<a class="headerlink" href="#how-do-i-enable-external-attachments" title="Permanent link">#</a></h3>
 <p>Follow these steps:</p>
 <ol>
