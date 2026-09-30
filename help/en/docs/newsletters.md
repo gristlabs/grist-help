@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[September 2026](newsletters/2026-09.md) •
+GristCon tomorrow, Grist Fleet UI and AI tool updates.
+
 [August 2026](newsletters/2026-08.md) •
 MCP improvements, memory optimizations, and integrations.
 
