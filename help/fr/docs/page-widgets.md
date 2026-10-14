@@ -43,6 +43,13 @@ Pour ajouter une nouvelle page, utilisez le bouton "Ajouter Nouveau" et cliquez 
     *![page-emoji-icon](images/page-emoji-icon.png)*
     {: .screenshot-half }
 
+## Visibilité des pages
+
+Les pages peuvent être cachées aux utilisateurs. En effet, pour qu'une page soit affichée, il faut que l'utilisateur
+ait un accès en lecture à toutes les vues (et donc à toutes les tables) présentes sur la page en question.
+Cette contrainte peut être utilisée pour créer des pages affichées de façon conditionnelle, un exemple est documenté sur
+[notre Forum communautaire](https://community.getgrist.com/t/how-do-i-hide-a-page-table-from-a-user-without-blocking-the-user-from-selecting-references-from-that-table/1565){:target="\_blank"}.
+
 ## Widgets de page
 
 Une page contient des sections, telles que des tableaux ou des graphiques, que nous appelons "widgets de page". Chaque widget de page affiche des données provenant d'une table. Une page peut contenir plus d'un widget de page, et vous pouvez les organiser et les lier pour créer des mises en page utiles.
