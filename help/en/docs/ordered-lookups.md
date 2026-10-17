@@ -255,29 +255,21 @@ Here's a running total that loops over the table:
 SUM(r.Amount for r in Transactions.all if r.Date <= $Date)
 ```
 
-It's correct, but each record looks at every record in the table. With 1,000 transactions,
-that's 1,000 × 1,000, or a million steps. With 20,000 transactions, it's 400 million. The work
-grows with the square of the table's size (computer scientists call this quadratic, or O(N²)).
+This gives the right total, except when several transactions share a date, since they all get
+the same total. Worse, each record looks at every record in the table. With 1,000 transactions,
+that's 1,000 × 1,000, or a million steps. With 20,000 transactions, it's 400 million. (If you've
+studied algorithms, that's quadratic complexity, or O(N²).)
 
-Ordered lookups avoid that. Grist keeps the records sorted. To find a record's previous one, it
-does a binary search, the way you'd look up a word in a dictionary: open in the middle, see which half the word is in, and repeat. In 20,000
-records, that takes about 15 steps. For the whole table, that's about 20,000 × 15, or 300,000
-steps (O(N log N)), instead of 400 million.
+Ordered lookups avoid that. Grist keeps the looked-up records sorted. To find where a record
+falls, it does a fast binary search, the way you'd look up a word in a paper dictionary. For the
+whole table of 20,000 records, that's over 1,000 times fewer steps than the loop. (That's
+O(N log N) complexity.)
 
-That's a huge difference. In a test with 20,000 transactions, a running balance using `PREVIOUS`
-took about 3 seconds to compute. The loop above hadn't finished after five minutes.
+In a test with 20,000 transactions, `PREVIOUS` computed the whole column of running balances in a
+few seconds. The loop version was still running after five minutes.
 
 Ordered lookups are also easier to read, for you and for the next person who has to understand
-the formula. Here's the payroll rate lookup from above, written with a loop:
-
-```python
-rates = Rates.lookupRecords(Person=$Person, Role=$Role)
-past_rates = [r for r in rates if r.Rate_Start <= $Date]
-max(past_rates, key=lambda r: r.Rate_Start).Hourly_Rate
-```
-
-Compare that with `rates.find.le($Date).Hourly_Rate`. The loop version also fails with an error
-when no rate qualifies.
+the formula.
 
 If a document feels slow, the [formula timer](formula-timer.md) shows which formulas take the
 most time. Formulas that scan whole tables, or have any kind of loop inside, are good candidates
