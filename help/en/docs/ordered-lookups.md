@@ -1,5 +1,6 @@
 ---
-title: Ordered lookups
+title: Running totals, PREVIOUS, and ordered lookups
+description: "How to compute running totals, cumulative balances, the previous or latest record, or the rate in effect on a date, using PREVIOUS, RANK, and ordered lookups in Grist formulas."
 ---
 
 Running totals, previous records, and nearest matches
@@ -12,9 +13,10 @@ See [References and lookups](references-lookups.md) for those.
 Some calculations need a record that you can't name by an exact value. You only know where it falls
 in some order:
 
-- The **previous transaction**, to add up a running balance.
+- The **previous transaction**, to add up a running balance or any cumulative total.
 - The **rate in effect** on a given date, from a history of rates.
-- The **tier** that an amount falls into, for commissions, shipping, discounts, or tax brackets.
+- The **tier** that an amount falls into, for commissions, shipping, discounts, or tax brackets
+  (an approximate match, in spreadsheet terms).
 - The **latest** or **earliest** record in a group, like a customer's most recent order.
 - A record's **rank**, like whether a sale is among the ten largest.
 
