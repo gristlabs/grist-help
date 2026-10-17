@@ -68,7 +68,7 @@ Here's what's going on:
 !!! tip "Numeric columns don't need `or 0`"
     If the **Running Balance** column has the type Numeric, the empty record's `.Running_Balance` is
     `0` rather than empty, so `or 0` isn't needed. If the column has the type Any, leaving out
-    `or 0` leads to an error like `TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'`.
+    `or 0` leads to an error like "TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'".
 
 Try sorting this table by **Amount**, or filtering it, or adding a page that shows the same data
 differently. The running balance stays the same in each record: it's always the balance in
