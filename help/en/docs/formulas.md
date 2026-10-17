@@ -297,7 +297,7 @@ If `order_by` is omitted, the records returned by `lookupRecords` are ordered by
 rows you see in a table.  To get that order, use `order_by=None`.
 
 Sorted results also let you find the record nearest to a value, such as the rate in effect on a
-date. See [PREVIOUS and ordered lookups](ordered-lookups.md).
+date. See [Ordered lookups](ordered-lookups.md).
 
 If you find yourself doing a lot of look-ups, please consider
 whether [Summary tables](summary-tables.md) and

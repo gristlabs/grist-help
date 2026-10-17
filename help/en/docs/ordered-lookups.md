@@ -1,5 +1,5 @@
 ---
-title: PREVIOUS and ordered lookups
+title: Ordered lookups
 ---
 
 Running totals, previous records, and nearest matches
@@ -26,26 +26,26 @@ an order that you state in the formula.
 
 Each one gives you three things:
 
-1. **Correctness that doesn't depend on the view.** A spreadsheet's "previous row" is whatever
-   row sits above on screen, so sorting or inserting rows can quietly break the math. In Grist,
-   the order is part of the formula, so sorting, filtering, or rearranging a view never changes
-   the results.
+1. **Correctness that doesn't depend on the view.** A traditional spreadsheet's "previous row" is
+   whatever row sits above on screen, so sorting or inserting rows can quietly break the math. In
+   Grist, the order is part of the formula, so sorting, filtering, or rearranging a view never
+   changes the results.
 2. **Simple formulas.** Each of these jobs takes a line or two.
 3. **Speed.** Grist keeps the looked-up records sorted and finds what you need with a binary
-   search, so these formulas stay fast with tens of thousands of records. The usual
-   alternative, a Python loop that scans the table for each record, can get very slow with lots
-   of data. There's more on this [below](#why-not-plain-python).
+   search, so these formulas stay fast with tens of thousands of records, where hand-rolled
+   loops can get very slow.
 
-!!! note "Webinar"
-    This page covers the same material as the webinar
-    [Advanced formulas with ordered lookups](https://www.getgrist.com/webinars/advanced-formulas-with-ordered-lookups/){: target="\_blank"},
-    which you can watch for a guided walkthrough.
+!!! note "Prefer video?"
+    The webinar
+    [Advanced formulas with ordered lookups](https://www.getgrist.com/webinars/advanced-formulas-with-ordered-lookups/){: target="\_blank"}
+    covers the same material, with a guided walkthrough of the examples on this page.
 
 ## Running totals with PREVIOUS
 
 The [Credit Card Activity](https://public.getgrist.com/tJZu9JGmB7Bh/Credit-Card-Activity/m/fork/p/1){: target="\_blank"}
-example has a table of transactions with a Date and an Amount. To get a running balance, each
-record needs the balance from the record before it, plus its own amount:
+example has a table of transactions with a `Date` and an `Amount`. To get a running balance, each
+record needs the balance from the record before it, plus its own amount. That's the formula in
+the `Running_Balance` column:
 
 ```python
 prev_balance = PREVIOUS(rec, order_by="Date").Running_Balance or 0
@@ -56,7 +56,7 @@ prev_balance + $Amount
 
 Here's what's going on:
 
-- `PREVIOUS(rec, order_by="Date")` sorts the table by Date, finds where the current record
+- `PREVIOUS(rec, order_by="Date")` sorts the table by `Date`, finds where the current record
   (`rec`) falls, and returns the record just before it. Note that `"Date"` is the column's ID in
   quotes, not `$Date`.
 - The result is a record, like a value in a [Reference column](col-refs.md), so you can use dot
@@ -66,36 +66,36 @@ Here's what's going on:
   `Running_Balance` is empty. The `or 0` turns that into zero, so that the addition works.
 
 !!! tip "Numeric columns don't need `or 0`"
-    If the Running_Balance column has the type Numeric, the empty record's Running_Balance is `0`
-    rather than empty, so `or 0` isn't needed. If the column has the type Any, leaving out `or 0`
-    leads to an error like `TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'`.
+    If the `Running_Balance` column has the type Numeric, the empty record's `Running_Balance` is
+    `0` rather than empty, so `or 0` isn't needed. If the column has the type Any, leaving out
+    `or 0` leads to an error like `TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'`.
 
-Try sorting this table by Amount, or filtering it, or adding a page that shows the same data
-differently. The running balance stays the same in each record: it's always the balance in Date
-order, because that's what the formula says.
+Try sorting this table by `Amount`, or filtering it, or adding a page that shows the same data
+differently. The running balance stays the same in each record: it's always the balance in
+`Date` order, because that's what the formula says.
 
 ## Running totals per group with group_by
 
 Transactions for different accounts, people, or categories belong in the same table. To keep a
-separate running balance for each, add `group_by`. In the Credit Card example, the Balance column
-keeps a running balance for each card member:
+separate running balance for each, add `group_by`. The Credit Card example has a second running
+total, in a column named `Balance`, which keeps a separate balance for each card member:
 
 ```python
 prev_balance = PREVIOUS(rec, group_by="Card_Member", order_by="Date").Balance or 0
 prev_balance + $Amount
 ```
 
-`PREVIOUS` now finds the previous record by Date among the records with the same Card_Member as
-the current one.
+`PREVIOUS` now finds the previous record by `Date` among the records with the same `Card_Member`
+as the current one.
 
 On the "By Card Member" page, selecting a card member shows just their transactions, and the
-Balance column adds up as you'd expect:
+`Balance` column adds up as you'd expect:
 
 <span class="screenshot-large">*![balance-by-member](images/ordered-lookups/balance-by-member.png)*</span>
 
 !!! warning "Show each running total where it makes sense"
     A formula's value doesn't depend on the view, so a per-member balance is the same wherever
-    you see it. In a view that mixes transactions from several card members, the Balance column
+    you see it. In a view that mixes transactions from several card members, the `Balance` column
     jumps around, because each row continues its own member's total. That's correct, but
     confusing. Show a grouped running total in views filtered or linked to one group, and show
     the overall running total in views of the whole table.
@@ -105,20 +105,20 @@ Balance column adds up as you'd expect:
 When several formulas need the previous record, it helps to put it in a column of its own. The
 [Loan Tracker](https://public.getgrist.com/tBaUEP2x4eML/Loan-Tracker/p/3){: target="\_blank"}
 example computes a loan's amortization schedule, where each payment's interest and principal
-depend on the balance left after the previous payment. Its Schedule table has a column called
-Last, with the formula:
+depend on the balance left after the previous payment. Its `Schedule` table has a column called
+`Last`, with the formula:
 
 ```python
 PREVIOUS(rec, group_by="Loan", order_by="Date")
 ```
 
-The column type is set to Reference to the Schedule table itself, so each row points to the
+The column type is set to Reference to the `Schedule` table itself, so each row points to the
 payment before it in the same loan:
 
 <span class="screenshot-large">*![loan-last-ref](images/ordered-lookups/loan-last-ref.png)*</span>
 
-Other formulas then use `$Last` like any reference. For example, this is the starting principal
-for a payment:
+Other formulas then use `$Last` like any reference. For example, this formula gives the starting
+principal in each payment row:
 
 ```python
 $Last.Outstanding_Principal if $Last else $Loan.Initial_Amount
@@ -131,7 +131,8 @@ amount.
 
 The `group_by` and `order_by` parameters accept a few variations:
 
-- **Descending order**: prefix a column ID with a minus sign, as in `order_by="-Date"`.
+- **Descending order**: prefix a column ID with a minus sign, as in `order_by="-Date"` for newest
+  first, or `order_by="-Amount"` for largest first.
 - **Several columns**: use a tuple, as in `group_by=("Account", "Category")` or
   `order_by=("Date", "-Amount")`. Records are sorted by the first column, then by the next one to
   break ties.
@@ -139,7 +140,9 @@ The `group_by` and `order_by` parameters accept a few variations:
   table when it isn't sorted, including any rows you've dragged into place.
 
 When several records have the same `order_by` values, such as two transactions on the same date,
-they are ordered by their position in the unsorted table.
+they are ordered by their position in the unsorted table. That's also how Grist breaks ties when
+you sort a view, so in an unfiltered view sorted by `Date`, the previous record is the row just
+above.
 
 The same options work for `NEXT`, `RANK`, and the `order_by` parameter of `lookupOne` and
 `lookupRecords`.
@@ -164,8 +167,9 @@ order_by="-Amount") == 1` marks each member's largest transaction.
 
 The second kind of ordered lookup finds the record nearest to a value. Take the
 [Payroll example](examples/2020-09-payroll.md): each person's hourly rate can change over time,
-and the Rates table keeps the history, with the date each rate started. Every payroll entry needs
-the rate in effect on its own date, which is the latest rate that started on or before that date.
+and the `Rates` table keeps the history, with the date each rate started. Every payroll entry
+needs the rate in effect on its own date, which is the latest rate that started on or before that
+date.
 
 ```python
 rates = Rates.lookupRecords(Person=$Person, Role=$Role, order_by="Rate_Start")
@@ -175,16 +179,16 @@ rates.find.le($Date).Hourly_Rate
 This takes two steps:
 
 1. `lookupRecords(..., order_by="Rate_Start")` returns this person's rates for this role,
-   sorted by Rate_Start.
-2. `.find.le($Date)` finds the last record in that sorted list whose Rate_Start is less than or
+   sorted by `Rate_Start`.
+2. `.find.le($Date)` finds the last record in that sorted list whose `Rate_Start` is less than or
    equal to (`le`) the payroll date. That's the rate in effect on that date.
 
-The value passed to `find.le` is compared with the `order_by` column, here Rate_Start.
+The value passed to `find.le` is compared with the `order_by` column, here `Rate_Start`.
 
 Dates are common, but anything that can be sorted works. The
 [Sales Commissions](https://public.getgrist.com/b2ojPRLB5DYJ/Sales-Commissions/p/1){: target="\_blank"}
-example has a table of tiers, where reaching each Sales Target earns a higher Commission Rate.
-To find the rate for each salesperson:
+example has a table of tiers, where reaching each `Sales_Target` earns a higher
+`Commission_Rate`. To find the rate for each salesperson:
 
 ```python
 rates = Commission_Rates.lookupRecords(order_by="Sales_Target")
@@ -192,15 +196,15 @@ rates.find.le($Sales_Amount).Commission_Rate
 ```
 
 `lookupRecords` with no field arguments returns all records of the table, here sorted by
-Sales_Target. For Carol's $15,000 in sales, the last tier at or below that amount is $10,000, so
+`Sales_Target`. For Carol's $15,000 in sales, the last tier at or below that amount is $10,000, so
 her rate is 10%:
 
 <span class="screenshot-large">*![commission-find-le](images/ordered-lookups/commission-find-le.png)*</span>
 
 The same approach works for shipping rates, volume discounts, tax brackets, or exchange rates in
-effect on a date (use `lookupRecords(Currency=$Currency, order_by="Date")`). If you're coming
-from Excel or Google Sheets, this is the job of `VLOOKUP` with approximate matching, without the
-requirement to keep the lookup table sorted.
+effect on a date (use `Exchange_Rates.lookupRecords(Currency=$Currency, order_by="Date")`). If
+you're coming from Excel or Google Sheets, this is the job of `VLOOKUP` with approximate
+matching, without the requirement to keep the lookup table sorted.
 
 There are five `find` methods. "Less" means "earlier in the sort order", and "greater" means
 "later":
@@ -218,7 +222,7 @@ record. Its fields have their column's default value: zero for Numeric columns, 
 others.
 
 If `order_by` lists several columns, pass a value for each, as in
-`lookupRecords(order_by=("Year", "Week")).find.le($Year, $Week)`.
+`Targets.lookupRecords(order_by=("Year", "Week")).find.le($Year, $Week)`.
 
 ## First and last records with lookupOne
 
@@ -230,9 +234,9 @@ order:
 Orders.lookupOne(Customer=$id, order_by="-Date")
 ```
 
-The minus sign sorts by Date descending, so the first record is the latest. Without the minus,
-you get the customer's first order. In the Payroll example, this gives each person's current
-rate:
+The minus sign sorts by `Date` descending, so the first record is the latest. Without the minus,
+you get the customer's first order. In the Payroll example, you could add this formula to the
+`People` table to show each person's most recent rate:
 
 ```python
 Rates.lookupOne(Person=$id, order_by="-Rate_Start").Hourly_Rate
@@ -242,8 +246,29 @@ See also [lookupOne and order_by](references-lookups.md#lookupone-and-order_by).
 
 ## Why not plain Python?
 
-Python formulas can do all of this by scanning records. For example, before `find.le`, a rate
-lookup might have been written like this:
+Grist formulas are Python, so you could write any of these calculations with a plain loop. Why
+bother with special functions? The crucial difference is speed.
+
+Here's a running total that loops over the table:
+
+```python
+SUM(r.Amount for r in Transactions.all if r.Date <= $Date)
+```
+
+It's correct, but each record looks at every record in the table. With 1,000 transactions,
+that's 1,000 × 1,000, or a million steps. With 20,000 transactions, it's 400 million. The work
+grows with the square of the table's size (computer scientists call this quadratic, or O(N²)).
+
+Ordered lookups avoid that. Grist keeps the records sorted. To find a record's previous one, it
+does a binary search, the way you'd look up a word in a dictionary: open in the middle, see which half the word is in, and repeat. In 20,000
+records, that takes about 15 steps. For the whole table, that's about 20,000 × 15, or 300,000
+steps (O(N log N)), instead of 400 million.
+
+That's a huge difference. In a test with 20,000 transactions, a running balance using `PREVIOUS`
+took about 3 seconds to compute. The loop above hadn't finished after five minutes.
+
+Ordered lookups are also easier to read, for you and for the next person who has to understand
+the formula. Here's the payroll rate lookup from above, written with a loop:
 
 ```python
 rates = Rates.lookupRecords(Person=$Person, Role=$Role)
@@ -251,15 +276,9 @@ past_rates = [r for r in rates if r.Rate_Start <= $Date]
 max(past_rates, key=lambda r: r.Rate_Start).Hourly_Rate
 ```
 
-This works, but it's longer, it fails with an error when no rate qualifies, and it looks through
-every rate for every payroll entry.
-
-The difference matters most for running totals. A formula like
-`SUM(r.Amount for r in Transactions.all if r.Date <= $Date)` adds up all earlier records for
-each record. With 1,000 records, that's about a million steps; with 20,000 records, it's
-400 million. `PREVIOUS` only needs the one previous record. In a test with 20,000 records, a
-running balance using `PREVIOUS` took about 3 seconds to compute; the scanning formula hadn't
-finished after five minutes.
+Compare that with `rates.find.le($Date).Hourly_Rate`. The loop version also fails with an error
+when no rate qualifies.
 
 If a document feels slow, the [formula timer](formula-timer.md) shows which formulas take the
-most time. Formulas that scan whole tables are good candidates to rewrite with ordered lookups.
+most time. Formulas that scan whole tables, or have any kind of loop inside, are good candidates
+to rewrite with ordered lookups.
