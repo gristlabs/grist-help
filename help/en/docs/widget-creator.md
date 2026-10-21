@@ -31,7 +31,7 @@ The editor opens inside the widget, with a bar at the top:
 * **Save** saves the code in the document. You can also press
   <code class="keys">*Ctrl* + *S*</code> (Mac: <code class="keys">*⌘* + *S*</code>). The button
   shows **Saved** when there are no changes to save, and **Empty** when the widget has no code.
-* **Use assistant** opens the Assistant panel, if the Assistant is available.
+* **Use assistant** opens the Assistant panel.
 * **Source** shows or hides the code next to the widget.
 * <span class="grist-icon" style="--icon: var(--icon-EyeShow)"></span> hides or shows the widget,
   so the code can use the whole width.
@@ -112,10 +112,10 @@ You can also ask the Assistant about a widget that already has code:
 * In the editor, click **Use assistant**.
 * When the code fails, click **Send to assistant** next to the error.
 
-An AI agent connected through the [Grist MCP server](mcp.md), for example Claude or ChatGPT, can
+An AI agent connected through the [Grist MCP server](mcp.md), such as Claude or ChatGPT, can
 also add a Widget Creator widget and write its code. Ask it, for example "Add a widget to the
 Tasks page that shows the tasks as cards". There is no draft in this case: the agent saves the
-code in the document at once, and all users see it.
+code in the document right away, and all users see it.
 
 [Learn more about the Assistant](assistant.md), its credits, and how it uses your data.
 
