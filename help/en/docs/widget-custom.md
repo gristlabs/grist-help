@@ -13,6 +13,12 @@ A good use for custom widgets is to view records or tables in new ways.
 Using Grist as your data model and modern HTML/CSS/JS as your view is
 very powerful.
 
+!!! tip "Build your own widget right in Grist"
+    With [Widget Creator](widget-creator.md), you can build a widget inside your document. Write
+    the HTML and JavaScript in Grist, and see the result at once. Grist saves the code in the
+    document, so there is nothing to host. If the AI Assistant is available, it can write the
+    code for you.
+
 ## Minimal example
 
 To demonstrate to a web developer how custom widgets work,
