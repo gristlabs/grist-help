@@ -64,9 +64,6 @@ If a model you don't see has worked for you, you may [open a pull request](https
 
  * `ASSISTANT_CHAT_COMPLETION_ENDPOINT`: the chat completion endpoint to use (default: `https://api.openai.com/v1/chat/completions`)
  * `ASSISTANT_API_KEY`: an API key to include in requests to the chat completion endpoint
- * `ASSISTANT_MODEL`: the value of the `model` parameter for the chat completion endpoint (default: `gpt-5.6-luna`)
+ * `ASSISTANT_MODEL`: the value of the `model` parameter for the chat completion endpoint (default: `gpt-4o-2024-08-06`)
  * `ASSISTANT_LONGER_CONTEXT_MODEL`: if set, retry requests that exceed context limits with this model
- * `ASSISTANT_MAX_TOKENS`: if set, the maximum number of tokens the model may generate in a single response
- * `ASSISTANT_MAX_TOOL_CALLS`: the maximum number of tool calls allowed in a single request (default: `20`)
- * `ASSISTANT_STRUCTURED_OUTPUT`: if `true`, ask the model to reply with structured JSON output; requires an endpoint and model that support the [response_format](https://platform.openai.com/docs/api-reference/chat/create#chat_create-response_format) parameter with a JSON schema (default: `false`)
- 
+ * `ASSISTANT_MAX_TOOL_CALLS`: the maximum number of tool calls allowed in a single request (default: `10`)

@@ -42,7 +42,7 @@ Triggered when a message is sent to the AI Assistant.
 | conversationId | string | A random identifier for the current conversation with the assistant. |
 | context | object | The context in which the assistant is open (e.g. column id). |
 | prompt | object | The role ("user" or "system"), content, and index of the message sent to the AI Assistant. |
-| developerPromptVersion | string | The developer prompt version. May be `"default"`, `"new-document"` or `"new-document-no-intro"`. |
+| developerPromptVersion | string | The developer prompt version. May be either `"default"` or `"new-document"`. |
 
 ## assistantReceive
 Triggered when a message is received from the AI Assistant.
@@ -60,7 +60,7 @@ Triggered when a message is received from the AI Assistant.
 | context | object | The context in which the assistant is open (e.g. column id). |
 | response | object | The content and index of the response received from the AI Assistant. |
 | suggestedFormula | string | The formula suggested by the AI Assistant, if present. |
-| developerPromptVersion | string | The developer prompt version. May be `"default"`, `"new-document"` or `"new-document-no-intro"`. |
+| developerPromptVersion | string | The developer prompt version. May be either `"default"` or `"new-document"`. |
 
 ## assistantSave
 Triggered when changes in the expanded formula editor are saved after the AI Assistant was opened.
@@ -135,8 +135,7 @@ Triggered when a user begins the process of creating a document using the AI Ass
 | ----- | ---- | ----------- |
 | userId | number | The id of the user that triggered this event. |
 | altSessionId | string | A random, session-based identifier for the user that triggered this event. |
-| prompt | object | The message sent to the AI Assistant. |
-| developerPromptVersion | string | The developer prompt version. May be `"default"`, `"new-document"` or `"new-document-no-intro"`. |
+| prompt | string | The message sent to the AI Assistant. |
 
 ## beaconOpen
 Triggered when HelpScout Beacon is opened.
@@ -146,11 +145,29 @@ Triggered when HelpScout Beacon is opened.
 | userId | number | The id of the user that triggered this event. |
 | altSessionId | string | A random, session-based identifier for the user that triggered this event. |
 
+## beaconArticleViewed
+Triggered when an article is opened in HelpScout Beacon.
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| articleId | string | The id of the article. |
+| userId | number | The id of the user that triggered this event. |
+| altSessionId | string | A random, session-based identifier for the user that triggered this event. |
+
 ## beaconEmailSent
 Triggered when an email is sent in HelpScout Beacon.
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
+| userId | number | The id of the user that triggered this event. |
+| altSessionId | string | A random, session-based identifier for the user that triggered this event. |
+
+## beaconSearch
+Triggered when a search is made in HelpScout Beacon.
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| searchQuery | string | The search query. |
 | userId | number | The id of the user that triggered this event. |
 | altSessionId | string | A random, session-based identifier for the user that triggered this event. |
 
@@ -226,8 +243,6 @@ Triggered on doc open and close, as well as hourly while a document is open.
 | rowCount | number | The number of rows in the document. |
 | dataSizeBytes | number | The total size of all data in the document, excluding attachments. |
 | attachmentsSize | number | The total size of all attachments in the document. |
-| dataLimitStatus | string | The document's data limit status: "approachingLimit", "gracePeriod", "deleteOnly", or null. |
-| numDocShares | number | The number of users granted access directly on the document, in any non-guest role. |
 | numAccessRules | number | The number of access rules in the document. |
 | numUserAttributes | number | The number of user attributes in the document. |
 | numAttachments | number | The number of attachments in the document. |
@@ -483,8 +498,6 @@ Triggered on subscription to a plan.
 | ----- | ---- | ----------- |
 | planName | string | The name of the plan. |
 | userId | number | The id of the user that triggered this event. |
-| siteId | number | The id of the site. |
-| placement | string | The UI element whose upgrade prompt led to creating the site, when known. |
 
 ## cancelledPlan
 Triggered on cancellation of a plan.
@@ -493,56 +506,6 @@ Triggered on cancellation of a plan.
 | ----- | ---- | ----------- |
 | planName | string | The name of the plan. |
 | userId | number | The id of the user that triggered this event. |
-
-## limitStatusChanged
-Triggered when usage of a plan-limited feature crosses a threshold: approaching the limit, reaching it, becoming read-only, or dropping back below the approaching threshold.
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| feature | string | The limited feature: "rows", "dataSize", "attachments", "assistant", "apiCalls", or "siteUsers". |
-| status | string | The new status: "approaching", "exceeded", "readOnly", or "cleared". |
-| planName | string | The name of the site's plan. |
-| docIdDigest | string | A hash of the doc id, when the limit is per document. |
-| access | string | The document access level of the user that triggered this event. |
-| siteId | number | The id of the site. |
-| siteType | string | The type of the site. |
-| userId | number | The id of the user that triggered this event. |
-| altSessionId | string | A random, session-based identifier for the user that triggered this event. |
-
-## upsellShown
-Triggered once per page load when a UI element offering an upgrade is shown.
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| placement | string | The UI element that offered the upgrade. |
-| planName | string | The name of the site's plan. |
-| siteId | number | The id of the site. |
-| docIdDigest | string | A hash of the doc id, when shown inside a document. |
-| userId | number | The id of the user that triggered this event. |
-| altSessionId | string | A random, session-based identifier for the user that triggered this event. |
-
-## upgradeClicked
-Triggered when a user clicks an upgrade prompt.
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| placement | string | The UI element that offered the upgrade. |
-| planName | string | The name of the site's plan. |
-| siteId | number | The id of the site. |
-| userId | number | The id of the user that triggered this event. |
-| altSessionId | string | A random, session-based identifier for the user that triggered this event. |
-
-## changedPlan
-Triggered when the plan of an existing site changes.
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| siteId | number | The id of the site. |
-| fromPlan | string | The name of the previous plan. |
-| toPlan | string | The name of the new plan. |
-| isTrial | boolean | Whether the new subscription is in a trial period. |
-| placement | string | The UI element whose upgrade prompt led to checkout, when the change came through checkout. |
-| userId | number | The id of the user that triggered this event, when a user did. |
 
 ## createdWorkspace
 Triggered when a workspace is created.
