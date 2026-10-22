@@ -62,7 +62,7 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1790786471"></script>
+  <script type="module" src="/js/grist.js?v=1792647597"></script>
 
     
   
@@ -6539,32 +6539,10 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 </li>
       
         <li class="md-nav__item">
-  <a href="#beaconarticleviewed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        beaconArticleViewed
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#beaconemailsent" class="md-nav__link">
     <span class="md-ellipsis">
       
         beaconEmailSent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beaconsearch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        beaconSearch
       
     </span>
   </a>
@@ -6895,6 +6873,50 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
     <span class="md-ellipsis">
       
         cancelledPlan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitstatuschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        limitStatusChanged
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upsellshown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upsellShown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgradeclicked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upgradeClicked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changedplan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        changedPlan
       
     </span>
   </a>
@@ -9885,32 +9907,10 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 </li>
       
         <li class="md-nav__item">
-  <a href="#beaconarticleviewed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        beaconArticleViewed
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#beaconemailsent" class="md-nav__link">
     <span class="md-ellipsis">
       
         beaconEmailSent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beaconsearch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        beaconSearch
       
     </span>
   </a>
@@ -10241,6 +10241,50 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
     <span class="md-ellipsis">
       
         cancelledPlan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitstatuschanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        limitStatusChanged
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upsellshown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upsellShown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgradeclicked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upgradeClicked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changedplan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        changedPlan
       
     </span>
   </a>
@@ -10755,7 +10799,7 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>developerPromptVersion</td>
 <td>string</td>
-<td>The developer prompt version. May be either <code>"default"</code> or <code>"new-document"</code>.</td>
+<td>The developer prompt version. May be <code>"default"</code>, <code>"new-document"</code> or <code>"new-document-no-intro"</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -10828,7 +10872,7 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <tr>
 <td>developerPromptVersion</td>
 <td>string</td>
-<td>The developer prompt version. May be either <code>"default"</code> or <code>"new-document"</code>.</td>
+<td>The developer prompt version. May be <code>"default"</code>, <code>"new-document"</code> or <code>"new-document-no-intro"</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -11100,8 +11144,13 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 </tr>
 <tr>
 <td>prompt</td>
-<td>string</td>
+<td>object</td>
 <td>The message sent to the AI Assistant.</td>
+</tr>
+<tr>
+<td>developerPromptVersion</td>
+<td>string</td>
+<td>The developer prompt version. May be <code>"default"</code>, <code>"new-document"</code> or <code>"new-document-no-intro"</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -11128,34 +11177,6 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 </tr>
 </tbody>
 </table>
-<h2 id="beaconarticleviewed">beaconArticleViewed<a class="headerlink" href="#beaconarticleviewed" title="Permanent link">#</a></h2>
-<p>Triggered when an article is opened in HelpScout Beacon.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>articleId</td>
-<td>string</td>
-<td>The id of the article.</td>
-</tr>
-<tr>
-<td>userId</td>
-<td>number</td>
-<td>The id of the user that triggered this event.</td>
-</tr>
-<tr>
-<td>altSessionId</td>
-<td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
-</tr>
-</tbody>
-</table>
 <h2 id="beaconemailsent">beaconEmailSent<a class="headerlink" href="#beaconemailsent" title="Permanent link">#</a></h2>
 <p>Triggered when an email is sent in HelpScout Beacon.</p>
 <table>
@@ -11167,34 +11188,6 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>userId</td>
-<td>number</td>
-<td>The id of the user that triggered this event.</td>
-</tr>
-<tr>
-<td>altSessionId</td>
-<td>string</td>
-<td>A random, session-based identifier for the user that triggered this event.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="beaconsearch">beaconSearch<a class="headerlink" href="#beaconsearch" title="Permanent link">#</a></h2>
-<p>Triggered when a search is made in HelpScout Beacon.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>searchQuery</td>
-<td>string</td>
-<td>The search query.</td>
-</tr>
 <tr>
 <td>userId</td>
 <td>number</td>
@@ -11484,6 +11477,16 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <td>attachmentsSize</td>
 <td>number</td>
 <td>The total size of all attachments in the document.</td>
+</tr>
+<tr>
+<td>dataLimitStatus</td>
+<td>string</td>
+<td>The document&rsquo;s data limit status: &ldquo;approachingLimit&rdquo;, &ldquo;gracePeriod&rdquo;, &ldquo;deleteOnly&rdquo;, or null.</td>
+</tr>
+<tr>
+<td>numDocShares</td>
+<td>number</td>
+<td>The number of users granted access directly on the document, in any non-guest role.</td>
 </tr>
 <tr>
 <td>numAccessRules</td>
@@ -12357,6 +12360,16 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <td>number</td>
 <td>The id of the user that triggered this event.</td>
 </tr>
+<tr>
+<td>siteId</td>
+<td>number</td>
+<td>The id of the site.</td>
+</tr>
+<tr>
+<td>placement</td>
+<td>string</td>
+<td>The UI element whose upgrade prompt led to creating the site, when known.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="cancelledplan">cancelledPlan<a class="headerlink" href="#cancelledplan" title="Permanent link">#</a></h2>
@@ -12379,6 +12392,188 @@ GRIST_TELEMETRY_URL set to an endpoint controlled by the operator of the service
 <td>userId</td>
 <td>number</td>
 <td>The id of the user that triggered this event.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="limitstatuschanged">limitStatusChanged<a class="headerlink" href="#limitstatuschanged" title="Permanent link">#</a></h2>
+<p>Triggered when usage of a plan-limited feature crosses a threshold: approaching the limit, reaching it, becoming read-only, or dropping back below the approaching threshold.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feature</td>
+<td>string</td>
+<td>The limited feature: &ldquo;rows&rdquo;, &ldquo;dataSize&rdquo;, &ldquo;attachments&rdquo;, &ldquo;assistant&rdquo;, &ldquo;apiCalls&rdquo;, or &ldquo;siteUsers&rdquo;.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>The new status: &ldquo;approaching&rdquo;, &ldquo;exceeded&rdquo;, &ldquo;readOnly&rdquo;, or &ldquo;cleared&rdquo;.</td>
+</tr>
+<tr>
+<td>planName</td>
+<td>string</td>
+<td>The name of the site&rsquo;s plan.</td>
+</tr>
+<tr>
+<td>docIdDigest</td>
+<td>string</td>
+<td>A hash of the doc id, when the limit is per document.</td>
+</tr>
+<tr>
+<td>access</td>
+<td>string</td>
+<td>The document access level of the user that triggered this event.</td>
+</tr>
+<tr>
+<td>siteId</td>
+<td>number</td>
+<td>The id of the site.</td>
+</tr>
+<tr>
+<td>siteType</td>
+<td>string</td>
+<td>The type of the site.</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>The id of the user that triggered this event.</td>
+</tr>
+<tr>
+<td>altSessionId</td>
+<td>string</td>
+<td>A random, session-based identifier for the user that triggered this event.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="upsellshown">upsellShown<a class="headerlink" href="#upsellshown" title="Permanent link">#</a></h2>
+<p>Triggered once per page load when a UI element offering an upgrade is shown.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>placement</td>
+<td>string</td>
+<td>The UI element that offered the upgrade.</td>
+</tr>
+<tr>
+<td>planName</td>
+<td>string</td>
+<td>The name of the site&rsquo;s plan.</td>
+</tr>
+<tr>
+<td>siteId</td>
+<td>number</td>
+<td>The id of the site.</td>
+</tr>
+<tr>
+<td>docIdDigest</td>
+<td>string</td>
+<td>A hash of the doc id, when shown inside a document.</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>The id of the user that triggered this event.</td>
+</tr>
+<tr>
+<td>altSessionId</td>
+<td>string</td>
+<td>A random, session-based identifier for the user that triggered this event.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="upgradeclicked">upgradeClicked<a class="headerlink" href="#upgradeclicked" title="Permanent link">#</a></h2>
+<p>Triggered when a user clicks an upgrade prompt.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>placement</td>
+<td>string</td>
+<td>The UI element that offered the upgrade.</td>
+</tr>
+<tr>
+<td>planName</td>
+<td>string</td>
+<td>The name of the site&rsquo;s plan.</td>
+</tr>
+<tr>
+<td>siteId</td>
+<td>number</td>
+<td>The id of the site.</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>The id of the user that triggered this event.</td>
+</tr>
+<tr>
+<td>altSessionId</td>
+<td>string</td>
+<td>A random, session-based identifier for the user that triggered this event.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="changedplan">changedPlan<a class="headerlink" href="#changedplan" title="Permanent link">#</a></h2>
+<p>Triggered when the plan of an existing site changes.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>siteId</td>
+<td>number</td>
+<td>The id of the site.</td>
+</tr>
+<tr>
+<td>fromPlan</td>
+<td>string</td>
+<td>The name of the previous plan.</td>
+</tr>
+<tr>
+<td>toPlan</td>
+<td>string</td>
+<td>The name of the new plan.</td>
+</tr>
+<tr>
+<td>isTrial</td>
+<td>boolean</td>
+<td>Whether the new subscription is in a trial period.</td>
+</tr>
+<tr>
+<td>placement</td>
+<td>string</td>
+<td>The UI element whose upgrade prompt led to checkout, when the change came through checkout.</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>The id of the user that triggered this event, when a user did.</td>
 </tr>
 </tbody>
 </table>
