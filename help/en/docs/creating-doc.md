@@ -10,8 +10,15 @@ To get started with Grist you'll first need to create a document.
 Each document can store different kinds of data, so think of it as a
 collection of *related* data.
 
-You can start from scratch or import existing data. Click the "Add New" button on
-the home screen and choose either "Create empty document" or "Import document".
+You can start from an idea by describing the document you want to build to the
+[Grist AI Assistant](assistant.md), or click either "Blank document",
+"Import file", or "Templates".
+
+*![home-screen](images/home-screen.png)*
+{: .screenshot-large }
+
+You can also click the "Add New" button and choose either "Create empty document"
+or "Import document".
 
 *![add-new-menu](images/add-new-menu.png)*
 {: .screenshot-half }
