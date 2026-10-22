@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1792647597"></script>
+  <script type="module" src="/js/grist.js?v=1792647729"></script>
 
     
   
@@ -9223,11 +9223,9 @@ endpoint and your OpenRouter API key, respectively.</p>
 <ul>
 <li><code>ASSISTANT_CHAT_COMPLETION_ENDPOINT</code>: the chat completion endpoint to use (default: <code>https://api.openai.com/v1/chat/completions</code>)</li>
 <li><code>ASSISTANT_API_KEY</code>: an API key to include in requests to the chat completion endpoint</li>
-<li><code>ASSISTANT_MODEL</code>: the value of the <code>model</code> parameter for the chat completion endpoint (default: <code>gpt-5.6-luna</code>)</li>
+<li><code>ASSISTANT_MODEL</code>: the value of the <code>model</code> parameter for the chat completion endpoint (default: <code>gpt-4o-2024-08-06</code>)</li>
 <li><code>ASSISTANT_LONGER_CONTEXT_MODEL</code>: if set, retry requests that exceed context limits with this model</li>
-<li><code>ASSISTANT_MAX_TOKENS</code>: if set, the maximum number of tokens the model may generate in a single response</li>
-<li><code>ASSISTANT_MAX_TOOL_CALLS</code>: the maximum number of tool calls allowed in a single request (default: <code>20</code>)</li>
-<li><code>ASSISTANT_STRUCTURED_OUTPUT</code>: if <code>true</code>, ask the model to reply with structured JSON output; requires an endpoint and model that support the <a href="https://platform.openai.com/docs/api-reference/chat/create#chat_create-response_format">response_format</a> parameter with a JSON schema (default: <code>false</code>)</li>
+<li><code>ASSISTANT_MAX_TOOL_CALLS</code>: the maximum number of tool calls allowed in a single request (default: <code>10</code>)</li>
 </ul>
 
 
