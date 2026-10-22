@@ -23,6 +23,11 @@ title: Keyboard shortcuts
 | <code class="keys">*⌘* *⇧* *G*</code> | <code class="keys">*Ctrl* + *Shift* + *G*</code> | Find previous occurrence |
 | <code class="keys">*⌘* *Enter*</code> | <code class="keys">*Ctrl* + *Enter*</code> | When in the search bar, close it and focus the current match |
 
+###Menu shortcuts
+| Key (Mac) | Key (Windows) | Description | 
+| - | - | - | 
+| <code class="keys">*⌘* *K*</code> | <code class="keys">*Ctrl* + *K*</code> | Toggle the assistant |
+
 ###Navigation
 | Key (Mac) | Key (Windows) | Description | 
 | - | - | - | 
@@ -43,6 +48,8 @@ title: Keyboard shortcuts
 | <code class="keys">*⌃* *O*</code> | <code class="keys">*Ctrl* + *O*</code> | Focus next page panel or widget |
 | <code class="keys">*⌃* *⇧* *O*</code> | <code class="keys">*Ctrl* + *Shift* + *O*</code> | Focus previous page panel or widget |
 | <code class="keys">*⌃* *⌥* *O*</code> | <code class="keys">*Ctrl* + *Alt* + *O*</code> | Toggle creator panel keyboard focus |
+| <code class="keys">*⌃* *I*</code> | <code class="keys">*Ctrl* + *I*</code> | When focused on a widget, move focus between widget and widget header |
+| <code class="keys">*⌃* *I*</code> | <code class="keys">*Ctrl* + *I*</code> | When focused on a page panel, focus next landmark |
 | <code class="keys">*Space*</code> | <code class="keys">*Space*</code> | Show the record card widget of the selected record |
 | <code class="keys">*⌃* *Enter*</code>,<code class="keys">*⇧* *F10*</code> | <code class="keys">*Menu*</code>,<code class="keys">*Shift* + *F10*</code> | Open the context menu |
 | <code class="keys">*⌃* *⇧* *Enter*</code>,<code class="keys">*⌃* *⇧* *F10*</code> | <code class="keys">*Ctrl* + *Menu*</code>,<code class="keys">*Ctrl* + *Shift* + *F10*</code> | Open the current column menu |
