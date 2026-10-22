@@ -11,14 +11,14 @@ Each document can store different kinds of data, so think of it as a
 collection of *related* data.
 
 You can start from an idea by describing the document you want to build to the
-[Grist AI Assistant](assistant.md), or click either "Blank document",
-"Import file", or "Templates".
+[Grist AI Assistant](assistant.md), or click either 'Blank document',
+'Import file', or 'Templates'.
 
 *![home-screen](images/home-screen.png)*
 {: .screenshot-large }
 
-You can also click the "Add New" button and choose either "Create empty document"
-or "Import document".
+You can also click the 'Add New' button and choose either 'Create empty document'
+or 'Import document'.
 
 *![add-new-menu](images/add-new-menu.png)*
 {: .screenshot-half }
@@ -40,17 +40,17 @@ which describes how to use it or how to build such a document
 from scratch.
 
 When you open a template, you can make changes to it. You are editing a copy, and your changes are
-private to you. You can save your changes by clicking the "Save Copy" button on the top of the
+private to you. You can save your changes by clicking the 'Save Copy' button on the top of the
 page.
 
 You can create a new document using any of the templates, retaining the structure, layout, and formulas 
-from the example but excluding the sample data. Just click the "Save Copy" button and select the "As Template" 
+from the example but excluding the sample data. Just click the 'Save Copy' button and select the 'As Template' 
 checkbox in the dialog that appears.
 
 ## Importing more data
 
 Once you've created a document, you can import more data into it by opening the
-document and selecting "Add New" > "Import from..." and then one of the import options.
+document and selecting 'Add New' > 'Import from...' and then one of the import options.
 
 *![add-new-menu-doc](images/add-new-menu-doc.png){: .screenshot4}*
 {: .screenshot-half }
