@@ -18,14 +18,14 @@ No data is shared with OpenAI unless a user submits a question to the assistant.
 
 ## How to use the Assistant
 
-The Assistant is available under the 'Tools' menu in the left-hand navigation panel.
+The Assistant is available under the 'Tools' menu in the left-hand navigation panel. You can also open it from anywhere in a document by pressing <code class="keys">*Ctrl* + *K*</code> on Windows or <code class="keys">*⌘* *K*</code> on Mac.
 
 <span class="screenshot-large">*![Opening Assistant](images/assistant/assistant-tools-menu.png)*</span>
 {: .screenshot-half }
 
 This opens the Assistant panel — a chat-style interface where you can ask for help with formulas, data transformation, data analysis, and more. Simply describe what you're trying to do, and the assistant will guide you through it.
 
-<span class="screenshot-large">*![Assistant panel](images/assistant/assistant-popup.png)*</span>
+<span class="screenshot-large">*![Assistant panel](images/assistant/assistant-panel.png)*</span>
 {: .screenshot-half }
 
 ## Pricing for the Assistant
