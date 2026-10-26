@@ -146,6 +146,9 @@ Alternatively, if we want to find the youngest student, the formula would includ
 
 In this case, this would return: Raddon, Care. 
 
+For more on lookups that depend on order, such as finding the previous record, a running total,
+or the rate in effect on a date, see [Running totals, PREVIOUS, and ordered lookups](ordered-lookups.md).
+
 ## Understanding record sets
 
 Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. 
