@@ -29,7 +29,7 @@ an order that you state in the formula.
 Each one gives you three things:
 
 1. **Correctness that doesn't depend on the view.** A traditional spreadsheet's "previous row" is
-   whatever row sits above on screen, so sorting or inserting rows can quietly break the math. In
+   whatever row sits above on screen, so sorting or inserting rows can break the math. In
    Grist, the order is part of the formula, so sorting, filtering, or rearranging a view never
    changes the results.
 2. **Simple formulas.** Each of these jobs takes a line or two.
@@ -96,11 +96,11 @@ On the _By Card Member_ page, selecting a card member shows just their transacti
 <span class="screenshot-large">*![balance-by-member](images/ordered-lookups/balance-by-member.png)*</span>
 
 !!! warning "Show each running total where it makes sense"
-    A formula's value doesn't depend on the view, so a per-member balance is the same wherever
-    you see it. In a view that mixes transactions from several card members, the **Balance** column
-    jumps around, because each row continues its own member's total. That's correct, but
-    confusing. Show a grouped running total in views filtered or linked to one group, and show
-    the overall running total in views of the whole table.
+
+    A formula’s value doesn’t depend on the view. In a view with all card members, a per-member
+    balance would jump between rows, because each row continues its own member’s total. In views
+    of the whole table, show the overall running total. In views filtered or linked to one card
+    member, show the per-member balance.
 
 ## Using the whole previous record
 
