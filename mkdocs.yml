@@ -89,6 +89,7 @@ nav:
       - widget-chart.md
       - widget-calendar.md
       - widget-custom.md
+      - widget-creator.md
       - linking-widgets.md
       - custom-layouts.md
       - record-cards.md
