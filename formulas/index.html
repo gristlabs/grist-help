@@ -64,7 +64,7 @@ some wrinkles you’ll want to know about, so hang around.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1793001286"></script>
+  <script type="module" src="/js/grist.js?v=1793044770"></script>
 
     
   
@@ -2809,6 +2809,37 @@ some wrinkles you’ll want to know about, so hang around.">
 
   <span class="md-ellipsis">
     References and lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ordered-lookups/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Running totals, PREVIOUS, and ordered lookups
     
   </span>
   
@@ -9537,6 +9568,8 @@ columns, use a tuple of columns, for example, <code>order_by=('Product', '-Date'
 <p>If <code>order_by</code> is omitted, the records returned by <code>lookupRecords</code> are ordered by row ID, as if
 <code>order_by="id"</code> is specified. If you&rsquo;ve rearranged rows manually, this may not match the order of
 rows you see in a table.  To get that order, use <code>order_by=None</code>.</p>
+<p>Sorted results also let you find the record nearest to a value, such as the rate in effect on a
+date. See <a href="../ordered-lookups/">Running totals, PREVIOUS, and ordered lookups</a>.</p>
 <p>If you find yourself doing a lot of look-ups, please consider
 whether <a href="../summary-tables/">Summary tables</a> and
 <a href="../summary-tables/#summary-formulas">Summary formulas</a> might be

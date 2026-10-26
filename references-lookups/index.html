@@ -17,7 +17,7 @@ A common example of this is seen in the Class Enrollment template.">
         <link rel="prev" href="../formulas/">
       
       
-        <link rel="next" href="../dates/">
+        <link rel="next" href="../ordered-lookups/">
       
       
         
@@ -62,7 +62,7 @@ A common example of this is seen in the Class Enrollment template.">
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1793001286"></script>
+  <script type="module" src="/js/grist.js?v=1793044770"></script>
 
     
   
@@ -2812,6 +2812,37 @@ A common example of this is seen in the Class Enrollment template.">
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ordered-lookups/" class="md-nav__link">
+        
+  
+  
+
+  
+  
+    
+    
+    
+  
+
+  <span class="md-ellipsis">
+    Running totals, PREVIOUS, and ordered lookups
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -9380,6 +9411,8 @@ references the records on our Staff page. </p>
 <p>Alternatively, if we want to find the youngest student, the formula would include &ldquo;-&ldquo;: </p>
 <p><code>Students.lookupOne(Family=$id, order_by="-Birthday”)</code></p>
 <p>In this case, this would return: Raddon, Care. </p>
+<p>For more on lookups that depend on order, such as finding the previous record, a running total,
+or the rate in effect on a date, see <a href="../ordered-lookups/">Running totals, PREVIOUS, and ordered lookups</a>.</p>
 <h2 id="understanding-record-sets">Understanding record sets<a class="headerlink" href="#understanding-record-sets" title="Permanent link">#</a></h2>
 <p>Sometimes a record may reference multiple records in another table. Multiple references can be made with a Reference List Column. </p>
 <p>A great example of this is seen on the <a href="https://templates.getgrist.com/1BR9vm6GPTGX/Habit-Tracker" target="_blank">Habit Tracker</a> template. </p>
@@ -9522,13 +9555,13 @@ This does the same thing as our lookupRecords formula we saw above. <code>$Regis
         
         
           
-          <a href="../dates/" class="md-footer__link md-footer__link--next" aria-label="Next: Working with dates">
+          <a href="../ordered-lookups/" class="md-footer__link md-footer__link--next" aria-label="Next: Running totals, PREVIOUS, and ordered lookups">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Working with dates
+                Running totals, PREVIOUS, and ordered lookups
               </div>
             </div>
             <div class="md-footer__button md-icon">
