@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1793044770"></script>
+  <script type="module" src="/js/grist.js?v=1793106397"></script>
 
     
   
@@ -9358,11 +9358,11 @@ Groups (<code>/scim/v2/Groups</code>) access to one of these resources.</p>
 <p>Below is a list of environment variables you may use to configure SCIM:</p>
 <ul>
 <li><code>GRIST_ENABLE_SCIM</code>: set its value to <code>true</code> so you enable the SCIM endpoints.</li>
-<li><code>GRIST_SCIM_USER</code>: (optional) set its value to the email address of an account to give it access to the SCIM endpoints. You can use their API token to call the SCIM Endpoints.</li>
+<li><code>GRIST_SCIM_EMAIL</code>: (optional) set its value to the email address of an account to give it access to the SCIM endpoints. You can use their API token to call the SCIM Endpoints.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">About GRIST_SCIM_USER</p>
-<p>Although instance administrators (identified by the emails set in <code>GRIST_DEFAULT_EMAIL</code> or <code>GRIST_SUPPORT_EMAIL</code>) can access SCIM endpoints, it is recommended to create a dedicated account using <code>GRIST_SCIM_USER</code> for your identity provider to interact with these endpoints. This follows the <a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">principle of least privilege</a>.</p>
+<p class="admonition-title">About GRIST_SCIM_EMAIL</p>
+<p>Although instance administrators (identified by the emails set in <code>GRIST_DEFAULT_EMAIL</code> or <code>GRIST_SUPPORT_EMAIL</code>) can access SCIM endpoints, it is recommended to create a dedicated account using <code>GRIST_SCIM_EMAIL</code> for your identity provider to interact with these endpoints. This follows the <a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">principle of least privilege</a>.</p>
 </div>
 
 
