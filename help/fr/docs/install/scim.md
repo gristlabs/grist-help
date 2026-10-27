@@ -67,7 +67,7 @@ Les entités SCIM suivantes peuvent être interrogées et manipulées via l'API 
 Voici une liste de variables d'environnement que vous pouvez utiliser pour configurer SCIM :
 
 - `GRIST_ENABLE_SCIM` : définissez sa valeur sur `true` pour activer les points de terminaison SCIM.
-- `GRIST_SCIM_USER` : (optionnel) définissez sa valeur sur l'adresse e-mail d'un compte pour lui donner accès aux points de terminaison SCIM. Vous pouvez utiliser leur jeton API pour appeler les points de terminaison SCIM.
+- `GRIST_SCIM_EMAIL` : (optionnel) définissez sa valeur sur l'adresse e-mail d'un compte pour lui donner accès aux points de terminaison SCIM. Vous pouvez utiliser leur jeton API pour appeler les points de terminaison SCIM.
 
-!!! Note "À propos de GRIST_SCIM_USER"
-    Bien que les administrateurs d'instance (identifiés par les adresses e-mail définies dans `GRIST_DEFAULT_EMAIL` ou `GRIST_SUPPORT_EMAIL`) puissent accéder aux points de terminaison SCIM, il est recommandé de créer un compte dédié en utilisant `GRIST_SCIM_USER` pour que votre fournisseur d'identité interagisse avec ces points de terminaison. Cela suit le [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+!!! Note "À propos de GRIST_SCIM_EMAIL"
+    Bien que les administrateurs d'instance (identifiés par les adresses e-mail définies dans `GRIST_DEFAULT_EMAIL` ou `GRIST_SUPPORT_EMAIL`) puissent accéder aux points de terminaison SCIM, il est recommandé de créer un compte dédié en utilisant `GRIST_SCIM_EMAIL` pour que votre fournisseur d'identité interagisse avec ces points de terminaison. Cela suit le [principe du moindre privilège](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
