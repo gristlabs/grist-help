@@ -3123,13 +3123,23 @@ tags:
   - name: webhooks
     description: "Document changes can trigger requests to URLs called webhooks."
   - name: sql
-    description: "Sql endpoint to query data from documents."
+    description: "Run read-only SQL queries against document data."
   - name: users
     description: "Grist users."
+  - name: profile
+    description: "The signed-in user's profile and API key."
+  - name: session
+    description: "Browser session state, including the active user and organizations."
   - name: service accounts
     description: "Impersonations to manage grist resources through REST APIs with specific rights."
+  - name: templates
+    description: "Document templates you can use to create new documents."
+  - name: widgets
+    description: "Custom widgets that can be added to documents."
+  - name: forms
+    description: "Public form views for collecting data into a document."
   - name: scim
-    description: "SCIM"
+    description: "SCIM user and group provisioning."
 components:
   securitySchemes:
     ApiKey:
