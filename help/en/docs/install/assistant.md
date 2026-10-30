@@ -60,6 +60,23 @@ The Assistant is known to work with the following OpenRouter models:
 
 If a model you don't see has worked for you, you may [open a pull request](https://github.com/gristlabs/grist-help/edit/master/help/en/docs/install/assistant.md) and add it to the list.
 
+### Set up the Assistant with Opper
+
+The Assistant can also be used with [Opper](https://opper.ai), an EU-hosted AI gateway, to access a wide range of models, such as Anthropic's Claude Sonnet. As before, you'll need to set `ASSISTANT_CHAT_COMPLETION_ENDPOINT` and `ASSISTANT_API_KEY` to Opper's chat completion endpoint and your Opper API key, respectively. You can create an API key in the [Opper platform](https://platform.opper.ai).
+
+```sh
+ASSISTANT_CHAT_COMPLETION_ENDPOINT=https://api.opper.ai/v3/compat/chat/completions
+ASSISTANT_API_KEY=your_opper_api_key_here
+```
+
+You may then specify the model to use by setting `ASSISTANT_MODEL`:
+
+```sh
+ASSISTANT_MODEL=claude-sonnet-4-6
+```
+
+With a model id such as `claude-sonnet-4-6`, Opper picks the provider for each request among those that serve the model. To pin requests to an EU-hosted region, use a region-pinned model id such as `aws/claude-sonnet-4-6-eu`. Available models and routes are listed at [opper.ai/models](https://opper.ai/models).
+
 ## Environment variables
 
  * `ASSISTANT_CHAT_COMPLETION_ENDPOINT`: the chat completion endpoint to use (default: `https://api.openai.com/v1/chat/completions`)

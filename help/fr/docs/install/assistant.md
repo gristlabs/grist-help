@@ -44,6 +44,23 @@ L'Assistant est connu pour fonctionner avec les modèles OpenRouter suivants :
 
 Si un modèle que vous ne voyez pas a fonctionné pour vous, vous pouvez [ouvrir une pull request](https://github.com/gristlabs/grist-help/edit/master/help/en/docs/install/assistant.md) et l'ajouter à la liste.
 
+### Utilisation d'Opper
+
+L'Assistant peut également être utilisé avec [Opper](https://opper.ai), une passerelle d'IA hébergée dans l'UE, pour accéder à une large gamme de modèles, tels que Claude Sonnet d'Anthropic. Comme précédemment, vous devrez définir `ASSISTANT_CHAT_COMPLETION_ENDPOINT` et `ASSISTANT_API_KEY` sur le point de terminaison de complétion de chat d'Opper et votre clé API Opper, respectivement. Vous pouvez créer une clé API sur la [plateforme Opper](https://platform.opper.ai).
+
+```sh
+ASSISTANT_CHAT_COMPLETION_ENDPOINT=https://api.opper.ai/v3/compat/chat/completions
+ASSISTANT_API_KEY=your_opper_api_key_here
+```
+
+Vous pouvez ensuite spécifier le modèle à utiliser en définissant `ASSISTANT_MODEL` :
+
+```sh
+ASSISTANT_MODEL=claude-sonnet-4-6
+```
+
+Avec un identifiant tel que `claude-sonnet-4-6`, Opper choisit pour chaque requête parmi les fournisseurs qui servent ce modèle. Pour restreindre les requêtes à une région hébergée dans l'UE, utilisez un identifiant de modèle lié à une région, tel que `aws/claude-sonnet-4-6-eu`. Les modèles et routes disponibles sont listés sur [opper.ai/models](https://opper.ai/models).
+
 ## Variables d'environnement
 
  * `ASSISTANT_CHAT_COMPLETION_ENDPOINT` : le point de terminaison de complétion de chat à utiliser (par défaut : `https://api.openai.com/v1/chat/completions`)
