@@ -11,6 +11,9 @@ To receive the newsletter, [sign up for Grist](https://docs.getgrist.com/signup)
 
 ----
 
+[October 2026](newsletters/2026-10.md) •
+A new way to build custom widgets.
+
 [September 2026](newsletters/2026-09.md) •
 GristCon tomorrow, Grist Fleet UI and AI tool updates.
 
