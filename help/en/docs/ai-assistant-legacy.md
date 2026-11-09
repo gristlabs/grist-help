@@ -10,9 +10,9 @@ AI Formula Assistant (Legacy)
 
 Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries. 
 
-When asking the assistant a question there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question and your data’s schema (in part or whole) to [OpenAI](https://openai.com/){:target="\_blank"} so that the assistant may better understand your document. You can view your data’s schema in [code view.](formulas.md#code-viewer) 
+When asking the assistant a question there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question and your data’s schema (in part or whole) to an AI provider ([OpenAI](https://openai.com/){:target="\_blank"} by default) so that the assistant may better understand your document. You can view your data’s schema in [code view.](formulas.md#code-viewer)
 
-No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about [how data is used](ai-assistant-legacy.md#data-use-policy).
+No data is shared with the provider unless a user submits a question to the assistant. Learn more about [how data is used](ai-assistant-legacy.md#data-use-policy).
 
 ## How to use the AI Assistant
 
@@ -58,6 +58,15 @@ Learn more about [self-hosting Grist](self-managed.md).
 
 ## Data Use Policy
 
-Your query and document schema are sent to [OpenAI](https://openai.com/){:target="\_blank"}. Grist's AI Formula Assistant uses the gpt-4o model, aka ChatGPT. OpenAI's [Privacy Policy](https://openai.com/api-data-privacy){:target="\_blank"} describes how OpenAI handles your data. OpenAI's [Content Policy](https://labs.openai.com/policies/content-policy){:target="\_blank"}, [Usage Policies](https://openai.com/policies/usage-policies){:target="\_blank"} and [Sharing and Publication Policy](https://openai.com/api/policies/sharing-publication/){:target="\_blank"} describe how the Grist AI Assistant and its results may be used and shared. Those who violate OpenAI's policies may lose access to Grist's AI assistant.
+If you use Grist at getgrist.com, this article does not apply to you. See the
+current Assistant's [data use policy](assistant.md#data-use-policy) instead.
 
-We do not use your document content or prompts to train AI models, and neither does OpenAI. Certain Grist Labs employees may examine the log of an assistant request (question, document schema, and response) when problems are reported with it, for debugging purposes.
+If your self-hosted Grist installation is configured to use this legacy
+assistant, your question and your document's schema are sent to the AI
+provider the installation is set up with. The provider's privacy and usage
+policies govern how your data is handled; your administrator can tell you
+which provider is in use.
+
+If you administer a self-hosted installation, you choose the provider and model
+(see [AI Assistant for self-hosters](#ai-assistant-for-self-hosters) above).
+Review that provider's data and usage policies before enabling the assistant.
