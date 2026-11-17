@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1793378718"></script>
+  <script type="module" src="/js/grist.js?v=1794933698"></script>
 
     
   
@@ -9093,8 +9093,8 @@
 <p>This documentation refers to the legacy AI Formula Assistant, which is only available on the <a href="https://github.com/gristlabs/grist-core" target="_blank">Community edition</a>. You can find the documentation for the current Assistant <a href="../assistant/">here</a>.</p>
 </div>
 <p>Grist’s AI Formula Assistant simplifies the hardest part of spreadsheets — formulas. The assistant only does one thing, write formulas in response to plain language queries. </p>
-<p>When asking the assistant a question there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question and your data’s schema (in part or whole) to <a href="https://openai.com/" target="_blank">OpenAI</a> so that the assistant may better understand your document. You can view your data’s schema in <a href="../formulas/#code-viewer">code view.</a> </p>
-<p>No data is shared with OpenAI unless a user submits a question to the assistant. Learn more about <a href="./#data-use-policy">how data is used</a>.</p>
+<p>When asking the assistant a question there’s no need to specify column IDs or explain the structure of your data. When you submit a question to the assistant, Grist sends your question and your data’s schema (in part or whole) to an AI provider (<a href="https://openai.com/" target="_blank">OpenAI</a> by default) so that the assistant may better understand your document. You can view your data’s schema in <a href="../formulas/#code-viewer">code view.</a></p>
+<p>No data is shared with the provider unless a user submits a question to the assistant. Learn more about <a href="./#data-use-policy">how data is used</a>.</p>
 <h2 id="how-to-use-the-ai-assistant">How to use the AI Assistant<a class="headerlink" href="#how-to-use-the-ai-assistant" title="Permanent link">#</a></h2>
 <p>Create a <a href="../formulas/">formula column</a> and click either the expand icon or the “use AI Assistant” link text in the cell. </p>
 <p class="screenshot-half"><span class="screenshot-large"><em><img alt="Opening AI Assistant" src="../images/ai-assistant-legacy/formula-cell-editor.png" /></em></span></p>
@@ -9131,8 +9131,16 @@
 <li>Remember that Grist formulas apply to the whole column. If you want sums of rows, you need a <a href="../summary-tables/">summary table</a>. You may add more formulas to summary tables, and ask the assistant to help you.</li>
 </ul>
 <h2 id="data-use-policy">Data Use Policy<a class="headerlink" href="#data-use-policy" title="Permanent link">#</a></h2>
-<p>Your query and document schema are sent to <a href="https://openai.com/" target="_blank">OpenAI</a>. Grist&rsquo;s AI Formula Assistant uses the gpt-4o model, aka ChatGPT. OpenAI&rsquo;s <a href="https://openai.com/api-data-privacy" target="_blank">Privacy Policy</a> describes how OpenAI handles your data. OpenAI&rsquo;s <a href="https://labs.openai.com/policies/content-policy" target="_blank">Content Policy</a>, <a href="https://openai.com/policies/usage-policies" target="_blank">Usage Policies</a> and <a href="https://openai.com/api/policies/sharing-publication/" target="_blank">Sharing and Publication Policy</a> describe how the Grist AI Assistant and its results may be used and shared. Those who violate OpenAI&rsquo;s policies may lose access to Grist&rsquo;s AI assistant.</p>
-<p>Certain Grist Labs employees may also examine logs of assistant requests (questions and document schema) to learn what is working and what is not, in order to provide a better service.</p>
+<p>If you use Grist at getgrist.com, this article does not apply to you. See the
+current Assistant&rsquo;s <a href="../assistant/#data-use-policy">data use policy</a> instead.</p>
+<p>If your self-hosted Grist installation is configured to use this legacy
+assistant, your question and your document&rsquo;s schema are sent to the AI
+provider the installation is set up with. The provider&rsquo;s privacy and usage
+policies govern how your data is handled; your administrator can tell you
+which provider is in use.</p>
+<p>If you administer a self-hosted installation, you choose the provider and model
+(see <a href="#ai-assistant-for-self-hosters">AI Assistant for self-hosters</a> above).
+Review that provider&rsquo;s data and usage policies before enabling the assistant.</p>
 
 
 
