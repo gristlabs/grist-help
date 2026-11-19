@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1794933698"></script>
+  <script type="module" src="/js/grist.js?v=1795103023"></script>
 
     
   
@@ -9336,10 +9336,6 @@
 
 
 <h1 class="tag-core tag-ee" id="scim">SCIM<a class="headerlink" href="#scim" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">🚧 Status of SCIM</p>
-<p>As of November 2024, the SCIM endpoint is experimental and in active development.</p>
-</div>
 <h2 id="use-case-and-difference-with-sso-systems">Use case and difference with SSO systems<a class="headerlink" href="#use-case-and-difference-with-sso-systems" title="Permanent link">#</a></h2>
 <p>Grist supports authentication via <a href="../oidc/">OIDC</a> or <a href="../saml/">SAML</a> to allow users to log in securely. However, when managing large organizations with dynamic user bases, manual user management (creation, updating, and deletion of accounts) can become complex and time-consuming. This is where the System for Cross-domain Identity Management (SCIM) comes in.</p>
 <h3 id="the-role-of-oidc-or-saml">The role of OIDC or SAML<a class="headerlink" href="#the-role-of-oidc-or-saml" title="Permanent link">#</a></h3>
@@ -9365,11 +9361,9 @@
 </li>
 <li>
 <p>The groups of users (or <em>teams</em>) through <code>/Groups</code>.</p>
-<p>⚠️ Please note that this feature is very experimental. Adding a team to a document,
-workspace, or organization is possible, but as of December 2025, teams/groups added via SCIM
-are not displayed in the UI (especially in the Users Management popup). However, these teams/groups
-will still have access as configured. To verify group membership or access, please use the SCIM API
-or the REST API directly, as changes may not be visible in the UI until future updates resolve this limitation.</p>
+<p>⚠️ Teams added to a document, workspace, or organization via SCIM get the access configured
+for them, but they are not shown in the UI (including the Users Management popup). Use the
+SCIM or REST API to check team membership and access.</p>
 </li>
 <li>
 <p>The roles (<code>owners</code>, <code>editors</code>, <code>viewers</code>, <code>members</code>, <code>guests</code>) through <code>/Roles</code></p>

@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1794933698"></script>
+  <script type="module" src="/js/grist.js?v=1795103023"></script>
 
     
   
@@ -9342,10 +9342,6 @@
 <p>Mais la bonne nouvelle est que <a class="internal-link" href="https://github.com/gristlabs/grist-help/issues/new?template=10-help-translating.yml&amp;title=%5BGitLocalize%5D+Please+invite+me+to+the+translation+team" target="_blank">vous pouvez rejoindre la communauté de traduction pour améliorer le contenu fourni ici 👋</a>.</p>
 </div>
 <h1 class="tag-core tag-ee" id="scim">SCIM<a class="headerlink" href="#scim" title="Permanent link">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">🚧 Statut de SCIM</p>
-<p>En novembre 2024, le point de terminaison SCIM est expérimental et en développement actif.</p>
-</div>
 <h2 id="cas-dutilisation-et-difference-avec-les-systemes-sso">Cas d&rsquo;utilisation et différence avec les systèmes SSO<a class="headerlink" href="#cas-dutilisation-et-difference-avec-les-systemes-sso" title="Permanent link">#</a></h2>
 <p>Grist supporte l&rsquo;authentification via <a href="../oidc/">OIDC</a> ou <a href="../saml/">SAML</a> pour permettre aux utilisateurs de se connecter de manière sécurisée. Cependant, lors de la gestion de grandes organisations avec des bases d&rsquo;utilisateurs dynamiques, la gestion manuelle des utilisateurs (création, mise à jour et suppression de comptes) peut devenir complexe et chronophage. C&rsquo;est là qu&rsquo;intervient le System for Cross-domain Identity Management (SCIM).</p>
 <h3 id="le-role-doidc-ou-saml">Le rôle d&rsquo;OIDC ou SAML<a class="headerlink" href="#le-role-doidc-ou-saml" title="Permanent link">#</a></h3>
@@ -9371,11 +9367,10 @@
 </li>
 <li>
 <p>Les groupes d&rsquo;utilisateurs (ou <em>équipes</em>) via <code>/Groups</code>.</p>
-<p>⚠️ Veuillez noter que cette fonctionnalité est très expérimentale. Ajouter une équipe à un document,
-un espace de travail ou une organisation est possible, mais en décembre 2025, les équipes/groupes ajoutés via SCIM
-ne sont pas affichés dans l&rsquo;interface utilisateur (en particulier dans la fenêtre contextuelle de Gestion des utilisateurs). Cependant, ces équipes/groupes
-auront toujours accès tel que configuré. Pour vérifier l&rsquo;adhésion au groupe ou l&rsquo;accès, veuillez utiliser l&rsquo;API SCIM
-ou l&rsquo;API REST directement, car les modifications peuvent ne pas être visibles dans l&rsquo;interface utilisateur jusqu&rsquo;à ce que les mises à jour futures résolvent cette limitation.</p>
+<p>⚠️ Les équipes ajoutées à un document, un espace de travail ou une organisation via SCIM
+obtiennent l&rsquo;accès configuré pour elles, mais elles ne sont pas affichées dans l&rsquo;interface
+(y compris dans la fenêtre de Gestion des utilisateurs). Utilisez l&rsquo;API SCIM ou l&rsquo;API REST
+pour vérifier l&rsquo;appartenance aux équipes et les accès.</p>
 </li>
 <li>
 <p>Les rôles (<code>owners</code>, <code>editors</code>, <code>viewers</code>, <code>members</code>, <code>guests</code>) via <code>/Roles</code></p>
