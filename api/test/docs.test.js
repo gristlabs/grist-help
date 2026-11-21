@@ -47,6 +47,12 @@ describe('Docs API', function() {
       assert.equal(describeResult.body.id, docId);
       assert.property(describeResult.body, 'access');
       assert.property(describeResult.body, 'workspace');
+
+      // Doc should include timestamps
+      assert.property(describeResult.body, 'createdAt');
+      assert.isString(describeResult.body.createdAt);
+      assert.property(describeResult.body, 'updatedAt');
+      assert.isString(describeResult.body.updatedAt);
     });
 
     it('should rename a document via modifyDoc', async function() {
@@ -708,6 +714,10 @@ describe('Docs API', function() {
       // Delete using the DELETE method
       const result = await client.apis.docs.deleteDoc({ docId });
       assert.equal(result.status, 200);
+
+      // Response body should be the deleted document's ID
+      assert.isString(result.body);
+      assert.equal(result.body, docId);
 
       // Doc should not be accessible
       try {
@@ -1466,6 +1476,13 @@ describe('Docs API', function() {
       assert.equal(result.status, 200);
       assert.property(result.body, 'id');
       assert.property(result.body, 'key');  // API key returned on creation
+      assert.isString(result.body.key);
+
+      // expiresAt should be an ISO date-time string (not a Date object)
+      assert.property(result.body, 'expiresAt');
+      assert.isString(result.body.expiresAt);
+      assert.isNotNaN(Date.parse(result.body.expiresAt), 'expiresAt should be a valid date-time string');
+
       serviceAccountId = result.body.id;
     });
 
@@ -1476,6 +1493,21 @@ describe('Docs API', function() {
 
       assert.equal(result.status, 200);
       assert.equal(result.body.id, serviceAccountId);
+
+      // Verify ServiceAccountResult schema fields
+      assert.property(result.body, 'login');
+      assert.property(result.body, 'label');
+      assert.property(result.body, 'description');
+      assert.property(result.body, 'hasValidKey');
+      assert.isBoolean(result.body.hasValidKey);
+
+      // expiresAt should be a date-time string (not type: date)
+      assert.property(result.body, 'expiresAt');
+      assert.isString(result.body.expiresAt);
+      assert.isNotNaN(Date.parse(result.body.expiresAt), 'expiresAt should be a valid date-time string');
+
+      // key should NOT be present in regular get (only on creation)
+      assert.notProperty(result.body, 'key');
     });
 
     it('should modify a service account', async function() {
