@@ -26,7 +26,7 @@ on the top right of the screen and select 'Download attachments...'.
 <center markdown>![Download attachments](images/exports/exports-download-attachments.png)</center>
 
 Select the desired format from the dropdown. `.tar` is recommended, as it can be used to 
-[restore external attachments](exports.md#restoring-external-attachments) in re-uploaded documents.
+[restore external attachments](exports.md#restoring-external-attachments) in re-uploaded documents, or in copies made by duplicating a document.
 However, `.zip` files are more commonly used and better supported by other software.
 
 Your browser will then download an archive file in the selected format containing all of the document's attachments. 
@@ -102,6 +102,9 @@ You may also import CSV and Excel files as new Grist documents this way.
 When a document using [external attachments](document-settings.md#external-attachments) is restored from backup, 
 the attachments won't be present in the restored document.
 This is because the attachments aren't included in the `.grist` file.
+
+The same applies when [duplicating](copying-docs.md#duplicating-documents) a document that uses external attachments:
+the attachments stay with the original document, and are missing from the copy.
 
 The attachments can be restored by uploading an [exported](exports.md#exporting-attachments) `.tar` file containing the attachments.
 This is done on the [document's settings page](document-settings.md), through the 'Upload missing attachments' option.

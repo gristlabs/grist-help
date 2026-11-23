@@ -78,8 +78,8 @@ Storing attachments externally can:
 
 However, there are additional limitations placed on documents that use external attachments:
 
-- Any downloaded documents will have broken attachments. These will remain broken even if the document is re-uploaded.
-- Duplicating a document will be disabled. However, you will still be able to work on a copy of the document, and save the changes back to the original document.
+- A downloaded document doesn't include its attachments. If the document is uploaded again, its attachments are missing until they are [restored](exports.md#restoring-external-attachments) from a separately downloaded archive.
+- A duplicate of a document doesn't include its attachments either. They can be restored in the duplicate the same way. Working on a copy of the document, and saving the changes back to the original document, keeps the attachments.
 
 Therefore, it's advised you only use external attachments if your document is experiencing slowness due to attachments.
 
