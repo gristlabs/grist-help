@@ -4,109 +4,132 @@ title: Synced tables
 
 # Syncing tables from other documents
 
-You can keep read-only copies of tables from other Grist documents in your own document by creating a **sync**. 
-These synced tables are automatically updated whenever the source document's tables change. 
-This is useful for keeping one shared list – such as clients, products, or staff – in a single document, 
+You can keep read-only copies of tables from other Grist documents in your current document by creating a **sync**.
+These synced tables are automatically updated whenever the source document's tables change.
+This is useful for keeping one shared list – such as clients, products, or staff – in a single document,
 and using it from many others.
 
 Synced tables are managed entirely by Grist. You cannot edit their data, add or
 remove columns, or delete the table. You can still show the data in
 [pages and widgets](page-widgets.md), add [summary tables](summary-tables.md), access the data
-from formulas in other tables, and customise how they're displayed.
+from formulas in other tables, and customize how they're displayed.
+
+*![synced-tables-raw-data](images/synced-tables/synced-tables-raw-data.png)*
 
 If you need editable, independent copies of a table, you can do a
 [one-time copy of tables from another document](copying-docs.md#copying-data-from-another-document).
 
-!!! note "Beta"
+!!! note "Beta availability"
     Table syncing is a beta feature. Some of its current [limits](#limits) may be removed in
     future versions. It is available on Business plan and above, as well as in the full
     edition of self-hosted Grist.
 
 ## What stays in sync
 
-A synced table updates on its own, less than a minute after the document it comes from changes.
+Synced tables mirror their source tables' rows and columns, including their types, labels and formatting.
+Syncing does not include related Grist features such as pages, widgets, or [access rules](access-rules.md), which are configured
+independently in each document.
 
-The sync updates:
-- rows – added, changed, and deleted rows
-- columns – added, removed, and renamed columns, with their type, label, and formatting
-- the table name
+Most cell values in Grist are compatible with table syncing. Some, such as errors, are copied
+as text. All Grist column types are supported, except for:
 
-The sync does not update pages, widgets, [conditional formatting](conditional-formatting.md),
-column descriptions, or [access rules](access-rules.md). Those belong to your document, and
-you can set them up as you like.
+- Reference
+- Reference List
+- Attachment 
+
+Formula columns cannot be synced either. See [limits](#limits) for more information.
+
+Updates to synced tables happen on their own whenever the source document changes, typically within a minute.
 
 !!! note
-A sync reads the other document with the access of the person who set it up, no matter
-who else uses your document. People with no access to the other document still get the
-updates. If the person who set up the sync loses access, the sync stops
+    Synced tables read the source document with the access of the user who set it up.
+    If they lose access to the source document or your current document, 
+    the sync will be unable to run and marked as 'Stopped'.
 
 ## Allowing syncing from a table
 
-Before a table can be synced from, an owner of its document must allow it. To allow syncing, open
-the [Raw Data](raw-data.md) page, click the three-dot menu next to the table, and select
-'Allow syncing'.
+Before a source document's table can be used for syncing, an editor of the source document with permission to
+[modify its structure](access-rules.md) must allow it.
+To allow syncing, open the [Raw data](raw-data.md) page, click the three-dot menu next to the table, and select
+'Allow syncing…'.
 
-<!-- TODO: screenshot – the 'Allow syncing' menu item on the Raw Data page -->
+!!! warning
+    Allowing syncing enables people with 'Viewer' access to that document to create synced copies of
+    that table in their own documents. These people will be able to share that copy (and all future updates) 
+    with others.
 
-Anyone who can view the document can then sync the table into their own documents. The table
-is marked 'Allowed' on the Raw Data page. A table that others can sync:
+*![synced-tables-allow-syncing](images/synced-tables/synced-tables-allow-syncing.png)*
+
+Anyone who can view the source document can then sync the table into their own documents. The table
+is marked 'Allowed' on the Raw data page. A table that others can sync:
 
 - cannot be renamed
-- cannot have data hidden with [access rules](access-rules.md)
-- cannot have more than 10,000 rows 
 - cannot have references to other tables (see [limits](#limits))
 - cannot have formulas (see [limits](#limits))
+- cannot have data hidden with [access rules](access-rules.md)
 
-For that reason, you cannot allow syncing on a table that already has access rules. Due to the formula restrictions,
-syncing is also not available for [summary tables](summary-tables.md).
+Due to the formula restrictions, you cannot sync from a [summary table](summary-tables.md).
 
-To stop sharing a table, select 'Disable syncing' from the same menu. Anyone who can edit the schema
-can disable syncing. Documents that sync from that table stop getting updates from it, but keep the
+### Disabling syncing
+
+To disable syncing from a table, a user with permission to [modify the document's structure](access-rules.md) can select
+'Disable syncing…' from the same menu. Documents that sync from that table stop getting updates from it, but keep the
 rows they already have.
 
 ## Adding syncs to your document
 
-To set up a new sync, you must be an owner of your document. You also need access to the
-document you intend to sync from, and its access rules must not hide any part of the tables from you.
+To set up a new sync, you must be an owner of your current document. You will need unrestricted read access to the
+source tables, and those tables must [allow syncing](#allowing-syncing-from-a-table).
 
-Open the Raw Data page and click 'Sync tables' above the list of tables. Then:
+Open the Raw data page and click 'Sync tables…' above the list of tables. Then:
 
 1. Select the site, workspace, and document to sync from, and click 'Continue'.
 2. Check the tables you want. Only tables that allow syncing are listed, with their row
    counts.
 3. Click 'Sync tables'.
 
-<!-- TODO: screenshot – the 'Sync tables' dialog, table selection step -->
+*![synced-tables-select-document](images/synced-tables/synced-tables-select-document.png)*
 
-This will prepare the first sync, and the new tables should appear in your document after a short delay. 
+*![synced-tables-select-tables](images/synced-tables/synced-tables-select-tables.png)*
+
+This will prepare the first sync, and the new tables will appear in your current document after a short delay. 
 For larger tables, this may take some additional time.
 
 ## Checking the status of your synced tables
 
-You can view the status of each synced table on the Raw Data page. Each table shows when it last synced,
-with a link to document it comes from. The link is only shown to people who can open that document, and
-only document owners can see the time and status.
+You can view the status of each synced table on the Raw data page. Each table shows when it last synced,
+with a link to the source document it comes from. The link is only shown to people who can open the source document, and
+only owners of the current document can see the time and status.
 
-<!-- TODO: screenshot – a synced table on the Raw Data page, with status and source link -->
+*![synced-tables-status](images/synced-tables/synced-tables-status.png)*
 
-When a sync cannot run anymore, its tables show 'Stopped' with a warning icon on the Raw Data
+When a sync cannot run anymore, its tables show 'Stopped' with a warning icon on the Raw data
 page. The tables keep their rows and stay read-only. A sync stops when:
 
 - the person who set it up lost access to the sync's source tables, or is no longer
-  an owner of your document
-- the document the tables come from was deleted
-- syncing was disabled on the table
-- a column that cannot sync yet, such as a formula column, was added to the table
+  an owner of the current document
+- the source document was deleted
+- syncing was disabled on the source table
+- a column that cannot sync yet, such as a formula column, was added to the source table
 
-Once the cause is fixed – for example, access is restored – you can use 'Sync all now' to bring
-the table up to date, or you can wait for the next source document change.
+*![synced-tables-stopped](images/synced-tables/synced-tables-stopped.png)*
+
+### Manually triggering a stopped sync
+
+Once the cause is fixed – for example, access is restored – you can select 'Sync tables…' and 
+'Sync all now' on the 'Raw data' page. This will cause all synced tables to try to update 
+from the source document. Alternatively, you can wait for the next source document change.
 
 If the sync cannot be fixed, you can [disconnect the tables](#disconnecting-synced-tables).
 
 ## Disconnecting synced tables
 
-To turn synced tables back into normal tables, open the Raw Data page, click the three-dot
-menu next to the table, and select 'Disconnect'. Only document owners can disconnect.
+Disconnecting a synced table turns it back into a normal table, similar to 
+[detaching a summary table](summary-tables.md#detaching-summary-tables). To disconnect a synced table, 
+open the Raw data page, click the three-dot menu next to the table, and select 'Disconnect…'. 
+Only owners of the current document can disconnect.
+
+*![synced-tables-disconnect](images/synced-tables/synced-tables-disconnect.png)*
 
 Disconnecting applies to all tables that were synced together in one step – the confirmation
 lists them. The tables keep their rows and columns and become editable, but no longer get
@@ -117,9 +140,11 @@ updates.
 These limits currently apply to syncing:
 
 - A sync is limited to 10,000 rows in total across its tables.
-- Tables with formula columns, Reference or Reference List columns, or Attachments columns
+- Tables in the source document with access rules cannot be synced.
+- Tables with formula columns, Reference or Reference List columns, or Attachment columns
   cannot be synced yet. Columns with a
   [trigger formula](formulas.md#trigger-formulas) can, acting as plain data columns.
-- A document can share its tables, or sync tables in, but not both.
+- A document can be a source document (allow syncing from its tables), or a destination document (sync tables in), 
+  but not both.
 - You can sync from a document on a different team site, but not from a different Grist
   installation.
