@@ -73,7 +73,7 @@ nav:
       - document-settings.md
       - sharing.md
       - copying-docs.md
-      - mirroring-tables.md
+      - synced-tables.md
       - imports.md
       - exports.md
       - automatic-backups.md

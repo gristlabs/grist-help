@@ -1,15 +1,15 @@
 ---
-title: Mirroring tables
+title: Synced tables
 ---
 
-# Mirroring tables from other documents
+# Syncing tables from other documents
 
 You can keep read-only copies of tables from other Grist documents in your own document by creating a **sync**. 
-These mirrored tables are automatically kept in sync with the source document's tables. 
+These synced tables are automatically updated whenever the source document's tables change. 
 This is useful for keeping one shared list – such as clients, products, or staff – in a single document, 
 and using it from many others.
 
-Mirrored tables are managed entirely by Grist. You cannot edit their data, add or
+Synced tables are managed entirely by Grist. You cannot edit their data, add or
 remove columns, or delete the table. You can still show the data in
 [pages and widgets](page-widgets.md), add [summary tables](summary-tables.md), access the data
 from formulas in other tables, and customise how they're displayed.
@@ -24,7 +24,7 @@ If you need editable, independent copies of a table, you can do a
 
 ## What stays in sync
 
-A mirrored table updates on its own, less than a minute after the document it comes from changes.
+A synced table updates on its own, less than a minute after the document it comes from changes.
 
 The sync updates:
 - rows – added, changed, and deleted rows
@@ -81,7 +81,7 @@ Open the Raw Data page and click 'Sync tables' above the list of tables. Then:
 This will prepare the first sync, and the new tables should appear in your document after a short delay. 
 For larger tables, this may take some additional time.
 
-## Checking the status of your mirrored tables
+## Checking the status of your synced tables
 
 You can view the status of each synced table on the Raw Data page. Each table shows when it last synced,
 with a link to document it comes from. The link is only shown to people who can open that document, and
