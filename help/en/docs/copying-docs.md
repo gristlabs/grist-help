@@ -80,6 +80,11 @@ destination team and a destination workspace where to save the copy. Note that o
 site, you would not be able to save the document outside of the team site unless you have
 owner-level access to the document.
 
+If the document uses [external attachments](document-settings.md#external-attachments), the
+attached files are not copied, and are missing from the new document. To get them back,
+[download the attachments archive](exports.md#exporting-attachments) from the original document
+in the `.tar` format, and [restore it](exports.md#restoring-external-attachments) in the copy.
+
 
 ### Copying as a Template
 
