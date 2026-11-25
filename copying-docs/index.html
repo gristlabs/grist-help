@@ -62,7 +62,7 @@ all cases, you would start with the “Share” menu available from the top bar 
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1795103023"></script>
+  <script type="module" src="/js/grist.js?v=1795622855"></script>
 
     
   
@@ -9376,6 +9376,10 @@ menu. Clicking it opens a dialog:</p>
 destination team and a destination workspace where to save the copy. Note that on a team
 site, you would not be able to save the document outside of the team site unless you have
 owner-level access to the document.</p>
+<p>If the document uses <a href="../document-settings/#external-attachments">external attachments</a>, the
+attached files are not copied, and are missing from the new document. To get them back,
+<a href="../exports/#exporting-attachments">download the attachments archive</a> from the original document
+in the <code>.tar</code> format, and <a href="../exports/#restoring-external-attachments">restore it</a> in the copy.</p>
 <h3 id="copying-as-a-template">Copying as a Template<a class="headerlink" href="#copying-as-a-template" title="Permanent link">#</a></h3>
 <p>If you mark the &ldquo;As Template&rdquo; checkbox when saving a copy, you&rsquo;ll get a document which has all the
 structure, formulas, and layouts of the original, but none of the data. It makes it easy to use

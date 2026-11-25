@@ -61,7 +61,7 @@
       "g.search.view_all": "Voir tous les r\u00e9sultats",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1795103023"></script>
+  <script type="module" src="/js/grist.js?v=1795622855"></script>
 
     
   
@@ -9333,8 +9333,8 @@ layouts, formatting, access rules, and other settings.</p>
 </ul>
 <p>However, there are additional limitations placed on documents that use external attachments:</p>
 <ul>
-<li>Any downloaded documents will have broken attachments. These will remain broken even if the document is re-uploaded.</li>
-<li>Duplicating a document will be disabled. However, you will still be able to work on a copy of the document, and save the changes back to the original document.</li>
+<li>A downloaded document doesn&rsquo;t include its attachments. If the document is uploaded again, its attachments are missing until they are <a href="../exports/#restoring-external-attachments">restored</a> from a separately <a href="../exports/#exporting-attachments">downloaded archive</a>.</li>
+<li>A duplicate of a document also omits its attachments until they are restored from a separately downloaded archive. (But when <a href="../copying-docs/#trying-out-changes">working on a copy</a>, attachments work normally.)</li>
 </ul>
 <p>Therefore, it&rsquo;s advised you only use external attachments if your document is experiencing slowness due to attachments.</p>
 <div class="admonition note">

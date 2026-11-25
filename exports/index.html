@@ -61,7 +61,7 @@
       "g.search.view_all": "See all results",
     };
   </script>
-  <script type="module" src="/js/grist.js?v=1795103023"></script>
+  <script type="module" src="/js/grist.js?v=1795622855"></script>
 
     
   
@@ -9335,7 +9335,7 @@ on the top right of the screen and select &lsquo;Download attachments&hellip;&rs
 <p><img alt="Download attachments" src="../images/exports/exports-download-attachments.png" /></p>
 </center>
 <p>Select the desired format from the dropdown. <code>.tar</code> is recommended, as it can be used to 
-<a href="./#restoring-external-attachments">restore external attachments</a> in re-uploaded documents.
+<a href="./#restoring-external-attachments">restore external attachments</a> in re-uploaded documents, or in copies made by duplicating a document.
 However, <code>.zip</code> files are more commonly used and better supported by other software.</p>
 <p>Your browser will then download an archive file in the selected format containing all of the document&rsquo;s attachments. </p>
 <h2 id="exporting-a-document">Exporting a document<a class="headerlink" href="#exporting-a-document" title="Permanent link">#</a></h2>
@@ -9390,6 +9390,8 @@ Then click on &lsquo;Add New&rsquo; in the top left, and select &lsquo;Import do
 <p>When a document using <a href="../document-settings/#external-attachments">external attachments</a> is restored from backup, 
 the attachments won&rsquo;t be present in the restored document.
 This is because the attachments aren&rsquo;t included in the <code>.grist</code> file.</p>
+<p>The same applies when <a href="../copying-docs/#duplicating-documents">duplicating</a> a document that uses external attachments:
+the attachments stay with the original document, and are missing from the copy.</p>
 <p>The attachments can be restored by uploading an <a href="./#exporting-attachments">exported</a> <code>.tar</code> file containing the attachments.
 This is done on the <a href="../document-settings/">document&rsquo;s settings page</a>, through the &lsquo;Upload missing attachments&rsquo; option.</p>
 <p>Only the document&rsquo;s owner can restore attachments.</p>
